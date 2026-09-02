@@ -11,237 +11,440 @@ keywords:
 - σχόλια παρουσίασης
 - σχόλια διαφάνειας
 - προσθήκη σχολίου
-- πρόσβαση σχολίου
+- πρόσβαση σε σχόλιο
 - επεξεργασία σχολίου
 - απάντηση σε σχόλιο
 - αφαίρεση σχολίου
 - διαγραφή σχολίου
 - PowerPoint
-- OpenDocument
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για PHP μέσω Java: προσθέστε, διαβάστε, επεξεργαστείτε και διαγράψτε σχόλια σε αρχεία PowerPoint γρήγορα και εύκολα."
+description: "Διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides για PHP μέσω Java: προσθέστε, διαβάστε, επεξεργαστείτε, απαντήστε και αφαιρέστε σχόλια σε παρουσιάσεις PowerPoint γρήγορα και εύκολα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειριστείτε τα σχόλια παρουσίασης στο Aspose.Slides. Δείχνει τους κύριους τύπους σχετικού με τα σχόλια και παρουσιάζει πώς να προσθέσετε σχόλια σε διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργαστείτε με απαντήσεις, να χρησιμοποιήσετε σύγχρονα σχόλια και να αφαιρέσετε σχόλια από μια παρουσίαση.
+Αυτό το άρθρο εξηγεί πώς να διαχειριστείτε τα σχόλια παρουσίασης με το Aspose.Slides for PHP via Java. Παρουσιάζει τους κύριους τύπους που σχετίζονται με τα σχόλια και δείχνει πώς να προσθέσετε σχόλια σε διαφάνειες, να έχετε πρόσβαση σε υπάρχοντα σχόλια, να εργαστείτε με απαντήσεις και σύγχρονα σχόλια, καθώς και πώς να αφαιρέσετε σχόλια από μια παρουσίαση.
 
-Τα παραδείγματα εστιάζουν σε κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση περιεχομένου σχολίων και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων και η εκκαθάριση όλων των σχολίων ή η διαγραφή επιλεγμένων.
+Τα παραδείγματα καλύπτουν κοινά σενάρια ελέγχου και συνεργασίας στο PowerPoint, όπως η ανάθεση σχολίων σε συγγραφείς, η ανάγνωση κειμένου σχολίων και μεταδεδομένων, η δημιουργία αλυσίδων απαντήσεων και η αφαίρεση επιλεγμένων σχολίων ή όλων των σχολίων.
 
-Στο PowerPoint, ένα σχόλιο εμφανίζεται ως σημείωμα ή ανάρτηση σε μια διαφάνεια. Όταν το σχόλιο γίνεται κλικ, αποκαλύπτεται το περιεχόμενό του ή τα μηνύματά του. 
+Στο PowerPoint, τα σχόλια εμφανίζονται ως σημειώσεις στις διαφάνειες. Η επιλογή ενός σχολίου εμφανίζει το κείμενό του και τη σχετική συζήτηση.
 
-## **Γιατί να Προσθέσετε Σχόλια στις Παρουσιάσεις;**
+## **Γιατί να Προσθέσετε Σχόλια σε Παρουσιάσεις;**
 
-Μπορεί να θέλετε να χρησιμοποιήσετε σχόλια για να δώσετε ανάδραση ή να επικοινωνήσετε με τους συναδέλφους σας όταν ελέγχετε παρουσιάσεις.
+Μπορείτε να χρησιμοποιήσετε τα σχόλια για να παρέχετε ανατροφοδότηση και να συνεργάζεστε με συναδέλφους κατά την ανασκόπηση των παρουσιάσεων.
 
-Για να σας επιτρέψει η χρήση σχολίων σε παρουσιάσεις PowerPoint, το Aspose.Slides for PHP via Java παρέχει
+Aspose.Slides for PHP via Java παρέχει τα παρακάτω API για εργασία με σχόλια:
 
-* Την κλάση [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) που περιέχει τις συλλογές συγγραφέων (από την κλάση [CommentAuthorCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentauthorcollection/)). Οι συγγραφείς προσθέτουν σχόλια στις διαφάνειες.
-* Την κλάση [CommentCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentcollection/) που περιέχει τη συλλογή σχολίων για μεμονωμένους συγγραφείς.
-* Την κλάση [Comment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/) που περιέχει πληροφορίες για συγγραφείς και τα σχόλιά τους: ποιος πρόσθεσε το σχόλιο, η ώρα προσθήκης, η θέση του σχολίου κ.λπ.
-* Την κλάση [CommentAuthor](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentauthor/) που περιέχει πληροφορίες για μεμονωμένους συγγραφείς: το όνομα του συγγραφέα, τα αρχικά του, τα σχόλια που σχετίζονται με το όνομα του κ.λπ.
+* Η κλάση [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) παρέχει πρόσβαση στους συγγραφείς σχολίων της παρουσίασης.
+* Η κλάση [CommentCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentcollection/) αντιπροσωπεύει τα σχόλια που συνδέονται με έναν συγκεκριμένο συγγραφέα.
+* Η κλάση [Comment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/) παρέχει πληροφορίες για ένα σχόλιο, συμπεριλαμβανομένου του συγγραφέα, της ώρας δημιουργίας, της θέσης και του κειμένου.
+* Η κλάση [CommentAuthor](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentauthor/) παρέχει πληροφορίες για έναν συγγραφέα, όπως το όνομα, τα αρχικά και τα συνδεδεμένα σχόλια.
 
-## **Προσθήκη Σχολίων Διαφάνειας**
-Αυτός ο κώδικας PHP σας δείχνει πώς να προσθέσετε ένα σχόλιο σε μια διαφάνεια σε παρουσίαση PowerPoint:
+## **Προσθήκη Σχολίων στη Διαφάνεια**
+
+Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε σχόλια σε διαφάνειες σε μια παρουσίαση PowerPoint:
 
 ```php
-  # Δημιουργεί ένα αντικείμενο της κλάσης Presentation
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Προσθέτει μια κενή διαφάνεια
-    $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    # Προσθέτει έναν συγγραφέα
-    $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
-    # Ορίζει τη θέση για τα σχόλια
-    $point = new Point2DFloat(0.2, 0.2);
-    # Προσθέτει σχόλιο διαφάνειας για έναν συγγραφέα στη διαφάνεια 1
-    $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
-    # Προσθέτει σχόλιο διαφάνειας για έναν συγγραφέα στη διαφάνεια 2
-    $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
-    # Πρόσβαση στην ISlide 1
-    $slide = $pres->getSlides()->get_Item(0);
-    # Όταν το null περάσει ως όρισμα, τα σχόλια από όλους τους συγγραφείς φέρνονται στη συγκεκριμένη διαφάνεια
-    $Comments = $slide->getSlideComments($author);
-    # Πρόσβαση στο σχόλιο στη θέση 0 για τη διαφάνεια 1
-    $str = $Comments[0]->getText();
-    $pres->save("Comments_out.pptx", SaveFormat::Pptx);
-    if (java_values($Array->getLength($Comments)) > 0) {
-      # Επιλέγει τη συλλογή σχολίων του συγγραφέα στη θέση 0
-      $commentCollection = $Comments[0]->getAuthor()->getComments();
-      $Comment = $commentCollection->get_Item(0)->getText();
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+    $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
+    $position = new Point2DFloat(0.2, 0.2);
+    $createdTime = new Java("java.util.Date");
+
+    $author->getComments()->addComment("Hello Jawad, this is a slide comment", $firstSlide, $position, $createdTime);
+    $author->getComments()->addComment("Hello Jawad, this is the second slide comment", $secondSlide, $position, $createdTime);
+
+    $comments = $firstSlide->getSlideComments($author);
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $commentCount = java_values($arrayClass->getLength($comments));
+    if ($commentCount > 0) {
+        $firstComment = $comments[0];
+        echo java_values($firstComment->getText()) . PHP_EOL;
+
+        $authorComments = $firstComment->getAuthor()->getComments();
+        $commentText = $authorComments->get_Item(0)->getText();
+        echo java_values($commentText) . PHP_EOL;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Comments_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Πρόσβαση σε Σχόλια Διαφάνειας**
-Αυτός ο κώδικας PHP σας δείχνει πώς να έχετε πρόσβαση σε ένα υπάρχον σχόλιο σε μια διαφάνεια σε παρουσίαση PowerPoint:
+
+Το παρακάτω παράδειγμα δείχνει πώς να αποκτήσετε πρόσβαση σε υπάρχοντα σχόλια σε μια παρουσίαση PowerPoint:
 
 ```php
-  # Δημιουργεί την κλάση Presentation
-  $pres = new Presentation("Comments1.pptx");
-  try {
-    foreach($pres->getCommentAuthors() as $commentAuthor) {
-      $author = $commentAuthor;
-      foreach($author->getComments() as $comment1) {
-        $comment = $comment1;
-        echo("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
-      }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Comments1.pptx");
+try {
+    foreach ($presentation->getCommentAuthors() as $author) {
+        foreach ($author->getComments() as $comment) {
+            echo "Slide: " . java_values($comment->getSlide()->getSlideNumber()) . PHP_EOL;
+            echo "Comment: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Author: " . java_values($comment->getAuthor()->getName()) . PHP_EOL;
+            echo "Posted at: " . java_values($comment->getCreatedTime()->toString()) . PHP_EOL;
+            echo PHP_EOL;
+        }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Απάντηση στα Σχόλια**
-Ένα γονικό σχόλιο είναι το ανώτερο ή αρχικό σχόλιο σε μια ιεραρχία σχολίων ή απαντήσεων. Χρησιμοποιώντας τις μεθόδους [getParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/getparentcomment/) ή [setParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/setparentcomment/) (από την κλάση [Comment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/)), μπορείτε να ορίσετε ή να λάβετε ένα γονικό σχόλιο.
+## **Απάντηση σε Σχόλια**
 
-Αυτός ο κώδικας PHP σας δείχνει πώς να προσθέσετε σχόλια και να λάβετε τις απαντήσεις τους:
+Ένα γονικό σχόλιο είναι το αρχικό σχόλιο στην κορυφή μιας ιεραρχίας απαντήσεων. Οι μέθοδοι [Comment::getParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/getparentcomment/) και [Comment::setParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/setparentcomment/) σάς επιτρέπουν να λάβετε ή να ορίσετε το γονικό ενός σχολίου.
+
+Το παρακάτω παράδειγμα δείχνει πώς να προσθέσετε απαντήσεις και να ελέγξετε την προκύπτουσα ιεραρχία σχολίων:
 
 ```php
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Προσθέτει ένα σχόλιο
-    $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
-    $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    # Προσθέτει μια απάντηση στο comment1
-    $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
-    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $position = new Point2DFloat(10, 10);
+    $createdTime = new Java("java.util.Date");
+
+    $author1 = $presentation->getCommentAuthors()->addAuthor("Author_1", "A.A.");
+    $comment1 = $author1->getComments()->addComment("comment 1", $slide, $position, $createdTime);
+
+    $author2 = $presentation->getCommentAuthors()->addAuthor("Author_2", "B.B.");
+    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $slide, $position, $createdTime);
     $reply1->setParentComment($comment1);
-    # Προσθέτει μια άλλη απάντηση στο comment1
-    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $slide, $position, $createdTime);
     $reply2->setParentComment($comment1);
-    # Προσθέτει μια απάντηση σε υπάρχουσα απάντηση
-    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $slide, $position, $createdTime);
     $subReply->setParentComment($reply2);
-    $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $author2->getComments()->addComment("comment 2", $slide, $position, $createdTime);
+    $comment3 = $author2->getComments()->addComment("comment 3", $slide, $position, $createdTime);
+
+    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $slide, $position, $createdTime);
     $reply3->setParentComment($comment3);
-    # Προβάλει την ιεραρχία των σχολίων στην κονσόλα
-    $slide = $pres->getSlides()->get_Item(0);
+
     $comments = $slide->getSlideComments(null);
-    for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
-      $comment = $comments[$i];
-      while (!java_is_null($comment->getParentComment())) {
-        System->out->print("\t");
-        $comment = $comment->getParentComment();
-      } 
-      echo($comments[$i]->getAuthor()->getName() . " : " . $comments[$i]->getText());
-      echo();
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $commentCount = java_values($arrayClass->getLength($comments));
+    for ($i = 0; $i < $commentCount; $i++) {
+        $comment = $comments[$i];
+        while (!java_is_null($comment->getParentComment())) {
+            echo "\t";
+            $comment = $comment->getParentComment();
+        }
+
+        echo java_values($comments[$i]->getAuthor()->getName()) . ": " . java_values($comments[$i]->getText()) . PHP_EOL;
     }
-    $pres->save("parent_comment.pptx", SaveFormat::Pptx);
-    # Αφαιρεί το comment1 και όλες τις απαντήσεις του
+
+    $presentation->save("parent_comment.pptx", SaveFormat::Pptx);
+
     $comment1->remove();
-    $pres->save("remove_comment.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $presentation->save("remove_comment.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-
-* Όταν η μέθοδος [remove](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/remove/) (από την κλάση [Comment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/)) χρησιμοποιείται για διαγραφή ενός σχολίου, διαγράφονται επίσης και οι απαντήσεις στο σχόλιο.
-* Αν η ρύθμιση [setParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/setparentcomment/) προκαλέσει κυκλική αναφορά, θα εξαχθεί η [PptxEditException](https://reference.aspose.com/slides/el/php-java/aspose.slides/pptxeditexception/).
-
+{{% alert color="warning" title="Προειδοποίηση" %}}
+* Όταν χρησιμοποιείται η μέθοδος [Comment::remove](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/remove/) για τη διαγραφή ενός σχολίου, όλες οι απαντήσεις σε αυτό το σχόλιο διαγράφονται επίσης.
+* Εάν η μέθοδος [Comment::setParentComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/setparentcomment/) δημιουργήσει κυκλική αναφορά, θα γίνει ρίψη μιας [PptxEditException](https://reference.aspose.com/slides/el/php-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Προσθήκη Σύγχρονων Σχολίων**
 
-Το 2021, η Microsoft εισήγαγε *σύγχρονα σχόλια* στο PowerPoint. Η δυνατότητα σύγχρονων σχολίων βελτιώνει σημαντικά τη συνεργασία στο PowerPoint. Μέσω των σύγχρονων σχολίων, οι χρήστες του PowerPoint μπορούν να επιλύουν σχόλια, να συνδέουν σχόλια με αντικείμενα και κείμενα και να συμμετέχουν σε αλληλεπιδράσεις πολύ πιο εύκολα από πριν. 
+Τα σύγχρονα σχόλια μπορούν να συσχετιστούν με την ίδια τη διαφάνεια, με ένα συγκεκριμένο σχήμα ή με ένα εύρος κειμένου μέσα σε AutoShape. Η μέθοδος [CommentCollection::addModernComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentcollection/addmoderncomment/) δέχεται ένα όρισμα [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) εκτός από τις συντεταγμένες της διαφάνειας και του δείκτη σχολίου.
 
-Το Aspose Slides υποστηρίζει σύγχρονα σχόλια με την κλάση [ModernComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/). Οι μέθοδοι [addModernComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentcollection/addmoderncomment/) και [insertModernComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentcollection/insertmoderncomment/) προστέθηκαν στην κλάση [CommentCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/commentcollection/).
+Όταν το `null` περνιέται ως όρισμα σχήματος, το σχόλιο είναι σχόλιο επιπέδου διαφάνειας. Ο δείκτης του τοποθετείται με βάση τις δοθείσες συντεταγμένες, αλλά δεν συνδέεται με συγκεκριμένο σχήμα, επομένως η [ModernComment::getShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getshape/) επιστρέφει `null`. Όταν παρέχεται ένα [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/), το σχόλιο αγκυροβολείται σε αυτό το σχήμα. Οι συντεταγμένες εξακολουθούν να ορίζουν τη θέση του δείκτη σχολίου στη διαφάνεια, ενώ η συσχέτιση με το σχήμα μπορεί να ανακτηθεί μέσω της [ModernComment::getShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getshape/).
 
-Αυτός ο κώδικας PHP σας δείχνει πώς να προσθέσετε ένα σύγχρονο σχόλιο σε μια διαφάνεια σε παρουσίαση PowerPoint:
+### **Σύνδεση Σύγχρονου Σχολίου σε Σχήμα**
+
+Το παρακάτω παράδειγμα δημιουργεί τόσο ένα σχόλιο επιπέδου διαφάνειας όσο και ένα σύγχρονο σχόλιο αγκυροβολημένο σε ένα συγκεκριμένο AutoShape. Στη συνέχεια διαβάζει το συσχετισμένο σχήμα από κάθε σχόλιο.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $newAuthor = $pres->getCommentAuthors()->addAuthor("Some Author", "SA");
-    $modernComment = $newAuthor->getComments()->addModernComment("This is a modern comment", $pres->getSlides()->get_Item(0), null, new Point2DFloat(100, 100), new Java("java.util.Date"));
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
+    $shape->setName("Revenue title");
+    $shape->getTextFrame()->setText("Quarterly revenue");
+
+    $createdTime = new Java("java.util.Date");
+    $slideCommentPosition = new Point2DFloat(20, 20);
+    $shapeCommentPosition = new Point2DFloat(60, 60);
+    $slideComment = $author->getComments()->addModernComment("Review the overall slide layout.", $slide, null, $slideCommentPosition, $createdTime);
+    $shapeComment = $author->getComments()->addModernComment("Check this title.", $slide, $shape, $shapeCommentPosition, $createdTime);
+
+    echo (java_is_null($slideComment->getShape()) ? "true" : "false") . PHP_EOL;
+    echo java_values($shapeComment->getShape()->getName()) . PHP_EOL;
+
+    $presentation->save("modern_comments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Κατάργηση Σχολίων**
+### **Σύνδεση Σχολίων σε Διάφορους Τύπους Σχημάτων**
 
-### **Διαγραφή Όλων των Σχολίων και Συγγραφέων**
+Οποιοδήποτε αντικείμενο διαφάνειας που αναπαρίσταται από την κλάση [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) μπορεί να χρησιμοποιηθεί ως άγκυρα σχήματος. Συνηθισμένα παραδείγματα περιλαμβάνουν [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/el/php-java/aspose.slides/connector/) και παραδείγματα [GraphicalObject](https://reference.aspose.com/slides/el/php-java/aspose.slides/graphicalobject/) όπως γραφήματα.
 
-Αυτός ο κώδικας PHP σας δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σε μια παρουσίαση:
+Το παρακάτω παράδειγμα δημιουργεί αρκετούς κοινόχρηστους τύπους σχημάτων και συσχετίζει ένα σύγχρονο σχόλιο με τον καθένα.
 
 ```php
-  $presentation = new Presentation("example.pptx");
-  try {
-    # Διαγράφει όλα τα σχόλια από την παρουσίαση
-    foreach($presentation->getCommentAuthors() as $author) {
-      $author->getComments()->clear();
+use aspose\slides\ChartType;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $createdTime = new Java("java.util.Date");
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
+    $autoShape->getTextFrame()->setText("AutoShape");
+    $autoShapeCommentPosition = new Point2DFloat(30, 30);
+    $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
+
+    $imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    $base64Class = new JavaClass("java.util.Base64");
+    $imageData = $base64Class->getDecoder()->decode($imageBase64);
+    $image = $presentation->getImages()->addImage($imageData);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 220, 20, 120, 80, $image);
+    $pictureCommentPosition = new Point2DFloat(230, 30);
+    $author->getComments()->addModernComment("Comment on a picture.", $slide, $pictureFrame, $pictureCommentPosition, $createdTime);
+
+    $groupShape = $slide->getShapes()->addGroupShape();
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 80, 40);
+    $groupShape->getShapes()->addAutoShape(ShapeType::Ellipse, 100, 0, 80, 40);
+    $groupCommentPosition = new Point2DFloat(40, 150);
+    $author->getComments()->addModernComment("Comment on a group.", $slide, $groupShape, $groupCommentPosition, $createdTime);
+
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 220, 150, 140, 40);
+    $connectorCommentPosition = new Point2DFloat(240, 150);
+    $author->getComments()->addModernComment("Comment on a connector.", $slide, $connector, $connectorCommentPosition, $createdTime);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 400, 20, 250, 180);
+    $chartCommentPosition = new Point2DFloat(420, 40);
+    $author->getComments()->addModernComment("Comment on a graphical object.", $slide, $chart, $chartCommentPosition, $createdTime);
+
+    $presentation->save("modern_comment_shape_types.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Σύνδεση Σχολίου σε Κείμενο και Ορισμός Κατάστασής του**
+
+Για ένα σύγχρονο σχόλιο που συσχετίζεται με ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/), οι μέθοδοι [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/gettextselectionstart/) και [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/settextselectionstart/) προσπελαύνουν τη θέση έναρξης του επιλεγμένου κειμένου στο πλαίσιο κειμένου του σχήματος. Οι μέθοδοι [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/gettextselectionlength/) και [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/settextselectionlength/) προσπελαύνουν το μήκος της επιλογής. Μαζί, αυτές οι τιμές συσχετίζουν το σχόλιο με ένα συγκεκριμένο εύρος κειμένου μέσα στο AutoShape.
+
+Οι μέθοδοι [ModernComment::getStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getstatus/) και [ModernComment::setStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/setstatus/) προσπελαύνουν μια τιμή από τις σταθερές [ModernCommentStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncommentstatus/):
+
+- `NotDefined` — δεν έχει οριστεί συγκεκριμένη κατάσταση σύγχρονου σχολίου.
+- `Active` — το σχόλιο είναι ενεργό.
+- `Resolved` — το σχόλιο έχει επιλυθεί.
+- `Closed` — το σχόλιο είναι κλειστό.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα-αγκυροβολημένο σύγχρονο σχόλιο, το συνδέει με μια επιλογή κειμένου, το σημαίνει ως επιλυμένο, αποθηκεύει την παρουσίαση και επαληθεύει τις τιμές μετά το άνοιγμα του αρχείου ξανά.
+
+```php
+use aspose\slides\ModernCommentStatus;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$outputFile = "modern_comment_text_anchor.pptx";
+$shapeText = "Review the quarterly revenue forecast.";
+$selectedText = "quarterly revenue";
+$expectedSelectionStart = strpos($shapeText, $selectedText);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    $shape->setName("Forecast text");
+    $shape->getTextFrame()->setText($shapeText);
+
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $commentPosition = new Point2DFloat(60, 60);
+    $comment = $author->getComments()->addModernComment("Verify this forecast wording.", $slide, $shape, $commentPosition, new Java("java.util.Date"));
+    $comment->setTextSelectionStart($expectedSelectionStart);
+    $comment->setTextSelectionLength(strlen($selectedText));
+    $comment->setStatus(ModernCommentStatus::Resolved);
+
+    $presentation->save($outputFile, SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$reopenedPresentation = new Presentation($outputFile);
+try {
+    $reopenedSlide = $reopenedPresentation->getSlides()->get_Item(0);
+    $reopenedComments = $reopenedSlide->getSlideComments(null);
+    $modernCommentClass = new JavaClass("com.aspose.slides.ModernComment");
+
+    foreach ($reopenedComments as $reopenedComment) {
+        if (!java_instanceof($reopenedComment, $modernCommentClass)) {
+            continue;
+        }
+
+        $shape = $reopenedComment->getShape();
+        $shapeMatches = !java_is_null($shape) && java_values($shape->getName()) === "Forecast text";
+        $selectionStartMatches = java_values($reopenedComment->getTextSelectionStart()) === $expectedSelectionStart;
+        $selectionLengthMatches = java_values($reopenedComment->getTextSelectionLength()) === strlen($selectedText);
+        $statusMatches = java_values($reopenedComment->getStatus()) === ModernCommentStatus::Resolved;
+
+        echo "Shape anchor preserved: " . ($shapeMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection start preserved: " . ($selectionStartMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection length preserved: " . ($selectionLengthMatches ? "true" : "false") . PHP_EOL;
+        echo "Resolved status preserved: " . ($statusMatches ? "true" : "false") . PHP_EOL;
     }
-    # Διαγράφει όλους τους συγγραφείς
+} finally {
+    $reopenedPresentation->dispose();
+}
+```
+
+### **Επιθεώρηση Υπάρχοντων Σύγχρονων Σχολίων**
+
+Για την επιθεώρηση μιας υπάρχουσας παρουσίασης, ελέγξτε αν κάθε σχόλιο είναι ένα [ModernComment](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/), στη συνέχεια εξετάστε τις μεθόδους [ModernComment::getShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/gettextselectionlength/) και [ModernComment::getStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getstatus/). Ένα σχήμα `null` υποδηλώνει σχόλιο επιπέδου διαφάνειας. Για άγκυρα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/), οι μέθοδοι επιλογής κειμένου προσδιορίζουν το σχετικό εύρος στο πλαίσιο κειμένου του σχήματος.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("comments.pptx");
+try {
+    $modernCommentClass = new JavaClass("com.aspose.slides.ModernComment");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+
+    foreach ($presentation->getSlides() as $slide) {
+        $comments = $slide->getSlideComments(null);
+        foreach ($comments as $comment) {
+            if (!java_instanceof($comment, $modernCommentClass)) {
+                continue;
+            }
+
+            echo "Slide: " . java_values($slide->getSlideNumber()) . PHP_EOL;
+            echo "Text: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Status: " . java_values($comment->getStatus()) . PHP_EOL;
+
+            $shape = $comment->getShape();
+            if (java_is_null($shape)) {
+                echo "Anchor: slide level" . PHP_EOL;
+            } else {
+                echo "Anchor shape: " . java_values($shape->getName()) . PHP_EOL;
+                echo "Anchor type: " . java_values($shape->getClass()->getSimpleName()) . PHP_EOL;
+
+                if (java_instanceof($shape, $autoShapeClass)) {
+                    echo "Text selection start: " . java_values($comment->getTextSelectionStart()) . PHP_EOL;
+                    echo "Text selection length: " . java_values($comment->getTextSelectionLength()) . PHP_EOL;
+                }
+            }
+
+            echo PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Αφαίρεση Σχολίων**
+
+### **Αφαίρεση Όλων των Σχολίων και των Συγγραφέων Σχολίων**
+
+Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε όλα τα σχόλια και τους συγγραφείς σχολίων από μια παρουσίαση:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("example.pptx");
+try {
+    foreach ($presentation->getCommentAuthors() as $author) {
+        $author->getComments()->clear();
+    }
+
     $presentation->getCommentAuthors()->clear();
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Διαγραφή Συγκεκριμένων Σχολίων**
+### **Αφαίρεση Συγκεκριμένων Σχολίων**
 
-Αυτός ο κώδικας PHP σας δείχνει πώς να διαγράψετε συγκεκριμένα σχόλια σε μια διαφάνεια:
+Το παρακάτω παράδειγμα δείχνει πώς να αφαιρέσετε συγκεκριμένα σχόλια από μια διαφάνεια:
 
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # προσθέτει σχόλια...
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
-    $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
-    $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
-    # αφαιρεί όλα τα σχόλια που περιέχουν το κείμενο "comment 1"
-    foreach($presentation->getCommentAuthors() as $commentAuthor) {
-      $toRemove = new Java("java.util.ArrayList");
-      foreach($slide->getSlideComments($commentAuthor) as $comment) {
-        if ($comment->getText()->equals("comment 1")) {
-          $toRemove->add($comment);
+    $createdTime = new Java("java.util.Date");
+
+    $firstCommentPosition = new Point2DFloat(0.2, 0.2);
+    $secondCommentPosition = new Point2DFloat(0.3, 0.2);
+    $author->getComments()->addComment("comment 1", $slide, $firstCommentPosition, $createdTime);
+    $author->getComments()->addComment("comment 2", $slide, $secondCommentPosition, $createdTime);
+
+    foreach ($presentation->getCommentAuthors() as $commentAuthor) {
+        $commentsToRemove = new Java("java.util.ArrayList");
+        $comments = $slide->getSlideComments($commentAuthor);
+
+        foreach ($comments as $comment) {
+            if ($comment->getText()->equals("comment 1")) {
+                $commentsToRemove->add($comment);
+            }
         }
-      }
-      foreach($toRemove as $comment) {
-        $commentAuthor->getComments()->remove($comment);
-      }
+
+        foreach ($commentsToRemove as $comment) {
+            $commentAuthor->getComments()->remove($comment);
+        }
     }
+
     $presentation->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Η Aspose.Slides υποστηρίζει κατάσταση όπως «επιλυμένο» για τα σύγχρονα σχόλια;**
+**Υποστηρίζει το Aspose.Slides κατάσταση «επιλυμένο» για σύγχρονα σχόλια;**
 
-Ναι. Τα [σύγχρονα σχόλια](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/) παρέχουν τη μέθοδο [setStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/setstatus/); μπορείτε να ορίσετε την [κατάσταση του σχολίου](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncommentstatus/) (π.χ. να το σημειώσετε ως επιλυμένο) και αυτή η κατάσταση αποθηκεύεται στο αρχείο και αναγνωρίζεται από το PowerPoint.
+Ναι. Οι μέθοδοι [ModernComment::getStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/getstatus/) και [ModernComment::setStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncomment/setstatus/) προσπελαύνουν μια τιμή [ModernCommentStatus](https://reference.aspose.com/slides/el/php-java/aspose.slides/moderncommentstatus/), συμπεριλαμβανομένου του `Resolved`. Η κατάσταση αποθηκεύεται στην παρουσίαση και μπορεί να αναγνωσθεί ξανά μετά το άνοιγμα του αρχείου.
 
-**Υποστηρίζονται οι διαδραστικές συζητήσεις (αλυσίδες απαντήσεων) και υπάρχει όριο εμφωλευμού;**
+**Υποστηρίζονται οι ιεραρχικές συζητήσεις (αλυσίδες απαντήσεων) και υπάρχει όριο γέννας;**
 
-Ναι. Κάθε σχόλιο μπορεί να αναφερθεί στο [γονικό του σχόλιο](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/getparentcomment/), επιτρέποντας αυθαίρετες αλυσίδες απαντήσεων. Η API δεν δηλώνει κάποιο συγκεκριμένο όριο βάθους εμφωλευμού.
+Ναι. Κάθε σχόλιο μπορεί να αναφέρει το [parent comment](https://reference.aspose.com/slides/el/php-java/aspose.slides/comment/getparentcomment/), επιτρέποντας αλυσίδες απαντήσεων. Το API δεν ορίζει συγκεκριμένο όριο βάθους γέννας.
 
 **Σε ποιο σύστημα συντεταγμένων ορίζεται η θέση του δείκτη σχολίου σε μια διαφάνεια;**
 
-Η θέση αποθηκεύεται ως σημείο κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας. Αυτό σας επιτρέπει να τοποθετήσετε ακριβώς τον δείκτη σχολίου εκεί που το χρειάζεστε.
+Η θέση του δείκτη ορίζεται από συντεταγμένες κινητής υποδιαστολής στο σύστημα συντεταγμένων της διαφάνειας, επιτρέποντάς σας να τοποθετήσετε ακριβώς το δείκτη στη διαφάνεια.

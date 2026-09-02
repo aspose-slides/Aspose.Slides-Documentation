@@ -5,7 +5,7 @@ weight: 20
 url: /php-java/presentationml-pptx-xml/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 PresentationML is a name for a family of XML-based formats for presentation documents. Office OpenXML (OOXML) is the XML-based format introduced in Microsoft Office 2007 applications. Office OpenXML is a container format for several specialized XML-based markup languages. PresentationML is the markup language used by Microsoft Office PowerPoint 2007 to store documents.
 

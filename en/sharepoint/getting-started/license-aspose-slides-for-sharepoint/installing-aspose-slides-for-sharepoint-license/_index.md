@@ -5,7 +5,7 @@ weight: 10
 url: /sharepoint/installing-aspose-slides-for-sharepoint-license/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Once you are happy with your evaluation, you can [purchase a license](https://purchase.aspose.com/buy). Before purchasing, make sure you understand and agree to the license subscription terms. The license is emailed to you when the order has been paid.
 
@@ -18,7 +18,7 @@ The license is a ZIP archive containing a regular SharePoint solution package. T
 ## **Deploying the License**
 License installation is performed from the server console via **stsadm.exe**.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 The paths are omitted in the following section for clarity.
 
@@ -50,7 +50,7 @@ Perform following steps to deploy the Aspose.Slides for SharePoint license:
 
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You get a warning when running the deployment step if Windows SharePoint Services Administration service is not running. **stsadm.exe** relies on this service and Windows SharePoint Timer Service to replicate solution data across the farm. If these services are not running on you server farm, you may need to deploy the license at each server. 
 

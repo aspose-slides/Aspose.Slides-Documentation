@@ -28,7 +28,7 @@ This article explains how licensing works in Aspose.Slides and how to apply a li
 
 ## **Evaluate Aspose.Slides**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You can download an evaluation version of **Aspose.Slides for NET** from [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.NET/). The evaluation version provides the same functionalities as the licensed version of the product. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
 
@@ -43,7 +43,7 @@ Every Aspose license comes with one-year subscription for free upgrades to new v
 * While Aspose.Slides evaluation version (without a license specified) provides full product functionality, it inserts an evaluation watermark at the top of the document on open and save operations. 
 * You are limited to one slide when extracting texts from presentation slides.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary License**. See the [How to get a Temporary License](https://purchase.aspose.com/temporary-license) page for more information.
 
@@ -61,7 +61,7 @@ To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary 
   * An embedded resource in the assembly that called the dll of the component (included in Aspose.Slides).
 * To avoid the limitations associated with the evaluation version, you need to set a license before using Aspose.Slides. You only have to set a license once per application or process.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to see [Metered Licensing](https://docs.aspose.com/slides/net/metered-licensing/).
 
@@ -71,7 +71,7 @@ You may want to see [Metered Licensing](https://docs.aspose.com/slides/net/meter
 ## **Apply a License**
 A license can be loaded from a **file**, **stream**, or **embedded resource**. 
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Aspose.Slides provides the [License](https://reference.aspose.com/slides/net/aspose.slides/license) class for licensing operations.
 

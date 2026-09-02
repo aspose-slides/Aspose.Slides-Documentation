@@ -17,7 +17,7 @@ description: Aspose.Slides for .NET is a Microsoft PowerPoint® management API t
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Welcome to Aspose.Slides for .NET**
 

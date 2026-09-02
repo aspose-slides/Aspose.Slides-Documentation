@@ -15,253 +15,583 @@ keywords:
 - change shape order
 - get interop shape ID
 - shape alternative text
+- shape adjustment point
+- preset shape adjustment
+- shape geometry
 - shape layout formats
 - shape as SVG
 - shape to SVG
 - align shape
+- flip shape
 - PowerPoint
 - presentation
 - C++
 - Aspose.Slides
-description: "Learn to create, edit and optimize shapes in Aspose.Slides for C++ and deliver high-performance PowerPoint presentations."
+description: "Learn how to identify, adjust, clone, remove, hide, reorder, export, align, and flip presentation shapes with Aspose.Slides for C++."
 ---
 
 ## **Overview**
 
-This article explains how to work with shapes in presentations using Aspose.Slides. It shows how to find a shape on a slide, clone it, remove it, hide it, change its order, get its Interop shape ID, and set alternative text for identification and further processing.
+Aspose.Slides for C++ represents the shapes on a slide as an ordered [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/). The collection is both the place where you find and modify shapes and the source of their stacking order: index `0` is the backmost shape, while the last index is the frontmost shape.
 
-It also covers how to access layout formats for shapes, render a shape as SVG, align shapes on a slide, and use flip properties for horizontal and vertical mirroring. In addition, the article includes a short FAQ about shape combination, stacking order, and shape locking.
+This article follows that model. It first explains how to identify a shape reliably and modify preset shape adjustment points, then shows how to clone, remove, hide, and reorder shapes. The final sections cover layout-level formatting, SVG export, alignment, and flip settings. Each example is independent, so you can use only the operations your workflow requires.
 
-## **Find a Shape on a Slide**
-This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
+## **Identify and Find Shapes**
 
-After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for C++ and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#ad6ecc982512ef758ea4d5d28672db71f) that does the trick to find a specific shape in a slide and then simply returns that shape.
+Collection indexes are convenient while processing a known file, but they are not stable identifiers. Adding, removing, or reordering a shape can change its index. Choose an identifier according to how the presentation is authored and maintained:
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-FindShapeInSlide-FindShapeInSlide.cpp" >}}
+- [Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_name/) is useful for developer-controlled templates and is easy to inspect in PowerPoint's Selection Pane. Names can be edited and are not guaranteed to be unique, so establish a naming convention if code depends on them.
+- [AlternativeText](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_alternativetext/) is useful when an accessibility description or an author-supplied tag already identifies the shape. It is visible to users, may be localized or rewritten for accessibility, and is not guaranteed to be unique. Do not silently repurpose meaningful accessibility text as a database key.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_officeinteropshapeid/) is a read-only identifier that is unique within a slide and corresponds to the shape ID used by PowerPoint interop. Use it when integrating with PowerPoint or when you need an unambiguous reference during the lifetime of a shape. A cloned or recreated shape is a different shape and receives its own ID.
 
+The related [UniqueId](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_uniqueid/) property has presentation scope, but it is intended for add-ins and can be reassigned. It should not be treated as a permanent external key. If long-term identity is essential, keep the mapping in application data and validate that the expected shape still exists.
 
-## **Clone a Shape**
-To clone a shape to a slide using Aspose.Slides for C++:
+The following example searches by `Name` and reports the slide-scoped interop ID. When the template does not contain the expected shape, the code reports that result instead of continuing with the wrong object.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Obtain the reference of a slide by using its index.
-1. Access the source slide shape collection.
-1. Add a new slide to the presentation.
-1. Clone shapes from the source slide shape collection to the new slide.
-1. Save the modified presentation as a PPTX file.
-
-The example below adds a group shape to a slide.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CloneShapes-CloneShapes.cpp" >}}
-
-
-## **Remove a Shape**
-Aspose.Slides for C++ allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
-
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Access the first slide.
-1. Find the shape with specific AlternativeText.
-1. Remove the shape.
-1. Save file to disk.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RemoveShape-RemoveShape.cpp" >}}
-
-
-## **Hide a Shape**
-Aspose.Slides for C++ allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
-
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Access the first slide.
-1. Find the shape with specific AlternativeText.
-1. Hide the shape.
-1. Save file to disk.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-Hidingshapes-Hidingshapes.cpp" >}}
-
-
-
-## **Change Shape Order**
-Aspose.Slides for C++ allows developers to reorder the shapes. Reordering the shape specifies which shape is on the front or which shape is at the back. To reorder the shape from any slide, please follow the steps below:
-
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Access the first slide.
-1. Add a shape.
-1. Add some text in shape's text frame.
-1. Add another shape with the same co-ordinates.
-1. Reorder the shapes.
-1. Save file to disk.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-ChangeShapeOrder-ChangeShapeOrder.cpp" >}}
-
-
-## **Get the Interop Shape ID**
-Aspose.Slides for C++ allows developers to get a unique shape identifier in slide scope in contrast to the UniqueId property, which allows obtaining a unique identifier in presentation scope. Property OfficeInteropShapeId was added to IShape interfaces and Shape class respectively. The value returned by OfficeInteropShapeId property corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is the sample code is given.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-InterlopShapeID-InterlopShapeID.cpp" >}}
-
-
-## **Set the AlternativeText Property**
-Aspose.Slides for C++ allows developers to set AlternateText of any shape. To set the AlternateText of a shape, please follow the steps below:
-
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-1. Access the first slide.
-1. Add any shape to the slide.
-1. Do some work with the newly added shape.
-1. Traverse through shapes to find a shape.
-1. Set the AlternativeText.
-1. Save file to disk.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SetAlternativeText-SetAlternativeText.cpp" >}}
-
-
-## **Access Layout Formats for a Shape**
-Aspose.Slides for C++ allows developers to access layout formats for a shape. This article demonstrates how you can access **FillFormat** and **LineFormat** properties for a shape.
-
-Below is the sample code is given.
-
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-AccessLayoutFormats-AccessLayoutFormats.cpp" >}}
-
-## **Render a Shape as SVG**
-Now Aspose.Slides for C++ support for rendering a shape as svg. WriteAsSvg method (and its overload) has been added to Shape class and IShape interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
-
-``` cpp
+```cpp
 #include <DOM/IShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
-#include <system/io/file_access.h>
-#include <system/io/file_mode.h>
-#include <system/io/file_stream.h>
+#include <system/console.h>
 #include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IShape> targetShape;
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"RevenueChart")
+    {
+        targetShape = shape;
+        break;
+    }
+}
+
+if (targetShape == nullptr)
+{
+    Console::WriteLine(u"The shape 'RevenueChart' was not found on slide 1.");
+}
+else
+{
+    Console::WriteLine(String::Format(u"Found {0}; interop ID: {1}", targetShape->get_Name(), targetShape->get_OfficeInteropShapeId()));
+}
+
+presentation->Dispose();
+```
+
+When an operation is specific to a shape type, check the interface before using type-specific members. This example updates text and alternative text only if the named object is an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IShape> candidate;
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"StatusLabel")
+    {
+        candidate = shape;
+        break;
+    }
+}
+
+if (candidate != nullptr && ObjectExt::Is<IAutoShape>(candidate))
+{
+    auto autoShape = ExplicitCast<IAutoShape>(candidate);
+    autoShape->get_TextFrame()->set_Text(u"Approved");
+    autoShape->set_AlternativeText(u"Approval status: approved");
+    presentation->Save(u"identified-shape.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"'StatusLabel' is missing or is not an AutoShape.");
+}
+
+presentation->Dispose();
+```
+
+## **Identify and Modify Preset Shape Adjustments**
+
+Preset geometry shapes can expose adjustment points that control features such as corner size, arrow proportions, or arc angles. Access them through the read-only [IGeometryShape::get_Adjustments](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/get_adjustments/) collection. The collection itself is supplied by the shape, but each [IAdjustValue](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/) contains a value that can be changed.
+
+Do not rely only on a fixed collection index. Iterate through the adjustments and inspect the read-only [IAdjustValue::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/get_type/) property, whose [ShapeAdjustmentType](https://reference.aspose.com/slides/cpp/aspose.slides/shapeadjustmenttype/) value describes what the adjustment controls. The read-only [IAdjustValue::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/get_name/) property provides additional identification information and is especially useful when a preset contains more than one adjustment with the same semantic type.
+
+Use the value property that matches the adjustment's meaning:
+
+| Adjustment type | Purpose | Value to change |
+|---|---|---|
+| `CornerSize` | Size of rounded corners | [RawValue](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/set_rawvalue/) |
+| `ArrowTailThickness` | Thickness of an arrow tail | `RawValue` |
+| `ArrowheadLength` | Length of an arrowhead | `RawValue` |
+| `ArrowheadWidth` | Width of an arrowhead | `RawValue` |
+| `StartAngle` | Start angle of a pie or arc | [AngleValue](https://reference.aspose.com/slides/cpp/aspose.slides/iadjustvalue/set_anglevalue/) |
+| `EndAngle` | End angle of a pie or arc | `AngleValue` |
+
+`Type` and `Name` cannot be assigned. `RawValue` is a read/write integer in the preset's native geometry units, while `AngleValue` is a read/write angle in degrees. The number, order, meaning, and valid range of adjustments depend on the preset [ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/get_shapetype/). A value that is valid for one preset may be invalid or have a different effect for another.
+
+When `Type` is `ShapeAdjustmentType::Custom`, the API does not recognize a standard semantic meaning. Inspect `Name`, the preset type, and the existing value, and leave the adjustment unchanged unless the expected meaning and range are known. Even for recognized types, check whether the same type occurs more than once before selecting a value. The [Connector](/slides/cpp/connector/) article shows this situation with connector bend adjustments.
+
+The following complete example creates default and modified versions of three preset shapes. It iterates through every adjustment, reports its `Name` and `Type`, changes size-related values through `RawValue`, changes angles through `AngleValue`, and saves the result. The left column retains the default geometry; the right column shows the adjusted rounded rectangle, four-way arrow, and pie.
+
+```cpp
+#include <DOM/IAdjustValue.h>
+#include <DOM/IAdjustValueCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeAdjustmentType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// Adds headers for the default and adjusted shape columns.
+auto defaultColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 20, 250, 30);
+defaultColumnLabel->get_TextFrame()->set_Text(u"Default preset geometry");
+auto adjustedColumnLabel = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 390, 20, 250, 30);
+adjustedColumnLabel->get_TextFrame()->set_Text(u"Modified adjustment values");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 80, 70, 160, 70);
+auto modifiedRoundedRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 430, 70, 160, 70);
+modifiedRoundedRectangle->set_Name(u"ModifiedRoundedRectangle");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 80, 180, 160, 110);
+auto modifiedArrow = slide->get_Shapes()->AddAutoShape(ShapeType::QuadArrow, 430, 180, 160, 110);
+modifiedArrow->set_Name(u"ModifiedQuadArrow");
+
+slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 95, 330, 130, 130);
+auto modifiedPie = slide->get_Shapes()->AddAutoShape(ShapeType::Pie, 445, 330, 130, 130);
+modifiedPie->set_Name(u"ModifiedPie");
+
+auto shapesToAdjust = MakeArray<SharedPtr<IGeometryShape>>({modifiedRoundedRectangle, modifiedArrow, modifiedPie});
+
+for (auto shape : shapesToAdjust)
+{
+    auto adjustments = shape->get_Adjustments();
+    for (int32_t adjustmentIndex = 0; adjustmentIndex < adjustments->get_Count(); ++adjustmentIndex)
+    {
+        auto adjustment = adjustments->idx_get(adjustmentIndex);
+        Console::WriteLine(shape->get_Name() + u" / " + adjustment->get_Name() + u": " + ObjectExt::ToString(adjustment->get_Type()));
+
+        switch (adjustment->get_Type())
+        {
+            case ShapeAdjustmentType::CornerSize:
+                adjustment->set_RawValue(5000);
+                break;
+            case ShapeAdjustmentType::ArrowTailThickness:
+                adjustment->set_RawValue(25000);
+                break;
+            case ShapeAdjustmentType::ArrowheadLength:
+                adjustment->set_RawValue(30000);
+                break;
+            case ShapeAdjustmentType::ArrowheadWidth:
+                adjustment->set_RawValue(40000);
+                break;
+            case ShapeAdjustmentType::StartAngle:
+                adjustment->set_AngleValue(30);
+                break;
+            case ShapeAdjustmentType::EndAngle:
+                adjustment->set_AngleValue(300);
+                break;
+            case ShapeAdjustmentType::Custom:
+                Console::WriteLine(u"Custom adjustment '" + adjustment->get_Name() + u"' was not changed.");
+                break;
+        }
+    }
+}
+
+presentation->Save(u"preset-shape-adjustments.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Checking the semantic type before changing a value makes the code explicit about its intent and avoids assuming that a particular collection index has the same meaning across different preset shapes.
+
+## **Modify the Shape Collection**
+
+The add, clone, remove, and reorder methods operate on the collection immediately. If an operation changes the number or order of shapes, do not continue to rely on indexes captured before that operation.
+
+### **Clone a Shape**
+
+[AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addclone/) creates an independent copy and appends it to the target collection. [InsertClone](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/insertclone/) also creates a copy but places it at a specified z-order index. The overloads that accept coordinates move the clone without changing its size; overloads with width and height can resize it as well.
+
+The example creates a destination slide, clones a labeled rectangle to the front, and inserts a second clone at the back. Changes to either clone do not modify the source shape.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto sourceSlide = presentation->get_Slide(0);
+auto sourceShape = sourceSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 180, 60);
+sourceShape->set_Name(u"SourceLabel");
+sourceShape->get_TextFrame()->set_Text(u"Source");
+
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto destinationSlide = presentation->get_Slides()->AddEmptySlide(blankLayout);
+
+auto frontCloneShape = destinationSlide->get_Shapes()->AddClone(sourceShape, 80, 80);
+frontCloneShape->set_Name(u"FrontClone");
+if (ObjectExt::Is<IAutoShape>(frontCloneShape))
+{
+    auto frontClone = ExplicitCast<IAutoShape>(frontCloneShape);
+    frontClone->get_TextFrame()->set_Text(u"Front clone");
+}
+else
+{
+    Console::WriteLine(u"The front clone is not an AutoShape; its text was not changed.");
+}
+
+auto backCloneShape = destinationSlide->get_Shapes()->InsertClone(0, sourceShape, 80, 180);
+backCloneShape->set_Name(u"BackClone");
+if (ObjectExt::Is<IAutoShape>(backCloneShape))
+{
+    auto backClone = ExplicitCast<IAutoShape>(backCloneShape);
+    backClone->get_TextFrame()->set_Text(u"Back clone");
+}
+else
+{
+    Console::WriteLine(u"The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation->Save(u"cloned-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Cloning copies the shape's content and formatting, including its name and alternative text. Assign new logical identifiers to the clone when those values must be unique. Resources used by complex shapes are handled by the presentation, but a clone remains a new collection item with a new shape identity.
+
+### **Remove Shapes**
+
+[Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) deletes a specific shape object from its collection. When removing multiple matches during indexed iteration, traverse from the end so that each remaining index stays valid.
+
+This example removes every shape with a designated name. It reads the current indexed shape, not a fixed collection item, and it does not cast the shape unnecessarily.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto keepShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 140, 60);
+keepShape->set_Name(u"Keep");
+
+auto firstTemporaryShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 220, 40, 80, 80);
+firstTemporaryShape->set_Name(u"Temporary");
+
+auto secondTemporaryShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 340, 40, 100, 80);
+secondTemporaryShape->set_Name(u"Temporary");
+
+for (int32_t i = slide->get_Shapes()->get_Count() - 1; i >= 0; --i)
+{
+    auto shape = slide->get_Shape(i);
+    if (shape->get_Name() == u"Temporary")
+    {
+        slide->get_Shapes()->Remove(shape);
+    }
+}
+
+presentation->Save(u"removed-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+After removal, the shape count and the indexes of later shapes change. References to unaffected shapes remain more reliable than saved indexes. Also consider connectors, animations, and other presentation features that may refer to the removed object; removing a visible shape can change more than the slide's appearance.
+
+### **Hide a Shape**
+
+Setting [Hidden](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_hidden/) to `true` keeps the shape in the collection but prevents it from appearing in the normal slide show. Its index, formatting, and content remain available to code, so hiding is appropriate for optional elements that may be restored later.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto visibleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40, 40, 160, 60);
+visibleShape->set_Name(u"VisibleLabel");
+
+auto optionalShape = slide->get_Shapes()->AddAutoShape(ShapeType::Moon, 240, 40, 100, 100);
+optionalShape->set_Name(u"OptionalDecoration");
+
+for (auto shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"OptionalDecoration")
+    {
+        shape->set_Hidden(true);
+    }
+}
+
+presentation->Save(u"hidden-shape.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Hiding is not deletion or security. The object can still be discovered and unhidden by a user or by code, and it remains part of the presentation file.
+
+### **Change the Z-Order**
+
+Overlapping shapes are painted in collection order. [Reorder](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/reorder/) moves an existing shape to a target index without cloning it. Index `0` is the back; `Count - 1` is the front.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto blueRectangle = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 220, 120);
+blueRectangle->set_Name(u"BlueRectangle");
+blueRectangle->get_FillFormat()->set_FillType(FillType::Solid);
+blueRectangle->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_SteelBlue());
+
+auto orangeEllipse = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 180, 140, 220, 120);
+orangeEllipse->set_Name(u"OrangeEllipse");
+orangeEllipse->get_FillFormat()->set_FillType(FillType::Solid);
+orangeEllipse->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
+
+slide->get_Shapes()->Reorder(slide->get_Shapes()->get_Count() - 1, blueRectangle);
+presentation->Save(u"reordered-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The rectangle is created first and initially sits behind the ellipse. Moving it to the final index puts it in front. Finalize z-order after adding or cloning all related shapes, because those operations append or insert new collection items and can alter the intended stack.
+
+## **Inspect Shapes on Layout Slides**
+
+Normal slides, layout slides, and master slides have separate shape collections. A shape in a layout collection is not the same object as a similarly positioned shape on a normal slide. Inspect layout shapes when you need to understand or change formatting supplied by a layout.
+
+The following example reads each layout shape's [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_fillformat/) and [LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) without assuming that every shape is an `AutoShape`.
+
+```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+for (auto layoutSlide : presentation->get_LayoutSlides())
+{
+    for (auto shape : layoutSlide->get_Shapes())
+    {
+        auto fillType = shape->get_FillFormat()->get_FillType();
+        auto lineWidth = shape->get_LineFormat()->get_Width();
+        Console::WriteLine(String::Format(u"{0} / {1}: fill={2}, line width={3}", layoutSlide->get_Name(), shape->get_Name(), fillType, lineWidth));
+    }
+}
+
+presentation->Dispose();
+```
+
+Editing a layout can affect multiple slides that use it. Before changing a layout shape, determine whether a normal slide inherits the object or contains a local override, and test every slide that uses that layout.
+
+## **Export a Shape to SVG**
+
+[WriteAsSvg](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/writeassvg/) writes one shape's rendered content to a stream. The result contains the shape, not the entire slide background or neighboring shapes.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/file.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 using namespace System::IO;
 
-String outSvgFileName = u"SingleShape.svg";
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto pres = System::MakeObject<Presentation>(u"TestExportShapeToSvg.pptx");
+if (slide->get_Shapes()->get_Count() == 0)
+{
+    Console::WriteLine(u"Slide 1 does not contain a shape to export.");
+}
+else
+{
+    auto shape = slide->get_Shape(0);
+    auto svgStream = File::Create(u"shape.svg");
+    shape->WriteAsSvg(svgStream);
+    svgStream->Close();
+}
 
-auto stream = System::MakeObject<FileStream>(outSvgFileName, FileMode::Create, FileAccess::Write);
-pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0)->WriteAsSvg(stream);
+presentation->Dispose();
 ```
 
-## **Shapes Alignment**
-Aspose.Slides allows to align shapes either relative to the slide margins or relative to each other. For this purpose, an overloaded [SlidesUtil.AlignShapes()](https://reference.aspose.com/slides/cpp/class/aspose.slides.util.slide_util#a2263709efa423c11706e57b21014d3ab) method has been added. The [ShapesAlignmentType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#aeb3015a196294029a0ee1f545bc5887f) enumeration  defines possible alignment options.
+Keep the presentation open while rendering. The output depends on the shape's formatting and on resources such as fonts and images. If you need the whole composition, export the slide rather than an individual shape. The caller owns the stream and must close or dispose it.
 
-**Example 1**
+## **Align Shapes**
 
-Source code below aligns shapes with indices 1, 2 and 4 along the top border of the slide. 
+The [SlideUtil::AlignShapes](https://reference.aspose.com/slides/cpp/aspose.slides.util/slideutil/alignshapes/) overloads align either all shapes or selected collection indexes. [ShapesAlignmentType](https://reference.aspose.com/slides/cpp/aspose.slides/shapesalignmenttype/) specifies the edge, center line, or distribution mode. Set `alignToSlide` to `true` to use the slide edges; set it to `false` to align the selected shapes relative to one another.
 
-``` cpp
-#include <DOM/IShape.h>
+This example aligns three shapes to the top edge of the slide. The returned shape references are converted to their current indexes immediately before alignment.
+
+```cpp
+#include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <DOM/ShapesAlignmentType.h>
+#include <Export/SaveFormat.h>
 #include <Util/SlideUtil.h>
-#include <system/smart_ptr.h>
+#include <system/array.h>
+
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::Util;
 using namespace System;
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"example.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-SharedPtr<IShape> shape1 = slide->get_Shapes()->idx_get(1);
-SharedPtr<IShape> shape2 = slide->get_Shapes()->idx_get(2);
-SharedPtr<IShape> shape3 = slide->get_Shapes()->idx_get(4);
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, pres->get_Slides()->idx_get(0), 
-System::MakeArray<int32_t>(
-    {
-        slide->get_Shapes()->IndexOf(shape1),
-        slide->get_Shapes()->IndexOf(shape2),
-        slide->get_Shapes()->IndexOf(shape3)
-    }));
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 60, 80, 120, 50);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 240, 160, 120, 50);
+auto thirdShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 420, 240, 120, 50);
+firstShape->set_Name(u"FirstAlignedShape");
+secondShape->set_Name(u"SecondAlignedShape");
+thirdShape->set_Name(u"ThirdAlignedShape");
+
+auto shapeIndexes = MakeArray<int32_t>({slide->get_Shapes()->IndexOf(firstShape), slide->get_Shapes()->IndexOf(secondShape), slide->get_Shapes()->IndexOf(thirdShape)});
+
+SlideUtil::AlignShapes(ShapesAlignmentType::AlignTop, true, slide, shapeIndexes);
+presentation->Save(u"aligned-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-**Example 2**
+Alignment changes positions, not z-order. Relative alignment normally needs at least two shapes, while horizontal or vertical distribution needs enough shapes to define spacing. Recompute indexes if you modify the collection before calling the method.
 
-The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
+## **Flip a Shape**
 
-``` cpp
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapesAlignmentType.h>
-#include <Util/SlideUtil.h>
-#include <system/smart_ptr.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Util;
-using namespace System;
+The [ShapeFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapeframe/) class stores position, size, horizontal and vertical flip settings, and rotation. Its `FlipH` and `FlipV` values use [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/): `True` enables the flip, `False` disables it, and `NotDefined` preserves the unspecified/default state.
 
-SharedPtr<Presentation> pres = MakeObject<Presentation>(u"example.pptx");
-SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0));
-```
+The input presentation below contains one unflipped shape.
 
-## **Flip Properties**
+![The shape before flipping](shape_to_be_flipped.png)
 
-In Aspose.Slides, the [ShapeFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapeframe/) class provides control over horizontal and vertical mirroring of shapes via its `flipH` and `flipV` properties. Both properties are of type [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/), allowing values of `True` to indicate a flip, `False` for no flip, or `NotDefined` to use default behavior. These values are accessible from a shape’s [Frame](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_frame/). 
-
-To modify the flip settings, a new [ShapeFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapeframe/) instance is constructed with the shape’s current position and size, the desired values for `flipH` and `flipV`, and the rotation angle. Assigning this instance to the shape’s [Frame](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_frame/) and saving the presentation applies the mirror transformations and commits them to the output file.
-
-Let’s say we have a sample.pptx file in which the first slide contains a single shape with default flip settings, as shown below.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
+The example preserves every other frame value and replaces only the two flip settings. This is important because assigning a new [Frame](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_frame/) replaces the complete frame.
 
 ```cpp
 #include <DOM/IShape.h>
-#include <DOM/ISlide.h>
 #include <DOM/NullableBool.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeFrame.h>
 #include <Export/SaveFormat.h>
 #include <system/console.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
 auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto frame = shape->get_Frame();
 
-// Retrieve the horizontal flip property of the shape.
-auto horizontalFlip = shape->get_Frame()->get_FlipH();
-Console::WriteLine(u"Horizontal flip: " + ObjectExt::ToString(horizontalFlip));
+Console::WriteLine(String::Format(u"Horizontal flip before change: {0}", frame->get_FlipH()));
+Console::WriteLine(String::Format(u"Vertical flip before change: {0}", frame->get_FlipV()));
 
-// Retrieve the vertical flip property of the shape.
-auto verticalFlip = shape->get_Frame()->get_FlipV();
-Console::WriteLine(u"Vertical flip: " + ObjectExt::ToString(verticalFlip));
+shape->set_Frame(MakeObject<ShapeFrame>(frame->get_X(), frame->get_Y(), frame->get_Width(), frame->get_Height(), NullableBool::True, NullableBool::True, frame->get_Rotation()));
 
-auto x = shape->get_Frame()->get_X();
-auto y = shape->get_Frame()->get_Y();
-auto width = shape->get_Frame()->get_Width();
-auto height = shape->get_Frame()->get_Height();
-auto flipH = NullableBool::True; // Flip horizontally.
-auto flipV = NullableBool::True; // Flip horizontally.
-auto rotation = shape->get_Frame()->get_Rotation();
-
-shape->set_Frame(MakeObject<ShapeFrame>(x, y, width, height, flipH, flipV, rotation));
-
-presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Save(u"flipped-shape.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-The result:
+The saved shape is mirrored horizontally and vertically while keeping its position, size, and rotation.
 
-![The flipped shape](flipped_shape.png)
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-### Can I combine shapes (union/intersect/subtract) on a slide like in a desktop editor?
+**Should I use a collection index as a shape identifier?**
 
-There isn’t a built-in Boolean operation API. You can approximate it by constructing the desired outline yourself—e.g., compute the resulting geometry (via [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/)) and create a new shape with that contour, optionally removing the originals.
+Only for short-lived processing when the collection will not change before the index is used. Prefer a validated `Name` or `AlternativeText` convention for authored templates, or `OfficeInteropShapeId` for slide-scoped interop work.
 
-### How can I control the stacking order (z-order) so a shape always stays "on top"?
+**Does hiding a shape remove it from the z-order?**
 
-Change the insertion/move order within the slide’s [shapes](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/get_shapes/) collection. For predictable results, finalize the z-order after all other slide modifications.
+No. A hidden shape remains in the collection at the same index. It can be found, reordered, edited, or made visible again.
 
-### Can I "lock" a shape to prevent users from editing it in PowerPoint?
+**Why did a cloned shape appear in front of another shape?**
 
-Yes. Set [shape-level protection flags](/slides/cpp/applying-protection-to-presentation/) (e.g., lock selection, movement, resizing, text edits). If needed, mirror restrictions on the master or layout. Note this is UI-level protection, not a security feature; for stronger protection, combine with file-level restrictions like [read-only recommendations or passwords](/slides/cpp/password-protected-presentation/).
+`AddClone` appends the clone to the end of the collection, which is the front of the z-order. Use `InsertClone` to choose the initial index or `Reorder` after all shapes have been added.
+
+**Can I use a fixed index to identify a preset shape adjustment?**
+
+Only after validating the exact preset and collection layout. Prefer iterating through `IGeometryShape::get_Adjustments` and checking `IAdjustValue::get_Type`; use `IAdjustValue::get_Name` as additional information when the same semantic type appears more than once.

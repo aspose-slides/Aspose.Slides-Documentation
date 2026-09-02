@@ -1,6 +1,6 @@
 ---
-title: إضافة معادلات رياضية إلى عروض PowerPoint التقديمية في Java
-linktitle: معادلات رياضية PowerPoint
+title: إضافة معادلات رياضية إلى عروض PowerPoint التقديمية باستخدام Java
+linktitle: معادلات رياضية في PowerPoint
 type: docs
 weight: 80
 url: /ar/java/powerpoint-math-equations/
@@ -17,33 +17,33 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "إدراج وتحرير المعادلات الرياضية في عروض PowerPoint PPT و PPTX باستخدام Aspose.Slides for Java، مع دعم OMML، أدوات تنسيق، وأمثلة شفرة Java واضحة."
+description: "إدراج وتعديل المعادلات الرياضية في ملفات PowerPoint PPT و PPTX باستخدام Aspose.Slides للـ Java، مع دعم OMML، أدوات تنسيق، وأمثلة شفرة Java واضحة."
 ---
 ## **نظرة عامة**
 
-PowerPoint يخزن المعادلات كـ Office Math Markup Language (OMML). باستخدام Aspose.Slides for Java، يمكنك إنشاء نفس نوع محتوى الرياضيات برمجياً: الكسور، الجذور، الدوال، الحدود، عوامل N-ary، المصفوفات، المصفوفات المتعددة، وكتل الرياضيات المنسقة.
+يخزن PowerPoint المعادلات بصيغة Office Math Markup Language (OMML). باستخدام Aspose.Slides for Java، يمكنك إنشاء نفس نوع المحتوى الرياضي برمجيًا: الكسور، الجذور، الدوال، الحدود، عمليات N-ary، المصفوفات، المصفوفات، وكتل الرياضيات المنسقة.
 
 في PowerPoint، يضيف المستخدمون عادةً المعادلات من **Insert > Equation**:
 
-![علامة تبويب Insert في PowerPoint مع تحديد الأمر Equation](powerpoint-math-equations_1.png)
+![علامة تبويب Insert في PowerPoint مع تحديد أمر Equation](powerpoint-math-equations_1.png)
 
 النتيجة هي نص رياضي قابل للتحرير على الشريحة:
 
 ![شريحة PowerPoint تحتوي على معادلة رياضية قابلة للتحرير](powerpoint-math-equations_2.png)
 
-Aspose.Slides يبني ذلك النص الرياضي عبر ثلاثة كائنات رئيسية:
+يبني Aspose.Slides ذلك النص الرياضي من خلال ثلاثة كائنات رئيسية:
 
-- شكل رياضي، تم إنشاؤه باستخدام [addMathShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-)، هو الشكل الذي يحتوي على المعادلة.
+- شكل رياضي، يُنشأ باستخدام [addMathShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-)، هو الشكل الذي يحتوي على المعادلة.
 - [MathPortion](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathportion/) يخزن محتوى الرياضيات داخل إطار النص الخاص بالشكل.
-- [MathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathparagraph/) يحتوي على عنصر (أو أكثر) من نوع [MathBlock](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathblock/).
+- [MathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathparagraph/) يحتوي على كائن واحد أو أكثر من كائنات [MathBlock](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathblock/).
 
-معظم الأمثلة أدناه تستخدم [MathematicalText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathematicaltext/) والطرق المتسلسلة من [IMathElement](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/) لجعل الشيفرة قصيرة وقابلة للقراءة.
+تستخدم معظم الأمثلة أدناه [MathematicalText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathematicaltext/) والطرق المتسلسلة من [IMathElement](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/) لتقليل طول الكود وزيادة مقروئيته.
 
-للحالات التي تتطلب تصدير MathML، راجع [Export Math Equations from Presentations in Java](/slides/ar/java/exporting-math-equations/).
+للتعامل مع تصدير MathML، راجع [Export Math Equations from Presentations in Java](/slides/ar/java/exporting-math-equations/).
 
 ## **إنشاء معادلة**
 
-المعادلة c تربيع تساوي a تربيع زائد b تربيع:
+توفر هذه المثال شكلًا رياضيًا ويضيف نظرية فيثاغورس:
 
 ![المعادلة c تربيع تساوي a تربيع زائد b تربيع](powerpoint-math-equations_3.png)
 
@@ -72,16 +72,14 @@ try {
 ```
 
 {{% alert color="primary" %}}
-
-`addMathShape` ينشئ شكلاً يحتوي بالفعل على فقرة رياضية. احصل على أول `MathPortion`، ثم `MathParagraph` الخاص به، وأضف كتل رياضية أو عناصر رياضية إليه.
-
+`addMathShape` ينشئ شكلًا يحتوي مسبقًا على فقرة رياضية. قم بالوصول إلى أول `MathPortion`، احصل على `MathParagraph` الخاص به، وأضف كتل رياضية أو عناصر رياضية إليه.
 {{% /alert %}}
 
-## **إضافة كسور**
+## **إضافة الكسور**
 
-استخدم `divide` لإنشاء كسر. يمكنك اختيار نمط الكسر باستخدام [MathFractionTypes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathfractiontypes/).
+استخدم `divide` لإنشاء كسر. يمكنك اختيار نمط الكسر عبر [MathFractionTypes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathfractiontypes/).
 
-![كسر رياضي مائلة يُظهر 1 مقسومًا على x](powerpoint-math-equations_4.png)
+![كسر رياضي مائل يُظهر 1 مقسومًا على x](powerpoint-math-equations_4.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -109,11 +107,11 @@ try {
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **إضافة جذور**
+## **إضافة الجذور**
 
-استخدم `radical` لإنشاء جذر تربيعي، جذر مكعب، أو أي جذر آخر. العنصر الحالي يصبح القاعدة، والوسيط يصبح الدرجة.
+استخدم `radical` لإنشاء جذر تربيعي، جذر مكعب، أو أي جذر آخر. يصبح العنصر الحالي القاعدة، ويصبح الوسيط هو الدرجة.
 
-![تعبير جذر n مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
+![تعبير جذري من الدرجة n مع x تحت علامة الجذر](powerpoint-math-equations_5.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -135,11 +133,11 @@ try {
 }
 ```
 
-## **إضافة دوال و حدود**
+## **إضافة الدوال والحدود**
 
-استخدم `asArgumentOfFunction` أو `function` للدوال مثل `sin(x)`, `log(x)`, أو أسماء دوال مخصصة. للحدود، ضع `lim` في [MathLimit](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathlimit/) أو استخدم `setLowerLimit`.
+استخدم `asArgumentOfFunction` أو `function` للدوال مثل `sin(x)`، `log(x)`، أو أسماء دوال مخصصة. للحدود، ضع `lim` داخل [MathLimit](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathlimit/) أو استخدم `setLowerLimit`.
 
-![حد x عندما يقترب x من اللانهاية](powerpoint-math-equations_8.png)
+![الحد للـ x عندما يقترب x من اللانهاية](powerpoint-math-equations_8.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -162,17 +160,17 @@ try {
 }
 ```
 
-لإنشاء اسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي:
+لإعطاء اسم دالة مخصص، اجعل اسم الدالة هو العنصر الحالي:
 
 ```java
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **إضافة عوامل N-ary وتكاملات**
+## **إضافة عمليات N-ary والتكاملات**
 
-استخدم `nary` للجمع، الاتحاد، التقاطع، وغيرها من العوامل الكبيرة. استخدم `integral` للتكاملات. كلا الطريقتين تسمحان بتحديد الحدود السفلية والعلوية.
+استخدم `nary` للجمعيات، الاتحادات، التقاطعات، وغيرها من المشغلات الكبيرة. استخدم `integral` للتكاملات. كلا الطريقتين تسمحان بتعيين حدود سفلية وفوقية.
 
-![جمع مع حدود سفلية وعليا](powerpoint-math-equations_7.png)
+![جمعية مع حدود سفلية وفوقية](powerpoint-math-equations_7.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -197,20 +195,20 @@ try {
 }
 ```
 
-العوامل N-ary مخصصة للعوامل الكبيرة مع حدود اختيارية. العناصر البسيطة مثل `+`, `-`, و `=` عادة ما تُضاف كـ `MathematicalText` وتُدمج في التعبير.
+عمليات N-ary مخصصة للمشغلات الكبيرة مع حدود اختيارية. المشغلات البسيطة مثل `+`، `-`، و`=` تُضاف عادةً كـ `MathematicalText` وتُدمج في التعبير.
 
-لإنشاء تكامل، استخدم `integral`:
+للتكامل، استخدم `integral`:
 
 ```java
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **إضافة مصفوفات**
+## **إضافة المصفوفات**
 
-استخدم [MathMatrix](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathmatrix/) للصفوف والأعمدة. المصفوفات لا تتضمن الأقواس بشكل افتراضي، لذا احيط المصفوفة عندما تحتاج إلى أقواس أو أقواس مربعة أو أقواس معقوفة.
+استخدم [MathMatrix](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathmatrix/) للصفوف والأعمدة. لا تتضمن المصفوفات الأقواس بشكل افتراضي، لذا قم بإحاطة المصفوفة عندما تحتاج إلى أقواس مستديرة أو مربعة أو معقوفة.
 
-![مصفوفة رياضية ذات صفين وخلية فارغة واحدة](powerpoint-math-equations_10.png)
+![مصفوفة رياضية ذات صفّين مع خلية فارغة واحدة](powerpoint-math-equations_10.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -236,11 +234,11 @@ try {
 }
 ```
 
-## **إضافة مصفوفات معادلات**
+## **إضافة مصفوفات المعادلات**
 
-استخدم `toMathArray` عندما تحتاج إلى معادلات محاذية أو صف عمودي من التعبيرات.
+استخدم `toMathArray` عندما تحتاج إلى معادلات محاذاة أو مجموعة رأسية من التعابير.
 
-![مصفوفة رياضية عمودية بـ x فوق y](powerpoint-math-equations_11.png)
+![مصفوفة رياضية رأسية مع x فوق y](powerpoint-math-equations_11.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -263,11 +261,11 @@ try {
 }
 ```
 
-## **إضافة دوال مثلثية**
+## **إضافة الدوال المثلثية**
 
-استخدم `asArgumentOfFunction` عندما يكون الوسيط هو العنصر الحالي ويكون اسم الدالة معروفًا.
+استخدم `asArgumentOfFunction` عندما يكون الوسيط هو العنصر الحالي واسم الدالة معروف.
 
-![دالة مثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
+![الدالة المثلثية cos مطبقة على 2x](powerpoint-math-equations_6.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -289,11 +287,11 @@ try {
 }
 ```
 
-## **إضافة موشرات أسفلية وأعلية**
+## **إضافة المقاطعات والارتفاعات**
 
-استخدم مساعدات المؤشر السفلي والعلوي للفهارس والقوى. عندما يجب ظهور الفهارس على الجانب الأيسر للأساس، استخدم `setSubSuperscriptOnTheLeft`.
+استخدم مساعدي المقاطعة والارتفاع للفهارس والقوى. عندما يجب أن تظهر الفهارس على الجانب الأيسر للأساس، استخدم `setSubSuperscriptOnTheLeft`.
 
-![حرف Y كبير مع موشر سفلي 1 وأعلى n على الجانب الأيسر](powerpoint-math-equations_9.png)
+![حرف Y كبير مع مقاطعة يسرى 1 وارتفاع n](powerpoint-math-equations_9.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -317,9 +315,9 @@ try {
 
 ## **إضافة محددات**
 
-استخدم `enclose` لوضع تعبير داخل محددات. يمكنك أيضًا تعيين حرف فاصل لتعبيرات المحدد التي تحتوي على عدة عناصر.
+استخدم `enclose` لوضع تعبير داخل محددات. يمكنك أيضًا تعيين حرف فاصل لتعبيرات المحددات التي تحتوي على عدة عناصر.
 
-![تعبير محدد يحتوي على x و y و z مفصولة بأشرطة عمودية](powerpoint-math-equations_13.png)
+![تعبير محدد يحتوي على x و y و z مفصول بأشرطة عمودية](powerpoint-math-equations_13.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -344,11 +342,11 @@ try {
 }
 ```
 
-## **إضافة صندوق حدودي**
+## **إضافة إطار حدودي**
 
-استخدم `toBorderBox` عندما يجب إطارة المعادلة نفسها.
+استخدم `toBorderBox` عندما يجب أن يكون للمعادلة إطارًا.
 
-![معادلة محصورة في صندوق تُظهر a تربيع يساوي b تربيع زائد c تربيع](powerpoint-math-equations_12.png)
+![معادلة محاطة بإطار تُظهر c تربيع يساوي b تربيع زائد a تربيع](powerpoint-math-equations_12.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -377,9 +375,9 @@ try {
 
 ## **تجميع المصطلحات**
 
-استخدم `group` لوضع حرف تجميع فوق أو تحت تعبير. أضف حدًا لتسمية المصطلحات المجمعة.
+استخدم `group` لوضع رمز تجميع فوق أو تحت التعبير. أضف حدًا لتسمية المصطلحات المجمعة.
 
-![التعبير x زائد y مُجَمَّع مع تسمية أي نص أسفله](powerpoint-math-equations_15.png)
+![التعبير x زائد y مُجمع مع تسمية أي نص تحته](powerpoint-math-equations_15.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -404,7 +402,7 @@ try {
 
 ## **تنسيق عناصر الرياضيات**
 
-استخدم مساعدات التنسيق فقط حيث توضح الصيغة. على سبيل المثال، `overbar` يضع شريطًا فوق عنصر رياضي.
+استخدم مساعدي التنسيق فقط حيث يوضح الصيغة. على سبيل المثال، `overbar` يضع شريطًا فوق عنصر رياضي.
 
 ![تعبير رياضي ABC مع شريط فوقه](powerpoint-math-equations_14.png)
 
@@ -429,33 +427,33 @@ try {
 
 ## **مرجع سريع**
 
-| المهمة | واجهة برمجة التطبيقات الرئيسية |
+| المهمة | API الرئيسي |
 | --- | --- |
 | إنشاء نص رياضي | [MathematicalText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathematicaltext/) |
 | دمج العناصر | [IMathElement.join](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
-| إنشاء كسور | [IMathElement.divide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
-| إضافة أُس أو موْشر سفلي | [setSuperscript](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
-| إضافة دوال | [function](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
-| إضافة جذور | [IMathElement.radical](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
-| إضافة حدود | [setLowerLimit](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| إضافة موشرات على الجانب الأيسر | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| إضافة جمع وتكامل | [nary](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| إضافة مصفوفات | [MathMatrix](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathmatrix/) |
-| إضافة مصفوفات معادلات | [toMathArray](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#toMathArray--) |
-| إضافة محددات | [enclose](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| إضافة أشرطة وإطارات | [overbar](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| إنشاء الكسور | [IMathElement.divide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
+| إضافة ارتفاع أو مقاطعة | [setSuperscript](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| إضافة الدوال | [function](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
+| إضافة الجذور | [IMathElement.radical](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| إضافة الحدود | [setLowerLimit](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
+| إضافة سكريبتات على الجانب الأيسر | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| إضافة الجمعيات والتكاملات | [nary](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| إضافة المصفوفات | [MathMatrix](https://reference.aspose.com/slides/ar/java/com.aspose.slides/mathmatrix/) |
+| إضافة مصفوفات المعادلات | [toMathArray](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#toMathArray--) |
+| إضافة المحددات | [enclose](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| إضافة الشرائط والإطارات | [overbar](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#toBorderBox--) |
 | تجميع المصطلحات | [group](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتداولة**
 
 **هل يمكنني تعديل معادلة PowerPoint موجودة؟**
 
-نعم. افتح العرض، وابحث عن الشكل الذي يحتوي على `MathPortion`، احصل على `MathParagraph` الخاص به، وقم بتحديث كتل الرياضيات في تلك الفقرة.
+نعم. افتح العرض، ابحث عن الشكل الذي يحتوي على `MathPortion`، احصل على `MathParagraph` الخاص به، وقم بتحديث كتل الرياضيات في تلك الفقرة.
 
 **هل تُحفظ المعادلات كرياضيات PowerPoint قابلة للتحرير؟**
 
-نعم. عند الحفظ إلى PPTX، يكتب Aspose.Slides المعادلة كمحتوى Office Math قابل للتحرير.
+نعم. عند حفظك إلى PPTX، تكتب Aspose.Slides المعادلة كمحتوى رياضي Office قابل للتحرير.
 
 **هل يمكنني تصدير المعادلات إلى LaTeX؟**
 
-Aspose.Slides يصدر المعادلات إلى MathML. إذا كنت تحتاج إلى LaTeX، صدر إلى MathML أولاً ثم حوّل MathML بأداة تدعم لهجتك المستهدفة من LaTeX.
+نعم. احصل على [IMathParagraph](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathparagraph/) الخاص بالمعادلة من خلال [IMathPortion](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathportion/)، واستدعِ [IMathParagraph.toLatex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imathparagraph/#toLatex--) لتصديره مباشرة. لمثال كامل، راجع [Export Math Equations from Presentations in Java](/slides/ar/java/exporting-math-equations/#export-math-equations-to-latex).

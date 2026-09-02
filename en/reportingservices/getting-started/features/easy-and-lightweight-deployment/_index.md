@@ -5,7 +5,7 @@ weight: 50
 url: /reportingservices/easy-and-lightweight-deployment/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Reporting Services is a [rendering extension](http://msdn2.microsoft.com/en-us/library/ms154606.aspx) for Microsoft SQL Server Reporting Services. 
 Aspose.Slides for Reporting Services is provided as a single MSI installer that can install on the computers running one of the following: 

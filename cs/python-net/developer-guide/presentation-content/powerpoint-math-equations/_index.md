@@ -1,6 +1,6 @@
 ---
-title: Přidání matematických rovnic do prezentací PowerPoint v Pythonu
-linktitle: Matematické rovnice PowerPoint
+title: Přidat matematické rovnice do prezentací PowerPoint v Pythonu
+linktitle: Matematické rovnice PowerPointu
 type: docs
 weight: 80
 url: /cs/python-net/powerpoint-math-equations/
@@ -17,15 +17,15 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro Python přes .NET, s podporou OMML, formátovacích kontrol a přehlednými ukázkami kódu v Pythonu."
+description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro Python přes .NET, s podporou OMML, ovládacích prvků formátování a přehledných ukázek kódu v Pythonu."
 ---
 ## **Přehled**
 
-PowerPoint ukládá rovnice jako Office Math Markup Language (OMML). S Aspose.Slides pro Python přes .NET můžete programově vytvářet stejný typ matematického obsahu: zlomky, odmocniny, funkce, limity, N‑ary operátory, matice, pole a formátované matematické bloky.
+PowerPoint ukládá rovnice jako Office Math Markup Language (OMML). S Aspose.Slides pro Python přes .NET můžete programově vytvářet stejný typ matematického obsahu: zlomky, odmocniny, funkce, limity, N-ární operátory, matice, pole a formátované matematické bloky.
 
-V PowerPointu uživatelé obvykle přidávají rovnice pomocí **Insert > Equation**:
+V PowerPointu uživatelé obvykle přidávají rovnice pomocí **Vložení > Rovnice**:
 
-![Panel Insert v PowerPointu s vybraným příkazem Equation](powerpoint-math-equations_1.png)
+![Karta Vložení v PowerPointu s vybraným příkazem Rovnice](powerpoint-math-equations_1.png)
 
 Výsledkem je editovatelný matematický text na snímku:
 
@@ -34,14 +34,14 @@ Výsledkem je editovatelný matematický text na snímku:
 Aspose.Slides vytváří tento matematický text pomocí tří hlavních objektů:
 
 - Matematický tvar, vytvořený pomocí [add_math_shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_math_shape/), je tvar, který obsahuje rovnici.
-- [MathPortion](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathportion/) ukládá matematický obsah uvnitř textového rámce tvaru.
+- [MathPortion](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathportion/) ukládá matematický obsah do textového rámce tvaru.
 - [MathParagraph](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathparagraph/) obsahuje jeden nebo více objektů [MathBlock](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathblock/).
 
-Většina příkladů níže používá [MathematicalText](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathematicaltext/) a plynulé metody z [IMathElement](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/) pro stručný a čitelný kód.
+Většina níže uvedených příkladů používá [MathematicalText](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathematicaltext/) a plynulé metody z [IMathElement](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/) k tomu, aby byl kód stručný a čitelný.
 
-Pro scénáře exportu do MathML viz [Export Math Equations from Presentations in Python via .NET](/slides/cs/python-net/exporting-math-equations/).
+Pro scénáře exportu MathML, viz [Export rovnic z prezentací v Pythonu přes .NET](/slides/cs/python-net/exporting-math-equations/).
 
-## **Vytvoření rovnice**
+## **Vytvořit rovnici**
 
 Tento příklad vytvoří matematický tvar a přidá Pythagorovu větu:
 
@@ -72,14 +72,14 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="primary" %}}
-`add_math_shape` vytvoří tvar, který již obsahuje matematický odstavec. Získejte první `MathPortion`, jeho `MathParagraph` a přidejte do něj matematické bloky nebo matematické elementy.
+`add_math_shape` vytváří tvar, který již obsahuje matematický odstavec. Získejte první `MathPortion`, jeho `MathParagraph` a přidejte do něj matematické bloky nebo matematické elementy.
 {{% /alert %}}
 
-## **Přidání zlomků**
+## **Přidat zlomky**
 
-K vytvoření zlomku použijte [`divide`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/divide/). Můžete zvolit styl zlomku pomocí [MathFractionTypes](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathfractiontypes/).
+Použijte [`divide`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/divide/) k vytvoření zlomku. Styl zlomku můžete zvolit pomocí [MathFractionTypes](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Zkosený matematický zlomek zobrazující jeden děleno x](powerpoint-math-equations_4.png)
+![Šikmý matematický zlomek ukazující jeden děleno x](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -98,17 +98,17 @@ with slides.Presentation() as presentation:
     presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pro vyšší zlomek použijte `MathFractionTypes.BAR`:
+Pro svislý (stacked) zlomek použijte `MathFractionTypes.BAR`:
 
 ```py
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
-## **Přidání odmocnin**
+## **Přidat odmocniny**
 
-K vytvoření druhé odmocniny, třetí odmocniny nebo jiné odmocniny použijte [`radical`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/radical/). Aktuální prvek se stane základem a argument se stane stupněm.
+Použijte [`radical`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/radical/) k vytvoření druhé odmocniny, třetí odmocniny nebo jiné odmocniny. Aktuální element se stane základem a argument se stane stupněm.
 
-![Výraz n‑té odmocniny s x pod znakem odmocniny](powerpoint-math-equations_5.png)
+![Výraz n-té odmocniny s x pod znakem odmocniny](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -127,7 +127,7 @@ with slides.Presentation() as presentation:
     presentation.save("radical.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání funkcí a limit**
+## **Přidat funkce a limity**
 
 Použijte [`as_argument_of_function`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) nebo [`function`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/function/) pro funkce jako `sin(x)`, `log(x)` nebo vlastní názvy funkcí. Pro limity vložte `lim` do [MathLimit](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathlimit/) nebo použijte [`set_lower_limit`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/).
 
@@ -154,15 +154,15 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pro vlastní název funkce nastavte název funkce jako aktuální prvek:
+Pro vlastní název funkce udělejte název funkce aktuálním elementem:
 
 ```py
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
-## **Přidání N‑ary operátorů a integrálů**
+## **Přidat N-ární operátory a integrály**
 
-K součtům, sjednocením, průnikům a dalším velkým operátorům použijte [`nary`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/nary/). K integrálům použijte [`integral`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/integral/). Oba postupy umožňují nastavit dolní a horní limity.
+Použijte [`nary`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/nary/) pro součty, sjednocení, průniky a další velké operátory. Použijte [`integral`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/integral/) pro integrály. Obě metody umožňují nastavit spodní a horní limity.
 
 ![Součet s dolní a horní limitou](powerpoint-math-equations_7.png)
 
@@ -189,7 +189,7 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-N‑ary operátory jsou určeny pro velké operátory s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` se obvykle přidávají jako `MathematicalText` a spojují do výrazu.
+N-ární operátory slouží k velkým operátorům s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` se obvykle přidávají jako `MathematicalText` a spojují se do výrazu.
 
 Pro integrál použijte `integral`:
 
@@ -198,11 +198,11 @@ integral_base = math.MathematicalText("x").join(math.MathematicalText("dx").to_b
 integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 ```
 
-## **Přidání matic**
+## **Přidat matice**
 
-Použijte [MathMatrix](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathmatrix/) pro řádky a sloupce. Matice ve výchozím nastavení neobsahují závorky, takže je obalte, když potřebujete závorky, hranaté závorky nebo složené závorky.
+Použijte [MathMatrix](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathmatrix/) k definování řádků a sloupců. Matice ve výchozím nastavení neobsahují závorky, takže je obalte, pokud potřebujete závorky, hranaté závorky nebo složené závorky.
 
-![Matematická matice se dvěma řádky a jednou prázdnou buňkou](powerpoint-math-equations_10.png)
+![Matice s dvěma řádky a jednou prázdnou buňkou](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -226,11 +226,11 @@ with slides.Presentation() as presentation:
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání polí rovnic**
+## **Přidat pole rovnic**
 
-Použijte [`to_math_array`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/to_math_array/) když potřebujete zarovnané rovnice nebo vertikální zásobník výrazů.
+Použijte [`to_math_array`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/to_math_array/) když potřebujete zarovnané rovnice nebo svislé seskupení výrazů.
 
-![Vertikální matematické pole s x nad y](powerpoint-math-equations_11.png)
+![Vertikální matice s x nad y](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -253,9 +253,9 @@ with slides.Presentation() as presentation:
     presentation.save("equation-array.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání trigonometrických funkcí**
+## **Přidat trigonometrické funkce**
 
-Použijte [`as_argument_of_function`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) když je argument aktuální prvek a název funkce je známý.
+Použijte [`as_argument_of_function`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) když je argument aktuálním elementem a název funkce je známý.
 
 ![Trigonometrická funkce cos aplikovaná na 2x](powerpoint-math-equations_6.png)
 
@@ -278,9 +278,9 @@ with slides.Presentation() as presentation:
     presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání dolních a horních indexů**
+## **Přidat dolní a horní indexy**
 
-Použijte pomocníky pro dolní a horní indexy pro indexy a mocniny. Když musí být indexy zobrazeny na levé straně základu, použijte [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
+Použijte pomocníky pro dolní a horní indexy pro indexy a mocniny. Když se indexy musí zobrazit na levé straně základu, použijte [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
 
 ![Velké Y s levým dolním indexem 1 a horním indexem n](powerpoint-math-equations_9.png)
 
@@ -301,11 +301,11 @@ with slides.Presentation() as presentation:
     presentation.save("subscript-superscript.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání oddělovačů**
+## **Přidat ohraničovače**
 
-Použijte [`enclose`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/enclose/) k umístění výrazu uvnitř oddělovačů. Můžete také nastavit oddělovací znak pro výrazy s oddělovači, které obsahují několik elementů.
+Použijte [`enclose`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/enclose/) k vložení výrazu do ohraničovačů. Můžete také nastavit znak oddělovače pro výrazy v ohraničovačích, které obsahují několik elementů.
 
-![Výraz s oddělovači obsahující x, y a z oddělené svislými čarami](powerpoint-math-equations_13.png)
+![Výraz s ohraničovači obsahující x, y a z oddělené svislými čárami](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -330,11 +330,11 @@ with slides.Presentation() as presentation:
     presentation.save("delimiters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Přidání rámečkového boxu**
+## **Přidat rámečkový box**
 
-Použijte [`to_border_box`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/to_border_box/) když má být rovnice sama o sobě rámečkována.
+Použijte [`to_border_box`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/to_border_box/) když má být samotná rovnice orámována.
 
-![Rovnice v rámečku zobrazující a na druhou rovná se b na druhou plus c na druhou](powerpoint-math-equations_12.png)
+![Rovnice v rámečku, zobrazující a na druhou rovná se b na druhou plus c na druhou](powerpoint-math-equations_12.png)
 
 ```py
 import aspose.slides as slides
@@ -361,9 +361,9 @@ with slides.Presentation() as presentation:
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Seskupení termínů**
+## **Seskupit výrazy**
 
-Použijte [`group`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/group/) k umístění skupinového znaku nad nebo pod výraz. Přidejte limitu pro popisek seskupených termínů.
+Použijte [`group`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/group/) abyste umístili znak seskupení nad nebo pod výraz. Přidejte limitu pro označení seskupených termínů.
 
 ![Výraz x plus y seskupený s popiskem libovolný text pod ním](powerpoint-math-equations_15.png)
 
@@ -388,11 +388,11 @@ with slides.Presentation() as presentation:
     presentation.save("grouped-terms.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Formátování matematických elementů**
+## **Formátovat matematické elementy**
 
-Používejte pomocníky pro formátování jen tam, kde objasňují vzorec. Například [`overbar`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/overbar/) umístí čáru nad matematický element.
+Používejte pomocníky formátování pouze tam, kde objasňují vzorec. Například [`overbar`](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/overbar/) umístí čáru nad matematický element.
 
-![Matematický výraz ABC s vodorovnou čarou nad ním](powerpoint-math-equations_14.png)
+![Matematický výraz ABC s nadčarou](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -422,12 +422,12 @@ with slides.Presentation() as presentation:
 | Přidat funkce | [function](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
 | Přidat odmocniny | [radical](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/radical/) |
 | Přidat limity | [set_lower_limit](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
-| Přidat levé indexy | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
+| Přidat levostranné indexy | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
 | Přidat součty a integrály | [nary](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/integral/) |
 | Přidat matice | [MathMatrix](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/mathmatrix/) |
 | Přidat pole rovnic | [to_math_array](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
-| Přidat oddělovače | [enclose](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/enclose/) |
-| Přidat vodorovné čáry a rámy | [overbar](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
+| Přidat ohraničovače | [enclose](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/enclose/) |
+| Přidat čáry a rámečky | [overbar](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
 | Seskupit termíny | [group](https://reference.aspose.com/slides/cs/python-net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **Často kladené otázky**
@@ -438,8 +438,8 @@ Ano. Otevřete prezentaci, najděte tvar, který obsahuje `MathPortion`, získej
 
 **Ukládají se rovnice jako editovatelná matematika v PowerPointu?**
 
-Ano. Při uložení do PPTX Aspose.Slides zapíše rovnici jako editovatelný Office matematický obsah.
+Ano. Když ukládáte do PPTX, Aspose.Slides zapíše rovnici jako editovatelný obsah Office Math.
 
 **Mohu exportovat rovnice do LaTeXu?**
 
-Aspose.Slides exportuje matematické rovnice do MathML. Pokud potřebujete LaTeX, nejprve exportujte do MathML a poté převodíte MathML pomocí nástroje, který podporuje váš cílový LaTeX dialekt.
+Ano. Získáte [MathParagraph] rovnice z jejího [MathPortion] a zavoláte [MathParagraph.to_latex] k přímému exportu. Kompletní příklad najdete v [Export rovnic z prezentací v Pythonu přes .NET](/slides/cs/python-net/exporting-math-equations/#export-math-equations-to-latex).

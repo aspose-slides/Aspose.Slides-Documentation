@@ -1,34 +1,38 @@
 ---
-title: Quản lý Workbook Biểu đồ trong Bản trình chiếu bằng JavaScript
-linktitle: Workbook Biểu đồ
+title: Quản lý Sách Tính Biểu Đồ trong Bản Trình Chiếu bằng JavaScript
+linktitle: Sách Tính Biểu Đồ
 type: docs
 weight: 70
 url: /vi/nodejs-java/chart-workbook/
 keywords:
-- workbook biểu đồ
+- sách tính biểu đồ
 - dữ liệu biểu đồ
-- ô workbook
+- ô sách tính
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- workbook ngoại
-- dữ liệu ngoại
+- sách tính bên ngoài
+- dữ liệu bên ngoài
+- bộ nhớ đệm biểu đồ
+- khôi phục sách tính
 - PowerPoint
-- trình chiếu
+- bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho Node.js thông qua Java: dễ dàng quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hoá dữ liệu trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho Node.js thông qua Java: dễ dàng quản lý sách tính biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình chiếu của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với workbook biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ qua các stream workbook, sử dụng các ô workbook làm nhãn dữ liệu biểu đồ, truy cập các bộ sưu tập worksheet và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sách tính biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sách tính, sử dụng các ô trong sách tính làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập bảng tính, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng đề cập đến việc làm việc với workbook bên ngoài như nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một workbook bên ngoài, lấy đường dẫn của workbook bên ngoài được liên kết với biểu đồ và chỉnh sửa dữ liệu biểu đồ khi workbook sẵn có.
+Nó cũng đề cập đến việc làm việc với sách tính bên ngoài làm nguồn dữ liệu biểu đồ. Các ví dụ minh họa cách tạo và gán một sách tính bên ngoài, lấy đường dẫn của sách tính bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sách tính khả dụng.
 
-## **Đọc và Ghi Dữ liệu Biểu đồ từ Workbook**
+## **Đọc và Ghi Dữ Liệu Biểu Đồ Từ Sách Tính**
 
-Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) cho phép bạn đọc và ghi workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Note** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
+Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) cho phép bạn đọc và ghi sách tính dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc có cấu trúc tương tự như nguồn.
+
+Đoạn mã JavaScript sau minh họa một thao tác mẫu:
 
 ```javascript
 var pres = new aspose.slides.Presentation("chart.pptx");
@@ -46,20 +50,22 @@ try {
 }
 ```
 
-## **Đặt Ô WorkBook làm Nhãn Dữ liệu Biểu đồ**
+## **Đặt Ô Sách Tính Là Nhãn Dữ Liệu Biểu Đồ**
 
 1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation) .
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
-3. Thêm biểu đồ Bubble với một số dữ liệu.
-4. Truy cập series của biểu đồ.
-5. Đặt ô workbook làm nhãn dữ liệu.
-6. Lưu bản trình chiếu.
+1. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
+1. Thêm một biểu đồ Bubble với một số dữ liệu.
+1. Truy cập series của biểu đồ.
+1. Đặt ô sách tính làm nhãn dữ liệu.
+1. Lưu bản trình diễn.
+
+Đoạn mã JavaScript dưới đây cho thấy cách đặt một ô sách tính làm nhãn dữ liệu biểu đồ:
 
 ```javascript
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
-// Khởi tạo một lớp trình chiếu đại diện cho tệp trình chiếu
+// Khởi tạo lớp trình chiếu đại diện cho tệp trình chiếu
 var pres = new aspose.slides.Presentation("chart2.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -79,7 +85,9 @@ try {
 }
 ```
 
-## **Quản lý Worksheets**
+## **Quản Lý Bảng Tính**
+
+Đoạn mã JavaScript này minh họa một thao tác trong đó phương thức [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) được sử dụng để truy cập bộ sưu tập bảng tính:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -96,7 +104,9 @@ try {
 }
 ```
 
-## **Xác định Loại Nguồn Dữ liệu**
+## **Chỉ Định Loại Nguồn Dữ Liệu**
+
+Đoạn mã JavaScript này cho thấy cách chỉ định loại cho một nguồn dữ liệu:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -115,9 +125,9 @@ try {
 }
 ```
 
-## **Phát hiện Định dạng Workbook Nhúng không được Hỗ trợ**
+## **Phát Hiện Định Dạng Sách Tính Nhúng Không Hỗ Trợ**
 
-Aspose.Slides không hỗ trợ định dạng workbook nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
+Aspose.Slides không hỗ trợ định dạng sách tính nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/workbooktype/) để phát hiện các định dạng không hỗ trợ và bỏ qua các biểu đồ đó.
 
 ```js
 let presentation = new aspose.slides.Presentation("sample.pptx");
@@ -135,24 +145,26 @@ try {
 
         if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Workbook nhúng ở định dạng .xlsb, không được hỗ trợ.
+            // Sổ làm việc nhúng ở định dạng .xlsb, không được hỗ trợ.
             continue;
         }
 
-        // Đọc hoặc sửa dữ liệu workbook biểu đồ tại đây.
+        // Đọc hoặc sửa đổi dữ liệu sổ làm việc biểu đồ ở đây.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Workbook Ngoại**
+## **Sách Tính Bên Ngoài**
 
-Aspose.Slides hỗ trợ workbook ngoại như nguồn dữ liệu cho biểu đồ.
+Aspose.Slides hỗ trợ sách tính bên ngoài làm nguồn dữ liệu cho biểu đồ.
 
-### **Tạo Workbook Ngoại**
+### **Tạo Sách Tính Bên Ngoài**
 
-Sử dụng các phương thức **`readWorkbookStream`** và **`setExternalWorkbook`**, bạn có thể tạo một workbook ngoại từ đầu hoặc biến một workbook nội thành ngoại.
+Sử dụng các phương thức **`readWorkbookStream`** và **`setExternalWorkbook`**, bạn có thể tạo một sách tính bên ngoài từ đầu hoặc chuyển một sách tính nội bộ thành sách tính bên ngoài.
+
+Đoạn mã JavaScript này minh họa quá trình tạo sách tính bên ngoài:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -178,11 +190,13 @@ try {
 }
 ```
 
-### **Đặt Workbook Ngoại**
+### **Đặt Sách Tính Bên Ngoài**
 
-Sử dụng phương thức **`setExternalWorkbook`**, bạn có thể gán một workbook ngoại cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook ngoại (nếu workbook đã được di chuyển).
+Sử dụng phương thức **`setExternalWorkbook`**, bạn có thể gán một sách tính bên ngoài cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sách tính bên ngoài (nếu sách đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các workbook đó làm nguồn dữ liệu ngoại. Nếu cung cấp đường dẫn tương đối cho workbook ngoại, nó sẽ tự động được chuyển sang đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sách tính được lưu trữ ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các sách tính đó làm nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho một sách tính bên ngoài, nó sẽ tự động được chuyển sang đường dẫn tuyệt đối.
+
+Đoạn mã JavaScript này cho thấy cách đặt một sách tính bên ngoài:
 
 ```javascript
 // Tạo một thể hiện của lớp Presentation
@@ -206,10 +220,10 @@ try {
 }
 ```
 
-Tham số `ChartData` (trong phương thức `setExternalWorkbook`) được dùng để chỉ định có tải workbook Excel hay không.
+Tham số `ChartData` (được truyền vào phương thức `setExternalWorkbook`) được dùng để chỉ định liệu một sách tính Excel có được tải hay không.
 
-* Khi giá trị `ChartData` được đặt thành `false`, chỉ đường dẫn workbook được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ workbook mục tiêu. Bạn có thể dùng thiết lập này khi workbook mục tiêu không tồn tại hoặc không khả dụng.  
-* Khi giá trị `ChartData` được đặt thành `true`, dữ liệu biểu đồ sẽ được cập nhật từ workbook mục tiêu.
+* Khi giá trị `ChartData` được đặt là `false`, chỉ đường dẫn sách tính được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ sách tính mục tiêu. Bạn có thể muốn sử dụng thiết lập này khi sách tính mục tiêu không tồn tại hoặc không khả dụng.
+* Khi giá trị `ChartData` được đặt là `true`, dữ liệu biểu đồ sẽ được cập nhật từ sách tính mục tiêu.
 
 ```javascript
 // Tạo một thể hiện của lớp Presentation
@@ -226,13 +240,15 @@ try {
 }
 ```
 
-### **Lấy Đường Dẫn Workbook Nguồn Dữ liệu Ngoại của Biểu đồ**
+### **Lấy Đường Dẫn Sách Tính Nguồn Dữ Liệu Bên Ngoài Của Biểu Đồ**
 
 1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation) .
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
-3. Tạo một đối tượng cho shape biểu đồ.
-4. Tạo một đối tượng cho loại nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
-5. Chỉ định điều kiện liên quan dựa trên việc loại nguồn bằng với loại nguồn dữ liệu workbook ngoại.
+1. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
+1. Tạo một đối tượng cho hình dạng biểu đồ.
+1. Tạo một đối tượng cho loại nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
+1. Chỉ định điều kiện liên quan dựa trên việc loại nguồn giống với loại nguồn dữ liệu sách tính bên ngoài.
+
+Đoạn mã JavaScript này minh họa thao tác:
 
 ```javascript
 // Tạo một thể hiện của lớp Presentation
@@ -253,9 +269,11 @@ try {
 }
 ```
 
-### **Chỉnh sửa Dữ liệu Biểu đồ**
+### **Chỉnh Sửa Dữ Liệu Biểu Đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong workbook ngoại giống như khi thay đổi nội dung của workbook nội. Khi workbook ngoại không thể tải được, một ngoại lệ sẽ được ném.
+Bạn có thể chỉnh sửa dữ liệu trong sách tính bên ngoài tương tự như khi thay đổi nội dung của sách tính nội bộ. Khi không thể tải một sách tính bên ngoài, một ngoại lệ sẽ được ném ra.
+
+Đoạn mã JavaScript này là triển khai của quá trình đã mô tả:
 
 ```javascript
 // Tạo một thể hiện của lớp Presentation
@@ -272,28 +290,54 @@ try {
 }
 ```
 
-## **Câu hỏi thường gặp**
+### **Khôi Phục Sách Tính Từ Bộ Nhớ Đệm Biểu Đồ**
 
-**Tôi có thể xác định liệu một biểu đồ cụ thể có được liên kết với workbook ngoại hay nhúng không?**
+Nếu một biểu đồ sử dụng sách tính bên ngoài mà bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo sách tính biểu đồ từ dữ liệu đã được lưu trong bộ nhớ đệm của bản trình diễn. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/), cấu hình nó với [SpreadsheetOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/spreadsheetoptions/), và gọi [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) với giá trị `true` trước khi mở bản trình diễn.
 
-Có. Một biểu đồ có [data source type](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) và một [path to an external workbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là workbook ngoại, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp ngoại đang được sử dụng.
+Ví dụ JavaScript sau mở một bản trình diễn mà biểu đồ tham chiếu tới một sách tính bên ngoài không khả dụng và truy cập dữ liệu đã khôi phục thông qua [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
-**Các đường dẫn tương đối tới workbook ngoại có được hỗ trợ và chúng được lưu như thế nào?**
+```javascript
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
-Có. Nếu bạn chỉ định đường dẫn tương đối, nó sẽ tự động được chuyển sang đường dẫn tuyệt đối. Điều này thuận tiện cho việc di động dự án; tuy nhiên, hãy lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
 
-**Tôi có thể sử dụng workbook nằm trên tài nguyên/mạng chia sẻ không?**
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-Có, các workbook như vậy có thể được sử dụng làm nguồn dữ liệu ngoại. Tuy nhiên, việc chỉnh sửa trực tiếp workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể dùng làm nguồn.
+    // Đọc hoặc sửa đổi dữ liệu sổ làm việc đã khôi phục ở đây.
+} finally {
+    presentation.dispose();
+}
+```
 
-**Aspose.Slides có ghi đè lên file XLSX ngoại khi lưu bản trình chiếu không?**
+Nếu sách tính bên ngoài không khả dụng và tính năng khôi phục bị tắt, Aspose.Slides sẽ ném một ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã được lưu trong bộ nhớ đệm là một phương án dự phòng chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã được thực hiện trên sách tính bên ngoài sau lần cập nhật cuối cùng của bản trình diễn.
 
-Không. Bản trình chiếu lưu một [link to the external file](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) và dùng nó để đọc dữ liệu. File ngoại không bị thay đổi khi bản trình chiếu được lưu.
+## **Câu Hỏi Thường Gặp**
 
-**Nếu file ngoại được bảo vệ bằng mật khẩu, tôi phải làm gì?**
+**Tôi có thể xác định được một biểu đồ cụ thể có liên kết tới sách tính bên ngoài hay nhúng không?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Cách phổ biến là loại bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](/cells/nodejs-java/)) và liên kết tới bản sao đó.
+Có. Một biểu đồ có [loại nguồn dữ liệu](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) và một [đường dẫn tới sách tính bên ngoài](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là một sách tính bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
 
-**Nhiều biểu đồ có thể tham chiếu cùng một workbook ngoại không?**
+**Các đường dẫn tương đối tới sách tính bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Mỗi biểu đồ lưu link riêng của mình. Nếu tất cả đều trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ khi dữ liệu được tải lại.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển sang đường dẫn tuyệt đối. Điều này thuận tiện cho việc di chuyển dự án; tuy nhiên, hãy lưu ý rằng bản trình diễn sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+
+**Tôi có thể dùng sách tính nằm trên tài nguyên mạng/chia sẻ không?**
+
+Có, các sách tính như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các sách tính từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được sử dụng làm nguồn.
+
+**Aspose.Slides có ghi đè lên tệp XLSX bên ngoài khi lưu bản trình diễn không?**
+
+Không. Bản trình diễn lưu một [liên kết tới tệp bên ngoài](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) và dùng liên kết này để đọc dữ liệu. Tệp bên ngoài sẽ không bị thay đổi khi bản trình diễn được lưu.
+
+**Nếu tệp bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**
+
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là tháo bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](/cells/nodejs-java/)) và liên kết tới bản sao đó.
+
+**Nhiều biểu đồ có thể tham chiếu tới cùng một sách tính bên ngoài không?**
+
+Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu chúng đều trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ khi dữ liệu được tải lại.

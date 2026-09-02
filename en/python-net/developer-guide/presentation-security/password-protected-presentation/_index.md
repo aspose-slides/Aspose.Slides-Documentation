@@ -1,295 +1,187 @@
 ---
-title: Secure Presentations with Passwords Using Python
+title: Password-Protect Presentations in Python
 linktitle: Password Protection
 type: docs
 weight: 20
 url: /python-net/password-protected-presentation/
 keywords:
-- lock PowerPoint
-- lock presentation
-- unlock PowerPoint
-- unlock presentation
-- protect PowerPoint
-- protect presentation
-- set password
-- add password
+- password-protected presentation
+- opening password
 - encrypt PowerPoint
-- encrypt presentation
 - decrypt PowerPoint
-- decrypt presentation
-- write protection
-- PowerPoint security
-- presentation security
-- remove password
-- remove protection
+- validate presentation password
+- check presentation password
+- open encrypted presentation
 - remove encryption
-- disable password
-- disable protection
-- remove write protection
-- PowerPoint presentation
+- PowerPoint
+- PPT
+- PPTX
+- presentation
 - Python
 - Aspose.Slides
-description: "Learn how to effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Boost your productivity and secure your presentations with our step-by-step guide."
+description: "Encrypt, detect, validate, open, and decrypt password-protected PowerPoint PPT and PPTX presentations in Python with Aspose.Slides."
 ---
 
-## **Introduction**
+## **Overview**
 
-When you password protect a presentation, it means you are setting a password that enforces certain restrictions on the presentation. To remove the restrictions, the password has to be entered. A password-protected presentation is considered a locked presentation.
+An opening password encrypts a presentation. The correct password is required to load and view the presentation content, so this protection provides confidentiality.
 
-Typically, you can set a password to enforce these restrictions on a presentation:
+An opening password is different from a write-protection password. Write protection restricts modification but does not encrypt the content or prevent the presentation from being loaded. To manage passwords for modifying presentations, see [Write-Protect Presentations](/slides/python-net/write-protected-presentation/).
 
-- **Modification**
+The workflows below apply to both PPT and PPTX presentations. The examples use both formats where their file-based and stream-based behavior is important.
 
-  If you want only certain users to modify your presentation, you can set a modification restriction. The restriction here prevents people from modifying, changing, or copying things in your presentation (unless they provide the password). 
+## **Encrypt a Presentation with an Opening Password**
 
-  However, in this case, even without the password, a user will be able to access your document and open it. In this read-only mode, the user can view the contents or things—hyperlinks, animations, effects, and others—inside your presentation, but they cannot copy items or save the presentation. 
+Use [ProtectionManager.encrypt](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt/) to assign an opening password. Then use [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) to persist the encrypted presentation.
 
-- **Opening**
-
-  If you want only certain users to open your presentation, you can set an opening restriction. The restriction here prevents people from even viewing the contents of your presentation (unless they provide the password).
-
-  Technically, the opening restriction also prevents users from modifying your presentations: When people cannot open a presentation, they cannot make modify or make changes to it. 
-  
-  **Note** that when you password protect a presentation to prevent opening, the presentation file becomes encrypted.
-
-## How to Password Protect a Presentation Online
-
-1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
-
-   ![todo:image_alt_text](slides-lock.png)
-
-2. Click **Drop or upload your files**.
-
-3. Select the file you want to password protect on your computer. 
-
-4. Input your preferred password for edit protection; Input your preferred password for view protection. 
-
-5. If you want users to see your presentation as the final copy, tick the **Mark as final** checkbox.
-
-6. Click **PROTECT NOW.** 
-
-7. Click **DOWNLOAD NOW.**
-
-## **Password Protection for Presentations in Aspose.Slides**
-**Supported formats**
-
-Aspose.Slides supports password protection, encryption, and similar operations for presentations in these formats: 
-
-- PPTX and PPT - Microsoft PowerPoint Presentation 
-- ODP - OpenDocument Presentation 
-- OTP -  OpenDocument Presentation Template 
-
-**Supported operations**
-
-Aspose.Slides allows you to use password protection on presentations to prevent modifications in these ways:
-
-- Encrypting a presentation
-- Setting a write protection to a presentation
-
-**Other operations**
-
-Aspose.Slides allows you to perform other tasks involving password protection and encryption in these ways:
-
-- Decrypting a presentation; opening an encrypted presentation
-- Removing encryption; disabling password protection
-- Removing write protection from a presentation
-- Getting the properties of an encrypted presentation
-- Checking whether a presentation is encrypted
-- Checking whether a presentation is password protected.
-
-## **Encrypting a Presentation**
-
-You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user has to provide the password. 
-
-To encrypt or password protect a presentation, you have to use the encrypt method (from [ProtectionManager](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/)) to set a password for the presentation. You pass the password to the encrypt method and use the save method to save the now encrypted presentation. 
-
-This sample code shows you how to encrypt a presentation:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.encrypt("123123")
-    pres.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Setting Write Protection to a Presentation** 
-
-You can add a mark stating “Do not modify” to a presentation. This way, you get to tell users that you do not want them to make changes to the presentation.  
-
-**Note** that the write protection process does not encrypt the presentation. Therefore, users—if they actually want to—can modify the presentation, but to save the changes, they will have to create a presentation with a different name. 
-
-To set a write protection, you have to use the setWriteProtection method. This sample code shows you how to set a write protection to a presentation:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation() as pres:
-    pres.protection_manager.set_write_protection("123123")
-    pres.save("write-protected-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Decrypting a Presentation; Opening an Encrypted Presentation**
-
-Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) method with no parameters. You will then have to enter the correct password to load the presentation. 
-
-This sample code shows you how to decrypt a presentation: 
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    print(pres.document_properties.author)
-```
-
-## **Removing Encryption; Disabling Password Protection**
-
-You can remove the encryption or password protection on a presentation. This way, users become able to access or modify the presentation without restrictions. 
-
-To remove encryption or password protection, you have to call the [remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) method. This sample code shows you to remove encryption from a presentation:
-
-```py
-import aspose.slides as slides
-
-loadOptions = slides.LoadOptions()
-loadOptions.password = "123123"
-with slides.Presentation("encrypted-pres.pptx", loadOptions) as pres:
-    pres.protection_manager.remove_encryption()
-    pres.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Removing Write Protection from a Presentation**
-
-You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like—and they get no warnings when they perform such tasks.
-
-You can remove the write protection from a presentation by using the [remove_write_protection](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) method. This sample code shows you to remove the write protection from a presentation:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    pres.protection_manager.remove_write_protection()
-    pres.save("write-protection-removed.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Get Properties of an Encrypted Presentation**
-
-Typically, users struggle to retrieve the document properties of an encrypted or password-protected presentation. However, Aspose.Slides offers a mechanism that allows you to password protect a presentation while still retaining the ability for users to access its properties.
-
-**Note:** By default, when Aspose.Slides encrypts a presentation, the presentation’s document properties are also password protected. If you need to make the document properties accessible even after encryption, Aspose.Slides allows you to do precisely that.
-
-If you want users to retain the ability to access the properties of an encrypted presentation, set the `encrypt_document_properties` property of [ProtectionManager](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) to `False`. This sample code shows you how to encrypt a presentation while still providing users access to its document properties:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("pres.pptx") as presentation:
-    presentation.protection_manager.encrypt_document_properties = False
-    presentation.protection_manager.encrypt("123123")
-    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Load Only Document Properties from an Encrypted Presentation**
-
-To inspect the metadata of an encrypted presentation without loading its slides or other content, create a [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) object and set [only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) to `True`. In this mode, Aspose.Slides ignores the password and loads only the document properties that are publicly accessible.
-
-The following code example reads built-in document properties and lists custom document properties through [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
-
-```py
-import aspose.slides as slides
-
-load_options = slides.LoadOptions()
-load_options.only_load_document_properties = True
-
-with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
-    document_properties = presentation.document_properties
-
-    # Read built-in document properties.
-    print("Title: " + document_properties.title)
-    print("Author: " + document_properties.author)
-
-    # List custom document properties.
-    custom_property_count = document_properties.count_of_custom_properties
-
-    for property_index in range(custom_property_count):
-        property_name = document_properties.get_custom_property_name(property_index)
-        print(property_name)
-```
-
-This workflow works only when the document properties were left unencrypted (public) when the presentation was encrypted. If the document properties are encrypted, setting `only_load_document_properties` to `True` causes an exception because the password is ignored in this mode. To access encrypted document properties or load the complete presentation, including its slides and other content, provide the correct `password` value in [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/).
-
-## **Checking whether a Presentation is Password Protected Before Loading it**
-
-Before you load a presentation, you might want to check and confirm that the presentation has not been protected with a password. This way, you get to avoid errors and similar issues, which come up when a password protected presentation is loaded without its password.
-
-This Python code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
+The following example encrypts a PPTX presentation:
 
 ```python
 import aspose.slides as slides
 
-presentationInfo = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print("The presentation is password protected: " + str(presentationInfo.is_password_protected))
+with slides.Presentation("pres.pptx") as presentation:
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Checking whether a Presentation is Encrypted**
+## **Load an Encrypted Presentation**
 
-Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) property, which returns `True` if the presentation is encrypted or `False` if the presentation isn't encrypted. 
+Set [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) to the opening password and pass the options to [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) when loading the file. Loading fails when an opening password is required but the supplied password is missing or incorrect.
 
-This sample code shows you how to check whether a presentation is encrypted:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    print(str(pres.protection_manager.is_encrypted))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    # Work with the decrypted presentation.
+    pass
 ```
 
-## **Checking whether a Presentation is Write Protected**
+## **Remove Encryption from a Presentation**
 
-Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [is_write_protected](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/) property, which returns `True` if the presentation is encrypted or `False` if the presentation isn't encrypted. 
+Load the presentation with its opening password, call [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/remove_encryption/), and save the result. The saved presentation can then be loaded without a password.
 
-This sample code shows you how to check whether a presentation is write-protected:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    print(str(pres.protection_manager.is_write_protected))
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    presentation.protection_manager.remove_encryption()
+    presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Validating or Confirming that a Specific Password has been used to Protect a Presentation**
+## **Validate an Opening Password Before Loading**
 
-You may want to check and confirm that a specific password has been used to protect a presentation document. Aspose.Slides provides the means for you to validate a password. 
+Use [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) to obtain [PresentationInfo](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) without creating a complete presentation instance. Check [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_password_protected/) before requesting or validating a password. When protection is present, validate the supplied value with [PresentationInfo.check_password](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/check_password/).
 
-This sample code shows you how to validate a password:
+### **File-Path Workflow**
 
-```py
+The following example validates an opening password for a PPTX file, passes the validated value to [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), and then loads the complete presentation:
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("write-protected-pres.pptx") as pres:
-    # check if "pass" is matched with
-    matched = pres.protection_manager.check_write_protection("my_password")
-    print(str(matched))
+file_path = "protected-presentation.pptx"
+password = "open_password"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+
+if not presentation_info.is_password_protected:
+    print("The presentation does not have an opening password.")
+elif not presentation_info.check_password(password):
+    print("The opening password is incorrect.")
+else:
+    load_options = slides.LoadOptions()
+    load_options.password = password
+
+    with slides.Presentation(file_path, load_options) as presentation:
+        print("The presentation was validated and loaded successfully.")
 ```
 
-It returns `True` if the presentation has been encrypted with the specified password. Otherwise, it returns `False`. 
+### **Stream Workflow**
 
-{{% alert color="primary" title="See also" %}} 
+The stream overload of [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) provides the same workflow. Reset the position of a seekable stream before loading the complete presentation from that stream.
+
+The following example uses a PPT file:
+
+```python
+import aspose.slides as slides
+
+password = "open_password"
+
+with open("protected-presentation.ppt", "rb") as presentation_stream:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(presentation_stream)
+
+    if not presentation_info.is_password_protected:
+        print("The presentation does not have an opening password.")
+    elif not presentation_info.check_password(password):
+        print("The opening password is incorrect.")
+    else:
+        presentation_stream.seek(0)
+        load_options = slides.LoadOptions()
+        load_options.password = password
+
+        with slides.Presentation(presentation_stream, load_options) as presentation:
+            print("The presentation was validated and loaded successfully.")
+```
+
+### **CheckPassword Return Values**
+
+[PresentationInfo.check_password](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/check_password/) returns `True` only when the presentation has an opening password and the supplied password is correct. It returns `False` in each of these cases:
+
+- The password is incorrect.
+- The presentation does not have an opening password.
+- The supplied password is `None` or empty.
+
+The behavior is the same for PPT and PPTX presentations.
+
+## **Check Whether a Loaded Presentation Is Encrypted**
+
+After loading a presentation with the correct password, inspect [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_encrypted/) to confirm that the source presentation was encrypted. To detect opening-password protection before loading, use `PresentationInfo.is_password_protected` as shown above.
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
+    is_encrypted = presentation.protection_manager.is_encrypted
+    print("The presentation is encrypted: " + str(is_encrypted))
+```
+
+## **Security Recommendations**
+
+{{% alert color="warning" title="Security" %}}
+Do not log opening passwords or include them in diagnostic messages. Avoid unnecessary repeated validation attempts, keep passwords in memory only as long as needed, and reuse a successful validation result when immediately loading the presentation.
+{{% /alert %}}
+
+## **Password-Protect a Presentation Online**
+
+1. Open the [Aspose.Slides Lock](https://products.aspose.app/slides/lock) application.
+1. Select or upload the presentation.
+1. Enter a password for view protection.
+1. Optionally enter a separate password for edit protection.
+1. Apply the protection and download the resulting file.
+
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/python-net/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**What encryption methods are supported by Aspose.Slides?**
+**What is the difference between an opening password and a write-protection password?**
 
-Aspose.Slides supports modern encryption methods, including AES-based algorithms, ensuring a high level of data security for your presentations.
+An opening password encrypts the presentation and is required to load its content. A write-protection password restricts modification without encrypting the content.
 
-**What happens if an incorrect password is entered when attempting to open a presentation?**
+**Can I validate an opening password without loading all slides?**
 
-An exception is thrown if an incorrect password is used, alerting you that access to the presentation is denied. This helps prevent unauthorized access and protects the presentation content.
+Yes. Obtain presentation information, check whether opening-password protection is present, and validate the password before creating a complete presentation instance.
 
-**Are there any performance implications when working with password-protected presentations?**
+**Do the password-checking workflows support both PPT and PPTX?**
 
-The encryption and decryption process may introduce a slight overhead during opening and saving operations. In most cases, this performance impact is minimal and does not significantly affect the overall processing time of your presentation tasks.
+Yes. File-path and stream-based password detection and validation behave the same for PPT and PPTX presentations.

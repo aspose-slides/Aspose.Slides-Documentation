@@ -184,7 +184,7 @@ To install and use Aspose.Slides for Node.js via Java from a ZIP archive, follow
 9. Now run `node hello.js` @command prompt to run it.
 
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Please use the following [article](https://docs.aspose.com/slides/nodejs-java/troubleshooting-installation/) if you encounter compilation errors during installation of Aspose.Slides for Node.js via Java.
 

@@ -1,5 +1,5 @@
 ---
-title: Quản lý Workbook Biểu đồ trong Bản trình chiếu bằng PHP
+title: Quản lý Workbook Biểu đồ trong Bản trình bày bằng PHP
 linktitle: Workbook Biểu đồ
 type: docs
 weight: 70
@@ -11,24 +11,26 @@ keywords:
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- workbook bên ngoài
-- dữ liệu bên ngoài
+- workbook ngoại vi
+- dữ liệu ngoại vi
+- bộ nhớ đệm biểu đồ
+- khôi phục workbook
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - PHP
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho PHP thông qua Java: dễ dàng quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho PHP thông qua Java: dễ dàng quản lý workbook biểu đồ trong định dạng PowerPoint và OpenDocument để tối ưu hóa dữ liệu bản trình bày của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với workbook biểu đồ trong Aspose.Slides. Nó mô tả cách đọc và ghi dữ liệu biểu đồ thông qua các stream workbook, sử dụng các ô workbook làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet và chỉ định kiểu nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với workbook biểu đồ trong Aspose.Slides. Nó chỉ ra cách đọc và ghi dữ liệu biểu đồ thông qua luồng workbook, sử dụng các ô workbook làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
 
-Nó cũng đề cập đến việc làm việc với workbook bên ngoài như là nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một workbook bên ngoài, truy xuất đường dẫn của workbook bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi workbook khả dụng.
+Nó cũng đề cập đến việc làm việc với workbook ngoại vi làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một workbook ngoại vi, lấy đường dẫn của workbook ngoại vi được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi workbook có sẵn.
 
-## **Đọc và Ghi Dữ liệu Biểu đồ từ Workbook**
-Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#readWorkbookStream) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#writeWorkbookStream) cho phép bạn đọc và ghi workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Note** rằng dữ liệu biểu đồ phải được sắp xếp theo cùng một cách hoặc phải có cấu trúc tương tự như nguồn.
+## **Đọc và Ghi Dữ liệu Biểu đồ Từ Workbook**
+Aspose.Slides cung cấp các phương thức [readWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#readWorkbookStream) và [writeWorkbookStream](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#writeWorkbookStream) cho phép bạn đọc và ghi workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc có cấu trúc tương tự nguồn.
 
-Mã PHP này minh họa một thao tác mẫu:
+Mã PHP này trình bày một thao tác mẫu:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -46,16 +48,16 @@ Mã PHP này minh họa một thao tác mẫu:
   }
 ```
 
-## **Đặt Ô Workbook làm Nhãn Dữ liệu Biểu đồ**
+## **Đặt Ô WorkBook Là Nhãn Dữ liệu Biểu đồ**
 
 1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/php-java/aspose.slides/presentation) .
-1. Lấy tham chiếu đến một slide thông qua chỉ mục của nó.
-1. Thêm biểu đồ Bubble với một số dữ liệu.
-1. Truy cập series của biểu đồ.
-1. Đặt ô workbook làm nhãn dữ liệu.
-1. Lưu bản trình chiếu.
+2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
+3. Thêm biểu đồ Bubble với một số dữ liệu.
+4. Truy cập series của biểu đồ.
+5. Đặt ô workbook làm nhãn dữ liệu.
+6. Lưu bản trình bày.
 
-Mã PHP này cho thấy cách đặt ô workbook làm nhãn dữ liệu biểu đồ:
+Mã PHP này cho bạn cách đặt một ô workbook làm nhãn dữ liệu biểu đồ:
 
 ```php
   $lbl0 = "Label 0 cell value";
@@ -83,7 +85,7 @@ Mã PHP này cho thấy cách đặt ô workbook làm nhãn dữ liệu biểu �
 
 ## **Quản lý Worksheets**
 
-Mã PHP này minh họa một thao tác trong đó phương thức [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/#getWorksheets) được sử dụng để truy cập bộ sưu tập worksheet:
+Mã PHP này trình bày một thao tác trong đó phương thức [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/#getWorksheets) được sử dụng để truy cập bộ sưu tập worksheet:
 
 ```php
   $pres = new Presentation();
@@ -102,7 +104,7 @@ Mã PHP này minh họa một thao tác trong đó phương thức [ChartDataWor
 
 ## **Chỉ định Kiểu Nguồn Dữ liệu**
 
-Mã PHP này cho thấy cách chỉ định kiểu cho một nguồn dữ liệu:
+Mã PHP này cho bạn cách chỉ định một kiểu cho nguồn dữ liệu:
 
 ```php
   $pres = new Presentation();
@@ -123,7 +125,7 @@ Mã PHP này cho thấy cách chỉ định kiểu cho một nguồn dữ liệu
 
 ## **Phát hiện Định dạng Workbook Nhúng Không được Hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng workbook Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/) kết hợp với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
+Aspose.Slides không hỗ trợ định dạng workbook Excel nhị phân (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `getEmbeddedWorkbookType` trên [ChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -147,22 +149,22 @@ try {
       continue;
     }
 
-    # Đọc hoặc sửa dữ liệu workbook của biểu đồ ở đây.
+    # Đọc hoặc chỉnh sửa dữ liệu workbook biểu đồ tại đây.
   }
 } finally {
   $presentation->dispose();
 }
 ```
 
-## **Workbook Bên Ngoài**
+## **External Workbook**
 
-Aspose.Slides hỗ trợ workbook bên ngoài làm nguồn dữ liệu cho biểu đồ.
+Aspose.Slides hỗ trợ workbook ngoại vi làm nguồn dữ liệu cho biểu đồ.
 
-### **Tạo Workbook Bên Ngoài**
+### **Tạo một Workbook Ngoại vi**
 
-Sử dụng các phương thức **`readWorkbookStream`** và **`setExternalWorkbook`**, bạn có thể tạo một workbook bên ngoài từ đầu hoặc biến một workbook nội bộ thành bên ngoài.
+Bằng cách sử dụng các phương thức **`readWorkbookStream`** và **`setExternalWorkbook`**, bạn có thể tạo một workbook ngoại vi từ đầu hoặc chuyển một workbook nội bộ thành ngoại vi.
 
-Mã PHP này minh họa quy trình tạo workbook bên ngoài:
+Mã PHP này trình bày quy trình tạo workbook ngoại vi:
 
 ```php
   $pres = new Presentation();
@@ -190,13 +192,13 @@ Mã PHP này minh họa quy trình tạo workbook bên ngoài:
   }
 ```
 
-### **Đặt Workbook Bên Ngoài**
+### **Đặt một Workbook Ngoại vi**
 
-Sử dụng phương thức **`setExternalWorkbook`**, bạn có thể gán một workbook bên ngoài cho một biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu workbook đã được di chuyển).
+Bằng cách sử dụng phương thức **`setExternalWorkbook`**, bạn có thể gán một workbook ngoại vi cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook ngoại vi (nếu workbook này đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các workbook này như một nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho workbook bên ngoài, nó sẽ tự động được chuyển sang đường dẫn tuyệt đối.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu ở vị trí từ xa hoặc tài nguyên, bạn vẫn có thể sử dụng các workbook đó làm nguồn dữ liệu ngoại vi. Nếu cung cấp đường dẫn tương đối cho một workbook ngoại vi, nó sẽ tự động được chuyển thành đường dẫn đầy đủ.
 
-Mã PHP này cho thấy cách đặt một workbook bên ngoài:
+Mã PHP này cho bạn cách đặt một workbook ngoại vi:
 
 ```php
   # Tạo một thể hiện của lớp Presentation
@@ -220,10 +222,10 @@ Mã PHP này cho thấy cách đặt một workbook bên ngoài:
   }
 ```
 
-Tham số `ChartData` (được truyền vào phương thức `setExternalWorkbook`) được dùng để chỉ định liệu workbook Excel có được tải hay không.
+Tham số `ChartData` (dưới phương thức `setExternalWorkbook`) được dùng để chỉ định liệu workbook Excel có được tải hay không.
 
-* Khi giá trị `ChartData` được đặt là `false`, chỉ đường dẫn workbook được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ workbook mục tiêu. Bạn có thể dùng thiết lập này khi workbook mục tiêu không tồn tại hoặc không khả dụng. 
-* Khi giá trị `ChartData` được đặt là `true`, dữ liệu biểu đồ sẽ được cập nhật từ workbook mục tiêu.
+* Khi giá trị `ChartData` được đặt thành `false`, chỉ đường dẫn workbook được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ workbook đích. Bạn có thể muốn sử dụng thiết lập này khi workbook đích không tồn tại hoặc không khả dụng. 
+* Khi giá trị `ChartData` được đặt thành `true`, dữ liệu biểu đồ sẽ được cập nhật từ workbook đích.
 
 ```php
   # Tạo một thể hiện của lớp Presentation
@@ -240,15 +242,15 @@ Tham số `ChartData` (được truyền vào phương thức `setExternalWorkbo
   }
 ```
 
-### **Lấy Đường dẫn Workbook Nguồn Dữ liệu Bên Ngoài của Biểu đồ**
+### **Lấy Đường dẫn Workbook Nguồn Dữ liệu Ngoại vi của Biểu đồ**
 
 1. Tạo một thể hiện của lớp [Presentation](https://apireference.aspose.com/slides/vi/php-java/aspose.slides/presentation) .
-1. Lấy tham chiếu đến một slide thông qua chỉ mục của nó.
-1. Tạo một đối tượng cho shape biểu đồ.
-1. Tạo một đối tượng cho kiểu nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
-1. Xác định điều kiện phù hợp dựa trên việc kiểu nguồn giống với kiểu nguồn dữ liệu workbook bên ngoài.
+2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
+3. Tạo một đối tượng cho shape biểu đồ.
+4. Tạo một đối tượng cho kiểu nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
+5. Xác định điều kiện liên quan dựa trên việc kiểu nguồn giống với kiểu nguồn dữ liệu workbook ngoại vi.
 
-Mã PHP này minh họa thao tác:
+Mã PHP này trình bày thao tác:
 
 ```php
   # Tạo một thể hiện của lớp Presentation
@@ -260,7 +262,7 @@ Mã PHP này minh họa thao tác:
     if ($sourceType == ChartDataSourceType::ExternalWorkbook) {
       $path = $chart->getChartData()->getExternalWorkbookPath();
     }
-    # Lưu bản trình chiếu
+    # Lưu bản trình bày
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -271,7 +273,7 @@ Mã PHP này minh họa thao tác:
 
 ### **Chỉnh sửa Dữ liệu Biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong workbook bên ngoài theo cách tương tự như khi thay đổi nội dung của workbook nội bộ. Khi không thể tải workbook bên ngoài, một ngoại lệ sẽ được ném ra.
+Bạn có thể chỉnh sửa dữ liệu trong workbook ngoại vi tương tự như khi thay đổi nội dung của workbook nội bộ. Khi một workbook ngoại vi không thể tải, một ngoại lệ sẽ được ném.
 
 Mã PHP này là triển khai của quy trình đã mô tả:
 
@@ -290,28 +292,54 @@ Mã PHP này là triển khai của quy trình đã mô tả:
   }
 ```
 
+### **Khôi phục Workbook từ Bộ nhớ Đệm Biểu đồ**
+
+Nếu một biểu đồ sử dụng workbook ngoại vi bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook biểu đồ từ dữ liệu được lưu trong bộ nhớ đệm của bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/), cấu hình nó với [SpreadsheetOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/spreadsheetoptions/), và gọi [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) với `true` trước khi mở bản trình bày.
+
+Ví dụ PHP sau mở một bản trình bày mà biểu đồ tham chiếu tới một workbook ngoại vi không khả dụng và truy cập dữ liệu đã khôi phục thông qua [Chart::getChartData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chart/#getChartData) và [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
+```php
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+    # Đọc hoặc chỉnh sửa dữ liệu workbook đã khôi phục tại đây.
+} finally {
+    $presentation->dispose();
+}
+```
+
+Nếu workbook ngoại vi không khả dụng và tính năng khôi phục bị tắt, Aspose.Slides sẽ ném một ngoại lệ. Chỉ bật khôi phục khi việc sử dụng dữ liệu biểu đồ đã được lưu trong bộ nhớ đệm là giải pháp chấp nhận được, vì bộ nhớ đệm có thể không chứa các thay đổi đã thực hiện trên workbook ngoại vi sau lần cập nhật cuối cùng của bản trình bày.
+
 ## **FAQ**
 
-**Tôi có thể xác định xem một biểu đồ cụ thể có được liên kết với workbook bên ngoài hay nhúng không?**
+**Tôi có thể xác định liệu một biểu đồ cụ thể có được liên kết với workbook ngoại vi hay nhúng không?**
 
-Có. Một biểu đồ có [kiểu nguồn dữ liệu](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getdatasourcetype/) và [đường dẫn tới workbook bên ngoài](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp bên ngoài đang được sử dụng.
+Có. Một biểu đồ có một [kiểu nguồn dữ liệu](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getdatasourcetype/) và một [đường dẫn tới workbook ngoại vi](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/); nếu nguồn là workbook ngoại vi, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp ngoại vi đang được sử dụng.
 
-**Có hỗ trợ đường dẫn tương đối tới workbook bên ngoài không, và chúng được lưu như thế nào?**
+**Các đường dẫn tương đối tới workbook ngoại vi có được hỗ trợ không, và chúng được lưu như thế nào?**
 
-Có. Nếu bạn chỉ định đường dẫn tương đối, nó sẽ tự động được chuyển sang đường dẫn tuyệt đối. Điều này thuận tiện cho việc di động dự án; tuy nhiên, lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Điều này thuận tiện cho tính di động của dự án; tuy nhiên, hãy lưu ý rằng bản trình bày sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
 
 **Tôi có thể sử dụng workbook nằm trên tài nguyên/mạng chia sẻ không?**
 
-Có, các workbook như vậy có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa workbook từ xa trực tiếp bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
+Có, các workbook như vậy có thể được sử dụng làm nguồn dữ liệu ngoại vi. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu bản trình chiếu không?**
+**Aspose.Slides có ghi đè lên file XLSX ngoại vi khi lưu bản trình bày không?**
 
-Không. Bản trình chiếu lưu một [liên kết tới file bên ngoài](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/) và sử dụng liên kết này để đọc dữ liệu. File bên ngoài sẽ không bị thay đổi khi bản trình chiếu được lưu.
+Không. Bản trình bày lưu một [liên kết tới file ngoại vi](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdata/getexternalworkbookpath/) và sử dụng nó để đọc dữ liệu. File ngoại vi tự nó không bị thay đổi khi bản trình bày được lưu.
 
-**Nếu file bên ngoài được bảo mật bằng mật khẩu, tôi nên làm gì?**
+**Nếu file ngoại vi được bảo mật bằng mật khẩu, tôi nên làm gì?**
 
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Cách thường dùng là gỡ bảo mật trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng cách sử dụng [Aspose.Cells](/cells/php-java/)) và liên kết tới bản sao đó.
+Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường dùng là gỡ bỏ bảo mật trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng [Aspose.Cells](/cells/php-java/)) và liên kết tới bản sao đó.
 
-**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**
+**Nhiều biểu đồ có thể tham chiếu tới cùng một workbook ngoại vi không?**
 
-Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu tất cả chúng cùng trỏ tới cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong mỗi biểu đồ vào lần kế tiếp dữ liệu được tải.
+Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu tất cả chúng đều trỏ tới cùng một tệp, việc cập nhật tệp sẽ được phản ánh trong mỗi biểu đồ vào lần tải dữ liệu tiếp theo.

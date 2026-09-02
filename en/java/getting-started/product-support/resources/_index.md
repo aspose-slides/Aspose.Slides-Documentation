@@ -18,7 +18,7 @@ keywords:
 description: "Discover key Aspose.Slides for Java resources—from downloads and docs to forums and blog updates—to improve working with PPT, PPTX and ODP."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This table lists important Aspose.Slides for Java technical resources. 
 

@@ -5,7 +5,7 @@ weight: 10
 url: /reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This page describes how to create extension for Aspose.Slides for RS.
 
@@ -89,7 +89,7 @@ base.PostProcessTextBox(textBox);
 
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Build it and you will get extension assembly. We are ready to integrate the extension.
 

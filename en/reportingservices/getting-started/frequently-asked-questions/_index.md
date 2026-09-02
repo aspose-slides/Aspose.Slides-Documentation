@@ -5,7 +5,7 @@ weight: 110
 url: /reportingservices/frequently-asked-questions/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This page collects a number of frequently asked questions about:
 

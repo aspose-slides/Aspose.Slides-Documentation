@@ -5,7 +5,7 @@ weight: 20
 url: /jasperreports/resources/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This table lists important Aspose.Slides for Java technical resources. 
 

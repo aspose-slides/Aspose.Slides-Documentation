@@ -23,7 +23,7 @@ This article shows how to work with a doughnut chart in Aspose.Slides by adding 
 It also includes a short FAQ covering related doughnut-chart scenarios, such as using multiple series to create multiple rings, working with exploded doughnut charts, and exporting a chart as a raster image or SVG.
 
 ## **Specify the Center Gap in a Doughnut Chart**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Android via Java now supports specifying the size of the hole in a doughnut chart. In this topic, we will see with example how to specify the size of the hole in a doughnut chart.
 

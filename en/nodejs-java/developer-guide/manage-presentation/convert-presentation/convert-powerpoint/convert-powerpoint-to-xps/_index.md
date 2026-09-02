@@ -37,7 +37,7 @@ Microsoft developed [XPS](https://docs.fileformat.com/page-description-language/
 
 ## **When to Use Microsoft XPS Format**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To see how Aspose.Slides converts PPT or PPTX presentation to the XPS format, you can check out [this free online converter app](https://products.aspose.app/slides/conversion). 
 

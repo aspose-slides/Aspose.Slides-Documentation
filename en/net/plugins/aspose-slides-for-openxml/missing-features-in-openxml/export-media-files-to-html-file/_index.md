@@ -57,7 +57,7 @@ using (Presentation pres = new Presentation(srcFileName))
 ## **Download Running Example**
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/tree/master/Plugins/OpenXML/Missing%20Features/Export%20media%20files%20into%20html)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For more details, visit [Exporting media files into html file](/slides/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
 

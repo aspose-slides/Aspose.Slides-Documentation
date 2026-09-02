@@ -61,6 +61,7 @@ Use the articles below for complete C# examples and format-specific options.
 | PPT/PPTX/ODP to TIFF with notes | Save slides with speaker notes to TIFF. | [Convert PowerPoint to TIFF with Notes](/slides/net/convert-powerpoint-to-tiff-with-notes/) |
 | PPT/PPTX to Word | Convert slides to a Word document when you need document-style output. | [Convert PowerPoint to Word](/slides/net/convert-powerpoint-to-word/) |
 | PPT/PPTX to Markdown | Extract presentation content into Markdown for documentation and text-based workflows. | [Convert PowerPoint to Markdown](/slides/net/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP to XML | Create a text-based PowerPoint XML Presentation for inspection, comparison, troubleshooting, or XML-based workflows. | [Convert PowerPoint to XML](/slides/net/convert-powerpoint-to-xml/) |
 | PPT/PPTX to animated GIF | Create an animated GIF from slides. | [Convert PowerPoint to Animated GIF](/slides/net/convert-powerpoint-to-animated-gif/) |
 | PPT/PPTX to video | Build a video export workflow from presentation slides. | [Convert PowerPoint to Video](/slides/net/convert-powerpoint-to-video/) |
 | Presentation to XAML | Export slides to XAML for .NET UI scenarios. | [Export Presentations to XAML](/slides/net/export-to-xaml/) |
@@ -89,26 +90,26 @@ HTML and HTML5 export are useful for browser viewing, web publishing, and lightw
 
 ## **FAQ**
 
-### Do I need Microsoft PowerPoint to convert presentations?
+**Do I need Microsoft PowerPoint to convert presentations?**
 
 No. Aspose.Slides for .NET is a standalone library and does not require Microsoft PowerPoint or Office automation.
 
-### Can I batch convert many presentations?
+**Can I batch convert many presentations?**
 
 Yes. Load each presentation, save it to the required format, and dispose of the `Presentation` object after processing. For parallel processing, use separate presentation instances and follow the [multithreading](/slides/net/multithreading/) guidance.
 
-### Can I export only selected slides?
+**Can I export only selected slides?**
 
 Yes. Several export methods allow you to pass slide indexes or render individual slides, depending on the output format. See the dedicated article for the target format.
 
-### Can I include hidden slides when exporting to PDF or XPS?
+**Can I include hidden slides when exporting to PDF or XPS?**
 
 Yes. Use the `ShowHiddenSlides` property in [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) or [XpsOptions](https://reference.aspose.com/slides/net/aspose.slides.export/xpsoptions/).
 
-### Can I create PDF/A output?
+**Can I create PDF/A output?**
 
 Yes. PDF compliance settings are available through [PdfOptions.Compliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/compliance/) and [PdfCompliance](https://reference.aspose.com/slides/net/aspose.slides.export/pdfcompliance/).
 
-### How are fonts handled during conversion?
+**How are fonts handled during conversion?**
 
 Aspose.Slides can use embedded fonts, font fallback, and font substitution settings. See [Embedded Font](/slides/net/embedded-font/), [Fallback Font](/slides/net/fallback-font/), and [Font Substitution](/slides/net/font-substitution/).

@@ -23,7 +23,7 @@ keywords:
 description: "Aspose.Slides for Python via .NET offers a comprehensive set of features, including managing text, shapes, tables, and animations, adding audio and video to slides, previewing slides, and exporting to SVG, PDF, and more."
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Welcome to Aspose.Slides for Python via .NET**
 
@@ -87,7 +87,7 @@ Aspose.Slides for Python via .NET is a powerful Python library that allows you t
 
 ### What presentation features does Aspose.Slides support?
 
-The library supports managing text, shapes, tables, charts, animations, master slides, audio, video, and more. It also enables slide preview, rendering, printing, and exporting to formats like PDF, SVG, HTML, and images.
+The library supports managing text, shapes, tables, charts, animations, master slides, audio, video, and more. It also enables slide preview, rendering, and exporting to formats like PDF, SVG, HTML, and images.
 
 ### Can I convert presentations to other formats using Aspose.Slides?
 

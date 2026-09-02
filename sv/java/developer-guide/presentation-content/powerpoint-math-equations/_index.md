@@ -1,6 +1,6 @@
 ---
 title: Lägg till matematiska ekvationer i PowerPoint-presentationer i Java
-linktitle: PowerPoint-matematiska ekvationer
+linktitle: PowerPoint matematiska ekvationer
 type: docs
 weight: 80
 url: /sv/java/powerpoint-math-equations/
@@ -17,33 +17,33 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PPTX med Aspose.Slides för Java, med stöd för OMML, formateringskontroller och tydliga Java‑kodexempel."
+description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PPTX med Aspose.Slides för Java, med stöd för OMML, formateringskontroller och tydliga Java kodexempel."
 ---
 ## **Översikt**
 
-PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för Java kan du skapa samma typ av matematiskt innehåll programatiskt: bråk, radikaler, funktioner, gränser, N‑ära operatorer, matriser, arrayer och formaterade matematiska block.
+PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för Java kan du programatiskt skapa samma typ av matematiskt innehåll: bråk, rötter, funktioner, gränsvärden, N‑äroperatorer, matriser, arrayer och formaterade matematiska block.
 
-I PowerPoint lägger användare normalt till ekvationer via **Infoga > Ekvation**:
+I PowerPoint lägger användare normalt till ekvationer via **Insert > Equation**:
 
-![PowerPoint‑fliken Infoga med kommandot Ekvation markerat](powerpoint-math-equations_1.png)
+![PowerPoint-infoga-flik med kommandot Ekvation markerat](powerpoint-math-equations_1.png)
 
-Resultatet blir redigerbar matematisk text på bilden:
+Resultatet är redigerbar matematisk text på bilden:
 
-![En PowerPoint‑bild som innehåller en redigerbar matematisk ekvation](powerpoint-math-equations_2.png)
+![En PowerPoint-bild som innehåller en redigerbar matematisk ekvation](powerpoint-math-equations_2.png)
 
-Aspose.Slides bygger den matematiska texten genom tre huvudobjekt:
+Aspose.Slides bygger den matematiska texten via tre huvudobjekt:
 
-- En matematisk form, skapad med [addMathShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), är formen som innehåller ekvationen.
-- [MathPortion](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathportion/) lagrar matematiskt innehåll i formens textruta.
-- [MathParagraph](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathparagraph/) innehåller ett eller flera [MathBlock](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathblock/)-objekt.
+- En matematikform, skapad med [addMathShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-), är formen som innehåller ekvationen.
+- [MathPortion](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathportion/) lagrar matematiskt innehåll i formens textram.
+- [MathParagraph](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathparagraph/) innehåller ett eller flera [MathBlock](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathblock/) objekt.
 
-De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathematicaltext/) och de flitiga metoderna från [IMathElement](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/) för att hålla koden kort och läsbar.
+De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathematicaltext/) och de flödande metoderna från [IMathElement](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/) för att hålla koden kort och läsbar.
 
-För MathML‑exportscenarier, se [Export Math Equations from Presentations in Java](/slides/sv/java/exporting-math-equations/).
+För MathML‑exports scenarier, se [Export Math Equations from Presentations in Java](/slides/sv/java/exporting-math-equations/).
 
 ## **Skapa en ekvation**
 
-Detta exempel skapar en matematisk form och lägger till Pythagoras sats:
+Detta exempel skapar en matematikform och lägger till Pythagoras sats:
 
 ![Ekvationen c² = a² + b²](powerpoint-math-equations_3.png)
 
@@ -72,14 +72,16 @@ try {
 ```
 
 {{% alert color="primary" %}}
-`addMathShape` skapar en form som redan innehåller ett matematiskt stycke. Hämta den första `MathPortion`, få dess `MathParagraph` och lägg till matematiska block eller matematiska element i den.
+
+`addMathShape` skapar en form som redan innehåller ett matematiskt stycke. Få åtkomst till den första `MathPortion`, hämta dess `MathParagraph`, och lägg till matematiska block eller matematiska element i den.
+
 {{% /alert %}}
 
 ## **Lägg till bråk**
 
-Använd `divide` för att skapa ett bråk. Du kan välja en bråktyp med [MathFractionTypes](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathfractiontypes/).
+Använd `divide` för att skapa ett bråk. Du kan välja en bråksstil med [MathFractionTypes](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathfractiontypes/).
 
-![Ett snett bråk som visar en delat med x](powerpoint-math-equations_4.png)
+![Ett skevt matematiskt bråk som visar 1 delat med x](powerpoint-math-equations_4.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -107,11 +109,11 @@ För ett staplat bråk, använd `MathFractionTypes.Bar`:
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Lägg till radikaler**
+## **Lägg till rötter**
 
-Använd `radical` för att skapa en kvadratrot, kubikrot eller annan rot. Det aktuella elementet blir basen och argumentet blir graden.
+Använd `radical` för att skapa en kvadratrot, kubrot eller annan rot. Det aktuella elementet blir basen och argumentet blir graden.
 
-![En n‑te rot‑radikal med x under radikaltecknet](powerpoint-math-equations_5.png)
+![Ett n:e gradens rotuttryck med x under rottecknet](powerpoint-math-equations_5.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -133,11 +135,11 @@ try {
 }
 ```
 
-## **Lägg till funktioner och gränser**
+## **Lägg till funktioner och gränsvärden**
 
-Använd `asArgumentOfFunction` eller `function` för funktioner som `sin(x)`, `log(x)` eller egna funktionsnamn. För gränser, placera `lim` i en [MathLimit](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathlimit/) eller använd `setLowerLimit`.
+Använd `asArgumentOfFunction` eller `function` för funktioner som `sin(x)`, `log(x)` eller egna funktionsnamn. För gränsvärden, placera `lim` i en [MathLimit](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathlimit/) eller använd `setLowerLimit`.
 
-![Gränsen för x när x närmar sig oändligheten](powerpoint-math-equations_8.png)
+![Gränsvärdet för x när x närmar sig oändligheten](powerpoint-math-equations_8.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -166,7 +168,7 @@ För ett eget funktionsnamn, gör funktionsnamnet till det aktuella elementet:
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Lägg till N‑ära operatorer och integraler**
+## **Lägg till N‑äroperatorer och integraler**
 
 Använd `nary` för summor, unioner, snitt och andra stora operatorer. Använd `integral` för integraler. Båda metoderna låter dig ange lägre och övre gränser.
 
@@ -195,7 +197,7 @@ try {
 }
 ```
 
-N‑ära operatorer är för stora operatorer med valfria gränser. Enkla operatorer såsom `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och sammanfogas i uttrycket.
+N‑äroperatorer är för stora operatorer med valfria gränser. Enkla operatorer som `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och sätts ihop i uttrycket.
 
 För en integral, använd `integral`:
 
@@ -206,9 +208,9 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **Lägg till matriser**
 
-Använd [MathMatrix](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathmatrix/) för rader och kolumner. Matriser inkluderar normalt inte hakparenteser, så omge matrisen när du behöver parenteser, hakparenteser eller måsvingar.
+Använd [MathMatrix](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathmatrix/) för rader och kolumner. Matriser inkluderar inte hakparenteser som standard, så omge matrisen när du behöver parenteser, hakparenteser eller klamrar.
 
-![En matris med två rader och en tom cell](powerpoint-math-equations_10.png)
+![En tvåradig matematisk matris med en tom cell](powerpoint-math-equations_10.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -238,7 +240,7 @@ try {
 
 Använd `toMathArray` när du behöver justerade ekvationer eller en vertikal stapel av uttryck.
 
-![En vertikal matematikarray med x ovanför y](powerpoint-math-equations_11.png)
+![En vertikal matematisk array med x ovanför y](powerpoint-math-equations_11.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -265,7 +267,7 @@ try {
 
 Använd `asArgumentOfFunction` när argumentet är det aktuella elementet och funktionsnamnet är känt.
 
-![Den trigonometriska funktionen cos applicerad på 2x](powerpoint-math-equations_6.png)
+![Den trigonometriska funktionen cos tillämpad på 2x](powerpoint-math-equations_6.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -289,9 +291,9 @@ try {
 
 ## **Lägg till index och exponenter**
 
-Använd hjälpmetoderna för index och exponenter. När indexen måste visas till vänster om basen, använd `setSubSuperscriptOnTheLeft`.
+Använd hjälpfunktionerna för index och exponenter. När indexen måste visas på vänster sida av basen, använd `setSubSuperscriptOnTheLeft`.
 
-![Ett stort Y med vänster‑satt index 1 och exponent n](powerpoint-math-equations_9.png)
+![En stor Y med vänstertidigt index 1 och exponent n](powerpoint-math-equations_9.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -315,7 +317,7 @@ try {
 
 ## **Lägg till avgränsare**
 
-Använd `enclose` för att placera ett uttryck inom avgränsare. Du kan också ange ett separatort tecken för avgränsade uttryck som innehåller flera element.
+Använd `enclose` för att placera ett uttryck inom avgränsare. Du kan också ange ett avgränsartecken för avgränsade uttryck som innehåller flera element.
 
 ![Ett avgränsat uttryck som innehåller x, y och z separerade med vertikala streck](powerpoint-math-equations_13.png)
 
@@ -344,9 +346,9 @@ try {
 
 ## **Lägg till en ramruta**
 
-Använd `toBorderBox` när själva ekvationen ska omslutas av en ram.
+Använd `toBorderBox` när ekvationen själv ska rammas in.
 
-![En inramad ekvation som visar c² = b² + a²](powerpoint-math-equations_12.png)
+![En inramad ekvation som visar a² = b² + c²](powerpoint-math-equations_12.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -375,9 +377,9 @@ try {
 
 ## **Gruppera termer**
 
-Använd `group` för att placera en grupperingstecken ovanför eller under ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
+Använd `group` för att placera en gruppkaraktär ovanför eller nedanför ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
 
-![Uttrycket x + y grupperat med etiketten någon text under det](powerpoint-math-equations_15.png)
+![Uttrycket x plus y grupperat med etiketten någon text under det](powerpoint-math-equations_15.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -402,7 +404,7 @@ try {
 
 ## **Formatera matematiska element**
 
-Använd formateringshjälpmedel endast där de förtydligar formeln. Till exempel placerar `overbar` ett streck ovanför ett matematiskt element.
+Använd formateringshjälpmedel endast där de tydliggör formeln. Till exempel placerar `overbar` ett streck ovanför ett matematiskt element.
 
 ![Ett matematiskt uttryck ABC med ett överstreck](powerpoint-math-equations_14.png)
 
@@ -427,24 +429,24 @@ try {
 
 ## **Snabbreferens**
 
-| Uppgift | Huvud‑API |
+| Uppgift | Huvudsakligt API |
 | --- | --- |
 | Skapa matematisk text | [MathematicalText](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathematicaltext/) |
 | Kombinera element | [IMathElement.join](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
 | Skapa bråk | [IMathElement.divide](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
 | Lägg till exponent eller index | [setSuperscript](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
 | Lägg till funktioner | [function](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
-| Lägg till radikaler | [IMathElement.radical](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
-| Lägg till gränser | [setLowerLimit](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| Lägg till vänster‑satta skript | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| Lägg till rötter | [IMathElement.radical](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| Lägg till gränsvärden | [setLowerLimit](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
+| Lägg till vänsterskript | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | Lägg till summor och integraler | [nary](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
 | Lägg till matriser | [MathMatrix](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mathmatrix/) |
 | Lägg till ekvationsarrayer | [toMathArray](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#toMathArray--) |
 | Lägg till avgränsare | [enclose](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| Lägg till balkar och ramar | [overbar](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| Lägg till streck och ramar | [overbar](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#toBorderBox--) |
 | Gruppera termer | [group](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan jag redigera en befintlig PowerPoint‑ekvation?**
 
@@ -456,4 +458,4 @@ Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Of
 
 **Kan jag exportera ekvationer till LaTeX?**
 
-Aspose.Slides exporterar matematiska ekvationer till MathML. Om du behöver LaTeX, exportera först till MathML och konvertera sedan MathML med ett verktyg som stödjer ditt mål‑LaTeX‑dialekt.
+Ja. Hämta ekvationens [IMathParagraph](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathparagraph/) från dess [IMathPortion](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathportion/), och anropa [IMathParagraph.toLatex](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imathparagraph/#toLatex--) för att exportera den direkt. För ett komplett exempel, se [Exportera matematiska ekvationer från presentationer i Java](/slides/sv/java/exporting-math-equations/#export-math-equations-to-latex).

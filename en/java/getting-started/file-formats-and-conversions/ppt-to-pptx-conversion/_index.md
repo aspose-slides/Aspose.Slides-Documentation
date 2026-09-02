@@ -5,7 +5,7 @@ weight: 30
 url: /java/ppt-to-pptx-conversion/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 PPT to PPTX conversion is supported from Aspose.Slides for Java. Most presentation features - master slides, structure and so on - are retained when converted from one format to the other, but there are [a few limitations](/slides/java/ppt-to-pptx-conversion/).
 

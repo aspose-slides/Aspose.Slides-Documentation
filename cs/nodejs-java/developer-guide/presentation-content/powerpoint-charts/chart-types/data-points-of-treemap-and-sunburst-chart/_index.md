@@ -7,117 +7,254 @@ weight: 40
 keywords:
 - graf treemap
 - graf sunburst
+- hierarchický graf
 - datový bod
-- barva popisku
+- datový popisek
 - barva větve
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Naučte se, jak spravovat datové body v grafech treemap a sunburst pomocí JavaScriptu a Aspose.Slides pro Node.js přes Java, kompatibilní s formáty PowerPointu."
+description: "Naučte se, jak vytvořit hierarchická data a přizpůsobit úrovně, popisky a barvy v grafech Treemap a Sunburst pomocí Aspose.Slides pro Node.js přes Java."
 ---
-## **Úvod**
+## **Přehled**
 
-Mezi ostatními typy grafů PowerPointu existují dva „hierarchické“ typy – **Treemap** a **Sunburst** graf (také známý jako Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph nebo Multi Level Pie Chart). Tyto grafy zobrazují hierarchická data uspořádaná jako strom – od listů až po vrchol větve. Listy jsou definovány datovými body řady, a každá následná vnořená úroveň seskupení je definována odpovídající kategorií. Aspose.Slides pro Node.js přes Java umožňuje formátovat datové body Sunburst grafu a Treemap v JavaScriptu.
+Grafy Treemap a Sunburst zobrazují stejný typ hierarchických dat, ale používají odlišné rozložení. Treemap vykresluje hierarchii jako vnořené obdélníky, jejichž plochy představují hodnoty listů. Sunburst ji vykresluje jako koncentrické kruhy: skupiny nejvyšší úrovně jsou blízko středu a kategorie listů jsou na vnějším kruhu.
 
-Zde je Sunburst graf, kde data ve sloupci Series1 definují listové uzly, zatímco ostatní sloupce definují hierarchické datové body:
+V Aspose.Slides pro Node.js přes Java je každá číselná hodnota typu [ChartDataPoint](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/). Jeho metoda [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) poskytuje přístup k listu a jeho nadřazeným skupinám. Tento článek vysvětluje toto mapování a ukazuje, jak vytvořit a formátovat oba typy grafů ze stejných ukázkových dat.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Graf Treemap s větvemi Consumer a Business](treemap-hierarchy.png)
 
-Začněme přidáním nového Sunburst grafu do prezentace:
+![Graf Sunburst se stejnou hierarchií Consumer a Business](sunburst-hierarchy.png)
+
+## **Pochopení kategorií, datových bodů a úrovní**
+
+Vzor použitý níže má tři úrovně kategorií a jednu číselnou řadu:
+
+| Větev | Střed | List | Tržby |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Každý řádek vytvoří jednu kategorii listu a jeden datový bod. Úrovně seskupení kategorií popisují cestu od tohoto listu k jeho nadřazeným prvkům. Pro první řádek je cesta `Consumer > Computers > Laptops`.
+
+Indexy vrácené metodou [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) probíhají od listu směrem vzhůru:
+
+| `getDataPointLevels()` index | Logická úroveň | Reprezentace Treemap | Reprezentace Sunburst |
+| ---: | --- | --- | --- |
+| `0` | List | Obdélník hodnoty | Segment vnějšího kruhu |
+| `1` | Střed | Obdélník nadřazeného nebo nadpis | Segment prostředního kruhu |
+| `2` | Větev | Obdélník nejvyšší úrovně nebo nadpis | Segment vnitřního kruhu |
+
+Toto pořadí je stejné pro oba typy grafů, i když se jejich vizuální rozložení liší. Nadřazený segment je sdílený několika listy. Pro jeho formátování použijte odpovídající úroveň prvního datového bodu v dané skupině. Například větev `Consumer` začíná bodem `Laptops`, zatímco `Software` střed začíná bodem `Licenses`. Uchovávání odkazů na tyto body je přehlednější a bezpečnější než použití nezdokumentovaných výrazů jako `dataPoints.get_Item(0)` nebo `dataPoints.get_Item(6)`.
+
+## **Vytvoření a přizpůsobení obou typů grafů**
+
+Následující kompletní příklad vytvoří Treemap na první snímku a Sunburst na druhém snímku. Vybuduje hierarchii, zobrazí hodnotu pro `Tablets`, použije pevné barvy na vybrané úrovně, naformátuje popisek větve a uloží prezentaci.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const worksheetIndex = 0;
+    const leafLevelIndex = 0;
+    const stemLevelIndex = 1;
+    const branchLevelIndex = 2;
+
+    const branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    const stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    const leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    const revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    const dataPointCount = leafNames.length;
+
+    const chartTypes = [
+        aspose.slides.ChartType.Treemap,
+        aspose.slides.ChartType.Sunburst
+    ];
+    const chartCount = chartTypes.length;
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (let chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        const chartType = chartTypes[chartIndex];
+        let slide;
+
+        if (chartIndex === 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        const chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        const chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        const workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Přidejte kategorie listů. Prvek seskupení je nastaven pouze při zahájení nové skupiny;
+        // následující kategorie zůstávají v této skupině, dokud není nastaven další prvek.
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            const category = chartData.getCategories().add(categoryCell);
+
+            const stemName = stemNames[dataIndex];
+            const startsNewStem = dataIndex === 0 || stemName !== stemNames[dataIndex - 1];
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            const branchName = branchNames[dataIndex];
+            const startsNewBranch = dataIndex === 0 || branchName !== branchNames[dataIndex - 1];
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        const seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        const series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        let laptopsDataPoint = null;
+        let tabletsDataPoint = null;
+        let licensesDataPoint = null;
+
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const revenue = revenues[dataIndex];
+            const valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            let dataPoint;
+
+            if (chartType === aspose.slides.ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if (leafName === "Laptops") {
+                laptopsDataPoint = dataPoint;
+            } else if (leafName === "Tablets") {
+                tabletsDataPoint = dataPoint;
+            } else if (leafName === "Licenses") {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Zobrazte kategorii a hodnotu na listu Tablets.
+        const tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        const tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Naformátujte větev Consumer přes první list v této větvi.
+        const consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        const consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        const consumerBranchColor = java.newInstanceSync("java.awt.Color", 31, 78, 121);
+        consumerBranchFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        const consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        const consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        const whiteColor = java.getStaticFieldValue("java.awt.Color", "WHITE");
+        consumerLabelTextFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerLabelTextFill.getSolidFillColor().setColor(whiteColor);
+
+        // Naformátujte úroveň Software přes první list v této úrovni.
+        const softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        const softwareStemFill = softwareStemLevel.getFormat().getFill();
+        const softwareStemColor = java.newInstanceSync("java.awt.Color", 112, 173, 71);
+        softwareStemFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout ovlivňuje nadřazené popisky v Treemap; Sunburst používá segmenty kruhů.
+        if (chartType === aspose.slides.ChartType.Treemap) {
+            series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
+        }
     }
+
+    presentation.save("hierarchical-charts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Viz také" %}} 
-- [**Vytvořit nebo aktualizovat grafy PowerPoint prezentace v JavaScriptu**](/slides/cs/nodejs-java/create-chart/)
-{{% /alert %}}
+Buňky kategorií a hodnot používají stejný řádek listu, takže jejich pozice v kolekcích zůstávají zarovnané. Když pracujete s existujícím grafem namísto jeho vytváření, nejprve prozkoumejte řádky kategorií a uložte pojmenované reference na datové body a úrovně, které chcete formátovat.
 
-Pokud je potřeba formátovat datové body grafu, měli bychom použít následující:
+## **Chování a praktické úvahy**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataPointLevelsManager), 
-[ChartDataPointLevel](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataPointLevel) třídy 
-a [**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) metoda 
-poskytují přístup k formátování datových bodů Treemap a Sunburst grafů. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataPointLevelsManager)
-se používá pro přístup k višejazykovým kategoriím – představuje kontejner pro 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataPointLevel) objekty.
-V podstatě je to obal pro 
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartCategoryLevelsManager) s
-vlastnostmi přidanými specificky pro datové body. 
-Třída [**ChartDataPointLevel**](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataPointLevel) má
-dvě metody: [**getFormat**](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) a 
-[**getDataLabel**](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) které
-poskytují přístup k odpovídajícím nastavením.
+### **Rozdíly mezi Treemap a Sunburst**
 
-## **Zobrazit hodnotu datového bodu**
-Zobrazit hodnotu datového bodu „Leaf 4“:
+- Treemap používá plochu k vyjádření hodnoty a vnořené obdélníky k vyjádření hierarchie. Metoda [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) řídí, jak se zobrazují nadřazené popisky v tomto typu grafu.
+- Sunburst používá úhel k vyjádření hodnoty a hloubku kruhu k vyjádření hierarchie. [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) neovlivňuje popisky jeho kruhů.
+- Oba typy grafů používají stejné úrovně seskupení kategorií a stejné pořadí list‑k‑nadřazenému vrácené metodou [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels), takže kód pro tvorbu dat a formátování úrovní může být sdílen.
+- Hodnoty nadřazených elementů jsou vypočítány z jejich podřízených listů. Nepřidávejte samostatné číselné body pro větve nebo středové úrovně.
 
-```javascript
-var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **Řazení a pořadí segmentů**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+Engine rozložení grafu určuje konečné umístění obdélníků a segmentů kruhů. Před jejich přidáním uspořádejte související řádky kategorií dohromady, ale nespoléhejte na konkrétní pozici obdélníku nebo počáteční úhel. Pokud má sekvence význam, zahrňte ji do popisků nebo použijte typ grafu s explicitní kategoriální osou.
 
-## **Nastavit popisek a barvu datového bodu**
-Nastavte popisek datového bodu „Branch 1“ tak, aby zobrazoval název řady („Series1“) místo názvu kategorie. Poté nastavte barvu textu na žlutou:
+### **Motiv a pevné barvy**
 
-```javascript
-var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-```
+Neformátované úrovně grafu dědí barvy z motivu prezentace. Příklad používá explicitní výplně RGB pro předvídatelný výstup. Pokud má graf sledovat změny motivu, použijte barvy schématu místo pevných hodnot RGB a vyhněte se přepisování každé úrovně. Také po změně výplně větve nebo středu zkontrolujte kontrast popisků.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Popisky a dostupný prostor**
 
-## **Nastavit barvu větve datového bodu**
-Změňte barvu větve „Steam 4“:
+PowerPoint může skrýt nebo zkrátit popisky, pokud je segment příliš malý. Zvětšení velikosti grafu, zkrácení názvů kategorií nebo zobrazení menšího počtu polí popisků obvykle vede k přehlednějšímu výsledku. Popisek může kombinovat název kategorie, název řady a hodnotu pomocí [DataLabelFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/datalabelformat/), ale povolení všech polí často ztíží čtení hierarchických grafů.
 
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-    var stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-    stem4branch.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+### **Export a vykreslování**
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Ukládání do PPTX zachovává graf editovatelný. Když Aspose.Slides vykresluje prezentaci do PDF nebo obrázku, podporované výplně a nastavení popisků jsou vykresleny s grafem. Náhrada písem a malé rozdíly v dostupném prostoru mohou změnit zalomení řádků nebo viditelnost popisků, proto nainstalujte požadovaná písma a ověřte důležité cíle exportu.
 
 ## **Často kladené otázky**
 
-**Mohu změnit pořadí (řazení) segmentů v Sunburst/Treemap?**
+**Proč změna úrovně nadřazeného prvku ovlivní několik listů?**
 
-Ne. PowerPoint řadí segmenty automaticky (obvykle podle sestupných hodnot, po směru hodinových ručiček). Aspose.Slides tento postup napodobuje: pořadí nelze změnit přímo; dosáhnete toho předzpracováním dat.
+Větev nebo střed je sdílený vizuální segment. Jeho [ChartDataPointLevel](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdatapointlevel/) je dostupný přes podřízený list, ale formátování patří sdílenému nadřazenému segmentu, nikoli jen tomuto listu.
 
-**Jak téma prezentace ovlivňuje barvy segmentů a popisků?**
+**Proč chybí datový popisek?**
 
-Barvy grafu dědí [theme/palette](/slides/cs/nodejs-java/presentation-theme/) prezentace, pokud explicitně nenastavíte výplně/písma. Pro konzistentní výsledky zajistěte pevné výplně a formátování textu na požadovaných úrovních.
+Nejprve povolte požadovaná pole na objektu [DataLabelFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/datalabelformat/) popisku. Pak ověřte, zda má segment dostatek místa. Rozložení popisků rodiče v Treemap, rozměry grafu, délka popisku, velikost písma a počet povolených polí vše ovlivňuje, zda lze popisek zobrazit.
 
-**Zachová export do PDF/PNG vlastní barvy větví a nastavení popisků?**
+**Mohu nastavit přesné pořadí nebo souřadnice segmentů?**
 
-Ano. Při exportu prezentace jsou nastavení grafu (výplně, popisky) zachována v výstupních formátech, protože Aspose.Slides renderuje s aplikovaným formátováním grafu.
+Můžete ovládat pořadí zdrojových řádků a udržet každou skupinu souvislou, ale nemůžete přiřadit přesné obdélníky Treemap ani úhly Sunburst. Engine rozložení grafu je vypočítá z hierarchie, hodnot a dostupného prostoru.
 
-**Mohu vypočítat skutečné souřadnice popisku/elementu pro umístění vlastního překrytí nad grafem?**
+**Proč se barvy změní po změně motivu prezentace?**
 
-Ano. Po ověření rozvržení grafu jsou pro elementy k dispozici skutečné hodnoty X a Y (například pro [DataLabel](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/datalabel/)), což pomáhá s přesným umístěním překryvů.
+Výplně založené na motivu jsou navrženy tak, aby sledovaly paletu prezentace. Použijte explicitní barvy RGB na úrovně, které mají zůstat pevné, nebo zachovejte barvy schématu, pokud je preferována adaptace na nový motiv.
+
+**Zůstane vlastní formátování zachováno při exportu do PDF a obrázků?**
+
+Ano, podporované výplně grafu a nastavení popisků jsou zahrnuty během vykreslování. Pro konzistentní výsledky napříč systémy zajistěte dostupnost požadovaných písem a otestujte finální velikost exportu, protože umístění popisků je závislé na rozložení.
+
+## **Viz také**
+
+- [Vytvořit grafy Treemap](/slides/cs/nodejs-java/create-chart/#creating-tree-map-charts)
+- [Vytvořit grafy Sunburst](/slides/cs/nodejs-java/create-chart/#creating-sunburst-charts)
+- [Exportovat grafy prezentace](/slides/cs/nodejs-java/export-chart/)
+- [Spravovat motivy prezentace](/slides/cs/nodejs-java/presentation-theme/)

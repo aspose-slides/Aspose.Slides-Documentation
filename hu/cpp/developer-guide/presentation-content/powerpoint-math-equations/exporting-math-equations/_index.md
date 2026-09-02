@@ -1,32 +1,81 @@
 ---
-title: "Matematikai egyenletek exportálása a bemutatókból C++-ban"
-linktitle: "Egyenletek exportálása"
+title: Matematikai egyenletek exportálása prezentációkból C++-ban
+linktitle: Egyenletek exportálása
 type: docs
 weight: 30
 url: /hu/cpp/exporting-math-equations/
 keywords:
-- "matematikai egyenletek exportálása"
+- matematikai egyenletek exportálása
+- egyenletek exportálása LaTeX-be
+- PowerPoint LaTeX-be
 - MathML
 - LaTeX
 - PowerPoint
-- bemutató
+- prezentáció
 - C++
 - Aspose.Slides
-description: "Zökkenőmentes exportálás a PowerPointból MathML-be a matematikai egyenletekhez az Aspose.Slides for C++ segítségével – megőrizze a formázást és növelje a kompatibilitást."
+description: "Exportálja a matematikai egyenleteket PowerPoint-prezentációkból közvetlenül LaTeX-be vagy MathML-be az Aspose.Slides for C++ használatával."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for C++ lehetővé teszi, hogy matematikai képleteket exportáljon a bemutatókból. Például előfordulhat, hogy ki szeretné nyerni a diák (egy adott bemutatóból) matematikai egyenleteit, és egy másik programban vagy platformon használja fel.
+Az Aspose.Slides for C++ lehetővé teszi, hogy matematikai egyenleteket exportáljon prezentációkból. Például szükség lehet a diákon (egy adott prezentációból) található matematikai egyenletek kinyerésére, és azok felhasználására egy másik programban vagy platformon. 
 
 {{% alert color="primary" %}} 
-Az egyenleteket exportálhatja MathML-be, egy népszerű formátumba vagy szabványba a matematikai egyenletek és hasonló tartalmak számára, amelyet a weben és számos alkalmazásban láthat. 
+
+Az egyenleteket közvetlenül exportálhatja LaTeX-be vagy MathML-be, amely egy népszerű szabvány a weben és számos alkalmazásban használt matematikai tartalomhoz.
+
 {{% /alert %}}
 
-## **Matematikai egyenletek mentése MathML formátumba**
+## **Matematikai egyenletek exportálása LaTeX-be**
 
-Míg az emberek könnyedén írják a kódot bizonyos egyenletformátumokhoz, például a LaTeX-hez, nehezebb nekik a MathML kódot megírni, mivel ezt utóbbit alkalmazásoknak automatikusan kell generálniuk. A programok könnyen olvassák és elemzik a MathML-t, mivel a kódja XML-ben van, így a MathML gyakran használatos kimeneti és nyomtatási formátumként sok területen. 
+Az Aspose.Slides közvetlenül átalakíthat egy PowerPoint matematikai egyenletet LaTeX-be; közbenső MathML-fájlra és külső konverterre nincs szükség. A matematikai egyenlet egy szövegdobozban van tárolva, mint egy [IMathPortion](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/imathportion/). Használja a [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/) metódust egy [IMathParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/imathparagraph/) lekéréséhez, majd hívja a [IMathParagraph::ToLatex](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) metódust. A módszer egy karakterláncot ad vissza, amelyet menthet, megjeleníthet, elküldhet egy másik alkalmazásnak vagy további feldolgozásra használhat.
 
-Ez a példa kód megmutatja, hogyan exportáljon egy matematikai egyenletet egy bemutatóból MathML-be:
+A következő példa minden szövegdobozt vizsgál minden dián, megtalálja az összes matematikai részt, és minden egyenletet egy külön `.tex` fájlba ír:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"equations.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+    int slideNumber = slideIndex + 1;
+    int equationNumber = 1;
+    auto textFrames = SlideUtil::GetAllTextBoxes(slide);
+
+    for (const auto&& textFrame : textFrames)
+    {
+        for (const auto&& paragraph : textFrame->get_Paragraphs())
+        {
+            for (const auto&& portion : paragraph->get_Portions())
+            {
+                auto mathPortion = System::AsCast<IMathPortion>(portion);
+                if (mathPortion == nullptr)
+                    continue;
+
+                auto mathParagraph = mathPortion->get_MathParagraph();
+                auto latexPath = String::Format(u"slide_{0}_equation_{1}.tex", slideNumber, equationNumber);
+
+                auto latexText = mathParagraph->ToLatex();
+                File::WriteAllText(latexPath, latexText);
+                equationNumber++;
+            }
+        }
+    }
+}
+
+presentation->Dispose();
+```
+
+[SlideUtil::GetAllTextBoxes](https://reference.aspose.com/slides/hu/cpp/aspose.slides.util/slideutil/getalltextboxes/) visszaadja a dián talált összes szövegdobozt. Az [IMathPortion](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/imathportion/) típusellenőrzés megkülönbözteti a valódi szerkeszthető egyenleteket a szokásos szövegtől és képektől.
+
+A LaTeX motorok és dokumentumsablonok nem minden esetben támogatják ugyanazokat a parancsokat, csomagokat vagy Unicode karaktereket. Tesztelje a visszaadott karakterláncot a alkalmazása által használt LaTeX motorral. Ha egy szimbólum vagy Office Math elemnek nincs megfelelő ábrázolása az adott környezetben, cserélje le a visszaadott karakterláncban egy projektspecifikus parancsra, vagy hagyja ki az egyenletet, és jegyezze fel a problémát felülvizsgálatra.
+
+## **Matematikai egyenletek mentése MathML-be**
+
+Míg az emberek könnyen írják meg néhány egyenlet formátum kódját, például a LaTeX-et, nehezebben tudják megírni a MathML kódját, mivel azt utóbbit alkalmazásoknak automatikusan kell generálniuk. A programok könnyen olvassák és elemezik a MathML-t, mivel annak kódja XML-ben van, így a MathML gyakran használt kimeneti és nyomtatási formátum számos területen. 
+
+Ez a mintakód megmutatja, hogyan exportálhat egy matematikai egyenletet egy prezentációból MathML-be:
 
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -51,22 +100,22 @@ mathParagraph->WriteAsMathMl(stream);
 
 ## **GYIK**
 
-**Mi kerül pontosan exportálásra MathML-be – egy bekezdés vagy egy önálló képletblokk?**
+**Mi pontosan kerül exportálásra MathML-be – egy bekezdés vagy egy egyedi képletblokk?**
 
-Exportálhat egy teljes matematikai bekezdést ([MathParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathparagraph/)) vagy egy önálló blokkot ([MathBlock](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathblock/)) MathML-be. Mindkét típus biztosít egy módszert a MathML írására.
+Exportálhat egy teljes matematikai bekezdést ([MathParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathparagraph/)) vagy egy egyedi blokkot ([MathBlock](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathblock/)) MathML-be. Mindkét típus rendelkezik egy módszerrel, amely MathML-be ír.
 
-**Hogyan deríthetem ki, hogy egy dián lévő objektum matematikai képlet-e, nem pedig egyszerű szöveg vagy kép?**
+**Hogyan tudom megállapítani, hogy egy dián lévő objektum matematikai képlet-e a szokásos szöveg vagy kép helyett?**
 
-Egy képlet egy [MathPortion](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathportion/) elemen belül él, és rendelkezik egy [MathParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathparagraph/) elemmel. Képek és egyszerű szövegrészek, amelyek nem tartalmaznak [MathParagraph]-t, nem exportálható képletek.
+Egy képlet egy [MathPortion](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathportion/)‑ban található, és rendelkezik egy [MathParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathparagraph/)‑val. A képek és a szokásos szövegrészek, amelyek nem rendelkeznek [MathParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathparagraph/)‑val, nem exportálható képletek.
 
-**Honnan származik a MathML egy bemutatóban – PowerPoint-specifikus vagy szabvány?**
+**Honnan származik a MathML egy prezentációban – PowerPoint‑specifikus vagy szabványos?**
 
-Az export a szabványos MathML-re (XML) irányul. Az Aspose a Presentation MathML-t használja – a szabvány prezentációs részhalmazát –, amely széles körben elterjedt az alkalmazások és a web között.
+Az export a szabványos MathML‑t (XML) célozza. Az Aspose a Presentation MathML‑t használja – a szabvány prezentációs részhalmazát –, amely széles körben elterjedt az alkalmazásokban és a weben.
 
-**Támogatott-e a képletek exportálása táblákba, SmartArt-ba, csoportokba stb.?**
+**Támogatott-e a képletek exportálása táblázatokban, SmartArt‑ban, csoportokban stb.?**
 
-Igen, ha azok az objektumok szövegrészeket tartalmaznak [MathParagraph]-lel (azaz valódi PowerPoint képletek), exportálásra kerülnek. Ha egy képlet képként van beágyazva, akkor nem.
+Igen, ha ezek az objektumok olyan szövegrészeket tartalmaznak, amelyek rendelkeznek [MathParagraph](https://reference.aspose.com/slides/hu/cpp/aspose.slides.mathtext/mathparagraph/)‑val (azaz valódi PowerPoint képletek), akkor exportálásra kerülnek. Ha a képlet képként van beágyazva, az nem.
 
-**Módosítja-e a MathML-be exportálás az eredeti bemutatót?**
+**Módosítja a MathML-be exportálás az eredeti prezentációt?**
 
-Nem. A MathML írása a képlet tartalmának sorosítása; nem módosítja a bemutató fájlt.
+Nem. A MathML írása a képlet tartalmának sorosítása; nem módosítja a prezentációfájlt.

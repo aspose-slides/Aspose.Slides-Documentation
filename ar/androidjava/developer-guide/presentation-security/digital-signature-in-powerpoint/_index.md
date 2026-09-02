@@ -1,5 +1,5 @@
 ---
-title: إضافة توقيعات رقمية إلى العروض التقديمية على Android
+title: إضافة توقيعات رقمية إلى العروض على Android
 linktitle: التوقيع الرقمي
 type: docs
 weight: 10
@@ -9,90 +9,179 @@ keywords:
 - شهادة رقمية
 - سلطة شهادات
 - شهادة PFX
+- PKCS#12
+- التحقق من التوقيع
 - PowerPoint
-- OpenDocument
-- عرض تقديمي
+- PPTX
+- أمان العرض
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية توقيع ملفات PowerPoint و OpenDocument رقمياً باستخدام Aspose.Slides لـ Android. احمِ عروضك خلال ثوانٍ باستخدام أمثلة كود Java واضحة."
+description: "تعلم كيفية توقيع عروض PPTX الحالية باستخدام شهادات PFX واستخدام Aspose.Slides لنظام Android عبر Java للتحقق من التوقيعات الرقمية أو إزالتها."
 ---
+## **نظرة عامة**
 
-**شهادة رقمية** تُستخدم لإنشاء عرض باوربوينت محمي بكلمة مرور، معلمة بأنه تم إنشاؤه من قبِل مؤسسة أو شخص معين. يمكن الحصول على الشهادة الرقمية عن طريق التواصل مع مؤسسة مُخَولة - سلطة شهادات. بعد تثبيت الشهادة الرقمية في النظام، يمكن استخدامها لإضافة توقيع رقمي إلى العرض عبر ملف -> معلومات -> حماية العرض:
+تساعد التوقيع الرقمي المستلم على تحديد من قام بتوقيع العرض وما إذا كان المحتوى الموقع قد تغير. هناك ثلاثة مفاهيم أمنية ذات صلة مهمة هنا:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- شهادة **رقمية** هي اعتماد إلكتروني يربط هوية بمفتاح عام. يمكن لسلطة شهادات موثوقة (CA) إصدار شهادة، أو يمكن للمنظمة استخدام شهادة موقعة ذاتيًا لتدفقات العمل الداخلية.
+- **التوقيع الرقمي** يُنشأ من محتوى العرض ومفتاح الخصوصية لحامل الشهادة. يمكن بعد ذلك استخدام المفتاح العام للشهادة للتحقق من التوقيع. يوفر التوقيع دليلًا على الأصل والنزاهة؛ ولا يقوم بتشفير العرض.
+- **حماية كلمة المرور** تتحكم فيما إذا كان المستخدم يمكنه فتح أو تعديل العرض. هي منفصلة عن التوقيع الرقمي وتُشرح في [العروض المحمية بكلمة مرور](/androidjava/password-protected-presentation/).
 
-قد يحتوي العرض على أكثر من توقيع رقمي. بعد إضافة التوقيع الرقمي إلى العرض، ستظهر رسالة خاصة في PowerPoint:
+PowerPoint يوفر أمر **Add a Digital Signature** ضمن **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![قائمة Protect Presentation في PowerPoint مع تمييز Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
 
-لتوقيع العرض أو التحقق من صحة توقيعات العرض، تُوفر **Aspose.Slides API** الواجهة [**IDigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignature)، الواجهة [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDigitalSignatureCollection) والطريقة [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentation#getDigitalSignatures--) . حاليًا، يتم دعم التوقيعات الرقمية لتنسيق PPTX فقط.
-## **إضافة توقيع رقمي من شهادة PFX**
-يوضح عينة الشيفرة أدناه كيفية إضافة توقيع رقمي من شهادة PFX:
+بعد فتح عرض موقع، يمكن لPowerPoint عرض إشعار بحالة التوقيع.
 
-1. افتح ملف PFX ومرّر كلمة مرور PFX إلى كائن [**DigitalSignature**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/DigitalSignature) .
-2. أضف التوقيع المُنشأ إلى كائن العرض.
+![إشعار PowerPoint يوضح أن العرض يحتوي على توقيعات صالحة](digital-signature-status-in-powerpoint.png)
+
+Aspose.Slides يعرّف التوقيعات من خلال [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--)، والذي يُعيد مجموعة [IDigitalSignatureCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idigitalsignaturecollection/) تتضمن عناصر تُطبّق [IDigitalSignature](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idigiticsignature/). يمكن للعرض أن يحتوي على توقيعات متعددة.
+
+## **فهم شهادات PFX وكلمات المرور**
+
+ملف PFX، المعروف أيضًا بملف PKCS#12 وغالبًا ما يحمل امتداد `.pfx` أو `.p12`، يمكن أن يحتوي على شهادة X.509، مفتاحها الخاص، وسلسلة الشهادة. المفتاح الخاص هو ما يسمح للحامل بإنشاء توقيع. شهادة بدون مفتاح خاص متاح لا يمكن استخدامها لتوقيع عرض.
+
+كلمة مرور PFX تحمي حزمة الشهادة والمفتاح الخاص. هي **ليس** كلمة مرور لفتح أو تحرير العرض. لا تُدمج ملفات PFX أو كلمات مرورها في نظام التحكم بالمصادر. في بيئة الإنتاج، حدّ الوصول إلى ملف الشهادة واحصل على كلمة المرور من مخزن أسرار أو مصدر تكوين محمي آخر. الأمثلة أدناه تستخدم متغيّر بيئة فقط لتجنب إدراج كلمة المرور في الشيفرة.
+
+## **إضافة توقيع رقمي إلى عرض**
+
+لتوقيع سير عمل عرض حقيقي، حمّل ملف PPTX موجود، أنشئ كائن [DigitalSignature](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/digitalsignature/) من شهادة PFX وكلمة مرورها، أضف التوقيع إلى مجموعة العرض، واحفظه كملف PPTX.
+
 ```java
-// فتح ملف العرض التقديمي
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+String certificatePassword = System.getenv("PFX_PASSWORD");
+if (certificatePassword == null || certificatePassword.isEmpty()) {
+    throw new IllegalStateException("Set the PFX_PASSWORD environment variable.");
+}
+
+Presentation presentation = new Presentation("InputPresentation.pptx");
 try {
-    // إنشاء كائن DigitalSignature باستخدام ملف PFX وكلمة مرور PFX
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", "testpass1");
+    DigitalSignature signature = new DigitalSignature("signing-certificate.pfx", certificatePassword);
+    signature.setComments("Approved for release.");
 
-    // تعليق على توقيع رقمي جديد
-    signature.setComments("Aspose.Slides digital signing test.");
-
-    // إضافة توقيع رقمي إلى العرض التقديمي
-    pres.getDigitalSignatures().add(signature);
-
-    // حفظ العرض التقديمي
-    pres.save("SomePresentationSigned.pptx", SaveFormat.Pptx);
+    presentation.getDigitalSignatures().add(signature);
+    presentation.save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+حفظ النتيجة باسم جديد يحافظ على الملف الأصلي غير الموقع. القيمة التي تُحدّدها الطريقة [IDigitalSignature.setComments](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) تصف هدف التوقيع؛ وهي ليست عنصر تحكم أمني.
 
-الآن يمكن التحقق مما إذا كان العرض موقّعًا رقمياً ولم يتم تعديلّه:
+## **التحقق من التوقيعات الرقمية**
+
+عند تحميل ملف PPTX موقع، افحص كل عنصر تُعيده الطريقة [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--). الطريقة [IDigitalSignature.isValid](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idigitalsignature/#isValid--) تُظهر ما إذا كان التوقيع المدمج صالحًا لمحتوى العرض الحالي.
+
 ```java
-// فتح العرض التقديمي
-Presentation pres = new Presentation("SomePresentationSigned.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
 try {
-    if (pres.getDigitalSignatures().size() > 0)
-    {
+    IDigitalSignatureCollection signatures = presentation.getDigitalSignatures();
+    int signatureCount = signatures.size();
+
+    if (signatureCount == 0) {
+        System.out.println("The presentation does not contain digital signatures.");
+    } else {
         boolean allSignaturesAreValid = true;
+        java.text.SimpleDateFormat signTimeFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        java.security.cert.CertificateFactory certificateFactory = java.security.cert.CertificateFactory.getInstance("X.509");
 
-        System.out.println("Signatures used to sign the presentation: ");
+        for (IDigitalSignature signature : signatures) {
+            boolean signatureIsValid = signature.isValid();
+            String signatureStatus = signatureIsValid ? "VALID" : "INVALID";
+            java.util.Date signTime = signature.getSignTime();
+            String formattedSignTime = signTimeFormat.format(signTime);
 
-        // التحقق مما إذا كانت جميع التوقيعات الرقمية صالحة
-        for (IDigitalSignature signature : pres.getDigitalSignatures())
-        {
-            System.out.println(signature.getComments() + ", "
-                    + signature.getSignTime().toString() + " -- " + (signature.isValid() ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.isValid();
+            byte[] certificateData = signature.getCertificate();
+            java.io.ByteArrayInputStream certificateStream = new java.io.ByteArrayInputStream(certificateData);
+            java.security.cert.X509Certificate certificate = (java.security.cert.X509Certificate) certificateFactory.generateCertificate(certificateStream);
+            javax.security.auth.x500.X500Principal signerPrincipal = certificate.getSubjectX500Principal();
+            String signerName = signerPrincipal.getName();
+
+            System.out.println(signerName + ", " + formattedSignTime + " -- " + signatureStatus);
+
+            allSignaturesAreValid &= signatureIsValid;
         }
 
-        if (allSignaturesAreValid)
-            System.out.println("Presentation is genuine, all signatures are valid.");
-        else
-            System.out.println("Presentation has been modified since signing.");
+        if (allSignaturesAreValid) {
+            System.out.println("All embedded signatures are valid for the current presentation.");
+        } else {
+            System.out.println("At least one embedded signature is invalid.");
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+عادةً ما يعني النتيجة غير الصالحة أن محتوى العرض الموقع أو بيانات التوقيع قد تغيّرت بعد التوقيع، أو أن الملف تالف. إزالة كل توقيع تُنتج عرضًا غير موقع، لذا فحص صلاحية العناصر وحده غير كافٍ: يجب على سير عمل حساس أمني أيضًا التحقق من وجود عدد التوقيعات المتوقع وهوية المُوقعين المتوقعة.
+
+هذه النتيجة لا يجب أن تُعامل كقرار نهائي بثقة الشهادة. بناءً على سياستك الأمنية، قد يحتاج تطبيقك أيضًا إلى بناء والتحقق من سلسلة شهادات X.509، فحص تواريخ صلاحية الشهادة وحالة الإبطال، التأكد من الموضوع أو البصمة المتوقعة، التحقق من استخدام المفتاح، وتقييم طابع زمني موثوق. قيمة [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) وحدها ليست دليلًا من سلطة طوابع زمنية موثوقة.
+
+## **إزالة التوقيعات الرقمية**
+
+إزالة التوقيعات تغيّر حالة أمان العرض. المثال التالي يحمل ملف PPTX موقع، يزيل كل التوقيعات باستخدام [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--)، ويحفظ نسخة غير موقعّة.
+
+```java
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    presentation.getDigitalSignatures().clear();
+    presentation.save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+لإزالة توقيع واحد فقط، استدعِ الطريقة [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) مع فهرسها الصفري القائم. احفظ إلى ملف جديد ما لم يكن استبدال الملف الأصلي الموقع جزءًا صريحًا من سير عملك.
+
+## **التحرير واعتبارات التنسيق**
+
+- التوقيع لا يجعل العرض للقراءة فقط. لا يزال بإمكان المستخدمين والتطبيقات تعديل الملف، لكن أي تغيّر في المحتوى الموقع عادةً ما يبطل التوقيع الحالي.
+- أكمل جميع التعديلات المطلوبة قبل التوقيع. إذا كان لابد من تعديل العرض، احفظ النسخة المعدلة ووقّع تلك النسخة مرة أخرى.
+- احتفظ بالإخراج النهائي بصيغة PPTX. تحويل عرض موقع إلى صيغة أخرى لا ينقل التوقيع الأصلي ك توقيع صالح للملف المحوّل.
+- عامِل المفتاح الخاص بالشهادة كأمر حساس. أي شخص يحصل على المفتاح الخاص وكلمة مروره قد يتمكن من إنشاء توقيعات تبدو كأنها صادرة من حامل تلك الشهادة.
+- احتفظ بالمصدر غير الموقع أو نسخة خاضعة للرقابة عندما تتطلب سياسة الاحتفاظ بالمستندات ذلك.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني إزالة التوقيعات الموجودة من ملف؟**
+**هل التوقيع الرقمي يشفر العرض؟**
 
-نعم. تدعم مجموعة التوقيعات الرقمية [إزالة العناصر الفردية](https://reference.aspose.com/slides/androidjava/com.aspose.slides/digitalsignaturecollection/#removeAt-int-) و[مسحها بالكامل](https://reference.aspose.com/slides/androidjava/com.aspose.slides/digitalsignaturecollection/#clear--) ; بعد حفظ الملف، لن يحتوي العرض على أي توقيعات.
+لا. التوقيع الرقمي يقدّم دليلًا على الأصل والنزاهة، لكن محتوى العرض يظل قابلاً للقراءة ما لم يُطبق تشفير منفصل. استخدم [حماية كلمة المرور](/androidjava/password-protected-presentation/) عندما يجب تقييد الوصول إلى المحتوى.
 
-**هل يصبح الملف "للقراءة فقط" بعد التوقيع؟**
+**هل كلمة مرور PFX هي نفسها كلمة مرور العرض؟**
 
-لا. يحافظ التوقيع على النزاهة والملكية لكنه لا يمنع التعديلات. لتقييد التحرير، اجمعه مع ["للقراءة فقط" أو كلمة مرور](/slides/ar/androidjava/password-protected-presentation/).
+لا. كلمة مرور PFX تفتح المفتاح الخاص المخزن في حزمة الشهادة. لا تتحكم في من يمكنه فتح أو تحرير ملف PPTX.
 
-**هل سيظهر التوقيع بشكل صحيح في إصدارات مختلفة من PowerPoint؟**
+**هل يمكنني استخدام شهادة موقعة ذاتيًا؟**
 
-تم إنشاء التوقيع لحاوية OOXML (PPTX). الإصدارات الحديثة من PowerPoint التي تدعم توقيعات OOXML تعرض حالة هذه التوقيعات بشكل صحيح.
+تقنيًا، يمكن استخدام شهادة موقعة ذاتيًا عندما تتضمن مفتاحًا خاصًا متاحًا. لكن المتلقين لن يثقوا بها تلقائيًا ما لم تُضاف تلك الشهادة صراحةً إلى بيئتهم الموثوقة. عادةً ما تستخدم سير عمل عامة أو عبر مؤسسات شهادة صادرة من سلطة شهادات موثوقة.
+
+**ما الذي يجعل التوقيع غير صالح؟**
+
+تغيير محتوى العرض الموقع أو بيانات التوقيع بعد التوقيع يمكن أن يبطل التوقيع. كما قد يتسبب تلف الملف في فشل التحقق. إذا أزيلت جميع التوقيعات، يصبح العرض غير موقعًا بدلًا من احتوائه على توقيع غير صالح.
+
+**هل يعني التوقيع الصالح أنني يجب أن أثق بالموقع؟**
+
+ليس بمفرده. سلامة التوقيع وثقة الموقع قراران منفصلان. يجب على سياسة التحقق في الإنتاج أيضًا فحص سلسلة الشهادة، فترة الصلاحية، حالة الإبطال، الهوية المتوقعة، استخدام المفتاح، وأي متطلبات طابع زمني موثوق.
+
+**ماذا يحدث عندما تنتهي صلاحية الشهادة؟**
+
+انتهاء صلاحية الشهادة لا يغيّر بايتات العرض، لكنه يؤثر على تقييم ثقة الشهادة. ما إذا كان التوقيع ما يزال مقبولًا يعتمد على سياستك وما إذا كان هناك طابع زمني موثوق يثبت أن التوقيع تم حين كانت الشهادة صالحة. لا تعتمد على وقت التوقيع المعروض فقط كطابع زمني موثوق.
+
+**هل يمكن تعديل عرض موقع؟**
+
+نعم. التوقيع لا يقفل الملف. تعديل المحتوى الموقع عادةً ما يبطل التوقيع الحالي، لذا أكمل العرض ثم وقع المراجعة النهائية.
+
+**هل يمكن للعرض أن يحتوي على أكثر من توقيع واحد؟**
+
+نعم. أضف كل توقيع إلى المجموعة التي تُعيدها الطريقة [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) قبل الحفظ. أثناء التحقق، افحص كل توقيع وتأكد من وجود جميع الموقعين المطلوبين.
+
+**ما هي صيغ العروض التي تدعم هذه العمليات؟**
+
+Aspose.Slides يدعم عمليات التوقيع الرقمي الموضحة هنا فقط لصيغة PPTX. صيغ PPT وOpenDocument لا تدعمها واجهة برمجة التطبيقات هذه.
+
+**هل يمكنني إزالة توقيع دون التأثير على الشرائح؟**
+
+نعم. يمكنك إزالة توقيع واحد أو مسح المجموعة بالكامل ثم حفظ العرض. يظل محتوى الشرائح متاحًا، لكن الملف المحفوظ لم يعد يحمل دليل التوقيع المُزال.

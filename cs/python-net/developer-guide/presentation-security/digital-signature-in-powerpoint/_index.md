@@ -1,5 +1,5 @@
 ---
-title: Přidání digitálních podpisů do prezentací pomocí Pythonu
+title: Přidání digitálních podpisů do prezentací v Pythonu
 linktitle: Digitální podpis
 type: docs
 weight: 10
@@ -9,83 +9,161 @@ keywords:
 - digitální certifikát
 - certifikační autorita
 - PFX certifikát
+- PKCS#12
+- ověřit podpis
 - PowerPoint
-- OpenDocument
-- prezentace
+- PPTX
+- zabezpečení prezentací
 - Python
 - Aspose.Slides
-description: "Naučte se, jak digitálně podepisovat soubory PowerPoint a OpenDocument pomocí Aspose.Slides pro Python v .NET. Zabezpečte své snímky během několika sekund s jasnými ukázkami kódu."
+description: "Naučte se, jak podepsat existující PPTX prezentace pomocí PFX certifikátů a využít Aspose.Slides pro Python prostřednictvím .NET k ověření nebo odstranění digitálních podpisů."
 ---
-## **Úvod**
+## **Přehled**
 
-**Digitální certifikát** se používá k vytvoření prezentace PowerPoint chráněné heslem, označené jako vytvořenou konkrétní organizací nebo osobou. Digitální certifikát lze získat kontaktováním oprávněné organizace – certifikační autority. Po instalaci digitálního certifikátu do systému jej lze použít k přidání digitálního podpisu do prezentace přes Soubor → Info → Ochraňovat prezentaci:
+Digitální podpis pomáhá příjemci zjistit, kdo prezentaci podepsal a zda se podepsaný obsah změnil. Tři související bezpečnostní koncepty jsou zde důležité:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **Digitální certifikát** je elektronické oprávnění, které spojuje identitu s veřejným klíčem. Důvěryhodná certifikační autorita (CA) může certifikát vydat, nebo organizace může pro interní pracovní postupy použít samopodepsaný certifikát.
+- **Digitální podpis** je vytvořen z obsahu prezentace a soukromého klíče držitele certifikátu. Veřejný klíč certifikátu může být následně použit k ověření podpisu. Podpis poskytuje důkaz o původu a integritě; nešifruje prezentaci.
+- **Ochrana heslem** řídí, zda může uživatel otevřít nebo upravit prezentaci. Je oddělená od digitálního podepisování a je popsána v [Prezentace chráněné heslem](/python-net/password-protected-presentation/).
 
-Prezentace může obsahovat více než jeden digitální podpis. Po přidání digitálního podpisu do prezentace se v PowerPointu zobrazí speciální zpráva:
+PowerPoint nabízí příkaz **Add a Digital Signature** v nabídce **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Menu PowerPoint Protect Presentation s vyznačenou možností Add a Digital Signature](add-digital-signature-in-powerpoint.png)
 
-Pro podepisování prezentace nebo kontrolu pravosti podpisů prezentace poskytuje **Aspose.Slides API** třídu [**DigitalSignature**](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignature/), třídu [**DigitalSignatureCollection**](https://reference.aspose.com/slides/cs/python-net/aspose.slides/DigitalSignatureCollection/) a vlastnost [**Presentation.digital_signatures**](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/digital_signatures/). V současné době jsou digitální podpisy podporovány pouze pro formát PPTX.
+Po otevření podepsané prezentace může PowerPoint zobrazit oznámení o stavu podpisu.
 
-## **Přidání digitálního podpisu z PFX certifikátu**
+![Upozornění PowerPoint, že prezentace obsahuje platné podpisy](digital-signature-status-in-powerpoint.png)
 
-Níže uvedený ukázkový kód demonstruje, jak přidat digitální podpis z PFX certifikátu:
+Aspose.Slides vystavuje podpisy prostřednictvím [Presentation.digital_signatures](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/digital_signatures/), [DigitalSignatureCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignaturecollection/) jejíž položky jsou objekty [DigitalSignature](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignature/). Prezentace může obsahovat více podpisů.
 
-1. Otevřete soubor PFX a předáte heslo PFX objektu [**DigitalSignature**](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignature/).
-1. Přidejte vytvořený podpis do objektu prezentace.
+## **Pochopení certifikátů PFX a hesel**
 
-```py
+Soubor PFX, také známý jako soubor PKCS#12 a běžně s příponou `.pfx` nebo `.p12`, může obsahovat certifikát X.509, jeho soukromý klíč a řetězec certifikátů. Soukromý klíč umožňuje držiteli vytvořit podpis. Certifikát bez přístupného soukromého klíče nelze použít k podepsání prezentace.
+
+Heslo PFX chrání balíček certifikátu a soukromý klíč. Není to heslo pro otevření nebo úpravu prezentace. Nepřidávejte soubory PFX ani jejich hesla do zdrojového řízení. Ve výrobě omezte přístup k souboru certifikátu a získávejte jeho heslo z tajného úložiště nebo jiného chráněného konfiguračního zdroje. Příklady níže používají proměnnou prostředí pouze pro vyhnutí se vložení hesla do kódu.
+
+## **Přidání digitálního podpisu do prezentace**
+
+Pro podepsání reálného pracovního postupu načtěte existující soubor PPTX, vytvořte [DigitalSignature](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignature/) z PFX certifikátu a jeho hesla, přidejte podpis do kolekce prezentace a uložte do souboru PPTX.
+
+```python
+import os
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Vytvořte objekt DigitalSignature s PFX souborem a heslem PFX 
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+certificate_password = os.environ.get("PFX_PASSWORD")
+if certificate_password is None:
+    raise RuntimeError("Set the PFX_PASSWORD environment variable.")
 
-    # Poznámka k novému digitálnímu podpisu
-    signature.comments = "Aspose.Slides digital signing test."
+with slides.Presentation("InputPresentation.pptx") as presentation:
+    signature = slides.DigitalSignature("signing-certificate.pfx", certificate_password)
+    signature.comments = "Approved for release."
 
-    # Přidejte digitální podpis do prezentace
-    pres.digital_signatures.add(signature)
-
-    # uložit prezentaci
-    pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
+    presentation.digital_signatures.add(signature)
+    presentation.save("InputPresentation-signed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Uložení výsledku pod novým názvem zachová neoznačený zdrojový soubor. Hodnota [DigitalSignature.comments](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignature/comments/) popisuje účel podpisu; nejde o bezpečnostní kontrolu.
 
+## **Ověření digitálních podpisů**
 
-Nyní je možné zkontrolovat, zda byla prezentace digitálně podepsána a nebyla upravena:
+Když načtete podepsaný soubor PPTX, prohlédněte každou položku v [Presentation.digital_signatures](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/digital_signatures/). Vlastnost [DigitalSignature.is_valid](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignature/is_valid/) udává, zda je vložený podpis platný pro aktuální obsah prezentace.
 
-```py
-# Otevřít prezentaci
-with slides.Presentation("SomePresentationSigned.pptx") as pres:
-    if len(pres.digital_signatures) > 0:
-        allSignaturesAreValid = True
+```python
+import hashlib
+import aspose.slides as slides
 
-        print("Signatures used to sign the presentation: ")
-        # Zkontrolovat, zda jsou všechny digitální podpisy platné
-        for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
-            allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
-        
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    signature_count = len(presentation.digital_signatures)
 
-        if allSignaturesAreValid:
-            print("Presentation is genuine, all signatures are valid.")
+    if signature_count == 0:
+        print("The presentation does not contain digital signatures.")
+    else:
+        all_signatures_are_valid = True
+
+        for signature in presentation.digital_signatures:
+            signature_status = "VALID" if signature.is_valid else "INVALID"
+            certificate_fingerprint = hashlib.sha256(signature.certificate).hexdigest().upper()
+            signing_time = signature.sign_time.strftime("%Y-%m-%d %H:%M:%S")
+
+            print(
+                f"Certificate SHA-256: {certificate_fingerprint}, "
+                f"{signing_time} -- {signature_status}"
+            )
+
+            all_signatures_are_valid = (all_signatures_are_valid and signature.is_valid)
+
+        if all_signatures_are_valid:
+            print("All embedded signatures are valid for the current presentation.")
         else:
-            print("Presentation has been modified since signing.")
+            print("At least one embedded signature is invalid.")
 ```
+
+Neplatný výsledek obvykle znamená, že se po podepsání změnil obsah prezentace nebo data podpisu, nebo že je soubor poškozený. Odebrání všech podpisů vytvoří neoznačenou prezentaci, takže kontrola pouze platnosti položek nestačí: workflow citlivé na zabezpečení musí také ověřit, že je přítomen očekávaný počet podpisů a očekávané identity podepisujících.
+
+Vlastnost [DigitalSignature.certificate](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignature/certificate/) poskytuje data certifikátu jako pole bajtů. Příklad vypočítá jeho otisk SHA-256, aby aplikace mohla porovnat s otiskem očekávaného certifikátu podepisujícího.
+
+Tento výsledek platnosti by neměl být považován za úplné rozhodnutí o důvěře v certifikát. V závislosti na vaší bezpečnostní politice může vaše aplikace také potřebovat vytvořit a ověřit řetězec certifikátů X.509, zkontrolovat data platnosti certifikátu a stav revokace, potvrdit očekávaný subjekt nebo otisk, ověřit použití klíče a posoudit důvěryhodnou časovou značku. Hodnota [DigitalSignature.sign_time](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignature/sign_time/) sama o sobě není důkazem od důvěryhodné autority časových značek.
+
+## **Odstranění digitálních podpisů**
+
+Odstranění podpisů mění bezpečnostní stav prezentace. Následující příklad načte podepsaný soubor PPTX, odebere všechny podpisy pomocí [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignaturecollection/clear/), a uloží neoznačenou kopii.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    presentation.digital_signatures.clear()
+    presentation.save("InputPresentation-unsigned.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Pro odebrání pouze jednoho podpisu zavolejte [DigitalSignatureCollection.remove_at](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignaturecollection/remove_at/) s jeho nulovým indexem. Uložte do nového souboru, pokud není přepsání podepsaného originálu explicitní součástí vašeho workflow.
+
+## **Úpravy a úvahy o formátu**
+
+- Podpis neznamená, že je prezentace jen pro čtení. Uživatelé a aplikace mohou soubor stále upravovat, ale změny podepsaného obsahu obvykle zneplatní existující podpis.
+- Proveďte všechny zamýšlené úpravy před podepsáním. Pokud je nutné prezentaci změnit, uložte revidovanou verzi a podepište ji znovu.
+- Uchovávejte finální výstup ve formátu PPTX. Převod podepsané prezentace do jiného formátu nepřenáší původní PPTX podpis jako platný podpis pro konvertovaný soubor.
+- Zacházejte se soukromým klíčem certifikátu jako s citlivým údajem. Kdokoli, kdo získá soukromý klíč a jeho heslo, může vytvářet podpisy, které se jeví jako pocházející od držitele certifikátu.
+- Uchovávejte neoznačený zdroj nebo jinou kontrolovanou kopii, pokud to vyžaduje vaše politika uchovávání dokumentů.
 
 ## **Často kladené otázky**
 
-**Mohu odstranit existující podpisy ze souboru?**
+**Šifruje digitální podpis prezentaci?**
 
-Ano. Kolekce digitálních podpisů podporuje [odstranění jednotlivých položek](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignaturecollection/remove_at/) i [vymazání celé kolekce](https://reference.aspose.com/slides/cs/python-net/aspose.slides/digitalsignaturecollection/clear/); po uložení souboru nebude v prezentaci žádný podpis.
+Ne. Digitální podpis poskytuje důkaz o původu a integritě, ale obsah prezentace zůstává čitelný, pokud není použito samostatné šifrování. Použijte [prezentace chráněné heslem](/python-net/password-protected-presentation/), když je nutné omezit přístup k obsahu.
 
-**Stane se soubor po podepsání „pouze pro čtení“?**
+**Je heslo PFX stejné jako heslo prezentace?**
 
-Ne. Podpis zachovává integritu a autorství, ale neblokuje úpravy. Pro omezení úprav jej můžete kombinovat s ["Pouze pro čtení" nebo heslem](/slides/cs/python-net/password-protected-presentation/).
+Ne. Heslo PFX odemkne soukromý klíč uložený v balíčku certifikátu. Nereguluje, kdo může otevřít nebo upravit soubor PPTX.
 
-**Zobrazí se podpis správně v různých verzích PowerPointu?**
+**Mohu použít samopodepsaný certifikát?**
 
-Podpis je vytvořen pro kontejner OOXML (PPTX). Moderní verze PowerPointu, které podporují OOXML podpisy, zobrazují stav takových podpisů správně.
+Technicky lze použít samopodepsaný certifikát, pokud obsahuje přístupný soukromý klíč. Příjemci jej nebudou automaticky důvěřovat, pokud není tento certifikát explicitně přidán do jejich důvěryhodného prostředí. Ve veřejných nebo meziorganizačních pracovních postupech se běžně používá certifikát vydaný důvěryhodnou CA.
+
+**Co způsobí, že je podpis neplatný?**
+
+Změna podepsaného obsahu prezentace nebo dat podpisu po podepsání může podpis neplatnit. Poškození souboru může také způsobit selhání ověření. Pokud jsou odebrány všechny podpisy, prezentace je neoznačená, nikoli soubor s neplatným podpisem.
+
+**Znamená platný podpis, že mohu důvěřovat podepisujícímu?**
+
+Ne samostatně. Integrita podpisu a důvěra v podepisujícího jsou oddělená rozhodnutí. Politikou ověřování ve výrobě by mělo být také kontrolováno řetězení certifikátů, období platnosti, stav revokace, očekávaná identita, použití klíče a případné požadavky na důvěryhodnou časovou značku.
+
+**Co se stane, když certifikát vyprší?**
+
+Vypršení certifikátu nemění bajty prezentace, ale ovlivňuje hodnocení důvěry v certifikát. Zda podpis zůstane přijatelný, závisí na vaší politice a na tom, zda důvěryhodná časová značka prokazuje, že podepsání proběhlo během platnosti certifikátu. Nespoléhejte se jen na zobrazený čas podpisu jako na důvěryhodnou časovou značku.
+
+**Může být podepsaná prezentace stále upravována?**
+
+Ano. Podepsání soubor neuzamkne. Úprava podepsaného obsahu obvykle způsobí neplatnost existujícího podpisu, takže nejprve dokončete prezentaci a podepište finální revizi.
+
+**Může prezentace obsahovat více než jeden podpis?**
+
+Ano. Přidejte každý podpis do [Presentation.digital_signatures](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/digital_signatures/) před uložením. Během ověřování prohlédněte každý podpis a potvrďte, že jsou přítomni všichni požadovaní podepisující.
+
+**Které formáty prezentací podporují tyto operace?**
+
+Aspose.Slides podporuje operace s digitálními podpisy popsané zde pouze pro formát PPTX. Formáty PPT a OpenDocument nejsou touto API podporovány.
+
+**Mohu odstranit podpis, aniž by to ovlivnilo snímky?**
+
+Ano. Můžete odstranit jeden podpis nebo vyprázdnit celou kolekci a poté prezentaci uložit. Obsah snímků zůstane dostupný, ale uložený soubor již neobsahuje důkaz o odebraném podpisu.

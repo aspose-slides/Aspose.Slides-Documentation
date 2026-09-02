@@ -31,7 +31,7 @@ Aspose.Slides supports two types of document properties: **Built-in** and **Cust
 
 Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) interface. An instance of this interface is returned by the [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_documentproperties/) method. The following examples show how to read, modify, and manage these properties.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for C++ x.x.x will be displayed against these fields.
 

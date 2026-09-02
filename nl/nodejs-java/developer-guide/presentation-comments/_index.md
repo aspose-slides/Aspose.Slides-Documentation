@@ -1,251 +1,457 @@
 ---
-title: Beheer presentatieopmerkingen in JavaScript
-linktitle: Presentatieopmerkingen
+title: Presentatiecommentaren beheren in Node.js
+linktitle: Presentatiecommentaren
 type: docs
 weight: 100
 url: /nl/nodejs-java/presentation-comments/
 keywords:
-- opmerking
-- moderne opmerking
-- PowerPoint-opmerkingen
-- presentatie-opmerkingen
-- dia-opmerkingen
-- opmerking toevoegen
-- opmerking benaderen
-- opmerking bewerken
-- opmerking beantwoorden
-- opmerking verwijderen
-- opmerking wissen
+- commentaar
+- modern commentaar
+- PowerPoint-commentaren
+- presentatiecommentaren
+- dia commentaren
+- commentaar toevoegen
+- commentaar benaderen
+- commentaar bewerken
+- commentaar beantwoorden
+- commentaar verwijderen
+- commentaar verwijderen
 - PowerPoint
-- OpenDocument
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Beheers presentatieopmerkingen met Aspose.Slides voor Node.js: voeg opmerkingen toe, lees, bewerk en verwijder ze in PowerPoint-bestanden met JavaScript, snel en gemakkelijk."
+description: "Beheer presentatiecommentaren met Aspose.Slides voor Node.js via Java: commentaren toevoegen, lezen, bewerken, beantwoorden en verwijderen in PowerPoint-presentaties."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u presentatie‑opmerkingen in Aspose.Slides kunt beheren. Het toont de belangrijkste typen die met opmerkingen te maken hebben en laat zien hoe u opmerkingen aan dia’s kunt toevoegen, bestaande opmerkingen kunt benaderen, met antwoorden kunt werken, moderne opmerkingen kunt gebruiken en opmerkingen uit een presentatie kunt verwijderen.
+Dit artikel legt uit hoe u presentatie­commentaren kunt beheren met Aspose.Slides voor Node.js via Java. Het introduceert de belangrijkste commentaar‑gerelateerde typen en toont hoe u commentaren aan dia’s kunt toevoegen, bestaande commentaren kunt benaderen, kunt werken met antwoorden en moderne commentaren, en commentaren uit een presentatie kunt verwijderen.
 
-De voorbeelden richten zich op veelvoorkomende beoordelings‑ en samenwerkingsscenario’s in PowerPoint, zoals opmerkingen aan auteurs toewijzen, de inhoud en metadata van opmerkingen lezen, antwoordketens opbouwen en alle opmerkingen wissen of geselecteerde verwijderen.
+De voorbeelden behandelen veelvoorkomende review‑ en samenwerking­scenario’s in PowerPoint, zoals commentaren toewijzen aan auteurs, commentaartekst en metadata lezen, antwoordketens opbouwen, en geselecteerde commentaren of alle commentaren verwijderen.
 
-In PowerPoint verschijnt een opmerking als een notitie of aantekening op een dia. Wanneer op een opmerking wordt geklikt, worden de inhoud of berichten ervan weergegeven.
+In PowerPoint verschijnen commentaren als annotaties op dia’s. Wanneer u een commentaar selecteert, wordt de tekst en de bijbehorende discussie weergegeven.
 
-## **Waarom opmerkingen aan presentaties toevoegen?**
+## **Waarom commentaren aan presentaties toevoegen?**
 
-U wilt mogelijk opmerkingen gebruiken om feedback te geven of te communiceren met uw collega’s tijdens het beoordelen van presentaties.
+U kunt commentaren gebruiken om feedback te geven en samen te werken met collega’s bij het beoordelen van presentaties.
 
-Om u toe te staan opmerkingen te gebruiken in PowerPoint‑presentaties, biedt Aspose.Slides for Node.js via Java
+Aspose.Slides voor Node.js via Java biedt de volgende API’s voor werken met commentaren:
 
-* De [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation)‑klasse, die de collecties van auteurs bevat (van de [CommentAuthorCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/CommentAuthorCollection)‑klasse). De auteurs voegen opmerkingen toe aan dia’s.
-* De [CommentCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/CommentCollection)‑klasse, die de verzameling opmerkingen voor individuele auteurs bevat.
-* De [Comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Comment)‑klasse, die informatie over auteurs en hun opmerkingen bevat: wie de opmerking heeft toegevoegd, het tijdstip van toevoeging, de positie van de opmerking, enz.
-* De [CommentAuthor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/CommentAuthor)‑klasse, die informatie over individuele auteurs bevat: de naam van de auteur, zijn initialen, opmerkingen die aan de naam van de auteur zijn gekoppeld, enz.
+* De [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)‑klasse, die toegang geeft tot de commentaarauteurs van de presentatie.
+* De [CommentCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentcollection/)‑klasse, die de commentaren vertegenwoordigt die aan een specifieke auteur zijn gekoppeld.
+* De [Comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/)‑klasse, die informatie over een commentaar biedt, inclusief auteur, aanmaaktijd, positie en tekst.
+* De [CommentAuthor](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentauthor/)‑klasse, die informatie over een auteur biedt, inclusief naam, initialen en gekoppelde commentaren.
 
-## **Opmerking aan dia toevoegen**
-Deze JavaScript‑code laat zien hoe u een opmerking aan een dia in een PowerPoint‑presentatie toevoegt:
+## **Dia‑commentaren toevoegen**
+
+Het volgende voorbeeld laat zien hoe u commentaren aan dia’s in een PowerPoint‑presentatie kunt toevoegen:
 
 ```javascript
-// Initialiseert de Presentation-klasse
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Voegt een lege dia toe
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    // Voegt een auteur toe
-    var author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
-    // Stelt de positie voor opmerkingen in
-    var point = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
-    // Voegt een diaopmerking toe voor een auteur op dia 1
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, java.newInstanceSync("java.util.Date"));
-    // Voegt een diaopmerking toe voor een auteur op dia 2
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, java.newInstanceSync("java.util.Date"));
-    // Benadert ISlide 1
-    var slide = pres.getSlides().get_Item(0);
-    // Wanneer null als argument wordt doorgegeven, worden de opmerkingen van alle auteurs naar de geselecteerde dia gehaald
-    var Comments = slide.getSlideComments(author);
-    // Benadert de opmerking op index 0 voor dia 1
-    var str = Comments[0].getText();
-    pres.save("Comments_out.pptx", aspose.slides.SaveFormat.Pptx);
-    if (Comments.length > 0) {
-        // Selecteert de opmerkingenverzameling van de auteur op index 0
-        var commentCollection = Comments[0].getAuthor().getComments();
-        var Comment = commentCollection.get_Item(0).getText();
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    const author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
+
+    const comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        const firstComment = comments[0];
+        console.log(firstComment.getText());
+
+        const authorComments = firstComment.getAuthor().getComments();
+        const commentText = authorComments.get_Item(0).getText();
+        console.log(commentText);
     }
+
+    presentation.save("Comments_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Opmerkingen op dia benaderen**
-Deze JavaScript‑code laat zien hoe u een bestaande opmerking op een dia in een PowerPoint‑presentatie benadert:
+## **Dia‑commentaren benaderen**
+
+Het volgende voorbeeld laat zien hoe u bestaande commentaren in een PowerPoint‑presentatie kunt benaderen:
 
 ```javascript
-var pres = new aspose.slides.Presentation("Comments1.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("Comments1.pptx");
 try {
-    for (let i = 0; i < pres.getCommentAuthors().size(); i++) {
-        let commentAuthor = pres.getCommentAuthors().get_Item(i);
-        for (let j = 0; j < commentAuthor.getComments().size(); j++) {
-            const comment = commentAuthor.getComments().get_Item(j);
-            console.log("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() + " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    const authors = presentation.getCommentAuthors();
+    for (let authorIndex = 0; authorIndex < authors.size(); authorIndex++) {
+        const author = authors.get_Item(authorIndex);
+        const comments = author.getComments();
+
+        for (let commentIndex = 0; commentIndex < comments.size(); commentIndex++) {
+            const comment = comments.get_Item(commentIndex);
+            console.log("Slide: " + comment.getSlide().getSlideNumber());
+            console.log("Comment: " + comment.getText());
+            console.log("Author: " + comment.getAuthor().getName());
+            console.log("Posted at: " + comment.getCreatedTime());
+            console.log();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Opmerkingen beantwoorden**
-Een bovenliggende opmerking is de eerste of oorspronkelijke opmerking in een hiërarchie van opmerkingen of antwoorden. Met de [getParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Comment#getParentComment--) of [setParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-)‑methoden (van de [Comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Comment)‑klasse) kunt u een bovenliggende opmerking instellen of ophalen.
+## **Antwoorden op commentaren**
 
-Deze JavaScript‑code laat zien hoe u opmerkingen toevoegt en antwoorden erop krijgt:
+Een hoofdcommentaar is het oorspronkelijke commentaar bovenaan een antwoord‑hiërarchie. Met de methoden [Comment.getParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/getparentcomment/) en [Comment.setParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/setparentcomment/) kunt u het bovenliggende commentaar van een commentaar ophalen of instellen.
+
+Het volgende voorbeeld laat zien hoe u antwoorden kunt toevoegen en de resulterende commentaar‑hiërarchie kunt inspecteren:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Voegt een opmerking toe
-    var author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    var comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    // Voegt een antwoord toe aan comment1
-    var author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    var reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+    const slide = presentation.getSlides().get_Item(0);
+    const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10));
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    const comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    const author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    const reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
-    // Voegt nog een antwoord toe aan comment1
-    var reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    const reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
-    // Voeg een antwoord toe aan een bestaand antwoord
-    var subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    const subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
-    var comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    var comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    var reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    const comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+
+    const reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
-    // Toont de hiërarchie van opmerkingen op de console
-    var slide = pres.getSlides().get_Item(0);
-    var comments = slide.getSlideComments(null);
-    for (var i = 0; i < comments.length; i++) {
-        var comment = comments[i];
+
+    const comments = slide.getSlideComments(null);
+    for (let index = 0; index < comments.length; index++) {
+        let comment = comments[index];
+        let indentation = "";
         while (comment.getParentComment() != null) {
-            console.log("\t");
+            indentation += "\t";
             comment = comment.getParentComment();
         }
-        console.log((comments[i].getAuthor().getName() + " : ") + comments[i].getText());
-        console.log();
+
+        console.log(indentation + comments[index].getAuthor().getName() + ": " + comments[index].getText());
     }
-    pres.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
-    // Verwijdert comment1 en alle antwoorden daarop
+
+    presentation.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
+
     comment1.remove();
-    pres.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Attention" %}} 
+{{% alert color="warning" title="Warning" %}}
 
-* Wanneer de [Remove](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Comment#remove--)‑methode (van de [Comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Comment)‑klasse) wordt gebruikt om een opmerking te verwijderen, worden de antwoorden op die opmerking eveneens verwijderd.
-* Als de instelling van [setParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) resulteert in een circulaire verwijzing, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/PptxEditException) gegooid.
+* Wanneer de [Comment.remove](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/remove/)‑methode wordt gebruikt om een commentaar te verwijderen, worden ook alle antwoorden op dat commentaar verwijderd.
+* Als [Comment.setParentComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/setparentcomment/) een cirkelvormige verwijzing creëert, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pptxeditexception/) gegooid.
 
 {{% /alert %}}
 
-## **Moderne opmerking toevoegen**
+## **Moderne commentaren toevoegen**
 
-In 2021 heeft Microsoft *moderne opmerkingen* geïntroduceerd in PowerPoint. De functie moderne opmerkingen verbetert de samenwerking in PowerPoint aanzienlijk. Via moderne opmerkingen kunnen PowerPoint‑gebruikers opmerkingen oplossen, opmerkingen verankeren aan objecten en teksten, en veel gemakkelijker interacties aangaan dan voorheen.
+Moderne commentaren kunnen worden gekoppeld aan de dia zelf, aan een specifieke vorm, of aan een tekstbereik binnen een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/). De methode [CommentCollection.addModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) accepteert een [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/)‑argument naast de dia‑ en commentaar‑marker‑coördinaten.
 
-Aspose.Slides ondersteunt moderne opmerkingen via de [ModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ModernComment)‑klasse. De methoden [addModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) en [insertModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) zijn toegevoegd aan de [CommentCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/CommentCollection)‑klasse.
+Wanneer `null` wordt doorgegeven voor het shape‑argument, is het commentaar een dia‑niveau commentaar. De marker wordt gepositioneerd volgens de opgegeven coördinaten, maar is niet gekoppeld aan een specifieke vorm, zodat [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/) `null` retourneert. Wanneer een [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) wordt opgegeven, wordt het commentaar aan die vorm verankerd. De coördinaten bepalen nog steeds de positie van de commentaar‑marker op de dia, terwijl de vormkoppeling kan worden opgehaald via [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-Deze JavaScript‑code laat zien hoe u een moderne opmerking aan een dia in een PowerPoint‑presentatie toevoegt:
+### **Moderne commentaar aan een vorm verankeren**
+
+Het volgende voorbeeld maakt zowel een dia‑niveau moderne commentaar als een moderne commentaar verankerd aan een specifieke [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/). Vervolgens leest het de gekoppelde vorm uit elk commentaar.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    var modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(100), java.newFloat(100)), java.newInstanceSync("java.util.Date"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
+
+    const createdTime = java.newInstanceSync("java.util.Date");
+    const slideCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(20), java.newFloat(20));
+    const shapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(60), java.newFloat(60));
+    const slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    const shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    console.log(slideComment.getShape() == null);
+    console.log(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Opmerking verwijderen**
+### **Commentaren verankeren aan verschillende vorm‑typen**
 
-### **Alle opmerkingen en auteurs verwijderen**
+Elk dia‑object dat afgeleid is van [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) kan worden gebruikt als vorm‑anker. Veelvoorkomende voorbeelden zijn [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/connector/) en [GraphicalObject](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/graphicalobject/) ‑ instellingen zoals grafieken.
 
-Deze JavaScript‑code laat zien hoe u alle opmerkingen en auteurs in een presentatie verwijdert:
+Het volgende voorbeeld maakt verschillende veelvoorkomende vorm‑typen en koppelt een moderne commentaar aan elk van hen.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("example.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Verwijdert alle opmerkingen uit de presentatie
-    for (let i = 0; i < presentation.getCommentAuthors().size(); i++) {
-    var author = presentation.getCommentAuthors().get_Item(i)
-        author.getComments().clear();
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    const autoShapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(30), java.newFloat(30));
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    const imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    const imageData = java.newArray("byte", Array.from(Buffer.from(imageBase64, "base64")));
+    const image = presentation.getImages().addImage(imageData);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 220, 20, 120, 80, image);
+    const pictureCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(230), java.newFloat(30));
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    const groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 100, 0, 80, 40);
+    const groupCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(40), java.newFloat(150));
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 220, 150, 140, 40);
+    const connectorCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(240), java.newFloat(150));
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 400, 20, 250, 180);
+    const chartCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(420), java.newFloat(40));
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Commentaar aan tekst verankeren en de status instellen**
+
+Voor een moderne commentaar gekoppeld aan een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/), geven [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) en [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) de startpositie van de geselecteerde tekst in het tekstaanduidingskader van de vorm. [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) en [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) geven de lengte van de selectie. Samen koppelen deze waarden het commentaar aan een specifiek tekstbereik binnen de [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/).
+
+De methoden [ModernComment.getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/setstatus/) geven een waarde uit de enumeratie [ModernCommentStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncommentstatus/) terug:
+
+- `NotDefined` — er is geen specifieke moderne‑commentaarstatus gedefinieerd.
+- `Active` — het commentaar is actief.
+- `Resolved` — het commentaar is opgelost.
+- `Closed` — het commentaar is gesloten.
+
+Het volgende voorbeeld maakt een vorm‑verankerd moderne commentaar, koppelt het aan een tekstselectie, markeert het als opgelost, slaat de presentatie op, en controleert de waarden na het opnieuw openen van het bestand.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const outputFile = "modern_comment_text_anchor.pptx";
+const shapeText = "Review the quarterly revenue forecast.";
+const selectedText = "quarterly revenue";
+const expectedSelectionStart = shapeText.indexOf(selectedText);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const commentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(60), java.newFloat(60));
+    const createdTime = java.newInstanceSync("java.util.Date");
+    const comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, createdTime);
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length);
+    comment.setStatus(aspose.slides.ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const reopenedPresentation = new aspose.slides.Presentation(outputFile);
+try {
+    const reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    const reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (let index = 0; index < reopenedComments.length; index++) {
+        const reopenedComment = reopenedComments[index];
+        if (!java.instanceOf(reopenedComment, "com.aspose.slides.IModernComment")) {
+            continue;
+        }
+
+        const shapeMatches = reopenedComment.getShape() != null && reopenedComment.getShape().getName() === "Forecast text";
+        const selectionStartMatches = reopenedComment.getTextSelectionStart() === expectedSelectionStart;
+        const selectionLengthMatches = reopenedComment.getTextSelectionLength() === selectedText.length;
+        const statusMatches = reopenedComment.getStatus() === aspose.slides.ModernCommentStatus.Resolved;
+
+        console.log("Shape anchor preserved: " + shapeMatches);
+        console.log("Text selection start preserved: " + selectionStartMatches);
+        console.log("Text selection length preserved: " + selectionLengthMatches);
+        console.log("Resolved status preserved: " + statusMatches);
     }
-    // Verwijdert alle auteurs
-    presentation.getCommentAuthors().clear();
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **Bestaande moderne commentaren inspecteren**
+
+Om een bestaande presentatie te inspecteren, controleert u welke commentaren [ModernComment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/)‑instanties zijn, vervolgens bekijkt u [ModernComment.getShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), en [ModernComment.getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/). Een `null`‑vorm duidt op een commentaar op dia‑niveau. Voor een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/)‑anker identificeren de tekst‑selectiemethoden het bijbehorende bereik in het tekstaanduidingskader van de vorm.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("comments.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const comments = slide.getSlideComments(null);
+
+        for (let commentIndex = 0; commentIndex < comments.length; commentIndex++) {
+            const comment = comments[commentIndex];
+            if (!java.instanceOf(comment, "com.aspose.slides.IModernComment")) {
+                continue;
+            }
+
+            console.log("Slide: " + slide.getSlideNumber());
+            console.log("Text: " + comment.getText());
+            console.log("Status: " + comment.getStatus());
+
+            const shape = comment.getShape();
+            if (shape == null) {
+                console.log("Anchor: slide level");
+            } else {
+                console.log("Anchor shape: " + shape.getName());
+                console.log("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                    console.log("Text selection start: " + comment.getTextSelectionStart());
+                    console.log("Text selection length: " + comment.getTextSelectionLength());
+                }
+            }
+
+            console.log();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Commentaren verwijderen**
+
+### **Alle commentaren en commentaarauteurs verwijderen**
+
+Het volgende voorbeeld laat zien hoe u alle commentaren en commentaarauteurs uit een presentatie kunt verwijderen:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("example.pptx");
+try {
+    const authors = presentation.getCommentAuthors();
+    for (let index = 0; index < authors.size(); index++) {
+        authors.get_Item(index).getComments().clear();
+    }
+
+    authors.clear();
     presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Specifieke opmerkingen verwijderen**
+### **Specifieke commentaren verwijderen**
 
-Deze JavaScript‑code laat zien hoe u specifieke opmerkingen op een dia verwijdert:
+Het volgende voorbeeld laat zien hoe u specifieke commentaren van een dia kunt verwijderen:
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    // voeg opmerkingen toe...
-    var author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.2), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
-    author.getComments().addComment("comment 2", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.3), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
-    // verwijder alle opmerkingen die de tekst "comment 1" bevatten
-    
-    
-    for (var i = 0; i < presentation.getCommentAuthors().length; i++) {
-        var commentAuthor = presentation.getCommentAuthors().get_Item(i);
-        var toRemove = java.newInstanceSync("java.util.ArrayList");
-        for (let j = 0; j < slide.getSlideComments(commentAuthor).size(); j++) {
-            let comment = slide.getSlideComments(commentAuthor).get_Item(j);
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Author", "A");
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const firstCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
+    const secondCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.3), java.newFloat(0.2));
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    const authors = presentation.getCommentAuthors();
+    for (let authorIndex = 0; authorIndex < authors.size(); authorIndex++) {
+        const commentAuthor = authors.get_Item(authorIndex);
+        const commentsToRemove = [];
+        const comments = slide.getSlideComments(commentAuthor);
+
+        for (let commentIndex = 0; commentIndex < comments.length; commentIndex++) {
+            const comment = comments[commentIndex];
             if (comment.getText() === "comment 1") {
-                toRemove.add(comment);
+                commentsToRemove.push(comment);
             }
         }
-        for (var i = 0; i < toRemove.length; i++) {
-            var comment = toRemove.get_Item(i);
+
+        for (const comment of commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
+
     presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Ondersteunt Aspose.Slides een status zoals ‘opgelost’ voor moderne opmerkingen?**
+**Ondersteunt Aspose.Slides een opgeloste status voor moderne commentaren?**
 
-Ja. [Moderne opmerkingen](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/) bieden een [getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/)‑ en een [setStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/setStatus/)‑methode; u kunt de [status van een opmerking](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncommentstatus/) lezen en instellen (bijvoorbeeld markeren als opgelost), en deze status wordt opgeslagen in het bestand en herkend door PowerPoint.
+Ja. [ModernComment.getStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/getstatus/) en [ModernComment.setStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncomment/setstatus/) geven een [ModernCommentStatus](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/moderncommentstatus/)‑waarde terug, inclusief `Resolved`. De status wordt opgeslagen in de presentatie en kan opnieuw gelezen worden nadat het bestand is heropend.
 
-**Worden discussies met antwoorden (reply chains) ondersteund, en is er een limiet op het aantal niveaus?**
+**Worden gespreksketens (antwoord‑ketens) ondersteund, en is er een limiet op het aantal niveaus?**
 
-Ja. Elke opmerking kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/getparentcomment/), waardoor willekeurige antwoordketens mogelijk zijn. De API declareert geen specifieke limiet voor de diepte van geneste antwoorden.
+Ja. Elk commentaar kan verwijzen naar zijn [parent comment](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/comment/getparentcomment/), waardoor antwoord‑ketens mogelijk zijn. De API definieert geen specifieke diepte‑limiet.
 
-**In welk coördinatensysteem wordt de positie van een opmerkingmarkeringspunt op een dia gedefinieerd?**
+**In welk coördinatensysteem wordt de positie van een commentaar‑marker op een dia gedefinieerd?**
 
-De positie wordt opgeslagen als een zwevend‑kommagetalpunt in het coördinatensysteem van de dia. Hierdoor kunt u de markeringspunt precies plaatsen waar u het nodig hebt.
+De markerpositie wordt gedefinieerd door zwevende‑punt‑coördinaten in het dia‑coördinatensysteem, waardoor u de marker nauwkeurig op de dia kunt plaatsen.

@@ -5,7 +5,7 @@ weight: 10
 url: /reportingservices/introduction-&amp;-environment-setup/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 There have been inquires in past regarding Aspose.Slides for Reporting Services Integration with SharePoint. In this article, we will be focusing on SharePoint 2010. It is assumed that one already have a SharePoint Farm environment setup. The examples that we will be following in this article will be a full SharePoint Cloud, but the steps will be similar for a SharePoint Foundation Server. Before we proceed, let start with some key documentation that you can use for reference when you do this: 
 

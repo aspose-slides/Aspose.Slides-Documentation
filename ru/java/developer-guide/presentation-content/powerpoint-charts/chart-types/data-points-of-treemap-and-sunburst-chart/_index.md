@@ -1,123 +1,263 @@
 ---
-title: Настройка точек данных в диаграммах Treemap и Sunburst с использованием Java
+title: Настройка точек данных в диаграммах Treemap и Sunburst в Java
 linktitle: Точки данных в диаграммах Treemap и Sunburst
 type: docs
 url: /ru/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- диаграмма Treemap
-- диаграмма Sunburst
+- диаграмма treemap
+- диаграмма sunburst
+- иерархическая диаграмма
 - точка данных
-- цвет метки
-- цвет ветви
+- метка данных
+- цвет ветки
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как управлять точками данных в диаграммах treemap и sunburst с помощью Aspose.Slides для Java, совместимых с форматами PowerPoint."
+description: "Узнайте, как создавать иерархические данные и настраивать уровни, метки и цвета в диаграммах Treemap и Sunburst с помощью Aspose.Slides для Java."
 ---
+## **Обзор**
 
-Среди прочих типов диаграмм PowerPoint существуют два «иерархических» типа — **Treemap** и **Sunburst** (известные также как Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph или Multi Level Pie Chart). Эти диаграммы отображают иерархические данные, организованные в виде дерева — от листьев к вершине ветви. Листья задаются точками данных серии, а каждый последующий уровень вложенных групп определяется соответствующей категорией. Aspose.Slides for Java позволяет форматировать точки данных Sunburst и Treemap в Java.
+Диаграммы Treemap и Sunburst отображают одинаковый тип иерархических данных, но используют различные макеты. Treemap рисует иерархию в виде вложенных прямоугольников, площади которых соответствуют значениям листьев. Sunburst отображает её в виде концентрических колец: группы верхнего уровня находятся ближе к центру, а категории листьев – на внешнем кольце.
 
-Ниже показана диаграмма Sunburst, где данные в столбце Series1 определяют листовые узлы, а остальные столбцы — иерархические точки данных:
+В Aspose.Slides for Java каждое числовое значение представляет собой [IChartDataPoint](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/). Его метод [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) предоставляет доступ к листу и его родительским группам. В этой статье объясняется это отображение и показывается, как создать и оформить оба типа диаграмм из одних и тех же примерных данных.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Диаграмма Treemap с ветвями Consumer и Business](treemap-hierarchy.png)
 
-Начнём с добавления новой диаграммы Sunburst в презентацию:
+![Диаграмма Sunburst с той же иерархией Consumer и Business](sunburst-hierarchy.png)
+
+## **Понимание категорий, точек данных и уровней**
+
+Ниже использованный пример содержит три уровня категорий и один числовой ряд:
+
+| Подразделение | Подгруппа | Лист | Выручка |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Каждая строка создаёт одну категорию‑лист и одну точку данных. Уровни группировки категорий описывают путь от этого листа к его родителям. Для первой строки путь выглядит так: `Consumer > Computers > Laptops`.
+
+Индексы, возвращаемые [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--), идут от листа к корню:
+
+| Индекс `getDataPointLevels()` | Логический уровень | Представление Treemap | Представление Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Лист | Прямоугольник значения | Сегмент внешнего кольца |
+| `1` | Подгруппа | Прямоугольник или заголовок родителя | Сегмент среднего кольца |
+| `2` | Подразделение | Прямоугольник или заголовок верхнего уровня | Сегмент внутреннего кольца |
+
+Этот порядок одинаков для обоих типов диаграмм, хотя их визуальные макеты различаются. Сегмент‑родитель используется несколькими листьями. Чтобы оформить его, используйте соответствующий уровень первой точки данных в этой группе. Например, ветка `Consumer` начинается с точки `Laptops`, а подгруппа `Software` — с точки `Licenses`. Хранение ссылок на такие точки делает код понятнее и безопаснее, чем использование необъяснённых выражений типа `dataPoints.get_Item(0)` или `dataPoints.get_Item(6)`.
+
+## **Создание и настройка обоих типов диаграмм**
+
+Ниже приведён полностью работающий пример, который создаёт Treemap на первом слайде и Sunburst на втором. Он строит иерархию, отображает значение для `Tablets`, задаёт фиксированные цвета выбранным уровням, форматирует подпись ветки и сохраняет презентацию.
+
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Добавить категории листов. Элемент группировки устанавливается только когда начинается новая группа;
+        // последующие категории остаются в этой группе, пока не будет установлен другой элемент.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Показать категорию и значение у листа Tablets.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Отформатировать ветку Consumer через первый лист в этой ветке.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        Color consumerBranchColor = new Color(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // Отформатировать подгруппу Software через первый лист в этой подгруппе.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        Color softwareStemColor = new Color(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout влияет на метки родителей в Treemap; Sunburst использует кольцевые сегменты.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Ячейки категорий и ячейки значений используют одну и ту же строку листа, поэтому их позиции в коллекции остаются согласованными. Когда вы работаете с уже существующей диаграммой, а не создаёте новую, сначала проанализируйте строки категорий и сохраните именованные ссылки на точки данных и уровни, которые планируете форматировать.
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [**Создание или обновление диаграмм PowerPoint в Java**](/slides/ru/java/create-chart/)
-{{% /alert %}}
+## **Поведение и практические соображения**
 
-Если необходимо отформатировать точки данных диаграммы, следует использовать следующее:
+### **Различия между Treemap и Sunburst**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) классы 
-и [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--) метод 
-предоставляют доступ к форматированию точек данных Treemap и Sunburst‑диаграмм. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevelsManager) 
-используется для доступа к многоуровневым категориям — это контейнер 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) объектов. 
-По сути это оболочка для 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartCategoryLevelsManager) с 
-добавленными свойствами, специфичными для точек данных. 
-Класс [**IChartDataPointLevel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) имеет 
-два метода: [**getFormat**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel#getFormat--) и 
-[**getDataLabel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel#getLabel--) , которые 
-предоставляют доступ к соответствующим настройкам.
+- Treemap использует площадь для передачи значения и вложенные прямоугольники для передачи иерархии. Метод [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) управляет отображением меток родителей в этом типе диаграммы.
+- Sunburst использует угол для передачи значения и глубину кольца для передачи иерархии. Метод [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) **не** управляет метками кольца.
+- Оба типа диаграмм используют одни и те же уровни группировки категорий и одинаковый порядок лист‑к‑родителю, возвращаемый [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--), поэтому код построения данных и форматирования уровней может быть общим.
+- Значения родителей вычисляются из их дочерних листьев. Не добавляйте отдельные числовые точки для ветвей или подгрупп.
 
-## **Отображение значения точки данных**
-Отобразить значение точки данных «Leaf 4»:
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **Сортировка и порядок сегментов**
 
+Движок макета диаграммы определяет окончательное расположение прямоугольников и кольцевых сегментов. Сгруппируйте связанные строки категорий перед их добавлением, но не полагайтесь на конкретную позицию прямоугольника или начальный угол. Если порядок имеет смысл, включите его в метки или используйте тип диаграммы с явной осью категорий.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Тема и фиксированные цвета**
 
-## **Установка подписи и цвета точки данных**
-Установить подпись «Branch 1» так, чтобы отображалось имя серии («Series1») вместо имени категории. Затем задать цвет текста — жёлтый:
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+Неоформленные уровни диаграммы наследуют цвета из темы презентации. В примере используются явные заливки RGB для предсказуемого результата. Если диаграмма должна реагировать на изменения темы, используйте цвета схемы вместо фиксированных RGB‑значений и избегайте переопределения каждого уровня. Также проверьте контраст меток после изменения заливки ветки или подгруппы.
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+### **Метики и доступное пространство**
 
+PowerPoint может скрывать или усекать метки, когда сегмент слишком мал. Увеличение размера диаграммы, сокращение названий категорий или отображение меньшего количества полей метки обычно дают более чёткий результат. Метка может комбинировать название категории, название ряда и значение через [IDataLabelFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/), но включение всех полей часто делает иерархические диаграммы трудно читаемыми.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Экспорт и рендеринг**
 
-## **Изменение цвета ветви точки данных**
-Изменить цвет ветви «Steam 4»:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
-
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Сохранение в PPTX сохраняет возможность редактирования диаграммы. При рендеринге презентации Aspose.Slides в PDF или изображение поддерживаемые заливки и параметры меток отображаются вместе с диаграммой. Подстановка шрифтов и небольшие различия в доступном пространстве могут изменить перенос строк или видимость меток, поэтому установите необходимые шрифты и проверьте важные цели экспорта.
 
 ## **FAQ**
 
-**Можно ли изменить порядок (сортировку) сегментов в Sunburst/Treemap?**
+**Почему изменение уровня родителя влияет на несколько листьев?**
 
-Нет. PowerPoint сортирует сегменты автоматически (обычно по убыванию значений по часовой стрелке). Aspose.Slides отражает это поведение: изменить порядок напрямую нельзя; его можно достичь только предобработкой данных.
+Ветка или подгруппа — это общий визуальный сегмент. Его [IChartDataPointLevel](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdatapointlevel/) можно достичь через дочерний лист, но форматирование относится к общему сегменту‑родителю, а не только к этому листу.
 
-**Как тема презентации влияет на цвета сегментов и подписи?**
+**Почему отсутствует метка данных?**
 
-Цвета диаграммы наследуются из [тему/палитру](/slides/ru/java/presentation-theme/) презентации, если только вы явно не задаёте заливки/шрифты. Для предсказуемого результата фиксируйте сплошные заливки и форматирование текста на нужных уровнях.
+Сначала включите требуемые поля в объекте [IDataLabelFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idatalabelformat/) метки. Затем проверьте, достаточно ли места у сегмента. Макет родительских меток Treemap, размеры диаграммы, длина метки, размер шрифта и количество включённых полей влияют на возможность отображения метки.
 
-**Сохраняются ли пользовательские цвета ветвей и параметры подписей при экспорте в PDF/PNG?**
+**Можно ли задать точный порядок или координаты сегментов?**
 
-Да. При экспорте презентации настройки диаграммы (заливки, подписи) сохраняются в выходных форматах, так как Aspose.Slides рендерит их с учётом заданного форматирования.
+Можно управлять порядком строк‑источников и держать каждую группу сплошной, но задать точные прямоугольники Treemap или углы Sunburst нельзя. Движок макета рассчитывает их на основе иерархии, значений и доступного пространства.
 
-**Можно ли вычислить фактические координаты подписи/элемента для пользовательского наложения поверх диаграммы?**
+**Почему цвета меняются после изменения темы презентации?**
 
-Да. После выполнения раскладки диаграммы доступны реальные *x* и *y* координаты элементов (например, у [DataLabel](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/)), что упрощает точное позиционирование наложений.
+Заливки, основанные на теме, предназначены для следования палитре презентации. Применяйте явные RGB‑цвета к тем уровням, которые должны оставаться фиксированными, или сохраняйте цвета схемы, если предпочтительно адаптировать их к новой теме.
+
+**Сохраняются ли пользовательские форматы при экспорте в PDF и изображения?**
+
+Да, поддерживаемые заливки диаграммы и параметры меток включаются при рендеринге. Для согласованных результатов на разных системах сделайте шрифты доступными и протестируйте окончательный размер экспорта, поскольку вписание меток зависит от макета.
+
+## **Смотрите также**
+
+- [Create Treemap charts](/slides/ru/java/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/ru/java/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/ru/java/export-chart/)
+- [Manage presentation themes](/slides/ru/java/presentation-theme/)

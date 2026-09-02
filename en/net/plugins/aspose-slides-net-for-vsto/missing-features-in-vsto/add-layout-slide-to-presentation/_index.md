@@ -126,7 +126,7 @@ using (Presentation p = new Presentation("Test.pptx"))
 ## **Download Sample Code**
 - [GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/Aspose.SlidesFeaturesmissingInVSTOv1.1)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For more details, visit [Apply or Change Slide Layouts in .NET](/slides/net/slide-layout/).
 

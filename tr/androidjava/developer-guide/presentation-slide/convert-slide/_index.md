@@ -1,6 +1,6 @@
 ---
-title: Android'de Sunum Slaytlarını Görsellere Dönüştürme
-linktitle: Slayttan Görsele
+title: Android'de Sunum Slaytlarını Görüntülere Dönüştürme
+linktitle: Slayttan Görüntüye
 type: docs
 weight: 35
 url: /tr/androidjava/convert-slide/
@@ -9,17 +9,17 @@ keywords:
 - slaytı dışa aktar
 - slayttan görüntüye
 - slaytı görüntü olarak kaydet
-- slayttan PNG
-- slayttan JPEG
-- slayttan bitmap
-- slayttan TIFF
+- slayttan PNG'ye
+- slayttan JPEG'e
+- slayttan bitmap'e
+- slayttan TIFF'e
 - PowerPoint
 - OpenDocument
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android kullanarak PPT, PPTX ve ODP slaytlarını görüntülere dönüştürün—hızlı, yüksek kaliteli renderleme ve anlaşılır Java kod örnekleri."
+description: "Aspose.Slides for Android kullanarak PPT, PPTX ve ODP slaytlarını görüntülere dönüştürün—hızlı, yüksek kaliteli renderleme ve net Java kod örnekleri."
 ---
 ## **Giriş**
 
@@ -27,18 +27,18 @@ Aspose.Slides for Android via Java, PowerPoint ve OpenDocument sunum slaytların
 
 Bir slaytı görüntüye dönüştürmek için şu adımları izleyin:
 
-1. Dönüştürme ayarlarını tanımlayın ve dışa aktarmak istediğiniz slaytları şu arabirimleri kullanarak seçin:
-    - The [ITiffOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiffoptions/) interface, or
-    - The [IRenderingOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/irenderingoptions/) interface.
-2. Slayt görüntüsünü, [getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islide/#getImage--) yöntemini çağırarak oluşturun.
+1. İstenilen dönüşüm ayarlarını tanımlayın ve dışa aktarılacak slaytları seçin:
+    - [ITiffOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiffoptions/) arayüzünü veya
+    - [IRenderingOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/irenderingoptions/) arayüzünü kullanarak.
+2. [getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islide/#getImage--) metodunu çağırarak slayt görüntüsünü oluşturun.
 
-Aspose.Slides for Android via Java'da bir [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) arabirimi, piksel verileriyle tanımlanan görüntülerle çalışmanıza olanak tanır. Bu arabirimi, görüntüleri geniş bir format yelpazesinde (BMP, JPG, PNG vb.) kaydetmek için kullanabilirsiniz.
+Aspose.Slides for Android via Java'da, [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) piksel verileriyle tanımlanan görüntülerle çalışmanıza olanak tanıyan bir arayüzdür. Bu arayüzü, görüntüleri geniş bir format yelpazesinde (BMP, JPG, PNG vb.) kaydetmek için kullanabilirsiniz.
 
-## **Slaytları Bitmap'e Dönüştürme ve PNG Olarak Kaydetme**
+## **Slaytları Bitmape Dönüştürme ve PNG Olarak Kaydetme**
 
-Bir slaytı bitmap nesnesine dönüştürüp uygulamanızda doğrudan kullanabilirsiniz. Alternatif olarak, slaytı bitmap'e dönüştürüp ardından JPEG veya tercih ettiğiniz başka bir formatta kaydedebilirsiniz.
+Bir slaytı bitmap nesnesine dönüştürüp doğrudan uygulamanızda kullanabilirsiniz. Alternatif olarak, slaytı bitmap’e dönüştürüp görüntüyü JPEG veya istediğiniz başka bir formatta kaydedebilirsiniz.
 
-Bu kod, bir sunumun ilk slaytını bitmap nesnesine dönüştürüp ardından PNG formatında kaydetmeyi göstermektedir:
+Aşağıdaki kod, bir sunumun ilk slaytını bitmap nesnesine dönüştürüp PNG formatında kaydetmeyi gösterir:
 
 ```java 
 Presentation presentation = new Presentation("Presentation.pptx");
@@ -56,18 +56,18 @@ try {
 }
 ```
 
-## **Özel Boyutlarda Slaytları Görüntülere Dönüştürme**
+## **Özel Boyutlarda Slaytları Görüntüye Dönüştürme**
 
-Belirli bir boyutta görüntü almanız gerekebilir. [getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) üzerindeki bir aşırı yükleme ile bir slaytı belirli boyutlarda (genişlik ve yükseklik) görüntüye dönüştürebilirsiniz. 
+Belirli bir boyutta görüntü almanız gerekebilir. [getImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) metodunun bir aşırı yüklemesini kullanarak slaytı belirli genişlik ve yüksekliğe sahip bir görüntüye dönüştürebilirsiniz.
 
-Bu örnek kod, bu işlemin nasıl yapılacağını göstermektedir:
+Bu örnek kod, bu işlemi nasıl yapacağınızı gösterir:
 
 ```java 
 Size imageSize = new Size(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Sunumdaki ilk slaytı belirtilen boyutta bitmap'e dönüştür.
+    // Sunumdaki ilk slaytı belirtilen boyutta bir bitmap'e dönüştür.
     IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
 
     try {
@@ -81,21 +81,21 @@ try {
 }
 ```
 
-## **Notlar ve Yorumlar İçeren Slaytları Görüntülere Dönüştürme**
+## **Not ve Yorum İçeren Slaytları Görüntüye Dönüştürme**
 
 Bazı slaytlar not ve yorum içerebilir.
 
-Aspose.Slides, sunum slaytlarının görüntülere dönüştürülmesini kontrol etmenizi sağlayan iki arabirim sunar—[ITiffOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiffoptions/) ve [IRenderingOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/irenderingoptions/)—. Her iki arabirim de `setSlidesLayoutOptions` yöntemini içerir; bu yöntem, bir slaytı görüntüye dönüştürürken not ve yorumların renderlanmasını yapılandırmanıza olanak tanır.
+Aspose.Slides, sunum slaytlarının görüntülere dönüştürülmesini kontrol etmenizi sağlayan iki arayüz sunar—[ITiffOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiffoptions/) ve [IRenderingOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/irenderingoptions/)—. Her iki arayüz de bir slaytı görüntüye dönüştürürken not ve yorumların işlenmesini yapılandırmanızı sağlayan `setSlidesLayoutOptions` metodunu içerir.
 
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/notescommentslayoutingoptions/) sınıfı ile sonuç görüntüsünde not ve yorumların istediğiniz konumunu belirtebilirsiniz.
+[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/notescommentslayoutingoptions/) sınıfı ile elde edilen görüntüde not ve yorumların tercih ettiğiniz konumunu belirtebilirsiniz.
 
-Bu kod, not ve yorum içeren bir slaytı dönüştürmeyi göstermektedir:
+Bu kod, not ve yorum içeren bir slaytı nasıl dönüştüreceğinizi gösterir:
 
 ```java 
 float scaleX = 2;
 float scaleY = scaleX;
 
-// Sunum dosyasını yükle.
+// Bir sunum dosyası yükle.
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
@@ -104,11 +104,11 @@ try {
     notesCommentsOptions.setCommentsAreaWidth(500);                         // Yorum alanının genişliğini ayarla.
     notesCommentsOptions.setCommentsAreaColor(Color.LTGRAY);   // Yorum alanının rengini ayarla.
 
-    // Renderleme seçeneklerini oluştur.
+    // Renderlama seçeneklerini oluştur.
     RenderingOptions options = new RenderingOptions();
     options.setSlidesLayoutOptions(notesCommentsOptions);
 
-    // Sunumdaki ilk slaytı görüntüye dönüştür.
+    // Sunumun ilk slaytını bir görüntüye dönüştür.
     IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
 
     try {
@@ -122,33 +122,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Herhangi bir slayt‑görüntü dönüşüm sürecinde, [setNotesPosition](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) yöntemi `BottomFull` (notların konumunu belirlemek için) uygulayamaz; çünkü bir notun metni çok büyük olabilir ve belirtilen görüntü boyutuna sığmayabilir.
-
+{{% alert title="Not" color="warning" %}} 
+Herhangi bir slayt‑görüntü dönüşüm sürecinde, [setNotesPosition](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) metodu `BottomFull` (notların konumunu belirlemek için) uygulayamaz; çünkü not metni çok büyük olabilir ve belirtilen görüntü boyutuna sığmayabilir.
 {{% /alert %}} 
 
-## **TIFF Seçeneklerini Kullanarak Slaytları Görüntülere Dönüştürme**
+## **TIFF Seçenekleriyle Slaytları Görüntüye Dönüştürme**
 
-[ITiffOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiffoptions/) arabirimi, boyut, çözünürlük, renk paleti ve daha fazlası gibi parametreleri belirlemenize izin vererek ortaya çıkan TIFF görüntüsü üzerinde daha fazla kontrol sağlar.
+[ITiffOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/itiffoptions/) arayüzü, boyut, çözünürlük, renk paleti vb. parametreleri belirlemenize olanak tanıyarak elde edilen TIFF görüntüsü üzerinde daha fazla kontrol sağlar.
 
-Bu kod, TIFF seçeneklerinin 300 DPI çözünürlükte ve 2160 × 2800 boyutunda siyah‑beyaz bir görüntü üretmek için kullanıldığı bir dönüşüm sürecini göstermektedir:
+Bu kod, TIFF seçeneklerinin kullanıldığı ve 300 DPI çözünürlükte, 2160 × 2800 boyutlarında siyah‑beyaz bir görüntü üretilen dönüşüm sürecini gösterir:
 
 ```java 
-// Sunum dosyasını yükle.
+// Bir sunum dosyası yükle.
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // Sunumdan ilk slaytı al.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Çıkış TIFF görüntüsünün ayarlarını yapılandır.
+    // Çıktı TIFF görüntüsünün ayarlarını yapılandır.
     TiffOptions tiffOptions = new TiffOptions();
     tiffOptions.setImageSize(new Size(2160, 2880));                  // Görüntü boyutunu ayarla.
     tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Piksel formatını ayarla (siyah beyaz).
     tiffOptions.setDpiX(300);                                        // Yatay çözünürlüğü ayarla.
     tiffOptions.setDpiY(300);                                        // Dikey çözünürlüğü ayarla.
 
-    // Slaytı belirtilen seçeneklerle görüntüye dönüştür.
+    // Slaytı belirtilen seçeneklerle bir görüntüye dönüştür.
     IImage image = slide.getImage(tiffOptions);
 
     try {
@@ -162,11 +160,11 @@ try {
 }
 ```
 
-## **Tüm Slaytları Görüntülere Dönüştürme**
+## **Tüm Slaytları Görüntüye Dönüştürme**
 
-Aspose.Slides, bir sunumdaki tüm slaytları görüntülere dönüştürmenize olanak tanır; böylece tüm sunumu bir dizi görüntüye çevirebilirsiniz.
+Aspose.Slides, bir sunumdaki tüm slaytları görüntülere dönüştürmenize olanak tanır; böylece tüm sunum bir dizi görüntüye çevrilir.
 
-Bu örnek kod, bir sunumdaki tüm slaytları Java’da görüntülere dönüştürmeyi göstermektedir:
+Bu örnek kod, Java’da bir sunumdaki tüm slaytların nasıl görüntülere dönüştürüleceğini gösterir:
 
 ```java 
 float scaleX = 2;
@@ -174,14 +172,14 @@ float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Sunumu slayt bazında görüntülere renderla.
+    // Sunumu slayt slayt görüntülere renderla.
     for (int i = 0 ; i < presentation.getSlides().size(); i++)
     {
-        // Gizli slaytları kontrol et (gizli slaytları renderlama).
+        // Gizli slaytları kontrol et (gizli slaytları renderleme).
         if (presentation.getSlides().get_Item(i).getHidden())
             continue;
 
-        // Slaytı görüntüye dönüştür.
+        // Slaytı bir görüntüye dönüştür.
         IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
 
         try {
@@ -196,16 +194,22 @@ try {
 }
 ```
 
+## **Renkli Emoji İşleme**
+
+{{% alert title="Not" color="warning" %}} 
+Sunum slaytlarını görüntülere dönüştürürken renkli emojilerin doğru şekilde işlenebilmesi için, sunumda kullanılan emoji yazı tiplerinin dönüşümü yapan sistemde kurulu ve erişilebilir olması gerekir. Örneğin, sunum **Segoe UI Emoji** yazı tipini kullanıyorsa ve bu yazı tipi eksikse, emojiler çıktı görüntülerinde tek renkli görünebilir.
+{{% /alert %}}
+
 ## **SSS**
 
-**Aspose.Slides animasyonlu slaytları renderlamayı destekliyor mu?**
+**Aspose.Slides animasyonlu slaytların render edilmesini destekliyor mu?**
 
-Hayır, `getImage` yöntemi slaytı yalnızca statik bir görüntü olarak kaydeder, animasyonları içermez.
+Hayır, `getImage` metodu yalnızca slaytın statik bir görüntüsünü kaydeder, animasyonları içermez.
 
 **Gizli slaytlar görüntü olarak dışa aktarılabilir mi?**
 
-Evet, gizli slaytlar da normal slaytlar gibi işlenebilir. Yalnızca işleme döngüsünde dahil olduklarından emin olun.
+Evet, gizli slaytlar da normal slaytlar gibi işlenebilir. Sadece işleme döngüsünde yer aldıklarından emin olun.
 
 **Görüntüler gölgeler ve efektlerle kaydedilebilir mi?**
 
-Evet, Aspose.Slides, slaytları görüntü olarak kaydederken gölgeler, şeffaflık ve diğer grafik efektlerini renderlamayı destekler.
+Evet, Aspose.Slides, slaytları görüntü olarak kaydederken gölgeler, saydamlık ve diğer grafik efektlerinin render edilmesini destekler.

@@ -7,6 +7,8 @@ url: /id/cpp/shape-formatting/
 keywords:
 - format bentuk
 - format garis
+- efek sketsa
+- garis bentuk sketsa
 - format gaya sambungan
 - isian gradien
 - isian pola
@@ -15,37 +17,37 @@ keywords:
 - isian warna solid
 - transparansi bentuk
 - putar bentuk
-- efek bevel 3d
-- efek rotasi 3d
+- efek bevel 3D
+- efek rotasi 3D
 - reset pemformatan
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Pelajari cara memformat bentuk PowerPoint dalam C++ menggunakan Aspose.Slides - atur gaya isian, garis, dan efek untuk file PPT, PPTX, dan ODP dengan presisi dan kontrol penuh."
+description: "Pelajari cara memformat bentuk PowerPoint dalam C++ menggunakan Aspose.Slides—atur gaya isian, garis, dan efek untuk file PPT, PPTX, dan ODP dengan presisi dan kontrol penuh."
 ---
 ## **Pendahuluan**
 
 Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terdiri dari garis, Anda dapat memformatnya dengan mengubah atau menerapkan efek pada kontur mereka. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengontrol bagaimana interiornya diisi.
 
-![format-bentuk-powerpoint](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides untuk C++ menyediakan antarmuka dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama tersedia di PowerPoint.
+Aspose.Slides for C++ menyediakan antarmuka dan metode yang memungkinkan Anda memformat bentuk menggunakan opsi yang sama tersedia di PowerPoint.
 
-## **Format Garis**
+## **Memformat Garis**
 
 Dengan Aspose.Slides, Anda dapat menentukan gaya garis khusus untuk sebuah bentuk. Langkah‑langkah berikut menjelaskan prosedurnya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
-1. Atur [line style](https://reference.aspose.com/slides/id/cpp/aspose.slides/linestyle/) bentuk.
-1. Atur lebar garis.
-1. Atur [dash style](https://reference.aspose.com/slides/id/cpp/aspose.slides/linedashstyle/) garis.
-1. Atur warna garis untuk bentuk.
+1. Setel [line style](https://reference.aspose.com/slides/id/cpp/aspose.slides/linestyle/) bentuk.
+1. Setel lebar garis.
+1. Setel [dash style](https://reference.aspose.com/slides/id/cpp/aspose.slides/linedashstyle/) garis.
+1. Setel warna garis untuk bentuk.
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode berikut memperlihatkan cara memformat sebuah `AutoShape` persegi panjang:
+Kode berikut menunjukkan cara memformat sebuah `AutoShape` persegi panjang:
 
 ```cpp
 // Buat instance kelas Presentation yang mewakili file presentasi.
@@ -54,10 +56,10 @@ auto presentation = MakeObject<Presentation>();
 // Dapatkan slide pertama.
 auto slide = presentation->get_Slide(0);
 
-// Tambahkan auto shape dengan tipe Rectangle.
+// Tambahkan auto shape tipe Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// Atur warna isi untuk shape persegi panjang.
+// Setel warna isi untuk shape persegi panjang.
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
 // Terapkan pemformatan pada garis persegi panjang.
@@ -65,7 +67,7 @@ shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// Atur warna untuk garis persegi panjang.
+// Setel warna untuk garis persegi panjang.
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
@@ -78,28 +80,74 @@ Hasilnya:
 
 ![Garis yang diformat dalam presentasi](formatted-lines.png)
 
-## **Format Gaya Sambungan**
+## **Menerapkan Efek Sketsa pada Garis Bentuk**
 
-Berikut tiga opsi tipe sambungan:
+Efek sketsa membuat garis bentuk tampak seperti digambar tangan. Gunakan [IShape::get_LineFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/get_lineformat/) untuk mengakses pengaturan garis, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilineformat/get_sketchformat/) untuk mengakses pengaturan sketsa, dan [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/id/cpp/aspose.slides/isketchformat/set_sketchtype/) untuk memilih nilai dari enumerasi [LineSketchType](https://reference.aspose.com/slides/id/cpp/aspose.slides/linesketchtype/).
+
+Kode C++ berikut menunjukkan cara menerapkan efek [LineSketchType::Curved](https://reference.aspose.com/slides/id/cpp/aspose.slides/linesketchtype/), membaca nilai yang secara eksplisit ditetapkan, dan menghapus efek dengan [LineSketchType::None](https://reference.aspose.com/slides/id/cpp/aspose.slides/linesketchtype/):
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+
+// Access the shape's line format and its sketch format.
+auto sketchFormat = shape->get_LineFormat()->get_SketchFormat();
+
+// Apply a sketch effect.
+sketchFormat->set_SketchType(LineSketchType::Curved);
+
+// Read the sketch effect assigned directly to the shape.
+auto explicitSketchType = sketchFormat->get_SketchType();
+Console::WriteLine(u"Explicit sketch type: {0}", explicitSketchType);
+
+// Remove the sketch effect.
+sketchFormat->set_SketchType(LineSketchType::None);
+
+presentation->Dispose();
+```
+
+Nilai yang dikembalikan oleh [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/id/cpp/aspose.slides/isketchformat/get_sketchtype/) mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [ILineFormat::GetEffective](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilineformat/geteffective/), akses [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), dan baca [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/id/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto lineFormat = shape->get_LineFormat();
+
+auto explicitSketchType = lineFormat->get_SketchFormat()->get_SketchType();
+auto effectiveLineFormat = lineFormat->GetEffective();
+auto effectiveSketchType = effectiveLineFormat->get_SketchFormat()->get_SketchType();
+
+Console::WriteLine(u"Explicit sketch type: {0}", explicitSketchType);
+Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
+
+presentation->Dispose();
+```
+
+## **Memformat Gaya Sambungan**
+
+Berikut tiga opsi jenis sambungan:
 
 * Round
 * Miter
 * Bevel
 
-Secara default, ketika PowerPoint menyambungkan dua garis pada sudut (seperti pada sudut sebuah bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih menyukai opsi **Miter**.
+Secara default, ketika PowerPoint menyambungkan dua garis pada sudut (seperti pada sudut bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih suka opsi **Miter**.
 
 ![Gaya sambungan dalam presentasi](join-style-powerpoint.png)
 
-Kode C++ berikut memperlihatkan bagaimana tiga persegi panjang (seperti pada gambar di atas) dibuat menggunakan pengaturan sambungan Miter, Bevel, dan Round:
+Kode C++ berikut menunjukkan cara tiga persegi panjang (seperti pada gambar di atas) dibuat menggunakan pengaturan sambungan Miter, Bevel, dan Round:
 
 ```cpp
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Dapatkan slide pertama.
 auto slide = presentation->get_Slide(0);
 
-// Tambahkan tiga auto shape dengan tipe Rectangle.
+// Tambahkan tiga auto shape tipe Rectangle.
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
 auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
 auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
@@ -142,27 +190,27 @@ presentation->Dispose();
 
 ## **Isian Gradien**
 
-Di PowerPoint, Isian Gradien adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna terus‑menerus pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu secara bertahap memudar menjadi yang lain.
+Di PowerPoint, Isian Gradien adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna berkelanjutan ke sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu secara bertahap memudar menjadi warna lain.
 
-Berikut cara menerapkan isian gradien pada sebuah bentuk menggunakan Aspose.Slides:
+Berikut cara menerapkan isian gradien ke bentuk menggunakan Aspose.Slides:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) bentuk menjadi `Gradient`.
-1. Tambahkan dua warna pilihan Anda dengan posisi yang ditentukan menggunakan metode `Add` pada koleksi gradient stop yang disediakan oleh antarmuka [IGradientFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/igradientformat/).
+1. Setel [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) bentuk menjadi `Gradient`.
+1. Tambahkan dua warna pilihan Anda dengan posisi yang ditentukan menggunakan metode `Add` pada koleksi gradient stop yang diekspos oleh antarmuka [IGradientFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/igradientformat/).
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ berikut memperlihatkan cara menerapkan efek isian gradien pada sebuah elips:
+Kode C++ berikut menunjukkan cara menerapkan efek isian gradien ke sebuah elips:
 
 ```cpp
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Dapatkan slide pertama.
 auto slide = presentation->get_Slide(0);
 
-// Tambahkan auto shape dengan tipe Ellipse.
+// Tambahkan auto shape tipe Ellipse.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
 // Terapkan pemformatan gradien ke elips.
@@ -172,7 +220,7 @@ shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::
 // Atur arah gradien.
 shape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
 
-// Tambahkan dua titik henti gradien.
+// Tambahkan dua gradient stop.
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
 
@@ -187,40 +235,40 @@ Hasilnya:
 
 ## **Isian Pola**
 
-Di PowerPoint, Isian Pola adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—seperti titik, garis, silang, atau kotak—to sebuah bentuk. Anda dapat memilih warna kustom untuk latar depan dan latar belakang pola.
+Di PowerPoint, Isian Pola adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—seperti titik, garis, silang, atau kotak—ke sebuah bentuk. Anda dapat memilih warna khusus untuk latar depan dan latar belakang pola.
 
-Aspose.Slides menyediakan lebih dari 45 gaya pola bawaan yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi Anda. Bahkan setelah memilih pola bawaan, Anda masih dapat menentukan warna tepat yang akan digunakan.
+Aspose.Slides menyediakan lebih dari 45 gaya pola pra‑definisi yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi Anda. Bahkan setelah memilih pola pra‑definisi, Anda masih dapat menentukan warna tepat yang harus digunakan.
 
-Berikut cara menerapkan isian pola pada sebuah bentuk menggunakan Aspose.Slides:
+Berikut cara menerapkan isian pola ke bentuk menggunakan Aspose.Slides:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) bentuk menjadi `Pattern`.
-1. Pilih gaya pola dari opsi bawaan.
-1. Atur [Background Color](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipatternformat/get_backcolor/) pola.
-1. Atur [Foreground Color](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipatternformat/get_forecolor/) pola.
+1. Setel [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) bentuk menjadi `Pattern`.
+1. Pilih gaya pola dari opsi pra‑definisi.
+1. Setel [Background Color](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipatternformat/get_backcolor/) pola.
+1. Setel [Foreground Color](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipatternformat/get_forecolor/) pola.
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ berikut memperlihatkan cara menerapkan isian pola pada sebuah persegi panjang:
+Kode C++ berikut menunjukkan cara menerapkan isian pola ke sebuah persegi panjang:
 
 ```cpp
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Dapatkan slide pertama.
 auto slide = presentation->get_Slide(0);
 
-// Tambahkan auto shape dengan tipe Rectangle.
+// Tambahkan auto shape tipe Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Atur tipe isi menjadi Pattern.
+// Setel tipe isi menjadi Pattern.
 shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// Atur gaya pola.
+// Setel gaya pola.
 shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// Atur warna latar belakang dan latar depan pola.
+// Setel warna latar belakang dan latar depan pola.
 shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
 shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
@@ -235,39 +283,39 @@ Hasilnya:
 
 ## **Isian Gambar**
 
-Di PowerPoint, Isian Gambar adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar di dalam sebuah bentuk—secara efektif menggunakan gambar sebagai latar belakang bentuk.
+Di PowerPoint, Isian Gambar adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar di dalam bentuk—secara efektif menggunakan gambar sebagai latar belakang bentuk.
 
-Berikut cara menggunakan Aspose.Slides untuk menerapkan isian gambar pada sebuah bentuk:
+Berikut cara menggunakan Aspose.Slides untuk menerapkan isian gambar ke bentuk:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) bentuk menjadi `Picture`.
-1. Atur mode isian gambar ke `Tile` (atau mode lain yang diinginkan).
+1. Setel [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) bentuk menjadi `Picture`.
+1. Setel mode isian gambar ke `Tile` (atau mode lain yang diinginkan).
 1. Buat objek [IPPImage](https://reference.aspose.com/slides/id/cpp/aspose.slides/ippimage/) dari gambar yang ingin Anda gunakan.
-1. Berikan gambar ke metode `ISlidesPicture.set_Image`.
+1. Berikan gambar tersebut ke metode `ISlidesPicture.set_Image`.
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
 Misalkan kami memiliki file "lotus.png" dengan gambar berikut:
 
 ![Gambar lotus](lotus.png)
 
-Kode C++ berikut memperlihatkan cara mengisi sebuah bentuk dengan gambar:
+Kode C++ berikut menunjukkan cara mengisi bentuk dengan gambar:
 
 ```cpp
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Dapatkan slide pertama.
 auto slide = presentation->get_Slide(0);
 
-// Tambahkan auto shape dengan tipe Rectangle.
+// Tambahkan auto shape tipe Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// Atur tipe isi menjadi Picture.
+// Setel tipe isi menjadi Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Atur mode isi gambar.
+// Setel mode isi gambar.
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
 // Muat gambar dan tambahkan ke sumber daya presentasi.
@@ -275,7 +323,7 @@ auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// Atur gambar.
+// Setel gambar.
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(picture);
 
 // Simpan file PPTX ke disk.
@@ -287,22 +335,22 @@ Hasilnya:
 
 ![Bentuk dengan isian gambar](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Tile Picture Sebagai Tekstur**
 
-Jika Anda ingin menetapkan gambar berulang sebagai tekstur dan menyesuaikan perilaku pengulangan, Anda dapat menggunakan metode berikut pada antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/picturefillformat/):
+Jika Anda ingin mengatur gambar berulang sebagai tekstur dan menyesuaikan perilaku pengulangan, Anda dapat menggunakan metode berikut dari antarmuka [IPictureFillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/) dan kelas [PictureFillFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/picturefillformat/):
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Menetapkan mode isian gambar—baik `Tile` maupun `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Menentukan perataan ubin dalam bentuk.
+- [set_PictureFillMode](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Menetapkan mode isian gambar—baik `Tile` atau `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Menentukan perataan ubin di dalam bentuk.
 - [set_TileFlip](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
-- [set_TileOffsetX](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Menetapkan offset horizontal ubin (dalam poin) dari asal bentuk.
-- [set_TileOffsetY](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Menetapkan offset vertikal ubin (dalam poin) dari asal bentuk.
-- [set_TileScaleX](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Mendefinisikan skala horizontal ubin sebagai persentase.
-- [set_TileScaleY](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Mendefinisikan skala vertikal ubin sebagai persentase.
+- [set_TileOffsetX](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Menetapkan offset horizontal ubin (dalam point) dari asal bentuk.
+- [set_TileOffsetY](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Menetapkan offset vertikal ubin (dalam point) dari asal bentuk.
+- [set_TileScaleX](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Menentukan skala horizontal ubin sebagai persentase.
+- [set_TileScaleY](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Menentukan skala vertikal ubin sebagai persentase.
 
-Contoh kode berikut menunjukkan cara menambahkan bentuk persegi panjang dengan isian gambar berulang dan mengonfigurasi opsi ubin:
+Contoh kode berikut memperlihatkan cara menambahkan bentuk persegi panjang dengan isian gambar berulang dan mengonfigurasi opsi ubin:
 
 ```cpp
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Dapatkan slide pertama.
@@ -311,7 +359,7 @@ auto firstSlide = presentation->get_Slide(0);
 // Tambahkan auto shape persegi panjang.
 auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-// Atur tipe isi shape menjadi Picture.
+// Setel tipe isi shape menjadi Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
 // Muat gambar dan tambahkan ke sumber daya presentasi.
@@ -343,33 +391,33 @@ Hasilnya:
 
 ## **Isian Warna Solid**
 
-Di PowerPoint, Isian Warna Solid adalah opsi pemformatan yang mengisi sebuah bentuk dengan satu warna seragam. Latar belakang berwarna polos ini diterapkan tanpa gradien, tekstur, atau pola.
+Di PowerPoint, Isian Warna Solid adalah opsi pemformatan yang mengisi bentuk dengan satu warna seragam. Warna latar belakang polos ini diterapkan tanpa gradien, tekstur, atau pola apa pun.
 
-Untuk menerapkan isian warna solid pada sebuah bentuk menggunakan Aspose.Slides, ikuti langkah‑langkah berikut:
+Untuk menerapkan isian warna solid ke bentuk menggunakan Aspose.Slides, ikuti langkah‑langkah berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) bentuk menjadi `Solid`.
-1. Tetapkan warna isian yang Anda inginkan ke bentuk.
+1. Setel [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) bentuk menjadi `Solid`.
+1. Tetapkan warna isian pilihan Anda ke bentuk.
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode C++ berikut memperlihatkan cara menerapkan isian warna solid pada sebuah persegi panjang di slide PowerPoint:
+Kode C++ berikut menunjukkan cara menerapkan isian warna solid ke persegi panjang dalam slide PowerPoint:
 
 ```cpp
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Dapatkan slide pertama.
 auto slide = presentation->get_Slide(0);
 
-// Tambahkan auto shape dengan tipe Rectangle.
+// Tambahkan auto shape tipe Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Atur tipe isi menjadi Solid.
+// Setel tipe isi menjadi Solid.
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 
-// Atur warna isi.
+// Setel warna isi.
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 
 // Simpan file PPTX ke disk.
@@ -381,23 +429,23 @@ Hasilnya:
 
 ![Bentuk dengan isian warna solid](solid-color-fill.png)
 
-## **Set Transparansi**
+## **Mengatur Transparansi**
 
-Di PowerPoint, ketika Anda menerapkan isian warna solid, gradien, gambar, atau tekstur pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opasitas isian. Nilai transparansi yang lebih tinggi membuat bentuk menjadi lebih tembus, sehingga latar belakang atau objek di bawahnya terlihat sebagian.
+Di PowerPoint, ketika Anda menerapkan isian warna solid, gradien, gambar, atau tekstur ke bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opasitas isian. Nilai transparansi yang lebih tinggi membuat bentuk menjadi lebih tembus pandang, memungkinkan latar belakang atau objek di bawahnya terlihat sebagian.
 
 Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alfa pada warna yang digunakan untuk isian. Berikut caranya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
-1. Atur [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) menjadi `Solid`.
+1. Setel [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/filltype/) menjadi `Solid`.
 1. Gunakan `Color` untuk mendefinisikan warna dengan transparansi (komponen `alpha` mengontrol transparansi).
 1. Simpan presentasi.
 
-Kode C++ berikut memperlihatkan cara menerapkan warna isian transparan pada sebuah persegi panjang:
+Kode C++ berikut menunjukkan cara menerapkan warna isian transparan ke persegi panjang:
 
 ```cpp
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Dapatkan slide pertama.
@@ -420,28 +468,28 @@ Hasilnya:
 
 ![Bentuk transparan](shape-transparency.png)
 
-## **Putar Bentuk**
+## **Memutar Bentuk**
 
-Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Hal ini berguna saat menempatkan elemen visual dengan kebutuhan penyelarasan atau desain tertentu.
+Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Hal ini dapat berguna saat menempatkan elemen visual dengan kebutuhan penyelarasan atau desain tertentu.
 
-Untuk memutar sebuah bentuk pada slide, ikuti langkah‑langkah berikut:
+Untuk memutar bentuk pada slide, ikuti langkah‑langkah berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
-1. Atur properti rotasi bentuk ke sudut yang diinginkan.
+1. Setel properti rotasi bentuk ke sudut yang diinginkan.
 1. Simpan presentasi.
 
-Kode C++ berikut memperlihatkan cara memutar bentuk sebesar 5 derajat:
+Kode C++ berikut menunjukkan cara memutar bentuk sebesar 5 derajat:
 
 ```cpp
-// Buat instance kelas Presentation yang mewakili file presentasi.
+// Membuat instance kelas Presentation yang mewakili file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Dapatkan slide pertama.
 auto slide = presentation->get_Slide(0);
 
-// Tambahkan auto shape dengan tipe Rectangle.
+// Tambahkan auto shape tipe Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
 // Putar shape sebesar 5 derajat.
@@ -456,11 +504,11 @@ Hasilnya:
 
 ![Rotasi bentuk](shape-rotation.png)
 
-## **Tambahkan Efek Bevel 3D**
+## **Menambahkan Efek Bevel 3D**
 
-Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/threedformat/) mereka.
+Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D ke bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/threedformat/) mereka.
 
-Untuk menambahkan efek bevel 3D pada sebuah bentuk, ikuti langkah‑langkah berikut:
+Untuk menambahkan efek bevel 3D ke bentuk, ikuti langkah‑langkah berikut:
 
 1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
@@ -468,10 +516,10 @@ Untuk menambahkan efek bevel 3D pada sebuah bentuk, ikuti langkah‑langkah beri
 1. Konfigurasikan [ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/threedformat/) bentuk untuk menentukan pengaturan bevel.
 1. Simpan presentasi.
 
-Kode C++ berikut menunjukkan cara menerapkan efek bevel 3D pada sebuah bentuk:
+Kode C++ berikut memperlihatkan cara menerapkan efek bevel 3D ke bentuk:
 
 ```cpp
-// Buat instance kelas Presentation.
+// Buat instance dari kelas Presentation.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -502,22 +550,22 @@ Hasilnya:
 
 ![Efek bevel 3D](3D-bevel-effect.png)
 
-## **Tambahkan Efek Rotasi 3D**
+## **Menambahkan Efek Rotasi 3D**
 
-Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/threedformat/) mereka.
+Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D ke bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/threedformat/) mereka.
 
-Untuk menerapkan rotasi 3D pada sebuah bentuk:
+Untuk menerapkan rotasi 3D ke bentuk:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) ke slide.
-1. Gunakan [set_CameraType](https://reference.aspose.com/slides/id/cpp/aspose.slides/icamera/set_cameratype/) dan [set_LightType](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilightrig/set_lighttype/) untuk menentukan rotasi 3D.
+1. Gunakan [set_CameraType](https://reference.aspose.com/slides/id/cpp/aspose.slides/icamera/set_cameratype/) dan [set_LightType](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilightrig/set_lighttype/) untuk mendefinisikan rotasi 3D.
 1. Simpan presentasi.
 
-Kode C++ berikut memperlihatkan cara menerapkan efek rotasi 3D pada sebuah bentuk:
+Kode C++ berikut menunjukkan cara menerapkan efek rotasi 3D ke bentuk:
 
 ```cpp
-// Buat instance kelas Presentation.
+// Buat instance dari kelas Presentation.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -539,9 +587,9 @@ Hasilnya:
 
 ![Efek rotasi 3D](3D-rotation-effect.png)
 
-## **Reset Pemformatan**
+## **Mengatur Ulang Pemformatan**
 
-Kode C++ berikut menunjukkan cara mereset pemformatan sebuah slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/layoutslide/) ke pengaturan default mereka:
+Kode C++ berikut menunjukkan cara mengatur ulang pemformatan slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/layoutslide/) ke pengaturan default mereka:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -558,14 +606,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Apakah pemformatan bentuk memengaruhi ukuran akhir file presentasi?**
+**Apakah pemformatan bentuk memengaruhi ukuran file presentasi akhir?**
 
-Hanya sangat sedikit. Gambar dan media yang disematkan mengambil sebagian besar ruang file, sementara parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
+Hanya secara minimal. Gambar dan media yang disisipkan memakan sebagian besar ruang file, sementara parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
 
 **Bagaimana cara mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
 
-Bandingkan setiap properti kunci pemformatan bentuk—pengaturan isian, garis, dan efek. Jika semua nilai yang bersesuaian cocok, anggap gaya mereka identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang memudahkan pengelolaan gaya nantinya.
+Bandingkan masing‑masing properti pemformatan utama bentuk—pengaturan isian, garis, dan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang mempermudah pengelolaan gaya di kemudian hari.
 
-**Bisakah saya menyimpan sekumpulan gaya bentuk kustom ke file terpisah untuk digunakan kembali di presentasi lain?**
+**Apakah saya dapat menyimpan seperangkat gaya bentuk kustom ke file terpisah untuk digunakan kembali di presentasi lain?**
 
-Ya. Simpan contoh bentuk dengan gaya yang diinginkan dalam sebuah deck slide templat atau file .POTX. Saat membuat presentasi baru, buka templat tersebut, kloning bentuk‑bentuk yang bergaya sesuai kebutuhan, dan terapkan kembali pemformatannya di mana diperlukan.
+Ya. Simpan contoh bentuk dengan gaya yang diinginkan dalam deck slide templat atau file .POTX. Saat membuat presentasi baru, buka templat tersebut, kloning bentuk yang sudah bergaya yang Anda perlukan, dan terapkan kembali pemformatannya sesuai kebutuhan.

@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Java
-second_title: Aspose.Slides 文件說明
+second_title: Aspose.Slides for Java
 type: docs
 weight: 20
 url: /zh-hant/java/

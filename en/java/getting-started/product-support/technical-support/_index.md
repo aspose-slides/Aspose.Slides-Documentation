@@ -19,7 +19,7 @@ This article explains how to get support for Aspose.Slides and how to report iss
 
 ## **Technical support**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose provides unlimited free technical support for all its products. The support is available to all users, including evaluation.
 

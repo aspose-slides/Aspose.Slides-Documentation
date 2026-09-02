@@ -41,7 +41,7 @@ If you plan to use textual content or information from a presentation (PPT or PP
 * When compared to Microsoft PowerPoint, the Microsoft Word app is more equipped with tools or functionalities for content. 
 * Besides the editing functions in Word, you may also benefit from enhanced collaboration, printing, and sharing features. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to try out our [**Presentation to Word Online Converter**](https://products.aspose.app/slides/conversion/ppt-to-word) to see what you could gain from working with textual content from slides. 
 

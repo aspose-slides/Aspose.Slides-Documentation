@@ -83,6 +83,6 @@ pres->Dispose();
 ```
 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more about how to [Convert PowerPoint Slides to PNG in C++](/slides/cpp/convert-powerpoint-to-png/).
 {{% /alert %}}

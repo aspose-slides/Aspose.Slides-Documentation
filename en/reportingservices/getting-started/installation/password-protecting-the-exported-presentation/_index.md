@@ -5,7 +5,7 @@ weight: 90
 url: /reportingservices/password-protecting-the-exported-presentation/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Password protecting a presentation prevents unauthorized use and access. Password protection is useful if you are creating reports that contain sensitive data or details that only some people in your organization should see.
 
@@ -17,7 +17,7 @@ To apply the changes here, you need to modify files in the directory where Micro
 ### **Step 1. Locate the Reporting Server installation directory.**
 The root directory for Microsoft SQL Server is usually C:\Program Files\Microsoft SQL Server.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For x64 bit System the x86 instance of SQL Server is installed at C:\Program Files (x86)\Microsoft SQL Server\
 

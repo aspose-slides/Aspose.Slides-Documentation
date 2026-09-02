@@ -16,7 +16,7 @@ description: Aspose.Slides for C++ is a Microsoft PowerPoint® management API th
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for C++ Product Logo](home_1.png)
 

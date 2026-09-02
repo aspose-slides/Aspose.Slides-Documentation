@@ -170,7 +170,7 @@ On non-Windows platforms, the `fontconfig` library may be required.
 **Unsupported Platforms**
 - *Windows 11 ARM* (ARM64) — *Not currently under consideration*
 
-{{%  alert  title="Notes"  color="primary"  %}}  
+{{%  alert  title="Notes"  color="info"  %}}  
 For Linux x64, GLIBC 2.23+ is required; for Linux ARM64, GLIBC 2.39+ is required. Systems such as CentOS 7 (GLIBC 2.14) are not supported. If you need to run Aspose.Slides on CentOS 7 or other incompatible systems (e.g., Alpine), please use the standard package: [Aspose.Slides for .NET](https://nuget.org/packages/Aspose.Slides.NET).  
 {{% /alert %}} 
 

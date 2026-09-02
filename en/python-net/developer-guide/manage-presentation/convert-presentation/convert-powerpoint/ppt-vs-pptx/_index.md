@@ -34,7 +34,7 @@ However, conversion between old PPT and new PPTX format is the most complicated 
 
 Aspose.Slides provides a common interface to work with all presentation formats. It allows converting from PPT to PPTX and PPTX to PPT in a very simple way. Aspose.Slides completely supports conversion from PPT to PPTX and also supports conversion from PPTX to PPT with some restrictions. We recommend using PPTX format wherever possible.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Aspose.Slides Conversion app**](https://products.aspose.app/slides/conversion/).
 
@@ -50,7 +50,7 @@ pres = slides.Presentation("PPTtoPPTX.ppt")
 pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more [**How to Convert Presentations PPT to PPTX**.](/slides/python-net/convert-ppt-to-pptx/)
 {{% /alert %}} 
 

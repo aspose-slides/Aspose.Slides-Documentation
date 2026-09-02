@@ -20,248 +20,345 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for Android via Java, streamlining your workflow."
+description: "Learn how to merge PowerPoint and OpenDocument presentations on Android by cloning slides, controlling masters and layouts, resizing slide content, preserving sections, and handling protected or large files."
 ---
 
 ## **Overview**
 
-Merging PowerPoint and OpenDocument presentations is a common task in many Android applications, especially when generating reports, compiling slides from different sources, or automating presentation workflows. Aspose.Slides provides a powerful and easy-to-use API to combine multiple PPT, PPTX, or ODP files into a single presentation without installing Microsoft PowerPoint, LibreOffice, or OpenOffice.
+Aspose.Slides for Android via Java merges presentations by cloning slides from one [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) into another. The main operation is [ISlideCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), which can preserve the source slide's formatting or attach the cloned slide to a master or layout in the destination presentation.
 
-In this guide, you'll learn how to merge PowerPoint and OpenDocument presentations using just a few lines of code. We'll provide ready-to-use examples, and show how to preserve slide formatting, layouts, and other presentation elements during the merge process.
+This article covers the most common merging workflows:
 
-Whether you're building an enterprise-grade application or a simple automation tool, Aspose.Slides makes merging presentations fast, reliable, and scalable. Aspose.Slides allows you to merge presentations in different ways. You can combine presentations with all their shapes, styles, text, formatting, comments, animations, and more—without worrying about loss of quality or data.
+- merge all slides while preserving their source formatting;
+- merge selected slides;
+- apply a master from the destination presentation;
+- apply a specific layout from the destination presentation;
+- normalize different slide sizes before merging;
+- add cloned slides to a section;
+- merge several presentations in one end-to-end workflow;
+- handle masters, resources, notes, comments, media, fonts, passwords, large files, and multithreading concerns.
 
-{{% alert color="primary" %}}
+## **How Slide Cloning Affects Masters and Layouts**
 
-See also: [Clone Slides](https://docs.aspose.com/slides/androidjava/clone-slides/)
+A slide inherits much of its appearance from its layout and master. For that reason, the cloning overload you choose determines how the merged slide is integrated into the destination presentation.
 
-{{% /alert %}}
+Use [ISlideCollection.addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/) in one of these ways:
 
-### **What Can Be Merged**
+- `addClone(sourceSlide)` — preserve the source slide's layout and formatting. When required, the source master can be cloned into the destination presentation automatically. Aspose.Slides tracks automatically cloned masters so repeated slides that use the same source master do not cause that master to be cloned repeatedly.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — attach the cloned slide to a specific destination [IMasterSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterslide/). Aspose.Slides looks for a matching layout under that master by layout type or name.
+- `addClone(sourceSlide, destinationLayout)` — attach the cloned slide directly to a specific destination [ILayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/).
 
-With Aspose.Slides, you can merge 
+The master or layout passed to an `addClone` overload must belong to the **destination** presentation, not the source presentation.
 
-* entire presentations. All the slides from the presentations end up in one presentation
-* specific slides. Selected slides end up in one presentation
-* presentations in one format (PPT to PPT, PPTX to PPTX, etc) and in different formats (PPT to PPTX, PPTX to ODP, etc) to one another. 
+## **Merge Entire Presentations and Preserve Source Formatting**
 
-### **Merging Options**
-
-You can apply options that determine whether
-
-* each slide in the output presentation retains a unique style
-* a specific style is used for all the slides in the output presentation. 
-
-To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) methods (from the [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides.
-
-The `AddClone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
-
-## **Merge Presentations** 
-
-Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) method that allows you to combine slides while the slides retain their layouts and styles (default parameters).
-
-This Java code shows you how to merge presentations:
+The simplest merge copies every slide from the source presentation to the destination presentation. This is the appropriate choice when the imported slides should keep their original theme, master, and layout relationships.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres1 = new Presentation("pres1.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Merge Presentations with a Slide Master**
+The resulting presentation may contain multiple masters when the source and destination use different designs. This is expected when source formatting is intentionally preserved.
 
-Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation.
+## **Merge Selected Slides**
 
-This code in Java demonstrates the described operation:
+You do not have to clone every slide. The following example imports only selected slide indexes from the source presentation.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres1 = new Presentation("pres1.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getMasters().get_Item(0), true);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    int[] slideIndexes = { 0, 2, 4 };
+
+    for (int index : slideIndexes) {
+        destination.getSlides().addClone(source.getSlides().get_Item(index));
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-selected-slides.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Validate slide indexes before cloning when they come from user input or external configuration.
 
-The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `AddClone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) will be thrown.
+## **Merge Slides Using a Destination Master**
 
-{{% /alert %}}
-
-If you want the slides in the output presentation to have a different slide layout, use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) method instead when merging.
-
-## **Merge Specific Slides from Presentations**
-
-Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for Android via Java allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
-
-The following Java code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
+Use the [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) overload when imported slides should follow a master that already belongs to the destination presentation.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation presentation = new Presentation();
-Presentation presentation1 = new Presentation("presentation1.pptx");
-Presentation presentation2 = new Presentation("presentation2.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    presentation.getSlides().removeAt(0);
+    IMasterSlide destinationMaster = destination.getMasters().get_Item(0);
 
-    ISlide slide1 = getTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.getSlides().addClone(slide1);
-
-    ISlide slide2 = getTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.getSlides().addClone(slide2);
-
-    presentation.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    presentation2.dispose();
-    presentation1.dispose();
-    presentation.dispose();
-}
-```
-```java
-import com.aspose.slides.*;
-
-static ISlide getTitleSlide(IPresentation presentation) {
-    for (ISlide slide : presentation.getSlides()) {
-        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
-            return slide;
-        }
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationMaster, true);
     }
-    return null;
+
+    destination.save("merged-with-destination-master.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Merge Presentations with a Slide Layout**
+Aspose.Slides selects an appropriate layout under the specified master by matching the source layout's type or name. If no suitable layout exists and `allowCloneMissingLayout` is `true`, the source layout is cloned so the slide can be added. If it is `false`, a [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/) is thrown.
 
-This Java code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
+Use `false` when you want the merge to fail instead of introducing an additional layout into the destination master.
+
+## **Merge Slides Using a Specific Destination Layout**
+
+Use the [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) overload when you know exactly which destination layout the imported slides should use.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres1 = new Presentation("pres1.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres1 != null) pres1.dispose();
-}
+    ILayoutSlide destinationLayout = destination.getLayoutSlides().get_Item(0);
 
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, destinationLayout);
+    }
+
+    destination.save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
 ```
+
+Applying a destination layout changes the inherited layout relationship; it does not redesign the source slide content. If the source and destination layouts have different placeholder structures, inspect the result to confirm that the inherited formatting and placeholder behavior are appropriate.
 
 ## **Merge Presentations with Different Slide Sizes**
 
-{{% alert title="Note" color="warning" %}} 
+Presentations with different slide dimensions can be merged, but cloning a slide into a presentation with another slide size does not automatically redesign its content for the new canvas. Shapes may therefore appear shifted, scaled unexpectedly, or outside the visible slide area.
 
-You cannot merge presentations with different slide sizes. 
+A practical approach is to resize the source presentation before cloning. The [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) method can scale existing content while changing the slide dimensions. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesizescaletype/) scales content to fit within the requested size.
 
-{{% /alert %}}
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
 
-To merge 2 presentations with different slide sizes, you have to resize one of the presentations to make its size match that of the other presentation. 
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
+try {
+    SizeF sourceSize = source.getSlideSize().getSize();
+    SizeF destinationSize = destination.getSlideSize().getSize();
 
-This sample code demonstrates the described operation:
+    if (sourceSize.getWidth() != destinationSize.getWidth() || 
+        sourceSize.getHeight() != destinationSize.getHeight()) {
+        source.getSlideSize().setSize(
+            destinationSize.getWidth(), 
+            destinationSize.getHeight(), 
+            SlideSizeScaleType.EnsureFit);
+    }
+
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide);
+    }
+
+    destination.save("merged-same-slide-size.pptx", SaveFormat.Pptx);
+} finally {
+    source.dispose();
+    destination.dispose();
+}
+```
+
+Resizing changes the source presentation object in memory. If you need the original source presentation unchanged for other operations, open a separate instance for the merge.
+
+## **Merge Slides into a Presentation Section**
+
+The basic slide-cloning loop does not recreate the source presentation's section hierarchy. If sections matter in the output, create or select sections in the destination presentation and clone slides into them explicitly with [addClone(ISlide, ISection)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres1 = new Presentation("pres1.pptx");
+Presentation destination = new Presentation("destination.pptx");
+Presentation source = new Presentation("source.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        pres2.getSlideSize().setSize((float)pres1.getSlideSize().getSize().getWidth(), (float)pres1.getSlideSize().getSize().getHeight(), SlideSizeScaleType.EnsureFit);
+    ISection importedSection = destination.getSections().appendEmptySection("Imported slides");
 
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide);
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
+    for (ISlide slide : source.getSlides()) {
+        destination.getSlides().addClone(slide, importedSection);
     }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+
+    destination.save("merged-with-section.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
+    destination.dispose();
 }
 ```
 
-## **Merge Slides to a Presentation Section**
+The cloned slides are appended to the specified destination section. To preserve several source sections, enumerate [Presentation.getSections](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getSections--), retrieve each source section's current slides with [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--), recreate the sections in the destination, and clone each returned slide into its corresponding destination section. See [Manage Slide Sections](/slides/androidjava/slide-section/) for a complete section-enumeration example, including empty sections and structural changes.
 
-This Java code shows you how to merge a specific slide to a section in a presentation:
+## **Merge Multiple Presentations Safely**
+
+The following end-to-end example uses the first presentation as the destination, normalizes the slide size of each additional source, keeps each source open only while it is being copied, and saves the final file once.
+
+```java
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
+
+String[] inputFiles = { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+Presentation merged = new Presentation(inputFiles[0]);
+try {
+    SizeF mergedSize = merged.getSlideSize().getSize();
+
+    for (int fileIndex = 1; fileIndex < inputFiles.length; fileIndex++) {
+        Presentation source = new Presentation(inputFiles[fileIndex]);
+        try {
+            SizeF sourceSize = source.getSlideSize().getSize();
+
+            if (sourceSize.getWidth() != mergedSize.getWidth() || 
+                sourceSize.getHeight() != mergedSize.getHeight()) {
+                source.getSlideSize().setSize(
+                    mergedSize.getWidth(), 
+                    mergedSize.getHeight(), 
+                    SlideSizeScaleType.EnsureFit);
+            }
+
+            for (ISlide slide : source.getSlides()) {
+                merged.getSlides().addClone(slide);
+            }
+        } finally {
+            source.dispose();
+        }
+    }
+
+    merged.save("merged.pptx", SaveFormat.Pptx);
+} finally {
+    merged.dispose();
+}
+```
+
+This is a useful baseline for preserving the source formatting of imported slides. If your output must use a single destination theme, replace the simple `addClone(slide)` call with the appropriate destination-master or destination-layout overload shown earlier.
+
+## **Practical Considerations**
+
+### **Masters, Layouts, and Formatting Fidelity**
+
+Default slide cloning can automatically bring a required source master into the destination presentation. Aspose.Slides keeps an internal registry for automatically cloned masters to avoid cloning the same master repeatedly. Manually cloned masters are not tracked by that registry, so avoid pre-cloning masters unless you need explicit control over the master structure.
+
+Do not assume that two masters or layouts with the same name are visually equivalent. If a corporate template must control the final appearance, choose a destination master or layout explicitly and verify the result after merging.
+
+### **Notes and Comments**
+
+Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](/slides/androidjava/presentation-notes/) and [presentation comments](/slides/androidjava/presentation-comments/).
+
+If notes-page formatting is important, verify the merged presentation because notes masters are presentation-level objects and may differ between source files. For review workflows, also verify comment authors and threaded comments after combining files from different authors or templates.
+
+### **Images, Audio, Video, OLE Objects, and External Links**
+
+Slides can reference presentation-level resources such as images, embedded audio, embedded video, and OLE data. Clone the slide itself rather than copying only its visible shapes so Aspose.Slides can maintain the slide's relationships to its resources.
+
+Embedded and linked resources should be treated differently. A linked audio, video, OLE object, or hyperlink remains dependent on its external target; cloning a slide does not turn an external link into embedded content. Test linked-resource paths and URLs in the environment where the merged presentation will be opened.
+
+Aspose.Slides explicitly tracks automatically cloned masters, but this should not be treated as a general guarantee that identical binary resources from unrelated source presentations will always be deduplicated. If output file size is important, inspect the merged package and measure the result instead of relying on implicit deduplication.
+
+### **Embedded Fonts and Font Availability**
+
+Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) and manage embedding explicitly as described in [Embed Fonts in Presentations](/slides/androidjava/embedded-font/).
+
+Also verify that you are permitted to embed the fonts used by the source files. Font licenses can restrict embedding.
+
+### **Password-Protected Presentations**
+
+A password-protected source must be opened successfully before its slides can be cloned. Supply the password through [LoadOptions.setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres1 = new Presentation("pres1.pptx");
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("YOUR_PASSWORD");
+
+Presentation source = new Presentation("protected.pptx", loadOptions);
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+    // Work with the decrypted presentation.
 } finally {
-    if (pres1 != null) pres1.dispose();
+    source.dispose();
 }
 ```
 
-The slide is added at the end of the section. 
+Opening an encrypted source does not automatically apply the same protection to the destination presentation. Configure output protection separately when required.
 
-{{% alert title="Tip" color="primary" %}}
+### **Large Presentations and Memory Use**
 
-Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](/slides/androidjava/manage-blob/) for large-file strategies.
 
-{{% /alert %}}
+For large files, prefer loading from file paths when possible, dispose each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints.
+
+### **Thread Safety**
+
+Do not load, modify, save, or clone the same [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) instance concurrently from multiple threads. Keep each presentation instance confined to one merge operation. If you parallelize independent jobs, use independent presentation instances and follow the [Aspose.Slides multithreading guidance](/slides/androidjava/multithreading/).
 
 ## **FAQ**
 
-### Are there any limitations on the number of slides when merging presentations?
+**How do I keep each source presentation's original design?**
 
-No strict limitations. Aspose.Slides can handle large files, but performance depends on the size and system resources. For very large presentations, it's recommended to use a 64-bit JVM and allocate sufficient heap memory.
+Use [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
 
-### Can I merge presentations with embedded video or audio?
+**How do I make imported slides use the destination theme?**
 
-Yes, Aspose.Slides preserves multimedia content embedded in slides, but the final presentation might become significantly larger.
+Use the overload that accepts a destination master. Pass a master from the destination presentation, not from the source. Aspose.Slides will try to map each source slide to an appropriate layout under that master.
 
-### Will fonts be preserved when merging presentations?
+**When should I use a specific destination layout instead of a destination master?**
 
-Yes. Fonts used in source presentations are preserved in the output file, assuming they are installed on the system or [embedded](/slides/androidjava/embedded-font/).
+Use a specific layout when every imported slide should use one known layout. Use a master when you want Aspose.Slides to select among that master's layouts based on the source layout type or name.
+
+**Can presentations with different slide sizes be merged?**
+
+Yes, but slide content is not automatically redesigned for the destination dimensions. Resize the source presentation first when you need predictable placement, for example with [SlideSize.setSize](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) and [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slidesizescaletype/).
+
+**Can I merge PPT, PPTX, and ODP presentations into one file?**
+
+Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](/slides/androidjava/supported-file-formats/).
+
+**Are source sections preserved automatically?**
+
+Not by a basic loop that only clones slides. Recreate the required sections in the destination and use the section overload of [addClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) when section structure must be preserved.
+
+**Are speaker notes and comments preserved?**
+
+They are copied with the cloned slide. For workflows that depend on notes-master styling, comment authors, or threaded review data, verify the merged result because those scenarios involve presentation-level structures as well as slide-level content.
+
+**What happens to audio, video, OLE objects, and hyperlinks?**
+
+Embedded content is carried as part of the cloned slide's resource relationships. External links remain external, so their target files or URLs must still be available after the merge.
+
+**Are embedded fonts from every source guaranteed to be available in the merged presentation?**
+
+Do not rely on slide cloning alone for font deployment. Inspect the destination's embedded fonts and explicitly manage font embedding or external font availability when typography is important.
+
+**How do I merge a password-protected file?**
+
+Open it with the correct [LoadOptions.setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), then clone its slides normally. Output protection is configured separately.
+
+**How should I handle very large presentations?**
+
+Use BLOB management when large binary objects dominate memory usage, prefer file-path loading for very large files, dispose source presentations promptly, and save the final result only when needed.
+
+**Can I merge slides from multiple threads?**
+
+Do not use one [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) instance concurrently from multiple threads. Keep each merge operation isolated to its own presentation instances.

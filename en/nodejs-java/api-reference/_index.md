@@ -14,7 +14,7 @@ keywords:
 description: "Create, edit, and convert presentations in JavaScript—no PowerPoint needed. Aspose.Slides for Node.js supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Node.js via Java is a class library that enables Node.js applications to read and write presentation documents without using Microsoft PowerPoint® or others. Aspose.Slides for Node.js via Java allows you to manage text, shapes, tables & animations, add audio and video to slides, preview slides, export slides to SVG, PDF format, and do a lot more.
 

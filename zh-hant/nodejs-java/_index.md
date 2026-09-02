@@ -1,6 +1,6 @@
 ---
 title: "Aspose.Slides for Node.js via Java"
-second_title: "Aspose.Slides for Node.js via .NET 文件說明"
+second_title: Aspose.Slides for Node.js
 type: docs
 weight: 47
 url: /zh-hant/nodejs-java/

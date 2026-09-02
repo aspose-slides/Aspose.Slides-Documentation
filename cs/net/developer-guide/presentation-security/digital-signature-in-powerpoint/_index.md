@@ -8,89 +8,169 @@ keywords:
 - digitální podpis
 - digitální certifikát
 - certifikační autorita
-- PFX certifikát
+- certifikát PFX
+- PKCS#12
+- ověřit podpis
 - PowerPoint
-- OpenDocument
-- prezentace
+- PPTX
+- bezpečnost prezentací
 - .NET
 - C#
 - Aspose.Slides
-description: "Zjistěte, jak digitálně podepsat soubory PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET. Zabezpečte své snímky během několika sekund s jasnými ukázkami kódu."
+description: "Zjistěte, jak podepsat existující PPTX prezentace pomocí certifikátů PFX a použít Aspose.Slides pro .NET k ověření nebo odstranění digitálních podpisů."
 ---
-## **Úvod**
+## **Přehled**
 
-**Digitální certifikát** se používá k vytvoření prezentace PowerPoint chráněné heslem, označené jako vytvořenou konkrétní organizací nebo osobou. Digitální certifikát lze získat kontaktováním oprávněné organizace – certifikační autority. Po instalaci digitálního certifikátu do systému jej lze použít k přidání digitálního podpisu do prezentace přes Soubor -> Informace -> Chrání prezentaci:
+Digitální podpis pomáhá příjemci určit, kdo prezentaci podepsal a zda se podepsaný obsah změnil. Tři související bezpečnostní pojmy jsou zde důležité:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **digitální certifikát** je elektronické oprávnění, které spojuje identitu s veřejným klíčem. Důvěryhodná certifikační autorita (CA) může certifikát vydat, nebo organizace může použít samopodepsaný certifikát pro interní workflow.
+- **digitální podpis** je vytvořen z obsahu prezentace a soukromého klíče držitele certifikátu. Veřejný klíč certifikátu může být následně použit k ověření podpisu. Podpis poskytuje důkaz o původu a integritě; nešifruje prezentaci.
+- **ochrana heslem** řídí, zda uživatel může otevřít nebo upravit prezentaci. Je oddělená od digitálního podepisování a je popsána v [Prezentace chráněné heslem](/net/password-protected-presentation/).
 
-Prezentace může obsahovat více než jeden digitální podpis. Po přidání digitálního podpisu do prezentace se v PowerPointu zobrazí speciální zpráva:
+PowerPoint poskytuje příkaz **Add a Digital Signature** v nabídce **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Nabídka PowerPoint Protect Presentation se zvýrazněným příkazem Add a Digital Signature](add-digital-signature-in-powerpoint.png)
 
-Pro podepsání prezentace nebo ověření pravosti podpisů prezentace poskytuje **Aspose.Slides API** rozhraní [**IDigitalSignature**](https://reference.aspose.com/slides/cs/net/aspose.slides/idigitalsignature), [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/cs/net/aspose.slides/IDigitalSignatureCollection) a [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/properties/digitalsignatures) vlastnost. V současné době jsou digitální podpisy podporovány pouze pro formát PPTX.
+Po otevření podepsané prezentace může PowerPoint zobrazit oznámení o stavu podpisu.
 
-## **Přidání digitálního podpisu z PFX certifikátu**
+![Upozornění PowerPoint, že prezentace obsahuje platné podpisy](digital-signature-status-in-powerpoint.png)
 
-Ukázkový kód níže ukazuje, jak přidat digitální podpis z PFX certifikátu:
+Aspose.Slides zpřístupňuje podpisy prostřednictvím [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/digitalsignatures/), [IDigitalSignatureCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/idigitalsignaturecollection/), jejíž položky implementují [IDigitalSignature](https://reference.aspose.com/slides/cs/net/aspose.slides/idigitalsignature/). Prezentace může obsahovat více podpisů.
 
-1. Otevřete soubor PFX a předávejte heslo PFX do objektu [**DigitalSignature**](https://reference.aspose.com/slides/cs/net/aspose.slides/digitalsignature).
-1. Přidejte vytvořený podpis do objektu prezentace.
+## **Pochopení certifikátů PFX a hesel**
 
-```c#
-using (Presentation pres = new Presentation())
+Soubor PFX, také známý jako soubor PKCS#12 a obvykle s příponou `.pfx` nebo `.p12`, může obsahovat certifikát X.509, jeho soukromý klíč a řetězec certifikátů. Soukromý klíč umožňuje jeho držiteli vytvořit podpis. Certifikát bez přístupného soukromého klíče nelze použít k podepsání prezentace.
+
+Heslo PFX chrání balíček certifikátu a soukromý klíč. Není **heslem** pro otevření nebo úpravu prezentace. Nezapisujte soubory PFX ani jejich hesla do systému pro správu zdrojového kódu. Ve výrobním prostředí omezte přístup k souboru certifikátu a získávejte jeho heslo ze zabezpečeného úložiště nebo jiného chráněného konfiguračního zdroje. Níže uvedené příklady používají proměnnou prostředí jen proto, aby se heslo nezakódovalo přímo v kódu.
+
+## **Přidání digitálního podpisu do prezentace**
+
+Pro podepsání reálného workflow prezentace načtěte existující soubor PPTX, vytvořte [DigitalSignature](https://reference.aspose.com/slides/cs/net/aspose.slides/digitalsignature/) z PFX certifikátu a jeho hesla, přidejte podpis do kolekce prezentace a uložte do souboru PPTX.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var certificatePassword = Environment.GetEnvironmentVariable("PFX_PASSWORD")
+    ?? throw new InvalidOperationException("Set the PFX_PASSWORD environment variable.");
+
+using var presentation = new Presentation("InputPresentation.pptx");
+
+var signature = new DigitalSignature("signing-certificate.pfx", certificatePassword)
 {
-    // Vytvořte objekt DigitalSignature s PFX souborem a heslem PFX 
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", @"testpass1");
+    Comments = "Approved for release."
+};
 
-    // Komentář nového digitálního podpisu
-    signature.Comments = "Aspose.Slides digital signing test.";
-
-    // Přidejte digitální podpis do prezentace
-    pres.DigitalSignatures.Add(signature);
-
-    // Uložte prezentaci
-    pres.Save("SomePresentationSigned.pptx", SaveFormat.Pptx);
-}
+presentation.DigitalSignatures.Add(signature);
+presentation.Save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 ```
 
-Nyní je možné zkontrolovat, zda byla prezentace digitálně podepsána a nebyla upravena:
+Uložení výsledku pod novým názvem zachová neoznačený zdrojový soubor. Hodnota [DigitalSignature.Comments](https://reference.aspose.com/slides/cs/net/aspose.slides/digitalsignature/comments/) popisuje účel podpisu; není to bezpečnostní kontrola.
 
-```c#
- // Otevřít prezentaci
-using (Presentation pres = new Presentation("SomePresentationSigned.pptx"))
+## **Ověření digitálních podpisů**
+
+Když načtete podepsaný soubor PPTX, prohlédněte každou položku v [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/digitalsignatures/). Vlastnost [IDigitalSignature.IsValid](https://reference.aspose.com/slides/cs/net/aspose.slides/idigitalsignature/isvalid/) udává, zda je vložený podpis platný pro aktuální obsah prezentace.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("InputPresentation-signed.pptx");
+
+var signatureCount = presentation.DigitalSignatures.Count;
+
+if (signatureCount == 0)
 {
-    if (pres.DigitalSignatures.Count > 0)
+    Console.WriteLine("The presentation does not contain digital signatures.");
+}
+else
+{
+    var allSignaturesAreValid = true;
+
+    foreach (var signature in presentation.DigitalSignatures)
     {
-        bool allSignaturesAreValid = true;
+        var signatureStatus = signature.IsValid ? "VALID" : "INVALID";
+        var signerName = signature.Certificate.SubjectName.Name;
 
-        Console.WriteLine("Signatures used to sign the presentation: ");
+        Console.WriteLine(
+            $"{signerName}, {signature.SignTime:yyyy-MM-dd HH:mm:ss} -- {signatureStatus}");
 
-        // Zkontrolujte, zda jsou všechny digitální podpisy platné
-        foreach (DigitalSignature signature in pres.DigitalSignatures)
-        {
-            Console.WriteLine(signature.Certificate.SubjectName.Name + ", "
-                    + signature.SignTime.ToString("yyyy-MM-dd HH:mm") + " -- " + (signature.IsValid ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.IsValid;
-        }
-
-        if (allSignaturesAreValid)
-            Console.WriteLine("Presentation is genuine, all signatures are valid.");
-        else
-            Console.WriteLine("Presentation has been modified since signing.");
+        allSignaturesAreValid &= signature.IsValid;
     }
+
+    Console.WriteLine(allSignaturesAreValid
+        ? "All embedded signatures are valid for the current presentation."
+        : "At least one embedded signature is invalid.");
 }
 ```
+
+Neplatný výsledek obvykle znamená, že se po podepsání změnil obsah prezentace nebo data podpisu, nebo že je soubor poškozen. Odstranění všech podpisů vytvoří neoznačenou prezentaci, takže kontrola pouze platnosti položek není dostačující: workflow citlivé na bezpečnost musí také ověřit, že je přítomen očekávaný počet podpisů a očekávané identity podepisujících.
+
+Tento výsledek platnosti by neměl být považován za úplné rozhodnutí o důvěře v certifikát. V závislosti na vaší bezpečnostní politice může vaše aplikace také potřebovat vytvořit a ověřit řetězec certifikátů X.509, zkontrolovat data platnosti certifikátu a stav revokace, potvrdit očekávaný subjekt nebo otisk, ověřit využití klíče a vyhodnotit důvěryhodné časové razítko. Hodnota [IDigitalSignature.SignTime](https://reference.aspose.com/slides/cs/net/aspose.slides/idigitalsignature/signtime/) sama o sobě není důkaz od důvěryhodné autority časových razítek.
+
+## **Odstranění digitálních podpisů**
+
+Odstranění podpisů mění bezpečnostní stav prezentace. Následující příklad načte podepsaný soubor PPTX, odstraní všechny podpisy pomocí [IDigitalSignatureCollection.Clear](https://reference.aspose.com/slides/cs/net/aspose.slides/idigitalsignaturecollection/clear/), a uloží neoznačenou kopii.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("InputPresentation-signed.pptx");
+
+presentation.DigitalSignatures.Clear();
+presentation.Save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+```
+
+Pro odstranění pouze jednoho podpisu zavolejte [IDigitalSignatureCollection.RemoveAt](https://reference.aspose.com/slides/cs/net/aspose.slides/idigitalsignaturecollection/removeat/) s nulovým indexem. Uložte do nového souboru, pokud není přepisování původního podepsaného souboru explicitní součástí vašeho workflow.
+
+## **Úvahy o úpravách a formátech**
+
+- Podpis neznamená, že je prezentace jen pro čtení. Uživatelé a aplikace mohou soubor i nadále upravovat, ale změny podepsaného obsahu obvykle neplatí existující podpis.
+- Dokončete všechny zamýšlené úpravy před podepsáním. Pokud je nutné prezentaci změnit, uložte revidovanou verzi a zopakujte podepsání.
+- Uchovávejte finální výstup ve formátu PPTX. Převod podepsané prezentace do jiného formátu nepřenáší původní PPTX podpis jako platný podpis pro převedený soubor.
+- Zacházejte se soukromým klíčem certifikátu jako s citlivou informací. Každý, kdo získá soukromý klíč a jeho heslo, může vytvořit podpisy, které se jeví jako pocházející od držitele certifikátu.
+- Uchovávejte neoznačený zdroj nebo jinou kontrolovanou kopii, pokud to vyžaduje vaše politika archivace dokumentů.
 
 ## **Často kladené otázky**
 
-**Mohu z souboru odstranit existující podpisy?**
+**Šifruje digitální podpis prezentaci?**
 
-Ano. Kolekce digitálních podpisů podporuje [odstranění jednotlivých položek](https://reference.aspose.com/slides/cs/net/aspose.slides/digitalsignaturecollection/removeat/) a [vymazání celé kolekce](https://reference.aspose.com/slides/cs/net/aspose.slides/digitalsignaturecollection/clear/); po uložení souboru nebude v prezentaci žádný podpis.
+Ne. Digitální podpis poskytuje důkaz o původu a integritě, ale obsah prezentace zůstává čitelný, pokud není použita samostatná šifrování. Použijte [ochranu heslem](/net/password-protected-presentation/), když je třeba omezit přístup k obsahu.
 
-**Stane se soubor po podpisu „pouze pro čtení“?**
+**Je heslo PFX stejné jako heslo prezentace?**
 
-Ne. Podpis zachovává integritu a autorství, ale neblokuje úpravy. Pro omezení úprav jej zkombinujte s [„Pouze pro čtení“ nebo heslem](/slides/cs/net/password-protected-presentation/).
+Ne. Heslo PFX odemyká soukromý klíč uložený v balíčku certifikátu. Neurčuje, kdo může otevřít nebo upravit soubor PPTX.
 
-**Zobrazí se podpis správně v různých verzích PowerPointu?**
+**Mohu použít samopodepsaný certifikát?**
 
-Podpis je vytvořen pro kontejner OOXML (PPTX). Moderní verze PowerPointu, které podporují OOXML podpisy, zobrazují stav takových podpisů správně.
+Technicky lze použít samopodepsaný certifikát, pokud obsahuje přístupný soukromý klíč. Příjemci jej však nebudou automaticky důvěřovat, pokud není tento certifikát explicitně přidán do jejich důvěryhodného prostředí. Ve veřejných nebo meziorganizačních workflow se obecně používá certifikát vydaný důvěryhodnou CA.
+
+**Co způsobí, že je podpis neplatný?**
+
+Změna podepsaného obsahu prezentace nebo dat podpisu po podepsání může podpis neplatit. Poškození souboru může také způsobit neúspěšnou validaci. Pokud jsou odstraněny všechny podpisy, prezentace je neoznačená, nikoli soubor obsahující neplatný podpis.
+
+**Znamená platný podpis, že mám důvěřovat podepisujícímu?**
+
+Ne samotný. Integrita podpisu a důvěra v podepisujícího jsou oddělená rozhodnutí. Politika ověřování ve výrobě by měla také kontrolovat řetězec certifikátů, období platnosti, stav revokace, očekávanou identitu, využití klíče a případné požadavky na důvěryhodné časové razítko.
+
+**Co se stane, když certifikát vyprší?**
+
+Vypršení platnosti certifikátu neovlivňuje bajty prezentace, ale má vliv na hodnocení důvěry v certifikát. To, zda podpis zůstane přijatelný, závisí na vaší politice a na tom, zda platné důvěryhodné časové razítko prokazuje, že podepsání proběhlo, když byl certifikát platný. Nespoléhejte se pouze na zobrazený čas podpisu jako na důvěryhodné časové razítko.
+
+**Může být podepsaná prezentace stále upravována?**
+
+Ano. Podepsání soubor neuzamyká. Úprava podepsaného obsahu obvykle způsobí neplatnost existujícího podpisu, takže nejprve dokončete prezentaci a podepište finální revizi.
+
+**Může prezentace obsahovat více než jeden podpis?**
+
+Ano. Přidejte každý podpis do [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/digitalsignatures/) před uložením. Během ověřování zkontrolujte každý podpis a potvrďte, že jsou přítomni všichni požadovaní podepisující.
+
+**Které formáty prezentací podporují tyto operace?**
+
+Aspose.Slides podporuje operace s digitálním podpisem popsané zde pouze pro PPTX. Formáty PPT a OpenDocument presentation nejsou tímto API workflow podporovány.
+
+**Mohu odstranit podpis, aniž by to ovlivnilo snímky?**
+
+Ano. Můžete odstranit jeden podpis nebo vymazat celou kolekci a poté uložit prezentaci. Obsah snímků zůstává zachován, ale uložený soubor již neobsahuje důkaz o odstraněném podpisu.

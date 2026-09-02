@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides สำหรับ Reporting Services
-second_title: เอกสาร Aspose.Slides
+second_title: Aspose.Slides for Reporting Services
 description: Aspose.Slides for Reporting Services เป็นโซลูชันเดียวในตลาดที่ทำให้สามารถสร้างรายงาน PPT และ PPS ที่แท้จริงใน Microsoft SQL Server 2005, 2008, 2012, 2016 และ 2017 Reporting Services (32-bit และ 64-bit) ได้
 type: docs
 weight: 50

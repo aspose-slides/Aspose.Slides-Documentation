@@ -1,6 +1,6 @@
 ---
 title: Convertir diapositivas de presentación a imágenes en .NET
-linktitle: Diapositiva a Imagen
+linktitle: Diapositiva a imagen
 type: docs
 weight: 41
 url: /es/net/convert-slide/
@@ -19,27 +19,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Convierta diapositivas de PPT, PPTX y ODP a imágenes en C# usando Aspose.Slides para .NET—renderizado rápido y de alta calidad con ejemplos de código claros."
+description: "Convertir diapositivas de PPT, PPTX y ODP a imágenes en C# usando Aspose.Slides para .NET—rápida, renderización de alta calidad con ejemplos de código claros."
 ---
+## **Introducción**
 
-## **Visión general**
-
-Aspose.Slides for .NET le permite convertir fácilmente diapositivas de presentaciones de PowerPoint y OpenDocument a varios formatos de imagen, incluidos BMP, PNG, JPG (JPEG), GIF y otros.
+Aspose.Slides for .NET le permite convertir fácilmente diapositivas de presentaciones PowerPoint y OpenDocument a varios formatos de imagen, incluidos BMP, PNG, JPG (JPEG), GIF y otros.
 
 Para convertir una diapositiva en una imagen, siga estos pasos:
 
-1. Defina la configuración de conversión deseada y seleccione las diapositivas que desea exportar usando:
-    - La interfaz [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/), o
-    - La interfaz [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/).
-2. Genere la imagen de la diapositiva llamando al método [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/).
+1. Defina la configuración de conversión deseada y seleccione las diapositivas que desea exportar mediante:
+    - La interfaz [ITiffOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/itiffoptions/), o
+    - La interfaz [IRenderingOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/irenderingoptions/).
+2. Genere la imagen de la diapositiva llamando al método [GetImage](https://reference.aspose.com/slides/es/net/aspose.slides/islide/getimage/).
 
-En .NET, un [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) es un objeto que le permite trabajar con imágenes definidas por datos de píxeles. Puede usar una instancia de esta clase para guardar imágenes en una amplia gama de formatos (BMP, JPG, PNG, etc.).
+En .NET, un [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) es un objeto que le permite trabajar con imágenes definidas por datos de píxeles. Puede utilizar una instancia de esta clase para guardar imágenes en una amplia gama de formatos (BMP, JPG, PNG, etc.).
 
 ## **Convertir diapositivas a bitmaps y guardar las imágenes en PNG**
 
-Puede convertir una diapositiva a un objeto bitmap y usarlo directamente en su aplicación. Alternativamente, puede convertir una diapositiva a un bitmap y luego guardar la imagen en JPEG u otro formato preferido.
+Puede convertir una diapositiva a un objeto bitmap y usarlo directamente en su aplicación. Alternativamente, puede convertir una diapositiva a un bitmap y luego guardar la imagen en JPEG o en cualquier otro formato preferido.
 
 Este código C# muestra cómo convertir la primera diapositiva de una presentación a un objeto bitmap y luego guardar la imagen en formato PNG:
+
 ```cs
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
@@ -52,12 +52,12 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 }
 ```
 
-
 ## **Convertir diapositivas a imágenes con tamaños personalizados**
 
-Puede que necesite obtener una imagen de un tamaño determinado. Usando una sobrecarga del método [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/), puede convertir una diapositiva a una imagen con dimensiones específicas (ancho y alto). 
+Puede que necesite obtener una imagen de un tamaño determinado. Utilizando una sobrecarga del método [GetImage](https://reference.aspose.com/slides/es/net/aspose.slides/islide/getimage/), puede convertir una diapositiva a una imagen con dimensiones específicas (ancho y alto). 
 
 Este código de ejemplo muestra cómo hacerlo:
+
 ```cs
 Size imageSize = new Size(1820, 1040);
 
@@ -72,16 +72,16 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 }
 ```
 
-
 ## **Convertir diapositivas con notas y comentarios a imágenes**
 
 Algunas diapositivas pueden contener notas y comentarios.
 
-Aspose.Slides proporciona dos interfaces—[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) y [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions/)—que le permiten controlar la renderización de las diapositivas de la presentación a imágenes. Ambas interfaces incluyen la propiedad `SlidesLayoutOptions`, que permite configurar la renderización de notas y comentarios en una diapositiva al convertirla en una imagen.
+Aspose.Slides proporciona dos interfaces—[ITiffOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/itiffoptions/) y [IRenderingOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/irenderingoptions/)—que le permiten controlar la representación de las diapositivas de la presentación en imágenes. Ambas interfaces incluyen la propiedad `SlidesLayoutOptions`, que le permite configurar la representación de notas y comentarios en una diapositiva al convertirla en una imagen.
 
-Con la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/), puede especificar la posición preferida para notas y comentarios en la imagen resultante.
+Con la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/notescommentslayoutingoptions/) puede especificar la posición que prefiera para las notas y los comentarios en la imagen resultante.
 
 Este código C# muestra cómo convertir una diapositiva con notas y comentarios:
+
 ```cs
 float scaleX = 2;
 float scaleY = scaleX;
@@ -110,18 +110,16 @@ using (Presentation presentation = new Presentation("Presentation_with_notes_and
 }
 ```
 
-
-{{% alert title="Nota" color="warning" %}} 
-
-En cualquier proceso de conversión de diapositiva a imagen, la propiedad [NotesPosition](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) no se puede establecer en `BottomFull` (para especificar la posición de las notas) porque el texto de una nota puede ser demasiado grande, lo que impide que quepa dentro del tamaño especificado de la imagen.
-
+{{% alert title="Note" color="warning" %}} 
+En cualquier proceso de conversión de diapositiva a imagen, la propiedad [NotesPosition](https://reference.aspose.com/slides/es/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) no puede establecerse en `BottomFull` (para especificar la posición de las notas) porque el texto de una nota puede ser demasiado largo, lo que impide que quepa dentro del tamaño de imagen especificado.
 {{% /alert %}} 
 
 ## **Convertir diapositivas a imágenes usando opciones TIFF**
 
-La interfaz [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions/) brinda un mayor control sobre la imagen TIFF resultante al permitir especificar parámetros como tamaño, resolución, paleta de colores y más.
+La interfaz [ITiffOptions](https://reference.aspose.com/slides/es/net/aspose.slides.export/itiffoptions/) ofrece un mayor control sobre la imagen TIFF resultante al permitir especificar parámetros como el tamaño, la resolución, la paleta de colores y más.
 
 Este código C# muestra un proceso de conversión donde se utilizan opciones TIFF para generar una imagen en blanco y negro con una resolución de 300 DPI y un tamaño de 2160 × 2800:
+
 ```cs
 // Cargar un archivo de presentación.
 using (Presentation presentation = new Presentation("sample.pptx"))
@@ -138,7 +136,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         DpiY = 300                                         // Establecer la resolución vertical.
     };
 
-    // Convertir la diapositiva en una imagen con las opciones especificadas.
+    // Convertir la diapositiva a una imagen con las opciones especificadas.
     using (IImage image = slide.GetImage(tiffOptions))
     {
         // Guardar la imagen en formato TIFF.
@@ -147,19 +145,19 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-
 ## **Convertir todas las diapositivas a imágenes**
 
 Aspose.Slides le permite convertir todas las diapositivas de una presentación en imágenes, convirtiendo efectivamente toda la presentación en una serie de imágenes.
 
-Este código de ejemplo muestra cómo convertir todas las diapositivas de una presentación en imágenes en C#:
+Este código de ejemplo muestra cómo convertir todas las diapositivas de una presentación a imágenes en C#:
+
 ```cs
 float scaleX = 2;
 float scaleY = scaleX;
 
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // Renderizar la presentación a imágenes diapositiva por diapositiva.
+    // Renderizar la presentación a imágenes diapositiva a diapositiva.
     for (int i = 0; i < presentation.Slides.Count; i++)
     {
         // Controlar diapositivas ocultas (no renderizar diapositivas ocultas).
@@ -176,17 +174,22 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 }
 ```
 
+## **Renderizado de emojis en color**
+
+{{% alert title="Note" color="warning" %}} 
+Para renderizar correctamente los emojis en color al convertir diapositivas de presentación a imágenes, las fuentes emoji utilizadas en la presentación deben estar instaladas y disponibles en el sistema que realiza la conversión. Por ejemplo, si la presentación utiliza **Segoe UI Emoji** y esa fuente falta, los emojis pueden aparecer en monocromo en las imágenes de salida.
+{{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**1. ¿Aspose.Slides admite la renderización de diapositivas con animaciones?**
+**¿Aspose.Slides admite el renderizado de diapositivas con animaciones?**
 
 No, el método `GetImage` guarda solo una imagen estática de la diapositiva, sin animaciones.
 
-**2. ¿Se pueden exportar diapositivas ocultas como imágenes?**
+**¿Se pueden exportar como imágenes las diapositivas ocultas?**
 
-Sí, las diapositivas ocultas pueden procesarse como cualquier otra. Sólo asegúrese de que estén incluidas en el bucle de procesamiento.
+Sí, las diapositivas ocultas pueden procesarse como las normales. Simplemente asegúrese de que estén incluidas en el bucle de procesamiento.
 
-**3. ¿Se pueden guardar imágenes con sombras y efectos?**
+**¿Se pueden guardar las imágenes con sombras y efectos?**
 
-Sí, Aspose.Slides admite la renderización de sombras, transparencias y otros efectos gráficos al guardar diapositivas como imágenes.
+Sí, Aspose.Slides admite el renderizado de sombras, transparencia y otros efectos gráficos al guardar diapositivas como imágenes.

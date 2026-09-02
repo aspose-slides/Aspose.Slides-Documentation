@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Java
-second_title: Tài liệu Aspose.Slides
+second_title: Aspose.Slides for Java
 type: docs
 weight: 20
 url: /vi/java/

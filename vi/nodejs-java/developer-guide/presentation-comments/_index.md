@@ -1,6 +1,6 @@
 ---
-title: Quản lý bình luận bản trình bày trong JavaScript
-linktitle: Bình luận trình chiếu
+title: Quản lý bình luận trên bản trình chiếu trong Node.js
+linktitle: Bình luận bản trình chiếu
 type: docs
 weight: 100
 url: /vi/nodejs-java/presentation-comments/
@@ -8,244 +8,448 @@ keywords:
 - bình luận
 - bình luận hiện đại
 - bình luận PowerPoint
-- bình luận bản trình bày
+- bình luận bản trình chiếu
 - bình luận slide
 - thêm bình luận
 - truy cập bình luận
 - chỉnh sửa bình luận
-- trả lời bình luận
+- phản hồi bình luận
+- loại bỏ bình luận
 - xóa bình luận
-- xoá bình luận
 - PowerPoint
-- OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Thành thạo việc quản lý bình luận bản trình bày với Aspose.Slides cho Node.js: thêm, đọc, chỉnh sửa và xóa bình luận trong tệp PowerPoint bằng JavaScript một cách nhanh chóng và dễ dàng."
+description: "Quản lý bình luận trên bản trình chiếu bằng Aspose.Slides cho Node.js qua Java: thêm, đọc, chỉnh sửa, trả lời và xóa bình luận trong các bản trình chiếu PowerPoint."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý các bình luận trong bản trình bày bằng Aspose.Slides. Nó giới thiệu các kiểu dữ liệu chính liên quan đến bình luận và minh họa cách thêm bình luận vào slide, truy cập các bình luận đã tồn tại, làm việc với các phản hồi, sử dụng bình luận hiện đại và xóa bình luận khỏi một bản trình bày.
+Bài viết này giải thích cách quản lý bình luận trên bản trình chiếu bằng Aspose.Slides for Node.js via Java. Nó giới thiệu các kiểu dữ liệu liên quan đến bình luận và trình bày cách thêm bình luận vào các slide, truy cập các bình luận hiện có, làm việc với các phản hồi và bình luận hiện đại, và xoá bình luận khỏi bản trình chiếu.
 
-Các ví dụ tập trung vào các kịch bản xem xét và cộng tác thông thường trong PowerPoint, chẳng hạn như gán bình luận cho tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi phản hồi, và xóa toàn bộ bình luận hoặc xóa các bình luận đã chọn.
+Các ví dụ bao phủ các kịch bản xem xét và cộng tác thường gặp trong PowerPoint, chẳng hạn như chỉ định bình luận cho tác giả, đọc nội dung và siêu dữ liệu của bình luận, xây dựng chuỗi phản hồi, và xoá các bình luận đã chọn hoặc tất cả bình luận.
 
-Trong PowerPoint, một bình luận xuất hiện như một ghi chú hoặc chú thích trên slide. Khi nhấp vào bình luận, nội dung hoặc thông điệp của nó sẽ được hiển thị.
+Trong PowerPoint, bình luận xuất hiện dưới dạng chú thích trên các slide. Khi chọn một bình luận, nội dung và cuộc thảo luận liên quan sẽ được hiển thị.
 
-## **Tại sao cần thêm bình luận vào bản trình bày?**
+## **Tại sao phải thêm bình luận vào bản trình chiếu?**
 
-Bạn có thể muốn sử dụng bình luận để đưa ra phản hồi hoặc giao tiếp với đồng nghiệp khi xem xét bản trình bày.
+Bạn có thể sử dụng bình luận để cung cấp phản hồi và cộng tác với đồng nghiệp khi xem xét bản trình chiếu.
 
-Để cho phép bạn sử dụng bình luận trong các bản trình bày PowerPoint, Aspose.Slides for Node.js via Java cung cấp
+Aspose.Slides for Node.js via Java cung cấp các API sau để làm việc với bình luận:
 
-* Lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) chứa các bộ sưu tập tác giả (từ lớp [CommentAuthorCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/CommentAuthorCollection)). Các tác giả thêm bình luận vào slide.
-* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/CommentCollection) chứa tập hợp các bình luận cho từng tác giả.
-* Lớp [Comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Comment) chứa thông tin về tác giả và các bình luận của họ: người đã thêm bình luận, thời gian thêm, vị trí bình luận, v.v.
-* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/CommentAuthor) chứa thông tin về từng tác giả: tên tác giả, ký tự viết tắt, các bình luận liên quan đến tên tác giả, v.v.
+* Lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) cung cấp truy cập tới các tác giả bình luận của bản trình chiếu.
+* Lớp [CommentCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentcollection/) đại diện cho các bình luận liên kết với một tác giả cụ thể.
+* Lớp [Comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/) cung cấp thông tin về một bình luận, bao gồm tác giả, thời gian tạo, vị trí và nội dung.
+* Lớp [CommentAuthor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentauthor/) cung cấp thông tin về một tác giả, bao gồm tên, chữ viết tắt và các bình luận liên quan.
 
-## **Thêm bình luận vào slide**
-Mã JavaScript này cho bạn thấy cách thêm một bình luận vào slide trong bản trình bày PowerPoint:
+## **Thêm bình luận cho slide**
+
+Ví dụ sau cho thấy cách thêm bình luận vào các slide trong một bản trình chiếu PowerPoint:
 
 ```javascript
-// Khởi tạo lớp Presentation
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Thêm một slide trống
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    // Thêm một tác giả
-    var author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
-    // Đặt vị trí cho các bình luận
-    var point = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
-    // Thêm bình luận slide cho tác giả trên slide 1
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, java.newInstanceSync("java.util.Date"));
-    // Thêm bình luận slide cho tác giả trên slide 2
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, java.newInstanceSync("java.util.Date"));
-    // Truy cập ISlide 1
-    var slide = pres.getSlides().get_Item(0);
-    // Khi null được truyền làm đối số, các bình luận từ mọi tác giả sẽ được lấy cho slide đã chọn
-    var Comments = slide.getSlideComments(author);
-    // Truy cập bình luận tại chỉ mục 0 cho slide 1
-    var str = Comments[0].getText();
-    pres.save("Comments_out.pptx", aspose.slides.SaveFormat.Pptx);
-    if (Comments.length > 0) {
-        // Chọn bộ sưu tập bình luận của Tác giả tại chỉ mục 0
-        var commentCollection = Comments[0].getAuthor().getComments();
-        var Comment = commentCollection.get_Item(0).getText();
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    const author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
+
+    const comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        const firstComment = comments[0];
+        console.log(firstComment.getText());
+
+        const authorComments = firstComment.getAuthor().getComments();
+        const commentText = authorComments.get_Item(0).getText();
+        console.log(commentText);
     }
+
+    presentation.save("Comments_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Truy cập bình luận trên slide**
-Mã JavaScript này cho bạn thấy cách truy cập một bình luận đã tồn tại trên slide trong bản trình bày PowerPoint:
+## **Truy cập bình luận của slide**
+
+Ví dụ sau cho thấy cách truy cập các bình luận hiện có trong một bản trình chiếu PowerPoint:
 
 ```javascript
-var pres = new aspose.slides.Presentation("Comments1.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("Comments1.pptx");
 try {
-    for (let i = 0; i < pres.getCommentAuthors().size(); i++) {
-        let commentAuthor = pres.getCommentAuthors().get_Item(i);
-        for (let j = 0; j < commentAuthor.getComments().size(); j++) {
-            const comment = commentAuthor.getComments().get_Item(j);
-            console.log("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() + " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    const authors = presentation.getCommentAuthors();
+    for (let authorIndex = 0; authorIndex < authors.size(); authorIndex++) {
+        const author = authors.get_Item(authorIndex);
+        const comments = author.getComments();
+
+        for (let commentIndex = 0; commentIndex < comments.size(); commentIndex++) {
+            const comment = comments.get_Item(commentIndex);
+            console.log("Slide: " + comment.getSlide().getSlideNumber());
+            console.log("Comment: " + comment.getText());
+            console.log("Author: " + comment.getAuthor().getName());
+            console.log("Posted at: " + comment.getCreatedTime());
+            console.log();
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Trả lời bình luận**
-Bình luận gốc là bình luận đầu tiên hoặc gốc trong một cấu trúc phân cấp của các bình luận hoặc phản hồi. Sử dụng các phương thức [getParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Comment#getParentComment--) hoặc [setParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) (từ lớp [Comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Comment)), bạn có thể lấy hoặc đặt một bình luận gốc.
+## **Phản hồi bình luận**
 
-Mã JavaScript này cho bạn thấy cách thêm bình luận và lấy các phản hồi cho chúng:
+Một bình luận cha là bình luận gốc ở đầu cây phản hồi. Các phương thức [Comment.getParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/getparentcomment/) và [Comment.setParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/setparentcomment/) cho phép bạn lấy hoặc đặt bình luận cha.
+
+Ví dụ sau cho thấy cách thêm phản hồi và kiểm tra cấu trúc cây bình luận kết quả:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Thêm một bình luận
-    var author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    var comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    // Thêm một phản hồi cho comment1
-    var author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    var reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+    const slide = presentation.getSlides().get_Item(0);
+    const position = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10));
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    const comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    const author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    const reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
-    // Thêm một phản hồi khác cho comment1
-    var reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    const reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
-    // Thêm một phản hồi cho một phản hồi đã tồn tại
-    var subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    const subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
-    var comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    var comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
-    var reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(10), java.newFloat(10)), java.newInstanceSync("java.util.Date"));
+
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    const comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
+
+    const reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
-    // Hiển thị cấu trúc cây bình luận trên console
-    var slide = pres.getSlides().get_Item(0);
-    var comments = slide.getSlideComments(null);
-    for (var i = 0; i < comments.length; i++) {
-        var comment = comments[i];
+
+    const comments = slide.getSlideComments(null);
+    for (let index = 0; index < comments.length; index++) {
+        let comment = comments[index];
+        let indentation = "";
         while (comment.getParentComment() != null) {
-            console.log("\t");
+            indentation += "\t";
             comment = comment.getParentComment();
         }
-        console.log((comments[i].getAuthor().getName() + " : ") + comments[i].getText());
-        console.log();
+
+        console.log(indentation + comments[index].getAuthor().getName() + ": " + comments[index].getText());
     }
-    pres.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
-    // Xóa comment1 và tất cả các phản hồi của nó
+
+    presentation.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
+
     comment1.remove();
-    pres.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Chú ý" %}} 
-
-* Khi phương thức [Remove](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Comment#remove--) (từ lớp [Comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Comment)) được sử dụng để xóa một bình luận, các phản hồi của bình luận đó cũng sẽ bị xóa.
-* Nếu việc thiết lập [setParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) dẫn đến một tham chiếu vòng, [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PptxEditException) sẽ được ném ra.
-
+{{% alert color="warning" title="Warning" %}}
+* Khi sử dụng phương thức [Comment.remove](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/remove/) để xoá một bình luận, tất cả các phản hồi của bình luận đó cũng sẽ bị xoá.
+* Nếu [Comment.setParentComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/setparentcomment/) tạo ra một tham chiếu vòng, một [PptxEditException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxeditexception/) sẽ được ném.
 {{% /alert %}}
 
 ## **Thêm bình luận hiện đại**
 
-Năm 2021, Microsoft giới thiệu *bình luận hiện đại* trong PowerPoint. Tính năng bình luận hiện đại cải thiện đáng kể khả năng cộng tác trong PowerPoint. Thông qua bình luận hiện đại, người dùng PowerPoint có thể giải quyết bình luận, gắn bình luận vào đối tượng và văn bản, và tương tác một cách dễ dàng hơn rất nhiều so với trước đây. 
+Bình luận hiện đại có thể được liên kết với chính slide, với một hình dạng cụ thể, hoặc với một đoạn văn bản bên trong một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/). Phương thức [CommentCollection.addModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/commentcollection/addmoderncomment/) nhận một đối số [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) bên cạnh slide và tọa độ của dấu đánh dấu bình luận.
 
-Aspose.Slides hỗ trợ bình luận hiện đại bằng lớp [ModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ModernComment). Các phương thức [addModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) và [insertModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) đã được thêm vào lớp [CommentCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/CommentCollection).
+Khi truyền `null` cho đối số shape, bình luận sẽ là bình luận cấp slide. Dấu đánh dấu của nó được định vị bằng các tọa độ đã cung cấp, nhưng không được liên kết với một shape cụ thể, do đó [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/) trả về `null`. Khi cung cấp một [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/), bình luận sẽ được neo vào shape đó. Các tọa độ vẫn xác định vị trí của dấu đánh dấu trên slide, trong khi việc liên kết với shape có thể được truy xuất qua [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/).
 
-Mã JavaScript này cho bạn thấy cách thêm một bình luận hiện đại vào slide trong bản trình bày PowerPoint:
+### **Neo một bình luận hiện đại vào shape**
+
+Ví dụ sau tạo cả một bình luận hiện đại cấp slide và một bình luận hiện đại được neo vào một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) cụ thể. Sau đó nó đọc shape liên quan từ mỗi bình luận.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    var modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(100), java.newFloat(100)), java.newInstanceSync("java.util.Date"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
+
+    const createdTime = java.newInstanceSync("java.util.Date");
+    const slideCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(20), java.newFloat(20));
+    const shapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(60), java.newFloat(60));
+    const slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    const shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    console.log(slideComment.getShape() == null);
+    console.log(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Xóa bình luận**
+### **Neo bình luận vào các loại shape khác nhau**
 
-### **Xóa tất cả bình luận và tác giả**
+Bất kỳ đối tượng slide nào kế thừa từ [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) đều có thể được dùng làm anchor cho shape. Các ví dụ phổ biến bao gồm [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/connector/), và các đối tượng [GraphicalObject](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/graphicalobject/) như biểu đồ.
 
-Mã JavaScript này cho bạn thấy cách xóa toàn bộ bình luận và tác giả trong một bản trình bày:
+Ví dụ sau tạo một số loại shape thông dụng và liên kết một bình luận hiện đại với mỗi shape.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("example.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Xóa tất cả các bình luận khỏi bản trình bày
-    for (let i = 0; i < presentation.getCommentAuthors().size(); i++) {
-    var author = presentation.getCommentAuthors().get_Item(i)
-        author.getComments().clear();
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    const autoShapeCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(30), java.newFloat(30));
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    const imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    const imageData = java.newArray("byte", Array.from(Buffer.from(imageBase64, "base64")));
+    const image = presentation.getImages().addImage(imageData);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 220, 20, 120, 80, image);
+    const pictureCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(230), java.newFloat(30));
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    const groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 100, 0, 80, 40);
+    const groupCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(40), java.newFloat(150));
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    const connector = slide.getShapes().addConnector(aspose.slides.ShapeType.StraightConnector1, 220, 150, 140, 40);
+    const connectorCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(240), java.newFloat(150));
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 400, 20, 250, 180);
+    const chartCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(420), java.newFloat(40));
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Neo bình luận vào văn bản và đặt trạng thái**
+
+Đối với một bình luận hiện đại được liên kết với một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), các phương thức [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/) và [ModernComment.setTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/settextselectionstart/) truy cập vị trí bắt đầu của đoạn văn bản đã chọn trong khung văn bản của shape. Các phương thức [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/) và [ModernComment.setTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/settextselectionlength/) truy cập độ dài của phần chọn. Cùng nhau, các giá trị này liên kết bình luận với một đoạn văn bản cụ thể bên trong [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/).
+
+Các phương thức [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị từ enumeration [ModernCommentStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncommentstatus/):
+
+- `NotDefined` — không có trạng thái bình luận hiện đại cụ thể nào được xác định.
+- `Active` — bình luận đang hoạt động.
+- `Resolved` — bình luận đã được giải quyết.
+- `Closed` — bình luận đã đóng.
+
+Ví dụ sau tạo một bình luận hiện đại được neo vào shape, liên kết nó với một đoạn văn bản đã chọn, đánh dấu là đã giải quyết, lưu bản trình chiếu và kiểm tra các giá trị sau khi mở lại tệp.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const outputFile = "modern_comment_text_anchor.pptx";
+const shapeText = "Review the quarterly revenue forecast.";
+const selectedText = "quarterly revenue";
+const expectedSelectionStart = shapeText.indexOf(selectedText);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    const author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    const commentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(60), java.newFloat(60));
+    const createdTime = java.newInstanceSync("java.util.Date");
+    const comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, createdTime);
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length);
+    comment.setStatus(aspose.slides.ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const reopenedPresentation = new aspose.slides.Presentation(outputFile);
+try {
+    const reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    const reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (let index = 0; index < reopenedComments.length; index++) {
+        const reopenedComment = reopenedComments[index];
+        if (!java.instanceOf(reopenedComment, "com.aspose.slides.IModernComment")) {
+            continue;
+        }
+
+        const shapeMatches = reopenedComment.getShape() != null && reopenedComment.getShape().getName() === "Forecast text";
+        const selectionStartMatches = reopenedComment.getTextSelectionStart() === expectedSelectionStart;
+        const selectionLengthMatches = reopenedComment.getTextSelectionLength() === selectedText.length;
+        const statusMatches = reopenedComment.getStatus() === aspose.slides.ModernCommentStatus.Resolved;
+
+        console.log("Shape anchor preserved: " + shapeMatches);
+        console.log("Text selection start preserved: " + selectionStartMatches);
+        console.log("Text selection length preserved: " + selectionLengthMatches);
+        console.log("Resolved status preserved: " + statusMatches);
     }
-    // Xóa tất cả các tác giả
-    presentation.getCommentAuthors().clear();
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **Kiểm tra các bình luận hiện đại hiện có**
+
+Để kiểm tra một bản trình chiếu hiện có, xác định các đối tượng [ModernComment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/), sau đó xem xét [ModernComment.getShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getshape/), [ModernComment.getTextSelectionStart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment.getTextSelectionLength](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/gettextselectionlength/), và [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/). Một shape `null` cho biết đây là bình luận cấp slide. Đối với anchor là một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), các phương thức chọn văn bản sẽ chỉ ra đoạn văn bản liên quan trong khung văn bản của shape.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("comments.pptx");
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const slide = slides.get_Item(slideIndex);
+        const comments = slide.getSlideComments(null);
+
+        for (let commentIndex = 0; commentIndex < comments.length; commentIndex++) {
+            const comment = comments[commentIndex];
+            if (!java.instanceOf(comment, "com.aspose.slides.IModernComment")) {
+                continue;
+            }
+
+            console.log("Slide: " + slide.getSlideNumber());
+            console.log("Text: " + comment.getText());
+            console.log("Status: " + comment.getStatus());
+
+            const shape = comment.getShape();
+            if (shape == null) {
+                console.log("Anchor: slide level");
+            } else {
+                console.log("Anchor shape: " + shape.getName());
+                console.log("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                    console.log("Text selection start: " + comment.getTextSelectionStart());
+                    console.log("Text selection length: " + comment.getTextSelectionLength());
+                }
+            }
+
+            console.log();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Xoá bình luận**
+
+### **Xoá tất cả bình luận và tác giả bình luận**
+
+Ví dụ sau cho thấy cách xoá tất cả bình luận và các tác giả bình luận khỏi một bản trình chiếu:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("example.pptx");
+try {
+    const authors = presentation.getCommentAuthors();
+    for (let index = 0; index < authors.size(); index++) {
+        authors.get_Item(index).getComments().clear();
+    }
+
+    authors.clear();
     presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Xóa các bình luận cụ thể**
+### **Xoá các bình luận cụ thể**
 
-Mã JavaScript này cho bạn thấy cách xóa các bình luận cụ thể trên một slide:
+Ví dụ sau cho thấy cách xoá các bình luận cụ thể khỏi một slide:
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    // thêm bình luận...
-    var author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.2), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
-    author.getComments().addComment("comment 2", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.3), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
-    // xóa tất cả các bình luận chứa văn bản "comment 1" text
-    
-    
-    for (var i = 0; i < presentation.getCommentAuthors().length; i++) {
-        var commentAuthor = presentation.getCommentAuthors().get_Item(i);
-        var toRemove = java.newInstanceSync("java.util.ArrayList");
-        for (let j = 0; j < slide.getSlideComments(commentAuthor).size(); j++) {
-            let comment = slide.getSlideComments(commentAuthor).get_Item(j);
+    const slide = presentation.getSlides().get_Item(0);
+    const author = presentation.getCommentAuthors().addAuthor("Author", "A");
+    const createdTime = java.newInstanceSync("java.util.Date");
+
+    const firstCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.2), java.newFloat(0.2));
+    const secondCommentPosition = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(0.3), java.newFloat(0.2));
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    const authors = presentation.getCommentAuthors();
+    for (let authorIndex = 0; authorIndex < authors.size(); authorIndex++) {
+        const commentAuthor = authors.get_Item(authorIndex);
+        const commentsToRemove = [];
+        const comments = slide.getSlideComments(commentAuthor);
+
+        for (let commentIndex = 0; commentIndex < comments.length; commentIndex++) {
+            const comment = comments[commentIndex];
             if (comment.getText() === "comment 1") {
-                toRemove.add(comment);
+                commentsToRemove.push(comment);
             }
         }
-        for (var i = 0; i < toRemove.length; i++) {
-            var comment = toRemove.get_Item(i);
+
+        for (const comment of commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
+
     presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Câu hỏi thường gặp**
 
-**Aspose.Slides có hỗ trợ trạng thái như “đã giải quyết” cho bình luận hiện đại không?**
+**Aspose.Slides có hỗ trợ trạng thái giải quyết cho bình luận hiện đại không?**
 
-Có. [Bình luận hiện đại](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/) cung cấp các phương thức [getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/) và [setStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/setStatus/); bạn có thể đọc và đặt [trạng thái của bình luận](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncommentstatus/) (ví dụ, đánh dấu là đã giải quyết), và trạng thái này sẽ được lưu trong tệp và được PowerPoint nhận dạng.
+Có. Các phương thức [ModernComment.getStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/getstatus/) và [ModernComment.setStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncomment/setstatus/) truy cập một giá trị của [ModernCommentStatus](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/moderncommentstatus/), bao gồm `Resolved`. Trạng thái được lưu trong bản trình chiếu và có thể đọc lại sau khi tệp được mở lại.
 
-**Các cuộc thảo luận chuỗi (chuỗi phản hồi) có được hỗ trợ không, và có giới hạn độ sâu lồng nhau không?**
+**Các cuộc thảo luận dạng chuỗi phản hồi có được hỗ trợ không, và có giới hạn mức độ lồng nhau không?**
 
-Có. Mỗi bình luận có thể tham chiếu tới [bình luận gốc](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/getparentcomment/), cho phép tạo ra các chuỗi phản hồi bất kỳ. API không quy định giới hạn độ sâu lồng nhau cụ thể.
+Có. Mỗi bình luận có thể tham chiếu tới [parent comment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/comment/getparentcomment/), cho phép tạo chuỗi phản hồi. API không đưa ra giới hạn cụ thể về độ sâu lồng nhau.
 
-**Vị trí của dấu hiệu bình luận trên slide được xác định trong hệ tọa độ nào?**
+**Vị trí của dấu đánh dấu bình luận trên slide được định nghĩa trong hệ tọa độ nào?**
 
-Vị trí được lưu dưới dạng một điểm số thực trong hệ tọa độ của slide. Điều này cho phép bạn đặt dấu hiệu bình luận chính xác ở vị trí mong muốn.
+Vị trí dấu đánh dấu được xác định bằng các tọa độ dạng số thực trong hệ tọa độ của slide, cho phép bạn đặt nó một cách chính xác trên slide.

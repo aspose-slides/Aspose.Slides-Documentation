@@ -43,7 +43,7 @@ When additional fonts are placed within a presentation, they are called [**Embed
 
 Aspose.Slides allows you to add fonts that are applied to *only* output documents. For example, if a presentation you are looking to convert to PDF contains fonts missing from your system and embedded fonts, you can add or load the needed fonts as **external fonts**. 
 
-{{% alert title="Note" color="primary" %}} 
+{{% alert title="Note" color="info" %}} 
 We do not distribute any fonts, either paid or free. Our API allows you to load external fonts and embed them in documents, but you do so with fonts at your discretion and responsibility.
 {{% /alert %}}
 

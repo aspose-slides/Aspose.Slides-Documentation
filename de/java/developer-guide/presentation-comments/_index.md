@@ -5,260 +5,484 @@ type: docs
 weight: 100
 url: /de/java/presentation-comments/
 keywords:
-- kommentar
-- moderner kommentar
-- powerpoint-kommentare
-- präsentationskommentare
-- folienkommentare
-- kommentar hinzufügen
-- kommentar abrufen
-- kommentar bearbeiten
-- kommentar beantworten
-- kommentar entfernen
-- kommentar löschen
+- Kommentar
+- moderner Kommentar
+- PowerPoint-Kommentare
+- Präsentationskommentare
+- Folienkommentare
+- Kommentar hinzufügen
+- Kommentar abrufen
+- Kommentar bearbeiten
+- Kommentar beantworten
+- Kommentar entfernen
+- Kommentar löschen
 - PowerPoint
-- OpenDocument
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für Java: Kommentare in PowerPoint-Dateien schnell und einfach hinzufügen, lesen, bearbeiten und löschen."
+description: "Verwalten Sie Präsentationskommentare mit Aspose.Slides für Java: Kommentare in PowerPoint‑Präsentationen hinzufügen, lesen, bearbeiten, beantworten und entfernen – schnell und einfach."
 ---
+## **Übersicht**
 
-In PowerPoint erscheint ein Kommentar als Notiz oder Anmerkung auf einer Folie. Wenn ein Kommentar angeklickt wird, werden dessen Inhalt bzw. Nachrichten angezeigt. 
+Dieser Artikel erklärt, wie Kommentare in Präsentationen mit Aspose.Slides für Java verwaltet werden. Er stellt die wichtigsten kommentarbezogenen Typen vor und zeigt, wie Kommentare zu Folien hinzugefügt, vorhandene Kommentare abgerufen, mit Antworten und modernen Kommentaren gearbeitet und Kommentare aus einer Präsentation entfernt werden.
+
+Die Beispiele decken gängige Review‑ und Kollaborationsszenarien in PowerPoint ab, wie das Zuordnen von Kommentaren zu Autoren, das Lesen von Kommentartexten und Metadaten, das Erstellen von Antwortketten sowie das Entfernen ausgewählter oder aller Kommentare.
+
+In PowerPoint erscheinen Kommentare als Anmerkungen auf Folien. Das Auswählen eines Kommentars zeigt dessen Text und die zugehörige Diskussion an.
 
 ## **Warum Kommentare zu Präsentationen hinzufügen?**
 
-Sie können Kommentare verwenden, um Feedback zu geben oder mit Ihren Kollegen zu kommunizieren, wenn Sie Präsentationen überprüfen.
+Sie können Kommentare verwenden, um Feedback zu geben und mit Kollegen bei der Durchsicht von Präsentationen zusammenzuarbeiten.
 
-Damit Sie Kommentare in PowerPoint‑Präsentationen verwenden können, bietet Aspose.Slides für Java
+Aspose.Slides für Java stellt die folgenden APIs zum Arbeiten mit Kommentaren bereit:
 
-* Die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)-Klasse, die die Sammlungen von Autoren enthält (aus der [ICommentAuthorCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICommentAuthorCollection)-Schnittstelle). Die Autoren fügen Folien Kommentare hinzu. 
-* Das [ICommentCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICommentCollection)-Interface, das die Sammlung von Kommentaren für einzelne Autoren enthält. 
-* Die [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment)-Klasse, die Informationen über Autoren und deren Kommentare enthält: wer den Kommentar hinzugefügt hat, wann der Kommentar hinzugefügt wurde, die Position des Kommentars usw. 
-* Die [CommentAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/CommentAuthor)-Klasse, die Informationen über einzelne Autoren enthält: den Namen des Autors, seine Initialen, mit dem Namen des Autors verbundene Kommentare usw. 
+* Die [Presentation](https://reference.aspose.com/slides/de/java/com.aspose.slides/presentation/)‑Klasse, die Zugriff auf die Kommentar‑Autoren der Präsentation bietet.
+* Die [ICommentCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/icommentcollection/)‑Schnittstelle, die die Kommentare eines einzelnen Autors repräsentiert.
+* Die [IComment](https://reference.aspose.com/slides/de/java/com.aspose.slides/icomment/)‑Schnittstelle, die Informationen zu einem Kommentar bereitstellt, einschließlich Autor, Erstellungszeit, Position und Text.
+* Die [CommentAuthor](https://reference.aspose.com/slides/de/java/com.aspose.slides/commentauthor/)‑Klasse, die Informationen zu einem Autor liefert, darunter Name, Initialen und zugehörige Kommentare.
 
-## **Foliekommentare hinzufügen**
-Dieser Java‑Code zeigt Ihnen, wie Sie einen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen:
+## **Folienkommentare hinzufügen**
+
+Das folgende Beispiel zeigt, wie Kommentare zu Folien in einer PowerPoint‑Präsentation hinzugefügt werden:
+
 ```java
-// Instanziert die Presentation-Klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ICommentCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
 try {
-    // Fügt eine leere Folie hinzu
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    Point2D.Float position = new Point2D.Float(0.2f, 0.2f);
+    Date createdTime = new Date();
 
-    // Fügt einen Autor hinzu
-    ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-    // Setzt die Position für Kommentare
-    Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
+    IComment[] comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        IComment firstComment = comments[0];
+        System.out.println(firstComment.getText());
 
-    // Fügt einen Folienkommentar für einen Autor auf Folie 1 hinzu
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
-
-    // Fügt einen Folienkommentar für einen Autor auf Folie 2 hinzu
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
-
-    // Greift auf ISlide 1 zu
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Wenn null als Argument übergeben wird, werden Kommentare aller Autoren zur ausgewählten Folie gebracht
-    IComment[] Comments = slide.getSlideComments(author);
-
-    // Greift auf den Kommentar an Index 0 für Folie 1 zu
-    String str = Comments[0].getText();
-
-    pres.save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.length > 0)
-    {
-        // Wählt die Kommentar-Sammlung des Autors an Index 0 aus
-        ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
-        String Comment = commentCollection.get_Item(0).getText();
+        ICommentCollection authorComments = firstComment.getAuthor().getComments();
+        String commentText = authorComments.get_Item(0).getText();
+        System.out.println(commentText);
     }
+
+    presentation.save("Comments_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Folienkommentare abrufen**
 
-## **Foliekommentare abrufen**
-Dieser Java‑Code zeigt Ihnen, wie Sie einen vorhandenen Kommentar auf einer Folie in einer PowerPoint‑Präsentation abrufen:
+Das folgende Beispiel zeigt, wie vorhandene Kommentare in einer PowerPoint‑Präsentation abgerufen werden:
+
 ```java
-// Instanziert die Presentation-Klasse
-Presentation pres = new Presentation("Comments1.pptx");
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Comments1.pptx");
 try {
-    for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
-    {
-        CommentAuthor author = (CommentAuthor) commentAuthor;
-        for (IComment comment1 : author.getComments())
-        {
-            Comment comment = (Comment) comment1;
-            System.out.println("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() +
-                    " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        for (IComment comment : author.getComments()) {
+            System.out.println("Slide: " + comment.getSlide().getSlideNumber());
+            System.out.println("Comment: " + comment.getText());
+            System.out.println("Author: " + comment.getAuthor().getName());
+            System.out.println("Posted at: " + comment.getCreatedTime());
+            System.out.println();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Auf Kommentare antworten**
 
-## **Antwortkommentare**
-Ein übergeordneter Kommentar ist der oberste bzw. ursprüngliche Kommentar in einer Hierarchie von Kommentaren oder Antworten. Mit den Methoden [getParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment#getParentComment--) oder [setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (aus dem [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment)-Interface) können Sie einen übergeordneten Kommentar festlegen oder abrufen. 
+Ein übergeordneter Kommentar ist der ursprüngliche Kommentar an der Spitze einer Antwort‑Hierarchie. Die Methoden [IComment.getParentComment](https://reference.aspose.com/slides/de/java/com.aspose.slides/icomment/#getParentComment--) und [IComment.setParentComment](https://reference.aspose.com/slides/de/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) ermöglichen das Abrufen bzw. Festlegen des übergeordneten Kommentars.
 
-Dieser Java‑Code zeigt Ihnen, wie Sie Kommentare hinzufügen und Antworten darauf erhalten:
+Das folgende Beispiel zeigt, wie Antworten hinzugefügt und die resultierende Kommentar‑Hierarchie untersucht werden:
+
 ```java
-Presentation pres = new Presentation();
-try {
-    // Fügt einen Kommentar hinzu
-    ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.Date;
 
-    // Fügt eine Antwort zu comment1 hinzu
-    ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    Point2D.Float position = new Point2D.Float(10, 10);
+    Date createdTime = new Date();
+
+    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
 
-    // Fügt eine weitere Antwort zu comment1 hinzu
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
 
-    // Fügt eine Antwort zu einer bestehenden Antwort hinzu
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
 
-    IComment comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    IComment comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
 
-    // Gibt die Kommentarhierarchie in der Konsole aus
-    ISlide slide = pres.getSlides().get_Item(0);
     IComment[] comments = slide.getSlideComments(null);
-    for (int i = 0; i < comments.length; i++)
-    {
+    for (int i = 0; i < comments.length; i++) {
         IComment comment = comments[i];
-        while (comment.getParentComment() != null)
-        {
+        while (comment.getParentComment() != null) {
             System.out.print("\t");
             comment = comment.getParentComment();
         }
 
-        System.out.println(comments[i].getAuthor().getName() +  " : " + comments[i].getText());
-        System.out.println();
+        System.out.println(comments[i].getAuthor().getName() + ": " + comments[i].getText());
     }
-    pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Entfernt comment1 und alle Antworten darauf
+    presentation.save("parent_comment.pptx", SaveFormat.Pptx);
+
     comment1.remove();
-
-    pres.save("remove_comment.pptx",SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+{{% alert color="warning" title="Warning" %}}
 
-{{% alert color="warning" title="Achtung" %}} 
-
-* Wenn die [Remove](https://reference.aspose.com/slides/java/com.aspose.slides/IComment#remove--)‑Methode (aus dem [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment)-Interface) verwendet wird, um einen Kommentar zu löschen, werden auch die Antworten auf den Kommentar gelöscht. 
-* Wenn die Einstellung von [setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) zu einer zirkulären Referenz führt, wird eine [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/PptxEditException) ausgelöst.
+* Wenn die Methode [IComment.remove](https://reference.aspose.com/slides/de/java/com.aspose.slides/icomment/#remove--) zum Löschen eines Kommentars verwendet wird, werden auch alle Antworten auf diesen Kommentar gelöscht.
+* Wenn [IComment.setParentComment](https://reference.aspose.com/slides/de/java/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) eine zirkuläre Referenz erzeugt, wird eine [PptxEditException](https://reference.aspose.com/slides/de/java/com.aspose.slides/pptxeditexception/) ausgelöst.
 
 {{% /alert %}}
 
 ## **Moderne Kommentare hinzufügen**
 
-Im Jahr 2021 hat Microsoft *moderne Kommentare* in PowerPoint eingeführt. Die Funktion moderne Kommentare verbessert die Zusammenarbeit in PowerPoint erheblich. Mit modernen Kommentaren können PowerPoint‑Benutzer Kommentare auflösen, Kommentare an Objekten und Texten verankern und viel einfacher interagieren als zuvor. 
+Moderne Kommentare können der Folie selbst, einer bestimmten Form oder einem Textbereich innerhalb einer AutoShape zugeordnet werden. Die Methode [ICommentCollection.addModernComment](https://reference.aspose.com/slides/de/java/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) akzeptiert ein [IShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/)‑Argument zusätzlich zu Folie und Kommentar‑Marker‑Koordinaten.
 
-In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/java/aspose-slides-for-java-21-11-release-notes/) haben wir die Unterstützung für moderne Kommentare implementiert, indem wir die Klasse [ModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/ModernComment) hinzugefügt haben. Die Methoden [addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) und [insertModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) wurden zur Klasse [CommentCollection](https://reference.aspose.com/slides/java/com.aspose.slides/CommentCollection) hinzugefügt. 
+Wird `null` für das Shape‑Argument übergeben, handelt es sich um einen Folien‑Kommentar. Sein Marker wird anhand der angegebenen Koordinaten positioniert, ist jedoch keiner bestimmten Form zugeordnet, sodass [IModernComment.getShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getShape--) `null` zurückgibt. Wird ein [IShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/) angegeben, wird der Kommentar an dieser Form verankert. Die Koordinaten bestimmen weiterhin die Position des Kommentar‑Markers auf der Folie, während die Form‑Zuordnung über [IModernComment.getShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getShape--) abgefragt werden kann.
 
-Dieser Java‑Code zeigt Ihnen, wie Sie einen modernen Kommentar zu einer Folie in einer PowerPoint‑Präsentation hinzufügen: 
+### **Einen modernen Kommentar an einer Form verankern**
+
+Das folgende Beispiel erstellt sowohl einen Folien‑Kommentar als auch einen modernen Kommentar, der an einer bestimmten AutoShape verankert ist. Anschließend wird die zugehörige Form jedes Kommentars ausgelesen.
+
 ```java
-Presentation pres = new Presentation();
-try {
-    ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    IModernComment modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, new Point2D.Float(100, 100), new Date());
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Date;
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Kommentare entfernen**
-
-### **Alle Kommentare und Autoren löschen**
-
-Dieser Java‑Code zeigt Ihnen, wie Sie alle Kommentare und Autoren in einer Präsentation entfernen:
-```java
-Presentation presentation = new Presentation("example.pptx");
-try {
-    // Löscht alle Kommentare aus der Präsentation
-    for (ICommentAuthor author : presentation.getCommentAuthors())
-    {
-        author.getComments().clear();
-    }
-
-    // Löscht alle Autoren
-    presentation.getCommentAuthors().clear();
-
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-
-### **Bestimmte Kommentare löschen**
-
-Dieser Java‑Code zeigt Ihnen, wie Sie bestimmte Kommentare auf einer Folie löschen:
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
 
-    // Kommentare hinzufügen...
+    Date createdTime = new Date();
+    Point2D.Float slideCommentPosition = new Point2D.Float(20, 20);
+    Point2D.Float shapeCommentPosition = new Point2D.Float(60, 60);
+    IModernComment slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    IModernComment shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    System.out.println(slideComment.getShape() == null);
+    System.out.println(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Kommentare an verschiedene Formtypen verankern**
+
+Jedes Folien‑Objekt, das [IShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/) implementiert, kann als Anker verwendet werden. Häufige Beispiele sind [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/de/java/com.aspose.slides/iconnector/) und [IGraphicalObject](https://reference.aspose.com/slides/de/java/com.aspose.slides/igraphicalobject/)-Instanzen wie Diagramme.
+
+Das folgende Beispiel erstellt mehrere gängige Formtypen und verbindet jeweils einen modernen Kommentar damit.
+
+```java
+import com.aspose.slides.ChartType;
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IChart;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IConnector;
+import com.aspose.slides.IGroupShape;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.IPictureFrame;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Base64;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Date createdTime = new Date();
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    Point2D.Float autoShapeCommentPosition = new Point2D.Float(30, 30);
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    IPPImage image = presentation.getImages().addImage(imageData);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+    Point2D.Float pictureCommentPosition = new Point2D.Float(230, 30);
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    IGroupShape groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+    Point2D.Float groupCommentPosition = new Point2D.Float(40, 150);
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+    Point2D.Float connectorCommentPosition = new Point2D.Float(240, 150);
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+    Point2D.Float chartCommentPosition = new Point2D.Float(420, 40);
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Einen Kommentar an Text verankern und seinen Status festlegen**
+
+Für einen modernen Kommentar, der einer [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) zugeordnet ist, greifen [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--) und [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) auf die Startposition des ausgewählten Textes im Textfeld der Form zu. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) und [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) geben die Länge der Auswahl zurück. Zusammen verknüpfen diese Werte den Kommentar mit einem bestimmten Textbereich innerhalb der AutoShape.
+
+Die Methoden [IModernComment.getStatus](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getStatus--) und [IModernComment.setStatus](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#setStatus-byte-) greifen auf einen Wert der Konstanten [ModernCommentStatus](https://reference.aspose.com/slides/de/java/com.aspose.slides/moderncommentstatus/) zu:
+
+- `NotDefined` — kein spezifischer Status für den modernen Kommentar definiert.
+- `Active` — der Kommentar ist aktiv.
+- `Resolved` — der Kommentar wurde gelöst.
+- `Closed` — der Kommentar ist geschlossen.
+
+Das folgende Beispiel erstellt einen an einer Form verankerten modernen Kommentar, verknüpft ihn mit einer Textauswahl, markiert ihn als gelöst, speichert die Präsentation und überprüft die Werte nach erneutem Öffnen der Datei.
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ModernCommentStatus;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import java.awt.geom.Point2D;
+import java.util.Date;
+
+String outputFile = "modern_comment_text_anchor.pptx";
+String shapeText = "Review the quarterly revenue forecast.";
+String selectedText = "quarterly revenue";
+int expectedSelectionStart = shapeText.indexOf(selectedText);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Point2D.Float commentPosition = new Point2D.Float(60, 60);
+    IModernComment comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, new Date());
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length());
+    comment.setStatus(ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopenedPresentation = new Presentation(outputFile);
+try {
+    ISlide reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    IComment[] reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (IComment reopenedComment : reopenedComments) {
+        if (!(reopenedComment instanceof IModernComment)) {
+            continue;
+        }
+
+        IModernComment modernComment = (IModernComment) reopenedComment;
+        boolean shapeMatches = modernComment.getShape() != null && "Forecast text".equals(modernComment.getShape().getName());
+        boolean selectionStartMatches = modernComment.getTextSelectionStart() == expectedSelectionStart;
+        boolean selectionLengthMatches = modernComment.getTextSelectionLength() == selectedText.length();
+        boolean statusMatches = modernComment.getStatus() == ModernCommentStatus.Resolved;
+
+        System.out.println("Shape anchor preserved: " + shapeMatches);
+        System.out.println("Text selection start preserved: " + selectionStartMatches);
+        System.out.println("Text selection length preserved: " + selectionLengthMatches);
+        System.out.println("Resolved status preserved: " + statusMatches);
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **Vorhandene moderne Kommentare untersuchen**
+
+Um eine vorhandene Präsentation zu prüfen, ermitteln Sie, welche Kommentare [IModernComment](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/) implementieren, und untersuchen anschließend [IModernComment.getShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getTextSelectionLength--) sowie [IModernComment.getStatus](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getStatus--). Ein `null`‑Shape weist auf einen Folien‑Kommentar hin. Bei einem [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/)‑Anker geben die Textauswahl‑Methoden den zugehörigen Bereich im Textfeld der Form zurück.
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.IShape;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        IComment[] comments = slide.getSlideComments(null);
+        for (IComment comment : comments) {
+            if (!(comment instanceof IModernComment)) {
+                continue;
+            }
+
+            IModernComment modernComment = (IModernComment) comment;
+            System.out.println("Slide: " + slide.getSlideNumber());
+            System.out.println("Text: " + modernComment.getText());
+            System.out.println("Status: " + modernComment.getStatus());
+
+            IShape shape = modernComment.getShape();
+            if (shape == null) {
+                System.out.println("Anchor: slide level");
+            } else {
+                System.out.println("Anchor shape: " + shape.getName());
+                System.out.println("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (shape instanceof IAutoShape) {
+                    System.out.println("Text selection start: " + modernComment.getTextSelectionStart());
+                    System.out.println("Text selection length: " + modernComment.getTextSelectionLength());
+                }
+            }
+
+            System.out.println();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kommentare entfernen**
+
+### **Alle Kommentare und Kommentar‑Autoren entfernen**
+
+Das folgende Beispiel zeigt, wie alle Kommentare und Kommentar‑Autoren aus einer Präsentation entfernt werden:
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("example.pptx");
+try {
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        author.getComments().clear();
+    }
+
+    presentation.getCommentAuthors().clear();
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Bestimmte Kommentare entfernen**
+
+Das folgende Beispiel zeigt, wie bestimmte Kommentare von einer Folie entfernt werden:
+
+```java
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
-    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
+    Date createdTime = new Date();
 
-    // Entfernt alle Kommentare, die den Text "comment 1" enthalten
-    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
-    {
-        ArrayList<IComment> toRemove = new ArrayList<IComment>();
-        for (IComment comment : slide.getSlideComments(commentAuthor))
-        {
-            if (comment.getText().equals("comment 1"))
-            {
-                toRemove.add(comment);
+    Point2D.Float firstCommentPosition = new Point2D.Float(0.2f, 0.2f);
+    Point2D.Float secondCommentPosition = new Point2D.Float(0.3f, 0.2f);
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors()) {
+        List<IComment> commentsToRemove = new ArrayList<IComment>();
+        IComment[] comments = slide.getSlideComments(commentAuthor);
+
+        for (IComment comment : comments) {
+            if ("comment 1".equals(comment.getText())) {
+                commentsToRemove.add(comment);
             }
         }
 
-        for (IComment comment : toRemove)
-        {
+        for (IComment comment : commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
 
     presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**Unterstützt Aspose.Slides einen Status wie 'gelöst' für moderne Kommentare?**
+**Unterstützt Aspose.Slides einen gelösten Status für moderne Kommentare?**
 
-Ja. [Modern comments](https://reference.aspose.com/slides/java/com.aspose.slides/moderncomment/) stellen eine [setStatus](https://reference.aspose.com/slides/java/com.aspose.slides/moderncomment/#setStatus-byte-)‑Methode bereit; Sie können den [Zustand eines Kommentars](https://reference.aspose.com/slides/java/com.aspose.slides/moderncommentstatus/) festlegen (z. B. ihn als gelöst markieren), und dieser Zustand wird in der Datei gespeichert und von PowerPoint erkannt.
+Ja. [IModernComment.getStatus](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#getStatus--) und [IModernComment.setStatus](https://reference.aspose.com/slides/de/java/com.aspose.slides/imoderncomment/#setStatus-byte--) greifen auf einen [ModernCommentStatus](https://reference.aspose.com/slides/de/java/com.aspose.slides/moderncommentstatus/)‑Wert zu, einschließlich `Resolved`. Der Status wird in der Präsentation gespeichert und kann nach erneutem Öffnen der Datei wieder ausgelesen werden.
 
-**Werden Threaded Discussions (Antwortketten) unterstützt und gibt es ein Verschachtelungslimit?**
+**Werden verschachtelte Diskussionen (Antwortketten) unterstützt und gibt es ein Begrenzungs­limit?**
 
-Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/java/com.aspose.slides/comment/#getParentComment--) verweisen, wodurch beliebige Antwortketten ermöglicht werden. Die API definiert kein spezielles Verschachtelungstiefe‑Limit.
+Ja. Jeder Kommentar kann auf seinen [parent comment](https://reference.aspose.com/slides/de/java/com.aspose.slides/icomment/#getParentComment--) verweisen, wodurch Antwortketten entstehen. Die API definiert kein spezifisches Begrenzungs‑tiefen‑Limit.
 
-**In welchem Koordinatensystem wird die Position eines Kommentarmarkers auf einer Folie definiert?**
+**In welchem Koordinatensystem ist die Position eines Kommentar‑Markers auf einer Folie definiert?**
 
-Die Position wird als Gleitkommapunkt im Koordinatensystem der Folie gespeichert. Dadurch können Sie den Kommentarmarker exakt dort platzieren, wo Sie ihn benötigen.
+Die Marker‑Position wird durch Gleitkomma‑Koordinaten im Folien‑Koordinatensystem definiert, sodass sie präzise auf der Folie platziert werden kann.

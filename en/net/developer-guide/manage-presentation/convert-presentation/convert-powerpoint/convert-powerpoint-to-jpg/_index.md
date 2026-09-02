@@ -43,7 +43,7 @@ Here are the steps to convert a PPT, PPTX, or ODP file to JPG:
 1. Create an image of the slide using the [ISlide.GetImage(float, float)](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/#getimage_5) method.
 1. Call the [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/#save_3) method on the image object. Pass the output file name and image format as arguments.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 **Note:** PPT, PPTX, or ODP to JPG conversion differs from conversion to other formats in the Aspose.Slides .NET API. For other formats, you typically use the [IPresentation.Save(String, SaveFormat, ISaveOptions)](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/save/#save_5) method. However, for JPG conversion, you need to use the [IImage.Save(string, ImageFormat)](https://reference.aspose.com/slides/net/aspose.slides/iimage/save/#save_3) method.
 
@@ -147,7 +147,7 @@ See other options for converting PPT, PPTX, or ODP to images, such as:
 - [Convert PowerPoint to TIFF](/slides/net/convert-powerpoint-to-tiff/)
 - [Convert PowerPoint to SVG](/slides/net/render-a-slide-as-an-svg-image/)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To see how Aspose.Slides converts PowerPoint to JPG images, try these free online converters: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) and [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
 
@@ -155,7 +155,7 @@ To see how Aspose.Slides converts PowerPoint to JPG images, try these free onlin
 
 ![Free Online PPTX to JPG Converter](ppt-to-jpg.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 

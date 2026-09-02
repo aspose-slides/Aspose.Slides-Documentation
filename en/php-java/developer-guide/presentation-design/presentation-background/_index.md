@@ -191,7 +191,7 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Read more: [**Tile Picture As Texture**](/slides/php-java/shape-formatting/#tile-picture-as-texture).
 

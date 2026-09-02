@@ -263,7 +263,7 @@ presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Read more: [**Tile Picture As Texture**](/slides/cpp/shape-formatting/#tile-picture-as-texture).
 

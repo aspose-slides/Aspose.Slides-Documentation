@@ -130,7 +130,7 @@ The resulting text:
 
 ![The Outer Shadow effect](outer_shadow_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 - When OuterShadow and PresetShadow are used together, only the OuterShadow effect is applied.
 - If OuterShadow and InnerShadow are used simultaneously, the resulting effect depends on the PowerPoint version. For example, in PowerPoint 2013, the effect is doubled, whereas in PowerPoint 2007, only the OuterShadow effect is applied.
@@ -223,7 +223,7 @@ The resulting text:
 
 ![The WordArt transformation](transform_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for .NET provides a set of predefined [transformation types](https://reference.aspose.com/slides/net/aspose.slides/textshapetype/).
 
@@ -316,7 +316,7 @@ The resulting text:
 
 ![The text 3D effect](text_3D_effect.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 The application of 3D effects to text or their shapes—and the interaction between these effects—is governed by specific rules. Consider a scene involving both a text and the shape containing that text. A 3D effect includes the object's 3D representation and the scene on which it is placed.
 

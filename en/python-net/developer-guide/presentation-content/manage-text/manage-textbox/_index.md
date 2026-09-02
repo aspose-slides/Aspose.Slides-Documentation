@@ -113,6 +113,14 @@ with slides.Presentation() as presentation:
     # shape4.is_text_box is false
 ```
 
+## **Find the Shape That Owns a Text Frame**
+
+In generic text-processing code, you may receive a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) without already knowing which presentation object contains it. Use the [TextFrame.parent_shape](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_shape/) property to navigate back to the owning [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/).
+
+For a text frame that belongs to an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) or another text-containing shape, [TextFrame.parent_shape](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_shape/) is set and [TextFrame.parent_cell](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/parent_cell/) is `None`. Both properties are read-only navigation properties, so reading them does not change ownership. Always check the returned value for `None` before accessing the shape.
+
+For a complete example that identifies shape and table-cell owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/python-net/search-and-replace-text/).
+
 ## **Add Columns to Text Boxes**
 
 Aspose.Slides provides the [column_count](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/column_count/) and [column_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/column_spacing/) properties on the [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) class to add columns to text boxes. You can specify the number of columns and set the spacing (in points) between columns.
@@ -214,10 +222,10 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-### What’s the difference between a text box and a text placeholder when working with master slides?
+**What’s the difference between a text box and a text placeholder when working with master slides?**
 
 A [placeholder](/slides/python-net/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
 
-### How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
 
 Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)) by traversing their collections separately or skipping those object types.

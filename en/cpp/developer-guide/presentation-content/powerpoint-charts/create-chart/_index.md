@@ -50,7 +50,7 @@ Using charts, you get to
 
 In PowerPoint, you can create charts through the insert function, which provides templates used to design many types of charts. Using Aspose.Slides, you can create regular charts (based on popular chart types) and custom charts. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To allow you create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) enum class under the [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/) namespace. The values under this enum class correspond to different chart types. 
 

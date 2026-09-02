@@ -5,7 +5,7 @@ weight: 10
 url: /sharepoint/multiple-format-support/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 With Aspose.Slides for SharePoint, you can convert documents between many popular office document formats from within a SharePoint document library. Conversions are done with high fidelity and precision. 
 
@@ -20,7 +20,7 @@ Aspose.Slides for SharePoint supports the following input formats:
 - PPSX – Office Open XML SlideShow
 - POTX – Office Open XML Template
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To generate documents, Aspose.Slides for SharePoint relies on a built-in version of [Aspose.Slides for .NET](http://www.aspose.com/categories/.net-components/aspose.slides-for-.net/default.aspx), the Aspose's only PowerPoint documents processing component.
 

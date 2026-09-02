@@ -21,7 +21,7 @@ Metered licensing is a licensing mechanism that can be used alongside existing l
 
 ## **Apply Metered Keys**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Metered licensing is a new licensing mechanism that can be used alongside existing licensing methods. If you want to be billed based on your usage of Aspose.Slides API features, you choose metered licensing.
 

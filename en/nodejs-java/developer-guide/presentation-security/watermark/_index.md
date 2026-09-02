@@ -64,7 +64,7 @@ let watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - How to use [TextFrame](/slides/nodejs-java/text-formatting/).
 {{% /alert %}}
 
@@ -87,7 +87,7 @@ let watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 presentation.dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to use ](/slides/nodejs-java/slide-master/)[Slide Master](/slides/nodejs-java/slide-master/)
 {{% /alert %}}
 

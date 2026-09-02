@@ -1,5 +1,5 @@
 ---
-title: Προσαρμογή Σημείων Δεδομένων σε Διαγράμματα Treemap και Sunburst με Java
+title: Προσαρμογή Σημείων Δεδομένων σε Διαγράμματα Treemap και Sunburst σε Java
 linktitle: Σημεία Δεδομένων σε Διαγράμματα Treemap και Sunburst
 type: docs
 url: /el/java/data-points-of-treemap-and-sunburst-chart/
@@ -7,115 +7,257 @@ weight: 40
 keywords:
 - διάγραμμα treemap
 - διάγραμμα sunburst
+- ιεραρχικό διάγραμμα
 - σημείο δεδομένων
-- χρώμα ετικέτας
-- χρώμα κλαδιού
+- ετικέτα δεδομένων
+- χρώμα κλάδου
 - PowerPoint
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε τα σημεία δεδομένων σε διαγράμματα treemap και sunburst με το Aspose.Slides για Java, συμβατό με μορφές PowerPoint."
+description: "Μάθετε πώς να δημιουργείτε ιεραρχικά δεδομένα και να προσαρμόζετε επίπεδα, ετικέτες και χρώματα σε διαγράμματα Treemap και Sunburst με το Aspose.Slides για Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Μεταξύ άλλων τύπων διαγραμμάτων PowerPoint, υπάρχουν δύο «ιεραρχικοί» τύποι — **Treemap** και **Sunburst** διάγραμμα (γνωστό επίσης ως Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph ή Multi Level Pie Chart). Αυτά τα διαγράμματα εμφανίζουν ιεραρχικά δεδομένα οργανωμένα ως δέντρο — από τα φύλλα μέχρι την κορυφή του κλαδιού. Τα φύλλα ορίζονται από τα σημεία δεδομένων της σειράς, και κάθε επόμενο επίπεδο ομαδοποίησης ορίζεται από την αντίστοιχη κατηγορία. Το Aspose.Slides for Java επιτρέπει τη μορφοποίηση των σημείων δεδομένων του Sunburst Chart και του Treemap σε Java.
+Τα διαγράμματα Treemap και Sunburst εμφανίζουν το ίδιο είδος ιεραρχικών δεδομένων, αλλά χρησιμοποιούν διαφορετικές διατάξεις. Ένα Treemap σχεδιάζει την ιεραρχία ως ενσωματωμένα ορθογώνια των οποίων οι περιοχές αντιπροσωπεύουν τις τιμές των φύλλων. Ένα Sunburst το κάνει ως συγκεντρικούς δακτύλιους: οι ομάδες του υψηλότερου επιπέδου είναι κοντά στο κέντρο, ενώ οι κατηγορίες φύλλων βρίσκονται στον εξωτερικό δακτύλιο.
 
-Ακολουθεί ένα Sunburst Chart, όπου τα δεδομένα στη στήλη Series1 ορίζουν τους κόμβους φύλλων, ενώ οι άλλες στήλες ορίζουν ιεραρχικά σημεία δεδομένων:
+Στο Aspose.Slides for Java, κάθε αριθμητική τιμή είναι ένα [IChartDataPoint](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartdatapoint/). Η μέθοδός του [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) παρέχει πρόσβαση στα φύλλα και στις γονικές ομάδες τους. Αυτό το άρθρο εξηγεί αυτή τη χαρτογράφηση και δείχνει πώς να δημιουργήσετε και να μορφοποιήσετε και τους δύο τύπους διαγραμμάτων από τα ίδια δείγματα δεδομένων.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Διάγραμμα Treemap με κλαδούς Consumer και Business](treemap-hierarchy.png)
 
-Ας ξεκινήσουμε προσθέτοντας ένα νέο διάγραμμα Sunburst στην παρουσίαση:
+![Διάγραμμα Sunburst με την ίδια ιεραρχία Consumer και Business](sunburst-hierarchy.png)
+
+## **Κατανόηση Κατηγοριών, Σημείων Δεδομένων και Επιπέδων**
+
+Το δείγμα που χρησιμοποιείται παρακάτω έχει τρία επίπεδα κατηγοριών και μία αριθμητική σειρά:
+
+| Κλάδος | Υποκατηγορία | Φύλλο | Έσοδα |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Κάθε γραμμή δημιουργεί μία κατηγορία φύλλου και ένα σημείο δεδομένων. Τα επίπεδα ομαδοποίησης κατηγοριών περιγράφουν τη διαδρομή από αυτό το φύλλο προς τους γονείς του. Για την πρώτη γραμμή, η διαδρομή είναι `Consumer > Computers > Laptops`.
+
+Οι δείκτες που επιστρέφει η [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) τρέχουν από το φύλλο προς τα πάνω:
+
+| `getDataPointLevels()` δείκτης | Λογικό επίπεδο | Αναπαράσταση Treemap | Αναπαράσταση Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Φύλλο | Ορθογώνιο τιμής | Τμήμα εξωτερικού δακτυλίου |
+| `1` | Υποκατηγορία | Γονικό ορθογώνιο ή επικεφαλίδα | Τμήμα μεσαίου δακτυλίου |
+| `2` | Κλάδος | Ορθογώνιο κορυφαίου επιπέδου ή επικεφαλίδα | Τμήμα εσωτερικού δακτυλίου |
+
+Αυτή η σειρά είναι η ίδια και για τους δύο τύπους διαγραμμάτων, παρά τις διαφορετικές οπτικές διατάξεις. Ένα γονικό τμήμα μοιράζεται από πολλά φύλλα. Για να το μορφώσετε, χρησιμοποιήστε το αντίστοιχο επίπεδο του πρώτου σημείου δεδομένων στην ομάδα αυτή. Για παράδειγμα, ο κλάδος `Consumer` ξεκινά με το σημείο `Laptops`, ενώ η υποκατηγορία `Software` ξεκινά με το σημείο `Licenses`. Η διατήρηση αναφορών σε αυτά τα σημεία είναι πιο σαφής και ασφαλής από τη χρήση ανεξήγητων εκφράσεων όπως `dataPoints.get_Item(0)` ή `dataPoints.get_Item(6)`.
+
+## **Δημιουργία και Προσαρμογή Και των Δύο Τύπων Διαγραμμάτων**
+
+Το παρακάτω ολοκληρωμένο παράδειγμα δημιουργεί ένα Treemap στην πρώτη διαφάνεια και ένα Sunburst στη δεύτερη διαφάνεια. Κατασκευάζει την ιεραρχία, εμφανίζει την τιμή για το `Tablets`, εφαρμόζει σταθερά χρώματα σε επιλεγμένα επίπεδα, μορφοποιεί μια ετικέτα κλαδού και αποθηκεύει την παρουσίαση.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Προσθήκη των κατηγοριών φύλλων. Ένα στοιχείο ομαδοποίησης ορίζεται μόνο όταν αρχίζει μια νέα ομάδα·
+        // οι επόμενες κατηγορίες παραμένουν σε αυτήν την ομάδα μέχρι να οριστεί άλλο στοιχείο.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Εμφάνιση της κατηγορίας και της τιμής στο φύλλο Tablets.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Μορφοποίηση του κλάδου Consumer μέσω του πρώτου φύλλου σε αυτόν τον κλάδο.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        Color consumerBranchColor = new Color(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // Μορφοποίηση του στελέχους Software μέσω του πρώτου φύλλου σε αυτό το στέλεχος.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        Color softwareStemColor = new Color(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // Το ParentLabelLayout επηρεάζει τις ετικέτες γονέα στο Treemap· το Sunburst χρησιμοποιεί τμήματα δακτυλίου.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Δείτε επίσης" %}} 
-- [**Δημιουργία ή ενημέρωση διαγραμμάτων παρουσίασης PowerPoint σε Java**](/slides/el/java/create-chart/)
-{{% /alert %}}
+Τα κελιά κατηγορίας και τιμής χρησιμοποιούν την ίδια σειρά του φύλλου εργασίας, έτσι οι θέσεις των συλλογών τους παραμένουν ευθυγραμμισμένες. Όταν εργάζεστε με ένα υπάρχον διάγραμμα αντί να δημιουργήσετε ένα νέο, ελέγξτε πρώτα τις σειρές κατηγοριών και αποθηκεύστε ονομαστικές αναφορές στα σημεία δεδομένων και στα επίπεδα που σκοπεύετε να μορφοποιήσετε.
 
-Εάν υπάρχει ανάγκη μορφοποίησης των σημείων δεδομένων του διαγράμματος, θα πρέπει να χρησιμοποιήσουμε τα παρακάτω:
+## **Συμπεριφορά και Πρακτικές Παρατηρήσεις**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IChartDataPointLevelsManager), 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IChartDataPointLevel) κλάσεις 
-και η μέθοδος [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--) 
-παρέχουν πρόσβαση στη μορφοποίηση των σημείων δεδομένων των διαγραμμάτων Treemap και Sunburst. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IChartDataPointLevelsManager) 
-χρησιμοποιείται για πρόσβαση σε κατηγορίες πολλαπλών επιπέδων – αντιπροσωπεύει το κοντέινερ των 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IChartCategoryLevelsManager) 
-με ιδιότητες που προστέθηκαν ειδικά για σημεία δεδομένων. 
-Η κλάση [**IChartDataPointLevel**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IChartDataPointLevel) 
-έχει δύο μεθόδους: [**getFormat**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IChartDataPointLevel#getFormat--) και 
-[**getDataLabel**](https://reference.aspose.com/slides/el/java/com.aspose.slides/IChartDataPointLevel#getLabel--) που παρέχουν πρόσβαση στις αντίστοιχες ρυθμίσεις.
+### **Διαφορές μεταξύ Treemap και Sunburst**
 
-## **Εμφάνιση Τιμής Σημείου Δεδομένων**
-Εμφάνιση τιμής του σημείου δεδομένων "Leaf 4":
+- Ένα Treemap χρησιμοποιεί την περιοχή για να μεταβιβάσει την τιμή και τα ενσωματωμένα ορθογώνια για να μεταβιβάσει την ιεραρχία. Η μέθοδος [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) ελέγχει πώς εμφανίζονται οι γονικές ετικέτες σε αυτόν τον τύπο διαγράμματος.
+- Ένα Sunburst χρησιμοποιεί τη γωνία για να μεταβιβάσει την τιμή και το βάθος του δακτυλίου για την ιεραρχία. Η [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) δεν ελέγχει τις ετικέτες των δακτυλίων του.
+- Και οι δύο τύποι διαγράμματος χρησιμοποιούν τις ίδιες ομάδες επιπέδων κατηγοριών και την ίδια σειρά φύλλου-προς-γονέα που επιστρέφει η [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--), οπότε ο κώδικας δημιουργίας δεδομένων και μορφοποίησης επιπέδων μπορεί να μοιραστεί.
+- Οι γονικές τιμές υπολογίζονται από τα παιδικά φύλλα. Μην προσθέτετε ξεχωριστά αριθμητικά σημεία για κλάδους ή υποκατηγορίες.
 
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **Ταξινόμηση και Σειρά Τμημάτων**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+Η μηχανή διάταξης διαγράμματος καθορίζει την τελική θέση των ορθογωνίων και των τμημάτων δακτυλίων. Τοποθετήστε συσχετισμένες σειρές κατηγοριών μαζί πριν τις προσθέσετε, αλλά μην βασίζεστε σε συγκεκριμένη θέση ορθογωνίου ή γωνία εκκίνησης. Εάν η σειρά έχει νόημα, συμπεριλάβετε την στις ετικέτες ή χρησιμοποιήστε τύπο διαγράμματος με ρητό άξονα κατηγοριών.
 
-## **Ορισμός Ετικέτας και Χρώματος Σημείου Δεδομένων**
-Ορίστε την ετικέτα δεδομένων "Branch 1" ώστε να εμφανίζει το όνομα σειράς ("Series1") αντί για το όνομα κατηγορίας. Στη συνέχεια ορίστε το χρώμα κειμένου σε κίτρινο:
+### **Θέμα και Σταθερά Χρώματα**
 
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+Τα μη μορφοποιημένα επίπεδα διαγράμματος κληρονομούν χρώματα από το θέμα της παρουσίασης. Το παράδειγμα χρησιμοποιεί ρητές γεμίσεις RGB για προβλέψιμα αποτελέσματα. Εάν το διάγραμμα πρέπει να ακολουθεί αλλαγές θέματος, χρησιμοποιήστε χρώματα σχήματος αντί για σταθερές τιμές RGB και αποφύγετε την υπερβολική αντικατάσταση σε κάθε επίπεδο. Ελέγξτε επίσης την αντίθεση των ετικετών μετά την αλλαγή γεμίσματος κλαδού ή υποκατηγορίας.
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+### **Ετικέτες και Διαθέσιμο Χώρο**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+Το PowerPoint μπορεί να κρύψει ή να αποκόψει ετικέτες όταν ένα τμήμα είναι πολύ μικρό. Η αύξηση του μεγέθους του διαγράμματος, η συντομοποίηση των ονομάτων κατηγοριών ή η εμφάνιση λιγότερων πεδίων ετικέτας συνήθως παράγει πιο σαφές αποτέλεσμα. Μια ετικέτα μπορεί να συνδυάζει το όνομα κατηγορίας, το όνομα σειράς και την τιμή μέσω του [IDataLabelFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/), αλλά η ενεργοποίηση όλων των πεδίων συχνά κάνει τα ιεραρχικά διαγράμματα δύσκολα στην ανάγνωση.
 
-## **Ορισμός Χρώματος Κλαδιού Σημείου Δεδομένων**
-Αλλάξτε το χρώμα του κλαδιού "Steam 4":
+### **Εξαγωγή και Απόδοση**
 
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
-
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Η αποθήκευση σε PPTX διατηρεί το διάγραμμα επεξεργάσιμο. Όταν το Aspose.Slides αποδίδει την παρουσίαση σε PDF ή εικόνα, οι υποστηριζόμενες γεμίσεις και ρυθμίσεις ετικετών αποδίδονται μαζί με το διάγραμμα. Η υποκατάσταση γραμματοσειρών και μικρές διαφορές στον διαθέσιμο χώρο διάταξης μπορούν να αλλάξουν τη συσπασμένη γραμμή ή την ορατότητα των ετικετών, επομένως εγκαταστήστε τις απαιτούμενες γραμματοσειρές και επαληθεύστε τους σημαντικούς στόχους εξαγωγής.
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να αλλάξω τη σειρά (ταξινόμηση) των τμημάτων σε Sunburst/Treemap;**
+**Γιατί η αλλαγή ενός γονικού επιπέδου επηρεάζει πολλά φύλλα;**
 
-Όχι. Το PowerPoint ταξινομεί αυτόματα τα τμήματα (συνήθως κατά φθίνουσες τιμές, δεξιόστροφα). Το Aspose.Slides αντιγράφει αυτή τη συμπεριφορά: δεν μπορείτε να αλλάξετε τη σειρά άμεσα· την επιτυγχάνετε προεπεξεργάζοντας τα δεδομένα.
+Ένας κλάδος ή υποκατηγορία είναι ένα κοινόχρηστο οπτικό τμήμα. Το [IChartDataPointLevel](https://reference.aspose.com/slides/el/java/com.aspose.slides/ichartdatapointlevel/) του μπορεί να προσεγγιστεί μέσω ενός απογώγου φύλλου, αλλά η μορφοποίηση ανήκει στο κοινόχρηστο γονικό τμήμα και όχι μόνο σε εκείνο το φύλλο.
 
-**Πώς επηρεάζει το θέμα της παρουσίασης τα χρώματα των τμημάτων και των ετικετών;**
+**Γιατί λείπει μια ετικέτα δεδομένων;**
 
-Τα χρώματα του διαγράμματος κληρονομούν το [θέμα/παλέτα](/slides/el/java/presentation-theme/) της παρουσίασης, εκτός εάν ορίσετε ρητά γέμισματα/γραμματοσειρές. Για συνεπή αποτελέσματα, κλειδώστε γεμίσματα συμπαγή και μορφοποίηση κειμένου στα απαιτούμενα επίπεδα.
+Πρώτα ενεργοποιήστε τα απαιτούμενα πεδία στο αντικείμενο [IDataLabelFormat](https://reference.aspose.com/slides/el/java/com.aspose.slides/idatalabelformat/) της ετικέτας. Στη συνέχεια ελέγξτε αν το τμήμα έχει επαρκή χώρο. Η διάταξη γονικών ετικετών Treemap, οι διαστάσεις διαγράμματος, το μήκος ετικέτας, το μέγεθος γραμματοσειράς και ο αριθμός των ενεργοποιημένων πεδίων επηρεάζουν όλα αν μια ετικέτα μπορεί να εμφανιστεί.
 
-**Θα διατηρήσει η εξαγωγή σε PDF/PNG τα προσαρμοσμένα χρώματα κλαδιού και τις ρυθμίσεις ετικετών;**
+**Μπορώ να ορίσω ακριβή σειρά ή συντεταγμένες τμημάτων;**
 
-Ναι. Κατά την εξαγωγή της παρουσίασης, οι ρυθμίσεις του διαγράμματος (γέμισματα, ετικέτες) διατηρούνται στα μορφότυπα εξόδου, επειδή το Aspose.Slides αποδίδει με την εφαρμοσμένη μορφοποίηση του διαγράμματος.
+Μπορείτε να ελέγξετε τη σειρά των γραμμών πηγής και να διατηρήσετε κάθε ομάδα συνεχόμενη, αλλά δεν μπορείτε να ορίσετε ακριβείς ορθογώνιους χώρους Treemap ή γωνίες Sunburst. Η μηχανή διάταξης διαγράμματος τις υπολογίζει από την ιεραρχία, τις τιμές και τον διαθέσιμο χώρο.
 
-**Μπορώ να υπολογίσω τις πραγματικές συντεταγμένες μιας ετικέτας/στοιχείου για προσαρμοσμένη τοποθέτηση επικάλυψης πάνω στο διάγραμμα;**
+**Γιατί τα χρώματα αλλάζουν μετά τις αλλαγές θέματος παρουσίασης;**
 
-Ναι. Μετά την επικύρωση της διάταξης του διαγράμματος, τα πραγματικά *x* και *y* είναι διαθέσιμα για τα στοιχεία (π.χ., ένα [DataLabel](https://reference.aspose.com/slides/el/java/com.aspose.slides/datalabel/)), κάτι που βοηθά στην ακριβή τοποθέτηση των επικάλυψεων.
+Οι γεμίσεις με βάση το θέμα σχεδιάζονται ώστε να ακολουθούν την παλέτα της παρουσίασης. Εφαρμόστε ρητά χρώματα RGB στα επίπεδα που πρέπει να παραμείνουν σταθερά ή διατηρήστε χρώματα σχήματος όταν προτιμάται προσαρμογή σε νέο θέμα.
+
+**Θα διατηρηθεί η προσαρμοσμένη μορφοποίηση σε εξαγωγές PDF και εικόνας;**
+
+Ναι, οι υποστηριζόμενες γεμίσεις διαγράμματος και οι ρυθμίσεις ετικετών περιλαμβάνονται κατά την απόδοση. Για συνεπή αποτελέσματα μεταξύ συστημάτων, καταστήστε διαθέσιμες τις απαιτούμενες γραμματοσειρές και δοκιμάστε το τελικό μέγεθος εξαγωγής, επειδή η προσαρμογή ετικετών εξαρτάται από τη διάταξη.
+
+## **Δείτε επίσης**
+
+- [Create Treemap charts](/slides/el/java/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/el/java/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/el/java/export-chart/)
+- [Manage presentation themes](/slides/el/java/presentation-theme/)

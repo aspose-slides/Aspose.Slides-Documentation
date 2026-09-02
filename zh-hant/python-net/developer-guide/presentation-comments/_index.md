@@ -20,229 +20,364 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 精通簡報註解：快速輕鬆地在 PowerPoint 檔案中新增、閱讀、編輯與刪除註解。"
+description: "使用 Aspose.Slides for Python via .NET 管理簡報註解：在 PowerPoint 簡報中新增、讀取、編輯、回覆和移除註解。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何在 Aspose.Slides 中管理簡報註解。它會展示與註解相關的主要類型，並示範如何在投影片中加入註解、存取現有註解、處理回覆、使用現代註解以及從簡報中移除註解。
+本文章說明如何使用 Aspose.Slides for Python via .NET 來管理簡報註解。它介紹了主要的註解相關類型，並示範如何向投影片新增註解、存取現有註解、處理回覆與現代註解，以及從簡報中移除註解。
 
-範例聚焦於 PowerPoint 中常見的審閱與協作情境，例如為作者指派註解、讀取註解內容與中繼資料、建立回覆鏈，以及清除全部註解或刪除特定註解。
+這些範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如指派註解給作者、讀取註解文字與中繼資料、建立回覆鏈，以及移除選取的註解或全部註解。
 
-在 PowerPoint 中，註解會顯示為投影片上的備註或標註。點擊註解時，會顯示其內容或訊息。
+在 PowerPoint 中，註解會以投影片上的標註形式顯示。選取註解時會顯示其文字與相關討論。
 
-## **為何要在簡報中加入註解？**
+## **為什麼要在簡報中加入註解？**
 
-在審閱簡報時，您可能希望使用註解提供回饋或與同事溝通。
+您可以在審閱簡報時使用註解提供回饋，並與同事協作。
 
-為了讓您在 PowerPoint 簡報中使用註解，Aspose.Slides for Python via .NET 提供
+Aspose.Slides for Python via .NET 提供以下用於操作註解的 API：
 
-* [Presentation]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/）類別，包含作者集合（來自 [CommentAuthorCollection]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/commentauthorcollection/）屬性）。作者會將註解加入投影片。
-* [CommentCollection]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/commentcollection/）類別，包含個別作者的註解集合。
-* [Comment]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/）類別，包含關於作者與其註解的資訊：誰加入了註解、加入時間、註解位置等。
-* [CommentAuthor]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/commentauthor/）類別，包含單一作者的資訊：作者名稱、縮寫、與該作者相關的註解等。
+* [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別，可取得簡報的註解作者。
+* [CommentCollection](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/commentcollection/) 類別，代表與單一作者相關的註解。
+* [Comment](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/) 類別，提供關於註解的資訊，包括作者、建立時間、位置與文字。
+* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/commentauthor/) 類別，提供作者資訊，包括姓名、縮寫與相關註解。
 
-## **加入投影片註解**
-以下 Python 程式碼示範如何在 PowerPoint 簡報的投影片中加入註解：
+## **新增投影片註解**
+
+以下範例示範如何在 PowerPoint 簡報的投影片中新增註解：
 
 ```python
-import aspose.slides as slides
+from datetime import datetime
+
 import aspose.pydrawing as draw
-import datetime
+import aspose.slides as slides
 
-# 實例化 Presentation 類別
 with slides.Presentation() as presentation:
-    # 新增空白投影片
-    presentation.slides.add_empty_slide(presentation.layout_slides[0])
-
-    # 新增作者
+    first_slide = presentation.slides[0]
+    second_slide = presentation.slides.add_empty_slide(presentation.layout_slides[0])
     author = presentation.comment_authors.add_author("Jawad", "MF")
+    position = draw.PointF(0.2, 0.2)
+    created_time = datetime.now()
 
-    # 設定註解的位置
-    point = draw.PointF(0.2, 0.2)
+    author.comments.add_comment("Hello Jawad, this is a slide comment", first_slide, position, created_time)
+    author.comments.add_comment("Hello Jawad, this is the second slide comment", second_slide, position, created_time)
 
-    # 為作者在投影片 1 上新增投影片註解
-    author.comments.add_comment("Hello Jawad, this is slide comment", presentation.slides[0], point, datetime.date.today())
+    comments = first_slide.get_slide_comments(author)
+    if len(comments) > 0:
+        first_comment = comments[0]
+        print(first_comment.text)
 
-    # 為作者在投影片 2 上新增投影片註解
-    author.comments.add_comment("Hello Jawad, this is second slide comment", presentation.slides[1], point, datetime.date.today())
-
-    # 存取 ISlide 1
-    slide = presentation.slides[0]
-
-    # 當參數傳入 null 時，會將所有作者的註解帶入選取的投影片
-    comments = slide.get_slide_comments(author)
-
-    # 取得投影片 1 索引 0 的註解
-    str = comments[0].text
+        comment_text = first_comment.author.comments[0].text
+        print(comment_text)
 
     presentation.save("Comments_out.pptx", slides.export.SaveFormat.PPTX)
-
-    if comments.length > 0:
-        # 選取作者索引 0 的註解集合
-        commentCollection = comments[0].author.comments
-        print(commentCollection[0].text)
 ```
 
-
-
 ## **存取投影片註解**
-以下 Python 程式碼示範如何存取 PowerPoint 簡報投影片上已存在的註解：
+
+以下範例示範如何在 PowerPoint 簡報中存取現有註解：
 
 ```python
 import aspose.slides as slides
 
-# 實例化 Presentation 類別
 with slides.Presentation("Comments1.pptx") as presentation:
     for author in presentation.comment_authors:
         for comment in author.comments:
-            print("ISlide :" + str(comment.slide.slide_number) + 
-            " has comment: " + comment.text + 
-            " with Author: " + comment.author.name + 
-            " posted on time :" + str(comment.created_time) + "\n")
+            print("Slide: " + str(comment.slide.slide_number))
+            print("Comment: " + comment.text)
+            print("Author: " + comment.author.name)
+            print("Posted at: " + str(comment.created_time))
+            print()
 ```
-
 
 ## **回覆註解**
-父註解是階層中最高層或原始的註解。使用 [Comment]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/）類別的 `parent_comment` 屬性，您可以設定或取得父註解。
 
-以下 Python 程式碼示範如何加入註解並取得其回覆：
+父註解是回覆階層最上層的原始註解。[Comment](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/) 類別的 [parent_comment](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/parent_comment/) 屬性讓您取得或設定註解的父註解。
+
+以下範例示範如何新增回覆並檢查產生的註解階層：
 
 ```python
-import aspose.slides as slides
+from datetime import datetime
+
 import aspose.pydrawing as draw
-import datetime
+import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # 新增註解
-    author1 = pres.comment_authors.add_author("Author_1", "A.A.")
-    comment1 = author1.comments.add_comment("comment1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    position = draw.PointF(10, 10)
+    created_time = datetime.now()
 
-    # 為 comment1 新增回覆
-    author2 = pres.comment_authors.add_author("Autror_2", "B.B.")
-    reply1 = author2.comments.add_comment("reply 1 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    author1 = presentation.comment_authors.add_author("Author_1", "A.A.")
+    comment1 = author1.comments.add_comment("comment 1", slide, position, created_time)
+
+    author2 = presentation.comment_authors.add_author("Author_2", "B.B.")
+    reply1 = author2.comments.add_comment("reply 1 for comment 1", slide, position, created_time)
     reply1.parent_comment = comment1
 
-    # 為 comment1 再新增一次回覆
-    reply2 = author2.comments.add_comment("reply 2 for comment 1", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply2 = author2.comments.add_comment("reply 2 for comment 1", slide, position, created_time)
     reply2.parent_comment = comment1
 
-    # 為既有回覆新增回覆
-    subReply = author1.comments.add_comment("subreply 3 for reply 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
-    subReply.parent_comment = reply2
+    sub_reply = author1.comments.add_comment("subreply 3 for reply 2", slide, position, created_time)
+    sub_reply.parent_comment = reply2
 
-    comment2 = author2.comments.add_comment("comment 2", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
-    comment3 = author2.comments.add_comment("comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    author2.comments.add_comment("comment 2", slide, position, created_time)
+    comment3 = author2.comments.add_comment("comment 3", slide, position, created_time)
 
-    reply3 = author1.comments.add_comment("reply 4 for comment 3", pres.slides[0], draw.PointF(10, 10), datetime.date.today())
+    reply3 = author1.comments.add_comment("reply 4 for comment 3", slide, position, created_time)
     reply3.parent_comment = comment3
 
-    # 在主控台顯示註解階層
-    slide = pres.slides[0]
     comments = slide.get_slide_comments(None)
-    for i in range(comments.length):
-        comment = comments[i]
+    for current_comment in comments:
+        comment = current_comment
         while comment.parent_comment is not None:
-            print("\t")
+            print("\t", end="")
             comment = comment.parent_comment
 
-        print(comments[i].author.name + " : " + comments[i].text)
-        print("\r\n")
+        print(current_comment.author.name + ": " + current_comment.text)
 
-    pres.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("parent_comment.pptx", slides.export.SaveFormat.PPTX)
 
-    # 移除 comment1 以及其所有回覆
     comment1.remove()
-
-    pres.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("remove_comment.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" title="注意" %}} 
-
-* 當使用 [Comment]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/）類別的 `remove` 方法刪除註解時，該註解的回覆也會被一併刪除。 
-* 如果 `parent_comment` 設定導致循環參照，會拋出 `PptxEditException`。
-
+{{% alert color="warning" title="警告" %}}
+* 使用 [Comment](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/) 類別的 [remove](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/remove/) 方法刪除註解時，該註解的所有回覆也會被刪除。
+* 若 [parent_comment](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/parent_comment/) 屬性產生循環參照，會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
-## **加入現代註解**
+## **新增現代註解**
 
-2021 年，Microsoft 在 PowerPoint 中引入 *現代註解*。現代註解功能大幅提升了 PowerPoint 的協作體驗。透過現代註解，使用者可以解決註解、將註解錨定於物件或文字，並更輕鬆地進行互動。
+現代註解可以關聯至投影片本身、特定形狀，或是 AutoShape 內的文字範圍。[CommentCollection.add_modern_comment](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/commentcollection/add_modern_comment/) 方法除了投影片與註解標記座標外，還接受一個 [Shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/) 參數。
 
-我們透過加入 [ModernComment]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/）類別來支援現代註解，並在 [CommentCollection]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/commentcollection/）類別中新增 `add_modern_comment` 與 `insert_modern_comment` 方法。
+When `None` 被傳遞給 shape 參數時，註解為投影片層級註解。其標記依提供的座標定位，但不會關聯至任何特定形狀，因此 [ModernComment.shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/shape/) 會回傳 `None`。當提供 [Shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/) 時，註解會錨定至該形狀。座標仍然定義註解標記在投影片上的位置，而形狀關聯可透過 [ModernComment.shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/shape/) 取得。
 
-以下 Python 程式碼示範如何在 PowerPoint 簡報的投影片中加入現代註解：
+### **將現代註解錨定至形狀**
+
+以下範例同時建立投影片層級的現代註解以及錨定至特定 AutoShape 的現代註解，然後從每個註解讀取其關聯的形狀。
 
 ```python
+from datetime import datetime
+
 import aspose.pydrawing as draw
 import aspose.slides as slides
-from datetime import date
 
-with slides.Presentation() as pres:
-    newAuthor = pres.comment_authors.add_author("Some Author", "SA")
-    modernComment = newAuthor.comments.add_modern_comment("This is a modern comment", pres.slides[0], None, draw.PointF(100, 100), date.today())
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 300, 80)
+    shape.name = "Revenue title"
+    shape.text_frame.text = "Quarterly revenue"
 
-    pres.save("example.pptx", slides.export.SaveFormat.PPTX)
+    created_time = datetime.now()
+    slide_comment_position = draw.PointF(20, 20)
+    shape_comment_position = draw.PointF(60, 60)
+    slide_comment = author.comments.add_modern_comment("Review the overall slide layout.", slide, None, slide_comment_position, created_time)
+    shape_comment = author.comments.add_modern_comment("Check this title.", slide, shape, shape_comment_position, created_time)
+
+    print(slide_comment.shape is None)
+    print(shape_comment.shape.name)
+
+    presentation.save("modern_comments.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **將註解錨定至不同形狀類型**
+
+任何繼承自 [Shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/) 的投影片物件皆可用作形狀錨點。常見範例包括 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/)、[PictureFrame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/pictureframe/)、[GroupShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/groupshape/)、[Connector](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/connector/) 與如圖表等 [GraphicalObject](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/graphicalobject/) 實例。
+
+以下範例建立多種常見形狀類型，並為每個形狀關聯一個現代註解。
+
+```python
+import base64
+from datetime import datetime
+
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    created_time = datetime.now()
+
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 180, 60)
+    auto_shape.text_frame.text = "AutoShape"
+    auto_shape_comment_position = draw.PointF(30, 30)
+    author.comments.add_modern_comment("Comment on an AutoShape.", slide, auto_shape, auto_shape_comment_position, created_time)
+
+    image_base64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg=="
+    image_data = base64.b64decode(image_base64)
+    image = presentation.images.add_image(image_data)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 220, 20, 120, 80, image)
+    picture_comment_position = draw.PointF(230, 30)
+    author.comments.add_modern_comment("Comment on a picture.", slide, picture_frame, picture_comment_position, created_time)
+
+    group_shape = slide.shapes.add_group_shape()
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 0, 0, 80, 40)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 100, 0, 80, 40)
+    group_comment_position = draw.PointF(40, 150)
+    author.comments.add_modern_comment("Comment on a group.", slide, group_shape, group_comment_position, created_time)
+
+    connector = slide.shapes.add_connector(slides.ShapeType.STRAIGHT_CONNECTOR1, 220, 150, 140, 40)
+    connector_comment_position = draw.PointF(240, 150)
+    author.comments.add_modern_comment("Comment on a connector.", slide, connector, connector_comment_position, created_time)
+
+    chart = slide.shapes.add_chart(slides.charts.ChartType.CLUSTERED_COLUMN, 400, 20, 250, 180)
+    chart_comment_position = draw.PointF(420, 40)
+    author.comments.add_modern_comment("Comment on a graphical object.", slide, chart, chart_comment_position, created_time)
+
+    presentation.save("modern_comment_shape_types.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **將註解錨定至文字並設定其狀態**
+
+對於關聯至 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/) 的現代註解，[ModernComment.text_selection_start](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/text_selection_start/) 指定形狀文字框中所選文字的起始位置，而 [ModernComment.text_selection_length](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/text_selection_length/) 指定選取的長度。兩者結合可將註解關聯至 AutoShape 內的特定文字範圍。
+
+[ModernComment.status](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/status/) 屬性可讀取或以 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncommentstatus/) 列舉中的值進行更新：
+
+- `NOT_DEFINED` — 未定義特定的現代註解狀態。
+- `ACTIVE` — 註解處於活躍狀態。
+- `RESOLVED` — 註解已解決。
+- `CLOSED` — 註解已關閉。
+
+以下範例建立一個錨定至形狀的現代註解，將其關聯至文字選取區域，將狀態標記為已解決，儲存簡報，並在再次開啟檔案後驗證其值。
+
+```python
+from datetime import datetime
+
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+output_file = "modern_comment_text_anchor.pptx"
+shape_text = "Review the quarterly revenue forecast."
+selected_text = "quarterly revenue"
+expected_selection_start = shape_text.index(selected_text)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 400, 100)
+    shape.name = "Forecast text"
+    shape.text_frame.text = shape_text
+
+    author = presentation.comment_authors.add_author("Reviewer", "RV")
+    comment_position = draw.PointF(60, 60)
+    comment = author.comments.add_modern_comment("Verify this forecast wording.", slide, shape, comment_position, datetime.now())
+    comment.text_selection_start = expected_selection_start
+    comment.text_selection_length = len(selected_text)
+    comment.status = slides.ModernCommentStatus.RESOLVED
+
+    presentation.save(output_file, slides.export.SaveFormat.PPTX)
+
+with slides.Presentation(output_file) as reopened_presentation:
+    reopened_slide = reopened_presentation.slides[0]
+    reopened_comments = reopened_slide.get_slide_comments(None)
+
+    for reopened_comment in reopened_comments:
+        if not isinstance(reopened_comment, slides.ModernComment):
+            continue
+
+        shape_matches = reopened_comment.shape.name == "Forecast text"
+        selection_start_matches = reopened_comment.text_selection_start == expected_selection_start
+        selection_length_matches = reopened_comment.text_selection_length == len(selected_text)
+        status_matches = reopened_comment.status == slides.ModernCommentStatus.RESOLVED
+
+        print("Shape anchor preserved: " + str(shape_matches))
+        print("Text selection start preserved: " + str(selection_start_matches))
+        print("Text selection length preserved: " + str(selection_length_matches))
+        print("Resolved status preserved: " + str(status_matches))
+```
+
+### **檢查現有的現代註解**
+
+若要檢查現有簡報，先確認哪些註解是 [ModernComment](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/) 實例，然後檢查 [ModernComment.shape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/shape/)、[ModernComment.text_selection_start](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/text_selection_start/)、[ModernComment.text_selection_length](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/text_selection_length/) 與 [ModernComment.status](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/status/)。`None` 形狀代表投影片層級的註解。若為 [AutoShape](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/autoshape/) 錨定，文字選取屬性則指出形狀文字框中的相關範圍。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("comments.pptx") as presentation:
+    for slide in presentation.slides:
+        comments = slide.get_slide_comments(None)
+        for comment in comments:
+            if not isinstance(comment, slides.ModernComment):
+                continue
+
+            print("Slide: " + str(slide.slide_number))
+            print("Text: " + comment.text)
+            print("Status: " + str(comment.status))
+
+            shape = comment.shape
+            if shape is None:
+                print("Anchor: slide level")
+            else:
+                print("Anchor shape: " + shape.name)
+                print("Anchor type: " + type(shape).__name__)
+
+                if isinstance(shape, slides.AutoShape):
+                    print("Text selection start: " + str(comment.text_selection_start))
+                    print("Text selection length: " + str(comment.text_selection_length))
+
+            print()
 ```
 
 ## **移除註解**
 
-### **刪除全部註解與作者**
+### **移除所有註解與註解作者**
 
-以下 Python 程式碼示範如何移除簡報中所有的註解與作者：
+以下範例示範如何從簡報中移除全部註解與註解作者：
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("example.pptx") as presentation:
-    # 刪除簡報中所有註解
     for author in presentation.comment_authors:
         author.comments.clear()
 
-    # 刪除所有作者
     presentation.comment_authors.clear()
-
     presentation.save("example_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **刪除特定註解**
+### **移除特定註解**
 
-以下 Python 程式碼示範如何刪除投影片上特定的註解：
+以下範例示範如何從投影片中移除特定註解：
 
 ```python
+from datetime import datetime
+
 import aspose.pydrawing as draw
 import aspose.slides as slides
-from datetime import date
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    
-    # 新增註解...
     author = presentation.comment_authors.add_author("Author", "A")
-    author.comments.add_comment("comment 1", slide, draw.PointF(0.2, 0.2), date.today())
-    author.comments.add_comment("comment 2", slide, draw.PointF(0.3, 0.2), date.today())
-    
-    # 移除所有包含「comment 1」文字的註解
-    for commentAuthor in presentation.comment_authors:
-        toRemove = []
-        for comment in slide.get_slide_comments(commentAuthor):
+    created_time = datetime.now()
+
+    first_comment_position = draw.PointF(0.2, 0.2)
+    second_comment_position = draw.PointF(0.3, 0.2)
+    author.comments.add_comment("comment 1", slide, first_comment_position, created_time)
+    author.comments.add_comment("comment 2", slide, second_comment_position, created_time)
+
+    for comment_author in presentation.comment_authors:
+        comments_to_remove = []
+        comments = slide.get_slide_comments(comment_author)
+
+        for comment in comments:
             if comment.text == "comment 1":
-                toRemove.append(comment)
-        
-        for comment in toRemove:
-            commentAuthor.comments.remove(comment)
-    
+                comments_to_remove.append(comment)
+
+        for comment in comments_to_remove:
+            comment_author.comments.remove(comment)
+
     presentation.save("pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **常見問題**
+## **常見問答**
 
-**Aspose.Slides 是否支援現代註解的「已解決」狀態？**
+**Aspose.Slides 是否支援現代註解的已解決狀態？**
 
-是的。[Modern comments]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/）提供 `status` 屬性；您可以讀取與設定 [comment 的狀態]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncommentstatus/）(例如標記為已解決)，此狀態會儲存在檔案中並被 PowerPoint 辨識。
+是的。[ModernComment.status](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/status/) 可讀取且可以 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncommentstatus/) 的值設定，包括 `RESOLVED`。此狀態會儲存在簡報中，重新開啟檔案後仍可再次讀取。
 
-**是否支援串列討論（回覆鏈），且有巢狀深度限制嗎？**
+**是否支援串接式討論（回覆鏈），且有巢狀深度限制嗎？**
 
-是的。每個註解都可以參照其 [parent comment]（https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/moderncomment/parent_comment/），允許任意深度的回覆鏈。API 未宣告特定的巢狀深度上限。
+是的。每個註解都可以參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/comment/parent_comment/)，從而形成回覆鏈。API 未定義特定的巢狀深度上限。
 
-**註解標記在投影片上的位置是以哪種座標系統定義的？**
+**註解標記在投影片上的位置是以哪種坐標系定義的？**
 
-位置以浮點座標點儲存在投影片的座標系統中，使您能夠精確地將註解標記放置在需要的位置。
+標記位置是以投影片坐標系的浮點座標定義，讓您能精確地將其放置於投影片上。

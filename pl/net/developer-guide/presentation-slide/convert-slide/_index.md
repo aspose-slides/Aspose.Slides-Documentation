@@ -9,10 +9,10 @@ keywords:
 - eksportuj slajd
 - slajd na obraz
 - zapisz slajd jako obraz
-- slajd do PNG
-- slajd do JPEG
-- slajd do bitmapy
-- slajd do TIFF
+- slajd na PNG
+- slajd na JPEG
+- slajd na bitmapę
+- slajd na TIFF
 - PowerPoint
 - OpenDocument
 - prezentacja
@@ -23,20 +23,20 @@ description: "Konwertuj slajdy z formatów PPT, PPTX i ODP na obrazy w C# przy u
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides for .NET umożliwia łatwe konwertowanie slajdów prezentacji PowerPoint i OpenDocument do różnych formatów obrazu, w tym BMP, PNG, JPG (JPEG), GIF i innych.
+Aspose.Slides for .NET umożliwia łatwe konwertowanie slajdów prezentacji PowerPoint i OpenDocument do różnych formatów obrazów, w tym BMP, PNG, JPG (JPEG), GIF i innych.
 
 Aby przekonwertować slajd na obraz, wykonaj następujące kroki:
 
-1. Zdefiniuj żądane ustawienia konwersji i wybierz slajdy, które chcesz wyeksportować, używając:
-    - interfejsu [ITiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/itiffoptions/) lub
+1. Zdefiniuj pożądane ustawienia konwersji i wybierz slajdy, które chcesz wyeksportować, używając:
+    - interfejsu [ITiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/itiffoptions/), lub
     - interfejsu [IRenderingOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/irenderingoptions/).
 2. Wygeneruj obraz slajdu, wywołując metodę [GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/islide/getimage/).
 
-W .NET, [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) jest obiektem umożliwiającym pracę z obrazami definiowanymi przez dane pikseli. Możesz użyć instancji tej klasy do zapisywania obrazów w szerokim zakresie formatów (BMP, JPG, PNG itp.).
+W .NET klasa [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) jest obiektem, który umożliwia pracę z obrazami definiowanymi przez dane pikseli. Możesz użyć instancji tej klasy do zapisywania obrazów w wielu formatach (BMP, JPG, PNG itp.).
 
 ## **Konwertowanie slajdów na bitmapy i zapisywanie obrazów w formacie PNG**
 
-Możesz przekonwertować slajd na obiekt bitmapy i używać go bezpośrednio w aplikacji. Alternatywnie możesz skonwertować slajd na bitmapę, a następnie zapisać obraz w formacie JPEG lub innym wybranym formacie.
+Możesz przekonwertować slajd na obiekt bitmapy i używać go bezpośrednio w swojej aplikacji. Alternatywnie możesz przekonwertować slajd na bitmapę, a następnie zapisać obraz w formacie JPEG lub innym wybranym formacie.
 
 Ten kod C# demonstruje, jak przekonwertować pierwszy slajd prezentacji na obiekt bitmapy, a następnie zapisać obraz w formacie PNG:
 
@@ -54,9 +54,9 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 
 ## **Konwertowanie slajdów na obrazy o niestandardowych rozmiarach**
 
-Możesz potrzebować uzyskać obraz o określonym rozmiarze. Używając przeciążenia metody [GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/islide/getimage/), możesz przekonwertować slajd na obraz o konkretnych wymiarach (szerokość i wysokość).
+Możesz potrzebować obrazu o określonym rozmiarze. Korzystając z przeciążenia metody [GetImage](https://reference.aspose.com/slides/pl/net/aspose.slides/islide/getimage/), możesz przekonwertować slajd na obraz o konkretnych wymiarach (szerokość i wysokość).
 
-Ten przykładowy kod demonstruje, jak to zrobić:
+Poniższy przykładowy kod demonstruje, jak to zrobić:
 
 ```cs
 Size imageSize = new Size(1820, 1040);
@@ -76,7 +76,7 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 
 Niektóre slajdy mogą zawierać notatki i komentarze.
 
-Aspose.Slides udostępnia dwa interfejsy — [ITiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/itiffoptions/) i [IRenderingOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/irenderingoptions/) — które pozwalają kontrolować renderowanie slajdów prezentacji do obrazów. Oba interfejsy zawierają właściwość `SlidesLayoutOptions`, umożliwiającą konfigurację renderowania notatek i komentarzy na slajdzie podczas konwersji na obraz.
+Aspose.Slides udostępnia dwa interfejsy — [ITiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/itiffoptions/) i [IRenderingOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/irenderingoptions/) — które pozwalają kontrolować renderowanie slajdów prezentacji na obrazy. Oba interfejsy zawierają właściwość `SlidesLayoutOptions`, która umożliwia skonfigurowanie renderowania notatek i komentarzy na slajdzie podczas konwersji na obraz.
 
 Za pomocą klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/notescommentslayoutingoptions/) możesz określić preferowaną pozycję notatek i komentarzy w uzyskanym obrazie.
 
@@ -86,7 +86,7 @@ Ten kod C# demonstruje, jak przekonwertować slajd z notatkami i komentarzami:
 float scaleX = 2;
 float scaleY = scaleX;
 
-// Wczytaj plik prezentacji.
+// Załaduj plik prezentacji.
 using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
 {
     // Utwórz opcje renderowania.
@@ -101,7 +101,7 @@ using (Presentation presentation = new Presentation("Presentation_with_notes_and
         }
     };
 
-    // Przekonwertuj pierwszy slajd prezentacji na obraz.
+    // Konwertuj pierwszy slajd prezentacji na obraz.
     using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
     {
         // Zapisz obraz w formacie GIF.
@@ -111,17 +111,17 @@ using (Presentation presentation = new Presentation("Presentation_with_notes_and
 ```
 
 {{% alert title="Note" color="warning" %}} 
-W każdym procesie konwersji slajdu na obraz właściwość [NotesPosition](https://reference.aspose.com/slides/pl/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) nie może być ustawiona na `BottomFull` (w celu określenia pozycji notatek), ponieważ tekst notatki może być zbyt długi, co uniemożliwia dopasowanie go do określonego rozmiaru obrazu.
+W każdym procesie konwersji slajdów na obrazy właściwość [NotesPosition](https://reference.aspose.com/slides/pl/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) nie może być ustawiona na `BottomFull` (aby określić pozycję notatek), ponieważ tekst notatki może być zbyt duży, co uniemożliwia zmieszczenie go w określonym rozmiarze obrazu.
 {{% /alert %}} 
 
 ## **Konwertowanie slajdów na obrazy przy użyciu opcji TIFF**
 
-Interfejs [ITiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/itiffoptions/) zapewnia większą kontrolę nad powstałym obrazem TIFF, umożliwiając określenie parametrów takich jak rozmiar, rozdzielczość, paleta kolorów i inne.
+Interfejs [ITiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/itiffoptions/) zapewnia większą kontrolę nad powstałym obrazem TIFF, umożliwiając określenie parametrów, takich jak rozmiar, rozdzielczość, paleta kolorów i inne.
 
-Ten kod C# demonstruje proces konwersji, w którym opcje TIFF są używane do wygenerowania czarno‑białego obrazu o rozdzielczości 300 DPI i rozmiarze 2160 × 2800:
+Ten kod C# demonstruje proces konwersji, w którym opcje TIFF są używane do wygenerowania czarno-białego obrazu o rozdzielczości 300 DPI i rozmiarze 2160 × 2800:
 
 ```cs
-// Wczytaj plik prezentacji.
+// Załaduj plik prezentacji.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     // Pobierz pierwszy slajd z prezentacji.
@@ -149,7 +149,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 Aspose.Slides umożliwia konwersję wszystkich slajdów w prezentacji na obrazy, skutecznie przekształcając całą prezentację w serię obrazów.
 
-Ten przykładowy kod demonstruje, jak w C# przekonwertować wszystkie slajdy w prezentacji na obrazy:
+Poniższy przykładowy kod demonstruje, jak w C# przekonwertować wszystkie slajdy w prezentacji na obrazy:
 
 ```cs
 float scaleX = 2;
@@ -174,16 +174,22 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 }
 ```
 
+## **Renderowanie kolorowych emoji**
+
+{{% alert title="Note" color="warning" %}} 
+Aby prawidłowo renderować kolorowe emoji podczas konwersji slajdów prezentacji na obrazy, czcionki emoji użyte w prezentacji muszą być zainstalowane i dostępne w systemie przeprowadzającym konwersję. Na przykład, jeśli prezentacja używa **Segoe UI Emoji** i ta czcionka jest nieobecna, emoji mogą być wyświetlane w odcieniach szarości w wygenerowanych obrazach.
+{{% /alert %}}
+
 ## **FAQ**
 
-**1. Czy Aspose.Slides obsługuje renderowanie slajdów z animacjami?**
+**Czy Aspose.Slides obsługuje renderowanie slajdów z animacjami?**
 
 Nie, metoda `GetImage` zapisuje tylko statyczny obraz slajdu, bez animacji.
 
-**2. Czy ukryte slajdy mogą być eksportowane jako obrazy?**
+**Czy ukryte slajdy mogą być eksportowane jako obrazy?**
 
 Tak, ukryte slajdy mogą być przetwarzane tak samo jak zwykłe. Należy tylko upewnić się, że są uwzględnione w pętli przetwarzania.
 
-**3. Czy obrazy mogą być zapisywane z cieniami i efektami?**
+**Czy obrazy mogą być zapisywane z cieniami i efektami?**
 
 Tak, Aspose.Slides obsługuje renderowanie cieni, przezroczystości i innych efektów graficznych przy zapisywaniu slajdów jako obrazy.

@@ -19,26 +19,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Převádějte snímky z PPT, PPTX a ODP na obrázky v JavaScriptu pomocí Aspose.Slides pro Node.js přes Java — rychlé, vysoce kvalitní vykreslování s přehlednými příklady kódu."
+description: "Převod snímků z PPT, PPTX a ODP na obrázky v JavaScriptu pomocí Aspose.Slides pro Node.js přes Java — rychlé, vysoce kvalitní vykreslování s přehlednými ukázkovými kódy."
 ---
 ## **Úvod**
 
 Aspose.Slides pro Node.js přes Java vám umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
 
-Pro převod snímku na obrázek postupujte podle následujících kroků:
+Chcete-li převést snímek na obrázek, postupujte podle těchto kroků:
 
-1. Definujte požadovaná nastavení převodu a vyberte snímky, které chcete exportovat, pomocí:
-    - Třídy [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) nebo
+1. Definujte požadovaná nastavení konverze a vyberte snímky, které chcete exportovat, pomocí:
+    - Třídy [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) , nebo
     - Třídy [RenderingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/renderingoptions/) .
-2. Vygenerujte obrázek snímku voláním metody [getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage) .
+2. Vygenerujte obrázek snímku zavoláním metody [getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage).
 
-V Aspose.Slides pro Node.js přes Java je [IImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/) třída, která vám umožňuje pracovat s obrázky definovanými pomocí pixelových dat. Touto třídou můžete ukládat obrázky v široké škále formátů (BMP, JPG, PNG atd.).
+V Aspose.Slides pro Node.js přes Java je [IImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/iimage/) třída, která vám umožňuje pracovat s obrázky definovanými pomocí pixelových dat. Tuto třídu můžete použít k uložení obrázků v široké škále formátů (BMP, JPG, PNG atd.).
 
-## **Převod snímků na bitmapu a uložení obrázků v PNG**
+## **Převod snímků na bitmapu a uložení obrázků ve formátu PNG**
 
-Můžete převést snímek na objekt bitmapy a použít jej přímo ve své aplikaci. Případně můžete převést snímek na bitmapu a následně uložit obrázek ve formátu JPEG nebo jakémkoli jiném preferovaném formátu.
+Můžete převést snímek na bitmapový objekt a použít jej přímo ve své aplikaci. Případně můžete snímek převést na bitmapu a poté uložit obrázek ve formátu JPEG nebo jiném preferovaném formátu.
 
-Tento JavaScriptový kód ukazuje, jak převést první snímek prezentace na objekt bitmapy a poté uložit obrázek ve formátu PNG:
+Tento JavaScriptový kód ukazuje, jak převést první snímek prezentace na bitmapový objekt a poté uložit obrázek ve formátu PNG:
 
 ```js
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
@@ -56,18 +56,18 @@ try {
 }
 ```
 
-## **Převod snímků na obrázky s vlastními rozměry**
+## **Převod snímků na obrázky s vlastními velikostmi**
 
-Možná budete potřebovat získat obrázek určité velikosti. Pomocí přetížení metody [getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage) můžete převést snímek na obrázek s konkrétními rozměry (šířka a výška).
+Možná budete potřebovat obrázek určité velikosti. Pomocí přetížené metody [getImage](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/#getImage) můžete převést snímek na obrázek se specifickými rozměry (šířka a výška).
 
-Tento ukázkový kód demonstruje, jak to provést:
+Tento ukázkový kód ukazuje, jak to provést:
 
 ```js
 let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Převést první snímek v prezentaci na bitmapu s určenou velikostí.
+    // Převést první snímek v prezentaci na bitmapu se zadanou velikostí.
     let image = presentation.getSlides().get_Item(0).getImage(imageSize);
     try {
         // Uložit obrázek ve formátu JPEG.
@@ -84,7 +84,7 @@ try {
 
 Některé snímky mohou obsahovat poznámky a komentáře.
 
-Aspose.Slides poskytuje dvě třídy - [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) a [RenderingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/renderingoptions/) - které vám umožňují kontrolovat vykreslování snímků prezentace do obrázků. Obě třídy obsahují metodu `setSlidesLayoutOptions`, která vám umožňuje nastavit vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
+Aspose.Slides poskytuje dvě třídy — [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) a [RenderingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/renderingoptions/) — které vám umožňují řídit vykreslování snímků prezentace do obrázků. Obě třídy obsahují metodu `setSlidesLayoutOptions`, která umožňuje nakonfigurovat vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
 
 S třídou [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notescommentslayoutingoptions/) můžete specifikovat požadovanou pozici poznámek a komentářů ve výsledném obrázku.
 
@@ -98,12 +98,12 @@ const scaleY = scaleX;
 let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Nastavit polohu poznámek.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Nastavit polohu komentářů.
+    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Nastavit pozici poznámek.
+    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Nastavit pozici komentářů.
     notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Nastavit šířku oblasti komentářů.
     notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Nastavit barvu oblasti komentářů.
 
-    // Vytvořit nastavení vykreslování.
+    // Vytvořit možnosti vykreslování.
     let options = new aspose.slides.RenderingOptions();
     options.setSlidesLayoutOptions(notesCommentsOptions);
  
@@ -121,14 +121,14 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-V jakémkoli procesu převodu snímku na obrázek metoda [setNotesPosition](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) nemůže použít `BottomFull` (pro určení pozice poznámek), protože text poznámky může být příliš velký a nepřesahuje určenou velikost obrázku.
+V jakémkoli procesu převodu snímku na obrázek nelze metodou [setNotesPosition](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) použít `BottomFull` (pro určení pozice poznámek), protože text poznámky může být příliš velký a nevejde se do zadané velikosti obrázku.
 {{% /alert %}} 
 
 ## **Převod snímků na obrázky pomocí TIFF možností**
 
-Třída [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že umožňuje specifikovat parametry jako velikost, rozlišení, barevnou paletu a další.
+Třída [TiffOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/tiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že vám umožňuje specifikovat parametry jako velikost, rozlišení, barevnou paletu a další.
 
-Tento JavaScriptový kód ukazuje proces konverze, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 × 2800:
+Tento JavaScriptový kód ukazuje proces konverze, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 x 2800:
 
 ```js
 // Načíst soubor prezentace.
@@ -137,14 +137,14 @@ try {
     // Získat první snímek z prezentace.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Nastavit konfiguraci výstupního TIFF obrazu.
+    // Nastavit konfiguraci výstupního TIFF obrázku.
     let tiffOptions = new aspose.slides.TiffOptions();
     tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Nastavit velikost obrázku.
     tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Nastavit formát pixelů (černobílý).
-    tiffOptions.setDpiX(300);                                                          // Nastavit horizontální rozlišení.
-    tiffOptions.setDpiY(300);                                                          // Nastavit vertikální rozlišení.
+    tiffOptions.setDpiX(300);                                                          // Nastavit vodorovné rozlišení.
+    tiffOptions.setDpiY(300);                                                          // Nastavit svislé rozlišení.
 
-    // Převést snímek na obrázek s určenými možnostmi.
+    // Převést snímek na obrázek se zadanými možnostmi.
     let image = slide.getImage(tiffOptions);
     try {
         // Uložit obrázek ve formátu TIFF.
@@ -163,9 +163,9 @@ Podpora TIFF není zaručena ve verzích starších než JDK 9.
 
 ## **Převod všech snímků na obrázky**
 
-Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž efektivně převádí celou prezentaci na sérii obrázků.
+Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž prakticky převádí celou prezentaci na sérii obrázků.
 
-Tento ukázkový kód demonstruje, jak převést všechny snímky v prezentaci na obrázky v JavaScriptu:
+Tento ukázkový kód ukazuje, jak převést všechny snímky v prezentaci na obrázky v JavaScriptu:
 
 ```js
 const scaleX = 2;
@@ -173,7 +173,7 @@ const scaleY = scaleX;
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Vykreslit prezentaci na obrázky snímek po snímku.
+    // Vykreslit prezentaci do obrázků snímek po snímku.
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         // Ovládání skrytých snímků (nevykreslovat skryté snímky).
         if (presentation.getSlides().get_Item(i).getHidden()) {
@@ -194,6 +194,12 @@ try {
 }
 ```
 
+## **Vykreslování barevných emoji**
+
+{{% alert title="Note" color="warning" %}} 
+Pro správné vykreslení barevných emoji při převodu snímků prezentace na obrázky musí být na systému provádějícím konverzi nainstalovány a dostupné fonty emoji použité v prezentaci. Například pokud prezentace používá **Segoe UI Emoji** a tento font chybí, mohou se emoji v výstupních obrázcích zobrazit v černobílém provedení.
+{{% /alert %}}
+
 ## **Často kladené otázky**
 
 **Podporuje Aspose.Slides vykreslování snímků s animacemi?**
@@ -202,8 +208,8 @@ Ne, metoda `getImage` ukládá pouze statický obrázek snímku, bez animací.
 
 **Lze skryté snímky exportovat jako obrázky?**
 
-Ano, skryté snímky lze zpracovat stejně jako běžné. Jen se ujistěte, že jsou zahrnuty ve smyčce zpracování.
+Ano, skryté snímky lze zpracovat stejně jako běžné. Stačí zajistit, že jsou zahrnuty v cyklu zpracování.
 
-**Lze obrázky ukládat se stíny a efekty?**
+**Lze obrázky uložit se stíny a efekty?**
 
-Ano, Aspose.Slides podporuje vykreslování stínů, průhlednosti a dalších grafických efektů při ukládání snímků jako obrázky.
+Ano, Aspose.Slides podporuje vykreslování stínů, průhlednosti a dalších grafických efektů při ukládání snímků jako obrázků.

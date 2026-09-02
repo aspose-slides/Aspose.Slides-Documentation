@@ -24,7 +24,7 @@ description: "Apply and render 3D effects for PowerPoint shapes and text in Node
 
 Aspose.Slides for Node.js via Java can create, edit, preserve, and render PowerPoint-style 3D formatting for shapes and text. This article covers 3D effects such as rotation, extrusion, bevels, lighting, material, gradient or picture fills, and 3D text.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 This article is about 3D formatting effects on PowerPoint shapes and text. It is not about inserting or editing standalone 3D model files. When you export a slide to an image, PDF, or HTML, Aspose.Slides renders those 3D effects into the exported 2D output.
 

@@ -53,7 +53,7 @@ $presentation->save("output.pdf", SaveFormat::Pdf, $pdfOptions);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may to want to check out Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion). 
 

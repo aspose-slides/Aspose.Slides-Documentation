@@ -11,6 +11,8 @@ keywords:
 - set theme
 - change theme
 - manage theme
+- external theme
+- THMX
 - theme color
 - additional palette
 - theme font
@@ -26,288 +28,569 @@ description: "Master presentation themes in Aspose.Slides for PHP via Java to cr
 
 ## **Introduction**
 
-A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.
+A presentation theme defines a coordinated set of colors, fonts, background styles, fills, lines, and effects. Theme-aware objects refer to these shared definitions instead of storing every visual property as a fixed value, so a theme change can update many objects at once.
 
-In PowerPoint, a theme comprises colors, [fonts](/slides/php-java/powerpoint-fonts/), [background styles](/slides/php-java/presentation-background/), and effects.
+In Aspose.Slides, the presentation-level theme is available through [Presentation.getMasterTheme](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/). A presentation can also contain theme overrides at lower levels. A master can override the presentation theme through [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/php-java/aspose.slides/masterthememanager/), while a layout or an individual slide can override its inherited theme through [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/php-java/aspose.slides/baseoverridethememanager/). In practice, the effective theme for a slide is resolved through this inheritance chain: presentation theme, master override, layout override, and slide override.
 
-![theme-constituents](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-## **Change Theme Color**
+The sections below show the most common theme workflows: inspect a theme, change colors and fonts, copy or apply a theme, update background and effect styles, and read effective values after inheritance and overrides have been resolved.
 
-A PowerPoint theme uses a specific set of colors for different elements on a slide. If you don't like the colors, you change them colors by applying new colors for the theme. To allow you select a new theme color, Aspose.Slides provides values under the [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/SchemeColor) enumeration.
+## **Inspect a Theme**
 
-This PHP code shows you how to change the accent color for a theme:
+The [MasterTheme](https://reference.aspose.com/slides/php-java/aspose.slides/mastertheme/) object exposes the theme's color scheme, font scheme, and format scheme through [MasterTheme.getColorScheme](https://reference.aspose.com/slides/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/php-java/aspose.slides/mastertheme/), and [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/mastertheme/). Inspecting these collections before changing them is especially useful when a presentation comes from an external source because the number and content of style entries can vary.
+
+The following example reads the main theme properties and reports how many background, fill, line, and effect styles are stored in the theme:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
-    $shape->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $theme = $presentation->getMasterTheme();
+    echo "Theme name: " . $theme->getName() . PHP_EOL;
+    echo "Accent 1: " . $theme->getColorScheme()->getAccent1()->getColor() . PHP_EOL;
+    echo "Major Latin font: " . $theme->getFontScheme()->getMajor()->getLatinFont()->getFontName() . PHP_EOL;
+    echo "Minor Latin font: " . $theme->getFontScheme()->getMinor()->getLatinFont()->getFontName() . PHP_EOL;
+    echo "Background fill styles: " . java_values($theme->getFormatScheme()->getBackgroundFillStyles()->size()) . PHP_EOL;
+    echo "Fill styles: " . java_values($theme->getFormatScheme()->getFillStyles()->size()) . PHP_EOL;
+    echo "Line styles: " . java_values($theme->getFormatScheme()->getLineStyles()->size()) . PHP_EOL;
+    echo "Effect styles: " . java_values($theme->getFormatScheme()->getEffectStyles()->size()) . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
-You can determine the resulting color's effective value this way:
+If a file uses multiple masters, do not assume that every slide has the same effective theme. Inspect the master associated with the slide, and use the effective-theme workflow shown later in this article when layout or slide overrides may be present.
+
+## **Change Theme Colors**
+
+Theme-aware fills, lines, and text can refer to a logical color from the [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/schemecolor/) enumeration. When you change the corresponding entry in the [ColorScheme](https://reference.aspose.com/slides/php-java/aspose.slides/colorscheme/), all objects that still reference that theme color are resolved against the new value. Objects that use a direct RGB color are not changed by a theme-color update.
+
+The following end-to-end example creates a shape that uses `Accent4`, changes the theme's `Accent4` color to red, saves the presentation, reopens it, and prints the effective fill color:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
-    $shape->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
 
-    $fillEffective = $shape->getFillFormat()->getEffective();
-    $effectiveColor = $fillEffective->getSolidFillColor();
-    echo(sprintf("Color [A=%d, R=%d, G=%d, B=%d]", $effectiveColor->getAlpha(), $effectiveColor->getRed(), $effectiveColor->getGreen(), $effectiveColor->getBlue()));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
-    $shape->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
-
-    $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
-    $otherShape->getFillFormat()->setFillType(FillType::Solid);
-    $otherShape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
-
-    $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-The new color is applied automatically on both elements.
-
-### **Set Theme Color from an Additional Palette**
-
-When you apply luminance transformations to the main theme color(1), colors from the additional palette(2) are formed. You can then set and get those theme colors. 
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** - Main theme colors
-
-**2** - Colors from the additional palette.
-
-This PHP code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
-
-```php
-  $presentation = new Presentation();
-  try {
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # Accent 4
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
+    $presentation->save("theme-color.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$savedPresentation = new Presentation("theme-color.pptx");
+try {
+    $savedSlide = $savedPresentation->getSlides()->get_Item(0);
+    $savedShape = $savedSlide->getShapes()->get_Item(0);
+    $effectiveColor = $savedShape->getFillFormat()->getEffective()->getSolidFillColor();
+    echo sprintf("Effective fill color: A=%d, R=%d, G=%d, B=%d", java_values($effectiveColor->getAlpha()), java_values($effectiveColor->getRed()), java_values($effectiveColor->getGreen()), java_values($effectiveColor->getBlue())) . PHP_EOL;
+} finally {
+    $savedPresentation->dispose();
+}
+```
+
+Because the rectangle remains linked to `Accent4`, its visible color becomes red after the theme is changed. If you replace the scheme color with a direct color on the shape, later changes to `Accent4` will no longer affect that fill.
+
+### **Use Colors from the Additional Palette**
+
+PowerPoint derives lighter and darker variants from a theme color by applying color transformations. Aspose.Slides exposes these transformations through the [ColorTransformOperation](https://reference.aspose.com/slides/php-java/aspose.slides/colortransformoperation/) enumeration.
+
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+
+**1** - Main theme colors.
+
+**2** - Lighter and darker variants produced from the main theme colors.
+
+The following example creates six rectangles based on `Accent4`, applies luminance transformations to five of them, and saves the result:
+
+```php
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
-    # Accent 4, Lighter 80%
+
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
     $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.2);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.8);
-    # Accent 4, Lighter 60%
+
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.6);
-    # Accent 4, Lighter 40%
+
     $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
     $shape4->getFillFormat()->setFillType(FillType::Solid);
     $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.6);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.4);
-    # Accent 4, Darker 25%
+
     $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
     $shape5->getFillFormat()->setFillType(FillType::Solid);
     $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
     $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.75);
-    # Accent 4, Darker 50%
+
     $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
     $shape6->getFillFormat()->setFillType(FillType::Solid);
     $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
     $shape6->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.5);
-    $presentation->save("example_accent4.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+
+    $presentation->save("theme-color-palette.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Map `SchemeColor` to `ColorScheme` Colors**
+These variants remain based on the theme color. If `Accent4` changes later, the transformed colors are recalculated from the new `Accent4` value.
 
-When you work with [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/schemecolor/), you may notice that it contains the following theme color values:
+### **Map `SchemeColor` Values to `ColorScheme` Slots**
 
-`Background1`, `Background2`, `Text1`, and `Text2`.
-
-However, `Presentation::getMasterTheme()::getColorScheme()` returns [ColorScheme](https://reference.aspose.com/slides/php-java/aspose.slides/colorscheme/), which exposes the corresponding colors as:
-
-`Dark1`, `Dark2`, `Light1`, and `Light2`.
-
-This difference is only in naming. These values refer to the same theme color slots and the mapping is fixed:
+The [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/schemecolor/) enumeration uses `Text1`, `Background1`, `Text2`, and `Background2`, while the [ColorScheme](https://reference.aspose.com/slides/php-java/aspose.slides/colorscheme/) exposes the same theme slots as `Dark1`, `Light1`, `Dark2`, and `Light2`. The mapping is fixed:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-There is no dynamic conversion between `Text`/`Background` and `Dark`/`Light`. They are simply alternate names for the same theme colors.
+These are alternate names for the same theme slots; they are not values that are dynamically converted from one form to another.
 
-This naming difference comes from Microsoft Office terminology. Older Office versions used `Dark 1`, `Light 1`, `Dark 2`, and `Light 2`, while newer UI versions display the same slots as `Text 1`, `Background 1`, `Text 2`, and `Background 2`.
+## **Change Theme Fonts**
 
-## **Change Theme Font**
+A theme font scheme contains a major font set for headings and a minor font set for body text. The [FontScheme.getMajor](https://reference.aspose.com/slides/php-java/aspose.slides/fontscheme/) and [FontScheme.getMinor](https://reference.aspose.com/slides/php-java/aspose.slides/fontscheme/) methods expose those sets.
 
-To allow you select fonts for themes and other purposes, Aspose.Slides uses these special identifiers (similar to those used in PowerPoint):
+PowerPoint-compatible theme font identifiers can be used in text formatting:
 
-* **+mn-lt** - Body Font Latin (Minor Latin Font)
-* **+mj-lt** -Heading Font Latin (Major Latin Font)
-* **+mn-ea** - Body Font East Asian (Minor East Asian Font)
-* **+mj-ea** - Body Font East Asian (Major East Asian Font)
+* `+mn-lt` - Body Font Latin (Minor Latin Font)
+* `+mj-lt` - Heading Font Latin (Major Latin Font)
+* `+mn-ea` - Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` - Heading Font East Asian (Major East Asian Font)
 
-This PHP code shows you how to assign the Latin font to a theme element:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
-    $paragraph = new Paragraph();
-    $portion = new Portion("Theme text format");
-    $paragraph->getPortions()->add($portion);
-    $shape->getTextFrame()->getParagraphs()->add($paragraph);
-    $portion->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-This PHP code shows you how to change the presentation theme font:
+The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $pres->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\FontData;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $heading = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 40, 500, 60);
+    $heading->getTextFrame()->setText("Theme heading");
+    $heading->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setLatinFont(new FontData("+mj-lt"));
+
+    $body = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 40, 120, 500, 60);
+    $body->getTextFrame()->setText("Theme body text");
+    $body->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setLatinFont(new FontData("+mn-lt"));
+
+    $presentation->getMasterTheme()->getFontScheme()->getMajor()->setLatinFont(new FontData("Aptos Display"));
+    $presentation->getMasterTheme()->getFontScheme()->getMinor()->setLatinFont(new FontData("Arial"));
+    $presentation->save("theme-fonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-The font in all text boxes will be updated.
+The heading follows the major font and the body text follows the minor font. Text that has an explicit font name instead of a theme identifier will not automatically switch when the theme font scheme changes.
 
-{{% alert color="primary" title="TIP" %}} 
+The major and minor font collections can also contain font mappings for individual writing systems, such as Cyrillic, Arabic, Japanese, Georgian, and Thaana. To inspect, add, replace, or remove these mappings, see [Script-Specific Theme Fonts](/slides/php-java/script-specific-font-mappings/).
 
-You may want to see [PowerPoint fonts](/slides/php-java/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+
+For more information about presentation fonts, see [PowerPoint Fonts](/slides/php-java/powerpoint-fonts/).
 
 {{% /alert %}}
 
-## **Change Theme Background Style**
+## **Copy or Apply a Theme**
 
-By default, the PowerPoint app provides 12 predefined backgrounds but only 3 from those 12 backgrounds are saved in a typical presentation. 
+The workflows below solve different theme-related problems.
 
-![todo:image_alt_text](presentation-design_8.png)
+### **Apply an External Theme to a Master's Dependent Slides**
 
-For example, after you save a presentation in the PowerPoint app, you can run this PHP code to find out the number of predefined backgrounds in the presentation:
+Use [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) when you have a PowerPoint theme file (`.thmx`) and want to restyle every slide that depends on a particular master. Select the master from the [Presentation::getMasters](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) collection, which is represented by [MasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/), and pass the theme file path to the method.
 
-```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $numberOfBackgroundFills = $pres->getMasterTheme()->getFormatScheme()->getBackgroundFillStyles()->size();
-    echo("Number of background fill styles for theme is " . $numberOfBackgroundFills);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+The method performs the following operations:
 
-{{% alert color="warning" %}} 
+1. Creates a new master slide based on the selected master.
+1. Applies the external theme to the new master.
+1. Assigns the new master to all slides that previously depended on the selected master.
+1. Returns the newly created [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/).
 
-Using the [BackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) property from the [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) class, you can add or access the background style in a PowerPoint theme.
-
-{{% /alert %}} 
-
-This PHP code shows you how to set the background for a presentation:
+The following example applies an external theme to the slides that depend on the first master and saves the presentation:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $pres->getMasters()->get_Item(0)->getBackground()->setStyleIndex(2);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $selectedMaster = $presentation->getMasters()->get_Item(0);
+    $themedMaster = $selectedMaster->applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    echo "Created master: " . java_values($themedMaster->getName()) . PHP_EOL;
+    $presentation->save("presentation-with-external-theme.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-**Index guide**: 0 is used for no fill. The index starts from 1.
+An invalid, corrupted, or unsupported theme can cause [PptxReadException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxreadexception/). Validate paths supplied by users, handle file-system access failures, and save the presentation only after the theme has been applied successfully.
 
-{{% alert color="primary" title="TIP" %}} 
+Only the slides that depended on the selected master are reassigned. Slides associated with other masters retain their existing masters and themes. Theme-aware colors, fonts, fills, lines, backgrounds, and effects are resolved against the external theme. Directly assigned colors, fonts, fills, and other explicit formatting may remain unchanged. Layout-level and slide-level overrides can also take precedence over values inherited from the new master.
 
-You may want to see [PowerPoint Background](/slides/php-java/presentation-background/).
+The theme can reference fonts that are not available in the runtime environment. For consistent rendering and export, install the required fonts, provide them through [custom font sources](/slides/php-java/custom-font/), or configure [font substitution](/slides/php-java/font-substitution/).
+
+This is a direct master-level workflow: the method accepts a file path to a `.thmx` file and does not require manually creating slide-level or layout-level theme overrides.
+
+### **Apply Different External Themes in a Multi-Master Presentation**
+
+When the relevant master is not known in advance, obtain it from a representative slide through [Slide::getLayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) and [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/). Store the original master references before applying any themes because each call creates another master in the presentation.
+
+The following example uses slides from two sections to locate their masters and applies a different external theme to each group:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) < 5) {
+        echo "The presentation does not contain the expected representative slides." . PHP_EOL;
+    } else {
+        $firstGroupMaster = $presentation->getSlides()->get_Item(0)->getLayoutSlide()->getMasterSlide();
+        $secondGroupMaster = $presentation->getSlides()->get_Item(4)->getLayoutSlide()->getMasterSlide();
+
+        if (java_values($firstGroupMaster->getSlideId()) === java_values($secondGroupMaster->getSlideId())) {
+            echo "The representative slides use the same master." . PHP_EOL;
+        } else {
+            $firstThemedMaster = $firstGroupMaster->applyExternalThemeToDependingSlides("blue-theme.thmx");
+            $secondThemedMaster = $secondGroupMaster->applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            echo "First themed master: " . java_values($firstThemedMaster->getName()) . PHP_EOL;
+            echo "Second themed master: " . java_values($secondThemedMaster->getName()) . PHP_EOL;
+            $presentation->save("multi-master-with-external-themes.pptx", SaveFormat::Pptx);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+The first call affects only slides that depended on `$firstGroupMaster`, and the second call affects only slides that depended on `$secondGroupMaster`. Slides belonging to any other master are not restyled.
+
+### **Preserve a Source Theme When Moving Slides**
+
+If you want to move a slide to another presentation and preserve its original design, clone the source master into the target presentation with [MasterSlideCollection.addClone](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/), then clone the slide with [SlideCollection.addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/) and the cloned master. This carries the master, its layouts, and the associated theme together.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$source = new Presentation("source-theme.pptx");
+try {
+    $target = new Presentation("target.pptx");
+    try {
+        $sourceSlide = $source->getSlides()->get_Item(0);
+        $sourceMaster = $sourceSlide->getLayoutSlide()->getMasterSlide();
+        $clonedMaster = $target->getMasters()->addClone($sourceMaster);
+        $target->getSlides()->addClone($sourceSlide, $clonedMaster, true);
+        $target->save("theme-preserved.pptx", SaveFormat::Pptx);
+    } finally {
+        $target->dispose();
+    }
+} finally {
+    $source->dispose();
+}
+```
+
+This is the preferred workflow when the source slide must look the same in the destination. Simply cloning content onto an unrelated destination master can change theme-driven colors, fonts, backgrounds, and effects.
+
+### **Apply Theme Values to an Existing Slide**
+
+If the target slide must stay on its current master and layout, initialize a slide-level override from the source theme. The [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/), and [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/) methods copy the three main theme components into the override.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$source = new Presentation("source-theme.pptx");
+try {
+    $target = new Presentation("target.pptx");
+    try {
+        $targetSlide = $target->getSlides()->get_Item(0);
+        $overrideTheme = $targetSlide->getThemeManager()->getOverrideTheme();
+        $overrideTheme->initColorSchemeFrom($source->getMasterTheme()->getColorScheme());
+        $overrideTheme->initFontSchemeFrom($source->getMasterTheme()->getFontScheme());
+        $overrideTheme->initFormatSchemeFrom($source->getMasterTheme()->getFormatScheme());
+        $target->save("theme-applied-to-slide.pptx", SaveFormat::Pptx);
+    } finally {
+        $target->dispose();
+    }
+} finally {
+    $source->dispose();
+}
+```
+
+This changes the theme used by that slide without changing the theme inherited by other slides. To remove the local override and return to inherited values, call [OverrideTheme.clear](https://reference.aspose.com/slides/php-java/aspose.slides/overridetheme/).
+
+### **Apply a Theme Override to a Layout**
+
+A layout-level override applies to slides that use that layout, unless a particular slide has its own override. The same initialization methods can be used through the [LayoutSlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslidethememanager/):
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$source = new Presentation("source-theme.pptx");
+try {
+    $target = new Presentation("target.pptx");
+    try {
+        $targetSlide = $target->getSlides()->get_Item(0);
+        $overrideTheme = $targetSlide->getLayoutSlide()->getThemeManager()->getOverrideTheme();
+        $overrideTheme->initColorSchemeFrom($source->getMasterTheme()->getColorScheme());
+        $overrideTheme->initFontSchemeFrom($source->getMasterTheme()->getFontScheme());
+        $overrideTheme->initFormatSchemeFrom($source->getMasterTheme()->getFormatScheme());
+        $target->save("theme-applied-to-layout.pptx", SaveFormat::Pptx);
+    } finally {
+        $target->dispose();
+    }
+} finally {
+    $source->dispose();
+}
+```
+
+Use a master or presentation-level theme when many layouts and slides should share the same base design, a layout override when one layout family needs different styling, and a slide override only for true exceptions. Excessive slide-level overrides make later global theme changes harder to predict.
+
+## **Update Theme Background Styles**
+
+The theme's background fills are stored in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/formatscheme/). PowerPoint can present more background choices in its UI than the number of fill definitions physically stored in this collection because the UI can combine theme fills with theme colors and other style references.
+
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+
+Before using a background style, inspect the stored collection and the current [Background.getStyleIndex](https://reference.aspose.com/slides/php-java/aspose.slides/background/). A style index of `0` means no themed fill; positive values are theme background-style references. This is different from indexing the PHP collection directly, where `get_Item(0)` means the first stored item. Do not assume that every presentation contains the same number of background fill styles.
+
+The following example reports the available background fill count, assigns a themed background reference to the first master, and saves the presentation:
+
+```php
+use aspose\slides\BackgroundType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $backgroundStyleCount = java_values($presentation->getMasterTheme()->getFormatScheme()->getBackgroundFillStyles()->size());
+    echo "Background fill styles: " . $backgroundStyleCount . PHP_EOL;
+    if ($backgroundStyleCount === 0) {
+        throw new RuntimeException("The presentation theme does not contain background fill styles.");
+    }
+
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $masterSlide->getBackground()->setType(BackgroundType::Themed);
+    $masterSlide->getBackground()->setStyleIndex(1);
+    $presentation->save("theme-background.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The visible result depends on the theme entry referenced by the master and on any background overrides at the layout or slide level. If a slide uses its own background, changing only the master background may not change that slide. Use [Background.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/background/) when you need to know the final background after inheritance has been applied.
+
+{{% alert color="warning" title="Warning" %}}
+
+Do not treat the style index as a zero-based collection index. Also avoid hard-coding a style number from one file and assuming it has the same appearance in another file; theme style definitions are presentation-specific.
 
 {{% /alert %}}
 
-## **Change Theme Effect**
+{{% alert color="info" title="Tip" %}}
 
-A PowerPoint theme usually contains 3 values for each style array. Those arrays are combined into these 3 effects: subtle, moderate, and intense. For example, this is the outcome when the effects are applied to a specific shape:
+For direct background formatting and background inheritance, see [Presentation Background](/slides/php-java/presentation-background/).
 
-![todo:image_alt_text](presentation-design_10.png)
+{{% /alert %}}
 
+## **Update Theme Effects**
 
+A theme format scheme contains separate fill, line, and effect style collections exposed through [FormatScheme.getFillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/formatscheme/), and [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/formatscheme/). Typical Office themes often contain three principal style entries that correspond visually to subtle, moderate, and intense formatting, but code should inspect each collection instead of assuming a fixed count.
 
-Using 3 properties ([FillStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme#getEffectStyles--)) from the  [FormatScheme](https://reference.aspose.com/slides/php-java/aspose.slides/FormatScheme) class you can change the elements in a theme (even more flexibly than the options in PowerPoint).
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-This PHP code shows you how to change a theme effect by altering parts of elements:
+When you access these collections in PHP, the collection index is zero-based: `get_Item(0)` is the first stored style and `get_Item(2)` is the third. A shape's style-reference indexes are a separate concept, exposed through [ShapeStyle](https://reference.aspose.com/slides/php-java/aspose.slides/shapestyle/). Modifying a theme style affects shapes that reference that theme style; shapes with direct formatting may remain unchanged.
+
+The following example checks that the required style entries exist, changes the first line style, changes the third fill style, enables an outer shadow in the third effect style, and saves the result:
 
 ```php
-  $pres = new Presentation("Subtle_Moderate_Intense.pptx");
-  try {
-    $pres->getMasterTheme()->getFormatScheme()->getLineStyles()->get_Item(0)->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->getMasterTheme()->getFormatScheme()->getFillStyles()->get_Item(2)->setFillType(FillType::Solid);
-    $pres->getMasterTheme()->getFormatScheme()->getFillStyles()->get_Item(2)->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    $pres->getMasterTheme()->getFormatScheme()->getEffectStyles()->get_Item(2)->getEffectFormat()->getOuterShadowEffect()->setDistance(10.0);
-    $pres->save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Subtle_Moderate_Intense.pptx");
+try {
+    $formatScheme = $presentation->getMasterTheme()->getFormatScheme();
+    if (java_values($formatScheme->getLineStyles()->size()) < 1 || java_values($formatScheme->getFillStyles()->size()) < 3 || java_values($formatScheme->getEffectStyles()->size()) < 3) {
+        throw new RuntimeException("The theme does not contain the style entries required by this example.");
     }
-  }
+
+    $formatScheme->getLineStyles()->get_Item(0)->getFillFormat()->setFillType(FillType::Solid);
+    $formatScheme->getLineStyles()->get_Item(0)->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $formatScheme->getFillStyles()->get_Item(2)->setFillType(FillType::Solid);
+    $formatScheme->getFillStyles()->get_Item(2)->getSolidFillColor()->setColor(new Java("java.awt.Color", 34, 139, 34));
+    $effectFormat = $formatScheme->getEffectStyles()->get_Item(2)->getEffectFormat();
+    $effectFormat->enableOuterShadowEffect();
+    $effectFormat->getOuterShadowEffect()->setDistance(10.0);
+    $presentation->save("theme-effects.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-The resulting changes in fill color, fill type, shadow effect, etc:
+For shapes that reference these slots, the first theme line style becomes red, the third theme fill style becomes solid forest green, and the third effect style gains an outer shadow with a distance of 10 points. The exact visual result still depends on which style slots each shape references and whether direct formatting overrides the theme.
 
-![todo:image_alt_text](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+
+## **Determine Whether an Effective Solid Fill Uses a Theme Color**
+
+A fill can be stored directly on an object or inherited from a paragraph, layout, master, theme style, or another formatting level. Call [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/) to resolve that hierarchy into immutable effective fill data. First check its `getFillType` result. Only when it is `FillType::Solid` should you read the solid-fill properties.
+
+For a solid fill, `getSolidFillColor` returns the final rendered RGB value after inheritance, theme lookup, and color transformations are applied. The `getSolidFillSchemeColor` method returns the corresponding logical [SchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/schemecolor/) slot, such as `Text1` or `Accent6`. A value of `SchemeColor::NotDefined` means that the effective solid fill is not based on a scheme color. In a workflow where fills are either theme colors or direct RGB colors, this value identifies a direct RGB fill.
+
+Do not use the local [ColorFormat::getSchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/) value alone to classify a fill. For example, a text portion can have no locally defined scheme color, so its local value is `NotDefined`, while its effective fill inherits a theme color and resolves to `Text1` or `Accent6`. Conversely, `getSolidFillSchemeColor` tells you which logical theme slot produced the effective color, but it does not tell you whether that slot came from the object, paragraph, layout, master, or another level of the formatting hierarchy.
+
+The following example loads a presentation, audits both shape fills and text-portion fills, prints each final RGB value and associated scheme color, and flags solid fills that will not track theme color changes:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SchemeColor;
+
+$auditFill = function (string $objectName, $localFill): void {
+    $effectiveFill = $localFill->getEffective();
+
+    if (java_values($effectiveFill->getFillType()) != FillType::Solid) {
+        echo $objectName . ": fill type = " . java_values($effectiveFill->getFillType()) . "; not a solid fill." . PHP_EOL;
+        return;
+    }
+
+    $rgb = $effectiveFill->getSolidFillColor();
+    $effectiveSchemeColor = java_values($effectiveFill->getSolidFillSchemeColor());
+    $localSchemeColor = java_values($localFill->getSolidFillColor()->getSchemeColor());
+
+    echo sprintf("%s: RGB = #%02X%02X%02X", $objectName, java_values($rgb->getRed()), java_values($rgb->getGreen()), java_values($rgb->getBlue())) . PHP_EOL;
+    echo $objectName . ": local scheme = " . $localSchemeColor . ", effective scheme = " . $effectiveSchemeColor . PHP_EOL;
+
+    if ($effectiveSchemeColor == SchemeColor::NotDefined) {
+        echo $objectName . ": direct RGB or another non-scheme fill; audit as theme-independent." . PHP_EOL;
+    } else {
+        echo $objectName . ": theme-dependent through " . $effectiveSchemeColor . "." . PHP_EOL;
+    }
+};
+
+$autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+$presentation = new Presentation("input.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            $shapeName = "Slide " . ($slideIndex + 1) . ", shape " . ($shapeIndex + 1);
+            $auditFill($shapeName, $shape->getFillFormat());
+
+            if (java_instanceof($shape, $autoShapeClass)) {
+                $paragraphCount = java_values($shape->getTextFrame()->getParagraphs()->getCount());
+                for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+                    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item($paragraphIndex);
+
+                    $portionCount = java_values($paragraph->getPortions()->getCount());
+                    for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+                        $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                        $portionName = $shapeName . ", paragraph " . ($paragraphIndex + 1) . ", portion " . ($portionIndex + 1);
+                        $auditFill($portionName, $portion->getPortionFormat()->getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+The `NotDefined` branch provides an audit list of solid fills that will not respond to changes in theme color slots. Review those objects when a presentation must follow a new brand palette. The reported RGB value still shows the current appearance, while the scheme value explains whether that appearance is connected to the theme.
+
+Effective-format objects are snapshots. After changing the presentation theme, a theme override, or any inherited formatting, call `getEffective` again and read new effective fill data before comparing or reporting colors.
+
+## **Read Effective Theme Values**
+
+Raw theme objects tell you what is defined at a particular level. Effective values tell you what a slide or shape actually uses after inheritance and local overrides are resolved. For a slide, call [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/php-java/aspose.slides/baseoverridethememanager/). For a background, use [Background.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/background/), and for a fill, use [FillFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/).
+
+The following example reads the effective theme, background, and first shape fill from a slide:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $effectiveTheme = $slide->getThemeManager()->createThemeEffective();
+    $effectiveBackground = $slide->getBackground()->getEffective();
+    echo "Effective major Latin font: " . $effectiveTheme->getFontScheme()->getMajor()->getLatinFont()->getFontName() . PHP_EOL;
+    echo "Effective minor Latin font: " . $effectiveTheme->getFontScheme()->getMinor()->getLatinFont()->getFontName() . PHP_EOL;
+    echo "Effective background fill type: " . java_values($effectiveBackground->getFillFormat()->getFillType()) . PHP_EOL;
+    if (java_values($slide->getShapes()->size()) > 0) {
+        $effectiveFill = $slide->getShapes()->get_Item(0)->getFillFormat()->getEffective();
+        echo "First shape effective fill type: " . java_values($effectiveFill->getFillType()) . PHP_EOL;
+        if (java_values($effectiveFill->getFillType()) == FillType::Solid) {
+            $effectiveColor = $effectiveFill->getSolidFillColor();
+            echo sprintf("First shape effective fill color: A=%d, R=%d, G=%d, B=%d", java_values($effectiveColor->getAlpha()), java_values($effectiveColor->getRed()), java_values($effectiveColor->getGreen()), java_values($effectiveColor->getBlue())) . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Use effective data for rendering diagnostics, validation, and comparisons. If you inspect only [Presentation.getMasterTheme](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/), you can miss a master, layout, slide, or shape override that changes the final appearance.
 
 ## **FAQ**
 
-### Can I apply a theme to a single slide without changing the master?
+**Does applying an external theme affect every slide in the presentation?**
 
-Yes. Aspose.Slides support slide-level theme overrides, so you can apply a local theme to just that slide while keeping the master theme intact (via the [SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/)).
+No. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) reassigns only the slides that depend on the selected master. Slides that use other masters retain their existing themes.
 
-### What’s the safest way to carry a theme from one presentation to another?
+**Can I apply a theme to a single slide without changing the master?**
 
-[Clone slides](/slides/php-java/clone-slides/) together with their master into the target presentation. This preserves the original master, layouts, and the associated theme so the appearance remains consistent.
+Yes. Use the slide's [SlideThemeManager](https://reference.aspose.com/slides/php-java/aspose.slides/slidethememanager/) and initialize its override theme. The change remains local to that slide; other slides continue to inherit their existing themes.
 
-### How can I see the "effective" values after all inheritance and overrides?
+**What is the safest way to carry a theme from one presentation to another?**
 
-Use the API’s ["effective" views](/slides/php-java/shape-effective-properties/) for theme/color/font/effect. These return the resolved, final properties after applying the master plus any local overrides.
+When moving a slide and preserving its source appearance, clone the source master into the destination and clone the slide with that master using [MasterSlideCollection.addClone](https://reference.aspose.com/slides/php-java/aspose.slides/masterslidecollection/) and [SlideCollection.addClone](https://reference.aspose.com/slides/php-java/aspose.slides/slidecollection/). This keeps the master, layouts, and theme together.
+
+**How can I see the effective values after inheritance and overrides?**
+
+Use [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/php-java/aspose.slides/baseoverridethememanager/) for a slide or layout theme and the corresponding effective-data methods for format objects such as [Background.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/background/) and [FillFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/). These APIs return the resolved values after inheritance and overrides are applied.

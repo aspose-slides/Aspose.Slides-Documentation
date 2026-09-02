@@ -16,7 +16,7 @@ keywords:
 description: "Learn how to automate PowerPoint chart creation in Java. This step-by-step guide shows why Aspose.Slides for Java is a faster, more powerful alternative to Microsoft.Office.Interop."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
  Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [Aspose.Slides for Java](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 

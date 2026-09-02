@@ -19,211 +19,288 @@ keywords:
 - combine ODP
 - Python
 - Aspose.Slides
-description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for Python via .NET, streamlining your workflow."
+description: "Learn how to merge PowerPoint and OpenDocument presentations in Python by cloning slides, controlling masters and layouts, resizing slide content, preserving sections, and handling protected or large files."
 ---
 
 ## **Overview**
 
-Aspose.Slides allows you to merge presentations by cloning slides from one presentation into another. This article explains how to merge entire presentations or selected slides, use a slide master or a specific layout during the merge, handle presentations with different slide sizes, and add merged slides to a presentation section. It also covers practical notes related to merged content, including speaker notes, comments, password-protected source files, and thread usage.
+Aspose.Slides for Python via .NET merges presentations by cloning slides from one [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) into another. The main operation is [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/), which can preserve the source slide's formatting or attach the cloned slide to a master or layout in the destination presentation.
 
-## **Optimize Your Presentation Merging**
+This article covers the most common merging workflows:
 
-With [Aspose.Slides for Python](https://products.aspose.com/slides/python-net/), you can seamlessly combine PowerPoint presentations while preserving styles, layouts, and all elements. Unlike other tools, Aspose.Slides merges presentations without compromising quality or losing data. Merge entire decks, specific slides, or even different file formats (e.g., PPT to PPTX).
+- merge all slides while preserving their source formatting;
+- merge selected slides;
+- apply a master from the destination presentation;
+- apply a specific layout from the destination presentation;
+- normalize different slide sizes before merging;
+- add cloned slides to a section;
+- merge several presentations in one end-to-end workflow;
+- handle masters, resources, notes, comments, media, fonts, passwords, large files, and multithreading concerns.
 
-### **Merging Features**
+## **How Slide Cloning Affects Masters and Layouts**
 
-- **Full Presentation Merge:** Assemble all slides into a single file.
-- **Specific Slide Merge:** Choose and combine selected slides.
-- **Cross-Format Merge:** Integrate presentations of varying formats, maintaining integrity.
+A slide inherits much of its appearance from its layout and master. For that reason, the cloning overload you choose determines how the merged slide is integrated into the destination presentation.
 
-## **Presentation Merging**
+Use [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) in one of these ways:
 
-When you merge one presentation into another, you are effectively combining their slides into a single presentation to produce one file. Most presentation programs—such as PowerPoint or OpenOffice—do not provide features that let you merge presentations in this way.
+- `add_clone(source_slide)` — preserve the source slide's layout and formatting. When required, the source master can be cloned into the destination presentation automatically. Aspose.Slides tracks automatically cloned masters so repeated slides that use the same source master do not cause that master to be cloned repeatedly.
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — attach the cloned slide to a specific destination [IMasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslide/). Aspose.Slides looks for a matching layout under that master by layout type or name.
+- `add_clone(source_slide, destination_layout)` — attach the cloned slide directly to a specific destination [ILayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/ilayoutslide/).
 
-However, [Aspose.Slides for Python](https://products.aspose.com/slides/python-net/) allows you to merge presentations in several ways. You can merge presentations with all their shapes, styles, text, formatting, comments, and animations, without any loss of quality or data.
+The master or layout passed to an `add_clone` overload must belong to the **destination** presentation, not the source presentation.
 
-**See also**
+## **Merge Entire Presentations and Preserve Source Formatting**
 
-[Clone PowerPoint Slides in Python](/slides/python-net/clone-slides/)
+The simplest merge copies every slide from the source presentation to the destination presentation. This is the appropriate choice when the imported slides should keep their original theme, master, and layout relationships.
 
-### **What Can Be Merged**
-
-With Aspose.Slides, you can merge:
-
-- Entire presentations: all slides from the source decks are combined into a single presentation.
-- Specific slides: only the selected slides are combined into a single presentation.
-- Presentations of the same format (e.g., PPT→PPT, PPTX→PPTX) or across different formats (e.g., PPT→PPTX, PPTX→ODP).
-
-### **Merging Options**
-
-You can control whether:
-- Each slide in the output presentation retains its original style, or
-- A single style is applied to all slides in the output presentation.
-
-To merge presentations, Aspose.Slides provides the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) methods on the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) class. These method overloads define how the merge is performed. Every [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object exposes a [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) collection, so you call `add_clone` on the destination presentation’s slide collection.
-
-The `add_clone` method returns an `Slide`—a clone of the source slide. Slides in the output presentation are copies of the originals, so you can modify the resulting slides (for example, apply styles, formatting, or layouts) without affecting the source presentations.
-
-## **Merge Presentations** 
-
-Aspose.Slides provides the [add_clone(ISlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide) method, which allows you to combine slides while preserving their layouts and styles (using default parameters).
-
-The following Python example shows how to merge presentations:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Merge Presentations with a Slide Master**
+The resulting presentation may contain multiple masters when the source and destination use different designs. This is expected when source formatting is intentionally preserved.
 
-Aspose.Slides provides the [add_clone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesimasterslide-bool) method, which allows you to merge slides while applying a slide master from a template. This way, when needed, you can restyle the slides in the output presentation.
+## **Merge Selected Slides**
 
-The following Python example demonstrates this operation:
+You do not have to clone every slide. The following example imports only selected slide indexes from the source presentation.
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.masters[0], True)
-        presentation1.save("combined_with_master.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        slide_indexes = [0, 2, 4]
+
+        for index in slide_indexes:
+            destination.slides.add_clone(source.slides[index])
+
+        destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Note" color="warning" %}}
+Validate slide indexes before cloning when they come from user input or external configuration.
 
-The appropriate layout under the specified slide master is determined automatically. If no suitable layout can be found and the `allow_clone_missing_layout` boolean parameter of the `add_clone` method is set to `True`, the source slide’s layout is used instead. Otherwise, a [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/) is thrown.
+## **Merge Slides Using a Destination Master**
 
-{{% /alert %}}
+Use the [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) overload when imported slides should follow a master that already belongs to the destination presentation.
 
-To apply a different slide layout to slides in the output presentation, use the [add_clone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/#asposeslidesislide-asposeslidesilayoutslide) method when merging.
-
-## **Merge Specific Slides From Presentations**
-
-Merging specific slides from multiple presentations is useful when creating custom slide decks. Aspose.Slides lets you select and import only the slides you need, while preserving the original slides’ formatting, layout, and design.
-
-The following Python example creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
-
-```py
+```python
 import aspose.slides as slides
 
-def get_title_slide(pres):
-    for slide in pres.slides:
-        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
-            return slide
-    return None
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_master = destination.masters[0]
 
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_master, True)
 
-with slides.Presentation() as presentation, \
-        slides.Presentation("presentation1.pptx") as presentation1, \
-        slides.Presentation("presentation2.pptx") as presentation2:
-    presentation.slides.remove_at(0)
-
-    slide1 = get_title_slide(presentation1)
-    if slide1 is not None:
-        presentation.slides.add_clone(slide1)
-
-    slide2 = get_title_slide(presentation2)
-    if slide2 is not None:
-        presentation.slides.add_clone(slide2)
-
-    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
+        destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Merge Presentations with a Slide Layout**
+Aspose.Slides selects an appropriate layout under the specified master by matching the source layout's type or name. If no suitable layout exists and `allow_clone_missing_layout` is `True`, the source layout is cloned so the slide can be added. If it is `False`, a [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/) is thrown.
 
-The following Python example shows how to merge slides from multiple presentations while applying a specific slide layout to produce a single output presentation:
+Use `False` when you want the merge to fail instead of introducing an additional layout into the destination master.
 
-```py
+## **Merge Slides Using a Specific Destination Layout**
+
+Use the [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) overload when you know exactly which destination layout the imported slides should use.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.layout_slides[0])
-        presentation1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        destination_layout = destination.layout_slides[0]
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, destination_layout)
+
+        destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+Applying a destination layout changes the inherited layout relationship; it does not redesign the source slide content. If the source and destination layouts have different placeholder structures, inspect the result to confirm that the inherited formatting and placeholder behavior are appropriate.
 
 ## **Merge Presentations with Different Slide Sizes**
 
-{{% alert title="Note" color="warning" %}}
+Presentations with different slide dimensions can be merged, but cloning a slide into a presentation with another slide size does not automatically redesign its content for the new canvas. Shapes may therefore appear shifted, scaled unexpectedly, or outside the visible slide area.
 
-Cloning a slide into a presentation with a different slide size does not raise an error, but it does not rescale the slide either: the cloned shapes keep their original coordinates and sizes, so content from a larger source slide overflows the destination slide.
+A practical approach is to resize the source presentation before cloning. The [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) method can scale existing content while changing the slide dimensions. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/) scales content to fit within the requested size.
 
-{{% /alert %}}
-
-To merge two presentations with different slide sizes, first resize one presentation so its slide size matches the other’s.
-
-The following sample code demonstrates this process:
-
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    slide_size = presentation1.slide_size.size
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        presentation2.slide_size.set_size(slide_size.width, slide_size.height, slides.SlideSizeScaleType.ENSURE_FIT)
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide)
-        presentation1.save("combined_size.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        if (
+            source.slide_size.size.width != destination.slide_size.size.width
+            or source.slide_size.size.height != destination.slide_size.size.height
+        ):
+            source.slide_size.set_size(
+                destination.slide_size.size.width,
+                destination.slide_size.size.height,
+                slides.SlideSizeScaleType.ENSURE_FIT)
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide)
+
+        destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+Resizing changes the source presentation object in memory. If you need the original source presentation unchanged for other operations, open a separate instance for the merge.
 
 ## **Merge Slides into a Presentation Section**
 
-The following Python example shows how to merge a specific slide into a section of a presentation:
+The basic slide-cloning loop does not recreate the source presentation's section hierarchy. If sections matter in the output, create or select sections in the destination presentation and clone slides into them explicitly with [SlideCollection.add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/).
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation1.pptx") as presentation1:
-    with slides.Presentation("presentation2.pptx") as presentation2:
-        for slide in presentation2.slides:
-            presentation1.slides.add_clone(slide, presentation1.sections[0])
-        presentation1.save("combined_sections.pptx", slides.export.SaveFormat.PPTX) 
+with slides.Presentation("destination.pptx") as destination:
+    with slides.Presentation("source.pptx") as source:
+        imported_section = destination.sections.append_empty_section("Imported slides")
+
+        for slide in source.slides:
+            destination.slides.add_clone(slide, imported_section)
+
+        destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-The slide is added at the end of the section. 
+The cloned slides are appended to the specified destination section. To preserve several source sections, enumerate [Presentation.sections](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/sections/), retrieve each source section's current slides with [Section.get_slides_list_of_section](https://reference.aspose.com/slides/python-net/aspose.slides/section/get_slides_list_of_section/), recreate the sections in the destination, and clone each returned slide into its corresponding destination section. See [Manage Slide Sections](/slides/python-net/slide-section/) for a complete section-enumeration example, including empty sections and structural changes.
 
-{{% alert title="Tip" color="primary" %}}
+## **Merge Multiple Presentations Safely**
 
-Looking for a quick and **free online tool** to **merge PowerPoint presentations**? Try the [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).
+The following end-to-end example uses the first presentation as the destination, normalizes the slide size of each additional source, keeps each source open only while it is being copied, and saves the final file once.
 
-- **Merge PowerPoint files easily**: Combine multiple **PPT, PPTX, ODP** presentations into a single file.  
-- **Supports different formats**: Merge **PPT to PPTX**, **PPTX to ODP**, and more.  
-- **No installation required**: Works directly in your browser, fast and secure.  
+```python
+import aspose.slides as slides
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+input_files = ["part1.pptx", "part2.pptx", "part3.pptx"]
 
-Start merging your PowerPoint files with **Aspose free online tool** today!  
+with slides.Presentation(input_files[0]) as merged:
+    for file_index in range(1, len(input_files)):
+        with slides.Presentation(input_files[file_index]) as source:
+            if (
+                source.slide_size.size.width != merged.slide_size.size.width
+                or source.slide_size.size.height != merged.slide_size.size.height
+            ):
+                source.slide_size.set_size(
+                    merged.slide_size.size.width,
+                    merged.slide_size.size.height,
+                    slides.SlideSizeScaleType.ENSURE_FIT)
 
-{{% /alert %}}
+            for slide in source.slides:
+                merged.slides.add_clone(slide)
 
-{{% alert title="Tip" color="primary" %}}
+    merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
+```
 
-Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+This is a useful baseline for preserving the source formatting of imported slides. If your output must use a single destination theme, replace the simple `add_clone(slide)` call with the appropriate destination-master or destination-layout overload shown earlier.
 
-{{% /alert %}}
+## **Practical Considerations**
+
+### **Masters, Layouts, and Formatting Fidelity**
+
+Default slide cloning can automatically bring a required source master into the destination presentation. Aspose.Slides keeps an internal registry for automatically cloned masters to avoid cloning the same master repeatedly. Manually cloned masters are not tracked by that registry, so avoid pre-cloning masters unless you need explicit control over the master structure.
+
+Do not assume that two masters or layouts with the same name are visually equivalent. If a corporate template must control the final appearance, choose a destination master or layout explicitly and verify the result after merging.
+
+### **Notes and Comments**
+
+Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](/slides/python-net/presentation-notes/) and [presentation comments](/slides/python-net/presentation-comments/).
+
+If notes-page formatting is important, verify the merged presentation because notes masters are presentation-level objects and may differ between source files. For review workflows, also verify comment authors and threaded comments after combining files from different authors or templates.
+
+### **Images, Audio, Video, OLE Objects, and External Links**
+
+Slides can reference presentation-level resources such as images, embedded audio, embedded video, and OLE data. Clone the slide itself rather than copying only its visible shapes so Aspose.Slides can maintain the slide's relationships to its resources.
+
+Embedded and linked resources should be treated differently. A linked audio, video, OLE object, or hyperlink remains dependent on its external target; cloning a slide does not turn an external link into embedded content. Test linked-resource paths and URLs in the environment where the merged presentation will be opened.
+
+Aspose.Slides explicitly tracks automatically cloned masters, but this should not be treated as a general guarantee that identical binary resources from unrelated source presentations will always be deduplicated. If output file size is important, inspect the merged package and measure the result instead of relying on implicit deduplication.
+
+### **Embedded Fonts and Font Availability**
+
+Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) and manage embedding explicitly as described in [Embed Fonts in Presentations](/slides/python-net/embedded-font/).
+
+Also verify that you are permitted to embed the fonts used by the source files. Font licenses can restrict embedding.
+
+### **Password-Protected Presentations**
+
+A password-protected source must be opened successfully before its slides can be cloned. Supply the password through [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/).
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.password = "YOUR_PASSWORD"
+
+with slides.Presentation("protected.pptx", load_options) as source:
+    print(len(source.slides))
+```
+
+Opening an encrypted source does not automatically apply the same protection to the destination presentation. Configure output protection separately when required.
+
+### **Large Presentations and Memory Use**
+
+Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](/slides/python-net/manage-blob/) for large-file strategies.
+
+For large files, prefer loading from file paths when possible, close each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints. Using `with slides.Presentation(...)` ensures that presentation resources are released when the context exits.
+
+### **Thread Safety**
+
+Do not load, save, or clone a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance concurrently from multiple threads. Keep each merge operation single-threaded. If you parallelize independent merge jobs, use separate single-threaded processes and independent presentation instances as described in the [Aspose.Slides multithreading guidance](/slides/python-net/multithreading/).
 
 ## **FAQ**
 
-### Are speaker notes preserved during merge?
+**How do I keep each source presentation's original design?**
 
-Yes. When cloning slides, Aspose.Slides carries over all slide elements, including notes, formatting, and animations.
+Use [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
 
-### Are comments and their authors transferred?
+**How do I make imported slides use the destination theme?**
 
-Comments, as part of slide content, are copied with the slide. Comment author labels are preserved as comment objects in the resulting presentation.
+Use the overload that accepts a destination master. Pass a master from the destination presentation, not from the source. Aspose.Slides will try to map each source slide to an appropriate layout under that master.
 
-### What if the source presentation is password-protected?
+**When should I use a specific destination layout instead of a destination master?**
 
-It must be [opened with the password](/slides/python-net/password-protected-presentation/) via [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/); after loading, those slides can be safely cloned into an unprotected target file (or a protected one as well).
+Use a specific layout when every imported slide should use one known layout. Use a master when you want Aspose.Slides to select among that master's layouts based on the source layout type or name.
 
-### How thread-safe is the merge operation?
+**Can presentations with different slide sizes be merged?**
 
-Do not use the same [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance from [multiple threads](/slides/python-net/multithreading/). The recommended rule is "one document — one thread"; different files can be processed in parallel in separate threads.
+Yes, but slide content is not automatically redesigned for the destination dimensions. Resize the source presentation first when you need predictable placement, for example with [SlideSize.set_size](https://reference.aspose.com/slides/python-net/aspose.slides/slidesize/set_size/) and [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/python-net/aspose.slides/slidesizescaletype/).
+
+**Can I merge PPT, PPTX, and ODP presentations into one file?**
+
+Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](/slides/python-net/supported-file-formats/).
+
+**Are source sections preserved automatically?**
+
+Not by a basic loop that only clones slides. Recreate the required sections in the destination and use the section overload of [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_clone/) when section structure must be preserved.
+
+**Are speaker notes and comments preserved?**
+
+They are copied with the cloned slide. For workflows that depend on notes-master styling, comment authors, or threaded review data, verify the merged result because those scenarios involve presentation-level structures as well as slide-level content.
+
+**What happens to audio, video, OLE objects, and hyperlinks?**
+
+Embedded content is carried as part of the cloned slide's resource relationships. External links remain external, so their target files or URLs must still be available after the merge.
+
+**Are embedded fonts from every source guaranteed to be available in the merged presentation?**
+
+Do not rely on slide cloning alone for font deployment. Inspect the destination's embedded fonts and explicitly manage font embedding or external font availability when typography is important.
+
+**How do I merge a password-protected file?**
+
+Open it with the correct [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), then clone its slides normally. Output protection is configured separately.
+
+**How should I handle very large presentations?**
+
+Use BLOB management when large binary objects dominate memory usage, prefer file-path loading for very large files, close source presentations promptly, and save the final result only when needed.
+
+**Can I merge slides from multiple threads?**
+
+Do not load, save, or clone [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instances in multiple threads. Keep each merge operation single-threaded; use independent single-threaded processes if you need to parallelize separate merge jobs.

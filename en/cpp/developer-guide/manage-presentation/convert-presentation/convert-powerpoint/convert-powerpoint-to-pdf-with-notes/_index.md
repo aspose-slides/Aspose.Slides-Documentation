@@ -62,7 +62,7 @@ pdfOptions->set_SlidesLayoutOptions(notesOptions);
 presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may to want to check out Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion). 
 

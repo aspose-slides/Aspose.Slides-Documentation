@@ -97,7 +97,7 @@ presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptm);
 
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to check out **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), which a free web app used to remove macros from PowerPoint, Excel, and Word documents. 
 

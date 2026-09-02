@@ -6,102 +6,238 @@ url: /fa/net/data-points-of-treemap-and-sunburst-chart/
 keywords:
 - نمودار treemap
 - نمودار sunburst
+- نمودار سلسله‌مراتبی
 - نقطه داده
-- رنگ برچسب
+- برچسب داده
 - رنگ شاخه
 - PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه نقاط داده را در نمودارهای treemap و sunburst با Aspose.Slides برای .NET مدیریت کنید، سازگار با قالب‌های PowerPoint."
+description: "یاد بگیرید چگونه داده‌های سلسله‌مراتبی ایجاد کنید و سطوح، برچسب‌ها و رنگ‌ها را در نمودارهای Treemap و Sunburst با Aspose.Slides برای .NET سفارشی کنید."
 ---
-## **مقدمه**
+## **نمای کلی**
 
-در میان انواع دیگر نمودارهای PowerPoint، دو نوع «سلسله‌مراتبی» وجود دارد - نمودار **Treemap** و نمودار **Sunburst** (که همچنین به عنوان Sunburst Graph، Sunburst Diagram، Radial Chart، Radial Graph یا Multi Level Pie Chart شناخته می‌شود). این نمودارها داده‌های سلسله‌مراتبی را که به شکل یک درخت سازماندهی شده‌اند، از برگ‌ها تا بالای شاخه نمایش می‌دهند. برگ‌ها توسط نقاط داده سطر (Series) تعریف می‌شوند و هر سطح تو در توی بعدی توسط دسته‌بندی مربوطه تعریف می‌شود. Aspose.Slides for .NET امکان فرمت‌بندی نقاط داده نمودار Sunburst و Treemap را در C# فراهم می‌کند.
+نمودارهای Treemap و Sunburst داده‌های سلسله‌مراتبی مشابهی را نشان می‌دهند، اما از چیدمان‌های متفاوتی استفاده می‌کنند. یک Treemap سلسله‌مراتب را به صورت مستطیل‌های تو در تو می‌کشد که مساحت آن‌ها مقدار برگ‌ها را نمایان می‌سازد. یک Sunburst آن را به شکل حلقه‌های هم‌مرکزی نمایش می‌دهد: گروه‌های سطح بالا در نزدیکی مرکز قرار دارند و دسته‌های برگ در حلقه بیرونی هستند.
 
-در اینجا نمودار Sunburst آورده شده است که داده‌های ستون Series1 گره‌های برگ را تعریف می‌کنند، در حالی که ستون‌های دیگر نقاط داده سلسله‌مراتبی را تعریف می‌کنند:
+در Aspose.Slides برای .NET، هر مقدار عددی یک [IChartDataPoint](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/) است. مجموعهٔ [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) آن، دسترسی به برگ و گروه‌های والد آن را فراهم می‌کند. این مقاله این نگاشت را توضیح می‌دهد و نشان می‌دهد چگونه هر دو نوع نمودار را با استفاده از یک مجموعه دادهٔ نمونه ایجاد و قالب‌بندی کنیم.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![نمودار Treemap با شاخه‌های Consumer و Business](treemap-hierarchy.png)
 
-بیایید با افزودن یک نمودار Sunburst جدید به ارائه آغاز کنیم:
+![نمودار Sunburst با همان سلسله‌مراتب Consumer و Business](sunburst-hierarchy.png)
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-}
-```
+## **درک دسته‌ها، نقاط داده و سطوح**
 
-{{% alert color="primary" title="همچنین ببینید" %}} 
-- [**ایجاد نمودار Sunburst**](/slides/fa/net/adding-charts/#addingcharts-creatingsunburstchart)
-{{% /alert %}}
+نمونهٔ زیر شامل سه سطح دسته و یک سری عددی است:
 
-اگر نیازی به فرمت‌بندی نقاط داده نمودار وجود داشته باشد، باید از موارد زیر استفاده کنیم:
+| شاخه | سرشاخه | برگ | درآمد |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/IChartDataPointLevelsManager), [IChartDataPointLevel](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapointlevel) کلاس‌ها و [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) ویژگی دسترسی برای فرمت‌بندی نقاط داده‌ی نمودارهای Treemap و Sunburst را فراهم می‌کنند.  
-[**IChartDataPointLevelsManager**] برای دسترسی به دسته‌بندی‌های چندسطحی استفاده می‌شود - این یک محفظه برای اشیای [**IChartDataPointLevel**] است. اساساً این یک wrapper برای [**IChartCategoryLevelsManager**] است که ویژگی‌های خاصی برای نقاط داده اضافه کرده است.  
-کلاس [**IChartDataPointLevel**] دو ویژگی دارد: [**Format**] و [**DataLabel**] که دسترسی به تنظیمات مربوطه را فراهم می‌کنند.
+هر ردیف یک دستهٔ برگ و یک نقطه داده می‌سازد. سطوح گروه‌بندی دسته، مسیر از آن برگ به والدینش را توصیف می‌کنند. برای ردیف اول، مسیر `Consumer > Computers > Laptops` است.
 
-## **نمایش مقدار نقطه داده**
+شاخص‌ها در [IChartDataPoint.DataPointLevels] از برگ به سمت بالا می‌روند:
 
-نمایش مقدار نقطه داده «Leaf 4»:
+| شاخص `DataPointLevels` | سطح منطقی | نمایش Treemap | نمایش Sunburst |
+| ---: | --- | --- | --- |
+| `0` | برگ | مستطیل مقدار | بخش حلقهٔ خارجی |
+| `1` | سرشاخه | مستطیل یا سرعنوان والد | بخش حلقهٔ میانی |
+| `2` | شاخه | مستطیل یا سرعنوان سطح بالا | بخش حلقهٔ داخلی |
 
-```c#
-IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
-dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
-```
+این ترتیب برای هر دو نوع نمودار یکسان است حتی اگر چیدمان‌های بصری آن‌ها متفاوت باشد. یک بخش والد توسط چندین برگ به اشتراک گذاشته می‌شود. برای قالب‌بندی آن، سطح متناظر اولین نقطه داده در آن گروه را استفاده کنید. به عنوان مثال، شاخهٔ `Consumer` با نقطهٔ `Laptops` شروع می‌شود، در حالی که سرشاخهٔ `Software` با نقطهٔ `Licenses` شروع می‌شود. نگه داشتن ارجاع به آن نقاط شفاف‌تر و ایمن‌تر از استفاده از عبارات توضیح‌نشده‌ای مانند `dataPoints[0]` یا `dataPoints[6]` است.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+## **ایجاد و سفارشی‌سازی هر دو نوع نمودار**
 
-## **تنظیم برچسب و رنگ نقطه داده**
-
-برچسب داده «Branch 1» را به‌گونه‌ای تنظیم کنید که نام سری («Series1») را به‌جای نام دسته‌بندی نمایش دهد. سپس رنگ متن را به زرد تغییر دهید:
-
-```c#
-IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
-branch1Label.DataLabelFormat.ShowCategoryName = false;
-branch1Label.DataLabelFormat.ShowSeriesName = true;
-
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
-```
-
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-
-## **تنظیم رنگ شاخه نقطه داده**
-
-رنگ شاخه «Stem 4» را تغییر دهید:
+مثال کامل زیر یک Treemap را در اسلاید اول و یک Sunburst را در اسلاید دوم ایجاد می‌کند. این مثال سلسله‌مراتب را می‌سازد، مقدار `Tablets` را نمایش می‌دهد، رنگ‌های ثابت را به سطوح انتخابی اعمال می‌کند، برچسب یک شاخه را قالب‌بندی می‌کند و ارائه را ذخیره می نماید.
 
 ```csharp
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    
-    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChartDataPointLevel stem4branch = dataPoints[9].DataPointLevels[1];
-    
-    stem4branch.Format.Fill.FillType = FillType.Solid;
-    stem4branch.Format.Fill.SolidFillColor.Color = Color.Red;
-      
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+
+var treemapSlide = presentation.Slides[0];
+AddHierarchyChart(treemapSlide, ChartType.Treemap);
+
+var layoutSlide = presentation.LayoutSlides[0];
+var sunburstSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+AddHierarchyChart(sunburstSlide, ChartType.Sunburst);
+
+presentation.Save("hierarchical-charts.pptx", SaveFormat.Pptx);
+
+static void AddHierarchyChart(ISlide slide, ChartType chartType)
+{
+    const int worksheetIndex = 0;
+    const int leafLevelIndex = 0;
+    const int stemLevelIndex = 1;
+    const int branchLevelIndex = 2;
+
+    var chart = slide.Shapes.AddChart(chartType, 40, 40, 640, 440);
+    chart.HasTitle = false;
+    chart.HasLegend = false;
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
+
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(worksheetIndex);
+
+    // دسته‌های برگ را اضافه کنید. یک آیتم گروه‌بندی فقط زمانی تنظیم می‌شود که یک گروه جدید آغاز شود؛
+    // دسته‌های بعدی تا زمانی که آیتم دیگری تنظیم شود در همان گروه باقی می‌مانند.
+    var laptopsCategory = AddCategory(1, "Laptops");
+    laptopsCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Computers");
+    laptopsCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Consumer");
+
+    AddCategory(2, "Desktops");
+
+    var phonesCategory = AddCategory(3, "Phones");
+    phonesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Mobile");
+
+    AddCategory(4, "Tablets");
+
+    var consultingCategory = AddCategory(5, "Consulting");
+    consultingCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Services");
+    consultingCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Business");
+
+    AddCategory(6, "Support");
+
+    var licensesCategory = AddCategory(7, "Licenses");
+    licensesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Software");
+
+    AddCategory(8, "Subscriptions");
+
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Revenue");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chartType);
+    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+
+    var laptopsDataPoint = AddDataPoint(1, 12);
+    AddDataPoint(2, 8);
+    AddDataPoint(3, 15);
+    var tabletsDataPoint = AddDataPoint(4, 6);
+    AddDataPoint(5, 10);
+    AddDataPoint(6, 7);
+    var licensesDataPoint = AddDataPoint(7, 11);
+    AddDataPoint(8, 14);
+
+    // دسته و مقدار را در برگ Tablets نشان دهید.
+    var tabletsLabelFormat = tabletsDataPoint.DataPointLevels[leafLevelIndex]
+        .Label.DataLabelFormat;
+    tabletsLabelFormat.ShowCategoryName = true;
+    tabletsLabelFormat.ShowValue = true;
+    tabletsLabelFormat.Separator = "\n";
+    tabletsLabelFormat.NumberFormat = "$0";
+
+    // فرمت شاخه Consumer را از طریق اولین برگ در آن شاخه تنظیم کنید.
+    var consumerBranchLevel = laptopsDataPoint.DataPointLevels[branchLevelIndex];
+    var consumerBranchFill = consumerBranchLevel.Format.Fill;
+    var consumerBranchColor = Color.FromArgb(31, 78, 121);
+    SetSolidFill(consumerBranchFill, consumerBranchColor);
+
+    var consumerLabelFormat = consumerBranchLevel.Label.DataLabelFormat;
+    consumerLabelFormat.ShowCategoryName = true;
+    consumerLabelFormat.ShowSeriesName = false;
+    var consumerLabelTextFill = consumerLabelFormat.TextFormat.PortionFormat.FillFormat;
+    SetSolidFill(consumerLabelTextFill, Color.White);
+
+    // فرمت سرشاخه Software را از طریق اولین برگ در آن سرشاخه تنظیم کنید.
+    var softwareStemLevel = licensesDataPoint.DataPointLevels[stemLevelIndex];
+    var softwareStemFill = softwareStemLevel.Format.Fill;
+    var softwareStemColor = Color.FromArgb(112, 173, 71);
+    SetSolidFill(softwareStemFill, softwareStemColor);
+
+    // ParentLabelLayout بر برچسب‌های والد Treemap تأثیر می‌گذارد؛ Sunburst از بخش‌های حلقه‌ای استفاده می‌کند.
+    if (chartType == ChartType.Treemap)
+    {
+        series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+    }
+
+    IChartCategory AddCategory(int rowIndex, string leafName)
+    {
+        var categoryCell = workbook.GetCell(worksheetIndex, rowIndex, 2, leafName);
+        return chart.ChartData.Categories.Add(categoryCell);
+    }
+
+    IChartDataPoint AddDataPoint(int rowIndex, double value)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, rowIndex, 3, value);
+
+        if (chartType == ChartType.Treemap)
+        {
+            return series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+        }
+
+        return series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+    }
+
+    static void SetSolidFill(IFillFormat fillFormat, Color color)
+    {
+        fillFormat.FillType = FillType.Solid;
+        fillFormat.SolidFillColor.Color = color;
+    }
 }
 ```
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+سلول‌های دسته و سلول‌های مقدار از همان ردیف برگه کاری استفاده می‌کنند، بنابراین موقعیت‌های مجموعهٔ آن‌ها هم‌راستا می‌ماند. وقتی با یک نمودار موجود کار می‌کنید به جای ایجاد آن، ابتدا ردیف‌های دسته را بررسی کنید و ارجاعات نام‌گذاری‌شده به نقاط داده و سطوحی که قصد قالب‌بندی آن‌ها را دارید ذخیره کنید.
 
-## **پرسش‌های متداول**
+## **رفتار و ملاحظات عملی**
 
-**آیا می‌توانم ترتیب (مرتب‌سازی) بخش‌ها در Sunburst/Treemap را تغییر دهم؟**  
-خیر. PowerPoint به‌صورت خودکار بخش‌ها را مرتب می‌کند (معمولاً بر حسب مقادیر نزولی و به‌صورت ساعتگرد). Aspose.Slides این رفتار را تقلید می‌کند: شما نمی‌توانید ترتیب را به‌صورت مستقیم تغییر دهید؛ بلکه با پیش‌پردازش داده‌ها به این هدف می‌رسید.
+### **تفاوت‌های Treemap و Sunburst**
 
-**چگونه تم ارائه بر رنگ‌های بخش‌ها و برچسب‌ها تأثیر می‌گذارد؟**  
-رنگ‌های نمودار از [تم/پالت](/slides/fa/net/presentation-theme/) ارائه ارث می‌برند مگر اینکه به‌صورت صریح پر/فونت‌ها را تنظیم کنید. برای نتایج ثابت، پرهای جامد و فرمت‌بندی متن را در سطوح مورد نیاز قفل کنید.
+- یک Treemap برای انتقال مقدار از مساحت استفاده می‌کند و برای انتقال سلسله‌مراتب از مستطیل‌های تو در تو بهره می‌برد. خصوصیت [IChartSeries.ParentLabelLayout] نحوهٔ نمایش برچسب‌های والد را در این نوع نمودار کنترل می‌کند.
+- یک Sunburst برای انتقال مقدار از زاویه استفاده می‌کند و برای انتقال سلسله‌مراتب از عمق حلقه بهره می‌گیرد. [IChartSeries.ParentLabelLayout] برچسب‌های حلقهٔ آن را کنترل نمی‌کند.
+- هر دو نوع نمودار از سطوح گروه‌بندی دسته یکسان و همان ترتیب برگ‑به‑والد در `DataPointLevels` استفاده می‌کنند، بنابراین کد ساخت داده و قالب‌بندی سطح می‌تواند مشترک باشد.
+- مقادیر والد از برگ‌های فرزندشان محاسبه می‌شوند. نقاط عددی جداگانه برای شاخه‌ها یا سرشاخه‌ها اضافه نکنید.
 
-**آیا خروجی به PDF/PNG رنگ‌های سفارشی شاخه و تنظیمات برچسب‌ها را حفظ می‌کند؟**  
-بله. هنگام صادرات ارائه، تنظیمات نمودار (پرها، برچسب‌ها) در فرمت‌های خروجی حفظ می‌شوند زیرا Aspose.Slides با فرمت‌بندی اعمال‌شده بر نمودار رندر می‌کند.
+### **مرتب‌سازی و ترتیب بخش‌ها**
 
-**آیا می‌توانم مختصات واقعی یک برچسب/عنصر را برای قرار دادن لایه سفارشی بالای نمودار محاسبه کنم؟**  
-بله. پس از اعتبارسنجی چیدمان نمودار، `ActualX`/`ActualY` برای عناصر (مثلاً یک [DataLabel](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/datalabel/)) در دسترس هستند که به موقعیت‌یابی دقیق لایه‌های سفارشی کمک می‌کند.
+موتور چیدمان نمودار جای‌گذاری نهایی مستطیل‌ها و بخش‌های حلقه را تعیین می‌کند. ردیف‌های دستهٔ مرتبط را پیش از افزودن کنار هم قرار دهید، اما به موقعیت خاص مستطیل یا زاویهٔ شروع وابسته نشوید. اگر ترتیب معنایی داشته باشد، آن را در برچسب‌ها بگنجانید یا از نوع نموداری با محور دستهٔ صریح استفاده کنید.
+
+### **تم و رنگ‌های ثابت**
+
+سطوح قالب‌نشدهٔ نمودار رنگ‌ها را از تم ارائه به ارث می‌برند. مثال از پرکن‌های RGB صریح برای خروجی پیش‌بینی‌پذیر استفاده می‌کند. اگر نمودار باید تغییرات تم را دنبال کند، به جای مقادیر ثابت RGB از رنگ‌های طرح‌بندی استفاده کنید و از بازنویسی هر سطح جلوگیری کنید. همچنین پس از تغییر پرکن یک شاخه یا سرشاخه، کنتراست برچسب را بررسی کنید.
+
+### **برچسب‌ها و فضای موجود**
+
+PowerPoint ممکن است برچسب‌ها را وقتی بخش بسیار کوچک است، مخفی یا کوتاه کند. افزایش اندازهٔ نمودار، کوتاه کردن نام‌های دسته یا نمایش تعداد کمتر فیلدهای برچسب معمولاً نتیجهٔ واضح‌تری می‌دهد. یک برچسب می‌تواند نام دسته، نام سری و مقدار را از طریق [IDataLabelFormat] ترکیب کند، اما فعال‌سازی همه فیلدها اغلب باعث می‌شود نمودارهای سلسله‌مراتبی خواندن دشوار شوند.
+
+### **صادرات و رندرینگ**
+
+ذخیره به فرمت PPTX نمودار را قابل ویرایش نگه می‌دارد. وقتی Aspose.Slides ارائه را به PDF یا تصویر رندر می‌کند، پرکن‌ها و تنظیمات برچسب پشتیبانی‌شده همراه با نمودار رندر می‌شوند. جایگزینی قلم و تفاوت‌های کوچک در فضای موجود چیدمان می‌تواند شکستن خطوط یا مشاهده‌پذیری برچسب را تغییر دهد، بنابراین قلم‌های لازم را نصب کنید و اهداف صادرات مهم را بررسی کنید.
+
+## **سؤالات متداول**
+
+**چرا تغییر یک سطح والد بر چندین برگ تأثیر می‌گذارد؟**
+
+یک شاخه یا سرشاخه یک بخش بصری مشترک است. [IChartDataPointLevel] آن می‌تواند از طریق یک برگ فرزند دست‌یابی شود، اما قالب‌بندی به بخش والد مشترک تعلق دارد نه تنها به آن برگ.
+
+**چرا یک برچسب داده گم شده است؟**
+
+اولین کار فعال‌سازی فیلدهای مورد نیاز در شیء [IDataLabelFormat] برچسب است. سپس بررسی کنید آیا بخش فضای کافی دارد یا نه. چیدمان برچسب والد Treemap، ابعاد نمودار، طول برچسب، اندازه قلم و تعداد فیلدهای فعال شده همه بر قابلیت نمایش برچسب تأثیر می‌گذارند.
+
+**آیا می‌توانم ترتیب یا مختصات دقیق بخش‌ها را تنظیم کنم؟**
+
+می‌توانید ترتیب ردیف‌های منبع را کنترل کنید و هر گروه را پیوسته نگه دارید، اما نمی‌توانید مستطیل‌های دقیق Treemap یا زوایای Sunburst را اختصاص دهید. موتور چیدمان نمودار آن‌ها را براساس سلسله‌مراتب، مقادیر و فضای موجود محاسبه می‌کند.
+
+**چرا رنگ‌ها پس از تغییر تم ارائه تغییر می‌کنند؟**
+
+پرکن‌های مبتنی بر تم برای پیروی از پالت ارائه طراحی شده‌اند. رنگ‌های RGB صریح را به سطوحی که باید ثابت بمانند اعمال کنید، یا وقتی تطبیق با تم جدید ترجیح داده می‌شود، از رنگ‌های طرح‌بندی استفاده کنید.
+
+**آیا قالب‌بندی سفارشی در صادرات PDF و تصویر حفظ می‌شود؟**
+
+بله، پرکن‌های پشتیبانی‌شدهٔ نمودار و تنظیمات برچسب در هنگام رندر گنجانده می‌شوند. برای نتایج سازگار بین سیستم‌ها، قلم‌های مورد نیاز را در دسترس قرار دهید و اندازهٔ نهایی صادرات را آزمایش کنید؛ زیرا تناسب برچسب به چیدمان وابسته است.
+
+## **موارد مرتبط**
+
+- [ایجاد نمودارهای Treemap](/slides/fa/net/create-chart/#create-tree-map-charts)
+- [ایجاد نمودارهای Sunburst](/slides/fa/net/create-chart/#create-sunburst-charts)
+- [صادرات نمودارهای ارائه](/slides/fa/net/export-chart/)
+- [مدیریت تم‌های ارائه](/slides/fa/net/presentation-theme/)

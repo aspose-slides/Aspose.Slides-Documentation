@@ -1,5 +1,5 @@
 ---
-title: C++'ta Sunum Yorumlarını Yönetme
+title: C++ ile Sunum Yorumlarını Yönetme
 linktitle: Sunum Yorumları
 type: docs
 weight: 100
@@ -13,137 +13,158 @@ keywords:
 - yorum ekle
 - yoruma eriş
 - yorumu düzenle
-- yoruma yanıt
-- yorum kaldır
-- yorum sil
+- yoruma yanıtla
+- yorumu kaldır
+- yorumu sil
 - PowerPoint
-- OpenDocument
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile sunum yorumlarını yönetin: PowerPoint dosyalarında yorumları hızlı ve kolay bir şekilde ekleyin, okuyun, düzenleyin ve silin."
+description: "Aspose.Slides for C++ ile sunum yorumlarını yönetin: PowerPoint sunumlarında yorum ekleyin, okuyun, düzenleyin, yanıtlayın ve kaldırın, hızlı ve kolay bir şekilde."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides içinde sunum yorumlarını nasıl yöneteceğinizi açıklar. Ana yorumla ilgili türleri gösterir ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlarla çalışma, modern yorumları kullanma ve bir sunumdan yorumları kaldırma konularını demonstrasyonla gösterir.
+Bu makale, Aspose.Slides for C++ ile sunum yorumlarını nasıl yöneteceğinizi açıklar. Yorumlarla ilgili temel türleri tanıtır ve slaytlara yorum ekleme, mevcut yorumlara erişme, yanıtlar ve modern yorumlarla çalışma ve bir sunumdan yorumları kaldırma konularını gösterir.
 
-Örnekler, PowerPoint’te yaygın inceleme ve iş birliği senaryolarına odaklanır; yazarlarla yorumları ilişkilendirme, yorum içeriği ve meta verilerini okuma, yanıt zincirleri oluşturma ve tüm yorumları temizleme veya seçilenleri silme gibi işlemler.
+Örnekler, PowerPoint'te yaygın inceleme ve iş birliği senaryolarını kapsar; örneğin, yorumları yazarlarla ilişkilendirme, yorum metni ve meta verileri okuma, yanıt zincirleri oluşturma ve seçili yorumları ya da tüm yorumları kaldırma.
 
-PowerPoint’te bir yorum, slayt üzerinde bir not ya da ek açıklama olarak görünür. Bir yorum tıklandığında içeriği veya mesajları ortaya çıkar.
+PowerPoint'te yorumlar slaytlar üzerindeki açıklama işaretleri olarak görünür. Bir yorumu seçmek, metnini ve ilgili tartışmayı gösterir.
 
-### **Sunumlara Neden Yorum Eklenir?**
+## **Sunumlara Neden Yorum Eklenir?**
 
-Sunumları incelerken geri bildirim sağlamak veya meslektaşlarınızla iletişim kurmak için yorumları kullanmak isteyebilirsiniz.
+Sunumları incelerken geri bildirim sağlamak ve ekip arkadaşlarınızla iş birliği yapmak için yorumları kullanabilirsiniz.
 
-PowerPoint sunumlarında yorumları kullanabilmeniz için Aspose.Slides for C++ aşağıdakileri sağlar:
+Aspose.Slides for C++ aşağıdaki API'leri sağlar:
 
-* The [Presentation](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) sınıfı, yazar koleksiyonlarını ([get_CommentAuthors()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation#ac100feeb13ea426b85557a829676227d) yöntemi) içerir. Yazarlar slaytlara yorum ekler. 
-* The [ICommentCollection](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_comment_collection) arayüzü, bireysel yazarlar için yorum koleksiyonunu içerir. 
-* The [IComment](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_comment) sınıfı, yazarlar ve onların yorumları hakkında bilgi içerir: yorumu kim eklemiş, yorum ne zaman eklenmiş, yorumun konumu vb. 
-* The [CommentAuthor](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.comment_author) sınıfı, bireysel yazarlar hakkında bilgi içerir: yazarın adı, baş harfleri, yazar adıyla ilişkili yorumlar vb. 
+* [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfı, sunumun yorum yazarlarına erişim sağlar.
+* [ICommentCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icommentcollection/) arayüzü, belirli bir yazarla ilişkili yorumları temsil eder.
+* [IComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/) arayüzü, bir yorum hakkında yazar, oluşturulma zamanı, konum ve metin gibi bilgileri sunar.
+* [CommentAuthor](https://reference.aspose.com/slides/tr/cpp/aspose.slides/commentauthor/) sınıfı, bir yazar hakkında ad, baş harfler ve ilişkili yorumlar gibi bilgiler sağlar.
 
-## **Bir Slayt Yorumunu Ekle**
-Bu C++ kodu, PowerPoint sunumunda bir slayta yorum eklemenizi gösterir:
+## **Slayta Yorum Ekleme**
+
+Aşağıdaki örnek, bir PowerPoint sunumunda slaytlara yorum eklemenin nasıl yapılacağını gösterir:
 
 ```cpp
-// Presentation sınıfını örnekler
-auto presentation = System::MakeObject<Presentation>();
-// Boş bir slayt ekler
-presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlides()->idx_get(0));
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
 
-// Bir yazar ekler
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto firstSlide = presentation->get_Slide(0);
+auto secondSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlide(0));
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
+auto position = PointF(0.2f, 0.2f);
+auto createdTime = DateTime::get_Now();
 
-// Yorumların konumunu ayarlar
-PointF point;
-point.set_X(0.2f);
-point.set_Y(0.2f);
+author->get_Comments()->AddComment(u"Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+author->get_Comments()->AddComment(u"Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-// ISlide 1'e erişir
-auto slide1 = presentation->get_Slides()->idx_get(0);
-// ISlide 2'ye erişir
-auto slide2 = presentation->get_Slides()->idx_get(1);
+auto comments = firstSlide->GetSlideComments(author);
+if (comments->get_Length() > 0)
+{
+    auto firstComment = comments[0];
+    Console::WriteLine(firstComment->get_Text());
 
-// Yazar için slayt 1'de slayt yorumu ekler
-author->get_Comments()->AddComment(u"Hello Jawad, this is slide comment", slide1, point, DateTime::get_Now());
-
-// Yazar için slayt 2'de slayt yorumu ekler
-author->get_Comments()->AddComment(u"Hello Jawad, this is second slide comment", slide2, point, DateTime::get_Now());
-
-// Argüman olarak null geçirildiğinde, tüm yazarların yorumları seçili slayta getirilir
-auto comments = slide1->GetSlideComments(author);
-
-// Slayt 1 için indeks 0'daki yoruma erişir
-String str = comments[0]->get_Text();
+    auto commentText = firstComment->get_Author()->get_Comments()->idx_get(0)->get_Text();
+    Console::WriteLine(commentText);
+}
 
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
-
-if (comments->GetLength(0) > 0)
-{
-    // Yazarın yorum koleksiyonunu indeks 0'da seçer
-    auto commentCollection = comments[0]->get_Author()->get_Comments();
-    String Comment = commentCollection->idx_get(0)->get_Text();
-}
 ```
 
-## **Slayt Yorumlarına Eriş**
-Bu C++ kodu, PowerPoint sunumunda bir slaytta mevcut bir yoruma nasıl erişileceğini gösterir:
+## **Slayt Yorumlarına Erişim**
+
+Aşağıdaki örnek, bir PowerPoint sunumunda mevcut yorumlara nasıl erişileceğini gösterir:
 
 ```cpp
-// Presentation sınıfını örnekler
-auto presentation = System::MakeObject<Presentation>(u"Comments1.pptx");
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-for (auto&& commentAuthor : presentation->get_CommentAuthors())
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Comments1.pptx");
+
+for (auto&& author : presentation->get_CommentAuthors())
 {
-    auto author = System::ExplicitCast<CommentAuthor>(commentAuthor);
-    for (auto&& comment1 : System::IterateOver(author->get_Comments()))
+    for (auto&& comment : author->get_Comments())
     {
-        SmartPtr<Comment> comment = System::ExplicitCast<Comment>(comment1);
-        Console::WriteLine(String(u"ISlide :")
-                        + comment->get_Slide()->get_SlideNumber()
-                        + u" has comment: " + comment->get_Text()
-                        + u" with Author: " + comment->get_Author()->get_Name()
-                        + u" posted on time :" + comment->get_CreatedTime() + u"\n");
+        Console::WriteLine(u"Slide: {0}", comment->get_Slide()->get_SlideNumber());
+        Console::WriteLine(u"Comment: {0}", comment->get_Text());
+        Console::WriteLine(u"Author: {0}", comment->get_Author()->get_Name());
+        Console::WriteLine(u"Posted at: {0}", comment->get_CreatedTime());
+        Console::WriteLine();
     }
 }
 ```
 
 ## **Yorumlara Yanıt Verme**
-Bir üst yorum, yorum ve yanıt hiyerarşisindeki en üst ya da orijinal yorumdur. [ParentComment](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) özelliğini ([IComment](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_comment) arayüzünden) kullanarak bir üst yorum ayarlayabilir veya alabilirsiniz. 
 
-Bu C++ kodu, yorum eklemeyi ve bunlara yanıt almayı gösterir:
+Üst yorum, yanıt hiyerarşisinin en üstündeki orijinal yorumdur. [IComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/) arayüzünün [get_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/get_parentcomment/) ve [set_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) yöntemleri, bir yorumun üst yorumunu almanızı veya ayarlamanızı sağlar.
+
+Aşağıdaki örnek, yanıt eklemeyi ve ortaya çıkan yorum hiyerarşisini incelemeyi gösterir:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
 
-// ISlide 1'e erişir
-auto slide1 = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-// Yorum ekler
-auto author1 = pres->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
-auto comment1 = author1->get_Comments()->AddComment(u"comment1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto position = PointF(10.0f, 10.0f);
+auto createdTime = DateTime::get_Now();
 
-// comment1'e yanıt ekler
-auto author2 = pres->get_CommentAuthors()->AddAuthor(u"Autror_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto author1 = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
+auto comment1 = author1->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
+
+auto author2 = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
+auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
 reply1->set_ParentComment(comment1);
 
-// comment1'e bir yanıt daha ekler
-auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
 reply2->set_ParentComment(comment1);
 
-// Mevcut yanıtın üzerine bir yanıt ekler
-auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
 subReply->set_ParentComment(reply2);
 
-auto comment2 = author2->get_Comments()->AddComment(u"comment 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
-auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+author2->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
+auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
 
-auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
 reply3->set_ParentComment(comment3);
 
-// Yorum hiyerarşisini konsolda gösterir
-auto comments = slide1->GetSlideComments(nullptr);
+auto comments = slide->GetSlideComments(nullptr);
 for (int32_t i = 0; i < comments->get_Length(); i++)
 {
     auto comment = comments[i];
@@ -153,115 +174,378 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
         comment = comment->get_ParentComment();
     }
 
-    Console::Write(u"{0} : {1}", comments[i]->get_Author()->get_Name(), comments[i]->get_Text());
-    Console::WriteLine();
+    Console::WriteLine(u"{0}: {1}", comments[i]->get_Author()->get_Name(), comments[i]->get_Text());
 }
 
-pres->Save(u"parent_comment.pptx", SaveFormat::Pptx);
+presentation->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-// comment1'i ve ona ait tüm yanıtları kaldırır
 comment1->Remove();
-
-pres->Save(u"remove_comment.pptx", SaveFormat::Pptx);
+presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" title="Dikkat" %}} 
-
-* [Remove](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_comment#a8bb818ae804d142195c4edcf9012cccb) yöntemi ([IComment](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_comment) arayüzünden) bir yorumu silmek için kullanıldığında, yorumun yanıtları da silinir. 
-* [ParentComment](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) ayarı dairesel bir başvuru oluşturursa, [PptxEditException](https://reference.aspose.com/slides/tr/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d) ortaya çıkar.
-
+{{% alert color="warning" title="Uyarı" %}}
+* [IComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/) arayüzünün [Remove](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/remove/) yöntemi bir yorumu silmek için kullanıldığında, o yoruma ait tüm yanıtlar da silinir.
+* [set_ParentComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) yöntemi dairesel bir referans oluşturursa, bir [PptxEditException](https://reference.aspose.com/slides/tr/cpp/aspose.slides/pptxeditexception/) fırlatılır.
 {{% /alert %}}
 
-## **Modern Yorum Ekleme**
+## **Modern Yorumlar Ekleme**
 
-2021 yılında Microsoft, PowerPoint’te *modern yorumlar* özelliğini tanıttı. Modern yorumlar özelliği, PowerPoint’te iş birliğini önemli ölçüde geliştirir. Modern yorumlar sayesinde PowerPoint kullanıcıları yorumları çözümleyebilir, yorumları nesnelere ve metinlere sabitleyebilir ve etkileşimlerde çok daha kolay bir şekilde yer alabilir.
+Modern yorumlar slaytın kendisine, belirli bir şekle veya bir AutoShape içindeki bir metin aralığına ilişkilendirilebilir. [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icommentcollection/addmoderncomment/) yöntemi, slayt ve yorum işaretçi koordinatlarının yanı sıra bir [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) argümanını da kabul eder.
 
-[Aspose Slides for C++ 21.11](https://docs.aspose.com/slides/tr/cpp/aspose-slides-for-cpp-21-11-release-notes/) sürümünde, [ModernComment](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.modern_comment) sınıfını ekleyerek modern yorum desteği ekledik. [AddModernComment](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.comment_collection#a3627fcb3b05cd639fd430bd8248fe66b) ve [InsertModernComment](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.comment_collection#ad11c3efb52f3c17f63238447dcc03c94) yöntemleri [CommentCollection](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.comment_collection) sınıfına eklendi.
+Şekil argümanı için `nullptr` geçildiğinde, yorum bir slayt‑seviyesi yorumdur. İşaretçi verilen koordinatlarla konumlandırılır, ancak belirli bir şekle bağlı değildir; bu nedenle [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` döndürür. Bir [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) sağlandığında, yorum o şekle bağlanır. Koordinatlar hâlâ yorum işaretçisinin slayttaki konumunu tanımlar, şekil ilişkisi ise [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/) üzerinden elde edilebilir.
 
-Bu C++ kodu, PowerPoint sunumunda bir slayta modern yorum eklemenizi gösterir: 
+### **Modern Bir Yorumu Şekle Bağlama**
 
-```cpp
-auto pres = System::MakeObject<Presentation>();
-// ISlide 1'e erişir
-auto slide1 = pres->get_Slides()->idx_get(0);
-
-auto newAuthor = pres->get_CommentAuthors()->AddAuthor(u"Some Author", u"SA");
-auto modernComment = newAuthor->get_Comments()->AddModernComment(u"This is a modern comment", slide1, nullptr, PointF(100.0f, 100.0f), DateTime::get_Now());
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **Yorum Kaldırma**
-
-### **Tüm Yorumları ve Yazarları Sil**
-
-Bu C++ kodu, bir sunumdaki tüm yorumları ve yazarları nasıl kaldıracağınızı gösterir:
+Aşağıdaki örnek, bir slayt‑seviyesi modern yorum ile belirli bir AutoShape'e bağlanmış modern bir yorum oluşturur ve ardından her iki yorumdan da ilişkili şekli okur:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::Drawing;
 
-auto presentation = System::MakeObject<Presentation>(u"example.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 300.0f, 80.0f);
+shape->set_Name(u"Revenue title");
+shape->get_TextFrame()->set_Text(u"Quarterly revenue");
 
-// Sunumdan tüm yorumları siler
-for (auto author : presentation->get_CommentAuthors())
+auto createdTime = DateTime::get_Now();
+auto slideCommentPosition = PointF(20.0f, 20.0f);
+auto shapeCommentPosition = PointF(60.0f, 60.0f);
+auto slideComment = author->get_Comments()->AddModernComment(u"Review the overall slide layout.", slide, nullptr, slideCommentPosition, createdTime);
+auto shapeComment = author->get_Comments()->AddModernComment(u"Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+Console::WriteLine(slideComment->get_Shape() == nullptr);
+auto shapeAnchor = shapeComment->get_Shape();
+if (shapeAnchor != nullptr)
+{
+    Console::WriteLine(shapeAnchor->get_Name());
+}
+
+presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
+```
+
+### **Yorumları Farklı Şekil Türlerine Bağlama**
+
+[IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) uygulayan herhangi bir slayt nesnesi şekil bağlama amacıyla kullanılabilir. Yaygın örnekler arasında [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iconnector/) ve grafik nesneleri (örneğin, grafikler) gibi [IGraphicalObject](https://reference.aspose.com/slides/tr/cpp/aspose.slides/igraphicalobject/) örnekleri bulunur.
+
+Aşağıdaki örnek, çeşitli yaygın şekil türleri oluşturur ve her biriyle bir modern yorum ilişkilendirir:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IConnector.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/convert.h>
+#include <system/date_time.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto createdTime = DateTime::get_Now();
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 180.0f, 60.0f);
+autoShape->get_TextFrame()->set_Text(u"AutoShape");
+auto autoShapeCommentPosition = PointF(30.0f, 30.0f);
+author->get_Comments()->AddModernComment(u"Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+auto imageBase64 = u"iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+auto imageData = Convert::FromBase64String(imageBase64);
+auto image = presentation->get_Images()->AddImage(imageData);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 220.0f, 20.0f, 120.0f, 80.0f, image);
+auto pictureCommentPosition = PointF(230.0f, 30.0f);
+author->get_Comments()->AddModernComment(u"Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+auto groupShape = slide->get_Shapes()->AddGroupShape();
+groupShape->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 80.0f, 40.0f);
+groupShape->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 100.0f, 0.0f, 80.0f, 40.0f);
+auto groupCommentPosition = PointF(40.0f, 150.0f);
+author->get_Comments()->AddModernComment(u"Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 220.0f, 150.0f, 140.0f, 40.0f);
+auto connectorCommentPosition = PointF(240.0f, 150.0f);
+author->get_Comments()->AddModernComment(u"Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 400.0f, 20.0f, 250.0f, 180.0f);
+auto chartCommentPosition = PointF(420.0f, 40.0f);
+author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
+```
+
+### **Yorumu Metne Bağla ve Durumunu Ayarla**
+
+[IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ile ilişkilendirilen bir modern yorum için, [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionstart/) ve [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_textselectionstart/) yöntemi, şeklin metin çerçevesindeki seçili metnin başlangıç konumunu kontrol eder. Benzer şekilde, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionlength/) ve [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_textselectionlength/) yöntemi seçimin uzunluğunu belirler. Bu yöntemler, yorumu AutoShape içindeki belirli bir metin aralığı ile ilişkilendirir.
+
+[IModernComment::get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_status/) ve [IModernComment::set_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_status/) yöntemleri, [ModernCommentStatus](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncommentstatus/) enum değerlerinden birini kullanır:
+
+- `NotDefined` — özel bir modern‑yorum durumu tanımlı değildir.
+- `Active` — yorum aktiftir.
+- `Resolved` — yorum çözülmüştür.
+- `Closed` — yorum kapatılmıştır.
+
+Aşağıdaki örnek, şekle bağlı bir modern yorum oluşturur, bir metin seçimiyle ilişkilendirir, çözülmüş olarak işaretler, sunumu kaydeder ve dosyayı yeniden açtıktan sonra değerleri doğrular:
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ModernCommentStatus.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+const String outputFile = u"modern_comment_text_anchor.pptx";
+const String shapeText = u"Review the quarterly revenue forecast.";
+const String selectedText = u"quarterly revenue";
+auto expectedSelectionStart = shapeText.IndexOf(selectedText);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 400.0f, 100.0f);
+shape->set_Name(u"Forecast text");
+shape->get_TextFrame()->set_Text(shapeText);
+
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto commentPosition = PointF(60.0f, 60.0f);
+auto comment = author->get_Comments()->AddModernComment(u"Verify this forecast wording.", slide, shape, commentPosition, DateTime::get_Now());
+comment->set_TextSelectionStart(expectedSelectionStart);
+comment->set_TextSelectionLength(selectedText.get_Length());
+comment->set_Status(ModernCommentStatus::Resolved);
+
+presentation->Save(outputFile, SaveFormat::Pptx);
+
+auto reopenedPresentation = MakeObject<Presentation>(outputFile);
+auto reopenedSlide = reopenedPresentation->get_Slide(0);
+auto reopenedComments = reopenedSlide->GetSlideComments(nullptr);
+
+for (auto&& reopenedComment : reopenedComments)
+{
+    auto modernComment = AsCast<IModernComment>(reopenedComment);
+    if (modernComment == nullptr)
+    {
+        continue;
+    }
+
+    auto shapeAnchor = modernComment->get_Shape();
+    auto shapeMatches = shapeAnchor != nullptr && shapeAnchor->get_Name() == u"Forecast text";
+    auto selectionStartMatches = modernComment->get_TextSelectionStart() == expectedSelectionStart;
+    auto selectionLengthMatches = modernComment->get_TextSelectionLength() == selectedText.get_Length();
+    auto statusMatches = modernComment->get_Status() == ModernCommentStatus::Resolved;
+
+    Console::WriteLine(u"Shape anchor preserved: {0}", shapeMatches);
+    Console::WriteLine(u"Text selection start preserved: {0}", selectionStartMatches);
+    Console::WriteLine(u"Text selection length preserved: {0}", selectionLengthMatches);
+    Console::WriteLine(u"Resolved status preserved: {0}", statusMatches);
+}
+```
+
+### **Mevcut Modern Yorumları İnceleme**
+
+Varolan bir sunumu incelemek için, hangi yorumların [IModernComment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/) uyguladığını kontrol edin, ardından [IModernComment::get_Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_textselectionlength/) ve [IModernComment::get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_status/) özelliklerini inceleyin. `nullptr` bir şekil, slayt‑seviyesi bir yorum olduğunu gösterir. Bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) bağlaması için, metin‑seçim yöntemleri şeklin metin çerçevesindeki ilişkili aralığı tanımlar.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IComment.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ModernCommentStatus.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"comments.pptx");
+
+for (auto&& slide : presentation->get_Slides())
+{
+    auto comments = slide->GetSlideComments(nullptr);
+    for (auto&& comment : comments)
+    {
+        auto modernComment = AsCast<IModernComment>(comment);
+        if (modernComment == nullptr)
+        {
+            continue;
+        }
+
+        Console::WriteLine(u"Slide: {0}", slide->get_SlideNumber());
+        Console::WriteLine(u"Text: {0}", modernComment->get_Text());
+        Console::WriteLine(u"Status: {0}", modernComment->get_Status());
+
+        auto shape = modernComment->get_Shape();
+        if (shape == nullptr)
+        {
+            Console::WriteLine(u"Anchor: slide level");
+        }
+        else
+        {
+            Console::WriteLine(u"Anchor shape: {0}", shape->get_Name());
+            Console::WriteLine(u"Anchor type: {0}", shape->GetType().get_Name());
+
+            auto autoShape = AsCast<IAutoShape>(shape);
+            if (autoShape != nullptr)
+            {
+                Console::WriteLine(u"Text selection start: {0}", modernComment->get_TextSelectionStart());
+                Console::WriteLine(u"Text selection length: {0}", modernComment->get_TextSelectionLength());
+            }
+        }
+
+        Console::WriteLine();
+    }
+}
+```
+
+## **Yorumları Kaldırma**
+
+### **Tüm Yorumları ve Yorum Yazarlarını Kaldırma**
+
+Aşağıdaki örnek, bir sunumdan tüm yorumları ve yorum yazarlarını nasıl kaldıracağınızı gösterir:
+
+```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"example.pptx");
+
+for (auto&& author : presentation->get_CommentAuthors())
 {
     author->get_Comments()->Clear();
 }
-        
-// Tüm yazarları siler
+
 presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **Belirli Yorumları Sil**
+### **Belirli Yorumları Kaldırma**
 
-Bu C++ kodu, bir slayttaki belirli yorumları nasıl sileceğinizi gösterir:
+Aşağıdaki örnek, bir slayttan belirli yorumların nasıl kaldırılacağını gösterir:
 
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/date_time.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 using namespace System::Drawing;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// yorum ekle...
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
-author->get_Comments()->AddComment(u"comment 1", slide, PointF(0.2f, 0.2f), System::DateTime::get_Now());
-author->get_Comments()->AddComment(u"comment 2", slide, PointF(0.3f, 0.2f), System::DateTime::get_Now());
-        
-// \"comment 1\" metnini içeren tüm yorumları kaldır
-for (auto commentAuthor : presentation->get_CommentAuthors())
+auto createdTime = DateTime::get_Now();
+
+auto firstCommentPosition = PointF(0.2f, 0.2f);
+auto secondCommentPosition = PointF(0.3f, 0.2f);
+author->get_Comments()->AddComment(u"comment 1", slide, firstCommentPosition, createdTime);
+author->get_Comments()->AddComment(u"comment 2", slide, secondCommentPosition, createdTime);
+
+for (auto&& commentAuthor : presentation->get_CommentAuthors())
 {
-    auto toRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IComment>>>();
-    for (auto comment : slide->GetSlideComments(commentAuthor))
+    auto commentsToRemove = MakeObject<List<SharedPtr<IComment>>>();
+    auto comments = slide->GetSlideComments(commentAuthor);
+
+    for (auto&& comment : comments)
     {
         if (comment->get_Text() == u"comment 1")
         {
-            toRemove->Add(comment);
+            commentsToRemove->Add(comment);
         }
     }
-    for (auto comment : toRemove)
+
+    for (auto&& comment : commentsToRemove)
     {
         commentAuthor->get_Comments()->Remove(comment);
     }
 }
-        
+
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
 ## **SSS**
 
-**Aspose.Slides modern yorumlar için “çözülmüş” gibi bir durum desteği sağlıyor mu?**
+**Aspose.Slides modern yorumlar için çözülmüş durumunu destekliyor mu?**
 
-Evet. [Modern comments](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncomment/) bir [get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncomment/get_status/) ve [set_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncomment/set_status/) yöntemi sunar; bir [yorumun durumunu](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncommentstatus/) (örneğin çözülmüş olarak işaretleme) okuyabilir ve ayarlayabilirsiniz ve bu durum dosyada saklanır ve PowerPoint tarafından tanınır.
+Evet. [IModernComment::get_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/get_status/) ve [IModernComment::set_Status](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imoderncomment/set_status/) bir [ModernCommentStatus](https://reference.aspose.com/slides/tr/cpp/aspose.slides/moderncommentstatus/) değeri, `Resolved` dahil olmak üzere, kullanır. Durum sunumda depolanır ve dosya yeniden açıldıktan sonra tekrar okunabilir.
 
-**Zincirleme tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içeleme sınırı var mı?**
+**İşlemeli tartışmalar (yanıt zincirleri) destekleniyor mu ve bir iç içeleme sınırı var mı?**
 
-Evet. Her yorum, [parent comment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/comment/set_parentcomment/) referansına sahip olabilir, bu da istendiği kadar uzun yanıt zincirleri oluşturulmasını sağlar. API, belirli bir iç içeleme derinliği sınırı tanımlamaz.
+Evet. Her yorum, bir [parent comment](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icomment/set_parentcomment/) referansı aracılığıyla başka bir yoruma bağlanabilir; bu da yanıt zincirlerini mümkün kılar. API, belirli bir iç içeleme derinliği sınırı tanımlamaz.
 
-**Bir yorum işaretçisinin konumu slayt üzerinde hangi koordinat sisteminde tanımlanır?**
+**Yorum işaretçisinin konumu slaytta hangi koordinat sistemine göre tanımlanır?**
 
-Konum, slaytın koordinat sisteminde kayan nokta bir nokta olarak saklanır. Bu, yorum işaretçisini tam olarak istediğiniz yere yerleştirmenizi sağlar.
+İşaretçi konumu, slayt koordinat sistemindeki kayan nokta koordinatlarıyla tanımlanır; bu sayede işaretçiyi slayt üzerinde tam olarak istediğiniz yere yerleştirebilirsiniz.

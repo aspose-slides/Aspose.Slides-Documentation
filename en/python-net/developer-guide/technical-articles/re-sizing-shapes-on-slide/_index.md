@@ -56,7 +56,7 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 A table needs care: its overall size is the sum of its column widths and row heights, and assigning `width` or `height` to the table already redistributes the change across them. Scaling the table frame **and** its rows and columns applies each ratio twice, so the table ends up scaled by the square of the ratio.
 

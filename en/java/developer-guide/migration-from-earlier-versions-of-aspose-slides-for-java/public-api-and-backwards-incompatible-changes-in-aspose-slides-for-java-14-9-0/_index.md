@@ -18,7 +18,7 @@ keywords:
 description: "Review public API updates and breaking changes in Aspose.Slides for Java to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This page lists all [added](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) classes, methods, properties and so on, any new restrictions and other [changes](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) introduced with the Aspose.Slides for Java 14.9.0 API.
 
@@ -88,7 +88,7 @@ This type of SmartArt layout represents diagram with custom template. Custom dia
 ### **Added the SmartArtShape Class and ISmartArtShape Interface**
 The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.SmartArt.ISmartArtShape) add access to individual shapes inside SmartArt diagram. SmartArtShape can be used to change FillFormat, LineFormat, adding Hyperlinks etc.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 SmartArtShape does not supported IShape properties RawFrame, Frame, Rotation, X, Y, Width, Height and thrown System.NotSupportedException when attempting to access them.
 
@@ -123,7 +123,7 @@ pres.save("out.pptx", SaveFormat.Pptx);
 ### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
 The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) add access to individual shapes inside SmartArt diagram. Collection contains shapes associated with SmartArtNode. Property SmartArtNode.Shapes returns collections of all shapes associated with the node.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Depending of SmartArtLayoutType one SmartArtShape can be shared between several nodes.
 

@@ -48,7 +48,7 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
+{{% alert  title="Tip" color="info" %}}
 
 You may want to try **Aspose’s free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) web app—it’s a live implementation of the process described here.
 

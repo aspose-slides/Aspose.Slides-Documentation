@@ -17,13 +17,13 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Insertar y editar ecuaciones matemáticas en PowerPoint PPT y PPTX con Aspose.Slides para C++, con soporte de OMML, controles de formato y ejemplos de código C++ claros."
+description: "Insertar y editar ecuaciones matemáticas en PowerPoint PPT y PPTX con Aspose.Slides para C++, con soporte OMML, controles de formato y claros ejemplos de código C++."
 ---
 ## **Descripción general**
 
-PowerPoint almacena las ecuaciones como Office Math Markup Language (OMML). Con Aspose.Slides para C++, puedes crear el mismo tipo de contenido matemático de forma programática: fracciones, radicales, funciones, límites, operadores N-ario, matrices, arreglos y bloques matemáticos con formato.
+PowerPoint almacena ecuaciones en Office Math Markup Language (OMML). Con Aspose.Slides para C++, puedes crear el mismo tipo de contenido matemático de forma programada: fracciones, radicales, funciones, límites, operadores N-arios, matrices, arreglos y bloques de matemáticas con formato.
 
-En PowerPoint, los usuarios normalmente añaden ecuaciones desde **Insert > Equation**:
+En PowerPoint, los usuarios normalmente añaden ecuaciones desde **Insertar > Ecuación**:
 
 ![Pestaña Insertar de PowerPoint con el comando Ecuación seleccionado](powerpoint-math-equations_1.png)
 
@@ -34,12 +34,12 @@ El resultado es texto matemático editable en la diapositiva:
 Aspose.Slides construye ese texto matemático mediante tres objetos principales:
 
 - Una forma matemática, creada con [AddMathShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/shapecollection/), es la forma que contiene la ecuación.
-- [MathPortion](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathportion/) almacena el contenido matemático dentro del marco de texto de la forma.
+- [MathPortion](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathportion/) almacena contenido matemático dentro del marco de texto de la forma.
 - [MathParagraph](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathparagraph/) contiene uno o más objetos [MathBlock](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathblock/).
 
-La mayoría de los ejemplos a continuación utilizan [MathematicalText](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathematicaltext/) y los métodos fluidos de [IMathElement](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/) para mantener el código breve y legible.
+La mayoría de los ejemplos a continuación utilizan [MathematicalText](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/mathematicaltext/) y los métodos fluent de [IMathElement](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathelement/) para mantener el código corto y legible.
 
-Para escenarios de exportación a MathML, consulte [Exportar ecuaciones matemáticas de presentaciones en C++](/slides/es/cpp/exporting-math-equations/).
+Para escenarios de exportación a MathML, vea [Export Math Equations from Presentations in C++](/slides/es/cpp/exporting-math-equations/).
 
 ## **Crear una ecuación**
 
@@ -69,9 +69,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" %}}
-
 `AddMathShape` crea una forma que ya contiene un párrafo matemático. Accede al primer `MathPortion`, obtén su `MathParagraph` y añade bloques matemáticos o elementos matemáticos a él.
-
 {{% /alert %}}
 
 ## **Añadir fracciones**
@@ -105,7 +103,7 @@ auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"
 
 ## **Añadir radicales**
 
-Utiliza `Radical` para crear una raíz cuadrada, cubica u otra raíz. El elemento actual se convierte en la base y el argumento en el grado.
+Utiliza `Radical` para crear una raíz cuadrada, cúbica u otra raíz. El elemento actual se convierte en la base, y el argumento se convierte en el grado.
 
 ![Una expresión radical de n-ésima raíz con x bajo el signo radical](powerpoint-math-equations_5.png)
 
@@ -150,17 +148,17 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Para un nombre de función personalizado, convierte el nombre de la función en el elemento actual:
+Para un nombre de función personalizado, haz que el nombre de la función sea el elemento actual:
 
 ```cpp
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
-## **Añadir operadores N-ario e integrales**
+## **Añadir operadores N-arios e integrales**
 
 Utiliza `Nary` para sumas, uniones, intersecciones y otros operadores grandes. Utiliza `Integral` para integrales. Ambos métodos permiten establecer límites inferior y superior.
 
-![Una sumatoria con límites inferior y superior](powerpoint-math-equations_7.png)
+![Una suma con límites inferior y superior](powerpoint-math-equations_7.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -182,7 +180,7 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Los operadores N-ario son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` suelen añadirse como `MathematicalText` y unirse a la expresión.
+Los operadores N-arios son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` normalmente se añaden como `MathematicalText` y se unen a la expresión.
 
 Para una integral, usa `Integral`:
 
@@ -222,7 +220,7 @@ presentation->Dispose();
 
 Utiliza `ToMathArray` cuando necesites ecuaciones alineadas o una pila vertical de expresiones.
 
-![Una matriz matemática vertical con x sobre y](powerpoint-math-equations_11.png)
+![Una matriz matemática vertical con x encima de y](powerpoint-math-equations_11.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -267,9 +265,9 @@ presentation->Dispose();
 
 ## **Añadir subíndices y superíndices**
 
-Utiliza los asistentes de subíndice y superíndice para índices y potencias. Cuando los índices deben aparecer en el lado izquierdo de la base, usa `SetSubSuperscriptOnTheLeft`.
+Utiliza los asistentes de subíndice y superíndice para índices y exponentes. Cuando los índices deben aparecer en el lado izquierdo de la base, usa `SetSubSuperscriptOnTheLeft`.
 
-![Una Y mayúscula con subíndice 1 a la izquierda y superíndice n](powerpoint-math-equations_9.png)
+![Una Y mayúscula con subíndice 1 en el lado izquierdo y superíndice n](powerpoint-math-equations_9.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -292,7 +290,7 @@ presentation->Dispose();
 
 Utiliza `Enclose` para colocar una expresión dentro de delimitadores. También puedes establecer un carácter separador para expresiones delimitadas que contengan varios elementos.
 
-![Una expresión delimitadora que contiene x, y, y z separados por barras verticales](powerpoint-math-equations_13.png)
+![Una expresión delimitada que contiene x, y y z separados por barras verticales](powerpoint-math-equations_13.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -315,9 +313,9 @@ presentation->Dispose();
 
 ## **Añadir un recuadro con borde**
 
-Utiliza `ToBorderBox` cuando la ecuación en sí debe estar enmarcada.
+Utiliza `ToBorderBox` cuando la propia ecuación debe estar enmarcada.
 
-![Una ecuación en recuadro que muestra a al cuadrado es igual a b al cuadrado más c al cuadrado](powerpoint-math-equations_12.png)
+![Una ecuación enmarcada que muestra a al cuadrado es igual a b al cuadrado más c al cuadrado](powerpoint-math-equations_12.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -345,7 +343,7 @@ presentation->Dispose();
 
 Utiliza `Group` para colocar un carácter de agrupación encima o debajo de una expresión. Añade un límite para etiquetar los términos agrupados.
 
-![La expresión x más y agrupada con la etiqueta cualquier texto debajo](powerpoint-math-equations_15.png)
+![La expresión x más y agrupada con la etiqueta cualquier texto debajo de ella](powerpoint-math-equations_15.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -365,7 +363,7 @@ presentation->Save(u"grouped-terms.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Formatear elementos matemáticos**
+## **Dar formato a los elementos matemáticos**
 
 Utiliza los asistentes de formato solo donde clarifiquen la fórmula. Por ejemplo, `Overbar` coloca una barra sobre un elemento matemático.
 
@@ -408,7 +406,7 @@ presentation->Dispose();
 
 ## **Preguntas frecuentes**
 
-**¿Puedo editar una ecuación existente de PowerPoint?**
+**¿Puedo editar una ecuación de PowerPoint existente?**
 
 Sí. Abre la presentación, encuentra la forma que contiene un `MathPortion`, obtén su `MathParagraph` y actualiza los bloques matemáticos en ese párrafo.
 
@@ -418,4 +416,4 @@ Sí. Al guardar en PPTX, Aspose.Slides escribe la ecuación como contenido matem
 
 **¿Puedo exportar ecuaciones a LaTeX?**
 
-Aspose.Slides exporta ecuaciones matemáticas a MathML. Si necesitas LaTeX, exporta primero a MathML y luego convierte MathML con una herramienta que admita el dialecto LaTeX de tu objetivo.
+Sí. Obtén el [IMathParagraph](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathparagraph/) de la ecuación a partir de su [IMathPortion](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathportion/), y llama a [IMathParagraph::ToLatex](https://reference.aspose.com/slides/es/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) para exportarlo directamente. Para un ejemplo completo, consulta [Export Math Equations from Presentations in C++](/slides/es/cpp/exporting-math-equations/#export-math-equations-to-latex).

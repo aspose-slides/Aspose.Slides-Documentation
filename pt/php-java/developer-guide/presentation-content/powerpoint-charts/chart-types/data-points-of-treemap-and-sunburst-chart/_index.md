@@ -1,123 +1,262 @@
 ---
-title: Personalizar Pontos de Dados em Gráficos Treemap e Sunburst Usando PHP
+title: Personalizar Pontos de Dados em Gráficos Treemap e Sunburst no PHP
 linktitle: Pontos de Dados em Gráficos Treemap e Sunburst
 type: docs
 url: /pt/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- gráfico treemap
-- gráfico sunburst
-- ponto de dados
-- cor do rótulo
-- cor do ramo
+- gráfico Treemap
+- gráfico Sunburst
+- gráfico hierárquico
+- ponto de dado
+- rótulo de dado
+- cor de ramo
 - PowerPoint
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Aprenda a gerenciar pontos de dados em gráficos treemap e sunburst com Aspose.Slides para PHP via Java, compatível com formatos do PowerPoint."
+description: "Aprenda como criar dados hierárquicos e personalizar níveis, rótulos e cores em gráficos Treemap e Sunburst com Aspose.Slides para PHP via Java."
 ---
-## **Introdução**
+## **Visão geral**
 
-Entre outros tipos de gráficos do PowerPoint, existem dois tipos “hierárquicos” – **Treemap** e **Sunburst** (chart também conhecido como Gráfico Sunburst, Diagrama Sunburst, Gráfico Radial, Gráfico Radial ou Gráfico de Pizza Multinível). Esses gráficos exibem dados hierárquicos organizados como uma árvore – das folhas até o topo do ramo. As folhas são definidas pelos pontos de dados da série, e cada nível subsequente de agrupamento aninhado é definido pela categoria correspondente. Aspose.Slides for PHP via Java permite formatar pontos de dados do Gráfico Sunburst e Treemap .
+Os gráficos Treemap e Sunburst exibem o mesmo tipo de dados hierárquicos, mas utilizam layouts diferentes. Um Treemap desenha a hierarquia como retângulos aninhados cujas áreas representam os valores das folhas. Um Sunburst a desenha como anéis concêntricos: os grupos de nível superior ficam próximos ao centro e as categorias folha ficam no anel externo.
 
-Eis um Gráfico Sunburst, onde os dados na coluna Series1 definem os nós folha, enquanto as demais colunas definem pontos de dados hierárquicos:
+No Aspose.Slides para PHP via Java, cada valor numérico é um [ChartDataPoint](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapoint/). Seu método [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) fornece acesso à folha e aos seus grupos pais. Este artigo explica esse mapeamento e mostra como criar e formatar ambos os tipos de gráfico a partir dos mesmos dados de exemplo.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Um gráfico Treemap com ramos Consumer e Business](treemap-hierarchy.png)
 
-Vamos começar adicionando um novo gráfico Sunburst à apresentação:
+![Um gráfico Sunburst com a mesma hierarquia Consumer e Business](sunburst-hierarchy.png)
+
+## **Entendendo categorias, pontos de dados e níveis**
+
+O exemplo usado abaixo possui três níveis de categorias e uma série numérica:
+
+| Ramo | Tronco | Folha | Receita |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Cada linha cria uma categoria folha e um ponto de dados. Os níveis de agrupamento de categorias descrevem o caminho daquela folha até seus pais. Para a primeira linha, o caminho é `Consumer > Computers > Laptops`.
+
+Os índices retornados por [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) vão da folha para cima:
+
+| `getDataPointLevels()` índice | Nível lógico | Representação Treemap | Representação Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Folha | Retângulo de valor | Segmento do anel externo |
+| `1` | Tronco | Retângulo ou cabeçalho do pai | Segmento do anel intermediário |
+| `2` | Ramo | Retângulo ou cabeçalho de nível superior | Segmento do anel interno |
+
+Esta ordem é a mesma para ambos os tipos de gráfico, embora seus layouts visuais sejam diferentes. Um segmento pai é compartilhado por várias folhas. Para formatá‑lo, use o nível correspondente do primeiro ponto de dados naquele grupo. Por exemplo, o ramo `Consumer` começa com o ponto `Laptops`, enquanto o tronco `Software` começa com o ponto `Licenses`. Manter referências a esses pontos é mais claro e seguro do que usar expressões não explicadas como `$dataPoints->get_Item(0)` ou `$dataPoints->get_Item(6)`.
+
+## **Criar e personalizar ambos os tipos de gráfico**
+
+O exemplo completo a seguir cria um Treemap no primeiro slide e um Sunburst no segundo slide. Ele constrói a hierarquia, exibe o valor para `Tablets`, aplica cores fixas aos níveis selecionados, formata um rótulo de ramo e salva a apresentação.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $worksheetIndex = 0;
+    $leafLevelIndex = 0;
+    $stemLevelIndex = 1;
+    $branchLevelIndex = 2;
+
+    $branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    $stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    $leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    $revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    $dataPointCount = count($leafNames);
+
+    $chartTypes = [ChartType::Treemap, ChartType::Sunburst];
+    $chartCount = count($chartTypes);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+
+    for ($chartIndex = 0; $chartIndex < $chartCount; $chartIndex++) {
+        $chartType = $chartTypes[$chartIndex];
+
+        if ($chartIndex === 0) {
+            $slide = $presentation->getSlides()->get_Item(0);
+        } else {
+            $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+        }
+
+        $chart = $slide->getShapes()->addChart($chartType, 40, 40, 640, 440);
+        $chart->setTitle(false);
+        $chart->setLegend(false);
+
+        $chartData = $chart->getChartData();
+        $chartData->getCategories()->clear();
+        $chartData->getSeries()->clear();
+
+        $workbook = $chartData->getChartDataWorkbook();
+        $workbook->clear($worksheetIndex);
+
+        // Adicionar as categorias folha. Um item de agrupamento é definido somente quando um novo grupo começa;
+        // as categorias seguintes permanecem naquele grupo até que outro item seja definido.
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $categoryCell = $workbook->getCell($worksheetIndex, $rowIndex, 2, $leafName);
+            $category = $chartData->getCategories()->add($categoryCell);
+
+            $stemName = $stemNames[$dataIndex];
+            $startsNewStem = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousStemName = $stemNames[$dataIndex - 1];
+                $startsNewStem = $stemName !== $previousStemName;
+            }
+            if ($startsNewStem) {
+                $category->getGroupingLevels()->setGroupingItem($stemLevelIndex, $stemName);
+            }
+
+            $branchName = $branchNames[$dataIndex];
+            $startsNewBranch = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousBranchName = $branchNames[$dataIndex - 1];
+                $startsNewBranch = $branchName !== $previousBranchName;
+            }
+            if ($startsNewBranch) {
+                $category->getGroupingLevels()->setGroupingItem($branchLevelIndex, $branchName);
+            }
+        }
+
+        $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Revenue");
+        $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
+
+        $laptopsDataPoint = null;
+        $tabletsDataPoint = null;
+        $licensesDataPoint = null;
+
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $revenue = $revenues[$dataIndex];
+            $valueCell = $workbook->getCell($worksheetIndex, $rowIndex, 3, $revenue);
+
+            if ($chartType === ChartType::Treemap) {
+                $dataPoint = $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+            } else {
+                $dataPoint = $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+            }
+
+            if ($leafName === "Laptops") {
+                $laptopsDataPoint = $dataPoint;
+            } elseif ($leafName === "Tablets") {
+                $tabletsDataPoint = $dataPoint;
+            } elseif ($leafName === "Licenses") {
+                $licensesDataPoint = $dataPoint;
+            }
+        }
+
+        // Mostrar a categoria e o valor na folha Tablets.
+        $tabletsLeafLevel = $tabletsDataPoint->getDataPointLevels()->get_Item($leafLevelIndex);
+        $tabletsLabelFormat = $tabletsLeafLevel->getLabel()->getDataLabelFormat();
+        $tabletsLabelFormat->setShowCategoryName(true);
+        $tabletsLabelFormat->setShowValue(true);
+        $tabletsLabelFormat->setSeparator("\n");
+        $tabletsLabelFormat->setNumberFormat('$0');
+
+        // Formatar o ramo Consumer através da primeira folha desse ramo.
+        $consumerBranchLevel = $laptopsDataPoint->getDataPointLevels()->get_Item($branchLevelIndex);
+        $consumerBranchFill = $consumerBranchLevel->getFormat()->getFill();
+        $consumerBranchColor = new java("java.awt.Color", 31, 78, 121);
+        $consumerBranchFill->setFillType(FillType::Solid);
+        $consumerBranchFill->getSolidFillColor()->setColor($consumerBranchColor);
+
+        $consumerLabelFormat = $consumerBranchLevel->getLabel()->getDataLabelFormat();
+        $consumerLabelFormat->setShowCategoryName(true);
+        $consumerLabelFormat->setShowSeriesName(false);
+        $consumerLabelTextFill = $consumerLabelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+        $white = java("java.awt.Color")->WHITE;
+        $consumerLabelTextFill->setFillType(FillType::Solid);
+        $consumerLabelTextFill->getSolidFillColor()->setColor($white);
+
+        // Formatar o tronco Software através da primeira folha desse tronco.
+        $softwareStemLevel = $licensesDataPoint->getDataPointLevels()->get_Item($stemLevelIndex);
+        $softwareStemFill = $softwareStemLevel->getFormat()->getFill();
+        $softwareStemColor = new java("java.awt.Color", 112, 173, 71);
+        $softwareStemFill->setFillType(FillType::Solid);
+        $softwareStemFill->getSolidFillColor()->setColor($softwareStemColor);
+
+        // ParentLabelLayout afeta os rótulos de pai do Treemap; Sunburst usa segmentos de anel.
+        if ($chartType === ChartType::Treemap) {
+            $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
+        }
     }
-  }
+
+    $presentation->save("hierarchical-charts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="primary" title="Veja também" %}} 
-- [**Criar ou Atualizar Gráficos de Apresentação PowerPoint em PHP**](/slides/pt/php-java/create-chart/)
-{{% /alert %}}
+As células de categoria e as células de valor utilizam a mesma linha da planilha, de modo que suas posições nas coleções permanecem alinhadas. Quando você trabalha com um gráfico já existente em vez de criar um novo, examine primeiro as linhas de categoria e armazene referências nomeadas aos pontos de dados e níveis que pretende formatar.
 
-Se for necessário formatar os pontos de dados do gráfico, devemos usar o seguinte:
+## **Comportamento e considerações práticas**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapointlevelsmanager/), 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapointlevel/) classes 
-e [**ChartDataPoint::getDataPointLevels**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) method 
-fornecem acesso para formatar pontos de dados de gráficos Treemap e Sunburst. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapointlevelsmanager/)
-é usado para acessar categorias de múltiplos níveis – representa o contêiner de 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapointlevel/) objetos.
-Basicamente é um wrapper para 
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartcategorylevelsmanager/) com
-as propriedades adicionadas específicas para pontos de dados. 
-A classe [**ChartDataPointLevel**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapointlevel/) tem
-dois métodos: [**getFormat**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapointlevel/#getFormat) e 
-[**getDataLabel**](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapointlevel/#getLabel) que
-fornecem acesso às configurações correspondentes.
+### **Diferenças entre Treemap e Sunburst**
 
-## **Exibir Valor de um Ponto de Dados**
-Mostrar o valor do ponto de dados "Leaf 4":
+- Um Treemap usa área para comunicar valor e retângulos aninhados para comunicar hierarquia. O método [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartseries/#setParentLabelLayout) controla como os rótulos dos pais aparecem neste tipo de gráfico.
+- Um Sunburst usa ângulo para comunicar valor e profundidade de anel para comunicar hierarquia. [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartseries/#setParentLabelLayout) não controla os rótulos dos anéis.
+- Ambos os tipos de gráfico utilizam os mesmos níveis de agrupamento de categorias e a mesma ordem folha‑para‑pai retornada por [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapoint/#getDataPointLevels), de modo que o código de construção de dados e de formatação de níveis pode ser compartilhado.
+- Os valores dos pais são calculados a partir de suas folhas descendentes. Não adicione pontos numéricos separados para ramos ou troncos.
 
-```php
-  $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-  $dataPoints->get_Item(3)->getDataPointLevels()->get_Item(0)->getLabel()->getDataLabelFormat()->setShowValue(true);
+### **Ordenação e ordem dos segmentos**
 
-```
+O mecanismo de layout do gráfico determina a posição final dos retângulos e dos segmentos dos anéis. Agrupe linhas de categoria relacionadas antes de adicioná‑las, mas não dependa de uma posição de retângulo ou ângulo inicial específico. Se a sequência tiver significado, inclua‑a nos rótulos ou use um tipo de gráfico com eixo de categoria explícito.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Tema e cores fixas**
 
-## **Definir Rótulo e Cor de um Ponto de Dados**
-Defina o rótulo de dados "Branch 1" para exibir o nome da série ("Series1") ao invés do nome da categoria. Em seguida, defina a cor do texto para amarelo:
+Os níveis de gráfico não formatados herdam cores do tema da apresentação. O exemplo usa preenchimentos RGB explícitos para resultados previsíveis. Se o gráfico precisar seguir alterações de tema, use cores de esquema em vez de valores RGB fixos e evite sobrescrever todos os níveis. Também verifique o contraste dos rótulos após mudar o preenchimento de um ramo ou tronco.
 
-```php
-  $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
-  $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
-  $branch1Label->getDataLabelFormat()->setShowSeriesName(true);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-```
+### **Rótulos e espaço disponível**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+O PowerPoint pode ocultar ou truncar rótulos quando um segmento é muito pequeno. Aumentar o tamanho do gráfico, abreviar nomes de categoria ou exibir menos campos de rótulo costuma gerar um resultado mais claro. Um rótulo pode combinar o nome da categoria, o nome da série e o valor por meio de [DataLabelFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/), mas habilitar todos os campos frequentemente torna os gráficos hierárquicos difíceis de ler.
 
-## **Definir Cor de Ramo de um Ponto de Dados**
-Alterar a cor do ramo "Steam 4":
+### **Exportação e renderização**
 
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-    $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
-    $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
-    $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+Salvar em PPTX mantém o gráfico editável. Quando o Aspose.Slides renderiza a apresentação para PDF ou imagem, os preenchimentos e configurações de rótulo suportados são renderizados com o gráfico. Substituição de fontes e pequenas diferenças no espaço de layout disponível podem mudar a quebra de linha ou a visibilidade dos rótulos; portanto, instale as fontes necessárias e verifique os destinos de exportação críticos.
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+## **FAQ**
 
-## **Perguntas Frequentes**
+**Por que a alteração de um nível pai afeta várias folhas?**
 
-**Posso mudar a ordem (classificação) dos segmentos em Sunburst/Treemap?**
+Um ramo ou tronco é um segmento visual compartilhado. Seu [ChartDataPointLevel](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chartdatapointlevel/) pode ser acessado através de uma folha descendente, mas a formatação pertence ao segmento pai compartilhado, não apenas àquela folha.
 
-Não. O PowerPoint classifica os segmentos automaticamente (normalmente por valores decrescentes, no sentido horário). O Aspose.Slides replica esse comportamento: não é possível alterar a ordem diretamente; isso é feito pré‑processando os dados.
+**Por que um rótulo de dados está ausente?**
 
-**Como o tema da apresentação afeta as cores dos segmentos e rótulos?**
+Primeiro habilite os campos necessários no objeto [DataLabelFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabelformat/) do rótulo. Em seguida verifique se o segmento possui espaço suficiente. O layout de rótulo pai do Treemap, as dimensões do gráfico, o comprimento do rótulo, o tamanho da fonte e o número de campos habilitados influenciam se o rótulo pode ser exibido.
 
-As cores dos gráficos herdam o [tema/paleta](/slides/pt/php-java/presentation-theme/) da apresentação, a menos que você defina explicitamente preenchimentos/fontes. Para resultados consistentes, fixe preenchimentos sólidos e formatação de texto nos níveis necessários.
+**Posso definir a ordem exata ou coordenadas dos segmentos?**
 
-**A exportação para PDF/PNG preservará cores de ramos personalizadas e configurações de rótulos?**
+Você pode controlar a ordem das linhas de origem e manter cada grupo contíguo, mas não pode atribuir retângulos exatos do Treemap ou ângulos exatos do Sunburst. O mecanismo de layout do gráfico os calcula a partir da hierarquia, dos valores e do espaço disponível.
 
-Sim. Ao exportar a apresentação, as configurações do gráfico (preenchimentos, rótulos) são preservadas nos formatos de saída porque o Aspose.Slides renderiza com a formatação do gráfico aplicada.
+**Por que as cores mudam após a alteração do tema da apresentação?**
 
-**Posso calcular as coordenadas reais de um rótulo/elemento para posicionamento de sobreposição personalizada sobre o gráfico?**
+Preenchimentos baseados em tema são projetados para seguir a paleta da apresentação. Aplique cores RGB explícitas nos níveis que devem permanecer fixos ou mantenha cores de esquema quando a adaptação ao novo tema for preferível.
 
-Sim. Após a disposição do gráfico ser validada, os valores reais de *x* e *y* ficam disponíveis para os elementos (por exemplo, um [DataLabel](https://reference.aspose.com/slides/pt/php-java/aspose.slides/datalabel/)), o que auxilia no posicionamento preciso das sobreposições.
+**A formatação personalizada será preservada em exportações PDF e de imagem?**
+
+Sim, os preenchimentos de gráfico e configurações de rótulo suportados são incluídos durante a renderização. Para resultados consistentes entre sistemas, disponibilize as fontes necessárias e teste o tamanho final da exportação, pois o ajuste de rótulo depende do layout.
+
+## **Veja também**
+
+- [Create Treemap charts](/slides/pt/php-java/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/pt/php-java/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/pt/php-java/export-chart/)
+- [Manage presentation themes](/slides/pt/php-java/presentation-theme/)

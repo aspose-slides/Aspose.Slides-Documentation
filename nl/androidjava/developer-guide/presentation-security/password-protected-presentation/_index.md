@@ -1,5 +1,5 @@
 ---
-title: Presentaties beveiligen met wachtwoorden op Android
+title: Beveilig presentaties met wachtwoorden op Android
 linktitle: Wachtwoordbeveiliging
 type: docs
 weight: 20
@@ -9,8 +9,8 @@ keywords:
 - presentatie vergrendelen
 - PowerPoint ontgrendelen
 - presentatie ontgrendelen
-- PowerPoint beveiligen
-- presentatie beveiligen
+- PowerPoint beschermen
+- presentatie beschermen
 - wachtwoord instellen
 - wachtwoord toevoegen
 - PowerPoint versleutelen
@@ -18,8 +18,8 @@ keywords:
 - PowerPoint ontsleutelen
 - presentatie ontsleutelen
 - schrijfbescherming
-- PowerPoint-beveiliging
-- presentatiebeveiliging
+- PowerPoint beveiliging
+- presentatie beveiliging
 - wachtwoord verwijderen
 - beveiliging verwijderen
 - versleuteling verwijderen
@@ -32,32 +32,32 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Vergrendel en ontgrendel moeiteloos wachtwoordbeveiligde PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Android via Java. Bescherm uw presentaties."
+description: "Vergrendel en ontgrendel moeiteloos wachtwoordbeveiligde PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Android via Java. Beveilig uw presentaties."
 ---
 ## **Inleiding**
 
-Wanneer je een presentatie met een wachtwoord beveiligt, stel je een wachtwoord in dat bepaalde beperkingen op de presentatie afdwingt. Om de beperkingen te verwijderen, moet het wachtwoord worden ingevoerd. Een met wachtwoord beveiligde presentatie wordt beschouwd als een vergrendelde presentatie.
+Wanneer u een presentatie met een wachtwoord beveiligt, betekent dit dat u een wachtwoord instelt dat bepaalde beperkingen op de presentatie afdwingt. Om de beperkingen te verwijderen, moet het wachtwoord worden ingevoerd. Een met wachtwoord beveiligde presentatie wordt beschouwd als een vergrendelde presentatie.
 
-Doorgaans kun je een wachtwoord instellen om deze beperkingen op een presentatie af te dwingen:
+Typisch kunt u een wachtwoord instellen om deze beperkingen op een presentatie af te dwingen:
 
 - **Wijziging**
 
-  Als je alleen bepaalde gebruikers je presentatie wilt laten wijzigen, kun je een wijzigingsbeperking instellen. Deze beperking voorkomt dat mensen wijzigen, aanpassen of onderdelen van je presentatie kopiëren (tenzij ze het wachtwoord geven). 
+  Als u alleen bepaalde gebruikers uw presentatie wilt laten wijzigen, kunt u een wijzigingsbeperking instellen. Deze beperking voorkomt dat mensen de presentatie wijzigen, aanpassen of kopiëren (tenzij ze het wachtwoord invoeren). 
 
-  Echter, in dit geval kan een gebruiker, zelfs zonder het wachtwoord, je document openen en bekijken. In deze alleen‑lezen‑modus kan de gebruiker de inhoud of zaken—hyperlinks, animaties, effecten en andere—in je presentatie bekijken, maar hij kan geen items kopiëren of de presentatie opslaan. 
+  Echter, in dit geval kan een gebruiker, zelfs zonder het wachtwoord, uw document toch openen. In deze alleen‑lezen‑modus kan de gebruiker de inhoud – hyperlinks, animaties, effecten en andere zaken – bekijken, maar hij kan geen items kopiëren of de presentatie opslaan. 
 
 - **Openen**
 
-  Als je alleen bepaalde gebruikers je presentatie wilt laten openen, kun je een openingsbeperking instellen. Deze beperking voorkomt dat mensen zelfs de inhoud van je presentatie kunnen bekijken (tenzij ze het wachtwoord geven).
+  Als u alleen bepaalde gebruikers uw presentatie wilt laten openen, kunt u een openingsbeperking instellen. Deze beperking voorkomt dat mensen zelfs de inhoud van uw presentatie kunnen bekijken (tenzij ze het wachtwoord invoeren).
 
-  Technisch voorkomt de openingsbeperking ook dat gebruikers je presentatie kunnen wijzigen: wanneer mensen een presentatie niet kunnen openen, kunnen ze deze niet aanpassen of wijzigingen aanbrengen. 
+  Technisch gezien voorkomt de openingsbeperking ook dat gebruikers uw presentaties wijzigen: wanneer mensen een presentatie niet kunnen openen, kunnen ze deze niet aanpassen. 
   
-  **Opmerking** dat wanneer je een presentatie met een wachtwoord beveiligt om openen te voorkomen, het presentatiebestand wordt versleuteld.
+  **Opmerking** dat wanneer u een presentatie beveiligt met een wachtwoord om openen te voorkomen, het presentatied bestand wordt versleuteld.
 
 ## **Wachtwoordbeveiliging voor presentaties in Aspose.Slides**
 **Ondersteunde formaten**
 
-Aspose.Slides ondersteunt wachtwoordbeveiliging, versleuteling en soortgelijke bewerkingen voor presentaties in de volgende formaten: 
+Aspose.Slides ondersteunt wachtwoordbeveiliging, versleuteling en soortgelijke bewerkingen voor presentaties in deze formaten: 
 
 - PPTX en PPT - Microsoft PowerPoint‑presentatie 
 - ODP - OpenDocument‑presentatie 
@@ -65,29 +65,29 @@ Aspose.Slides ondersteunt wachtwoordbeveiliging, versleuteling en soortgelijke b
 
 **Ondersteunde bewerkingen**
 
-Aspose.Slides maakt het mogelijk wachtwoordbeveiliging op presentaties toe te passen om wijzigingen te voorkomen op de volgende manieren:
+Aspose.Slides stelt u in staat wachtwoordbeveiliging op presentaties toe te passen om wijziging te voorkomen op de volgende manieren:
 
 - Een presentatie versleutelen
-- Schrijfbescherming instellen voor een presentatie
+- Een schrijfbescherming instellen voor een presentatie
 
 **Andere bewerkingen**
 
-Aspose.Slides maakt het mogelijk andere taken uit te voeren die verband houden met wachtwoordbeveiliging en versleuteling op de volgende manieren:
+Aspose.Slides maakt het mogelijk andere taken met betrekking tot wachtwoordbeveiliging en versleuteling uit te voeren op de volgende manieren:
 
 - Een presentatie ontsleutelen; een versleutelde presentatie openen
 - Versleuteling verwijderen; wachtwoordbeveiliging uitschakelen
 - Schrijfbescherming van een presentatie verwijderen
 - De eigenschappen van een versleutelde presentatie ophalen
 - Controleren of een presentatie versleuteld is
-- Controleren of een presentatie wachtwoordbeveiligd is.
+- Controleren of een presentatie met een wachtwoord beschermd is.
 
 ## **Een presentatie versleutelen**
 
-Je kunt een presentatie versleutelen door een wachtwoord in te stellen. Om vervolgens de vergrendelde presentatie te wijzigen, moet de gebruiker het wachtwoord invoeren. 
+U kunt een presentatie versleutelen door een wachtwoord in te stellen. Om vervolgens de vergrendelde presentatie te wijzigen, moet een gebruiker het wachtwoord opgeven. 
 
-Om een presentatie te versleutelen of met een wachtwoord te beveiligen, moet je de encrypt‑methode (van [IProtectionManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager)) gebruiken om een wachtwoord voor de presentatie in te stellen. Je geeft het wachtwoord door aan de encrypt‑methode en gebruikt de save‑methode om de nu versleutelde presentatie op te slaan.
+Om een presentatie te versleutelen of met een wachtwoord te beveiligen, moet u de encrypt‑methode (van [IProtectionManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager)) gebruiken om een wachtwoord voor de presentatie in te stellen. U geeft het wachtwoord door aan de encrypt‑methode en gebruikt de save‑methode om de nu versleutelde presentatie op te slaan.
 
-Deze voorbeeldcode laat zien hoe je een presentatie versleutelt:
+Deze voorbeeldcode laat zien hoe u een presentatie kunt versleutelen:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -101,11 +101,11 @@ try {
 
 ## **Schrijfbescherming instellen voor een presentatie**
 
-Je kunt een markering toevoegen met de tekst “Niet aanpassen” aan een presentatie. Zo kun je gebruikers laten weten dat je niet wilt dat ze wijzigingen aanbrengen in de presentatie.  
+U kunt een markering “Niet wijzigen” aan een presentatie toevoegen. Zo kunt u gebruikers laten weten dat u niet wilt dat ze wijzigingen aanbrengen in de presentatie.  
 
-**Opmerking** dat het proces van schrijfbescherming de presentatie niet versleutelt. Daarom kunnen gebruikers — als ze dat willen — de presentatie aanpassen, maar om de wijzigingen op te slaan moeten ze een presentatie met een andere naam opslaan. 
+**Opmerking** dat het proces van schrijfbescherming de presentatie niet versleutelt. Daarom kunnen gebruikers – als ze willen – de presentatie wijzigen, maar om de wijzigingen op te slaan, moeten ze de presentatie met een andere naam opslaan. 
 
-Om schrijfbescherming in te stellen, moet je de [setWriteProtection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) methode gebruiken. Deze voorbeeldcode laat zien hoe je schrijfbescherming voor een presentatie instelt:
+Om een schrijfbescherming in te stellen, moet u de [setWriteProtection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) methode gebruiken. Deze voorbeeldcode laat zien hoe u een schrijfbescherming op een presentatie toepast:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -119,9 +119,9 @@ try {
 
 ## **Een versleutelde presentatie laden**
 
-Aspose.Slides maakt het mogelijk een versleuteld bestand te laden door het wachtwoord te verstrekken. Om een presentatie te ontsleutelen, moet je de [removeEncryption](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) methode aanroepen zonder parameters. Vervolgens moet je het juiste wachtwoord invoeren om de presentatie te laden.
+Aspose.Slides maakt het mogelijk een versleuteld bestand te laden door het wachtwoord mee te geven. Om een presentatie te ontsleutelen, moet u de [removeEncryption](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) methode zonder parameters aanroepen. Vervolgens moet u het juiste wachtwoord invoeren om de presentatie te laden.
 
-Deze voorbeeldcode laat zien hoe je een presentatie ontsleutelt: 
+Deze voorbeeldcode laat zien hoe u een presentatie ontsleutelt: 
 
 ```java
 LoadOptions loadOptions = new LoadOptions();
@@ -132,14 +132,13 @@ try {
 } finally {
     if (presentation != null) presentation.dispose();
 }
-}
 ```
 
 ## **Versleuteling van een presentatie verwijderen**
 
-Je kunt de versleuteling of wachtwoordbeveiliging van een presentatie verwijderen. Op deze manier kunnen gebruikers de presentatie zonder beperkingen openen of wijzigen. 
+U kunt de versleuteling of wachtwoordbeveiliging van een presentatie verwijderen. Op deze manier kunnen gebruikers de presentatie openen of wijzigen zonder beperkingen. 
 
-Om versleuteling of wachtwoordbeveiliging te verwijderen, moet je de [removeEncryption](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) methode aanroepen. Deze voorbeeldcode laat zien hoe je de versleuteling van een presentatie verwijdert:
+Om de versleuteling of wachtwoordbeveiliging te verwijderen, moet u de [removeEncryption](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) methode aanroepen. Deze voorbeeldcode laat zien hoe u de versleuteling van een presentatie verwijdert:
 
 ```java
 LoadOptions loadOptions = new LoadOptions();
@@ -155,9 +154,9 @@ try {
 
 ## **Schrijfbescherming van een presentatie verwijderen**
 
-Je kunt met Aspose.Slides de schrijfbescherming van een presentatiedossier verwijderen. Op deze manier mogen gebruikers aanpassen zoals ze willen — en krijgen ze geen waarschuwingen bij het uitvoeren van dergelijke bewerkingen.
+U kunt Aspose.Slides gebruiken om de schrijfbescherming van een presentatiedocument te verwijderen. Op deze manier kunnen gebruikers naar hartenlust wijzigen – en krijgen ze geen waarschuwingen bij het uitvoeren van dergelijke taken.
 
-Je kunt de schrijfbescherming van een presentatie verwijderen via de [removeWriteProtection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--) methode. Deze voorbeeldcode laat zien hoe je de schrijfbescherming van een presentatie verwijdert:
+U kunt de schrijfbescherming van een presentatie verwijderen met de [removeWriteProtection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--) methode. Deze voorbeeldcode laat zien hoe u de schrijfbescherming van een presentatie verwijdert:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -169,29 +168,64 @@ try {
 }
 ```
 
-## **De eigenschappen van een versleutelde presentatie ophalen**
+## **Eigenschappen van een versleutelde presentatie ophalen**
 
-Doorgaans vinden gebruikers het moeilijk om de documenteigenschappen van een versleutelde of met een wachtwoord beveiligde presentatie op te halen. Aspose.Slides biedt echter een mechanisme waarmee je een presentatie met een wachtwoord kunt beveiligen en toch de mogelijkheid behoudt voor gebruikers om de eigenschappen van die presentatie te benaderen.
+Typisch hebben gebruikers moeite om de documenteigenschappen van een versleutelde of met een wachtwoord beveiligde presentatie op te halen. Aspose.Slides biedt echter een mechanisme waarmee u een presentatie kunt beveiligen met een wachtwoord en tegelijkertijd gebruikers in staat stelt de eigenschappen te benaderen.
 
-**Opmerking** dat wanneer Aspose.Slides een presentatie versleutelt, de documenteigenschappen van de presentatie standaard ook met een wachtwoord worden beveiligd. Maar als je de eigenschappen van de presentatie toegankelijk wilt maken (zelfs nadat de presentatie is versleuteld), stelt Aspose.Slides je in staat om precies dat te doen. 
+**Opmerking:** Standaard, wanneer Aspose.Slides een presentatie versleutelt, worden de documenteigenschappen van de presentatie eveneens met een wachtwoord beveiligd. Als u de documenteigenschappen toegankelijk wilt houden, zelfs na versleuteling, maakt Aspose.Slides dit mogelijk.
 
-Wil je dat gebruikers de mogelijkheid behouden om de eigenschappen van een door jou versleutelde presentatie te bekijken, dan kun je de [encryptDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) eigenschap instellen op `true`. Deze voorbeeldcode laat zien hoe je een presentatie versleutelt én gebruikers toch toegang geeft tot de documenteigenschappen:
+Als u wilt dat gebruikers de eigenschappen van een versleutelde presentatie kunnen benaderen, geeft u `false` door aan [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-). Deze voorbeeldcode laat zien hoe u een presentatie versleutelt en tegelijk gebruikers toegang tot de documenteigenschappen biedt:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
     presentation.getProtectionManager().encrypt("123123");
+    presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Controleren of een presentatie wachtwoordbeveiligd is**
+## **Alleen documenteigenschappen laden van een versleutelde presentatie**
 
-Voordat je een presentatie laadt, wil je misschien controleren of de presentatie niet met een wachtwoord is beveiligd. Op deze manier kun je fouten en soortgelijke problemen vermijden die optreden wanneer een met wachtwoord beveiligde presentatie zonder wachtwoord wordt geladen.
+Om de metadata van een versleutelde presentatie te inspecteren zonder de dia's of andere inhoud te laden, maakt u een [LoadOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/loadoptions/) object en geeft u `true` door aan [setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iloadoptions/#setOnlyLoadDocumentProperties-boolean-). In deze modus negeert Aspose.Slides het wachtwoord en laadt alleen de publiek toegankelijke documenteigenschappen.
 
-Deze Java‑code laat zien hoe je een presentatie kunt onderzoeken om te bepalen of deze wachtwoordbeveiligd is (zonder de presentatie zelf te laden):
+De volgende code‑voorbeeld leest ingebouwde en aangepaste documenteigenschappen via [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--):
+
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
+
+    // Lees ingebouwde documenteigenschappen.
+    System.out.println("Title: " + documentProperties.getTitle());
+    System.out.println("Author: " + documentProperties.getAuthor());
+
+    // Lees aangepaste documenteigenschappen.
+    int customPropertyCount = documentProperties.getCountOfCustomProperties();
+
+    for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++) {
+        String propertyName = documentProperties.getCustomPropertyName(propertyIndex);
+        Object propertyValue = documentProperties.get_Item(propertyName);
+
+        System.out.println(propertyName + ": " + propertyValue);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Deze workflow werkt alleen wanneer de documenteigenschappen onbeveiligd (publiek) zijn gelaten op het moment dat de presentatie werd versleuteld. Als de documenteigenschappen versleuteld zijn, veroorzaakt het doorgeven van `true` aan `loadOptions.setOnlyLoadDocumentProperties` een uitzondering omdat het wachtwoord in deze modus wordt genegeerd. Om versleutelde documenteigenschappen te benaderen of de volledige presentatie, inclusief dia’s en andere inhoud, te laden, moet u het juiste wachtwoord opgeven via [ILoadOptions.setPassword](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-).
+
+## **Controleren of een presentatie met een wachtwoord beschermd is**
+
+Voordat u een presentatie laadt, wilt u wellicht controleren of de presentatie niet met een wachtwoord beveiligd is. Zo voorkomt u fouten en soortgelijke problemen die ontstaan wanneer een met een wachtwoord beveiligde presentatie zonder wachtwoord wordt geladen.
+
+Deze Java‑code laat zien hoe u een presentatie kunt onderzoeken om te zien of deze met een wachtwoord beschermd is (zonder de presentatie zelf te laden):
 
 ```java
 IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
@@ -200,9 +234,9 @@ System.out.println("The presentation is password protected: " + presentationInfo
 
 ## **Controleren of een presentatie versleuteld is**
 
-Aspose.Slides maakt het mogelijk te controleren of een presentatie versleuteld is. Om deze taak uit te voeren kun je de [isEncrypted](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--) eigenschap gebruiken, die `true` retourneert als de presentatie versleuteld is en `false` als de presentatie niet versleuteld is.
+Aspose.Slides maakt het mogelijk te controleren of een presentatie versleuteld is. Gebruik hiervoor de [isEncrypted](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--) eigenschap, die `true` teruggeeft als de presentatie versleuteld is of `false` als deze niet versleuteld is.
 
-Deze voorbeeldcode laat zien hoe je kunt controleren of een presentatie versleuteld is:
+Deze voorbeeldcode laat zien hoe u kunt controleren of een presentatie versleuteld is:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -215,9 +249,9 @@ try {
 
 ## **Controleren of een presentatie schrijfbeschermd is**
 
-Aspose.Slides maakt het mogelijk te controleren of een presentatie schrijfbeschermd is. Om deze taak uit te voeren kun je de [isWriteProtected](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) eigenschap gebruiken, die `true` retourneert als de presentatie schrijfbeschermd is en `false` als dit niet het geval is.
+Aspose.Slides maakt het mogelijk te controleren of een presentatie schrijfbeschermd is. Gebruik hiervoor de [isWriteProtected](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) eigenschap, die `true` teruggeeft als de presentatie schrijfbeschermd is of `false` als dit niet het geval is.
 
-Deze voorbeeldcode laat zien hoe je kunt controleren of een presentatie schrijfbeschermd is:
+Deze voorbeeldcode laat zien hoe u kunt controleren of een presentatie schrijfbeschermd is:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -230,9 +264,9 @@ try {
 
 ## **Valideren of bevestigen dat een specifiek wachtwoord is gebruikt**
 
-Je wilt misschien controleren en bevestigen dat een specifiek wachtwoord is gebruikt om een presentatiedocument te beveiligen. Aspose.Slides biedt de mogelijkheid om een wachtwoord te valideren. 
+U wilt wellicht bevestigen dat een specifiek wachtwoord is gebruikt om een presentatiedocument te beveiligen. Aspose.Slides biedt de mogelijkheid om een wachtwoord te valideren. 
 
-Deze voorbeeldcode laat zien hoe je een wachtwoord valideert:
+Deze voorbeeldcode laat zien hoe u een wachtwoord kunt valideren:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -244,22 +278,22 @@ try {
 }
 ```
 
-Het retourneert `true` als de presentatie is versleuteld met het opgegeven wachtwoord. Anders retourneert het `false`. 
+Het resultaat is `true` als de presentatie is versleuteld met het opgegeven wachtwoord. Anders is het resultaat `false`. 
 
-{{% alert color="primary" title="Zie ook" %}} 
-- [Digitale handtekening in PowerPoint](/slides/nl/androidjava/digital-signature-in-powerpoint/)
+{{% alert color="primary" title="See also" %}} 
+- [Digital Signature in PowerPoint](/slides/nl/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Welke versleutelingsmethoden ondersteunt Aspose.Slides?**
+**Welke encryptiemethoden worden ondersteund door Aspose.Slides?**
 
-Aspose.Slides ondersteunt moderne versleutelingsmethoden, waaronder AES‑gebaseerde algoritmen, waardoor een hoog niveau van gegevensbeveiliging voor je presentaties wordt gegarandeerd.
+Aspose.Slides ondersteunt moderne encryptiemethoden, waaronder AES‑gebaseerde algoritmen, wat een hoog niveau van databeveiliging voor uw presentaties garandeert.
 
-**Wat gebeurt er als een onjuist wachtwoord wordt ingevoerd bij het proberen een presentatie te openen?**
+**Wat gebeurt er als een onjuist wachtwoord wordt ingevoerd bij het openen van een presentatie?**
 
-Er wordt een uitzondering gegooid als een onjuist wachtwoord wordt gebruikt, waarmee je wordt gewaarschuwd dat de toegang tot de presentatie wordt geweigerd. Dit helpt ongeautoriseerde toegang te voorkomen en beschermt de inhoud van de presentatie.
+Er wordt een uitzondering gegooid wanneer een onjuist wachtwoord wordt gebruikt, waardoor u wordt geïnformeerd dat de toegang tot de presentatie wordt geweigerd. Dit helpt onbevoegde toegang te voorkomen en beschermt de inhoud van de presentatie.
 
-**Zijn er prestatie‑implicaties bij het werken met wachtwoordbeveiligde presentaties?**
+**Zijn er prestatie‑implicaties bij het werken met met een wachtwoord beveiligde presentaties?**
 
-Het versleutel‑ en ontsleutelingsproces kan een lichte overhead veroorzaken tijdens het openen en opslaan. In de meeste gevallen is deze performance‑impact minimaal en heeft ze geen significante invloed op de totale verwerkingstijd van je presentatietaken.
+Het versleutel‑ en ontsleutelproces kan een lichte overhead met zich meebrengen tijdens het openen en opslaan. In de meeste gevallen is deze prestatie‑impact minimaal en heeft het geen significante invloed op de totale verwerkingstijd van uw presentatietaken.

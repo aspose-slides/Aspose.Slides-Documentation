@@ -16,7 +16,7 @@ keywords:
 description: "Working solution for worksheet resizing in PowerPoint presentations using C++"
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 It has been observed that Excel worksheets embedded as OLE objects in a PowerPoint presentation through Aspose components are resized to an unidentified scale after the first activation. This behavior creates a noticeable visual difference in the presentation between the pre- and post-activation states of the OLE object. We have investigated this issue in detail and provided a solution, which is covered in this article.
 
@@ -291,7 +291,7 @@ SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int image
 
 ## **Conclusion**
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 There are two approaches to fix the worksheet resizing issue. The selection of the appropriate approach depends on the specific requirements and use case. Both approaches work the same way, whether the presentations are created from a template or from scratch. Additionally, there is no limit on the size of the OLE object frame in this solution.
 

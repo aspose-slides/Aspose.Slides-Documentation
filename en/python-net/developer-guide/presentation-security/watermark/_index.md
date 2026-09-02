@@ -61,7 +61,7 @@ with slides.Presentation() as presentation:
     watermark_frame = watermark_shape.add_text_frame(watermark_text)
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the TextFrame Class](/slides/python-net/text-formatting/)
 {{% /alert %}}
 
@@ -81,7 +81,7 @@ with slides.Presentation() as presentation:
     watermark_frame = watermark_shape.add_text_frame(watermark_text)
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the Slide Master](/slides/python-net/slide-master/)
 {{% /alert %}}
 

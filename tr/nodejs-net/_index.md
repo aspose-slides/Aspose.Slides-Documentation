@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Node.js via .NET
-second_title: "Aspose.Slides for Node.js via .NET Belgeleri"
+second_title: Aspose.Slides for Node.js
 description: Aspose.Slides for Node.js via .NET, metin, şekiller, tablolar ve animasyonları yönetme, slaytlara ses ve video ekleme, slaytları ön izleme, slaytları SVG ve PDF biçiminde dışa aktarma ve daha fazlası gibi birçok önemli özelliği sağlar.
 type: docs
 weight: 47

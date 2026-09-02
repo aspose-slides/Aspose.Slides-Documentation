@@ -21,7 +21,7 @@ keywords:
 description: "Learn how to add headers and footers in PowerPoint PPT, PPTX and ODP presentations in .NET using both legacy and modern Aspose.Slides APIs."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 A new [Aspose.Slides for .NET API](/slides/net/) has been released and now this single product supports the capability to generate PowerPoint documents from scratch and editing the existing ones.
 

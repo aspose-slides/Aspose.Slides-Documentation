@@ -28,7 +28,7 @@ This article explains how licensing works in Aspose.Slides and how to apply a li
 
 ## **Evaluate Aspose.Slides**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You can download an evaluation version of **Aspose.Slides for Android via Java** from its [download page](https://releases.aspose.com/slides/androidjava/). The evaluation version provides the same functionalities as the licensed version of the product. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
 
@@ -43,7 +43,7 @@ Every Aspose license comes with one-year subscription for free upgrades to new v
 * While Aspose.Slides evaluation version (without a license specified) provides full product functionality, it inserts an evaluation watermark at the top of the document on open and save operations. 
 * You are limited to one slide when extracting texts from presentation slides.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary License**. See the [How to get a Temporary License](https://purchase.aspose.com/temporary-license) page for more information.
 
@@ -63,7 +63,7 @@ To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary 
 
 A license can be loaded from a **file** or **stream**.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Aspose.Slides provides the [License](https://reference.aspose.com/slides/androidjava/com.aspose.slides/license/) class for licensing operations.
 

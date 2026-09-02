@@ -13,7 +13,7 @@ keywords:
 description: "Create, edit, and convert presentations in PHP — no PowerPoint needed. Aspose.Slides for PHP via Java supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for PHP via Java is a class library that enables PHP applications to read and write presentation documents without using Microsoft PowerPoint® or others. Aspose.Slides for PHP via Java allows to manage text, shapes, tables & animations, add audio and video to slides, preview slides, export slides to SVG, PDF format and more.
 

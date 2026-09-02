@@ -6,6 +6,7 @@ weight: 40
 url: /php-java/manage-paragraph/
 aliases:
   - /php-java/paragraph/
+  - /php-java/portion/
 keywords:
 - add text
 - add paragraph
@@ -25,81 +26,85 @@ keywords:
 - text to image
 - export paragraph
 - PowerPoint
-- OpenDocument
 - presentation
 - PHP
 - Aspose.Slides
-description: "Master paragraph formatting with Aspose.Slides for PHP via Java — optimize alignment, spacing & style in PPT, PPTX, and ODP presentations."
+description: "Learn how to create and format paragraphs, portions, bullets, numbered lists, indents, HTML content, and paragraph images with Aspose.Slides for PHP via Java."
 ---
 
-## **Introduction**
+## **Overview**
 
-Aspose.Slides provides all the classes you need to work with PowerPoint texts, paragraphs, and portions.
+Aspose.Slides for PHP via Java represents text as a hierarchy of text frames, paragraphs, and portions:
 
-* Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) class to allow you to add objects that represent a paragraph. A `TextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
-* Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) class to allow you to add objects that represent portions. A `Paragraph` object can have one or multiple portions (collection of portion objects).
-* Aspose.Slides provides [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) class to allow you to add objects that represent texts and their formatting properties.
+* [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) represents the text container in a shape and provides access to its paragraph collection.
+* [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) represents one paragraph in a text frame and provides access to its portions and paragraph-level formatting.
+* [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) represents a text run within a paragraph. Each portion can have its own text and character-level formatting.
 
-A `Paragraph` object is capable of handling texts with different formatting properties through its underlying `Portion` objects.
+A paragraph can therefore contain text with different fonts, colors, sizes, and other formatting by using multiple portions.
 
-## **Add Multiple Paragraphs Containing Multiple Portions**
+## **Create and Format Paragraphs**
 
-These steps show you how to add a text frame containing 3 paragraphs and each paragraph containing 3 portions:
+### **Create Paragraphs with Multiple Portions**
+
+The following steps create a text frame with three paragraphs, each containing three portions:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add a Rectangle [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-4. Get the ITextFrame associated with the [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
-5. Create two [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) objects and add them to the paragraph collection of the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-6. Create three [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) objects for each new `Paragraph` (two Portion objects for default Paragraph) and add each `Portion` object to the portion collection of each `Paragraph`.
-7. Set some text for each portion.
-8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `Portion` object.
+2. Access the relevant slide through its index.
+3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
+4. Access the shape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+5. Use the default paragraph and add two more [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) objects to the text frame.
+6. Add enough [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/portion/) objects for each paragraph to contain three portions. The default paragraph already contains one empty portion.
+7. Set the text of each portion.
+8. Apply character-level formatting through [Portion::getPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getPortionFormat--).
 9. Save the modified presentation.
 
-This PHP code is an implementation of the steps for adding paragraphs containing portions:
+This PHP example implements the steps:
 
 ```php
-# Instantiate a Presentation class that represents a PPTX file
-$pres = new Presentation();
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Accessing first slide
-    $slide = $pres->getSlides()->get_Item(0);
-    # Add an AutoShape of Rectangle type
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # Access TextFrame of the AutoShape
-    $tf = $ashp->getTextFrame();
-    # Create Paragraphs and Portions with different text formats
-    $para0 = $tf->getParagraphs()->get_Item(0);
-    $port01 = new Portion();
-    $port02 = new Portion();
-    $para0->getPortions()->add($port01);
-    $para0->getPortions()->add($port02);
-    $para1 = new Paragraph();
-    $tf->getParagraphs()->add($para1);
-    $port10 = new Portion();
-    $port11 = new Portion();
-    $port12 = new Portion();
-    $para1->getPortions()->add($port10);
-    $para1->getPortions()->add($port11);
-    $para1->getPortions()->add($port12);
-    $para2 = new Paragraph();
-    $tf->getParagraphs()->add($para2);
-    $port20 = new Portion();
-    $port21 = new Portion();
-    $port22 = new Portion();
-    $para2->getPortions()->add($port20);
-    $para2->getPortions()->add($port21);
-    $para2->getPortions()->add($port22);
-    for($i = 0; $i < 3; $i++) {
-        for($j = 0; $j < 3; $j++) {
-            $portion = $tf->getParagraphs()->get_Item($i)->getPortions()->get_Item($j);
-            $portion->setText("Portion0" . $j);
-            if ($j == 0) {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
+    $textFrame = $shape->getTextFrame();
+
+    $firstParagraph = $textFrame->getParagraphs()->get_Item(0);
+    $firstParagraph->getPortions()->add(new Portion());
+    $firstParagraph->getPortions()->add(new Portion());
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getPortions()->add(new Portion());
+    $secondParagraph->getPortions()->add(new Portion());
+    $secondParagraph->getPortions()->add(new Portion());
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->getPortions()->add(new Portion());
+    $thirdParagraph->getPortions()->add(new Portion());
+    $thirdParagraph->getPortions()->add(new Portion());
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $paragraphCount = java_values($textFrame->getParagraphs()->getCount());
+    for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+        $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+        $portionCount = java_values($paragraph->getPortions()->getCount());
+        for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+            $portion = $paragraph->getPortions()->get_Item($portionIndex);
+            $portion->setText("Portion " . ($paragraphIndex + 1) . "." . ($portionIndex + 1));
+
+            if ($portionIndex == 0) {
                 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
                 $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
                 $portion->getPortionFormat()->setFontBold(NullableBool::True);
                 $portion->getPortionFormat()->setFontHeight(15);
-            } else if ($j == 1) {
+            } else if ($portionIndex == 1) {
                 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
                 $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
                 $portion->getPortionFormat()->setFontItalic(NullableBool::True);
@@ -107,344 +112,311 @@ try {
             }
         }
     }
-    # Write PPTX to Disk
-    $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
+
+    $presentation->save("paragraphs_with_portions.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
+## **Create Bulleted and Numbered Lists**
 
-## **Manage Paragraph Bullets**
+### **Create a Bulleted or Numbered List**
 
-Bullet lists help you to organize and present information quickly and efficiently. Bulleted paragraphs are always easier to read and understand.
+Bullets and numbering make related items easier to scan. In Aspose.Slides, list settings are defined through [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/).
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
+2. Access the relevant slide through its index.
 3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the selected slide.
-4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) class.
-7. Set the bullet `Type` for the paragraph to `Symbol` and set the bullet character.
-8. Set the paragraph `Text`.
-9. Set the paragraph `Indent` for the bullet.
-10. Set a color for the bullet.
-11. Set a height of the bullet.
-12. Add the new paragraph to the `TextFrame` paragraph collection.
-13. Add the second paragraph and repeat the process given in steps 7 to 13.
-14. Save the presentation.
+4. Access the shape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+5. Remove the default paragraph from the text frame.
+6. Create a [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) for a symbol bullet.
+7. Set [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) to [BulletType::Symbol](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/) and specify the bullet character.
+8. Set the paragraph text, indent, bullet color, and bullet height.
+9. Add the paragraph to the text frame.
+10. Create a second paragraph and set [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) to [BulletType::Numbered](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/).
+11. Configure the numbered bullet style and add the paragraph to the text frame.
+12. Save the presentation.
 
-This PHP code shows you how to add a paragraph bullet:
+This PHP example creates a symbol bullet and a numbered bullet:
 
 ```php
-# Instantiates a Presentation class that represents a PPTX file
-$pres = new Presentation();
-try {
-    # Accesses the first slide
-    $slide = $pres->getSlides()->get_Item(0);
-    # Adds and accesses Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accesses the autoshape text frame
-    $txtFrm = $aShp->getTextFrame();
-    # Removes the default paragraph
-    $txtFrm->getParagraphs()->removeAt(0);
-    # Creates a paragraph
-    $para = new Paragraph();
-    # Sets a paragraph bullet style and symbol
-    $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para->getParagraphFormat()->getBullet()->setChar(8226);
-    # Sets a paragraph text
-    $para->setText("Welcome to Aspose.Slides");
-    # Sets bullet indent
-    $para->getParagraphFormat()->setIndent(25);
-    # Sets bullet color
-    $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
-    $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// set IsBulletHardColor to true to use own bullet color
+use aspose\slides\BulletType;
+use aspose\slides\ColorType;
+use aspose\slides\NullableBool;
+use aspose\slides\NumberedBulletStyle;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-    # Sets Bullet Height
-    $para->getParagraphFormat()->getBullet()->setHeight(100);
-    # Adds Paragraph to text frame
-    $txtFrm->getParagraphs()->add($para);
-    # Creates second paragraph
-    $para2 = new Paragraph();
-    # Sets paragraph bullet type and style
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
-    # Adds paragraph text
-    $para2->setText("This is numbered bullet");
-    # Sets bullet indent
-    $para2->getParagraphFormat()->setIndent(25);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// set IsBulletHardColor to true to use own bullet color
-
-    # Sets Bullet Height
-    $para2->getParagraphFormat()->getBullet()->setHeight(100);
-    # Adds Paragraph to text frame
-    $txtFrm->getParagraphs()->add($para2);
-    # Saves the modified presentation
-    $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
-}
-```
-
-
-## **Manage Picture Bullets**
-
-Bullet lists help you to organize and present information quickly and efficiently. Picture paragraphs are easy to read and understand.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) class.
-7. Load the image in [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/).
-8. Set the bullet type to [Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/#Picture) and set the image.
-9. Set the Paragraph `Text`.
-10. Set the Paragraph `Indent` for the bullet.
-11. Set a color for the bullet.
-12. Set a height for the bullet.
-13. Add the new paragraph to the `TextFrame` paragraph collection.
-14. Add the second paragraph and repeat the process based on the previous steps.
-15. Save the modified presentation.
-
-This PHP code shows you how to add and manage picture bullets:
-
-```php
-# Instantiates a Presentation class that represents a PPTX file
 $presentation = new Presentation();
 try {
-    # Accesses the first slide
     $slide = $presentation->getSlides()->get_Item(0);
-    # Instantiates the image for bullets
-    $picture;
-    $image = Images->fromFile("bullets.png");
-    try {
-        $picture = $presentation->getImages()->addImage($image);
-    } finally {
-        if (!java_is_null($image)) {
-            $image->dispose();
-        }
-    }
-    # Adds and accesses Autoshape
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accesses the autoshape textframe
-    $textFrame = $autoShape->getTextFrame();
-    # Removes the default paragraph
-    $textFrame->getParagraphs()->removeAt(0);
-    # Creates a new paragraph
-    $paragraph = new Paragraph();
-    $paragraph->setText("Welcome to Aspose.Slides");
-    # Sets paragraph bullet style and image
-    $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
-    $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
-    # Sets bullet Height
-    $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
-    # Adds paragraph to text frame
-    $textFrame->getParagraphs()->add($paragraph);
-    # Writes the presentation as a PPTX file
-    $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-    # Writes the presentation as a PPT file
-    $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
-} catch (JavaException $e) {
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $symbolParagraph = new Paragraph();
+    $symbolParagraph->setText("Welcome to Aspose.Slides");
+    $symbolParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $symbolParagraph->getParagraphFormat()->setIndent(25);
+    $symbolParagraph->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $symbolParagraph->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($symbolParagraph);
+
+    $numberedParagraph = new Paragraph();
+    $numberedParagraph->setText("This is a numbered item");
+    $numberedParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle::BulletCircleNumWDBlackPlain);
+    $numberedParagraph->getParagraphFormat()->setIndent(25);
+    $numberedParagraph->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $numberedParagraph->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($numberedParagraph);
+
+    $presentation->save("bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
+### **Use Picture Bullets**
 
-## **Manage Multilevel Bullets**
-
-Bullet lists help you to organize and present information quickly and efficiently. Multilevel bullets are easy to read and understand.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) in the new slide.
-4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) class and set the depth to 0.
-7. Create the second paragraph instance through the `Paragraph` class and set the depth set to 1.
-8. Create the third paragraph instance through the `Paragraph` class and set the depth set to 2.
-9. Create the fourth paragraph instance through the `Paragraph` class and set the depth set to 3.
-10. Add the new paragraphs to the `TextFrame` paragraph collection.
-11. Save the modified presentation.
-
-This PHP code shows you how to add and manage multilevel bullets:
-
-```php
-# Instantiates a Presentation class that represents a PPTX file
-$pres = new Presentation();
-try {
-    # Accesses the first slide
-    $slide = $pres->getSlides()->get_Item(0);
-    # Adds and accesses Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accesses the text frame of created autoshape
-    $text = $aShp->addTextFrame("");
-    # Clears the default paragraph
-    $text->getParagraphs()->clear();
-    # Adds the first paragraph
-    $para1 = new Paragraph();
-    $para1->setText("Content");
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para1->getParagraphFormat()->getBullet()->setChar(8226);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Sets the bullet level
-    $para1->getParagraphFormat()->setDepth(0);
-    # Adds the second paragraph
-    $para2 = new Paragraph();
-    $para2->setText("Second Level");
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para2->getParagraphFormat()->getBullet()->setChar('-');
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Sets the bullet level
-    $para2->getParagraphFormat()->setDepth(1);
-    # Adds the third paragraph
-    $para3 = new Paragraph();
-    $para3->setText("Third Level");
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para3->getParagraphFormat()->getBullet()->setChar(8226);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Sets the bullet level
-    $para3->getParagraphFormat()->setDepth(2);
-    # Adds the fourth paragraph
-    $para4 = new Paragraph();
-    $para4->setText("Fourth Level");
-    $para4->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para4->getParagraphFormat()->getBullet()->setChar('-');
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Sets the bullet level
-    $para4->getParagraphFormat()->setDepth(3);
-    # Adds paragraphs to collection
-    $text->getParagraphs()->add($para1);
-    $text->getParagraphs()->add($para2);
-    $text->getParagraphs()->add($para3);
-    $text->getParagraphs()->add($para4);
-    # Writes the presentation as a PPTX file
-    $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
-}
-```
-
-
-## **Manage a Paragraph with a Custom Numbered List**
-
-The [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/) class provides the [setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) method and others that allow you to manage paragraphs with custom numbering or formatting.
+Picture bullets let you use a custom image instead of a symbol or number.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-2. Access the slide containing the paragraph.
-3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-4. Access the autoshape [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) class and set [NumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) to 2.
-7. Create the second paragraph instance through the `Paragraph` class and set `NumberedBulletStartWith` to 3.
-8. Create the third paragraph instance through the `Paragraph` class and set `NumberedBulletStartWith` to 7.
-9. Add the new paragraphs to the `TextFrame` paragraph collection.
+2. Access the relevant slide through its index.
+3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) and access its [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+4. Remove the default paragraph from the text frame.
+5. Load the bullet image and add it to the presentation's image collection as a [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/).
+6. Create a [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) and set its text.
+7. Set [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType-int-) to [BulletType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/).
+8. Assign the image through [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture--) and set the bullet height.
+9. Add the paragraph to the text frame.
 10. Save the modified presentation.
 
-This PHP code shows you how to add and manage paragraphs with custom numbering or formatting:
+This PHP example creates a picture bullet:
 
 ```php
+use aspose\slides\BulletType;
+use aspose\slides\Images;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $bulletImage = Images::fromFile("bullets.png");
+    try {
+        $presentationImage = $presentation->getImages()->addImage($bulletImage);
+    } finally {
+        $bulletImage->dispose();
+    }
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $paragraph = new Paragraph();
+    $paragraph->setText("Welcome to Aspose.Slides");
+    $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
+    $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($presentationImage);
+    $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($paragraph);
+
+    $presentation->save("picture_bullet.pptx", SaveFormat::Pptx);
+    $presentation->save("picture_bullet.ppt", SaveFormat::Ppt);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Create a Multilevel List**
+
+Set [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) to place paragraphs at different levels of a list. The top level has a depth of `0`.
+
+1. Create a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) and access a slide.
+2. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) and clear the default paragraph from its text frame.
+3. Create four paragraphs and configure their bullet symbols.
+4. Set their [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth-short-) values to `0`, `1`, `2`, and `3`.
+5. Add the paragraphs to the text frame and save the presentation.
+
+This PHP example creates a four-level bulleted list:
+
+```php
+use aspose\slides\BulletType;
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->setText("Content");
+    $firstParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $firstParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $firstParagraph->getParagraphFormat()->setDepth(0);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Second level");
+    $secondParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $secondParagraph->getParagraphFormat()->getBullet()->setChar('-');
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $secondParagraph->getParagraphFormat()->setDepth(1);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("Third level");
+    $thirdParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $thirdParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $thirdParagraph->getParagraphFormat()->setDepth(2);
+
+    $fourthParagraph = new Paragraph();
+    $fourthParagraph->setText("Fourth level");
+    $fourthParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $fourthParagraph->getParagraphFormat()->getBullet()->setChar('-');
+    $fourthParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $fourthParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $fourthParagraph->getParagraphFormat()->setDepth(3);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+    $textFrame->getParagraphs()->add($fourthParagraph);
+
+    $presentation->save("multilevel_list.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Start Numbered List Items at Custom Values**
+
+Use [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) to set the initial number displayed for a numbered paragraph.
+
+1. Create a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) and add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to a slide.
+2. Clear the default paragraph from the shape's text frame.
+3. Create three numbered paragraphs.
+4. Set [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) to `2`, `3`, and `7` for the respective paragraphs.
+5. Add the paragraphs to the text frame and save the presentation.
+
+This PHP example assigns a custom starting number to each paragraph:
+
+```php
+use aspose\slides\BulletType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Accesses the text frame of created autoshape
     $textFrame = $shape->getTextFrame();
-    # Removes the default exisiting paragraph
-    $textFrame->getParagraphs()->removeAt(0);
-    # First list
-    $paragraph1 = new Paragraph();
-    $paragraph1->setText("bullet 2");
-    $paragraph1->getParagraphFormat()->setDepth(4);
-    $paragraph1->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
-    $paragraph1->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph1);
-    $paragraph2 = new Paragraph();
-    $paragraph2->setText("bullet 3");
-    $paragraph2->getParagraphFormat()->setDepth(4);
-    $paragraph2->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
-    $paragraph2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph2);
-    $paragraph5 = new Paragraph();
-    $paragraph5->setText("bullet 7");
-    $paragraph5->getParagraphFormat()->setDepth(4);
-    $paragraph5->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
-    $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph5);
-    $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->setText("Start at 2");
+    $firstParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $firstParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
+    $textFrame->getParagraphs()->add($firstParagraph);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Start at 3");
+    $secondParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $secondParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("Start at 7");
+    $thirdParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $thirdParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $presentation->save("custom_numbered_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Set First-Line Indent for a Paragraph**
+## **Control Paragraph Layout and End Properties**
 
-Use the [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) method to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
+### **Set a First-Line Indent**
 
-Use [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginleft/) when you need to move the whole paragraph. Use [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) when you need to move only the first line.
+Use [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
 
-The example below creates several paragraphs and applies different indent values to demonstrate how the first-line indent affects paragraph layout.
+Use [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) when you need to move the whole paragraph. Use [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) when you need to move only the first line.
+
+The example below creates several paragraphs and applies different [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) values to demonstrate how the first-line indent affects paragraph layout.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Access the target slide.
 3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-4. Add an empty [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) to the shape and remove the default paragraph.
-5. Create several paragraphs and set different [Indent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) values for them.
+4. Access the shape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) and remove the default paragraph.
+5. Create several paragraphs and set different [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) values for them.
 6. Add the paragraphs to the text frame.
 7. Save the modified presentation.
 
-This code shows you how to set a paragraph indent:
+This PHP code shows you how to set a paragraph indent:
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
-    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
-    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
 
-    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame = $shape->getTextFrame();
     $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    $textFrame->getParagraphs()->removeAt(0);
+    $textFrame->getParagraphs()->clear();
 
     $firstParagraph = new Paragraph();
+    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     $firstParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $firstParagraph->getParagraphFormat()->setIndent(0.0);
 
     $secondParagraph = new Paragraph();
+    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     $secondParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $secondParagraph->getParagraphFormat()->setIndent(20.0);
 
     $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     $thirdParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $thirdParagraph->getParagraphFormat()->setIndent(40.0);
 
@@ -462,50 +434,57 @@ The result:
 
 ![The first-line indent of the paragraphs](first_line_indent.png)
 
-## **Set Hanging Indent for a Paragraph**
+### **Set a Hanging Indent**
 
-A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) method. Set the indent to a negative value to move the first line to the left relative to the paragraph body.
+A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-). Pass a negative value to move the first line to the left relative to the paragraph body.
 
-In practice, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginleft/) defines the left position of the paragraph body, and [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `MarginLeft` value and a negative `Indent` value.
+In practice, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) defines the left position of the paragraph body, and [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) defines the position of the first line relative to that margin. To create a hanging indent, pass a positive value to `setMarginLeft` and a negative value to `setIndent`.
 
 This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
 2. Access the target slide.
 3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-4. Add an empty [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) to the shape and remove the default paragraph.
-5. Create paragraphs and set a positive [MarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setmarginleft/) value for each paragraph.
-6. Set a negative [Indent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setindent/) value to create the hanging indent effect.
+4. Access the shape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) and remove the default paragraph.
+5. Create paragraphs and pass a positive value to [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) for each paragraph.
+6. Pass a negative value to [ParagraphFormat::setIndent](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setIndent-float-) to create the hanging indent effect.
 7. Add the paragraphs to the text frame.
 8. Save the modified presentation.
 
-This code shows you how to set a hanging indent for a paragraph:
+This PHP code shows you how to set a hanging indent for a paragraph:
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
-    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
-    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
 
-    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame = $shape->getTextFrame();
     $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    $textFrame->getParagraphs()->removeAt(0);
+    $textFrame->getParagraphs()->clear();
 
     $firstParagraph = new Paragraph();
+    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     $firstParagraph->getParagraphFormat()->setMarginLeft(40.0);
     $firstParagraph->getParagraphFormat()->setIndent(-20.0);
 
     $secondParagraph = new Paragraph();
+    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     $secondParagraph->getParagraphFormat()->setMarginLeft(60.0);
     $secondParagraph->getParagraphFormat()->setIndent(-30.0);
 
@@ -522,169 +501,178 @@ The result:
 
 ![The hanging indent of the paragraphs](hanging_indent.png)
 
-## **Manage End Paragraph Run Properties**
+### **Set End Paragraph Run Properties**
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get the reference for the slide containing the paragraph through its position.
-1. Add a rectangle [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) with two paragraphs to the Rectangle.
-1. Set the font height and Font type for the paragraphs.
-1. Set the End properties for the paragraphs.
-1. Write the modified presentation as a PPTX file.
+[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) controls the formatting of the paragraph end mark. The following PHP example assigns a font size and Latin font to the end mark of the second paragraph:
 
-This PHP code shows you how to set the End properties for paragraphs in PowerPoint:
+1. Load a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) and access a slide.
+2. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) and clear its default paragraph.
+3. Create two paragraphs and add text portions to them.
+4. Create a [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/) for the second paragraph's end mark.
+5. Set [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) and [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Assign the format with [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) and save the presentation.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\FontData;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation("Test.pptx");
 try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
-    $para1 = new Paragraph();
-    $para1->getPortions()->add(new Portion("Sample text"));
-    $para2 = new Paragraph();
-    $para2->getPortions()->add(new Portion("Sample text 2"));
-    $portionFormat = new PortionFormat();
-    $portionFormat->setFontHeight(48);
-    $portionFormat->setLatinFont(new FontData("Times New Roman"));
-    $para2->setEndParagraphPortionFormat($portionFormat);
-    $shape->getTextFrame()->getParagraphs()->add($para1);
-    $shape->getTextFrame()->getParagraphs()->add($para2);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->getPortions()->add(new Portion("Sample text"));
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getPortions()->add(new Portion("Sample text 2"));
+
+    $endParagraphFormat = new PortionFormat();
+    $endParagraphFormat->setFontHeight(48);
+    $endParagraphFormat->setLatinFont(new FontData("Times New Roman"));
+    $secondParagraph->setEndParagraphPortionFormat($endParagraphFormat);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $presentation->save("end_paragraph_format.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
+## **Import and Export Paragraph Content**
 
-## **Import HTML Text into Paragraphs**
+### **Import HTML Text into Paragraphs**
 
-Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
+Use [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) to convert HTML markup into paragraphs and portions in a text frame.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-4. Add and access `AutoShape`'s [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-5. Remove the default paragraph in the `TextFrame`.
-6. Read the source HTML file in a TextReader.
-7. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) class.
-8. Add the HTML file content in the read TextReader to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/).
-9. Save the modified presentation.
+2. Access a slide and add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+3. Access the shape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) and clear its default paragraph.
+4. Read the source HTML file.
+5. Pass the HTML string to [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Save the modified presentation.
 
-This PHP code is an implementation of the steps for importing HTML texts in paragraphs:
+This PHP example imports HTML into a text frame:
 
 ```php
-# Create Empty presentation instance
-$pres = new Presentation();
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Acesss the default first slide of presentation
-    $slide = $pres->getSlides()->get_Item(0);
-    # Adding the AutoShape to accomodate the HTML content
-    $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
-    $ashape->getFillFormat()->setFillType(FillType::NoFill);
-    # Adding text frame to the shape
-    $ashape->addTextFrame("");
-    # Clearing all paragraphs in added text frame
-    $ashape->getTextFrame()->getParagraphs()->clear();
-    # Loading the HTML file
-    $htmlText = file_get_contents("file.html");
-    # Adding text from the HTML file in text frame
-    $ashape->getTextFrame()->getParagraphs()->addFromHtml($htmlText);
-    # Saving Presentation
-    $pres->save("output_out.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeWidth = java_values($presentation->getSlideSize()->getSize()->getWidth()) - 20;
+    $shapeHeight = java_values($presentation->getSlideSize()->getSize()->getHeight()) - 20;
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $shapeWidth, $shapeHeight);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getTextFrame()->getParagraphs()->clear();
+
+    $html = file_get_contents("file.html");
+    if ($html !== false) {
+        $shape->getTextFrame()->getParagraphs()->addFromHtml($html);
+        $presentation->save("html_text.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The HTML file could not be read.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
+### **Export Paragraph Text to HTML**
 
-## **Export Paragraph Text to HTML**
-
-Aspose.Slides provides enhanced support for exporting texts (contained in paragraphs) to HTML.
+Use [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) to export a selected range of paragraphs as HTML.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the desired presentation.
-2. Access the relevant slide's reference through its index.
-3. Access the shape containing the text that will be exported to HTML.
-4. Access the shape [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
-5. Create an instance of `StreamWriter` and add the new HTML file.
-6. Provide a starting index to StreamWriter and export your preferred paragraphs.
+2. Access the slide and find the [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) that contains the text.
+3. Access the shape's [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+4. Call [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) with the starting paragraph index and the number of paragraphs to export.
+5. Write the returned HTML string to a file.
 
-This PHP code shows you how to export PowerPoint paragraph texts to HTML:
+This PHP example exports all paragraphs from the first text shape:
 
 ```php
-# Load the presentation file
-$pres = new Presentation("ExportingHTMLText.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    # Acesss the default first slide of presentation
-    $slide = $pres->getSlides()->get_Item(0);
-    # Desired index
-    $index = 0;
-    # Accessing the added shape
-    $ashape = $slide->getShapes()->get_Item($index);
-    # Creating output HTML file
-    $os = new Java("java.io.FileOutputStream", "output.html");
-    $writer = new Java("java.io.OutputStreamWriter", $os, "UTF-8");
-    # Extracting first paragraph as HTML
-    # Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
-    $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
-    $writer->close();
-} catch (JavaException $e) {
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+        $textFrame = $shape->getTextFrame();
+        if (!java_is_null($textFrame)) {
+            $paragraphs = $textFrame->getParagraphs();
+            $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), null);
+            if (file_put_contents("paragraphs.html", $html) === false) {
+                echo "The HTML file could not be written.";
+            }
+        } else {
+            echo "The first shape does not contain a text frame.";
+        }
+    } else {
+        echo "The first shape is not a text shape.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Save a Paragraph as an Image**
+### **Render a Paragraph as an Image**
 
-In this section, we will explore two examples that demonstrate how to save a text paragraph, represented by the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) class, as an image. Both examples include obtaining the image of a shape containing the paragraph using the `getImage` methods from the [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) class, calculating the bounds of the paragraph within the shape, and exporting it as a bitmap image. These approaches allow you to extract specific parts of the text from PowerPoint presentations and save them as separate images, which can be useful for further use in various scenarios.
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) renders an individual paragraph directly and returns an [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/). Save the result to a file or stream with [IImage::save](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/#save-java.lang.String-int-). You do not need to render the containing shape or crop a bitmap manually.
+
+[Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--) can return `null` if the paragraph cannot be found in its parent collection, has no valid rendering bounds, or cannot be rendered. Check the result before saving it and dispose of the returned image after use.
+
+#### **Render a Paragraph at the Default Scale**
 
 Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-**Example 1**
-
-In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
+The following PHP example renders the second paragraph in a regular text shape at the default scale and saves the returned image in PNG format. The `finally` block ensures that the image is disposed of correctly.
 
 ```php
-$imageIO = new Java("javax.imageio.ImageIO");
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Save the shape in memory as a bitmap.
-    $shapeImage = $firstShape->getImage();
-    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-    $shapeImage->save($shapeImageStream, ImageFormat::Png);
-    $shapeImage->dispose();
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+        $textFrame = $shape->getTextFrame();
+        if (!java_is_null($textFrame) && java_values($textFrame->getParagraphs()->getCount()) > 1) {
+            $paragraph = $textFrame->getParagraphs()->get_Item(1);
+            $paragraphImage = $paragraph->getImage();
 
-    // Create a shape bitmap from memory.
-    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-    $shapeBitmap = $imageIO->read($shapeImageInputStream);
-
-    // Calculate the boundaries of the second paragraph.
-    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-    $paragraphRectangle = $secondParagraph->getRect();
-
-    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
-    $imageX = floor(java_values($paragraphRectangle->getX()));
-    $imageY = floor(java_values($paragraphRectangle->getY()));
-    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
-
-    // Crop the shape bitmap to get the paragraph bitmap only.
-    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
-
-    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-} finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
+            if (!java_is_null($paragraphImage)) {
+                try {
+                    $paragraphImage->save("paragraph.png", ImageFormat::Png);
+                } finally {
+                    $paragraphImage->dispose();
+                }
+            } else {
+                echo "The paragraph could not be rendered.";
+            }
+        } else {
+            echo "The expected paragraph was not found.";
+        }
+    } else {
+        echo "The first shape is not a text shape.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
@@ -692,71 +680,57 @@ The result:
 
 ![The paragraph image](paragraph_to_image_output.png)
 
-**Example 2**
+#### **Render a Paragraph in a Table Cell with Scaling**
 
-In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
+Use the [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage-float-float-) overload that accepts the `$scaleX` and `$scaleY` parameters to set the horizontal and vertical scale factors. The following PHP example creates a table, renders the paragraph in its first cell at twice its default width and height, and saves the result as a PNG image.
 
 ```php
-$imageIO = new Java("javax.imageio.ImageIO");
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
-$imageScaleX = 2;
-$imageScaleY = $imageScaleX;
+$scaleX = 2;
+$scaleY = 2;
 
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->addTable(50, 50, array(300), array(80));
+    $paragraph = $table->get_Item(0, 0)->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->setText("Text in a table cell");
 
-    // Save the shape in memory as a bitmap with scaling.
-    $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
-    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-    $shapeImage->save($shapeImageStream, ImageFormat::Png);
-    $shapeImage->dispose();
-
-    // Create a shape bitmap from memory.
-    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-    $shapeBitmap = $imageIO->read($shapeImageInputStream);
-
-    // Calculate the boundaries of the second paragraph.
-    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-    $paragraphRectangle = $secondParagraph->getRect();
-    $paragraphRectangle->setRect(
-            java_values($paragraphRectangle->getX()) * $imageScaleX,
-            java_values($paragraphRectangle->getY()) * $imageScaleY,
-            java_values($paragraphRectangle->getWidth()) * $imageScaleX,
-            java_values($paragraphRectangle->getHeight()) * $imageScaleY
-    );
-
-    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
-    $imageX = floor(java_values($paragraphRectangle->getX()));
-    $imageY = floor(java_values($paragraphRectangle->getY()));
-    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
-
-    // Crop the shape bitmap to get the paragraph bitmap only.
-    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
-
-    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-} finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
+    $paragraphImage = $paragraph->getImage($scaleX, $scaleY);
+    if (!java_is_null($paragraphImage)) {
+        try {
+            $paragraphImage->save("table_paragraph.png", ImageFormat::Png);
+        } finally {
+            $paragraphImage->dispose();
+        }
+    } else {
+        echo "The paragraph could not be rendered.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
+A scale factor of `1` keeps that axis at its default pixel size. For example, `2` for both factors produces an image whose width and height are approximately twice the default dimensions, resulting in four times as many pixels. Larger factors generally produce sharper text for zooming or high-resolution output, but they also increase memory use and file size. Factors below `1` produce smaller images with less detail. Use equal factors to preserve the paragraph's aspect ratio; different horizontal and vertical factors stretch the output independently.
+
+Rendering a whole shape with [Shape::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getImage--) remains useful when the output must include the shape's fill, border, or other visual context. For a paragraph-only image, use [Paragraph::getImage](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getImage--).
+
 ## **FAQ**
 
-### Can I completely disable line wrapping inside a text frame?
+**Can I completely disable line wrapping inside a text frame?**
 
-Yes. Use the text frame’s wrapping setting ([setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setwraptext/)) to turn wrapping off so lines won’t break at the frame’s edges.
+Yes. Set [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText-byte-) to disable wrapping so lines do not break at the text frame's edges.
 
-### How can I get the exact on-slide bounds of a specific paragraph?
+**How can I get the exact on-slide bounds of a specific paragraph?**
 
-You can retrieve the paragraph’s (and even a single portion’s) bounding rectangle to know its precise position and size on the slide.
+Use [Paragraph::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getRect--) to retrieve the paragraph's bounding rectangle. [Portion::getRect](https://reference.aspose.com/slides/php-java/aspose.slides/portion/#getRect--) provides the bounds of an individual portion.
 
-### Where is paragraph alignment (left/right/center/justify) controlled?
+**Where is paragraph alignment (left, right, center, or justify) controlled?**
 
-[Alignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setalignment/) is a paragraph-level setting in [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/); it applies to the whole paragraph regardless of individual portion formatting.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment-int-) is a paragraph-level setting and applies to the whole paragraph regardless of individual portion formatting.
 
-### Can I set a spell-check language for just part of a paragraph (e.g., one word)?
+**Can I set the proofing language for part of a paragraph?**
 
-Yes. The language is set at the portion level ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId)), so multiple languages can coexist within a single paragraph.
+Yes. Set [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) for individual portions, so one paragraph can contain text in multiple languages.

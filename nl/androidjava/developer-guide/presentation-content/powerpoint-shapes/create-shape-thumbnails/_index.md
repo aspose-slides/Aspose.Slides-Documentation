@@ -1,5 +1,5 @@
 ---
-title: Maak miniaturen van presentatiesvormen op Android
+title: Miniaturen van presentatievormen op Android maken
 linktitle: Vormminiaturen
 type: docs
 weight: 70
@@ -9,32 +9,34 @@ keywords:
 - vormafbeelding
 - vorm renderen
 - vormrendering
+- visuele grenzen
+- vormgrenzen
 - PowerPoint
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Genereer hoogwaardige vormminiaturen van PowerPoint-dia's met Aspose.Slides for Android via Java – eenvoudig presentatieminiaturen maken en exporteren."
+description: "Genereer hoogwaardige vormminiaturen van PowerPoint-dia's met Aspose.Slides for Android via Java - maak en exporteer eenvoudig presentatie-miniaturen."
 ---
-## **Introductie**
+## **Inleiding**
 
-Aspose.Slides for Android via Java kan worden gebruikt om presentatiebestanden te maken waarbij elke pagina overeenkomt met een dia. De dia’s kunnen worden bekeken door de presentatiebestanden te openen met Microsoft PowerPoint. Soms moeten ontwikkelaars echter de afbeeldingen van de vormen afzonderlijk bekijken in een beeldviewer. In dergelijke gevallen helpt Aspose.Slides for Android via Java hen om miniatuurafbeeldingen van de dia‑vormen te genereren.
+Aspose.Slides for Android via Java kan worden gebruikt om presentatiebestanden te maken waarbij elke pagina overeenkomt met een dia. Dia’s kunnen worden bekeken door de presentatiebestanden te openen met Microsoft PowerPoint. Soms moeten ontwikkelaars echter de afbeeldingen van de vormen apart bekijken in een afbeeldingsviewer. In zulke gevallen helpt Aspose.Slides for Android via Java hen miniatuuropnames van de dia‑vormen te genereren.
 
-In dit onderwerp laten we zien hoe je dia‑miniaturen kunt genereren in verschillende situaties:
+In dit onderwerp laten we zien hoe miniaturen van dia’s in verschillende situaties te genereren:
 
-- Een miniatuur van een vorm binnen een dia genereren.
-- Een miniatuur van een vorm voor een dia‑vorm met door de gebruiker gedefinieerde afmetingen genereren.
-- Een miniatuur van een vorm genereren binnen de grenzen van de vorm‑weergave.
+- Een vormminiatuur genereren binnen een dia.
+- Een vormminiatuur genereren voor een dia‑vorm met door de gebruiker gedefinieerde afmetingen.
+- Een vormminiatuur genereren binnen de grenzen van het uiterlijk van een vorm.
 
 ## **Miniatuur van een vorm uit een dia genereren**
-Om een miniatuur van een vorm uit een willekeurige dia te genereren met Aspose.Slides for Android via Java, doe je het volgende:
+Om een miniatuur van een vorm uit een willekeurige dia te genereren met Aspose.Slides for Android via Java, doe het volgende:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation)‑klasse.
-1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of de index.
-1. Haal via [Get the shape thumbnail image](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IShape#getImage--) de miniatuurafbeelding van de vorm van de referentiemaandia op met de standaard schaal.
-1. Sla de miniatuurafbeelding op in je gewenste beeldformaat.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation) klasse.
+2. Verkrijg de referentie van een willekeurige dia met behulp van de ID of index.
+3. [Haal de miniatuurafbeelding van de vorm op](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IShape#getImage--) van de referentie‑dia op de standaard schaal.
+4. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingformaat.
 
-Deze voorbeeldcode laat zien hoe je een miniatuur van een vorm uit een dia kunt genereren:
+Deze voorbeeldcode laat zien hoe u een miniatuur van een vorm uit een dia genereert:
 
 ```java
 // Instantieer een Presentation-klasse die het presentatiebestand vertegenwoordigt
@@ -54,15 +56,15 @@ try {
 }
 ```
 
-## **Miniatuur met door gebruiker gedefinieerde schaalfactor genereren**
-Om de miniatuur van een vorm van een dia te genereren met Aspose.Slides for Android via Java, doe je het volgende:
+## **Miniatuur met gebruikergedefinieerde schaalfactor genereren**
+Om de vormminiatuur van een dia met een door de gebruiker gedefinieerde schaalfactor te genereren met Aspose.Slides for Android via Java, doe het volgende:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation)‑klasse.
-1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of de index.
-1. Haal via [Get the shape thumbnail image](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IShape#getImage-int-float-float-) de miniatuurafbeelding van de vorm van de referentiemaandia op met door de gebruiker opgegeven afmetingen.
-1. Sla de miniatuurafbeelding op in je gewenste beeldformaat.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation) klasse.
+2. Verkrijg de referentie van een willekeurige dia met behulp van de ID of index.
+3. [Haal de miniatuurafbeelding van de vorm op](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IShape#getImage-int-float-float-) van de referentie‑dia met door de gebruiker opgegeven afmetingen.
+4. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingformaat.
 
-Deze voorbeeldcode laat zien hoe je een miniatuur van een vorm kunt genereren op basis van een gedefinieerde schaalfactor:
+Deze voorbeeldcode laat zien hoe u een vormminiatuur genereert op basis van een gedefinieerde schaalfactor:
 
 ```java
 // Instantieer een Presentation-klasse die het presentatiebestand vertegenwoordigt
@@ -82,13 +84,13 @@ try {
 }
 ```
 
-## **Miniatuur van vormweergave op basis van grenzen maken**
-Deze methode om miniaturen van vormen te maken stelt ontwikkelaars in staat om een miniatuur te genereren binnen de grenzen van de vormweergave. Hierbij worden alle vormeffecten in overweging genomen. De gegenereerde vormminiatuur wordt beperkt door de dia‑grenzen. Om een miniatuur van een dia‑vorm binnen de grenzen van de weergave te genereren, doe je het volgende:
+## **Miniatuur op basis van vormgrenzen en uiterlijk maken**
+Deze methode om miniaturen van vormen te maken stelt ontwikkelaars in staat een miniatuur te genereren binnen de grenzen van het uiterlijk van de vorm. Alle vorm‑effecten worden in aanmerking genomen. De gegenereerde vormminiatuur wordt beperkt door de dia‑grenzen. Om een miniatuur van een dia‑vorm binnen de grenzen van zijn uiterlijk te genereren, doe het volgende:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation)‑klasse.
-1. Verkrijg de referentie van een willekeurige dia met behulp van de ID of de index.
-1. Haal de miniatuurafbeelding van de referentiemaandia op met de vormgrenzen als weergave.
-1. Sla de miniatuurafbeelding op in je gewenste beeldformaat.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation) klasse.
+2. Verkrijg de referentie van een willekeurige dia met behulp van de ID of index.
+3. Haal de miniatuurafbeelding van de referentie‑dia op met vormgrenzen als uiterlijk.
+4. Sla de miniatuurafbeelding op in het door u gewenste afbeeldingformaat.
 
 Deze voorbeeldcode is gebaseerd op de bovenstaande stappen:
 
@@ -110,24 +112,59 @@ try {
 }
 ```
 
+## **De werkelijke visuele grenzen van een vorm ophalen**
+
+De frame‑eigenschappen van [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/)—zijn `getX()`, `getY()`, `getWidth()` en `getHeight()` methoden—beschrijven het rechthoekige kader dat in het presentatiemodel is opgeslagen. De inhoud die daadwerkelijk wordt gerenderd kan buiten dat frame uitsteken of een andere rechthoek beslaan die met de assen is uitgelijnd. Rotatie, contouren, pijlpuntjes, tekstlay-out en -overloop, gegenereerde SmartArt‑geometrie en andere render‑effecten kunnen het bezette gebied allemaal wijzigen.
+
+Gebruik [Shape.getVisualBounds](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shape/#getVisualBounds--) om dat bezette gebied te berekenen zonder een afbeelding te maken. De methode retourneert een [RectF](https://developer.android.com/reference/android/graphics/RectF) in diacoördinaten. Het geretourneerde rechthoekige gebied wordt niet bijgesneden tot de dia, zodat de coördinaten negatief kunnen zijn wanneer de inhoud buiten de oorsprong van de dia uitbreidt.
+
+[Shape.getVisualBounds](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shape/#getVisualBounds--) is momenteel niet gedeclareerd in de [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) interface. Houd daarom de vorm die u uit de vormcollectie van de dia haalt als een interface‑waarde en cast deze alleen wanneer u de methode aanroept.
+
+Het volgende voorbeeld haalt de frame‑ en visuele grenzen op en vergelijkt ze:
+
+```java
+Presentation presentation = new Presentation("example.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    RectF visualBounds = ((Shape) shape).getVisualBounds();
+
+    float frameLeft = shape.getX();
+    float frameTop = shape.getY();
+    float frameRight = frameLeft + shape.getWidth();
+    float frameBottom = frameTop + shape.getHeight();
+    RectF frameBounds = new RectF(frameLeft, frameTop, frameRight, frameBottom);
+
+    System.out.println("Frame bounds: " + frameBounds);
+    System.out.println("Visual bounds: " + visualBounds);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dezelfde [RectF](https://developer.android.com/reference/android/graphics/RectF) kan worden gebruikt om aangrenzende vormen uit te lijnen aan de linker‑, rechter‑, boven‑ of onderkant; voldoende ruimte te reserveren in een gegenereerde lay‑out; of om inhoud buiten een toegestane regio te detecteren. Visuele grenzen zijn vooral nuttig voor SmartArt, tekstvakken, pijlen, afbeeldingen, geroteerde vormen en groep‑vormen, waar het opgeslagen frame mogelijk niet het volledige gerenderde resultaat weergeeft.
+
+Gebruik [Shape.getVisualBounds](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shape/#getVisualBounds--) wanneer u coördinaten nodig hebt voor lay‑out of validatie en geen bitmap nodig hebt. Gebruik [IShape.getImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/#getImage--) wanneer u de vorm moet renderen. Met [ShapeThumbnailBounds](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shapethumbnailbounds/) bepaalt `ShapeThumbnailBounds.Shape` de afbeelding op basis van de vormgrenzen, inclusief contourinstellingen, terwijl `ShapeThumbnailBounds.Appearance` deze bepaalt op basis van het uiterlijk van de vorm en het resultaat beperkt tot de dia‑grenzen. In contrast retourneert [Shape.getVisualBounds](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shape/#getVisualBounds--) alleen het berekende rechthoekige gebied en bijsnijdt het niet tot de dia.
+
 ## **FAQ**
 
-**Welke beeldformaten kunnen worden gebruikt bij het opslaan van vormminiaturen?**
+**Welke afbeeldingsformaten kunnen worden gebruikt bij het opslaan van vormminiaturen?**
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imageformat/), en andere. Vormen kunnen ook worden [geëxporteerd als vector SVG](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) door de inhoud van de vorm op te slaan als SVG.
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imageformat/), en anderen. Vormen kunnen ook worden [geëxporteerd als vector‑SVG](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) door de inhoud van de vorm als SVG op te slaan.
 
 **Wat is het verschil tussen Shape‑ en Appearance‑grenzen bij het renderen van een miniatuur?**
 
 `Shape` gebruikt de geometrie van de vorm; `Appearance` houdt rekening met [visuele effecten](/slides/nl/androidjava/shape-effect/) (schaduwen, gloed, enz.).
 
-**Wat gebeurt er als een vorm gemarkeerd is als verborgen? Wordt deze nog steeds als miniatuur gerenderd?**
+**Wat gebeurt er als een vorm gemarkeerd is als verborgen? Wordt er nog steeds een miniatuur van gemaakt?**
 
-Een verborgen vorm blijft deel van het model en kan gerenderd worden; de verborgen‑vlag beïnvloedt alleen de weergave in de diavoorstelling maar verhindert niet het genereren van de afbeelding van de vorm.
+Een verborgen vorm blijft deel uitmaken van het model en kan worden gerenderd; de verborgen‑vlag beïnvloedt alleen de weergave tijdens een diavoorstelling, maar verhindert niet het genereren van de afbeelding van de vorm.
 
 **Worden groepsvormen, grafieken, SmartArt en andere complexe objecten ondersteund?**
 
-Ja. Elk object dat wordt weergegeven als Shape (inclusief GroupShape, Chart en SmartArt) kan worden opgeslagen als miniatuur of als SVG.
+Ja. Elk object dat wordt weergegeven als [Shape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/shape/) (inclusief [GroupShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chart/) en [SmartArt](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/smartart/)) kan worden opgeslagen als miniatuur of als SVG.
 
-**Hebben systeembrede geïnstalleerde lettertypen invloed op de kwaliteit van miniaturen van tekstvormen?**
+**Hebben systeem‑geïnstalleerde lettertypen invloed op de kwaliteit van miniaturen voor tekstvormen?**
 
-Ja. Je moet de benodigde lettertypen [aanleveren](/slides/nl/androidjava/custom-font/) (of [lettertype‑vervangingen configureren](/slides/nl/androidjava/font-substitution/)) om ongewenste fallback‑lettertypen en tekst‑reflow te voorkomen.
+Ja. U moet [de vereiste lettertypen leveren](/slides/nl/androidjava/custom-font/) (of [lettertype‑substitutie configureren](/slides/nl/androidjava/font-substitution/)) om ongewenste fallback‑lettertypen en tekst‑reflow te voorkomen.

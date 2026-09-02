@@ -35,7 +35,7 @@ A hyperlink is a reference to an object or data or a place in something. These a
 
 Aspose.Slides for Android via Java allows you to perform many tasks involving hyperlinks in presentations.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 You may want to check out Aspose simple, [free online PowerPoint editor.](https://products.aspose.app/slides/editor)
 
@@ -163,7 +163,7 @@ try {
 }
 ```
 
-{{%  alert  title="Tip"  color="primary"  %}} 
+{{%  alert  title="Tip"  color="info"  %}} 
 
 You may want to see *[Manage OLE](/slides/androidjava/manage-ole/)*.
 

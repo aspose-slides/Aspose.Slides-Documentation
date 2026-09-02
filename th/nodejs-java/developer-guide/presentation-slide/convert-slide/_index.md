@@ -1,5 +1,5 @@
 ---
-title: แปลงสไลด์การนำเสนอเป็นภาพใน JavaScript
+title: แปลงสไลด์งานนำเสนอเป็นภาพใน JavaScript
 linktitle: สไลด์เป็นภาพ
 type: docs
 weight: 35
@@ -11,39 +11,39 @@ keywords:
 - บันทึกสไลด์เป็นภาพ
 - สไลด์เป็น PNG
 - สไลด์เป็น JPEG
-- สไลด์เป็นบิทแมป
+- สไลด์เป็นบิตแมพ
 - สไลด์เป็น TIFF
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "แปลงสไลด์จาก PPT, PPTX และ ODP เป็นภาพใน JavaScript ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java — การแสดงผลที่รวดเร็วและคุณภาพสูง พร้อมตัวอย่างโค้ดที่ชัดเจน."
+description: "แปลงสไลด์จาก PPT, PPTX และ ODP ไปเป็นภาพใน JavaScript โดยใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java — การเรนเดอร์ที่รวดเร็วและคุณภาพสูงพร้อมตัวอย่างโค้ดที่ชัดเจน."
 ---
 ## **บทนำ**
 
-Aspose.Slides for Node.js via Java ช่วยให้คุณแปลงสไลด์การนำเสนอ PowerPoint และ OpenDocument ไปเป็นรูปแบบภาพต่าง ๆ ได้อย่างง่ายดาย รวมถึง BMP, PNG, JPG (JPEG), GIF และอื่น ๆ
+Aspose.Slides for Node.js via Java ช่วยให้คุณสามารถแปลงสไลด์งานนำเสนอ PowerPoint และ OpenDocument ไปเป็นรูปแบบภาพต่างๆ ได้อย่างง่ายดาย รวมถึง BMP, PNG, JPG (JPEG), GIF และอื่นๆ
 
-เพื่อแปลงสไลด์เป็นรูปภาพ ให้ทำตามขั้นตอนต่อไปนี้:
+เพื่อแปลงสไลด์เป็นภาพ ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. กำหนดการตั้งค่าการแปลงที่ต้องการและเลือกสไลด์ที่คุณต้องการส่งออกโดยใช้:
+1. กำหนดค่าการแปลงที่ต้องการและเลือกสไลด์ที่ต้องการส่งออกโดยใช้:
     - คลาส [TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) หรือ
     - คลาส [RenderingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/renderingoptions/)
 2. สร้างภาพสไลด์โดยเรียกใช้เมธอด [getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage)
 
-ใน Aspose.Slides for Node.js via Java, [IImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/iimage/) คือคลาสที่ช่วยให้คุณทำงานกับภาพที่กำหนดโดยข้อมูลพิกเซล คุณสามารถใช้คลาสนี้เพื่อบันทึกภาพในรูปแบบที่หลากหลาย (BMP, JPG, PNG เป็นต้น)
+ใน Aspose.Slides for Node.js via Java, คลาส [IImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/iimage/) เป็นคลาสที่ให้คุณทำงานกับภาพที่กำหนดโดยข้อมูลพิกเซล คุณสามารถใช้คลาสนี้เพื่อบันทึกภาพในหลายรูปแบบ (BMP, JPG, PNG ฯลฯ)
 
-## **แปลงสไลด์เป็นบิทแมปและบันทึกรูปภาพเป็น PNG**
+## **แปลงสไลด์เป็นบิตแมพและบันทึกภาพเป็น PNG**
 
-คุณสามารถแปลงสไลด์เป็นออบเจกต์บิทแมปและใช้โดยตรงในแอปพลิเคชันของคุณ หรือคุณสามารถแปลงสไลด์เป็นบิทแมปแล้วบันทึกรูปภาพเป็น JPEG หรือรูปแบบอื่นที่คุณต้องการ
+คุณสามารถแปลงสไลด์เป็นออบเจ็กต์บิตแมพและใช้โดยตรงในแอปพลิเคชันของคุณ หรือคุณสามารถแปลงสไลด์เป็นบิตแมพแล้วบันทึกภาพเป็น JPEG หรือรูปแบบอื่นที่ต้องการ
 
-โค้ด JavaScript ตัวอย่างนี้แสดงวิธีแปลงสไลด์แรกของการนำเสนอเป็นออบเจกต์บิทแมปและจากนั้นบันทึกรูปภาพเป็นรูปแบบ PNG:
+โค้ด JavaScript นี้แสดงวิธีแปลงสไลด์แรกของงานนำเสนอเป็นออบเจ็กต์บิตแมพและบันทึกภาพในรูปแบบ PNG:
 
 ```js
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // แปลงสไลด์แรกในงานนำเสนอเป็นบิทแมป.
+    // แปลงสไลด์แรกในงานนำเสนอเป็นบิตแมพ.
     let image = presentation.getSlides().get_Item(0).getImage();
     try {
         // บันทึกภาพในรูปแบบ PNG.
@@ -58,16 +58,16 @@ try {
 
 ## **แปลงสไลด์เป็นภาพด้วยขนาดที่กำหนดเอง**
 
-คุณอาจต้องการภาพที่มีขนาดเฉพาะ โดยใช้ overload ของเมธอด [getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage) คุณสามารถแปลงสไลด์เป็นภาพด้วยมิติที่กำหนด (ความกว้างและความสูง)
+คุณอาจต้องการภาพที่มีขนาดเฉพาะ โดยใช้ overload ของเมธอด [getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/#getImage) คุณสามารถแปลงสไลด์เป็นภาพโดยกำหนดความกว้างและความสูงที่ต้องการได้
 
-โค้ดตัวอย่างนี้แสดงวิธีทำเช่นนั้น:
+โค้ดตัวอย่างนี้แสดงวิธีทำเช่นนี้:
 
 ```js
 let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // แปลงสไลด์แรกในงานนำเสนอเป็นบิทแมปด้วยขนาดที่ระบุ.
+    // แปลงสไลด์แรกในงานนำเสนอเป็นบิตแมพด้วยขนาดที่ระบุ.
     let image = presentation.getSlides().get_Item(0).getImage(imageSize);
     try {
         // บันทึกภาพในรูปแบบ JPEG.
@@ -80,28 +80,28 @@ try {
 }
 ```
 
-## **แปลงสไลด์ที่มีบันทึกและคอมเมนต์เป็นภาพ**
+## **แปลงสไลด์พร้อมบันทึกย่อและความคิดเห็นเป็นภาพ**
 
-บางสไลด์อาจมีบันทึกและคอมเมนต์
+บางสไลด์อาจมีบันทึกย่อและความคิดเห็น
 
-Aspose.Slides มีสองคลาส—[TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) และ [RenderingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/renderingoptions/)—ที่ให้คุณควบคุมการเรนเดอร์สไลด์การนำเสนอเป็นภาพ ทั้งสองคลาสมีเมธอด `setSlidesLayoutOptions` ซึ่งช่วยให้คุณกำหนดการเรนเดอร์ของบันทึกและคอมเมนต์บนสไลด์เมื่อแปลงเป็นภาพ
+Aspose.Slides มีคลาสสองคลาส—[TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) และ [RenderingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/renderingoptions/)—ที่ให้คุณควบคุมการแปลงสไลด์งานนำเสนอเป็นภาพ ทั้งสองคลาสมีเมธอด `setSlidesLayoutOptions` ซึ่งช่วยให้คุณกำหนดการแปลงบันทึกย่อและความคิดเห็นบนสไลด์เมื่อแปลงเป็นภาพ
 
-ด้วยคลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notescommentslayoutingoptions/) คุณสามารถระบุตำแหน่งที่ต้องการสำหรับบันทึกและคอมเมนต์ในภาพผลลัพธ์ได้
+ด้วยคลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notescommentslayoutingoptions/) คุณสามารถระบุตำแหน่งที่ต้องการสำหรับบันทึกย่อและความคิดเห็นในภาพที่ได้
 
-โค้ด JavaScript ตัวอย่างนี้แสดงวิธีแปลงสไลด์ที่มีบันทึกและคอมเมนต์:
+โค้ด JavaScript นี้แสดงวิธีแปลงสไลด์พร้อมบันทึกย่อและความคิดเห็น:
 
 ```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// โหลดไฟล์งานนำเสนอ.
+// Load a presentation file.
 let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // ตั้งค่าตำแหน่งของบันทึก.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // ตั้งค่าตำแหน่งของคอมเมนต์.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // ตั้งค่าความกว้างของพื้นที่คอมเมนต์.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // ตั้งค่าสีสำหรับพื้นที่คอมเมนต์.
+    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // กำหนดตำแหน่งของบันทึกย่อ.
+    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // กำหนดตำแหน่งของความคิดเห็น.
+    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // กำหนดความกว้างของพื้นที่ความคิดเห็น.
+    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // กำหนดสีสำหรับพื้นที่ความคิดเห็น.
 
     // สร้างตัวเลือกการเรนเดอร์.
     let options = new aspose.slides.RenderingOptions();
@@ -120,17 +120,15 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-ในการแปลงสไลด์เป็นภาพใด ๆ เมธอด [setNotesPosition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) ไม่สามารถใช้ค่า `BottomFull` (เพื่อระบุตำแหน่งของบันทึก) ได้ เนื่องจากข้อความของบันทึกอาจยาวเกินไป ทำให้ไม่สามารถใส่ลงในขนาดภาพที่กำหนดได้.
-
+{{% alert title="หมายเหตุ" color="warning" %}} 
+ในกระบวนการแปลงสไลด์เป็นภาพใดๆ เมธอด [setNotesPosition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) ไม่สามารถใช้ค่า `BottomFull` (เพื่อระบุตำแหน่งของบันทึกย่อ) เนื่องจากข้อความของบันทึกย่ออาจยาวเกินไป ทำให้ไม่สามารถใส่ลงในขนาดภาพที่ระบุได้.
 {{% /alert %}} 
 
-## **แปลงสไลด์เป็นภาพโดยใช้ TIFF Options**
+## **แปลงสไลด์เป็นภาพโดยใช้ตัวเลือก TIFF**
 
-คลาส [TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) ให้การควบคุมที่ละเอียดขึ้นสำหรับภาพ TIFF ผลลัพธ์โดยให้คุณระบุพารามิเตอร์ต่าง ๆ เช่น ขนาด, ความละเอียด, พาเลตสี และอื่น ๆ
+คลาส [TiffOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/tiffoptions/) ให้การควบคุมที่มากขึ้นสำหรับภาพ TIFF ที่ได้โดยให้คุณระบุพารามิเตอร์ต่างๆ เช่น ขนาด ความละเอียด พาเลตสี ฯลฯ
 
-โค้ด JavaScript ตัวอย่างนี้แสดงกระบวนการแปลงโดยใช้ตัวเลือก TIFF เพื่อสร้างภาพขาว-ดำที่มีความละเอียด 300 DPI และขนาด 2160 × 2800:
+โค้ด JavaScript นี้แสดงกระบวนการแปลงที่ใช้ตัวเลือก TIFF เพื่อสร้างภาพขาว-ดำด้วยความละเอียด 300 DPI และขนาด 2160 × 2800:
 
 ```js
 // โหลดไฟล์งานนำเสนอ.
@@ -139,12 +137,12 @@ try {
     // ดึงสไลด์แรกจากงานนำเสนอ.
     let slide = presentation.getSlides().get_Item(0);
 
-    // กำหนดการตั้งค่าภาพ TIFF ที่ส่งออก.
+    // ตั้งค่าการกำหนดของภาพ TIFF ที่ส่งออก.
     let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // ตั้งค่าขนาดของภาพ.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // ตั้งค่ารูปแบบพิกเซล (ขาวดำ).
-    tiffOptions.setDpiX(300);                                                          // ตั้งความละเอียดแนวนอน.
-    tiffOptions.setDpiY(300);                                                          // ตั้งความละเอียดแนวตั้ง.
+    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // กำหนดขนาดของภาพ.
+    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // กำหนดรูปแบบพิกเซล (ขาวดำ).
+    tiffOptions.setDpiX(300);                                                          // กำหนดความละเอียดแนวนอน.
+    tiffOptions.setDpiY(300);                                                          // กำหนดความละเอียดแนวตั้ง.
 
     // แปลงสไลด์เป็นภาพด้วยตัวเลือกที่ระบุ.
     let image = slide.getImage(tiffOptions);
@@ -159,15 +157,13 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-การสนับสนุน TIFF ไม่รับประกันในเวอร์ชันก่อน JDK 9.
-
+{{% alert title="หมายเหตุ" color="warning" %}} 
+การสนับสนุน Tiff ไม่รับประกันในเวอร์ชันที่ต่ำกว่า JDK 9.
 {{% /alert %}} 
 
 ## **แปลงสไลด์ทั้งหมดเป็นภาพ**
 
-Aspose.Slides ช่วยให้คุณแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นภาพ ซึ่งทำให้การแปลงงานนำเสนอทั้งหมดเป็นชุดของภาพได้อย่างมีประสิทธิภาพ
+Aspose.Slides ทำให้คุณสามารถแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นภาพได้ ทำให้งานนำเสนอทั้งหมดแปลงเป็นชุดของภาพ
 
 โค้ดตัวอย่างนี้แสดงวิธีแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นภาพด้วย JavaScript:
 
@@ -177,7 +173,7 @@ const scaleY = scaleX;
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // เรนเดอร์งานนำเสนอเป็นภาพแต่ละสไลด์.
+    // เรนเดอร์งานนำเสนอเป็นภาพสไลด์ต่อสไลด์.
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         // ควบคุมสไลด์ที่ซ่อน (ไม่เรนเดอร์สไลด์ที่ซ่อน).
         if (presentation.getSlides().get_Item(i).getHidden()) {
@@ -198,16 +194,22 @@ try {
 }
 ```
 
+## **การแสดงผลอีโมจีสี**
+
+{{% alert title="หมายเหตุ" color="warning" %}} 
+เพื่อให้การแสดงผลอีโมจีสีถูกต้องเมื่อแปลงสไลด์งานนำเสนอเป็นภาพ ฟอนต์อีโมจีที่ใช้ในงานนำเสนอต้องถูกติดตั้งและพร้อมใช้งานบนระบบที่ทำการแปลง ตัวอย่างเช่น หากงานนำเสนอใช้ **Segoe UI Emoji** แต่ฟอนต์นี้หายไป อีโมจีอาจแสดงเป็นสีเดียวในภาพผลลัพธ์.
+{{% /alert %}} 
+
 ## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับการเรนเดอร์สไลด์ที่มีแอนิเมชันหรือไม่?**
+**Aspose.Slides รองรับการแสดงสไลด์พร้อมแอนิเมชันหรือไม่?**
 
-ไม่, เมธอด `getImage` จะบันทึกเฉพาะภาพนิ่งของสไลด์เท่านั้น ไม่รวมแอนิเมชัน.
+ไม่, เมธอด `getImage` จะบันทึกเฉพาะภาพนิ่งของสไลด์เท่านั้น ไม่มีแอนิเมชัน.
 
-**สไลด์ที่ซ่อนสามารถส่งออกเป็นภาพได้หรือไม่?**
+**สามารถส่งออกสไลด์ที่ซ่อนเป็นภาพได้หรือ?**
 
-ได้, สไลด์ที่ซ่อนสามารถประมวลผลได้เช่นเดียวกับสไลด์ทั่วไป เพียงให้แน่ใจว่ามีการรวมสไลด์เหล่านั้นในลูปการประมวลผล.
+ได้, สไลด์ที่ซ่อนสามารถประมวลผลได้เหมือนสไลด์ปกติ เพียงตรวจสอบให้แน่ใจว่าถูกรวมในลูปการประมวลผล
 
-**สามารถบันทึกรูปภาพพร้อมเงาและเอฟเฟกต์ได้หรือไม่?**
+**สามารถบันทึกภาพพร้อมเงาและเอฟเฟกต์ได้หรือ?**
 
-ได้, Aspose.Slides รองรับการเรนเดอร์เงา, ความโปร่งแสง, และเอฟเฟกต์กราฟิกอื่น ๆ เมื่อบันทึกสไลด์เป็นภาพ.
+ได้, Aspose.Slides รองรับการแสดงเงา ความโปร่งแสง และเอฟเฟกต์กราฟิกอื่นๆ เมื่อบันทึกสไลด์เป็นภาพ.

@@ -51,7 +51,7 @@ It is also possible to [remove](https://reference.aspose.com/slides/java/com.asp
 
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) can be used to organize a list of [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) objects, when there is a need to specify fallback font replacement rules for multiple Unicode ranges.
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [Create Fallback Fonts Collection](/slides/java/create-fallback-fonts-collection/)
 {{% /alert %}}
 

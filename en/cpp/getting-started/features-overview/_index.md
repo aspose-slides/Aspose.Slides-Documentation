@@ -11,7 +11,6 @@ keywords:
 - file format
 - conversion
 - rendering
-- printing
 - formatting
 - PowerPoint
 - OpenDocument
@@ -31,7 +30,7 @@ Aspose.Slides forC++ supports most of the PowerPoint document formats and also e
 |[XML Parser Specification (XPS)](/slides/cpp/xml-parser-specification-xps/)|All of the supported file formats can be exported to XML Parser Specification (XPS) documents with a single method.|
 |[PresentationML (PPTX, XML)](/slides/cpp/presentationml-pptx-xml/)|Aspose.Slides for C++ supports the processing of OOXML presentation format also known as PresentationML or PPTX.|
 |[PPTX To HTML Conversion](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-html/)|Aspose.Slides for C++ supports the conversion of Presentation to HTML format.|
-## **Rendering**
+## **Presentation Rendering**
 Aspose.Slides for C++ supports high fidelity rendering of slides in the presentation documents to various graphics formats as listed below:
 
 |**Feature**|**Description**|

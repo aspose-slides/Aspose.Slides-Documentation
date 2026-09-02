@@ -1,5 +1,5 @@
 ---
-title: Quản lý khung video trong bài thuyết trình trên .NET
+title: Quản lý khung video trong các bài thuyết trình trên .NET
 linktitle: Khung Video
 type: docs
 weight: 10
@@ -18,49 +18,49 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Học cách thêm và trích xuất khung video một cách lập trình trong các slide PowerPoint và OpenDocument bằng Aspose.Slides cho .NET. Hướng dẫn nhanh."
+description: "Học cách lập trình thêm và trích xuất khung video trong các slide PowerPoint và OpenDocument bằng Aspose.Slides cho .NET. Hướng dẫn nhanh cách thực hiện."
 ---
 ## **Giới thiệu**
 
-Một video được đặt hợp lý trong bài thuyết trình có thể làm cho thông điệp của bạn hấp dẫn hơn và tăng mức độ tương tác với khán giả. 
+Một video được đặt đúng chỗ trong bài thuyết trình có thể làm thông điệp của bạn trở nên thuyết phục hơn và tăng mức độ tương tác với khán giả. 
 
 PowerPoint cho phép bạn thêm video vào một slide trong bài thuyết trình theo hai cách:
 
-* Thêm hoặc nhúng video cục bộ (được lưu trên máy của bạn)
+* Thêm hoặc nhúng video cục bộ (lưu trên máy của bạn)
 * Thêm video trực tuyến (từ nguồn web như YouTube).
 
-Để cho phép bạn thêm video (đối tượng video) vào bài thuyết trình, Aspose.Slides cung cấp giao diện [IVideo](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideo/) , giao diện [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) và các kiểu liên quan khác. 
+Để cho phép bạn thêm video (đối tượng video) vào bài thuyết trình, Aspose.Slides cung cấp giao diện [IVideo](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideo/) , giao diện [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) , và các kiểu liên quan khác. 
 
-## **Tạo khung video nhúng**
+## **Tạo Khung Video Nhúng**
 
-Nếu tệp video bạn muốn thêm vào slide được lưu trữ cục bộ, bạn có thể tạo một khung video để nhúng video vào bài thuyết trình. 
+Nếu tệp video bạn muốn thêm vào slide được lưu cục bộ, bạn có thể tạo một khung video để nhúng video vào bài thuyết trình. 
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation).
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) .
+2. Lấy tham chiếu của slide thông qua chỉ mục của nó. 
 3. Thêm một đối tượng [IVideo](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideo/) và truyền đường dẫn tệp video để nhúng video vào bài thuyết trình. 
 4. Thêm một đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) để tạo khung cho video.  
 5. Lưu bài thuyết trình đã chỉnh sửa. 
 
-Đoạn mã C# sau đây cho bạn thấy cách thêm video được lưu cục bộ vào bài thuyết trình:
+Đoạn mã C# sau cho bạn thấy cách thêm video được lưu cục bộ vào bài thuyết trình:
 
 ```c#
- // Khởi tạo lớp Presentation
- using (Presentation pres = new Presentation("pres.pptx"))
- {
-     // Tải video
-     using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
-     {
-         IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-         
-         // Lấy slide đầu tiên và thêm khung video
-         pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
-         
-         // Lưu bài thuyết trình vào đĩa
-         pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
-     }
- }
+// Khởi tạo lớp Presentation
+using (Presentation pres = new Presentation("pres.pptx"))
+{
+    // Tải video
+    using (FileStream fileStream = new FileStream("Wildlife.mp4", FileMode.Open, FileAccess.Read))
+    {
+        IVideo video = pres.Videos.AddVideo(fileStream, LoadingStreamBehavior.KeepLocked);
+        
+        // Lấy slide đầu tiên và thêm một khung video
+        pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
+        
+        // Lưu bài thuyết trình vào đĩa
+        pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
+    }
+}
 ```
-Ngoài ra, bạn có thể thêm video bằng cách truyền trực tiếp đường dẫn tệp của nó vào phương thức [AddVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addvideoframe/) :
+Ngoài ra, bạn có thể thêm video bằng cách truyền trực tiếp đường dẫn tệp vào phương thức [AddVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addvideoframe/) :
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -71,21 +71,21 @@ using (Presentation pres = new Presentation())
 ```
 
 
-## **Tạo khung video với video từ nguồn web**
-Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) hỗ trợ video YouTube trong các bài thuyết trình. Nếu video bạn muốn sử dụng có sẵn trực tuyến (ví dụ trên YouTube), bạn có thể thêm nó vào bài thuyết trình thông qua liên kết web của nó. 
+## **Tạo Khung Video với Video từ Nguồn Web**
+Các phiên bản mới hơn của Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) hỗ trợ video trực tuyến trong bài thuyết trình. Nếu video bạn muốn sử dụng có sẵn trên mạng (ví dụ trên YouTube), bạn có thể thêm nó vào bài thuyết trình thông qua liên kết web.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation)
-2. Lấy tham chiếu của một slide thông qua chỉ mục của nó. 
-3. Thêm một đối tượng [IVideo](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideo/) và truyền liên kết đến video.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) .
+2. Lấy tham chiếu của slide thông qua chỉ mục của nó. 
+3. Thêm một đối tượng [IVideo](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideo/) và truyền liên kết tới video.
 4. Đặt hình thu nhỏ cho khung video. 
 5. Lưu bài thuyết trình. 
 
-Đoạn mã C# sau đây cho bạn thấy cách thêm video từ web vào slide trong bài thuyết trình PowerPoint:
+Đoạn mã C# sau cho bạn thấy cách thêm video từ web vào một slide trong bài thuyết trình PowerPoint:
 
 ```c#
 public static void Run()
 {
-    // Khởi tạo một đối tượng Presentation đại diện cho tệp bài thuyết trình 
+    // Khởi tạo một đối tượng Presentation đại diện cho tệp bài thuyết trình
     using (Presentation pres = new Presentation())
     {
         AddVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -108,17 +108,71 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
-## **Quản lý phụ đề video**
+## **Cắt Bớt Khung Video**
+
+Aspose.Slides cho phép bạn kiểm soát phần nào của video sẽ được phát bằng cách đặt giá trị trim-from-start và trim-from-end thông qua [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/trimfromstart/) và [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/trimfromend/). Cả hai giá trị đều được chỉ định bằng mili giây và xác định thời lượng bỏ qua từ đầu và cuối video, tương ứng. Các cài đặt này thay đổi cách phát video trong bài thuyết trình; chúng không cắt hay thay đổi dữ liệu nhị phân của video đã nhúng.
+
+**Đặt Cài Đặt Cắt Bớt**
+
+Để tạo một khung video và đặt cài đặt cắt bớt:
+
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
+2. Thêm một đối tượng [IVideo](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideo/) vào bài thuyết trình.
+3. Thêm một đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) vào một slide.
+4. Đặt giá trị trim-from-start và trim-from-end thông qua [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/trimfromstart/) và [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/trimfromend/) .
+5. Lưu bài thuyết trình đã chỉnh sửa.
+
+Đoạn mã mẫu dưới đây bỏ qua 2,5 giây đầu và 1 giây cuối của video đã nhúng khi phát:
+
+```cs
+using var presentation = new Presentation();
+
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
+
+var slide = presentation.Slides[0];
+var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
+
+videoFrame.TrimFromStart = 2500f;
+videoFrame.TrimFromEnd = 1000f;
+
+presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
+```
+
+**Đọc Cài Đặt Cắt Bớt**
+
+Để kiểm tra cài đặt cắt bớt hiện có, tải một bài thuyết trình, tìm đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) trong các hình dạng trên slide đầu tiên, và đọc các giá trị thông qua [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/trimfromstart/) và [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/trimfromend/) .
+
+Đoạn mã mẫu dưới đây tìm khung video đầu tiên trên slide đầu tiên và báo cáo cài đặt cắt bớt của nó bằng mili giây:
+
+```cs
+using var presentation = new Presentation("video_with_trim.pptx");
+
+var slide = presentation.Slides[0];
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        var trimFromStart = videoFrame.TrimFromStart;
+        var trimFromEnd = videoFrame.TrimFromEnd;
+
+        Console.WriteLine($"Trim from start: {trimFromStart} ms");
+        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
+
+        break;
+    }
+}
+```
+
+## **Quản Lý Phụ Đề Video**
 
 Aspose.Slides cho phép bạn quản lý phụ đề đóng cho các khung video trong bài thuyết trình PowerPoint. Phụ đề được lưu ở định dạng WebVTT và được truy cập thông qua thuộc tính [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/captiontracks/) .
 
-**Thêm phụ đề vào khung video**
-
-Để thêm phụ đề vào khung video:
+**Thêm Phụ Đề vào Khung Video**
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .
 2. Thêm một video vào bài thuyết trình.
-3. Thêm một đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) vào slide.
+3. Thêm một đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) vào một slide.
 4. Sử dụng bộ sưu tập [CaptionTracks](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/captiontracks/) để thêm một track phụ đề WebVTT.
 5. Lưu bài thuyết trình đã chỉnh sửa.
 
@@ -140,11 +194,9 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Giao diện [ICaptionsCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/icaptionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một stream.
+Giao diện [ICaptionsCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/icaptionscollection/) cũng cung cấp một overload cho phép bạn thêm phụ đề từ một luồng.
 
-**Trích xuất phụ đề từ khung video**
-
-Để trích xuất phụ đề từ khung video:
+**Trích Xuất Phụ Đề từ Khung Video**
 
 1. Tải bài thuyết trình chứa video.
 2. Tìm đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) mục tiêu.
@@ -174,9 +226,7 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 
 Mỗi đối tượng [ICaptions](https://reference.aspose.com/slides/vi/net/aspose.slides/icaptions/) cung cấp định danh phụ đề, nhãn, dữ liệu nhị phân và văn bản phụ đề dưới dạng chuỗi UTF-8.
 
-**Xóa phụ đề khỏi khung video**
-
-Để xóa phụ đề khỏi khung video:
+**Xóa Phụ Đề khỏi Khung Video**
 
 1. Tải bài thuyết trình chứa video.
 2. Lấy đối tượng [IVideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ivideoframe/) mục tiêu.
@@ -191,7 +241,7 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
     ISlide slide = presentation.Slides[0];
     IVideoFrame videoFrame = slide.Shapes[0] as IVideoFrame;
 
-    // Xóa tất cả phụ đề khỏi khung video.
+    // Xóa toàn bộ phụ đề khỏi khung video.
     videoFrame.CaptionTracks.Clear();
 
     presentation.Save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -200,18 +250,18 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 
 Nếu bạn cần xóa chỉ một track phụ đề, hãy sử dụng phương thức [Remove](https://reference.aspose.com/slides/vi/net/aspose.slides/captionscollection/remove/) hoặc [RemoveAt](https://reference.aspose.com/slides/vi/net/aspose.slides/captionscollection/removeat/) thay vì [Clear](https://reference.aspose.com/slides/vi/net/aspose.slides/captionscollection/clear/) .
 
-## **Trích xuất video từ slide**
-Ngoài việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video đã nhúng trong các bài thuyết trình.
+## **Trích Xuất Video từ Slide**
+Bên cạnh việc thêm video vào slide, Aspose.Slides cho phép bạn trích xuất video đã nhúng trong bài thuyết trình.
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation) để tải bài thuyết trình chứa video. 
 2. Duyệt qua tất cả các đối tượng [ISlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide) .
 3. Duyệt qua tất cả các đối tượng [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape) để tìm một [VideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe) . 
 4. Lưu video vào đĩa.
 
-Đoạn mã C# sau đây cho bạn thấy cách trích xuất video trên một slide của bài thuyết trình:
+Đoạn mã C# sau cho bạn thấy cách trích xuất video trên một slide của bài thuyết trình:
 
 ```c#
-// Khởi tạo một đối tượng Presentation đại diện cho tệp bài thuyết trình 
+// Khởi tạo một đối tượng Presentation đại diện cho một tệp bài thuyết trình 
 Presentation presentation = new Presentation("Video.pptx");
 
 // Duyệt qua các slide
@@ -239,18 +289,18 @@ foreach (ISlide slide in presentation.Slides)
 
 ## **Câu hỏi thường gặp**
 
-**Các tham số phát lại video nào có thể được thay đổi cho VideoFrame?**
+**Các tham số phát video nào có thể thay đổi cho VideoFrame?**
 
-Bạn có thể kiểm soát [chế độ phát lại](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe/playmode/) (tự động hoặc khi nhấp) và [lặp lại](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe/playloopmode/) . Các tùy chọn này có sẵn qua các thuộc tính của đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe/) .
+Bạn có thể kiểm soát [chế độ phát](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe/playmode/) (tự động hoặc khi nhấp) và [lặp lại](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe/playloopmode/) . Các tùy chọn này có sẵn qua các thuộc tính của đối tượng [VideoFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe/) .
 
 **Việc thêm video có ảnh hưởng đến kích thước tệp PPTX không?**
 
-Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân được bao gồm trong tài liệu, vì vậy kích thước bài thuyết trình tăng tỉ lệ với kích thước tệp. Khi bạn thêm video trực tuyến, một liên kết và hình thu nhỏ được nhúng, do đó mức tăng kích thước ít hơn.
+Có. Khi bạn nhúng video cục bộ, dữ liệu nhị phân sẽ được bao gồm trong tài liệu, do đó kích thước bài thuyết trình tăng tỉ lệ với kích thước tệp. Khi bạn thêm video trực tuyến, một liên kết và hình thu nhỏ được nhúng, vì vậy mức tăng kích thước sẽ nhỏ hơn.
 
 **Tôi có thể thay thế video trong VideoFrame hiện có mà không thay đổi vị trí và kích thước không?**
 
-Có. Bạn có thể thay đổi [nội dung video](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe/embeddedvideo/) trong khung mà vẫn giữ nguyên hình học của shape; đây là kịch bản thường gặp khi cập nhật phương tiện trong bố cục hiện có.
+Có. Bạn có thể thay thế [nội dung video](https://reference.aspose.com/slides/vi/net/aspose.slides/videoframe/embeddedvideo/) trong khung mà vẫn giữ nguyên hình dạng; đây là trường hợp phổ biến để cập nhật phương tiện trong bố cục hiện có.
 
-**Có thể xác định loại nội dung (MIME) của video được nhúng không?**
+**Có thể xác định loại nội dung (MIME) của video đã nhúng không?**
 
-Có. Một video được nhúng có [loại nội dung](https://reference.aspose.com/slides/vi/net/aspose.slides/video/contenttype/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó vào đĩa.
+Có. Video đã nhúng có một [loại nội dung](https://reference.aspose.com/slides/vi/net/aspose.slides/video/contenttype/) mà bạn có thể đọc và sử dụng, ví dụ khi lưu nó vào đĩa.

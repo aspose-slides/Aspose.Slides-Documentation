@@ -54,7 +54,7 @@ try {
 
 After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more how to [Render Presentation with Fallback Font](/slides/java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 

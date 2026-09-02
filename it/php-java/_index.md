@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides per PHP via Java
-second_title: "Documentazione di Aspose.Slides per PHP"
+second_title: Aspose.Slides for PHP
 type: docs
 weight: 45
 url: /it/php-java/

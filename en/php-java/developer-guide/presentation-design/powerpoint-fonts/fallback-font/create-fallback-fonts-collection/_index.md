@@ -52,7 +52,7 @@ Here is an examples how to create fallback fonts rules collection and assign in 
 
 After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more how to [Render Presentation with Fallback Font](/slides/php-java/render-presentation-with-fallback-font/).
 {{% /alert %}}
 

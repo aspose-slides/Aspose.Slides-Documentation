@@ -82,7 +82,7 @@ with slides.Presentation("presentation.pptx") as presentation:
             image.save(f"slide_{index}.png", slides.ImageFormat.PNG)
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 You may want to try Aspose’s free **PowerPoint-to-PNG converters**—[PPTX to PNG](https://products.aspose.app/slides/conversion/pptx-to-png) and [PPT to PNG](https://products.aspose.app/slides/conversion/ppt-to-png). They provide a live implementation of the process described on this page.
 

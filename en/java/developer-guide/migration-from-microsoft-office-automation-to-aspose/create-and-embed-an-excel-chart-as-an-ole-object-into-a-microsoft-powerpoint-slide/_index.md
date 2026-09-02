@@ -18,7 +18,7 @@ keywords:
 description: "Migrate from Microsoft Office automation to Aspose.Slides for Java and embed Excel charts as OLE objects into PowerPoint (PPT, PPTX) slides in Java."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
  Charts are visual representations of your data and widely used in presentation slides. This article will show you the code to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide programmatically by using [VSTO](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) and [Aspose.Slides for Java](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 

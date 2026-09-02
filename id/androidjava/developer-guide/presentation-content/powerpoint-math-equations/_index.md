@@ -1,5 +1,5 @@
 ---
-title: Menambahkan Persamaan Matematika ke Presentasi PowerPoint di Android
+title: Menambahkan Persamaan Matematika ke Presentasi PowerPoint pada Android
 linktitle: Persamaan Matematika PowerPoint
 type: docs
 weight: 80
@@ -9,10 +9,10 @@ keywords:
 - simbol matematika
 - rumus matematika
 - teks matematika
-- menambahkan persamaan matematika
-- menambahkan simbol matematika
-- menambahkan rumus matematika
-- menambahkan teks matematika
+- tambahkan persamaan matematika
+- tambahkan simbol matematika
+- tambahkan rumus matematika
+- tambahkan teks matematika
 - PowerPoint
 - presentasi
 - Android
@@ -22,9 +22,9 @@ description: "Menyisipkan dan mengedit persamaan matematika dalam PowerPoint PPT
 ---
 ## **Ikhtisar**
 
-PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides untuk Android via Java, Anda dapat membuat konten matematika yang sama secara programatis: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika berformat.
+PowerPoint menyimpan persamaan sebagai Office Math Markup Language (OMML). Dengan Aspose.Slides for Android via Java, Anda dapat membuat konten matematika serupa secara programatik: pecahan, radikal, fungsi, limit, operator N-ary, matriks, array, dan blok matematika yang diformat.
 
-Dalam PowerPoint, pengguna biasanya menambahkan persamaan dari **Insert > Equation**:
+Di PowerPoint, pengguna biasanya menambahkan persamaan melalui **Insert > Equation**:
 
 ![Tab Insert PowerPoint dengan perintah Equation dipilih](powerpoint-math-equations_1.png)
 
@@ -38,9 +38,9 @@ Aspose.Slides membangun teks matematika tersebut melalui tiga objek utama:
 - [MathPortion](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathportion/) menyimpan konten matematika di dalam frame teks shape.
 - [MathParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathparagraph/) berisi satu atau lebih objek [MathBlock](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathblock/).
 
-Sebagian besar contoh di bawah ini menggunakan [MathematicalText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathematicaltext/) dan metode fluently dari [IMathElement](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) untuk menjaga kode tetap singkat dan mudah dibaca.
+Sebagian besar contoh di bawah menggunakan [MathematicalText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathematicaltext/) dan metode fluent dari [IMathElement](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) untuk menjaga kode tetap singkat dan terbaca.
 
-Untuk skenario ekspor MathML, lihat [Ekspor Persamaan Matematika dari Presentasi di Android](/slides/id/androidjava/exporting-math-equations/).
+Untuk skenario ekspor MathML, lihat [Export Math Equations from Presentations on Android](/slides/id/androidjava/exporting-math-equations/).
 
 ## **Buat Persamaan**
 
@@ -73,12 +73,12 @@ try {
 ```
 
 {{% alert color="primary" %}}
-`addMathShape` membuat shape yang sudah berisi sebuah paragraf matematika. Akses `MathPortion` pertama, dapatkan `MathParagraph`-nya, dan tambahkan blok matematika atau elemen matematika ke dalamnya.
+`addMathShape` membuat sebuah shape yang sudah berisi paragraf matematika. Akses `MathPortion` pertama, dapatkan `MathParagraph`-nya, dan tambahkan blok matematika atau elemen matematika ke dalamnya.
 {{% /alert %}}
 
-## **Tambah Pecahan**
+## **Tambahkan Pecahan**
 
-Gunakan `divide` untuk membuat pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathfractiontypes/).
+Gunakan `divide` untuk membuat sebuah pecahan. Anda dapat memilih gaya pecahan dengan [MathFractionTypes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathfractiontypes/).
 
 ![Pecahan matematika miring yang menunjukkan satu dibagi x](powerpoint-math-equations_4.png)
 
@@ -108,7 +108,7 @@ Untuk pecahan bertumpuk, gunakan `MathFractionTypes.Bar`:
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Tambah Radikal**
+## **Tambahkan Radikal**
 
 Gunakan `radical` untuk membuat akar kuadrat, akar kubik, atau akar lainnya. Elemen saat ini menjadi basis, dan argumen menjadi derajatnya.
 
@@ -134,11 +134,11 @@ try {
 }
 ```
 
-## **Tambah Fungsi dan Limit**
+## **Tambahkan Fungsi dan Batas**
 
-Gunakan `asArgumentOfFunction` atau `function` untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk limit, letakkan `lim` dalam sebuah [MathLimit](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathlimit/) atau gunakan `setLowerLimit`.
+Gunakan `asArgumentOfFunction` atau `function` untuk fungsi seperti `sin(x)`, `log(x)`, atau nama fungsi khusus. Untuk batas, letakkan `lim` dalam sebuah [MathLimit](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathlimit/) atau gunakan `setLowerLimit`.
 
-![Limit x ketika x mendekati tak hingga](powerpoint-math-equations_8.png)
+![Batas x ketika x mendekati tak terhingga](powerpoint-math-equations_8.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -167,11 +167,11 @@ Untuk nama fungsi khusus, jadikan nama fungsi sebagai elemen saat ini:
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Tambah Operator N-ary dan Integral**
+## **Tambahkan Operator N-ary dan Integral**
 
-Gunakan `nary` untuk penjumlahan, unifikasi, irisan, dan operator besar lainnya. Gunakan `integral` untuk integral. Kedua metode memungkinkan Anda mengatur limit bawah dan atas.
+Gunakan `nary` untuk penjumlahan, union, interseksi, dan operator besar lainnya. Gunakan `integral` untuk integral. Kedua metode memungkinkan Anda mengatur batas bawah dan atas.
 
-![Penjumlahan dengan limit bawah dan atas](powerpoint-math-equations_7.png)
+![Penjumlahan dengan batas bawah dan atas](powerpoint-math-equations_7.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -196,7 +196,7 @@ try {
 }
 ```
 
-Operator N-ary digunakan untuk operator besar dengan limit opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai `MathematicalText` dan digabungkan ke dalam ekspresi.
+Operator N-ary digunakan untuk operator besar dengan batas opsional. Operator sederhana seperti `+`, `-`, dan `=` biasanya ditambahkan sebagai `MathematicalText` dan digabungkan ke dalam ekspresi.
 
 Untuk integral, gunakan `integral`:
 
@@ -205,9 +205,9 @@ IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("d
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Tambah Matriks**
+## **Tambahkan Matriks**
 
-Gunakan [MathMatrix](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan tanda kurung secara default, jadi balut matriks ketika Anda membutuhkan tanda kurung, kurung siku, atau kurung kurawal.
+Gunakan [MathMatrix](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathmatrix/) untuk baris dan kolom. Matriks tidak menyertakan kurung secara default, jadi balut matriks dengan tanda kurung, kurung siku, atau kurung kurawal bila diperlukan.
 
 ![Matriks matematika dua baris dengan satu sel kosong](powerpoint-math-equations_10.png)
 
@@ -235,9 +235,9 @@ try {
 }
 ```
 
-## **Tambah Array Persamaan**
+## **Tambahkan Array Persamaan**
 
-Gunakan `toMathArray` ketika Anda membutuhkan persamaan yang diratakan atau tumpukan ekspresi vertikal.
+Gunakan `toMathArray` ketika Anda membutuhkan persamaan yang rata atau tumpukan vertikal ekspresi.
 
 ![Array matematika vertikal dengan x di atas y](powerpoint-math-equations_11.png)
 
@@ -262,11 +262,11 @@ try {
 }
 ```
 
-## **Tambah Fungsi Trigonometri**
+## **Tambahkan Fungsi Trigonometri**
 
 Gunakan `asArgumentOfFunction` ketika argumen adalah elemen saat ini dan nama fungsi sudah diketahui.
 
-![Fungsi trigonometri cos yang diterapkan pada 2x](powerpoint-math-equations_6.png)
+![Fungsi trigonometri cos diterapkan pada 2x](powerpoint-math-equations_6.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -288,11 +288,11 @@ try {
 }
 ```
 
-## **Tambah Subskrip dan Superskrip**
+## **Tambahkan Subscript dan Superscript**
 
-Gunakan bantu subskrip dan superskrip untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan `setSubSuperscriptOnTheLeft`.
+Gunakan pembantu subscript dan superscript untuk indeks dan pangkat. Ketika indeks harus muncul di sisi kiri basis, gunakan `setSubSuperscriptOnTheLeft`.
 
-![Huruf Y kapital dengan subskrip 1 di sisi kiri dan superskrip n](powerpoint-math-equations_9.png)
+![Huruf Y kapital dengan subscript sisi kiri 1 dan superscript n](powerpoint-math-equations_9.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -314,11 +314,11 @@ try {
 }
 ```
 
-## **Tambah Pembatas**
+## **Tambahkan Pembatas**
 
-Gunakan `enclose` untuk menempatkan ekspresi di dalam pembatas. Anda juga dapat mengatur karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
+Gunakan `enclose` untuk menempatkan sebuah ekspresi di dalam pembatas. Anda juga dapat mengatur karakter pemisah untuk ekspresi pembatas yang berisi beberapa elemen.
 
-![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh garis vertikal](powerpoint-math-equations_13.png)
+![Ekspresi pembatas yang berisi x, y, dan z dipisahkan oleh batang vertikal](powerpoint-math-equations_13.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -343,7 +343,7 @@ try {
 }
 ```
 
-## **Tambah Kotak Batas**
+## **Tambahkan Kotak Bingkai**
 
 Gunakan `toBorderBox` ketika persamaan itu sendiri harus dibingkai.
 
@@ -376,9 +376,9 @@ try {
 
 ## **Kelompokkan Istilah**
 
-Gunakan `group` untuk menempatkan karakter pengelompokan di atas atau di bawah sebuah ekspresi. Tambahkan limit untuk memberi label pada istilah yang dikelompokkan.
+Gunakan `group` untuk menempatkan karakter pengelompokkan di atas atau di bawah sebuah ekspresi. Tambahkan batas untuk memberi label pada istilah yang dikelompokkan.
 
-![Ekspresi x ditambah y dikelompokkan dengan label teks apa pun di bawahnya](powerpoint-math-equations_15.png)
+![Ekspresi x plus y dikelompokkan dengan label teks apa pun di bawahnya](powerpoint-math-equations_15.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -403,7 +403,7 @@ try {
 
 ## **Format Elemen Matematika**
 
-Gunakan bantuan pemformatan hanya ketika mereka memperjelas rumus. Misalnya, `overbar` menempatkan garis di atas sebuah elemen matematika.
+Gunakan pembantu format hanya ketika mereka memperjelas rumus. Misalnya, `overbar` menempatkan garis di atas sebuah elemen matematika.
 
 ![Ekspresi matematika ABC dengan overbar](powerpoint-math-equations_14.png)
 
@@ -433,23 +433,23 @@ try {
 | Buat teks matematika | [MathematicalText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathematicaltext/) |
 | Gabungkan elemen | [IMathElement.join](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
 | Buat pecahan | [IMathElement.divide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah superskrip atau subskrip | [setSuperscript](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah fungsi | [function](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah radikal | [IMathElement.radical](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah limit | [setLowerLimit](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah skrip sisi kiri | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah penjumlahan dan integral | [nary](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah matriks | [MathMatrix](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathmatrix/) |
-| Tambah array persamaan | [toMathArray](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah pembatas | [enclose](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
-| Tambah bar dan batas | [overbar](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan superscript atau subscript | [setSuperscript](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan fungsi | [function](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan radikal | [IMathElement.radical](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan batas | [setLowerLimit](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan script sisi kiri | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan penjumlahan dan integral | [nary](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan matriks | [MathMatrix](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mathmatrix/) |
+| Tambahkan array persamaan | [toMathArray](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan pembatas | [enclose](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
+| Tambahkan bar dan bingkai | [overbar](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
 | Kelompokkan istilah | [group](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathelement/) |
 
 ## **FAQ**
 
 **Apakah saya dapat mengedit persamaan PowerPoint yang ada?**
 
-Ya. Buka presentasi, temukan shape yang berisi `MathPortion`, dapatkan `MathParagraph`-nya, dan perbarui blok matematika di paragraf tersebut.
+Ya. Buka presentasi, temukan shape yang berisi `MathPortion`, dapatkan `MathParagraph`-nya, dan perbarui blok matematika dalam paragraf tersebut.
 
 **Apakah persamaan disimpan sebagai matematika PowerPoint yang dapat diedit?**
 
@@ -457,4 +457,4 @@ Ya. Saat Anda menyimpan ke PPTX, Aspose.Slides menulis persamaan sebagai konten 
 
 **Apakah saya dapat mengekspor persamaan ke LaTeX?**
 
-Aspose.Slides mengekspor persamaan matematika ke MathML. Jika Anda membutuhkan LaTeX, ekspor ke MathML terlebih dahulu dan kemudian konversi MathML dengan alat yang mendukung dialek LaTeX target Anda.
+Ya. Dapatkan [IMathParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathparagraph/) persamaan dari [IMathPortion](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathportion/), dan panggil [IMathParagraph.toLatex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imathparagraph/#toLatex--) untuk mengekspornya secara langsung. Untuk contoh lengkap, lihat [Export Math Equations from Presentations in Android via Java](/slides/id/androidjava/exporting-math-equations/#export-math-equations-to-latex).

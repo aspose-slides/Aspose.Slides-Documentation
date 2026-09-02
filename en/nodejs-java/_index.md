@@ -17,7 +17,7 @@ description: "Aspose.Slides is a Microsoft PowerPoint® management API that enab
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Welcome to Aspose.Slides for Node.js via Java**
 
@@ -33,7 +33,7 @@ Aspose.Slides for Node.js via Java provides a lot of key features such as managi
 
 ## Aspose.Slides for Node.js via Java Resources
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Aspose.Slides for Node.js via Java is ported from Aspose.Slides for Java, so you can use the latter documentation and API reference.
 

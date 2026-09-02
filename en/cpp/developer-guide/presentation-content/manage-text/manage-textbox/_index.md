@@ -165,6 +165,14 @@ shape4->get_TextFrame()->set_Text(u"");
 // shape4->get_IsTextBox() returns false
 ```
 
+## **Find the Shape That Owns a Text Frame**
+
+In generic text-processing code, you may receive an [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) without already knowing which presentation object contains it. Use [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) to navigate back to the owning [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/).
+
+For a text frame that belongs to an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) or another text-containing shape, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) returns the owner and [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) returns `nullptr`. Both methods provide read-only navigation, so calling them does not change ownership. Always check the returned value for `nullptr` before accessing the shape.
+
+For a complete example that identifies shape and table-cell owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/cpp/search-and-replace-text/).
+
 ## **Add Columns to a Text Box**
 
 Aspose.Slides provides the [set_ColumnCount](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) and [set_ColumnSpacing](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) methods (from the [ITextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) interface and [TextFrameFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns. 
@@ -391,10 +399,10 @@ presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-### What’s the difference between a text box and a text placeholder when working with master slides?
+**What’s the difference between a text box and a text placeholder when working with master slides?**
 
 A [placeholder](/slides/cpp/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
 
-### How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
 
 Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/smartart/)) by traversing their collections separately or skipping those object types.

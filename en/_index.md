@@ -9,7 +9,7 @@ description: Aspose.Slides are Microsoft PowerPoint® management APIs that enabl
 
 ## Aspose.Slides for .NET
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for .NET Product Logo](home_1.png)
 
@@ -33,7 +33,7 @@ These are links to some useful resources:
 
 ## Aspose.Slides for Java
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Java Product Logo](home_2.png)
 
@@ -58,7 +58,7 @@ These are links to useful resources:
 
 ## Aspose.Slides for C++
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for C++ Product Logo](home_3.png)
 
@@ -82,7 +82,7 @@ These are links to useful resources:
 
 ## Aspose.Slides for Android via Java
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Android via Java Product Logo](home_4.png)
 
@@ -105,7 +105,7 @@ These are links to useful resources:
 
 ## Aspose.Slides for Python via .NET
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Python via .NET Product Logo](aspose_slides-for-python.png)
 
@@ -127,7 +127,7 @@ These are links to some useful resources:
 
 ## Aspose.Slides for Node.js via Java
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Python via .NET Product Logo](home_9.png)
 
@@ -149,7 +149,7 @@ These are links to some useful resources:
 
 ## Aspose.Slides for PHP via Java
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for PHP via Java Product Logo](aspose_slides-for-php-via-java.png)
 
@@ -171,7 +171,7 @@ These are links to some useful resources:
 
 ## Aspose.Slides for Reporting Services
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for Reporting Services Product Logo](home_5.png)
 
@@ -191,7 +191,7 @@ These are links to useful resources:
 
 ## Aspose.Slides for SharePoint
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for SharePoint Product Logo](home_6.png)
 
@@ -211,7 +211,7 @@ These are links to useful resources:
 
 ## Aspose.Slides for JasperReports
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 ![Aspose.Slides for JasperReports Product Logo](home_7.png)
 

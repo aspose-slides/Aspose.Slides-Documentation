@@ -5,7 +5,7 @@ weight: 40
 url: /reportingservices/setting-up-sharepoint-on-the-rs-server/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 So, we need to do what we did for the SharePoint WFE. First thing is to go through the prerequisites installation and after that startup the SharePoint setup. 
 

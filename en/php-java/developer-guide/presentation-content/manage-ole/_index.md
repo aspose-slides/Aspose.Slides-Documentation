@@ -30,7 +30,7 @@ description: "Optimize OLE object management in PowerPoint and OpenDocument file
 
 ## **Introduction**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 OLE (Object Linking & Embedding) is a Microsoft technology that allows data and objects created in one application to be placed in another application through linking or embedding. 
 
@@ -151,7 +151,7 @@ $presentation->dispose();
 
 ## **Change OLE Object Data**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 In this section, the code example below uses [Aspose.Cells for PHP via Java](/cells/php-java/).
 

@@ -33,7 +33,7 @@ Every Aspose license includes a one-year subscription with free upgrades to new 
 * While the Aspose.Slides evaluation version (when no license is applied) provides full functionality, it adds an evaluation watermark at the top of the document whenever you open or save it.
 * When extracting text from a presentation, you are limited to one slide.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 To test Aspose.Slides without limitations, you can request a **30-day Temporary License**. See the [How to Get a Temporary License](https://purchase.aspose.com/temporary-license) page for details.
 
@@ -49,7 +49,7 @@ To test Aspose.Slides without limitations, you can request a **30-day Temporary 
   * The folder that contains the Python script that calls Aspose.Slides for Python via .NET
 * To avoid the evaluation limitations, set the license before using Aspose.Slides. You only need to set it once per application or process.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 You may also want to review [Metered Licensing](/slides/python-net/metered-licensing/).
 
@@ -59,7 +59,7 @@ You may also want to review [Metered Licensing](/slides/python-net/metered-licen
 
 A license can be loaded from a **file**, **stream**, or **embedded resource**. 
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Aspose.Slides provides the [License](https://reference.aspose.com/slides/python-net/aspose.slides/license/) class to handle licensing.
 

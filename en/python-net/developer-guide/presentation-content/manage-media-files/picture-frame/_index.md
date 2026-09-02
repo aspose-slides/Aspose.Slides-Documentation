@@ -1,5 +1,5 @@
 ---
-title: Add Picture Frames to Presentations with Python
+title: Manage Picture Frames in Presentations with Python
 linktitle: Picture Frame
 type: docs
 weight: 10
@@ -8,488 +8,333 @@ keywords:
 - picture frame
 - add picture frame
 - create picture frame
-- add image
-- create image
+- embedded image
+- linked image
 - extract image
 - raster image
-- vector image
+- SVG image
 - crop image
-- cropped area
-- StretchOff property
+- delete cropped areas
+- compress image
+- StretchOffset
 - picture frame formatting
-- picture frame properties
-- ralative scale
+- relative scale
 - image effect
 - aspect ratio
-- image transparency
 - PowerPoint
 - OpenDocument
 - presentation
 - Python
 - Aspose.Slides
-description: "Add picture frames to PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Streamline your workflow and enhance slide designs."
+description: "Create, format, link, crop, extract, and compress picture frames in presentations with Aspose.Slides for Python via .NET."
 ---
 
-## **Introduction**
+## **Overview**
 
-Picture frames in Aspose.Slides for Python let you place and manage raster and vector images as native slide shapes. You can insert pictures from files or streams, position and resize them with precise coordinates, apply rotation, set transparency, and control z-order alongside other shapes. The API also supports cropping, maintaining aspect ratios, setting borders and effects, and replacing the underlying image without rebuilding the layout. Because picture frames behave like regular shapes, you can add animations, hyperlinks, and alt text, making it straightforward to build visually rich, accessible presentations.
+A picture frame is a slide shape that displays an image. In Aspose.Slides, the image resource and the shape that displays it are separate objects: a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) owns embedded image resources through its [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/), while a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) controls the image's position, size, line formatting, rotation, cropping, picture effects, and other frame-level settings.
 
-## **Create Picture Frames**
+This separation is useful when the same image is shown more than once. Add the image to the presentation once, keep the returned [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/), and use that image resource when creating picture frames.
 
-This section shows how to insert an image into a slide by creating a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) with Aspose.Slides for Python. You’ll learn how to load the image, place it precisely on the slide, and control its size and formatting.
+Picture frames can contain raster images such as PNG or JPEG and vector SVG images. They can also refer to linked images instead of storing the image bytes in the presentation. The choice affects portability, file size, extraction, and export behavior, so it is useful to decide how the image should be stored before applying formatting or optimization.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Get a slide by its index.
-3. Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) by adding the image to the presentation’s [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/). This image will be used to fill the shape.
-4. Specify the frame’s width and height.
-5. Create a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) of that size using the [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) method.
-6. Save the presentation as a PPTX file.
+## **Add and Format an Embedded Image**
 
-The following Python code shows how to create a picture frame:
+For an embedded image, add the image data to the presentation and create a picture frame with [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/). The image becomes part of the presentation package, so the presentation remains self-contained when it is moved to another computer.
 
-```py
-import aspose.slides as slides
-
-# Instantiate the Presentation class to represent a PPTX file.
-with slides.Presentation() as presentation:
-    # Get the first slide.
-    slide = presentation.slides[0]
-
-    # Add the image to the presentation.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Add a picture frame sized to the image.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-        # Save the presentation as PPTX.
-        presentation.save("picture_frame.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert color="warning" %}}
-
-Picture frames allow you to quickly create presentation slides from images. When you combine picture frames with Aspose.Slides save options, you can control I/O operations to convert images from one format to another. You may want to see these pages: convert [image to JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/); convert [PNG to JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/); convert [SVG to PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-## **Create Picture Frames with Relative Scale**
-
-This section demonstrates placing an image at a fixed size, then applying a scale factor independently to its width and height. The factors are fractions of the original size, so `1` keeps the original dimension, `0.8` shrinks it to 80%, and `1.35` enlarges it to 135%. Because the factors may differ, the aspect ratio can change. Scaling is performed relative to the image’s original dimensions, not to the size passed to `add_picture_frame`.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Get a slide by its index.
-3. Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) by adding the image to the presentation’s [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/).
-4. Add a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) to the slide.
-5. Set the picture frame’s relative width and height.
-6. Save the presentation as a PPTX file.
-
-The following Python code shows how to create a picture frame with relative scaling:
-
-```py
-import aspose.slides as slides
-
-# Instantiate the Presentation class to represent a PPTX file.
-with slides.Presentation() as presentation:
-    # Get the first slide.
-    slide = presentation.slides[0]
-
-    # Add the image to the presentation's image collection.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-        # Add a picture frame to the slide.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
-
-        # Set the relative scale width and height.
-        picture_frame.relative_scale_height = 0.8
-        picture_frame.relative_scale_width = 1.35
-
-        # Save the presentation.
-        presentation.save("relative_scaling.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Extract Raster Images from Picture Frames**
-
-You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+The following example adds a JPEG image, creates a frame at the image's native dimensions, and applies line formatting and rotation:
 
 ```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    first_slide = presentation.slides[0]
-    first_shape = first_slide.shapes[0]
-
-    if isinstance(first_shape, slides.PictureFrame):
-        image = first_shape.picture_format.picture.image.image
-        image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
-```
-
-## **Extract SVG Images from Picture Frames**
-
-When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) shapes, Aspose.Slides for Python via .NET lets you retrieve the original vector images with full fidelity. By traversing the slide’s shape collection, you can identify each [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), check whether the underlying [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) holds SVG content, and then save that image to disk or a stream in its native SVG format.
-
-The following code example demonstrates how to extract an SVG image from a picture frame:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-
-    if isinstance(shape, slides.PictureFrame):
-        svg_image = shape.picture_format.picture.image.svg_image
-
-        if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as svg_stream:
-                svg_stream.write(svg_image.svg_content)
-```
-
-## **Get Image Transparency**
-
-Aspose.Slides lets you retrieve the transparency effect applied to an image. This Python code demonstrates the operation:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    picture_frame = presentation.slides[0].shapes[0]
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.AlphaModulateFixed):
-            transparency_value = 100 - effect.amount
-            print("Picture transparency: " + str(transparency_value))
-```
-
-{{% alert color="primary" %}}
-All effects applied to images can be found in [aspose.slides.effects](https://reference.aspose.com/slides/python-net/aspose.slides.effects/).
-{{% /alert %}}
-
-## **Get Brightness and Contrast of an Image**
-
-Aspose.Slides lets you retrieve the brightness and contrast effect applied to an image. The [Luminance](https://reference.aspose.com/slides/python-net/aspose.slides.effects/luminance/) class represents this image transform effect.
-
-This Python code demonstrates how to get the brightness and contrast settings from a picture frame:
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    shape = slide.shapes[0]
-    picture_frame = shape
-
-    image_transform = picture_frame.picture_format.picture.image_transform
-    for effect in image_transform:
-        if isinstance(effect, slides.effects.Luminance):
-            luminance = effect.get_effective()
-            brightness = luminance.brightness
-            contrast = luminance.contrast
-
-            print("Brightness: " + str(brightness))
-            print("Contrast: " + str(contrast))
-```
-
-## **Picture Frame Formatting**
-
-Aspose.Slides provides many formatting options you can apply to a picture frame. With these options, you can adjust a picture frame to meet specific requirements.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Get a slide by its index.
-3. Create a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) by adding the image to the presentation’s [ImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imagecollection/). This image will be used to fill the shape.
-4. Specify the frame’s width and height.
-5. Create a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) of that size using the slide’s [add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) method.
-6. Set the picture frame’s line color.
-7. Set the picture frame’s line width.
-8. Rotate the picture frame by supplying a positive (clockwise) or negative (counterclockwise) value.
-9. Save the modified presentation as a PPTX file.
-
-The following Python code demonstrates the picture frame formatting process:
-
-```py
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Instantiate the Presentation class to represent a PPTX file.
 with slides.Presentation() as presentation:
-    # Get the first slide.
     slide = presentation.slides[0]
 
-    # Add the image to the presentation's image collection.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-        # Add a picture frame sized to the image.
-        picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
+    picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
+    picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    picture_frame.line_format.width = 3
+    picture_frame.rotation = 15
 
-        # Apply formatting to the picture frame.
-        picture_frame.line_format.fill_format.fill_type = slides.FillType.SOLID
-        picture_frame.line_format.fill_format.solid_fill_color.color = draw.Color.blue
-        picture_frame.line_format.width = 20
-        picture_frame.rotation = 45
-
-    # Save the presentation as PPTX.
-    presentation.save("picture_formatting.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Tip" color="primary" %}}
+The picture frame controls the displayed geometry; changing the frame size does not change the original pixel dimensions stored in the embedded image resource. This distinction becomes important when cropping or compressing an image later.
 
-Aspose has developed a free [Collage Maker](https://products.aspose.app/slides/collage). If you need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, or [create photo grids](https://products.aspose.app/slides/collage/photo-grid), you can use this service.
+## **Use Relative Scale**
 
-{{% /alert %}}
-
-## **Add Images as Links**
-
-To keep presentation files small, you can add images or videos via links instead of embedding the files directly in the presentations. The following Python code shows how to insert an image and a video into a placeholder:
+[PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) exposes [relative_scale_width](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/relative_scale_width/) and [relative_scale_height](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/relative_scale_height/) for the frame. A value of `1.0` corresponds to 100% of the original picture size. Relative scale is useful when a workflow needs to preserve a relationship to the source image size instead of calculating final dimensions manually.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("input.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shapes_to_remove = []
+    with slides.Images.from_file("photo.jpg") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Iterate over a copy because the loop adds shapes to the collection.
-    for shape in list(slide.shapes):
-        if shape.placeholder is None:
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 100, 100, image)
+    picture_frame.relative_scale_width = 1.35
+    picture_frame.relative_scale_height = 0.8
+
+    presentation.save("relative-scale.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Relative scale changes the frame's scale settings; it does not resample or compress the embedded image.
+
+## **Embedded and Linked Images**
+
+An embedded picture stores image data inside the presentation and is therefore the safest choice for portability and predictable rendering. A linked picture stores an external location through the [Picture](https://reference.aspose.com/slides/python-net/aspose.slides/picture/) link path instead of embedding the image data in the same way.
+
+Linked images can reduce the amount of image data stored in the PPTX, but they introduce an external dependency. The linked file must remain accessible to the application that opens or renders the presentation. If the path changes, the file is moved, or the resource is unavailable, the linked picture may not be displayed as expected. For presentations that must be emailed, archived, or rendered in isolated environments, embedded images are usually more reliable.
+
+### **Add a Linked Image**
+
+The following example creates a picture frame and points it to a local image file. It deals only with image linking; video linking is a separate media workflow and is intentionally not mixed into this example.
+
+```python
+import os
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, 320, 180, None)
+    linked_image_path = os.path.abspath("linked-image.jpg")
+    picture_frame.picture_format.picture.link_path_long = linked_image_path
+
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Use links when external file management is intentional. Do not use them merely as a replacement for compression: a small PPTX with broken image dependencies is usually less useful than a larger self-contained presentation.
+
+## **Extract Images from Picture Frames**
+
+Before extracting an image from an existing presentation, check that a shape is actually a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) and that it contains an embedded image. Linked picture frames may not contain image bytes that can be extracted in the same way.
+
+### **Extract a Raster Image**
+
+The modern image API uses [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) directly. The following example finds the first embedded raster picture on a slide and saves it as PNG:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
             continue
 
-        if shape.placeholder.type == slides.PlaceholderType.PICTURE:
-            picture_frame = slide.shapes.add_picture_frame(
-                slides.ShapeType.RECTANGLE, shape.x, shape.y, shape.width, shape.height, None)
+        embedded_image = shape.picture_format.picture.image
+        if embedded_image is None or embedded_image.svg_image is not None:
+            continue
 
-            picture_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            shapes_to_remove.append(shape)
-
-        elif shape.placeholder.type == slides.PlaceholderType.MEDIA:
-            video_frame = slide.shapes.add_video_frame(shape.x, shape.y, shape.width, shape.height, "")
-
-            video_frame.picture_format.picture.link_path_long = \
-                "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg"
-
-            video_frame.link_path_long = "https://youtu.be/t_1LYZ102RA"
-            shapes_to_remove.append(shape)
-
-    for shape in shapes_to_remove:
-        slide.shapes.remove(shape)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        raster_image = embedded_image.image
+        raster_image.save("extracted-image.png", slides.ImageFormat.PNG)
+        break
 ```
 
-## **Crop Images**
+Saving through [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) converts the extracted image to the requested output format. If you need the encoded bytes stored in the presentation rather than a converted raster file, use the [PPImage.binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/binary_data/) property instead.
 
-In this section, you'll learn how to crop the visible area of an image within a picture frame without altering the source file. You'll also learn the basic method for applying cropping margins to create a clean, focused composition directly on the slide.
+### **Extract an SVG Image**
 
-The following Python code shows how to crop an image on a slide:
+For an SVG picture, the [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) exposes an [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) object. This lets you retrieve the SVG data directly instead of rasterizing the picture first.
 
-```py
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if not isinstance(shape, slides.PictureFrame):
+            continue
+
+        embedded_image = shape.picture_format.picture.image
+        svg_image = embedded_image.svg_image if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = bytes(svg_image.svg_data)
+        with open("extracted-image.svg", "wb") as svg_stream:
+            svg_stream.write(svg_data)
+        break
+```
+
+Keeping SVG content as SVG preserves the vector source inside the presentation. Raster exports such as PNG or JPEG necessarily render that vector content to pixels. PDF or SVG slide export is also a rendering operation, so the exported graphics should not be treated as a byte-for-byte copy of the original embedded SVG; use the embedded [SvgImage.svg_data](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/svg_data/) when the original vector resource itself is required.
+
+## **Crop an Image**
+
+Cropping changes which part of an image is visible inside the frame. The crop values on [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) are percentages of the source image dimensions. Cropping does not initially delete the hidden pixels from the embedded image; it only changes the visible region.
+
+The following example finds a picture frame safely and applies crop values:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.picture_format.crop_left = 23.6
+        picture_frame.picture_format.crop_right = 21.5
+        picture_frame.picture_format.crop_top = 3
+        picture_frame.picture_format.crop_bottom = 31
+        presentation.save("cropped-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Because the hidden image data is still present, the crop can be changed later without losing the original pixels. If file size matters more than reversibility, the cropped regions can be physically removed as described in the next section.
+
+## **Remove Cropped Image Data**
+
+[PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) removes image data outside the current crop rectangle and returns the resulting image resource. This can reduce file size, but it is a destructive optimization: after the presentation is saved, the removed pixels are no longer available for a later uncrop operation.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("cropped-image.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The method may add a new image resource to the presentation. If the original image is also used by other picture frames, those frames still need their existing resource, so deleting cropped areas does not necessarily reduce the total number of images. Cropping WMF or EMF content with this method rasterizes the cropped result to PNG.
+
+## **Compress Raster Images**
+
+[PictureFillFormat.compress_image](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/compress_image/) reduces raster image resolution relative to the size at which the picture is displayed. It can also remove cropped regions in the same operation. The method returns `True` when the image was resized or cropped and `False` when no change was necessary.
+
+Use a predefined [PicturesCompression](https://reference.aspose.com/slides/python-net/aspose.slides.export/picturescompression/) value when a standard target resolution is sufficient:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    picture_frame = None
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+A custom positive DPI value can be passed instead of an enum value when a specific target is required.
+
+Compression is intended for raster images. SVG and metafile content is not reduced by this raster compression workflow. Also remember that lower resolution and deleted cropped regions cannot be recovered from the optimized presentation. Choose a target resolution based on the largest size at which the image will actually be viewed or exported rather than applying the lowest DPI globally.
+
+## **Manage Image Transform Effects**
+
+For a complete workflow covering brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, and round-trip verification, see [Image Transform Effects](/slides/python-net/image-transform-effects/).
+
+## **Lock Picture Frame Geometry**
+
+The [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) settings control which editing operations are disabled for a picture frame. For example, the [aspect_ratio_locked](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) property preserves the shape's proportions while it is resized.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    # Add the image to the presentation's image collection.
-    with slides.Images.from_file("image.png") as source_image:
+    with slides.Images.from_file("photo.jpg") as source_image:
         image = presentation.images.add_image(source_image)
 
-    # Add a picture frame to the slide.
-    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 100, 100, 420, 250, image)
-
-    # Crop the image (percentage values).
-    picture_frame.picture_format.crop_left = 23.6
-    picture_frame.picture_format.crop_right = 21.5
-    picture_frame.picture_format.crop_top = 3
-    picture_frame.picture_format.crop_bottom = 31
-
-    # Save the result.
-    presentation.save("cropped_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Delete Cropped Areas of Images**
-
-If you want to delete the cropped areas of an image in a frame, use the [delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) method. This method returns the cropped image, or the original image if no cropping is needed.
-
-The following Python code demonstrates the operation:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Get the PictureFrame from the first slide.
-    picture_frame = slide.shapes[0]
-
-    # Delete the cropped areas of the image.
-    cropped_image = picture_frame.picture_format.delete_picture_cropped_areas()
-
-    # Save the result.
-    presentation.save("deleted_cropped_areas.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-
-The [delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) method adds the cropped image to the presentation’s image collection. If the image is used only in the processed [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), this can reduce the presentation size; otherwise, the number of images in the resulting presentation may increase.
-
-During cropping, this method converts WMF/EMF metafiles to a raster PNG image.
-
-{{% /alert %}}
-
-## **Compress Images**
-
-You can compress a picture in a presentation using the [PictureFillFormat.compress_image](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/compress_image/) method.
-This method compresses an image by reducing its size based on the shape size and specified resolution, with the option to delete cropped areas.
-
-It adjusts the picture's size and resolution similarly to PowerPoint's **Picture Format -> Compress Pictures -> Resolution** feature.
-
-The following Python examples demonstrate how to compress an image in a presentation by specifying a target resolution and optionally removing cropped areas:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas.
-    result = picture_frame.picture_format.compress_image(True, slides.export.PicturesCompression.DPI150)
-
-    # Check the result of the compression.
-    if result:
-        print("Image successfully compressed.")
-    else:
-        print("Image compression failed or no changes were necessary.")
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Or using a custom DPI value directly:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("demo.pptx") as presentation:
-    slide = presentation.slides[0]
-    picture_frame = slide.shapes[0]
-
-    # Compress the image to 150 DPI (web resolution), removing cropped areas.
-    picture_frame.picture_format.compress_image(True, 150)
-
-    presentation.save("compressed_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-{{% alert title="NOTE" color="warning" %}}
-
-The method converts the image to a lower resolution based on the shape's size and provided DPI. Cropped regions can also be deleted to optimize file size.
-If the image is a metafile (WMF/EMF) or SVG, compression will not be applied. Also, JPEG quality is preserved or slightly reduced based on resolution, similarly to how PowerPoint handles high-resolution JPEGs.
-
-{{% /alert %}}
-
-## **Lock the Aspect Ratio**
-
-If you want a shape that contains an image to retain its aspect ratio after you change the image’s dimensions, set the [aspect_ratio_locked](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/aspect_ratio_locked/) property to `True`.
-
-The following Python code shows how to lock a shape’s aspect ratio:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-    empty_slide = presentation.slides.add_empty_slide(layout)
-
-    with slides.Images.from_file("image.png") as source_image:
-        image = presentation.images.add_image(source_image)
-
-    picture_frame = empty_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 50, image.width, image.height, image)
-
-    # Lock the aspect ratio when resizing.
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 50, 100, image.width, image.height, image)
     picture_frame.picture_frame_lock.aspect_ratio_locked = True
 
-    presentation.save("aspect_ratio_locked.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("locked-picture-frame.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="NOTE" color="warning" %}}
+The lock applies to the picture frame shape. It does not force the source image to be resampled or permanently changed to the same aspect ratio.
 
-This *Lock Aspect Ratio* setting preserves only the shape’s aspect ratio, not the aspect ratio of the image inside it.
+## **Adjust the StretchOffset Values**
 
-{{% /alert %}}
+When the picture fill mode is stretch, the stretch-offset values on [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) define the fill rectangle relative to the picture frame's bounding box. Positive percentages create an inset from an edge, while negative percentages create an outset.
 
-## **Use Stretch Offset Properties**
+This is different from cropping. Crop values select which part of the source image is visible; stretch offsets change the rectangle into which the visible picture fill is stretched.
 
-Using the `stretch_offset_left`, `stretch_offset_top`, `stretch_offset_right`, and `stretch_offset_bottom` properties of the [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) class, you can define a fill rectangle.
-
-When stretching is specified for an image, the source rectangle is scaled to fit the fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape’s bounding box. A positive percentage specifies an inset, while a negative percentage specifies an outset.
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Get a reference to a slide by its index.
-3. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
-4. Set the shape’s fill type.
-5. Set the shape’s picture fill mode.
-6. Load an image.
-7. Assign the image to fill the shape.
-8. Specify image offsets from the corresponding edges of the shape’s bounding box.
-9. Save the presentation as a PPTX file.
-
-The following Python code demonstrates how to use the Stretch Offset properties:
-
-```py
+```python
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # Get the first slide.
     slide = presentation.slides[0]
 
-    # Add a rectangle AutoShape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 300, 300)
+    with slides.Images.from_file("photo.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Set the shape's fill type.
-    shape.fill_format.fill_type = slides.FillType.PICTURE
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 400, 300, image)
+    picture_frame.picture_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    picture_frame.picture_format.stretch_offset_left = 12
+    picture_frame.picture_format.stretch_offset_right = 12
+    picture_frame.picture_format.stretch_offset_top = 8
+    picture_frame.picture_format.stretch_offset_bottom = 8
 
-    # Set the shape's picture fill mode.
-    shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-
-    # Load the image and add it to the presentation.
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-
-    # Assign the image to fill the shape.
-    shape.fill_format.picture_fill_format.picture.image = image
-
-    # Specify image offsets from the corresponding edges of the shape's bounding box.
-    shape.fill_format.picture_fill_format.stretch_offset_left = 25
-    shape.fill_format.picture_fill_format.stretch_offset_right = 25
-    shape.fill_format.picture_fill_format.stretch_offset_top = -20
-    shape.fill_format.picture_fill_format.stretch_offset_bottom = -10
-
-    # Save the PPTX file to disk.
-    presentation.save("stretch_offset.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("stretch-offsets.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Tip" color="primary" %}}
+Use stretch offsets for fill placement. Use crop properties when the goal is to hide source-image edges.
 
-Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that let you quickly create presentations from images.
+## **Storage, File Size, and Export Considerations**
 
-{{% /alert %}}
+The main tradeoffs are easier to manage when image storage and picture-frame formatting are treated separately:
+
+- **Embedded images** make the presentation self-contained and are the most reliable for sharing and server-side rendering, but large raster images increase PPTX size and memory use.
+- **Linked images** can keep the package smaller, but the presentation depends on external files remaining available at the stored paths or locations.
+- **Cropping** is initially non-destructive. The hidden pixels remain embedded until cropped areas are explicitly deleted or removed during compression.
+- **Compression** can reduce file size substantially for oversized raster images, but it trades away source resolution. It should be applied after the intended on-slide size is known.
+- **SVG images** should remain as SVG when vector preservation is important. Extract the embedded SVG directly when you need the vector resource itself. Raster slide exports always convert the rendered slide to pixels.
+- **Repeated images** should reuse an existing [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) resource when possible instead of repeatedly loading the same file into the presentation workflow.
+
+For large presentations, image optimization is usually most effective when performed selectively: keep logos and diagrams as vector content, compress photographs according to their real display size, remove cropped pixels only when later editing is not required, and avoid external links unless dependency management is part of the deployment design.
 
 ## **FAQ**
 
-### How can I find out which image formats are supported for PictureFrame?
+**What is the difference between a picture frame and an image resource?**
 
-Aspose.Slides supports both raster images (PNG, JPEG, BMP, GIF, etc.) and vector images (for example, SVG) via the image object that is assigned to a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/). The list of supported formats generally overlaps with the capabilities of the slide and image conversion engine.
+A [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) represents an image resource associated with the presentation. A [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) is a shape on a slide that displays an image and stores frame-level geometry and formatting such as size, rotation, crop values, effects, and locks.
 
-### How will adding dozens of large images affect PPTX size and performance?
+**Should I embed or link images?**
 
-Embedding large images increases file size and memory usage; linking images helps keep the presentation size down but requires the external files to remain accessible. Aspose.Slides provides the ability to add images by link to reduce file size.
+Embed images when the presentation must be portable, archived, or rendered without access to external resources. Link images only when keeping image files outside the PPTX is intentional and the external locations can be maintained reliably.
 
-### How can I lock an image object from accidental moving/resizing?
+**Does cropping reduce PPTX file size?**
 
-Use [shape locks](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/picture_frame_lock/) for a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is described for shapes in a separate [protection article](/slides/python-net/applying-protection-to-presentation/) and is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+Not by itself. Normal crop settings hide parts of the source image but keep the underlying pixels. Use [PictureFillFormat.delete_picture_cropped_areas](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/delete_picture_cropped_areas/) or image compression with cropped-area removal when those pixels can be discarded permanently.
 
-### Is SVG vector fidelity preserved when exporting a presentation to PDF/images?
+**Can I restore image quality after compression?**
 
-Aspose.Slides allows extracting an SVG from a [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) as the original vector. When [exporting to PDF](/slides/python-net/convert-powerpoint-to-pdf/) or [raster formats](/slides/python-net/convert-powerpoint-to-png/), the result may be rasterized depending on the export settings; the fact that the original SVG is stored as a vector is confirmed by the extraction behavior.
+No. Compression can reduce stored raster resolution, and removing cropped regions discards image data. Keep the original source image outside the presentation if later high-resolution editing may be required.
+
+**How should SVG images be handled?**
+
+Keep SVG content as SVG when vector fidelity matters. The embedded [SvgImage](https://reference.aspose.com/slides/python-net/aspose.slides/svgimage/) can be extracted directly. Rendering a slide to a raster format such as PNG or JPEG rasterizes the SVG as part of the slide image.
+
+**How can I avoid unsafe casts when reading existing slides?**
+
+Check the shape type before using picture-frame-specific members. Using `isinstance(shape, slides.PictureFrame)` avoids invalid casts and lets the code handle slides that do not contain picture frames.

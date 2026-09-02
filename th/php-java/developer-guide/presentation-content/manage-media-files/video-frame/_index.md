@@ -8,39 +8,39 @@ keywords:
 - เพิ่มวิดีโอ
 - สร้างวิดีโอ
 - ฝังวิดีโอ
+- สกัดวิดีโอ
 - ดึงวิดีโอ
-- ดึงคืนวิดีโอ
 - เฟรมวิดีโอ
 - แหล่งเว็บ
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีเพิ่มและดึงเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างเป็นโปรแกรมโดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java. คู่มือวิธีทำอย่างรวดเร็ว."
+description: "เรียนรู้วิธีการเพิ่มและสกัดเฟรมวิดีโอในสไลด์ PowerPoint และ OpenDocument อย่างอัตโนมัติโดยใช้ Aspose.Slides สำหรับ PHP ผ่าน Java คำแนะนำสั้นๆ ที่รวดเร็ว"
 ---
 ## **บทนำ**
 
-วิดีโอที่วางไว้ในตำแหน่งที่เหมาะสมในการนำเสนอสามารถทำให้ข้อความของคุณน่าสนใจยิ่งขึ้นและเพิ่มระดับการมีส่วนร่วมกับผู้ชมของคุณ  
+วิดีโอที่วางอย่างเหมาะสมในงานนำเสนอสามารถทำให้ข้อความของคุณน่าสนใจยิ่งขึ้นและเพิ่มระดับการมีส่วนร่วมของผู้ชมได้  
 
-PowerPoint อนุญาตให้คุณเพิ่มวิดีโอลงในสไลด์ของการนำเสนอได้สองวิธี:
+PowerPoint อนุญาตให้คุณเพิ่มวิดีโอลงในสไลด์ของงานนำเสนอได้สองวิธี:
 
-* เพิ่มหรือฝังวิดีโอท้องถิ่น (จัดเก็บบนเครื่องของคุณ)  
-* เพิ่มวิดีโอออนไลน์ (จากแหล่งเว็บเช่น YouTube)  
+* เพิ่มหรือฝังวิดีโอในเครื่อง (จัดเก็บบนคอมพิวเตอร์ของคุณ)
+* เพิ่มวิดีโอออนไลน์ (จากแหล่งเว็บเช่น YouTube)
 
-เพื่อให้คุณสามารถเพิ่มวิดีโอ (วัตถุวิดีโอ) ลงในการนำเสนอ Aspose.Slides มีคลาส [Video](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/) , [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) และประเภทที่เกี่ยวข้องอื่น ๆ  
+เพื่อให้คุณสามารถเพิ่มวิดีโอ (วิดีโออ็อบเจ็กต์) ลงในงานนำเสนอ Aspose.Slides จัดให้มีคลาส [Video](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/) , คลาส [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) และประเภทที่เกี่ยวข้องอื่น ๆ
 
 ## **สร้างเฟรมวิดีโอแบบฝัง**
 
-หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์ของคุณถูกจัดเก็บในเครื่อง คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอลงในการนำเสนอของคุณได้  
+หากไฟล์วิดีโอที่คุณต้องการเพิ่มลงในสไลด์จัดเก็บไว้ในเครื่อง คุณสามารถสร้างเฟรมวิดีโอเพื่อฝังวิดีโอนั้นในงานนำเสนอของคุณได้  
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มวัตถุ [Video](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/) และส่งพาธไฟล์วิดีโอเพื่อฝังวิดีโอกับการนำเสนอ  
-4. เพิ่มวัตถุ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) เพื่อสร้างเฟรมสำหรับวิดีโอ  
-5. บันทึกการนำเสนอที่แก้ไขแล้ว  
+1. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มอ็อบเจ็กต์ [Video](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/) แล้วส่งพาธของไฟล์วิดีโอเพื่อฝังวิดีโอเข้ากับงานนำเสนอ  
+1. เพิ่มอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) เพื่อสร้างเฟรมสำหรับวิดีโอ  
+1. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
-โค้ด PHP นี้แสดงวิธีเพิ่มวิดีโอที่จัดเก็บในเครื่องลงในการนำเสนอ:
+โค้ด PHP ตัวนี้แสดงวิธีเพิ่มวิดีโอที่จัดเก็บไว้ในเครื่องลงในงานนำเสนอ:
 
 ```php
   # สร้างอินสแตนซ์ของคลาส Presentation
@@ -49,9 +49,9 @@ PowerPoint อนุญาตให้คุณเพิ่มวิดีโอ
     # โหลดวิดีโอ
     $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
     $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
-    # ดึงสไลด์แรกและเพิ่ม videoframe
+    # ดึงสไลด์แรกและเพิ่มเฟรมวิดีโอ
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    # บันทึกการนำเสนอลงดิสก์
+    # บันทึกงานนำเสนอลงดิสก์
     $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -61,7 +61,7 @@ PowerPoint อนุญาตให้คุณเพิ่มวิดีโอ
   }
 ```
 
-อีกทางเลือกหนึ่ง คุณสามารถเพิ่มวิดีโอโดยส่งพาธไฟล์โดยตรงไปยังเมธอด [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addvideoframe/):
+หรือคุณสามารถเพิ่มวิดีโอโดยส่งพาธไฟล์โดยตรงไปยังเมธอด [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/addvideoframe/) :
 
 ```php
   $pres = new Presentation();
@@ -77,18 +77,18 @@ PowerPoint อนุญาตให้คุณเพิ่มวิดีโอ
 
 ## **สร้างเฟรมวิดีโอด้วยวิดีโอจากแหล่งเว็บ**
 
-Microsoft [PowerPoint 2013 และใหม่กว่า](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) รองรับวิดีโอ YouTube ในการนำเสนอ หากวิดีโอที่คุณต้องการใช้มีออนไลน์ (เช่นบน YouTube) คุณสามารถเพิ่มลงในการนำเสนอของคุณผ่านลิงก์เว็บของมัน  
+Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) รองรับวิดีโอ YouTube ในงานนำเสนอ หากวิดีโอที่คุณต้องการใช้มีอยู่บนออนไลน์ (เช่นบน YouTube) คุณสามารถเพิ่มลงในงานนำเสนอผ่านลิงก์เว็บของมันได้  
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. เพิ่มวัตถุ [Video](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/) และส่งลิงก์ไปยังวิดีโอ  
-4. ตั้งค่า thumbnail สำหรับเฟรมวิดีโอ  
-5. บันทึกการนำเสนอ  
+1. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+1. เพิ่มอ็อบเจ็กต์ [Video](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/) แล้วส่งลิงก์ของวิดีโอ  
+1. ตั้งค่านามสกุลภาพ (thumbnail) สำหรับเฟรมวิดีโอ  
+1. บันทึกงานนำเสนอ  
 
-โค้ด PHP นี้แสดงวิธีเพิ่มวิดีโอจากเว็บลงในสไลด์ของการนำเสนอ PowerPoint:
+โค้ด PHP ตัวนี้แสดงวิธีเพิ่มวิดีโอจากเว็บลงในสไลด์ของงานนำเสนอ PowerPoint:
 
 ```php
-  # สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
+  # สร้างอ็อบเจ็กต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
   $pres = new Presentation();
   try {
     addVideoFromYouTube($pres, "Tj75Arhq5ho");
@@ -104,19 +104,85 @@ Microsoft [PowerPoint 2013 และใหม่กว่า](https://support.mi
 
 ```
 
-## **จัดการคำบรรยายวิดีโอ**
+## **ตัดเฟรมวิดีโอ**
 
-Aspose.Slides อนุญาตให้คุณจัดการคำบรรยายปิดสำหรับเฟรมวิดีโอในการนำเสนอ PowerPoint คำบรรยายถูกจัดเก็บในรูปแบบ WebVTT และเปิดเผยผ่านเมธอด [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getCaptionTracks)  
+Aspose.Slides อนุญาตให้คุณควบคุมส่วนที่ทำการเล่นของวิดีโอโดยตั้งค่า trim‑from‑start และ trim‑from‑end ผ่านเมธอด [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#setTrimFromStart) และ [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#setTrimFromEnd) ค่าทั้งสองระบุเป็นมิลลิ–วินาทีและกำหนดระยะเวลาที่ข้ามจากจุดเริ่มต้นและจุดสิ้นสุดของวิดีโอตามลำดับ การตั้งค่านี้เปลี่ยนการตั้งค่าการเล่นวิดีโอในงานนำเสนอ; ไม่ได้ตัดหรือแก้ไขข้อมูลไบนารีของวิดีโอที่ฝังอยู่  
 
-### **เพิ่มคำบรรยายให้กับเฟรมวิดีโอ**
+**ตั้งค่าการตัด**
 
-เพื่อเพิ่มคำบรรยายให้กับเฟรมวิดีโอ:  
+เพื่อสร้างเฟรมวิดีโอและตั้งค่าการตัดของมัน:
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
-2. เพิ่มวิดีโอลงในการนำเสนอ  
-3. เพิ่มวัตถุ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) ลงในสไลด์  
-4. ใช้คอล렉ชัน [CaptionsCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/) ที่คืนค่าจาก [getCaptionTracks](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getCaptionTracks) เพื่อเพิ่มแทร็กคำบรรยาย WebVTT  
-5. บันทึกการนำเสนอที่แก้ไขแล้ว  
+1. เพิ่มอ็อบเจ็กต์ [Video](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/) ลงในงานนำเสนอ  
+1. เพิ่มอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) ลงบนสไลด์  
+1. ตั้งค่า trim‑from‑start และ trim‑from‑end ผ่านเมธอด [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#setTrimFromStart) และ [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#setTrimFromEnd)  
+1. บันทึกงานนำเสนอที่แก้ไขแล้ว  
+
+ตัวอย่างโค้ดต่อไปนี้ข้าม 2.5 วินาทีแรกและ 1 วินาทีสุดท้ายของวิดีโอที่ฝังไว้ระหว่างการเล่น:
+
+```php
+$presentation = new Presentation();
+$videoStream = null;
+try {
+    $videoStream = new Java("java.io.FileInputStream", "video.mp4");
+    $video = $presentation->getVideos()->addVideo(
+        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    if ($videoStream !== null) {
+        $videoStream->close();
+    }
+    $presentation->dispose();
+}
+```
+
+**อ่านการตั้งค่าการตัด**
+
+เพื่ออ่านการตั้งค่าการตัดที่มีอยู่ ให้โหลดงานนำเสนอ ค้นหาอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) ในรูปทรงของสไลด์แรก แล้วอ่านค่าผ่านเมธอด [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getTrimFromStart) และ [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getTrimFromEnd)  
+
+โค้ดตัวอย่างต่อไปนี้ค้นหาเฟรมวิดีโอแรกบนสไลด์แรกและรายงานค่าการตัดเป็นมิลลิ–วินาที:
+
+```php
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $trimFromStart = java_values($videoFrame->getTrimFromStart());
+            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+
+            echo "Trim from start: " . $trimFromStart . " ms\n";
+            echo "Trim from end: " . $trimFromEnd . " ms\n";
+            break;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **จัดการคำบรรยายวิดีโอ**
+
+Aspose.Slides อนุญาตให้คุณจัดการคำบรรยายปิด (closed captions) สำหรับเฟรมวิดีโอในงานนำเสนอ PowerPoint คำบรรยายจะถูกเก็บในรูปแบบ WebVTT และสามารถเข้าถึงได้ผ่านเมธอด [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getCaptionTracks)  
+
+**เพิ่มคำบรรยายให้กับเฟรมวิดีโอ**
+
+เพื่อเพิ่มคำบรรยายให้กับเฟรมวิดีโอ:
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)  
+1. เพิ่มวิดีโอลงในงานนำเสนอ  
+1. เพิ่มอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) ลงบนสไลด์  
+1. ใช้คอลเลกชัน [CaptionsCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/) ที่คืนค่าจากเมธอด [getCaptionTracks](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getCaptionTracks) เพื่อเพิ่มแทร็กคำบรรยาย WebVTT  
+1. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
 โค้ดต่อไปนี้แสดงวิธีเพิ่มคำบรรยายให้กับเฟรมวิดีโอ:
 
@@ -138,18 +204,18 @@ try {
 }
 ```
 
-คลาส [CaptionsCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/) ยังมี overload ที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้  
+คลาส [CaptionsCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/) ยังมี overload ที่ให้คุณเพิ่มคำบรรยายจากสตรีมได้ด้วย  
 
-### **ดึงคำบรรยายจากเฟรมวิดีโอ**
+**สกัดคำบรรยายจากเฟรมวิดีโอ**
 
-เพื่อดึงคำบรรยายจากเฟรมวิดีโอ:  
+เพื่อสกัดคำบรรยายจากเฟรมวิดีโอ:
 
-1. โหลดการนำเสนอที่มีวิดีโออยู่  
-2. ค้นหาอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) ที่ต้องการ  
-3. วนลูปผ่านคอล렉ชัน [getCaptionTracks](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getCaptionTracks)  
-4. บันทึกแต่ละแทร็กคำบรรยายเป็นไฟล์ `.vtt`  
+1. โหลดงานนำเสนอที่มีวิดีโออยู่  
+1. ค้นหาอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) ที่ต้องการ  
+1. วนลูปผ่านคอลเลกชันที่ได้จาก [getCaptionTracks](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getCaptionTracks)  
+1. บันทึกแต่ละแทร็กคำบรรยายเป็นไฟล์ `.vtt`  
 
-โค้ดต่อไปนี้แสดงวิธีดึงคำบรรยายจากเฟรมวิดีโอ:
+โค้ดต่อไปนี้แสดงวิธีสกัดคำบรรยายจากเฟรมวิดีโอ:
 
 ```php
 $presentation = new Presentation("video_with_captions.pptx");
@@ -174,16 +240,16 @@ try {
 }
 ```
 
-แต่ละวัตถุ [Captions](https://reference.aspose.com/slides/th/php-java/aspose.slides/captions/) จะเปิดเผยรหัสประจำคำบรรยาย, ป้ายชื่อ, ข้อมูลไบนารี, และข้อความคำบรรยายเป็นสตริง UTF-8  
+แต่ละอ็อบเจ็กต์ [Captions](https://reference.aspose.com/slides/th/php-java/aspose.slides/captions/) เปิดเผยตัวระบุคำบรรยาย, ป้ายชื่อ, ข้อมูลไบนารีและข้อความคำบรรยายเป็นสตริง UTF‑8  
 
-### **ลบคำบรรยายจากเฟรมวิดีโอ**
+**ลบคำบรรยายจากเฟรมวิดีโอ**
 
-เพื่อทำการลบคำบรรยายจากเฟรมวิดีโอ:  
+เพื่อทำการลบคำบรรยายจากเฟรมวิดีโอ:
 
-1. โหลดการนำเสนอที่มีวิดีโออยู่  
-2. รับอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) ที่ต้องการ  
-3. ลบแทร็กคำบรรยายจากคอล렉ชัน [getCaptionTracks](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getCaptionTracks)  
-4. บันทึกการนำเสนอที่แก้ไขแล้ว  
+1. โหลดงานนำเสนอที่มีวิดีโออยู่  
+1. รับอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/) ที่ต้องการ  
+1. ลบแทร็กคำบรรยายจากคอลเลกชันที่ได้จาก [getCaptionTracks](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/#getCaptionTracks)  
+1. บันทึกงานนำเสนอที่แก้ไขแล้ว  
 
 โค้ดต่อไปนี้แสดงวิธีลบคำบรรยายทั้งหมดจากเฟรมวิดีโอ:
 
@@ -193,7 +259,7 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $videoFrame = $slide->getShapes()->get_Item(0); // ประเภท: VideoFrame
 
-    // ลบคำบรรยายทั้งหมดจากเฟรมวิดีโอ.
+    // ลบคำบรรยายทั้งหมดออกจากเฟรมวิดีโอ
     $videoFrame->getCaptionTracks()->clear();
 
     $presentation->save("video_without_captions.pptx", SaveFormat::Pptx);
@@ -202,21 +268,21 @@ try {
 }
 ```
 
-หากคุณต้องการลบเฉพาะแทร็กคำบรรยายหนึ่งรายการ ให้ใช้เมธอด [remove](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/#remove) หรือ [removeAt](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/#removeAt) แทน [clear](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/#clear)  
+หากต้องการลบแทร็กคำบรรยายเพียงหนึ่งแทร็ก ให้ใช้เมธอด [remove](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/#remove) หรือ [removeAt](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/#removeAt) แทนการใช้ [clear](https://reference.aspose.com/slides/th/php-java/aspose.slides/captionscollection/#clear)
 
-## **ดึงวิดีโอจากสไลด์**
+## **สกัดวิดีโอจากสไลด์**
 
-นอกเหนือจากการเพิ่มวิดีโอลงในสไลด์แล้ว Aspose.Slides ยังอนุญาตให้คุณดึงวิดีโอที่ฝังอยู่ในการนำเสนอได้  
+นอกจากการเพิ่มวิดีโอเข้าสไลด์แล้ว Aspose.Slides ยังอนุญาตให้คุณสกัดวิดีโอที่ฝังอยู่ในงานนำเสนอได้  
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) เพื่อโหลดการนำเสนอที่มีวิดีโออยู่  
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) เพื่อโหลดงานนำเสนอที่มีวิดีโออยู่  
 2. วนลูปผ่านอ็อบเจ็กต์ [Slide](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/) ทั้งหมด  
 3. วนลูปผ่านอ็อบเจ็กต์ [Shape](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/) ทั้งหมดเพื่อค้นหา [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/)  
 4. บันทึกวิดีโอลงดิสก์  
 
-โค้ด PHP นี้แสดงวิธีดึงวิดีโอจากสไลด์ของการนำเสนอ:
+โค้ด PHP ตัวนี้แสดงวิธีสกัดวิดีโอจากสไลด์ของงานนำเสนอ:
 
 ```php
-  # สร้างอ็อบเจกต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
+  # สร้างอ็อบเจ็กต์ Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
   $pres = new Presentation("VideoSample.pptx");
   try {
     foreach($pres->getSlides() as $slide) {
@@ -226,7 +292,7 @@ try {
           $type = $vf->getEmbeddedVideo()->getContentType();
           $ss = $type->lastIndexOf('-');
           $buffer = $vf->getEmbeddedVideo()->getBinaryData();
-          # รับส่วนขยายไฟล์
+          # รับส่วนขยายของไฟล์
           $charIndex = $type->indexOf("/");
           $type = $type->substring($charIndex + 1);
           $fop = new Java("java.io.FileOutputStream", "testing2." . $type);
@@ -244,16 +310,20 @@ try {
   }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**พารามิเตอร์การเล่นวิดีโอใดบ้างที่สามารถเปลี่ยนแปลงได้สำหรับ VideoFrame?**  
-คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/setplaymode/) (อัตโนมัติหรือเมื่อคลิก) และ [looping](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/setplayloopmode/). ตัวเลือกเหล่านี้สามารถใช้ได้ผ่านคุณสมบัติของวัตถุ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/)  
+**พารามิเตอร์การเล่นวิดีโอใดที่สามารถเปลี่ยนแปลงได้สำหรับ VideoFrame?**  
 
-**การเพิ่มวิดีโอทำให้ขนาดไฟล์ PPTX เพิ่มขึ้นหรือไม่?**  
-ใช่ เมื่อคุณฝังวิดีโอท้องถิ่น ไฟล์ข้อมูลไบนารีจะถูกใส่ในเอกสาร ดังนั้นขนาดการนำเสนอจะเพิ่มขึ้นตามขนาดของไฟล์นั้น เมื่อคุณเพิ่มวิดีโอออนไลน์ ลิงก์และภาพย่อจะถูกฝังไว้ ทำให้การเพิ่มขนาดน้อยลง  
+คุณสามารถควบคุม [playback mode](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/setplaymode/) (อัตโนมัติหรือเมื่อคลิก) และ [looping](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/setplayloopmode/) ได้ ตัวเลือกเหล่านี้สามารถตั้งค่าผ่านคุณสมบัติของอ็อบเจ็กต์ [VideoFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/)  
+
+**การเพิ่มวิดีโอมีผลต่อขนาดไฟล์ PPTX หรือไม่?**  
+
+ใช่ เมื่อคุณฝังวิดีโอในเครื่อง ข้อมูลไบนารีของวิดีโอจะถูกรวมอยู่ในเอกสาร ดังนั้นขนาดงานนำเสนอจะเพิ่มตามขนาดไฟล์ของวิดีโอ เมื่อคุณเพิ่มวิดีโอออนไลน์ เพียงแค่ฝังลิงก์และภาพย่อขนาดการเพิ่มจึงน้อยกว่า  
 
 **ฉันสามารถแทนที่วิดีโอใน VideoFrame ที่มีอยู่โดยไม่เปลี่ยนตำแหน่งและขนาดได้หรือไม่?**  
-ใช่ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/setembeddedvideo/) ภายในเฟรมขณะยังคงรักษาเรขาคณิตของรูปร่างไว้; นี่เป็นสถานการณ์ทั่วไปสำหรับการอัปเดตสื่อในเค้าโครงที่มีอยู่  
 
-**สามารถระบุประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังได้หรือไม่?**  
-ใช่ วิดีโอที่ฝังไว้มี [content type](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/getcontenttype/) ซึ่งคุณสามารถอ่านและใช้ได้ เช่นเมื่อต้องการบันทึกลงดิสก์
+ใช่ คุณสามารถสลับ [video content](https://reference.aspose.com/slides/th/php-java/aspose.slides/videoframe/setembeddedvideo/) ภายในเฟรมโดยคงรูปทรงเดิมไว้ ซึ่งเป็นกรณีทั่วไปสำหรับการอัปเดตสื่อในเลย์เอาต์ที่มีอยู่  
+
+**สามารถระบุประเภทเนื้อหา (MIME) ของวิดีโอที่ฝังอยู่ได้หรือไม่?**  
+
+ใช่ วิดีโอที่ฝังอยู่มี [content type](https://reference.aspose.com/slides/th/php-java/aspose.slides/video/getcontenttype/) ที่คุณสามารถอ่านและใช้ได้ ตัวอย่างเช่นเมื่อต้องการบันทึกลงดิสก์  

@@ -61,7 +61,7 @@ $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the TextFrame Class](/slides/php-java/text-formatting/)
 {{% /alert %}}
 
@@ -81,7 +81,7 @@ $watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
 $presentation->dispose();
 ```
 
-{{% alert color="primary" title="See also" %}} 
+{{% alert color="info" title="See also" %}} 
 - [How to Use the Slide Master](/slides/php-java/slide-master/)
 {{% /alert %}}
 

@@ -1,103 +1,249 @@
 ---
-title: Dostosuj punkty danych w wykresach Treemap i Sunburst przy użyciu C++
+title: Dostosowywanie punktów danych w wykresach Treemap i Sunburst w C++
 linktitle: Punkty danych w wykresach Treemap i Sunburst
 type: docs
 url: /pl/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords:
 - wykres treemap
 - wykres sunburst
+- wykres hierarchiczny
 - punkt danych
-- kolor etykiety
+- etykieta danych
 - kolor gałęzi
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać punktami danych w wykresach treemap i sunburst przy użyciu Aspose.Slides dla C++, zgodnie z formatami PowerPoint."
+description: "Dowiedz się, jak tworzyć dane hierarchiczne i dostosowywać poziomy, etykiety oraz kolory w wykresach Treemap i Sunburst przy użyciu Aspose.Slides dla C++."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Wśród innych typów wykresów PowerPoint istnieją dwa typy „hierarchiczne” – **Treemap** i **Sunburst** (chart (również znany jako Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph lub Multi Level Pie Chart)). Te wykresy wyświetlają hierarchiczne dane zorganizowane jako drzewo – od liści do szczytu gałęzi. Liście są definiowane przez punkty danych serii, a każdy kolejny zagnieżdżony poziom grupowania jest definiowany przez odpowiednią kategorię. Aspose.Slides for C++ umożliwia formatowanie punktów danych wykresu Sunburst i Treemap w C++.
+Wykresy Treemap i Sunburst wyświetlają ten sam typ danych hierarchicznych, ale używają różnych układów. Treemap rysuje hierarchię jako zagnieżdżone prostokąty, których pola reprezentują wartości liści. Sunburst przedstawia ją jako koncentryczne pierścienie: grupy najwyższego poziomu znajdują się blisko środka, a kategorie liściowe na zewnętrznym pierścieniu.
 
-Poniżej znajduje się wykres Sunburst, gdzie dane w kolumnie Series1 definiują węzły liści, a pozostałe kolumny definiują hierarchiczne punkty danych:
+W Aspose.Slides for C++ każdy numeryczny wynik jest [IChartDataPoint](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapoint/). Jego metoda [IChartDataPoint::get_DataPointLevels()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) zapewnia dostęp do liścia oraz jego grup nadrzędnych. Ten artykuł wyjaśnia to mapowanie i pokazuje, jak utworzyć oraz sformatować oba typy wykresów na podstawie tych samych danych przykładowych.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Wykres Treemap z gałęziami Konsument i Biznes](treemap-hierarchy.png)
 
-Rozpocznijmy od dodania nowego wykresu Sunburst do prezentacji:
+![Wykres Sunburst z tą samą hierarchią Konsument i Biznes](sunburst-hierarchy.png)
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
-// ...
+## **Zrozumienie kategorii, punktów danych i poziomów**
+
+Przykład użyty poniżej ma trzy poziomy kategorii i jedną serię numeryczną:
+
+| Oddział | Gałąź | Liść | Przychód |
+| --- | --- | --- | ---: |
+| Konsument | Komputery | Laptopy | 12 |
+| Konsument | Komputery | Komputery stacjonarne | 8 |
+| Konsument | Mobilny | Telefony | 15 |
+| Konsument | Mobilny | Tablety | 6 |
+| Biznes | Usługi | Doradztwo | 10 |
+| Biznes | Usługi | Wsparcie | 7 |
+| Biznes | Oprogramowanie | Licencje | 11 |
+| Biznes | Oprogramowanie | Subskrypcje | 14 |
+
+Każdy wiersz tworzy jedną kategorię liścia i jeden punkt danych. Poziomy grupowania kategorii opisują ścieżkę od tego liścia do jego nadrzędnych elementów. Dla pierwszego wiersza ścieżka to `Konsument > Komputery > Laptopy`.
+
+Indeksy zwracane przez [IChartDataPoint::get_DataPointLevels()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) liczą od liścia w górę:
+
+| `get_DataPointLevels()` indeks | Poziom logiczny | Reprezentacja w Treemap | Reprezentacja w Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Liść | Prostokąt wartości | Segment pierścienia zewnętrznego |
+| `1` | Gałąź | Prostokąt lub nagłówek rodzica | Segment pierścienia środkowego |
+| `2` | Oddział | Prostokąt lub nagłówek najwyższego poziomu | Segment pierścienia wewnętrznego |
+
+Ta kolejność jest taka sama dla obu typów wykresów, mimo że ich wizualne układy się różnią. Segment rodzica jest współdzielony przez kilka liści. Aby go sformatować, użyj odpowiedniego poziomu pierwszego punktu danych w tej grupie. Na przykład gałąź `Konsument` rozpoczyna się od punktu `Laptopy`, a gałąź `Oprogramowanie` od punktu `Licencje`. Przechowywanie odwołań do tych punktów jest czytelniejsze i bezpieczniejsze niż używanie nieopisanych wyrażeń takich jak `dataPoints->idx_get(0)` lub `dataPoints->idx_get(6)`.
+
+## **Tworzenie i dostosowywanie obu typów wykresów**
+
+Poniższy kompletny przykład tworzy wykres Treemap na pierwszym slajdzie i wykres Sunburst na drugim slajdzie. Buduje hierarchię, wyświetla wartość dla `Tablety`, stosuje stałe kolory do wybranych poziomów, formatuje etykietę gałęzi i zapisuje prezentację.
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto addHierarchyChart = [](SharedPtr<ISlide> slide, ChartType chartType)
+{
+    const int worksheetIndex = 0;
+    const int leafLevelIndex = 0;
+    const int stemLevelIndex = 1;
+    const int branchLevelIndex = 2;
+
+    auto chart = slide->get_Shapes()->AddChart(chartType, 40, 40, 640, 440);
+    chart->set_HasTitle(false);
+    chart->set_HasLegend(false);
+    chart->get_ChartData()->get_Categories()->Clear();
+    chart->get_ChartData()->get_Series()->Clear();
+
+    auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+    workbook->Clear(worksheetIndex);
+
+    auto addCategory = [&](int rowIndex, const String& leafName)
+    {
+        auto leafNameValue = ObjectExt::Box<String>(leafName);
+        auto categoryCell = workbook->GetCell(worksheetIndex, rowIndex, 2, leafNameValue);
+        return chart->get_ChartData()->get_Categories()->Add(categoryCell);
+    };
+
+    auto setGroupingItem = [](SharedPtr<IChartCategory> category, int levelIndex,
+                              const String& groupName)
+    {
+        auto groupNameValue = ObjectExt::Box<String>(groupName);
+        category->get_GroupingLevels()->SetGroupingItem(levelIndex, groupNameValue);
+    };
+
+    // Dodaj kategorie liści. Element grupowania jest ustawiany tylko wtedy, gdy rozpoczyna się nowa grupa;
+    // kolejne kategorie pozostają w tej grupie, aż zostanie ustawiony kolejny element.
+    auto laptopsCategory = addCategory(1, u"Laptops");
+    setGroupingItem(laptopsCategory, stemLevelIndex, u"Computers");
+    setGroupingItem(laptopsCategory, branchLevelIndex, u"Consumer");
+
+    addCategory(2, u"Desktops");
+
+    auto phonesCategory = addCategory(3, u"Phones");
+    setGroupingItem(phonesCategory, stemLevelIndex, u"Mobile");
+
+    addCategory(4, u"Tablets");
+
+    auto consultingCategory = addCategory(5, u"Consulting");
+    setGroupingItem(consultingCategory, stemLevelIndex, u"Services");
+    setGroupingItem(consultingCategory, branchLevelIndex, u"Business");
+
+    addCategory(6, u"Support");
+
+    auto licensesCategory = addCategory(7, u"Licenses");
+    setGroupingItem(licensesCategory, stemLevelIndex, u"Software");
+
+    addCategory(8, u"Subscriptions");
+
+    auto seriesNameValue = ObjectExt::Box<String>(u"Revenue");
+    auto seriesNameCell = workbook->GetCell(worksheetIndex, 0, 3, seriesNameValue);
+    auto series = chart->get_ChartData()->get_Series()->Add(seriesNameCell, chartType);
+    series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowCategoryName(true);
+
+    auto addDataPoint = [&](int rowIndex, double value)
+    {
+        auto valueObject = ObjectExt::Box<double>(value);
+        auto valueCell = workbook->GetCell(worksheetIndex, rowIndex, 3, valueObject);
+
+        if (chartType == ChartType::Treemap)
+        {
+            return series->get_DataPoints()->AddDataPointForTreemapSeries(valueCell);
+        }
+
+        return series->get_DataPoints()->AddDataPointForSunburstSeries(valueCell);
+    };
+
+    auto laptopsDataPoint = addDataPoint(1, 12);
+    addDataPoint(2, 8);
+    addDataPoint(3, 15);
+    auto tabletsDataPoint = addDataPoint(4, 6);
+    addDataPoint(5, 10);
+    addDataPoint(6, 7);
+    auto licensesDataPoint = addDataPoint(7, 11);
+    addDataPoint(8, 14);
+
+    auto setSolidFill = [](SharedPtr<IFillFormat> fillFormat, Color color)
+    {
+        fillFormat->set_FillType(FillType::Solid);
+        fillFormat->get_SolidFillColor()->set_Color(color);
+    };
+
+    // Pokaż nazwę kategorii i wartość w liściu Tablety.
+    auto tabletsLeafLevel = tabletsDataPoint->get_DataPointLevels()->idx_get(leafLevelIndex);
+    auto tabletsLabelFormat = tabletsLeafLevel->get_Label()->get_DataLabelFormat();
+    tabletsLabelFormat->set_ShowCategoryName(true);
+    tabletsLabelFormat->set_ShowValue(true);
+    tabletsLabelFormat->set_Separator(u"\n");
+    tabletsLabelFormat->set_NumberFormat(u"$0");
+
+    // Sformatuj gałąź Consumer poprzez pierwszy liść w tej gałęzi.
+    auto consumerBranchLevel = laptopsDataPoint->get_DataPointLevels()->idx_get(branchLevelIndex);
+    auto consumerBranchFill = consumerBranchLevel->get_Format()->get_Fill();
+    auto consumerBranchColor = Color::FromArgb(31, 78, 121);
+    setSolidFill(consumerBranchFill, consumerBranchColor);
+
+    auto consumerLabelFormat = consumerBranchLevel->get_Label()->get_DataLabelFormat();
+    consumerLabelFormat->set_ShowCategoryName(true);
+    consumerLabelFormat->set_ShowSeriesName(false);
+    auto consumerLabelTextFill = consumerLabelFormat->get_TextFormat()
+        - >get_PortionFormat()->get_FillFormat();
+    setSolidFill(consumerLabelTextFill, Color::get_White());
+
+    // Sformatuj szczebel Software poprzez pierwszy liść w tym szczeblu.
+    auto softwareStemLevel = licensesDataPoint->get_DataPointLevels()->idx_get(stemLevelIndex);
+    auto softwareStemFill = softwareStemLevel->get_Format()->get_Fill();
+    auto softwareStemColor = Color::FromArgb(112, 173, 71);
+    setSolidFill(softwareStemFill, softwareStemColor);
+
+    // ParentLabelLayout wpływa na etykiety rodziców w Treemap; Sunburst używa segmentów pierścieni.
+    if (chartType == ChartType::Treemap)
+    {
+        series->set_ParentLabelLayout(ParentLabelLayoutType::Overlapping);
+    }
+};
+
+auto treemapSlide = presentation->get_Slide(0);
+addHierarchyChart(treemapSlide, ChartType::Treemap);
+
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto sunburstSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+addHierarchyChart(sunburstSlide, ChartType::Sunburst);
+
+presentation->Save(u"hierarchical-charts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{% alert color="primary" title="Zobacz także" %}} 
-- [**Tworzenie wykresu Sunburst**](/slides/pl/cpp/create-chart/#create-sunburst-chart)
-{{% /alert %}}
+Komórki kategorii i komórki wartości używają tego samego wiersza arkusza, więc ich pozycje w kolekcji pozostają wyrównane. Gdy pracujesz z istniejącym wykresem zamiast tworzyć nowy, najpierw sprawdź wiersze kategorii i zachowaj nazwane odwołania do punktów danych oraz poziomów, które zamierzasz sformatować.
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/), [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/) klasy oraz [**IChartDataPoint::get_DataPointLevels()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/) metoda udostępniają dostęp do formatowania punktów danych wykresów Treemap i Sunburst.  
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevelsmanager/) służy do uzyskiwania dostępu do kategorii wielopoziomowych – reprezentuje kontener obiektów [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/).  
-W zasadzie jest to opakowanie dla [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartcategorylevelsmanager/) z właściwościami dodanymi specyficznie dla punktów danych.  
-Klasa [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/) posiada dwie metody: [**get_Format()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/get_format/) i [**get_Label()**](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/get_label/), które zapewniają dostęp do odpowiednich ustawień.
+## **Zachowanie i praktyczne uwagi**
 
-## **Pokaż wartość punktu danych**
+### **Różnice między wykresami Treemap i Sunburst**
 
-Pokaż wartość punktu danych „Leaf 4”:
+- Treemap wykorzystuje pole do przekazywania wartości i zagnieżdżone prostokąty do przekazywania hierarchii. Metoda [IChartSeries::get_ParentLabelLayout()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartseries/get_parentlabellayout/) steruje tym, jak etykiety rodziców pojawiają się w tym typie wykresu.
+- Sunburst wykorzystuje kąt do przekazywania wartości i głębokość pierścienia do przekazywania hierarchii. [IChartSeries::get_ParentLabelLayout()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartseries/get_parentlabellayout/) nie steruje etykietami pierścieni.
+- Oba typy wykresów używają tych samych poziomów grupowania kategorii oraz tej samej kolejności liść‑do‑rodzic zwracanej przez [IChartDataPoint::get_DataPointLevels()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapoint/get_datapointlevels/), więc kod budowania danych i formatowania poziomów może być współdzielony.
+- Wartości rodziców są obliczane z ich liści potomnych. Nie dodawaj osobnych punktów liczbowych dla gałęzi lub gałęzi podrzędnych.
 
-``` cpp
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
-dataPoints->idx_get(3)->get_DataPointLevels()->idx_get(0)->get_Label()->get_DataLabelFormat()->set_ShowValue(true);
-```
+### **Sortowanie i kolejność segmentów**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+Silnik układu wykresu określa ostateczne położenie prostokątów i segmentów pierścieni. Uporządkuj powiązane wiersze kategorii razem przed ich dodaniem, ale nie polegaj na konkretnej pozycji prostokąta ani kącie początkowym. Jeśli kolejność niesie znaczenie, uwzględnij ją w etykietach lub użyj typu wykresu z wyraźną osią kategorii.
 
-## **Ustaw etykietę i kolor punktu danych**
+### **Motyw i stałe kolory**
 
-Ustaw etykietę danych „Branch 1”, aby wyświetlała nazwę serii („Series1”) zamiast nazwy kategorii. Następnie ustaw kolor tekstu na żółty:
+Niesformatowane poziomy wykresu dziedziczą kolory z motywu prezentacji. Przykład używa jawnych wypełnień RGB dla przewidywalnego wyniku. Jeśli wykres ma podążać za zmianami motywu, używaj kolorów schematu zamiast stałych wartości RGB i unikaj nadpisywania każdego poziomu. Sprawdź również kontrast etykiet po zmianie wypełnienia gałęzi lub gałęzi podrzędnej.
 
-``` cpp
-auto branch1Label = dataPoints->idx_get(0)->get_DataPointLevels()->idx_get(2)->get_Label();
-branch1Label->get_DataLabelFormat()->set_ShowCategoryName(false);
-branch1Label->get_DataLabelFormat()->set_ShowSeriesName(true);
+### **Etykiety i dostępna przestrzeń**
 
-branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-branch1Label->get_DataLabelFormat()->get_TextFormat()->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
-```
+PowerPoint może ukrywać lub przycinać etykiety, gdy segment jest zbyt mały. Zwiększenie rozmiaru wykresu, skrócenie nazw kategorii lub wyświetlenie mniejszej liczby pól etykiety zazwyczaj daje czytelniejszy rezultat. Etykieta może łączyć nazwę kategorii, nazwę serii i wartość za pomocą [IDataLabelFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/idatalabelformat/), ale włączanie każdego pola często sprawia, że wykresy hierarchiczne stają się trudne do odczytania.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Eksport i renderowanie**
 
-## **Ustaw kolor gałęzi punktu danych**
+Zapis do PPTX pozostawia wykres edytowalny. Gdy Aspose.Slides renderuje prezentację do PDF lub obrazu, obsługiwane wypełnienia i ustawienia etykiet są renderowane wraz z wykresem. Zastąpienie czcionek i niewielkie różnice w dostępnej przestrzeni układu mogą zmienić łamanie linii lub widoczność etykiet, więc zainstaluj wymagane czcionki i zweryfikuj ważne cele eksportu.
 
-Zmień kolor gałęzi „Stem 4”:
+## **Najczęściej zadawane pytania**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Sunburst, 100.0f, 100.0f, 450.0f, 400.0f);
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
+**Dlaczego zmiana poziomu rodzica wpływa na wiele liści?**
 
-auto stem4branch = dataPoints->idx_get(9)->get_DataPointLevels()->idx_get(1);
-stem4branch->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-stem4branch->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Red());
+Gałąź lub gałąź podrzędna to współdzielony segment wizualny. Jej [IChartDataPointLevel](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichartdatapointlevel/) można osiągnąć przez liść potomny, ale formatowanie należy do współdzielonego segmentu rodzica, a nie tylko do tego liścia.
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
+**Dlaczego brakuje etykiety danych?**
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Najpierw włącz wymagane pola w obiekcie [IDataLabelFormat](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/idatalabelformat/) etykiety. Następnie sprawdź, czy segment ma wystarczająco dużo miejsca. Układ etykiet rodziców w Treemap, wymiary wykresu, długość etykiety, rozmiar czcionki i liczba włączonych pól wpływają na to, czy etykieta może być wyświetlona.
 
-## **FAQ**
+**Czy mogę ustawić dokładną kolejność lub współrzędne segmentów?**
 
-**Czy mogę zmienić kolejność (sortowanie) segmentów w wykresie Sunburst/Treemap?**
+Możesz kontrolować kolejność wierszy źródłowych i utrzymać każdą grupę jako ciągłą, ale nie możesz przypisać dokładnych prostokątów Treemap ani kątów Sunburst. Silnik układu wykresu oblicza je na podstawie hierarchii, wartości i dostępnej przestrzeni.
 
-Nie. PowerPoint sortuje segmenty automatycznie (zazwyczaj według wartości malejących, zgodnie z ruchem wskazówek zegara). Aspose.Slides odzwierciedla to zachowanie: nie można zmienić kolejności bezpośrednio; należy to zrobić poprzez wstępne przetworzenie danych.
+**Dlaczego kolory zmieniają się po zmianie motywu prezentacji?**
 
-**Jak motyw prezentacji wpływa na kolory segmentów i etykiet?**
+Wypełnienia oparte na motywie są projektowane tak, aby podążały za paletą prezentacji. Zastosuj wyraźne kolory RGB do poziomów, które muszą pozostać stałe, lub zachowaj kolory schematu, gdy preferujesz dopasowanie do nowego motywu.
 
-Kolory wykresu dziedziczą [motyw/paleta](/slides/pl/cpp/presentation-theme/) prezentacji, chyba że wyraźnie ustawisz wypełnienia lub czcionki. Aby uzyskać spójne wyniki, zablokuj stałe wypełnienia i formatowanie tekstu na wymaganych poziomach.
+**Czy niestandardowe formatowanie zostanie zachowane w eksportach PDF i obrazów?**
 
-**Czy eksport do PDF/PNG zachowa niestandardowe kolory gałęzi i ustawienia etykiet?**
+Tak, obsługiwane wypełnienia wykresu i ustawienia etykiet są uwzględniane podczas renderowania. Aby uzyskać spójne wyniki na różnych systemach, udostępnij wymagane czcionki i przetestuj ostateczny rozmiar eksportu, ponieważ dopasowanie etykiet zależy od układu.
 
-Tak. Podczas eksportu prezentacji ustawienia wykresu (wypełnienia, etykiety) są zachowywane w formatach wyjściowych, ponieważ Aspose.Slides renderuje wykres z zastosowanym formatowaniem.
+## **Zobacz także**
 
-**Czy mogę obliczyć rzeczywiste współrzędne etykiety/elementu w celu niestandardowego umieszczenia nakładki nad wykresem?**
-
-Tak. Po zwalidowaniu układu wykresu dostępne są rzeczywiste współrzędne X i Y elementów (na przykład [DataLabel](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/datalabel/)), co ułatwia precyzyjne pozycjonowanie nakładek.
+- [Create Treemap charts](/slides/pl/cpp/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/pl/cpp/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/pl/cpp/export-chart/)
+- [Manage presentation themes](/slides/pl/cpp/presentation-theme/)

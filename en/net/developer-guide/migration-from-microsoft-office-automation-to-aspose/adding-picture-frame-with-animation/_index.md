@@ -21,7 +21,7 @@ keywords:
 description: "Migrate from Microsoft Office automation to Aspose.Slides for .NET and animate picture frames in PowerPoint (PPT, PPTX) slides with clean C# code."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Picture frames are applied to shapes or images in Microsoft PowerPoint to frame images in a presentation. This article shows how to create a picture frame and apply animation on it programmatically using first [VSTO 2008](/slides/net/adding-picture-frame-with-animation/) and then [Aspose.Slides for .NET](/slides/net/adding-picture-frame-with-animation/). First, we show you how to apply a frame and animation using VSTO 2008. We then show you how to perform the same steps using Aspose.Slides for .NET.
 

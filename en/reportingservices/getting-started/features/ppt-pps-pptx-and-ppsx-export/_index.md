@@ -5,7 +5,7 @@ weight: 20
 url: /reportingservices/ppt-pps-pptx-and-ppsx-export/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Microsoft SQL Server Reporting Services does not have built-in abilities to export reports as Microsoft PowerPoint presentations, but after installing Aspose.Slides for Reporting Services on your server, you will get access to two additional export formats: 
 

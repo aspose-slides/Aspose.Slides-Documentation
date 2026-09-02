@@ -52,7 +52,7 @@ In order to integrate and use Aspose.Slides for C++ library within a Qt Console 
 
 - Build the application and you are done with the integration.  
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Note: See the [full demo project](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/QtCreator/Qt_AsposeSlides_QMake) for more information.
 
@@ -77,7 +77,7 @@ In order to develop a Qt application using Visual Studio, you need to install [Q
 
 - Build the project and you are done with the integration.  
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Note: See the [full demo project](https://github.com/aspose-slides/Aspose.Slides-for-C/tree/master/QtDemos/Visual%20Studio/Qt_AsposeSlides_VS) for more information.
 

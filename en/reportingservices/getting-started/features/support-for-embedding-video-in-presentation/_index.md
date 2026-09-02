@@ -5,7 +5,7 @@ weight: 80
 url: /reportingservices/support-for-embedding-video-in-presentation/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Microsoft SQL Server Reporting Services does not have built-in abilities to export reports with embedded video to PowerPoint presentations. Aspose.Slides for Reporting Services 4.10 and onward versions support embedding video inside presentation. 
 

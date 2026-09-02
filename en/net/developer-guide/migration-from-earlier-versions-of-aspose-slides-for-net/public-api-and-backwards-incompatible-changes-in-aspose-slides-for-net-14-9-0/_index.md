@@ -19,7 +19,7 @@ keywords:
 description: "Review public API updates and breaking changes in Aspose.Slides for .NET to smoothly migrate your PowerPoint PPT, PPTX and ODP presentation solutions."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This page lists all [added](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) or [removed](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/) classes, methods, properties and so on, and other changes introduced with the Aspose.Slides for .NET 14.9.0 API.
 
@@ -32,7 +32,7 @@ The Custom SmartArt layout type represents a diagram with a custom template. Cus
 #### **SmartArtShape Class and ISmartArtShape Interface Added**
 The Aspose.Slides.SmartArt.SmartArtShape class (and its interface Aspose.Slides.SmartArt.ISmartArtShape) give access to individual shapes in a SmartArt diagram. SmartArtShape can be used to change FillFormat, LineFormat, adding Hyperlinks and other tasks.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 **Note**: SmartArtShape does not support the IShape properties RawFrame, Frame, Rotation, X, Y, Width, Height and throws a System.NotSupportedException when attempting to access them.
 
@@ -65,7 +65,7 @@ using (Presentation pres = new Presentation())
 #### **SmartArtShapeCollection Class, ISmartArtShapeCollection Interface and ISmartArtNode.Shapes Property Added**
 The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) add access to individual shapes in a SmartArt diagram. The collection contains shapes associated with SmartArtNode. The SmartArtNode.Shapes property returns collections of all shapes associated with the node.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 **Note**: depending on the SmartArtLayoutType one SmartArtShape can be shared between several nodes.
 

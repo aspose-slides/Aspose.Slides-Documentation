@@ -5,7 +5,7 @@ weight: 10
 url: /reportingservices/important-features/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This section provides detailed description of Aspose.Slides for Reporting Services features. Click on the links in the table below to learn more about the features. 
 

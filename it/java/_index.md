@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides per Java
-second_title: Documentazione Aspose.Slides
+second_title: Aspose.Slides for Java
 type: docs
 weight: 20
 url: /it/java/

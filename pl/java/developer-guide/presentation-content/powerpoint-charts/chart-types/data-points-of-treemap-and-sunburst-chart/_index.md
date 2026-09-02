@@ -1,5 +1,5 @@
 ---
-title: Dostosowywanie punktów danych w wykresach Treemap i Sunburst przy użyciu Javy
+title: Dostosowywanie punktów danych w wykresach Treemap i Sunburst w Javie
 linktitle: Punkty danych w wykresach Treemap i Sunburst
 type: docs
 url: /pl/java/data-points-of-treemap-and-sunburst-chart/
@@ -7,119 +7,257 @@ weight: 40
 keywords:
 - wykres treemap
 - wykres sunburst
+- wykres hierarchiczny
 - punkt danych
-- kolor etykiety
+- etykieta danych
 - kolor gałęzi
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać punktami danych w wykresach treemap i sunburst przy użyciu Aspose.Slides dla Javy, zgodnie z formatami PowerPoint."
+description: "Dowiedz się, jak tworzyć dane hierarchiczne i dostosowywać poziomy, etykiety oraz kolory w wykresach Treemap i Sunburst za pomocą Aspose.Slides for Java."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Wśród innych typów wykresów PowerPoint istnieją dwa typy „hierarchiczne” – **Treemap** i **Sunburst** (znany również jako Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph lub Multi Level Pie Chart). Te wykresy wyświetlają dane hierarchiczne zorganizowane jako drzewo – od liści do szczytu gałęzi. Liście są definiowane przez punkty danych serii, a każdy kolejny poziom zagnieżdżonej grupy jest definiowany przez odpowiadającą kategorię. Aspose.Slides for Java umożliwia formatowanie punktów danych wykresów Sunburst i Treemap w Javie.
+Diagramy Treemap i Sunburst wyświetlają ten sam rodzaj danych hierarchicznych, ale używają różnych układów. Treemap rysuje hierarchię jako zagnieżdżone prostokąty, których pola reprezentują wartości liści. Sunburst przedstawia ją jako koncentryczne pierścienie: grupy najwyższego poziomu znajdują się blisko środka, a kategorie liści na zewnętrznym pierścieniu.
 
-Oto wykres Sunburst, w którym dane w kolumnie Series1 definiują węzły liści, natomiast inne kolumny definiują punkty danych hierarchicznych:
+W Aspose.Slides for Java każdy wartość liczbową reprezentuje [IChartDataPoint](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/). Jego metoda [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) umożliwia dostęp do liścia oraz jego grup nadrzędnych. Ten artykuł wyjaśnia to mapowanie i pokazuje, jak tworzyć i formatować oba typy wykresów na podstawie tych samych danych przykładowych.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Wykres Treemap z gałęziami Consumer i Business](treemap-hierarchy.png)
 
-Rozpocznijmy od dodania nowego wykresu Sunburst do prezentacji:
+![Wykres Sunburst z tą samą hierarchią Consumer i Business](sunburst-hierarchy.png)
+
+## **Zrozumienie kategorii, punktów danych i poziomów**
+
+Przykład użyty poniżej ma trzy poziomy kategorii i jedną serię liczbową:
+
+| Branch | Stem | Leaf | Revenue |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Każdy wiersz tworzy jedną kategorię liścia i jeden punkt danych. Poziomy grupowania kategorii opisują ścieżkę od tego liścia do jego rodziców. Dla pierwszego wiersza ścieżka to `Consumer > Computers > Laptops`.
+
+Indeksy zwracane przez [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) biegną od liścia w górę:
+
+| `getDataPointLevels()` index | Poziom logiczny | Reprezentacja Treemap | Reprezentacja Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Liść | Prostokąt wartości | Segment zewnętrznego pierścienia |
+| `1` | Pniak | Prostokąt rodzica lub nagłówek | Segment środkowego pierścienia |
+| `2` | Gałąź | Prostokąt najwyższego poziomu lub nagłówek | Segment wewnętrznego pierścienia |
+
+Ta kolejność jest taka sama dla obu typów wykresów, mimo że ich układy wizualne różnią się. Segment rodzica jest współdzielony przez kilka liści. Aby sformatować go, użyj odpowiedniego poziomu pierwszego punktu danych w tej grupie. Na przykład gałąź `Consumer` zaczyna się od punktu `Laptops`, natomiast pniak `Software` zaczyna się od punktu `Licenses`. Przechowywanie odwołań do tych punktów jest czytelniejsze i bezpieczniejsze niż używanie niewyjaśnionych wyrażeń, takich jak `dataPoints.get_Item(0)` czy `dataPoints.get_Item(6)`.
+
+## **Utworzenie i dostosowanie obu typów wykresów**
+
+Poniższy kompletny przykład tworzy wykres Treemap na pierwszym slajdzie i Sunburst na drugim slajdzie. Buduje hierarchię, wyświetla wartość dla `Tablets`, stosuje stałe kolory do wybranych poziomów, formatuje etykietę gałęzi i zapisuje prezentację.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Dodaj kategorie liści. Element grupujący jest ustawiany tylko wtedy, gdy rozpoczyna się nowa grupa;
+        // kolejne kategorie pozostają w tej grupie, aż zostanie ustawiony kolejny element.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Pokaż nazwę kategorii i wartość dla liścia Tablets.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Sformatuj gałąź Consumer przy użyciu pierwszego liścia w tej gałęzi.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        Color consumerBranchColor = new Color(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // Sformatuj pniak Software przy użyciu pierwszego liścia w tym pniaku.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        Color softwareStemColor = new Color(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout wpływa na etykiety rodziców w Treemap; Sunburst używa segmentów pierścieni.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Zobacz także" %}} 
-- [**Tworzenie lub aktualizacja wykresów prezentacji PowerPoint w Javie**](/slides/pl/java/create-chart/)
-{{% /alert %}}
+Komórki kategorii i komórki wartości używają tego samego wiersza arkusza, więc ich pozycje w kolekcji pozostają wyrównane. Gdy pracujesz z istniejącym wykresem zamiast go tworzyć, najpierw sprawdź wiersze kategorii i przechowuj nazwane odwołania do punktów danych oraz poziomów, które zamierzasz sformatować.
 
-Jeśli istnieje potrzeba formatowania punktów danych wykresu, powinniśmy użyć następujących:
+## **Zachowanie i praktyczne uwagi**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataPointLevel) klasy 
-i [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--) metoda 
-udostępniają dostęp do formatowania punktów danych wykresów Treemap i Sunburst. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataPointLevelsManager) 
-służy do uzyskiwania dostępu do wielopoziomowych kategorii – reprezentuje kontener 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartCategoryLevelsManager) z 
-właściwościami dodanymi specyficznie dla punktów danych. 
-Klasa [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataPointLevel) ma 
-dwie metody: [**getFormat**](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataPointLevel#getFormat--) oraz 
-[**getDataLabel**](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartDataPointLevel#getLabel--) które 
-udostępniają dostęp do odpowiednich ustawień.
+### **Różnice między Treemap a Sunburst**
 
-## **Pokaż wartość punktu danych**
+- Treemap używa pola do przedstawiania wartości oraz zagnieżdżonych prostokątów do przedstawiania hierarchii. Metoda [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) kontroluje, jak etykiety rodziców są wyświetlane w tym typie wykresu.
+- Sunburst używa kąta do przedstawiania wartości oraz głębokości pierścienia do przedstawiania hierarchii. Metoda [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) nie kontroluje etykiet pierścieni.
+- Oba typy wykresów używają tych samych poziomów grupowania kategorii i tej samej kolejności liść‑do‑rodzica zwracanej przez [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--), więc kod budujący dane i formatujący poziomy może być współdzielony.
+- Wartości rodziców są obliczane na podstawie ich liści potomnych. Nie dodawaj oddzielnych punktów liczbowych dla gałęzi lub pniaków.
 
-Pokaż wartość punktu danych "Leaf 4":
+### **Sortowanie i kolejność segmentów**
 
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+Silnik układu wykresu określa ostateczne położenie prostokątów i segmentów pierścieni. Uporządkuj powiązane wiersze kategorii razem przed ich dodaniem, ale nie polegaj na konkretnej pozycji prostokąta ani kącie początkowym. Jeśli kolejność ma znaczenie, uwzględnij ją w etykietach lub użyj typu wykresu z wyraźną osią kategorii.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Motyw i stałe kolory**
 
-## **Ustaw etykietę i kolor punktu danych**
+Niesformatowane poziomy wykresu dziedziczą kolory z motywu prezentacji. Przykład używa explicite wypełnień RGB, aby uzyskać przewidywalny wynik. Jeśli wykres ma podążać za zmianami motywu, używaj kolorów ze schematu zamiast stałych wartości RGB i unikaj nadpisywania każdego poziomu. Sprawdź także kontrast etykiet po zmianie wypełnienia gałęzi lub pniaka.
 
-Ustaw etykietę danych "Branch 1", aby wyświetlała nazwę serii ("Series1") zamiast nazwy kategorii. Następnie ustaw kolor tekstu na żółty:
+### **Etykiety i dostępna przestrzeń**
 
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+PowerPoint może ukrywać lub obcinać etykiety, gdy segment jest zbyt mały. Zwiększenie rozmiaru wykresu, skrócenie nazw kategorii lub wyświetlenie mniejszej liczby pól etykiet zazwyczaj daje czytelniejszy rezultat. Etykieta może łączyć nazwę kategorii, nazwę serii i wartość za pomocą [IDataLabelFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/), ale włączenie wszystkich pól często utrudnia odczyt wykresów hierarchicznych.
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+### **Eksport i renderowanie**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+Zapis do PPTX zachowuje możliwość edycji wykresu. Gdy Aspose.Slides renderuje prezentację do PDF lub obrazu, obsługiwane wypełnienia i ustawienia etykiet są renderowane wraz z wykresem. Zastępowanie czcionek oraz niewielkie różnice w dostępnej przestrzeni układu mogą zmienić łamanie linii lub widoczność etykiet, dlatego zainstaluj wymagane czcionki i zweryfikuj istotne cele eksportu.
 
-## **Ustaw kolor gałęzi punktu danych**
+## **Najczęściej zadawane pytania**
 
-Zmień kolor gałęzi "Steam 4":
+**Dlaczego zmiana poziomu rodzica wpływa na kilka liści?**
 
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+Gałąź lub pniak jest współdzielonym segmentem wizualnym. Jego [IChartDataPointLevel](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdatapointlevel/) można osiągnąć poprzez liść potomny, ale formatowanie należy do współdzielonego segmentu rodzica, a nie tylko do tego liścia.
 
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
+**Dlaczego brakuje etykiety danych?**
 
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
+Najpierw włącz wymagane pola w obiekcie [IDataLabelFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/idatalabelformat/) etykiety. Następnie sprawdź, czy segment ma wystarczająco dużo miejsca. Układ etykiet rodzica w Treemap, wymiary wykresu, długość etykiety, rozmiar czcionki i liczba włączonych pól wpływają na to, czy etykieta może być wyświetlona.
 
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
+**Czy mogę ustawić dokładną kolejność lub współrzędne segmentów?**
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+Możesz kontrolować kolejność wierszy źródłowych i utrzymywać każdą grupę spójną, ale nie możesz przypisać dokładnych prostokątów Treemap ani kątów Sunburst. Silnik układu wykresu oblicza je na podstawie hierarchii, wartości i dostępnej przestrzeni.
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+**Dlaczego kolory zmieniają się po zmianie motywu prezentacji?**
 
-## **FAQ**
+Wypełnienia oparte na motywie są projektowane tak, aby podążały za paletą prezentacji. Zastosuj explicite kolory RGB do poziomów, które muszą pozostać stałe, albo używaj kolorów ze schematu, gdy preferowane jest dostosowanie do nowego motywu.
 
-**Czy mogę zmienić kolejność (sortowanie) segmentów w wykresie Sunburst/Treemap?**
+**Czy niestandardowe formatowanie zostanie zachowane w eksportach PDF i obrazów?**
 
-Nie. PowerPoint sortuje segmenty automatycznie (zazwyczaj malejąco, zgodnie z ruchem wskazówek zegara). Aspose.Slides odzwierciedla to zachowanie: nie można zmienić kolejności bezpośrednio; można to uzyskać poprzez wstępne przetworzenie danych.
+Tak, obsługiwane wypełnienia wykresu i ustawienia etykiet są uwzględniane podczas renderowania. Aby uzyskać spójne wyniki na różnych systemach, udostępnij wymagane czcionki i przetestuj ostateczny rozmiar eksportu, ponieważ dopasowanie etykiet zależy od układu.
 
-**Jak motyw prezentacji wpływa na kolory segmentów i etykiet?**
+## **Zobacz także**
 
-Kolory wykresu dziedziczą [theme/palette](/slides/pl/java/presentation-theme/) prezentacji, chyba że jawnie ustawisz wypełnienia/czcionki. Aby uzyskać spójne wyniki, ustal stałe wypełnienia i formatowanie tekstu na odpowiednich poziomach.
-
-**Czy eksport do PDF/PNG zachowa niestandardowe kolory gałęzi i ustawienia etykiet?**
-
-Tak. Podczas eksportu prezentacji ustawienia wykresu (wypełnienia, etykiety) są zachowywane w formatach wyjściowych, ponieważ Aspose.Slides renderuje wykres z zastosowanym formatowaniem.
-
-**Czy mogę obliczyć rzeczywiste współrzędne etykiety/elementu w celu umieszczenia niestandardowej warstwy nakładki nad wykresem?**
-
-Tak. Po zweryfikowaniu układu wykresu dostępne są rzeczywiste współrzędne *x* i *y* elementów (na przykład [DataLabel](https://reference.aspose.com/slides/pl/java/com.aspose.slides/datalabel/)), co ułatwia precyzyjne pozycjonowanie nakładek.
+- [Utwórz wykresy Treemap](/slides/pl/java/create-chart/#create-tree-map-charts)
+- [Utwórz wykresy Sunburst](/slides/pl/java/create-chart/#create-sunburst-charts)
+- [Eksportuj wykresy prezentacji](/slides/pl/java/export-chart/)
+- [Zarządzaj motywami prezentacji](/slides/pl/java/presentation-theme/)

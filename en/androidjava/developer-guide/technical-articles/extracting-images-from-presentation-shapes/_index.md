@@ -22,7 +22,7 @@ Images in a presentation can appear in several shape types: as ordinary picture 
 
 If you only need to export every image resource embedded in a presentation, iterate through `presentation.getImages()`. This article focuses on a different task: traversing shapes to find where images are used on slides, so the saved files can keep useful context such as the slide number, shape position, and source type (picture frame, fill image, media preview, OLE preview, or zoom image).
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Use [IPPImage.getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/#getBinaryData--) to preserve the original encoded image data and file type. Use [IPPImage.getImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/#getImage--) with [IImage.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) when you want to normalize the output to a specific format such as PNG.
 

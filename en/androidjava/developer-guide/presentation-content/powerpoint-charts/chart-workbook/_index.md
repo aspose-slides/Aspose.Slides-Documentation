@@ -53,7 +53,26 @@ try {
 }
 ```
 
-## **Set a WorkBook Cell as a Chart Data Label**
+### **Validate Chart Layout After Workbook Modification**
+
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [IChart.validateChartLayout](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#validateChartLayout--) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart.
+
+```java
+// After modifying the workbook stream (e.g., using Aspose.Cells)
+byte[] updatedWorkbook = chartData.readWorkbookStream();
+
+// Clear existing data references.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+Clearing the collections ensures that the chart data structure is consistent with the new workbook, allowing `validateChartLayout` to complete without errors.
+
+## **Set a Workbook Cell as a Chart Data Label**
 
 1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 1. Get a slide's reference through its index.

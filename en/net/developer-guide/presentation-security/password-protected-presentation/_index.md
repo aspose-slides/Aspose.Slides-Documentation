@@ -1,317 +1,201 @@
 ---
-title: Secure Presentations with Passwords in .NET
+title: Password-Protect Presentations in .NET
 linktitle: Password Protection
 type: docs
 weight: 20
 url: /net/password-protected-presentation/
 keywords:
-- lock PowerPoint
-- lock presentation
-- unlock PowerPoint
-- unlock presentation
-- protect PowerPoint
-- protect presentation
-- set password
-- add password
+- password-protected presentation
+- opening password
 - encrypt PowerPoint
-- encrypt presentation
 - decrypt PowerPoint
-- decrypt presentation
-- write protection
-- PowerPoint security
-- presentation security
-- remove password
-- remove protection
+- validate presentation password
+- check presentation password
+- open encrypted presentation
 - remove encryption
-- disable password
-- disable protection
-- remove write protection
 - PowerPoint
-- OpenDocument
+- PPT
+- PPTX
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Learn how to effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Secure your presentations."
+description: "Encrypt, detect, validate, open, and decrypt password-protected PowerPoint PPT and PPTX presentations in C# with Aspose.Slides for .NET."
 ---
 
-## **Introduction**
+## **Overview**
 
-When you password-protect a presentation, it means that you are setting a password which enforces certain restrictions on the presentation. To remove these restrictions, the password must be entered. A password-protected presentation is considered a locked presentation.
+An opening password encrypts a presentation. The correct password is required to load and view the presentation content, so this protection provides confidentiality.
 
-Typically, you can set a password to enforce these restrictions on a presentation:
+An opening password is different from a write-protection password. Write protection restricts modification but does not encrypt the content or prevent the presentation from being loaded. To manage passwords for modifying presentations, see [Write-Protect Presentations](/slides/net/write-protected-presentation/).
 
-- **Modification**
+The workflows below apply to both PPT and PPTX presentations. The examples use both formats where their file-based and stream-based behavior is important.
 
-If you want only certain users to modify your presentation, you can set a modification restriction. This restriction prevents people from modifying, changing, or copying elements in your presentation unless they provide the password. 
+## **Encrypt a Presentation with an Opening Password**
 
-However, even without the password, a user will still be able to access and open your document. In this read-only mode, the user can view the content—including hyperlinks, animations, effects, and other elements—inside your presentation, but they cannot copy items or save the presentation.
+Use [IProtectionManager.Encrypt](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encrypt/) to assign an opening password. Then use [IPresentation.Save](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/save/) to persist the encrypted presentation.
 
-- **Opening**
+The following example encrypts a PPTX presentation:
 
-If you want only certain users to open your presentation, you can set an opening restriction. This restriction prevents people from even viewing the contents of your presentation unless they provide the password.
-
-Technically, the opening restriction also prevents users from modifying your presentations—if people cannot open a presentation, they cannot modify or make changes to it.
-
-**Note:** When you password protect a presentation to prevent opening, the presentation file becomes encrypted.
-
-## **Password Protection in Aspose.Slides**
-
-**Supported formats**
-
-Aspose.Slides supports password protection, encryption, and similar operations for presentations in these formats:
-
-- PPTX and PPT – Microsoft PowerPoint Presentations
-- ODP – OpenDocument Presentations
-- OTP – OpenDocument Presentation Templates
-
-**Supported operations**
-
-Aspose.Slides allows you to use password protection on presentations to prevent modifications in the following ways:
-
-- Encrypting a presentation
-- Setting write protection on a presentation
-
-**Other operations**
-
-Aspose.Slides allows you to perform additional tasks involving password protection and encryption in the following ways:
-
-- Decrypting a presentation; opening an encrypted presentation
-- Removing encryption; disabling password protection
-- Removing write protection from a presentation
-- Retrieving the properties of an encrypted presentation
-- Checking whether a presentation is password protected before loading it
-- Checking whether a presentation is encrypted
-- Checking whether a presentation is password protected
-
-## **Protect a Presentation with a Password**
-
-You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user must provide the password.
-
-To encrypt (or password-protect) a presentation, use the `Encrypt` method from [ProtectionManager](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager) to set a password. Pass the password to the `Encrypt` method, then use the `Save` method to save the now-encrypted presentation.
-
-This sample code shows you how to encrypt a presentation:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.Encrypt("123123");
-    presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Set Write Protection on a Presentation** 
-
-You can add a mark stating "Do not modify" to a presentation. This informs users that you do not want them to make changes to the presentation.
-
-**Note:** The write protection process does not encrypt the presentation. Therefore, users—if they choose to—can modify the presentation, but to save the changes, they will have to save it under a different name.
-
-To set write protection, use the `SetWriteProtection` method. This sample code shows you how to set write protection on a presentation:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.SetWriteProtection("123123");
-    presentation.Save("write-protected-pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Load an Encrypted Presentation**
-
-Aspose.Slides allows you to load an encrypted presentation by passing the correct password. This sample code shows you how to load an encrypted presentation:
-
-```c#
-using Aspose.Slides;
-
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    // Work with the decrypted presentation.
-}
-```
-
-## **Remove Encryption from a Presentation**
-
-You can remove encryption or password protection from a presentation, allowing users to access or modify it without restrictions.
-
-To remove encryption or password protection, call the [RemoveEncryption](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removeencryption) method. This sample code shows you how to remove encryption from a presentation:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-LoadOptions loadOptions = new LoadOptions { Password = "123123" };
-using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-{
-    presentation.ProtectionManager.RemoveEncryption();
-    presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Remove Write Protection from a Presentation**
-
-You can use Aspose.Slides to remove the write protection from a presentation file. This way, users can modify it as they like—and they won't receive any warnings when performing such tasks.
-
-You can remove the write protection by using the [RemoveWriteProtection](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/methods/removewriteprotection) method. This sample code shows you how to remove the write protection from a presentation:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    presentation.ProtectionManager.RemoveWriteProtection();
-    presentation.Save("write-protection-removed.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Get Properties of an Encrypted Presentation**
-
-Typically, users struggle to retrieve the document properties of an encrypted or password-protected presentation. However, Aspose.Slides offers a mechanism that allows you to password protect a presentation while still retaining the ability for users to access its properties.
-
-**Note:** By default, when Aspose.Slides encrypts a presentation, the presentation’s document properties are also password protected. If you need to make the document properties accessible even after encryption, Aspose.Slides allows you to do precisely that.
-
-If you want users to retain the ability to access the properties of an encrypted presentation, set the `EncryptDocumentProperties` property of [IProtectionManager](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/) to `false`. This sample code shows you how to encrypt a presentation while still providing users access to its document properties:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("pres.pptx");
 
-presentation.ProtectionManager.EncryptDocumentProperties = false;
-presentation.ProtectionManager.Encrypt("123123");
+presentation.ProtectionManager.Encrypt("open_password");
 presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
-## **Load Only Document Properties from an Encrypted Presentation**
+## **Load an Encrypted Presentation**
 
-To inspect the metadata of an encrypted presentation without loading its slides or other content, create a [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) object and set [OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) to `true`. In this mode, Aspose.Slides ignores the password and loads only the document properties that are publicly accessible.
+Set [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) to the opening password and pass the options to [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) when loading the file. Loading fails when an opening password is required but the supplied password is missing or incorrect.
 
-The following code example reads built-in and custom document properties through [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
-
-```c#
+```csharp
 using Aspose.Slides;
 
-var loadOptions = new LoadOptions
-{
-    OnlyLoadDocumentProperties = true
-};
-
+var loadOptions = new LoadOptions { Password = "open_password" };
 using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
-var documentProperties = presentation.DocumentProperties;
 
-// Read built-in document properties.
-Console.WriteLine("Title: " + documentProperties.Title);
-Console.WriteLine("Author: " + documentProperties.Author);
+// Work with the decrypted presentation.
+```
 
-// Read custom document properties.
-var customPropertyCount = documentProperties.CountOfCustomProperties;
+## **Remove Encryption from a Presentation**
 
-for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+Load the presentation with its opening password, call [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/removeencryption/), and save the result. The saved presentation can then be loaded without a password.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+presentation.ProtectionManager.RemoveEncryption();
+presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
+```
+
+## **Validate an Opening Password Before Loading**
+
+Use [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/ipresentationfactory/getpresentationinfo/) to obtain [IPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/) without creating a complete presentation instance. Check [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/ispasswordprotected/) before requesting or validating a password. When protection is present, validate the supplied value with [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/checkpassword/).
+
+### **File-Path Workflow**
+
+The following example validates an opening password for a PPTX file, passes the validated value to [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), and then loads the complete presentation:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var filePath = "protected-presentation.pptx";
+var password = "open_password";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+
+if (!presentationInfo.IsPasswordProtected)
 {
-    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
-    var propertyValue = documentProperties[propertyName];
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(filePath, loadOptions);
 
-    Console.WriteLine(propertyName + ": " + propertyValue);
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-This workflow works only when the document properties were left unencrypted (public) when the presentation was encrypted. If the document properties are encrypted, setting `OnlyLoadDocumentProperties` to `true` causes an exception because the password is ignored in this mode. To access encrypted document properties or load the complete presentation, including its slides and other content, provide the correct `Password` value in [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/).
+### **Stream Workflow**
 
-## **Check Whether a Presentation Is Password Protected**
+The stream overload of [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/ipresentationfactory/getpresentationinfo/) provides the same workflow. Reset the position of a seekable stream before loading the complete presentation from that stream.
 
-Before you load a presentation, you might want to check that it hasn't been protected with a password. This helps you avoid errors and similar issues that occur when a password-protected presentation is loaded without the correct password.
+The following example uses a PPT file:
 
-This C# code shows you how to examine a presentation to see if it is password-protected without actually loading it:
-
-```c#
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
 
-var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
-Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
-```
+var password = "open_password";
+using var presentationStream = File.OpenRead("protected-presentation.ppt");
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(presentationStream);
 
-## **Check Whether a Presentation Is Encrypted**
-
-Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/isencrypted) property, which returns `true` if the presentation is encrypted or `false` if it is not.
-
-This sample code shows you how to check whether a presentation is encrypted:
-
-```c#
-using Aspose.Slides;
-
-using (Presentation presentation = new Presentation("pres.pptx"))
+if (!presentationInfo.IsPasswordProtected)
 {
-    bool isEncrypted = presentation.ProtectionManager.IsEncrypted;
+    Console.WriteLine("The presentation does not have an opening password.");
+}
+else if (!presentationInfo.CheckPassword(password))
+{
+    Console.WriteLine("The opening password is incorrect.");
+}
+else
+{
+    presentationStream.Position = 0;
+
+    var loadOptions = new LoadOptions { Password = password };
+    using var presentation = new Presentation(presentationStream, loadOptions);
+
+    Console.WriteLine("The presentation was validated and loaded successfully.");
 }
 ```
 
-## **Check Whether a Presentation Is Write Protected**
+### **CheckPassword Return Values**
 
-Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [IsWriteProtected](https://reference.aspose.com/slides/net/aspose.slides/protectionmanager/properties/iswriteprotected) property, which returns `true` if the presentation is write-protected or `false` if it is not.
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/checkpassword/) returns `true` only when the presentation has an opening password and the supplied password is correct. It returns `false` in each of these cases:
 
-This sample code shows you how to check whether a presentation is write-protected:
+- The password is incorrect.
+- The presentation does not have an opening password.
+- The supplied password is `null` or empty.
 
-```c#
+The behavior is the same for PPT and PPTX presentations.
+
+## **Check Whether a Loaded Presentation Is Encrypted**
+
+After loading a presentation with the correct password, inspect [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isencrypted/) to confirm that the source presentation was encrypted. To detect opening-password protection before loading, use `IPresentationInfo.IsPasswordProtected` as shown above.
+
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("pres.pptx"))
-{
-    bool isEncrypted = presentation.ProtectionManager.IsWriteProtected;
-}
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+
+var isEncrypted = presentation.ProtectionManager.IsEncrypted;
+Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **Verify Presentation Password Usage**
+## **Security Recommendations**
 
-You may want to check and confirm that a specific password has been used to protect a presentation document. Aspose.Slides provides the means for you to validate a password.
-
-This sample code shows you how to validate a password:
-
-```c#
-using Aspose.Slides;
-
-using (IPresentation presentation = new Presentation("pres.pptx"))
-{
-    // Check if the password matches.
-    bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
-}
-```
-
-It returns `true` if the presentation has been encrypted with the specified password; otherwise, it returns `false`.
-
-{{% alert color="primary" title="See also" %}} 
-- [Digital Signature in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+{{% alert color="warning" title="Security" %}}
+Do not log opening passwords or include them in diagnostic messages. Avoid unnecessary repeated validation attempts, keep passwords in memory only as long as needed, and reuse a successful validation result when immediately loading the presentation.
 {{% /alert %}}
 
 ## **Password-Protect a Presentation Online**
 
-1. Go to our [**Aspose.Slides Lock**](https://products.aspose.app/slides/lock) page. 
-1. Click **Drop or upload your files**.
-1. Select the file you want to password protect on your computer. 
-1. Enter your preferred password for edit protection and your preferred password for view protection.
-1. If you want users to see your presentation as the final copy, tick the **Mark as final** checkbox.
-1. Click **PROTECT NOW.** 
-1. Click **DOWNLOAD NOW.**
+1. Open the [Aspose.Slides Lock](https://products.aspose.app/slides/lock) application.
+1. Select or upload the presentation.
+1. Enter a password for view protection.
+1. Optionally enter a separate password for edit protection.
+1. Apply the protection and download the resulting file.
 
-![Password protect PowerPoint presentations](slides-lock.png)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+{{% /alert %}}
 
 ## **FAQ**
 
-**What encryption methods are supported by Aspose.Slides?**
+**What is the difference between an opening password and a write-protection password?**
 
-Aspose.Slides supports modern encryption methods, including AES-based algorithms, ensuring a high level of data security for your presentations.
+An opening password encrypts the presentation and is required to load its content. A write-protection password restricts modification without encrypting the content.
 
-**What happens if an incorrect password is entered when attempting to open a presentation?**
+**Can I validate an opening password without loading all slides?**
 
-An exception is thrown if an incorrect password is used, alerting you that access to the presentation is denied. This helps prevent unauthorized access and protects the presentation content.
+Yes. Obtain presentation information, check whether opening-password protection is present, and validate the password before creating a complete presentation instance.
 
-**Are there any performance implications when working with password-protected presentations?**
+**Do the password-checking workflows support both PPT and PPTX?**
 
-The encryption and decryption process may introduce a slight overhead during opening and saving operations. In most cases, this performance impact is minimal and does not significantly affect the overall processing time of your presentation tasks.
+Yes. File-path and stream-based password detection and validation behave the same for PPT and PPTX presentations.

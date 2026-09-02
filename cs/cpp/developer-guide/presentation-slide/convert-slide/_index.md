@@ -9,40 +9,40 @@ keywords:
 - exportovat snímek
 - snímek na obrázek
 - uložit snímek jako obrázek
-- snímek do PNG
-- snímek do JPEG
-- snímek do bitmapy
-- snímek do TIFF
+- snímek na PNG
+- snímek na JPEG
+- snímek na bitmapu
+- snímek na TIFF
 - PowerPoint
 - OpenDocument
 - prezentace
 - C++
 - Aspose.Slides
-description: "Převod snímků z PPT, PPTX a ODP na obrázky v C++ pomocí Aspose.Slides—rychlé, vysoce kvalitní renderování s přehlednými ukázkami kódu."
+description: "Převod snímků z PPT, PPTX a ODP na obrázky v C++ pomocí Aspose.Slides — rychlé, vysoce kvalitní vykreslování s jasnými ukázkami kódu."
 ---
 ## **Úvod**
 
-Aspose.Slides pro C++ vám umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
+Aspose.Slides for C++ vám umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
 
 Pro převod snímku na obrázek postupujte podle těchto kroků:
 
 1. Definujte požadovaná nastavení převodu a vyberte snímky, které chcete exportovat, pomocí:
-    - rozhraní [ITiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/itiffoptions/), nebo
-    - rozhraní [IRenderingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/irenderingoptions/).
+    - Rozhraní [ITiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/itiffoptions/), nebo
+    - Rozhraní [IRenderingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/irenderingoptions/).
 2. Vygenerujte obrázek snímku voláním metody [GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/getimage/).
 
-Třída [Bitmap](https://reference.aspose.com/slides/cs/cpp/system.drawing/bitmap/) je objekt, který vám umožňuje pracovat s obrázky definovanými pixlovými daty. Můžete použít instanci této třídy k ukládání obrázků v široké škále formátů (BMP, JPG, PNG atd.).
+Třída [Bitmap](https://reference.aspose.com/slides/cs/cpp/system.drawing/bitmap/) je objekt, který vám umožňuje pracovat s obrázky definovanými pomocí pixelových dat. Můžete použít instanci této třídy k ukládání obrázků v široké škále formátů (BMP, JPG, PNG atd.).
 
 ## **Převod snímků na bitmapy a uložení obrázků ve formátu PNG**
 
-Můžete převést snímek na objekt bitmapy a použít jej přímo ve své aplikaci. Případně můžete převést snímek na bitmapu a poté uložit obrázek ve formátu JPEG nebo jakémkoli jiném preferovaném formátu.
+Můžete převést snímek na bitmapový objekt a použít jej přímo ve své aplikaci. Případně můžete převést snímek na bitmapu a následně uložit obrázek ve formátu JPEG nebo jakémkoli jiném preferovaném formátu.
 
-Tento C++ kód ukazuje, jak převést první snímek prezentace na objekt bitmapy a poté uložit obrázek ve formátu PNG:
+Tento C++ kód ukazuje, jak převést první snímek prezentace na bitmapový objekt a poté uložit obrázek ve formátu PNG:
 
 ```cpp 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Převést první snímek prezentace na bitmapu.
+// Převést první snímek v prezentaci na bitmapu.
 auto image = presentation->get_Slide(0)->GetImage();
 
 // Uložit obrázek ve formátu PNG.
@@ -54,16 +54,16 @@ presentation->Dispose();
 
 ## **Převod snímků na obrázky s vlastními rozměry**
 
-Možná budete potřebovat obrázek určité velikosti. Pomocí přetížení metody [GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/getimage/), můžete převést snímek na obrázek s konkrétními rozměry (šířka a výška).
+Možná budete potřebovat obrázek určité velikosti. Pomocí přetížení metody [GetImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/getimage/) můžete převést snímek na obrázek s konkrétními rozměry (šířka a výška).
 
-Tento ukázkový kód ukazuje, jak to provést:
+Tento ukázkový kód demonstruje, jak to provést:
 
 ```cpp 
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Převést první snímek prezentace na bitmapu s určenou velikostí.
+// Převést první snímek v prezentaci na bitmapu se zadanou velikostí.
 auto image = presentation->get_Slide(0)->GetImage(imageSize);
 
 // Uložit obrázek ve formátu JPEG.
@@ -77,11 +77,11 @@ presentation->Dispose();
 
 Některé snímky mohou obsahovat poznámky a komentáře.
 
-Aspose.Slides poskytuje dvě rozhraní—[ITiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/itiffoptions/) a [IRenderingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/irenderingoptions/)—která vám umožňují řídit vykreslování snímků prezentace do obrázků. Obě rozhraní obsahují metodu `set_SlidesLayoutOptions`, která vám umožní konfigurovat vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
+Aspose.Slides poskytuje dvě rozhraní — [ITiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/itiffoptions/) a [IRenderingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/irenderingoptions/) — která vám umožňují řídit vykreslování snímků prezentace do obrázků. Obě rozhraní obsahují metodu `set_SlidesLayoutOptions`, která umožňuje nastavit vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
 
-Pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/notescommentslayoutingoptions/) můžete určit požadovanou pozici poznámek a komentářů ve výsledném obrázku.
+Pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/notescommentslayoutingoptions/) můžete určit preferovanou pozici poznámek a komentářů ve výsledném obrázku.
 
-Tento C++ kód ukazuje, jak převést snímek s poznámkami a komentáři:
+Tento C++ kód demonstruje, jak převést snímek s poznámkami a komentáři:
 
 ```cpp 
 float scaleX = 2;
@@ -112,15 +112,15 @@ presentation->Dispose();
 
 {{% alert title="Note" color="warning" %}} 
 
-V jakémkoli procesu převodu snímku na obrázek metoda [set_NotesPosition](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) nemůže použít `BottomFull` (pro specifikaci pozice poznámek), protože text poznámky může být příliš velký a nepřesahovat tak určenou velikost obrázku.
+V jakémkoli procesu převodu snímku na obrázek metoda [set_NotesPosition](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) nemůže použít hodnotu BottomFull (pro určení pozice poznámek), protože text poznámky může být příliš velký a nevejde se do zadané velikosti obrázku.
 
 {{% /alert %}} 
 
 ## **Převod snímků na obrázky pomocí TIFF možností**
 
-Rozhraní [ITiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/itiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že umožňuje zadat parametry jako velikost, rozlišení, barevnou paletu a další.
+Rozhraní [ITiffOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/itiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že vám umožňuje zadat parametry, jako je velikost, rozlišení, barevná paleta a další.
 
-Tento C++ kód ukazuje proces převodu, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 × 2800:
+Tento C++ kód demonstruje proces převodu, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 × 2800:
 
 ```cpp 
 // Načíst soubor prezentace.
@@ -132,11 +132,11 @@ auto slide = presentation->get_Slide(0);
 // Nastavit parametry výstupního TIFF obrázku.
 auto tiffOptions = MakeObject<TiffOptions>();
 tiffOptions->set_ImageSize(Size(2160, 2880));                       // Nastavit velikost obrázku.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Nastavit formát pixelu (černobílý).
+tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Nastavit formát pixelů (černá a bílá).
 tiffOptions->set_DpiX(300);                                         // Nastavit horizontální rozlišení.
 tiffOptions->set_DpiY(300);                                         // Nastavit vertikální rozlišení.
 
-// Převést snímek na obrázek s určenými možnostmi.
+// Převést snímek na obrázek s uvedenými možnostmi.
 auto image = slide->GetImage(tiffOptions);
 
 // Uložit obrázek ve formátu TIFF.
@@ -148,9 +148,9 @@ presentation->Dispose();
 
 ## **Převod všech snímků na obrázky**
 
-Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž efektivně převede celou prezentaci na řadu obrázků.
+Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž efektivně převádí celou prezentaci na sérii obrázků.
 
-Tento ukázkový kód ukazuje, jak v C++ převést všechny snímky v prezentaci na obrázky:
+Tento ukázkový kód demonstruje, jak převést všechny snímky v prezentaci na obrázky v C++:
 
 ```cpp 
 float scaleX = 2;
@@ -179,6 +179,12 @@ for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
 presentation->Dispose();
 ```
 
+## **Vykreslování barevných emoji**
+
+{{% alert title="Note" color="warning" %}} 
+Aby se barevné emoji při převodu snímků prezentace na obrázky vykreslovaly správně, muset být písmo emoji použité v prezentaci nainstalováno a dostupné na systému provádějícím převod. Například pokud prezentace používá **Segoe UI Emoji** a toto písmo chybí, mohou se emoji ve výstupních obrázcích objevit v černobílém provedení.
+{{% /alert %}}
+
 ## **Často kladené otázky**
 
 **Podporuje Aspose.Slides vykreslování snímků s animacemi?**
@@ -189,6 +195,6 @@ Ne, metoda `GetImage` ukládá pouze statický obrázek snímku, bez animací.
 
 Ano, skryté snímky lze zpracovat stejně jako běžné. Jen se ujistěte, že jsou zahrnuty ve smyčce zpracování.
 
-**Lze obrázky ukládat se stíny a efekty?**
+**Lze obrázky uložit se stíny a efekty?**
 
 Ano, Aspose.Slides podporuje vykreslování stínů, průhlednosti a dalších grafických efektů při ukládání snímků jako obrázky.

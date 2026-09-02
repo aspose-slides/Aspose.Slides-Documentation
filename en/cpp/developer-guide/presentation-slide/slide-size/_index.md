@@ -40,7 +40,7 @@ Popular Slide Sizes and Ratios:
 
 Ensure consistency throughout your presentation as a single slide size and aspect ratio apply to all slides. For optimal results, set your slide dimensions at the beginning of your presentation creation process to avoid complications.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 By default, presentations created with Aspose.Slides use the standard 4:3 aspect ratio.
 {{% /alert %}}
 

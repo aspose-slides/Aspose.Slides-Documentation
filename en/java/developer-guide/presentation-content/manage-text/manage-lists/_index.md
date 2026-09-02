@@ -133,7 +133,7 @@ The result:
 
 Aspose.Slides allows you to replace a regular bullet symbol with an image. Picture bullets work best with simple images that remain readable at a small size, such as icons or small transparent PNG files.
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Ideally, if you plan to replace the regular bullet symbol with an image, it's best to choose a simple graphic with a transparent background. Such images work well as custom bullet symbols.
 

@@ -46,6 +46,12 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 The property [bw_conversion_mode](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) in the [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) class allows you to specify the algorithm used when converting a colored slide or image to a black-and-white TIFF. Note that this setting applies only when the [compression_type](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/compression_type/) property is set to `CCITT4` or `CCITT3`.
 
+{{% alert color="info" title="Note" %}}
+
+[TiffOptions.bw_conversion_mode](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) is an export-level setting that selects a pixel-conversion algorithm for the complete TIFF image. To define how an individual shape should appear when black-and-white display mode is active, use [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/). See [Control Black-and-White Rendering for Shapes](/python-net/shape-formatting/#control-black-and-white-rendering-for-shapes) for examples.
+
+{{% /alert %}}
+
 Let's say we have a "sample.pptx" file with the following slide:
 
 ![A presentation slide](slide_black_and_white.png)
@@ -135,7 +141,7 @@ with slides.Presentation("Presentation.pptx") as presentation:
     presentation.save("Custom_Image_Pixel_Format.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Check out Aspose's [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
 
@@ -143,14 +149,14 @@ Check out Aspose's [FREE PowerPoint to Poster converter](https://products.aspose
 
 ## **FAQ**
 
-### Can I convert an individual slide instead of entire PowerPoint presentation to TIFF?
+**Can I convert an individual slide instead of entire PowerPoint presentation to TIFF?**
 
 Yes. Aspose.Slides allows you to convert individual slides from PowerPoint and OpenDocument presentations into TIFF images separately.
 
-### Is there any limit to the number of slides when converting a presentation to TIFF?
+**Is there any limit to the number of slides when converting a presentation to TIFF?**
 
 No, Aspose.Slides does not impose any restrictions on the number of slides. You can convert presentations of any size into TIFF format.
 
-### Are PowerPoint animations and transition effects preserved when converting slides to TIFF?
+**Are PowerPoint animations and transition effects preserved when converting slides to TIFF?**
 
 No, TIFF is a static image format. Therefore, animations and transition effects are not preserved; only static snapshots of slides are exported.

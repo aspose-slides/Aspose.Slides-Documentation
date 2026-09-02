@@ -7,7 +7,7 @@ url: /reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/
 
 ﻿
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 This article teaches you how to export reports from ReportViewer 2010/2012 to a PowerPoint presentation﻿.
 
@@ -15,7 +15,7 @@ This article teaches you how to export reports from ReportViewer 2010/2012 to a 
 
 RplRenderer class renders [Report Page Layout (RPL) Binary Stream Format](https://docs.microsoft.com/en-us/openspecs/sql_server_protocols/ms-rpl/9c4ff7ba-f6da-4092-9670-aa0e54e73887) to PowerPoint presentation. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 RplRenderer uses [soft page breaks](https://docs.microsoft.com/en-us/sql/reporting-services/report-design/rendering-behaviors-report-builder-and-ssrs) to control page size use InteractiveHeight and InteractiveWidth RDL tags. 
 
@@ -291,7 +291,7 @@ ToolStrip toolStrip = (ToolStrip) reportViewer.Controls.Find("toolStrip1", true)
 
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 - The sample project can be downloaded from [this link ](http://www.aspose.com/docs/download/attachments/24150112/Slides.ReportViewer2010.zip)
 - The sample webform project can be downloaded from [this link](http://www.aspose.com/docs/download/attachments/24150112/Report+Viewer+WebForm.zip)

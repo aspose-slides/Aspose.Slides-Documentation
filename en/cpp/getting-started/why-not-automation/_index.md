@@ -66,8 +66,7 @@ When an application utilizes Microsoft Office Automation, a copy of Microsoft Of
 ## **Features**
 Aspose components provide everything needed for managing Office files plus much more. They are designed with the philosophy of allowing developers to accomplish the greatest results with the least amount of work. Unlike Office Automation, Aspose components provide many powerful and time saving functions. For instance, [Aspose.Cells](https://products.aspose.com/cells/cpp/) offers developers the ability to import data from a **DataTable**or **DataView** directly into an Excel file. [Aspose.Words](https://products.aspose.com/words/net/) offers a similar feature that allows developers to populate a Word (that is Mail Merge) document directly from any C++ data object. [Every Component](https://products.aspose.com/total/cpp/) in the Aspose family offers their own set of unique and powerful features.The best part of purchasing an Aspose component is having access to our development teams. Our development teams realize that if there is a feature that your company needs, more than likely other companies will need it as well. While not every feature request can be added, our teams try to be very open-minded and flexible when providing assistance. That mind set is what has helped Aspose components to become as powerful as they are. If there are additional features that you need from Office Automation objects, your chances of having them added are very, very low.
 ## **Conclusion**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 While this article has covered many of the key points why Aspose components are a better choice than Office Automation, there are many, many more. This article primarily addresses only the most key points. All of the different Aspose components offer a risk free, no obligation [Evaluation Version](https://downloads.aspose.com/slides/cpp). We encourage you to take advantage of that [Evaluation](https://downloads.aspose.com/slides/cpp) in order to better see what Aspose can do for your applications.
-
-
+{{% /alert %}}

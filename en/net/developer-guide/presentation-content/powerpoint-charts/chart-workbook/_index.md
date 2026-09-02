@@ -53,6 +53,25 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
+### **Validate Chart Layout After Workbook Modification**
+
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [IChart.ValidateChartLayout](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/validatechartlayout/) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart.
+
+```csharp
+// After modifying the workbook stream (e.g., using Aspose.Cells)
+using var updatedWorkbook = chartData.ReadWorkbookStream();
+
+// Clear existing data references.
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+updatedWorkbook.Position = 0;
+chartData.WriteWorkbookStream(updatedWorkbook);
+
+chart.ValidateChartLayout();
+```
+
+Clearing the collections ensures that the chart data structure is consistent with the new workbook, allowing `ValidateChartLayout` to complete without errors.
 
 ## **Set a WorkBook Cell as a Chart Data Label**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
@@ -168,7 +187,7 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ## **External Workbook**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 In [Aspose.Slides 19.4](https://docs.aspose.com/slides/net/aspose-slides-for-net-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 

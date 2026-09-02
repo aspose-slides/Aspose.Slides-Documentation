@@ -52,7 +52,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-{{% alert  title="TIP" color="primary" %}} 
+{{% alert  title="TIP" color="info" %}} 
 
 You may want to check out **Aspose free** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) web app because it is a live implementation of the process described here. 
 

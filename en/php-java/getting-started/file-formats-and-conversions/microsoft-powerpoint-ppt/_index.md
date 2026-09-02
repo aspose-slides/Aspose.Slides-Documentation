@@ -5,7 +5,7 @@ weight: 10
 url: /php-java/microsoft-powerpoint-ppt/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 [PPT](https://en.wikipedia.org/wiki/Microsoft_PowerPoint) is the presentation document file format that can be created, read, manipulated and written by different versions of Microsoft PowerPoint. This is the binary format for presentation documents developed by Microsoft.
 

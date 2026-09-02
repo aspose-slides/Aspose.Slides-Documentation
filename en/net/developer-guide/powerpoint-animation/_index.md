@@ -82,7 +82,7 @@ It is possible to create your own **custom animations** in Aspose.Slides. This c
 
 Aspose.Slides allows you to apply animations to shapes, which can include text, rectangles, lines, frames, OLE objects, and more.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more [**About Shape Animation**](/slides/net/shape-animation/).
 {{% /alert %}}
 
@@ -90,7 +90,7 @@ Read more [**About Shape Animation**](/slides/net/shape-animation/).
 
 To create animated charts, you should use the same classes as for the shapes. However, PowerPoint animations can only be applied to chart categories or chart series. You can also apply animation effects to a category element or a series element.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more [**About Animated Charts**](/slides/net/animated-charts/).
 {{% /alert %}}
 
@@ -98,7 +98,7 @@ Read more [**About Animated Charts**](/slides/net/animated-charts/).
 
 Except animated text, it is also possible to apply animation to a paragraph.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more [**About Animated Text**](/slides/net/animated-text/).
 {{% /alert %}}
 

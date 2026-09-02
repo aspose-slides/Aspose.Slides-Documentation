@@ -20,7 +20,7 @@ description: "Build Xamarin mobile apps in C# to view, edit, and convert present
 
 Xamarin is a framework used for mobile development in .NET C#. Xamarin has tools and libraries that extend the capabilities of the .NET platform. It allows developers to build applications for the **Android** operating system. 
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 For development in Xamarin, programmers can use their regular development environments (C#, Visual Studio, and 3rd party libraries).
 
@@ -32,7 +32,7 @@ Aspose.Slides API works on the Xamarin platform. To achieve this, the Aspose.Sli
 - editing contents in presentations: text, shapes, charts, SmartArt, audio/video, fonts, etc.
 - handling/dealing with animation, 2D effects, WordArt, etc.
 - handling/dealing with metadata and document properties.
-- printing, cloning, merging, comparing, splitting, etc.
+- cloning, merging, comparing, splitting, etc.
 
 We provided a comparison of the full features in another section close to the bottom of this page.
 

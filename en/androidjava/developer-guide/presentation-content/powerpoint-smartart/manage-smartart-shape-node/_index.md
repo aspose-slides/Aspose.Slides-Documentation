@@ -380,7 +380,7 @@ try{
 ```
 
 ## **Check an Assistant Node**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 In this article we will further investigate features of SmartArt shapes added in presentation slides programmatically using Aspose.Slides for Android via Java.
 

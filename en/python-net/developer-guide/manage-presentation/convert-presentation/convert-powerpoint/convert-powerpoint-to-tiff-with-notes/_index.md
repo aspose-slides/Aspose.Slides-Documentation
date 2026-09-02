@@ -67,7 +67,7 @@ The result:
 
 ![The TIFF image with speaker notes](TIFF_with_notes.png)
 
-{{% alert title="Tip" color="primary" %}}
+{{% alert title="Tip" color="info" %}}
 
 Check out Aspose [Free PowerPoint to Poster Converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
 

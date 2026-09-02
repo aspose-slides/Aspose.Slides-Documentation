@@ -17,7 +17,7 @@ keywords:
 description: "See how to migrate from Microsoft Office automation to Aspose.Slides for .NET and add dynamic text to PowerPoint (PPT, PPTX) presentations in C#."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 A common task that developers are developers to accomplish is adding text to slides dynamically. This article shows code examples for adding text dynamically using [VSTO](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) and [Aspose.Slides for .NET](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
 

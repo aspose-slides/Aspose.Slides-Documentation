@@ -89,7 +89,7 @@ try {
 ```
 
 ## **Morph Transition**
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose.Slides for Node.js via Java now supports the [Morph Transition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MorphTransition). They represent new morph transition introduced in PowerPoint 2019.
 

@@ -49,7 +49,7 @@ Using charts, you can:
 
 In PowerPoint, you can create charts through the *Insert* function, which provides templates for designing many types of charts. Using Aspose.Slides, you can create both regular charts (based on popular chart types) and custom charts.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Use the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration under the [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) namespace. The values in this enumeration correspond to different chart types.
 
@@ -908,7 +908,7 @@ The result:
 
 ![The Map chart](map_chart.png)
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 The picture above shows the saved presentation opened in PowerPoint. Aspose.Slides writes the map chart and its data correctly, but it does not draw map charts itself: when a slide holding one is rendered to an image or converted to PDF or SVG, the chart area comes out blank. Other shapes on the same slide are unaffected.
 

@@ -6,6 +6,8 @@ weight: 30
 url: /th/nodejs-java/exporting-math-equations/
 keywords:
 - ส่งออกสมการคณิตศาสตร์
+- ส่งออกสมการเป็น LaTeX
+- PowerPoint ไปยัง LaTeX
 - MathML
 - LaTeX
 - PowerPoint
@@ -13,21 +15,67 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เปิดใช้งานการส่งออกสมการคณิตศาสตร์จาก PowerPoint ไปยัง MathML อย่างราบรื่นด้วย JavaScript และ Aspose.Slides สำหรับ Node.js — รักษาการจัดรูปแบบและเพิ่มความเข้ากันได้."
+description: "ส่งออกสมการคณิตศาสตร์จากงานนำเสนอ PowerPoint ไปยัง LaTeX หรือ MathML โดยตรงด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
 ## **บทนำ**
 
-Aspose.Slides ช่วยให้คุณส่งออกสมการคณิตศาสตร์จากงานนำเสนอได้ ตัวอย่างเช่น คุณอาจต้องการสกัดสมการคณิตศาสตร์บนสไลด์ (จากงานนำเสนอเฉพาะ) แล้วนำไปใช้ในโปรแกรมหรือแพลตฟอร์มอื่น
+Aspose.Slides ให้คุณส่งออกสมการคณิตศาสตร์จากงานนำเสนอได้ ตัวอย่างเช่น คุณอาจต้องการดึงสมการคณิตศาสตร์จากสไลด์ (จากงานนำเสนอเฉพาะ) แล้วใช้งานในโปรแกรมหรือแพลตฟอร์มอื่น
 
 {{% alert color="primary" %}} 
-คุณสามารถส่งออกสมการเป็น MathML ซึ่งเป็นรูปแบบหรือมาตรฐานที่เป็นที่นิยมสำหรับสมการคณิตศาสตร์และเนื้อหาในรูปแบบคล้ายกันที่พบบนเว็บและในหลายแอปพลิเคชัน 
+คุณสามารถส่งออกสมการโดยตรงเป็น LaTeX หรือ MathML ซึ่งเป็นมาตรฐานที่ได้รับความนิยมสำหรับเนื้อหาคณิตศาสตร์บนเว็บและในหลายแอปพลิเคชัน
 {{% /alert %}}
+
+## **ส่งออกสมการคณิตศาสตร์เป็น LaTeX**
+
+Aspose.Slides สามารถแปลงสมการคณิตศาสตร์ของ PowerPoint เป็น LaTeX ได้โดยตรง ไม่จำเป็นต้องใช้ไฟล์ MathML ระหว่างขั้นตอนหรือโปรแกรมแปลงภายนอก สมการคณิตศาสตร์จะถูกจัดเก็บในกรอบข้อความเป็น [MathPortion](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathportion/). ใช้ [MathPortion.getMathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathportion/#getMathParagraph--) เพื่อรับ [MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/), จากนั้นเรียก [MathParagraph.toLatex](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/#toLatex--) วิธีนี้จะคืนสตริงที่คุณสามารถบันทึก, แสดง, ส่งไปยังแอปพลิเคชันอื่น หรือประมวลผลต่อได้
+
+ตัวอย่างต่อไปนี้จะตรวจสอบทุกกรอบข้อความบนทุกสไลด์, ค้นหาส่วนคณิตศาสตร์ทั้งหมด, และเขียนสมการแต่ละอันลงในไฟล์ `.tex` แยกไฟล์
+
+```javascript
+const presentation = new aspose.slides.Presentation("equations.pptx");
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        const slideNumber = slideIndex + 1;
+        let equationNumber = 1;
+        const textFrames = aspose.slides.SlideUtil.getAllTextBoxes(slide);
+
+        for (const textFrame of textFrames) {
+            const paragraphCount = textFrame.getParagraphs().getCount();
+            for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                const portionCount = paragraph.getPortions().getCount();
+                for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    if (!java.instanceOf(portion, "com.aspose.slides.MathPortion")) {
+                        continue;
+                    }
+
+                    const mathParagraph = portion.getMathParagraph();
+                    const latexFileName = `slide_${slideNumber}_equation_${equationNumber}.tex`;
+
+                    const latexText = mathParagraph.toLatex();
+                    fileSystem.writeFileSync(latexFileName, latexText, "utf8");
+                    equationNumber++;
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[SlideUtil.getAllTextBoxes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideutil/#getAllTextBoxes-aspose.slides.IBaseSlide-) คืนค่ากรอบข้อความทั้งหมดที่พบบนสไลด์ การตรวจสอบชนิด [MathPortion](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathportion/) ช่วยแยกสมการที่สามารถแก้ไขได้จริงออกจากข้อความและภาพทั่วไป
+
+เครื่องมือ LaTeX และเทมเพลตเอกสารไม่ได้สนับสนุนคำสั่ง, แพ็คเกจ หรืออักขระ Unicode ทั้งหมดเดียวกัน ทดสอบสตริงที่ได้กับเครื่องมือ LaTeX ที่แอปพลิเคชันของคุณใช้ หากสัญลักษณ์หรือองค์ประกอบ Office Math ไม่มีการแทนที่ที่เหมาะสมในสภาพแวดล้อมนั้น ให้แทนที่ในสตริงที่ได้ด้วยคำสั่งเฉพาะโปรเจกต์หรือข้ามสมการและบันทึกประเด็นเพื่อตรวจสอบต่อไป
 
 ## **บันทึกสมการคณิตศาสตร์เป็น MathML**
 
-แม้ว่ามนุษย์จะเขียนโค้ดสำหรับรูปแบบสมการบางอย่างอย่าง LaTeX ได้ง่าย แต่มันยากที่จะเขียนโค้ดสำหรับ MathML เนื่องจาก MathML ถูกออกแบบให้สร้างโดยแอปพลิเคชันโดยอัตโนมัติ โปรแกรมต่าง ๆ สามารถอ่านและแยกวิเคราะห์ MathML ได้ง่ายเนื่องจากโค้ดของมันอยู่ใน XML ดังนั้น MathML จึงเป็นรูปแบบการส่งออกและการพิมพ์ที่ใช้ทั่วไปในหลายสาขา
+แม้ว่ามนุษย์จะเขียนโค้ดสำหรับรูปแบบสมการบางอย่างเช่น LaTeX ได้อย่างง่ายดาย แต่การเขียนโค้ดสำหรับ MathML กลับเป็นเรื่องยาก เพราะ MathML มีจุดประสงค์ให้สร้างโดยอัตโนมัติโดยแอปพลิเคชัน โปรแกรมต่าง ๆ สามารถอ่านและวิเคราะห์ MathML ได้ง่าย เนื่องจากโค้ดของมันอยู่ในรูปแบบ XML ทำให้ MathML ถูกใช้เป็นรูปแบบการส่งออกและการพิมพ์ทั่วไปในหลายสาขา
 
-โค้ดตัวอย่างนี้แสดงวิธีส่งออกสมการคณิตศาสตร์จากงานนำเสนอเป็น MathML:
+ตัวอย่างโค้ดนี้แสดงวิธีส่งออกสมการคณิตศาสตร์จากงานนำเสนอเป็น MathML
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -47,17 +95,17 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**What exactly is exported to MathML—a paragraph or an individual formula block?**  
-คุณสามารถส่งออกได้ทั้ง **MathParagraph** ทั้งหมด ([MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/)) หรือบล็อกสูตรเดี่ยว ([MathBlock](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathblock/)) ไปเป็น MathML ทั้งสองประเภทมีเมธอดสำหรับเขียนเป็น MathML
+**จริง ๆ แล้วสิ่งที่ส่งออกเป็น MathML คือ ย่อหน้าหรือบล็อกสูตรแยกส่วน?**  
+คุณสามารถส่งออกได้ทั้งย่อหน้าคณิตศาสตร์ทั้งหมด ([MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/)) หรือบล็อกสูตรแยกส่วน ([MathBlock](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathblock/)) ไปเป็น MathML ทั้งสองประเภทมีเมธอดสำหรับเขียนเป็น MathML
 
-**How can I tell that an object on a slide is a math formula rather than regular text or an image?**  
-สูตรอยู่ใน [MathPortion](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathportion/) และมี [MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/) ภาพและข้อความทั่วไปที่ไม่มี [MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/) จะไม่สามารถส่งออกเป็นสูตรได้
+**ทำอย่างไรจึงจะรู้ว่าวัตถุบนสไลด์เป็นสูตรคณิตศาสตร์ ไม่ใช่ข้อความหรือภาพทั่วไป?**  
+สูตรอยู่ใน [MathPortion](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathportion/) และมี [MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/). ภาพและข้อความปกติที่ไม่มี [MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/) จะไม่สามารถส่งออกเป็นสูตรได้
 
-**Where does the MathML come from in a presentation—is it PowerPoint-specific or a standard?**  
-การส่งออกมุ่งเป้าไปที่ MathML มาตรฐาน (XML) Aspose ใช้ Presentation MathML—ส่วนย่อยของมาตรฐานที่ใช้สำหรับการนำเสนอ—ซึ่งเป็นที่ใช้กันอย่างแพร่หลายทั้งในแอปพลิเคชันและบนเว็บ
+**MathML ที่ได้จากงานนำเสนอมาจากไหน—เป็นของ PowerPoint โดยเฉพาะหรือเป็นมาตรฐาน?**  
+การส่งออกมุ่งไปที่ MathML มาตรฐาน (XML) Aspose ใช้ Presentation MathML ซึ่งเป็นส่วนย่อยของมาตรฐานที่ใช้กันอย่างแพร่หลายในแอปพลิเคชันและเว็บ
 
-**Is exporting formulas inside tables, SmartArt, groups, etc., supported?**  
-ใช่ หากวัตถุนั้นมีส่วนข้อความที่มี [MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/) (คือสูตร PowerPoint ของจริง) จะถูกส่งออก หากสูตรถูกฝังเป็นรูปภาพจะไม่ถูกส่งออก
+**การส่งออกสูตรจากตาราง, SmartArt, กลุ่มและอื่น ๆ รองรับหรือไม่?**  
+รองรับ หากวัตถุนั้นมีส่วนข้อความที่มี [MathParagraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mathparagraph/) (คือสูตร PowerPoint ของจริง) จะถูกส่งออก หากสูตรถูกฝังเป็นภาพจะไม่ถูกส่งออก
 
-**Does exporting to MathML modify the original presentation?**  
-ไม่ การเขียน MathML เป็นการทำซีเรียลไลเซชันของเนื้อหาสูตรเท่านั้น ไม่ได้ทำการแก้ไขไฟล์งานนำเสนอต้นฉบับ
+**การส่งออกเป็น MathML ทำให้ไฟล์งานนำเสนอเดิมเปลี่ยนแปลงหรือไม่?**  
+ไม่ การเขียน MathML คือการทำซีเรียลไลเซชันของเนื้อหาสูตร ไม่ได้แก้ไขไฟล์งานนำเสนอต้นฉบับ

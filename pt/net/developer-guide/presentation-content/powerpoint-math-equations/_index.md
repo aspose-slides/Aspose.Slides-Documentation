@@ -18,29 +18,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Inserir e editar equações matemáticas em arquivos PowerPoint PPT e PPTX com Aspose.Slides para .NET, suportando OMML, controles de formatação e exemplos de código C# claros."
+description: "Inserir e editar equações matemáticas no PowerPoint PPT e PPTX com Aspose.Slides para .NET, suportando OMML, controles de formatação e exemplos de código C# claros."
 ---
 ## **Visão geral**
 
-PowerPoint armazena equações como Office Math Markup Language (OMML). Com Aspose.Slides para .NET, você pode criar o mesmo tipo de conteúdo matemático programaticamente: frações, radicais, funções, limites, operadores N‑ário, matrizes, arrays e blocos de matemática formatados.
+O PowerPoint armazena equações como Office Math Markup Language (OMML). Com o Aspose.Slides para .NET, você pode criar o mesmo tipo de conteúdo matemático programaticamente: frações, radicais, funções, limites, operadores N‑ário, matrizes, arrays e blocos de matemática formatados.
 
-No PowerPoint, os usuários normalmente adicionam equações por meio de **Inserir > Equação**:
+No PowerPoint, os usuários normalmente adicionam equações por **Inserir > Equação**:
 
 ![Guia Inserir do PowerPoint com o comando Equação selecionado](powerpoint-math-equations_1.png)
 
 O resultado é texto matemático editável no slide:
 
-![Um slide do PowerPoint contendo uma equação matemática editável](powerpoint-math-equations_2.png)
+![Slide do PowerPoint contendo uma equação matemática editável](powerpoint-math-equations_2.png)
 
 Aspose.Slides constrói esse texto matemático através de três objetos principais:
 
 - Uma forma matemática, criada com [AddMathShape](https://reference.aspose.com/slides/pt/net/aspose.slides/ishapecollection/addmathshape/), é a forma que contém a equação.
-- O [MathPortion](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathportion/) armazena o conteúdo matemático dentro da caixa de texto da forma.
-- O [MathParagraph](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathparagraph/) contém um ou mais objetos [MathBlock](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathblock/).
+- [MathPortion](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathportion/) armazena o conteúdo matemático dentro da moldura de texto da forma.
+- [MathParagraph](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathparagraph/) contém um ou mais objetos [MathBlock](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathblock/).
 
 A maioria dos exemplos abaixo usa [MathematicalText](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathematicaltext/) e os métodos fluentes de [IMathElement](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/imathelement/) para manter o código curto e legível.
 
-Para cenários de exportação MathML, veja [Exportar Equações Matemáticas de Apresentações em .NET](/slides/pt/net/exporting-math-equations/).
+Para cenários de exportação MathML, consulte [Export Math Equations from Presentations in .NET](/slides/pt/net/exporting-math-equations/).
 
 ## **Criar uma Equação**
 
@@ -100,9 +100,9 @@ var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFraction
 
 ## **Adicionar Radicais**
 
-Use `Radical` para criar uma raiz quadrada, raiz cúbica ou outra raiz. O elemento atual torna‑se a base e o argumento torna‑se o grau.
+Use `Radical` para criar uma raiz quadrada, cúbica ou outra raiz. O elemento atual torna‑se a base e o argumento torna‑se o grau.
 
-![Uma expressão radical de n‑ésima raiz com x sob o sinal radical](powerpoint-math-equations_5.png)
+![Uma expressão radical de n‑ésima raiz com x sob o símbolo radical](powerpoint-math-equations_5.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -147,9 +147,9 @@ Para um nome de função personalizado, torne o nome da função o elemento atua
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **Adicionar Operadores N‑ários e Integrais**
+## **Adicionar Operadores N‑ário e Integrais**
 
-Use `Nary` para somatórios, uniões, interseções e outros operadores grandes. Use `Integral` para integrais. Ambos os métodos permitem definir limites inferior e superior.
+Use `Nary` para somatórios, uniões, intersecções e outros operadores grandes. Use `Integral` para integrais. Ambos os métodos permitem definir limites inferior e superior.
 
 ![Um somatório com limites inferior e superior](powerpoint-math-equations_7.png)
 
@@ -171,7 +171,7 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-Operadores N‑ários são para operadores grandes com limites opcionais. Operadores simples como `+`, `-` e `=` geralmente são adicionados como `MathematicalText` e unidos na expressão.
+Operadores N‑ário são para operadores grandes com limites opcionais. Operadores simples como `+`, `-` e `=` normalmente são adicionados como `MathematicalText` e concatenados na expressão.
 
 Para uma integral, use `Integral`:
 
@@ -182,7 +182,7 @@ var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 
 ## **Adicionar Matrizes**
 
-Use [MathMatrix](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathmatrix/) para linhas e colunas. Matrizes não incluem colchetes por padrão, portanto coloque a matriz entre parênteses, colchetes ou chaves quando precisar.
+Use [MathMatrix](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathmatrix/) para linhas e colunas. Matrizes não incluem colchetes por padrão, portanto envolva a matriz quando precisar de parênteses, colchetes ou chaves.
 
 ![Uma matriz matemática de duas linhas com uma célula vazia](powerpoint-math-equations_10.png)
 
@@ -229,7 +229,7 @@ presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 
 ## **Adicionar Funções Trigonométricas**
 
-Use `AsArgumentOfFunction` quando o argumento for o elemento atual e o nome da função for conhecido.
+Use `AsArgumentOfFunction` quando o argumento é o elemento atual e o nome da função é conhecido.
 
 ![A função trigonométrica cos aplicada a 2x](powerpoint-math-equations_6.png)
 
@@ -248,9 +248,9 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **Adicionar Subscritos e Superescritos**
+## **Adicionar Subscritos e Sobrescritos**
 
-Use os auxiliares de subscrito e sobrescrito para índices e potências. Quando os índices devem aparecer no lado esquerdo da base, use `SetSubSuperscriptOnTheLeft`.
+Use os auxiliares de subscrito e sobrescrito para índices e potências. Quando os índices devem aparecer ao lado esquerdo da base, use `SetSubSuperscriptOnTheLeft`.
 
 ![Um Y maiúsculo com subscrito 1 à esquerda e sobrescrito n](powerpoint-math-equations_9.png)
 
@@ -271,9 +271,9 @@ presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 
 ## **Adicionar Delimitadores**
 
-Use `Enclose` para colocar uma expressão dentro de delimitadores. Você também pode definir um caractere separador para expressões delimitadoras que contêm vários elementos.
+Use `Enclose` para colocar uma expressão dentro de delimitadores. Você também pode definir um caractere separador para expressões delimitadoras que contenham vários elementos.
 
-![Uma expressão delimitadora contendo x, y e z separados por barras verticais](powerpoint-math-equations_13.png)
+![Uma expressão delimitadora contendo x, y e z separadas por barras verticais](powerpoint-math-equations_13.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -293,9 +293,9 @@ mathParagraph.Add(new MathBlock(delimiter));
 presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 ```
 
-## **Adicionar uma Caixa de Borda**
+## **Adicionar Caixa de Borda**
 
-Use `ToBorderBox` quando a própria equação deve ser emoldurada.
+Use `ToBorderBox` quando a própria equação deve ser enquadrada.
 
 ![Uma equação em caixa mostrando a ao quadrado igual a b ao quadrado mais c ao quadrado](powerpoint-math-equations_12.png)
 
@@ -323,7 +323,7 @@ presentation.Save("border-box.pptx", SaveFormat.Pptx);
 
 Use `Group` para colocar um caractere de agrupamento acima ou abaixo de uma expressão. Adicione um limite para rotular os termos agrupados.
 
-![A expressão x mais y agrupada com o rótulo algum texto abaixo dela](powerpoint-math-equations_15.png)
+![A expressão x mais y agrupada com o rótulo qualquer texto abaixo dela](powerpoint-math-equations_15.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -343,7 +343,7 @@ presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 
 ## **Formatar Elementos Matemáticos**
 
-Use os auxiliares de formatação apenas onde eles esclarecem a fórmula. Por exemplo, `Overbar` coloca uma barra acima de um elemento matemático.
+Use auxiliares de formatação apenas onde eles esclarecem a fórmula. Por exemplo, `Overbar` coloca uma barra sobre um elemento matemático.
 
 ![Uma expressão matemática ABC com uma barra superior](powerpoint-math-equations_14.png)
 
@@ -363,7 +363,7 @@ presentation.Save("overbar.pptx", SaveFormat.Pptx);
 
 ## **Referência Rápida**
 
-| Tarefa | API Principal |
+| Tarefa | API principal |
 | --- | --- |
 | Criar texto matemático | [MathematicalText](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathematicaltext/) |
 | Combinar elementos | [IMathElement.Join](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/imathelement/join/) |
@@ -384,12 +384,12 @@ presentation.Save("overbar.pptx", SaveFormat.Pptx);
 
 **Posso editar uma equação existente do PowerPoint?**
 
-Sim. Abra a apresentação, encontre a forma que contém um `MathPortion`, obtenha seu `MathParagraph` e atualize os blocos matemáticos naquele parágrafo.
+Sim. Abra a apresentação, localize a forma que contém um `MathPortion`, obtenha seu `MathParagraph` e atualize os blocos matemáticos nesse parágrafo.
 
 **As equações são salvas como matemática editável do PowerPoint?**
 
-Sim. Ao salvar em PPTX, o Aspose.Slides grava a equação como conteúdo matemático editável do Office.
+Sim. Ao salvar em PPTX, o Aspose.Slides grava a equação como conteúdo de matemática do Office editável.
 
 **Posso exportar equações para LaTeX?**
 
-O Aspose.Slides exporta equações matemáticas para MathML. Se precisar de LaTeX, exporte primeiro para MathML e depois converta o MathML com uma ferramenta que suporte seu dialeto LaTeX alvo.
+Sim. Obtenha o [IMathParagraph](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/imathparagraph/) da sua [MathPortion](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/mathportion/), e chame [IMathParagraph.ToLatex](https://reference.aspose.com/slides/pt/net/aspose.slides.mathtext/imathparagraph/tolatex/) para exportá‑lo diretamente. Para um exemplo completo, veja [Export Math Equations from Presentations in .NET](/slides/pt/net/exporting-math-equations/#export-math-equations-to-latex).

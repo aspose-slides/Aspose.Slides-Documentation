@@ -1,5 +1,5 @@
 ---
-title: เพิ่มลายเซ็นดิจิทัลให้กับการนำเสนอใน .NET
+title: เพิ่มลายเซ็นดิจิทัลในงานนำเสนอด้วย .NET
 linktitle: ลายเซ็นดิจิทัล
 type: docs
 weight: 10
@@ -7,90 +7,170 @@ url: /th/net/digital-signature-in-powerpoint/
 keywords:
 - ลายเซ็นดิจิทัล
 - ใบรับรองดิจิทัล
-- หน่วยงานออกใบรับรอง
+- หน่วยรับรองใบรับรอง
 - ใบรับรอง PFX
+- PKCS#12
+- ตรวจสอบลายเซ็น
 - PowerPoint
-- OpenDocument
-- การนำเสนอ
+- PPTX
+- ความปลอดภัยของงานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีการลงลายเซ็นดิจิทัลในไฟล์ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET. ปกป้องสไลด์ของคุณในไม่กี่วินาทีด้วยตัวอย่างโค้ดที่ชัดเจน."
+description: "เรียนรู้วิธีการลงลายเซ็นในงานนำเสนอ PPTX ที่มีอยู่ด้วยใบรับรอง PFX และใช้ Aspose.Slides สำหรับ .NET เพื่อทำการตรวจสอบหรือเอาลายเซ็นดิจิทัลออก"
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-**ใบรับรองดิจิทัล** ถูกใช้เพื่อสร้างงานนำเสนอ PowerPoint ที่มีการป้องกันด้วยรหัสผ่าน โดยระบุว่าถูกสร้างโดยองค์กรหรือบุคคลเฉพาะ ใบรับรองดิจิทัลสามารถได้รับโดยการติดต่อองค์กรที่ได้รับอนุญาต – หน่วยงานออกใบรับรอง หลังจากติดตั้งใบรับรองดิจิทัลลงในระบบแล้ว สามารถใช้เพื่อเพิ่มลายเซ็นดิจิทัลลงในงานนำเสนอผ่านเมนู File -> Info -> Protect Presentation:
+ลายเซ็นดิจิทัลช่วยให้ผู้รับสามารถระบุได้ว่าใครเป็นผู้ลงนามในงานนำเสนอและเนื้อหาที่ลงนามนั้นมีการเปลี่ยนแปลงหรือไม่ มีแนวคิดด้านความปลอดภัยที่เกี่ยวข้องสามอย่างที่สำคัญในที่นี้:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- A **digital certificate** is an electronic credential that associates an identity with a public key. A trusted certificate authority (CA) can issue a certificate, or an organization can use a self-signed certificate for internal workflows.
+- A **digital signature** is created from the presentation content and the certificate holder's private key. The certificate's public key can then be used to verify the signature. A signature provides evidence of origin and integrity; it does not encrypt the presentation.
+- **Password protection** controls whether a user can open or modify a presentation. It is separate from digital signing and is described in [การป้องกันโดยใช้รหัสผ่าน](/net/password-protected-presentation/).
 
-งานนำเสนออาจมีลายเซ็นดิจิทัลมากกว่าหนึ่งรายการ หลังจากเพิ่มลายเซ็นดิจิทัลลงในงานนำเสนอ ข้อความพิเศษจะปรากฏใน PowerPoint:
+PowerPoint provides the **Add a Digital Signature** command under **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![เมนู Protect Presentation ของ PowerPoint พร้อมไฮไลท์ Add a Digital Signature](add-digital-signature-in-powerpoint.png)
 
-เพื่อทำการลงลายเซ็นในงานนำเสนอหรือเพื่อตรวจสอบความถูกต้องของลายเซ็นงานนำเสนอ, **Aspose.Slides API** มีให้ใช้ [**IDigitalSignature**](https://reference.aspose.com/slides/th/net/aspose.slides/idigitalsignature) interface, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/th/net/aspose.slides/IDigitalSignatureCollection) interface และ[**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/properties/digitalsignatures) property. ปัจจุบัน, ลายเซ็นดิจิทัลสนับสนุนเฉพาะรูปแบบ PPTX เท่านั้น.
+After a signed presentation is opened, PowerPoint can display a signature-status notification.
 
-## **เพิ่มลายเซ็นดิจิทัลจากใบรับรอง PFX**
+![การแจ้งเตือนของ PowerPoint บ่งชี้ว่าการนำเสนอมีลายเซ็นที่ถูกต้อง](digital-signature-status-in-powerpoint.png)
 
-ตัวอย่างโค้ดด้านล่างจะแสดงวิธีการเพิ่มลายเซ็นดิจิทัลจากใบรับรอง PFX:
+Aspose.Slides exposes signatures through [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/digitalsignatures/), an [IDigitalSignatureCollection](https://reference.aspose.com/slides/th/net/aspose.slides/idigitalsignaturecollection/) whose items implement [IDigitalSignature](https://reference.aspose.com/slides/th/net/aspose.slides/idigitalsignature/). A presentation can contain multiple signatures.
 
-1. เปิดไฟล์ PFX แล้วส่งรหัสผ่าน PFX ไปยังวัตถุ [**DigitalSignature**](https://reference.aspose.com/slides/th/net/aspose.slides/digitalsignature) .
-1. เพิ่มลายเซ็นที่สร้างขึ้นไปยังวัตถุ presentation.
+## **ทำความเข้าใจใบรับรอง PFX และรหัสผ่าน**
 
-```c#
-using (Presentation pres = new Presentation())
+A PFX file, also known as a PKCS#12 file and commonly given a `.pfx` or `.p12` extension, can contain an X.509 certificate, its private key, and the certificate chain. The private key is what allows the holder to create a signature. A certificate without an accessible private key cannot be used to sign a presentation.
+
+The PFX password protects the certificate package and private key. It is **not** a password for opening or editing the presentation. Do not commit PFX files or their passwords to source control. In production, limit access to the certificate file and obtain its password from a secret store or another protected configuration source. The examples below use an environment variable only to avoid embedding the password in code.
+
+## **เพิ่มลายเซ็นดิจิทัลลงในงานนำเสนอ**
+
+To sign a real presentation workflow, load an existing PPTX file, create a [DigitalSignature](https://reference.aspose.com/slides/th/net/aspose.slides/digitalsignature/) from a PFX certificate and its password, add the signature to the presentation's collection, and save to a PPTX file.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var certificatePassword = Environment.GetEnvironmentVariable("PFX_PASSWORD")
+    ?? throw new InvalidOperationException("Set the PFX_PASSWORD environment variable.");
+
+using var presentation = new Presentation("InputPresentation.pptx");
+
+var signature = new DigitalSignature("signing-certificate.pfx", certificatePassword)
 {
-    // สร้างอ็อบเจกต์ DigitalSignature ด้วยไฟล์ PFX และรหัสผ่าน PFX 
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", @"testpass1");
+    Comments = "Approved for release."
+};
 
-    // คอมเมนต์ลายเซ็นดิจิทัลใหม่
-    signature.Comments = "Aspose.Slides digital signing test.";
-
-    // เพิ่มลายเซ็นดิจิทัลลงในงานนำเสนอ
-    pres.DigitalSignatures.Add(signature);
-
-    // บันทึกงานนำเสนอ
-    pres.Save("SomePresentationSigned.pptx", SaveFormat.Pptx);
-}
+presentation.DigitalSignatures.Add(signature);
+presentation.Save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 ```
 
-ตอนนี้สามารถตรวจสอบได้ว่าผลงานนำเสนอถูกลงลายเซ็นดิจิทัลและไม่ได้ถูกแก้ไขหรือไม่:
+Saving the result under a new name preserves the unsigned source file. The [DigitalSignature.Comments](https://reference.aspose.com/slides/th/net/aspose.slides/digitalsignature/comments/) value describes the purpose of the signature; it is not a security control.
 
-```c#
- // เปิดงานนำเสนอ
-using (Presentation pres = new Presentation("SomePresentationSigned.pptx"))
+## **ตรวจสอบลายเซ็นดิจิทัล**
+
+When you load a signed PPTX file, inspect every item in [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/digitalsignatures/). The [IDigitalSignature.IsValid](https://reference.aspose.com/slides/th/net/aspose.slides/idigitalsignature/isvalid/) property indicates whether the embedded signature is valid for the current presentation content.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("InputPresentation-signed.pptx");
+
+var signatureCount = presentation.DigitalSignatures.Count;
+
+if (signatureCount == 0)
 {
-    if (pres.DigitalSignatures.Count > 0)
+    Console.WriteLine("The presentation does not contain digital signatures.");
+}
+else
+{
+    var allSignaturesAreValid = true;
+
+    foreach (var signature in presentation.DigitalSignatures)
     {
-        bool allSignaturesAreValid = true;
+        var signatureStatus = signature.IsValid ? "VALID" : "INVALID";
+        var signerName = signature.Certificate.SubjectName.Name;
 
-        Console.WriteLine("Signatures used to sign the presentation: ");
+        Console.WriteLine(
+            $"{signerName}, {signature.SignTime:yyyy-MM-dd HH:mm:ss} -- {signatureStatus}");
 
-        // ตรวจสอบว่าลายเซ็นดิจิทัลทั้งหมดเป็นที่ถูกต้องหรือไม่
-        foreach (DigitalSignature signature in pres.DigitalSignatures)
-        {
-            Console.WriteLine(signature.Certificate.SubjectName.Name + ", "
-                    + signature.SignTime.ToString("yyyy-MM-dd HH:mm") + " -- " + (signature.IsValid ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.IsValid;
-        }
-
-        if (allSignaturesAreValid)
-            Console.WriteLine("Presentation is genuine, all signatures are valid.");
-        else
-            Console.WriteLine("Presentation has been modified since signing.");
+        allSignaturesAreValid &= signature.IsValid;
     }
+
+    Console.WriteLine(allSignaturesAreValid
+        ? "All embedded signatures are valid for the current presentation."
+        : "At least one embedded signature is invalid.");
 }
 ```
+
+An invalid result commonly means that the signed presentation content or signature data changed after signing, or that the file is damaged. Removing every signature produces an unsigned presentation, so checking only the validity of items is not enough: a security-sensitive workflow must also verify that the expected number of signatures and expected signer identities are present.
+
+This validity result should not be treated as a complete certificate-trust decision. Depending on your security policy, your application may also need to build and validate the X.509 certificate chain, check certificate validity dates and revocation status, confirm the expected subject or thumbprint, verify key usage, and evaluate a trusted timestamp. The [IDigitalSignature.SignTime](https://reference.aspose.com/slides/th/net/aspose.slides/idigitalsignature/signtime/) value by itself is not proof from a trusted timestamp authority.
+
+## **ลบลายเซ็นดิจิทัล**
+
+Removing signatures changes the presentation's security state. The following example loads a signed PPTX file, removes all signatures with [IDigitalSignatureCollection.Clear](https://reference.aspose.com/slides/th/net/aspose.slides/idigitalsignaturecollection/clear/), and saves an unsigned copy.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("InputPresentation-signed.pptx");
+
+presentation.DigitalSignatures.Clear();
+presentation.Save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+```
+
+To remove only one signature, call [IDigitalSignatureCollection.RemoveAt](https://reference.aspose.com/slides/th/net/aspose.slides/idigitalsignaturecollection/removeat/) with its zero-based index. Save to a new file unless overwriting the signed original is an explicit part of your workflow.
+
+## **การแก้ไขและข้อพิจารณารูปแบบ**
+
+- A signature does not make a presentation read-only. Users and applications can still edit the file, but changes to signed content normally invalidate the existing signature.
+- Complete all intended edits before signing. If a presentation must be changed, save the revised presentation and sign that revision again.
+- Keep the final output in PPTX format. Converting a signed presentation to another format does not transfer the original PPTX signature as a valid signature for the converted file.
+- Treat the certificate's private key as sensitive. Anyone who obtains the private key and its password may be able to create signatures that appear to come from that certificate holder.
+- Retain the unsigned source or another controlled copy when your document-retention policy requires it.
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถลบลายเซ็นที่มีอยู่จากไฟล์ได้หรือไม่?**
+**Does a digital signature encrypt the presentation?**
 
-ใช่. คอลเลกชันลายเซ็นดิจิทัลสนับสนุนการ [removing individual items](https://reference.aspose.com/slides/th/net/aspose.slides/digitalsignaturecollection/removeat/) และการ [clearing it entirely](https://reference.aspose.com/slides/th/net/aspose.slides/digitalsignaturecollection/clear/); หลังจากคุณบันทึกไฟล์ งานนำเสนอจะไม่มีลายเซ็นใด ๆ.
+No. A digital signature provides evidence about origin and integrity, but presentation content remains readable unless separate encryption is applied. Use [การป้องกันโดยใช้รหัสผ่าน](/net/password-protected-presentation/) when access to the content must be restricted.
 
-**ไฟล์จะกลายเป็น “อ่านอย่างเดียว” หลังจากลงลายเซ็นหรือไม่?**
+**Is the PFX password the same as a presentation password?**
 
-ไม่. ลายเซ็นทำหน้าที่รักษาความสมบูรณ์และผู้เขียนไว้แต่ไม่ได้บล็อกการแก้ไข เพื่อจำกัดการแก้ไข ให้ผสานกับ ["Read-only" or a password](/slides/th/net/password-protected-presentation/).
+No. The PFX password unlocks the private key stored in the certificate package. It does not control who can open or edit the PPTX file.
 
-**ลายเซ็นจะแสดงผลอย่างถูกต้องในเวอร์ชันต่าง ๆ ของ PowerPoint หรือไม่?**
+**Can I use a self-signed certificate?**
 
-ลายเซ็นถูกสร้างสำหรับคอนเทนเนอร์ OOXML (PPTX) เวอร์ชันสมัยใหม่ของ PowerPoint ที่รองรับลายเซ็น OOXML จะแสดงสถานะของลายเซ็นเหล่านี้อย่างถูกต้อง.
+Technically, a self-signed certificate can be used when it includes an accessible private key. Recipients will not automatically trust it, however, unless that certificate has been explicitly added to their trusted environment. Public or cross-organization workflows generally use a certificate issued by a trusted CA.
+
+**What makes a signature invalid?**
+
+Changing signed presentation content or the signature data after signing can invalidate the signature. File corruption can also cause validation to fail. If all signatures are removed, the presentation is unsigned rather than a file containing an invalid signature.
+
+**Does a valid signature mean that I should trust the signer?**
+
+Not by itself. Signature integrity and signer trust are separate decisions. A production validation policy should also check the certificate chain, validity period, revocation status, expected identity, key usage, and any trusted timestamp requirements.
+
+**What happens when the certificate expires?**
+
+Certificate expiration does not alter the presentation bytes, but it affects certificate-trust evaluation. Whether a signature remains acceptable depends on your policy and on whether a valid trusted timestamp proves that signing occurred while the certificate was valid. Do not rely on the displayed signing time alone as a trusted timestamp.
+
+**Can a signed presentation still be edited?**
+
+Yes. Signing does not lock the file. Editing signed content generally makes the existing signature invalid, so finish the presentation first and sign the final revision.
+
+**Can a presentation contain more than one signature?**
+
+Yes. Add each signature to [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/digitalsignatures/) before saving. During validation, inspect every signature and confirm that all required signers are present.
+
+**Which presentation formats support these operations?**
+
+Aspose.Slides supports the digital-signature operations described here only for PPTX. PPT and OpenDocument presentation formats are not supported by this API workflow.
+
+**Can I remove a signature without affecting the slides?**
+
+Yes. You can remove one signature or clear the entire collection and then save the presentation. The slide content remains available, but the saved file no longer carries the removed signature evidence.

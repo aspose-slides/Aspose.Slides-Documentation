@@ -5,7 +5,7 @@ weight: 10
 url: /jasperreports/technical-support/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Aspose provides unlimited free technical support for all its products. The support is available to all users, including evaluation.
 

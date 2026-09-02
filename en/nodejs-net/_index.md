@@ -8,7 +8,7 @@ url: /nodejs-net/
 is_root: true
 ---
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 **Welcome to Aspose.Slides for Node.js via .NET**
 
@@ -24,7 +24,7 @@ Aspose.Slides for Node.js via .NET provides a lot of key features such as managi
 
 ## Aspose.Slides for Node.js via .NET Resources
 
-{{% alert color="primary" %}}
+{{% alert color="info" %}}
 
 Aspose.Slides for Node.js via .NET is ported from Aspose.Slides for .NET, so you can use the latter documentation and API reference.
 

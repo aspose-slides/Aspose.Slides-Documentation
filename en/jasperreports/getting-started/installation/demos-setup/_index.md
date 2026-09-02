@@ -16,7 +16,7 @@ Use standard commands sequence to build and export reports:
 - ant fill
 - ant ppt
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 Please do not forget to run HSQLDB with the test database to fill the reports with data and copy aspose.slides.jasperreports.library-xx.x.jar from the \lib\JasperReports X.X.X - X.X.X folder of aspose-slides-xx.x-jasperreports.zip to &#60;InstallDir&#62;\lib directory.
 

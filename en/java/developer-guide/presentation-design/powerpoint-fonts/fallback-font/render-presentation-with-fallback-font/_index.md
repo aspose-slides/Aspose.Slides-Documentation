@@ -75,6 +75,6 @@ try {
 }
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 Read more about how to [Convert PPT and PPTX to JPG in Java](/slides/java/convert-powerpoint-to-jpg/).
 {{% /alert %}}

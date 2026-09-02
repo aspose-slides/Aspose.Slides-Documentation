@@ -5,7 +5,7 @@ weight: 40
 url: /sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
 When Aspose.Slides for SharePoint is installed on the SharePoint server, it adds the **Convert via Aspose.Slides.SharePoint** option to a presentation's menu as shown below: 
 
