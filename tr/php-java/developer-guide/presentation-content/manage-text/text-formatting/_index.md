@@ -1,16 +1,14 @@
 ---
-title: PHP ile Sunum Metnini Biçimlendirme
+title: PHP'de Sunum Metnini Biçimlendir
 linktitle: Metin Biçimlendirme
 type: docs
 weight: 50
 url: /tr/php-java/text-formatting/
 keywords:
-- metni vurgulama
-- düzenli ifade
 - paragraf hizalama
 - metin stili
 - metin arka planı
-- metin şeffaflığı
+- metin saydamlığı
 - karakter aralığı
 - yazı tipi özellikleri
 - yazı tipi ailesi
@@ -19,95 +17,42 @@ keywords:
 - metin çerçevesi
 - satır aralığı
 - otomatik sığdırma özelliği
-- metin çerçevesi sabitlemesi
-- metin sekleme
+- metin çerçevesi bağlama noktası
+- metin sekmesi
 - varsayılan dil
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument sunumlarındaki metni biçimlendirin ve stil verin. Yazı tiplerini, renkleri, hizalamayı ve daha fazlasını özelleştirin."
+description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni biçimlendirin ve stillendirin. Yazı tiplerini, renkleri, hizalamayı ve daha fazlasını özelleştirin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument sunumlarındaki metni nasıl biçimlendireceğinizi gösterir. Vurgulama, arka plan renkleri, saydamlık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sek durakları ve dil ayarlarını kapsar.
+Bu makale, Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument sunumlarında metin formatlamanın nasıl yapılacağını gösterir. Arka plan renkleri, saydamlık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin yerleşimi, sekme durakları ve dil ayarları ele alınmıştır.
 
-Aşağıdaki örneklerde, ilk slaytta aşağıdaki metni içeren tek bir metin kutusu bulunan "sample.pptx" adlı dosyayı kullanacağız:
+Aşağıdaki örneklerde, ilk slaytta tek bir metin kutusu içeren ve aşağıdaki metni barındıran "sample.pptx" adlı dosyayı kullanacağız:
 
 ![Örnek metin](sample_text.png)
 
-## **Metni Vurgulama**
+Gerçekteki metni ya da düzenli ifade eşleşmelerini bulup vurgulamak için [Metin Ara ve Değiştir](/slides/tr/php-java/search-and-replace-text/) bölümüne bakın.
 
-Bir metin çerçevesi içinde belirli bir örnekle eşleşen metni vurgulamanız gerektiğinde [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/)`::highlightText` metodunu kullanın. Metod, eşleşen metin parçalarına bir vurgulama rengi uygular ve aramanın nasıl yapılacağını kontrol etmek için, örneğin yalnızca tam kelimeleri eşleştirmek için, [TextHighlightingOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/texthighlightingoptions/) ile birlikte kullanılabilir.
+## **Metin Arka Plan Rengini Ayarla**
 
-Aşağıdaki kod örneği, **"try"** karakterlerinin tüm oluşumlarını vurgular ve ardından yalnızca tam **"to"** kelimesini vurgular.
+Paragraf için varsayılan vurgulama rengini ayarlamak için [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) kullanın veya tek tek metin bölümleri için [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#getHighlightColor) kullanın.
 
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    // İlk slayttaki ilk şekli al.
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $lightBlue = new Java("java.awt.Color", 173, 216, 230);
-    $violet = new Java("java.awt.Color", 238, 130, 238);
-
-    // Şekilde "try" kelimesini vurgula.
-    $shape->getTextFrame()->highlightText("try", $lightBlue);
-
-    $searchOptions = new TextHighlightingOptions();
-    $searchOptions->setWholeWordsOnly(true);
-
-    // Şekilde "to" kelimesini vurgula.
-    $shape->getTextFrame()->highlightText("to", $violet, $searchOptions);
-
-    $presentation->save("highlighted_text.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Sonuç:
-
-![Vurgulanan metin](highlighted_text.png)
-
-### **Düzenli İfadeler Kullanarak Metni Vurgulama**
-
-[TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/)`::highlightRegex` metodu, düzenli ifadeyle bulunan metin eşleşmelerini vurgular.
-
-Aşağıdaki kod örneği, **yedi veya daha fazla karakter** içeren tüm kelimeleri vurgular:
+Aşağıdaki kod örneği **tüm paragraf** için arka plan rengini nasıl ayarlayacağınızı gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-
-    // Yedi veya daha fazla karakter içeren tüm kelimeleri vurgula.
-    $shape->getTextFrame()->highlightRegex("\\b[^\\s]{7,}\\b", java("java.awt.Color")->YELLOW, null);
-
-    $presentation->save("highlighted_text_using_regex.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Sonuç:
-
-![Düzenli ifade kullanarak vurgulanan metin](highlighted_text_using_regex.png)
-
-## **Metin Arka Plan Rengini Ayarlama**
-
-[ParagraphFormat]'ın varsayılan bölüm formatını bir paragraf için varsayılan vurgulama rengini ayarlamak için kullanın veya bireysel metin bölümleri için [PortionFormat]'ı kullanın.
-
-Aşağıdaki kod örneği, **tüm paragraf** için arka plan rengini nasıl ayarlayacağınızı gösterir:
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     // Paragrafın tamamı için vurgulama rengini ayarla.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -119,20 +64,22 @@ Sonuç:
 
 ![Gri paragraf](gray_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağınızı gösterir:
+Aşağıdaki kod örneği **kalın yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağınızı gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Metin bölümü için vurgulama rengini ayarla.
-            $portion->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+            // Metin bölümünün vurgulama rengini ayarla.
+            $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
 
@@ -146,19 +93,20 @@ Sonuç:
 
 ![Gri metin bölümleri](gray_text_portions.png)
 
-## **Metin Paragraflarını Hizalama**
+## **Metin Paragraflarını Hizala**
 
-[ParagraphFormat]`::setAlignment` metodunu, bir metin çerçevesi içinde paragraf hizalamasını ayarlamak için kullanın. Değer merkezlenmiş, sola hizalı, sağa hizalı, iki yana hizalanmış vb. olabilir.
+Metin çerçevesi içinde paragraf hizalamasını ayarlamak için [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setAlignment) kullanın. Değer merkez, sola hizalı, sağa hizalı, iki yana yaslı vb. olabilir.
 
-Aşağıdaki kod örneği, paragrafı **ortaya** hizalamanın nasıl yapılacağını gösterir:
+Aşağıdaki kod örneği paragrafı **ortaya** hizalamanızı gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Paragraf hizalamasını ortaya ayarla.
+    // Paragrafın hizalamasını ortaya ayarla.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -171,24 +119,26 @@ Sonuç:
 
 ![Hizalanmış paragraf](aligned_paragraph.png)
 
-## **Metin Şeffaflığını Ayarlama**
+## **Metin Saydamlığını Ayarla**
 
-Metin şeffaflığı, [PortionFormat]'a atanan rengin alfa bileşeni üzerinden kontrol edilir. Aşağıdaki örneklerde, `alpha = 50` 0-255 ölçeğinde bir ARGB alfa kanalı değeridir, yüzde şeffaflık değildir.
+Metin saydamlığı, [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#getFillFormat) aracılığıyla atanan rengin alfa bileşeni üzerinden kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, 0–255 ölçeğinde bir ARGB alfa kanal değeri olup, yüzde olarak bir saydamlık değildir.
 
-Aşağıdaki kod örneği, **tüm paragraf** için şeffaflığı nasıl uygulayacağınızı gösterir:
+Aşağıdaki kod örneği **tüm paragraf** için saydamlığı nasıl uygulayacağınızı gösterir:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Metnin doldurma rengini saydam bir renk olarak ayarla.
+    // Metnin dolgu rengini saydam bir renge ayarla.
     $fillFormat->setFillType(FillType::Solid);
-    $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
+    $fillFormat->getSolidFillColor()->setColor($transparentColor);
 
     $presentation->save("transparent_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -198,26 +148,28 @@ try {
 
 Sonuç:
 
-![Şeffaf paragraf](transparent_paragraph.png)
+![Saydam paragraf](transparent_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için şeffaflığı nasıl uygulayacağınızı gösterir:
+Aşağıdaki kod örneği **kalın yazı tipine sahip metin bölümleri** için saydamlığı nasıl uygulayacağınızı gösterir:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Metin bölümünün şeffaflığını ayarla.
+            // Metin bölümünün saydamlığını ayarla.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
-            $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+            $fillFormat->getSolidFillColor()->setColor($transparentColor);
         }
     }
 
@@ -229,18 +181,19 @@ try {
 
 Sonuç:
 
-![Şeffaf metin bölümleri](transparent_text_portions.png)
+![Saydam metin bölümleri](transparent_text_portions.png)
 
-## **Metin Karakter Aralığını Ayarlama**
+## **Metin Karakter Aralığını Ayarla**
 
-[BasePortionFormat]`::setSpacing` metodunu, bir metin kutusundaki karakterler arasındaki boşluğu genişletmek veya daraltmak için kullanın.
+Metin kutusundaki karakterler arasındaki boşluğu genişletmek ya da daraltmak için [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setSpacing) kullanın.
 
-Aşağıdaki PHP kodu, **tüm paragraf** için karakter aralığını nasıl genişleteceğinizi gösterir:
+Aşağıdaki PHP kodu **tüm paragraf** için karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     // Not: Karakter aralığını sıkıştırmak için negatif değerler kullanın.
@@ -256,12 +209,13 @@ Sonuç:
 
 ![Paragraftaki karakter aralığı](character_spacing_in_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için karakter aralığını nasıl genişleteceğinizi gösterir:
+Aşağıdaki kod örneği **kalın yazı tipine sahip metin bölümleri** için karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
@@ -283,16 +237,17 @@ Sonuç:
 
 ![Metin bölümlerindeki karakter aralığı](character_spacing_in_text_portions.png)
 
-### **Belirli Yazı Tipleri İçin Kerning'i Devre Dışı Bırakma**
+### **Belirli Yazı Tipleri için Kerning’i Devre Dışı Bırak**
 
-Bazı durumlarda, Aspose.Slides tarafından render edilen metin, PowerPoint'te gösterilen aynı metinden biraz daha sıkı görünebilir. Bu, PowerPoint'in belirli yazı tipleri için kerning verilerini görmezden gelmesi nedeniyle gerçekleşebilir; yazı tipinde geçerli kerning bilgileri bulunup PowerPoint ayarlarında kerning etkin olsa bile.
+Bazı durumlarda, Aspose.Slides tarafından oluşturulan metin, PowerPoint’te aynı metinden biraz daha sıkı görünebilir. Bu, PowerPoint’in bazı yazı tipleri için kerning verisini görmezden gelmesi halinde meydana gelir; hatta yazı tipi geçerli kerning bilgisine sahip olsa ve PowerPoint ayarlarında kerning etkin olsa bile.
 
-Bu gibi durumlarda render edilen çıktıyı PowerPoint'e yakınlaştırmak için, etkilenen yazı tipini kullanan metin bölümlerinde kerning'i devre dışı bırakabilirsiniz. [BasePortionFormat]`::setKerningMinimalSize` metodunu gerçek yazı tipi boyutundan çok daha büyük bir değere ayarlayın:
+Bu durumlarda, etkilenmiş yazı tipini kullanan metin bölümleri için kerning’i devre dışı bırakabilirsiniz. [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) değerini gerçek yazı tipi boyutundan belirgin şekilde büyük bir değere ayarlayın:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $targetFont = "Roboto";
 
     $paragraphCount = java_values($autoShape->getTextFrame()->getParagraphs()->getCount());
@@ -320,27 +275,29 @@ try {
 }
 ```
 
-Bu ayar, eşleşen metin bölümlerine kerning uygulanmasını engeller ve bu PowerPoint'e özgü davranıştan etkilenen yazı tipleri için Aspose.Slides render'ının PowerPoint'in görsel çıktısıyla uyumlu olmasına yardımcı olabilir.
+Bu ayar, eşleşen metin bölümlerine kerning uygulanmasını engeller ve PowerPoint’e özgü bu davranıştan etkilenen yazı tipleri için Aspose.Slides’in render çıktısını PowerPoint’in görsel çıktısına daha yakın hale getirebilir.
 
-## **Metin Yazı Tipi Özelliklerini Yönetme**
+## **Metin Yazı Tipi Özelliklerini Yönet**
 
-Yazı tipi özellikleri, [ParagraphFormat]'ın varsayılan bölüm formatı aracılığıyla paragraf seviyesinde veya bireysel bölümler için [PortionFormat] aracılığıyla ayarlanabilir.
+Yazı tipi özellikleri, [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) aracılığıyla paragraf düzeyinde ya da tek tek bölümler için [PortionFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/portionformat/) aracılığıyla ayarlanabilir.
 
-Aşağıdaki kod, tüm paragraf için yazı tipini ve metin stilini ayarlar: paragraftaki tüm bölümlere yazı tipi boyutu, kalın, italik, noktalı alt çizgi ve Times New Roman yazı tipini uygular.
+Aşağıdaki kod, tüm paragraf için yazı tipi ve metin stilini ayarlar: yazı tipi boyutu, kalın, italik, noktalı alt çizgi ve Times New Roman yazı tipini paragraftaki tüm bölümlere uygular.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $font = new FontData("Times New Roman");
 
     // Paragraf için yazı tipi özelliklerini ayarla.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
     $defaultPortionFormat->setFontUnderline(TextUnderlineType::Dotted);
-    $defaultPortionFormat->setLatinFont(new FontData("Times New Roman"));
+    $defaultPortionFormat->setLatinFont($font);
 
     $presentation->save("font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -350,15 +307,17 @@ try {
 
 Sonuç:
 
-![Paragraf için yazı tipi özellikleri](font_properties_for_paragraph.png)
+![Paragrafın yazı tipi özellikleri](font_properties_for_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için benzer özellikleri uygular:
+Aşağıdaki kod örneği **kalın yazı tipine sahip metin bölümleri** için benzer özellikleri uygular:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $font = new FontData("Times New Roman");
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
@@ -369,7 +328,7 @@ try {
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
             $portionFormat->setFontUnderline(TextUnderlineType::Dotted);
-            $portionFormat->setLatinFont(new FontData("Times New Roman"));
+            $portionFormat->setLatinFont($font);
         }
     }
 
@@ -381,18 +340,19 @@ try {
 
 Sonuç:
 
-![Metin bölümleri için yazı tipi özellikleri](font_properties_for_text_portions.png)
+![Metin bölümlerinin yazı tipi özellikleri](font_properties_for_text_portions.png)
 
-## **Metin Döndürmeyi Ayarlama**
+## **Metin Döndürmeyi Ayarla**
 
-[TextFrameFormat]`::setTextVerticalType` metodunu, bir şekil içinde önceden tanımlanmış bir metin yönelimi ayarlamak için kullanın.
+Bir şekil içinde önceden tanımlı bir metin yönelimi ayarlamak için [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setTextVerticalType) kullanın.
 
-Aşağıdaki kod örneği, şeklin içindeki metin yönelimini `Vertical270` olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
+Aşağıdaki kod örneği, şeklin içindeki metin yönelimini `Vertical270` olarak ayarlar; bu da metni **saat yönünün tersine 90 derece** döndürür:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
 
@@ -406,16 +366,17 @@ Sonuç:
 
 ![Metin döndürme](text_rotation.png)
 
-## **Metin Çerçeveleri için Özel Döndürme Ayarlama**
+## **Metin Çerçeveleri İçin Özel Döndürme Ayarla**
 
-[TextFrameFormat]`::setRotationAngle` metodunu, bir [TextFrame] için özel bir döndürme açısı ayarlamak için kullanın.
+[TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setRotationAngle) kullanarak bir [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) için özel bir döndürme açısı belirleyin.
 
 Aşağıdaki kod örneği, şeklin içinde metin çerçevesini 3 derece saat yönünde döndürür:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setRotationAngle(3);
 
@@ -429,19 +390,20 @@ Sonuç:
 
 ![Özel metin döndürme](custom_text_rotation.png)
 
-## **Paragrafların Satır Aralığını Ayarlama**
+## **Paragrafların Satır Aralığını Ayarla**
 
-Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat]`::setSpaceAfter`, `ParagraphFormat::setSpaceBefore` ve `ParagraphFormat::setSpaceWithin` metodlarını sunar. Bu metodlar şu şekilde kullanılır:
+Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setSpaceWithin) sağlar. Bu özellikler şu şekilde kullanılır:
 
-* Pozitif bir değer, satır yüksekliğinin yüzdesi olarak satır aralığını belirtmek için kullanılır.
-* Negatif bir değer, satır aralığını puan cinsinden belirtmek için kullanılır.
+* Satır yüksekliğinin yüzdesi olarak satır aralığını belirtmek için pozitif bir değer kullanın.
+* Satır aralığını puan olarak belirtmek için negatif bir değer kullanın.
 
-Aşağıdaki kod örneği, paragraftaki satır aralığını nasıl belirteceğinizi gösterir:
+Aşağıdaki kod örneği paragraf içinde satır aralığını nasıl belirleyeceğinizi gösterir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setSpaceWithin(200);
@@ -456,14 +418,15 @@ Sonuç:
 
 ![Paragraftaki satır aralığı](line_spacing.png)
 
-## **Metin Çerçeveleri için Otomatik Sığdırma Türünü Ayarlama**
+## **Metin Çerçeveleri İçin Otomatik Sığdırma Türünü Ayarla**
 
-[TextFrameFormat]`::setAutofitType` metodu, metin kapsayıcının sınırlarını aştığında davranışını belirler. Metnin küçülmesini, taşmasını veya şeklin otomatik olarak yeniden boyutlandırılmasını kontrol etmek için kullanın.
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setAutofitType), metin kapsayıcısının sınırlarını aştığında davranışını belirler. Metnin küçülmesini, taşmasını ya da şeklin otomatik olarak yeniden boyutlandırılmasını kontrol etmek için kullanın.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
 
@@ -473,14 +436,15 @@ try {
 }
 ```
 
-## **Metin Çerçevelerinin Sabitlemesini Ayarlama**
+## **Metin Çerçevelerinin Bağlantı Noktasını Ayarla**
 
-[TextFrameFormat]`::setAnchoringType` metodu, metnin bir şekil içinde dikey olarak nasıl konumlandırılacağını tanımlar; örneğin üstte, ortada veya altta.
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setAnchoringType), metnin bir şekil içinde dikey olarak nerede konumlandırılacağını tanımlar; örneğin üst, orta ya da alt.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
 
@@ -490,14 +454,15 @@ try {
 }
 ```
 
-## **Metin Sekmelerini Ayarlama**
+## **Metin Sekmelerini Ayarla**
 
-[ParagraphFormat]`::setDefaultTabSize` metodunu ve sekmeler koleksiyonunu, bir paragraftaki sek duraklarını yapılandırmak için kullanın.
+Bir paragrafta sekme duraklarını yapılandırmak için [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) ve [ParagraphFormat::getTabs](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/#getTabs) kullanın.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setDefaultTabSize(100);
@@ -511,18 +476,19 @@ try {
 
 Sonuç:
 
-![Paragraf sekleri](paragraph_tabs.png)
+![Paragraf sekmeleri](paragraph_tabs.png)
 
-## **Denetleme Dilini Ayarlama**
+## **Düzeltme Dilini Ayarla**
 
-Aspose.Slides, bir metin bölümü için denetleme dilini ayarlamanızı sağlayan [BasePortionFormat]`::setLanguageId` metodunu sunar. Denetleme dili, PowerPoint'te yazım ve dilbilgisi denetimleri için kullanılan dili belirler.
+Aspose.Slides, bir metin bölümü için düzeltme dili ayarlamanızı sağlayan [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setLanguageId) metodunu sunar. Düzeltme dili, PowerPoint’te imla ve dilbilgisi denetimlerinde kullanılan dili belirler.
 
-Aşağıdaki kod örneği, bir metin bölümü için denetleme dilini nasıl ayarlayacağınızı gösterir:
+Aşağıdaki kod örneği bir metin bölümü için düzeltme dilini nasıl ayarlayacağınızı gösterir:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getPortions()->clear();
@@ -534,10 +500,10 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Denetleme dili kimliğini ayarla.
+    // Düzeltme dili kimliğini ayarla.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
-    $textPortion->setText("1.");
+    $textPortion->setText("1。");
     $paragraph->getPortions()->add($textPortion);
 
     $presentation->save("proofing_language.pptx", SaveFormat::Pptx);
@@ -546,9 +512,9 @@ try {
 }
 ```
 
-## **Varsayılan Dili Ayarlama**
+## **Varsayılan Dili Ayarla**
 
-[LoadOptions]`::setDefaultTextLanguage` metodunu, bir sunum yüklenirken veya oluşturulurken oluşturulan metin için varsayılan dili tanımlamak için kullanın.
+Yükleme veya sunum oluşturma sırasında oluşturulan metin için varsayılan dili tanımlamak üzere [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) kullanın.
 
 ```php
 $loadOptions = new LoadOptions();
@@ -558,7 +524,7 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Metin içeren yeni bir dikdörtgen şekli ekle.
+    // Metin içeren yeni bir dikdörtgen şekil ekle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
@@ -570,11 +536,11 @@ try {
 }
 ```
 
-## **Varsayılan Metin Stilini Ayarlama**
+## **Varsayılan Metin Stilini Ayarla**
 
-Sunum seviyesinde varsayılan metin biçimlendirmesini uygulamak için [Presentation]'ın varsayılan metin stilini kullanın.
+Sunum düzeyinde varsayılan metin biçimlendirmesi uygulamak için [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getDefaultTextStyle) kullanın.
 
-Aşağıdaki kod örneği, yeni bir sunumdaki tüm slaytlardaki metinler için 14 puan boyutunda varsayılan kalın bir yazı tipini nasıl ayarlayacağınızı gösterir.
+Aşağıdaki kod örneği, yeni bir sunumda tüm slaytlardaki metinler için 14 pt boyutunda kalın bir varsayılan yazı tipi ayarlar.
 
 ```php
 $presentation = new Presentation();
@@ -593,27 +559,29 @@ try {
 }
 ```
 
-## **Büyük Harf Etkisiyle Metni Çıkarma**
+## **All‑Caps Efektiyle Metin Çıkar**
 
-PowerPoint'te **All Caps** (Tam Büyük Harf) yazı tipi etkisini uygulamak, metni küçük harfle girilmiş olsa bile slaytta büyük harf olarak gösterir. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni girildiği gibi döndürür. Görüntülenen metinle eşleşmesi için, [TextCapType] değerini kontrol edin ve değer `All` olduğunda döndürülen dizeyi büyük harfe dönüştürün.
+PowerPoint’te **All Caps** (Büyük Harf) yazı tipi etkisini uygulamak, metnin slaytta büyük harf olarak görünmesini sağlar; metin aslen küçük harfle girilmiş olsa bile. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni girildiği gibi döndürür. Görünen metinle eşleşmesi için [TextCapType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textcaptype/) kontrol edin ve değer `All` olduğunda döndürülen dizeyi büyük harfe çevirin.
 
-Örneğin, sample2.pptx dosyasının ilk slaytında aşağıdaki metin kutusuna sahip olduğumuzu varsayalım.
+Örneğin sample2.pptx dosyasının ilk slaydındaki aşağıdaki metin kutusunu ele alalım.
 
-![Tam Büyük Harf etkisi](all_caps_effect.png)
+![All Caps etkisi](all_caps_effect.png)
 
-Aşağıdaki kod örneği, **All Caps** etkisi uygulanmış metni nasıl çıkaracağınızı gösterir:
+Aşağıdaki kod örneği **All Caps** etkisi uygulanmış metni nasıl çıkaracağınızı gösterir:
 
 ```php
 $presentation = new Presentation("sample2.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $textPortion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
 
-    echo "Original text: ", $textPortion->getText(), "\n";
+    $originalText = $textPortion->getText();
+    echo "Original text: ", $originalText, "\n";
 
     $textFormat = $textPortion->getPortionFormat()->getEffective();
     if (java_values($textFormat->getTextCapType()) === TextCapType::All) {
-        $text = strtoupper($textPortion->getText());
+        $text = strtoupper($originalText);
         echo "All-Caps effect: ", $text, "\n";
     }
 } finally {
@@ -630,10 +598,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **SSS**
 
-**Bir slayttaki tabloda metni nasıl değiştirebilirim?**
+**Bir slayttaki tablo içinde metni nasıl değiştirebilirim?**
 
-Bir slayttaki tabloda metni değiştirmek için, [Table] kullanın. Hücreler arasında dolaşın ve her hücreyi [Cell]'in metin çerçevesi ve [Paragraph]'ın paragraf formatı aracılığıyla güncelleyin.
+Bir slayttaki tablo içinde metni değiştirmek için [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/table/) kullanın. Hücreler arasında döngü yapın ve her hücreyi [Cell::getTextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/#getTextFrame) ve paragraf biçimlendirmesini [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/#getParagraphFormat) aracılığıyla güncelleyin.
 
-**PowerPoint slaytındaki metne degrade (gradient) renk nasıl uygulanır?**
+**PowerPoint slaytında metne degrade renk nasıl uygulanır?**
 
-Metne degrade renk uygulamak için, [PortionFormat]'ın doldurma formatını kullanın. [FillFormat]'ın doldurma tipini [FillType] `Gradient` olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.
+Metne degrade renk uygulamak için [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#getFillFormat) kullanın. [FillFormat::setFillType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fillformat/#setFillType) değerini [FillType::Gradient](https://reference.aspose.com/slides/tr/php-java/aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve saydamlığını yapılandırın.

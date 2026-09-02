@@ -5,8 +5,6 @@ type: docs
 weight: 50
 url: /ar/androidjava/text-formatting/
 keywords:
-- تسليط الضوء على النص
-- تعبير نمطي
 - محاذاة الفقرة
 - نمط النص
 - خلفية النص
@@ -18,93 +16,45 @@ keywords:
 - زاوية الدوران
 - إطار النص
 - تباعد الأسطر
-- خاصية الملاءمة التلقائية
-- إرساء إطار النص
+- خاصية الضبط التلقائي
+- تثبيت إطار النص
 - تبويب النص
 - اللغة الافتراضية
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تنسيق وتنسيق النص في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides لنظام Android عبر Java. تخصيص الخطوط والألوان والمحاذاة، والمزيد."
+description: "تنسيق وتنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لأندرويد عبر جافا. قم بتخصيص الخطوط والألوان والمحاذاة وأكثر."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تنسيق النص في عروض PowerPoint وعروض OpenDocument باستخدام Aspose.Slides لنظام Android عبر Java. وهي تغطي التظليل، ألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، الدوران، تباعد الفقرات، سلوك الملاءمة التلقائية، تثبيت النص، نقاط التبويب، وإعدادات اللغة.
+توضح هذه المقالة طريقة تنسيق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Android عبر Java. تشمل الألوان الخلفية، الشفافية، تباعد الأحرف، خصائص الخط، التدوير، تباعد الفقرات، سلوك الضبط التلقائي، تثبيت النص، نقاط التبويب، وإعدادات اللغة.
 
-في الأمثلة أدناه، سنستخدم ملفًا اسمه "sample.pptx" يحتوي على صندوق نص واحد في الشريحة الأولى بالنص التالي:
+في الأمثلة أدناه، سنستخدم ملفًا باسم **"sample.pptx"** يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
 
-![نص العينة](sample_text.png)
+![نص مثال](sample_text.png)
 
-## **تسليط الضوء على النص**
-
-استخدم طريقة [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.lang.Integer-) عندما تحتاج إلى تسليط الضوء على النص الذي يطابق عينة معينة داخل إطار النص. تطبق الطريقة لون تظليل على أجزاء النص المطابقة ويمكن استخدامها مع [ITextSearchOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextSearchOptions) للتحكم في طريقة البحث، على سبيل المثال، لتطابق الكلمات الكاملة فقط.
-
-يوضح مثال الشيفرة أدناه كيفية تظليل جميع حدوثات الأحرف **"try"** ثم تظليل كلمة **"to"** الكاملة فقط.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // احصل على الشكل الأول من الشريحة الأولى.
-    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // قم بتسليط الضوء على الكلمة "try" داخل الشكل.
-    shape.getTextFrame().highlightText("try", Color.rgb(173, 216, 230));
-
-    TextSearchOptions searchOptions = new TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // قم بتسليط الضوء على الكلمة "to" داخل الشكل.
-    int violetColor = Color.rgb(238, 130, 238);
-    shape.getTextFrame().highlightText("to", violetColor, searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-![النص المظلل](highlighted_text.png)
-
-## **تسليط الضوء على النص باستخدام التعبيرات النمطية**
-
-تقوم طريقة [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrame#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) بتظليل النصوص التي تجدها تعبير نمطي.
-
-يوضح مثال الشيفرة أدناه كيفية تظليل جميع الكلمات التي تحتوي على **سبعة أحرف أو أكثر**:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // قم بتسليط الضوء على جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر.
-    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
-
-    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-![النص المظلل باستخدام التعبير النمطي](highlighted_text_using_regex.png)
+للعثور على نص حرفي أو مطابقة تعبيرات نمطية وتظليلها، راجع [بحث واستبدال النص](/slides/ar/androidjava/search-and-replace-text/).
 
 ## **ضبط لون خلفية النص**
 
-استخدم [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraphFormat#getDefaultPortionFormat--) لضبط لون التظليل الافتراضي للفقرة، أو استخدم [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IBasePortionFormat#getHighlightColor--) لأجزاء النص الفردية.
+استخدم [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) لتعيين لون التظليل الافتراضي لفقرة، أو استخدم [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) لأجزاء النص الفردية.
 
-يوضح مثال الشيفرة التالي كيفية ضبط لون الخلفية لل**فقرة كاملة**:
+يوضح مثال الشيفرة التالي كيفية ضبط لون الخلفية **للفقرة بأكملها**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ضبط لون التظليل للفقرة بأكملها.
+    // تعيين لون التظليل للفقرة بأكملها.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -113,21 +63,25 @@ try {
 }
 ```
 
+النتيجة:
+
 ![الفقرة الرمادية](gray_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية ضبط لون الخلفية لأجزاء النص ذات الخط العريض:
+يوضح مثال الشيفرة أدناه كيفية ضبط لون الخلفية **لأجزاء النص ذات الخط العريض**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // ضبط لون التظليل لجزء النص.
+            // تعيين لون التظليل لجزء النص.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
         }
     }
@@ -138,21 +92,26 @@ try {
 }
 ```
 
+النتيجة:
+
 ![أجزاء النص الرمادية](gray_text_portions.png)
 
 ## **محاذاة فقرات النص**
 
-استخدم [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraphFormat#setAlignment-byte-) لضبط محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة متمركزة، محاذاة لليسار، محاذاة لليمين، مبررة، وما إلى ذلك.
+استخدم [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) لضبط محاذاة الفقرة داخل إطار النص. يمكن أن تكون القيمة مركزية، محاذاة لليسار، محاذاة لليمين، مبررة، إلخ.
 
 يوضح مثال الشيفرة التالي كيفية محاذاة الفقرة إلى **الوسط**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ضبط محاذاة الفقرة إلى الوسط.
+    // تعيين محاذاة الفقرة إلى الوسط.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -161,20 +120,26 @@ try {
 }
 ```
 
-![الفقرة المحاذاة](aligned_paragraph.png)
+النتيجة:
 
-## **ضبط الشفافية للنص**
+![الفقرة المحاذاة للوسط](aligned_paragraph.png)
 
-تُتحكم شفافية النص من خلال مكوّن ألفا للون المعيّن إلى [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا بنظام ARGB على مقياس 0‑255، وليس نسبة شفافية.
+## **ضبط شفافية النص**
 
-يوضح مثال الشيفرة أدناه كيفية تطبيق الشفافية على **الفقرة بأكملها**:
+تُتحكم شفافية النص من خلال المكوّن ألفا للون المعين إلى [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). في الأمثلة أدناه، `alpha = 50` هو قيمة قناة ألفا ARGB على مقياس 0–255، وليس نسبة شفافية.
+
+يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية على **الفقرة بأكملها**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // ضبط لون تعبئة النص إلى لون شفاف.
@@ -187,21 +152,25 @@ try {
 }
 ```
 
+النتيجة:
+
 ![الفقرة الشفافة](transparent_paragraph.png)
 
 يوضح مثال الشيفرة التالي كيفية تطبيق الشفافية على **أجزاء النص ذات الخط العريض**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // ضبط شفافية جزء النص.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
@@ -215,22 +184,27 @@ try {
 }
 ```
 
+النتيجة:
+
 ![أجزاء النص الشفافة](transparent_text_portions.png)
 
 ## **ضبط تباعد الأحرف للنص**
 
-استخدم [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IBasePortionFormat#setSpacing-float-) لتكبير أو تقليل التباعد بين الأحرف في صندوق النص.
+استخدم [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) لتوسيع أو تضييق التباعد بين الأحرف في مربع النص.
 
-يعرض الشيفرة الجافا التالية كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
+يوضح الشيفرة الجافا التالية كيفية توسيع تباعد الأحرف في **الفقرة بأكملها**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // توسيع تباعد الأحرف.
+    // ملاحظة: استخدم القيم السالبة لتقليل تباعد الأحرف.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // زيادة تباعد الأحرف.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -238,22 +212,25 @@ try {
 }
 ```
 
+النتيجة:
+
 ![تباعد الأحرف في الفقرة](character_spacing_in_paragraph.png)
 
-يوضح مثال الشيفرة أدناه كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة التالي كيفية توسيع تباعد الأحرف في **أجزاء النص ذات الخط العريض**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // ملاحظة: استخدم قيمًا سالبة لضغط تباعد الأحرف.
-            portion.getPortionFormat().setSpacing(3); // توسيع تباعد الأحرف.
+            // ملاحظة: استخدم القيم السالبة لتقليل تباعد الأحرف.
+            portion.getPortionFormat().setSpacing(3); // زيادة تباعد الأحرف.
         }
     }
 
@@ -263,36 +240,36 @@ try {
 }
 ```
 
+النتيجة:
+
 ![تباعد الأحرف في أجزاء النص](character_spacing_in_text_portions.png)
 
-### **تعطيل الكيرنينغ للخطوط المحددة**
+### **تعطيل الـ Kerning لخطوط محددة**
 
-في بعض الحالات، قد يبدو النص المصدَّر بواسطة Aspose.Slides أكثر ضيقًا قليلًا مقارنةً بالنص نفسه المعروض في PowerPoint. يمكن أن يحدث هذا لأن PowerPoint قد يتجاهل بيانات الكيرنينغ لبعض الخطوط، حتى عندما يحتوي الخط على معلومات كيرنينغ صالحة وتكون الكيرنينغ مفعّلة في إعدادات PowerPoint.
+في بعض الحالات قد يبدو النص المرسوم بواسطة Aspose.Slides أكثر ضيقًا قليلاً من النص نفسه في PowerPoint. يمكن أن يحدث ذلك لأن PowerPoint قد يتجاهل بيانات الـ kerning لبعض الخطوط، حتى وإن كان الخط يحتوي على معلومات kerning صالحة وتم تفعيلها في إعدادات PowerPoint.
 
-لجعل المخرجات المصدَّرة أقرب إلى ما في PowerPoint في مثل هذه الحالات، يمكنك تعطيل الكيرنينغ لأجزاء النص التي تستخدم الخط المتأثر. اضبط [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IBasePortionFormat#setKerningMinimalSize-float-) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
+لجعل المخرجات المرسومة أقرب إلى ما يقدمه PowerPoint في هذه الحالات، يمكنك تعطيل الـ kerning لأجزاء النص التي تستخدم الخط المتأثر. اضبط [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) إلى قيمة أكبر بكثير من حجم الخط الفعلي:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
-    for (int paragraphIndex = 0; paragraphIndex < autoShape.getTextFrame().getParagraphs().getCount(); paragraphIndex++) {
-        IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+    for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
+        for (IPortion portion : paragraph.getPortions()) {
+            IPortionFormat portionFormat = portion.getPortionFormat();
 
-        for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-            IFontData latinFont = portion.getPortionFormat().getLatinFont();
-            IFontData eastAsianFont = portion.getPortionFormat().getEastAsianFont();
-            IFontData complexScriptFont = portion.getPortionFormat().getComplexScriptFont();
-
-            boolean usesTargetFont =
-                    latinFont != null && targetFont.equals(latinFont.getFontName()) ||
-                    eastAsianFont != null && targetFont.equals(eastAsianFont.getFontName()) ||
-                    complexScriptFont != null && targetFont.equals(complexScriptFont.getFontName());
-
-            if (usesTargetFont) {
-                portion.getPortionFormat().setKerningMinimalSize(100);
+            if ((portionFormat.getLatinFont() != null &&
+                 portionFormat.getLatinFont().getFontName().equals(targetFont)) ||
+                (portionFormat.getEastAsianFont() != null &&
+                 portionFormat.getEastAsianFont().getFontName().equals(targetFont)) ||
+                (portionFormat.getComplexScriptFont() != null &&
+                 portionFormat.getComplexScriptFont().getFontName().equals(targetFont))) {
+                portionFormat.setKerningMinimalSize(100);
             }
         }
     }
@@ -303,18 +280,21 @@ try {
 }
 ```
 
-تمنع هذه الإعدادات تطبيق الكيرنينغ على أجزاء النص المتطابقة ويمكن أن تساعد في مواءمة عرض Aspose.Slides مع النتيجة البصرية في PowerPoint للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
+هذا الإعداد يمنع تطبيق الـ kerning على أجزاء النص المطابقة ويمكن أن يساعد في محاذاة عرض Aspose.Slides مع مخرجات PowerPoint البصرية للخطوط المتأثرة بهذا السلوك الخاص بـ PowerPoint.
 
 ## **إدارة خصائص خط النص**
 
-يمكن ضبط خصائص الخط على مستوى الفقرة عبر [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraphFormat#getDefaultPortionFormat--) أو على الأجزاء الفردية عبر [IPortionFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPortionFormat).
+يمكن ضبط خصائص الخط على مستوى الفقرة عبر [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) أو على الأجزاء الفردية عبر [IPortionFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iportionformat/).
 
-تحدد الشيفرة التالية الخط ونمط النص للفقرة بأكملها: حيث يتم تطبيق حجم الخط، العريض، المائل، خط تحت نقطي، وخط Times New Roman على جميع الأجزاء في الفقرة.
+يُظهر الكود التالي ضبط الخط ونمط النص للفقرة بأكملها: يطبق حجم الخط، الغامق، المائل، الخط السفلي المنقط، وخط Times New Roman على جميع الأجزاء في الفقرة.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // ضبط خصائص الخط للفقرة.
@@ -330,19 +310,22 @@ try {
 }
 ```
 
+النتيجة:
+
 ![خصائص الخط للفقرة](font_properties_for_paragraph.png)
 
-يوضح مثال الشيفرة أدناه تطبيق خصائص مماثلة على **أجزاء النص ذات الخط العريض**:
+يوضح مثال الشيفرة التالي تطبيق خصائص مشابهة على **أجزاء النص ذات الخط العريض**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // ضبط خصائص الخط لجزء النص.
             portion.getPortionFormat().setFontHeight(13);
@@ -358,18 +341,23 @@ try {
 }
 ```
 
+النتيجة:
+
 ![خصائص الخط لأجزاء النص](font_properties_for_text_portions.png)
 
 ## **ضبط دوران النص**
 
-استخدم [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-) لضبط توجيه نص مسبق التعريف داخل الشكل.
+استخدم [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) لتعيين اتجاه نص مسبق التعريف داخل الشكل.
 
-تضبط الشيفرة التالية توجيه النص داخل الشكل إلى `Vertical270`، مما يدير النص **90 درجة عكس اتجاه عقارب الساعة**:
+يحدد مثال الشيفرة التالي اتجاه النص داخل الشكل إلى [TextVerticalType.Vertical270](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textverticaltype/)، مما يدور النص **90 درجة عكس اتجاه عقارب الساعة**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
@@ -379,18 +367,23 @@ try {
 }
 ```
 
+النتيجة:
+
 ![دوران النص](text_rotation.png)
 
 ## **ضبط دوران مخصص لإطارات النص**
 
-استخدم [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) لتحديد زاوية دوران مخصصة لإطار النص [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrame).
+استخدم [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) لتعيين زاوية دوران مخصصة لـ [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/).
 
-تدور الشيفرة التالية إطار النص بمقدار 3 درجات في اتجاه عقارب الساعة داخل الشكل:
+يدور مثال الشيفرة أدناه إطار النص بزاوية 3 درجات مع اتجاه عقارب الساعة داخل الشكل:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -400,21 +393,26 @@ try {
 }
 ```
 
-![الدوران المخصص للنص](custom_text_rotation.png)
+النتيجة:
+
+![دوران النص المخصص](custom_text_rotation.png)
 
 ## **ضبط تباعد الأسطر في الفقرات**
 
-توفر Aspose.Slides طرق [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraphFormat#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraphFormat#setSpaceBefore-float-), و[IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraphFormat#setSpaceWithin-float-) للتحكم في تباعد الفقرات. تُستخدم هذه الخصائص كالتالي:
+توفر Aspose.Slides الخصائص [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-)، [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-)، و[IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) للتحكم في تباعد الفقرة. تُستخدم هذه الخصائص كما يلي:
 
-* استخدم قيمة موجبة لتحديد تباعد الأسطر كنسبة مئوية من ارتفاع السطر.
-* استخدم قيمة سالبة لتحديد تباعد الأسطر بالنقاط.
+* استخدم قيمة موجبة لتحديد تباعد السطر كنسبة مئوية من ارتفاع السطر.
+* استخدم قيمة سالبة لتحديد تباعد السطر بالنقاط.
 
-يوضح مثال الشيفرة التالي كيفية تحديد تباعد الأسطر داخل الفقرة:
+يوضح مثال الشيفرة التالي كيفية تحديد تباعد السطر داخل الفقرة:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -425,16 +423,21 @@ try {
 }
 ```
 
-![تباعد الأسطر داخل الفقرة](line_spacing.png)
+النتيجة:
 
-## **ضبط نوع الملاءمة التلقائية لإطارات النص**
+![تباعد السطر داخل الفقرة](line_spacing.png)
 
-تحدد [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) كيفية تصرف النص عندما يتجاوز حدود حاويته. استخدمها للتحكم فيما إذا كان النص يتقلص، يفيض، أو يعيد تحجيم الشكل تلقائيًا.
+## **ضبط نوع الضبط التلقائي لإطارات النص**
+
+يحدد [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) كيفية تصرف النص عندما يتجاوز حدود الحاوية. استخدمه للتحكم فيما إذا كان النص سيصغر، يتدفق، أو يعيد تحجيم الشكل تلقائيًا.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
@@ -444,14 +447,17 @@ try {
 }
 ```
 
-## **ضبط موضع الإرساء لإطارات النص**
+## **ضبط تثبيت إطارات النص**
 
-تحدد [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) كيفية تموضع النص عموديًا داخل الشكل، مثلاً في الأعلى، الوسط، أو الأسفل.
+يُعرّف [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) طريقة تموضع النص عموديًا داخل الشكل، مثلًا في الأعلى أو الوسط أو الأسفل.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
@@ -463,12 +469,15 @@ try {
 
 ## **ضبط تبويب النص**
 
-استخدم [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraphFormat#setDefaultTabSize-float-) و[IParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraphFormat#getTabs--) لتكوين نقاط التبويب في الفقرة.
+استخدم [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) و[IParagraphFormat.getTabs](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) لتكوين نقاط التبويب في الفقرة.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -480,18 +489,23 @@ try {
 }
 ```
 
-![تبويبات الفقرة](paragraph_tabs.png)
+النتيجة:
+
+![نقاط تبويب الفقرة](paragraph_tabs.png)
 
 ## **ضبط لغة التدقيق**
 
-توفر Aspose.Slides طريقة [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) التي تتيح لك ضبط لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة لتصحيح الإملاء والقواعد في PowerPoint.
+توفر Aspose.Slides الخاصية [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) التي تسمح لك بتعيين لغة التدقيق لجزء النص. تحدد لغة التدقيق اللغة المستخدمة في فحص الإملاء والقواعد في PowerPoint.
 
 يوضح مثال الشيفرة التالي كيفية ضبط لغة التدقيق لجزء النص:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
@@ -503,7 +517,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // حدد معرّف لغة التدقيق.
+    // تعيين معرف لغة التدقيق.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -517,9 +531,11 @@ try {
 
 ## **ضبط اللغة الافتراضية**
 
-استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/LoadOptions#setDefaultTextLanguage-java.lang.String-) لتحديد اللغة الافتراضية للنص الذي يتم إنشاؤه أثناء تحميل أو إنشاء عرض تقديمي.
+استخدم [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) لتحديد اللغة الافتراضية للنص الذي يُنشأ أثناء تحميل أو إنشاء عرض تقديمي.
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -531,7 +547,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // تحقق من لغة الجزء الأول.
+    // التحقق من لغة الجزء الأول.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -541,14 +557,16 @@ try {
 
 ## **ضبط نمط النص الافتراضي**
 
-لتطبيق تنسيق النص الافتراضي على مستوى العرض التقديمي، استخدم [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentation#getDefaultTextStyle--).
+لتطبيق تنسيق نص افتراضي على مستوى العرض التقديمي، استخدم [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-يوضح مثال الشيفرة التالي كيفية ضبط خط عريض افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
+يوضح مثال الشيفرة التالي ضبط خط عريض افتراضي بحجم 14 نقطة لجميع النصوص عبر الشرائح في عرض تقديمي جديد.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // احصل على تنسيق الفقرة المستوى الأعلى.
+    // احصل على تنسيق الفقرة في المستوى العلوي.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -562,20 +580,23 @@ try {
 }
 ```
 
-## **استخراج النص مع تأثير الحروف الكبيرة**
+## **استخراج النص مع تأثير الأحرف الكبيرة بالكامل**
 
-في PowerPoint، يؤدي تطبيق تأثير الخط **All Caps** إلى ظهور النص بأحرف كبيرة على الشريحة حتى لو تم كتابته أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء من النص باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله بالضبط. لمطابقة النص المعروض، تحقق من [TextCapType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/TextCapType) وحوِّل السلسلة المعادة إلى أحرف كبيرة عندما تكون القيمة `All`.
+في PowerPoint، يُظهر تطبيق تأثير **All Caps** أن النص يظهر بأحرف كبيرة على الشريحة حتى لو كان مكتوبًا أصلاً بأحرف صغيرة. عند استرجاع مثل هذا الجزء باستخدام Aspose.Slides، تُعيد المكتبة النص كما تم إدخاله. لمطابقة النص المعروض، حوّل السلسلة المسترجعة إلى أحرف كبيرة عندما تكون القيمة [TextCapType.All](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textcaptype/).
 
-لنفترض أن لدينا صندوق النص التالي في الشريحة الأولى من الملف sample2.pptx.
+لنفترض أن لدينا مربع النص التالي في الشريحة الأولى من ملف **sample2.pptx**.
 
-![تأثير الحروف الكبيرة](all_caps_effect.png)
+![تأثير الأحرف الكبيرة بالكامل](all_caps_effect.png)
 
-يوضح مثال الشيفرة أدناه كيفية استخراج النص مع تطبيق تأثير **All Caps**:
+يوضح مثال الشيفرة التالي كيفية استخراج النص مع تطبيق تأثير **All Caps**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
@@ -599,10 +620,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكن تعديل النص في جدول داخل شريحة؟**
+**كيف يمكن تعديل نص في جدول على شريحة؟**
 
-لتعديل النص في جدول داخل شريحة، استخدم [ITable](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITable). قم بالتكرار عبر الخلايا وقم بتحديث كل خلية عبر [ICell.getTextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ICell#getTextFrame--) وتنسيق الفقرات عبر [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IParagraph#getParagraphFormat--).
+لتعديل النص في جدول على شريحة، استخدم [ITable](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itable/). قم بالتكرار عبر الخلايا وحدث كل خلية عبر [ICell.getTextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icell/#getTextFrame--) وتنسيق الفقرات عبر [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**كيف يمكن تطبيق لون متدرج للنص في شريحة PowerPoint؟**
+**كيف يمكن تطبيق لون تدرج على النص في شريحة PowerPoint؟**
 
-لتطبيق لون متدرج على النص، استخدم [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--). اضبط [IFillFormat.setFillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IFillFormat#setFillType-int-) إلى [FillType.Gradient](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/FillType) وَضَع نقاط التدرج، الاتجاه، والشفافية.
+لتطبيق لون تدرج على النص، استخدم [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). اضبط [IFillFormat.setFillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) إلى [FillType.Gradient](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) ثم قم بتكوين نقاط التدرج، الاتجاه، والشفافية.

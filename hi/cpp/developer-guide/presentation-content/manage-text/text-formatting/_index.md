@@ -5,104 +5,68 @@ type: docs
 weight: 50
 url: /hi/cpp/text-formatting/
 keywords:
-- टेक्स्ट हाइलाइट
-- रेगुलर एक्सप्रेशन
 - पैराग्राफ संरेखित करें
 - टेक्स्ट शैली
-- टेक्स्ट बैकग्राउंड
+- टेक्स्ट पृष्ठभूमि
 - टेक्स्ट पारदर्शिता
 - अक्षर अंतराल
 - फ़ॉन्ट गुण
 - फ़ॉन्ट परिवार
-- टेक्स्ट रोटेशन
-- रोटेशन एंगल
-- टेक्स्ट फ्रेम
-- लाइन स्पेसिंग
-- ऑटोफिट गुण
-- टेक्स्ट फ्रेम एंकर
-- टेक्स्ट टाबुलेशन
+- टेक्स्ट घूर्णन
+- घूर्णन कोण
+- टेक्स्ट फ़्रेम
+- पंक्ति अंतराल
+- ऑटोफ़िट गुण
+- टेक्स्ट फ़्रेम एंकर
+- टेक्स्ट टैबुलेशन
 - डिफ़ॉल्ट भाषा
 - PowerPoint
 - OpenDocument
-- प्रेजेंटेशन
+- प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फ़ॉर्मेट और स्टाइल करें। फ़ॉन्ट, रंग, संरेखण और अधिक को कस्टमाइज़ करें।"
+description: "Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फ़ॉर्मेट और शैलीबद्ध करें। फ़ॉन्ट, रंग, संरेखण और अधिक को अनुकूलित करें।"
 ---
 ## **अवलोकन**
 
-यह लेख दर्शाता है कि कैसे Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फ़ॉर्मेट किया जा सकता है। इसमें हाइलाइटिंग, बैकग्राउंड रंग, ट्रांसपेरेंसी, अक्षर अंतराल, फ़ॉन्ट गुण, रोटेशन, पैराग्राफ स्पेसिंग, ऑटोफिट व्यवहार, टेक्स्ट एंकरिंग, टैब स्टॉप्स, और भाषा सेटिंग्स शामिल हैं।
+यह लेख Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फ़ॉर्मेट करने के तरीके को दर्शाता है। इसमें बैकग्राउंड रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घूर्णन, पैराग्राफ अंतराल, ऑटोफिट व्यवहार, टेक्स्ट एंकरिंग, टैब स्टॉप, और भाषा सेटिंग्स शामिल हैं।
 
-नीचे दिए गए उदाहरणों में हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहली स्लाइड पर एक टेक्स्ट बॉक्स है और उसमें निम्नलिखित टेक्स्ट है:
+नीचे दिए गए उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहले स्लाइड पर एकल टेक्स्ट बॉक्स है और उसमें निम्नलिखित टेक्स्ट है:
 
-![उदाहरण टेक्स्ट](sample_text.png)
+![नमूना टेक्स्ट](sample_text.png)
 
-## **टेक्स्ट को हाइलाइट करें**
+शाब्दिक टेक्स्ट या रेगुलर‑एक्सप्रेशन मेल को खोजने और हाइलाइट करने के लिए, देखें [टेक्स्ट खोजें और बदलें](/slides/hi/cpp/search-and-replace-text/)।
 
-जब आपको टेक्स्ट फ्रेम के भीतर किसी विशिष्ट नमूने से मेल खाने वाले टेक्स्ट को हाइलाइट करने की आवश्यकता हो तो [ITextFrame.HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlighttext/) मेथड का उपयोग करें। यह मेथड मेल खाने वाले टेक्स्ट फ़्रैगमेंट पर हाइलाइट रंग लागू करता है और इसे [ITextSearchOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/) के साथ उपयोग किया जा सकता है ताकि खोज कैसे की जाए, उदाहरण के लिए केवल पूर्ण शब्दों के साथ मिलान, नियंत्रित किया जा सके।
+## **टेक्स्ट पृष्ठभूमि रंग सेट करें**
 
-निम्न कोड उदाहरण सभी **"try"** अक्षरों की घटनाओं को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है।
+डिफ़ॉल्ट हाइलाइट रंग को पैराग्राफ के लिए सेट करने के लिए [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) का उपयोग करें, या व्यक्तिगत टेक्स्ट भागों के लिए [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) का उपयोग करें।
 
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-// पहली स्लाइड से पहला आकार प्राप्त करें।
-auto shape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
-
-// आकार में शब्द "try" को हाइलाइट करें।
-shape->get_TextFrame()->HighlightText(u"try", System::Drawing::Color::get_LightBlue());
-
-auto searchOptions = System::MakeObject<TextSearchOptions>();
-searchOptions->set_WholeWordsOnly(true);
-
-// आकार में शब्द "to" को हाइलाइट करें।
-shape->get_TextFrame()->HighlightText(u"to", System::Drawing::Color::get_Violet(), searchOptions, nullptr);
-
-presentation->Save(u"highlighted_text.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-परिणाम:
-
-![हाइलाइट किया गया टेक्स्ट](highlighted_text.png)
-
-## **रेगुलर एक्सप्रेशन का उपयोग करके टेक्स्ट को हाइलाइट करें**
-
-[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlightregex/) मेथड रेगुलर एक्सप्रेशन द्वारा खोजे गए टेक्स्ट मिलानों को हाइलाइट करता है। C++ में यह API [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) पर उपलब्ध है।
-
-निम्न कोड उदाहरण सभी शब्दों को हाइलाइट करता है जिनमें **सात या अधिक अक्षर** हों:
+निम्न कोड उदाहरण यह दर्शाता है कि **पूरे पैराग्राफ** के लिए बैकग्राउंड रंग कैसे सेट किया जाए:
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-auto regex = System::MakeObject<System::Text::RegularExpressions::Regex>(u"\\b[^\\s]{7,}\\b");
-
-// Highlight all words with seven or more characters.
-shape->get_TextFrame()->HighlightRegex(regex, System::Drawing::Color::get_Yellow(), nullptr);
-
-presentation->Save(u"highlighted_text_using_regex.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-परिणाम:
-
-![रेगुलर एक्सप्रेशन द्वारा हाइलाइट किया गया टेक्स्ट](highlighted_text_using_regex.png)
-
-## **टेक्स्ट बैकग्राउंड रंग सेट करें**
-
-डिफ़ॉल्ट पैराग्राफ हाइलाइट रंग सेट करने के लिए [IParagraphFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/)`.DefaultPortionFormat` का उपयोग करें, या व्यक्तिगत टेक्स्ट भागों के लिए [IPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformat/)`.HighlightColor` का उपयोग करें।
-
-निम्न कोड उदाहरण **पूरे पैराग्राफ** के बैकग्राउंड रंग को सेट करता है:
-
-```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Set the highlight color for the entire paragraph.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_LightGray());
+// पूरे पैराग्राफ के लिए हाइलाइट रंग सेट करें।
+defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -110,25 +74,43 @@ presentation->Dispose();
 
 परिणाम:
 
-![धूसर पैराग्राफ](gray_paragraph.png)
+![स्लेट पैराग्राफ](gray_paragraph.png)
 
-नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** के बैकग्राउंड रंग को सेट करता है:
+निम्न कोड उदाहरण यह दर्शाता है कि **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** के लिए बैकग्राउंड रंग कैसे सेट किया जाए:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto portions = paragraph->get_Portions();
 int portionCount = portions->get_Count();
+auto highlightColor = System::Drawing::Color::get_LightGray();
 
 for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
 {
-    auto portion = portions->idx_get(portionIndex);
-    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
+    auto portion = paragraph->get_Portion(portionIndex);
+    auto portionFormat = portion->get_PortionFormat();
+    if (portionFormat->GetEffective()->get_FontBold())
     {
         // टेक्स्ट भाग के लिए हाइलाइट रंग सेट करें।
-        portion->get_PortionFormat()->get_HighlightColor()->set_Color(System::Drawing::Color::get_LightGray());
+        portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
 
@@ -138,18 +120,30 @@ presentation->Dispose();
 
 परिणाम:
 
-![धूसर टेक्स्ट भाग](gray_text_portions.png)
+![स्लेट टेक्स्ट भाग](gray_text_portions.png)
 
-## **टेक्स्ट पैराग्राफ को संरेखित करें**
+## **टेक्स्ट पैराग्राफ संरेखित करें**
 
-टेक्स्ट फ्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [IParagraphFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/)`.Alignment` का उपयोग करें। मान केंद्रित, बाएँ-संरेखित, दाएँ-संरेखित, समान रूप से विस्तारित आदि हो सकते हैं।
+टेक्स्ट फ्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_alignment/) का उपयोग करें। मान केंद्रित, बाएँ‑संरेखित, दाएँ‑संरेखित, सज्जित आदि हो सकते हैं।
 
-निम्न कोड उदाहरण पैराग्राफ को **केंद्र में** संरेखित करता है:
+निम्न कोड उदाहरण यह दर्शाता है कि पैराग्राफ को **केन्द्र** में कैसे संरेखित किया जाए:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/TextAlignment.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
 // पैराग्राफ का संरेखण केंद्र में सेट करें।
@@ -163,24 +157,41 @@ presentation->Dispose();
 
 ![संरेखित पैराग्राफ](aligned_paragraph.png)
 
-## **टेक्स्ट के लिए ट्रांसपेरेंसी सेट करें**
+## **टेक्स्ट के लिए पारदर्शिता सेट करें**
 
-टेक्स्ट ट्रांसपेरेंसी को [IPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformat/)`.FillFormat`. के रंग के अल्फा घटक द्वारा नियंत्रित किया जाता है। नीचे के उदाहरणों में, `alpha = 50` 0‑255 स्केल पर एक ARGB अल्फा‑चैनल मान है, न कि प्रतिशत ट्रांसपेरेंसी।
+टेक्स्ट पारदर्शिता को [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/get_fillformat/) के माध्यम से असाइन किए गए रंग के अल्फा घटक से नियंत्रित किया जाता है। नीचे दिए उदाहरणों में `alpha = 50` 0‑255 मापदंड पर एक ARGB अल्फा‑चैनल मान है, न कि पारदर्शिता प्रतिशत।
 
-निम्न कोड उदाहरण **पूरे पैराग्राफ** पर ट्रांसपेरेंसी लागू करता है:
+निम्न कोड उदाहरण यह दर्शाता है कि **पूरे पैराग्राफ** पर पारदर्शिता कैसे लागू की जाए:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 int alpha = 50;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// टेक्स्ट का भरने का रंग पारदर्शी रंग में सेट करें।
+// टेक्स्ट का भरने वाला रंग पारदर्शी रंग पर सेट करें।
 defaultPortionFormat->get_FillFormat()->set_FillType(FillType::Solid);
-auto transparentColor = System::Drawing::Color::FromArgb(alpha, System::Drawing::Color::get_Black());
+auto baseColor = System::Drawing::Color::get_Black();
+auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
 defaultPortionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(transparentColor);
 
 presentation->Save(u"transparent_paragraph.pptx", SaveFormat::Pptx);
@@ -189,29 +200,49 @@ presentation->Dispose();
 
 परिणाम:
 
-![ट्रांसपेरेंट पैराग्राफ](transparent_paragraph.png)
+![पारदर्शी पैराग्राफ](transparent_paragraph.png)
 
-नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर ट्रांसपेरेंसी लागू करता है:
+निम्न कोड उदाहरण यह दर्शाता है कि **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर पारदर्शिता कैसे लागू की जाए:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 int alpha = 50;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto portions = paragraph->get_Portions();
 int portionCount = portions->get_Count();
 
 for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
 {
-    auto portion = portions->idx_get(portionIndex);
-    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
+    auto portion = paragraph->get_Portion(portionIndex);
+    auto portionFormat = portion->get_PortionFormat();
+    if (portionFormat->GetEffective()->get_FontBold())
     {
         // टेक्स्ट भाग की पारदर्शिता सेट करें।
-        portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-        auto transparentColor = System::Drawing::Color::FromArgb(alpha, System::Drawing::Color::get_Black());
-        portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(transparentColor);
+        portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+        auto baseColor = System::Drawing::Color::get_Black();
+        auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
+        portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(transparentColor);
     }
 }
 
@@ -221,22 +252,34 @@ presentation->Dispose();
 
 परिणाम:
 
-![ट्रांसपेरेंट टेक्स्ट भाग](transparent_text_portions.png)
+![पारदर्शी टेक्स्ट भाग](transparent_text_portions.png)
 
 ## **टेक्स्ट के लिए अक्षर अंतराल सेट करें**
 
-टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को विस्तारित या घटाने के लिए [IBasePortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/)`.Spacing` का उपयोग करें।
+टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को विस्तारित या संकुचित करने के लिए [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/set_spacing/) का उपयोग करें।
 
-निम्न C++ कोड **पूरे पैराग्राफ** में अक्षर अंतराल को विस्तारित करता है:
+निम्न C++ कोड दिखाता है कि **पूरे पैराग्राफ** में अक्षर अंतराल कैसे विस्तारित किया जाए:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f);
+// ध्यान दें: अक्षर अंतराल को संपीड़ित करने के लिये नकारात्मक मान उपयोग करें।
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // अक्षर अंतराल बढ़ाएँ।
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -246,23 +289,38 @@ presentation->Dispose();
 
 ![पैराग्राफ में अक्षर अंतराल](character_spacing_in_paragraph.png)
 
-निचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** में अक्षर अंतराल को विस्तारित करता है:
+निम्न कोड उदाहरण यह दर्शाता है कि **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** में अक्षर अंतराल कैसे विस्तारित किया जाए:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto portions = paragraph->get_Portions();
 int portionCount = portions->get_Count();
 
 for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
 {
-    auto portion = portions->idx_get(portionIndex);
-    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
+    auto portion = paragraph->get_Portion(portionIndex);
+    auto portionFormat = portion->get_PortionFormat();
+    if (portionFormat->GetEffective()->get_FontBold())
     {
-        // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
-        portion->get_PortionFormat()->set_Spacing(3.0f);
+        // ध्यान दें: अक्षर अंतराल को संपीड़ित करने के लिए नकारात्मक मान उपयोग करें।
+        portionFormat->set_Spacing(3.0f); // अक्षर अंतराल बढ़ाएँ।
     }
 }
 
@@ -274,29 +332,45 @@ presentation->Dispose();
 
 ![टेक्स्ट भागों में अक्षर अंतराल](character_spacing_in_text_portions.png)
 
-### **विशिष्ट फ़ॉन्ट के लिए केरनिंग निष्क्रिय करें**
+### **विशिष्ट फ़ॉन्ट्स के लिए केरनिंग निष्क्रिय करें**
 
-कभी‑कभी Aspose.Slides द्वारा रेंडर किया गया टेक्स्ट PowerPoint में दिखने वाले टेक्स्ट से थोड़ा अधिक कसकर लग सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए केरनिंग डेटा को अनदेखा कर सकता है, भले ही फ़ॉन्ट में वैध केरनिंग जानकारी हो और PowerPoint सेटिंग्स में केरनिंग सक्षम हो।
+कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया टेक्स्ट PowerPoint में दिखने वाले टेक्स्ट से थोड़ा सघन दिख सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए केरनिंग डेटा को अनदेखा कर देता है, भले ही फ़ॉन्ट में वैध केरनिंग जानकारी मौजूद हो और PowerPoint सेटिंग्स में केरनिंग सक्षम हो।
 
-ऐसे मामलों में रेंडर किए गए आउटपुट को PowerPoint के करीब लाने के लिए आप प्रभावित फ़ॉन्ट के उपयोग वाले टेक्स्ट भागों के लिए केरनिंग को निष्क्रिय कर सकते हैं। [IPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformat/)`.KerningMinimalSize` को वास्तविक फ़ॉन्ट आकार से काफी बड़ा मान सेट करें:
+ऐसे मामलों में PowerPoint के समान आउटपुट प्राप्त करने के लिए आप प्रभावित फ़ॉन्ट उपयोग करने वाले टेक्स्ट भागों के लिए केरनिंग निष्क्रिय कर सकते हैं। इसे करने के लिए [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) का उपयोग करके वास्तविक फ़ॉन्ट आकार से काफी बड़ा मान सेट करें:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IFontData.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 System::String targetFont = u"Roboto";
-auto paragraphs = autoShape->get_TextFrame()->get_Paragraphs();
+auto textFrame = autoShape->get_TextFrame();
+auto paragraphs = textFrame->get_Paragraphs();
 int paragraphCount = paragraphs->get_Count();
 
 for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
 {
-    auto paragraph = paragraphs->idx_get(paragraphIndex);
+    auto paragraph = textFrame->get_Paragraph(paragraphIndex);
     auto portions = paragraph->get_Portions();
     int portionCount = portions->get_Count();
 
     for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     {
-        auto portion = portions->idx_get(portionIndex);
+        auto portion = paragraph->get_Portion(portionIndex);
         auto portionFormat = portion->get_PortionFormat();
         auto latinFont = portionFormat->get_LatinFont();
         auto eastAsianFont = portionFormat->get_EastAsianFont();
@@ -317,27 +391,42 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-यह सेटिंग मेल खाते टेक्स्ट भागों पर केरनिंग को लागू होने से रोकती है और इस PowerPoint‑विशिष्ट व्यवहार से प्रभावित फ़ॉन्ट्स के लिए Aspose.Slides रेंडरिंग को PowerPoint की दृश्य आउटपुट के साथ संगत बनाने में मदद करती है।
+यह सेटिंग मेल खाते टेक्स्ट भागों पर केरनिंग लागू होने से रोकती है और Aspose.Slides के रेंडरिंग को PowerPoint के दृश्य आउटपुट के करीब लाने में मदद करती है।
 
 ## **टेक्स्ट फ़ॉन्ट गुण प्रबंधित करें**
 
-फ़ॉन्ट गुण पैराग्राफ स्तर पर [IParagraphFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/)`.DefaultPortionFormat` के माध्यम से या व्यक्तिगत भागों पर [IPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformat/) के माध्यम से सेट किए जा सकते हैं।
+फ़ॉन्ट गुण को पैराग्राफ स्तर पर [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) के माध्यम से या व्यक्तिगत भागों पर [IPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformat/) के माध्यम से सेट किया जा सकता है।
 
-निम्न कोड पूरे पैराग्राफ के लिए फ़ॉन्ट और टेक्स्ट शैली सेट करता है: यह सभी भागों पर फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन, और Times New Roman फ़ॉन्ट लागू करता है।
+निम्न कोड पूरे पैराग्राफ के लिए फ़ॉन्ट और टेक्स्ट शैली सेट करता है: यह फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन, और Times New Roman फ़ॉन्ट को सभी भागों पर लागू करता है।
 
 ```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/TextUnderlineType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
-
 // पैराग्राफ के लिए फ़ॉन्ट गुण सेट करें।
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
 defaultPortionFormat->set_FontUnderline(TextUnderlineType::Dotted);
-defaultPortionFormat->set_LatinFont(System::MakeObject<FontData>(u"Times New Roman"));
+auto font = System::MakeObject<FontData>(u"Times New Roman");
+defaultPortionFormat->set_LatinFont(font);
 
 presentation->Save(u"font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -347,26 +436,45 @@ presentation->Dispose();
 
 ![पैराग्राफ के फ़ॉन्ट गुण](font_properties_for_paragraph.png)
 
-नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर समान गुण लागू करता है:
+निम्न कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर समान गुण लागू करता है:
 
 ```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/TextUnderlineType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto portions = paragraph->get_Portions();
 int portionCount = portions->get_Count();
+auto font = System::MakeObject<FontData>(u"Times New Roman");
 
 for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
 {
-    auto portion = portions->idx_get(portionIndex);
-    if (portion->get_PortionFormat()->GetEffective()->get_FontBold())
+    auto portion = paragraph->get_Portion(portionIndex);
+    auto portionFormat = portion->get_PortionFormat();
+    if (portionFormat->GetEffective()->get_FontBold())
     {
         // टेक्स्ट भाग के लिए फ़ॉन्ट गुण सेट करें।
-        portion->get_PortionFormat()->set_FontHeight(13.0f);
-        portion->get_PortionFormat()->set_FontItalic(NullableBool::True);
-        portion->get_PortionFormat()->set_FontUnderline(TextUnderlineType::Dotted);
-        portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"Times New Roman"));
+        portionFormat->set_FontHeight(13.0f);
+        portionFormat->set_FontItalic(NullableBool::True);
+        portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
+        portionFormat->set_LatinFont(font);
     }
 }
 
@@ -378,16 +486,27 @@ presentation->Dispose();
 
 ![टेक्स्ट भागों के फ़ॉन्ट गुण](font_properties_for_text_portions.png)
 
-## **टेक्स्ट रोटेशन सेट करें**
+## **टेक्स्ट घूर्णन सेट करें**
 
-शेप के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट करने के लिए [ITextFrameFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/)`.TextVerticalType` का उपयोग करें।
+शेप के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट करने के लिए [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_textverticaltype/) का उपयोग करें।
 
-निम्न कोड उदाहरण शैप में टेक्स्ट अभिविन्यास को `Vertical270` पर सेट करता है, जो टेक्स्ट को **90 डिग्री प्रतिकालन दिशा में घुमाता** है:
+निम्न कोड उदाहरण शैप में टेक्स्ट अभिविन्यास को [TextVerticalType::Vertical270](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textverticaltype/) पर सेट करता है, जो टेक्स्ट को **90 डिग्री प्रतिक्लॉकwise** घुमाता है:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
 autoShape->get_TextFrame()->get_TextFrameFormat()->set_TextVerticalType(TextVerticalType::Vertical270);
 
@@ -397,18 +516,28 @@ presentation->Dispose();
 
 परिणाम:
 
-![टेक्स्ट रोटेशन](text_rotation.png)
+![टेक्स्ट घूर्णन](text_rotation.png)
 
-## **टेक्स्ट फ्रेम के लिए कस्टम रोटेशन सेट करें**
+## **टेक्स्ट फ्रेम के लिए कस्टम घूर्णन सेट करें**
 
-[ITextFrameFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/)`.RotationAngle` का उपयोग करके किसी [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) के लिए कस्टम रोटेशन एंगल सेट किया जा सकता है।
+[ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_rotationangle/) का उपयोग करके किसी [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) के लिए कस्टम घूर्णन एंगल सेट करें।
 
-निचे का कोड उदाहरण टेक्स्ट फ्रेम को शैप के भीतर 3 डिग्री घड़ी की दिशा में घुमाता है:
+निम्न कोड उदाहरण शैप के भीतर टेक्स्ट फ्रेम को 3 डिग्री घड़ीwise घुमाता है:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
 autoShape->get_TextFrame()->get_TextFrameFormat()->set_RotationAngle(3.0f);
 
@@ -418,21 +547,32 @@ presentation->Dispose();
 
 परिणाम:
 
-![कस्टम टेक्स्ट रोटेशन](custom_text_rotation.png)
+![कस्टम टेक्स्ट घूर्णन](custom_text_rotation.png)
 
-## **पैराग्राफ की लाइन स्पेसिंग सेट करें**
+## **पैराग्राफ की पंक्ति अंतराल सेट करें**
 
-Aspose.Slides पैराग्राफ स्पेसिंग को नियंत्रण करने के लिए [IParagraphFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/)`.SpaceAfter`, `IParagraphFormat.SpaceBefore`, और `IParagraphFormat.SpaceWithin` प्रदान करता है। इन गुणों का उपयोग इस प्रकार किया जाता है:
+Aspose.Slides निम्न मेथड्स प्रदान करता है: [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_spacebefore/), और [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_spacewithin/) जो पैराग्राफ अंतराल को नियंत्रित करते हैं। इनका उपयोग इस प्रकार किया जाता है:
 
-* लाइन स्पेसिंग को लाइन की ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिए सकारात्मक मान उपयोग करें।
-* पॉइंट में लाइन स्पेसिंग निर्दिष्ट करने के लिए नकारात्मक मान उपयोग करें।
+* पंक्ति अंतराल को लाइन ऊँचाई के प्रतिशत के रूप में निर्धारित करने के लिए सकारात्मक मान उपयोग करें।
+* पंक्ति अंतराल को पॉइंट्स में निर्धारित करने के लिए नकारात्मक मान उपयोग करें।
 
-निम्न कोड उदाहरण पैराग्राफ के भीतर लाइन स्पेसिंग निर्दिष्ट करता है:
+निम्न कोड उदाहरण पैराग्राफ के भीतर पंक्ति अंतराल को कैसे निर्दिष्ट किया जाए दिखाता है:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
 paragraph->get_ParagraphFormat()->set_SpaceWithin(200.0f);
@@ -443,16 +583,27 @@ presentation->Dispose();
 
 परिणाम:
 
-![पैराग्राफ के भीतर लाइन स्पेसिंग](line_spacing.png)
+![पैराग्राफ के भीतर पंक्ति अंतराल](line_spacing.png)
 
 ## **टेक्स्ट फ्रेम के लिए ऑटोफिट प्रकार सेट करें**
 
-[ITextFrameFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/)`.AutofitType` निर्धारित करता है कि जब टेक्स्ट अपने कंटेनर की सीमाओं से अधिक हो जाए तो वह कैसे व्यवहार करता है। इसका उपयोग करके आप नियंत्रित कर सकते हैं कि टेक्स्ट छोटा हो, ओवरफ़्लो हो, या शैप को स्वचालित रूप से पुनः आकार दिया जाए।
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_autofittype/) तय करता है कि टेक्स्ट कंटेनर की सीमाओं से बाहर निकलने पर कैसे व्यवहार करे। इसका उपयोग करके आप निर्धारित कर सकते हैं कि टेक्स्ट छोटा हो, ओवरफ़्लो हो, या शैप को स्वतः आकार बदलना चाहिए।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
 autoShape->get_TextFrame()->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
 
@@ -462,12 +613,23 @@ presentation->Dispose();
 
 ## **टेक्स्ट फ्रेम का एंकर सेट करें**
 
-[ITextFrameFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/)`.AnchoringType` परिभाषित करता है कि टेक्स्ट शैप के भीतर ऊर्ध्वाधर रूप से कैसे स्थित होगा, जैसे शीर्ष, मध्य या नीचे।
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_anchoringtype/) यह परिभाषित करता है कि टेक्स्ट शैप के भीतर लंबवत रूप से कैसे स्थित हो, जैसे शीर्ष, मध्य, या निचला।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/TextAnchorType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
 autoShape->get_TextFrame()->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Bottom);
 
@@ -475,14 +637,27 @@ presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **टेक्स्ट टाब्युलेशन सेट करें**
+## **टेक्स्ट टैबुलेशन सेट करें**
 
-पैराग्राफ में टैब स्टॉप्स को कॉन्फ़िगर करने के लिए [IParagraphFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/)`.DefaultTabSize` और `IParagraphFormat.Tabs` का उपयोग करें।
+पैराग्राफ में टैब स्टॉप कॉन्फ़िगर करने के लिए [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) और [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraphformat/get_tabs/) का उपयोग करें।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITabCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/TabAlignment.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
 paragraph->get_ParagraphFormat()->set_DefaultTabSize(100.0f);
@@ -498,14 +673,28 @@ presentation->Dispose();
 
 ## **प्रूफ़िंग भाषा सेट करें**
 
-Aspose.Slides [IPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformat/)`.LanguageId` प्रदान करता है, जिससे आप किसी टेक्स्ट भाग के लिए प्रूफ़िंग भाषा सेट कर सकते हैं। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जाँच के लिए उपयोग की गई भाषा को निर्धारित करती है।
+Aspose.Slides [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/set_languageid/) प्रदान करता है, जो टेक्स्ट भाग के लिए प्रूफ़िंग भाषा सेट करने की अनुमति देता है। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिए उपयोग की जाने वाली भाषा निर्धारित करती है।
 
-निम्न कोड उदाहरण एक टेक्स्ट भाग के लिए प्रूफ़िंग भाषा सेट करता है:
+निम्न कोड उदाहरण एक टेक्स्ट भाग के लिए प्रूफ़िंग भाषा कैसे सेट की जाए दर्शाता है:
 
 ```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 paragraph->get_Portions()->Clear();
@@ -513,12 +702,13 @@ paragraph->get_Portions()->Clear();
 auto font = System::MakeObject<FontData>(u"SimSun");
 
 auto textPortion = System::MakeObject<Portion>();
-textPortion->get_PortionFormat()->set_ComplexScriptFont(font);
-textPortion->get_PortionFormat()->set_EastAsianFont(font);
-textPortion->get_PortionFormat()->set_LatinFont(font);
+auto portionFormat = textPortion->get_PortionFormat();
+portionFormat->set_ComplexScriptFont(font);
+portionFormat->set_EastAsianFont(font);
+portionFormat->set_LatinFont(font);
 
 // Set the Id of a proofing language.
-textPortion->get_PortionFormat()->set_LanguageId(u"zh-CN");
+portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1.");
 paragraph->get_Portions()->Add(textPortion);
@@ -529,33 +719,56 @@ presentation->Dispose();
 
 ## **डिफ़ॉल्ट भाषा सेट करें**
 
-लोड या प्रस्तुति बनाते समय बनाए गए टेक्स्ट के लिए डिफ़ॉल्ट भाषा निर्धारित करने के लिए [ILoadOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iloadoptions/)`.DefaultTextLanguage` का उपयोग करें।
+लोडिंग या प्रस्तुति निर्माण के दौरान निर्मित टेक्स्ट के लिए डिफ़ॉल्ट भाषा निर्धारित करने के लिए [ILoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iloadoptions/set_defaulttextlanguage/) का उपयोग करें।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+
 auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_DefaultTextLanguage(u"en-US");
 
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// Add a new rectangle shape with text.
+// नया आयताकार आकार टेक्स्ट के साथ जोड़ें।
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
-// Check the first portion language.
+// पहले भाग की भाषा जाँचें।
 auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
-System::Console::WriteLine(portion->get_PortionFormat()->get_LanguageId());
+auto languageId = portion->get_PortionFormat()->get_LanguageId();
+System::Console::WriteLine(languageId);
 
 presentation->Dispose();
 ```
 
-## **डिफ़ॉल्ट टेक्स्ट स्टाइल सेट करें**
+## **डिफ़ॉल्ट टेक्स्ट शैली सेट करें**
 
-प्रेजेंटेशन स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [IPresentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/)`.DefaultTextStyle` का उपयोग करें।
+प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) का उपयोग करें।
 
-निम्न कोड उदाहरण नई प्रस्तुति में सभी स्लाइडों के लिए 14 pt आकार के बोल्ड फ़ॉन्ट को डिफ़ॉल्ट टेक्स्ट स्टाइल के रूप में सेट करता है।
+निम्न कोड उदाहरण सभी स्लाइड्स में सभी टेक्स्ट के लिए 14 pt आकार के साथ डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट करता है:
 
 ```cpp
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto presentation = System::MakeObject<Presentation>();
 
 // शीर्ष स्तर का पैराग्राफ फ़ॉर्मेट प्राप्त करें।
@@ -563,37 +776,52 @@ auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
 {
-    paragraphFormat->get_DefaultPortionFormat()->set_FontHeight(14.0f);
-    paragraphFormat->get_DefaultPortionFormat()->set_FontBold(NullableBool::True);
+    auto defaultPortionFormat = paragraphFormat->get_DefaultPortionFormat();
+    defaultPortionFormat->set_FontHeight(14.0f);
+    defaultPortionFormat->set_FontBold(NullableBool::True);
 }
 
 presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ऑल‑कैप्स इफ़ेक्ट के साथ टेक्स्ट निकालें**
+## **ऑल‑कैप्स प्रभाव के साथ टेक्स्ट निकालें**
 
-PowerPoint में **All Caps** फ़ॉन्ट इफ़ेक्ट लागू करने से टेक्स्ट स्लाइड पर बड़े अक्षरों में दिखता है, भले ही इसे मूल रूप में छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसे टेक्स्ट भाग को प्राप्त करते हैं, तो लाइब्रेरी टेक्स्ट को मूल रूप में ही लौटाती है। प्रदर्शित टेक्स्ट से मेल खाने के लिए [TextCapType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textcaptype/) की जाँच करें और जब मान `All` हो तो लौटाए गए स्ट्रिंग को अपरकेस में परिवर्तित करें।
+PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से टेक्स्ट स्लाइड पर बड़े अक्षरों में दिखता है, भले ही मूल रूप से वह छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा टेक्स्ट भाग प्राप्त करते हैं, तो लाइब्रेरी टेक्स्ट को बिल्कुल उसी रूप में लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित टेक्स्ट से मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textcaptype/) की जाँच करें और जब मान [TextCapType::All](https://reference.aspose.com/slides/hi/cpp/aspose.slides/textcaptype/) हो तो लौटाए गए स्ट्रिंग को अपरकेस में परिवर्तित करें।
 
 मान लीजिए हमारे पास sample2.pptx फ़ाइल की पहली स्लाइड पर निम्न टेक्स्ट बॉक्स है।
 
-![ऑल कैप्स इफ़ेक्ट](all_caps_effect.png)
+![ऑल‑कैप्स प्रभाव](all_caps_effect.png)
 
-निम्न कोड उदाहरण **All Caps** इफ़ेक्ट लागू किए हुए टेक्स्ट को निकालता है:
+निम्न कोड उदाहरण दिखाता है कि **All Caps** प्रभाव लागू किए हुए टेक्स्ट को कैसे निकालें:
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/TextCapType.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+
 auto presentation = System::MakeObject<Presentation>(u"sample2.pptx");
 
-auto autoShape = System::ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto firstShape = presentation->get_Slide(0)->get_Shape(0);
+auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
 
-System::Console::WriteLine(u"Original text: " + textPortion->get_Text());
+auto originalText = textPortion->get_Text();
+System::Console::WriteLine(u"Original text: " + originalText);
 
 auto textFormat = textPortion->get_PortionFormat()->GetEffective();
 if (textFormat->get_TextCapType() == TextCapType::All)
 {
-    auto text = textPortion->get_Text().ToUpper();
-    System::Console::WriteLine(u"All-Caps effect: " + text);
+    auto uppercaseText = originalText.ToUpper();
+    System::Console::WriteLine(u"All-Caps effect: " + uppercaseText);
 }
 
 presentation->Dispose();
@@ -606,12 +834,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **सामान्य प्रश्न**
+## **FAQ**
 
-**स्लाइड पर तालिका में टेक्स्ट को कैसे संशोधित करें?**
+**स्लाइड में तालिका के टेक्स्ट को कैसे संशोधित करें?**
 
-स्लाइड पर तालिका में टेक्स्ट को संशोधित करने के लिए [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) का उपयोग करें। कोशिकाओं के माध्यम से इटरैट करें और प्रत्येक कोशिका को [ICell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/)`.TextFrame` तथा पैराग्राफ फ़ॉर्मेट को [IParagraph](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraph/)`.ParagraphFormat` के माध्यम से अपडेट करें।
+स्लाइड में तालिका के टेक्स्ट को संशोधित करने के लिए, [ITable](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itable/) का उपयोग करें। कोशिकाओं के माध्यम से क्रमबद्ध होकर प्रत्येक कोशिका को [ICell::get_TextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/get_textframe/) और पैराग्राफ फ़ॉर्मेटिंग को [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iparagraph/get_paragraphformat/) के द्वारा अपडेट करें।
 
 **PowerPoint स्लाइड में टेक्स्ट पर ग्रेडिएंट रंग कैसे लागू करें?**
 
-ग्रेडिएंट रंग लागू करने के लिए [IPortionFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iportionformat/)`.FillFormat` का उपयोग करें। [IFillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifillformat/)`.FillType` को [FillType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/filltype/)`.Gradient` पर सेट करें और ग्रेडिएंट स्टॉप्स, दिशा, तथा ट्रांसपेरेंसी को कॉन्फ़िगर करें।
+ग्रेडिएंट रंग लागू करने के लिए, [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ibaseportionformat/get_fillformat/) का उपयोग करें। [IFillFormat::set_FillType](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifillformat/set_filltype/) को [FillType::Gradient](https://reference.aspose.com/slides/hi/cpp/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा, तथा पारदर्शिता को कॉन्फ़िगर करें।

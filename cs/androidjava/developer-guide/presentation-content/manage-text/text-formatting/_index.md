@@ -5,21 +5,19 @@ type: docs
 weight: 50
 url: /cs/androidjava/text-formatting/
 keywords:
-- zvýraznit text
-- regulární výraz
-- zarovnat odstavec
+- zarovnání odstavce
 - styl textu
 - pozadí textu
 - průhlednost textu
-- mezery mezi znaky
+- mezera mezi znaky
 - vlastnosti písma
 - rodina písma
-- rotace textu
-- úhel rotace
-- textový rámeček
+- otočení textu
+- úhel otočení
+- textový rámček
 - řádkování
 - vlastnost automatického přizpůsobení
-- ukotvení textového rámečku
+- ukotvení textového rámce
 - tabulace textu
 - výchozí jazyk
 - PowerPoint
@@ -32,80 +30,28 @@ description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDoc
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Android prostřednictvím Javy. Popisuje zvýrazňování, barvy pozadí, průhlednost, rozestup znaků, vlastnosti písma, otáčení, odsazení odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
+Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Android přes Java. Pokrývá barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otočení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
-V níže uvedených příkladech použijeme soubor s názvem "sample.pptx", který obsahuje jediný textový rámeček na první snímku s následujícím textem:
+V níže uvedených příkladech použijeme soubor s názvem „sample.pptx“, který obsahuje jedinou textovou oblast na první snímku s následujícím textem:
 
 ![Ukázkový text](sample_text.png)
 
-## **Zvýraznit text**
+Chcete-li najít a zvýraznit doslovný text nebo shody regulárního výrazu, podívejte se na [Vyhledávání a nahrazování textu](/slides/cs/androidjava/search-and-replace-text/).
 
-Použijte metodu [ITextFrame.highlightText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.lang.Integer-) když potřebujete zvýraznit text, který odpovídá konkrétnímu vzorku v rámci textového rámečku. Metoda aplikuje barvu zvýraznění na odpovídající úryvky textu a lze ji použít spolu s [ITextSearchOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextSearchOptions) k řízení způsobu provádění vyhledávání, například pro shodu pouze celých slov.
+## **Nastavení barvy pozadí textu**
 
-Cílový kód níže zvýrazní všechny výskyty znaků **"try"** a poté zvýrazní pouze celé slovo **"to"**.
+Použijte [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) pro jednotlivé textové úseky.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // Získá první tvar z první snímku.
-    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Zvýrazní slovo "try" v tvaru.
-    shape.getTextFrame().highlightText("try", Color.rgb(173, 216, 230));
-
-    TextSearchOptions searchOptions = new TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // Zvýrazní slovo "to" v tvaru.
-    int violetColor = Color.rgb(238, 130, 238);
-    shape.getTextFrame().highlightText("to", violetColor, searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Výsledek:
-
-![Zvýrazněný text](highlighted_text.png)
-
-## **Zvýraznit text pomocí regulárních výrazů**
-
-Metoda [ITextFrame.highlightRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrame#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) zvýrazňuje shody textu nalezené regulárním výrazem.
-
-Níže uvedený příklad kódu zvýrazní všechna slova, která obsahují **sedm a více znaků**:
+V následujícím příkladu kódu je ukázáno, jak nastavit barvu pozadí pro **celý odstavec**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // Zvýrazní všechna slova s délkou alespoň sedmi znaků.
-    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
-
-    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Výsledek:
-
-![Zvýrazněný text pomocí regulárního výrazu](highlighted_text_using_regex.png)
-
-## **Nastavit barvu pozadí textu**
-
-Použijte [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraphFormat#getDefaultPortionFormat--) , abyste nastavili výchozí barvu zvýraznění pro odstavec, nebo použijte [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IBasePortionFormat#getHighlightColor--) pro jednotlivé textové úseky.
-
-Následující příklad kódu ukazuje, jak nastavit barvu pozadí pro **celý odstavec**:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Nastavte barvu zvýraznění pro celý odstavec.
@@ -117,21 +63,21 @@ try {
 }
 ```
 
-Výsledek:
-
 ![Šedý odstavec](gray_paragraph.png)
 
-Níže uvedený příklad kódu ukazuje, jak nastavit barvu pozadí pro **textové úseky se tučným písmem**:
+Níže uvedený příklad kódu demonstruje, jak nastavit barvu pozadí pro **textové úseky s tučným písmem**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Nastavte barvu zvýraznění pro textový úsek.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
@@ -144,20 +90,21 @@ try {
 }
 ```
 
-Výsledek:
+![Šedé textové úseky](gray_text_portions.png)
 
-![Šedé úseky textu](gray_text_portions.png)
+## **Zarovnání odstavců textu**
 
-## **Zarovnat odstavce textu**
+Použijte [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) k nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku atd.
 
-Použijte [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraphFormat#setAlignment-byte-) , abyste nastavili zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, zarovnaná do bloku a podobně.
-
-Následující příklad kódu ukazuje, jak zarovnat odstavec na **střed**:
+V následujícím příkladu kódu je ukázáno, jak zarovnat odstavec na **střed**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Nastavte zarovnání odstavce na střed.
@@ -169,22 +116,24 @@ try {
 }
 ```
 
-Výsledek:
-
 ![Zarovnaný odstavec](aligned_paragraph.png)
 
-## **Nastavit průhlednost textu**
+## **Nastavení průhlednosti textu**
 
-Průhlednost textu se řídí pomocí alfa komponenty barvy přiřazené k [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--). V níže uvedených příkladech je `alpha = 50` hodnota alfa kanálu v ARGB na škále 0‑255, ne procento průhlednosti.
+Průhlednost textu se řídí alfa komponentou barvy přiřazené pomocí [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). V níže uvedených příkladech je `alpha = 50` hodnota alfa kanálu ARGB v rozsahu 0–255, nikoli procento průhlednosti.
 
 Níže uvedený příklad kódu ukazuje, jak použít průhlednost na **celý odstavec**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Nastavte barvu výplně textu na průhlednou barvu.
@@ -197,23 +146,23 @@ try {
 }
 ```
 
-Výsledek:
-
 ![Průhledný odstavec](transparent_paragraph.png)
 
 Následující příklad kódu ukazuje, jak použít průhlednost na **textové úseky s tučným písmem**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Nastavte průhlednost textového úseku.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
@@ -227,23 +176,24 @@ try {
 }
 ```
 
-Výsledek:
+![Průhledné textové úseky](transparent_text_portions.png)
 
-![Průhledné úseky textu](transparent_text_portions.png)
+## **Nastavení mezery mezi znaky textu**
 
-## **Nastavit mezery mezi znaky textu**
+Použijte [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) k rozšíření nebo zúžení mezery mezi znaky v textovém poli.
 
-Použijte [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IBasePortionFormat#setSpacing-float-) , abyste rozšířili nebo zúžili mezery mezi znaky v textovém rámečku.
-
-Následující Java kód ukazuje, jak rozšířit mezery mezi znaky v **celém odstavci**:
+V následujícím Java kódu je ukázáno, jak rozšířit mezeru mezi znaky v **celém odstavci**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Poznámka: Použijte záporné hodnoty pro zmenšení mezery mezi znaky.
+    // Poznámka: Použijte záporné hodnoty ke zmenšení mezery mezi znaky.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Rozšířit mezeru mezi znaky.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -252,23 +202,22 @@ try {
 }
 ```
 
-Výsledek:
+![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
 
-![Mezery mezi znaky v odstavci](character_spacing_in_paragraph.png)
-
-Níže uvedený příklad kódu ukazuje, jak rozšířit mezery mezi znaky v **textových úsecích s tučným písmem**:
+Níže uvedený příklad kódu ukazuje, jak rozšířit mezeru mezi znaky v **textových úsecích s tučným písmem**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Poznámka: Použijte záporné hodnoty pro zmenšení mezery mezi znaky.
+            // Poznámka: Použijte záporné hodnoty ke zmenšení mezery mezi znaky.
             portion.getPortionFormat().setSpacing(3); // Rozšířit mezeru mezi znaky.
         }
     }
@@ -279,38 +228,34 @@ try {
 }
 ```
 
-Výsledek:
+![Mezera mezi znaky v textových úsecích](character_spacing_in_text_portions.png)
 
-![Mezery mezi znaky v textových úsecích](character_spacing_in_text_portions.png)
+### **Zakázání kerningu pro konkrétní písma**
 
-### **Zakázat kerning pro konkrétní písma**
+V některých případech může text vykreslený pomocí Aspose.Slides vypadat o něco těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastaveních PowerPointu povolen.
 
-V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
-
-Aby bylo vykreslené výstupní zobrazení v takových případech bližší PowerPointu, můžete pro textové úseky používající dané písmo zakázat kerning. Nastavte [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IBasePortionFormat#setKerningMinimalSize-float-) na hodnotu podstatně vyšší než skutečná velikost písma:
+Aby byl výstup renderovaný blíže PowerPointu, můžete v takových případech zakázat kerning pro textové úseky, které používají ovlivněné písmo. Nastavte [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) na hodnotu podstatně větší než skutečná velikost písma:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
-    for (int paragraphIndex = 0; paragraphIndex < autoShape.getTextFrame().getParagraphs().getCount(); paragraphIndex++) {
-        IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+    for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
+        for (IPortion portion : paragraph.getPortions()) {
+            IPortionFormat portionFormat = portion.getPortionFormat();
 
-        for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-            IFontData latinFont = portion.getPortionFormat().getLatinFont();
-            IFontData eastAsianFont = portion.getPortionFormat().getEastAsianFont();
-            IFontData complexScriptFont = portion.getPortionFormat().getComplexScriptFont();
-
-            boolean usesTargetFont =
-                    latinFont != null && targetFont.equals(latinFont.getFontName()) ||
-                    eastAsianFont != null && targetFont.equals(eastAsianFont.getFontName()) ||
-                    complexScriptFont != null && targetFont.equals(complexScriptFont.getFontName());
-
-            if (usesTargetFont) {
-                portion.getPortionFormat().setKerningMinimalSize(100);
+            if ((portionFormat.getLatinFont() != null &&
+                 portionFormat.getLatinFont().getFontName().equals(targetFont)) ||
+                (portionFormat.getEastAsianFont() != null &&
+                 portionFormat.getEastAsianFont().getFontName().equals(targetFont)) ||
+                (portionFormat.getComplexScriptFont() != null &&
+                 portionFormat.getComplexScriptFont().getFontName().equals(targetFont))) {
+                portionFormat.setKerningMinimalSize(100);
             }
         }
     }
@@ -321,16 +266,21 @@ try {
 }
 ```
 
-## **Spravovat vlastnosti písma textu**
+Toto nastavení zabraňuje použití kerningu na odpovídající textové úseky a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu u písem, na která se toto chování specifické pro PowerPoint vztahuje.
 
-Vlastnosti písma lze nastavit na úrovni odstavce pomocí [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraphFormat#getDefaultPortionFormat--) nebo na jednotlivých úsecích pomocí [IPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IPortionFormat).
+## **Správa vlastností písma textu**
 
-Následující kód nastaví písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučný, kurzíva, tečkované podtržení a písmo Times New Roman na všechny úseky v odstavci.
+Vlastnosti písma lze nastavit na úrovni odstavce pomocí [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) nebo na jednotlivých úsecích pomocí [IPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformat/).
+
+Následující kód nastavuje písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučný, kurzíva, tečkované podtržení a písmo Times New Roman na všechny úseky v odstavci.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Nastavte vlastnosti písma pro odstavec.
@@ -346,21 +296,20 @@ try {
 }
 ```
 
-Výsledek:
-
 ![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
 
-Níže uvedený příklad kódu použije podobné vlastnosti na **textové úseky s tučným písmem**:
+Níže uvedený příklad kódu aplikuje podobné vlastnosti na **textové úseky s tučným písmem**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Nastavte vlastnosti písma pro textový úsek.
             portion.getPortionFormat().setFontHeight(13);
@@ -376,20 +325,21 @@ try {
 }
 ```
 
-Výsledek:
-
 ![Vlastnosti písma pro textové úseky](font_properties_for_text_portions.png)
 
-## **Nastavit rotaci textu**
+## **Nastavení otočení textu**
 
-Použijte [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-) , abyste nastavili předdefinovanou orientaci textu uvnitř tvaru.
+Použijte [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) k nastavení předdefinované orientace textu uvnitř tvaru.
 
-Následující příklad kódu nastaví orientaci textu v tvaru na `Vertical270`, což otočí text **o 90 stupňů proti směru hodinových ručiček**:
+Následující příklad kódu nastavuje orientaci textu ve tvaru na [TextVerticalType.Vertical270](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textverticaltype/), což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
@@ -399,20 +349,21 @@ try {
 }
 ```
 
-Výsledek:
+![Otočení textu](text_rotation.png)
 
-![Rotace textu](text_rotation.png)
+## **Nastavení vlastního otočení pro textové rámečky**
 
-## **Nastavit vlastní rotaci pro textové rámečky**
+Použijte [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) k nastavení vlastního úhlu otočení pro [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/).
 
-Použijte [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) , abyste nastavili vlastní úhel rotace pro [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrame).
-
-Níže uvedený příklad kódu otáčí textový rámeček o 3 stupně ve směru hodinových ručiček uvnitř tvaru:
+Níže uvedený příklad kódu otáčí textový rámeček o 3 stupně po směru hodinových ručiček uvnitř tvaru:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -422,13 +373,11 @@ try {
 }
 ```
 
-Výsledek:
+![Vlastní otočení textu](custom_text_rotation.png)
 
-![Vlastní rotace textu](custom_text_rotation.png)
+## **Nastavení řádkování odstavců**
 
-## **Nastavit řádkování odstavců**
-
-Aspose.Slides poskytuje [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraphFormat#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraphFormat#setSpaceBefore-float-), a [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraphFormat#setSpaceWithin-float-) , pro řízení odsazení odstavců. Tyto vlastnosti se používají následovně:
+Aspose.Slides poskytuje [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), a [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-), pro řízení mezery odstavců. Tyto vlastnosti se používají následovně:
 
 * Použijte kladnou hodnotu k určení řádkování jako procenta výšky řádku.
 * Použijte zápornou hodnotu k určení řádkování v bodech.
@@ -436,9 +385,12 @@ Aspose.Slides poskytuje [IParagraphFormat.setSpaceAfter](https://reference.aspos
 Následující příklad kódu ukazuje, jak specifikovat řádkování v odstavci:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -449,18 +401,19 @@ try {
 }
 ```
 
-Výsledek:
-
 ![Řádkování v odstavci](line_spacing.png)
 
-## **Nastavit typ automatického přizpůsobení pro textové rámečky**
+## **Nastavení typu automatického přizpůsobení pro textové rámečky**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenšuje, přeteče nebo automaticky mění velikost tvaru.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenší, přeteče nebo automaticky mění velikost tvaru.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
@@ -470,14 +423,17 @@ try {
 }
 ```
 
-## **Nastavit kotvu textových rámečků**
+## **Nastavení ukotvení textových rámečků**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) určuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
@@ -487,14 +443,17 @@ try {
 }
 ```
 
-## **Nastavit tabulaci textu**
+## **Nastavení tabulace textu**
 
-Použijte [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraphFormat#setDefaultTabSize-float-) a [IParagraphFormat.getTabs](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraphFormat#getTabs--) , abyste nakonfigurovali tabulátory v odstavci.
+Použijte [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) a [IParagraphFormat.getTabs](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) k nakonfigurování tabulátorů v odstavci.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -506,20 +465,21 @@ try {
 }
 ```
 
-Výsledek:
-
 ![Tabulátory odstavce](paragraph_tabs.png)
 
-## **Nastavit jazyk kontroly pravopisu**
+## **Nastavení jazykové kontroly**
 
-Aspose.Slides poskytuje [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) , který vám umožňuje nastavit jazyk kontroly pravopisu pro textový úsek. Jazyk kontroly pravopisu určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), který vám umožňuje nastavit jazyk kontroly pravopisu pro textový úsek. Jazyk kontroly určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
 
 Následující příklad kódu ukazuje, jak nastavit jazyk kontroly pravopisu pro textový úsek:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
@@ -531,7 +491,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Nastavte ID jazykové kontroly.
+    // Nastavte Id jazyka kontroly pravopisu.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -543,11 +503,13 @@ try {
 }
 ```
 
-## **Nastavit výchozí jazyk**
+## **Nastavení výchozího jazyka**
 
-Použijte [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/LoadOptions#setDefaultTextLanguage-java.lang.String-) , abyste definovali výchozí jazyk pro text vytvořený během načítání nebo vytváření prezentace.
+Použijte [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) k definování výchozího jazyka pro text vytvořený při načítání nebo vytváření prezentace.
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -559,7 +521,7 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // Zkontrolujte jazyk prvního úseku.
+    // Zkontrolujte jazyk první části.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -567,16 +529,18 @@ try {
 }
 ```
 
-## **Nastavit výchozí styl textu**
+## **Nastavení výchozího textového stylu**
 
-Pro použití výchozího formátování textu na úrovni prezentace použijte [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IPresentation#getDefaultTextStyle--).
+Pro použití výchozího formátování textu na úrovni prezentace použijte [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Následující příklad kódu ukazuje, jak nastavit výchozí tučné písmo o velikosti 14 pt pro celý text napříč snímky v nové prezentaci.
+Níže uvedený příklad kódu ukazuje, jak nastavit výchozí tučné písmo s velikostí 14 pt pro celý text napříč snímky v nové prezentaci.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Získejte formát odstavce nejvyšší úrovně.
+    // Získat formát odstavce nejvyšší úrovně.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -590,20 +554,23 @@ try {
 }
 ```
 
-## **Extrahovat text s efektem Všech velkých písmen**
+## **Extrahování textu s efektem VELKÝCH PÍSMEN**
 
-V PowerPointu aplikace efektu **All Caps** (všechna velká písmena) způsobí, že se text na snímku zobrazí velkými písmeny, i když byl původně napsán malými. Když takový úsek textu načtete pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro sladění se zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/TextCapType) a převádějte vrácený řetězec na velká písmena, pokud je hodnota `All`.
+V PowerPointu aplikace efektu **All Caps** (všechna písmena velká) způsobí, že text na snímku vypadá jako velká písmena, i když byl původně zadán malými písmeny. Když takový textový úsek získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro sladění s zobrazeným textem převěďte vrácený řetězec na velká písmena, pokud je hodnota [TextCapType.All](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textcaptype/).
 
-Řekněme, že máme následující textový rámeček na první snímku souboru sample2.pptx.
+Předpokládejme, že máme následující textové pole na první snímku souboru sample2.pptx.
 
-![Efekt Všech velkých písmen](all_caps_effect.png)
+![Efekt Všechna velká písmena](all_caps_effect.png)
 
 Níže uvedený příklad kódu ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
@@ -618,6 +585,8 @@ try {
 }
 ```
 
+**Výstup:**
+
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
@@ -627,8 +596,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Jak upravit text v tabulce na snímku?**
 
-Pro úpravu textu v tabulce na snímku použijte [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITable). Procházejte buňky a aktualizujte každou buňku pomocí [ICell.getTextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ICell#getTextFrame--) a formátování odstavců pomocí [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IParagraph#getParagraphFormat--).
+Pro úpravu textu v tabulce na snímku použijte [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itable/). Procházejte buňky a aktualizujte každou buňku pomocí [ICell.getTextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icell/#getTextFrame--) a formátování odstavců pomocí [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
 **Jak aplikovat gradientní barvu na text v PowerPoint snímku?**
 
-Pro aplikaci gradientní barvy na text použijte [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--). Nastavte [IFillFormat.setFillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IFillFormat#setFillType-int-) na [FillType.Gradient](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/FillType) a nakonfigurujte gradientní úseky, směr a průhlednost.
+Pro aplikaci gradientní barvy na text použijte [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Nastavte [IFillFormat.setFillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/filltype/) a nakonfigurujte gradientní zastávky, směr a průhlednost.

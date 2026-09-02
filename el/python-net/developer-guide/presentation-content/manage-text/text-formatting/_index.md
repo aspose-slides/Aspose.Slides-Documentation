@@ -1,100 +1,45 @@
 ---
-title: Μορφοποίηση Κειμένου Παρουσίασης σε Python
-linktitle: Μορφοποίηση Κειμένου
+title: "Διαμόρφωση Κειμένου Παρουσίασης σε Python"
+linktitle: "Μορφοποίηση Κειμένου"
 type: docs
 weight: 50
 url: /el/python-net/text-formatting/
 keywords:
-- επισήμανση κειμένου
-- κανονική έκφραση
-- στοίχηση παραγράφου
+- ευθυγράμμιση παραγράφου
 - στυλ κειμένου
 - φόντο κειμένου
 - διαφάνεια κειμένου
-- διάστημα χαρακτήρων
+- απόσταση χαρακτήρων
 - ιδιότητες γραμματοσειράς
 - οικογένεια γραμματοσειράς
 - περιστροφή κειμένου
 - γωνία περιστροφής
 - πλαίσιο κειμένου
-- διάστημα γραμμής
-- ιδιότητα autofit
+- απόσταση γραμμής
+- ιδιότητα αυτόματης προσαρμογής
 - άγκυρα πλαισίου κειμένου
-- ταμπάρισμα κειμένου
+- στηλοθέτηση κειμένου
 - προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Μορφοποίηση και στυλιζάρισμα κειμένου σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python μέσω .NET. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχηση και άλλα."
+description: "Διαμορφώστε και εφαρμόστε στυλ στο κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python μέσω .NET. Προσαρμόστε γραμματοσειρές, χρώματα, ευθυγράμμιση και άλλα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides for Python via .NET. Καλύπτει την επισήμανση, τα χρώματα φόντου, τη διαφάνεια, το διάστημα χαρακτήρων, τις ιδιότητες γραμματοσειράς, την περιστροφή, το διάστημα παραγράφων, τη συμπεριφορά autofit, την αγκύρωση κειμένου, τις στάσεις στηλοθετών και τις ρυθμίσεις γλώσσας.
+Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python μέσω .NET. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, απόσταση παραγράφων, συμπεριφορά αυτόματης προσαρμογής, αγκύρωση κειμένου, στάσεις στηλοθέτη και ρυθμίσεις γλώσσας.
 
-Στα παραδείγματα παρακάτω, θα χρησιμοποιήσουμε ένα αρχείο με όνομα **"sample.pptx"**, το οποίο περιέχει ένα μοναδικό πλαίσιο κειμένου στην πρώτη διαφάνεια με το ακόλουθο κείμενο:
+Στα παραδείγματα παρακάτω, θα χρησιμοποιήσουμε ένα αρχείο με όνομα “sample.pptx”, το οποίο περιέχει ένα μοναδικό πλαίσιο κειμένου στην πρώτη διαφάνεια με το ακόλουθο κείμενο:
 
 ![Δείγμα κειμένου](sample_text.png)
 
-## **Επισήμανση Κειμένου**
-
-Χρησιμοποιήστε τη μέθοδο [TextFrame.highlight_text](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/highlight_text/) όταν χρειάζεται να επισημάνετε κείμενο που ταιριάζει με ένα συγκεκριμένο δείγμα εντός ενός πλαισίου κειμένου. Η μέθοδος εφαρμόζει χρώμα επισήμανσης στα τμήματα κειμένου που ταιριάζουν και μπορεί να χρησιμοποιηθεί με το [TextSearchOptions](https://reference.aspose.com/slides/el/python-net/aspose.slides/textsearchoptions/) για να ελέγξει πώς εκτελείται η αναζήτηση, π.χ. για να ταιριάζει μόνο ολόκληρες λέξεις.
-
-Ο κώδικας παρακάτω επισημαίνει όλες τις εμφανίσεις των χαρακτήρων **"try"** και στη συνέχεια επισημαίνει μόνο τη λέξη **"to"**.
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    # Λάβετε το πρώτο σχήμα από την πρώτη διαφάνεια.
-    shape = presentation.slides[0].shapes[0]
-
-    # Επισημάνετε τη λέξη "try" στο σχήμα.
-    shape.text_frame.highlight_text("try", draw.Color.light_blue)
-
-    search_options = slides.TextSearchOptions()
-    search_options.whole_words_only = True
-
-    # Επισημάνετε τη λέξη "to" στο σχήμα.
-    shape.text_frame.highlight_text("to", draw.Color.violet, search_options, None)
-
-    presentation.save("highlighted_text.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Το αποτέλεσμα:
-
-![Το επισημασμένο κείμενο](highlighted_text.png)
-
-## **Επισήμανση Κειμένου με Κανονικές Εκφράσεις**
-
-Η μέθοδος [TextFrame.highlight_regex](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/highlight_regex/) επισημαίνει τα ταιριασμένα κείμενα που βρέθηκαν με κανονική έκφραση. Σε Python, αυτό το API εκτίθεται στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
-
-Ο κώδικας παρακάτω επισημαίνει όλες τις λέξεις που περιέχουν **επτά ή περισσότερους χαρακτήρες**:
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    regex = r"\b[^\s]{7,}\b"
-
-    # Επισημάνετε όλες τις λέξεις με επτά ή περισσότερους χαρακτήρες.
-    shape.text_frame.highlight_regex(regex, draw.Color.yellow, None)
-
-    presentation.save("highlighted_text_using_regex.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Το αποτέλεσμα:
-
-![Το επισημασμένο κείμενο με χρήση κανονικής έκφρασης](highlighted_text_using_regex.png)
+Για να βρείτε και να τονίσετε κυριολεκτικό κείμενο ή ταιριάσματα κανονικής έκφρασης, δείτε [Search and Replace Text](/slides/el/python-net/search-and-replace-text/).
 
 ## **Ορισμός Χρώματος Φόντου Κειμένου**
 
-Χρησιμοποιήστε το [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/default_portion_format/) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης μιας παραγράφου ή το [PortionFormat.highlight_color](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/highlight_color/) για μεμονωμένα τμήματα κειμένου.
+Χρησιμοποιήστε [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/default_portion_format/) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο, ή χρησιμοποιήστε [PortionFormat.highlight_color](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/highlight_color/) για μεμονωμένα τμήματα κειμένου.
 
 Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **ολόκληρη την παράγραφο**:
 
@@ -138,11 +83,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![Τα γκρι τμήματα κειμένου](gray_text_portions.png)
 
-## **Στοίχηση Παραγράφων Κειμένου**
+## **Στοίχιση Παραγράφων Κειμένου**
 
-Χρησιμοποιήστε το [ParagraphFormat.alignment](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/alignment/) για να ορίσετε τη στοίχηση της παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερή, δεξιά, ευθυγραμμισμένη και άλλα.
+Χρησιμοποιήστε [ParagraphFormat.alignment](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/alignment/) για να ορίσετε την ευθυγράμμιση παραγράφου μέσα σε πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερή, δεξιά, στοιχισμένη, κ.λπ.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να στοίχιση την παράγραφο **στο κέντρο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ευθυγραμμίσετε την παράγραφο στο **κέντρο**:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +96,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Ορίστε τη στοίχιση της παραγράφου στο κέντρο.
+    # Ορίστε την ευθυγράμμιση της παραγράφου στο κέντρο.
     paragraph.paragraph_format.alignment = slides.TextAlignment.CENTER
 
     presentation.save("aligned_paragraph.pptx", slides.export.SaveFormat.PPTX)
@@ -159,13 +104,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Το αποτέλεσμα:
 
-![Η στοιχισμένη παράγραφος](aligned_paragraph.png)
+![Η ευθυγραμμισμένη παράγραφος](aligned_paragraph.png)
 
-## **Ορισμός Διαφανούς για Κείμενο**
+## **Ορισμός Διαφάνειας για Κείμενο**
 
-Η διαφάνεια του κειμένου ελέγχεται μέσω του αλφα‑συστατικού του χρώματος που έχει οριστεί στο [PortionFormat.fill_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/fill_format/). στα παραδείγματα παρακάτω, `alpha = 50` είναι τιμή αλφα‑καναλιού ARGB στην κλίμακα 0‑255, όχι ποσοστό διαφάνειας.
+Η διαφάνεια του κειμένου ελέγχεται μέσω του στοιχείου άλφα του χρώματος που έχει ανατεθεί στο [PortionFormat.fill_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/fill_format/). Στα παραδείγματα παρακάτω, `alpha = 50` είναι τιμή καναλιού άλφα ARGB στην κλίμακα 0‑255, όχι ποσοστό διαφάνειας.
 
-Ο κώδικας παρακάτω δείχνει πώς να εφαρμόσετε διαφάνεια στην **ολόκληρη την παράγραφο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια στην **ολόκληρη την παράγραφο**:
 
 ```python
 import aspose.pydrawing as draw
@@ -213,11 +158,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ![Τα διαφανή τμήματα κειμένου](transparent_text_portions.png)
 
-## **Ορισμός Διαστήματος Χαρακτήρων για Κείμενο**
+## **Ορισμός Απόστασης Χαρακτήρων για Κείμενο**
 
-Χρησιμοποιήστε το [BasePortionFormat.spacing](https://reference.aspose.com/slides/el/python-net/aspose.slides/baseportionformat/spacing/) για να αυξήσετε ή να μειώσετε το διάστημα μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου.
+Χρησιμοποιήστε [BasePortionFormat.spacing](https://reference.aspose.com/slides/el/python-net/aspose.slides/baseportionformat/spacing/) για να αυξήσετε ή να μειώσετε την απόσταση μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου.
 
-Ο παρακάτω κώδικας Python δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων στην **ολόκληρη την παράγραφο**:
+Το παρακάτω κώδικα Python δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων στην **ολόκληρη την παράγραφο**:
 
 ```python
 import aspose.slides as slides
@@ -226,17 +171,17 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
-    paragraph.paragraph_format.default_portion_format.spacing = 3  # Αύξηση διαστήματος χαρακτήρων.
+    # Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
+    paragraph.paragraph_format.default_portion_format.spacing = 3  # Αυξήστε την απόσταση χαρακτήρων.
 
     presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Το αποτέλεσμα:
 
-![Το διάστημα χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
+![Η απόσταση χαρακτήρων στην παράγραφο](character_spacing_in_paragraph.png)
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να αυξήσετε την απόσταση χαρακτήρων σε **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
 ```python
 import aspose.slides as slides
@@ -247,21 +192,21 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
-            portion.portion_format.spacing = 3  # Αύξηση διαστήματος χαρακτήρων.
+            # Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε την απόσταση χαρακτήρων.
+            portion.portion_format.spacing = 3  # Αυξήστε την απόσταση χαρακτήρων.
 
     presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Το αποτέλεσμα:
 
-![Το διάστημα χαρακτήρων στα τμήματα κειμένου](character_spacing_in_text_portions.png)
+![Η απόσταση χαρακτήρων στα τμήματα κειμένου](character_spacing_in_text_portions.png)
 
 ### **Απενεργοποίηση Kerning για Συγκεκριμένες Γραμματοσειρές**
 
-Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδει το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο στενά από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρα δεδομένα kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
+Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδει το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο πυκνό από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβεί επειδή το PowerPoint αγνοεί τα δεδομένα kerning για ορισμένες γραμματοσειρές, ακόμα και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες kerning και το kerning είναι ενεργοποιημένο στις ρυθμίσεις του PowerPoint.
 
-Για να κάνετε την απόδοση πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για τμήματα κειμένου που χρησιμοποιούν τηffected γραμματοσειρά. Ορίστε το [PortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/el/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) σε τιμή σημαντικά μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς:
+Για να φέρετε την απόδοση πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το kerning για τμήματα κειμένου που χρησιμοποιούν τη συγκεκριμένη γραμματοσειρά. Ορίστε το [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/el/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) σε τιμή σημαντικά μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς:
 
 ```python
 import aspose.slides as slides
@@ -284,13 +229,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Αυτή η ρύθμιση αποτρέπει την εφαρμογή του kerning σε τμήματα κειμένου που ταιριάζουν και μπορεί να βοηθήσει στην ευθυγράμμιση της απόδοσης του Aspose.Slides με το οπτικό αποτέλεσμα του PowerPoint για τις γραμματοσειρές που επηρεάζονται από αυτή τη συμπεριφορά του PowerPoint.
+Αυτή η ρύθμιση εμποδίζει την εφαρμογή kerning στα ταιριασμένα τμήματα κειμένου και μπορεί να βοηθήσει στην εναρμόνιση της απόδοσης του Aspose.Slides με το οπτικό αποτέλεσμα του PowerPoint για γραμματοσειρές που επηρεάζονται από αυτή τη συμπεριφορά ειδική του PowerPoint.
 
 ## **Διαχείριση Ιδιοτήτων Γραμματοσειράς Κειμένου**
 
-Οι ιδιότητες της γραμματοσειράς μπορούν να οριστούν στο επίπεδο παραγράφου μέσω του [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/default_portion_format/) ή σε μεμονωμένα τμήματα μέσω του [PortionFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/).
+Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν στο επίπεδο της παραγράφου μέσω του [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/default_portion_format/) ή σε μεμονωμένα τμήματα μέσω του [PortionFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/).
 
-Ο παρακάτω κώδικας ορίζει τη γραμματοσειρά και το στυλ κειμένου για ολόκληρη την παράγραφο: εφαρμόζει μέγεθος γραμματοσειράς, έντονη, πλάγια, διακεκομμένη υπογράμμιση και τη γραμματοσειρά Times New Roman σε όλα τα τμήματα της παραγράφου.
+Ο παρακάτω κώδικας ορίζει τη γραμματοσειρά και το στυλ κειμένου για ολόκληρη την παράγραφο: εφαρμόζει μέγεθος γραμματοσειράς, έντονη, πλάγια, διακεκομμένο υπογράμμιση και τη γραμματοσειρά Times New Roman σε όλα τα τμήματα της παραγράφου.
 
 ```python
 import aspose.slides as slides
@@ -339,9 +284,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Ορισμός Περιστροφής Κειμένου**
 
-Χρησιμοποιήστε το [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/text_vertical_type/) για να ορίσετε προεπιλεγμένη προσανατολισμό κειμένου μέσα σε σχήμα.
+Χρησιμοποιήστε [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/text_vertical_type/) για να ορίσετε μια προεπιλεγμένη προσανατολισμό κειμένου μέσα σε σχήμα.
 
-Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε `VERTICAL270`, που περιστρέφει το κείμενο **90 μοίρες αριστερόστροφα**:
+Το παρακάτω παράδειγμα κώδικα θέτει τον προσανατολισμό κειμένου στο σχήμα σε `VERTICAL270`, που περιστρέφει το κείμενο **90 μοίρες αριστερόστροφα**:
 
 ```python
 import aspose.slides as slides
@@ -356,13 +301,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Το αποτέλεσμα:
 
-![Η περιστροφή κειμένου](text_rotation.png)
+![Η περιστροφή του κειμένου](text_rotation.png)
 
 ## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαίσια Κειμένου**
 
-Χρησιμοποιήστε το [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/rotation_angle/) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
+Χρησιμοποιήστε [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/rotation_angle/) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/).
 
-Ο κώδικας παρακάτω περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
+Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
 
 ```python
 import aspose.slides as slides
@@ -377,16 +322,16 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Το αποτέλεσμα:
 
-![Η προσαρμοσμένη περιστροφή κειμένου](custom_text_rotation.png)
+![Η προσαρμοσμένη περιστροφή του κειμένου](custom_text_rotation.png)
 
-## **Ορισμός Διαστήματος Γραμμών Παραγράφων**
+## **Ορισμός Απόστασης Γραμμής Παραγράφων**
 
-Το Aspose.Slides παρέχει τις μεθόδους [ParagraphFormat.space_after](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/space_before/), και [ParagraphFormat.space_within](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/space_within/) για τον έλεγχο του διαστήματος παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
+Το Aspose.Slides παρέχει τα [ParagraphFormat.space_after](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/space_before/) και [ParagraphFormat.space_within](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/space_within/) για να ελέγχουν την απόσταση παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
 
-* Χρησιμοποιήστε θετική τιμή για να ορίσετε το διάστημα γραμμής ως ποσοστό του ύψους της γραμμής.
-* Χρησιμοποιήστε αρνητική τιμή για να ορίσετε το διάστημα γραμμής σε points.
+* Χρησιμοποιήστε θετική τιμή για να καθορίσετε την απόσταση γραμμής ως ποσοστό του ύψους της γραμμής.
+* Χρησιμοποιήστε αρνητική τιμή για να καθορίσετε την απόσταση γραμμής σε σημεία.
 
-Ο παρακάτω κώδικας δείχνει πώς να ορίσετε το διάστημα γραμμής μέσα στην παράγραφο:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε την απόσταση γραμμής μέσα στην παράγραφο:
 
 ```python
 import aspose.slides as slides
@@ -402,11 +347,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Το αποτέλεσμα:
 
-![Το διάστημα γραμμής μέσα στην παράγραφο](line_spacing.png)
+![Η απόσταση γραμμής μέσα στην παράγραφο](line_spacing.png)
 
-## **Ορισμός Τύπου Autofit για Πλαίσια Κειμένου**
+## **Ορισμός Τύπου Αυτοπροσαρμογής για Πλαίσια Κειμένου**
 
-Το [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/autofit_type/) καθορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο μειώνεται, υπερχεί ή αναπροσαρμόζει το σχήμα αυτόματα.
+[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/autofit_type/) καθορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του δοχείου του. Χρησιμοποιήστε το για να ελέγξετε εάν το κείμενο συρρικνώνεται, υπερέχει ή αλλάζει αυτόματα το μέγεθος του σχήματος.
 
 ```python
 import aspose.slides as slides
@@ -421,7 +366,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Ορισμός Άγκυρας Πλαισίων Κειμένου**
 
-Το [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/anchoring_type/) ορίζει πώς τοποθετείται κατακόρυφα το κείμενο μέσα σε σχήμα, π.χ. στην κορυφή, το κέντρο ή το κάτω μέρος.
+[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/anchoring_type/) ορίζει πώς το κείμενο τοποθετείται κάθετα μέσα σε σχήμα, π.χ. στην κορυφή, στο μέσο ή στο κάτω μέρος.
 
 ```python
 import aspose.slides as slides
@@ -434,9 +379,9 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("text_anchor.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ορισμός Ταμπώσεων Κειμένου**
+## **Ορισμός Στηλοθέτησης Κειμένου**
 
-Χρησιμοποιήστε το [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/default_tab_size/) και το [ParagraphFormat.tabs](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/tabs/) για να ρυθμίσετε τις στάσεις ταμπ στην παράγραφο.
+Χρησιμοποιήστε [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/default_tab_size/) και [ParagraphFormat.tabs](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraphformat/tabs/) για να ρυθμίσετε στάσεις στηλοθέτη σε μια παράγραφο.
 
 ```python
 import aspose.slides as slides
@@ -453,13 +398,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 Το αποτέλεσμα:
 
-![Οι ταμπές της παραγράφου](paragraph_tabs.png)
+![Οι στηλοθέτες της παραγράφου](paragraph_tabs.png)
 
-## **Ορισμός Γλώσσας Ελέγχου**
+## **Ορισμός Γλώσσας Διόρθωσης**
 
-Το Aspose.Slides παρέχει το [PortionFormat.language_id](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/language_id/), το οποίο σας επιτρέπει να ορίσετε τη γλώσσα ελέγχου για ένα τμήμα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για τον ορθογραφικό και γραμματικό έλεγχο στο PowerPoint.
+Το Aspose.Slides παρέχει το [PortionFormat.language_id](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/language_id/), το οποίο επιτρέπει τον ορισμό της γλώσσας διόρθωσης για ένα τμήμα κειμένου. Η γλώσσα διόρθωσης καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικούς και γραμματικούς ελέγχους στο PowerPoint.
 
-Ο παρακάτω κώδικας δείχνει πώς να ορίσετε τη γλώσσα ελέγχου για ένα τμήμα κειμένου:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε τη γλώσσα διόρθωσης για ένα τμήμα κειμένου:
 
 ```python
 import aspose.slides as slides
@@ -480,7 +425,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     # Ορίστε το Id μιας γλώσσας ελέγχου.
     text_portion.portion_format.language_id = "zh-CN"
 
-    text_portion.text = "1."
+    text_portion.text = "1。"
     paragraph.portions.add(text_portion)
 
     presentation.save("proofing_language.pptx", slides.export.SaveFormat.PPTX)
@@ -488,7 +433,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Χρησιμοποιήστε το [LoadOptions.default_text_language](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/default_text_language/) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή δημιουργία μιας παρουσίασης.
+Χρησιμοποιήστε το [LoadOptions.default_text_language](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/default_text_language/) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή τη δημιουργία μιας παρουσίασης.
 
 ```python
 import aspose.slides as slides
@@ -512,7 +457,7 @@ with slides.Presentation(load_options) as presentation:
 
 Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε το [Presentation.default_text_style](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/default_text_style/).
 
-Ο παρακάτω κώδικας δείχνει πώς να ορίσετε προεπιλεγμένη έντονη γραμματοσειρά με μέγεθος 14 pt για όλο το κείμενο σε όλες τις διαφάνειες μιας νέας παρουσίασης.
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε προεπιλεγμένη έντονη γραμματοσειρά με μέγεθος 14 pt για όλο το κείμενο σε όλες τις διαφάνειες μιας νέας παρουσίασης.
 
 ```python
 import aspose.slides as slides
@@ -528,15 +473,15 @@ with slides.Presentation() as presentation:
     presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Εξαγωγή Κειμένου με Επίδραση Όλων Πρακτικών (All‑Caps)**
+## **Εξαγωγή Κειμένου με το Εφέ Όλων Σε Κεφαλαία**
 
-Στο PowerPoint, η εφαρμογή της επίδρασης **All Caps** στη γραμματοσειρά κάνει το κείμενο να εμφανίζεται με κεφαλαία γράμματα στη διαφάνεια ακόμη και αν έχει πληκτρολογηθεί αρχικά με πεζά. Όταν ανακτάτε τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως είχε εισαχθεί. Για να ταιριάξετε το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/el/python-net/aspose.slides/textcaptype/) και μετατρέψτε το επιστρεφόμενο string σε κεφαλαία όταν η τιμή είναι `ALL`.
+Στο PowerPoint, η εφαρμογή του εφέ **All Caps** κάνει το κείμενο να εμφανίζεται σε κεφαλαία στη διαφάνεια ακόμη και αν αρχικά πληκτρολογήθηκε με μικρά γράμματα. Όταν ανακτάτε τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθηκε. Για να ταιριάζει με το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/el/python-net/aspose.slides/textcaptype/) και μετατρέψτε την επιστρεφόμενη συμβολοσειρά σε κεφαλαία όταν η τιμή είναι `ALL`.
 
 Ας πούμε ότι έχουμε το ακόλουθο πλαίσιο κειμένου στην πρώτη διαφάνεια του αρχείου sample2.pptx.
 
-![Η επίδραση All Caps](all_caps_effect.png)
+![Το εφέ All Caps](all_caps_effect.png)
 
-Ο κώδικας παρακάτω δείχνει πώς να εξάγετε το κείμενο με την εφαρμοσμένη επίδραση **All Caps**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εξάγετε το κείμενο με το εφέ **All Caps** εφαρμοσμένο:
 
 ```python
 import aspose.slides as slides
@@ -560,12 +505,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **Συχνές Ερωτήσεις**
+## **ΣΚΕ Π.Ρ. (FAQ)**
 
-**Πώς να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια;**
+**Πώς να τροποποιήσετε κείμενο σε πίνακα σε μια διαφάνεια;**
 
-Για να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/). Κάντε επανάληψη στα κελιά και ενημερώστε κάθε κελί μέσω του [Cell.text_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/text_frame/) και τη μορφοποίηση παραγράφων μέσω του [Paragraph.paragraph_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/paragraph_format/).
+Για να τροποποιήσετε κείμενο σε πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/). Περιηγηθείτε στα κελιά και ενημερώστε κάθε κελί μέσω του [Cell.text_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/cell/text_frame/) και της μορφοποίησης παραγράφου μέσω του [Paragraph.paragraph_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/paragraph/paragraph_format/).
 
-**Πώς να εφαρμόσετε διαβαθμισμένο χρώμα σε κείμενο σε διαφάνεια PowerPoint;**
+**Πώς να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο σε διαφάνεια PowerPoint;**
 
-Για να εφαρμόσετε ένα διαβαθμισμένο χρώμα σε κείμενο, χρησιμοποιήστε το [PortionFormat.fill_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/fill_format/). Ορίστε το [FillFormat.fill_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/fillformat/fill_type/) σε [FillType.GRADIENT](https://reference.aspose.com/slides/el/python-net/aspose.slides/filltype/) και διαμορφώστε τα σημεία διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
+Για να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο, χρησιμοποιήστε το [PortionFormat.fill_format](https://reference.aspose.com/slides/el/python-net/aspose.slides/portionformat/fill_format/). Ορίστε το [FillFormat.fill_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/fillformat/fill_type/) σε [FillType.GRADIENT](https://reference.aspose.com/slides/el/python-net/aspose.slides/filltype/) και ρυθμίστε τις στάσεις διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
