@@ -1,51 +1,53 @@
 ---
-title: Formátování tvarů PowerPoint v Pythonu
+title: Formátování tvarů PowerPointu v Pythonu
 linktitle: Formátování tvarů
 type: docs
 weight: 20
 url: /cs/python-net/shape-formatting/
 keywords:
-- formátování tvaru
-- formátování čáry
+- formát tvaru
+- formát čáry
+- skicovací efekt
+- skicovací čára tvaru
 - formátování stylu spojení
-- gradientová výplň
+- gradientní výplň
 - vzorkovaná výplň
 - obrázková výplň
-- texturovaná výplň
+- texturová výplň
 - jednobarevná výplň
 - průhlednost tvaru
-- otočení tvaru
+- otočit tvar
 - 3D zkosený efekt
-- 3D otáčecí efekt
+- 3D rotační efekt
 - resetování formátování
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Zjistěte, jak formátovat tvary PowerPointu v Pythonu pomocí Aspose.Slides — nastavte styly výplně, čáry a efektů pro soubory PPT, PPTX a ODP s přesností a plnou kontrolou."
+description: "Naučte se, jak formátovat tvary PowerPointu v Pythonu pomocí Aspose.Slides — nastavte výplň, čáru a styly efektů pro soubory PPT, PPTX a ODP s přesností a úplnou kontrolou."
 ---
 ## **Úvod**
 
-V PowerPointu můžete do snímků přidávat tvary. Jelikož jsou tvary složeny z čar, můžete je formátovat úpravou nebo použitím efektů na jejich obrysy. Navíc můžete formátovat tvary nastavením, které řídí, jak jsou jejich vnitřky vyplněny.
+V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo aplikací efektů na jejich obrysy. Navíc můžete tvary formátovat zadáním nastavení, která řídí, jak je jejich vnitřek vyplněn.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![formátování tvaru v PowerPointu](format-shape-powerpoint.png)
 
-Aspose.Slides for Python poskytuje třídy a vlastnosti, které vám umožní formátovat tvary pomocí stejných možností, které jsou k dispozici v PowerPointu.
+Aspose.Slides for Python poskytuje třídy a vlastnosti, které vám umožní formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
 
 ## **Formátování čar**
 
 Pomocí Aspose.Slides můžete pro tvar určit vlastní styl čáry. Následující kroky popisují postup:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte [line style](https://reference.aspose.com/slides/cs/python-net/aspose.slides/linestyle/) tvaru.
-5. Nastavte šířku čáry.
-6. Nastavte [dash style](https://reference.aspose.com/slides/cs/python-net/aspose.slides/linedashstyle/) tvaru.
-7. Nastavte barvu čáry pro tvar.
-8. Uložte upravenou prezentaci jako soubor PPTX.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Nastavte [line style](https://reference.aspose.com/slides/cs/python-net/aspose.slides/linestyle/) tvaru.
+1. Nastavte šířku čáry.
+1. Nastavte [dash style](https://reference.aspose.com/slides/cs/python-net/aspose.slides/linedashstyle/) tvaru.
+1. Nastavte barvu čáry tvaru.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Následující Python kód ukazuje, jak naformátovat obdélníkový `AutoShape`:
+Následující kód v Pythonu demonstruje, jak na obdélníkový `AutoShape` nastavit formátování čáry:
 
 ```python
 import aspose.slides as slides
@@ -80,6 +82,50 @@ Výsledek:
 
 ![Formátované čáry v prezentaci](formatted-lines.png)
 
+## **Použití skicovacích efektů na čáry tvaru**
+
+Skicovací efekt způsobí, že čára tvaru vypadá ručně kreslená. Použijte [Shape.line_format](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/line_format/) pro přístup k nastavením čáry, [LineFormat.sketch_format](https://reference.aspose.com/slides/cs/python-net/aspose.slides/lineformat/sketch_format/) pro přístup k nastavením skicu a [SketchFormat.sketch_type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/sketchformat/sketch_type/) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/linesketchtype/).
+
+Následující kód v Pythonu ukazuje, jak aplikovat efekt [LineSketchType.CURVED](https://reference.aspose.com/slides/cs/python-net/aspose.slides/linesketchtype/), přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.NONE](https://reference.aspose.com/slides/cs/python-net/aspose.slides/linesketchtype/):
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
+
+    # Přístup k formátu čáry tvaru a jeho skicovacímu formátu.
+    sketch_format = shape.line_format.sketch_format
+
+    # Aplikujte skicovací efekt.
+    sketch_format.sketch_type = slides.LineSketchType.CURVED
+
+    # Přečtěte skicovací efekt přiřazený přímo tvaru.
+    explicit_sketch_type = sketch_format.sketch_type
+    print(f"Explicit sketch type: {explicit_sketch_type}")
+
+    # Odstraňte skicovací efekt.
+    sketch_format.sketch_type = slides.LineSketchType.NONE
+```
+
+Hodnota vrácená `SketchFormat.sketch_type` představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozložení, použijte [LineFormat.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/lineformat/get_effective/), přistupte k vlastnosti `sketch_format` vráceného objektu a přečtěte jeho `sketch_type`. Efektivní hodnota odráží formátování, které je skutečně aplikováno po vyřešení dědičnosti:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    line_format = shape.line_format
+
+    explicit_sketch_type = line_format.sketch_format.sketch_type
+    effective_line_format = line_format.get_effective()
+    effective_sketch_type = effective_line_format.sketch_format.sketch_type
+
+    print(f"Explicit sketch type: {explicit_sketch_type}")
+    print(f"Effective sketch type: {effective_sketch_type}")
+```
+
 ## **Formátování stylů spojení**
 
 Zde jsou tři možnosti typu spojení:
@@ -88,11 +134,11 @@ Zde jsou tři možnosti typu spojení:
 * Miter
 * Bevel
 
-Ve výchozím nastavení PowerPoint spojuje dvě čáry pod úhlem (například v rohu tvaru) pomocí nastavení **Round**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
+Ve výchozím nastavení PowerPoint při spojování dvou čar pod úhlem (například na rohu tvaru) používá nastavení **Round**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
 
 ![Styl spojení v prezentaci](join-style-powerpoint.png)
 
-Následující Python kód ukazuje, jak byly tři obdélníky (jak je vidět na obrázku výše) vytvořeny pomocí nastavení typu spojení Miter, Bevel a Round:
+Následující kód v Pythonu demonstruje, jak byly vytvořeny tři obdélníky (viz obrázek výše) s nastavením spojení Miter, Bevel a Round:
 
 ```python
 import aspose.slides as slides
@@ -122,7 +168,7 @@ with slides.Presentation() as presentation:
 	shape2.line_format.width = 15
 	shape3.line_format.width = 15
 
-	# Nastavte barvu čáry pro každý obdélník.
+	# Nastavte barvu čáry každého obdélníku.
 	shape1.line_format.fill_format.fill_type = slides.FillType.SOLID
 	shape1.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 	shape2.line_format.fill_format.fill_type = slides.FillType.SOLID
@@ -135,7 +181,7 @@ with slides.Presentation() as presentation:
 	shape2.line_format.join_style = slides.LineJoinStyle.BEVEL
 	shape3.line_format.join_style = slides.LineJoinStyle.ROUND
 
-	# Přidejte text do každého obdélníku.
+	# Přidejte text ke každému obdélníku.
 	shape1.text_frame.text = "Miter Join style"
 	shape2.text_frame.text = "Bevel Join style"
 	shape3.text_frame.text = "Round Join style"
@@ -144,18 +190,20 @@ with slides.Presentation() as presentation:
 	presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gradientová výplň**
+## **Gradientní výplň**
 
-V PowerPointu je Gradientová výplň formátovací možnost, která vám umožní aplikovat plynulé přechody barev na tvar. Například můžete použít dvě nebo více barev tak, že jedna postupně přechází v druhou.
+V PowerPointu je Gradientní výplň formátovací možnost, která umožňuje aplikovat plynulý přechod barev na tvar. Například můžete použít dvě nebo více barev tak, že jedna postupně přechází v druhou.
 
-Zde je postup, jak pomocí Aspose.Slides aplikovat gradientovou výplň na tvar:
+Jak aplikovat gradientní výplň na tvar pomocí Aspose.Slides:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte [FillType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/filltype/) tvaru na `GRADIENT`.
-5. Přidejte své dva preferované barvy s definovanými pozicemi pomocí metod `add` kolekce `gradient_stops`, kterou poskytuje třída [GradientFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/gradientformat/).
-6. Uložte upravenou prezentaci jako soubor PPTX.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Nastavte vlastnost tvaru [FillType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/filltype/) na `GRADIENT`.
+1. Přidejte své dvě preferované barvy s definovanými pozicemi pomocí metod `add` kolekce `gradient_stops`, kterou vystavuje třída [GradientFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/gradientformat/).
+1. Uložte upravenou prezentaci jako soubor PPTX.
+
+Následující kód v Pythonu ukazuje, jak aplikovat efekt gradientní výplně na elipsu:
 
 ```python
 import aspose.slides as slides
@@ -169,14 +217,14 @@ with slides.Presentation() as presentation:
     # Přidejte automatický tvar typu Ellipse.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 150, 75)
 
-    # Aplikujte gradientové formátování na elipsu.
+    # Aplikujte gradientní formátování na elipsu.
     shape.fill_format.fill_type = slides.FillType.GRADIENT
     shape.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
 
     # Nastavte směr gradientu.
     shape.fill_format.gradient_format.gradient_direction = slides.GradientDirection.FROM_CORNER2
 
-    # Přidejte dva gradientové body.
+    # Přidejte dva gradientní body.
     shape.fill_format.gradient_format.gradient_stops.add(1.0, slides.PresetColor.PURPLE)
     shape.fill_format.gradient_format.gradient_stops.add(0, slides.PresetColor.RED)
 
@@ -186,24 +234,26 @@ with slides.Presentation() as presentation:
 
 Výsledek:
 
-![Elipsa s gradientovou výplní](gradient-fill.png)
+![Elipsa s gradientní výplní](gradient-fill.png)
 
 ## **Vzorkovaná výplň**
 
-V PowerPointu je Pattern Fill formátovací možnost, která vám umožní aplikovat dvoubarevný design – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Můžete zvolit vlastní barvy pro popředí a pozadí vzoru.
+V PowerPointu je Vzorkovaná výplň formátovací možnost, která umožňuje aplikovat dvoubarevný vzor – například tečky, pruhy, křížové šrafování nebo kostku – na tvar. Pro popředí a pozadí vzoru můžete vybrat vlastní barvy.
 
-Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzoru, které můžete aplikovat na tvary a zvýšit tak vizuální atraktivitu vašich prezentací. I po výběru předdefinovaného vzoru můžete stále určit přesné barvy, které se mají použít.
+Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzorů, které můžete použít na tvary pro zvýšení vizuální přitažlivosti vašich prezentací. I po výběru předdefinovaného vzoru můžete stále specifikovat přesné barvy, které má použít.
 
-Zde je postup, jak pomocí Aspose.Slides aplikovat vzorkovanou výplň na tvar:
+Jak aplikovat vzorkovanou výplň na tvar pomocí Aspose.Slides:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte [FillType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/filltype/) tvaru na `PATTERN`.
-5. Vyberte styl vzoru z předdefinovaných možností.
-6. Nastavte [back_color](https://reference.aspose.com/slides/cs/python-net/aspose.slides/patternformat/back_color/) vzoru.
-7. Nastavte [fore_color](https://reference.aspose.com/slides/cs/python-net/aspose.slides/patternformat/fore_color/) vzoru.
-8. Uložte upravenou prezentaci jako soubor PPTX.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Nastavte vlastnost tvaru [FillType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/filltype/) na `PATTERN`.
+1. Vyberte styl vzoru z předdefinovaných možností.
+1. Nastavte [back_color](https://reference.aspose.com/slides/cs/python-net/aspose.slides/patternformat/back_color/) vzoru.
+1. Nastavte [fore_color](https://reference.aspose.com/slides/cs/python-net/aspose.slides/patternformat/fore_color/) vzoru.
+1. Uložte upravenou prezentaci jako soubor PPTX.
+
+Následující kód v Pythonu demonstruje, jak aplikovat vzorkovanou výplň na obdélník:
 
 ```python
 import aspose.slides as slides
@@ -238,22 +288,24 @@ Výsledek:
 
 ## **Obrázková výplň**
 
-V PowerPointu je Picture Fill formátovací možnost, která vám umožní vložit obrázek do tvaru – efektivně použít obrázek jako pozadí tvaru.
+V PowerPointu je Obrázková výplň formátovací možnost, která umožňuje vložit obrázek dovnitř tvaru – efektivně používá obrázek jako pozadí tvaru.
 
-Zde je postup, jak pomocí Aspose.Slides aplikovat obrázkovou výplň na tvar:
+Jak pomocí Aspose.Slides aplikovat obrázkovou výplň na tvar:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte [FillType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/filltype/) tvaru na `PICTURE`.
-5. Nastavte režim obrázkové výplně na `TILE` (nebo jiný preferovaný režim).
-6. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) z obrázku, který chcete použít.
-7. Přiřaďte tento obrázek k vlastnosti `picture.image` objektu `picture_fill_format` tvaru.
-8. Uložte upravenou prezentaci jako soubor PPTX.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Nastavte vlastnost tvaru [FillType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/filltype/) na `PICTURE`.
+1. Nastavte režim obrázkové výplně na `TILE` (nebo jiný preferovaný režim).
+1. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ppimage/) z obrázku, který chcete použít.
+1. Přiřaďte tento obrázek vlastnosti `picture.image` formátu `picture_fill_format` tvaru.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
 Předpokládejme, že máme soubor "lotus.png" s následujícím obrázkem:
 
-![Obrázek lotosu](lotus.png)
+![The lotus picture](lotus.png)
+
+Následující kód v Pythonu ukazuje, jak vyplnit tvar obrázkem:
 
 ```python
 import aspose.slides as slides
@@ -273,7 +325,7 @@ with slides.Presentation() as presentation:
     # Nastavte režim obrázkové výplně.
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
 
-    # Načtěte obrázek a přidejte jej do zdrojů prezentace.
+    # Načtěte obrázek a přidejte jej do prostředků prezentace.
     with slides.Images.from_file("lotus.png") as image:
         presentation_image = presentation.images.add_image(image)
 
@@ -290,15 +342,15 @@ Výsledek:
 
 ### **Dlaždicovat obrázek jako texturu**
 
-Pokud chcete nastavit obrázek jako dlaždicovanou texturu a přizpůsobit chování dlaždicování, můžete použít následující vlastnosti třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/):
+Pokud chcete nastavit dlaždicovaný obrázek jako texturu a přizpůsobit chování dlaždicování, můžete použít následující vlastnosti třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/):
 
-- [picture_fill_mode](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Nastavuje režim obrázkové výplně – `TILE` nebo `STRETCH`.
+- [picture_fill_mode](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Nastavuje režim obrázkové výplně – buď `TILE`, nebo `STRETCH`.
 - [tile_alignment](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_alignment/): Určuje zarovnání dlaždic uvnitř tvaru.
-- [tile_flip](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_flip/): Řídí, zda je dlaždice převrácena horizontálně, vertikálně nebo obojí.
-- [tile_offset_x](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_offset_x/): Nastavuje horizontální posun dlaždice (v bodech) od počátku tvaru.
-- [tile_offset_y](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_offset_y/): Nastavuje vertikální posun dlaždice (v bodech) od počátku tvaru.
-- [tile_scale_x](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_scale_x/): Definuje horizontální měřítko dlaždice v procentech.
-- [tile_scale_y](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_scale_y/): Definuje vertikální měřítko dlaždice v procentech.
+- [tile_flip](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_flip/): Určuje, zda je dlaždice otočena vodorovně, svisle nebo obojí.
+- [tile_offset_x](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_offset_x/): Nastavuje vodorovný posun dlaždice (v bodech) od počátku tvaru.
+- [tile_offset_y](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_offset_y/): Nastavuje svislý posun dlaždice (v bodech) od počátku tvaru.
+- [tile_scale_x](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_scale_x/): Definuje vodorovné měřítko dlaždice v procentech.
+- [tile_scale_y](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/tile_scale_y/): Definuje svislé měřítko dlaždice v procentech.
 
 Následující ukázka kódu ukazuje, jak přidat obdélníkový tvar s dlaždicovanou obrázkovou výplní a nakonfigurovat možnosti dlaždic:
 
@@ -317,7 +369,7 @@ with slides.Presentation() as presentation:
     # Nastavte typ výplně tvaru na Picture.
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Načtěte obrázek a přidejte jej do zdrojů prezentace.
+    # Načtěte obrázek a přidejte jej do prostředků prezentace.
     with slides.Images.from_file("lotus.png") as source_image:
         presentation_image = presentation.images.add_image(source_image)
 
@@ -344,18 +396,18 @@ Výsledek:
 
 ## **Jednobarevná výplň**
 
-V PowerPointu je Solid Color Fill formátovací možnost, která vyplní tvar jednou, jednotnou barvou. Tato jednobarevná pozadí se použije bez gradientů, textur ani vzorů.
+V PowerPointu je Jednobarevná výplň formátovací možnost, která vyplní tvar jednou jednotnou barvou. Tato jednoduchá pozadí se aplikují bez gradientů, textur nebo vzorů.
 
-Zde je postup, jak pomocí Aspose.Slides aplikovat jednobarevnou výplň na tvar:
+Jak aplikovat jednobarevnou výplň na tvar pomocí Aspose.Slides, postupujte takto:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte [FillType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/filltype/) tvaru na `SOLID`.
-5. Přiřaďte požadovanou barvu výplně tvaru.
-6. Uložte upravenou prezentaci jako soubor PPTX.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Nastavte vlastnost tvaru [FillType](https://reference.aspose.com/slides/cs/python-net/aspose.slides/filltype/) na `SOLID`.
+1. Přiřaďte požadovanou barvu výplně tvaru.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Následující Python kód ukazuje, jak aplikovat jednobarevnou výplň na obdélník v PowerPoint snímku:
+Následující kód v Pythonu ukazuje, jak aplikovat jednobarevnou výplň na obdélník v PowerPoint snímku:
 
 ```python
 import aspose.slides as slides
@@ -386,18 +438,18 @@ Výsledek:
 
 ## **Nastavení průhlednosti**
 
-V PowerPointu, když na tvary použijete jednobarevnou, gradientovou, obrázkovou nebo texturovanou výplň, můžete také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude více průhledný, což umožní viditelnost pozadí nebo podkladových objektů.
+V PowerPointu můžete při aplikaci jednobarevné, gradientní, obrázkové nebo texturové výplně na tvary také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude více průhledný a podklad nebo podřazené objekty budou částečně viditelné.
 
-Aspose.Slides umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty barvy použité pro výplň. Zde je postup:
+Aspose.Slides umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty barvy použitých pro výplň. Postup:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte typ výplně na `SOLID`.
-5. Použijte `Color.from_argb` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
-6. Uložte prezentaci.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Nastavte typ výplně na `SOLID`.
+1. Použijte `Color.from_argb` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
+1. Uložte prezentaci.
 
-Následující Python kód ukazuje, jak aplikovat průhlednou barvu výplně na obdélník:
+Následující kód v Pythonu ukazuje, jak aplikovat transparentní barvu výplně na obdélník:
 
 ```python
 import aspose.pydrawing as draw
@@ -409,10 +461,10 @@ with slides.Presentation() as presentation:
     # Získejte první snímek.
     slide = presentation.slides[0]
     
-    # Přidejte plný obdélníkový automatický tvar.
+    # Přidejte automatický tvar obdélníku s plnou výplní.
     slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Přidejte průhledný obdélníkový automatický tvar nad pevný tvar.
+    # Přidejte průhledný automatický obdélníkový tvar nad pevný tvar.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 150, 75)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
@@ -424,19 +476,19 @@ Výsledek:
 
 ![Průhledný tvar](shape-transparency.png)
 
-## **Otáčení tvarů**
+## **Rotace tvarů**
 
-Aspose.Slides vám umožňuje otáčet tvary v PowerPoint prezentacích. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovými požadavky.
+Aspose.Slides umožňuje otáčet tvary v PowerPoint prezentacích. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovými požadavky.
 
-Pro otáčení tvaru na snímku postupujte takto:
+Pro otočení tvaru na snímku postupujte takto:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte vlastnost `rotation` tvaru na požadovaný úhel.
-5. Uložte prezentaci.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Nastavte vlastnost `rotation` tvaru na požadovaný úhel.
+1. Uložte prezentaci.
 
-Následující Python kód ukazuje, jak otočit tvar o 5 stupňů:
+Následující kód v Pythonu ukazuje, jak otočit tvar o 5 stupňů:
 
 ```python
 import aspose.slides as slides
@@ -459,21 +511,21 @@ with slides.Presentation() as presentation:
 
 Výsledek:
 
-![Otáčení tvaru](shape-rotation.png)
+![Rotace tvaru](shape-rotation.png)
 
 ## **Přidání 3D zkosených efektů**
 
-Aspose.Slides umožňuje aplikovat 3D zkosené efekty na tvary nastavením jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/threedformat/).
+Aspose.Slides umožňuje aplikovat 3D zkosené efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/threedformat/).
 
 Pro přidání 3D zkosených efektů na tvar postupujte takto:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/threedformat/) tvaru pro definování nastavení zkosení.
-5. Uložte prezentaci.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Konfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/threedformat/) tvaru a definujte nastavení zkosení.
+1. Uložte prezentaci.
 
-Následující Python kód ukazuje, jak aplikovat 3D zkosené efekty na tvar:
+Následující kód v Pythonu ukazuje, jak aplikovat 3D zkosené efekty na tvar:
 
 ```python
 import aspose.slides as slides
@@ -509,19 +561,19 @@ Výsledek:
 
 ![3D zkosený efekt](3D-bevel-effect.png)
 
-## **Přidání 3D otáčecích efektů**
+## **Přidání 3D rotačních efektů**
 
-Aspose.Slides umožňuje aplikovat 3D otáčecí efekty na tvary nastavením jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/threedformat/).
+Aspose.Slides umožňuje aplikovat 3D rotační efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/python-net/aspose.slides/threedformat/).
 
-Pro aplikaci 3D otáčení na tvar:
+Pro aplikaci 3D rotace na tvar:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-4. Nastavte [camera_type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/camera/camera_type/) a [light_type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/lightrig/light_type/) tvaru pro definování 3D otáčení.
-5. Uložte prezentaci.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+1. Nastavte [camera_type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/camera/camera_type/) a [light_type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/lightrig/light_type/) tvaru pro definování 3D rotace.
+1. Uložte prezentaci.
 
-Následující Python kód ukazuje, jak aplikovat 3D otáčecí efekty na tvar:
+Následující kód v Pythonu ukazuje, jak aplikovat 3D rotační efekty na tvar:
 
 ```python
 import aspose.slides as slides
@@ -539,17 +591,17 @@ with slides.Presentation() as presentation:
     auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
     auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
 
-    # Uložte prezentaci jako soubor PPTX.
+    # Uložte prezentaci jako soubor PPTX.      
     presentation.save("3D_rotation_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Výsledek:
 
-![3D otáčecí efekt](3D-rotation-effect.png)
+![3D rotační efekt](3D-rotation-effect.png)
 
 ## **Resetování formátování**
 
-Následující Python kód ukazuje, jak resetovat formátování snímku a vrátit pozici, velikost a formátování všech tvarů s placeholdery na [LayoutSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/) na jejich výchozí nastavení:
+Následující kód v Pythonu ukazuje, jak resetovat formátování snímku a vrátit pozici, velikost a formátování všech tvarů s podmíněnými zástupci na [LayoutSlide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/layoutslide/) do jejich výchozích nastavení:
 
 ```python
 import aspose.slides as slides
@@ -557,22 +609,22 @@ import aspose.slides as slides
 with slides.Presentation("sample.pptx") as presentation:
 
     for slide in presentation.slides:
-        # Resetujte každý tvar na snímku, který má zástupný prvek v rozložení.
+        # Resetujte každý tvar na snímku, který má zástupce v rozložení.
         slide.reset()
 
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Ovlivňuje formátování tvarů konečnou velikost souboru prezentace?**
 
-Pouze minimálně. Vložené obrázky a média zabírají většinu místa v souboru, zatímco parametry tvarů jako barvy, efekty a gradienty jsou uloženy jako metadata a téměř nepřidávají žádnou velikost.
+Pouze nepatrně. Vložené obrázky a média zabírají většinu místa v souboru, zatímco parametry tvarů, jako jsou barvy, efekty a gradienty, jsou uloženy jako metadata a téměř nepřidávají žádnou velikost.
 
-**Jak mohu na snímku zjistit tvary, které mají identické formátování, abych je mohl seskupit?**
+**Jak mohu detekovat tvary na snímku, které mají stejný formát, abych je mohl seskupit?**
 
-Porovnejte klíčové vlastnosti formátování každého tvaru – nastavení výplně, čáry a efektů. Pokud se shodují všechny odpovídající hodnoty, považujte jejich styl za identický a logicky seskupte tyto tvary, což usnadní pozdější správu stylů.
+Porovnejte klíčové vlastnosti formátování každého tvaru – nastavení výplně, čáry a efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což později usnadní správu stylů.
 
-**Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opakované použití v jiných prezentacích?**
+**Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opětovné použití v jiných prezentacích?**
 
-Ano. Uložte vzorové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, klonujte potřebné stylované tvary a znovu použijte jejich formátování podle potřeby.
+Ano. Uložte ukázkové tvary s požadovanými styly v šabloně prezentace nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, naklonujte potřebné stylované tvary a znovu použijte jejich formátování podle potřeby.
