@@ -26,102 +26,186 @@ description: "Khám phá các slide, cấu trúc và siêu dữ liệu trong cá
 ---
 ## **Tổng quan**
 
-Bài viết này chỉ ra cách kiểm tra thông tin bản trình chiếu trong Aspose.Slides. Nó giải thích cách xác định định dạng hiện tại của bản trình chiếu mà không cần tải toàn bộ tệp, đọc các thuộc tính tài liệu, và cập nhật những thuộc tính đó khi cần.
+Aspose.Slides có thể xác định định dạng của một bản trình chiếu và đọc siêu dữ liệu tài liệu mà không cần tạo mô hình đối tượng bản trình chiếu hoàn chỉnh. Điều này hữu ích khi bạn cần phân loại tệp, xây dựng một danh mục, hoặc kiểm tra các thuộc tính trước khi quyết định có tải và xử lý nội dung bản trình chiếu hay không.
 
-Các ví dụ dựa trên các API [PresentationInfo](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/) và [DocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/) và minh họa các thao tác điển hình khi làm việc với siêu dữ liệu của bản trình chiếu.
+Bài viết này trình bày cách kiểm tra nhẹ nhàng thông qua [PresentationFactory](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationfactory/) và [PresentationInfo](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/), cũng như các cập nhật có mục tiêu thông qua [DocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/).
 
-## **Kiểm tra Định dạng Bản trình chiếu**
+## **Kiểm tra định dạng bản trình chiếu**
 
-Trước khi làm việc với một bản trình chiếu, bạn có thể muốn tìm hiểu nó đang ở định dạng nào (PPT, PPTX, ODP, và các định dạng khác) vào thời điểm hiện tại.
-
-Bạn có thể kiểm tra định dạng của bản trình chiếu mà không cần tải nó. Xem đoạn JavaScript sau:
+Sử dụng [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) để kiểm tra một tệp mà không cần tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/). Phương thức [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/getloadformat/) trả về định dạng được phát hiện, ví dụ như PPTX, PPT hoặc ODP.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = require("aspose.slides.via.java");
 
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-console.log(info.getLoadFormat());// PPTX
-var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-console.log(info2.getLoadFormat());// PPT
-var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-console.log(info3.getLoadFormat());// ODP
+const fileNames = ["pres.pptx", "pres.ppt", "pres.odp"];
+
+for (const fileName of fileNames) {
+    const presentationInfo = aspose.PresentationFactory.getInstance().getPresentationInfo(fileName);
+    const loadFormat = presentationInfo.getLoadFormat();
+    let formatName = `Other (${loadFormat})`;
+
+    if (loadFormat === aspose.LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat === aspose.LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat === aspose.LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    console.log(`${fileName}: ${formatName}`);
+}
 ```
 
-## **Lấy Thuộc tính Bản trình chiếu**
+## **Xây dựng danh mục bản trình chiếu nhẹ**
 
-Mã JavaScript này cho bạn cách lấy các thuộc tính của bản trình chiếu (thông tin về bản trình chiếu):
+Khi bạn xử lý nhiều tệp bản trình chiếu, bạn có thể cần một danh mục gọn nhẹ để xác thực, lập chỉ mục, hoặc cho hệ thống quản lý tài liệu. Trong trường hợp này, sử dụng [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) để lấy một đối tượng [PresentationInfo](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/), sau đó gọi [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) để đọc siêu dữ liệu tài liệu. Cách tiếp cận này không tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) và không yêu cầu bạn phải duyệt toàn bộ mô hình đối tượng bản trình chiếu.
+
+Các thuộc tính mở rộng được [DocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/) cung cấp các giá trị danh mục sau:
+
+| Phương thức | Giá trị danh mục |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getSlides) | Tổng số slide. |
+| [getHiddenSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getHiddenSlides) | Số slide ẩn. |
+| [getNotes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getNotes) | Số slide có ghi chú. |
+| [getParagraphs](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getParagraphs) | Tổng số đoạn văn, nếu có. |
+| [getWords](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getWords) | Tổng số từ. |
+| [getMultimediaClips](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getMultimediaClips) | Tổng số clip âm thanh và video. |
+
+Ví dụ sau đọc các giá trị này mà không tạo đối tượng [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) và in ra một danh mục gọn nhẹ. Nó cũng kết hợp [DocumentProperties.getHeadingPairs](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getHeadingPairs) với [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getTitlesOfParts) để hiển thị các nhóm nội dung như phông chữ, giao diện và tiêu đề slide.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const path = require("path");
+const aspose = require("aspose.slides.via.java");
 
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-var props = info.readDocumentProperties();
-console.log(props.getCreatedTime());
-console.log(props.getSubject());
-console.log(props.getTitle());
-// ..
+const filePath = "sample.pptx";
+const presentationInfo = aspose.PresentationFactory.getInstance().getPresentationInfo(filePath);
+const documentProperties = presentationInfo.readDocumentProperties();
+
+const loadFormat = presentationInfo.getLoadFormat();
+let formatName = `Other (${loadFormat})`;
+
+if (loadFormat === aspose.LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat === aspose.LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat === aspose.LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+console.log(`File: ${path.basename(filePath)}`);
+console.log(`Format: ${formatName}`);
+console.log(`Title: ${documentProperties.getTitle()}`);
+console.log(`Author: ${documentProperties.getAuthor()}`);
+console.log("Statistics:");
+console.log(`  Slides: ${documentProperties.getSlides()}`);
+console.log(`  Hidden slides: ${documentProperties.getHiddenSlides()}`);
+console.log(`  Slides with notes: ${documentProperties.getNotes()}`);
+console.log(`  Paragraphs: ${documentProperties.getParagraphs()}`);
+console.log(`  Words: ${documentProperties.getWords()}`);
+console.log(`  Multimedia clips: ${documentProperties.getMultimediaClips()}`);
+
+const headingPairs = documentProperties.getHeadingPairs() || [];
+const titlesOfParts = documentProperties.getTitlesOfParts() || [];
+let partIndex = 0;
+
+if (headingPairs.length === 0 || titlesOfParts.length === 0) {
+    console.log("Content groups: not available");
+} else {
+    console.log("Content groups:");
+
+    for (const headingPair of headingPairs) {
+        const partCount = headingPair.getCount();
+        console.log(`  ${headingPair.getName()} (${partCount})`);
+
+        for (let partOffset = 0; partOffset < partCount && partIndex < titlesOfParts.length; partOffset++) {
+            console.log(`    - ${titlesOfParts[partIndex]}`);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        console.log("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            console.log(`    - ${titlesOfParts[partIndex]}`);
+            partIndex++;
+        }
+    }
+}
 ```
 
-Bạn có thể muốn xem [các thuộc tính dưới lớp DocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) .
+Mỗi [HeadingPair](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/headingpair/) cung cấp một tên nhóm thông qua [HeadingPair.getName](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/headingpair/#getName) và số lượng mục trong nhóm đó qua [HeadingPair.getCount](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/headingpair/#getCount). [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getTitlesOfParts) trả về một mảng phẳng, có thứ tự, vì vậy hãy tiêu thụ số lượng tiêu đề liên tiếp được chỉ định bởi mỗi cặp tiêu đề.
 
-## **Cập nhật Thuộc tính Bản trình chiếu**
+### **Siêu dữ liệu đã lưu và giới hạn định dạng**
 
-Aspose.Slides cung cấp phương thức [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) cho phép bạn thực hiện các thay đổi đối với thuộc tính của bản trình chiếu.
+Các thuộc tính danh mục được [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) trả về phản ánh siêu dữ liệu có trong tài liệu nguồn. Aspose.Slides không tải và duyệt mô hình đối tượng bản trình chiếu để tính lại các giá trị này cho lời gọi này. Các thuộc tính thiếu được biểu thị bằng các giá trị mặc định, và các giá trị đã lưu có thể đã lỗi thời nếu ứng dụng lưu tệp lần cuối không cập nhật các thuộc tính tài liệu.
 
-Giả sử chúng ta có một bản PowerPoint với các thuộc tính tài liệu như bên dưới.
+- **PPTX:** Định dạng cung cấp các thuộc tính tài liệu mở rộng cho số lượng slide, ghi chú, slide ẩn, đoạn văn, từ và đa phương tiện, cũng như các cặp tiêu đề và tiêu đề phần. Tính khả dụng phụ thuộc vào các thuộc tính mà nhà sản xuất tài liệu đã ghi.
+- **PPT:** Định dạng nhị phân có thể lưu các thuộc tính tóm tắt tài liệu tương ứng. Nếu một thuộc tính không có hoặc không được nhà sản xuất tài liệu làm mới, Aspose.Slides sẽ trả về giá trị đã lưu hoặc mặc định thay vì tính toán từ các slide.
+- **ODP:** Siêu dữ liệu OpenDocument cung cấp các thống kê tài liệu chung, như số trang, đoạn văn và từ, nhưng các giá trị này không tương ứng với mọi thuộc tính mở rộng riêng của PowerPoint. Siêu dữ liệu slide ẩn, slide ghi chú, đa phương tiện, cặp tiêu đề và tiêu đề phần có thể không khả dụng, và các thuộc tính danh mục có thể trả về giá trị mặc định. Không coi giá trị không hoặc mảng rỗng là bằng chứng chắc chắn rằng nội dung tương ứng không tồn tại.
 
-![Thuộc tính tài liệu gốc của bản PowerPoint](input_properties.png)
+Sử dụng cách tiếp cận siêu dữ liệu nhẹ cho việc tạo danh mục và kiểm tra sơ bộ. Tải bản trình chiếu và kiểm tra mô hình đối tượng động của nó khi kết quả cần phản ánh các thay đổi trong bộ nhớ hoặc khi bạn cần xác minh nội dung thực tế của bản trình chiếu.
 
-Đoạn mã này cho bạn thấy cách chỉnh sửa một số thuộc tính của bản trình chiếu:
+## **Cập nhật thuộc tính bản trình chiếu**
+
+Các thuộc tính được [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) trả về cũng có thể được thay đổi mà không cần tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/). Áp dụng các thay đổi bằng [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/updatedocumentproperties/), sau đó ghi bản trình chiếu đã ràng buộc bằng [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/writebindedpresentation/).
+
+Hình ảnh sau hiển thị các thuộc tính tài liệu gốc của bản trình chiếu PowerPoint:
+
+![Các thuộc tính tài liệu gốc của bản trình chiếu PowerPoint](input_properties.png)
+
+Ví dụ sau thay đổi tiêu đề và thời gian lưu lần cuối và ghi kết quả vào một tệp mới:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = require("aspose.slides.via.java");
 const java = require("java");
 
-let fileName = "sample.pptx";
+const sourceFile = "sample.pptx";
+const outputFile = "sample_with_updated_properties.pptx";
+const presentationInfo = aspose.PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+const documentProperties = presentationInfo.readDocumentProperties();
 
-let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(java.newInstanceSync("java.util.Date"));
 
-let properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(java.newInstanceSync("java.util.Date"));
-
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+const outputStream = java.newInstanceSync("java.io.FileOutputStream", outputFile);
+try {
+    presentationInfo.writeBindedPresentation(outputStream);
+} finally {
+    outputStream.close();
+}
 ```
 
-Kết quả của việc thay đổi các thuộc tính tài liệu được hiển thị dưới đây.
+Hình ảnh sau hiển thị các thuộc tính tài liệu đã cập nhật của bản trình chiếu PowerPoint:
 
-![Thuộc tính tài liệu đã thay đổi của bản PowerPoint](output_properties.png)
+![Các thuộc tính tài liệu đã cập nhật của bản trình chiếu PowerPoint](output_properties.png)
 
-## **Liên kết Hữu ích**
+## **Liên kết hữu ích**
 
-Để biết thêm thông tin về một bản trình chiếu và các thuộc tính bảo mật của nó, bạn có thể tham khảo các liên kết sau:
+Đối với các kiểm tra bảo mật và cài đặt bảo vệ liên quan, xem các bài viết sau:
 
-- [Bảo mật Bản trình chiếu bằng Mật khẩu](/slides/vi/nodejs-java/password-protected-presentation/)
-- [Bảo vệ Bản trình chiếu khỏi Việc Ghi](/slides/vi/nodejs-java/write-protected-presentation/)
+- [Bảo mật bằng mật khẩu cho bản trình chiếu](/slides/vi/nodejs-java/password-protected-presentation/)
+- [Bảo vệ bằng ghi cho bản trình chiếu](/slides/vi/nodejs-java/write-protected-presentation/)
 
 ## **Câu hỏi thường gặp**
 
-**Làm sao tôi có thể kiểm tra xem phông chữ có được nhúng hay không và chúng là những phông nào?**
+**Làm cách nào để kiểm tra xem phông chữ có được nhúng hay không và chúng là những phông chữ nào?**
 
-Tìm kiếm [thông tin phông chữ nhúng](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) ở cấp độ bản trình chiếu, sau đó so sánh các mục này với tập hợp [phông chữ thực sự được sử dụng trong nội dung](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getfonts/) để xác định phông chữ nào là quan trọng cho việc hiển thị.
+Tải bản trình chiếu và sử dụng [Presentation.getFontsManager](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getfontsmanager/). Gọi [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) để lấy các phông chữ đã nhúng và [FontsManager.getFonts](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fontsmanager/getfonts/) để lấy các phông chữ được sử dụng trong bản trình chiếu. So sánh hai kết quả để tìm các phông chữ cần thiết cho việc hiển thị nhưng chưa được nhúng.
 
-**Làm sao tôi có thể nhanh chóng biết tệp có slide ẩn và có bao nhiêu slide ẩn?**
+**Làm sao nhanh chóng xác định tệp có slide ẩn hay không và bao nhiêu?**
 
-Duyệt qua [bộ sưu tập slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidecollection/) và kiểm tra [cờ hiển thị](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/gethidden/) của từng slide.
+Khi siêu dữ liệu tài liệu đã lưu đủ, đọc [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/documentproperties/#getHiddenSlides) thông qua [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) và [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/). Cách này phù hợp cho một danh mục nhẹ. Nếu bản trình chiếu đã được sửa đổi trong bộ nhớ, siêu dữ liệu đã lưu có thể thiếu hoặc lỗi thời, hoặc bạn cần xác minh các giá trị động, hãy duyệt qua [Presentation.getSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getslides/) và kiểm tra phương thức [Slide.getHidden](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/gethidden/) của mỗi slide.
 
-**Tôi có thể phát hiện xem có sử dụng kích thước và định hướng slide tùy chỉnh không, và chúng có khác với mặc định không?**
+**Tôi có thể phát hiện xem kích thước và hướng slide tùy chỉnh có được sử dụng không, và chúng có khác so với mặc định không?**
 
-Có. So sánh [kích thước slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getslidesize/) và định hướng hiện tại với các thiết lập chuẩn; việc này giúp dự đoán hành vi khi in và xuất file.
+Có. Tải bản trình chiếu và gọi [Presentation.getSlideSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getslidesize/). Sử dụng [SlideSize.getType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidesize/gettype/), [SlideSize.getSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidesize/getsize/), và [SlideSize.getOrientation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slidesize/getorientation/) để so sánh các cài đặt hiện tại với các cấu hình và kích thước dự kiến.
 
-**Có cách nhanh để xem các biểu đồ có tham chiếu đến nguồn dữ liệu bên ngoài không?**
+**Có cách nhanh để kiểm tra biểu đồ có tham chiếu nguồn dữ liệu bên ngoài không?**
 
-Có. Duyệt tất cả các [biểu đồ](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chart/), kiểm tra [nguồn dữ liệu](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) của chúng, và ghi chú liệu dữ liệu là nội bộ hay dựa trên liên kết, bao gồm cả các liên kết bị hỏng.
+Có. Tìm mỗi [Chart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chart/) và gọi [ChartData.getDataSourceType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getdatasourcetype/). Đối với một workbook bên ngoài, gọi [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/). Loại nguồn dữ liệu và đường dẫn xác định tham chiếu bên ngoài, nhưng việc kiểm tra xem mục tiêu có tồn tại hay không cần một kiểm tra tài nguyên riêng.
 
-**Làm sao tôi đánh giá các slide “nặng” có thể làm chậm quá trình render hoặc xuất PDF?**
+**Làm sao tôi có thể đánh giá các slide 'nặng' có thể làm chậm việc render hoặc xuất PDF?**
 
-Đối với mỗi slide, đếm số lượng đối tượng và tìm các hình ảnh lớn, độ trong suốt, bóng đổ, hoạt ảnh và đa phương tiện; đưa ra một điểm số phức tạp ước lượng để đánh dấu các điểm nóng hiệu năng tiềm năng.
+Không có một thuộc tính độ phức tạp duy nhất. Duyệt [Presentation.getSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getslides/) và bộ sưu tập [BaseSlide.getShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/#getShapes) của mỗi slide. Sử dụng số lượng hình dạng và sự hiện diện của hình ảnh lớn, hiệu ứng, hoạt ảnh hoặc đa phương tiện như các tín hiệu sàng lọc, và đo một lần render hoặc export đại diện trước khi coi một slide là nút thắt hiệu năng đã xác nhận.

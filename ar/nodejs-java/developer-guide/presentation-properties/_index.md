@@ -1,5 +1,6 @@
 ---
-title: خصائص العرض التقديمي
+title: إدارة خصائص العرض التقديمي في JavaScript
+linktitle: خصائص العرض التقديمي
 type: docs
 weight: 70
 url: /ar/nodejs-java/presentation-properties/
@@ -10,59 +11,68 @@ keywords:
 - خصائص مدمجة
 - خصائص مخصصة
 - خصائص متقدمة
+- إدارة الخصائص
 - تعديل الخصائص
-- بيانات تعريف المستند
-- تعديل بيانات التعريف
+- بيانات وصفية للمستند
+- تحرير البيانات الوصفية
+- لغة التدقيق
+- اللغة الافتراضية
 - PowerPoint
-- العرض التقديمي
+- OpenDocument
+- عرض تقديمي
 - Node.js
 - JavaScript
-- Aspose.Slides for Node.js via Java
-description: "إدارة خصائص عرض PowerPoint في JavaScript"
+- Aspose.Slides
+description: "تحكم كامل في خصائص العرض التقديمي باستخدام Aspose.Slides for Node.js عبر Java وقم بتبسيط البحث والعلامة التجارية وسير العمل في ملفات PowerPoint و OpenDocument الخاصة بك."
 ---
+## **المقدمة**
 
-{{% alert color="primary" %}} 
+يدعم Aspose.Slides نوعين من خصائص المستند: **Built-in** و **Custom**. يمكن الوصول إلى كلا النوعين من الخصائص وإدارتهما بسهولة باستخدام Aspose.Slides API.
 
-يوفر Microsoft PowerPoint ميزة لإضافة بعض الخصائص إلى ملفات العروض التقديمية. تسمح هذه الخصائص الوثائقية بتخزين معلومات مفيدة إلى جانب المستندات (ملفات العروض التقديمية). هناك نوعان من الخصائص الوثائقية كما يلي
+يسمح Aspose.Slides لك بالعمل مع خصائص مستند العرض التقديمي من خلال فئة [DocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties/) . يتم إرجاع نسخة من هذه الفئة بواسطة طريقة [Presentation.getDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#getDocumentProperties) . تُظهر الأمثلة التالية كيفية قراءة هذه الخصائص وتعديلها وإدارتها.
 
-- الخصائص المعرفة من النظام (المضمنة)
-- الخصائص المعرفة من المستخدم (المخصصة)
-
-**المضمنة** تحتوي على معلومات عامة عن المستند مثل عنوان المستند، اسم المؤلف، إحصاءات المستند وغيرها. **المخصصة** هي تلك التي يحددها المستخدمون كأزواج **اسم/قيمة**، حيث يتم تحديد كل من الاسم والقيمة من قبل المستخدم. باستخدام Aspose.Slides for Node.js via Java، يمكن للمطورين الوصول إلى قيم الخصائص المضمنة وتعديلها وكذلك الخصائص المخصصة.
-
+{{% alert color="info" title="ملاحظة" %}}
+يرجى ملاحظة أن حقلي **Application** و **AppVersion** لا يمكن تعديلهما. يقوم Aspose.Slides بإعادة كتابتهما عند كل حفظ، لذلك دائمًا ما يعرض العرض المحفوظ "Aspose.Slides for Node.js via Java" وإصدار المكتبة التي أنشأته. أي قيمة تُمرَّر إلى `setNameOfApplication` يتم تجاهلها عند كتابة العرض.
 {{% /alert %}} 
+
+## **إدارة خصائص العرض التقديمي**
+
+توفر Microsoft PowerPoint ميزة لإضافة بعض الخصائص إلى ملفات العرض التقديمي. تسمح هذه الخصائص المستندية بتخزين معلومات مفيدة جنبًا إلى جنب مع المستندات (ملفات العرض). هناك نوعان من خصائص المستند كما يلي
+
+- خصائص معرفة بالنظام (Built-in)
+- خصائص معرفة من قبل المستخدم (Custom)
+
+تحتوي الخصائص **Built-in** على معلومات عامة حول المستند مثل عنوان المستند، اسم المؤلف، إحصاءات المستند وما إلى ذلك. الخصائص **Custom** هي تلك التي يقوم المستخدمون بتعريفها كأزواج **Name/Value**، حيث يتم تعريف كل من الاسم والقيمة من قبل المستخدم. باستخدام Aspose.Slides for Node.js via Java، يمكن للمطورين الوصول إلى قيم الخصائص المدمجة وكذلك الخصائص المخصصة وتعديلها.
 
 ## **خصائص المستند في PowerPoint**
 
-يتيح Microsoft PowerPoint 2007 إدارة خصائص المستند لملفات العروض التقديمية. كل ما عليك فعله هو النقر على أيقونة Office ثم اختيار العنصر **Prepare | Properties | Advanced Properties** في قائمة Microsoft PowerPoint 2007 كما هو موضح أدناه:
-
-{{% alert color="primary" %}} 
-
-يرجى ملاحظة أنه لا يمكنك تعيين قيم لحقلَي **Application** و **Producer**، لأن Aspose Ltd. و Aspose.Slides for Node.js via Java x.x.x سيتم عرضهما في هذين الحقلين.
-
-{{% /alert %}} 
+يتيح Microsoft PowerPoint 2007 إدارة خصائص المستند لملفات العرض التقديمي. كل ما عليك هو النقر على أيقونة Office ثم اختيار **Prepare | Properties | Advanced Properties** كما هو موضح أدناه:
 
 |**تحديد عنصر القائمة Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-بعد تحديدك لعنصر القائمة **Advanced Properties**، سيظهر مربع حوار يتيح لك إدارة خصائص المستند لملف PowerPoint كما هو موضح أدناه في الشكل:
+بعد اختيار عنصر القائمة **Advanced Properties**، سيظهر حوار يتيح لك إدارة خصائص المستند لملف PowerPoint كما هو موضح في الشكل أدناه:
 
-|**مربع حوار الخصائص**|** |
+|**حوار الخصائص**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-في **مربع حوار الخصائص** أعلاه، يمكنك رؤية وجود العديد من صفحات التبويب مثل **General**، **Summary**، **Statistics**، **Contents** و **Custom**. جميع هذه الصفحات تسمح بتكوين أنواع مختلفة من المعلومات المتعلقة بملفات PowerPoint. يتم استخدام تبويب **Custom** لإدارة الخصائص المخصصة لملفات PowerPoint.
+في **حوار الخصائص** أعلاه، يمكنك رؤية أن هناك العديد من تبويبات مثل **General** و **Summary** و **Statistics** و **Contents** و **Custom**. تتيح جميع هذه التبويبات تكوين أنواع مختلفة من المعلومات المتعلقة بملفات PowerPoint. تُستخدم تبويبة **Custom** لإدارة الخصائص المخصصة لملفات PowerPoint.
 
-العمل مع خصائص المستند باستخدام Aspose.Slides for Node.js via Java
+## **العمل مع خصائص المستند باستخدام Aspose.Slides for Node.js via Java**
 
-كما أوضحنا سابقًا أن Aspose.Slides for Node.js via Java يدعم نوعين من خصائص المستند، وهما الخصائص **Built-in** و **Custom**. لذلك يمكن للمطورين الوصول إلى كلا النوعين من الخصائص باستخدام واجهة Aspose.Slides for Node.js via Java API. توفر Aspose.Slides for Node.js via Java فئة [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties) التي تمثل خصائص المستند المرتبطة بملف عرض تقديمي عبر خاصية **Presentation.DocumentProperties**.
+كما وصفنا سابقًا، يدعم Aspose.Slides for Node.js via Java نوعين من خصائص المستند، وهما الخصائص **Built-in** والخصائص **Custom**. وبالتالي يمكن للمطورين الوصول إلى كلا النوعين من الخصائص باستخدام واجهة برمجة تطبيقات Aspose.Slides for Node.js via Java. يقدم Aspose.Slides for Node.js via Java الفئة [DocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties) التي تمثل خصائص المستند المرتبطة بملف العرض التقديمي من خلال خاصية **Presentation.DocumentProperties**.
 
-يمكن للمطورين استخدام الخاصية **DocumentProperties** التي تعرضها كائن [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) للوصول إلى خصائص المستند لملفات العرض التقديمي كما هو موضح أدناه:
+يمكن للمطورين استخدام خاصية **DocumentProperties** التي يطرحها كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation) للوصول إلى خصائص المستند لملفات العرض التقديمي كما هو موضح أدناه:
 
-## **الوصول إلى الخصائص المضمنة**
+## **الوصول إلى الخصائص Built-in**
 
-تتضمن هذه الخصائص التي تعرضها كائن [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties) ما يلي: **Creator** (المؤلف)، **Description**، **Keywords**، **Created** (تاريخ الإنشاء)، **Modified** (تاريخ التعديل)، **Printed** (تاريخ الطباعة الأخير)، **LastModifiedBy**، **Keywords**، **SharedDoc** (هل يتم مشاركته بين منتجين مختلفين؟)، **PresentationFormat**، **Subject** و **Title**.
+تشمل هذه الخصائص التي يطرحها كائن [DocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties) ما يلي: **Creator** (المؤلف)، **Description**، **Keywords**، **Created** (تاريخ الإنشاء)، **Modified** (تاريخ التعديل)، **Printed** (تاريخ الطباعة الأخير)، **LastModifiedBy**، **Keywords**، **SharedDoc** (هل هو مشترك بين منتجين مختلفين؟)، **PresentationFormat**، **Subject** و **Title**.
+
 ```javascript
-// إنشاء كائن فئة Presentation التي تمثل العرض التقديمي
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// إنشاء كائن من الفئة Presentation الذي يمثل العرض التقديمي
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // إنشاء مرجع إلى كائن IDocumentProperties المرتبط بالعرض التقديمي
@@ -89,16 +99,19 @@ try {
 }
 ```
 
+## **تعديل الخصائص Built-in**
 
-## **تعديل الخصائص المضمنة**
+تعديل الخصائص المدمجة لملفات العرض التقديمي سهل كالوصول إليها. يمكنك ببساطة تعيين قيمة نصية لأي خاصية ترغب فيها وسيتم تعديل قيمة الخاصية. في المثال أدناه، عرضنا كيفية تعديل خصائص المستند المدمجة لملف العرض باستخدام Aspose.Slides for Node.js via Java.
 
-تعديل الخصائص المضمنة لملفات العرض التقديمي سهل كما هو الحال في الوصول إليها. يمكنك ببساطة تعيين قيمة نصية لأي خاصية تريدها وسيتم تعديل قيمة الخاصية. في المثال المذكور أدناه، عرضنا كيفية تعديل خصائص المستند المضمنة لملف العرض التقديمي باستخدام Aspose.Slides for Node.js via Java.
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // إنشاء مرجع إلى كائن IDocumentProperties المرتبط بالعرض التقديمي
     var dp = pres.getDocumentProperties();
-    // تعيين الخصائص المدمجة
+    // ضبط الخصائص المدمجة
     dp.setAuthor("Aspose.Slides for Node.js via Java");
     dp.setTitle("Modifying Presentation Properties");
     dp.setSubject("Aspose Subject");
@@ -113,26 +126,29 @@ try {
 }
 ```
 
+يقوم هذا المثال بتعديل الخصائص المدمجة للعرض التقديمي ويمكن رؤيتها كما هو موضح أدناه:
 
-يقوم هذا المثال بتعديل الخصائص المضمنة للعرض التقديمي والتي يمكن رؤيتها كما هو موضح أدناه:
-
-|**خصائص المستند المضمنة بعد التعديل**|** |
+|**خصائص المستند المدمجة بعد التعديل**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **إضافة خصائص مستند مخصصة**
 
-كما يسمح Aspose.Slides for Node.js via Java للمطورين بإضافة القيم المخصصة لخصائص المستند في العرض التقديمي. تم تقديم مثال أدناه يوضح كيفية تعيين الخصائص المخصصة للعرض التقديمي.
+كما يسمح Aspose.Slides for Node.js via Java للمطورين بإضافة القيم المخصصة لخصائص مستند العرض التقديمي. يُظهر المثال أدناه كيفية ضبط الخصائص المخصصة للعرض.
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
-    // جلب خصائص المستند
+    // الحصول على خصائص المستند
     var dProps = pres.getDocumentProperties();
     // إضافة خصائص مخصصة
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
-    // جلب اسم الخاصية عند فهرس معين
+    // الحصول على اسم الخاصية في فهرس معين
     var getPropertyName = dProps.getCustomPropertyName(2);
     // إزالة الخاصية المحددة
     dProps.removeCustomProperty(getPropertyName);
@@ -145,15 +161,18 @@ try {
 }
 ```
 
-
-|**تم إضافة خصائص المستند المخصصة**|** |
+|**تمت إضافة خصائص المستند المخصصة**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **الوصول إلى الخصائص المخصصة وتعديلها**
 
-كما يسمح Aspose.Slides for Node.js via Java للمطورين بالوصول إلى قيم الخصائص المخصصة. تم تقديم مثال أدناه يوضح كيفية الوصول إلى جميع هذه الخصائص المخصصة وتعديلها للعرض التقديمي.
+كما يسمح Aspose.Slides for Node.js via Java للمطورين بالوصول إلى قيم الخصائص المخصصة. يُظهر المثال أدناه كيفية الوصول إلى جميع هذه الخصائص المخصصة وتعديلها لعرض تقديمي.
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // إنشاء مرجع إلى كائن DocumentProperties المرتبط بالعرض التقديمي
@@ -175,8 +194,7 @@ try {
 }
 ```
 
-
-يقوم هذا المثال بتعديل الخصائص المخصصة للـ[PPTX ](https://docs.fileformat.com/presentation/pptx/)العرض التقديمي. تُظهر الأشكال التالية خصائص العرض التقديمي المخصصة قبل وبعد التعديل:
+يقوم هذا المثال بتعديل الخصائص المخصصة لـ [PPTX ](https://docs.fileformat.com/presentation/pptx/)العرض التقديمي. تُظهر الأشكال التالية خصائص العرض التقديمي المخصصة قبل وبعد التعديل:
 
 |**الخصائص المخصصة قبل التعديل**|** |
 | :- | :- |
@@ -188,27 +206,42 @@ try {
 
 ## **خصائص المستند المتقدمة**
 
-{{% alert color="primary" %}} 
-
-تم إضافة طرق جديدة [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--)، [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-)، و[WriteBindedPresentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) إلى [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo)، وتم تعديل منطق مُعين خاصية [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-).
+{{% alert color="info" title="ملاحظة" %}}
+تم إضافة الطرق الجديدة [ReadDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--)، [UpdateDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-)، و[WriteBindedPresentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) إلى [PresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PresentationInfo)، وتم تغيير منطق المعيّن الخاص بالخاصية [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-).
 {{% /alert %}} 
 
-تمت إضافة الطريقتين الجديدتين [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) و[UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) إلى فئة [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo). توفران وصولًا سريعًا إلى خصائص المستند وتسمحان بتغيير وتحديث الخصائص دون تحميل العرض التقديمي بالكامل.
+تمت إضافة الطريقتين الجديدتين [ReadDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) و[UpdateDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) إلى فئة [PresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/PresentationInfo). توفران وصولًا سريعًا إلى خصائص المستند وتسمحان بتغيير وتحديث الخصائص دون تحميل العرض التقديمي بالكامل.
 
-يمكن تنفيذ السيناريو الشائع بتحميل الخصائص، تعديل قيمة ما، ثم تحديث المستند على النحو التالي:
+يمكن تنفيذ السيناريو النموذجي لتحميل الخصائص، تغيير قيمة ما وتحديث المستند بالطريقة التالية:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // قراءة معلومات العرض التقديمي
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
+// الحصول على الخصائص الحالية
 var props = info.readDocumentProperties();
+// ضبط القيم الجديدة لحقل المؤلف والعنوان
 props.setAuthor("New Author");
 props.setTitle("New Title");
+// تحديث العرض التقديمي بقيم جديدة
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-
 هناك طريقة أخرى لاستخدام خصائص عرض تقديمي معين كقالب لتحديث الخصائص في عروض تقديمية أخرى:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+function updateByTemplate(path, template) {
+    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
+
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 var template = info.readDocumentProperties();
 template.setAuthor("Template Author");
@@ -225,6 +258,9 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateByTemplate(path, template) 
 {
     var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
@@ -233,9 +269,18 @@ function updateByTemplate(path, template)
 }
 ```
 
-
 يمكن إنشاء قالب جديد من الصفر ثم استخدامه لتحديث عدة عروض تقديمية:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+function updateByTemplate(path, template) {
+    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
+
 var template = new aspose.slides.DocumentProperties();
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -251,6 +296,9 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 function updateByTemplate(path, template) 
 {
     var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
@@ -259,14 +307,17 @@ function updateByTemplate(path, template)
 }
 ```
 
-
 ## **ضبط لغة التدقيق**
 
-توفر Aspose.Slides الخاصية LanguageId (التي تعرضها فئة PortionFormat) لتتيح لك ضبط لغة التدقيق لملف PowerPoint. لغة التدقيق هي اللغة التي يتم فيها فحص الإملاء والقواعد في PowerPoint.
+يوفر Aspose.Slides الخاصية LanguageId (المُعرَّضة من قبل فئة PortionFormat) لتسمح لك بضبط لغة التدقيق لملف PowerPoint. لغة التدقيق هي اللغة التي يتم فيها فحص الإملاء والقواعد النحوية في PowerPoint.
 
-يعرض لك هذا الكود JavaScript كيفية ضبط لغة التدقيق لملف PowerPoint: xxx لماذا الخاصية LanguageId مفقودة في فئة JavaScript PortionFormat؟
+يظهر هذا الشيفرة JavaScript كيفية ضبط لغة التدقيق لملف PowerPoint: xxx لماذا الخاصية LanguageId مفقودة في فئة JavaScript PortionFormat؟
+
 ```javascript
-var pres = new aspose.slides.Presentation(pptxFileName);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
@@ -287,11 +338,14 @@ try {
 }
 ```
 
-
 ## **ضبط اللغة الافتراضية**
 
-يعرض لك هذا الكود JavaScript كيفية ضبط اللغة الافتراضية لعرض PowerPoint كامل:
+يظهر هذا الشيفرة JavaScript كيفية ضبط اللغة الافتراضية لكامل عرض PowerPoint:
+
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 var pres = new aspose.slides.Presentation(loadOptions);
@@ -308,23 +362,22 @@ try {
 }
 ```
 
-
 ## **مثال حي**
 
-جرّب تطبيق الويب [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) لتعرف كيف تتعامل مع خصائص المستند عبر Aspose.Slides API:
+جرّب التطبيق [**Aspose.Slides Metadata**](https://products.aspose.app/slides/ar/metadata) عبر الإنترنت لمعرفة كيفية العمل مع خصائص المستند عبر Aspose.Slides API:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/ar/metadata)
 
-## ***الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**كيف يمكنني إزالة خاصية مضمَّنة من عرض تقديمي؟**
+**كيف يمكنني إزالة خاصية مدمجة من عرض تقديمي؟**
 
-الخصائص المضمنة هي جزء أساسي من العرض ولا يمكن إزالتها تمامًا. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها كقيمة فارغة إذا سمحت الخاصية المحددة بذلك.
+الخصائص المدمجة هي جزء لا يتجزأ من العرض ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو ضبطها كقيمة فارغة إذا سمحت الخاصية المحددة بذلك.
 
-**ماذا يحدث إذا أضفت خاصية مخصصة موجودة مسبقًا؟**
+**ماذا يحدث إذا أضفت خاصية مخصصة موجودة بالفعل؟**
 
-إذا أضفت خاصية مخصصة موجودة مسبقًا، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة الخاصية أو التحقق منها مسبقًا، حيث تقوم Aspose.Slides بتحديث قيمة الخاصية تلقائيًا.
+إذا أضفت خاصية مخصصة موجودة بالفعل، فسيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة أو التحقق من الخاصية مسبقًا، حيث يقوم Aspose.Slides تلقائيًا بتحديث قيمة الخاصية.
 
-**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميله بالكامل؟**
+**هل يمكنني الوصول إلى خصائص العرض دون تحميل العرض بالكامل؟**
 
-نعم، يمكنك الوصول إلى خصائص العرض التقديمي دون تحميله بالكامل باستخدام طريقة `getPresentationInfo` من فئة [PresentationFactory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/). ثم استخدم طريقة `readDocumentProperties` التي توفرها فئة [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/) لقراءة الخصائص بكفاءة، مما يوفر الذاكرة ويحسن الأداء.
+نعم. استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) ثم [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) لقراءة البيانات الوصفية للمستند المخزنة دون إنشاء نسخة من [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) . راجع [Build a Lightweight Presentation Inventory](/slides/ar/nodejs-java/examine-presentation/) للحصول على مثال كامل للتقارير والقيود الخاصة بالصيغة.

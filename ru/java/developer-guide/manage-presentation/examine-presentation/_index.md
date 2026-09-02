@@ -1,5 +1,5 @@
 ---
-title: Получить и обновить информацию о презентации на Java
+title: Получить и обновить информацию о презентации в Java
 linktitle: Информация о презентации
 type: docs
 weight: 30
@@ -13,113 +13,204 @@ keywords:
 - изменить свойства
 - модифицировать свойства
 - обновить свойства
-- анализировать PPTX
-- анализировать PPT
-- анализировать ODP
+- исследовать PPTX
+- исследовать PPT
+- исследовать ODP
 - PowerPoint
 - OpenDocument
 - презентация
 - Java
 - Aspose.Slides
-description: "Изучайте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью Java для более быстрых инсайтов и более умных проверок контента."
+description: "Исследуйте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument с помощью Java для более быстрых инсайтов и умных проверок контента."
 ---
 ## **Обзор**
 
-В этой статье показано, как просматривать информацию о презентации в Aspose.Slides. Описывается, как определить текущий формат презентации без полной загрузки файла, прочитать её свойства документа и при необходимости обновить эти свойства.
+Aspose.Slides может определять формат презентации и читать её метаданные документа без создания полной модели объектной структуры презентации. Это полезно, когда необходимо классифицировать файлы, создавать инвентарь или проверять свойства перед тем, как решить, загружать и обрабатывать содержимое презентации.
 
-Примеры основаны на API [PresentationInfo](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentationinfo/) и [DocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/documentproperties/) и демонстрируют типичные операции по работе с метаданными презентации.
+В этой статье демонстрируется лёгкая проверка с помощью [PresentationFactory](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentationfactory/) и [IPresentationInfo](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/), а также целевые обновления с помощью [IDocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/).
 
 ## **Проверка формата презентации**
 
-Перед работой с презентацией вы можете захотеть узнать, в каком формате (PPT, PPTX, ODP и других) она находится в данный момент.
-
-Можно проверить формат презентации без её загрузки. См. следующий код Java:
+Используйте [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) для проверки файла без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/). Метод [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) сообщает обнаруженный формат, например PPTX, PPT или ODP.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
+String[] fileNames = { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
+for (String fileName : fileNames) {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(fileName);
+    int loadFormat = presentationInfo.getLoadFormat();
+    String formatName = "Other (" + loadFormat + ")";
 
-IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+    if (loadFormat == LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat == LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat == LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    System.out.println(fileName + ": " + formatName);
+}
 ```
 
-## **Получение свойств презентации**
+## **Создание лёгкого инвентаря презентаций**
 
-Этот код Java показывает, как получить свойства презентации (информацию о презентации):
+Когда вы обрабатываете множество файлов презентаций, может потребоваться компактный инвентарь для проверки, индексирования или системы управления документами. В данном случае используйте [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) чтобы получить объект [IPresentationInfo](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/), а затем вызовите [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) для чтения метаданных документа. Этот подход не создаёт экземпляр [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и не требует обхода полной модели объектной структуры презентации.
+
+Расширенные свойства, предоставляемые [IDocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/), дают следующие значения инвентаря:
+
+| Метод | Значение инвентаря |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getSlides--) | Общее количество слайдов. |
+| [getHiddenSlides](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | Количество скрытых слайдов. |
+| [getNotes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getNotes--) | Количество слайдов, содержащих заметки. |
+| [getParagraphs](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getParagraphs--) | Общее количество абзацев, если доступно. |
+| [getWords](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getWords--) | Общее количество слов. |
+| [getMultimediaClips](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | Общее количество аудио- и видеоклипов. |
+
+Следующий пример считывает эти значения без создания объекта [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) и выводит компактный инвентарь. Он также комбинирует [getHeadingPairs](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) с [getTitlesOfParts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) , чтобы отобразить группы содержимого, такие как шрифты, темы и заголовки слайдов.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IHeadingPair;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.Paths;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-IDocumentProperties props = info.readDocumentProperties();
-System.out.println(props.getCreatedTime());
-System.out.println(props.getSubject());
-System.out.println(props.getTitle());
-// ..
+String filePath = "sample.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
+
+int loadFormat = presentationInfo.getLoadFormat();
+String formatName = "Other (" + loadFormat + ")";
+
+if (loadFormat == LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat == LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat == LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+System.out.println("File: " + Paths.get(filePath).getFileName());
+System.out.println("Format: " + formatName);
+System.out.println("Title: " + documentProperties.getTitle());
+System.out.println("Author: " + documentProperties.getAuthor());
+System.out.println("Statistics:");
+System.out.println("  Slides: " + documentProperties.getSlides());
+System.out.println("  Hidden slides: " + documentProperties.getHiddenSlides());
+System.out.println("  Slides with notes: " + documentProperties.getNotes());
+System.out.println("  Paragraphs: " + documentProperties.getParagraphs());
+System.out.println("  Words: " + documentProperties.getWords());
+System.out.println("  Multimedia clips: " + documentProperties.getMultimediaClips());
+
+IHeadingPair[] headingPairs = documentProperties.getHeadingPairs();
+String[] titlesOfParts = documentProperties.getTitlesOfParts();
+headingPairs = headingPairs != null ? headingPairs : new IHeadingPair[0];
+titlesOfParts = titlesOfParts != null ? titlesOfParts : new String[0];
+int partIndex = 0;
+
+if (headingPairs.length == 0 || titlesOfParts.length == 0) {
+    System.out.println("Content groups: not available");
+} else {
+    System.out.println("Content groups:");
+
+    for (IHeadingPair headingPair : headingPairs) {
+        System.out.println("  " + headingPair.getName() + " (" + headingPair.getCount() + ")");
+
+        for (int partOffset = 0; partOffset < headingPair.getCount() && partIndex < titlesOfParts.length; partOffset++) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        System.out.println("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+}
 ```
 
-Вы также можете просмотреть [свойства в классе DocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/documentproperties/#DocumentProperties--) .
+Каждый [IHeadingPair](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iheadingpair/) предоставляет имя группы и количество элементов в этой группе. [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) возвращает плоский упорядоченный массив, поэтому используйте количество последовательных заголовков, указанных для каждой пары заголовков.
+
+### **Сохранённые метаданные и ограничения форматов**
+
+Свойства инвентаря, возвращаемые [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) отражают метаданные, доступные в исходном документе. Aspose.Slides не загружает и не обходит модель объектной структуры презентации для пересчёта этих значений в этом вызове. Отсутствующие свойства представлены значениями по умолчанию, а сохранённые значения могут быть устаревшими, если приложение, последним сохранившее файл, не обновило свойства документа.
+
+- **PPTX:** Формат предоставляет расширенные свойства документа для подсчётов слайдов, заметок, скрытых слайдов, абзацев, слов и мультимедиа, а также пар заголовков и названий частей. Доступность зависит от того, какие свойства записал производитель документа.
+- **PPT:** Бинарный формат может хранить соответствующие свойства сводки документа. Если свойство отсутствует или не было обновлено производителем документа, Aspose.Slides возвращает его сохранённое или значение по умолчанию, а не вычисляет его из слайдов.
+- **ODP:** Метаданные OpenDocument предоставляют общую статистику документа, такую как количество страниц, абзацев и слов, но эти значения не соответствуют каждому специфическому расширенному свойству PowerPoint. Метаданные скрытых слайдов, слайдов‑заметок, мультимедиа, пар заголовков и названий частей могут быть недоступны, и свойства инвентаря могут возвращать значения по умолчанию. Не рассматривайте нулевое значение или пустой массив как окончательное доказательство отсутствия соответствующего содержимого.
+
+Используйте подход лёгких метаданных для инвентарей и предварительных проверок. Загружайте презентацию и проверяйте её живую модель объектной структуры, когда результат должен отражать изменения в памяти или когда необходимо проверить фактическое содержимое презентации.
 
 ## **Обновление свойств презентации**
 
-Aspose.Slides предоставляет метод [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) , который позволяет вносить изменения в свойства презентации.
+Свойства, возвращаемые [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) также можно изменять без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/). Примените изменения с помощью [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), а затем запишите связанную презентацию с помощью [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
 
-Предположим, у нас есть презентация PowerPoint со следующими свойствами документа.
+На следующем изображении показаны исходные свойства документа PowerPoint-презентации.
 
-![Исходные свойства документа PowerPoint презентации](input_properties.png)
+![Исходные свойства документа PowerPoint-презентации](input_properties.png)
 
-В этом примере кода показано, как изменить некоторые свойства презентации:
+В следующем примере изменяется заголовок и время последнего сохранения, и результат записывается в новый файл:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Date;
 
-String fileName = "sample.pptx";
+String sourceFile = "sample.pptx";
+String outputFile = "sample_with_updated_properties.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(new Date());
 
-IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(new Date());
-
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+try (OutputStream outputStream = new FileOutputStream(outputFile)) {
+    presentationInfo.writeBindedPresentation(outputStream);
+}
 ```
 
-Результаты изменения свойств документа показаны ниже.
-
-![Изменённые свойства документа PowerPoint презентации](output_properties.png)
+![Изменённые свойства документа PowerPoint-презентации](output_properties.png)
 
 ## **Полезные ссылки**
 
-Чтобы получить больше информации о презентации и её атрибутах безопасности, могут быть полезны следующие ссылки:
+Для связанных проверок безопасности и настроек защиты смотрите следующие статьи:
 
-- [Защита паролем презентаций](/slides/ru/java/password-protected-presentation/)
-- [Защита от записи презентаций](/slides/ru/java/write-protected-presentation/)
+- [Защита презентаций паролем](/slides/ru/java/password-protected-presentation/)
+- [Защита презентаций от записи](/slides/ru/java/write-protected-presentation/)
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
 **Как проверить, встроены ли шрифты и какие именно?**
 
-Ищите информацию о [встроенных шрифтах](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) на уровне презентации, затем сравните эти записи с набором [фактически используемых шрифтов в содержимом](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontsmanager/#getFonts--) , чтобы определить, какие шрифты критичны для рендеринга.
+Загрузите презентацию и используйте [Presentation.getFontsManager](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getFontsManager--). Вызовите [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) для получения встроенных шрифтов и [IFontsManager.getFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#getFonts--) для получения шрифтов, используемых в презентации. Сравните оба результата, чтобы найти шрифты, необходимые для отображения, но не встроенные.
 
-**Как быстро определить, есть ли скрытые слайды и сколько их?**
+**Как быстро определить, есть ли в файле скрытые слайды и сколько их?**
 
-Пройдите по [коллекции слайдов](https://reference.aspose.com/slides/ru/java/com.aspose.slides/slidecollection/) и проверьте у каждого слайда [флаг видимости](https://reference.aspose.com/slides/ru/java/com.aspose.slides/slide/#getHidden--) .
+Если метаданные документа достаточны, считайте [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ru/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) через [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) и [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). Это подходит для лёгкого инвентаря. Если презентация была изменена в памяти, сохранённые метаданные могут отсутствовать или быть устаревшими, либо нужно проверить живые значения, пройдите по [Presentation.getSlides](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getSlides--) и проверьте метод [ISlide.getHidden](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islide/#getHidden--) каждого слайда.
 
-**Можно ли определить, используются ли пользовательские размеры и ориентация слайда, и отличаются ли они от значений по умолчанию?**
+**Можно ли определить, используется ли пользовательский размер и ориентация слайда, и отличаются ли они от значений по умолчанию?**
 
-Да. Сравните текущий [размер слайда](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getSlideSize--) и ориентацию со стандартными предустановками; это помогает предвидеть поведение при печати и экспорте.
+Да. Загрузите презентацию и вызовите [Presentation.getSlideSize](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getSlideSize--). Используйте [ISlideSize.getType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islidesize/#getSize--) и [ISlideSize.getOrientation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islidesize/#getOrientation--) , чтобы сравнить текущие настройки с ожидаемыми предустановками и размерами.
 
-**Есть ли быстрый способ увидеть, ссылаются ли диаграммы на внешние источники данных?**
+**Есть ли быстрый способ узнать, ссылаются ли диаграммы на внешние источники данных?**
 
-Да. Пройдите по всем [диаграммам](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chart/), проверьте их [источник данных](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chartdata/#getDataSourceType--) и отметьте, является ли данные внутренними или ссылочными, включая любые битые ссылки.
+Да. Найдите каждую [Chart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/chart/) и вызовите [IChartData.getDataSourceType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#getDataSourceType--). Для внешней рабочей книги вызовите [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--). Тип и путь источника данных указывают на внешнюю ссылку, но проверка доступности ресурса требует отдельной проверки.
 
-**Как оценить «тяжелые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**
+**Как оценить «тяжёлые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**
 
-Для каждого слайда подсчитайте количество объектов и ищите большие изображения, прозрачность, тени, анимацию и мультимедиа; присвойте грубую оценку сложности, чтобы отметить потенциальные узкие места производительности.
+Единого свойства сложности не существует. Обойдите [Presentation.getSlides](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getSlides--) и коллекцию [IBaseSlide.getShapes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibaseslide/#getShapes--) каждого слайда. Используйте количество фигур и наличие больших изображений, эффектов, анимаций или мультимедиа как сигналы, а также измерьте представительный рендер или экспорт, прежде чем считать слайд подтверждённым узким местом производительности.

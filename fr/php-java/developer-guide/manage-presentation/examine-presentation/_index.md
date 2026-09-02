@@ -1,6 +1,6 @@
 ---
 title: Récupérer et mettre à jour les informations de présentation en PHP
-linktitle: Informations de présentation
+linktitle: Informations sur la présentation
 type: docs
 weight: 30
 url: /fr/php-java/examine-presentation/
@@ -9,9 +9,9 @@ keywords:
 - propriétés de présentation
 - propriétés du document
 - obtenir des propriétés
-- lire des propriétés
-- changer des propriétés
-- modifier des propriétés
+- lire les propriétés
+- modifier les propriétés
+- modifier les propriétés
 - mettre à jour les propriétés
 - examiner PPTX
 - examiner PPT
@@ -21,100 +21,197 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Explorez les diapositives, la structure et les métadonnées des présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour PHP pour obtenir des analyses plus rapides et des audits de contenu plus intelligents."
+description: "Explorez les diapositives, la structure et les métadonnées des présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour PHP pour obtenir des informations plus rapides et des audits de contenu plus intelligents."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
-Cet article montre comment inspecter les informations d’une présentation dans Aspose.Slides. Il explique comment déterminer le format actuel d’une présentation sans charger le fichier complet, lire ses propriétés de document et mettre à jour ces propriétés si nécessaire.
+Aspose.Slides peut identifier le format d’une présentation et lire ses métadonnées de document sans créer un modèle d’objet de présentation complet. Ceci est utile lorsque vous devez classer des fichiers, créer un inventaire ou inspecter des propriétés avant de décider de charger et de traiter le contenu de la présentation.
 
-Les exemples sont basés sur les API [PresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/) et [DocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/) et illustrent les opérations courantes de manipulation des métadonnées de présentation.
+Cet article montre l’inspection légère via [PresentationFactory](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationfactory/) et [PresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/), ainsi que des mises à jour ciblées via [DocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/).
 
 ## **Vérifier le format d’une présentation**
 
-Avant de travailler sur une présentation, vous pouvez vouloir savoir sous quel format (PPT, PPTX, ODP, etc.) elle se trouve actuellement.
-
-Vous pouvez vérifier le format d’une présentation sans la charger. Voir ce code PHP :
+Utilisez [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationfactory/) pour inspecter un fichier sans créer une instance de [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/). La méthode [PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#getLoadFormat) indique le format détecté, tel que PPTX, PPT ou ODP.
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  echo($info->getLoadFormat());// PPTX
+use aspose\slides\LoadFormat;
+use aspose\slides\PresentationFactory;
 
-  $info2 = PresentationFactory->getInstance()->getPresentationInfo("pres.ppt");
-  echo($info2->getLoadFormat());// PPT
+$fileNames = ["pres.pptx", "pres.ppt", "pres.odp"];
 
-  $info3 = PresentationFactory->getInstance()->getPresentationInfo("pres.odp");
-  echo($info3->getLoadFormat());// ODP
+foreach ($fileNames as $fileName) {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+    $loadFormat = java_values($presentationInfo->getLoadFormat());
+    $formatName = "Other (" . $loadFormat . ")";
 
+    if ($loadFormat === LoadFormat::Pptx) {
+        $formatName = "PPTX";
+    } elseif ($loadFormat === LoadFormat::Ppt) {
+        $formatName = "PPT";
+    } elseif ($loadFormat === LoadFormat::Odp) {
+        $formatName = "ODP";
+    }
 
+    echo $fileName . ": " . $formatName . PHP_EOL;
+}
 ```
 
-## **Obtenir les propriétés de la présentation**
+## **Construire un inventaire de présentations léger**
 
-Ce code PHP montre comment obtenir les propriétés de la présentation (informations sur la présentation) :
+Lorsque vous traitez de nombreux fichiers de présentation, vous pouvez avoir besoin d’un inventaire compact pour la validation, l’indexation ou un système de gestion de documents. Dans ce scénario, utilisez [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationfactory/) pour obtenir un objet [PresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/), puis appelez [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#readDocumentProperties) pour lire les métadonnées du document. Cette approche ne crée pas d’instance de [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) et ne nécessite pas de parcourir le modèle complet de la présentation.
+
+Les propriétés étendues exposées par [DocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/) fournissent les valeurs d’inventaire suivantes :
+
+| Méthode | Valeur d'inventaire |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getSlides) | Nombre total de diapositives. |
+| [getHiddenSlides](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getHiddenSlides) | Nombre de diapositives masquées. |
+| [getNotes](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getNotes) | Nombre de diapositives contenant des notes. |
+| [getParagraphs](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getParagraphs) | Nombre total de paragraphes, lorsqu’ils sont disponibles. |
+| [getWords](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getWords) | Nombre total de mots. |
+| [getMultimediaClips](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getMultimediaClips) | Nombre total de clips audio et vidéo. |
+
+L’exemple suivant lit ces valeurs sans créer d’objet [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) et imprime un inventaire compact. Il combine également [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getHeadingPairs) avec [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getTitlesOfParts) pour afficher les groupes de contenu tels que les polices, les thèmes et les titres de diapositives.
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  $props = $info->readDocumentProperties();
-  echo($props->getCreatedTime());
-  echo($props->getSubject());
-  echo($props->getTitle());
-  # ..
+use aspose\slides\LoadFormat;
+use aspose\slides\PresentationFactory;
+
+$filePath = "sample.pptx";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+$documentProperties = $presentationInfo->readDocumentProperties();
+
+$loadFormat = java_values($presentationInfo->getLoadFormat());
+$formatName = "Other (" . $loadFormat . ")";
+
+if ($loadFormat === LoadFormat::Pptx) {
+    $formatName = "PPTX";
+} elseif ($loadFormat === LoadFormat::Ppt) {
+    $formatName = "PPT";
+} elseif ($loadFormat === LoadFormat::Odp) {
+    $formatName = "ODP";
+}
+
+echo "File: " . basename($filePath) . PHP_EOL;
+echo "Format: " . $formatName . PHP_EOL;
+echo "Title: " . java_values($documentProperties->getTitle()) . PHP_EOL;
+echo "Author: " . java_values($documentProperties->getAuthor()) . PHP_EOL;
+echo "Statistics:" . PHP_EOL;
+echo "  Slides: " . java_values($documentProperties->getSlides()) . PHP_EOL;
+echo "  Hidden slides: " . java_values($documentProperties->getHiddenSlides()) . PHP_EOL;
+echo "  Slides with notes: " . java_values($documentProperties->getNotes()) . PHP_EOL;
+echo "  Paragraphs: " . java_values($documentProperties->getParagraphs()) . PHP_EOL;
+echo "  Words: " . java_values($documentProperties->getWords()) . PHP_EOL;
+echo "  Multimedia clips: " . java_values($documentProperties->getMultimediaClips()) . PHP_EOL;
+
+$headingPairs = $documentProperties->getHeadingPairs();
+$titlesOfParts = $documentProperties->getTitlesOfParts();
+
+if (java_is_null($headingPairs) || java_is_null($titlesOfParts)) {
+    echo "Content groups: not available" . PHP_EOL;
+} else {
+    $headingPairs = java_values($headingPairs);
+    $titlesOfParts = java_values($titlesOfParts);
+    $partIndex = 0;
+
+    if (count($headingPairs) === 0 || count($titlesOfParts) === 0) {
+        echo "Content groups: not available" . PHP_EOL;
+    } else {
+        echo "Content groups:" . PHP_EOL;
+
+        foreach ($headingPairs as $headingPair) {
+            $partCount = java_values($headingPair->getCount());
+            echo "  " . java_values($headingPair->getName()) . " (" . $partCount . ")" . PHP_EOL;
+
+            for ($partOffset = 0; $partOffset < $partCount && $partIndex < count($titlesOfParts); $partOffset++) {
+                echo "    - " . $titlesOfParts[$partIndex] . PHP_EOL;
+                $partIndex++;
+            }
+        }
+
+        if ($partIndex < count($titlesOfParts)) {
+            echo "  Other parts:" . PHP_EOL;
+
+            while ($partIndex < count($titlesOfParts)) {
+                echo "    - " . $titlesOfParts[$partIndex] . PHP_EOL;
+                $partIndex++;
+            }
+        }
+    }
+}
 ```
 
-Vous pouvez consulter les [propriétés dans la classe DocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#DocumentProperties--) .
+Chaque [HeadingPair](https://reference.aspose.com/slides/fr/php-java/aspose.slides/headingpair/) fournit un nom de groupe et le nombre d’éléments dans ce groupe. [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getTitlesOfParts) renvoie un tableau plat et ordonné, il faut donc consommer le nombre de titres consécutifs spécifié par chaque paire d’en-tête.
+
+### **Métadonnées stockées et limitations de format**
+
+Les propriétés d’inventaire renvoyées par [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#readDocumentProperties) reflètent les métadonnées disponibles dans le document source. Aspose.Slides ne charge pas et ne parcourt pas le modèle d’objet de la présentation pour recalculer ces valeurs lors de cet appel. Les propriétés manquantes sont représentées par des valeurs par défaut, et les valeurs stockées peuvent être obsolètes si l’application ayant enregistré le fichier en dernier n’a pas mis à jour ses propriétés de document.
+
+- **PPTX :** Le format fournit des propriétés de document étendues pour le nombre de diapositives, de notes, de diapositives masquées, de paragraphes, de mots et de contenus multimédias, ainsi que pour les paires d’en‑têtes et les titres de parties. Leur disponibilité dépend des propriétés écrites par le producteur du document.
+- **PPT :** Le format binaire peut stocker des propriétés de résumé de document correspondantes. Si une propriété est absente ou n’a pas été actualisée par le producteur du document, Aspose.Slides renvoie sa valeur stockée ou la valeur par défaut au lieu de la calculer à partir des diapositives.
+- **ODP :** Les métadonnées OpenDocument fournissent des statistiques générales du document, telles que le nombre de pages, de paragraphes et de mots, mais ces valeurs ne correspondent pas à toutes les propriétés étendues spécifiques à PowerPoint. Les métadonnées de diapositives masquées, de notes, de contenus multimédias, de paires d’en‑têtes et de titres de parties peuvent être indisponibles, et les propriétés d’inventaire peuvent renvoyer des valeurs par défaut. Ne considérez pas une valeur zéro ou un tableau vide comme une preuve définitive que le contenu correspondant est absent.
+
+Utilisez l’approche de métadonnées légères pour les inventaires et les vérifications préliminaires. Chargez la présentation et inspectez son modèle d’objet en mémoire lorsque le résultat doit refléter les modifications en cours ou lorsque vous devez vérifier le contenu réel de la présentation.
 
 ## **Mettre à jour les propriétés de la présentation**
 
-Aspose.Slides fournit la méthode [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) qui permet de modifier les propriétés de la présentation.
+Les propriétés renvoyées par [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#readDocumentProperties) peuvent également être modifiées sans créer d’instance de [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/). Appliquez les changements avec [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#updateDocumentProperties), puis écrivez la présentation liée avec [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#writeBindedPresentation).
 
-Supposons que nous ayons une présentation PowerPoint avec les propriétés de document ci‑dessous.
+L’image suivante montre les propriétés de document d’origine.
 
-![Propriétés de document originales de la présentation PowerPoint](input_properties.png)
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-Cet exemple de code montre comment modifier certaines propriétés de la présentation :
+L’exemple suivant modifie le titre et la date de dernière sauvegarde et écrit le résultat dans un nouveau fichier :
 
 ```php
-$fileName = "sample.pptx";
+use aspose\slides\PresentationFactory;
 
-$info = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+$sourceFile = "sample.pptx";
+$outputFile = "sample_with_updated_properties.pptx";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($sourceFile);
+$documentProperties = $presentationInfo->readDocumentProperties();
 
-$properties = $info->readDocumentProperties();
-$properties->setTitle("My title");
-$properties->setLastSavedTime(new Java("java.util.Date"));
+$documentProperties->setTitle("Quarterly sales report");
+$documentProperties->setLastSavedTime(new Java("java.util.Date"));
 
-$info->updateDocumentProperties($properties);
-$info->writeBindedPresentation($fileName);
+$presentationInfo->updateDocumentProperties($documentProperties);
+$outputStream = new Java("java.io.FileOutputStream", $outputFile);
+try {
+    $presentationInfo->writeBindedPresentation($outputStream);
+} finally {
+    $outputStream->close();
+}
 ```
 
-Le résultat du changement des propriétés de document est illustré ci‑dessous.
+L’image suivante montre les propriétés de document mises à jour.
 
-![Propriétés de document modifiées de la présentation PowerPoint](output_properties.png)
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ## **Liens utiles**
 
-Pour obtenir plus d’informations sur une présentation et ses attributs de sécurité, ces liens peuvent vous être utiles :
+Pour des contrôles de sécurité associés et des paramètres de protection, consultez les articles suivants :
 
-- [Protection par mot de passe des présentations](/slides/fr/php-java/password-protected-presentation/)
-- [Protection en écriture des présentations](/slides/fr/php-java/write-protected-presentation/)
+- [Password-Protect Presentations](/slides/fr/php-java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/fr/php-java/write-protected-presentation/)
 
 ## **FAQ**
 
-**Comment vérifier si les polices sont incorporées et lesquelles ?**
+**Comment vérifier si les polices sont intégrées et lesquelles ?**
 
-Recherchez les informations sur les [polices intégrées](https://reference.aspose.com/slides/fr/php-java/aspose.slides/fontsmanager/getembeddedfonts/) au niveau de la présentation, puis comparez ces entrées avec l’ensemble des [polices réellement utilisées dans le contenu](https://reference.aspose.com/slides/fr/php-java/aspose.slides/fontsmanager/getfonts/) pour identifier les polices critiques pour le rendu.
+Chargez la présentation et utilisez [Presentation::getFontsManager](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/#getFontsManager). Appelez [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/fr/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) pour obtenir les polices intégrées et [FontsManager::getFonts](https://reference.aspose.com/slides/fr/php-java/aspose.slides/fontsmanager/#getFonts) pour obtenir les polices utilisées par la présentation. Comparez les deux résultats pour identifier les polices nécessaires à l’affichage mais non intégrées.
 
 **Comment savoir rapidement si le fichier contient des diapositives masquées et combien ?**
 
-Parcourez la [collection de diapositives](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidecollection/) et inspectez le [drapeau de visibilité](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slide/gethidden/) de chaque diapositive.
+Lorsque les métadonnées du document stockées sont suffisantes, lisez [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/fr/php-java/aspose.slides/documentproperties/#getHiddenSlides) via [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationfactory/) et [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#readDocumentProperties). Cela convient pour un inventaire léger. Si la présentation a été modifiée en mémoire, les métadonnées stockées peuvent être manquantes ou obsolètes, ou si vous devez vérifier les valeurs en direct, parcourez [Presentation::getSlides](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/#getSlides) et inspectez chaque méthode [Slide::getHidden](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slide/#getHidden) de la diapositive.
 
-**Puis‑je détecter si une taille et une orientation personnalisées de diapositive sont utilisées, et si elles diffèrent des valeurs par défaut ?**
+**Puis‑je détecter si une taille et une orientation de diapositive personnalisées sont utilisées, et si elles diffèrent des valeurs par défaut ?**
 
-Oui. Comparez la [taille de diapositive](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/getslidesize/) et l’orientation actuelles avec les préréglages standard ; cela aide à anticiper le comportement lors de l’impression et de l’exportation.
+Oui. Chargez la présentation et appelez [Presentation::getSlideSize](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/#getSlideSize). Utilisez [SlideSize::getType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidesize/#getType), [SlideSize::getSize](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidesize/#getSize) et [SlideSize::getOrientation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/slidesize/#getOrientation) pour comparer les paramètres actuels aux valeurs prédéfinies attendues.
 
-**Existe‑t‑il un moyen rapide de voir si les graphiques référencent des sources de données externes ?**
+**Existe‑t‑il un moyen rapide de voir si les graphiques font référence à des sources de données externes ?**
 
-Oui. Parcourez tous les [graphiques](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chart/), vérifiez leur [source de données](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/getdatasourcetype/), et notez si les données sont internes ou basées sur un lien, y compris les liens cassés.
+Oui. Localisez chaque [Chart](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chart/) et appelez [ChartData::getDataSourceType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/#getDataSourceType). Pour un classeur externe, appelez [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/fr/php-java/aspose.slides/chartdata/#getExternalWorkbookPath). Le type de source de données et le chemin identifient une référence externe, mais la vérification de la disponibilité de la cible nécessite une vérification de ressources distincte.
 
-**Comment évaluer les diapositives « lourdes » qui peuvent ralentir le rendu ou l’exportation PDF ?**
+**Comment évaluer les diapositives « lourdes » qui peuvent ralentir le rendu ou l’export PDF ?**
 
-Pour chaque diapositive, comptez le nombre d’objets et recherchez les images volumineuses, la transparence, les ombres, les animations et les contenus multimédias ; attribuez un score de complexité approximatif afin d’identifier les points chauds potentiels de performance.
+Il n’existe pas de propriété unique de complexité. Parcourez [Presentation::getSlides](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/#getSlides) et la collection [BaseSlide::getShapes](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseslide/#getShapes) de chaque diapositive. Utilisez le nombre de formes et la présence d’images volumineuses, d’effets, d’animations ou de contenus multimédias comme indicateurs de filtrage, et mesurez un rendu ou une exportation représentatif avant de considérer une diapositive comme un goulet d’étranglement de performance.

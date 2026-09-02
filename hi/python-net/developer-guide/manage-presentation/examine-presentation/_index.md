@@ -1,119 +1,181 @@
 ---
-title: "Python में प्रस्तुति जानकारी प्राप्त करें और अपडेट करें"
-linktitle: "प्रस्तुति जानकारी"
+title: Python में प्रस्तुति जानकारी को पुनः प्राप्त करें और अपडेट करें
+linktitle: प्रस्तुति जानकारी
 type: docs
 weight: 30
 url: /hi/python-net/examine-presentation/
 keywords:
-- "प्रस्तुति फ़ॉर्मेट"
-- "प्रस्तुति प्रॉपर्टीज़"
-- "डॉक्यूमेंट प्रॉपर्टीज़"
-- "प्रॉपर्टीज़ प्राप्त करें"
-- "प्रॉपर्टीज़ पढ़ें"
-- "प्रॉपर्टीज़ बदलें"
-- "प्रॉपर्टीज़ संशोधित करें"
-- "प्रॉपर्टीज़ अपडेट करें"
-- "PPTX का परीक्षण करें"
-- "PPT का परीक्षण करें"
-- "ODP का परीक्षण करें"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रस्तुति"
-- "Python"
-- "Aspose.Slides"
-description: "Python का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडेटा का अन्वेषण करें, तेज़ अंतर्दृष्टि और अधिक बुद्धिमान कंटेंट ऑडिट के लिए।"
+- प्रस्तुति स्वरूप
+- प्रस्तुति गुण
+- दस्तावेज़ गुण
+- गुण प्राप्त करें
+- गुण पढ़ें
+- गुण बदलें
+- गुण संशोधित करें
+- गुण अपडेट करें
+- PPTX का परीक्षण
+- PPT का परीक्षण
+- ODP का परीक्षण
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- Python
+- Aspose.Slides
+description: "PowerPoint और OpenDocument प्रस्तुतियों में स्लाइड्स, संरचना और मेटाडाटा का अन्वेषण Python का उपयोग कर तेज़ अंतर्दृष्टि और स्मार्ट सामग्री ऑडिट के लिए करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-यह लेख Aspose.Slides में प्रस्तुति जानकारी की जाँच कैसे करें दिखाता है। यह बताता है कि पूरे फ़ाइल को लोड किए बिना प्रस्तुति के वर्तमान फ़ॉर्मेट का पता कैसे लगाएँ, उसकी डॉक्यूमेंट प्रॉपर्टीज़ पढ़ें, और आवश्यकता पड़ने पर उन प्रॉपर्टीज़ को अपडेट करें।
+Aspose.Slides प्रस्तुति के स्वरूप की पहचान कर सकता है और संपूर्ण प्रस्तुति ऑब्जेक्ट मॉडल बनाए बिना उसके दस्तावेज़ मेटाडाटा को पढ़ सकता है। यह तब उपयोगी होता है जब आपको फ़ाइलों को वर्गीकृत करना हो, एक सूची बनानी हो, या गुणों की जाँच करनी हो इससे पहले कि आप यह तय करें कि प्रस्तुति की सामग्री को लोड और प्रोसेस किया जाए।
 
-उदाहरण [PresentationInfo](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/) और [DocumentProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/) APIs पर आधारित हैं और प्रस्तुति मेटाडेटा के साथ काम करने के सामान्य संचालन को दर्शाते हैं।
+यह लेख हल्के निरीक्षण को [PresentationFactory](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationfactory/) और [PresentationInfo](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/) के माध्यम से, साथ ही [DocumentProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/) के माध्यम से लक्षित अपडेट्स को दर्शाता है।
 
-## **प्रस्तुति फ़ॉर्मेट जाँचें**
+## **प्रस्तुति स्वरूप की जाँच**
 
-प्रस्तुति पर काम करने से पहले, आप यह जानना चाह सकते हैं कि वर्तमान में प्रस्तुति किस फ़ॉर्मेट (PPT, PPTX, ODP, आदि) में है।
+फ़ाइल की जाँच करने के लिए बिना [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) इंस्टेंस बनाए [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationfactory/get_presentation_info/) का उपयोग करें। [PresentationInfo.load_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/load_format/) प्रॉपर्टी पता लगाए गए स्वरूप को रिपोर्ट करती है, जैसे PPTX, PPT, या ODP।
 
-आप प्रस्तुति को लोड किए बिना उसकी फ़ॉर्मेट जाँच सकते हैं। इस Python कोड को देखें:
-
-```py
+```python
 import aspose.slides as slides
 
-info1 = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print(info1.load_format, info1.load_format == slides.LoadFormat.PPTX)
+file_names = ["pres.pptx", "pres.ppt", "pres.odp"]
 
-info2 = slides.PresentationFactory.instance.get_presentation_info("pres.odp")
-print(info2.load_format, info2.load_format == slides.LoadFormat.ODP)
-
-info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
-print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
+for file_name in file_names:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+    print(f"{file_name}: {presentation_info.load_format}")
 ```
 
-## **प्रस्तुति प्रॉपर्टीज़ प्राप्त करें**
+## **हल्का प्रस्तुति सूची बनाना**
 
-यह Python कोड आपको प्रस्तुति प्रॉपर्टीज़ (प्रस्तुति की जानकारी) प्राप्त करने का तरीका दिखाता है:
+जब आप कई प्रस्तुति फ़ाइलों को प्रोसेस करते हैं, तो आपको वैधता, इंडेक्सिंग या दस्तावेज़ प्रबंधन प्रणाली के लिए एक संक्षिप्त सूची की आवश्यकता हो सकती है। इस स्थिति में, एक [PresentationInfo](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/) ऑब्जेक्ट प्राप्त करने के लिए [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationfactory/get_presentation_info/) का उपयोग करें, और फिर दस्तावेज़ मेटाडाटा को पढ़ने के लिए [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/read_document_properties/) को कॉल करें। यह दृष्टिकोण एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) इंस्टेंस नहीं बनाता है और संपूर्ण प्रस्तुति ऑब्जेक्ट मॉडल को पार करने की आवश्यकता नहीं पड़ती।
 
-```py
+[DocumentProperties] द्वारा उजागर किए गए विस्तारित गुण निम्नलिखित सूची मान प्रदान करते हैं:
+
+| गुण | सूची मान |
+| --- | --- |
+| [slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/slides/hi/) | स्लाइड्स की कुल संख्या। |
+| [hidden_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/hidden_slides/) | छिपी स्लाइड्स की संख्या। |
+| [notes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/notes/) | नोट्स वाली स्लाइड्स की संख्या। |
+| [paragraphs](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/paragraphs/) | उपलब्ध होने पर पैराग्राफ़ की कुल संख्या। |
+| [words](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/words/) | शब्दों की कुल संख्या। |
+| [multimedia_clips](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/multimedia_clips/) | ऑडियो और वीडियो क्लिप्स की कुल संख्या। |
+
+निम्न उदाहरण इन मानों को बिना किसी [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) ऑब्जेक्ट बनाए पढ़ता है और एक संक्षिप्त सूची प्रिंट करता है। यह फ़ॉन्ट, थीम और स्लाइड शीर्षकों जैसे सामग्री समूहों को प्रदर्शित करने के लिए [heading_pairs](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/heading_pairs/) को [titles_of_parts](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/titles_of_parts/) के साथ भी संयोजित करता है।
+
+```python
+import os
 import aspose.slides as slides
 
-info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-props = info.read_document_properties()
-print(props.created_time)
-print(props.subject)
-print(props.title)
+file_path = "sample.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+document_properties = presentation_info.read_document_properties()
+
+print(f"File: {os.path.basename(file_path)}")
+print(f"Format: {presentation_info.load_format}")
+print(f"Title: {document_properties.title}")
+print(f"Author: {document_properties.author}")
+print("Statistics:")
+print(f"  Slides: {document_properties.slides}")
+print(f"  Hidden slides: {document_properties.hidden_slides}")
+print(f"  Slides with notes: {document_properties.notes}")
+print(f"  Paragraphs: {document_properties.paragraphs}")
+print(f"  Words: {document_properties.words}")
+print(f"  Multimedia clips: {document_properties.multimedia_clips}")
+
+heading_pairs = document_properties.heading_pairs or []
+titles_of_parts = document_properties.titles_of_parts or []
+part_index = 0
+
+if not heading_pairs or not titles_of_parts:
+    print("Content groups: not available")
+else:
+    print("Content groups:")
+
+    for heading_pair in heading_pairs:
+        print(f"  {heading_pair.name} ({heading_pair.count})")
+
+        for _ in range(heading_pair.count):
+            if part_index >= len(titles_of_parts):
+                break
+
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
+
+    if part_index < len(titles_of_parts):
+        print("  Other parts:")
+
+        while part_index < len(titles_of_parts):
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
 ```
 
-आप [DocumentProperties के अंतर्गत प्रॉपर्टीज़](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/#properties) क्लास देखना चाह सकते हैं।
+प्रत्येक [HeadingPair](https://reference.aspose.com/slides/hi/python-net/aspose.slides/headingpair/) एक समूह नाम और उस समूह में वस्तुओं की संख्या प्रदान करता है। [DocumentProperties.titles_of_parts](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/titles_of_parts/) एक फ्लैट, क्रमबद्ध संग्रह है, इसलिए प्रत्येक heading pair द्वारा निर्दिष्ट क्रमागत शीर्षकों की संख्या का उपयोग करें।
 
-## **प्रस्तुति प्रॉपर्टीज़ अपडेट करें**
+### **संग्रहीत मेटाडाटा और स्वरूप सीमाएँ**
 
-Aspose.Slides [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) मेथड प्रदान करता है जो आपको प्रस्तुति प्रॉपर्टीज़ में परिवर्तन करने की अनुमति देता है।
+[PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/read_document_properties/) द्वारा लौटाए गए सूची गुण स्रोत दस्तावेज़ में उपलब्ध मेटाडाटा को प्रतिबिंबित करते हैं। Aspose.Slides इस कॉल के लिए इन मानों की पुनः गणना करने हेतु प्रस्तुति ऑब्जेक्ट मॉडल को लोड और पार नहीं करता। अनुपलब्ध गुण डिफॉल्ट मानों द्वारा दर्शाए जाते हैं, और संग्रहीत मान पुराने हो सकते हैं यदि अंतिम बार फ़ाइल सहेजने वाला अनुप्रयोग अपने दस्तावेज़ गुणों को अपडेट नहीं करता।
 
-मान लें कि हमारे पास नीचे दिखाए गए डॉक्यूमेंट प्रॉपर्टीज़ वाली एक PowerPoint प्रस्तुति है।
+- **PPTX:** स्वरूप स्लाइड, नोट, छिपी‑स्लाइड, पैराग्राफ, शब्द और मल्टीमीडिया गिनती के लिए विस्तारित दस्तावेज़ गुण, साथ ही heading pairs और part titles प्रदान करता है। उपलब्धता इस पर निर्भर करती है कि दस्तावेज़ निर्माता ने कौन से गुण लिखे हैं।
+- **PPT:** बाइनरी स्वरूप संबंधित दस्तावेज़‑सारांश गुणों को संग्रहीत कर सकता है। यदि कोई गुण अनुपस्थित है या दस्तावेज़ निर्माता द्वारा ताज़ा नहीं किया गया है, तो Aspose.Slides इसे स्लाइड्स से गणना करने के बजाय संग्रहीत या डिफॉल्ट मान लौटाता है।
+- **ODP:** OpenDocument मेटाडाटा सामान्य दस्तावेज़ सांख्यिकी जैसे पेज, पैराग्राफ और शब्द गिनती प्रदान करता है, लेकिन ये मान प्रत्येक PowerPoint‑विशिष्ट विस्तारित गुण से मैप नहीं होते। छिपी‑स्लाइड, नोट‑स्लाइड, मल्टीमीडिया, heading‑pair और part‑title मेटाडाटा उपलब्ध नहीं हो सकते, और सूची गुण डिफॉल्ट मान लौट सकते हैं। शून्य मान या खाली संग्रह को यह सिद्ध करने के लिए उपयोग न करें कि संबंधित सामग्री अनुपस्थित है।
 
-![PowerPoint प्रस्तुति की मूल डॉक्यूमेंट प्रॉपर्टीज़](input_properties.png)
+सूचियों और प्रारंभिक जाँचों के लिए हल्के मेटाडाटा दृष्टिकोण का उपयोग करें। जब परिणाम को मेमोरी में हुए परिवर्तनों को प्रतिबिंबित करना हो या वास्तविक प्रस्तुति सामग्री को सत्यापित करने की आवश्यकता हो, तो प्रस्तुति को लोड करके उसके लाइव ऑब्जेक्ट मॉडल का निरीक्षण करें।
 
-यह कोड उदाहरण दर्शाता है कि कुछ प्रस्तुति प्रॉपर्टीज़ को कैसे संपादित किया जाए:
+## **प्रस्तुति गुण अपडेट करें**
 
-```py
-import aspose.slides as slides
+[PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/read_document_properties/) द्वारा लौटाए गए गुणों को भी बिना किसी [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) इंस्टेंस बनाए बदला जा सकता है। बदलावों को [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/update_document_properties/) से लागू करें, और फिर बाइंडेड प्रस्तुति को [PresentationInfo.write_binded_presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/write_binded_presentation/) से लिखें।
+
+निम्न छवि मूल दस्तावेज़ गुणों को दर्शाती है।
+
+![PowerPoint प्रस्तुति के मूल दस्तावेज़ गुण](input_properties.png)
+
+निम्न उदाहरण शीर्षक और अंतिम‑संरक्षित समय को बदलता है और परिणाम को नई फ़ाइल में लिखता है:
+
+```python
 import datetime
+import aspose.slides as slides
 
-file_name = "sample.pptx"
+source_file = "sample.pptx"
+output_file = "sample_with_updated_properties.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(source_file)
+document_properties = presentation_info.read_document_properties()
 
-info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+document_properties.title = "Quarterly sales report"
+document_properties.last_saved_time = datetime.datetime.now(datetime.timezone.utc)
 
-properties = info.read_document_properties()
-properties.title = "My title"
-properties.last_saved_time = datetime.datetime.now()
+presentation_info.update_document_properties(document_properties)
 
-info.update_document_properties(properties)
-info.write_binded_presentation(file_name)
+with open(output_file, "wb") as output_stream:
+    presentation_info.write_binded_presentation(output_stream)
 ```
 
-डॉक्यूमेंट प्रॉपर्टीज़ में बदलाव के परिणाम नीचे दिखाए गए हैं।
+निम्न छवि अद्यतन दस्तावेज़ गुणों को दर्शाती है।
 
-![PowerPoint प्रस्तुति की बदली हुई डॉक्यूमेंट प्रॉपर्टीज़](output_properties.png)
+![PowerPoint प्रस्तुति के बदलें हुए दस्तावेज़ गुण](output_properties.png)
 
 ## **उपयोगी लिंक**
 
-प्रस्तुति और उसकी सुरक्षा विशेषताओं के बारे में अधिक जानकारी के लिए, आपको ये लिंक उपयोगी लग सकते हैं:
+संबंधित सुरक्षा जाँचों और संरक्षण सेटिंग्स के लिए, निम्न लेख देखें:
 
-- [प्रेजेंटेशन को पासवर्ड से सुरक्षित करें](/slides/hi/python-net/password-protected-presentation/)
-- [प्रेजेंटेशन को लिखने से सुरक्षित करें](/slides/hi/python-net/write-protected-presentation/)
+- [पासवर्ड‑सुरक्षित प्रस्तुतियाँ](/slides/hi/python-net/password-protected-presentation/)
+- [लेखन‑सुरक्षित प्रस्तुतियाँ](/slides/hi/python-net/write-protected-presentation/)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं यह कैसे जाँच सकता हूँ कि फ़ॉन्ट एम्बेडेड हैं या नहीं और कौन से हैं?**  
-प्रस्तुति स्तर पर [embedded-font information](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) देखें, फिर उन प्रविष्टियों की तुलना [fonts actually used across content](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_fonts/) की सूची से करें ताकि रेंडरिंग के लिए आवश्यक फ़ॉन्ट्स की पहचान हो सके।
+**मैं यह कैसे जाँच सकता हूँ कि फ़ॉन्ट एम्बेडेड हैं या नहीं और कौनसे हैं?**
 
-**फ़ाइल में छिपी हुई स्लाइड्स हैं या नहीं और उनकी संख्या कैसे जल्दी पता करें?**  
-[slide collection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slidecollection/) के माध्यम से इटरेट करें और प्रत्येक स्लाइड के [visibility flag](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/hidden/) की जाँच करें।
+प्रस्तुति को लोड करें और [Presentation.fonts_manager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/fonts_manager/) का उपयोग करें। एम्बेडेड फ़ॉन्ट प्राप्त करने के लिए [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) को कॉल करें और प्रस्तुति द्वारा उपयोग किए गए फ़ॉन्ट प्राप्त करने के लिए [FontsManager.get_fonts](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fontsmanager/get_fonts/) को कॉल करें। दोनों परिणामों की तुलना करके उन फ़ॉन्ट को खोजें जो रेंडरिंग के लिए आवश्यक हैं लेकिन एम्बेडेड नहीं हैं।
 
-**क्या मैं यह पता लगा सकता हूँ कि कस्टम स्लाइड आकार और अभिविन्यास उपयोग किए गए हैं या नहीं, और क्या वे डिफ़ॉल्ट से अलग हैं?**  
-हाँ। वर्तमान [slide size](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/slide_size/) और अभिविन्यास की मानक प्रीसेट्स से तुलना करें; यह प्रिंटिंग और निर्यात के व्यवहार का अनुमान लगाने में मदद करता है।
+**मैं जल्दी से कैसे पता करूँ कि फ़ाइल में छिपी स्लाइड्स हैं या नहीं और उनकी संख्या कितनी है?**
 
-**क्या चार्ट्स बाहरी डेटा स्रोतों का संदर्भ दे रहे हैं, यह देखने का कोई त्वरित तरीका है?**  
-हाँ। सभी [charts](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chart/) को ट्रैवर्स करें, उनके [data source](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdata/data_source_type/) की जाँच करें, और यह नोट करें कि डेटा आंतरिक है या लिंक-आधारित, जिसमें टूटे हुए लिंक भी शामिल हों।
+जब संग्रहीत दस्तावेज़ मेटाडाटा पर्याप्त हो, तो [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationfactory/get_presentation_info/) और [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/read_document_properties/) के माध्यम से [DocumentProperties.hidden_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/hidden_slides/) पढ़ें। यह हल्की सूची के लिए उपयुक्त है। यदि प्रस्तुति मेमोरी में संशोधित हुई है, तो संग्रहीत मेटाडाटा गायब या पुराना हो सकता है, या आपको लाइव मानों की जाँच करनी हो, तो [Presentation.slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/slides/hi/) के माध्यम से इटररेट करें और प्रत्येक स्लाइड की [Slide.hidden](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/hidden/) प्रॉपर्टी को देखें।
 
-**मैं 'भारी' स्लाइड्स का मूल्यांकन कैसे करूँ जो रेंडरिंग या PDF निर्यात को धीमा कर सकती हैं?**  
-प्रत्येक स्लाइड के लिए, ऑब्जेक्ट की संख्या गिनें और बड़े चित्र, ट्रांसपैरेंसी, शैडो, एनीमेशन और मल्टीमीडिया की तलाश करें; संभावित प्रदर्शन हॉटस्पॉट्स को दर्शाने के लिए एक मोटा जटिलता स्कोर असाइन करें।
+**क्या मैं पता लगा सकता हूँ कि कस्टम स्लाइड आकार और अभिविन्यास उपयोग में हैं, और क्या वे डिफॉल्ट से अलग हैं?**
+
+हां। प्रस्तुति को लोड करें और [Presentation.slide_size](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/slide_size/) पढ़ें। वर्तमान सेटिंग्स की तुलना अपेक्षित प्रीसेट और आयामों से करने के लिए [SlideSize.type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slidesize/type/), [SlideSize.size](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slidesize/size/) और [SlideSize.orientation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slidesize/orientation/) की जांच करें।
+
+**क्या चार्ट्स बाहरी डेटा स्रोतों का संदर्भ देते हैं, यह जल्दी से देखना संभव है?**
+
+हां। प्रत्येक [Chart](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chart/) को खोजें और [ChartData.data_source_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdata/data_source_type/) की जाँच करें। बाहरी वर्कबुक के लिए, [ChartData.external_workbook_path](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chartdata/external_workbook_path/) पढ़ें। डेटा स्रोत प्रकार और पथ एक बाहरी संदर्भ को पहचानते हैं, लेकिन लक्ष्य उपलब्धता की जाँच के लिए एक अलग संसाधन जाँच आवश्यक है।
+
+**मैं 'भारी' स्लाइड्स का मूल्यांकन कैसे करूँ जो रेंडरिंग या PDF निर्यात को धीमा कर सकती हैं?**
+
+कोई एकल जटिलता गुण नहीं है। [Presentation.slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/slides/hi/) और प्रत्येक स्लाइड की [BaseSlide.shapes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseslide/shapes/) संग्रह को पार करें। आकार की गिनती और बड़े चित्र, प्रभाव, एनीमेशन या मल्टीमीडिया की उपस्थिति को स्क्रीनिंग संकेत के रूप में उपयोग करें, और एक स्लाइड को पुष्टि किए गए प्रदर्शन बाधा के रूप में मानने से पहले प्रतिनिधि रेंडर या निर्यात को मापें।

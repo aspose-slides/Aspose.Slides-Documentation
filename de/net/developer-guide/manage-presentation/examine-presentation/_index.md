@@ -7,7 +7,7 @@ url: /de/net/examine-presentation/
 keywords:
 - Präsentationsformat
 - Präsentationseigenschaften
-- Dokumenteigenschaften
+- Dokumenteneigenschaften
 - Eigenschaften abrufen
 - Eigenschaften lesen
 - Eigenschaften ändern
@@ -26,78 +26,148 @@ description: "Untersuchen Sie Folien, Struktur und Metadaten in PowerPoint- und 
 ---
 ## **Übersicht**
 
-Dieser Artikel zeigt, wie man Präsentationsinformationen in Aspose.Slides inspiziert. Er erklärt, wie man das aktuelle Format einer Präsentation ermittelt, ohne die gesamte Datei zu laden, ihre Dokumenteigenschaften liest und diese bei Bedarf aktualisiert.
+Aspose.Slides kann das Format einer Präsentation erkennen und die Dokumentmetadaten lesen, ohne ein vollständiges Präsentations‑Objektmodell zu erstellen. Das ist nützlich, wenn Sie Dateien klassifizieren, ein Inventar erstellen oder Eigenschaften prüfen möchten, bevor Sie entscheiden, ob Sie den Präsentationsinhalt laden und verarbeiten.
 
-Die Beispiele basieren auf den APIs [PresentationInfo](https://reference.aspose.com/slides/de/net/aspose.slides/presentationinfo/) und [DocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/documentproperties/) und demonstrieren typische Vorgänge zur Arbeit mit Präsentationsmetadaten.
+Dieser Artikel demonstriert die leichte Inspektion über [PresentationFactory](https://reference.aspose.com/slides/de/net/aspose.slides/presentationfactory/) und [IPresentationInfo](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/), sowie gezielte Aktualisierungen über [IDocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/).
 
-## **Prüfen des Präsentationsformats**
+## **Format einer Präsentation prüfen**
 
-Bevor Sie an einer Präsentation arbeiten, möchten Sie möglicherweise herausfinden, in welchem Format (PPT, PPTX, ODP usw.) sich die Präsentation derzeit befindet.
+Verwenden Sie [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/de/net/aspose.slides/presentationfactory/getpresentationinfo/), um eine Datei zu inspizieren, ohne ein [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)‑Exemplar zu erstellen. Die Eigenschaft [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/loadformat/) gibt das erkannte Format zurück, z. B. PPTX, PPT oder ODP.
 
-Sie können das Format einer Präsentation prüfen, ohne sie zu laden. Siehe diesen C#‑Code:
-
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-Console.WriteLine(info.LoadFormat); // PPTX
+var fileNames = new[] { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info2 = PresentationFactory.Instance.GetPresentationInfo("pres.ppt");
-Console.WriteLine(info2.LoadFormat); // PPT
-
-IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres.odp");
-Console.WriteLine(info3.LoadFormat); // ODP
+foreach (var fileName in fileNames)
+{
+    var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(fileName);
+    Console.WriteLine($"{fileName}: {presentationInfo.LoadFormat}");
+}
 ```
 
-## **Abrufen von Präsentationseigenschaften**
+## **Leichtgewichtiges Präsentationsinventar erstellen**
 
-Dieser C#‑Code zeigt, wie man Präsentationseigenschaften (Informationen zur Präsentation) abruft:
+Wenn Sie viele Präsentationsdateien verarbeiten, benötigen Sie möglicherweise ein kompaktes Inventar für Validierung, Indexierung oder ein Dokument‑Management‑System. In diesem Szenario verwenden Sie [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/de/net/aspose.slides/presentationfactory/getpresentationinfo/), um ein [IPresentationInfo](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/)‑Objekt zu erhalten, und rufen dann [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/readdocumentproperties/) auf, um die Dokumentmetadaten zu lesen. Dieser Ansatz erstellt kein [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)‑Exemplar und erfordert nicht, dass Sie das vollständige Präsentations‑Objektmodell durchlaufen.
 
-```c#
+Die von [IDocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/) bereitgestellten erweiterten Eigenschaften liefern die folgenden Inventarwerte:
+
+| Property | Inventory value |
+| --- | --- |
+| [Slides](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/slides/de/) | Gesamtzahl der Folien. |
+| [HiddenSlides](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/hiddenslides/) | Anzahl versteckter Folien. |
+| [Notes](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/notes/) | Anzahl der Folien, die Notizen enthalten. |
+| [Paragraphs](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/paragraphs/) | Gesamtzahl der Absätze, falls verfügbar. |
+| [Words](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/words/) | Gesamtzahl der Wörter. |
+| [MultimediaClips](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/multimediaclips/) | Gesamtzahl der Audio‑ und Videoclips. |
+
+Das folgende Beispiel liest diese Werte, ohne ein [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)‑Objekt zu erstellen, und gibt ein kompaktes Inventar aus. Es kombiniert außerdem [HeadingPairs](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/headingpairs/) mit [TitlesOfParts](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/titlesofparts/), um Inhaltsgruppen wie Schriftarten, Designs und Folientitel anzuzeigen.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
 
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-IDocumentProperties props = info.ReadDocumentProperties();
-Console.WriteLine(props.CreatedTime);
-Console.WriteLine(props.Subject);
-Console.WriteLine(props.Title);
-// .. 
+var filePath = "sample.pptx";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+var documentProperties = presentationInfo.ReadDocumentProperties();
+
+Console.WriteLine($"File: {Path.GetFileName(filePath)}");
+Console.WriteLine($"Format: {presentationInfo.LoadFormat}");
+Console.WriteLine($"Title: {documentProperties.Title}");
+Console.WriteLine($"Author: {documentProperties.Author}");
+Console.WriteLine("Statistics:");
+Console.WriteLine($"  Slides: {documentProperties.Slides}");
+Console.WriteLine($"  Hidden slides: {documentProperties.HiddenSlides}");
+Console.WriteLine($"  Slides with notes: {documentProperties.Notes}");
+Console.WriteLine($"  Paragraphs: {documentProperties.Paragraphs}");
+Console.WriteLine($"  Words: {documentProperties.Words}");
+Console.WriteLine($"  Multimedia clips: {documentProperties.MultimediaClips}");
+
+var headingPairs = documentProperties.HeadingPairs ?? Array.Empty<IHeadingPair>();
+var titlesOfParts = documentProperties.TitlesOfParts ?? Array.Empty<string>();
+var partIndex = 0;
+
+if (headingPairs.Length == 0 || titlesOfParts.Length == 0)
+{
+    Console.WriteLine("Content groups: not available");
+}
+else
+{
+    Console.WriteLine("Content groups:");
+
+    foreach (var headingPair in headingPairs)
+    {
+        Console.WriteLine($"  {headingPair.Name} ({headingPair.Count})");
+
+        for (var partOffset = 0; partOffset < headingPair.Count && partIndex < titlesOfParts.Length; partOffset++)
+        {
+            Console.WriteLine($"    - {titlesOfParts[partIndex]}");
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.Length)
+    {
+        Console.WriteLine("  Other parts:");
+
+        while (partIndex < titlesOfParts.Length)
+        {
+            Console.WriteLine($"    - {titlesOfParts[partIndex]}");
+            partIndex++;
+        }
+    }
+}
 ```
 
-Sie können die [Eigenschaften der DocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/documentproperties/#properties) Klasse ansehen.
+Jeder [IHeadingPair](https://reference.aspose.com/slides/de/net/aspose.slides/iheadingpair/) liefert einen Gruppennamen und die Anzahl der Elemente in dieser Gruppe. [IDocumentProperties.TitlesOfParts](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/titlesofparts/) ist ein flaches, geordnetes Array, daher verbrauchen Sie die Anzahl aufeinanderfolgender Titel, die durch jedes Heading‑Pair angegeben werden.
 
-## **Aktualisieren von Präsentationseigenschaften**
+### **Gespeicherte Metadaten und Formatbeschränkungen**
 
-Aspose.Slides stellt die Methode [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) bereit, mit der Sie Änderungen an Präsentationseigenschaften vornehmen können.
+Die von [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/readdocumentproperties/) zurückgegebenen Inventareigenschaften spiegeln die im Quelldokument verfügbaren Metadaten wider. Aspose.Slides lädt das Präsentations‑Objektmodell nicht und durchläuft es nicht, um diese Werte für diesen Aufruf neu zu berechnen. Fehlende Eigenschaften werden durch Standardwerte dargestellt, und gespeicherte Werte können veraltet sein, wenn die Anwendung, die die Datei zuletzt gespeichert hat, ihre Dokumenteigenschaften nicht aktualisiert hat.
 
-Angenommen, wir haben eine PowerPoint‑Präsentation mit den unten gezeigten Dokumenteigenschaften.
+- **PPTX:** Das Format stellt erweiterte Dokumenteigenschaften für Folien‑, Notizen‑, versteckte‑Folien‑, Absatz‑, Wort‑ und Multimedia‑Zählungen sowie Heading‑Pairs und Part‑Titles bereit. Die Verfügbarkeit hängt davon ab, welche Eigenschaften vom Dokumentersteller geschrieben wurden.
+- **PPT:** Das Binärformat kann entsprechende Dokument‑Zusammenfassungs‑Eigenschaften speichern. Wenn eine Eigenschaft fehlt oder nicht vom Dokumentersteller aktualisiert wurde, gibt Aspose.Slides den gespeicherten oder Standardwert zurück, anstatt ihn aus den Folien zu berechnen.
+- **ODP:** OpenDocument‑Metadaten liefern allgemeine Dokumentstatistiken wie Seiten‑, Absatz‑ und Wortzählungen, aber diese Werte lassen sich nicht auf jede PowerPoint‑spezifische erweiterte Eigenschaft abbilden. Metadaten zu versteckten Folien, Notizen‑Folien, Multimedia, Heading‑Pairs und Part‑Titles können fehlen, und die Inventareigenschaften können Standardwerte zurückgeben. Behandeln Sie keinen Null‑Wert oder ein leeres Array als endgültigen Beweis dafür, dass der entsprechende Inhalt fehlt.
+
+Verwenden Sie den leichten Metadaten‑Ansatz für Inventare und Vorprüfungen. Laden Sie die Präsentation und prüfen Sie ihr Live‑Objektmodell, wenn das Ergebnis in‑Speicher‑Änderungen widerspiegeln muss oder wenn Sie den tatsächlichen Präsentationsinhalt verifizieren müssen.
+
+## **Präsentationseigenschaften aktualisieren**
+
+Die von [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/readdocumentproperties/) zurückgegebenen Eigenschaften können ebenfalls geändert werden, ohne ein [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/)‑Exemplar zu erstellen. Wenden Sie die Änderungen mit [IPresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/updatedocumentproperties/) an und schreiben Sie dann die gebundene Präsentation mit [IPresentationInfo.WriteBindedPresentation](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/writebindedpresentation/).
+
+Das folgende Bild zeigt die ursprünglichen Dokumenteigenschaften der PowerPoint‑Präsentation.
 
 ![Ursprüngliche Dokumenteigenschaften der PowerPoint-Präsentation](input_properties.png)
 
-Dieses Codebeispiel zeigt, wie man einige Präsentationseigenschaften bearbeitet:
+Das folgende Beispiel ändert den Titel und den letzten Speicherzeitpunkt und schreibt das Ergebnis in eine neue Datei:
 
-```c#
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
 
-string fileName = "sample.pptx";
+var sourceFile = "sample.pptx";
+var outputFile = "sample_with_updated_properties.pptx";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(sourceFile);
+var documentProperties = presentationInfo.ReadDocumentProperties();
 
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
+documentProperties.Title = "Quarterly sales report";
+documentProperties.LastSavedTime = DateTime.UtcNow;
 
-IDocumentProperties properties = info.ReadDocumentProperties();
-properties.Title = "My title";
-properties.LastSavedTime = DateTime.Now;
-
-info.UpdateDocumentProperties(properties);
-info.WriteBindedPresentation(fileName);
+presentationInfo.UpdateDocumentProperties(documentProperties);
+using var outputStream = File.Create(outputFile);
+presentationInfo.WriteBindedPresentation(outputStream);
 ```
 
-Die Ergebnisse der Änderung der Dokumenteigenschaften werden unten angezeigt.
+Das folgende Bild zeigt die geänderten Dokumenteigenschaften der PowerPoint‑Präsentation.
 
 ![Geänderte Dokumenteigenschaften der PowerPoint-Präsentation](output_properties.png)
 
 ## **Nützliche Links**
 
-Um weitere Informationen zu einer Präsentation und ihren Sicherheitsattributen zu erhalten, könnten diese Links nützlich sein:
+Für verwandte Sicherheitsprüfungen und Schutzeinstellungen siehe die folgenden Artikel:
 
 - [Passwortgeschützte Präsentationen](/slides/de/net/password-protected-presentation/)
 - [Schreibgeschützte Präsentationen](/slides/de/net/write-protected-presentation/)
@@ -106,20 +176,20 @@ Um weitere Informationen zu einer Präsentation und ihren Sicherheitsattributen 
 
 **Wie kann ich prüfen, ob Schriftarten eingebettet sind und welche das sind?**
 
-Suchen Sie nach [Informationen zu eingebetteten Schriftarten](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/getembeddedfonts/) auf Präsentationsebene und vergleichen Sie diese Einträge mit der Menge der [tatsächlich im Inhalt verwendeten Schriftarten](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/getfonts/), um zu ermitteln, welche Schriftarten für die Darstellung kritisch sind.
+Laden Sie die Präsentation und verwenden Sie [Presentation.FontsManager](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/fontsmanager/). Rufen Sie [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/getembeddedfonts/) auf, um die eingebetteten Schriftarten zu erhalten, und [FontsManager.GetFonts](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/getfonts/), um die von der Präsentation verwendeten Schriftarten zu erhalten. Vergleichen Sie die beiden Ergebnisse, um Schriftarten zu finden, die für die Darstellung erforderlich, aber nicht eingebettet sind.
 
 **Wie kann ich schnell feststellen, ob die Datei versteckte Folien enthält und wie viele?**
 
-Durchlaufen Sie die [Folienkollektion](https://reference.aspose.com/slides/de/net/aspose.slides/slidecollection/) und prüfen Sie das [Sichtbarkeits‑Flag](https://reference.aspose.com/slides/de/net/aspose.slides/slide/hidden/) jeder Folie.
+Wenn gespeicherte Dokumentmetadaten ausreichen, lesen Sie [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/de/net/aspose.slides/idocumentproperties/hiddenslides/) über [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/de/net/aspose.slides/presentationfactory/getpresentationinfo/) und [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/de/net/aspose.slides/ipresentationinfo/readdocumentproperties/). Dies eignet sich für ein leichtgewichtiges Inventar. Wenn die Präsentation im Speicher geändert wurde, können die gespeicherten Metadaten fehlen oder veraltet sein, oder Sie müssen Live‑Werte prüfen, indem Sie [Presentation.Slides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slides/de/) durchlaufen und die Eigenschaft [Slide.Hidden](https://reference.aspose.com/slides/de/net/aspose.slides/slide/hidden/) jeder Folie inspizieren.
 
-**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und -ausrichtung verwendet werden und ob sie von den Vorgaben abweichen?**
+**Kann ich erkennen, ob eine benutzerdefinierte Foliengröße und -ausrichtung verwendet wird und ob sie von den Vorgaben abweicht?**
 
-Ja. Vergleichen Sie die aktuelle [Foliengröße](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slidesize/) und Ausrichtung mit den Standard‑Voreinstellungen; dies hilft, das Verhalten beim Drucken und Exportieren vorherzusehen.
+Ja. Laden Sie die Präsentation und lesen Sie [Presentation.SlideSize](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slidesize/). Prüfen Sie [ISlideSize.Type](https://reference.aspose.com/slides/de/net/aspose.slides/islidesize/type/), [ISlideSize.Size](https://reference.aspose.com/slides/de/net/aspose.slides/islidesize/size/) und [ISlideSize.Orientation](https://reference.aspose.com/slides/de/net/aspose.slides/islidesize/orientation/), um die aktuellen Einstellungen mit den erwarteten Vorgaben und Abmessungen zu vergleichen.
 
 **Gibt es eine schnelle Möglichkeit zu sehen, ob Diagramme externe Datenquellen referenzieren?**
 
-Ja. Durchlaufen Sie alle [Diagramme](https://reference.aspose.com/slides/de/net/aspose.slides.charts/chart/), prüfen Sie deren [Datenquelle](https://reference.aspose.com/slides/de/net/aspose.slides.charts/chartdata/datasourcetype/) und stellen Sie fest, ob die Daten intern oder verlinkt sind, einschließlich etwaiger defekter Links.
+Ja. Lokalisieren Sie jedes [Chart](https://reference.aspose.com/slides/de/net/aspose.slides.charts/chart/) und prüfen Sie [ChartData.DataSourceType](https://reference.aspose.com/slides/de/net/aspose.slides.charts/chartdata/datasourcetype/). Für eine externe Arbeitsmappe lesen Sie [ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/de/net/aspose.slides.charts/chartdata/externalworkbookpath/). Der Datentyp und der Pfad identifizieren eine externe Referenz, doch die Verfügbarkeit des Ziels muss separat überprüft werden.
 
-**Wie kann ich „schwere“ Folien beurteilen, die das Rendern oder den PDF‑Export verlangsamen könnten?**
+**Wie kann ich 'schwere' Folien beurteilen, die das Rendern oder den PDF‑Export verlangsamen könnten?**
 
-Zählen Sie für jede Folie die Objektanzahl und achten Sie auf große Bilder, Transparenz, Schatten, Animationen und Multimedia; vergeben Sie eine grobe Komplexitätsbewertung, um mögliche Leistungsengpässe zu kennzeichnen.
+Es gibt keine einzelne Komplexitäts‑Eigenschaft. Durchlaufen Sie [Presentation.Slides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slides/de/) und die [IBaseSlide.Shapes](https://reference.aspose.com/slides/de/net/aspose.slides/ibaseslide/shapes/)‑Sammlung jeder Folie. Nutzen Sie die Anzahl der Formen sowie das Vorhandensein großer Bilder, Effekte, Animationen oder Multimedia als Indikatoren und messen Sie ein repräsentatives Render‑ oder Export‑Ergebnis, bevor Sie eine Folie als bestätigten Leistungsengpass einstufen.

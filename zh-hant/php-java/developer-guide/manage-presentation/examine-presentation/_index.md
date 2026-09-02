@@ -1,12 +1,12 @@
 ---
-title: 在 PHP 中檢索與更新投影片資訊
-linktitle: 投影片資訊
+title: 在 PHP 中檢索與更新簡報資訊
+linktitle: 簡報資訊
 type: docs
 weight: 30
 url: /zh-hant/php-java/examine-presentation/
 keywords:
-- 投影片格式
-- 投影片屬性
+- 簡報格式
+- 簡報屬性
 - 文件屬性
 - 取得屬性
 - 讀取屬性
@@ -18,101 +18,198 @@ keywords:
 - 檢查 ODP
 - PowerPoint
 - OpenDocument
-- 投影片
+- 簡報
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP 探索 PowerPoint 與 OpenDocument 投影片中的投影片、結構與中繼資料，以獲得更快速的洞見與更智慧的內容稽核。"
+description: "使用 Aspose.Slides for PHP 探索 PowerPoint 與 OpenDocument 簡報中的投影片、結構與中繼資料，以獲得更快速的洞察與更聰明的內容稽核。"
 ---
-## **概覽**
+## **概觀**
 
-本文說明如何在 Aspose.Slides 中檢視投影片資訊。它說明如何在不載入完整檔案的情況下判斷投影片的目前格式、讀取文件屬性，以及在需要時更新這些屬性。
+Aspose.Slides 可以在不建立完整簡報物件模型的情況下辨識簡報的格式並讀取其文件中繼資料。這在您需要分類檔案、建立清單或在決定是否載入與處理簡報內容之前檢查屬性時非常有用。
 
-範例基於 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/) 與 [DocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/) API，展示了處理投影片中繼資料的典型操作。
+本文說明如何透過 [PresentationFactory](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationfactory/) 與 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/) 進行輕量檢查，以及透過 [DocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/) 進行目標更新。
 
-## **檢查投影片格式**
+## **檢查簡報格式**
 
-在對投影片進行操作之前，您可能想要先了解目前投影片的格式（PPT、PPTX、ODP 等）。
-
-您可以在不載入投影片的情況下檢查其格式。請參考以下 PHP 程式碼：
+使用 [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationfactory/) 檢查檔案而不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 實例。[PresentationInfo::getLoadFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/#getLoadFormat) 方法會回報偵測到的格式，例如 PPTX、PPT 或 ODP。
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  echo($info->getLoadFormat());// PPTX
+use aspose\slides\LoadFormat;
+use aspose\slides\PresentationFactory;
 
-  $info2 = PresentationFactory->getInstance()->getPresentationInfo("pres.ppt");
-  echo($info2->getLoadFormat());// PPT
+$fileNames = ["pres.pptx", "pres.ppt", "pres.odp"];
 
-  $info3 = PresentationFactory->getInstance()->getPresentationInfo("pres.odp");
-  echo($info3->getLoadFormat());// ODP
+foreach ($fileNames as $fileName) {
+    $presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+    $loadFormat = java_values($presentationInfo->getLoadFormat());
+    $formatName = "Other (" . $loadFormat . ")";
+
+    if ($loadFormat === LoadFormat::Pptx) {
+        $formatName = "PPTX";
+    } elseif ($loadFormat === LoadFormat::Ppt) {
+        $formatName = "PPT";
+    } elseif ($loadFormat === LoadFormat::Odp) {
+        $formatName = "ODP";
+    }
+
+    echo $fileName . ": " . $formatName . PHP_EOL;
+}
 ```
 
-## **取得投影片屬性**
+## **建立輕量簡報清單**
 
-以下 PHP 程式碼示範如何取得投影片屬性（投影片的資訊）：
+當您處理大量簡報檔案時，可能需要一個緊湊的清單以供驗證、索引或文件管理系統使用。在此情境下，使用 [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationfactory/) 取得 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/) 物件，然後呼叫 [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/#readDocumentProperties) 讀取文件中繼資料。此方式不會建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 實例，也不需遍歷完整的簡報物件模型。
+
+[DocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/) 所提供的擴充屬性可取得下列清單值：
+
+| 方法 | 清單值 |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getSlides) | 投影片的總數。 |
+| [getHiddenSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getHiddenSlides) | 隱藏投影片的數量。 |
+| [getNotes](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getNotes) | 包含註解的投影片數量。 |
+| [getParagraphs](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getParagraphs) | 段落的總數（若有提供）。 |
+| [getWords](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getWords) | 字數的總數。 |
+| [getMultimediaClips](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getMultimediaClips) | 音訊與視訊剪輯的總數。 |
+
+以下範例在不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 物件的情況下讀取這些值，並列印緊湊的清單。它同時結合 [DocumentProperties::getHeadingPairs](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getHeadingPairs) 與 [DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getTitlesOfParts) 以顯示如字型、主題與投影片標題等內容群組。
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  $props = $info->readDocumentProperties();
-  echo($props->getCreatedTime());
-  echo($props->getSubject());
-  echo($props->getTitle());
-  # ..
+use aspose\slides\LoadFormat;
+use aspose\slides\PresentationFactory;
+
+$filePath = "sample.pptx";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($filePath);
+$documentProperties = $presentationInfo->readDocumentProperties();
+
+$loadFormat = java_values($presentationInfo->getLoadFormat());
+$formatName = "Other (" . $loadFormat . ")";
+
+if ($loadFormat === LoadFormat::Pptx) {
+    $formatName = "PPTX";
+} elseif ($loadFormat === LoadFormat::Ppt) {
+    $formatName = "PPT";
+} elseif ($loadFormat === LoadFormat::Odp) {
+    $formatName = "ODP";
+}
+
+echo "File: " . basename($filePath) . PHP_EOL;
+echo "Format: " . $formatName . PHP_EOL;
+echo "Title: " . java_values($documentProperties->getTitle()) . PHP_EOL;
+echo "Author: " . java_values($documentProperties->getAuthor()) . PHP_EOL;
+echo "Statistics:" . PHP_EOL;
+echo "  Slides: " . java_values($documentProperties->getSlides()) . PHP_EOL;
+echo "  Hidden slides: " . java_values($documentProperties->getHiddenSlides()) . PHP_EOL;
+echo "  Slides with notes: " . java_values($documentProperties->getNotes()) . PHP_EOL;
+echo "  Paragraphs: " . java_values($documentProperties->getParagraphs()) . PHP_EOL;
+echo "  Words: " . java_values($documentProperties->getWords()) . PHP_EOL;
+echo "  Multimedia clips: " . java_values($documentProperties->getMultimediaClips()) . PHP_EOL;
+
+$headingPairs = $documentProperties->getHeadingPairs();
+$titlesOfParts = $documentProperties->getTitlesOfParts();
+
+if (java_is_null($headingPairs) || java_is_null($titlesOfParts)) {
+    echo "Content groups: not available" . PHP_EOL;
+} else {
+    $headingPairs = java_values($headingPairs);
+    $titlesOfParts = java_values($titlesOfParts);
+    $partIndex = 0;
+
+    if (count($headingPairs) === 0 || count($titlesOfParts) === 0) {
+        echo "Content groups: not available" . PHP_EOL;
+    } else {
+        echo "Content groups:" . PHP_EOL;
+
+        foreach ($headingPairs as $headingPair) {
+            $partCount = java_values($headingPair->getCount());
+            echo "  " . java_values($headingPair->getName()) . " (" . $partCount . ")" . PHP_EOL;
+
+            for ($partOffset = 0; $partOffset < $partCount && $partIndex < count($titlesOfParts); $partOffset++) {
+                echo "    - " . $titlesOfParts[$partIndex] . PHP_EOL;
+                $partIndex++;
+            }
+        }
+
+        if ($partIndex < count($titlesOfParts)) {
+            echo "  Other parts:" . PHP_EOL;
+
+            while ($partIndex < count($titlesOfParts)) {
+                echo "    - " . $titlesOfParts[$partIndex] . PHP_EOL;
+                $partIndex++;
+            }
+        }
+    }
+}
 ```
 
-您可能想要查看 [DocumentProperties 類別下的屬性](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#DocumentProperties--)。
+每個 [HeadingPair](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/headingpair/) 皆提供群組名稱與該群組項目的數量。[DocumentProperties::getTitlesOfParts](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getTitlesOfParts) 回傳一個平面且有序的陣列，因此請依照每個 heading pair 指定的連續標題數量逐一取用。
 
-## **更新投影片屬性**
+### **儲存的中繼資料與格式限制**
 
-Aspose.Slides 提供了 [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) 方法，使您能夠變更投影片屬性。
+由 [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/#readDocumentProperties) 回傳的清單屬性反映來源文件中可用的中繼資料。Aspose.Slides 不會載入並遍歷簡報物件模型以重新計算這些值。缺少的屬性以預設值表示，若最後一次儲存檔案的應用程式未更新其文件屬性，已儲存的值可能已過時。
 
-假設我們有一個 PowerPoint 投影片，其文件屬性如下所示。
+- **PPTX:** 此格式提供投影片、註解、隱藏投影片、段落、字數與多媒體計數等擴充文件屬性，亦包括 heading pairs 與 part titles。可用性取決於文件產生者寫入了哪些屬性。
+- **PPT:** 二進位格式可儲存對應的文件摘要屬性。如果屬性不存在或未由文件產生者重新整理，Aspose.Slides 會回傳其已儲存或預設的值，而不是自投影片重新計算。
+- **ODP:** OpenDocument 中繼資料提供一般文件統計資訊，例如頁面、段落與字數，但這些值未必對應每個 PowerPoint 特定的擴充屬性。隱藏投影片、註解投影片、多媒體、heading‑pair 與 part‑title 中繼資料可能不存在，清單屬性可能回傳預設值。不要將零值或空陣列當作對應內容不存在的權威證明。
 
-![PowerPoint 投影片的原始文件屬性](input_properties.png)
+請在建立清單與初步檢查時使用輕量中繼資料方法。若結果必須反映記憶體中的變更，或需要驗證實際的簡報內容，請載入簡報並檢查其即時物件模型。
 
-以下程式碼示範如何編輯部分投影片屬性：
+## **更新簡報屬性**
+
+由 [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/#readDocumentProperties) 回傳的屬性也可以在不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 實例的情況下變更。使用 [PresentationInfo::updateDocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/#updateDocumentProperties) 套用變更，然後透過 [PresentationInfo::writeBindedPresentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/#writeBindedPresentation) 寫入已綁定的簡報。
+
+以下影像顯示 PowerPoint 簡報的原始文件屬性。
+
+![PowerPoint簡報的原始文件屬性](input_properties.png)
 
 ```php
-$fileName = "sample.pptx";
+use aspose\slides\PresentationFactory;
 
-$info = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+$sourceFile = "sample.pptx";
+$outputFile = "sample_with_updated_properties.pptx";
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($sourceFile);
+$documentProperties = $presentationInfo->readDocumentProperties();
 
-$properties = $info->readDocumentProperties();
-$properties->setTitle("My title");
-$properties->setLastSavedTime(new Java("java.util.Date"));
+$documentProperties->setTitle("Quarterly sales report");
+$documentProperties->setLastSavedTime(new Java("java.util.Date"));
 
-$info->updateDocumentProperties($properties);
-$info->writeBindedPresentation($fileName);
+$presentationInfo->updateDocumentProperties($documentProperties);
+$outputStream = new Java("java.io.FileOutputStream", $outputFile);
+try {
+    $presentationInfo->writeBindedPresentation($outputStream);
+} finally {
+    $outputStream->close();
+}
 ```
 
-變更文件屬性的結果如下所示。
+以下範例變更標題與最後儲存時間，並將結果寫入新檔案：
 
-![PowerPoint 投影片的變更後文件屬性](output_properties.png)
+![PowerPoint簡報的已變更文件屬性](output_properties.png)
 
 ## **相關連結**
 
-若要取得更多關於投影片及其安全屬性的資訊，您可能會發現以下連結有用：
+有關相關的安全檢查與保護設定，請參閱以下文章：
 
-- [密碼保護投影片](/slides/zh-hant/php-java/password-protected-presentation/)
-- [寫入保護投影片](/slides/zh-hant/php-java/write-protected-presentation/)
+- [密碼保護簡報](/slides/zh-hant/php-java/password-protected-presentation/)
+- [寫入保護簡報](/slides/zh-hant/php-java/write-protected-presentation/)
 
 ## **常見問題**
 
-**如何檢查字型是否已嵌入以及嵌入了哪些字型？**
+**如何檢查是否已嵌入字型以及是哪一些字型？**
 
-在投影片層級尋找 [embedded-font information](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/fontsmanager/getembeddedfonts/)，然後將這些條目與 [實際在內容中使用的字型](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/fontsmanager/getfonts/) 進行比對，即可判斷哪些字型對呈現至關重要。
+載入簡報並使用 [Presentation::getFontsManager](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getFontsManager)。呼叫 [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) 取得已嵌入的字型，並呼叫 [FontsManager::getFonts](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/fontsmanager/#getFonts) 取得簡報使用的字型。比較兩個結果即可找出需要呈現但未嵌入的字型。
 
-**如何快速判斷檔案是否有隱藏投影片以及其數量？**
+**如何快速判斷檔案是否有隱藏投影片以及有多少？**
 
-遍歷 [slide collection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/slidecollection/)，檢查每張投影片的 [visibility flag](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/slide/gethidden/)。
+當儲存的文件中繼資料足夠時，透過 [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationfactory/) 與 [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentationinfo/#readDocumentProperties) 讀取 [DocumentProperties::getHiddenSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/documentproperties/#getHiddenSlides)。此方式適用於輕量清單。如果簡報已在記憶體中被修改，儲存的中繼資料可能缺失或過時，或需要驗證即時值，請遍歷 [Presentation::getSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getSlides) 並檢查每張投影片的 [Slide::getHidden](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/slide/#getHidden) 方法。
 
-**我能偵測是否使用自訂投影片大小與方向，且是否與預設值不同嗎？**
+**我能偵測是否使用自訂投影片大小與方向，且是否與預設不同嗎？**
 
-可以。將目前的 [slide size](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/getslidesize/) 與方向與標準預設值進行比較；這有助於預測列印與匯出的行為。
+可以。載入簡報並呼叫 [Presentation::getSlideSize](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getSlideSize)。使用 [SlideSize::getType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/slidesize/#getType)、[SlideSize::getSize](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/slidesize/#getSize) 與 [SlideSize::getOrientation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/slidesize/#getOrientation) 比對目前設定與預期的預設與尺寸。
 
-**是否有快速方法查看圖表是否引用外部資料來源？**
+**有沒有快速方式檢查圖表是否參考外部資料來源？**
 
-可以。遍歷所有 [charts](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chart/)，檢查它們的 [data source](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/getdatasourcetype/)，並註明資料是內部還是連結型式，包括任何失效的連結。
+有。找出每個 [Chart](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chart/) 並呼叫 [ChartData::getDataSourceType](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/#getDataSourceType)。若為外部活頁簿，呼叫 [ChartData::getExternalWorkbookPath](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chartdata/#getExternalWorkbookPath)。資料來源類型與路徑可識別外部參照，但是否可用仍需另行檢查資源。
 
-**如何評估可能導致渲染或 PDF 匯出緩慢的「大型」投影片？**
+**我要如何評估可能會拖慢渲染或 PDF 匯出的「重」投影片？**
 
-對每張投影片，統計物件數量，並檢查是否有大型影像、透明度、陰影、動畫與多媒體；依此給予粗略的複雜度分數，以標示可能的效能瓶頸。
+沒有單一的複雜度屬性。遍歷 [Presentation::getSlides](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/#getSlides) 並檢查每張投影片的 [BaseSlide::getShapes](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/baseslide/#getShapes) 集合。使用形狀數量以及大型影像、特效、動畫或多媒體的存在作為篩選訊號，並在將投影片視為確定的效能瓶頸前，先測量具代表性的渲染或匯出時間。

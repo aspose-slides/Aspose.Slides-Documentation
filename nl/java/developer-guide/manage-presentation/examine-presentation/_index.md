@@ -1,5 +1,5 @@
 ---
-title: Presentatie-informatie ophalen en bijwerken in Java
+title: Informatie over presentaties ophalen en bijwerken in Java
 linktitle: Presentatie-informatie
 type: docs
 weight: 30
@@ -21,105 +21,198 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Ontdek dia's, structuur en metadata in PowerPoint- en OpenDocument-presentaties met Java voor snellere inzichten en slimmere contentcontroles."
+description: "Ontdek dia's, structuur en metadata in PowerPoint- en OpenDocument-presentaties met Java voor snellere inzichten en slimmere content-audits."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe u presentatiesinformatie in Aspose.Slides kunt inspecteren. Het legt uit hoe u het huidige formaat van een presentatie kunt bepalen zonder het volledige bestand te laden, de documenteigenschappen kunt lezen en die eigenschappen indien nodig kunt bijwerken.
+Aspose.Slides kan het formaat van een presentatie identificeren en de documentmetadata lezen zonder een volledig presentatie‑objectmodel te maken. Dit is handig wanneer u bestanden moet classificeren, een inventaris moet opbouwen of eigenschappen moet inspecteren voordat u beslist of u de presentatie‑inhoud wilt laden en verwerken.
 
-De voorbeelden zijn gebaseerd op de API's [PresentationInfo](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentationinfo/) en [DocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/documentproperties/) en tonen typische bewerkingen voor het werken met presentatiemetadata.
+Dit artikel toont lichtgewicht inspectie via [PresentationFactory](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentationfactory/) en [IPresentationInfo](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/), evenals gerichte updates via [IDocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/).
 
 ## **Controleer een presentatieformaat**
 
-Voordat u aan een presentatie werkt, wilt u wellicht weten in welk formaat (PPT, PPTX, ODP en andere) de presentatie zich momenteel bevindt.
-
-U kunt het formaat van een presentatie controleren zonder de presentatie te laden. Zie deze Java‑code:
+Gebruik [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) om een bestand te inspecteren zonder een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑instantie te maken. De [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--)‑methode geeft het gedetecteerde formaat weer, zoals PPTX, PPT of ODP.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
+String[] fileNames = { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
+for (String fileName : fileNames) {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(fileName);
+    int loadFormat = presentationInfo.getLoadFormat();
+    String formatName = "Other (" + loadFormat + ")";
 
-IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+    if (loadFormat == LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat == LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat == LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    System.out.println(fileName + ": " + formatName);
+}
 ```
 
-## **Haal presentatieweigenschappen op**
+## **Maak een lichtgewicht presentatie‑inventaris**
 
-Deze Java‑code laat zien hoe u presentatieweigenschappen (informatie over de presentatie) kunt ophalen:
+Wanneer u veel presentatiebestanden verwerkt, heeft u mogelijk een compacte inventaris nodig voor validatie, indexering of een documentbeheersysteem. Gebruik in dit scenario [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) om een [IPresentationInfo](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/)‑object te verkrijgen, en roep vervolgens [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) aan om de documentmetadata te lezen. Deze aanpak maakt geen [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑instantie aan en vereist niet dat u het volledige presentatie‑objectmodel doorloopt.
+
+De uitgebreide eigenschappen die worden blootgelegd door [IDocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/) bieden de volgende inventariswaarden:
+
+| Methode | Inventariswaarde |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getSlides--) | Totaal aantal dia's. |
+| [getHiddenSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | Aantal verborgen dia's. |
+| [getNotes](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getNotes--) | Aantal dia's met notities. |
+| [getParagraphs](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getParagraphs--) | Totaal aantal alinea's, indien beschikbaar. |
+| [getWords](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getWords--) | Totaal aantal woorden. |
+| [getMultimediaClips](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | Totaal aantal audio‑ en videoclips. |
+
+Het volgende voorbeeld leest deze waarden zonder een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑object te maken en drukt een compacte inventaris af. Het combineert ook [getHeadingPairs](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) met [getTitlesOfParts](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) om inhoudsgroepen weer te geven, zoals lettertypen, thema's en dia‑titels.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IHeadingPair;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.Paths;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-IDocumentProperties props = info.readDocumentProperties();
-System.out.println(props.getCreatedTime());
-System.out.println(props.getSubject());
-System.out.println(props.getTitle());
-// ..
+String filePath = "sample.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
+
+int loadFormat = presentationInfo.getLoadFormat();
+String formatName = "Other (" + loadFormat + ")";
+
+if (loadFormat == LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat == LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat == LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+System.out.println("File: " + Paths.get(filePath).getFileName());
+System.out.println("Format: " + formatName);
+System.out.println("Title: " + documentProperties.getTitle());
+System.out.println("Author: " + documentProperties.getAuthor());
+System.out.println("Statistics:");
+System.out.println("  Slides: " + documentProperties.getSlides());
+System.out.println("  Hidden slides: " + documentProperties.getHiddenSlides());
+System.out.println("  Slides with notes: " + documentProperties.getNotes());
+System.out.println("  Paragraphs: " + documentProperties.getParagraphs());
+System.out.println("  Words: " + documentProperties.getWords());
+System.out.println("  Multimedia clips: " + documentProperties.getMultimediaClips());
+
+IHeadingPair[] headingPairs = documentProperties.getHeadingPairs();
+String[] titlesOfParts = documentProperties.getTitlesOfParts();
+headingPairs = headingPairs != null ? headingPairs : new IHeadingPair[0];
+titlesOfParts = titlesOfParts != null ? titlesOfParts : new String[0];
+int partIndex = 0;
+
+if (headingPairs.length == 0 || titlesOfParts.length == 0) {
+    System.out.println("Content groups: not available");
+} else {
+    System.out.println("Content groups:");
+
+    for (IHeadingPair headingPair : headingPairs) {
+        System.out.println("  " + headingPair.getName() + " (" + headingPair.getCount() + ")");
+
+        for (int partOffset = 0; partOffset < headingPair.getCount() && partIndex < titlesOfParts.length; partOffset++) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        System.out.println("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+}
 ```
 
-U wilt mogelijk de [eigenschappen onder de DocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/documentproperties/#DocumentProperties--) klasse bekijken.
+Elke [IHeadingPair](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iheadingpair/) levert een groepsnaam en het aantal items in die groep. [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) retourneert een vlak, geordend array, dus verwerk het aantal opeenvolgende titels dat door elk heading‑pair wordt opgegeven.
 
-## **Werk presentatieeigenschappen bij**
+### **Opgeslagen metadata en formatbeperkingen**
 
-Aspose.Slides biedt de [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) methode die u in staat stelt wijzigingen aan te brengen in de presentatieweigenschappen.
+De inventaris‑eigenschappen die worden geretourneerd door [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) weerspiegelen metadata die beschikbaar is in het bron‑document. Aspose.Slides laadt en doorloopt het presentatie‑objectmodel niet om deze waarden voor deze aanroep opnieuw te berekenen. Ontbrekende eigenschappen worden weergegeven met standaardwaarden, en opgeslagen waarden kunnen verouderd zijn als de toepassing die het bestand voor het laatst heeft opgeslagen, de documenteigenschappen niet heeft bijgewerkt.
 
-Stel dat we een PowerPoint‑presentatie hebben met de documenteigenschappen zoals hieronder weergegeven.
+- **PPTX:** Het formaat biedt uitgebreide documenteigenschappen voor dia‑, notitie‑, verborgen‑dia‑, alinea‑, woord‑ en multimedia‑telling, evenals heading‑pairs en part‑titels. Beschikbaarheid hangt af van welke eigenschappen door de documentproducent zijn weggeschreven.
+- **PPT:** Het binaire formaat kan overeenkomstige document‑samenvattings‑eigenschappen opslaan. Als een eigenschap afwezig is of niet is vernieuwd door de documentproducent, retourneert Aspose.Slides de opgeslagen of standaardwaarde in plaats van deze te berekenen uit de dia's.
+- **ODP:** OpenDocument‑metadata biedt algemene documentstatistieken, zoals pagina‑, alinea‑ en woord‑telling, maar deze waarden corresponderen niet met elke PowerPoint‑specifieke uitgebreide eigenschap. Metadata voor verborgen dia's, notities‑dia's, multimedia, heading‑pair en part‑title kunnen ontbreken, en de inventaris‑eigenschappen kunnen standaardwaarden retourneren. Beschouw een nul‑waarde of een leeg array niet als definitief bewijs dat de corresponderende inhoud afwezig is.
 
-![Originele documenteigenschappen van de PowerPoint‑presentatie](input_properties.png)
+Gebruik de lichtgewicht metadata‑benadering voor inventarissen en voorlopige controles. Laad de presentatie en inspecteer het live‑objectmodel wanneer het resultaat overeen moet komen met in‑memory wijzigingen of wanneer u de feitelijke presentatie‑inhoud moet verifiëren.
 
-Dit code‑voorbeeld laat zien hoe u enkele presentatieweigenschappen kunt bewerken:
+## **Presentatie‑eigenschappen bijwerken**
+
+De eigenschappen die worden geretourneerd door [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) kunnen ook worden gewijzigd zonder een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑instantie te maken. Pas de wijzigingen toe met [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), en schrijf vervolgens de gekoppelde presentatie weg met [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
+
+De volgende afbeelding toont de oorspronkelijke documenteigenschappen van de PowerPoint‑presentatie.
+
+![Oorspronkelijke documenteigenschappen van de PowerPoint‑presentatie](input_properties.png)
+
+Het volgende voorbeeld wijzigt de titel en tijdstip van laatste opslaan en schrijft het resultaat naar een nieuw bestand:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Date;
 
-String fileName = "sample.pptx";
+String sourceFile = "sample.pptx";
+String outputFile = "sample_with_updated_properties.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(new Date());
 
-IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(new Date());
-
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+try (OutputStream outputStream = new FileOutputStream(outputFile)) {
+    presentationInfo.writeBindedPresentation(outputStream);
+}
 ```
 
-De resultaten van het wijzigen van de documenteigenschappen worden hieronder getoond.
+De volgende afbeelding toont de bijgewerkte documenteigenschappen.
 
-![Gewijzigde documenteigenschappen van de PowerPoint‑presentatie](output_properties.png)
+![Bijgewerkte documenteigenschappen van de PowerPoint‑presentatie](output_properties.png)
 
 ## **Handige links**
 
-Voor meer informatie over een presentatie en de beveiligingsattributen kunt u deze links nuttig vinden:
+Voor gerelateerde beveiligingscontroles en beschermingsinstellingen, zie de volgende artikelen:
 
-- [Presentaties met wachtwoord beveiligen](/slides/nl/java/password-protected-presentation/)
-- [Presentaties tegen schrijven beveiligen](/slides/nl/java/write-protected-presentation/)
+- [Presentaties beveiligen met wachtwoord](/slides/nl/java/password-protected-presentation/)
+- [Presentaties beveiligen tegen schrijven](/slides/nl/java/write-protected-presentation/)
 
 ## **FAQ**
 
 **Hoe kan ik controleren of lettertypen zijn ingesloten en welke dat zijn?**
 
-Zoek naar [informatie over ingesloten lettertypen](https://reference.aspose.com/slides/nl/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) op presentatieniveau, en vergelijk die vermeldingen vervolgens met de verzameling [lettertypen die daadwerkelijk in de inhoud worden gebruikt](https://reference.aspose.com/slides/nl/java/com.aspose.slides/fontsmanager/#getFonts--) om te bepalen welke lettertypen cruciaal zijn voor het renderen.
+Laad de presentatie en gebruik [Presentation.getFontsManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getFontsManager--). Roep [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) aan om de ingesloten lettertypen te verkrijgen en [IFontsManager.getFonts](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsmanager/#getFonts--) om de door de presentatie gebruikte lettertypen te verkrijgen. Vergelijk beide resultaten om lettertypen te vinden die nodig zijn voor weergave maar niet zijn ingesloten.
 
 **Hoe kan ik snel zien of het bestand verborgen dia's bevat en hoeveel?**
 
-Itereer door de [dia‑collectie](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slidecollection/) en inspecteer de [zichtbaarheidsvlag](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slide/#getHidden--) van elke dia.
+Wanneer opgeslagen documentmetadata voldoende is, lees [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) via [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) en [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). Dit is geschikt voor een lichtgewicht inventaris. Als de presentatie in het geheugen is gewijzigd, kan de opgeslagen metadata ontbreken of verouderd zijn, of moet u live‑waarden verifiëren door te itereren door [Presentation.getSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSlides--) en de [ISlide.getHidden](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islide/#getHidden--)‑methode van elke dia te inspecteren.
 
-**Kan ik detecteren of er een aangepast diaformaat en -oriëntatie worden gebruikt, en of deze afwijken van de standaardinstellingen?**
+**Kan ik detecteren of een aangepaste dia‑grootte en oriëntatie worden gebruikt, en of deze afwijken van de standaardinstellingen?**
 
-Ja. Vergelijk de huidige [dia‑grootte](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSlideSize--) en oriëntatie met de standaardpresets; dit helpt bij het anticiperen op gedrag bij afdrukken en exporteren.
+Ja. Laad de presentatie en roep [Presentation.getSlideSize](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSlideSize--) aan. Gebruik [ISlideSize.getType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islidesize/#getSize--) en [ISlideSize.getOrientation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islidesize/#getOrientation--) om de huidige instellingen te vergelijken met de verwachte vooraf ingestelde waarden en afmetingen.
 
-**Is er een snelle manier om te zien of diagrammen naar externe gegevensbronnen verwijzen?**
+**Is er een snelle manier om te zien of diagrammen externe gegevensbronnen refereren?**
 
-Ja. Loop door alle [diagrammen](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chart/), controleer hun [gegevensbron](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chartdata/#getDataSourceType--), en noteer of de gegevens intern of link‑gebaseerd zijn, inclusief eventuele verbroken koppelingen.
+Ja. Zoek elk [Chart](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chart/) en roep [IChartData.getDataSourceType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdata/#getDataSourceType--) aan. Voor een extern werkboek, roep [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--) aan. Het gegevenstype en pad identificeren een externe referentie, maar controleren of het doel beschikbaar is, vereist een aparte resource‑check.
 
-**Hoe kan ik 'zware' dia's beoordelen die het renderen of PDF‑export kunnen vertragen?**
+**Hoe kan ik 'zware' dia's beoordelen die de weergave of PDF‑export kunnen vertragen?**
 
-Tel per dia het aantal objecten en zoek naar grote afbeeldingen, transparantie, schaduwen, animaties en multimedia; ken een ruwe complexiteitsscore toe om potentiële prestatie‑knelpunten te markeren.
+Er bestaat geen enkele complexiteitseigenschap. Doorloop [Presentation.getSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSlides--) en de [IBaseSlide.getShapes](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseslide/#getShapes--)‑collectie van elke dia. Gebruik het aantal vormen en de aanwezigheid van grote afbeeldingen, effecten, animaties of multimedia als screeningssignalen, en meet een representatieve weergave of export voordat u een dia als een bevestigd prestatietekort behandelt.

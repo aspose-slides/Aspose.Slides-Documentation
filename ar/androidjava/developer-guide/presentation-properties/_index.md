@@ -5,78 +5,72 @@ type: docs
 weight: 70
 url: /ar/androidjava/presentation-properties/
 keywords:
-- خصائص PowerPoint
-- خصائص العرض التقديمي
-- خصائص المستند
-- خصائص مدمجة
-- خصائص مخصصة
-- خصائص متقدمة
-- إدارة الخصائص
-- تعديل الخصائص
-- بيانات تعريف المستند
-- تحرير البيانات التعريفية
-- لغة التدقيق
-- اللغة الافتراضية
-- PowerPoint
-- OpenDocument
-- عرض تقديمي
-- Android
-- Java
-- Aspose.Slides
-description: "إتقان خصائص العرض التقديمي في Aspose.Slides for Android عبر Java وتبسيط البحث والعلامة التجارية وسير العمل في ملفات PowerPoint و OpenDocument الخاصة بك."
+  - خصائص PowerPoint
+  - خصائص العرض التقديمي
+  - خصائص المستند
+  - خصائص مضمّنة
+  - خصائص مخصصة
+  - خصائص متقدمة
+  - إدارة الخصائص
+  - تعديل الخصائص
+  - بيانات تعريف المستند
+  - تحرير بيانات التعريف
+  - لغة التدقيق
+  - اللغة الافتراضية
+  - PowerPoint
+  - OpenDocument
+  - عرض تقديمي
+  - Android
+  - Java
+  - Aspose.Slides
+description: "تحكم في خصائص العرض التقديمي في Aspose.Slides لنظام Android عبر Java وسهّل البحث والعلامة التجارية وسير العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
 ---
+## **المقدمة**
 
-{{% alert color="primary" %}} 
+يدعم Aspose.Slides نوعين من خصائص المستند: **مضمّن** و **مخصص**. يمكن بسهولة الوصول إلى هذين النوعين من الخصائص وإدارتها باستخدام واجهة برمجة تطبيقات Aspose.Slides.
 
-يوفر Microsoft PowerPoint ميزة لإضافة بعض الخصائص إلى ملفات العروض التقديمية. تسمح هذه الخصائص الوثائقية بتخزين معلومات مفيدة جنبًا إلى جنب مع المستندات (ملفات العرض). هناك نوعان من الخصائص الوثائقية كما يلي:
+يتيح Aspose.Slides لك العمل مع خصائص مستند العرض التقديمي من خلال واجهة [IDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties/) . يتم إرجاع مثيل من هذه الواجهة بواسطة طريقة [Presentation.getDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) . تُظهر الأمثلة التالية كيفية قراءة هذه الخصائص وتعديلها وإدارتها.
 
-- خصائص معرفة نظاميًا (مضمَّنة)
-- خصائص معرفة من قبل المستخدم (مخصَّصة)
-
-تحتوي الخصائص **المضمنة** على معلومات عامة حول المستند مثل عنوان المستند، اسم المؤلف، إحصاءات المستند، وما إلى ذلك. أما الخصائص **المخصَّصة** فهي التي يحددها المستخدمون كأزواج **اسم/قيمة**، حيث يتم تعريف كل من الاسم والقيمة من قبل المستخدم. باستخدام Aspose.Slides for Android via Java، يمكن للمطورين الوصول إلى قيم الخصائص المضمنة وكذلك الخصائص المخصَّصة وتعديلها.
-
+{{% alert color="info" title="ملاحظة" %}}
+يرجى ملاحظة أن حقلي **Application** و **AppVersion** لا يمكن تعديلهما. يقوم Aspose.Slides بإعادة كتابةهما في كل عملية حفظ، لذا فإن العرض التقديمي المحفوظ دائمًا يُظهر اسم منتج Aspose.Slides وإصدار المكتبة التي أنشأته. يتم تجاهل أي قيمة تُمرَّر إلى `setNameOfApplication` عند كتابة العرض التقديمي.
 {{% /alert %}} 
 
 ## **خصائص المستند في PowerPoint**
 
-يسمح Microsoft PowerPoint 2007 بإدارة خصائص المستند لملفات العروض التقديمية. كل ما عليك فعله هو النقر على أيقونة Office ثم اختيار القائمة **Prepare | Properties | Advanced Properties** في Microsoft PowerPoint 2007 كما هو موضح أدناه:
+يتيح Microsoft PowerPoint 2007 إدارة خصائص المستند لملفات العرض التقديمي. كل ما عليك هو النقر على أيقونة Office ثم اختيار العنصر **Prepare | Properties | Advanced Properties** في قائمة Microsoft PowerPoint 2007 كما هو موضح أدناه:
 
-{{% alert color="primary" %}} 
-
-يرجى ملاحظة أنك لا تستطيع تعيين قيم لحقلَي **Application** و **Producer**، لأن Aspose Ltd. و Aspose.Slides for Android via Java x.x.x سيتم عرضهما في هذين الحقلين.
-
-{{% /alert %}} 
-
-|**اختيار عنصر القائمة Advanced Properties**| |
+|**تحديد عنصر القائمة الخصائص المتقدمة**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-بعد اختيار عنصر القائمة **Advanced Properties**، سيظهر حوار يتيح لك إدارة خصائص المستند لملف PowerPoint كما هو موضح في الشكل أدناه:
+بعد اختيارك لعنصر القائمة **Advanced Properties**، سيظهر حوار يتيح لك إدارة خصائص المستند لملف PowerPoint كما هو موضح في الشكل أدناه:
 
-|**حوار الخصائص**| |
+|**حوار الخصائص**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-في **حوار الخصائص** أعلاه، يمكنك رؤية العديد من صفحات التبويب مثل **General**, **Summary**, **Statistics**, **Contents** و **Custom**. تسمح جميع صفحات التبويب هذه بتكوين أنواع مختلفة من المعلومات المتعلقة بملفات PowerPoint. تُستخدم صفحة **Custom** لإدارة الخصائص المخصَّصة لملفات PowerPoint.
 
+في **حوار الخصائص** أعلاه، يمكنك رؤية أن هناك العديد من علامات التبويب مثل **General**، **Summary**، **Statistics**، **Contents** و **Custom**. تسمح جميع هذه العلامات بتكوين أنواع مختلفة من المعلومات المتعلقة بملفات PowerPoint. تُستخدم علامة التبويب **Custom** لإدارة الخصائص المخصصة لملفات PowerPoint.
 
+### **العمل مع خصائص المستند باستخدام Aspose.Slides لنظام Android عبر Java**
 
-## العمل مع خصائص المستند باستخدام Aspose.Slides for Android via Java
+كما وصفنا سابقًا أن Aspose.Slides لنظام Android عبر Java يدعم نوعين من خصائص المستند، وهما خصائص **مضمّن** و**مخصص**. وبالتالي يمكن للمطورين الوصول إلى كلا النوعين من الخصائص باستخدام واجهة برمجة تطبيقات Aspose.Slides لنظام Android عبر Java. توفر Aspose.Slides لنظام Android عبر Java الفئة [IDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties) التي تمثل خصائص المستند المرتبطة بملف العرض التقديمي من خلال خاصية **Presentation.DocumentProperties**.
 
-كما وصفنا سابقًا، يدعم Aspose.Slides for Android via Java نوعين من خصائص المستند، وهما الخصائص **المضمنة** والخصائص **المخصَّصة**. لذا يمكن للمطورين الوصول إلى كلا النوعين من الخصائص باستخدام API الخاص بـ Aspose.Slides for Android via Java. يوفر Aspose.Slides for Android via Java الفئة [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) التي تمثل خصائص المستند المرتبطة بملف عرض تقديمي من خلال خاصية **Presentation.DocumentProperties**.
+يمكن للمطورين استخدام خاصية **IDocumentProperties** التي يُظهرها كائن [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation) للوصول إلى خصائص المستند لملفات العرض التقديمي كما هو موضح أدناه:
 
-يمكن للمطورين استخدام خاصية **IDocumentProperties** التي يطرحها الكائن [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) للوصول إلى خصائص المستند لملفات العرض التقديمي كما هو موضح أدناه:
+## **الوصول إلى الخصائص المضمّنة**
 
-## **الوصول إلى الخصائص المضمنة**
+تشمل هذه الخصائص التي تُظهرها كائن [IDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties) ما يلي: **Creator** (المؤلف)، **Description**، **Keywords**، **Created** (تاريخ الإنشاء)، **Modified** (تاريخ التعديل)، **Printed** (تاريخ آخر طباعة)، **LastModifiedBy**، **Keywords**، **SharedDoc** (هل يتم مشاركته بين منتجين مختلفين؟)، **PresentationFormat**، **Subject** و **Title**.
 
-تتضمن الخصائص التي يطرحها كائن [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) ما يلي: **Creator** (المؤلف)، **Description**، **Keywords**، **Created** (تاريخ الإنشاء)، **Modified** (تاريخ التعديل)، **Printed** (تاريخ الطباعة الأخير)، **LastModifiedBy**، **SharedDoc** (هل تم مشاركة المستند بين منتجين مختلفين؟)، **PresentationFormat**، **Subject** و **Title**.
 ```java
-// إنشاء كائن من فئة Presentation الذي يمثل العرض التقديمي
+import com.aspose.slides.*;
+
+// إنشاء كائن فئة Presentation الذي يمثل العرض التقديمي
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // إنشاء مرجع لكائن IDocumentProperties المرتبط بالعرض التقديمي
+    // إنشاء مرجع إلى كائن IDocumentProperties المرتبط بـ Presentation
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // عرض الخصائص المدمجة
+    // عرض الخصائص المضمّنة
     System.out.println("Category : " + dp.getCategory());
     System.out.println("Current Status : " + dp.getContentStatus());
     System.out.println("Creation Date : " + dp.getCreatedTime());
@@ -96,17 +90,19 @@ try {
 }
 ```
 
+## **تعديل الخصائص المضمّنة**
 
-## **تعديل الخصائص المضمنة**
+تعديل الخصائص المضمنة لملفات العرض التقديمي سهل مثل الوصول إليها. يمكنك ببساطة إسناد قيمة نصية إلى أي خاصية تريدها وسيتم تعديل قيمة الخاصية. في المثال أدناه، قمنا بشرح كيفية تعديل خصائص المستند المضمنة لملف العرض التقديمي باستخدام Aspose.Slides لنظام Android عبر Java.
 
-تعديل الخصائص المضمنة لملفات العرض التقديمي سهل مثل الوصول إليها. يمكنك ببساطة تعيين قيمة نصية لأي خاصية مرغوب فيها وسيتم تعديل قيمة الخاصية. في المثال المدرج أدناه، أظهرنا كيفية تعديل خصائص المستند المضمنة لملف العرض باستخدام Aspose.Slides for Android via Java.
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // إنشاء مرجع لكائن IDocumentProperties المرتبط بالعرض التقديمي
+    // إنشاء مرجع إلى كائن IDocumentProperties المرتبط بـ Presentation
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // تعيين الخصائص المدمجة
+    // تعيين الخصائص المضمنة
     dp.setAuthor("Aspose.Slides for Android via Java");
     dp.setTitle("Modifying Presentation Properties");
     dp.setSubject("Aspose Subject");
@@ -120,17 +116,19 @@ try {
 }
 ```
 
+يقوم هذا المثال بتعديل الخصائص المضمنة للعرض التقديمي كما يمكن رؤيته في الشكل أدناه:
 
-هذا المثال ي modifies الخصائص المضمنة للعرض كما يمكن رؤيته أدناه:
-
-|**خصائص المستند المضمنة بعد التعديل**| |
+|**الخصائص المضمنة للمستند بعد التعديل**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **إضافة خصائص مستند مخصَّصة**
+## **إضافة خصائص مستند مخصصة**
 
-يسمح Aspose.Slides for Android via Java أيضًا للمطورين بإضافة القيم المخصَّصة لخصائص المستند للعرض التقديمي. المثال أدناه يوضح كيفية تعيين الخصائص المخصَّصة لعرض تقديمي.
+يسمح Aspose.Slides لنظام Android عبر Java للمطورين أيضًا بإضافة القيم المخصصة لخصائص مستند العرض التقديمي. يضيف المثال أدناه ثلاث خصائص مخصصة، ثم يبحث عن الاسم المخزن في الفهرس 2 ويحذف تلك الخاصية، لذا يحتفظ العرض التقديمي المحفوظ باثنتين منهما. يتم فهرسة الخصائص المخصصة بترتيب أبجدي، وليس بترتيب الإضافة.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // الحصول على خصائص المستند
@@ -141,7 +139,7 @@ try {
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
     
-    // الحصول على اسم الخاصية عند فهرس معين
+    // الحصول على اسم الخاصية عند فهرس محدد
     String getPropertyName = dProps.getCustomPropertyName(2);
     
     // إزالة الخاصية المحددة
@@ -154,18 +152,20 @@ try {
 }
 ```
 
-
-|**تمت إضافة خصائص مستند مخصَّصة**| |
+|**خصائص المستند المخصصة المضافة**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **الوصول إلى الخصائص المخصَّصة وتعديلها**
+## **الوصول إلى الخصائص المخصصة وتعديلها**
 
-يسمح Aspose.Slides for Android via Java أيضًا للمطورين بالوصول إلى قيم الخصائص المخصَّصة. المثال أدناه يوضح كيفية الوصول إلى جميع هذه الخصائص المخصَّصة لعرض تقديمي وتعديلها.
+يسمح Aspose.Slides لنظام Android عبر Java للمطورين أيضًا بالوصول إلى قيم الخصائص المخصصة. يُعطى المثال أدناه الذي يوضح كيفية الوصول إلى جميع هذه الخصائص المخصصة وتعديلها لعرض تقديمي.
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // إنشاء مرجع لكائن DocumentProperties المرتبط بالعرض التقديمي
+    // إنشاء مرجع إلى كائن DocumentProperties المرتبط بـ Presentation
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // الوصول إلى الخصائص المخصصة وتعديلها
@@ -185,37 +185,36 @@ try {
 }
 ```
 
+يقوم هذا المثال بتعديل الخصائص المخصصة لعرض [PPTX](https://docs.fileformat.com/presentation/pptx/) . تُظهر الأشكال التالية خصائص العرض المخصصة قبل وبعد التعديل:
 
-هذا المثال ي modifies الخصائص المخصَّصة للعرض التقديمي [PPTX](https://docs.fileformat.com/presentation/pptx/). تُظهر الأشكال التالية الخصائص المخصَّصة للعرض قبل وبعد التعديل:
-
-|**الخصائص المخصَّصة قبل التعديل**| |
+|**الخصائص المخصصة قبل التعديل**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-
-|**الخصائص المخصَّصة بعد التعديل**| |
+|**الخصائص المخصصة بعد التعديل**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **خصائص المستند المتقدمة**
 
-{{% alert color="primary" %}} 
-
-تم إضافة طرق جديدة [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), و [WriteBindedPresentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) إلى [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo)، كما تم تغيير منطق خاصية [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) setter.
-
+{{% alert color="info" title="ملاحظة" %}}
+تم إضافة طرق جديدة [ReadDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) ، [UpdateDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) ، و [WriteBindedPresentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) إلى [IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentationInfo) ، وتم تغيير منطق ضبط الخاصية [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) .
 {{% /alert %}} 
 
-تمت إضافة الطريقتين الجديدتين [ReadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) و [UpdateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) إلى واجهة [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IPresentationInfo). تتيحان وصولًا سريعًا إلى خصائص المستند وتسمحان بتغيير وتحديث الخصائص دون تحميل العرض بالكامل.
+تمت إضافة الطريقتين الجديدتين [ReadDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) و [UpdateDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) إلى واجهة [IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IPresentationInfo). توفران وصولًا سريعًا إلى خصائص المستند وتسمحان بتغيير وتحديث الخصائص دون تحميل عرض تقديمي كامل.
 
-يمكن تنفيذ السيناريو النموذجي بتحميل الخصائص، تعديل قيمة ما، ثم تحديث المستند كما يلي:
+يمكن تنفيذ سيناريو التحميل النموذجي للخصائص، تغيير قيمة ما وتحديث المستند بالطريقة التالية:
+
 ```java
+import com.aspose.slides.*;
+
 // قراءة معلومات العرض التقديمي
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
 // الحصول على الخصائص الحالية
 IDocumentProperties props = info.readDocumentProperties();
 
-// تعيين القيم الجديدة لحقلَي المؤلف والعنوان
+// تعيين القيم الجديدة لحقلين المؤلف والعنوان
 props.setAuthor("New Author");
 props.setTitle("New Title");
 
@@ -224,9 +223,11 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-
 هناك طريقة أخرى لاستخدام خصائص عرض تقديمي معين كقالب لتحديث الخصائص في عروض تقديمية أخرى:
+
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -245,6 +246,8 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -253,10 +256,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
+يمكن إنشاء قالب جديد من الصفر ثم استخدامه لتحديث عروض تقديمية متعددة:
 
-يمكن إنشاء قالب جديد من الصفر ثم استخدامه لتحديث عدة عروض تقديمية:
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -267,13 +272,7 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" })
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
@@ -281,14 +280,16 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
+## **تحديد لغة التدقيق**
 
-## **تعيين لغة التدقيق**
+يوفر Aspose.Slides الخاصية LanguageId (المعروضة من قبل فئة PortionFormat) لتتيح لك تعيين لغة التدقيق لمستند PowerPoint. لغة التدقيق هي اللغة التي يتم فيها فحص الإملاء والقواعد في PowerPoint.
 
-يوفر Aspose.Slides الخاصية LanguageId (المُعرَّضة من خلال فئة PortionFormat) لتسمح لك بتعيين لغة التدقيق لملف PowerPoint. لغة التدقيق هي اللغة التي يتم فيها فحص الإملاء والنحو في PowerPoint.
+يبين لك هذا الكود Java كيفية تعيين لغة التدقيق لملف PowerPoint:
 
-يعرض هذا الشيفرة Java كيفية تعيين لغة التدقيق لملف PowerPoint: xxx لماذا LanguageId مفقودة من فئة Java PortionFormat؟
 ```java
-Presentation pres = new Presentation(pptxFileName);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -312,17 +313,19 @@ try {
 }
 ```
 
+## **تحديد اللغة الافتراضية**
 
-## **تعيين اللغة الافتراضية**
+يبين لك هذا الكود Java كيفية تعيين اللغة الافتراضية لكامل عرض PowerPoint:
 
-يعرض هذا الشيفرة Java كيفية تعيين اللغة الافتراضية لكامل عرض PowerPoint:
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // إضافة شكل مستطيل جديد بالنص
+    // إضافة شكل مستطيل جديد مع نص
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
@@ -333,23 +336,22 @@ try {
 }
 ```
 
-
 ## **مثال حي**
 
-جرّب التطبيق عبر الإنترنت [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) لرؤية كيفية العمل مع خصائص المستند عبر Aspose.Slides API:
+جرّب تطبيق [**Aspose.Slides Metadata**](https://products.aspose.app/slides/ar/metadata) المتوفر على الإنترنت لترى كيفية العمل مع خصائص المستند عبر واجهة برمجة تطبيقات Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+[![عرض وتحرير بيانات تعريف PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/ar/metadata)
 
-## ***FAQ**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني إزالة خاصية مدمجة من عرض تقديمي؟**
+**كيف يمكنني إزالة خاصية مضمنة من عرض تقديمي؟**
 
-الخصائص المدمجة جزء لا يتجزأ من العرض ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها إلى فارغة إذا سمحت الخاصية بذلك.
+الخصائص المضمنة هي جزء أساسي من العرض التقديمي ولا يمكن إزالتها بالكامل. ومع ذلك، يمكنك إما تغيير قيمها أو تعيينها إلى فارغ إذا سمحت الخاصية المحددة بذلك.
 
-**ماذا يحدث إذا أضفت خاصية مخصَّصة موجودة بالفعل؟**
+**ماذا يحدث إذا أضفت خاصية مخصصة موجودة بالفعل؟**
 
-إذا أضفت خاصية مخصَّصة موجودة بالفعل، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة أو فحص الخاصية مسبقًا، حيث يقوم Aspose.Slides بتحديث قيمة الخاصية تلقائيًا.
+إذا أضفت خاصية مخصصة موجودة بالفعل، فسيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة الخاصية أو التحقق منها مسبقًا، حيث يقوم Aspose.Slides تلقائيًا بتحديث قيمة الخاصية.
 
-**هل يمكنني الوصول إلى خصائص العرض دون تحميله بالكامل؟**
+**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميل العرض بالكامل؟**
 
-نعم، يمكنك الوصول إلى خصائص العرض دون تحميله بالكامل باستخدام طريقة `getPresentationInfo` من الفئة [PresentationFactory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/). ثم استخدم طريقة `readDocumentProperties` المقدمة من واجهة [IPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/) لقراءة الخصائص بكفاءة، مما يوفر الذاكرة ويحسن الأداء.
+نعم. استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) ثم [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) لقراءة بيانات تعريف المستند المخزنة دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). راجع [Build a Lightweight Presentation Inventory](/slides/ar/androidjava/examine-presentation/) للحصول على مثال تقرير كامل والقيود الخاصة بكل تنسيق.

@@ -13,44 +13,45 @@ keywords:
 - ویژگی‌های پیشرفته
 - مدیریت ویژگی‌ها
 - تغییر ویژگی‌ها
-- متادیتای سند
-- ویرایش متادیتا
-- زبان اصلاح
+- فراداده سند
+- ویرایش فراداده
+- زبان تصحیح املایی
 - زبان پیش‌فرض
 - PowerPoint
 - OpenDocument
 - ارائه
 - Python
 - Aspose.Slides
-description: "مدیریت کامل ویژگی‌های ارائه در Aspose.Slides برای Python via .NET و بهینه‌سازی جستجو، برندینگ و جریان کار در فایل‌های PowerPoint شما."
+description: "ویژگی‌های ارائه را در Aspose.Slides for Python via .NET به‌طور کامل مسلط شوید و جستجو، برندینگ و جریان کار را در فایل‌های PowerPoint خود بهبود بخشید."
 ---
 ## **مقدمه**
 
-Aspose.Slides دو نوع ویژگی سند را پشتیبانی می‌کند: **Built-in** و **Custom**. هر دو نوع این ویژگی‌ها به راحتی می‌توانند با استفاده از API Aspose.Slides دسترسی و مدیریت شوند.
+Aspose.Slides از دو نوع ویژگی سند پشتیبانی می‌کند: **Built-in** و **Custom**. هر دو این نوع ویژگی‌ها به راحتی می‌توانند با استفاده از API Aspose.Slides دسترسی و مدیریت شوند.
 
-Aspose.Slides به شما امکان کار با ویژگی‌های سند ارائه را از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/documentproperties/) می‌دهد. یک نمونه از این کلاس توسط خصوصیت [Presentation.document_properties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/document_properties/) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چطور این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
+Aspose.Slides به شما اجازه می‌دهد تا با ویژگی‌های سند ارائه از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/documentproperties/) کار کنید. یک نمونه از این کلاس توسط ویژگی [Presentation.document_properties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/document_properties/) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
 
-{{% alert color="primary" %}} 
-لطفاً توجه داشته باشید که نمی‌توانید مقادیر را در فیلدهای **Application** و **Producer** تنظیم کنید، زیرا Aspose Ltd. و Aspose.Slides for Python via .NET x.x.x در این فیلدها نمایش داده می‌شوند.
+{{% alert color="info" title="Note" %}}
+لطفاً توجه داشته باشید که نمی‌توانید مقادیر را برای فیلدهای **Application** و **Producer** تنظیم کنید، زیرا Aspose Ltd. و Aspose.Slides for Python via .NET x.x.x در این فیلدها نمایش داده می‌شوند.
 {{% /alert %}} 
 
 ## **مدیریت ویژگی‌های ارائه**
 
-Microsoft PowerPoint ویژگی‌ای برای افزودن برخی ویژگی‌ها به فایل‌های ارائه فراهم می‌کند. این ویژگی‌های سند امکان ذخیره‌سازی اطلاعات مفید همراه با اسناد (فایل‌های ارائه) را فراهم می‌آورند. دو نوع ویژگی سند به شرح زیر وجود دارند:
+Microsoft PowerPoint ویژگی‌ای برای افزودن برخی ویژگی‌ها به فایل‌های ارائه فراهم می‌کند. این ویژگی‌های سند اجازه می‌دهند اطلاعات مفیدی همراه با اسناد (فایل‌های ارائه) ذخیره شوند. دو نوع ویژگی سند به شرح زیر وجود دارد
 
-- ویژگی‌های تعریف‌شده توسط سیستم (Built-in)  
+- ویژگی‌های تعریف‌شده توسط سیستم (Built-in)
 - ویژگی‌های تعریف‌شده توسط کاربر (Custom)
 
-ویژگی‌های **Built-in** شامل اطلاعات کلی درباره سند مانند عنوان سند، نام نویسنده، آمار سند و غیره هستند. ویژگی‌های **Custom** آن دسته از ویژگی‌ها هستند که توسط کاربران به صورت جفت **نام/مقدار** تعریف می‌شوند، به‌طوری که هر دو نام و مقدار توسط کاربر تعیین می‌شوند. با استفاده از Aspose.Slides for Python via .NET، توسعه‌دهندگان می‌توانند به مقادیر ویژگی‌های Built-in و همچنین ویژگی‌های Custom دسترسی پیدا کرده و آن‌ها را تغییر دهند. Microsoft PowerPoint 2007 امکان مدیریت ویژگی‌های سند فایل‌های ارائه را فراهم می‌کند. کافی است بر روی نماد Office کلیک کرده و سپس گزینه **Prepare | Properties | Advanced Properties** را در منوی Microsoft PowerPoint 2007 انتخاب کنید. پس از انتخاب گزینه **Advanced Properties**، گفتگویی ظاهر می‌شود که به شما اجازه می‌دهد ویژگی‌های سند فایل PowerPoint را مدیریت کنید. در **Properties Dialog** می‌توانید صفحه‌های تب متعددی مانند **General**, **Summary**, **Statistics**, **Contents** و **Custom** را مشاهده کنید. همه این صفحات تب امکان تنظیم انواع مختلف اطلاعات مرتبط با فایل‌های PowerPoint را فراهم می‌کنند. تب **Custom** برای مدیریت ویژگی‌های سفارشی فایل‌های PowerPoint استفاده می‌شود.
+ویژگی‌های **Built-in** شامل اطلاعات کلی درباره سند مانند عنوان سند، نام نویسنده، آمار سند و غیره هستند. ویژگی‌های **Custom** آن‌هایی هستند که توسط کاربران به صورت جفت **Name/Value** تعریف می‌شوند، که هر دو نام و مقدار توسط کاربر تعیین می‌شود. با استفاده از Aspose.Slides for Python via .NET، توسعه‌دهندگان می‌توانند به مقادیر ویژگی‌های ساختاری و سفارشی دسترسی داشته و آنها را تغییر دهند. Microsoft PowerPoint 2007 اجازه مدیریت ویژگی‌های سند فایل‌های ارائه را می‌دهد. برای این کار کافی است روی نماد Office کلیک کنید و سپس گزینه منوی **Prepare | Properties | Advanced Properties** در Microsoft PowerPoint 2007 را انتخاب کنید. پس از انتخاب گزینه منوی **Advanced Properties**، دیالگی ظاهر می‌شود که امکان مدیریت ویژگی‌های سند فایل PowerPoint را فراهم می‌کند. در **Properties Dialog**، می‌توانید مشاهده کنید که صفحات تب متعددی مانند **General, Summary, Statistics, Contents and Custom** وجود دارد. تمامی این صفحات تب امکان پیکربندی انواع مختلف اطلاعات مربوط به فایل‌های PowerPoint را می‌دهند. برگه **Custom** برای مدیریت ویژگی‌های سفارشی فایل‌های PowerPoint استفاده می‌شود.
 
 ## **دسترسی به ویژگی‌های Built-in**
-این ویژگی‌ها که توسط شیء **IDocumentProperties** افشا می‌شوند شامل: **Creator(Author)**, **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** و **Title**.
+
+این ویژگی‌ها که توسط شیء **IDocumentProperties** افشا می‌شوند شامل: **Creator(Author)**، **Description**، **Keywords**، **Created** (تاریخ ایجاد)، **Modified** (تاریخ اصلاح)، **Printed** (آخرین تاریخ چاپ)، **LastModifiedBy**، **Keywords**، **SharedDoc** (آیا بین تولیدکنندگان مختلف به اشتراک گذاشته شده است؟)، **PresentationFormat**، **Subject** و **Title** است.
 ```py
 import aspose.slides as slides
 
-# نمونه‌سازی کلاس Presentation که نمایشگر ارائه است
-with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
-    # ایجاد مرجع به شیء مرتبط با Presentation
+# شیء Presentation را که نمایانگر ارائه است ایجاد کنید
+with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
+    # ایجاد یک مرجع به شیء مرتبط با Presentation
     documentProperties = pres.document_properties
 
     # نمایش ویژگی‌های داخلی
@@ -72,14 +73,13 @@ with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
 
 ## **تغییر ویژگی‌های Built-in**
 
-تغییر ویژگی‌های Built-in فایل‌های ارائه به سادگی دسترسی به آن‌ها است. می‌توانید به‌سادگی یک مقدار رشته‌ای را به هر ویژگی دلخواه اختصاص دهید و مقدار ویژگی تغییر خواهد کرد. در مثال زیر نشان دادیم که چگونه می‌توان ویژگی‌های سند Built-in یک فایل ارائه را تغییر داد.
-
+تغییر ویژگی‌های ساختاری فایل‌های ارائه به همان سادگی دسترسی به آن‌ها است. می‌توانید به سادگی یک مقدار رشته‌ای به هر ویژگی دلخواه اختصاص دهید و مقدار ویژگی تغییر خواهد کرد. در مثال زیر، نشان دادیم که چگونه می‌توانیم ویژگی‌های سند ساختاری فایل ارائه را تغییر دهیم.
 ```py
 import aspose.slides as slides
 
-# نمونه‌سازی کلاس Presentation که نمایشگر Presentation است
-with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
-    # ایجاد مرجع به شیء مرتبط با Presentation
+# نمونه‌سازی کلاس Presentation که نمایانگر ارائه است
+with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
+    # ایجاد یک مرجع به شیء مرتبط با Presentation
     documentProperties = presentation.document_properties
 
     # تنظیم ویژگی‌های داخلی
@@ -89,14 +89,13 @@ with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
     documentProperties.comments = "Aspose Description"
     documentProperties.manager = "Aspose Manager"
 
-    # ذخیره ارائه شما به یک فایل
+    # ارائه را در یک فایل ذخیره کنید
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **افزودن ویژگی‌های سفارشی به ارائه**
 
-Aspose.Slides for Python via .NET همچنین به توسعه‌دهندگان اجازه می‌دهد مقادیر سفارشی برای ویژگی‌های سند ارائه اضافه کنند. مثالی در زیر نشان می‌دهد چگونه ویژگی‌های سفارشی را برای یک ارائه تنظیم کنید.
-
+Aspose.Slides for Python via .NET همچنین به توسعه‌دهندگان امکان می‌دهد مقادیر سفارشی برای ویژگی‌های سند ارائه اضافه کنند. یک مثال در زیر نشان می‌دهد چگونه می‌توان ویژگی‌های سفارشی را برای یک ارائه تنظیم کرد.
 ```py
 import aspose.slides as slides
 
@@ -110,50 +109,54 @@ with slides.Presentation() as presentation:
     documentProperties.set_custom_property_value("My Nam", "Mudassir")
     documentProperties.set_custom_property_value("Custom", 124)
 
-    # دریافت نام ویژگی در شاخص خاص
+    # دریافت نام ویژگی در ایندکس خاص
     getPropertyName = documentProperties.get_custom_property_name(2)
 
     # حذف ویژگی انتخاب‌شده
     documentProperties.remove_custom_property(getPropertyName)
 
-    # ذخیره‌سازی ارائه
+    # ذخیره ارائه
     presentation.save("CustomDocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **دسترسی و تغییر ویژگی‌های سفارشی**
+## **دستیابی و تغییر ویژگی‌های سفارشی**
 
-Aspose.Slides for Python via .NET همچنین به توسعه‌دهندگان اجازه می‌دهد مقادیر ویژگی‌های سفارشی را دسترسی و تغییر دهند. مثالی در زیر نشان می‌دهد چگونه می‌توانید همه این ویژگی‌های سفارشی را برای یک ارائه دسترسی و تغییر دهید.
-
+Aspose.Slides for Python via .NET همچنین به توسعه‌دهندگان امکان می‌دهد به مقادیر ویژگی‌های سفارشی دسترسی داشته باشند. یک مثال در زیر نشان می‌دهد چگونه می‌توانید به همه این ویژگی‌های سفارشی برای یک ارائه دسترسی پیدا کنید و آنها را تغییر دهید.
 ```py
 import aspose.slides as slides
 
 # نمونه‌سازی کلاس Presentation که نمایانگر فایل PPTX است
-with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentation:
-    # ایجاد مرجع به شیء document_properties مرتبط با Presentation
+with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
+    # ایجاد یک مرجع به شیء document_properties مرتبط با Presentation
     documentProperties = presentation.document_properties
 
     # دسترسی و تغییر ویژگی‌های سفارشی
     for i in range(documentProperties.count_of_custom_properties):
+        property_name = documentProperties.get_custom_property_name(i)
+
         # نمایش نام‌ها و مقادیر ویژگی‌های سفارشی
-        print("Custom Property Name : " + documentProperties.get_custom_property_name(i))
-        print("Custom Property Value : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
+        property_value = [""]
+        documentProperties.get_custom_property_value(property_name, property_value)
+        print("Custom Property Name : " + property_name)
+        print("Custom Property Value : " + property_value[0])
 
         # تغییر مقادیر ویژگی‌های سفارشی
-        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
-    # ذخیره ارائه شما به یک فایل
+        documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
+    # ارائه خود را در یک فایل ذخیره کنید
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم زبان اصلاح**
+`get_custom_property_value` مقدار را از طریق لیست تک‌عنصری که به عنوان آرگومان دوم پاس داده می‌شود بر می‌گرداند و مقدار ذخیره‌شده به نوع عنصری که قبلاً در آن لیست وجود دارد تبدیل می‌شود. مثال بالا از `[""]` استفاده می‌کند، بنابراین ویژگی‌های رشته‌ای را می‌خواند؛ برای خواندن ویژگی‌ای که به عنوان عدد ذخیره شده است، یک جای‌دار عددی مانند `[0]` پاس دهید—در غیر این صورت فراخوانی یک `InvalidCastException` را ایجاد می‌کند.
 
-Aspose.Slides ویژگی `Language_Id` را (که توسط کلاس [PortionFormat](https://reference.aspose.com/slides/fa/python-net/aspose.slides/portionformat/) افشا می‌شود) فراهم می‌کند تا بتوانید زبان اصلاح برای یک سند PowerPoint را تنظیم کنید. زبان اصلاح زبانی است که املا و دستور زبان در PowerPoint برای آن بررسی می‌شود.
+## **تنظیم زبان تصحیح املایی**
 
-این کد Python نشان می‌دهد چگونه زبان اصلاح برای یک PowerPoint تنظیم شود:
+Aspose.Slides ویژگی `Language_Id` (که توسط کلاس [PortionFormat](https://reference.aspose.com/slides/fa/python-net/aspose.slides/portionformat/) افشا می‌شود) را فراهم می‌کند تا بتوانید زبان تصحیح املایی برای یک سند PowerPoint تنظیم کنید. زبان تصحیح املایی زبانی است که املا و نگارش در PowerPoint برای آن بررسی می‌شود.
 
+این کد Python نشان می‌دهد چگونه زبان تصحیح املایی برای یک PowerPoint تنظیم شود:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
+with slides.Presentation("SetProofingLanguage.pptx") as pres:
     auto_shape = pres.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
     paragraph.portions.clear()
@@ -165,7 +168,7 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
     portion_format.east_asian_font = font
     portion_format.latin_font = font
 
-    # تنظیم شناسه زبان اصلاح
+    # تنظیم شناسهٔ زبان تصحیح املایی
     portion_format.language_id = "zh-CN"
     new_portion.text = "1。"
 
@@ -175,7 +178,6 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
 ## **تنظیم زبان پیش‌فرض**
 
 این کد Python نشان می‌دهد چگونه زبان پیش‌فرض برای یک ارائه کامل PowerPoint تنظیم شود:
-
 ```python
 import aspose.slides as slides
 
@@ -192,20 +194,19 @@ with slides.Presentation(load_options) as pres:
 
 ## **مثال زنده**
 
-برای دیدن نحوه کار با ویژگی‌های سند از طریق API Aspose.Slides، برنامه آنلاین [**Aspose.Slides Metadata**](https://products.aspose.app/slides/fa/metadata) را امتحان کنید:
-
-[![مشاهده و ویرایش متادیتای پاورپوینت](slides-metadata.png)](https://products.aspose.app/slides/fa/metadata)
+سعی کنید برنامه آنلاین [**Aspose.Slides Metadata**](https://products.aspose.app/slides/fa/metadata) را امتحان کنید تا ببینید چگونه با ویژگی‌های سند از طریق API Aspose.Slides کار می‌کنید:
+[![مشاهده و ویرایش فراداده PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/fa/metadata)
 
 ## **سوالات متداول**
 
 **چگونه می‌توانم یک ویژگی Built-in را از یک ارائه حذف کنم؟**
 
-ویژگی‌های Built-in جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آن‌ها را به‌طور کامل حذف کرد. اما می‌توانید مقدار آن‌ها را تغییر داده یا در صورت امکان به مقدار خالی تنظیم کنید.
+ویژگی‌های Built-in بخش جدایی‌ناپذیری از ارائه هستند و نمی‌توان آن‌ها را به‌طور کامل حذف کرد. با این حال، می‌توانید مقدار آن‌ها را تغییر دهید یا اگر ویژگی خاص اجازه دهد، آن‌ها را خالی کنید.
 
-**اگر ویژگی سفارشی که قبلاً موجود است را اضافه کنم چه اتفاقی می‌افتد؟**
+**اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنم چه اتفاقی می‌افتد؟**
 
-اگر ویژگی سفارشی‌ای را که قبلاً موجود است اضافه کنید، مقدار موجود آن با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی قبلی ویژگی ندارید، زیرا Aspose.Slides به‌صورت خودکار مقدار ویژگی را به‌روز می‌کند.
+اگر یک ویژگی سفارشی که پیش از این وجود داشته باشد اضافه کنید، مقدار موجود آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی پیشین ویژگی نیست، زیرا Aspose.Slides به‌صورت خودکار مقدار ویژگی را به‌روزرسانی می‌کند.
 
-**آیا می‌توانم ویژگی‌های ارائه را بدون بارگذاری کامل ارائه دسترسی داشته باشم؟**
+**آیا می‌توانم بدون بارگذاری کامل ارائه به ویژگی‌های آن دسترسی داشته باشم؟**
 
-بله، می‌توانید ویژگی‌های ارائه را بدون بارگذاری کامل با استفاده از متد [get_presentation_info](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationfactory/get_presentation_info/) از کلاس [PresentationFactory](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationfactory/) دسترسی پیدا کنید. سپس با استفاده از متد [read_document_properties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/read_document_properties/) ارائه شده توسط کلاس [PresentationInfo](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/) می‌توانید ویژگی‌ها را به‌صورت کارآمد بخوانید و حافظه را صرفه‌جویی کنید و عملکرد را بهبود ببخشید.
+بله. از [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationfactory/get_presentation_info/) استفاده کنید و سپس [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentationinfo/read_document_properties/) برای خواندن فراداده‌های ذخیره‌شده سند بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) استفاده کنید. برای مثال کامل گزارش‌گیری و محدودیت‌های خاص فرمت، به [Build a Lightweight Presentation Inventory](/slides/fa/python-net/examine-presentation/) مراجعه کنید.

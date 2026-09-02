@@ -1,16 +1,16 @@
 ---
-title: Prezentációs információk lekérése és frissítése Pythonban
-linktitle: Prezentációs információk
+title: Prezentáció-információk lekérése és frissítése Pythonban
+linktitle: Prezentáció információk
 type: docs
 weight: 30
 url: /hu/python-net/examine-presentation/
 keywords:
-- prezentáció formátuma
-- prezentáció tulajdonságai
-- dokumentum tulajdonságai
+- prezentáció formátum
+- prezentáció tulajdonságok
+- dokumentum tulajdonságok
 - tulajdonságok lekérése
 - tulajdonságok olvasása
-- tulajdonságok módosítása
+- tulajdonságok megváltoztatása
 - tulajdonságok módosítása
 - tulajdonságok frissítése
 - PPTX vizsgálata
@@ -21,99 +21,158 @@ keywords:
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Fedezze fel a diákat, a szerkezetet és a metaadatokat PowerPoint és OpenDocument prezentációkban Python használatával a gyorsabb betekintés és okosabb tartalom auditok érdekében."
+description: "Fedezze fel a diák, a struktúra és a metaadatok részleteit PowerPoint és OpenDocument prezentációkban Python használatával a gyorsabb betekintés és az okosabb tartalomelemzés érdekében."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet megvizsgálni a prezentáció információit az Aspose.Slides-ban. Ismerteti, hogyan határozható meg egy prezentáció aktuális formátuma a teljes fájl betöltése nélkül, hogyan olvashatók ki a dokumentum tulajdonságai, és hogyan frissíthetőek ezek a tulajdonságok szükség esetén.
+Az Aspose.Slides képes azonosítani egy prezentáció formátumát, és beolvasni a dokumentum metaadatait anélkül, hogy teljes prezentáció objektummodellt hozna létre. Ez akkor hasznos, amikor fájlokat kell osztályozni, leltárt készíteni vagy tulajdonságokat ellenőrizni szeretne, mielőtt eldöntené, hogy betölti és feldolgozza a prezentáció tartalmát.
 
-A példák a [PresentationInfo](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/) és a [DocumentProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/) API-kon alapulnak, és bemutatják a prezentáció metaadatokkal való munka tipikus műveleteit.
+Ez a cikk bemutatja a könnyű ellenőrzést a [PresentationFactory](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationfactory/) és a [PresentationInfo](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/) segítségével, valamint a célzott frissítéseket a [DocumentProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/) használatával.
 
-## **Ellenőrizze a prezentáció formátumát**
+## **Prezentáció formátumának ellenőrzése**
 
-Mielőtt egy prezentációval dolgozna, esetleg meg szeretné tudni, hogy a prezentáció jelenleg milyen formátumban (PPT, PPTX, ODP és egyebek) van.
+Használja a [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationfactory/get_presentation_info/) metódust egy fájl ellenőrzéséhez anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt hozna létre. A [PresentationInfo.load_format](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/load_format/) tulajdonság jelzi a felismert formátumot, például PPTX, PPT vagy ODP.
 
-Ellenőrizheti a prezentáció formátumát a prezentáció betöltése nélkül. Lásd ezt a Python kódot:
-
-```py
+```python
 import aspose.slides as slides
 
-info1 = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print(info1.load_format, info1.load_format == slides.LoadFormat.PPTX)
+file_names = ["pres.pptx", "pres.ppt", "pres.odp"]
 
-info2 = slides.PresentationFactory.instance.get_presentation_info("pres.odp")
-print(info2.load_format, info2.load_format == slides.LoadFormat.ODP)
-
-info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
-print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
+for file_name in file_names:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+    print(f"{file_name}: {presentation_info.load_format}")
 ```
 
-## **Szerezze meg a prezentáció tulajdonságait**
+## **Könnyű prezentáció leltár létrehozása**
 
-Ez a Python kód megmutatja, hogyan szerezhetők meg a prezentáció tulajdonságai (információk a prezentációról):
+Amikor sok prezentációfájlt dolgoz fel, szüksége lehet egy kompakt leltárra az ellenőrzéshez, indexeléshez vagy egy dokumentumkezelő rendszerhez. Ebben a helyzetben használja a [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationfactory/get_presentation_info/) metódust, hogy egy [PresentationInfo](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/) objektumot kapjon, majd hívja a [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/read_document_properties/) metódust a dokumentum metaadatainak beolvasásához. Ez a megközelítés nem hoz létre [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt, és nem igényli a teljes prezentáció objektummodell bejárását.
 
-```py
+A [DocumentProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/) által kiadott kiterjesztett tulajdonságok a következő leltárértékeket biztosítják:
+
+| Tulajdonság | Leltár érték |
+| --- | --- |
+| [slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/slides/hu/) | A diák összes száma. |
+| [hidden_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/hidden_slides/) | Rejtett diák száma. |
+| [notes](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/notes/) | Azon diák száma, amelyek jegyzetet tartalmaznak. |
+| [paragraphs](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/paragraphs/) | A bekezdések összes száma, ha elérhető. |
+| [words](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/words/) | A szavak összes száma. |
+| [multimedia_clips](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/multimedia_clips/) | Az audio- és videoklipek összes száma. |
+
+Az alábbi példa ezeket az értékeket beolvassa anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumot hozna létre, és egy kompakt leltárt nyomtat ki. Emellett kombinálja a [heading_pairs](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/heading_pairs/) elemet a [titles_of_parts](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/titles_of_parts/) elemmel, hogy megjelenítse a tartalmi csoportokat, például betűtípusok, témák és diacímek.
+
+```python
+import os
 import aspose.slides as slides
 
-info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-props = info.read_document_properties()
-print(props.created_time)
-print(props.subject)
-print(props.title)
+file_path = "sample.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+document_properties = presentation_info.read_document_properties()
+
+print(f"File: {os.path.basename(file_path)}")
+print(f"Format: {presentation_info.load_format}")
+print(f"Title: {document_properties.title}")
+print(f"Author: {document_properties.author}")
+print("Statistics:")
+print(f"  Slides: {document_properties.slides}")
+print(f"  Hidden slides: {document_properties.hidden_slides}")
+print(f"  Slides with notes: {document_properties.notes}")
+print(f"  Paragraphs: {document_properties.paragraphs}")
+print(f"  Words: {document_properties.words}")
+print(f"  Multimedia clips: {document_properties.multimedia_clips}")
+
+heading_pairs = document_properties.heading_pairs or []
+titles_of_parts = document_properties.titles_of_parts or []
+part_index = 0
+
+if not heading_pairs or not titles_of_parts:
+    print("Content groups: not available")
+else:
+    print("Content groups:")
+
+    for heading_pair in heading_pairs:
+        print(f"  {heading_pair.name} ({heading_pair.count})")
+
+        for _ in range(heading_pair.count):
+            if part_index >= len(titles_of_parts):
+                break
+
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
+
+    if part_index < len(titles_of_parts):
+        print("  Other parts:")
+
+        while part_index < len(titles_of_parts):
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
 ```
 
-Előfordulhat, hogy meg szeretné tekinteni a [DocumentProperties osztály alatti tulajdonságokat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/#properties).
+Minden [HeadingPair](https://reference.aspose.com/slides/hu/python-net/aspose.slides/headingpair/) egy csoportnevet és a csoportban lévő elemek számát adja meg. A [DocumentProperties.titles_of_parts](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/titles_of_parts/) egy lapos, rendezett gyűjtemény, ezért a fejlécre vonatkozó egymást követő címek számát kell felhasználni.
 
-## **Frissítse a prezentáció tulajdonságait**
+### **Tárolt metaadatok és formátumkorlátozások**
 
-Az Aspose.Slides biztosítja a [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) metódust, amely lehetővé teszi a prezentáció tulajdonságainak módosítását.
+A [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/read_document_properties/) által visszaadott leltártulajdonságok tükrözik a forrásdokumentumban elérhető metaadatokat. Az Aspose.Slides nem tölti be és nem járja be a prezentáció objektummodelljét, hogy újraszámolja ezeket az értékeket ebben a hívásban. Hiányzó tulajdonságok alapértelmezett értékekkel vannak ábrázolva, és a tárolt értékek elavultak lehetnek, ha az alkalmazás, amely utoljára mentette a fájlt, nem frissítette a dokumentumtulajdonságokat.
 
-Tegyük fel, hogy van egy PowerPoint prezentációja az alább látható dokumentumtulajdonságokkal.
+- **PPTX:** A formátum kiterjesztett dokumentumtulajdonságokat biztosít a diák, jegyzetek, rejtett diák, bekezdések, szavak és multimédia számához, valamint fejlécre párokat és részcímeket. Elérhetőségük attól függ, hogy a dokumentumkészítő mely tulajdonságokat írt be.
+- **PPT:** A bináris formátum tárolhatja a megfelelő dokumentumösszegzés-tulajdonságokat. Ha egy tulajdonság hiányzik vagy a dokumentumkészítő nem frissítette, az Aspose.Slides a tárolt vagy alapértelmezett értéket adja vissza ahelyett, hogy a diákból számolná ki.
+- **ODP:** Az OpenDocument metaadatok általános dokumentumstatisztikákat biztosítanak, mint például oldal, bekezdés és szó szám, de ezek az értékek nem térképezhetők minden PowerPoint-specifikus kiterjesztett tulajdonságra. A rejtett diák, jegyzet-diák, multimédia, fejlécpár és részcím metaadatok esetleg nem állnak rendelkezésre, és a leltártulajdonságok alapértelmezett értékeket adhatnak vissza. Ne tekintse a null értéket vagy az üres gyűjteményt tekintélyes bizonyítéknak arra, hogy a megfelelő tartalom hiányzik.
 
-![A PowerPoint prezentáció eredeti dokumentumtulajdonságai](input_properties.png)
+Használja a könnyű metaadatmegközelítést leltárakhoz és előzetes ellenőrzésekhez. Töltse be a prezentációt, és ellenőrizze az élő objektummodellt, amikor az eredménynek tükröznie kell a memóriában történt változásokat, vagy amikor a tényleges prezentációtartalmat kell ellenőrizni.
 
-Ez a kódrészlet megmutatja, hogyan szerkeszthet néhány prezentációs tulajdonságot:
+## **Prezentáció tulajdonságok frissítése**
 
-```py
-import aspose.slides as slides
+A [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/read_document_properties/) által visszaadott tulajdonságok módosíthatók anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt hoznánk létre. Alkalmazza a módosításokat a [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/update_document_properties/) metódussal, majd írja ki a kötött prezentációt a [PresentationInfo.write_binded_presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/write_binded_presentation/) metódussal.
+
+Az alábbi kép mutatja az eredeti dokumentumtulajdonságokat a PowerPoint prezentációban:
+![Az eredeti dokumentumtulajdonságok a PowerPoint prezentációban](input_properties.png)
+
+Az alábbi példa megváltoztatja a címet és az utolsó mentés időpontját, majd az eredményt egy új fájlba írja:
+```python
 import datetime
+import aspose.slides as slides
 
-file_name = "sample.pptx"
+source_file = "sample.pptx"
+output_file = "sample_with_updated_properties.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(source_file)
+document_properties = presentation_info.read_document_properties()
 
-info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+document_properties.title = "Quarterly sales report"
+document_properties.last_saved_time = datetime.datetime.now(datetime.timezone.utc)
 
-properties = info.read_document_properties()
-properties.title = "My title"
-properties.last_saved_time = datetime.datetime.now()
+presentation_info.update_document_properties(document_properties)
 
-info.update_document_properties(properties)
-info.write_binded_presentation(file_name)
+with open(output_file, "wb") as output_stream:
+    presentation_info.write_binded_presentation(output_stream)
 ```
 
-A dokumentumtulajdonságok módosításának eredményei alább láthatók.
-
-![A PowerPoint prezentáció módosított dokumentumtulajdonságai](output_properties.png)
+Az alábbi kép mutatja a frissített dokumentumtulajdonságokat:
+![A frissített dokumentumtulajdonságok a PowerPoint prezentációban](output_properties.png)
 
 ## **Hasznos hivatkozások**
 
-A prezentációval és annak biztonsági attribútumaival kapcsolatos további információkért ezek a hivatkozások lehetnek hasznosak:
+Kapcsolódó biztonsági ellenőrzések és védelmi beállítások tekintetében tekintse meg a következő cikkeket:
 
 - [Jelszóval védett prezentációk](/slides/hu/python-net/password-protected-presentation/)
 - [Írásvédett prezentációk](/slides/hu/python-net/write-protected-presentation/)
 
 ## **GYIK**
 
-**Hogyan ellenőrizhetem, hogy a betűk be vannak ágyazva, és melyek azok?**  
-Keresse a [beágyazott betűk információját](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) a prezentáció szintjén, majd hasonlítsa össze ezeket a bejegyzéseket a [valóban a tartalomban használt betűk](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fontsmanager/get_fonts/) halmazával, hogy azonosítsa, mely betűk kritikusak a megjelenítéshez.
+**Hogyan ellenőrizhetem, hogy be vannak-e ágyazva a betűtípusok, és melyek azok?**
 
-**Hogyan tudom gyorsan megállapítani, hogy a fájl tartalmaz rejtett diákat, és ha igen, hányat?**  
-Iteráljon a [dia gyűjteményen](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/), és vizsgálja meg minden dia [láthatósági jelzőjét](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slide/hidden/).
+Töltse be a prezentációt, és használja a [Presentation.fonts_manager](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/fonts_manager/) elemet. Hívja a [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) metódust a beágyazott betűtípusok lekéréséhez, valamint a [FontsManager.get_fonts](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fontsmanager/get_fonts/) metódust a prezentáció által használt betűtípusok lekéréséhez. Hasonlítsa össze a két eredményt, hogy megtalálja azokat a betűtípusokat, amelyek a megjelenítéshez szükségesek, de nincsenek beágyazva.
 
-**Feldobhatom-e, hogy egyedi dia méret és orientáció van-e használatban, és hogy eltérnek-e az alapértelmezettektől?**  
-Igen. Hasonlítsa össze a jelenlegi [dia méretet](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/slide_size/) és orientációt a szabványos előbeállításokkal; ez segít előre jelezni a nyomtatásra és exportálásra vonatkozó viselkedést.
+**Hogyan tudom gyorsan megállapítani, hogy a fájl tartalmaz-e rejtett diákokat, és hány darab van?**
 
-**Van-e gyors módja annak, hogy lássam, a diagramok külső adatforrásokra hivatkoznak-e?**  
-Igen. Járja be az összes [diagramot](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chart/), ellenőrizze azok [adatforrását](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/data_source_type/), és vegye figyelembe, hogy az adat belső vagy hivatkozáson alapul-e, beleértve a hibás hivatkozásokat is.
+Amikor a tárolt dokumentummetaadatok elegendőek, olvassa a [DocumentProperties.hidden_slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/hidden_slides/) értéket a [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationfactory/get_presentation_info/) és a [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/read_document_properties/) segítségével. Ez alkalmas egy könnyű leltárhoz. Ha a prezentációt memóriában módosították, a tárolt metaadatok hiányozhatnak vagy elavultak lehetnek, vagy ha élő értékeket kell ellenőrizni, járja be a [Presentation.slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/slides/hu/) gyűjteményt, és ellenőrizze minden dia [Slide.hidden](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slide/hidden/) tulajdonságát.
 
-**Hogyan értékelhetem az 'nehéz' diákat, amelyek lelassíthatják a renderelést vagy a PDF exportot?**  
-Minden diához számolja meg az objektumok mennyiségét, és keressen nagy képeket, átlátszóságot, árnyékokat, animációkat és multimédiát; adjon hozzá egy durva komplexitási pontszámot, hogy jelölje a lehetséges teljesítményproblémákat.
+**Képes vagyok-e felismerni, hogy egyéni diák méret és tájolás van-e használatban, és eltérnek-e az alapértelmezettől?**
+
+Igen. Töltse be a prezentációt, és olvassa a [Presentation.slide_size](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/slide_size/) értéket. Ellenőrizze a [SlideSize.type](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesize/type/), [SlideSize.size](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesize/size/) és [SlideSize.orientation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesize/orientation/) tulajdonságokat, hogy összehasonlítsa a jelenlegi beállításokat az elvárt előre beállított értékekkel és méretekkel.
+
+**Van gyors mód a diagramok külső adatforrásra hivatkozásának ellenőrzésére?**
+
+Igen. Keresse meg minden [Chart](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chart/) elemet, és ellenőrizze a [ChartData.data_source_type](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/data_source_type/) tulajdonságot. Külső munkafüzet esetén olvassa a [ChartData.external_workbook_path](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdata/external_workbook_path/) értéket. Az adatforrás típusa és az útvonal azonosítja a külső hivatkozást, de annak elérhetősége külön erőforrás-ellenőrzést igényel.
+
+**Hogyan értékelhetem a 'nehéz' diákat, amelyek lassíthatják a renderelést vagy a PDF exportot?**
+
+Nincs egyetlen komplexitást mérő tulajdonság. Járja be a [Presentation.slides](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/slides/hu/) gyűjteményt, és minden dia [BaseSlide.shapes](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslide/shapes/) kollekcióját. Használja a formaelemek számát és a nagy képek, hatások, animációk vagy multimédia jelenlétét szűrőjeleként, majd mérjen egy reprezentatív renderelést vagy exportot, mielőtt egy diát végleges teljesítménybottnek tekintene.

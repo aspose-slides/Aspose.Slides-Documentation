@@ -1,5 +1,5 @@
 ---
-title: Mengambil dan Memperbarui Informasi Presentasi di Java
+title: Mengambil dan Memperbarui Informasi Presentasi dalam Java
 linktitle: Informasi Presentasi
 type: docs
 weight: 30
@@ -8,14 +8,14 @@ keywords:
 - format presentasi
 - properti presentasi
 - properti dokumen
-- dapatkan properti
-- baca properti
-- ubah properti
-- modifikasi properti
-- perbarui properti
-- periksa PPTX
-- periksa PPT
-- periksa ODP
+- mengambil properti
+- membaca properti
+- mengubah properti
+- memodifikasi properti
+- memperbarui properti
+- memeriksa PPTX
+- memeriksa PPT
+- memeriksa ODP
 - PowerPoint
 - OpenDocument
 - presentasi
@@ -25,101 +25,194 @@ description: "Jelajahi slide, struktur, dan metadata dalam presentasi PowerPoint
 ---
 ## **Gambaran Umum**
 
-Artikel ini menunjukkan cara memeriksa informasi presentasi di Aspose.Slides. Artikel ini menjelaskan cara menentukan format presentasi saat ini tanpa memuat seluruh file, membaca properti dokumennya, dan memperbarui properti tersebut bila diperlukan.
+Aspose.Slides dapat mengidentifikasi format presentasi dan membaca metadata dokumen tanpa membuat model objek presentasi secara lengkap. Ini berguna ketika Anda perlu mengklasifikasikan file, membuat inventaris, atau memeriksa properti sebelum memutuskan apakah akan memuat dan memproses konten presentasi.
 
-Contoh-contoh didasarkan pada API [PresentationInfo](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentationinfo/) dan [DocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/documentproperties/) serta menunjukkan operasi tipikal untuk bekerja dengan metadata presentasi.
+Artikel ini menunjukkan inspeksi ringan melalui [PresentationFactory](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentationfactory/) dan [IPresentationInfo](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/), serta pembaruan terarah melalui [IDocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/).
 
 ## **Periksa Format Presentasi**
 
-Sebelum mengerjakan sebuah presentasi, Anda mungkin ingin mengetahui format apa (PPT, PPTX, ODP, dan lain-lain) yang sedang digunakan oleh presentasi tersebut.
-
-Anda dapat memeriksa format presentasi tanpa memuat presentasi. Lihat kode Java berikut:
+Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) untuk memeriksa file tanpa membuat instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Metode [IPresentationInfo.getLoadFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/#getLoadFormat--) melaporkan format yang terdeteksi, seperti PPTX, PPT, atau ODP.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
+String[] fileNames = { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
+for (String fileName : fileNames) {
+    IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(fileName);
+    int loadFormat = presentationInfo.getLoadFormat();
+    String formatName = "Other (" + loadFormat + ")";
 
-IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+    if (loadFormat == LoadFormat.Pptx) {
+        formatName = "PPTX";
+    } else if (loadFormat == LoadFormat.Ppt) {
+        formatName = "PPT";
+    } else if (loadFormat == LoadFormat.Odp) {
+        formatName = "ODP";
+    }
+
+    System.out.println(fileName + ": " + formatName);
+}
 ```
 
-## **Dapatkan Properti Presentasi**
+## **Buat Inventaris Presentasi Ringan**
 
-Kode Java ini menunjukkan cara mendapatkan properti presentasi (informasi tentang presentasi):
+Saat Anda memproses banyak file presentasi, Anda mungkin memerlukan inventaris yang ringkas untuk validasi, pengindeksan, atau sistem manajemen dokumen. Dalam skenario ini, gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) untuk memperoleh objek [IPresentationInfo](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/), lalu panggil [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) untuk membaca metadata dokumen. Pendekatan ini tidak membuat instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) maupun mengharuskan Anda menelusuri model objek presentasi secara lengkap.
+
+Properti tambahan yang diekspos oleh [IDocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/) menyediakan nilai inventaris berikut:
+
+| Metode | Nilai inventaris |
+| --- | --- |
+| [getSlides](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getSlides--) | Total jumlah slide. |
+| [getHiddenSlides](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) | Jumlah slide tersembunyi. |
+| [getNotes](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getNotes--) | Jumlah slide yang berisi catatan. |
+| [getParagraphs](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getParagraphs--) | Total jumlah paragraf, bila tersedia. |
+| [getWords](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getWords--) | Total jumlah kata. |
+| [getMultimediaClips](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getMultimediaClips--) | Total jumlah klip audio dan video. |
+
+Contoh berikut membaca nilai‑nilai ini tanpa membuat objek [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) dan mencetak inventaris yang ringkas. Ia juga menggabungkan [getHeadingPairs](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getHeadingPairs--) dengan [getTitlesOfParts](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) untuk menampilkan grup konten seperti font, tema, dan judul slide.
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IHeadingPair;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadFormat;
+import com.aspose.slides.PresentationFactory;
+import java.nio.file.Paths;
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-IDocumentProperties props = info.readDocumentProperties();
-System.out.println(props.getCreatedTime());
-System.out.println(props.getSubject());
-System.out.println(props.getTitle());
-// ...
+String filePath = "sample.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(filePath);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
+
+int loadFormat = presentationInfo.getLoadFormat();
+String formatName = "Other (" + loadFormat + ")";
+
+if (loadFormat == LoadFormat.Pptx) {
+    formatName = "PPTX";
+} else if (loadFormat == LoadFormat.Ppt) {
+    formatName = "PPT";
+} else if (loadFormat == LoadFormat.Odp) {
+    formatName = "ODP";
+}
+
+System.out.println("File: " + Paths.get(filePath).getFileName());
+System.out.println("Format: " + formatName);
+System.out.println("Title: " + documentProperties.getTitle());
+System.out.println("Author: " + documentProperties.getAuthor());
+System.out.println("Statistics:");
+System.out.println("  Slides: " + documentProperties.getSlides());
+System.out.println("  Hidden slides: " + documentProperties.getHiddenSlides());
+System.out.println("  Slides with notes: " + documentProperties.getNotes());
+System.out.println("  Paragraphs: " + documentProperties.getParagraphs());
+System.out.println("  Words: " + documentProperties.getWords());
+System.out.println("  Multimedia clips: " + documentProperties.getMultimediaClips());
+
+IHeadingPair[] headingPairs = documentProperties.getHeadingPairs();
+String[] titlesOfParts = documentProperties.getTitlesOfParts();
+headingPairs = headingPairs != null ? headingPairs : new IHeadingPair[0];
+titlesOfParts = titlesOfParts != null ? titlesOfParts : new String[0];
+int partIndex = 0;
+
+if (headingPairs.length == 0 || titlesOfParts.length == 0) {
+    System.out.println("Content groups: not available");
+} else {
+    System.out.println("Content groups:");
+
+    for (IHeadingPair headingPair : headingPairs) {
+        System.out.println("  " + headingPair.getName() + " (" + headingPair.getCount() + ")");
+
+        for (int partOffset = 0; partOffset < headingPair.getCount() && partIndex < titlesOfParts.length; partOffset++) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.length) {
+        System.out.println("  Other parts:");
+
+        while (partIndex < titlesOfParts.length) {
+            System.out.println("    - " + titlesOfParts[partIndex]);
+            partIndex++;
+        }
+    }
+}
 ```
 
-Anda mungkin ingin melihat [properti di bawah kelas DocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/documentproperties/#DocumentProperties--) .
+Setiap [IHeadingPair](https://reference.aspose.com/slides/id/java/com.aspose.slides/iheadingpair/) menyediakan nama grup dan jumlah item dalam grup tersebut. [IDocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getTitlesOfParts--) mengembalikan array datar berurutan, sehingga konsumsi jumlah judul berurutan yang ditentukan oleh masing‑masing pasangan heading.
+
+### **Metadata yang Disimpan dan Batasan Format**
+
+Properti inventaris yang dikembalikan oleh [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) mencerminkan metadata yang tersedia dalam dokumen sumber. Aspose.Slides tidak memuat dan menelusuri model objek presentasi untuk menghitung ulang nilai‑nilai ini pada panggilan ini. Properti yang hilang direpresentasikan dengan nilai default, dan nilai yang disimpan dapat menjadi usang bila aplikasi yang terakhir menyimpan file tidak memperbarui properti dokumennya.
+
+- **PPTX:** Format ini menyediakan properti dokumen ekstended untuk hitungan slide, catatan, slide tersembunyi, paragraf, kata, dan multimedia, serta pasangan heading dan judul bagian. Ketersediaan bergantung pada properti mana yang ditulis oleh pembuat dokumen.
+- **PPT:** Format biner dapat menyimpan properti ringkasan dokumen yang bersesuaian. Jika sebuah properti tidak ada atau tidak diperbarui oleh pembuat dokumen, Aspose.Slides mengembalikan nilai yang disimpan atau nilai default alih‑alih menghitungnya dari slide.
+- **ODP:** Metadata OpenDocument menyediakan statistik dokumen umum, seperti hitungan halaman, paragraf, dan kata, namun nilai‑nilai ini tidak terpetakan ke setiap properti ekstended khusus PowerPoint. Metadata slide tersembunyi, slide catatan, multimedia, pasangan heading, dan judul bagian mungkin tidak tersedia, dan properti inventaris dapat mengembalikan nilai default. Jangan menganggap nilai nol atau array kosong sebagai bukti otoritatif bahwa konten terkait tidak ada.
+
+Gunakan pendekatan metadata ringan untuk inventaris dan pemeriksaan awal. Muat presentasi dan periksa model objek langsungnya ketika hasil harus mencerminkan perubahan dalam memori atau ketika Anda perlu memverifikasi konten presentasi yang sebenarnya.
 
 ## **Perbarui Properti Presentasi**
 
-Aspose.Slides menyediakan metode [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) yang memungkinkan Anda melakukan perubahan pada properti presentasi.
+Properti yang dikembalikan oleh [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) juga dapat diubah tanpa membuat instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/). Terapkan perubahan dengan [IPresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), lalu tulis presentasi yang terikat dengan [IPresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/#writeBindedPresentation-java.io.OutputStream-).
 
-Misalkan kita memiliki presentasi PowerPoint dengan properti dokumen seperti yang ditampilkan di bawah.
+Gambar berikut menunjukkan properti dokumen asli dari presentasi PowerPoint.
 
 ![Properti dokumen asli dari presentasi PowerPoint](input_properties.png)
 
-Contoh kode ini menunjukkan cara mengedit beberapa properti presentasi:
+Contoh berikut mengubah judul dan waktu terakhir disimpan serta menulis hasilnya ke file baru:
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.PresentationFactory;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.Date;
 
-String fileName = "sample.pptx";
+String sourceFile = "sample.pptx";
+String outputFile = "sample_with_updated_properties.pptx";
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(sourceFile);
+IDocumentProperties documentProperties = presentationInfo.readDocumentProperties();
 
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
+documentProperties.setTitle("Quarterly sales report");
+documentProperties.setLastSavedTime(new Date());
 
-IDocumentProperties properties = info.readDocumentProperties();
-properties.setTitle("My title");
-properties.setLastSavedTime(new Date());
-
-info.updateDocumentProperties(properties);
-info.writeBindedPresentation(fileName);
+presentationInfo.updateDocumentProperties(documentProperties);
+try (OutputStream outputStream = new FileOutputStream(outputFile)) {
+    presentationInfo.writeBindedPresentation(outputStream);
+}
 ```
 
-Hasil perubahan properti dokumen ditampilkan di bawah.
+Gambar berikut menunjukkan properti dokumen yang diubah dari presentasi PowerPoint.
 
-![Properti dokumen yang berubah dari presentasi PowerPoint](output_properties.png)
+![Properti dokumen yang diubah dari presentasi PowerPoint](output_properties.png)
 
 ## **Tautan Berguna**
 
-Untuk mendapatkan informasi lebih lanjut tentang sebuah presentasi dan atribut keamanannya, Anda mungkin menemukan tautan berikut berguna:
+Untuk pemeriksaan keamanan terkait dan pengaturan perlindungan, lihat artikel berikut:
 
-- [Presentasi dengan Perlindungan Kata Sandi](/slides/id/java/password-protected-presentation/)
-- [Presentasi dengan Proteksi Penulisan](/slides/id/java/write-protected-presentation/)
+- [Presentasi yang Dilindungi Kata Sandi](/slides/id/java/password-protected-presentation/)
+- [Presentasi yang Dilindungi Penulisan](/slides/id/java/write-protected-presentation/)
 
 ## **FAQ**
 
-**Bagaimana cara memeriksa apakah font disematkan dan font apa saja yang disematkan?**
+**Bagaimana saya dapat memeriksa apakah font di‑embed dan yang mana?**
 
-Cari [informasi font tersemat](https://reference.aspose.com/slides/id/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) pada tingkat presentasi, kemudian bandingkan entri tersebut dengan kumpulan [font yang sebenarnya digunakan dalam konten](https://reference.aspose.com/slides/id/java/com.aspose.slides/fontsmanager/#getFonts--) untuk mengidentifikasi font mana yang penting untuk rendering.
+Muat presentasi dan gunakan [Presentation.getFontsManager](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getFontsManager--). Panggil [IFontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/id/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) untuk memperoleh font yang di‑embed dan [IFontsManager.getFonts](https://reference.aspose.com/slides/id/java/com.aspose.slides/ifontsmanager/#getFonts--) untuk memperoleh font yang digunakan oleh presentasi. Bandingkan kedua hasil untuk menemukan font yang diperlukan untuk rendering namun tidak di‑embed.
 
-**Bagaimana cara cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
+**Bagaimana saya dapat dengan cepat mengetahui apakah file memiliki slide tersembunyi dan berapa banyak?**
 
-Iterasikan [koleksi slide](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidecollection/) dan periksa [flag visibilitas](https://reference.aspose.com/slides/id/java/com.aspose.slides/slide/#getHidden--) setiap slide.
+Ketika metadata dokumen yang disimpan sudah cukup, baca [IDocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/id/java/com.aspose.slides/idocumentproperties/#getHiddenSlides--) melalui [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) dan [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--). Ini cocok untuk inventaris ringan. Jika presentasi telah diubah dalam memori, metadata yang disimpan mungkin hilang atau usang, atau Anda perlu memverifikasi nilai hidup, iterasikan melalui [Presentation.getSlides](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getSlides--) dan periksa masing‑masing metode [ISlide.getHidden](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#getHidden--) pada slide.
 
-**Apakah saya dapat mendeteksi apakah ukuran dan orientasi slide kustom digunakan, dan apakah berbeda dari nilai default?**
+**Apakah saya dapat mendeteksi apakah ukuran slide khusus dan orientasi digunakan, serta apakah mereka berbeda dari nilai default?**
 
-Ya. Bandingkan [ukuran slide](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getSlideSize--) dan orientasi saat ini dengan preset standar; ini membantu memperkirakan perilaku saat mencetak dan mengekspor.
+Ya. Muat presentasi dan panggil [Presentation.getSlideSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getSlideSize--). Gunakan [ISlideSize.getType](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidesize/#getType--), [ISlideSize.getSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidesize/#getSize--), dan [ISlideSize.getOrientation](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidesize/#getOrientation--) untuk membandingkan pengaturan saat ini dengan preset dan dimensi yang diharapkan.
 
 **Apakah ada cara cepat untuk melihat apakah chart merujuk ke sumber data eksternal?**
 
-Ya. Telusuri semua [chart](https://reference.aspose.com/slides/id/java/com.aspose.slides/chart/), periksa [sumber data](https://reference.aspose.com/slides/id/java/com.aspose.slides/chartdata/#getDataSourceType--) mereka, dan catat apakah data bersifat internal atau berbasis tautan, termasuk tautan yang rusak.
+Ya. Temukan setiap [Chart](https://reference.aspose.com/slides/id/java/com.aspose.slides/chart/) dan panggil [IChartData.getDataSourceType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#getDataSourceType--). Untuk workbook eksternal, panggil [IChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdata/#getExternalWorkbookPath--). Tipe sumber data dan path mengidentifikasi referensi eksternal, namun verifikasi ketersediaan target memerlukan pemeriksaan sumber daya terpisah.
 
-**Bagaimana saya dapat menilai slide 'berat' yang mungkin memperlambat rendering atau ekspor PDF?**
+**Bagaimana saya dapat menilai slide “berat” yang mungkin memperlambat rendering atau ekspor PDF?**
 
-Untuk setiap slide, hitung jumlah objek dan periksa adanya gambar besar, transparansi, bayangan, animasi, serta multimedia; berikan skor kompleksitas kasar untuk menandai potensi titik panas kinerja.
+Tidak ada properti kompleksitas tunggal. Telusuri [Presentation.getSlides](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getSlides--) dan koleksi [IBaseSlide.getShapes](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibaseslide/#getShapes--) pada tiap slide. Gunakan hitungan shape serta keberadaan gambar besar, efek, animasi, atau multimedia sebagai sinyal penyaringan, dan lakukan pengukuran rendering atau ekspor representatif sebelum menganggap sebuah slide sebagai bottleneck kinerja yang terkonfirmasi.

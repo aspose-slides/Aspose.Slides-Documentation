@@ -5,14 +5,14 @@ type: docs
 weight: 30
 url: /fa/net/examine-presentation/
 keywords:
-- قالب ارائه
-- خصوصیات ارائه
-- خصوصیات سند
-- دریافت خصوصیات
-- خواندن خصوصیات
-- تغییر خصوصیات
-- اصلاح خصوصیات
-- به‌روزرسانی خصوصیات
+- فرمت ارائه
+- ویژگی‌های ارائه
+- ویژگی‌های سند
+- دریافت ویژگی‌ها
+- خواندن ویژگی‌ها
+- تغییر ویژگی‌ها
+- اصلاح ویژگی‌ها
+- به‌روزرسانی ویژگی‌ها
 - بررسی PPTX
 - بررسی PPT
 - بررسی ODP
@@ -22,104 +22,174 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "اسلایدها، ساختار و فراداده‌های ارائه‌های PowerPoint و OpenDocument را با استفاده از .NET بررسی کنید تا بینش‌های سریع‌تر و ارزیابی‌های محتوا هوشمندانه‌تر داشته باشید."
+description: اسلایدها، ساختار و متادیتا را در ارائه‌های PowerPoint و OpenDocument با استفاده از .NET بررسی کنید تا بینش‌های سریع‌تر و ارزیابی‌های محتوا هوشمندانه‌تری داشته باشید.
 ---
-## **بررسی کلی**
+## **بررسی اجمالی**
 
-این مقاله نشان می‌دهد چگونه می‌توان اطلاعات ارائه (Presentation) را در Aspose.Slides بررسی کرد. توضیح می‌دهد چگونه می‌توانید فرمت فعلی یک ارائه را بدون بارگذاری کامل فایل تعیین کنید، خصوصیات سند آن را بخوانید و در صورت نیاز این خصوصیات را به‌روزرسانی کنید.
+Aspose.Slides می‌تواند فرمت یک ارائه را شناسایی کرده و متادیتای سند آن را بدون ایجاد یک مدل شیء کامل ارائه بخواند. این کار وقتی نیاز به طبقه‌بندی فایل‌ها، ساخت موجودی یا بازرسی ویژگی‌ها پیش از تصمیم‌گیری در مورد بارگذاری و پردازش محتوای ارائه مفید است.
 
-مثال‌ها بر پایه APIهای [PresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/presentationinfo/) و [DocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/documentproperties/) هستند و عملیات معمول برای کار با فراداده‌های ارائه را نشان می‌دهند.
+این مقاله بازرسی سبک وزن را از طریق [PresentationFactory](https://reference.aspose.com/slides/fa/net/aspose.slides/presentationfactory/) و [IPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/) و همچنین به‌روزرسانی‌های هدفمند را از طریق [IDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/) نشان می‌دهد.
 
 ## **بررسی فرمت یک ارائه**
 
-قبل از کار با یک ارائه، ممکن است بخواهید فرمت (PPT، PPTX، ODP و …) فعلی ارائه را بیابید.
+از [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/presentationfactory/getpresentationinfo/) برای بررسی یک فایل بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) استفاده کنید. ویژگی [IPresentationInfo.LoadFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/loadformat/) فرمت شناسایی‌شده را گزارش می‌دهد، مانند PPTX، PPT یا ODP.
 
-می‌توانید فرمت یک ارائه را بدون بارگیری آن بررسی کنید. کد C# زیر را ببینید:
-
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-Console.WriteLine(info.LoadFormat); // PPTX
+var fileNames = new[] { "pres.pptx", "pres.ppt", "pres.odp" };
 
-IPresentationInfo info2 = PresentationFactory.Instance.GetPresentationInfo("pres.ppt");
-Console.WriteLine(info2.LoadFormat); // PPT
-
-IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres.odp");
-Console.WriteLine(info3.LoadFormat); // ODP
+foreach (var fileName in fileNames)
+{
+    var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(fileName);
+    Console.WriteLine($"{fileName}: {presentationInfo.LoadFormat}");
+}
 ```
 
-## **دریافت خصوصیات ارائه**
+## **ساخت موجودی سبک وزن برای ارائه**
 
-این کد C# نشان می‌دهد چگونه می‌توانید خصوصیات ارائه (اطلاعات درباره ارائه) را دریافت کنید:
+هنگامی که تعداد زیادی فایل ارائه را پردازش می‌کنید، ممکن است به یک موجودی فشرده برای اعتبارسنجی، فهرست‌برداری یا سیستم مدیریت اسناد نیاز داشته باشید. در این سناریو از [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/presentationfactory/getpresentationinfo/) برای به‌دست آوردن یک شیء [IPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/) استفاده کنید و سپس با فراخوانی [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/readdocumentproperties/) متادیتای سند را بخوانید. این روش هیچ نمونه‌ای از [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد نمی‌کند و نیاز به پیمایش کامل مدل شیء ارائه نیست.
 
-```c#
+ویژگی‌های توسعه‌یافته‌ای که توسط [IDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/) ارائه می‌شود، مقادیر موجودی زیر را فراهم می‌کند:
+
+| ویژگی | مقدار موجودی |
+| --- | --- |
+| [Slides](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/slides/fa/) | تعداد کل اسلایدها. |
+| [HiddenSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/hiddenslides/) | تعداد اسلایدهای پنهان. |
+| [Notes](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/notes/) | تعداد اسلایدهایی که حاوی یادداشت هستند. |
+| [Paragraphs](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/paragraphs/) | تعداد کل پاراگراف‌ها، در صورت موجود بودن. |
+| [Words](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/words/) | تعداد کل کلمات. |
+| [MultimediaClips](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/multimediaclips/) | تعداد کل کلیپ‌های صوتی و ویدئویی. |
+
+مثال زیر این مقادیر را بدون ایجاد یک شیء [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) می‌خواند و یک موجودی فشرده را چاپ می‌کند. همچنین با ترکیب [HeadingPairs](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/headingpairs/) و [TitlesOfParts](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/titlesofparts/) گروه‌های محتوایی مانند قلم‌ها، تم‌ها و عناوین اسلایدها را نمایش می‌دهد.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
 
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
-IDocumentProperties props = info.ReadDocumentProperties();
-Console.WriteLine(props.CreatedTime);
-Console.WriteLine(props.Subject);
-Console.WriteLine(props.Title);
-// ..
+var filePath = "sample.pptx";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(filePath);
+var documentProperties = presentationInfo.ReadDocumentProperties();
+
+Console.WriteLine($"File: {Path.GetFileName(filePath)}");
+Console.WriteLine($"Format: {presentationInfo.LoadFormat}");
+Console.WriteLine($"Title: {documentProperties.Title}");
+Console.WriteLine($"Author: {documentProperties.Author}");
+Console.WriteLine("Statistics:");
+Console.WriteLine($"  Slides: {documentProperties.Slides}");
+Console.WriteLine($"  Hidden slides: {documentProperties.HiddenSlides}");
+Console.WriteLine($"  Slides with notes: {documentProperties.Notes}");
+Console.WriteLine($"  Paragraphs: {documentProperties.Paragraphs}");
+Console.WriteLine($"  Words: {documentProperties.Words}");
+Console.WriteLine($"  Multimedia clips: {documentProperties.MultimediaClips}");
+
+var headingPairs = documentProperties.HeadingPairs ?? Array.Empty<IHeadingPair>();
+var titlesOfParts = documentProperties.TitlesOfParts ?? Array.Empty<string>();
+var partIndex = 0;
+
+if (headingPairs.Length == 0 || titlesOfParts.Length == 0)
+{
+    Console.WriteLine("Content groups: not available");
+}
+else
+{
+    Console.WriteLine("Content groups:");
+
+    foreach (var headingPair in headingPairs)
+    {
+        Console.WriteLine($"  {headingPair.Name} ({headingPair.Count})");
+
+        for (var partOffset = 0; partOffset < headingPair.Count && partIndex < titlesOfParts.Length; partOffset++)
+        {
+            Console.WriteLine($"    - {titlesOfParts[partIndex]}");
+            partIndex++;
+        }
+    }
+
+    if (partIndex < titlesOfParts.Length)
+    {
+        Console.WriteLine("  Other parts:");
+
+        while (partIndex < titlesOfParts.Length)
+        {
+            Console.WriteLine($"    - {titlesOfParts[partIndex]}");
+            partIndex++;
+        }
+    }
+}
 ```
 
-ممکن است بخواهید [خصوصیات موجود در کلاس DocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/documentproperties/#properties) را مشاهده کنید.
+هر [IHeadingPair](https://reference.aspose.com/slides/fa/net/aspose.slides/iheadingpair/) نام گروه و تعداد موارد در آن گروه را فراهم می‌کند. [IDocumentProperties.TitlesOfParts](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/titlesofparts/) یک آرایه صاف و مرتب است، بنابراین تعداد عناوین متوالی مشخص‌شده توسط هر جفت سرعنوان را مصرف کنید.
 
-## **به‌روزرسانی خصوصیات ارائه**
+### **متادیتای ذخیره‌شده و محدودیت‌های فرمت**
 
-Aspose.Slides متد [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) را ارائه می‌دهد که امکان تغییر خصوصیات ارائه را فراهم می‌کند.
+ویژگی‌های موجودی که توسط [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/readdocumentproperties/) بازگردانده می‌شوند، متادیتای موجود در سند منبع را منعکس می‌کنند. Aspose.Slides برای این فراخوانی مدل شیء ارائه را بارگذاری و پیمایش نمی‌کند تا مقادیر را دوباره محاسبه کند. ویژگی‌های گمشده با مقادیر پیش‌فرض نشان داده می‌شوند و مقادیر ذخیره‌شده ممکن است منسوخ شوند اگر برنامه‌ای که آخرین بار فایل را ذخیره کرده بود ویژگی‌های سند را به‌روزرسانی نکرده باشد.
 
-فرض کنید یک ارائه PowerPoint داریم که خصوصیات سند آن در زیر نشان داده شده است.
+- **PPTX:** این فرمت ویژگی‌های سند توسعه‌یافته‌ای برای شمارش اسلاید، یادداشت، اسلاید پنهان، پاراگراف، کلمه و کلیپ‌های چندرسانه‌ای، همچنین جفت‌های سرعنوان و عناوین بخش‌ها فراهم می‌کند. در دسترس بودن آن بسته به این است که کدام ویژگی‌ها توسط تولیدکننده سند نوشته شده‌اند.
+- **PPT:** فرمت باینری می‌تواند ویژگی‌های خلاصه‌سند متناظر را ذخیره کند. اگر یک ویژگی غیاب داشته باشد یا توسط تولیدکننده سند به‌روز نشده باشد، Aspose.Slides مقدار ذخیره‌شده یا پیش‌فرض آن را بر می‌گرداند و نه این‌که آن را از اسلایدها محاسبه کند.
+- **ODP:** متادیتای OpenDocument آمارهای کلی سند مانند تعداد صفحه، پاراگراف و کلمه را فراهم می‌کند، اما این مقادیر به تمام ویژگی‌های توسعه‌یافته خاص PowerPoint نگاشت نمی‌شوند. متادیتای اسلاید پنهان، اسلاید یادداشت، چندرسانه‌ای، جفت سرعنوان و عنوان بخش ممکن است در دسترس نباشند و ویژگی‌های موجودی ممکن است مقادیر پیش‌فرض بازگردانند. مقدار صفر یا آرایه خالی را به‌عنوان اثبات قطعی عدم وجود محتوای مربوطه در نظر نگیرید.
 
-![خصوصیات سند اصلی ارائه PowerPoint](input_properties.png)
+از روش متادیتای سبک وزن برای موجودی‌ها و بررسی‌های اولیه استفاده کنید. زمانی که نتیجه باید تغییرات در حافظه را منعکس کند یا نیاز به تایید محتوای واقعی ارائه دارید، ارائه را بارگذاری و مدل شیء زنده آن را بررسی کنید.
 
-این مثال کد نشان می‌دهد چگونه برخی از خصوصیات ارائه را ویرایش کنید:
+## **به‌روزرسانی ویژگی‌های ارائه**
 
-```c#
+ویژگی‌هایی که توسط [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/readdocumentproperties/) بازگردانده می‌شوند، می‌توانند بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) نیز تغییر کنند. تغییرات را با [IPresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/updatedocumentproperties/) اعمال کنید و سپس ارائه باند شده را با [IPresentationInfo.WriteBindedPresentation](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/writebindedpresentation/) بنویسید.
+
+تصویر زیر ویژگی‌های سند اصلی ارائه PowerPoint را نشان می‌دهد.
+
+![ویژگی‌های سند اصلی ارائه PowerPoint](input_properties.png)
+
+مثال زیر عنوان و زمان آخرین ذخیره‌سازی را تغییر می‌دهد و نتیجه را در فایل جدیدی می‌نویسد:
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
 
-string fileName = "sample.pptx";
+var sourceFile = "sample.pptx";
+var outputFile = "sample_with_updated_properties.pptx";
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(sourceFile);
+var documentProperties = presentationInfo.ReadDocumentProperties();
 
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
+documentProperties.Title = "Quarterly sales report";
+documentProperties.LastSavedTime = DateTime.UtcNow;
 
-IDocumentProperties properties = info.ReadDocumentProperties();
-properties.Title = "My title";
-properties.LastSavedTime = DateTime.Now;
-
-info.UpdateDocumentProperties(properties);
-info.WriteBindedPresentation(fileName);
+presentationInfo.UpdateDocumentProperties(documentProperties);
+using var outputStream = File.Create(outputFile);
+presentationInfo.WriteBindedPresentation(outputStream);
 ```
 
-نتایج تغییر خصوصیات سند در زیر نشان داده شده است.
+تصویر زیر ویژگی‌های سند به‌روزشدهٔ ارائه PowerPoint را نشان می‌دهد.
 
-![خصوصیات سند تغییر یافته ارائه PowerPoint](output_properties.png)
+![ویژگی‌های سند به‌روزشدهٔ ارائه PowerPoint](output_properties.png)
 
-## **لینک‌های مفید**
+## **پیوندهای مفید**
 
-برای دریافت اطلاعات بیشتر درباره یک ارائه و ویژگی‌های امنیتی آن، ممکن است این لینک‌ها مفید باشند:
+برای بررسی‌های امنیتی مرتبط و تنظیمات حفاظت، مقاله‌های زیر را ببینید:
 
-- [Password-Protect Presentations](/slides/fa/net/password-protected-presentation/)
-- [Write-Protect Presentations](/slides/fa/net/write-protected-presentation/)
+- [محافظت با رمزنگاری ارائه‌ها](/slides/fa/net/password-protected-presentation/)
+- [محافظت نوشتاری از ارائه‌ها](/slides/fa/net/write-protected-presentation/)
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم بررسی کنم آیا فونت‌ها داخلی هستند و کدام‌ها؟**
+**چگونه می‌توانم بررسی کنم که آیا قلم‌ها جاسازی شده‌اند و کدام‌ها هستند؟**
 
-در سطح ارائه به دنبال اطلاعات [embedded-font](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/getembeddedfonts/) بگردید، سپس آن ورودی‌ها را با مجموعهٔ [فونت‌های استفاده‌شده در محتوا](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/getfonts/) مقایسه کنید تا فونت‌های بحرانی برای رندر را شناسایی کنید.
+ارائه را بارگذاری کنید و از [Presentation.FontsManager](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/fontsmanager/) استفاده کنید. با فراخوانی [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/getembeddedfonts/) قلم‌های جاسازی‌شده را و با فراخوانی [FontsManager.GetFonts](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/getfonts/) قلم‌های مورد استفاده در ارائه را به‌دست آورید. دو نتیجه را مقایسه کنید تا قلم‌هایی که برای رندر لازم‌اند اما جاسازی نشده‌اند، پیدا کنید.
 
-**چگونه می‌توانم سریعاً بفهمم آیا فایل اسلایدهای مخفی دارد و چند تا؟**
+**چگونه می‌توانم به‌سرعت بفهمم فایل اسلایدهای پنهان دارد و چند تا هستند؟**
 
-از طریق [slide collection](https://reference.aspose.com/slides/fa/net/aspose.slides/slidecollection/) پیمایش کنید و پرچم [visibility](https://reference.aspose.com/slides/fa/net/aspose.slides/slide/hidden/) هر اسلاید را بررسی کنید.
+زمانی که متادیتای ذخیره‌شده سند کافی باشد، [IDocumentProperties.HiddenSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/idocumentproperties/hiddenslides/) را از طریق [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/presentationfactory/getpresentationinfo/) و [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/fa/net/aspose.slides/ipresentationinfo/readdocumentproperties/) بخوانید. این روش برای یک موجودی سبک وزن مناسب است. اگر ارائه در حافظه تغییر کرده باشد، متادیتای ذخیره‌شده ممکن است مفقود یا منسوخ باشد؛ در این صورت باید از طریق پیمایش [Presentation.Slides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slides/fa/) و بررسی ویژگی [Slide.Hidden](https://reference.aspose.com/slides/fa/net/aspose.slides/slide/hidden/) هر اسلاید استفاده کنید.
 
-**آیا می‌توانم تشخیص دهم آیا اندازه و جهت اسلاید سفارشی استفاده شده‌اند و آیا از پیش‌فرض‌ها متفاوت هستند؟**
+**آیا می‌توانم تشخیص دهم که اندازه و جهت سفارشی اسلاید استفاده می‌شود و آیا از پیش‌فرض‌ها متفاوت است؟**
 
-بله. اندازهٔ فعلی [slide size](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slidesize/) و جهت آن را با تنظیمات پیش‌فرض مقایسه کنید؛ این کمک می‌کند رفتار چاپ و خروجی را پیش‌بینی کنید.
+بله. ارائه را بارگذاری کنید و [Presentation.SlideSize](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slidesize/) را بخوانید. ویژگی‌های [ISlideSize.Type](https://reference.aspose.com/slides/fa/net/aspose.slides/islidesize/type/)، [ISlideSize.Size](https://reference.aspose.com/slides/fa/net/aspose.slides/islidesize/size/) و [ISlideSize.Orientation](https://reference.aspose.com/slides/fa/net/aspose.slides/islidesize/orientation/) را بررسی کنید تا تنظیمات فعلی را با تنظیمات پیش‌فرض و ابعاد مورد انتظار مقایسه کنید.
 
-**آیا راه سریع برای مشاهده این که نمودارها از منابع داده خارجی استفاده می‌کنند؟**
+**آیا راه سریع برای دیدن این‌که نمودارها به منابع داده خارجی ارجاع می‌دهند وجود دارد؟**
 
-بله. تمام [charts](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chart/) را مرور کنید، نوع [data source](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/datasourcetype/) آن‌ها را بررسی کنید و ببینید داده داخلی است یا پیوندی، شامل پیوندهای خراب.
+بله. هر [Chart](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chart/) را پیدا کنید و ویژگی [ChartData.DataSourceType](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/datasourcetype/) را بررسی کنید. برای یک کتاب‌کار خارجی، [ChartData.ExternalWorkbookPath](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/chartdata/externalworkbookpath/) را بخوانید. نوع منبع داده و مسیر، ارجاع خارجی را شناسایی می‌کند، اما تأیید دسترس‌پذیری هدف نیاز به بررسی منابع جداگانه دارد.
 
-**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا خروجی PDF را کند کنند، ارزیابی کنم؟**
+**چگونه می‌توانم اسلایدهای «سنگین» که ممکن است رندر یا صادرات PDF را کند کنند ارزیابی کنم؟**
 
-برای هر اسلاید، تعداد اشیاء را شمارش کنید و به دنبال تصاویر بزرگ، شفافیت، سایه‌ها، انیمیشن‌ها و رسانه‌های چندرسانه‌ای بگردید؛ یک امتیاز تقریبی پیچیدگی اختصاص دهید تا نقاط بحرانی عملکرد را شناسایی کنید.
+هیچ ویژگی پیچیدگی تک‌نقطه‌ای وجود ندارد. [Presentation.Slides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slides/fa/) و مجموعه [IBaseSlide.Shapes](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseslide/shapes/) هر اسلاید را پیمایش کنید. از شمارش شکل‌ها و وجود تصاویر بزرگ، افکت‌ها، انیمیشن‌ها یا چندرسانه‌ای‌ها به‌عنوان سیگنال‌های فیلترینگ استفاده کنید و یک رندر یا صادرات نماینده را اندازه‌گیری کنید قبل از این‌که اسلاید را به‌عنوان گلوگاه عملکردی تأیید کنید.

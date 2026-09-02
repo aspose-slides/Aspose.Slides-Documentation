@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie właściwościami prezentacji w Androidzie
+title: Zamanżanie właściwości prezentacji na Androidzie
 linktitle: Właściwości prezentacji
 type: docs
 weight: 70
@@ -16,56 +16,58 @@ keywords:
 - Metadane dokumentu
 - Edycja metadanych
 - Język korekty
-- Domyślny język
+- Język domyślny
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Opanuj właściwości prezentacji w Aspose.Slides dla Androida za pomocą Java i usprawnij wyszukiwanie, branding oraz przepływ pracy w swoich plikach PowerPoint i OpenDocument."
+description: "Opanuj właściwości prezentacji w Aspose.Slides dla Androida za pomocą Javy i usprawnij wyszukiwanie, branding oraz przepływ pracy w swoich plikach PowerPoint i OpenDocument."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides obsługuje dwa rodzaje właściwości dokumentu: **Wbudowane** i **Niestandardowe**. Oba typy właściwości można łatwo odczytać i zarządzać nimi przy użyciu API Aspose.Slides.
+Aspose.Slides obsługuje dwa typy właściwości dokumentu: **Wbudowane** i **Niestandardowe**. Oba te typy właściwości można łatwo odczytać i zarządzać nimi przy użyciu API Aspose.Slides.
 
-Aspose.Slides umożliwia pracę z właściwościami dokumentu prezentacji poprzez interfejs [IDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idocumentproperties/) . Instancja tego interfejsu jest zwracana przez metodę [Presentation.getDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) . Poniższe przykłady pokazują, jak odczytywać, modyfikować i zarządzać tymi właściwościami.
+Aspose.Slides umożliwia pracę z właściwościami dokumentu prezentacji za pośrednictwem interfejsu [IDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idocumentproperties/). Instancja tego interfejsu jest zwracana przez metodę [Presentation.getDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getDocumentProperties--). Poniższe przykłady pokazują, jak odczytywać, modyfikować i zarządzać tymi właściwościami.
 
-{{% alert color="primary" %}} 
-Należy pamiętać, że pola **Application** i **Producer** nie mogą być modyfikowane, ponieważ zawsze będą wyświetlały „Aspose Ltd.” oraz „Aspose.Slides for Android via Java x.x.x”.
+{{% alert color="info" title="Note" %}}
+Należy zauważyć, że pola **Application** i **AppVersion** nie mogą być modyfikowane. Aspose.Slides nadpisuje je przy każdym zapisie, więc zapisana prezentacja zawsze podaje nazwę produktu Aspose.Slides oraz wersję biblioteki, która ją wygenerowała. Każda wartość przekazana do `setNameOfApplication` zostaje odrzucona podczas zapisu prezentacji.
 {{% /alert %}} 
 
-## **Właściwości dokumentu w PowerPoint**
+## **Właściwości dokumentu w programie PowerPoint**
 
-Microsoft PowerPoint 2007 umożliwia zarządzanie właściwościami dokumentu plików prezentacji. Wystarczy kliknąć ikonę Office i wybrać pozycję menu **Prepare | Properties | Advanced Properties** w programie Microsoft PowerPoint 2007, jak pokazano poniżej:
+Microsoft PowerPoint 2007 umożliwia zarządzanie właściwościami dokumentu plików prezentacji. Wszystko, co musisz zrobić, to kliknąć ikonę Office, a następnie wybrać pozycję menu **Prepare | Properties | Advanced Properties** w programie Microsoft PowerPoint 2007, jak pokazano poniżej:
 
-|**Wybór pozycji menu Advanced Properties**|** **|
+|**Wybór pozycji menu Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-Po wybraniu pozycji menu **Advanced Properties** pojawi się okno dialogowe umożliwiające zarządzanie właściwościami dokumentu pliku PowerPoint, jak pokazano na rysunku:
 
-|**Okno właściwości**|** **|
+Po wybraniu pozycji menu **Advanced Properties** pojawi się okno dialogowe umożliwiające zarządzanie właściwościami dokumentu pliku PowerPoint, jak pokazano poniżej na rysunku:
+
+|**Okno dialogowe właściwości**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-W powyższym **Oknie właściwości** widoczne są zakładki takie jak **General**, **Summary**, **Statistics**, **Contents** oraz **Custom**. Wszystkie te zakładki umożliwiają konfigurowanie różnych informacji związanych z plikami PowerPoint. Zakładka **Custom** służy do zarządzania niestandardowymi właściwościami plików PowerPoint.
 
+W powyższym **oknie dialogowym właściwości** można zobaczyć, że istnieje wiele kart, takich jak **General**, **Summary**, **Statistics**, **Contents** oraz **Custom**. Wszystkie te karty umożliwiają konfigurowanie różnych rodzajów informacji związanych z plikami PowerPoint. Karta **Custom** służy do zarządzania niestandardowymi właściwościami plików PowerPoint.
 
+Praca z właściwościami dokumentu przy użyciu Aspose.Slides dla Androida w języku Java
 
-### Praca z właściwościami dokumentu przy użyciu Aspose.Slides for Android via Java
+Jak opisaliśmy wcześniej, Aspose.Slides dla Androida w języku Java obsługuje dwa rodzaje właściwości dokumentu, czyli **Wbudowane** i **Niestandardowe**. Dlatego programiści mogą uzyskać dostęp do obu rodzajów właściwości przy użyciu API Aspose.Slides dla Androida w języku Java. Aspose.Slides dla Androida w języku Java udostępnia klasę [IDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idocumentproperties), która reprezentuje właściwości dokumentu powiązane z plikiem prezentacji poprzez własność **Presentation.DocumentProperties**.
 
-Jak opisano wcześniej, Aspose.Slides for Android via Java obsługuje dwa rodzaje właściwości dokumentu: **Wbudowane** i **Niestandardowe**. Dlatego programiści mogą uzyskać dostęp do obu rodzajów właściwości przy użyciu API Aspose.Slides for Android via Java. Aspose.Slides for Android via Java udostępnia klasę [IDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idocumentproperties), która reprezentuje właściwości dokumentu powiązane z plikiem prezentacji poprzez właściwość **Presentation.DocumentProperties**.
+Programiści mogą używać własności **IDocumentProperties** udostępnianej przez obiekt [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation), aby uzyskać dostęp do właściwości dokumentu plików prezentacji, jak opisano poniżej:
 
-Programiści mogą używać właściwości **IDocumentProperties** udostępnionej przez obiekt [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation), aby uzyskać dostęp do właściwości dokumentu plików prezentacji, jak opisano poniżej:
+## **Dostęp do wbudowanych właściwości**
 
-## **Dostęp do właściwości wbudowanych**
-
-Właściwości udostępniane przez obiekt [IDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idocumentproperties) obejmują: **Creator** (Autor), **Description**, **Keywords**, **Created** (Data utworzenia), **Modified** (Data modyfikacji), **Printed** (Data ostatniego drukowania), **LastModifiedBy**, **SharedDoc** (Czy dokument jest współdzielony między różnymi producentami?), **PresentationFormat**, **Subject** oraz **Title**.
+Te właściwości udostępniane przez obiekt [IDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idocumentproperties) obejmują: **Creator** (Autor), **Description**, **Keywords**, **Created** (Data utworzenia), **Modified** (Data modyfikacji), **Printed** (Data ostatniego wydruku), **LastModifiedBy**, **Keywords**, **SharedDoc** (Czy współdzielony między różnymi twórcami?), **PresentationFormat**, **Subject** oraz **Title**
 
 ```java
+import com.aspose.slides.*;
+
 // Utwórz instancję klasy Presentation, która reprezentuje prezentację
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Utwórz odwołanie do obiektu IDocumentProperties powiązanego z Presentation
+    // Utwórz odniesienie do obiektu IDocumentProperties powiązanego z prezentacją
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Wyświetl wbudowane właściwości
@@ -88,14 +90,16 @@ try {
 }
 ```
 
-## **Modyfikacja właściwości wbudowanych**
+## **Modyfikacja wbudowanych właściwości**
 
-Modyfikowanie wbudowanych właściwości plików prezentacji jest tak proste, jak ich odczyt. Wystarczy przypisać wartość łańcuchową do dowolnej żądanej właściwości, a jej wartość zostanie zmieniona. W poniższym przykładzie pokazano, jak można modyfikować wbudowane właściwości dokumentu prezentacji przy użyciu Aspose.Slides for Android via Java.
+Modyfikacja wbudowanych właściwości plików prezentacji jest tak samo prosta, jak ich odczytywanie. Można po prostu przypisać wartość łańcucha znaków do dowolnej wybranej właściwości, a jej wartość zostanie zmodyfikowana. W poniższym przykładzie przedstawiono, jak można zmodyfikować wbudowane właściwości dokumentu prezentacji przy użyciu Aspose.Slides dla Androida w języku Java.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Utwórz odwołanie do obiektu IDocumentProperties powiązanego z Presentation
+    // Utwórz odniesienie do obiektu IDocumentProperties powiązanego z prezentacją
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Ustaw wbudowane właściwości
@@ -112,17 +116,19 @@ try {
 }
 ```
 
-Ten przykład modyfikuje wbudowane właściwości prezentacji, co widać na poniższym zrzucie ekranu:
+Ten przykład modyfikuje wbudowane właściwości prezentacji, które można zobaczyć jak poniżej:
 
-|**Wbudowane właściwości dokumentu po modyfikacji**|** **|
+|**Wbudowane właściwości dokumentu po modyfikacji**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Dodawanie niestandardowych właściwości dokumentu**
 
-Aspose.Slides for Android via Java umożliwia programistom dodawanie niestandardowych wartości do właściwości dokumentu prezentacji. Poniżej znajduje się przykład, który pokazuje, jak ustawić niestandardowe właściwości dla prezentacji.
+Aspose.Slides dla Androida w języku Java umożliwia również programistom dodawanie niestandardowych wartości do właściwości dokumentu prezentacji. Poniższy przykład dodaje trzy niestandardowe właściwości, a następnie wyszukuje nazwę przechowywaną pod indeksem 2 i usuwa tę właściwość, dzięki czemu zapisana prezentacja zachowuje dwie z nich. Niestandardowe właściwości są indeksowane w kolejności alfabetycznej, a nie w kolejności, w jakiej zostały dodane.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Pobieranie właściwości dokumentu
@@ -146,27 +152,29 @@ try {
 }
 ```
 
-|**Dodane niestandardowe właściwości dokumentu**|** **|
+|**Dodane niestandardowe właściwości dokumentu**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Dostęp i modyfikacja niestandardowych właściwości**
 
-Aspose.Slides for Android via Java umożliwia również programistom dostęp do wartości niestandardowych właściwości. Poniżej znajduje się przykład, który pokazuje, jak uzyskać dostęp i zmodyfikować wszystkie te niestandardowe właściwości dla prezentacji.
+Aspose.Slides dla Androida w języku Java umożliwia także programistom dostęp do wartości niestandardowych właściwości. Poniżej podano przykład, który pokazuje, jak uzyskać dostęp i zmodyfikować wszystkie te niestandardowe właściwości w prezentacji.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Utwórz odwołanie do obiektu DocumentProperties powiązanego z Presentation
+    // Utwórz odniesienie do obiektu DocumentProperties powiązanego z prezentacją
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // Uzyskaj dostęp i zmodyfikuj niestandardowe właściwości
+    // Uzyskaj dostęp i modyfikuj niestandardowe właściwości
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
         // Wyświetl nazwy i wartości niestandardowych właściwości
         System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
         System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
-        // Zmodyfikuj wartości niestandardowych właściwości
+        // Modyfikuj wartości niestandardowych właściwości
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
@@ -177,45 +185,49 @@ try {
 }
 ```
 
-Ten przykład modyfikuje niestandardowe właściwości [PPTX](https://docs.fileformat.com/presentation/pptx/). Poniższe ilustracje przedstawiają niestandardowe właściwości prezentacji przed i po modyfikacji:
+Ten przykład modyfikuje niestandardowe właściwości prezentacji [PPTX ](https://docs.fileformat.com/presentation/pptx/). Poniższe ilustracje przedstawiają niestandardowe właściwości prezentacji przed i po modyfikacji:
 
-|**Niestandardowe właściwości przed modyfikacją**|** **|
+|**Niestandardowe właściwości przed modyfikacją**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Niestandardowe właściwości po modyfikacji**|** **|
+|**Niestandardowe właściwości po modyfikacji**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Zaawansowane właściwości dokumentu**
 
-{{% alert color="primary" %}} 
-Do interfejsu [IPresentationInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo) dodano nowe metody [ReadDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), oraz [WriteBindedPresentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-). Zmieniono logikę settera właściwości [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-).
+{{% alert color="info" title="Note" %}}
+Do interfejsu [IPresentationInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo) dodano nowe metody [ReadDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), oraz [WriteBindedPresentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-). Zmieniono logikę ustawiania własności [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-).
 {{% /alert %}} 
 
-Dwie nowe metody [ReadDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) i [UpdateDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) zostały dodane do interfejsu [IPresentationInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo). Umożliwiają szybki dostęp do właściwości dokumentu oraz pozwalają zmieniać i aktualizować właściwości bez wczytywania całej prezentacji.
+Do interfejsu [IPresentationInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo) dodano nowe metody [ReadDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) i [UpdateDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-). Zapewniają szybki dostęp do właściwości dokumentu oraz umożliwiają ich zmianę i aktualizację bez wczytywania całej prezentacji.
 
-Typowy scenariusz – wczytanie właściwości, zmiana wartości i aktualizacja dokumentu – można zrealizować w następujący sposób:
+Typowy scenariusz polega na wczytaniu właściwości, zmianie niektórych wartości i aktualizacji dokumentu, co można zaimplementować w następujący sposób:
 
 ```java
+import com.aspose.slides.*;
+
 // odczytaj informacje o prezentacji
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
-// pobierz bieżące właściwości
+// obtain the current properties
 IDocumentProperties props = info.readDocumentProperties();
 
-// ustaw nowe wartości pól Author i Title
+// set the new values of Author and Title fields
 props.setAuthor("New Author");
 props.setTitle("New Title");
 
-// zaktualizuj prezentację nowymi wartościami
+// update the presentation with a new values
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Inny sposób to użycie właściwości konkretnej prezentacji jako szablonu do aktualizacji właściwości w innych prezentacjach:
+Istnieje inny sposób wykorzystania właściwości konkretnej prezentacji jako szablonu do aktualizacji właściwości w innych prezentacjach:
 
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -234,6 +246,8 @@ updateByTemplate("doc3.ppt", template);
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -245,7 +259,9 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 Nowy szablon można utworzyć od podstaw, a następnie używać go do aktualizacji wielu prezentacji:
 
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -256,13 +272,7 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" })
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
@@ -270,14 +280,16 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-## **Ustawienie języka korekty**
+## **Ustaw język korekty**
 
-Aspose.Slides udostępnia właściwość LanguageId (udostępnianą przez klasę PortionFormat), aby umożliwić ustawienie języka korekty dla dokumentu PowerPoint. Język korekty to język, w którym sprawdzane są pisownia i gramatyka w PowerPoint.
+Aspose.Slides udostępnia własność LanguageId (udostępnioną przez klasę PortionFormat), aby umożliwić ustawienie języka korekty dla dokumentu PowerPoint. Język korekty to język, dla którego w PowerPoint sprawdzane są pisownia i gramatyka.
 
-Ten kod Java pokazuje, jak ustawić język korekty dla pliku PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
+Ten kod Java pokazuje, jak ustawić język korekty dla PowerPoint:
 
 ```java
-Presentation pres = new Presentation(pptxFileName);
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation("presentation.pptx");
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
 
@@ -301,11 +313,13 @@ try {
 }
 ```
 
-## **Ustawienie domyślnego języka**
+## **Ustaw język domyślny**
 
-Ten kod Java pokazuje, jak ustawić domyślny język dla całej prezentacji PowerPoint:
+Ten kod Java pokazuje, jak ustawić język domyślny dla całej prezentacji PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -324,20 +338,20 @@ try {
 
 ## **Przykład na żywo**
 
-Wypróbuj aplikację online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/pl/metadata), aby zobaczyć, jak pracować z właściwościami dokumentu przy użyciu API Aspose.Slides:
+Wypróbuj aplikację online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/pl/metadata), aby zobaczyć, jak pracować z właściwościami dokumentu za pośrednictwem API Aspose.Slides:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/pl/metadata)
 
-## ***FAQ**
+## **FAQ**
 
 **Jak mogę usunąć wbudowaną właściwość z prezentacji?**
 
-Wbudowane właściwości są integralną częścią prezentacji i nie mogą być całkowicie usunięte. Można jednak zmienić ich wartości lub ustawić je na pustą wartość, o ile dana właściwość na to pozwala.
+Wbudowane właściwości są integralną częścią prezentacji i nie mogą być całkowicie usunięte. Można jednak zmienić ich wartości lub ustawić je na pustą wartość, o ile pozwala na to konkretna właściwość.
 
 **Co się stanie, jeśli dodam niestandardową właściwość, która już istnieje?**
 
-Jeśli dodasz niestandardową właściwość, która już istnieje, jej dotychczasowa wartość zostanie nadpisana nową. Nie musisz usuwać ani sprawdzać właściwości wcześniej, ponieważ Aspose.Slides automatycznie aktualizuje jej wartość.
+Jeśli dodasz niestandardową właściwość, która już istnieje, jej istniejąca wartość zostanie nadpisana nową. Nie musisz usuwać ani sprawdzać właściwości wcześniej, ponieważ Aspose.Slides automatycznie aktualizuje wartość właściwości.
 
-**Czy mogę uzyskać dostęp do właściwości prezentacji bez pełnego wczytywania pliku?**
+**Czy mogę uzyskać dostęp do właściwości prezentacji bez pełnego wczytywania prezentacji?**
 
-Tak, możesz uzyskać dostęp do właściwości prezentacji bez pełnego wczytywania pliku, korzystając z metody `getPresentationInfo` klasy [PresentationFactory](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentationfactory/). Następnie użyj metody `readDocumentProperties` udostępnionej przez interfejs [IPresentationInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentationinfo/), aby efektywnie odczytać właściwości, oszczędzając pamięć i zwiększając wydajność.
+Tak. Użyj [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) a następnie [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) aby odczytać przechowywane metadane dokumentu bez tworzenia instancji [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/). Zobacz [Build a Lightweight Presentation Inventory](/slides/pl/androidjava/examine-presentation/), aby uzyskać kompletny przykład raportowania i ograniczenia specyficzne dla formatu.

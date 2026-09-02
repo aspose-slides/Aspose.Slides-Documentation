@@ -12,9 +12,9 @@ keywords:
 - özel özellikler
 - gelişmiş özellikler
 - özellikleri yönet
-- özellikleri değiştir
+- özellikleri değiştirme
 - belge meta verileri
-- meta verileri düzenle
+- meta verileri düzenleme
 - düzeltme dili
 - varsayılan dil
 - PowerPoint
@@ -23,44 +23,43 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET'te sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda arama, markalaşma ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for .NET içinde sunum özelliklerini yönetin ve PowerPoint ile OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
 ---
 ## **Giriş**
 
-Aspose.Slides for .NET, iki tür belge özelliğini destekler: **Yerleşik** ve **Özel**. Bu özellik türlerinin her ikisi de Aspose.Slides for .NET API'si kullanılarak kolayca erişilebilir ve yönetilebilir.
+Aspose.Slides for .NET iki tür belge özelliğini destekler: **Built-in** ve **Custom**. Bu özellik türlerinin her ikisine de Aspose.Slides for .NET API'si kullanılarak kolayca erişilebilir ve yönetilebilir.
 
-Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/idocumentproperties/) arabirimi aracılığıyla çalışmanıza olanak tanır. Bu arabirimin bir örneği, [Presentation.DocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/documentproperties/) özelliği tarafından döndürülür. Aşağıdaki örnekler, bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
+Aspose.Slides, sunum belge özellikleriyle [IDocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/idocumentproperties/) arayüzü üzerinden çalışmanıza olanak tanır. Bu arayüzün bir örneği [Presentation.DocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/documentproperties/) özelliğiyle döndürülür. Aşağıdaki örnekler bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
 
-{{% alert color="primary" %}} 
-
-Lütfen **Application** ve **Producer** alanlarının değiştirilemeyeceğini, bu alanların her zaman "Aspose Ltd." ve "Aspose.Slides for .NET x.x.x" göstereceğini unutmayın.
-
+{{% alert color="info" title="Note" %}}
+Lütfen **Application** ve **Producer** alanlarının değiştirilemeyeceğini unutmayın; bu alanlar her zaman "Aspose Ltd." ve "Aspose.Slides for .NET x.x.x" değerlerini gösterecektir.
 {{% /alert %}} 
 
-## **Sunum Özelliklerini Yönet**
+## **Sunum Özelliklerini Yönetme**
 
-Microsoft PowerPoint, sunum dosyalarına özellik ekleme özelliği sağlar. Bu belge özellikleri, dosyalarla birlikte faydalı bilgilerin saklanmasına olanak tanır. İki tür belge özelliği vardır:
+Microsoft PowerPoint, sunum dosyalarına özellik ekleme özelliği sağlar. Bu belge özellikleri, dosyalarla birlikte faydalı bilgilerin depolanmasına olanak tanır. İki tür belge özelliği vardır:
 
-- Sistem tanımlı (yerleşik) özellikler
-- Kullanıcı tanımlı (özel) özellikler
+- Sistem tanımlı (built-in) özellikler
+- Kullanıcı tanımlı (custom) özellikler
 
-**Yerleşik** özellikler, belge başlığı, yazarın adı, belge istatistikleri ve daha fazlası gibi genel bilgileri içerir.
+**Built-in** özellikler, belge başlığı, yazar adı, belge istatistikleri vb. gibi genel bilgi içerir.
 
-**Özel** özellikler, hem adın hem de değerin kullanıcı tarafından belirlendiği **Ad/Değer** çiftleri şeklinde kullanıcılar tarafından tanımlanır.
+**Custom** özellikler, kullanıcılar tarafından **Name/Value** çiftleri şeklinde tanımlanır; ad ve değer her ikisi de kullanıcı tarafından belirtilir.
 
-Aspose.Slides for .NET kullanarak, geliştiriciler hem yerleşik hem de özel özelliklere erişebilir ve bunları değiştirebilir.
+Aspose.Slides for .NET kullanarak geliştiriciler hem built-in hem de custom özelliklere erişebilir ve bunları değiştirebilir.
 
-Microsoft PowerPoint, kullanıcıların belge özelliklerini yönetmesine Office simgesine tıklayıp **File → Info → Properties** seçeneğini seçerek izin verir. **Advanced Properties** seçildikten sonra sunum dosyasının tüm belge özelliklerini yönetebileceğiniz bir iletişim kutusu açılır.
+Microsoft PowerPoint, kullanıcıların Office simgesine tıklayıp **File → Info → Properties** seçeneğini izleyerek belge özelliklerini yönetmelerine olanak tanır. **Advanced Properties** seçildikten sonra, sunum dosyasının tüm belge özelliklerini yönetebileceğiniz bir iletişim kutusu açılır.
 
-**Properties** iletişim kutusunda, **General**, **Summary**, **Statistics**, **Contents** ve **Custom** gibi çeşitli sekmeler bulunur.
-Her sekme, PowerPoint dosyasıyla ilgili belirli bilgi türlerini yapılandırma seçenekleri sunar. **Custom** sekmesi, kullanıcı tanımlı özellikleri yönetmek için kullanılır.
+**Properties** iletişim kutusunda, **General**, **Summary**, **Statistics**, **Contents** ve **Custom** gibi çeşitli sekmeler bulunur. Her sekme, PowerPoint dosyasıyla ilgili belirli bilgi türlerini yapılandırma seçenekleri sunar. **Custom** sekmesi, kullanıcı tanımlı özellikleri yönetmek için kullanılır.
 
-## **Yerleşik Özelliklere Erişim**
+## **Built-in Özelliklere Erişim**
 
-Bu özellikler, [IDocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/idocumentproperties/) arabirimi tarafından sunulan, şunları içerir: **Creator** (Yazar), **Description**, **Keywords**, **Created** (Oluşturma Tarihi), **Modified** (Değiştirme Tarihi), **Printed** (Son Yazdırma Tarihi), **LastModifiedBy**, **SharedDoc** (belgenin farklı üreticiler arasında paylaşılıp paylaşılmadığını gösterir), **PresentationFormat**, **Subject**, **Title** ve daha fazlası.
+Bu özellikler, [IDocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/idocumentproperties/) arayüzü aracılığıyla sunulmuş olup şunları içerir: **Creator** (Yazar), **Description**, **Keywords**, **Created** (Oluşturma Tarihi), **Modified** (Değiştirme Tarihi), **Printed** (Son Yazdırma Tarihi), **LastModifiedBy**, **SharedDoc** (belgenin farklı üreticiler arasında paylaşılıp paylaşılmadığını gösterir), **PresentationFormat**, **Subject**, **Title** ve daha fazlası.
 
 ```cs
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+using Aspose.Slides;
+
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
 
 // Get a reference to the object of type IDocumentProperties associated with the presentation.
@@ -83,93 +82,99 @@ Console.WriteLine("Subject : " + documentProperties.Subject);
 Console.WriteLine("Title : " + documentProperties.Title);
 ```
 
-## **Yerleşik Özellikleri Değiştirme**
+## **Built-in Özellikleri Değiştirme**
 
-Sunum dosyalarının yerleşik özelliklerini değiştirmek, onlara erişmek kadar kolaydır. İstediğiniz herhangi bir özelliğe sadece bir metin değeri atayabilirsiniz ve özelliğin değeri güncellenir. Aşağıdaki örnekte, bir sunum dosyasının yerleşik belge özelliklerini nasıl değiştireceğinizi gösteriyoruz.
+Sunum dosyalarının built-in özelliklerini değiştirmek, onlara erişmek kadar kolaydır. İstediğiniz herhangi bir özelliğe bir dize değeri atamanız yeterlidir ve özelliğin değeri güncellenir. Aşağıdaki örnekte, bir sunum dosyasının built-in belge özelliklerini nasıl değiştireceğimizi gösteriyoruz.
 
 ```cs
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
-// Sunumla ilişkili IDocumentProperties tipindeki nesneye bir referans alın.
+// Sunumla ilişkili IDocumentProperties tipindeki nesneye bir referans al.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Yerleşik özellikleri ayarlayın.
+// Yerleşik özellikleri ayarla.
 documentProperties.Author = "Aspose.Slides for .NET";
 documentProperties.Title = "Manage PowerPoint Presentation Properties";
 documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// Sunumu bir dosyaya kaydedin.
+// Sunumu bir dosyaya kaydet.
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Özel Sunum Özellikleri Ekleme**
 
-Özel sunum özellikleri, geliştiricilerin bir sunum dosyasında ek meta veri veya belirli bilgiler depolamasını sağlar. Aspose.Slides, bu özel özellikleri programlı olarak oluşturmayı ve yönetmeyi kolaylaştırır. Aşağıdaki örnekler, sunumlarınıza özel özellikler nasıl ekleyeceğinizi gösterir.
+Özel sunum özellikleri, geliştiricilerin bir sunum dosyasında ek meta veriler veya belirli bilgiler depolamasını sağlar. Aspose.Slides, bu özel özellikleri programlı olarak oluşturmayı ve yönetmeyi kolaylaştırır. Aşağıdaki örnekler, sunumlarınıza özel özellikler eklemenizi gösterir.
 
 ```cs
-// Presentation sınıfını örnekleyin.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Presentation sınıfının bir örneğini oluştur.
 using Presentation presentation = new Presentation();
 
-// Sunumla ilişkili IDocumentProperties tipindeki nesneye bir referans alın.
+// Sunumla ilişkili IDocumentProperties tipindeki nesneye bir referans al.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Özel özellikleri ekleyin.
+// Özel özellikler ekle.
 documentProperties["Reviewed by"] = "John Smith";
 documentProperties["Confidentiality level"] = "Internal";
 documentProperties["Document version"] = 2;
 
-// Sunumu bir dosyaya kaydedin.
+// Sunumu bir dosyaya kaydet.
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Özel Özelliklere Erişim ve Değiştirme**
 
-Aspose.Slides ayrıca geliştiricilerin mevcut özel özelliklere erişmesini ve değerlerini kolayca değiştirmesini sağlar. Bu işlevsellik, doğru meta verinin korunmasına yardımcı olur ve kullanıcı girişi ya da iş mantığına dayalı dinamik güncellemeleri destekler. Aşağıdaki örnekler, bir sunum içinde özel özellik değerlerini nasıl alıp güncelleyeceğinizi gösterir.
+Aspose.Slides ayrıca geliştiricilerin mevcut özel özelliklere erişmesini ve değerlerini kolayca değiştirmesini sağlar. Bu işlevsellik, doğru meta verilerin korunmasına yardımcı olur ve kullanıcı girişi veya iş mantığına dayalı dinamik güncellemeleri destekler. Aşağıdaki örnekler, bir sunum içinde özel özellik değerlerini nasıl alıp güncelleyeceğinizi gösterir.
 
 ```cs
-// PPTX dosyasını temsil eden Presentation sınıfını örnekleyin.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// PPTX dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// Get a reference to the object of type IDocumentProperties associated with the presentation.
+// Sunumla ilişkili IDocumentProperties tipindeki nesneye bir referans al.
 IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-// Özel özelliklere erişin ve değiştirin.
+// Özel özelliklere eriş ve onları değiştir.
 for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
     string propertyName = documentProperties.GetCustomPropertyName(i);
     object propertyValue = documentProperties[propertyName];
 
-    // Özel özelliğin adını ve değerini gösterin.
+    // Özel özelliğin adını ve değerini göster.
     Console.WriteLine("Custom property name : " + propertyName);
     Console.WriteLine("Custom property value : " + propertyValue);
 
-    // Özel özelliğin değerini değiştirin.
+    // Özel özelliğin değerini değiştir.
     documentProperties[propertyName] = "New Value " + (i + 1);
 }
 
-// Sunumu bir dosyaya kaydedin.
+// Sunumu bir dosyaya kaydet.
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Canlı Örnek**
 
-Aspose.Slides API'sını kullanarak belge özellikleriyle nasıl çalışılacağını görmek için [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/tr/metadata) çevrimiçi uygulamasını deneyin:
+Aspose.Slides API'sı kullanarak belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi uygulama olan [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/tr/metadata)'yi deneyin:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/tr/metadata)
 
-## ***SSS**
+## **SSS**
 
-**Sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
+**Bir sunumdan built-in özelliği nasıl kaldırabilirim?**  
+Built-in özellikler, sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, değerlerini değiştirebilir veya ilgili özellik izin veriyorsa boş bir değer atayabilirsiniz.
 
-Yerleşik özellikler, sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli özellik izin veriyorsa değerlerini değiştirebilir veya boş olarak ayarlayabilirsiniz.
+**Zaten var olan bir özel özelliği eklersem ne olur?**  
+Zaten var olan bir özel özellik eklenirse, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides özelliğin değerini otomatik olarak günceller.
 
-**Zaten var olan bir özel özellik eklersem ne olur?**
-
-Zaten var olan bir özel özellik eklenirse, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak özelliğin değerini günceller.
-
-**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
-
-Evet, sunumu tamamen yüklemeden sunum özelliklerine, [PresentationFactory](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationfactory/) sınıfındaki `GetPresentationInfo` yöntemini kullanarak erişebilirsiniz. Ardından, özellikleri verimli bir şekilde okumak, belleği tasarruf etmek ve performansı artırmak için [IPresentationInfo](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationinfo/) arabirimi tarafından sağlanan `ReadDocumentProperties` yöntemini kullanın.
+**Sunumun tümü yüklenmeden sunum özelliklerine erişebilir miyim?**  
+Evet. [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/tr/net/aspose.slides/presentationfactory/getpresentationinfo/) kullanıp ardından [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/tr/net/aspose.slides/ipresentationinfo/readdocumentproperties/) ile bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneği oluşturmadan depolanan belge meta verilerini okuyabilirsiniz. Tam bir raporlama örneği ve format‑özel sınırlamalar için [Build a Lightweight Presentation Inventory](/slides/tr/net/examine-presentation/) sayfasına bakın.

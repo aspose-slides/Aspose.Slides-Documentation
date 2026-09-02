@@ -5,7 +5,7 @@ type: docs
 weight: 70
 url: /fa/php-java/presentation-properties/
 keywords:
-- ویژگی‌های پاورپوینت
+- ویژگی‌های PowerPoint
 - ویژگی‌های ارائه
 - ویژگی‌های سند
 - ویژگی‌های داخلی
@@ -15,67 +15,67 @@ keywords:
 - تغییر ویژگی‌ها
 - فراداده سند
 - ویرایش فراداده
-- زبان بررسی املایی
+- زبان اثبات
 - زبان پیش‌فرض
-- پاورپوینت
+- PowerPoint
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "ویژگی‌های ارائه را در Aspose.Slides برای PHP via Java به‌طور کامل مدیریت کنید و جستجو، برندینگ و جریان کار را در فایل‌های پاورپوینت و OpenDocument خود بهینه‌سازی کنید."
+description: "مدیریت کامل ویژگی‌های ارائه در Aspose.Slides برای PHP از طریق Java و بهینه‌سازی جستجو، برندینگ و جریان کار در فایل‌های PowerPoint و OpenDocument شما."
 ---
 ## **مقدمه**
 
-Aspose.Slides دو نوع ویژگی سند را پشتیبانی می‌کند: **Built-in** و **Custom**. هر دو نوع این ویژگی‌ها به راحتی می‌توانند با استفاده از API Aspose.Slides دسترسی و مدیریت شوند.
+Aspose.Slides دو نوع ویژگی سند را پشتیبانی می‌کند: **Built-in** و **Custom**. هر دو نوع ویژگی می‌توانند به راحتی با استفاده از API Aspose.Slides دسترسی و مدیریت شوند.
 
-Aspose.Slides به شما امکان کار با ویژگی‌های سند ارائه را از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/) می‌دهد. یک نمونه از این کلاس توسط متد [Presentation::getDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getDocumentProperties) برگردانده می‌شود. مثال‌های زیر نشان می‌دهند که چگونه می‌توان این ویژگی‌ها را خواند، تغییر داد و مدیریت کرد.
+Aspose.Slides به شما امکان کار با ویژگی‌های سند ارائه را از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/) می‌دهد. یک نمونه از این کلاس توسط متد [Presentation::getDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getDocumentProperties) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را خوانده، تغییر داده و مدیریت کنید.
 
-{{% alert color="primary" %}} 
-
-لطفاً توجه داشته باشید که فیلدهای **Application** و **Producer** قابل تغییر نیستند، چراکه این فیلدها همیشه مقدار «Aspose Ltd.» و «Aspose.Slides for PHP via Java x.x.x» را نمایش می‌دهند.
-
+{{% alert color="info" title="نکته" %}}
+لطفاً توجه داشته باشید که فیلدهای **Application** و **AppVersion** قابل تغییر نیستند. Aspose.Slides آنها را در هر ذخیره‌سازی بازنویسی می‌کند، بنابراین یک ارائه ذخیره‌شده همیشه «Aspose.Slides for PHP via Java» و نسخه کتابخانه‌ای که آن را تولید کرده گزارش می‌دهد. هر مقداری که به `setNameOfApplication` پاس داده شود هنگام نوشتن ارائه نادیده گرفته می‌شود.
 {{% /alert %}} 
 
 ## **مدیریت ویژگی‌های ارائه**
 
-Microsoft PowerPoint ویژگی افزودن برخی ویژگی‌ها به فایل‌های ارائه را فراهم می‌کند. این ویژگی‌های سند امکان ذخیره اطلاعات مفید همراه با اسناد (فایل‌های ارائه) را می‌دهند. دو نوع ویژگی سند وجود دارد:
+Microsoft PowerPoint قابلیت افزودن برخی ویژگی‌ها به فایل‌های ارائه را ارائه می‌دهد. این ویژگی‌های سند اجازه می‌دهند اطلاعات مفیدی همراه با اسناد (فایل‌های ارائه) ذخیره شود. دو نوع ویژگی سند به شرح زیر وجود دارد:
 
-- ویژگی‌های تعریف‌شده توسط سیستم (Built-in)
-- ویژگی‌های تعریف‌شده توسط کاربر (Custom)
+- ویژگی‌های تعریف‌شده توسط سیستم (**Built-in**)
+- ویژگی‌های تعریف‌شده توسط کاربر (**Custom**)
 
-**Built-in** ویژگی‌ها شامل اطلاعات کلی درباره سند مانند عنوان سند، نام نویسنده، آمار سند و غیره هستند. **Custom** ویژگی‌ها آن‌هایی هستند که توسط کاربران به صورت جفت **Name/Value** تعریف می‌شوند، که هر دو نام و مقدار توسط کاربر تعیین می‌شود. با استفاده از Aspose.Slides for PHP via Java، توسعه‌دهندگان می‌توانند به مقادیر ویژگی‌های Built-in و همچنین ویژگی‌های سفارشی دسترسی پیدا کرده و آنها را تغییر دهند.
+ویژگی‌های **Built-in** شامل اطلاعات کلی درباره سند مانند عنوان سند، نام نویسنده، آمار سند و غیره هستند. ویژگی‌های **Custom** مواردی هستند که توسط کاربر به صورت جفت **نام/مقدار** تعریف می‌شوند، جایی که هم نام و هم مقدار توسط کاربر تعیین می‌شود. با استفاده از Aspose.Slides for PHP via Java، توسعه‌دهندگان می‌توانند مقادیر ویژگی‌های پیش‌فرض و دلخواه را دسترسی و تغییر دهند.
 
-## **ویژگی‌های سند در پاورپوینت**
+## **ویژگی‌های سند در PowerPoint**
 
-Microsoft PowerPoint 2007 امکان مدیریت ویژگی‌های سند فایل‌های ارائه را می‌دهد. فقط کافی است روی نماد Office کلیک کنید و سپس گزینه **Prepare | Properties | Advanced Properties** را در منوی Microsoft PowerPoint 2007 انتخاب کنید همان‌طور که در زیر نشان داده شده است:
+Microsoft PowerPoint 2007 امکان مدیریت ویژگی‌های سند فایل‌های ارائه را فراهم می‌کند. تمام کاری که باید انجام دهید این است که روی نماد Office کلیک کنید و سپس گزینه **Prepare | Properties | Advanced Properties** را در منوی Microsoft PowerPoint 2007 انتخاب کنید همان‌طور که در زیر نشان داده شده است:
 
-|**انتخاب گزینه Advanced Properties**|** **|
+|**انتخاب گزینه Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-پس از انتخاب گزینه **Advanced Properties**، دیالوگی ظاهر می‌شود که به شما امکان مدیریت ویژگی‌های سند فایل PowerPoint را می‌دهد همان‌طور که در تصویر زیر مشاهده می‌شود:
 
-|**پنجرهٔ ویژگی‌ها**|** **|
+پس از انتخاب گزینه **Advanced Properties**، یک گفت‌و‌گوی پنجره باز می‌شود که به شما امکان مدیریت ویژگی‌های سند فایل PowerPoint را می‌دهد همان‌طور که در شکل زیر نشان داده شده است:
+
+|**گفت‌وگوی ویژگی‌ها**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-در **پنجرهٔ ویژگی‌ها** بالا می‌توانید تب‌های متعددی مانند **General**، **Summary**، **Statistics**، **Contents** و **Custom** را ببینید. تمام این تب‌ها امکان پیکربندی انواع مختلف اطلاعات مرتبط با فایل‌های PowerPoint را فراهم می‌کنند. تب **Custom** برای مدیریت ویژگی‌های سفارشی فایل‌های PowerPoint به کار می‌رود.
 
-کار با ویژگی‌های سند با استفاده از Aspose.Slides for PHP via Java
+در این **گفت‌وگوی ویژگی‌ها** می‌توانید ببینید که تب‌های متعددی مانند **General**، **Summary**، **Statistics**، **Contents** و **Custom** موجود هستند. تمام این تب‌ها اجازه پیکربندی انواع مختلفی از اطلاعات مرتبط با فایل‌های PowerPoint را می‌دهند. تب **Custom** برای مدیریت ویژگی‌های دلخواه فایل‌های PowerPoint استفاده می‌شود.
 
-همان‌طور که پیشتر توضیح دادیم Aspose.Slides for PHP via Java دو نوع ویژگی سند را پشتیبانی می‌کند: ویژگی‌های **Built-in** و **Custom**. بنابراین، توسعه‌دهندگان می‌توانند با استفاده از API Aspose.Slides for PHP via Java به هر دو نوع ویژگی دسترسی پیدا کنند. Aspose.Slides for PHP via Java کلاسی به نام [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties) ارائه می‌دهد که ویژگی‌های سند مرتبط با یک فایل ارائه را از طریق ویژگی **Presentation.DocumentProperties** نمایان می‌کند.
+### کار با ویژگی‌های سند با Aspose.Slides for PHP via Java
 
-توسعه‌دهندگان می‌توانند از ویژگی **DocumentProperties** که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation) افشا می‌شود، برای دسترسی به ویژگی‌های سند فایل‌های ارائه همان‌طور که در زیر شرح داده شده است، استفاده کنند:
+همان‌طور که قبلاً توضیح دادیم، Aspose.Slides for PHP via Java دو نوع ویژگی سند را پشتیبانی می‌کند: ویژگی‌های **Built-in** و **Custom**. بنابراین، توسعه‌دهندگان می‌توانند با استفاده از API Aspose.Slides for PHP via Java به هر دو نوع ویژگی دسترسی پیدا کنند. Aspose.Slides for PHP via Java کلاسی به نام [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties) ارائه می‌دهد که ویژگی‌های سند مرتبط با یک فایل ارائه را از طریق ویژگی **Presentation.DocumentProperties** نشان می‌دهد.
+
+توسعه‌دهندگان می‌توانند از ویژگی **DocumentProperties** که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation) ارائه می‌شود برای دسترسی به ویژگی‌های سند فایل‌های ارائه استفاده کنند همان‌طور که در زیر توضیح داده شده است:
 
 ## **دسترسی به ویژگی‌های Built-in**
 
-این ویژگی‌ها که توسط شیء [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties) نمایان می‌شوند شامل: **Creator** (نویسنده)، **Description**، **Keywords**، **Created** (تاریخ ایجاد)، **Modified** (تاریخ تغییر)، **Printed** (تاریخ آخرین چاپ)، **LastModifiedBy**، **Keywords**، **SharedDoc** (آیا بین تولیدکنندگان مختلف به اشتراک گذاشته شده است؟)، **PresentationFormat**، **Subject** و **Title**.
+این ویژگی‌ها که توسط شیء [DocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties) ارائه می‌شوند شامل: **Creator** (نویسنده)، **Description**، **Keywords**، **Created** (تاریخ ایجاد)، **Modified** (تاریخ اصلاح)، **Printed** (آخرین تاریخ چاپ)، **LastModifiedBy**، **SharedDoc** (آیا بین تولیدکنندگان مختلف به اشتراک گذاشته شده است؟)، **PresentationFormat**، **Subject** و **Title** هستند.
 
 ```php
-  # نماد سازی کلاس Presentation که نمایانگر ارائه است
+  # یک نمونه از کلاس Presentation که نمایانگر ارائه است را ایجاد کنید
   $pres = new Presentation("Presentation.pptx");
   try {
-    # ایجاد مرجع به شیء IDocumentProperties مرتبط با Presentation
+    # یک مرجع به شیء IDocumentProperties مرتبط با Presentation ایجاد کنید
     $dp = $pres->getDocumentProperties();
-    # نمایش ویژگی‌های داخلی
+    # ویژگی‌های داخلی را نمایش دهید
     echo("Category : " . $dp->getCategory());
     echo("Current Status : " . $dp->getContentStatus());
     echo("Creation Date : " . $dp->getCreatedTime());
@@ -99,20 +99,20 @@ Microsoft PowerPoint 2007 امکان مدیریت ویژگی‌های سند ف�
 
 ## **تغییر ویژگی‌های Built-in**
 
-تغییر ویژگی‌های Built-in فایل‌های ارائه به همان اندازه ساده است که دسترسی به آن‌ها. می‌توانید به سادگی یک مقدار رشته‌ای به هر ویژگی دلخواه اختصاص دهید و مقدار ویژگی تغییر خواهد کرد. در مثال زیر نشان داده‌ایم که چگونه می‌توان ویژگی‌های سند Built-in یک فایل ارائه را با استفاده از Aspose.Slides for PHP via Java تغییر داد.
+تغییر ویژگی‌های پیش‌فرض فایل‌های ارائه به اندازه دسترسی به آنها ساده است. می‌توانید به سادگی مقدار رشته‌ای به هر ویژگی دلخواه اختصاص دهید و مقدار ویژگی تغییر خواهد کرد. در مثال زیر نحوه تغییر ویژگی‌های سند پیش‌فرض فایل ارائه را با استفاده از Aspose.Slides for PHP via Java نشان می‌دهیم.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     # یک مرجع به شیء IDocumentProperties مرتبط با Presentation ایجاد کنید
     $dp = $pres->getDocumentProperties();
-    # تنظیم ویژگی‌های داخلی
+    # ویژگی‌های داخلی را تنظیم کنید
     $dp->setAuthor("Aspose.Slides for PHP via Java");
     $dp->setTitle("Modifying Presentation Properties");
     $dp->setSubject("Aspose Subject");
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
-    # ارائه خود را در یک فایل ذخیره کنید
+    # ارائه خود را در فایل ذخیره کنید
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -121,15 +121,15 @@ Microsoft PowerPoint 2007 امکان مدیریت ویژگی‌های سند ف�
   }
 ```
 
-این مثال ویژگی‌های Built-in ارائه را که پس از تغییر به شکل زیر نمایش داده می‌شوند، نشان می‌دهد:
+این مثال ویژگی‌های پیش‌فرض ارائه را که می‌توانند به صورت زیر مشاهده شوند، تغییر می‌دهد:
 
-|**ویژگی‌های سند Built-in پس از تغییر**|** **|
+|**ویژگی‌های سند پیش‌فرض پس از تغییر**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **افزودن ویژگی‌های سفارشی سند**
+## **افزودن ویژگی‌های سند دلخواه**
 
-Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان اجازه می‌دهد مقادیر سفارشی برای ویژگی‌های سند ارائه را اضافه کنند. یک مثال در زیر آورده شده که نشان می‌دهد چگونه می‌توان ویژگی‌های سفارشی یک ارائه را تنظیم کرد.
+Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان اجازه می‌دهد مقادیر دلخواه برای ویژگی‌های سند ارائه را اضافه کنند. مثال زیر نشان می‌دهد چگونه ویژگی‌های دلخواه برای یک ارائه تنظیم می‌شوند.
 
 ```php
   $pres = new Presentation();
@@ -140,11 +140,11 @@ Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان ا�
     $dProps->set_Item("New Custom", 12);
     $dProps->set_Item("My Name", "Mudassir");
     $dProps->set_Item("Custom", 124);
-    # دریافت نام ویژگی در ایندکس خاص
+    # دریافت نام ویژگی در اندیس خاص
     $getPropertyName = $dProps->getCustomPropertyName(2);
     # حذف ویژگی انتخاب‌شده
     $dProps->removeCustomProperty($getPropertyName);
-    # ذخیرهٔ ارائه
+    # ذخیره‌سازی ارائه
     $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -153,18 +153,18 @@ Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان ا�
   }
 ```
 
-|**ویژگی‌های سفارشی سند افزوده‌شده**|** **|
+|**ویژگی‌های سند دلخواه افزوده‌شده**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **دسترسی و تغییر ویژگی‌های سفارشی**
+## **دسترسی و تغییر ویژگی‌های دلخواه**
 
-Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان اجازه می‌دهد به مقادیر ویژگی‌های سفارشی دسترسی پیدا کنند. یک مثال در زیر نشان می‌دهد که چگونه می‌توانید تمام این ویژگی‌های سفارشی را برای یک ارائه دسترسی و تغییر دهید.
+Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان اجازه می‌دهد به مقادیر ویژگی‌های دلخواه دسترسی داشته باشند. مثال زیر نشان می‌دهد چگونه می‌توانید تمام این ویژگی‌های دلخواه را برای یک ارائه دسترسی و تغییر دهید.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # یک مرجع به شیء DocumentProperties مرتبط با Presentation ایجاد کنید
+    # ایجاد یک مرجع به شیء DocumentProperties مرتبط با Presentation
     $dp = $pres->getDocumentProperties();
     # دسترسی و تغییر ویژگی‌های سفارشی
     for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
@@ -174,7 +174,7 @@ Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان ا�
       # تغییر مقادیر ویژگی‌های سفارشی
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
-    # ارائه خود را در یک فایل ذخیره کنید
+    # ذخیره‌سازی ارائه شما در یک فایل
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -183,42 +183,40 @@ Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان ا�
   }
 ```
 
-این مثال ویژگی‌های سفارشی ارائه‌ی [PPTX ](https://docs.fileformat.com/presentation/pptx/) را تغییر می‌دهد. شکل‌های زیر ویژگی‌های سفارشی ارائه را قبل و بعد از تغییر نشان می‌دهند:
+این مثال ویژگی‌های دلخواه ارائهٔ [PPTX ](https://docs.fileformat.com/presentation/pptx/) را تغییر می‌دهد. شکل‌های زیر ویژگی‌های دلخواه ارائه را قبل و بعد از تغییر نشان می‌دهند:
 
-|**ویژگی‌های سفارشی قبل از تغییر**|** **|
+|**ویژگی‌های دلخواه قبل از تغییر**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**ویژگی‌های سفارشی پس از تغییر**|** **|
+|**ویژگی‌های دلخواه پس از تغییر**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
-## **ویژگی‌های پیشرفته سند**
+## **ویژگی‌های سند پیشرفته**
 
-{{% alert color="primary" %}} 
-
-روش‌های جدید [readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#readDocumentProperties)، [updateDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) و [writeBindedPresentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) به کلاس [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo) اضافه شده‌اند، منطق setter برای ویژگی [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#setLastSavedTime) تغییر یافته است.
-
+{{% alert color="info" title="نکته" %}}
+متدهای جدید [readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#readDocumentProperties)، [updateDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) و [writeBindedPresentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) به کلاس [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo) افزوده شده‌اند؛ منطق setter ویژگی [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/fa/php-java/aspose.slides/documentproperties/#setLastSavedTime) نیز تغییر یافته است.
 {{% /alert %}} 
 
-دو روش جدید [readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) و [updateDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) به کلاس [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo) اضافه شده‌اند. این متدها دسترسی سریع به ویژگی‌های سند را فراهم می‌کنند و امکان تغییر و به‌روزرسانی ویژگی‌ها بدون بارگذاری کل ارائه را می‌دهند.
+دو متد جدید [readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) و [updateDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) به کلاس [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/PresentationInfo) اضافه شده‌اند. این متدها دسترسی سریع به ویژگی‌های سند را فراهم می‌کنند و امکان تغییر و به‌روزرسانی ویژگی‌ها بدون بارگذاری کل ارائه را می‌دهند.
 
-سناریوی معمولی بارگذاری ویژگی‌ها، تغییر مقداری و به‌روزرسانی سند می‌تواند به شکل زیر اجرا شود:
+سناریوی معمول بارگذاری ویژگی‌ها، تغییر مقداری و به‌روزرسانی سند به شکل زیر می‌تواند پیاده‌سازی شود:
 
 ```php
   # اطلاعات ارائه را بخوانید
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
-  # ویژگی‌های فعلی را به‌دست آورید
+  # دریافت ویژگی‌های فعلی
   $props = $info->readDocumentProperties();
-  # مقادیر جدید فیلدهای Author و Title را تنظیم کنید
+  # تنظیم مقادیر جدید فیلدهای نویسنده و عنوان
   $props->setAuthor("New Author");
   $props->setTitle("New Title");
-  # ارائه را با مقادیر جدید به‌روزرسانی کنید
+  # به‌روزرسانی ارائه با مقادیر جدید
   $info->updateDocumentProperties($props);
   $info->writeBindedPresentation("presentation.pptx");
 ```
 
-راه دیگری برای استفاده از ویژگی‌های یک ارائه به عنوان قالب برای به‌روزرسانی ویژگی‌ها در ارائه‌های دیگر وجود دارد:
+روش دیگری برای استفاده از ویژگی‌های یک ارائه خاص به عنوان قالب برای به‌روزرسانی ویژگی‌ها در ارائه‌های دیگر وجود دارد:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
@@ -240,7 +238,7 @@ Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان ا�
 
 ```
 
-قالب جدید می‌تواند از ابتدا ساخته شود و سپس برای به‌روزرسانی چندین ارائه استفاده شود:
+یک قالب جدید می‌تواند از ابتدا ایجاد شده و سپس برای به‌روزرسانی چندین ارائه استفاده شود:
 
 ```php
   $template = new DocumentProperties();
@@ -257,14 +255,14 @@ Aspose.Slides for PHP via Java همچنین به توسعه‌دهندگان ا�
   updateByTemplate("doc3.ppt", $template);
 ```
 
-## **تنظیم زبان بررسی املایی**
+## **تنظیم زبان اثبات (Proofing Language)**
 
-Aspose.Slides ویژگی LanguageId (که توسط کلاس PortionFormat افشا می‌شود) را فراهم می‌کند تا به شما اجازه دهد زبان بررسی املایی برای یک سند PowerPoint را تنظیم کنید. زبان بررسی املایی زبانی است که املا و دستور زبان در PowerPoint برای آن بررسی می‌شود.
+Aspose.Slides ویژگی LanguageId (که توسط کلاس PortionFormat ارائه می‌شود) را برای تنظیم زبان اثبات یک سند PowerPoint فراهم می‌کند. زبان اثبات زبانی است که املا و گرامر در PowerPoint بر اساس آن بررسی می‌شود.
 
-این کد PHP نشان می‌دهد چطور زبان بررسی املایی برای یک PowerPoint تنظیم شود: xxx چرا LanguageId در کلاس Java PortionFormat وجود ندارد؟
+این کد PHP نشان می‌دهد چگونه زبان اثبات برای PowerPoint تنظیم می‌شود: xxx چرا LanguageId در کلاس Java PortionFormat وجود ندارد؟
 
 ```php
-  $pres = new Presentation($pptxFileName);
+  $pres = new Presentation("Presentation.pptx");
   try {
     $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
@@ -272,10 +270,10 @@ Aspose.Slides ویژگی LanguageId (که توسط کلاس PortionFormat افش
     $newPortion = new Portion();
     $font = new FontData("SimSun");
     $portionFormat = $newPortion->getPortionFormat();
-    $portionFormat::setComplexScriptFont($font);
-    $portionFormat::setEastAsianFont($font);
-    $portionFormat::setLatinFont($font);
-    $portionFormat::setLanguageId("zh-CN");// شناسه زبان بررسی املایی را تنظیم کنید
+    $portionFormat->setComplexScriptFont($font);
+    $portionFormat->setEastAsianFont($font);
+    $portionFormat->setLatinFont($font);
+    $portionFormat->setLanguageId("zh-CN");// تنظیم شناسه یک زبان اثبات
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
@@ -288,7 +286,7 @@ Aspose.Slides ویژگی LanguageId (که توسط کلاس PortionFormat افش
 
 ## **تنظیم زبان پیش‌فرض**
 
-این کد PHP نشان می‌دهد چطور زبان پیش‌فرض برای یک ارائه کامل PowerPoint تنظیم شود:
+این کد PHP نشان می‌دهد چگونه زبان پیش‌فرض برای کل ارائه PowerPoint تنظیم می‌شود:
 
 ```php
   $loadOptions = new LoadOptions();
@@ -309,20 +307,20 @@ Aspose.Slides ویژگی LanguageId (که توسط کلاس PortionFormat افش
 
 ## **مثال زنده**
 
-سعی کنید برنامهٔ آنلاین [**Aspose.Slides Metadata**](https://products.aspose.app/slides/fa/metadata) را امتحان کنید تا ببینید چگونه می‌توان با ویژگی‌های سند از طریق API Aspose.Slides کار کرد:
+سعی کنید برنامه آنلاین [**Aspose.Slides Metadata**](https://products.aspose.app/slides/fa/metadata) را امتحان کنید تا ببینید چگونه می‌توان با ویژگی‌های سند از طریق API Aspose.Slides کار کرد:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/fa/metadata)
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**چگونه می‌توان یک ویژگی Built-in را از یک ارائه حذف کرد؟**
+**چگونه می‌توان یک ویژگی پیش‌فرض را از یک ارائه حذف کرد؟**
 
-ویژگی‌های Built-in جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آنها را به طور کامل حذف کرد. با این حال می‌توانید مقدار آنها را تغییر دهید یا اگر ویژگی اجازه دهد، آن را خالی کنید.
+ویژگی‌های پیش‌فرض جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آنها را به طور کامل حذف کرد. با این حال می‌توانید مقدارشان را تغییر دهید یا در صورتی که توسط ویژگی خاص اجازه داده شود آن را خالی کنید.
 
-**اگر ویژگی سفارشی که از قبل وجود دارد اضافه کنم چه اتفاقی می‌افتد؟**
+**اگر یک ویژگی دلخواه که قبلاً وجود دارد را اضافه کنم چه اتفاقی می‌افتد؟**
 
-اگر ویژگی سفارشی که از قبل وجود دارد اضافه کنید، مقدار قبلی آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی پیش از افزودن نیست، زیرا Aspose.Slides به‌طور خودکار مقدار ویژگی را به‌روز می‌کند.
+اگر یک ویژگی دلخواه که قبلاً وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی پیشین ویژگی نیست، زیرا Aspose.Slides به‌طور خودکار مقدار ویژگی را به‌روزرسانی می‌کند.
 
-**آیا می‌توان بدون بارگذاری کامل ارائه به ویژگی‌های آن دسترسی پیدا کرد؟**
+**آیا می‌توان ویژگی‌های ارائه را بدون بارگذاری کامل ارائه دسترسی پیدا کرد؟**
 
-بله، می‌توانید بدون بارگذاری کامل ارائه، با استفاده از متد `getPresentationInfo` از کلاس [PresentationFactory](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/) به ویژگی‌های ارائه دسترسی پیدا کنید. سپس با استفاده از متد `readDocumentProperties` ارائه‌شده توسط کلاس [PresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/) ویژگی‌ها را به‌صورت کارآمد بخوانید و حافظه و عملکرد را بهبود بخشید.
+بله. از [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationfactory/) استفاده کنید و سپس [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationinfo/#readDocumentProperties) را برای خواندن متادیتای ذخیره‌شده سند بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) فراخوانی کنید. برای مثال کامل گزارش‌گیری و محدودیت‌های خاص فرمت، به [Build a Lightweight Presentation Inventory](/slides/fa/php-java/examine-presentation/) مراجعه کنید.

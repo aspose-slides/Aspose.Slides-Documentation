@@ -1,5 +1,5 @@
 ---
-title: Java でプレゼンテーション プロパティを管理する
+title: Javaでプレゼンテーション プロパティを管理する
 linktitle: プレゼンテーション プロパティ
 type: docs
 weight: 70
@@ -9,7 +9,7 @@ keywords:
 - プレゼンテーション プロパティ
 - ドキュメント プロパティ
 - 組み込みプロパティ
-- カスタム プロパティ
+- カスタムプロパティ
 - 高度なプロパティ
 - プロパティの管理
 - プロパティの変更
@@ -22,50 +22,47 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java でプレゼンテーション プロパティをマスターし、PowerPoint および OpenDocument ファイルの検索、ブランディング、ワークフローを効率化します。"
+description: "Aspose.Slides for Java でプレゼンテーション プロパティをマスターし、PowerPoint および OpenDocument ファイルの検索、ブランディング、ワークフローを合理化します。"
 ---
+## **はじめに**
 
-{{% alert color="primary" %}} 
+Aspose.Slides は、**組み込み** と **カスタム** の 2 種類のドキュメント プロパティをサポートしています。これらのプロパティ タイプは、Aspose.Slides API を使用して簡単にアクセスおよび管理できます。
 
-Microsoft PowerPoint はプレゼンテーション ファイルにプロパティを追加する機能を提供します。これらのドキュメント プロパティにより、ドキュメント（プレゼンテーション ファイル）に有用な情報を保存できます。プロパティは次の 2 種類があります。
+Aspose.Slides は、[IDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idocumentproperties/) インターフェイスを通じてプレゼンテーションのドキュメント プロパティを操作できます。このインターフェイスのインスタンスは、[Presentation.getDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getDocumentProperties--) メソッドによって返されます。以下の例は、これらのプロパティの読み取り、変更、管理方法を示しています。
 
-- System Defined (Built-in) Properties
-- User-Defined (Custom) Properties
-
-**Built-in** プロパティは、ドキュメントのタイトル、作者名、統計情報など、ドキュメント全般に関する情報を含みます。**Custom** プロパティは、ユーザーが **Name/Value** のペアとして定義するものです。Aspose.Slides for Java を使用すると、組み込みプロパティとカスタムプロパティの値にアクセスしたり変更したりできます。
-
+{{% alert color="info" title="Note" %}}
+※ **Application** と **AppVersion** フィールドは変更できないことに注意してください。Aspose.Slides は保存するたびにこれらを書き換えるため、保存されたプレゼンテーションは常に「Aspose.Slides for Java」とそれを生成したライブラリのバージョンを報告します。`setNameOfApplication` に渡された値は、プレゼンテーションが書き込まれる際に破棄されます。
 {{% /alert %}} 
 
-## **Document Properties in PowerPoint**
+## **PowerPoint のドキュメント プロパティ**
 
-Microsoft PowerPoint 2007 は、プレゼンテーション ファイルのドキュメント プロパティの管理を可能にします。Office アイコンをクリックし、さらに **Prepare | Properties | Advanced Properties** メニュー項目を選択すれば完了です（下図参照）。
+Microsoft PowerPoint 2007 では、プレゼンテーション ファイルのドキュメント プロパティを管理できます。以下の図のように、Office アイコンをクリックし、さらに **Prepare | Properties | Advanced Properties** メニュー項目を選択するだけです。
 
-{{% alert color="primary" %}} 
-
-※ **Application** および **Producer** フィールドには値を設定できません。これらのフィールドには Aspose Ltd. と Aspose.Slides for Java x.x.x が表示されます。
-
-{{% /alert %}} 
-
-|**Selecting Advanced Properties menu item**|** |
+|**Advanced プロパティ メニュー項目の選択**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-**Advanced Properties** を選択すると、以下のように PowerPoint ファイルのドキュメント プロパティを管理できるダイアログが表示されます。
 
-|**Properties Dialog**|** |
+**Advanced Properties** メニュー項目を選択すると、以下の図に示すように PowerPoint ファイルのドキュメント プロパティを管理できるダイアログが表示されます。
+
+|**プロパティ ダイアログ**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-上記 **Properties Dialog** では **General**、**Summary**、**Statistics**、**Contents**、**Custom** などのタブがあり、各タブで PowerPoint ファイルに関するさまざまな情報を設定できます。**Custom** タブはカスタム プロパティの管理に使用します。
 
-Working with Document Properties Using Aspose.Slides for Java
+上記の **プロパティ ダイアログ** では、**General**、**Summary**、**Statistics**、**Contents**、**Custom** など多数のタブ ページがあることがわかります。これらのタブは、PowerPoint ファイルに関連するさまざまな情報を設定するために使用されます。**Custom** タブは PowerPoint ファイルのカスタム プロパティを管理するために利用されます。
 
-前述のとおり、Aspose.Slides for Java は **Built-in** と **Custom** の 2 種類のドキュメント プロパティをサポートしています。開発者は Aspose.Slides for Java API を使用して両方のプロパティにアクセスできます。Aspose.Slides for Java では、プレゼンテーション ファイルに関連付けられたドキュメント プロパティを表すクラス [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties) があり、**Presentation.DocumentProperties** プロパティから取得できます。
+### Aspose.Slides for Java を使用したドキュメント プロパティの操作
 
-開発者は [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) オブジェクトが提供する **IDocumentProperties** プロパティを使用して、以下のようにプレゼンテーション ファイルのドキュメント プロパティにアクセスできます。
+先に説明したとおり、Aspose.Slides for Java は **組み込み** と **カスタム** の 2 種類のドキュメント プロパティをサポートしています。そのため、開発者は Aspose.Slides for Java API を使用して両方のプロパティにアクセスできます。Aspose.Slides for Java は、プレゼンテーション ファイルに関連付けられたドキュメント プロパティを表すクラス [IDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idocumentproperties) を提供し、**Presentation.DocumentProperties** プロパティを通じて利用できます。
 
-## **Access Built-in Properties**
+開発者は、[Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation) オブジェクトが公開する **IDocumentProperties** プロパティを使用して、以下のようにプレゼンテーション ファイルのドキュメント プロパティにアクセスできます。
 
-[IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties) オブジェクトが提供するプロパティには、**Creator**（作者）、**Description**、**Keywords**、**Created**（作成日）、**Modified**（変更日）、**Printed**（最終印刷日）、**LastModifiedBy**、**SharedDoc**（複数のプロデューサーで共有されているか）、**PresentationFormat**、**Subject**、**Title** などがあります。
+## **組み込みプロパティへのアクセス**
+
+これらのプロパティは [IDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idocumentproperties) オブジェクトで公開されており、**Creator**（作成者）、**Description**、**Keywords**、**Created**（作成日）、**Modified**（変更日）、**Printed**（最終印刷日）、**LastModifiedBy**、**Keywords**、**SharedDoc**（複数の作成者で共有されますか？）、**PresentationFormat**、**Subject**、**Title** などが含まれます。
+
 ```java
+import com.aspose.slides.*;
+
 // プレゼンテーションを表す Presentation クラスのインスタンスを作成する
 Presentation pres = new Presentation("Presentation.pptx");
 try {
@@ -92,11 +89,13 @@ try {
 }
 ```
 
+## **組み込みプロパティの変更**
 
-## **Modify Built-in Properties**
+プレゼンテーション ファイルの組み込みプロパティの変更は、アクセスと同じくらい簡単です。任意のプロパティに文字列値を割り当てるだけでプロパティの値が変更されます。以下の例では、Aspose.Slides for Java を使用してプレゼンテーション ファイルの組み込みドキュメント プロパティを変更する方法を示しています。
 
-組み込みプロパティの変更は、取得と同様に簡単です。目的のプロパティに文字列値を割り当てるだけで、プロパティの値が変更されます。以下の例では、Aspose.Slides for Java を使用してプレゼンテーション ファイルの組み込みドキュメント プロパティを変更する方法を示しています。
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Presentation に関連付けられた IDocumentProperties オブジェクトへの参照を作成する
@@ -116,61 +115,65 @@ try {
 }
 ```
 
+この例は、プレゼンテーションの組み込みプロパティを変更し、以下のように表示されます。
 
-この例は、変更後の組み込みプロパティを以下のように表示します。
-
-|**Built-in document properties after modification**|** |
+|**変更後の組み込みドキュメント プロパティ**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **Add Custom Document Properties**
+## **カスタム ドキュメント プロパティの追加**
 
-Aspose.Slides for Java は、プレゼンテーションのドキュメント プロパティにカスタム値を追加することも可能です。以下の例は、プレゼンテーションにカスタム プロパティを設定する方法を示しています。
+Aspose.Slides for Java は、開発者がプレゼンテーションのドキュメント プロパティにカスタム値を追加することも可能です。以下の例では、3 つのカスタム プロパティを追加し、インデックス 2 に格納された名前を検索してそのプロパティを削除します。その結果、保存されたプレゼンテーションには 2 つのカスタム プロパティが残ります。カスタム プロパティは追加順ではなく、アルファベット順でインデックス付けされます。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-    // ドキュメント プロパティを取得
+    // ドキュメント プロパティを取得する
     IDocumentProperties dProps = pres.getDocumentProperties();
     
-    // カスタム プロパティを追加
+    // カスタム プロパティを追加する
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
     
-    // 特定のインデックスのプロパティ名を取得
+    // 特定のインデックスのプロパティ名を取得する
     String getPropertyName = dProps.getCustomPropertyName(2);
     
-    // 選択したプロパティを削除
+    // 選択したプロパティを削除する
     dProps.removeCustomProperty(getPropertyName);
     
-    // プレゼンテーションを保存
+    // プレゼンテーションを保存する
     pres.save("CustomDemo.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-
-|**Custom Document Properties Added**|** |
+|**追加されたカスタム ドキュメント プロパティ**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Access and Modify Custom Properties**
+## **カスタム プロパティへのアクセスと変更**
 
-Aspose.Slides for Java は、カスタム プロパティの取得と変更もサポートします。以下の例は、プレゼンテーションのカスタム プロパティにアクセスし、すべてを変更する方法を示しています。
+Aspose.Slides for Java は、開発者がカスタム プロパティの値にアクセスすることも可能です。以下の例では、プレゼンテーションのすべてのカスタム プロパティにアクセスし、変更する方法を示します。
+
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Presentation に関連付けられた DocumentProperties オブジェクトへの参照を作成する
     IDocumentProperties dp = pres.getDocumentProperties();
     
-    // カスタム プロパティにアクセスして変更する
+    // カスタムプロパティにアクセスして変更する
     for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // カスタム プロパティの名前と値を表示する
+        // カスタムプロパティの名前と値を表示する
         System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
         System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
     
-        // カスタム プロパティの値を変更する
+        // カスタムプロパティの値を変更する
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
     
@@ -181,29 +184,29 @@ try {
 }
 ```
 
+この例は、[PPTX](https://docs.fileformat.com/presentation/pptx/) プレゼンテーションのカスタム プロパティを変更します。以下の図は、変更前後のプレゼンテーションのカスタム プロパティを示しています。
 
-この例は [PPTX ](https://docs.fileformat.com/presentation/pptx/) プレゼンテーションのカスタム プロパティを変更します。以下の図は変更前後のカスタム プロパティを示しています。
-
-|**Custom Properties before Modification**|** |
+|**変更前のカスタム プロパティ**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Custom Properties after Modification**|** |
+|**変更後のカスタム プロパティ**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
-## **Advanced Document Properties**
+## **高度なドキュメント プロパティ**
 
-{{% alert color="primary" %}} 
-
-新しいメソッド [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--)、[UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)、および [WriteBindedPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) が [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo) に追加され、[IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) プロパティ セッターのロジックが変更されました。
-
+{{% alert color="info" title="Note" %}}
+新しいメソッド [ReadDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), および [WriteBindedPresentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) が [IPresentationInfo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IPresentationInfo) に追加され、[IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) プロパティ セッターのロジックが変更されました。
 {{% /alert %}} 
 
-新しいメソッド [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) と [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) が [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo) インターフェイスに追加されました。これらはドキュメント プロパティへの迅速なアクセスを提供し、プレゼンテーション全体をロードせずにプロパティを変更・更新できます。
+2 つの新しいメソッド [ReadDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) および [UpdateDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) が [IPresentationInfo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IPresentationInfo) インターフェイスに追加されました。これらは、プレゼンテーション全体をロードせずにドキュメント プロパティに迅速にアクセスし、変更・更新できるようにします。
 
-典型的なシナリオは、プロパティをロードし、値を変更してドキュメントを更新するというものです。以下のコードがその実装例です。
+典型的なシナリオとして、プロパティをロードし、値を変更してドキュメントを更新する手順は以下のように実装できます：
+
 ```java
+import com.aspose.slides.*;
+
 // プレゼンテーションの情報を読み取る
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 
@@ -219,9 +222,11 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
+別の方法として、特定のプレゼンテーションのプロパティをテンプレートとして使用し、他のプレゼンテーションのプロパティを更新することができます：
 
-特定のプレゼンテーションのプロパティをテンプレートとして他のプレゼンテーションのプロパティを更新する別の方法があります。
 ```java
+import com.aspose.slides.*;
+
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
 DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
 
@@ -234,12 +239,16 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
+    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
+    toUpdate.updateDocumentProperties(template);
+    toUpdate.writeBindedPresentation(path);
+}
 ```
 
 ```java
+import com.aspose.slides.*;
+
 private static void updateByTemplate(String path, IDocumentProperties template) 
 {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
@@ -248,10 +257,12 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
+新しいテンプレートを最初から作成し、複数のプレゼンテーションを更新するために利用できます：
 
-新しいテンプレートをゼロから作成し、複数のプレゼンテーションを更新する際に使用できます。
 ```java
-DocumentProperties template = new DocumentProperties();\
+import com.aspose.slides.*;
+
+DocumentProperties template = new DocumentProperties();
 
 template.setAuthor("Template Author");
 template.setTitle("Template Title");
@@ -262,27 +273,24 @@ template.setComments("Created from template");
 template.setContentType("Template Content");
 template.setSubject("Template Subject");
 
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```java
-private static void updateByTemplate(String path, IDocumentProperties template) 
-{
+for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
     IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
     toUpdate.updateDocumentProperties(template);
     toUpdate.writeBindedPresentation(path);
 }
 ```
 
+## **校正言語の設定**
 
-## **Set Proofing Language**
+Aspose.Slides は、PortionFormat クラスが公開する LanguageId プロパティを提供し、PowerPoint ドキュメントの校正言語を設定できます。校正言語は、PowerPoint のスペルと文法チェックを行う対象言語です。
 
-Aspose.Slides は PortionFormat クラスが公開する LanguageId プロパティを使用して、PowerPoint ドキュメントの校正言語を設定できます。校正言語は、PowerPoint のスペルチェックおよび文法チェックが行われる言語です。
+以下の Java コードは、PowerPoint の校正言語を設定する方法を示しています。
 
-以下の Java コードは PowerPoint の校正言語を設定する方法を示しています: xxx Why is LanguageId missing from Java PortionFormat class?
 ```java
+import com.aspose.slides.*;
+
+String pptxFileName = "presentation.pptx";
+
 Presentation pres = new Presentation(pptxFileName);
 try {
     AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -298,7 +306,8 @@ try {
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
 
-    portionFormat.setLanguageId("zh-CN"); // 校正言語の ID を設定
+    portionFormat.setLanguageId("zh-CN"); // 校正言語の ID を設定する
+
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
 } finally {
@@ -306,44 +315,45 @@ try {
 }
 ```
 
-
-## **Set Default Language**
+## **既定言語の設定**
 
 以下の Java コードは、PowerPoint プレゼンテーション全体の既定言語を設定する方法を示しています。
+
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
 Presentation pres = new Presentation(loadOptions);
 try {
-    // テキスト付きの新しい長方形シェイプを追加します
+    // 新しい矩形シェイプをテキスト付きで追加する
     IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
 
-    // 最初のポーションの言語を確認します
+    // 最初のポーションの言語を確認する
     System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
+## **ライブ例**
 
-## **Live Example**
+オンライン アプリの [**Aspose.Slides Metadata**](https://products.aspose.app/slides/ja/metadata) を試して、Aspose.Slides API を使用したドキュメント プロパティの操作方法をご確認ください。
 
-Aspose.Slides API を使用してドキュメント プロパティを操作する方法を確認するには、オンライン アプリ [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) をお試しください。
+[![PowerPoint メタデータの表示と編集](slides-metadata.png)](https://products.aspose.app/slides/ja/metadata)
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+## **よくある質問**
 
-## ***FAQ**
+**プレゼンテーションから組み込みプロパティを削除するにはどうすればよいですか？**
 
-**How can I remove a built-in property from a presentation?**
+組み込みプロパティはプレゼンテーションの不可欠な要素であり、完全に削除することはできません。ただし、特定のプロパティが許可している場合は、値を変更するか空文字列に設定することが可能です。
 
-Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
+**すでに存在するカスタム プロパティを追加した場合はどうなりますか？**
 
-**What happens if I add a custom property that already exists?**
+既に存在するカスタム プロパティを追加すると、既存の値は新しい値で上書きされます。事前にプロパティを削除したり確認したりする必要はなく、Aspose.Slides が自動的に値を更新します。
 
-If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
+**プレゼンテーションを完全にロードせずにプロパティにアクセスできますか？**
 
-**Can I access presentation properties without fully loading the presentation?**
-
-Yes, you can access presentation properties without fully loading the presentation by using the `getPresentationInfo` method from the [PresentationFactory](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/) class. Then, utilize the `readDocumentProperties` method provided by the [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/) interface to read the properties efficiently, saving memory and improving performance.
+はい。[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) を使用し、その後 [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) を呼び出すことで、[Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) インスタンスを作成せずに保存されたドキュメント メタデータを読み取れます。完全なレポート例やフォーマット固有の制限については、[Build a Lightweight Presentation Inventory](/slides/ja/java/examine-presentation/) を参照してください。

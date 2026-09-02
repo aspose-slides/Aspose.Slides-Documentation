@@ -5,52 +5,55 @@ type: docs
 weight: 70
 url: /it/python-net/presentation-properties/
 keywords:
-- proprietà PowerPoint
-- proprietà della presentazione
-- proprietà del documento
-- proprietà integrate
-- proprietà personalizzate
-- proprietà avanzate
-- gestire le proprietà
-- modificare le proprietà
-- metadati del documento
-- modificare i metadati
-- lingua di correzione
-- lingua predefinita
+- Proprietà PowerPoint
+- Proprietà della presentazione
+- Proprietà del documento
+- Proprietà integrate
+- Proprietà personalizzate
+- Proprietà avanzate
+- Gestire le proprietà
+- Modificare le proprietà
+- Metadati del documento
+- Modificare i metadati
+- Lingua di correzione
+- Lingua predefinita
 - PowerPoint
 - OpenDocument
 - presentazione
 - Python
 - Aspose.Slides
-description: "Gestisci le proprietà delle presentazioni in Aspose.Slides per Python via .NET e semplifica ricerca, branding e flusso di lavoro nei tuoi file PowerPoint."
+description: "Gestisci le proprietà delle presentazioni in Aspose.Slides per Python via .NET e ottimizza ricerca, branding e flusso di lavoro nei tuoi file PowerPoint."
 ---
 ## **Introduzione**
 
-Aspose.Slides supporta due tipologie di proprietà del documento: **Integrate** e **Personalizzate**. Entrambi i tipi di proprietà possono essere facilmente accessi e gestiti tramite l'API di Aspose.Slides.
+Aspose.Slides supporta due tipi di proprietà del documento: **Integrate** e **Personalizzate**. Entrambi questi tipi di proprietà possono essere facilmente accessibili e gestiti tramite l'API di Aspose.Slides.
 
-Aspose.Slides consente di lavorare con le proprietà dei documenti di presentazione attraverso la classe [DocumentProperties](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/). Un'istanza di questa classe viene restituita dalla proprietà [Presentation.document_properties](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/document_properties/). Gli esempi seguenti mostrano come leggere, modificare e gestire queste proprietà.
+Aspose.Slides consente di lavorare con le proprietà del documento della presentazione tramite la classe [DocumentProperties](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/). Un'istanza di questa classe è restituita dalla proprietà [Presentation.document_properties](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/document_properties/). Gli esempi seguenti mostrano come leggere, modificare e gestire queste proprietà.
 
-{{% alert color="primary" %}} 
-Si noti che non è possibile impostare valori nei campi **Application** e **Producer**, poiché Aspose Ltd. e Aspose.Slides for Python via .NET x.x.x verranno visualizzati in questi campi.
+{{% alert color="info" title="Nota" %}}
+Si noti che non è possibile impostare valori per i campi **Application** e **Producer**, poiché Aspose Ltd. e Aspose.Slides for Python via .NET x.x.x verranno visualizzati in questi campi.
 {{% /alert %}} 
 
-## **Gestire le proprietà della presentazione**
+## **Gestire le Proprietà della Presentazione**
 
-Microsoft PowerPoint fornisce una funzionalità per aggiungere alcune proprietà ai file di presentazione. Queste proprietà del documento consentono di memorizzare informazioni utili insieme ai documenti (file di presentazione). Esistono due tipologie di proprietà del documento:
+Microsoft PowerPoint fornisce una funzionalità per aggiungere alcune proprietà ai file di presentazione. Queste proprietà del documento consentono di memorizzare informazioni utili insieme ai documenti (file di presentazione). Esistono due tipi di proprietà del documento come segue
 
-- Proprietà di sistema (Integrate)
-- Proprietà utente (Personalizzate)
+- Proprietà di Sistema (Integrate)
+- Proprietà Definite dall'Utente (Personalizzate)
 
-Le proprietà **Integrate** contengono informazioni generali sul documento, come titolo, nome dell'autore, statistiche del documento e così via. Le proprietà **Personalizzate** sono quelle definite dagli utenti come coppie **Nome/Valore**, dove sia il nome sia il valore sono stabiliti dall'utente. Utilizzando Aspose.Slides for Python via .NET, gli sviluppatori possono accedere e modificare i valori delle proprietà integrate così come di quelle personalizzate. Microsoft PowerPoint 2007 consente di gestire le proprietà del documento dei file di presentazione. Basta fare clic sull'icona Office e quindi sul menu **Prepare | Properties | Advanced Properties** di Microsoft PowerPoint 2007. Dopo aver selezionato **Advanced Properties**, apparirà una finestra di dialogo che permette di gestire le proprietà del documento del file PowerPoint. Nella **Properties Dialog**, è possibile vedere diverse schede come **General, Summary, Statistics, Contents** e **Custom**. Tutte queste schede consentono di configurare diversi tipi di informazioni relative ai file PowerPoint. La scheda **Custom** è usata per gestire le proprietà personalizzate dei file PowerPoint.
+Le proprietà **Integrate** contengono informazioni generali sul documento, come titolo del documento, nome dell'autore, statistiche del documento e così via. Le proprietà **Personalizzate** sono quelle definite dagli utenti come coppie **Nome/Valore**, dove sia il nome sia il valore sono definiti dall'utente. Utilizzando Aspose.Slides for Python via .NET, gli sviluppatori possono accedere e modificare i valori delle proprietà integrate così come di quelle personalizzate. Microsoft PowerPoint 2007 consente di gestire le proprietà del documento dei file di presentazione. È sufficiente fare clic sull'icona Office e quindi sull'elemento di menu **Prepare | Properties | Advanced Properties** di Microsoft PowerPoint 2007. Dopo aver selezionato l'elemento di menu **Advanced Properties**, verrà visualizzata una finestra di dialogo che consente di gestire le proprietà del documento del file PowerPoint. Nella **Finestra di dialogo Proprietà**, puoi vedere che ci sono molte schede come **Generale, Sommario, Statistiche, Contenuti e Personalizzate**. Tutte queste schede consentono di configurare diversi tipi di informazioni relative ai file PowerPoint. La scheda **Personalizzate** è usata per gestire le proprietà personalizzate dei file PowerPoint.
 
-## **Accedere alle proprietà integrate**
-Queste proprietà esposte dall'oggetto **IDocumentProperties** includono: **Creator(Author)**, **Description**, **Keywords**, **Created** (Data di creazione), **Modified** (Data di modifica), **Printed** (Data dell'ultima stampa), **LastModifiedBy**, **SharedDoc** (È condiviso tra diversi produttori?), **PresentationFormat**, **Subject** e **Title**
+## **Accedere alle Proprietà Integrate**
+Queste proprietà esposte dall'oggetto **IDocumentProperties** includono: **Creator(Author)**, **Description**, **Keywords**, **Created** (Data di creazione), **Modified** (Data di modifica), **Printed** (Data dell'ultima stampa), **LastModifiedBy**, **Keywords**, **SharedDoc** (È condiviso tra diversi produttori?), **PresentationFormat**, **Subject** e **Title**
 ```py
 import aspose.slides as slides
 
-# Istanziare la classe Presentation che rappresenta la presentazione
-    # Creare un riferimento all'oggetto associato alla Presentazione
-    # Visualizzare le proprietà integrate
+# Istanzia la classe Presentation che rappresenta la presentazione
+with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
+    # Crea un riferimento all'oggetto associato alla Presentation
+    documentProperties = pres.document_properties
+
+    # Visualizza le proprietà integrate
     print("category : " + documentProperties.category)
     print("Current Status : " + documentProperties.content_status)
     print("Creation Date : " + str(documentProperties.created_time))
@@ -67,37 +70,37 @@ import aspose.slides as slides
     print("Title : " + documentProperties.title)
 ```
 
-## **Modificare le proprietà integrate**
+## **Modificare le Proprietà Integrate**
 
-Modificare le proprietà integrate dei file di presentazione è semplice quanto accedervi. È sufficiente assegnare una stringa a qualsiasi proprietà desiderata e il valore verrà modificato. Nell'esempio riportato di seguito, dimostriamo come modificare le proprietà di documento integrate del file di presentazione.
+Modificare le proprietà integrate dei file di presentazione è semplice quanto accedervi. È sufficiente assegnare un valore stringa a qualsiasi proprietà desiderata e il valore della proprietà verrà modificato. Nell'esempio riportato di seguito, dimostriamo come è possibile modificare le proprietà integrate del documento della presentazione.
 
 ```py
 import aspose.slides as slides
 
-# Istanziare la classe Presentation che rappresenta la presentazione
-with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
-    # Creare un riferimento all'oggetto associato alla Presentation
+# Instanzia la classe Presentation che rappresenta la Presentation
+with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
+    # Crea un riferimento all'oggetto associato alla Presentation
     documentProperties = presentation.document_properties
 
-    # Impostare le proprietà integrate
+    # Imposta le proprietà integrate
     documentProperties.author = "Aspose.Slides for .NET"
     documentProperties.title = "Modifying Presentation Properties"
     documentProperties.subject = "Aspose Subject"
     documentProperties.comments = "Aspose Description"
     documentProperties.manager = "Aspose Manager"
 
-    # salva la tua presentazione in un file
+    # Salva la tua presentazione in un file
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Aggiungere proprietà personalizzate alla presentazione**
+## **Aggiungere Proprietà Personalizzate alla Presentazione**
 
-Aspose.Slides for Python via .NET consente anche agli sviluppatori di aggiungere valori personalizzati alle proprietà del documento della presentazione. Un esempio è fornito di seguito che mostra come impostare le proprietà personalizzate per una presentazione.
+Aspose.Slides for Python via .NET consente anche agli sviluppatori di aggiungere i valori personalizzati per le proprietà del documento della presentazione. Di seguito è riportato un esempio che mostra come impostare le proprietà personalizzate per una presentazione.
 
 ```py
 import aspose.slides as slides
 
-# Istanziare la classe Presentation
+# Instanzia la classe Presentation
 with slides.Presentation() as presentation:
     # Ottenere le proprietà del documento
     documentProperties = presentation.document_properties
@@ -107,7 +110,7 @@ with slides.Presentation() as presentation:
     documentProperties.set_custom_property_value("My Nam", "Mudassir")
     documentProperties.set_custom_property_value("Custom", 124)
 
-    # Ottenere il nome della proprietà a un indice particolare
+    # Ottenere il nome della proprietà a un indice specifico
     getPropertyName = documentProperties.get_custom_property_name(2)
 
     # Rimuovere la proprietà selezionata
@@ -117,40 +120,46 @@ with slides.Presentation() as presentation:
     presentation.save("CustomDocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Accedere e modificare le proprietà personalizzate**
+## **Accedere e Modificare le Proprietà Personalizzate**
 
-Aspose.Slides for Python via .NET consente inoltre agli sviluppatori di accedere ai valori delle proprietà personalizzate. Un esempio è fornito di seguito che mostra come accedere e modificare tutte queste proprietà personalizzate per una presentazione.
+Aspose.Slides for Python via .NET consente anche agli sviluppatori di accedere ai valori delle proprietà personalizzate. Di seguito è riportato un esempio che mostra come è possibile accedere e modificare tutte queste proprietà personalizzate per una presentazione.
 
 ```py
 import aspose.slides as slides
 
-# Istanziare la classe Presentation che rappresenta il PPTX
-with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentation:
-    # Creare un riferimento all'oggetto document_properties associato alla Presentazione
+# Instanzia la classe Presentation che rappresenta il PPTX
+with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
+    # Crea un riferimento all'oggetto document_properties associato alla Presentation
     documentProperties = presentation.document_properties
 
-    # Accedere e modificare le proprietà personalizzate
+    # Accedi e modifica le proprietà personalizzate
     for i in range(documentProperties.count_of_custom_properties):
-        # Visualizzare i nomi e i valori delle proprietà personalizzate
-        print("Custom Property Name : " + documentProperties.get_custom_property_name(i))
-        print("Custom Property Value : " + documentProperties.get_custom_property_value[documentProperties.get_custom_property_name(i)])
+        property_name = documentProperties.get_custom_property_name(i)
 
-        # Modificare i valori delle proprietà personalizzate
-        documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
-    # salvare la presentazione in un file
+        # Visualizza i nomi e i valori delle proprietà personalizzate
+        property_value = [""]
+        documentProperties.get_custom_property_value(property_name, property_value)
+        print("Custom Property Name : " + property_name)
+        print("Custom Property Value : " + property_value[0])
+
+        # Modifica i valori delle proprietà personalizzate
+        documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
+    # salva la tua presentazione in un file
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Impostare la lingua di correzione**
+`get_custom_property_value` restituisce il valore tramite la lista a un elemento passata come secondo argomento, e il valore memorizzato viene convertito al tipo dell'elemento già presente in quella lista. L'esempio sopra usa `[""]`, quindi legge le proprietà stringa; per leggere una proprietà memorizzata come numero, passa un segnaposto numerico come `[0]`—altrimenti la chiamata genera un `InvalidCastException`.
 
-Aspose.Slides fornisce la proprietà `Language_Id` (esposta dalla classe [PortionFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/portionformat/)) per consentire di impostare la lingua di correzione per un documento PowerPoint. La lingua di correzione è la lingua per la quale vengono controllate ortografia e grammatica in PowerPoint.
+## **Impostare la Lingua di Correzione**
+
+Aspose.Slides fornisce la proprietà `Language_Id` (esposta dalla classe [PortionFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/portionformat/)) per consentire di impostare la lingua di correzione per un documento PowerPoint. La lingua di correzione è la lingua per la quale ortografia e grammatica nel PowerPoint vengono verificate.
 
 Questo codice Python mostra come impostare la lingua di correzione per un PowerPoint:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
+with slides.Presentation("SetProofingLanguage.pptx") as pres:
     auto_shape = pres.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
     paragraph.portions.clear()
@@ -169,7 +178,7 @@ with slides.Presentation(path + "SetProofingLanguage.pptx") as pres:
     paragraph.portions.add(new_portion)
 ```
 
-## **Impostare la lingua predefinita**
+## **Impostare la Lingua Predefinita**
 
 Questo codice Python mostra come impostare la lingua predefinita per un'intera presentazione PowerPoint:
 
@@ -187,22 +196,22 @@ with slides.Presentation(load_options) as pres:
     print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
 ```
 
-## **Esempio live**
+## **Esempio Live**
 
-Prova l'app online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/it/metadata) per vedere come lavorare con le proprietà dei documenti tramite l'API di Aspose.Slides:
+Prova l'app online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/it/metadata) per vedere come lavorare con le proprietà del documento tramite l'API di Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/it/metadata)
+[![Visualizza e Modifica Metadata PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/it/metadata)
 
 ## **FAQ**
 
 **Come posso rimuovere una proprietà integrata da una presentazione?**
 
-Le proprietà integrate sono una parte integrante della presentazione e non possono essere rimosse completamente. Tuttavia, è possibile modificare i loro valori o impostarli a vuoto, se consentito dalla specifica proprietà.
+Le proprietà integrate fanno parte integrante della presentazione e non possono essere rimosse completamente. Tuttavia, è possibile cambiarne i valori o impostarle su vuoto, se consentito dalla proprietà specifica.
 
 **Cosa succede se aggiungo una proprietà personalizzata che esiste già?**
 
-Se aggiungi una proprietà personalizzata che esiste già, il suo valore corrente verrà sovrascritto con quello nuovo. Non è necessario rimuovere o verificare la proprietà in anticipo, poiché Aspose.Slides aggiorna automaticamente il valore della proprietà.
+Se si aggiunge una proprietà personalizzata che esiste già, il suo valore esistente verrà sovrascritto con quello nuovo. Non è necessario rimuovere o verificare la proprietà in anticipo, poiché Aspose.Slides aggiorna automaticamente il valore della proprietà.
 
 **Posso accedere alle proprietà della presentazione senza caricare completamente la presentazione?**
 
-Sì, è possibile accedere alle proprietà della presentazione senza caricarla completamente utilizzando il metodo [get_presentation_info](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentationfactory/get_presentation_info/) della classe [PresentationFactory](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentationfactory/). Quindi, utilizza il metodo [read_document_properties](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentationinfo/read_document_properties/) fornito dalla classe [PresentationInfo](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentationinfo/) per leggere le proprietà in modo efficiente, risparmiando memoria e migliorando le prestazioni.
+Sì. Usa [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentationfactory/get_presentation_info/) e poi [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentationinfo/read_document_properties/) per leggere i metadati del documento memorizzati senza creare un'istanza di [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/). Vedi [Build a Lightweight Presentation Inventory](/slides/it/python-net/examine-presentation/) per un esempio completo di reportistica e le limitazioni specifiche del formato.

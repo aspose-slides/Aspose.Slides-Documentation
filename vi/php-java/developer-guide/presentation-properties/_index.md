@@ -1,79 +1,77 @@
 ---
-title: Quản lý Thuộc tính Bản trình bày trong PHP
-linktitle: Thuộc tính Bản trình bày
+title: Quản lý Thuộc tính Bản trình chiếu trong PHP
+linktitle: Thuộc tính Bản trình chiếu
 type: docs
 weight: 70
 url: /vi/php-java/presentation-properties/
 keywords:
 - Thuộc tính PowerPoint
-- thuộc tính bản trình bày
-- thuộc tính tài liệu
-- thuộc tính tích hợp
-- thuộc tính tùy chỉnh
-- thuộc tính nâng cao
-- quản lý thuộc tính
-- sửa đổi thuộc tính
-- siêu dữ liệu tài liệu
-- chỉnh sửa siêu dữ liệu
-- ngôn ngữ kiểm tra chính tả
-- ngôn ngữ mặc định
+- Thuộc tính bản trình chiếu
+- Thuộc tính tài liệu
+- Thuộc tính tích hợp
+- Thuộc tính tùy chỉnh
+- Thuộc tính nâng cao
+- Quản lý thuộc tính
+- Chỉnh sửa thuộc tính
+- Siêu dữ liệu tài liệu
+- Chỉnh sửa siêu dữ liệu
+- Ngôn ngữ kiểm tra chính tả
+- Ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Quản lý toàn diện các thuộc tính bản trình bày trong Aspose.Slides cho PHP via Java và tối ưu hoá việc tìm kiếm, thương hiệu và quy trình làm việc trong các tệp PowerPoint và OpenDocument của bạn."
+description: "Quản lý toàn diện các thuộc tính bản trình chiếu trong Aspose.Slides cho PHP via Java và tối ưu hoá tìm kiếm, thương hiệu và quy trình làm việc trong các tệp PowerPoint và OpenDocument của bạn."
 ---
 ## **Giới thiệu**
 
-Aspose.Slides hỗ trợ hai loại thuộc tính tài liệu: **Built-in** và **Custom**. Cả hai loại thuộc tính này đều có thể được truy cập và quản lý dễ dàng bằng API của Aspose.Slides.
+Aspose.Slides hỗ trợ hai loại thuộc tính tài liệu: **Built-in** và **Custom**. Cả hai loại thuộc tính này đều có thể dễ dàng truy cập và quản lý bằng API của Aspose.Slides.
 
-Aspose.Slides cho phép bạn làm việc với thuộc tính tài liệu của bản trình bày thông qua lớp [DocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/documentproperties/). Một thể hiện của lớp này được trả về bởi phương thức [Presentation::getDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getDocumentProperties). Các ví dụ dưới đây cho thấy cách đọc, sửa đổi và quản lý các thuộc tính này.
+Aspose.Slides cho phép bạn làm việc với các thuộc tính tài liệu của bản trình chiếu thông qua lớp [DocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/documentproperties/). Một thể hiện của lớp này được trả về bởi phương thức [Presentation::getDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getDocumentProperties). Các ví dụ sau cho thấy cách đọc, chỉnh sửa và quản lý các thuộc tính này.
 
-{{% alert color="primary" %}} 
-
-Lưu ý rằng các trường **Application** và **Producer** không thể được sửa đổi, vì các trường này luôn hiển thị "Aspose Ltd." và "Aspose.Slides for PHP via Java x.x.x".
-
+{{% alert color="info" title="Lưu ý" %}}
+Lưu ý rằng các trường **Application** và **AppVersion** không thể được chỉnh sửa. Aspose.Slides ghi lại chúng mỗi khi lưu, vì vậy bản trình chiếu đã lưu luôn báo cáo "Aspose.Slides for PHP via Java" và phiên bản của thư viện đã tạo ra nó. Bất kỳ giá trị nào được truyền vào `setNameOfApplication` sẽ bị bỏ qua khi bản trình chiếu được ghi.
 {{% /alert %}} 
 
-## **Quản lý Thuộc tính Bản trình bày**
+## **Quản lý Thuộc tính Bản trình chiếu**
 
-Microsoft PowerPoint cung cấp tính năng thêm một số thuộc tính vào các tệp bản trình bày. Các thuộc tính tài liệu này cho phép lưu trữ một số thông tin hữu ích cùng với tài liệu (tệp bản trình bày). Có hai dạng thuộc tính tài liệu như sau
+Microsoft PowerPoint cung cấp tính năng để thêm một số thuộc tính vào các tệp bản trình chiếu. Các thuộc tính tài liệu này cho phép một số thông tin hữu ích được lưu cùng với tài liệu (các tệp bản trình chiếu). Có hai loại thuộc tính tài liệu như sau
 
 - Thuộc tính Được Định Nghĩa Hệ Thống (Built-in)
-- Thuộc tính Do Người Dùng Định Nghĩa (Custom)
+- Thuộc tính Được Định Nghĩa Người Dùng (Custom)
 
-Các thuộc tính **Built-in** chứa thông tin chung về tài liệu như tiêu đề tài liệu, tên tác giả, thống kê tài liệu, v.v. Các thuộc tính **Custom** là những thuộc tính được người dùng định nghĩa dưới dạng các cặp **Tên/Giá trị**, trong đó cả tên và giá trị đều do người dùng xác định. Sử dụng Aspose.Slides for PHP via Java, các nhà phát triển có thể truy cập và sửa đổi giá trị của cả thuộc tính built‑in và custom.
+Các thuộc tính **Built-in** chứa thông tin chung về tài liệu như tiêu đề tài liệu, tên tác giả, thống kê tài liệu, v.v. Các thuộc tính **Custom** là những thuộc tính được người dùng định nghĩa dưới dạng cặp **Tên/Giá trị**, trong đó cả tên và giá trị đều do người dùng xác định. Sử dụng Aspose.Slides for PHP via Java, các nhà phát triển có thể truy cập và chỉnh sửa giá trị của các thuộc tính built-in cũng như custom.
 
 ## **Thuộc tính Tài liệu trong PowerPoint**
 
-Microsoft PowerPoint 2007 cho phép quản lý các thuộc tính tài liệu của các tệp bản trình bày. Tất cả những gì bạn cần làm là nhấp vào biểu tượng Office và chọn **Prepare | Properties | Advanced Properties** trong PowerPoint 2007 như hình dưới:
+Microsoft PowerPoint 2007 cho phép quản lý các thuộc tính tài liệu của các tệp bản trình chiếu. Bạn chỉ cần nhấp vào biểu tượng Office và sau đó mục menu **Prepare | Properties | Advanced Properties** của Microsoft PowerPoint 2007 như hình dưới đây:
 
-|**Chọn mục Advanced Properties**|** |
+|**Chọn mục menu Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-Sau khi chọn mục **Advanced Properties**, một hộp thoại sẽ xuất hiện cho phép bạn quản lý các thuộc tính tài liệu của tệp PowerPoint như trong hình dưới:
+Sau khi bạn chọn mục menu **Advanced Properties**, một hộp thoại sẽ xuất hiện cho phép bạn quản lý các thuộc tính tài liệu của tệp PowerPoint như hình dưới đây:
 
 |**Hộp thoại Thuộc tính**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-Trong **Hộp thoại Thuộc tính** trên, bạn sẽ thấy nhiều trang tab như **General**, **Summary**, **Statistics**, **Contents** và **Custom**. Tất cả các trang này cho phép cấu hình các loại thông tin khác nhau liên quan đến tệp PowerPoint. Trang **Custom** được dùng để quản lý các thuộc tính tùy chỉnh của tệp PowerPoint.
+Trong **Hộp thoại Thuộc tính** ở trên, bạn có thể thấy có nhiều trang tab như **General**, **Summary**, **Statistics**, **Contents** và **Custom**. Tất cả các trang tab này cho phép cấu hình các loại thông tin khác nhau liên quan đến các tệp PowerPoint. Tab **Custom** được dùng để quản lý các thuộc tính tùy chỉnh của các tệp PowerPoint.
 
-## **Làm việc với Thuộc tính Tài liệu bằng Aspose.Slides for PHP via Java**
+Làm việc với Thuộc tính Tài liệu bằng Aspose.Slides for PHP via Java
 
-Như đã mô tả ở trên, Aspose.Slides for PHP via Java hỗ trợ hai loại thuộc tính tài liệu, đó là **Built-in** và **Custom**. Vì vậy, các nhà phát triển có thể truy cập cả hai loại thuộc tính bằng API của Aspose.Slides for PHP via Java. Aspose.Slides for PHP via Java cung cấp lớp [DocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/documentproperties) đại diện cho các thuộc tính tài liệu gắn với tệp bản trình bày thông qua thuộc tính **Presentation.DocumentProperties**.
+Như đã mô tả ở trên, Aspose.Slides for PHP via Java hỗ trợ hai loại thuộc tính tài liệu, đó là các thuộc tính **Built-in** và **Custom**. Do đó, các nhà phát triển có thể truy cập cả hai loại thuộc tính này bằng API của Aspose.Slides for PHP via Java. Aspose.Slides for PHP via Java cung cấp một lớp [DocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/documentproperties) đại diện cho các thuộc tính tài liệu liên kết với một tệp bản trình chiếu thông qua thuộc tính **Presentation.DocumentProperties**.
 
-Các nhà phát triển có thể sử dụng thuộc tính **DocumentProperties** được cung cấp bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation) để truy cập các thuộc tính tài liệu của tệp bản trình bày như mô tả dưới đây:
+Các nhà phát triển có thể sử dụng thuộc tính **DocumentProperties** được cung cấp bởi đối tượng [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation) để truy cập các thuộc tính tài liệu của các tệp bản trình chiếu như mô tả bên dưới:
 
-## **Truy cập Thuộc tính Built‑in**
+## **Truy cập Thuộc tính Built-in**
 
-Các thuộc tính được cung cấp bởi đối tượng [DocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/documentproperties) bao gồm: **Creator** (Tác giả), **Description**, **Keywords**, **Created** (Ngày tạo), **Modified** (Ngày sửa đổi), **Printed** (Ngày in lần cuối), **LastModifiedBy**, **SharedDoc** (Có được chia sẻ giữa các nhà sản xuất khác không?), **PresentationFormat**, **Subject** và **Title**.
+Các thuộc tính được cung cấp bởi đối tượng [DocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/documentproperties) bao gồm: **Creator** (Tác giả), **Description**, **Keywords**, **Created** (Ngày tạo), **Modified** (Ngày sửa đổi), **Printed** (Ngày in lần cuối), **LastModifiedBy**, **Keywords**, **SharedDoc** (Có được chia sẻ giữa các nhà sản xuất khác nhau không?), **PresentationFormat**, **Subject** và **Title**
 
 ```php
-  # Tạo một đối tượng Presentation đại diện cho bản trình bày
+  # Khởi tạo lớp Presentation đại diện cho bản trình chiếu
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Tạo một tham chiếu tới đối tượng IDocumentProperties liên quan tới Presentation
+    # Tạo tham chiếu tới đối tượng IDocumentProperties liên kết với Presentation
     $dp = $pres->getDocumentProperties();
     # Hiển thị các thuộc tính tích hợp
     echo("Category : " . $dp->getCategory());
@@ -97,14 +95,14 @@ Các thuộc tính được cung cấp bởi đối tượng [DocumentProperties
   }
 ```
 
-## **Sửa đổi Thuộc tính Built‑in**
+## **Chỉnh sửa Thuộc tính Built-in**
 
-Việc sửa đổi các thuộc tính built‑in của tệp bản trình bày dễ dàng như việc truy cập chúng. Bạn chỉ cần gán một giá trị chuỗi cho bất kỳ thuộc tính nào mong muốn và giá trị thuộc tính sẽ được cập nhật. Trong ví dụ dưới đây, chúng tôi đã trình bày cách sửa đổi các thuộc tính tài liệu built‑in của tệp bản trình bày bằng Aspose.Slides for PHP via Java.
+Việc chỉnh sửa các thuộc tính built-in của các tệp bản trình chiếu cũng dễ dàng như việc truy cập chúng. Bạn chỉ cần gán một giá trị chuỗi cho bất kỳ thuộc tính nào mong muốn và giá trị thuộc tính sẽ được thay đổi. Trong ví dụ dưới đây, chúng tôi đã minh họa cách chúng ta có thể chỉnh sửa các thuộc tính tài liệu built-in của tệp bản trình chiếu bằng Aspose.Slides for PHP via Java.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Tạo một tham chiếu tới đối tượng IDocumentProperties liên kết với Presentation
+    # Tạo tham chiếu tới đối tượng IDocumentProperties liên kết với Presentation
     $dp = $pres->getDocumentProperties();
     # Đặt các thuộc tính tích hợp
     $dp->setAuthor("Aspose.Slides for PHP via Java");
@@ -112,7 +110,7 @@ Việc sửa đổi các thuộc tính built‑in của tệp bản trình bày 
     $dp->setSubject("Aspose Subject");
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
-    # Lưu bản trình bày của bạn vào một tệp
+    # Lưu bản trình chiếu của bạn vào tệp
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -121,22 +119,22 @@ Việc sửa đổi các thuộc tính built‑in của tệp bản trình bày 
   }
 ```
 
-Ví dụ này sửa đổi các thuộc tính built‑in của bản trình bày và có thể xem kết quả như sau:
+Ví dụ này chỉnh sửa các thuộc tính built-in của bản trình chiếu và có thể xem như hình dưới đây:
 
-|**Thuộc tính tài liệu Built‑in sau khi sửa đổi**|** |
+|**Thuộc tính tài liệu Built-in sau khi chỉnh sửa**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Thêm Thuộc tính Tài liệu Tùy chỉnh**
 
-Aspose.Slides for PHP via Java cũng cho phép các nhà phát triển thêm các giá trị tùy chỉnh cho thuộc tính tài liệu của bản trình bày. Một ví dụ được đưa ra dưới đây cho thấy cách đặt các thuộc tính tùy chỉnh cho một bản trình bày.
+Aspose.Slides for PHP via Java cũng cho phép các nhà phát triển thêm các giá trị tùy chỉnh cho các thuộc tính tài liệu của bản trình chiếu. Một ví dụ được đưa ra dưới đây cho thấy cách đặt các thuộc tính tùy chỉnh cho một bản trình chiếu.
 
 ```php
   $pres = new Presentation();
   try {
     # Lấy Thuộc tính Tài liệu
     $dProps = $pres->getDocumentProperties();
-    # Thêm các thuộc tính Tùy chỉnh
+    # Thêm thuộc tính tùy chỉnh
     $dProps->set_Item("New Custom", 12);
     $dProps->set_Item("My Name", "Mudassir");
     $dProps->set_Item("Custom", 124);
@@ -144,7 +142,7 @@ Aspose.Slides for PHP via Java cũng cho phép các nhà phát triển thêm cá
     $getPropertyName = $dProps->getCustomPropertyName(2);
     # Xóa thuộc tính đã chọn
     $dProps->removeCustomProperty($getPropertyName);
-    # Lưu bản trình bày
+    # Lưu bản trình chiếu
     $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -153,28 +151,28 @@ Aspose.Slides for PHP via Java cũng cho phép các nhà phát triển thêm cá
   }
 ```
 
-|**Thuộc tính Tài liệu Custom Được Thêm**|** |
+|**Thuộc tính Tài liệu Tùy chỉnh Được Thêm**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Truy cập và Sửa đổi Thuộc tính Custom**
+## **Truy cập và Chỉnh sửa Thuộc tính Tùy chỉnh**
 
-Aspose.Slides for PHP via Java cũng cho phép các nhà phát triển truy cập giá trị của các thuộc tính tùy chỉnh. Một ví dụ dưới đây cho thấy cách bạn có thể truy cập và sửa đổi tất cả các thuộc tính tùy chỉnh cho một bản trình bày.
+Aspose.Slides for PHP via Java cũng cho phép các nhà phát triển truy cập các giá trị của các thuộc tính tùy chỉnh. Một ví dụ được đưa ra dưới đây cho thấy cách bạn có thể truy cập và chỉnh sửa tất cả các thuộc tính tùy chỉnh này cho một bản trình chiếu.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Tạo một tham chiếu tới đối tượng DocumentProperties liên kết với Presentation
+    # Tạo tham chiếu tới đối tượng DocumentProperties liên kết với Presentation
     $dp = $pres->getDocumentProperties();
-    # Truy cập và sửa đổi các thuộc tính tùy chỉnh
+    # Truy cập và chỉnh sửa các thuộc tính tùy chỉnh
     for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
       # Hiển thị tên và giá trị của các thuộc tính tùy chỉnh
       echo("Custom Property Name : " . $dp->getCustomPropertyName($i));
       echo("Custom Property Value : " . $dp->get_Item($dp->getCustomPropertyName($i)));
-      # Sửa đổi giá trị của các thuộc tính tùy chỉnh
+      # Chỉnh sửa giá trị của các thuộc tính tùy chỉnh
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
-    # Lưu bản trình bày của bạn vào một tệp
+    # Lưu bản trình chiếu của bạn vào tệp
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -183,42 +181,40 @@ Aspose.Slides for PHP via Java cũng cho phép các nhà phát triển truy cậ
   }
 ```
 
-Ví dụ này sửa đổi các thuộc tính tùy chỉnh của [PPTX](https://docs.fileformat.com/presentation/pptx/) presentation. Các hình dưới đây cho thấy các thuộc tính tùy chỉnh của bản trình bày trước và sau khi sửa đổi:
+Ví dụ này chỉnh sửa các thuộc tính tùy chỉnh của bản trình chiếu [PPTX ](https://docs.fileformat.com/presentation/pptx/). Các hình dưới đây cho thấy các thuộc tính tùy chỉnh của bản trình chiếu trước và sau khi chỉnh sửa:
 
-|**Thuộc tính Custom trước khi sửa đổi**|** |
+|**Thuộc tính Tùy chỉnh trước Khi chỉnh sửa**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Thuộc tính Custom sau khi sửa đổi**|** |
+|**Thuộc tính Tùy chỉnh sau Khi chỉnh sửa**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Thuộc tính Tài liệu Nâng cao**
 
-{{% alert color="primary" %}} 
-
-Các phương thức mới [readDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) và [writeBindedPresentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) đã được thêm vào lớp [PresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo); logic của bộ thiết lập thuộc tính [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/vi/php-java/aspose.slides/documentproperties/#setLastSavedTime) đã được thay đổi.
-
+{{% alert color="info" title="Lưu ý" %}}
+Các phương thức mới [readDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) và [writeBindedPresentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) đã được thêm vào [PresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo), logic của bộ thiết lập thuộc tính [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/vi/php-java/aspose.slides/documentproperties/#setLastSavedTime) đã được thay đổi.
 {{% /alert %}} 
 
-Hai phương thức mới [readDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) và [updateDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) đã được thêm vào lớp [PresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo). Chúng cung cấp cách truy cập nhanh vào các thuộc tính tài liệu và cho phép thay đổi, cập nhật thuộc tính mà không cần tải toàn bộ bản trình bày.
+Hai phương thức mới [readDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) và [updateDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) đã được thêm vào lớp [PresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/PresentationInfo). Chúng cung cấp cách truy cập nhanh vào các thuộc tính tài liệu và cho phép thay đổi và cập nhật các thuộc tính mà không cần tải toàn bộ bản trình chiếu.
 
-Kịch bản điển hình là tải thuộc tính, thay đổi một số giá trị và cập nhật tài liệu có thể được thực hiện như sau:
+Kịch bản điển hình tải các thuộc tính, thay đổi một số giá trị và cập nhật tài liệu có thể được thực hiện theo cách sau:
 
 ```php
-  # đọc thông tin của bản trình bày
+  # đọc thông tin của bản trình chiếu
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
   # lấy các thuộc tính hiện tại
   $props = $info->readDocumentProperties();
-  # đặt giá trị mới cho các trường Tác giả và Tiêu đề
+  # đặt các giá trị mới cho các trường Tác giả và Tiêu đề
   $props->setAuthor("New Author");
   $props->setTitle("New Title");
-  # cập nhật bản trình bày với các giá trị mới
+  # cập nhật bản trình chiếu với các giá trị mới
   $info->updateDocumentProperties($props);
   $info->writeBindedPresentation("presentation.pptx");
 ```
 
-Có một cách khác để sử dụng các thuộc tính của một bản trình bày cụ thể làm mẫu để cập nhật thuộc tính trong các bản trình bày khác:
+Có một cách khác để sử dụng các thuộc tính của một bản trình chiếu cụ thể làm mẫu để cập nhật các thuộc tính trong các bản trình chiếu khác:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
@@ -240,7 +236,7 @@ Có một cách khác để sử dụng các thuộc tính của một bản tr�
 
 ```
 
-Một mẫu mới có thể được tạo từ đầu và sau đó dùng để cập nhật nhiều bản trình bày:
+Một mẫu mới có thể được tạo từ đầu và sau đó dùng để cập nhật nhiều bản trình chiếu:
 
 ```php
   $template = new DocumentProperties();
@@ -257,14 +253,14 @@ Một mẫu mới có thể được tạo từ đầu và sau đó dùng để 
   updateByTemplate("doc3.ppt", $template);
 ```
 
-## **Thiết lập Ngôn ngữ Kiểm tra Chính tả**
+## **Đặt Ngôn ngữ Kiểm tra Chính tả**
 
-Aspose.Slides cung cấp thuộc tính LanguageId (được giới thiệu bởi lớp PortionFormat) để cho phép bạn thiết lập ngôn ngữ kiểm tra chính tả cho tài liệu PowerPoint. Ngôn ngữ kiểm tra chính tả là ngôn ngữ mà PowerPoint sẽ kiểm tra lỗi chính tả và ngữ pháp.
+Aspose.Slides cung cấp thuộc tính LanguageId (được phơi bày bởi lớp PortionFormat) để cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho tài liệu PowerPoint. Ngôn ngữ kiểm tra chính tả là ngôn ngữ mà chính tả và ngữ pháp trong PowerPoint sẽ được kiểm tra.
 
-Mã PHP này cho bạn thấy cách thiết lập ngôn ngữ kiểm tra chính tả cho PowerPoint: xxx Tại sao LanguageId lại không có trong lớp Java PortionFormat?
+Mã PHP này cho bạn thấy cách đặt ngôn ngữ kiểm tra chính tả cho PowerPoint: xxx Tại sao LanguageId lại thiếu trong lớp Java PortionFormat?
 
 ```php
-  $pres = new Presentation($pptxFileName);
+  $pres = new Presentation("Presentation.pptx");
   try {
     $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
@@ -272,10 +268,10 @@ Mã PHP này cho bạn thấy cách thiết lập ngôn ngữ kiểm tra chính 
     $newPortion = new Portion();
     $font = new FontData("SimSun");
     $portionFormat = $newPortion->getPortionFormat();
-    $portionFormat::setComplexScriptFont($font);
-    $portionFormat::setEastAsianFont($font);
-    $portionFormat::setLatinFont($font);
-    $portionFormat::setLanguageId("zh-CN");// đặt Id của ngôn ngữ kiểm tra chính tả
+    $portionFormat->setComplexScriptFont($font);
+    $portionFormat->setEastAsianFont($font);
+    $portionFormat->setLatinFont($font);
+    $portionFormat->setLanguageId("zh-CN");// đặt Id của ngôn ngữ kiểm tra chính tả
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
@@ -286,9 +282,9 @@ Mã PHP này cho bạn thấy cách thiết lập ngôn ngữ kiểm tra chính 
   }
 ```
 
-## **Thiết lập Ngôn ngữ Mặc định**
+## **Đặt Ngôn ngữ Mặc định**
 
-Mã PHP này cho bạn thấy cách thiết lập ngôn ngữ mặc định cho toàn bộ bản trình bày PowerPoint:
+Mã PHP này cho bạn thấy cách đặt ngôn ngữ mặc định cho toàn bộ bản trình chiếu PowerPoint:
 
 ```php
   $loadOptions = new LoadOptions();
@@ -309,20 +305,20 @@ Mã PHP này cho bạn thấy cách thiết lập ngôn ngữ mặc định cho 
 
 ## **Ví dụ Trực tiếp**
 
-Thử dùng ứng dụng trực tuyến [**Aspose.Slides Metadata**](https://products.aspose.app/slides/vi/metadata) để xem cách làm việc với thuộc tính tài liệu qua API Aspose.Slides:
+Thử ứng dụng trực tuyến [**Aspose.Slides Metadata**](https://products.aspose.app/slides/vi/metadata) để xem cách làm việc với các thuộc tính tài liệu qua API của Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/vi/metadata)
+[![Xem & Chỉnh sửa Metadata PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/vi/metadata)
 
-## **Câu hỏi Thường gặp**
+## **Câu hỏi thường gặp**
 
-**Làm sao tôi có thể xóa một thuộc tính built‑in khỏi bản trình bày?**
+**Làm thế nào để tôi xóa một thuộc tính built-in khỏi bản trình chiếu?**
 
-Các thuộc tính built‑in là một phần không thể tách rời của bản trình bày và không thể bị xóa hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành chuỗi trống nếu thuộc tính cụ thể cho phép.
+Các thuộc tính built-in là một phần không thể tách rời của bản trình chiếu và không thể bị xóa hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành rỗng nếu thuộc tính cụ thể cho phép.
 
-**Nếu tôi thêm một thuộc tính custom đã tồn tại thì sẽ sao?**
+**Điều gì sẽ xảy ra nếu tôi thêm một thuộc tính tùy chỉnh đã tồn tại?**
 
-Nếu bạn thêm một thuộc tính custom đã tồn tại, giá trị hiện tại của nó sẽ bị ghi đè bằng giá trị mới. Bạn không cần phải xóa hoặc kiểm tra thuộc tính trước, vì Aspose.Slides sẽ tự động cập nhật giá trị của thuộc tính.
+Nếu bạn thêm một thuộc tính tùy chỉnh đã tồn tại, giá trị hiện có của nó sẽ bị ghi đè bằng giá trị mới. Bạn không cần phải xóa hoặc kiểm tra thuộc tính trước, vì Aspose.Slides sẽ tự động cập nhật giá trị của thuộc tính.
 
-**Tôi có thể truy cập các thuộc tính bản trình bày mà không tải toàn bộ bản trình bày không?**
+**Tôi có thể truy cập các thuộc tính bản trình chiếu mà không tải toàn bộ bản trình chiếu không?**
 
-Có, bạn có thể truy cập các thuộc tính bản trình bày mà không tải toàn bộ bản trình bày bằng cách sử dụng phương thức `getPresentationInfo` từ lớp [PresentationFactory](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationfactory/). Sau đó, sử dụng phương thức `readDocumentProperties` được cung cấp bởi lớp [PresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationinfo/) để đọc các thuộc tính một cách hiệu quả, tiết kiệm bộ nhớ và cải thiện hiệu năng.
+Có. Sử dụng [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationfactory/) và sau đó [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationinfo/#readDocumentProperties) để đọc siêu dữ liệu tài liệu đã lưu mà không cần tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/). Xem [Build a Lightweight Presentation Inventory](/slides/vi/php-java/examine-presentation/) để biết một ví dụ báo cáo đầy đủ và các giới hạn theo định dạng.

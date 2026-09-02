@@ -1,6 +1,6 @@
 ---
-title: Recuperare e Aggiornare le Informazioni sulla Presentazione in Python
-linktitle: Informazioni sulla Presentazione
+title: Recuperare e aggiornare le informazioni della presentazione in Python
+linktitle: Informazioni sulla presentazione
 type: docs
 weight: 30
 url: /it/python-net/examine-presentation/
@@ -11,7 +11,6 @@ keywords:
 - ottenere proprietà
 - leggere proprietà
 - cambiare proprietà
-- modificare proprietà
 - aggiornare proprietà
 - esaminare PPTX
 - esaminare PPT
@@ -21,104 +20,161 @@ keywords:
 - presentazione
 - Python
 - Aspose.Slides
-description: "Esplora diapositive, struttura e metadati nelle presentazioni PowerPoint e OpenDocument usando Python per ottenere rapidamente approfondimenti e audit di contenuto più intelligenti."
+description: "Esplora diapositive, struttura e metadati in presentazioni PowerPoint e OpenDocument utilizzando Python per ottenere approfondimenti più rapidi e audit di contenuti più intelligenti."
 ---
 ## **Panoramica**
 
-Questo articolo mostra come ispezionare le informazioni di presentazione in Aspose.Slides. Spiega come determinare il formato corrente di una presentazione senza caricare l’intero file, leggere le sue proprietà del documento e aggiornare tali proprietà quando necessario.
+Aspose.Slides può identificare il formato di una presentazione e leggere i metadati del documento senza creare un modello di oggetto della presentazione completo. Questo è utile quando è necessario classificare i file, creare un inventario o ispezionare le proprietà prima di decidere se caricare e elaborare il contenuto della presentazione.
 
-Gli esempi si basano sulle API [PresentationInfo](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentationinfo/) e [DocumentProperties](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/) e dimostrano operazioni tipiche per lavorare con i metadati delle presentazioni.
+Questo articolo dimostra l'ispezione leggera tramite PresentationFactory e PresentationInfo, così come gli aggiornamenti mirati tramite DocumentProperties.
 
 ## **Verificare il formato di una presentazione**
 
-Prima di lavorare su una presentazione, potresti voler scoprire in quale formato (PPT, PPTX, ODP e altri) si trovi al momento.
+Utilizza PresentationFactory.get_presentation_info per ispezionare un file senza creare un'istanza di Presentation. La proprietà PresentationInfo.load_format restituisce il formato rilevato, come PPTX, PPT o ODP.
 
-Puoi verificare il formato di una presentazione senza caricarla. Vedi questo codice Python:
-
-```py
+```python
 import aspose.slides as slides
 
-info1 = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-print(info1.load_format, info1.load_format == slides.LoadFormat.PPTX)
+file_names = ["pres.pptx", "pres.ppt", "pres.odp"]
 
-info2 = slides.PresentationFactory.instance.get_presentation_info("pres.odp")
-print(info2.load_format, info2.load_format == slides.LoadFormat.ODP)
-
-info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
-print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
+for file_name in file_names:
+    presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+    print(f"{file_name}: {presentation_info.load_format}")
 ```
 
-## **Ottenere le proprietà della presentazione**
+## **Creare un inventario di presentazioni leggero**
 
-Questo codice Python mostra come ottenere le proprietà della presentazione (informazioni sulla presentazione):
+Quando elabori molti file di presentazione, potresti aver bisogno di un inventario compatto per la convalida, l'indicizzazione o un sistema di gestione dei documenti. In questo scenario, utilizza PresentationFactory.get_presentation_info per ottenere un oggetto PresentationInfo, quindi chiama PresentationInfo.read_document_properties per leggere i metadati del documento. Questo approccio non crea un'istanza di Presentation né richiede di attraversare l'intero modello di oggetto della presentazione.
 
-```py
+Le proprietà estese esposte da DocumentProperties forniscono i seguenti valori di inventario:
+
+| Proprietà | Valore dell'inventario |
+| --- | --- |
+| [slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/slides/it/) | Numero totale di diapositive. |
+| [hidden_slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/hidden_slides/) | Numero di diapositive nascoste. |
+| [notes](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/notes/) | Numero di diapositive che contengono note. |
+| [paragraphs](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/paragraphs/) | Numero totale di paragrafi, se disponibile. |
+| [words](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/words/) | Numero totale di parole. |
+| [multimedia_clips](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/multimedia_clips/) | Numero totale di clip audio e video. |
+
+Il seguente esempio legge questi valori senza creare un oggetto Presentation e stampa un inventario compatto. Combina inoltre heading_pairs con titles_of_parts per visualizzare gruppi di contenuto come caratteri, temi e titoli delle diapositive.
+
+```python
+import os
 import aspose.slides as slides
 
-info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-props = info.read_document_properties()
-print(props.created_time)
-print(props.subject)
-print(props.title)
+file_path = "sample.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(file_path)
+document_properties = presentation_info.read_document_properties()
+
+print(f"File: {os.path.basename(file_path)}")
+print(f"Format: {presentation_info.load_format}")
+print(f"Title: {document_properties.title}")
+print(f"Author: {document_properties.author}")
+print("Statistics:")
+print(f"  Slides: {document_properties.slides}")
+print(f"  Hidden slides: {document_properties.hidden_slides}")
+print(f"  Slides with notes: {document_properties.notes}")
+print(f"  Paragraphs: {document_properties.paragraphs}")
+print(f"  Words: {document_properties.words}")
+print(f"  Multimedia clips: {document_properties.multimedia_clips}")
+
+heading_pairs = document_properties.heading_pairs or []
+titles_of_parts = document_properties.titles_of_parts or []
+part_index = 0
+
+if not heading_pairs or not titles_of_parts:
+    print("Content groups: not available")
+else:
+    print("Content groups:")
+
+    for heading_pair in heading_pairs:
+        print(f"  {heading_pair.name} ({heading_pair.count})")
+
+        for _ in range(heading_pair.count):
+            if part_index >= len(titles_of_parts):
+                break
+
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
+
+    if part_index < len(titles_of_parts):
+        print("  Other parts:")
+
+        while part_index < len(titles_of_parts):
+            print(f"    - {titles_of_parts[part_index]}")
+            part_index += 1
 ```
 
-Potresti voler vedere le [properties under the DocumentProperties](https://reference.aspose.com/slides/it/python-net/aspose.slides/documentproperties/#properties) class.
+Ogni HeadingPair fornisce un nome di gruppo e il numero di elementi in quel gruppo. DocumentProperties.titles_of_parts è una raccolta piatta e ordinata, quindi consuma il numero di titoli consecutivi specificati da ciascuna coppia di intestazioni.
+
+### **Metadati memorizzati e limitazioni di formato**
+
+Le proprietà di inventario restituite da PresentationInfo.read_document_properties riflettono i metadati disponibili nel documento sorgente. Aspose.Slides non carica e attraversa il modello di oggetto della presentazione per ricalcolare questi valori per questa chiamata. Le proprietà mancanti sono rappresentate da valori predefiniti e i valori memorizzati potrebbero essere obsoleti se l'applicazione che ha salvato il file per ultima non ha aggiornato le sue proprietà del documento.
+
+- **PPTX:** Il formato fornisce proprietà di documento estese per il conteggio di diapositive, note, diapositive nascoste, paragrafi, parole e multimedia, nonché coppie di intestazioni e titoli delle parti. La disponibilità dipende da quali proprietà sono state scritte dal produttore del documento.
+- **PPT:** Il formato binario può memorizzare le corrispondenti proprietà di riepilogo del documento. Se una proprietà è assente o non è stata aggiornata dal produttore del documento, Aspose.Slides restituisce il valore memorizzato o predefinito anziché calcolarlo dalle diapositive.
+- **ODP:** I metadati OpenDocument forniscono statistiche generali del documento, come conteggi di pagine, paragrafi e parole, ma questi valori non corrispondono a tutte le proprietà estese specifiche di PowerPoint. I metadati di diapositive nascoste, diapositive con note, multimedia, coppie di intestazioni e titoli delle parti potrebbero non essere disponibili e le proprietà di inventario potrebbero restituire valori predefiniti. Non considerare un valore zero o una raccolta vuota come prova autorevole dell'assenza del contenuto corrispondente.
+
+Utilizza l'approccio di metadati leggeri per inventari e controlli preliminari. Carica la presentazione e ispeziona il suo modello di oggetto live quando il risultato deve riflettere le modifiche in memoria o quando è necessario verificare il contenuto reale della presentazione.
 
 ## **Aggiornare le proprietà della presentazione**
 
-Aspose.Slides fornisce il metodo [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) che consente di modificare le proprietà della presentazione.
+Le proprietà restituite da PresentationInfo.read_document_properties possono anche essere modificate senza creare un'istanza di Presentation. Applica le modifiche con PresentationInfo.update_document_properties, quindi scrivi la presentazione associata con PresentationInfo.write_binded_presentation.
 
-Supponiamo di avere una presentazione PowerPoint con le proprietà del documento illustrate di seguito.
+L'immagine seguente mostra le proprietà originali del documento.
 
 ![Proprietà originali del documento della presentazione PowerPoint](input_properties.png)
 
-Questo esempio di codice mostra come modificare alcune proprietà della presentazione:
+Il seguente esempio modifica il titolo e l'ora dell'ultimo salvataggio e scrive il risultato in un nuovo file:
 
-```py
-import aspose.slides as slides
+```python
 import datetime
+import aspose.slides as slides
 
-file_name = "sample.pptx"
+source_file = "sample.pptx"
+output_file = "sample_with_updated_properties.pptx"
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(source_file)
+document_properties = presentation_info.read_document_properties()
 
-info = slides.PresentationFactory.instance.get_presentation_info(file_name)
+document_properties.title = "Quarterly sales report"
+document_properties.last_saved_time = datetime.datetime.now(datetime.timezone.utc)
 
-properties = info.read_document_properties()
-properties.title = "My title"
-properties.last_saved_time = datetime.datetime.now()
+presentation_info.update_document_properties(document_properties)
 
-info.update_document_properties(properties)
-info.write_binded_presentation(file_name)
+with open(output_file, "wb") as output_stream:
+    presentation_info.write_binded_presentation(output_stream)
 ```
 
-I risultati della modifica delle proprietà del documento sono mostrati di seguito.
+L'immagine seguente mostra le proprietà del documento aggiornate.
 
-![Proprietà modificate del documento della presentazione PowerPoint](output_properties.png)
+![Proprietà del documento modificate della presentazione PowerPoint](output_properties.png)
 
 ## **Link utili**
 
-Per ottenere ulteriori informazioni su una presentazione e sui suoi attributi di sicurezza, potresti trovare questi collegamenti utili:
+Per controlli di sicurezza correlati e impostazioni di protezione, consulta i seguenti articoli:
 
-- [Password-Protect Presentations](/slides/it/python-net/password-protected-presentation/)
-- [Write-Protect Presentations](/slides/it/python-net/write-protected-presentation/)
+- [Presentazioni protette da password](/slides/it/python-net/password-protected-presentation/)
+- [Presentazioni protette in scrittura](/slides/it/python-net/write-protected-presentation/)
 
 ## **FAQ**
 
-**Come posso verificare se i font sono incorporati e quali sono?**
+**Come posso verificare se i caratteri sono incorporati e quali sono?**
 
-Cerca le informazioni sui [embedded-font](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) a livello di presentazione, quindi confronta tali voci con l’insieme dei [fonts actually used across content](https://reference.aspose.com/slides/it/python-net/aspose.slides/fontsmanager/get_fonts/) per identificare quali font sono critici per il rendering.
+Carica la presentazione e utilizza Presentation.fonts_manager. Chiama FontsManager.get_embedded_fonts per ottenere i caratteri incorporati e FontsManager.get_fonts per ottenere i caratteri utilizzati dalla presentazione. Confronta i due risultati per individuare i caratteri necessari per il rendering ma non incorporati.
 
-**Come posso capire rapidamente se il file contiene diapositive nascoste e quante sono?**
+**Come posso capire rapidamente se il file contiene diapositive nascoste e quante?**
 
-Itera attraverso la [slide collection](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/) e ispeziona il [visibility flag](https://reference.aspose.com/slides/it/python-net/aspose.slides/slide/hidden/) di ogni diapositiva.
+Quando i metadati del documento memorizzati sono sufficienti, leggi DocumentProperties.hidden_slides tramite PresentationFactory.get_presentation_info e PresentationInfo.read_document_properties. Questo è adatto per un inventario leggero. Se la presentazione è stata modificata in memoria, i metadati memorizzati potrebbero mancare o essere obsoleti, o se devi verificare i valori live, itera attraverso Presentation.slides e ispeziona la proprietà Slide.hidden di ciascuna diapositiva.
 
-**Posso rilevare se è stato usato un formato di diapositiva personalizzato e se differisce dalle impostazioni predefinite?**
+**Posso rilevare se è stata usata una dimensione e orientamento della diapositiva personalizzati e se differiscono dai valori predefiniti?**
 
-Sì. Confronta le attuali [slide size](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/slide_size/) e l’orientamento con i preset standard; questo aiuta a prevedere il comportamento per stampa ed esportazione.
+Sì. Carica la presentazione e leggi Presentation.slide_size. Ispeziona SlideSize.type, SlideSize.size e SlideSize.orientation per confrontare le impostazioni attuali con il preset e le dimensioni previste.
 
-**Esiste un modo rapido per vedere se i grafici fanno riferimento a fonti dati esterne?**
+**Esiste un modo rapido per verificare se i grafici fanno riferimento a fonti di dati esterne?**
 
-Sì. Scorri tutti i [charts](https://reference.aspose.com/slides/it/python-net/aspose.slides.charts/chart/), verifica il loro [data source](https://reference.aspose.com/slides/it/python-net/aspose.slides.charts/chartdata/data_source_type/) e annota se i dati sono interni o basati su collegamenti, includendo eventuali link interrotti.
+Sì. Individua ogni Chart e ispeziona ChartData.data_source_type. Per una cartella di lavoro esterna, leggi ChartData.external_workbook_path. Il tipo di origine dati e il percorso identificano un riferimento esterno, ma verificare se la destinazione è disponibile richiede un controllo di risorse separato.
 
-**Come posso valutare le diapositive “pesanti” che potrebbero rallentare il rendering o l’esportazione PDF?**
+**Come posso valutare le diapositive 'pesanti' che potrebbero rallentare il rendering o l'esportazione in PDF?**
 
-Per ogni diapositiva, conta gli oggetti e cerca immagini di grandi dimensioni, trasparenze, ombre, animazioni e contenuti multimediali; assegna un punteggio di complessità approssimativo per segnalare potenziali colli di bottiglia delle prestazioni.
+Non esiste un'unica proprietà di complessità. Attraversa Presentation.slides e la raccolta BaseSlide.shapes di ogni diapositiva. Usa il conteggio delle forme e la presenza di immagini grandi, effetti, animazioni o multimedia come segnali di screening, e misura un rendering o un'esportazione rappresentativa prima di considerare una diapositiva come un collo di bottiglia prestazionale confermato.
