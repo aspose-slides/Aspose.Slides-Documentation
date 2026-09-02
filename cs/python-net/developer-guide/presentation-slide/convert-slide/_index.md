@@ -15,26 +15,26 @@ keywords:
 - snímek na bitmapu
 - Python
 - Aspose.Slides
-description: "Naučte se, jak pomocí Aspose.Slides pro Python via .NET převádět snímky PowerPoint a OpenDocument do různých formátů. Jednoduše exportujte snímky PPTX a ODP do BMP, PNG, JPEG, TIFF a dalších formátů s vysokou kvalitou."
+description: "Zjistěte, jak převést snímky PowerPoint a OpenDocument do různých formátů pomocí Aspose.Slides pro Python via .NET. Jednoduše exportujte snímky PPTX a ODP do BMP, PNG, JPEG, TIFF a dalších s vysokou kvalitou výsledků."
 ---
 ## **Úvod**
 
-Aspose.Slides for Python via .NET vám umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
+Aspose.Slides pro Python via .NET umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
 
-Chcete‑li převést snímek na obrázek, postupujte podle těchto kroků:
+Pro převod snímku na obrázek postupujte takto:
 
-1. Definujte požadovaná nastavení převodu a vyberte snímky, které chcete exportovat, pomocí:
+1. Definujte požadovaná nastavení konverze a vyberte snímky, které chcete exportovat pomocí:
     - třídy [TiffOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/tiffoptions/), nebo
     - třídy [RenderingOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/renderingoptions/).
-2. Vygenerujte obrázek snímku zavoláním metody `get_image` ze třídy [Slide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/).
+2. Vygenerujte obrázek snímku voláním metody `get_image` ze třídy [Slide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/).
 
-V Aspose.Slides for Python via .NET je [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/) třída, která vám umožňuje pracovat s obrázky definovanými pixelovými daty. Pomocí instance této třídy můžete ukládat obrázky v široké škále formátů (BMP, JPG, PNG atd.).
+V Aspose.Slides pro Python via .NET je třída [IImage](https://reference.aspose.com/slides/cs/python-net/aspose.slides/iimage/) třídou, která vám umožňuje pracovat s obrázky definovanými pixelovými daty. Můžete použít instanci této třídy k uložení obrázků v široké škále formátů (BMP, JPG, PNG atd.).
 
 ## **Převod snímků na bitmapu a uložení obrázků ve formátu PNG**
 
-Snímek můžete převést na objekt bitmapy a použít jej přímo ve své aplikaci. Případně můžete snímek převést na bitmapu a následně uložit obrázek ve formátu JPEG nebo jakémkoli jiném preferovaném formátu.
+Můžete převést snímek na objekt bitmapy a použít jej přímo ve své aplikaci. Případně můžete převést snímek na bitmapu a poté uložit obrázek ve formátu JPEG nebo v jiném preferovaném formátu.
 
-Tento Python kód ukazuje, jak převést první snímek prezentace na objekt bitmapy a následně uložit obrázek ve formátu PNG:
+Tento Python kód ukazuje, jak převést první snímek prezentace na objekt bitmapy a poté uložit obrázek ve formátu PNG:
 
 ```py 
 import aspose.slides as slides
@@ -46,11 +46,11 @@ with slides.Presentation("Presentation.pptx") as presentation:
         image.save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
-## **Převod snímků na obrázky s vlastním rozměrem**
+## **Převod snímků na obrázky s vlastními rozměry**
 
-Možná budete potřebovat obrázek o určité velikosti. Pomocí přetížení metody [get_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) můžete převést snímek na obrázek s konkrétními rozměry (šířka a výška). 
+Možná budete potřebovat obrázek s určitými rozměry. Pomocí přetížení metody [get_image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) můžete převést snímek na obrázek s konkrétními rozměry (šířka a výška).
 
-Ukázkový kód demonstruje, jak to provést:
+Tento ukázkový kód ukazuje, jak to provést:
 
 ```py
 import aspose.pydrawing as draw
@@ -59,7 +59,7 @@ import aspose.slides as slides
 image_size = draw.Size(1820, 1040)
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # Převést první snímek v prezentaci na bitmapu s uvedenou velikostí.
+    # Převést první snímek v prezentaci na bitmapu se zadanou velikostí.
     with presentation.slides[0].get_image(image_size) as image:
         # Uložit obrázek ve formátu JPEG.
         image.save("Slide_0.jpg", slides.ImageFormat.JPEG)
@@ -69,7 +69,7 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 Některé snímky mohou obsahovat poznámky a komentáře.
 
-Aspose.Slides poskytuje dvě třídy —[TiffOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/tiffoptions/) a [RenderingOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/renderingoptions/) —které vám umožňují řídit vykreslování snímků prezentace do obrázků. Obě třídy obsahují vlastnost `slides_layout_options`, která vám umožňuje konfigurovat vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
+Aspose.Slides poskytuje dvě třídy — [TiffOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/tiffoptions/) a [RenderingOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/renderingoptions/) — které vám umožňují řídit vykreslování snímků prezentace do obrázků. Obě třídy obsahují vlastnost `slides_layout_options`, která vám umožňuje nakonfigurovat vykreslování poznámek a komentářů na snímku při jeho převodu na obrázek.
 
 S třídou [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/notescommentslayoutingoptions/) můžete určit preferovanou pozici poznámek a komentářů ve výsledném obrázku.
 
@@ -100,18 +100,16 @@ with slides.Presentation("Presentation_with_notes_and_comments.pptx") as present
 ```
 
 {{% alert title="Note" color="warning" %}} 
-
-V jakémkoli procesu převodu snímku na obrázek nelze vlastnost [notes_position](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) nastavit na `BOTTOM_FULL` (pro určení pozice poznámek), protože text poznámky může být příliš rozsáhlý a nevejde se do určené velikosti obrázku.
-
+V jakémkoli procesu převodu snímků na obrázek nelze vlastnost [notes_position](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) nastavit na `BOTTOM_FULL` (pro určení pozice poznámek), protože text poznámky může být příliš velký a nebude se vejít do zadané velikosti obrázku.
 {{% /alert %}} 
 
 ## **Převod snímků na obrázky pomocí TIFF možností**
 
-Třída [TiffOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/tiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že vám umožňuje zadat parametry jako velikost, rozlišení, barevnou paletu a další.
+Třída [TiffOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides.export/tiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že umožňuje zadat parametry jako velikost, rozlišení, barevná paleta a další.
 
-Tento Python kód ukazuje proces převodu, kde jsou použity TIFF možnosti k výstupu černobílého obrázku s rozlišením 300 DPI a velikostí 2160 × 2800:
+Tento Python kód ukazuje proces konverze, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 × 2800:
 
-```py 
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
@@ -120,14 +118,14 @@ with slides.Presentation("sample.pptx") as presentation:
     # Získat první snímek z prezentace.
     slide = presentation.slides[0]
 
-    # Nastavit konfiguraci výstupního TIFF obrázku.
+    # Nakonfigurovat nastavení výstupního TIFF obrázku.
     options = slides.export.TiffOptions()
     options.image_size = draw.Size(2160, 2880)                                 # Nastavit velikost obrázku.
     options.pixel_format = slides.export.ImagePixelFormat.FORMAT_1BPP_INDEXED  # Nastavit formát pixelů (černobílý).
     options.dpi_x = 300                                                        # Nastavit horizontální rozlišení.
     options.dpi_y = 300                                                        # Nastavit vertikální rozlišení.
 
-    # Převést snímek na obrázek s určenými možnostmi.
+    # Převést snímek na obrázek s uvedenými možnostmi.
     with slide.get_image(options) as image:
         # Uložit obrázek ve formátu TIFF.
         image.save("output.tiff", slides.ImageFormat.TIFF)
@@ -135,9 +133,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Převod všech snímků na obrázky**
 
-Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž prakticky převede celou prezentaci na sérii obrázků.
+Aspose.Slides umožňuje převést všechny snímky v prezentaci na obrázky, čímž efektivně převede celou prezentaci na sérii obrázků.
 
-Ukázkový kód demonstruje, jak v Pythonu převést všechny snímky v prezentaci na obrázky:
+Tento ukázkový kód ukazuje, jak převést všechny snímky v prezentaci na obrázky v Pythonu:
 
 ```py
 import aspose.slides as slides
@@ -148,7 +146,7 @@ scale_y = scale_x
 with slides.Presentation("Presentation.pptx") as presentation:
     # Vykreslit prezentaci na obrázky snímek po snímku.
     for i, slide in enumerate(presentation.slides):
-        # Ovládat skryté snímky (nevykreslovat skryté snímky).
+        # Ovládání skrytých snímků (nevykreslovat skryté snímky).
         if slide.hidden:
             continue
 
@@ -158,15 +156,21 @@ with slides.Presentation("Presentation.pptx") as presentation:
             image.save("Slide_{0}.jpg".format(i), slides.ImageFormat.JPEG)
 ```
 
+## **Barevné vykreslování emoji**
+
+{{% alert title="Note" color="warning" %}} 
+Pro správné vykreslení barevných emoji při převodu snímků prezentace na obrázky musí být fonty emoji použité v prezentaci nainstalovány a dostupné na systému provádějícím převod. Například pokud prezentace používá **Segoe UI Emoji** a tento font chybí, mohou se emoji v výstupních obrázcích zobrazovat černobíle.
+{{% /alert %}}
+
 ## **Často kladené otázky**
 
 **Podporuje Aspose.Slides vykreslování snímků s animacemi?**
 
 Ne, metoda `get_image` ukládá pouze statický obrázek snímku, bez animací.
 
-**Lze skryté snímky exportovat jako obrázky?**
+**Mohou být skryté snímky exportovány jako obrázky?**
 
-Ano, skryté snímky lze zpracovat stejně jako běžné. Jen se ujistěte, že jsou zahrnuty do smyčky zpracování.
+Ano, skryté snímky lze zpracovat stejně jako běžné. Jen se ujistěte, že jsou zahrnuty ve smyčce zpracování.
 
 **Lze obrázky uložit se stíny a efekty?**
 

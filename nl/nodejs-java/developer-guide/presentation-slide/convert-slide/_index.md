@@ -1,11 +1,11 @@
 ---
-title: Presentatieslides omzetten naar afbeeldingen in JavaScript
+title: Presentatieslides converteren naar afbeeldingen in JavaScript
 linktitle: Slide naar afbeelding
 type: docs
 weight: 35
 url: /nl/nodejs-java/convert-slide/
 keywords:
-- slide omzetten
+- slide converteren
 - slide exporteren
 - slide naar afbeelding
 - slide opslaan als afbeelding
@@ -19,31 +19,31 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Slides van PPT, PPTX en ODP omzetten naar afbeeldingen in JavaScript met Aspose.Slides voor Node.js via Java - snelle, hoogwaardige rendering met duidelijke code-voorbeelden."
+description: "Converteer slides van PPT, PPTX en ODP naar afbeeldingen in JavaScript met Aspose.Slides voor Node.js via Java — snelle, hoogwaardige weergave met heldere code-voorbeelden."
 ---
 ## **Inleiding**
 
-Aspose.Slides for Node.js via Java stelt u in staat om eenvoudig PowerPoint- en OpenDocument‑presentatieslides om te zetten naar verschillende afbeeldingsformaten, waaronder BMP, PNG, JPG (JPEG), GIF en andere.
+Aspose.Slides voor Node.js via Java maakt het eenvoudig om PowerPoint- en OpenDocument-presentatieslides om te zetten naar verschillende afbeeldingsformaten, waaronder BMP, PNG, JPG (JPEG), GIF en andere.
 
-Om een slide om te zetten naar een afbeelding, volgt u deze stappen:
+Om een slide naar een afbeelding te converteren, volg deze stappen:
 
-1. Definieer de gewenste conversie‑instellingen en selecteer de slides die u wilt exporteren met behulp van:
+1. Definieer de gewenste conversie‑instellingen en selecteer de slides die je wilt exporteren door gebruik te maken van:
     - De [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/) klasse, of
     - De [RenderingOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/renderingoptions/) klasse.
 2. Genereer de slide‑afbeelding door de [getImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/#getImage) methode aan te roepen.
 
-In Aspose.Slides for Node.js via Java is een [IImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/iimage/) een klasse die u toestaat te werken met afbeeldingen gedefinieerd door pixelgegevens. U kunt deze klasse gebruiken om afbeeldingen op te slaan in een breed scala aan formaten (BMP, JPG, PNG, enz.).
+In Aspose.Slides voor Node.js via Java is een [IImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/iimage/) een klasse die je in staat stelt te werken met afbeeldingen gedefinieerd door pixelgegevens. Je kunt deze klasse gebruiken om afbeeldingen op te slaan in een breed scala aan formaten (BMP, JPG, PNG, enz.).
 
-## **Slides omzetten naar bitmap en de afbeeldingen opslaan in PNG**
+## **Slides naar bitmap converteren en de afbeeldingen opslaan als PNG**
 
-U kunt een slide converteren naar een bitmap‑object en deze direct in uw applicatie gebruiken. Alternatief kunt u een slide converteren naar een bitmap en vervolgens de afbeelding opslaan in JPEG of een ander gewenst formaat.
+Je kunt een slide converteren naar een bitmap‑object en direct in je applicatie gebruiken. Als alternatief kun je een slide converteren naar een bitmap en vervolgens de afbeelding opslaan als JPEG of een ander gewenst formaat.
 
-Deze JavaScript‑code toont hoe u de eerste slide van een presentatie naar een bitmap‑object converteert en vervolgens de afbeelding opslaat in PNG‑formaat:
+Deze JavaScript‑code toont hoe je de eerste slide van een presentatie converteert naar een bitmap‑object en vervolgens de afbeelding opslaat in PNG‑formaat:
 
 ```js
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Converteer de eerste slide in de presentatie naar een bitmap.
+    // Converteer de eerste slide van de presentatie naar een bitmap.
     let image = presentation.getSlides().get_Item(0).getImage();
     try {
         // Sla de afbeelding op in PNG-formaat.
@@ -56,18 +56,18 @@ try {
 }
 ```
 
-## **Slides omzetten naar afbeeldingen met aangepaste afmetingen**
+## **Slides naar afbeeldingen converteren met aangepaste afmetingen**
 
-U heeft mogelijk een afbeelding van een bepaalde grootte nodig. Met een overload van de [getImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/#getImage) kunt u een slide converteren naar een afbeelding met specifieke afmetingen (breedte en hoogte). 
+Het kan nodig zijn een afbeelding van een bepaalde grootte te krijgen. Met een overload van de [getImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/#getImage) kun je een slide converteren naar een afbeelding met specifieke afmetingen (breedte en hoogte). 
 
-Deze voorbeeldcode toont hoe u dit doet:
+Deze voorbeeldcode laat zien hoe je dit doet:
 
 ```js
 let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Converteer de eerste slide in de presentatie naar een bitmap met de opgegeven grootte.
+    // Converteer de eerste slide van de presentatie naar een bitmap met de opgegeven grootte.
     let image = presentation.getSlides().get_Item(0).getImage(imageSize);
     try {
         // Sla de afbeelding op in JPEG-formaat.
@@ -80,21 +80,21 @@ try {
 }
 ```
 
-## **Slides met notities en opmerkingen omzetten naar afbeeldingen**
+## **Slides met notities en opmerkingen naar afbeeldingen converteren**
 
 Sommige slides kunnen notities en opmerkingen bevatten.
 
-Aspose.Slides biedt twee klassen—[TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/) en [RenderingOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/renderingoptions/)—die u controle geven over het renderen van presentatieslides naar afbeeldingen. Beide klassen bevatten de `setSlidesLayoutOptions`‑methode, waarmee u de weergave van notities en opmerkingen op een slide kunt configureren bij het omzetten naar een afbeelding.
+Aspose.Slides biedt twee klassen—[TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/) en [RenderingOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/renderingoptions/)—die je in staat stellen de rendering van presentatieslides naar afbeeldingen te regelen. Beide klassen bevatten de `setSlidesLayoutOptions`‑methode, waarmee je de weergave van notities en opmerkingen op een slide kunt configureren bij het converteren naar een afbeelding.
 
-Met de [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/notescommentslayoutingoptions/) klasse kunt u de gewenste positie voor notities en opmerkingen in de resulterende afbeelding opgeven.
+Met de [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/notescommentslayoutingoptions/) klasse kun je de gewenste positie voor notities en opmerkingen in de resulterende afbeelding opgeven.
 
-Deze JavaScript‑code toont hoe u een slide met notities en opmerkingen converteert:
+Deze JavaScript‑code toont hoe je een slide met notities en opmerkingen converteert:
 
 ```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Load a presentation file.
+// Laad een presentatiebestand.
 let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
@@ -122,15 +122,15 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-In elk slide‑naar‑afbeelding‑conversieproces kan de [setNotesPosition](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition)‑methode `BottomFull` (om de positie voor notities op te geven) niet toepassen, omdat de tekst van een notitie mogelijk te groot is om binnen de opgegeven afbeeldingsgrootte te passen.
+In elk slide‑naar‑afbeelding‑conversieproces kan de `setNotesPosition`‑methode `BottomFull` (om de positie van notities op te geven) niet toepassen omdat de tekst van een notitie te groot kan zijn om binnen de opgegeven afbeeldingsgrootte te passen.
 
 {{% /alert %}} 
 
-## **Slides omzetten naar afbeeldingen met TIFF‑opties**
+## **Slides naar afbeeldingen converteren met TIFF‑opties**
 
-De [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/) klasse biedt meer controle over de resulterende TIFF‑afbeelding door parameters zoals grootte, resolutie, kleurbetalings en meer te specificeren.
+De [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/) klasse biedt meer controle over de resulterende TIFF‑afbeelding door je parameters zoals grootte, resolutie, kleurenpalet en meer te laten specificeren.
 
-Deze JavaScript‑code toont een conversieproces waarbij TIFF‑opties worden gebruikt om een zwart‑wit afbeelding met een resolutie van 300 dpi en een grootte van 2160 × 2800 te genereren:
+Deze JavaScript‑code toont een conversieproces waarbij TIFF‑opties worden gebruikt om een zwart‑wit afbeelding te produceren met een resolutie van 300 DPI en een grootte van 2160 × 2800:
 
 ```js
 // Laad een presentatiebestand.
@@ -139,10 +139,10 @@ try {
     // Haal de eerste slide uit de presentatie.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Configureer de instellingen van de TIFF-uitvoerafbeelding.
+    // Configureer de instellingen van de uitvoer‑TIFF‑afbeelding.
     let tiffOptions = new aspose.slides.TiffOptions();
     tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Stel de afbeeldingsgrootte in.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Stel het pixelformaat in (zwart-wit).
+    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Stel het pixelformaat in (zwart‑wit).
     tiffOptions.setDpiX(300);                                                          // Stel de horizontale resolutie in.
     tiffOptions.setDpiY(300);                                                          // Stel de verticale resolutie in.
 
@@ -161,15 +161,15 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-Tiff‑ondersteuning is niet gegarandeerd in versies ouder dan JDK 9.
+Tiff‑ondersteuning wordt niet gegarandeerd in versies ouder dan JDK 9.
 
 {{% /alert %}} 
 
-## **Alle slides omzetten naar afbeeldingen**
+## **Alle slides naar afbeeldingen converteren**
 
-Aspose.Slides stelt u in staat om alle slides in een presentatie om te zetten naar afbeeldingen, waardoor de volledige presentatie wordt geconverteerd naar een reeks afbeeldingen.
+Aspose.Slides maakt het mogelijk om alle slides in een presentatie naar afbeeldingen te converteren, waardoor de volledige presentatie wordt omgezet in een reeks afbeeldingen.
 
-Deze voorbeeldcode toont hoe u alle slides in een presentatie naar afbeeldingen converteert in JavaScript:
+Deze voorbeeldcode laat zien hoe je alle slides in een presentatie naar afbeeldingen converteert met JavaScript:
 
 ```js
 const scaleX = 2;
@@ -177,14 +177,14 @@ const scaleY = scaleX;
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Render de presentatie naar afbeeldingen dia per dia.
+    // Render de presentatie naar afbeeldingen dia voor dia.
     for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Beheer verborgen dia's (render geen verborgen dia's).
+        // Beheer verborgen slides (render geen verborgen slides).
         if (presentation.getSlides().get_Item(i).getHidden()) {
             continue;
         }
 
-        // Converteer de dia naar een afbeelding.
+        // Converteer de slide naar een afbeelding.
         let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
         try {
             // Sla de afbeelding op in JPEG-formaat.
@@ -198,6 +198,12 @@ try {
 }
 ```
 
+## **Kleur‑emoji rendering**
+
+{{% alert title="Note" color="warning" %}} 
+Om kleur‑emoji's correct te renderen bij het converteren van presentatieslides naar afbeeldingen, moeten de emoji‑lettertypen die in de presentatie worden gebruikt geïnstalleerd en beschikbaar zijn op het systeem dat de conversie uitvoert. Bijvoorbeeld, als de presentatie **Segoe UI Emoji** gebruikt en dit lettertype ontbreekt, kunnen emoji's in monochroom verschijnen in de resulterende afbeeldingen.
+{{% /alert %}}
+
 ## **FAQ**
 
 **Ondersteunt Aspose.Slides het renderen van slides met animaties?**
@@ -206,8 +212,8 @@ Nee, de `getImage`‑methode slaat alleen een statische afbeelding van de slide 
 
 **Kunnen verborgen slides geëxporteerd worden als afbeeldingen?**
 
-Ja, verborgen slides kunnen net als normale slides verwerkt worden. Zorg er alleen voor dat ze in de verwerkingslus worden meegenomen.
+Ja, verborgen slides kunnen worden verwerkt net als normale slides. Zorg er alleen voor dat ze worden opgenomen in de verwerkingslus.
 
-**Kunnen afbeeldingen opgeslagen worden met schaduwen en effecten?**
+**Kunnen afbeeldingen worden opgeslagen met schaduwen en effecten?**
 
 Ja, Aspose.Slides ondersteunt het renderen van schaduwen, transparantie en andere grafische effecten bij het opslaan van slides als afbeeldingen.
