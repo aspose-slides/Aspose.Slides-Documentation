@@ -1,5 +1,5 @@
 ---
-title: Videokeretek kezelése prezentációkban JavaScript használatával
+title: Videokeretek kezelése bemutatókban JavaScript használatával
 linktitle: Videokeret
 type: docs
 weight: 10
@@ -14,34 +14,37 @@ keywords:
 - webes forrás
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet programozottan hozzáadni és kinyerni videokereteket a PowerPoint és OpenDocument diákkban az Aspose.Slides for Node.js segítségével Java nyelven. Gyors útmutató."
+description: "Tanulja meg, hogyan adhat hozzá és nyerhet ki videokereteket programozott módon PowerPoint és OpenDocument diáiban az Aspose.Slides for Node.js Java használatával. Gyors útmutató."
 ---
 ## **Bevezetés**
 
-Egy jól elhelyezett videó a bemutatóban hatásosabbá teheti az üzenetet, és növelheti a közönség bevonódását.
+Egy jól elhelyezett videó egy bemutatóban meggyőzőbbé teheti az üzenetet, és növelheti a közönség elköteleződését.  
 
-A PowerPoint két módon teszi lehetővé, hogy videókat adjon hozzá egy diára a bemutatóban:
-* Helyi videó hozzáadása vagy beágyazása (a gépén tárolt)
-* Online videó hozzáadása (webes forrásból, például YouTube).
+A PowerPoint két módon teszi lehetővé a videók hozzáadását egy diára a bemutatóban:
 
-Annak érdekében, hogy videókat (videoobjektumokat) adjon hozzá egy bemutatóhoz, az Aspose.Slides a [Video](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/) osztályt, a [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) osztályt és más kapcsolódó típusokat biztosít.
+* Helyi videó hozzáadása vagy beágyazása (a gépén tárolt)  
+* Online videó hozzáadása (például YouTube-ról származó webes forrásból).  
 
-## **Beágyazott videokeret létrehozása**
+Az Aspose.Slides biztosítja a [Video](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/) osztályt, a [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) osztályt és más releváns típusokat, hogy videókat (videoobjektumokat) adhasson hozzá egy bemutatóhoz.
 
-Ha a diára hozzáadni kívánt videofájl helyileg van tárolva, létrehozhat egy videokeretet a videó bemutatóba ágyazásához.
+## **Beágyazott Videokeret Létrehozása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.
-2. Szerezze meg egy dia referenciáját az indexe alapján.
-3. Adjon hozzá egy [Video](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/) objektumot, és adja meg a videofájl elérési útját a videó bemutatóba ágyazásához.
-4. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot a videó keret létrehozásához.
-5. Mentse el a módosított bemutatót.
+Ha a diára hozzáadni kívánt videofájl helyileg van tárolva, létrehozhat egy videokeretet a videó bemutatóba való beágyazásához.  
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
+1. Szerezze meg egy dia referenciaját az indexén keresztül.  
+1. Adjon hozzá egy [Video](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/) objektumot, és adja meg a videofájl útvonalát a videó bemutatóba való beágyazásához.  
+1. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot a videó keretének létrehozásához.  
+1. Mentse el a módosított bemutatót.  
+
+Ez a JavaScript kód megmutatja, hogyan lehet helyileg tárolt videót hozzáadni egy bemutatóhoz:
 
 ```javascript
-// Létrehozza a Presentation osztályt
+// Példányosítja a Presentation osztályt
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     // Betölti a videót
@@ -49,7 +52,7 @@ try {
     var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
     // Lekéri az első diát és hozzáad egy videokeretet
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-    // Elmenti a prezentációt a lemezre
+    // Elmenti a bemutatót a lemezre
     pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
 } finally {
@@ -59,7 +62,7 @@ try {
 }
 ```
 
-Alternatív megoldásként a videót közvetlenül a [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) metódusnak a fájl útvonalának átadásával is hozzáadhatja:
+Alternatív megoldásként videót adhat hozzá, ha a fájl útvonalát közvetlenül átadja az [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) metódusnak:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -73,18 +76,20 @@ try {
 }
 ```
 
-## **Videokeret létrehozása webes forrásból származó videóval**
+## **Webes Forrásból Származó Videóval Videokeret Létrehozása**
 
-A Microsoft [PowerPoint 2013 és újabb](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) támogatja a YouTube videókat a bemutatókban. Ha a használni kívánt videó online elérhető (például a YouTube-on), hozzáadhatja a bemutatóhoz a webes hivatkozásán keresztül.
+A Microsoft [PowerPoint 2013 és újabb](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) támogatja a YouTube videókat a bemutatókban. Ha a használni kívánt videó online elérhető (például YouTube-on), hozzáadhatja azt a bemutatóhoz a webes hivatkozáson keresztül.  
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból
-2. Szerezze meg egy dia referenciáját az indexe alapján.
-3. Adjon hozzá egy [Video](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/) objektumot, és adja meg a videó hivatkozását.
-4. Állítson be egy bélyegképet a videokerethez.
-5. Mentse el a bemutatót.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
+1. Szerezze meg egy dia referenciaját az indexén keresztül.  
+1. Adjon hozzá egy [Video](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/) objektumot, és adja meg a videó hivatkozását.  
+1. Állítson be egy miniatűrképet a videókerethez.  
+1. Mentse el a bemutatót.  
+
+Ez a JavaScript kód megmutatja, hogyan lehet webes videót egy diára a PowerPoint bemutatóban hozzáadni:
 
 ```javascript
-// Létrehozza a Presentation objektumot, amely egy prezentáció fájlt képvisel
+// Példányosít egy Presentation objektumot, amely egy prezentációs fájlt reprezentál
 var pres = new aspose.slides.Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -130,20 +135,87 @@ async function getImageStream(url) {
 }
 ```
 
-## **Videófeliratok kezelése**
+## **Videokeret Vágása**
 
-Az Aspose.Slides lehetővé teszi a videokeretek zárt feliratainak kezelését a PowerPoint bemutatókban. A feliratok WebVTT formátumban tárolódnak, és a [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) metóduson keresztül érhetők el.
+Az Aspose.Slides lehetővé teszi, hogy a videó lejátszott részét a trim‑from‑start és trim‑from‑end értékek beállításával irányítsa a [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/settrimfromstart/) és a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/settrimfromend/) segítségével. Mindkét értéket ezredmásodpercben kell megadni, és meghatározzák, hogy a videó elejéről és végéről mennyi időt hagyjon ki. Ezek a beállítások a bemutatóban a videó lejátszási beállításait módosítják; nem vágják vagy egyéb módon nem módosítják a beágyazott videó bináris adatát.  
 
-**Feliratok hozzáadása videokerethez**
+**Vágási Beállítások Beállítása**
 
-A feliratok videokerethez való hozzáadásához:
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.
-2. Adjon hozzá egy videót a bemutatóhoz.
-3. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot egy diára.
-4. Használja a [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) gyűjteményt egy WebVTT felirat sáv hozzáadásához.
-5. Mentse el a módosított bemutatót.
+Videokeret létrehozásához és a vágási beállítások megadásához:
 
-Az alábbi kód bemutatja, hogyan adhat feliratokat egy videokerethez:
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.  
+1. Adjon hozzá egy [Video](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/) objektumot a bemutatóhoz.  
+1. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot egy diára.  
+1. Állítsa be a trim‑from‑start és trim‑from‑end értékeket a [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/settrimfromstart/) és a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/settrimfromend/) segítségével.  
+1. Mentse el a módosított bemutatót.  
+
+Az alábbi kódpélda kihagyja a beágyazott videó első 2,5 másodpercét és az utolsó másodpercét lejátszáskor:
+
+```javascript
+const presentation = new aspose.slides.Presentation();
+try {
+    const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
+    try {
+        const video = presentation.getVideos().addVideo(
+            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
+        const slide = presentation.getSlides().get_Item(0);
+        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+
+        videoFrame.setTrimFromStart(2500);
+        videoFrame.setTrimFromEnd(1000);
+
+        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        videoStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**Vágási Beállítások Olvasása**
+
+A meglévő vágási beállítások ellenőrzéséhez töltse be a bemutatót, keresse meg az első dián a formák között a [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot, és olvassa ki az értékeket a [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) és a [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/gettrimfromend/) segítségével.  
+
+Az alábbi kódpélda megtalálja az első videokeretet az első dián, és ezredmásodpercben jelzi a vágási beállításait:
+
+```javascript
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapeCount = slide.getShapes().size();
+    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            const trimFromStart = videoFrame.getTrimFromStart();
+            const trimFromEnd = videoFrame.getTrimFromEnd();
+
+            console.log("Trim from start: " + trimFromStart + " ms");
+            console.log("Trim from end: " + trimFromEnd + " ms");
+            break;
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Videó Feliratok Kezelése**
+
+Az Aspose.Slides lehetővé teszi a videókeretekhez tartozó zárt feliratok kezelését PowerPoint bemutatókban. A feliratok WebVTT formátumban tárolódnak, és a [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) metóduson keresztül érhetők el.  
+
+**Feliratok Hozzáadása Videokerethez**
+
+Feliratok hozzáadásához egy videokerethez:
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.  
+1. Adjon hozzá egy videót a bemutatóhoz.  
+1. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot egy diára.  
+1. Használja a [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) gyűjteményt egy WebVTT feliratsáv hozzáadásához.  
+1. Mentse el a módosított bemutatót.  
+
+Az alábbi kód megmutatja, hogyan adhat feliratokat egy videokerethez:
 
 ```js
 let presentation = new aspose.slides.Presentation();
@@ -163,17 +235,18 @@ try {
 }
 ```
 
-A [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) osztály emellett a [addFromStream](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#addFromStream) metódust is biztosítja, amely lehetővé teszi feliratok hozzáadását egy adatfolyamból.
+A [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) osztály a [addFromStream](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#addFromStream) metódust is biztosítja, amely lehetővé teszi feliratok hozzáadását egy adatfolyamból.  
 
-**Feliratok kinyerése videokeretből**
+**Feliratok Kinyerése Videokeretből**
 
-A feliratok videokeretből történő kinyeréséhez:
-1. Töltse be a videót tartalmazó bemutatót.
-2. Keresse meg a cél [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot.
-3. Iteráljon végig a [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) gyűjteményen.
-4. Mentse minden feliratsávot egy `.vtt` fájlba.
+Feliratok kinyeréséhez egy videokeretből:
 
-Az alábbi kód bemutatja, hogyan nyerhet ki feliratokat egy videokeretből:
+1. Töltse be a videót tartalmazó bemutatót.  
+1. Keresse meg a cél [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot.  
+1. Iteráljon végig a [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) gyűjteményen.  
+1. Mentse minden feliratsávot egy `.vtt` fájlba.  
+
+Az alábbi kód megmutatja, hogyan nyerhetők ki a feliratok egy videokeretből:
 
 ```js
 let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
@@ -187,7 +260,7 @@ try {
             let trackCount = videoFrame.getCaptionTracks().getCount();
             for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
                 let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
-                // Mentés a feliratsáv WebVTT fájlba.
+                // A feliratsáv mentése WebVTT fájlba.
                 let filePath = captionTrack.getCaptionId() + ".vtt";
                 let captionData = Buffer.from(captionTrack.getBinaryData());
                 fs.writeFileSync(filePath, captionData);
@@ -199,15 +272,18 @@ try {
 }
 ```
 
-Minden [Captions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captions/) objektum tartalmazza a felirat azonosítóját, címkéjét, bináris adatát és a felirat szövegét UTF-8 karakterláncként.
+Minden [Captions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captions/) objektum megjeleníti a felirat azonosítóját, címkéjét, bináris adatát és a felirat szövegét UTF‑8 karakterláncként.  
 
-**Feliratok eltávolítása videokeretből**
+**Feliratok Törlése Videokeretből**
 
-A feliratok videokeretből való eltávolításához:
-1. Töltse be a videót tartalmazó bemutatót.
-2. Szerezze meg a cél [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot.
-3. Távolítsa el a feliratsávokat a [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) gyűjteményből.
-4. Mentse el a módosított bemutatót.
+Feliratok törléséhez egy videokeretből:
+
+1. Töltse be a videót tartalmazó bemutatót.  
+1. Szerezze meg a cél [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot.  
+1. Távolítsa el a feliratsávokat a [CaptionsCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/) gyűjteményből.  
+1. Mentse el a módosított bemutatót.  
+
+Az alábbi kód megmutatja, hogyan lehet az összes feliratot egy videokeretből eltávolítani:
 
 ```js
 let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
@@ -215,7 +291,7 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     let videoFrame = slide.getShapes().get_Item(0); // típus: com.aspose.slides.VideoFrame
 
-    // Eltávolítja az összes feliratot a videokeretről.
+    // Eltávolítja az összes feliratot a videokeretből.
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -224,18 +300,21 @@ try {
 }
 ```
 
-Ha csak egy feliratsávot szeretne eltávolítani, használja a [remove](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#remove) vagy a [removeAt](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#removeAt) metódust a [clear](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#clear) helyett.
+Ha csak egy feliratsávot szeretne eltávolítani, használja a [remove](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#remove) vagy a [removeAt](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#removeAt) metódusokat a [clear](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/captionscollection/#clear) helyett.  
 
-## **Videó kinyerése diáról**
+## **Videó Kinyerése Diáról**
 
-A videók diákhoz való hozzáadása mellett az Aspose.Slides lehetővé teszi a bemutatókba ágyazott videók kinyerését.
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból a videót tartalmazó bemutató betöltéséhez.
-2. Iteráljon végig az összes [Slide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/) objektumon.
-3. Iteráljon végig az összes [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) objektumon, hogy megtalálja a [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektumot.
-4. Mentse a videót a lemezre.
+A videók diákhoz való hozzáadása mellett az Aspose.Slides lehetővé teszi a bemutatókba beágyazott videók kinyerését.  
+
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból a videót tartalmazó bemutató betöltéséhez.  
+2. Iteráljon végig az összes [Slide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/) objektumon.  
+3. Iteráljon végig az összes [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) objektumon, hogy megtalálja a [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) elemet.  
+4. Mentse el a videót a lemezre.  
+
+Ez a JavaScript kód megmutatja, hogyan lehet kinyerni egy videót a bemutató egy diájáról:
 
 ```javascript
-// Létrehozza a Presentation objektumot, amely egy prezentáció fájlt képvisel
+// Létrehozza a Presentation objektumot, amely egy prezentációs fájlt képvisel
 var pres = new aspose.slides.Presentation("VideoSample.pptx");
 try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
@@ -266,18 +345,18 @@ try {
 
 ## **GYIK**
 
-**Mely videolejátszási paraméterek módosíthatók egy VideoFrame esetén?**
+**Mely videólejátszási paraméterek módosíthatók egy VideoFrame esetén?**
 
-A [playback mode](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/setplaymode/) (automatikus vagy kattintásra) és a [looping](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/setplayloopmode/) módot szabályozhatja. Ezek a beállítások a [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektum tulajdonságain keresztül érhetők el.
+A [playback mode](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/setplaymode/) (automatikus vagy kattintásra) és a [looping](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/setplayloopmode/) beállítását szabályozhatja. Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/) objektum tulajdonságain keresztül érhetők el.  
 
-**A videó hozzáadása befolyásolja a PPTX fájl méretét?**
+**A videó hozzáadása befolyásolja-e a PPTX fájl méretét?**
 
-Igen. Ha helyi videót ágyaz be, a bináris adatok a dokumentumba kerülnek, így a bemutató mérete arányosan nő a fájl méretével. Ha online videót ad hozzá, egy hivatkozás és egy bélyegkép kerül beágyazásra, így a méretnövekedés kisebb.
+Igen. Ha helyi videót ágyaz be, a bináris adat a dokumentumba kerül, így a bemutató mérete arányosan nő a fájlmérettel. Ha online videót ad hozzá, egy hivatkozás és egy miniatűrkép kerül beágyazásra, ezért a méretnövekedés kisebb.  
 
-**Lecserélhetem-e a videót egy meglévő VideoFrame-ben anélkül, hogy megváltoztatnám a pozícióját és méretét?**
+**Lecserélhetem a videót egy meglévő VideoFrame-ben anélkül, hogy megváltoztatnám a pozícióját és méretét?**
 
-Igen. A [video content](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) cserélhető a keretben a forma geometriai adatait megtartva; ez gyakori eset a médiák frissítésére egy meglévő elrendezésben.
+Igen. A kereten belül kicserélheti a [video content](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) tartalmát, miközben megőrzi a forma geometriai adatait; ez gyakori a meglévő elrendezésben lévő média frissítéséhez.  
 
-**Meg lehet határozni egy beágyazott videó tartalom típusát (MIME)?**
+**Megállapítható-e egy beágyazott videó tartalomtípusa (MIME)?**
 
-Igen. Egy beágyazott videó rendelkezik [content type](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/getcontenttype/) típusú információval, amelyet kiolvashat és felhasználhat, például a lemezre mentéskor.
+Igen. A beágyazott videónak van egy [content type](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/video/getcontenttype/) értéke, amelyet leolvashat és felhasználhat, például a lemezre mentéskor.

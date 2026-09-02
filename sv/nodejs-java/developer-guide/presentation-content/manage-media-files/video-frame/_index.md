@@ -1,11 +1,11 @@
 ---
-title: Hantera videoram i presentationer med JavaScript
+title: Hantera videoramar i presentationer med JavaScript
 linktitle: Videoram
 type: docs
 weight: 10
 url: /sv/nodejs-java/video-frame/
 keywords:
-- lägg till video
+- lägga till video
 - skapa video
 - bädda in video
 - extrahera video
@@ -18,30 +18,30 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig att programatiskt lägga till och extrahera videoram i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Node.js via Java. Snabb guide."
+description: "Lär dig att programatiskt lägga till och extrahera videoramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Node.js via Java. Snabb guide."
 ---
 ## **Introduktion**
 
-En väl placerad video i en presentation kan göra ditt budskap mer övertygande och öka engagemangsnivån hos din publik. 
+En välplacerad video i en presentation kan göra ditt budskap mer övertygande och öka engagemangsgraden hos din publik. 
 
 PowerPoint låter dig lägga till videor på en bild i en presentation på två sätt:
 
 * Lägg till eller bädda in en lokal video (lagrad på din dator)
-* Lägg till en online-video (från en webbkälla såsom YouTube).
+* Lägg till en online-video (från en webbkälla som YouTube).
 
-För att du ska kunna lägga till videor (videoobjekt) i en presentation tillhandahåller Aspose.Slides klassen [Video](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/video/), klassen [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/) och andra relevanta typer.
+För att låta dig lägga till videor (video‑objekt) i en presentation tillhandahåller Aspose.Slides klassen [Video](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/video/) , klassen [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/) och andra relevanta typer.
 
 ## **Skapa inbäddad videoram**
 
-Om videofilen du vill lägga till på din bild är lagrad lokalt kan du skapa ett videoram för att bädda in videon i din presentation. 
+Om videofilen du vill lägga till på din bild är lagrad lokalt kan du skapa en videoram för att bädda in videon i din presentation. 
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)klass.
-1. Hämta en slides referens via dess index. 
-1. Lägg till ett [Video](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/video/)‑objekt och ange videofilens sökväg för att bädda in videon i presentationen.
-1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)‑objekt för att skapa ett videoram.
-1. Spara den ändrade presentationen. 
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
+2. Hämta en bilds referens via dess index. 
+3. Lägg till ett [Video](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/video/)-objekt och skicka videofilens sökväg för att bädda in videon i presentationen.
+4. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)-objekt för att skapa en ram för videon.
+5. Spara den modifierade presentationen. 
 
-Denna JavaScript‑kod visar hur du lägger till en lokalt lagrad video i en presentation:
+Den här JavaScript‑koden visar hur du lägger till en lokalt lagrad video i en presentation:
 
 ```javascript
 // Skapar en instans av Presentation-klassen
@@ -50,7 +50,7 @@ try {
     // Laddar videon
     var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
     var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
-    // Hämtar den första bilden och lägger till ett videoram
+    // Hämtar den första bilden och lägger till en videoram
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
     // Sparar presentationen till disk
     pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
@@ -78,15 +78,15 @@ try {
 
 ## **Skapa videoram med video från webbkälla**
 
-Microsoft [PowerPoint 2013 och nyare](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) stöder YouTube‑videor i presentationer. Om videon du vill använda är tillgänglig online (t.ex. på YouTube) kan du lägga till den i din presentation via dess webblänk. 
+Microsoft [PowerPoint 2013 och nyare](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) stödjer YouTube‑videor i presentationer. Om videon du vill använda finns online (t.ex. på YouTube) kan du lägga till den i din presentation via dess webblänk. 
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)klass
-1. Hämta en slides referens via dess index. 
-1. Lägg till ett [Video](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/video/)‑objekt och ange länken till videon.
-1. Ange en miniatyr för videoramen. 
-1. Spara presentationen. 
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation).
+2. Hämta en bilds referens via dess index. 
+3. Lägg till ett [Video](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/video/)-objekt och skicka länken till videon.
+4. Ställ in en miniatyr för videoramen. 
+5. Spara presentationen. 
 
-Denna JavaScript‑kod visar hur du lägger till en video från webben till en bild i en PowerPoint‑presentation:
+Den här JavaScript‑koden visar hur du lägger till en video från webben på en bild i en PowerPoint‑presentation:
 
 ```javascript
 // Skapar ett Presentation-objekt som representerar en presentationsfil
@@ -135,21 +135,87 @@ async function getImageStream(url) {
 }
 ```
 
-## **Hantera video undertexter**
+## **Trimma en videoram**
 
-Aspose.Slides låter dig hantera stängda undertexter för videoram i PowerPoint‑presentationer. Undertexterna lagras i WebVTT‑format och exponeras via metoden [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides låter dig kontrollera vilken del av en video som spelas genom att sätta värdena trim‑from‑start och trim‑from‑end via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/settrimfromstart/) och [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/settrimfromend/). Båda värdena anges i millisekunder och definierar hur mycket tid som hoppas över i början respektive slutet av videon. Dessa inställningar ändrar videouppspelningsinställningarna i presentationen; de klipper inte eller modifierar på annat sätt den inbäddade video‑binärdaten.
 
-**Lägg till undertexter i ett videoram**
+**Ställ in triminställningar**
 
-För att lägga till undertexter i ett videoram:
+För att skapa en videoram och ställa in dess trim‑inställningar:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)klass.
-1. Lägg till en video i presentationen.
-1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)‑objekt på en bild.
-1. Använd samlingen [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/) för att lägga till ett WebVTT‑undertextspår.
-1. Spara den ändrade presentationen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/).
+2. Lägg till ett [Video](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/video/)-objekt i presentationen.
+3. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)-objekt på en bild.
+4. Sätt värdena trim‑from‑start och trim‑from‑end via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/settrimfromstart/) och [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/settrimfromend/).
+5. Spara den modifierade presentationen.
 
-Följande kod visar hur du lägger till undertexter i ett videoram:
+Följande kodexempel hoppar över de första 2,5 sekunderna och den sista sekunden av en inbäddad video under uppspelning:
+
+```javascript
+const presentation = new aspose.slides.Presentation();
+try {
+    const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
+    try {
+        const video = presentation.getVideos().addVideo(
+            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
+        const slide = presentation.getSlides().get_Item(0);
+        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+
+        videoFrame.setTrimFromStart(2500);
+        videoFrame.setTrimFromEnd(1000);
+
+        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        videoStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**Läs trim‑inställningar**
+
+För att inspektera befintliga trim‑inställningar, läs in en presentation, hitta ett [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)‑objekt bland formerna på den första bilden, och läs värdena via [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) och [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/gettrimfromend/).
+
+Följande kodexempel hittar den första videoramen på den första bilden och rapporterar dess trim‑inställningar i millisekunder:
+
+```javascript
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapeCount = slide.getShapes().size();
+    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            const trimFromStart = videoFrame.getTrimFromStart();
+            const trimFromEnd = videoFrame.getTrimFromEnd();
+
+            console.log("Trim from start: " + trimFromStart + " ms");
+            console.log("Trim from end: " + trimFromEnd + " ms");
+            break;
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Hantera videobeskrivningar**
+
+Aspose.Slides låter dig hantera closed captions för videoramar i PowerPoint‑presentationer. Captions lagras i WebVTT‑format och exponeras via metoden [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
+
+**Lägg till textning i en videoram**
+
+För att lägga till textning i en videoram:
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/).
+2. Lägg till en video i presentationen.
+3. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)-objekt på en bild.
+4. Använd samlingen [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/) för att lägga till ett WebVTT‑textspår.
+5. Spara den modifierade presentationen.
+
+Följande kod visar hur du lägger till textning i en videoram:
 
 ```js
 let presentation = new aspose.slides.Presentation();
@@ -160,7 +226,7 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     let videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // Lägger till ett nytt undertextspår från en WebVTT-fil.
+    // Lägger till ett nytt textningsspår från en WebVTT-fil.
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -169,18 +235,18 @@ try {
 }
 ```
 
-Klassen [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/) erbjuder även metoden [addFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#addFromStream) som låter dig lägga till undertexter från en ström.
+Klassen [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/) tillhandahåller även metoden [addFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#addFromStream) som låter dig lägga till textning från en ström.
 
-**Extrahera undertexter från ett videoram**
+**Extrahera textning från en videoram**
 
-För att extrahera undertexter från ett videoram:
+För att extrahera textning från en videoram:
 
 1. Läs in presentationen som innehåller videon.
-1. Hitta mål‑objektet [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/).
-1. Iterera genom samlingen [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/).
-1. Spara varje undertextspår till en `.vtt`‑fil.
+2. Hitta mål‑[VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)‑objektet.
+3. Iterera genom samlingen [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/).
+4. Spara varje textspår till en `.vtt`‑fil.
 
-Följande kod visar hur du extraherar undertexter från ett videoram:
+Följande kod visar hur du extraherar textning från en videoram:
 
 ```js
 let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
@@ -194,7 +260,7 @@ try {
             let trackCount = videoFrame.getCaptionTracks().getCount();
             for (let trackIndex = 0; trackIndex < trackCount; trackIndex++) {
                 let captionTrack = videoFrame.getCaptionTracks().get_Item(trackIndex);
-                // Sparar undertextspåret till en WebVTT-fil.
+                // Sparar textningsspåret till en WebVTT-fil.
                 let filePath = captionTrack.getCaptionId() + ".vtt";
                 let captionData = Buffer.from(captionTrack.getBinaryData());
                 fs.writeFileSync(filePath, captionData);
@@ -206,18 +272,18 @@ try {
 }
 ```
 
-Varje [Captions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captions/)‑objekt exponerar undertextens identifierare, etikett, binär data och undertexten som en UTF‑8‑sträng.
+Varje [Captions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captions/)‑objekt exponeras för caption‑identifieraren, etiketten, binärdata och caption‑text som en UTF‑8‑sträng.
 
-**Ta bort undertexter från ett videoram**
+**Ta bort textning från en videoram**
 
-För att ta bort undertexter från ett videoram:
+För att ta bort textning från en videoram:
 
 1. Läs in presentationen som innehåller videon.
-1. Hämta mål‑objektet [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/).
-1. Ta bort undertextspår från samlingen [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/).
-1. Spara den ändrade presentationen.
+2. Hämta mål‑[VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)‑objektet.
+3. Ta bort textspår från samlingen [CaptionsCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/).
+4. Spara den modifierade presentationen.
 
-Följande kod visar hur du tar bort alla undertexter från ett videoram:
+Följande kod visar hur du tar bort alla textningsspår från en videoram:
 
 ```js
 let presentation = new aspose.slides.Presentation("video_with_captions.pptx");
@@ -225,7 +291,7 @@ try {
     let slide = presentation.getSlides().get_Item(0);
     let videoFrame = slide.getShapes().get_Item(0); // typ: com.aspose.slides.VideoFrame
 
-    // Tar bort alla undertexter från videoramen.
+    // Tar bort alla textningar från videoramen.
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", aspose.slides.SaveFormat.Pptx);
@@ -234,21 +300,21 @@ try {
 }
 ```
 
-Om du bara behöver ta bort ett undertextspår, använd metoderna [remove](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#removeAt) istället för [clear](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#clear).
+Om du bara behöver ta bort ett textningsspår, använd metoderna [remove](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#removeAt) istället för [clear](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/captionscollection/#clear).
 
 ## **Extrahera video från bild**
 
 Förutom att lägga till videor på bilder låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) för att läsa in presentationen som innehåller videon.
-2. Iterera genom alla [Slide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/)‑objekt.
-3. Iterera genom alla [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/)‑objekt för att hitta ett [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/).
+2. Iterera genom alla [Slide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/)-objekt.
+3. Iterera genom alla [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/)-objekt för att hitta ett [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/).
 4. Spara videon till disk.
 
-Denna JavaScript‑kod visar hur du extraherar videon på en presentationsbild:
+Den här JavaScript‑koden visar hur du extraherar videon på en presentationsbild:
 
 ```javascript
-// Skapar ett Presentation-objekt som representerar en presentationsfil
+// Instansierar ett Presentation-objekt som representerar en presentationsfil
 var pres = new aspose.slides.Presentation("VideoSample.pptx");
 try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
@@ -277,19 +343,19 @@ try {
 }
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Vilka videouppspelningsparametrar kan ändras för ett VideoFrame?**
+**Vilka videouppspelningsparametrar kan ändras för en VideoFrame?**
 
-Du kan styra [playback mode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/setplaymode/) (auto eller vid klick) och [looping](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Dessa alternativ finns tillgängliga via egenskaperna för objektet [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/).
+Du kan kontrollera [playback mode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/setplaymode/) (automatiskt eller vid klick) och [looping](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Dessa alternativ är tillgängliga via egenskaperna för [VideoFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/)‑objektet.
 
 **Påverkar tillägg av en video PPTX‑filens storlek?**
 
-Ja. När du bäddar in en lokal video inkluderas den binära datan i dokumentet, vilket gör att presentationens storlek ökar i proportion till filens storlek. När du lägger till en online‑video bäddas en länk och en miniatyr in, så ökningsstorleken blir mindre.
+Ja. När du bäddar in en lokal video inkluderas binärdata i dokumentet, så presentationens storlek ökar i proportion till filens storlek. När du lägger till en online‑video bäddas en länk och en miniatyr in, så ökningen blir mindre.
 
-**Kan jag byta ut videon i ett befintligt VideoFrame utan att ändra dess position och storlek?**
+**Kan jag ersätta videon i en befintlig VideoFrame utan att ändra dess position och storlek?**
 
-Ja. Du kan byta ut [video content](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) i ramen samtidigt som du behåller figurens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
+Ja. Du kan byta ut [video content](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) inom ramen samtidigt som du bevarar figurens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
 
 **Kan innehållstypen (MIME) för en inbäddad video bestämmas?**
 

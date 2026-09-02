@@ -6,10 +6,10 @@ weight: 10
 url: /pl/nodejs-java/video-frame/
 keywords:
 - dodaj wideo
-- utwórz wideo
-- osadź wideo
-- wyodrębnij wideo
-- pobierz wideo
+- tworzenie wideo
+- osadzanie wideo
+- wyodrębnianie wideo
+- pobieranie wideo
 - ramka wideo
 - źródło internetowe
 - PowerPoint
@@ -18,30 +18,30 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dowiedz się, jak programowo dodawać i wyodrębniać ramki wideo w slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Node.js w Javie. Szybki przewodnik krok po kroku."
+description: "Dowiedz się, jak programowo dodawać i wyodrębniać ramki wideo w slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Node.js w języku Java. Szybki przewodnik instruktażowy."
 ---
 ## **Wprowadzenie**
 
-Odpowiednio umieszczone wideo w prezentacji może uczynić Twoje przesłanie bardziej przekonujące i zwiększyć poziom zaangażowania odbiorców. 
+Odpowiednio umieszczone wideo w prezentacji może uczynić Twoje przesłanie bardziej przekonującym i zwiększyć poziom zaangażowania odbiorców. 
 
 PowerPoint umożliwia dodawanie wideo do slajdu w prezentacji na dwa sposoby:
 
 * Dodaj lub osadź lokalne wideo (przechowywane na Twoim komputerze)
 * Dodaj wideo online (z źródła internetowego, takiego jak YouTube).
 
-Aby umożliwić dodawanie wideo (obiektów wideo) do prezentacji, Aspose.Slides udostępnia klasę [Video](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/) klasy [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) i inne powiązane typy.
+Aby umożliwić dodawanie wideo (obiektów wideo) do prezentacji, Aspose.Slides udostępnia klasę [Video](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/) klasę [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) oraz inne odpowiednie typy.
 
 ## **Utworzenie osadzonej ramki wideo**
 
-Jeśli plik wideo, który chcesz dodać do swojego slajdu, jest przechowywany lokalnie, możesz utworzyć ramkę wideo, aby osadzić wideo w swojej prezentacji. 
+Jeśli plik wideo, który chcesz dodać do slajdu, jest przechowywany lokalnie, możesz utworzyć ramkę wideo, aby osadzić wideo w prezentacji. 
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation)class.
-1. Uzyskaj referencję do slajdu przy użyciu jego indeksu. 
-1. Dodaj obiekt [Video](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/) i przekaż ścieżkę do pliku wideo, aby osadzić wideo w prezentacji.
+1. Utwórz instancję klasy [Presentation ](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation)class.
+1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
+1. Dodaj obiekt [Video](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/) i podaj ścieżkę do pliku wideo, aby osadzić wideo w prezentacji.
 1. Dodaj obiekt [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) , aby utworzyć ramkę dla wideo.
 1. Zapisz zmodyfikowaną prezentację. 
 
-Ten kod JavaScript pokazuje, jak dodać lokalnie przechowywane wideo do prezentacji:
+Ten kod JavaScript pokazuje, jak dodać wideo przechowywane lokalnie do prezentacji:
 
 ```javascript
 // Tworzy instancję klasy Presentation
@@ -78,18 +78,18 @@ try {
 
 ## **Utworzenie ramki wideo z wideo ze źródła internetowego**
 
-Microsoft [PowerPoint 2013 i nowsze](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) obsługuje wideo z YouTube w prezentacjach. Jeśli wideo, którego chcesz użyć, jest dostępne online (np. na YouTube), możesz dodać je do prezentacji za pomocą jego linku internetowego. 
+Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) obsługuje wideo z YouTube w prezentacjach. Jeśli wideo, którego chcesz użyć, jest dostępne online (np. na YouTube), możesz dodać je do prezentacji za pomocą jego odnośnika internetowego. 
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation)class
-1. Uzyskaj referencję do slajdu przy użyciu jego indeksu. 
-1. Dodaj obiekt [Video](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/) i przekaż link do wideo.
+1. Utwórz instancję klasy [Presentation ](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation)class
+1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
+1. Dodaj obiekt [Video](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/) i podaj odnośnik do wideo.
 1. Ustaw miniaturę dla ramki wideo. 
 1. Zapisz prezentację. 
 
-Ten kod JavaScript pokazuje, jak dodać wideo z sieci do slajdu w prezentacji PowerPoint:
+Ten kod JavaScript pokazuje, jak dodać wideo z internetu do slajdu w prezentacji PowerPoint:
 
 ```javascript
-// Tworzy obiekt Presentation, który reprezentuje plik prezentacji
+// Instancjonuje obiekt Presentation, który reprezentuje plik prezentacji
 var pres = new aspose.slides.Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -135,11 +135,77 @@ async function getImageStream(url) {
 }
 ```
 
+## **Przycięcie ramki wideo**
+
+Aspose.Slides pozwala kontrolować, która część wideo jest odtwarzana, ustawiając wartości trim-from-start i trim-from-end za pomocą [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/settrimfromstart/) i [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/settrimfromend/). Obie wartości podawane są w milisekundach i określają, ile czasu pomijać od początku i końca wideo. Ustawienia te zmieniają sposób odtwarzania wideo w prezentacji; nie przycinają ani nie modyfikują binarnych danych osadzonego wideo.
+
+**Ustawienia przycięcia**
+
+Aby utworzyć ramkę wideo i ustawić jej parametry przycięcia:
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) .
+1. Dodaj obiekt [Video](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/) do prezentacji.
+1. Dodaj obiekt [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) do slajdu.
+1. Ustaw wartości trim-from-start i trim-from-end za pomocą [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/settrimfromstart/) oraz [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/settrimfromend/) .
+1. Zapisz zmodyfikowaną prezentację.
+
+Poniższy przykład kodu pomija pierwsze 2,5 s i ostatnią sekundę osadzonego wideo podczas odtwarzania:
+
+```javascript
+const presentation = new aspose.slides.Presentation();
+try {
+    const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
+    try {
+        const video = presentation.getVideos().addVideo(
+            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
+        const slide = presentation.getSlides().get_Item(0);
+        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+
+        videoFrame.setTrimFromStart(2500);
+        videoFrame.setTrimFromEnd(1000);
+
+        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        videoStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**Odczyt ustawień przycięcia**
+
+Aby sprawdzić istniejące ustawienia przycięcia, wczytaj prezentację, znajdź obiekt [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) wśród kształtów na pierwszym slajdzie i odczytaj wartości za pomocą [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) oraz [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/gettrimfromend/) .
+
+Poniższy przykład kodu znajduje pierwszą ramkę wideo na pierwszym slajdzie i raportuje jej ustawienia przycięcia w milisekundach:
+
+```javascript
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapeCount = slide.getShapes().size();
+    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            const trimFromStart = videoFrame.getTrimFromStart();
+            const trimFromEnd = videoFrame.getTrimFromEnd();
+
+            console.log("Trim from start: " + trimFromStart + " ms");
+            console.log("Trim from end: " + trimFromEnd + " ms");
+            break;
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Zarządzanie napisami wideo**
 
-Aspose.Slides umożliwia zarządzanie zamkniętymi napisami dla ramek wideo w prezentacjach PowerPoint. Napisy są przechowywane w formacie WebVTT i udostępniane poprzez metodę [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/#getCaptionTracks). 
+Aspose.Slides umożliwia zarządzanie zamkniętymi napisami dla ramek wideo w prezentacjach PowerPoint. Napisy są przechowywane w formacie WebVTT i udostępniane za pośrednictwem metody [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/#getCaptionTracks) .
 
-**Dodaj napisy do ramki wideo**
+**Dodawanie napisów do ramki wideo**
 
 Aby dodać napisy do ramki wideo:
 
@@ -169,15 +235,15 @@ try {
 }
 ```
 
-Klasa [CaptionsCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/) udostępnia również metodę [addFromStream](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/#addFromStream) , która pozwala dodać napisy ze strumienia.
+Klasa [CaptionsCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/) udostępnia również metodę [addFromStream](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/#addFromStream) , która pozwala dodać napisy z strumienia.
 
-**Wyodrębnij napisy z ramki wideo**
+**Wyodrębnianie napisów z ramki wideo**
 
 Aby wyodrębnić napisy z ramki wideo:
 
 1. Wczytaj prezentację zawierającą wideo.
 1. Znajdź docelowy obiekt [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) .
-1. Iteruj po kolekcji [CaptionsCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/) .
+1. Przejdź przez kolekcję [CaptionsCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/) .
 1. Zapisz każdą ścieżkę napisów do pliku `.vtt` .
 
 Poniższy kod pokazuje, jak wyodrębnić napisy z ramki wideo:
@@ -206,9 +272,9 @@ try {
 }
 ```
 
-Każdy obiekt [Captions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captions/) udostępnia identyfikator napisu, etykietę, dane binarne oraz tekst napisu jako ciąg UTF-8.
+Każdy obiekt [Captions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captions/) udostępnia identyfikator napisu, etykietę, dane binarne oraz tekst napisu jako ciąg UTF‑8.
 
-**Usuń napisy z ramki wideo**
+**Usuwanie napisów z ramki wideo**
 
 Aby usunąć napisy z ramki wideo:
 
@@ -234,15 +300,15 @@ try {
 }
 ```
 
-Jeśli potrzebujesz usunąć tylko jedną ścieżkę napisu, użyj metod [remove](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/#remove) lub [removeAt](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/#removeAt) zamiast [clear](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/#clear).
+Jeśli potrzebujesz usunąć tylko jedną ścieżkę napisu, użyj metod [remove](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/#remove) lub [removeAt](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/#removeAt) zamiast [clear](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/captionscollection/#clear) .
 
 ## **Wyodrębnianie wideo ze slajdu**
 
-Poza dodawaniem wideo do slajdów, Aspose.Slides umożliwia wyodrębnianie wideo osadzonego w prezentacjach.
+Oprócz dodawania wideo do slajdów, Aspose.Slides pozwala wyodrębnić wideo osadzone w prezentacjach.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) , aby wczytać prezentację zawierającą wideo.
-2. Iteruj po wszystkich obiektach [Slide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/) .
-3. Iteruj po wszystkich obiektach [Shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/) , aby znaleźć [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation) aby wczytać prezentację zawierającą wideo.
+2. Przejdź przez wszystkie obiekty [Slide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/) .
+3. Przejdź przez wszystkie obiekty [Shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/) , aby znaleźć [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) .
 4. Zapisz wideo na dysku.
 
 Ten kod JavaScript pokazuje, jak wyodrębnić wideo ze slajdu prezentacji:
@@ -279,18 +345,18 @@ try {
 
 ## **FAQ**
 
-**Jakie parametry odtwarzania wideo można zmienić w VideoFrame?**
+**Jakie parametry odtwarzania wideo można zmienić dla VideoFrame?**
 
-Możesz kontrolować [playback mode](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/setplaymode/) (automatycznie lub po kliknięciu) oraz [looping](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Opcje te są dostępne poprzez właściwości obiektu [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) .
+Możesz kontrolować [tryb odtwarzania](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/setplaymode/) (automatycznie lub po kliknięciu) oraz [pętlę](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Opcje te są dostępne poprzez właściwości obiektu [VideoFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/) .
 
 **Czy dodanie wideo wpływa na rozmiar pliku PPTX?**
 
-Tak. Gdy osadzasz lokalne wideo, dane binarne są dołączane do dokumentu, więc rozmiar prezentacji rośnie proporcjonalnie do rozmiaru pliku. Gdy dodajesz wideo online, osadzany jest link i miniatura, więc przyrost rozmiaru jest mniejszy.
+Tak. Gdy osadzisz lokalne wideo, jego dane binarne są dołączane do dokumentu, więc rozmiar prezentacji rośnie proporcjonalnie do rozmiaru pliku. Gdy dodasz wideo online, osadzany jest jedynie odnośnik i miniatura, więc przyrost rozmiaru jest mniejszy.
 
-**Czy mogę zamienić wideo w istniejącej VideoFrame bez zmiany jej pozycji i rozmiaru?**
+**Czy mogę zamienić wideo w istniejącej ramce VideoFrame bez zmiany jej położenia i rozmiaru?**
 
-Tak. Możesz zamienić [video content](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) wewnątrz ramki, zachowując geometrię kształtu; jest to typowy scenariusz aktualizacji mediów w istniejącym układzie.
+Tak. Możesz podmienić [zawartość wideo](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) w ramce, zachowując geometrię kształtu; jest to typowy scenariusz aktualizacji multimediów w istniejącym układzie.
 
-**Czy można określić typ treści (MIME) osadzonego wideo?**
+**Czy można określić typ zawartości (MIME) osadzonego wideo?**
 
-Tak. Osadzone wideo ma [content type](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/getcontenttype/) , który można odczytać i wykorzystać, na przykład przy zapisie na dysk.
+Tak. Osadzone wideo posiada [typ zawartości](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/video/getcontenttype/), który możesz odczytać i wykorzystać, na przykład przy zapisywaniu go na dysk.
