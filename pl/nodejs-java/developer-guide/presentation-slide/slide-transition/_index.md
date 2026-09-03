@@ -18,139 +18,298 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dostosuj przejścia slajdów w JavaScript przy użyciu Aspose.Slides for Node.js via Java, z instrukcją krok po kroku dla prezentacji PowerPoint i OpenDocument."
+description: "Zastosuj przejścia slajdów, skonfiguruj automatyczne przechodzenie slajdów oraz dostosuj Morph i inne efekty przejść przy użyciu Aspose.Slides dla Node.js przez Java."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak zarządzać przejściami slajdów w prezentacjach przy użyciu Aspose.Slides. Pokazuje, jak zastosować typy przejść do slajdów, skonfigurować zachowanie przejścia, takie jak przechodzenie po kliknięciu lub po określonym czasie, sprawdzić i wyłączyć automatyczne przechodzenie, używać przejścia Morph i jego typów oraz ustawiać opcje efektu przejścia. Przykłady demonstrują, jak wczytać lub utworzyć prezentację, zmodyfikować ustawienia przejść dla wybranych slajdów oraz zapisać wynik jako plik PPTX. Artykuł odpowiada także na często zadawane pytania dotyczące szybkości przejścia, dźwięków przejścia, stosowania tego samego przejścia w wielu slajdach oraz sprawdzania, które przejście jest aktualnie ustawione na slajdzie.
+Przejścia slajdów kontrolują, jak slajdy pojawiają się podczas pokazu slajdów. Za pomocą Aspose.Slides dla Node.js przez Java możesz wybrać efekt przejścia dla każdego slajdu, skonfigurować przechodzenie przez kliknięcie myszy lub timer oraz dostosować opcje specyficzne dla danego efektu. Ten artykuł wykorzystuje przykłady JavaScript do zastosowania przejść, ustawienia dokładnych czasów trwania przejścia, zarządzania czasem slajdu oraz utworzenia przejścia Morph między dwoma slajdami. Przykłady pokazują również, jak zapisać ustawienia do pliku PPTX.
 
 ## **Dodaj przejście slajdu**
-Aby utworzyć prosty efekt przejścia slajdu, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation).
-1. Zastosuj typ przejścia slajdu na slajdzie, wybierając jeden z efektów przejścia oferowanych przez Aspose.Slides for Node.js via Java przy użyciu wyliczenia TransitionType.
-1. Zapisz zmodyfikowany plik prezentacji.
+Aby zastosować przejście, wczytaj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) i uzyskaj dostęp do ustawień przejścia slajdu za pomocą [getSlideShowTransition](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Użyj [setType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/#setType) z wartością z wyliczenia [TransitionType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/transitiontype/), a następnie zapisz prezentację.
+
+Poniższy przykład stosuje przejście Circle dla pierwszego slajdu i przejście Comb dla drugiego. Użyj pliku `input.pptx` zawierającego przynajmniej dwa slajdy.
 
 ```javascript
-// Utwórz instancję klasy Presentation, aby załadować plik prezentacji źródłowej
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // Zastosuj przejście typu Circle na slajdzie 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // Zastosuj przejście typu Comb na slajdzie 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // Zapisz prezentację na dysk
-    presentation.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(slides.TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(slides.TransitionType.Comb);
+
+        presentation.save("slide-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Dodaj zaawansowane przejście slajdu**
-W poprzedniej sekcji zastosowaliśmy prosty efekt przejścia na slajdzie. Teraz, aby ten prosty efekt był lepszy i bardziej kontrolowany, wykonaj poniższe kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation).
-1. Zastosuj typ przejścia slajdu na slajdzie, wybierając jeden z efektów przejścia oferowanych przez Aspose.Slides for Node.js via Java.
-1. Możesz także ustawić przejście na „Advance On Click”, po określonym czasie lub oba te tryby.
-1. Jeśli przejście slajdu jest włączone jako „Advance On Click”, przejście nastąpi tylko po kliknięciu myszy. Ponadto, jeśli ustawiona jest właściwość „Advance After Time”, przejście zostanie wykonane automatycznie po upływie określonego czasu.
-1. Zapisz zmodyfikowaną prezentację jako plik prezentacji.
+Możesz skonfigurować, jak długo slajd pozostaje na ekranie oraz czy kliknięcie myszy przechodzi do kolejnego slajdu. Następujące metody kontrolują to zachowanie:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) pozwala widzowi przejść dalej poprzez kliknięcie myszy.
+- [setAdvanceAfter](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) włącza automatyczne przechodzenie.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) określa opóźnienie przed automatycznym przejściem, w milisekundach.
+
+Włącz zarówno kliknięcie, jak i przejście oparte na czasie, aby widz mógł przejść dalej kliknięciem lub poczekać na timer. Aby używać tylko timera, przekaż `false` do [setAdvanceOnClick]. Opóźnienie kontroluje, kiedy pokaz slajdów przechodzi dalej; nie ustawia ono czasu trwania wizualnego efektu przejścia.
+
+Ten przykład przypisuje różne efekty do pierwszych trzech slajdów i włącza automatyczne przechodzenie po 3, 5 i 7 sekundach odpowiednio. Kliknięcia myszy również mogą przechodzić te slajdy. Użyj pliku `input.pptx` zawierającego przynajmniej trzy slajdy.
 
 ```javascript
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji
-var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // Zastosuj przejście typu Circle na slajdzie 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // Ustaw czas przejścia na 3 sekundy
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
-    // Zastosuj przejście typu Comb na slajdzie 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // Ustaw czas przejścia na 5 sekund
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
-    // Zastosuj przejście typu Zoom na slajdzie 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(aspose.slides.TransitionType.Zoom);
-    // Ustaw czas przejścia na 7 sekund
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-    // Zapisz prezentację na dysk
-    pres.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 3) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5
+
+000);
+
+        const thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(slides.TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
+
+        presentation.save("advanced-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
+}
+```
+
+Aby sprawdzić, czy przejście oparte na czasie jest włączone, wywołaj [getAdvanceAfter]. Same przechowywane opóźnienie nie wskazuje, że timer jest aktywny.
+
+Następny przykład otwiera wcześniej zapisany plik, raportuje każdy włączony timer i wyłącza automatyczne przechodzenie dla slajdów z opóźnieniem większym niż dwie sekundy. Włącza kliknięcia myszy dla tych slajdów i zapisuje zaktualizowane ustawienia.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("advanced-transitions.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            console.log("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Precyzyjna kontrola czasu przejścia**
+
+Użyj [setDuration], aby określić dokładną długość efektu przejścia w milisekundach. Metoda [getSlideShowTransition] slajdu udostępnia te ustawienia poprzez [SlideShowTransition]:
+
+| Metoda | Cel |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Ustawia czas trwania samego efektu przejścia, w milisekundach. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Ustawia opóźnienie przed automatycznym przejściem slajdu, w milisekundach. Przekaż `true` do [setAdvanceAfter], aby aktywować ten timer. |
+| [setSpeed](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Wybiera predefiniowaną kategorię prędkości z [TransitionSpeed](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium lub Fast. Jest używana, gdy nie określono dokładnego czasu trwania. |
+
+[setDuration] kontroluje tylko efekt przejścia; nie określa, jak długo slajd pozostaje widoczny. Skonfiguruj osobno opóźnienie automatycznego przejścia. Gdy nie ustawiono wyraźnego czasu trwania, Aspose.Slides określa czas trwania efektu na podstawie typu przejścia i wartości [getSpeed].
+
+### **Zastosuj ten sam czas trwania dla każdego slajdu**
+
+Aby zachować spójną rytmikę, zastosuj ten sam efekt i dokładny czas trwania dla każdego slajdu. Ten przykład wczytuje `input.pptx`, wybiera Fade z [TransitionType] i nadaje każdemu przejściu czas trwania 750 milisekund. Oddzielnie włącza automatyczne przechodzenie po 5 000 milisekundach i wyłącza przechodzenie przez kliknięcie myszy, a następnie zapisuje wynik jako PPTX.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Fade);
+        transition.setDuration(750);
+
+        // Skonfiguruj automatyczne przechodzenie niezależnie od czasu trwania efektu.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ustaw różne czasy trwania dla poszczególnych slajdów**
+
+Różne slajdy mogą używać różnych czasów trwania efektów. Na przykład, zastosuj krótkie przejście dla slajdu tytułowego i dłuższe dla wprowadzenia sekcji. Ten przykład ustawia 500 milisekund dla pierwszego slajdu i 1 200 milisekund dla drugiego. Użyj pliku `input.pptx` zawierającego przynajmniej dwa slajdy.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Koordynuj przejścia z animowanym wyjściem**
+
+Przy przygotowywaniu [animowanego GIF](/slides/pl/nodejs-java/convert-powerpoint-to-animated-gif/), [prezentacji HTML5](/slides/pl/nodejs-java/export-to-html5/) lub [wideo](/slides/pl/nodejs-java/convert-powerpoint-to-video/), ustaw dokładne czasy trwania przejść przed eksportem, aby dopasować je do zamierzonego tempa. Na przykład użyj przejścia fade trwającego 600 milisekund między scenami i dostosuj osobno opóźnienie przejścia każdego slajdu, aby umożliwić czas na narrację lub treść.
+
+Dla GIF i wideo, skoordynuj liczbę klatek wyjściowych z czasem trwania efektu: 600 milisekund odpowiada 18 klatkom przy 30 klatkach na sekundę. W HTML5 włącz animowane przejścia w ustawieniach eksportu. Sprawdź, jakie efekty i opcje czasowe są wspierane przez wybrany format eksportu i podglądaj wynik, aby potwierdzić synchronizację.
+
+### **Odczytaj istniejący czas trwania przejścia**
+
+Wywołaj [getDuration] przed modyfikacją przejścia, aby określić, czy przechowywana jest wyraźna wartość. Wartość `-1` oznacza, że nie ustawiono żadnego czasu trwania; nieujemna wartość określa przechowywany czas trwania w milisekundach. Nieustawiona wartość nie jest obliczonym czasem odtwarzania: Aspose.Slides używa typu przejścia i wartości [getSpeed] do określenia tego czasu. Ustawienie typu przejścia może zainicjować czas trwania, więc najpierw sprawdź pierwotne ustawienia.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        const duration = transition.getDuration();
+
+        if (duration >= 0) {
+            console.log("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            console.log("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Przejście Morph**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Node.js via Java obsługuje teraz [Morph Transition](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/MorphTransition). Przedstawia nowy przejście morph wprowadzone w PowerPoint 2019.
+Przejście Morph animuje zmiany między obiektami na kolejnych slajdach. Aby stworzyć prosty efekt Morph, sklonuj slajd, przesuń lub zmień rozmiar obiektu w klonie i zastosuj przejście Morph do drugiego slajdu. To umożliwia przejściu animowanie odpowiadających sobie obiektów pomiędzy ich oryginalnym a zmodyfikowanym stanem.
 
-{{% /alert %}} 
-
-Przejście Morph umożliwia płynne animowanie przejścia z jednego slajdu do drugiego. Ten artykuł opisuje koncepcję i sposób użycia przejścia Morph. Aby skutecznie korzystać z przejścia Morph, potrzebujesz dwóch slajdów z co najmniej jednym wspólnym obiektem. Najprostszy sposób to zduplikowanie slajdu i przeniesienie obiektu na drugim slajdzie w inne miejsce.
-
-Poniższy fragment kodu pokazuje, jak dodać klon slajdu z tekstem do prezentacji i ustawić przejście typu [morph type](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/TransitionType) dla drugiego slajdu.
+Poniższy przykład tworzy slajd z prostokątem tekstowym, klonuje go i zmienia pozycję oraz rozmiar prostokąta w klonie. Następnie wybiera Morph z wyliczenia [TransitionType] dla drugiego slajdu. Otwórz zapisany plik w przeglądarce prezentacji wspierającej Morph, aby zobaczyć efekt podczas pokazu slajdów.
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-    var shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const rectangle = firstSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
+
+    const secondSlide = presentation.getSlides().addClone(firstSlide);
+    const movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
+
+    secondSlide.getSlideShowTransition().setType(slides.TransitionType.Morph);
+
+    presentation.save("morph-transition.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Typy przejścia Morph**
-Dołączono nową wyliczoną [TransitionMorphType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/TransitionMorphType). Reprezentuje ona różne typy przejścia Morph slajdu.
 
-Wyliczenie TransitionMorphType ma trzy członki:
+Wyliczenie [TransitionMorphType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/transitionmorphtype/) kontroluje, jak Morph dopasowuje i animuje zawartość:
 
-- ByObject: przejście Morph będzie wykonywane z uwzględnieniem kształtów jako niepodzielnych obiektów.
-- ByWord: przejście Morph będzie wykonywane poprzez przenoszenie tekstu słowo po słowie, gdy to możliwe.
-- ByChar: przejście Morph będzie wykonywane poprzez przenoszenie tekstu znak po znaku, gdy to możliwe.
+- [ByObject](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) traktuje każdy kształt jako cały obiekt.
+- [ByWord](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) animuje tekst, dopasowując słowa, jeśli to możliwe.
+- [ByChar](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) animuje tekst, dopasowując znaki, jeśli to możliwe.
 
-Poniższy fragment kodu pokazuje, jak ustawić przejście morph na slajdzie i zmienić typ morph:
+Użyj [setType], aby wybrać Morph przed dostępem do [getValue]. Wartość zwraca obiekt [MorphTransition], którego metoda [setMorphType] wybiera tryb dopasowania.
+
+Ten przykład otwiera prezentację utworzoną w poprzedniej sekcji i konfiguruje drugi slajd do użycia animacji Morph opartej na słowach.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("presentation.pptx");
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setMorphType(aspose.slides.TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        const transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Morph);
+        const transitionValue = transition.getValue();
+
+        if (java.instanceOf(transitionValue, "com.aspose.slides.IMorphTransition")) {
+            transitionValue.setMorphType(slides.TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", slides.SaveFormat.Pptx);
+        } else {
+            console.log("Morph transition options are unavailable.");
+        }
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Ustaw efekty przejścia**
-Aspose.Slides for Node.js via Java obsługuje ustawianie efektów przejścia, takich jak przejście z czerni, z lewej, z prawej itp. Aby ustawić efekt przejścia, wykonaj poniższe kroki:
 
-- Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/Presentation).
-- Pobierz odniesienie do slajdu.
-- Ustaw efekt przejścia.
-- Zapisz prezentację jako plik [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+Niektóre przejścia udostępniają dodatkowe opcje, takie jak kierunek lub czy efekt zaczyna się od czarnego ekranu. Dostępne opcje zależą od przejścia wybranego za pomocą [setType]. Najpierw ustaw typ, a następnie użyj odpowiedniego obiektu przejścia z [getValue].
 
-W poniższym przykładzie ustawiono efekty przejścia.
+Poniższy przykład stosuje przejście Cut do pierwszego slajdu pliku `input.pptx`. Wywołuje [setFromBlack] poprzez [OptionalBlackTransition], aby przejście zaczynało się od czarnego ekranu.
 
 ```javascript
-// Utwórz instancję klasy Presentation
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // Ustaw efekt
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Cut);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setFromBlack(true);
-    // Zapisz prezentację na dysk
-    presentation.save("SetTransitionEffects_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(slides.TransitionType.Cut);
+    const transitionValue = transition.getValue();
+
+    if (java.instanceOf(transitionValue, "com.aspose.slides.IOptionalBlackTransition")) {
+        transitionValue.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -160,16 +319,16 @@ try {
 
 **Czy mogę kontrolować prędkość odtwarzania przejścia slajdu?**
 
-Tak. Ustaw prędkość [transition’s speed](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/setspeed/) przy użyciu ustawienia [TransitionSpeed](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/transitionspeed/) (np. wolna/średnia/szybka).
+Tak. Preferuj [setDuration], gdy potrzebujesz dokładnego czasu trwania efektu w milisekundach. Użyj [setSpeed], gdy wystarcza predefiniowana kategoria [TransitionSpeed] — Slow, Medium lub Fast — i nie jest ustawiony wyraźny czas trwania. Te ustawienia kontrolują efekt przejścia niezależnie od opóźnienia automatycznego przechodzenia.
 
-**Czy mogę dołączyć dźwięk do przejścia i ustawić jego pętlę?**
+**Czy mogę dołączyć dźwięk do przejścia i spowodować jego pętlę?**
 
-Tak. Możesz osadzić dźwięk dla przejścia i kontrolować zachowanie za pomocą ustawień, takich jak tryb dźwięku i pętla (np. [setSound](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/setsound/), [setSoundMode](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/setsoundmode/), [setSoundLoop](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/setsoundloop/)), a także metadane takie jak [setSoundIsBuiltIn](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) i [setSoundName](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/setsoundname/).
+Tak. Przypisz osadzony dźwięk za pomocą [setSound], przekaż StartSound z wyliczenia [TransitionSoundMode] do [setSoundMode] oraz włącz [setSoundLoop] z wartością `true`. Dźwięk będzie się powtarzał aż do kolejnego zdarzenia dźwiękowego w pokazie slajdów.
 
-**Jaki jest najszybszy sposób, aby zastosować to samo przejście do każdego slajdu?**
+**Jaki jest najszybszy sposób zastosowania tego samego przejścia do każdego slajdu?**
 
-Skonfiguruj żądany typ przejścia w ustawieniach przejścia każdego slajdu; przejścia są przechowywane osobno dla każdego slajdu, więc zastosowanie tego samego typu we wszystkich slajdach zapewnia spójny rezultat.
+Iteruj przez kolekcję [getSlides] prezentacji i wywołaj [setType] z tą samą wartością dla przejścia każdego slajdu. Ustaw wszelkie opcje timingowe i efektowe w tej samej pętli, aby zachować spójne zachowanie we wszystkich slajdach.
 
-**Jak mogę sprawdzić, które przejście jest obecnie ustawione na slajdzie?**
+**Jak mogę sprawdzić, które przejście jest aktualnie ustawione na slajdzie?**
 
-Sprawdź [transition settings](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) slajdu i odczytaj jego [transition type](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideshowtransition/gettype/); ta wartość dokładnie informuje, który efekt jest zastosowany.
+Wywołaj [getType] na wyniku [getSlideShowTransition] slajdu. Zwraca on wartość z wyliczenia [TransitionType]; None oznacza, że żaden efekt przejścia nie jest zastosowany.

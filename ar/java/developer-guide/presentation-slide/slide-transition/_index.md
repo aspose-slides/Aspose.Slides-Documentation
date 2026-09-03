@@ -11,184 +11,318 @@ keywords:
 - انتقال شريحة متقدم
 - انتقال Morph
 - نوع الانتقال
-- مؤثر الانتقال
+- تأثير الانتقال
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "اكتشف كيفية تخصيص انتقالات الشرائح في Aspose.Slides for Java، مع إرشادات خطوة بخطوة لعروض PowerPoint و OpenDocument."
+description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص Morph وغيرها من تأثيرات الانتقال باستخدام Aspose.Slides for Java."
 ---
-
 ## **نظرة عامة**
-{{% alert color="primary" %}} 
 
-تسمح Aspose.Slides for Java أيضًا للمطورين بإدارة أو تخصيص مؤثرات انتقال الشرائح. في هذا الموضوع، سنناقش كيفية التحكم في انتقالات الشرائح بسهولة كبيرة باستخدام Aspose.Slides for Java.
+تتحكم انتقالات الشرائح في طريقة ظهور الشرائح أثناء عرض الشرائح. مع Aspose.Slides for Java، يمكنك اختيار تأثير انتقال لكل شريحة، وتكوين التقدم بواسطة نقرة الفأرة أو المؤقت، وضبط الخيارات الخاصة بالتأثير. يستخدم هذا المقال أمثلة جافا لتطبيق الانتقالات، وتحديد مدد الانتقال بدقة، وإدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتي عرض. تُظهر الأمثلة أيضًا كيفية حفظ الإعدادات إلى ملف PPTX.
 
-{{% /alert %}} 
+## **إضافة انتقال الشريحة**
 
-لتسهيل الفهم، قمنا بتوضيح كيفية استخدام Aspose.Slides for Java لإدارة انتقالات الشرائح البسيطة. يمكن للمطورين ليس فقط تطبيق مؤثرات انتقال مختلفة على الشرائح، بل أيضًا تخصيص سلوك هذه المؤثرات.
+لتطبيق انتقال، احمّل عرضًا تقديميًا باستخدام فئة [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) وادخل إلى إعدادات انتقال الشريحة عبر [getSlideShowTransition](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--). استخدم [setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setType-int-) مع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitiontype/)، ثم احفظ العرض التقديمي.
 
-## **إضافة انتقال شريحة**
-لإنشاء مؤثر انتقال شريحة بسيط، اتبع الخطوات أدناه:
+التطبيق التالي يطبّق انتقال Circle على الشريحة الأولى وانتقال Comb على الشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) .
-2. تطبيق نوع انتقال شريحة على الشريحة من أحد مؤثرات الانتقال التي تقدمها Aspose.Slides for Java عبر تعداد TransitionType.
-3. كتابة ملف العرض التقديمي المعدل.
 ```java
-// إنشاء كائن من فئة Presentation لتحميل ملف العرض التقديمي المصدر
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // تطبيق انتقال من نوع دائرة على الشريحة 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // تطبيق انتقال من نوع مشط على الشريحة 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // حفظ العرض على القرص
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **إضافة انتقال شريحة متقدم**
-في القسم السابق، قمنا فقط بتطبيق مؤثر انتقال بسيط على الشريحة. الآن، لجعل هذا المؤثر أبسط وأكثر تحكمًا، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) .
-2. تطبيق نوع انتقال شريحة على الشريحة من أحد مؤثرات الانتقال التي تقدمها Aspose.Slides for Java.
-3. يمكنك أيضًا ضبط الانتقال على التقدم عند النقر، بعد فترة زمنية محددة أو كليهما.
-4. إذا تم تمكين الانتقال للتقدم عند النقر، سيُقدم الانتقال فقط عندما ينقر المستخدم بالماوس. علاوةً على ذلك، إذا تم ضبط خاصية Advance After Time، سيتقدم الانتقال تلقائيًا بعد مرور الوقت المحدد.
-5. كتابة العرض التقديمي المعدل كملف عرض تقديمي.
+يمكنك تكوين المدة التي تظل فيها الشريحة على الشاشة وما إذا كانت نقرة الفأرة تُقدّم عرض الشرائح. تتحكم الطرق التالية في هذا السلوك:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) يسمح للمشاهد بالتقدم بنقرة الفأرة.
+- [setAdvanceAfter](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) يمكّن التقدم التلقائي.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) يحدد التأخير قبل التقدم التلقائي، بالميلي ثانية.
+
+فعّل كلًّا من التقدم بالنقرة والوقت لتسمح للمشاهد بالانتقال بنقرة أو الانتظار للمؤقت. لاستخدام المؤقت فقط، مرّر `false` إلى [setAdvanceOnClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). يتحكم التأخير في وقت تقدم عرض الشرائح؛ لا يحدد مدة تأثير الانتقال البصري.
+
+هذا المثال يعيّن تأثيرات مختلفة للشرائح الثلاث الأولى ويُمكّن التقدم التلقائي بعد 3، 5، و7 ثوانٍ على التوالي. يمكن أيضًا النقر لتقدم هذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
+
 ```java
-// إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // تطبيق انتقال من نوع دائرة على الشريحة 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // تعيين وقت الانتقال إلى 3 ثوانٍ
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // تطبيق انتقال من نوع مشط على الشريحة 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // تعيين وقت الانتقال إلى 5 ثوانٍ
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // تطبيق انتقال من نوع تكبير على الشريحة 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // تعيين وقت الانتقال إلى 7 ثوانٍ
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // حفظ العرض التقديمي على القرص
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+للتحقق مما إذا كان التقدم الزمني مفعَّلًا، استدعِ [getAdvanceAfter](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). التخزين للتأخير وحده لا يدل على أن المؤقت نشط.
+
+يفتح المثال التالي الملف المحفوظ أعلاه، يُبلغ عن كل مؤقت مفعَّل، ويُعطل التقدم التلقائي للشرائح التي يزيد تأخيرها عن ثانيتين. يُفعّل نقر الفأرة لتلك الشرائح ويحفظ الإعدادات المحدثة.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **التحكم في توقيت الانتقال بدقة**
+
+استخدم [setDuration](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setDuration-int-) لتحديد الطول الدقيق لتأثير الانتقال بالميلي ثانية. تُظهر طريقة [getSlideShowTransition](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) للشرائح هذه الإعدادات عبر [ISlideShowTransition](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/):
+
+| الطريقة | الغرض |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | يحدد مدة تأثير الانتقال نفسه، بالميلي ثانية. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | يحدد التأخير قبل تقدم الشريحة تلقائيًا، بالميلي ثانية. مرّر `true` إلى [setAdvanceAfter](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) لتفعيل هذا المؤقت. |
+| [setSpeed](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | يختار فئة سرعة مُعرَّفة مسبقًا من [TransitionSpeed](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitionspeed/): Slow أو Medium أو Fast. تُستَخدم عندما لا تُحدَّد مدة صريحة. |
+
+يُتحكم [setDuration](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setDuration-int-) فقط في تأثير الانتقال؛ لا يحدِّد مدة بقاء الشريحة مرئية. عيّن تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدَّد مدة صريحة، تُحَدِّد Aspose.Slides مدة التأثير بناءً على نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#getSpeed--).
+
+### **تطبيق نفس المدة على كل شريحة**
+
+لتحقيق إيقاع ثابت، طبّق نفس التأثير والمدة الدقيقة على كل شريحة. يحمّل هذا المثال `input.pptx`، يختار Fade من تعداد [TransitionType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitiontype/)، ويعطي كل انتقال مدة 750 ميلي ثانية. يفعّل التقدم التلقائي بعد 5,000 ميلي ثانية ويعطِّل التقدم بنقر الفأرة، ثم يحفظ النتيجة كملف PPTX.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // تكوين التقدم التلقائي بشكل مستقل عن مدة التأثير.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **تعيين مدد مختلفة للشرائح الفردية**
+
+يمكن للشرائح المختلفة استخدام مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا قصيرًا لشريحة العنوان وانتقالًا أطول لمقدمة قسم. يحدّد هذا المثال 500 ميلي ثانية للشفريحة الأولى و1,200 ميلي ثانية للثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **تنسيق الانتقالات مع إخراج متحرك**
+
+عند إعداد [GIF المتحرك](/slides/ar/java/convert-powerpoint-to-animated-gif/)، [عرض HTML5](/slides/ar/java/export-to-html5/)، أو [فيديو](/slides/ar/java/convert-powerpoint-to-video/)، اضبط مدد الانتقال بدقة قبل التصدير لتتناسب مع الإيقاع المطلوب. على سبيل المثال، استخدم تلاشيًا مدته 600 ميلي ثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بشكل منفصل للسماح بالوقت للسرد أو المحتوى.
+
+للـ GIF والفيديو، نسّق معدل الإطارات مع مدة التأثير: 600 ميلي ثانية تعادل 18 إطارًا بسرعة 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقّق من التأثيرات وخيارات التوقيت المدعومة في صيغة التصدير المختارة، وعاين النتيجة للتأكد من التزامن.
+
+### **قراءة مدة الانتقال الحالية**
+
+استدعِ [getDuration](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#getDuration--) قبل تعديل الانتقال لتحديد ما إذا كانت قيمة صريحة مخزنة. القيمة `-1` تعني عدم ضبط مدة صريحة؛ القيمة غير السلبية تحدد المدة المخزنة بالميلي ثانية. القيمة غير المضبوطة ليست مدة التشغيل المحسوبة: تستخدم Aspose.Slides نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#getSpeed--) لتحديد تلك المدة. قد يُنشئ تعيين نوع الانتقال مدةً مبدئية، لذا راجع الإعدادات الأصلية أولاً.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **انتقال Morph**
-{{% alert color="primary" %}} 
 
-تدعم Aspose.Slides for Java الآن [Morph Transition](https://reference.aspose.com/slides/java/com.aspose.slides/IMorphTransition). وهي تمثل انتقال morph الجديد الذي تم تقديمه في PowerPoint 2019.
+يُحاكي انتقال Morph تغييرات الكائنات بين الشرائح المتتالية. لإنشاء تأثير Morph بسيط، استنسخ شريحة، انقل أو غيّر حجم كائن على النسخة المستنسخة، ثم طبّق انتقال Morph على الشريحة الثانية. يُعطي ذلك للانتقال الكائنات المقابلة لتتحرك بين حالتها الأصلية والمعدلة.
 
-{{% /alert %}} 
+التطبيق التالي ينشئ شريحة تحتوي على مستطيل نص، يستنسخ الشريحة، ويغيّر موضع وحجم المستطيل في النسخة. يختار بعد ذلك Morph من تعداد [TransitionType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitiontype/) للشرحة الثانية. افتح الملف المحفوظ في عارض عروض يدعم Morph لتلاحظ التأثير أثناء عرض الشرائح.
 
-يسمح لك انتقال Morph بإنشاء حركة سلسة من شريحة إلى أخرى. يصف هذا المقال المفهوم وكيفية استخدام انتقال Morph. لاستخدام انتقال Morph بفعالية، ستحتاج إلى شريحتين على الأقل تشتركان في كائن واحد. أسهل طريقة هي تكرار الشريحة ثم نقل الكائن في الشريحة الثانية إلى مكان مختلف.
-
-المقتطف البرمجي التالي يوضح كيفية إضافة نسخة من الشريحة تحتوي على نص إلى العرض التقديمي وتعيين انتقال من نوع [morph type](https://reference.aspose.com/slides/java/com.aspose.slides/TransitionType) إلى الشريحة الثانية.
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
+} finally {
     presentation.dispose();
 }
 ```
-
 
 ## **أنواع انتقال Morph**
-تم إضافة تعداد جديد [TransitionMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/TransitionMorphType) يمثل أنواعًا مختلفة من انتقال شريحة Morph.
 
-يحتوي تعداد TransitionMorphType على ثلاثة أعضاء:
+يتحكم تعداد [TransitionMorphType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitionmorphtype/) في طريقة مطابقة وتحريك المحتوى بواسطة Morph:
 
-- ByObject: سيتم تنفيذ انتقال Morph مع اعتبار الأشكال ككائنات غير قابلة للتجزئة.
-- ByWord: سيتم تنفيذ انتقال Morph بنقل النص كلمةً كلمةً حيثما أمكن.
-- ByChar: سيتم تنفيذ انتقال Morph بنقل النص حرفًا بحرفٍ حيثما أمكن.
+- [ByObject](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitionmorphtype/#ByObject) يعامل كل شكل ككائن كامل.
+- [ByWord](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitionmorphtype/#ByWord) يحرك النص بمطابقة الكلمات حيثما كان ممكنًا.
+- [ByChar](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitionmorphtype/#ByChar) يحرك النص بمطابقة الأحرف حيثما كان ممكنًا.
 
-المقتطف البرمجي التالي يوضح كيفية تعيين انتقال Morph إلى الشريحة وتغيير نوع Morph:
+استخدم [setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setType-int-) لتحديد Morph قبل الوصول إلى [getValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#getValue--). تُعيد القيمة واجهة [IMorphTransition](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imorphtransition/)، وتحدّد طريقة [setMorphType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/imorphtransition/#setMorphType-int-) وضع المطابقة.
+
+يفتح هذا المثال العرض التقديمي الذي تم إنشاؤه في القسم السابق ويضبط الشريحة الثانية لاستخدام حركة Morph مبنية على الكلمات.
+
 ```java
-Presentation presentation = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
+## **تعيين تأثيرات الانتقال**
 
-## **تعيين مؤثرات الانتقال**
-يدعم Aspose.Slides for Java تعيين مؤثرات الانتقال مثل من الأسود، من اليسار، من اليمين، إلخ. لتعيين مؤثر الانتقال، يرجى اتباع الخطوات أدناه:
+تُظهر بعض الانتقالات خيارات إضافية، مثل الاتجاه أو ما إذا كان التأثير يبدأ من شاشة سوداء. تعتمد الخيارات المتاحة على الانتقال المختار عبر [setType]. عيّن النوع أولًا، ثم استخدم الواجهة الملائمة عبر [getValue].
 
-- إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) .
-- الحصول على مرجع الشريحة.
-- ضبط مؤثر الانتقال.
-- كتابة العرض التقديمي كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+التطبيق التالي يطبّق انتقال Cut على الشريحة الأولى من `input.pptx`. يطّلق [setFromBlack](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) عبر [IOptionalBlackTransition](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ioptionalblacktransition/) لجعل الانتقال يبدأ من شاشة سوداء.
 
-في المثال المرفق أدناه، قمنا بتعيين مؤثرات الانتقال.
 ```java
-// إنشاء كائن من فئة Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // تعيين التأثير
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // حفظ العرض التقديمي على القرص
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **الأسئلة الشائعة**
 
 **هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
 
-نعم. اضبط [speed](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) للانتقال باستخدام إعداد [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/) (مثلًا، بطيء/متوسط/سريع).
+نعم. يفضَّل استخدام [setDuration](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setDuration-int-) عندما تحتاج إلى مدة تأثير دقيقة بالميلي ثانية. استخدم [setSpeed](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) عندما تكون فئة سرعة مُعرَّفة مسبقًا من [TransitionSpeed](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitionspeed/) (Slow أو Medium أو Fast) كافية ولا توجد مدة صريحة. تتحكم هذه الإعدادات في تأثير الانتقال مستقلاً عن تأخير التقدم التلقائي.
 
-**هل يمكنني إرفاق صوت بالانتقال وجعله يتكرر؟**
+**هل يمكنني إرفاق صوت بالانتقال وجعله يتكرار؟**
 
-نعم. يمكنك تضمين صوت للانتقال والتحكم في سلوكه عبر إعدادات مثل وضع الصوت والتكرار (مثلًا، [setSound](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-)، بالإضافة إلى بيانات وصفية مثل [setSoundIsBuiltIn](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) و [setSoundName](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+نعم. عيّن صوتًا مدمجًا باستخدام [setSound](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-)، مرّر `StartSound` من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitionsoundmode/) إلى [setSoundMode](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-)، وفعل [setSoundLoop](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) بالقيمة `true`. سيتكرار الصوت حتى يحدث حدث صوتي آخر في عرض الشرائح.
 
-**ما أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
+**ما هي أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
 
-قم بتهيئة نوع الانتقال المطلوب في إعدادات انتقال كل شريحة؛ فالتغييرات تُحفظ لكل شريحة على حدة، لذا تطبيق نفس النوع على جميع الشرائح يعطي نتيجة موحدة.
+مرّر على مجموعة [getSlides](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#getSlides--) في العرض التقديمي واستدعِ [setType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#setType-int-) بنفس القيمة لكل شريحة. عيّن أي خيارات توقيت أو تأثير داخل نفس الحلقة للحفاظ على سلوك موحَّد عبر الشرائح.
 
-**كيف يمكنني التحقق من أي انتقال مُعين حاليًا على شريحة؟**
+**كيف يمكنني التحقق من الانتقال المحدد حاليًا على شريحة؟**
 
-اطلع على [إعدادات الانتقال](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getSlideShowTransition--) الخاصة بالشريحة واقرأ [نوع الانتقال](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setType-int-)؛ هذه القيمة تُظهر لك بالضبط أي مؤثر تم تطبيقه.
+استدعِ [getType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islideshowtransition/#getType--) على نتيجة [getSlideShowTransition](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) للشريحة. تُعيد قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/transitiontype/); القيمة `None` تعني عدم تطبيق أي تأثير انتقال.

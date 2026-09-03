@@ -1,5 +1,5 @@
 ---
-title: Java を使用したプレゼンテーションのスライド遷移管理
+title: Java を使用したプレゼンテーションのスライド遷移の管理
 linktitle: スライド遷移
 type: docs
 weight: 80
@@ -9,7 +9,7 @@ keywords:
 - スライド遷移の追加
 - スライド遷移の適用
 - 高度なスライド遷移
-- モーフ遷移
+- Morph 遷移
 - 遷移タイプ
 - 遷移効果
 - PowerPoint
@@ -17,170 +17,312 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java でスライド遷移をカスタマイズする方法を、PowerPoint と OpenDocument プレゼンテーション向けにステップバイステップでご紹介します。"
+description: "Aspose.Slides for Java を使用してスライド遷移を適用し、自動スライド進行を設定し、Morph やその他の遷移効果をカスタマイズします。"
 ---
-
 ## **概要**
-{{% alert color="primary" %}} 
-Aspose.Slides for Java は、開発者がスライドの遷移効果を管理またはカスタマイズできるようにします。このトピックでは、Aspose.Slides for Java を使用してスライド遷移を簡単に制御する方法について説明します。
-{{% /alert %}} 
 
-理解しやすくするために、Aspose.Slides for Java を使用してシンプルなスライド遷移を管理する方法を示しています。開発者はスライドにさまざまな遷移効果を適用できるだけでなく、これらの遷移効果の動作もカスタマイズできます。
+スライド遷移は、スライドショー中にスライドがどのように表示されるかを制御します。Aspose.Slides for Java を使用すると、各スライドに遷移効果を選択し、マウスクリックまたはタイマーによる進行を設定し、効果固有のオプションを調整できます。本記事では、Java のサンプルを使って遷移を適用し、正確な遷移時間を設定し、スライドのタイミングを管理し、2 つのスライド間に Morph 遷移を作成する方法を示します。サンプルは設定を PPTX ファイルに保存する方法も示しています。
 
 ## **スライド遷移の追加**
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。  
-1. Aspose.Slides for Java が提供する遷移効果のうちの一つを TransitionType 列挙体を使用してスライドに適用します。  
-1. 変更されたプレゼンテーションファイルを書き込みます。  
+
+遷移を適用するには、[Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスでプレゼンテーションをロードし、[getSlideShowTransition](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) を介してスライドの遷移設定にアクセスします。[setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setType-int-) に [TransitionType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitiontype/) 列挙体の値を指定し、プレゼンテーションを保存します。
+
+以下の例は、最初のスライドに Circle 遷移を、2 番目のスライドに Comb 遷移を適用します。スライドが最低 2 枚ある `input.pptx` ファイルを使用してください。
+
 ```java
-// ソースプレゼンテーションファイルをロードするために Presentation クラスをインスタンス化します
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // スライド 1 に円形トランジションを適用します
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // スライド 2 にコームトランジションを適用します
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // プレゼンテーションをディスクに保存します
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **高度なスライド遷移の追加**
-1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) クラスのインスタンスを作成します。  
-1. Aspose.Slides for Java が提供する遷移効果のうちの一つをスライドに適用します。  
-1. 遷移をクリックで進むよう、指定した時間後に進むよう、またはその両方に設定できます。  
-1. スライド遷移が「クリックで進む」ように有効になっている場合、マウスクリック時にのみ遷移が進みます。さらに「指定時間後に進む」プロパティが設定されている場合、指定された時間が経過すると自動的に遷移が進みます。  
-1. 変更されたプレゼンテーションをファイルとして書き込みます。  
+
+スライドが画面に留まる時間や、マウスクリックでスライドショーを進めるかどうかを構成できます。以下のメソッドでこの動作を制御します。
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) は、マウスクリックで進めることを許可します。
+- [setAdvanceAfter](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) は、自動進行を有効にします。
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) は、自動進行までの遅延時間（ミリ秒）を指定します。
+
+クリックとタイマーの両方を有効にすれば、クリックでもタイマーでもスライドを進められます。タイマーのみ使用したい場合は、[setAdvanceOnClick](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) に `false` を渡します。遅延はスライドショーが次に進むタイミングを制御しますが、視覚的な遷移効果の期間は設定しません。
+
+この例は、最初の 3 枚のスライドに異なる効果を割り当て、3 秒、5 秒、7 秒後に自動進行するように設定します。マウスクリックでもこれらのスライドは進められます。スライドが最低 3 枚ある `input.pptx` ファイルを使用してください。
+
 ```java
-// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // スライド 1 に円形遷移を適用します
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // 遷移時間を 3 秒に設定します
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // スライド 2 にコーム遷移を適用します
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // 遷移時間を 5 秒に設定します
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // スライド 3 にズーム遷移を適用します
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // 遷移時間を 7 秒に設定します
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // プレゼンテーションをディスクに保存します
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+タイマー進行が有効かどうかを確認するには、[getAdvanceAfter](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--) を呼び出します。遅延が保存されているだけでは、タイマーがアクティブであることを示しません。
 
-## **モーフ遷移**
-{{% alert color="primary" %}} 
-Aspose.Slides for Java は現在、[Morph Transition](https://reference.aspose.com/slides/java/com.aspose.slides/IMorphTransition) をサポートしています。これは PowerPoint 2019 で導入された新しいモーフ遷移を表します。 
-{{% /alert %}} 
+次の例は、上記で保存したファイルを開き、各スライドのタイマーが有効かどうかを報告し、遅延が 2 秒を超えるスライドの自動進行を無効にします。そのスライドではマウスクリックを有効にし、設定を更新して保存します。
 
-Morph遷移を使用すると、あるスライドから次のスライドへの滑らかな移動をアニメーション化できます。本記事では概念とMorph遷移の使用方法を説明します。Morph遷移を効果的に使用するには、共通のオブジェクトが少なくとも1つある2枚のスライドが必要です。最も簡単な方法はスライドを複製し、2枚目のスライド上のオブジェクトを別の位置に移動することです。
-
-以下のコードスニペットは、テキストを含むスライドのクローンをプレゼンテーションに追加し、2枚目のスライドに [morph type](https://reference.aspose.com/slides/java/com.aspose.slides/TransitionType) の遷移を設定する方法を示しています。
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **遷移タイミングを正確に制御する**
+
+[setDuration](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setDuration-int-) を使用して、遷移効果そのものの長さ（ミリ秒）を正確に指定します。スライドの [getSlideShowTransition](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) メソッドは、[ISlideShowTransition](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/) を通じてこれらの設定を公開します。
+
+| メソッド | 目的 |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | 遷移効果自体の期間をミリ秒で設定します。 |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | スライドが自動的に進むまでの遅延時間をミリ秒で設定します。[setAdvanceAfter](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) に `true` を渡してタイマーを有効にします。 |
+| [setSpeed](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | [TransitionSpeed](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitionspeed/) 列挙体から Slow、Medium、Fast の事前定義された速度カテゴリを選択します。正確な期間が指定されていない場合に使用されます。 |
+
+[setDuration](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setDuration-int-) は遷移効果だけを制御し、スライドが画面に残る時間は決定しません。自動進行の遅延は別途設定してください。明示的な期間が設定されていない場合、Aspose.Slides は遷移タイプと [getSpeed](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#getSpeed--) の値から効果期間を算出します。
+
+### **すべてのスライドに同じ期間を適用する**
+
+一定のペースを保つために、すべてのスライドに同じ効果と正確な期間を適用します。この例は `input.pptx` をロードし、[TransitionType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitiontype/) から Fade を選択し、各遷移に 750 ミリ秒の期間を設定します。また、自動進行を 5,000 ミリ秒後に有効にし、マウスクリックによる進行を無効にして、結果を PPTX として保存します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // 効果の期間とは別に自動進行を設定します。
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **個々のスライドに異なる期間を設定する**
+
+スライドごとに異なる効果期間を使用できます。たとえば、タイトルスライドには短い遷移を、セクションの導入スライドには長い遷移を設定します。この例は、最初のスライドを 500 ミリ秒、2 番目のスライドを 1,200 ミリ秒に設定します。スライドが最低 2 枚ある `input.pptx` ファイルを使用してください。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **アニメーション出力と遷移を調整する**
+
+[animated GIF](/slides/ja/java/convert-powerpoint-to-animated-gif/)、[HTML5 プレゼンテーション](/slides/ja/java/export-to-html5/)、または [video](/slides/ja/java/convert-powerpoint-to-video/) を作成する際は、エクスポート前に正確な遷移期間を設定して目的のペースに合わせます。たとえば、シーン間に 600 ミリ秒のフェードを使用し、各スライドの進行遅延を個別に調整してナレーションやコンテンツの時間を確保します。
+
+GIF と動画の場合、フレームレートと効果期間を合わせる必要があります。600 ミリ秒は 30 fps で 18 フレームに相当します。HTML5 では、エクスポート設定でアニメーション遷移を有効にします。選択したエクスポート形式がサポートする効果やタイミングオプションを確認し、プレビューで同期を確認してください。
+
+### **既存の遷移期間を読む**
+
+遷移を変更する前に [getDuration](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#getDuration--) を呼び出して、明示的な値が保存されているか確認します。`-1` は明示的な期間が設定されていないことを示し、0 以上の値はミリ秒単位の保存された期間です。未設定の値は再生時の計算された期間ではありません。Aspose.Slides は遷移タイプと [getSpeed](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#getSpeed--) の値から期間を決定します。遷移タイプを設定すると期間が初期化されることがあるため、最初に元の設定を確認してください。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Morph 遷移**
+
+Morph 遷移は、連続するスライド間でオブジェクトの変化をアニメーション化します。簡単な Morph 効果を作成するには、スライドをクローンし、クローン上のオブジェクトを移動またはサイズ変更し、2 番目のスライドに Morph 遷移を適用します。これにより、元の状態と変更後の状態の間で対応するオブジェクトがアニメーションします。
+
+以下の例は、テキスト矩形を含むスライドを作成し、スライドをクローンしてクローン上の矩形の位置とサイズを変更します。2 番目のスライドの [TransitionType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitiontype/) 列挙体で Morph を選択します。Morph をサポートするプレゼンテーションビューアで保存ファイルを開くと、スライドショー中に効果が確認できます。
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-
-## **モーフ遷移タイプ**
-新しい [TransitionMorphType](https://reference.aspose.com/slides/java/com.aspose.slides/TransitionMorphType) 列挙体が追加されました。これはモーフスライド遷移のさまざまなタイプを表します。
-
-TransitionMorphType 列挙体には3つのメンバーがあります：
-
-- ByObject: 形状を分割できないオブジェクトとして考慮してモーフ遷移が実行されます。  
-- ByWord: 可能な場合、テキストを単語単位で転送してモーフ遷移が実行されます。  
-- ByChar: 可能な場合、テキストを文字単位で転送してモーフ遷移が実行されます。  
-
-以下のコードスニペットは、スライドにモーフ遷移を設定し、モーフタイプを変更する方法を示しています。
-```java
-Presentation presentation = new Presentation("presentation.pptx");
-try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Morph 遷移タイプ**
+
+[TransitionMorphType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitionmorphtype/) 列挙体は、Morph がコンテンツをどのようにマッチングしアニメーション化するかを制御します。
+
+- [ByObject](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitionmorphtype/#ByObject) は各シェイプ全体をオブジェクトとして扱います。
+- [ByWord](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitionmorphtype/#ByWord) は可能な場合に単語単位でテキストをアニメーション化します。
+- [ByChar](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitionmorphtype/#ByChar) は可能な場合に文字単位でテキストをアニメーション化します。
+
+[setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setType-int-) で Morph を選択した後、[getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#getValue--) を呼び出して取得できる [IMorphTransition](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imorphtransition/) インターフェイスの [setMorphType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imorphtransition/#setMorphType-int-) メソッドでマッチングモードを選択します。
+
+この例は前節で作成したプレゼンテーションを開き、2 番目のスライドで単語ベースの Morph アニメーションを設定します。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **遷移効果の設定**
-Aspose.Slides for Java は、黒から、左から、右からなどの遷移効果の設定をサポートしています。遷移効果を設定するには、以下の手順に従ってください：
 
-- [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) クラスのインスタンスを作成します。  
-- スライドの参照を取得します。  
-- 遷移効果を設定します。  
-- プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き込みます。  
+一部の遷移は方向や黒画面から開始するかどうかなど、追加オプションを公開します。利用できるオプションは [setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setType-int-) で選択した遷移に依存します。まずタイプを設定し、次に [getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#getValue--) から適切なインターフェイスを使用します。
 
-以下の例では、遷移効果を設定しています。
+以下の例は `input.pptx` の最初のスライドに Cut 遷移を適用します。[IOptionalBlackTransition](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ioptionalblacktransition/) を介して [setFromBlack](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) を呼び出し、遷移が黒画面から開始するようにします。
+
 ```java
-// Presentation クラスのインスタンスを作成します
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // エフェクトを設定します
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // プレゼンテーションをディスクに保存します
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
 **スライド遷移の再生速度を制御できますか？**
 
-はい。遷移の [speed](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) を [TransitionSpeed](https://reference.aspose.com/slides/java/com.aspose.slides/transitionspeed/) 設定で指定します（例：slow/medium/fast）。
+はい。ミリ秒単位で正確な効果期間が必要な場合は [setDuration](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setDuration-int-) を使用してください。事前定義されたカテゴリ（Slow、Medium、Fast）で十分で明示的な期間を設定しない場合は [setSpeed](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) を使用します。これらの設定は自動進行遅延とは独立して遷移効果を制御します。
 
-**遷移にオーディオを添付してループさせることはできますか？**
+**遷移に音声を添付してループさせることはできますか？**
 
-はい。遷移にサウンドを埋め込み、サウンドモードやループなどの設定で動作を制御できます（例： [setSound](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), さらに [setSoundIsBuiltIn](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) や [setSoundName](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-) などのメタデータ）。
+はい。[setSound](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-) で埋め込み音声を割り当て、[TransitionSoundMode](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitionsoundmode/) 列挙体の StartSound を [setSoundMode](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-) に渡し、[setSoundLoop](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) を `true` に設定します。音声はスライドショーの次のサウンドイベントが発生するまでループします。
 
-**すべてのスライドに同じ遷移を適用する最速の方法は何ですか？**
+**すべてのスライドに同じ遷移を適用する最速の方法は？**
 
-各スライドの遷移設定で目的の遷移タイプを設定します。遷移はスライドごとに保持されるため、すべてのスライドに同じタイプを設定すれば一貫した結果が得られます。
+プレゼンテーションの [getSlides](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/#getSlides--) コレクションをループし、各スライドの遷移に対して同じ値で [setType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#setType-int-) を呼び出します。同じループ内でタイミングや効果オプションも設定すれば、スライド間で挙動を統一できます。
 
-**スライドに現在設定されている遷移を確認するにはどうすればよいですか？**
+**スライドに現在設定されている遷移を確認するには？**
 
-スライドの [transition settings](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getSlideShowTransition--) を調べ、[transition type](https://reference.aspose.com/slides/java/com.aspose.slides/slideshowtransition/#setType-int-) を取得します。その値が適用されている効果を示します。
+スライドの [getSlideShowTransition](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) 結果に対して [getType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islideshowtransition/#getType--) を呼び出します。戻り値は [TransitionType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/transitiontype/) 列挙体の値で、None は遷移効果が適用されていないことを示します。

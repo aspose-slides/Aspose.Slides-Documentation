@@ -1,5 +1,5 @@
 ---
-title: จัดการการเปลี่ยนสไลด์ในการนำเสนอใน .NET
+title: จัดการการเปลี่ยนสไลด์ในการพรีเซนเทชั่นใน .NET
 linktitle: การเปลี่ยนสไลด์
 type: docs
 weight: 90
@@ -9,195 +9,337 @@ keywords:
 - เพิ่มการเปลี่ยนสไลด์
 - ใช้การเปลี่ยนสไลด์
 - การเปลี่ยนสไลด์ขั้นสูง
-- การเปลี่ยนแบบ Morph
+- การเปลี่ยน Morph
 - ประเภทการเปลี่ยน
 - เอฟเฟกต์การเปลี่ยน
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- พรีเซนเทชั่น
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบวิธีปรับแต่งการเปลี่ยนสไลด์ใน Aspose.Slides for .NET พร้อมคำแนะนำทีละขั้นตอนสำหรับงานนำเสนอ PowerPoint และ OpenDocument"
+description: "ใช้การเปลี่ยนสไลด์, กำหนดการเลื่อนสไลด์อัตโนมัติ, และปรับแต่ง Morph และเอฟเฟกต์การเปลี่ยนอื่น ๆ ด้วย Aspose.Slides สำหรับ .NET."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการการเปลี่ยนสไลด์ในงานนำเสนอโดยใช้ Aspose.Slides แสดงวิธีใช้ประเภทการเปลี่ยนสไลด์บนสไลด์, กำหนดค่าพฤติกรรมการเปลี่ยนเช่น การก้าวต่อไปเมื่อคลิกหรือหลังจากเวลาที่กำหนด, ตรวจสอบและปิดการก้าวอัตโนมัติ, ใช้การเปลี่ยนแบบ Morph และประเภทต่างๆ, และตั้งค่าตัวเลือกเอฟเฟกต์การเปลี่ยน ตัวอย่างจะแสดงวิธีโหลดหรือสร้างงานนำเสนอ, แก้ไขการตั้งค่าการเปลี่ยนสำหรับสไลด์ที่เลือก, และบันทึกผลเป็นไฟล์ PPTX บทความยังตอบคำถามทั่วไปเกี่ยวกับความเร็วของการเปลี่ยน, เสียงการเปลี่ยน, การใช้การเปลี่ยนเดียวกันกับหลายสไลด์, และการตรวจสอบการเปลี่ยนที่ตั้งอยู่ในสไลด์ปัจจุบัน
+การเปลี่ยนสไลด์ควบคุมว่าแต่ละสไลด์จะแสดงอย่างไรระหว่างการแสดงสไลด์โชว์ ด้วย Aspose.Slides for .NET คุณสามารถเลือกเอฟเฟกต์การเปลี่ยนสไลด์สำหรับแต่ละสไลด์ ตั้งค่าการเลื่อนหน้าโดยคลิกเมาส์หรือโดยตัวจับเวลา และปรับตัวเลือกที่เฉพาะเจาะจงต่อเอฟเฟกต์ บทความนี้ใช้ตัวอย่าง C# เพื่อใช้การเปลี่ยนสไลด์ ตั้งระยะเวลาการเปลี่ยนสไลด์อย่างแม่นยำ จัดการเวลาแสดงสไลด์ และสร้างการเปลี่ยน Morph ระหว่างสองสไลด์ ตัวอย่างยังแสดงวิธีบันทึกการตั้งค่าเป็นไฟล์ PPTX
 
 ## **เพิ่มการเปลี่ยนสไลด์**
-เพื่ออธิบายให้เข้าใจง่าย เราได้สาธิตการใช้ Aspose.Slides for .NET เพื่อจัดการการเปลี่ยนสไลด์แบบง่าย นักพัฒนาสามารถไม่เพียงแค่ใช้เอฟเฟกต์การเปลี่ยนสไลด์ต่างๆ บนสไลด์เท่านั้น แต่ยังปรับแต่งพฤติกรรมของเอฟเฟกต์เหล่านั้นได้ เพื่อสร้างเอฟเฟกต์การเปลี่ยนสไลด์แบบง่าย ให้ทำตามขั้นตอนด้านล่าง:
 
-1. สร้างอินสแตนซ์ของคลาส[Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
-2. ใช้ประเภทการเปลี่ยนสไลด์บนสไลด์จากหนึ่งในเอฟเฟกต์การเปลี่ยนที่ Aspose.Slides for .NET มีให้ผ่าน enum TransitionType
-3. เขียนไฟล์งานนำเสนอที่ถูกแก้ไข
+เพื่อใช้การเปลี่ยนสไลด์ ให้โหลดพรีเซนเทชั่นด้วยคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) แล้วเข้าถึงคุณสมบัติ [SlideShowTransition](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/slideshowtransition/) ของสไลด์ ตั้งค่า [Type](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/type/) ให้เป็นค่าจาก enumeration [TransitionType](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitiontype/) จากนั้นบันทึกพรีเซนเทชั่น
 
-```c#
- // สร้างอินสแตนซ์ของคลาส Presentation เพื่อโหลดไฟล์งานนำเสนอต้นฉบับ
- using (Presentation presentation = new Presentation("AccessSlides.pptx"))
- {
-     // ใช้การเปลี่ยนแบบวงกลมบนสไลด์ที่ 1
-     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+ตัวอย่างต่อไปนี้ใช้การเปลี่ยนแบบ Circle กับสไลด์แรกและการเปลี่ยนแบบ Comb กับสไลด์ที่สอง ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสองสไลด์
 
-     // ใช้การเปลี่ยนแบบคอมบบนสไลด์ที่ 2
-     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-     // บันทึกงานนำเสนอลงดิสก์
-     presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
- }
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
+
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
 ```
 
 ## **เพิ่มการเปลี่ยนสไลด์ขั้นสูง**
-ในส่วนก่อนหน้า เราได้ใช้เอฟเฟกต์การเปลี่ยนแบบง่ายบนสไลด์แล้ว ตอนนี้เพื่อทำให้เอฟเฟกต์การเปลี่ยนนั้นดีขึ้นและควบคุมได้ โปรดทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส[Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
-2. ใช้ประเภทการเปลี่ยนสไลด์บนสไลด์จากหนึ่งในเอฟเฟกต์การเปลี่ยนที่ Aspose.Slides for .NET มีให้
-3. คุณยังสามารถตั้งค่าการเปลี่ยนให้เป็น Advance On Click, หลังจากระยะเวลาที่กำหนด หรือทั้งสองอย่าง
-4. หากการเปลี่ยนสไลด์เปิดใช้งาน Advance On Click การเปลี่ยนจะทำงานก็ต่อเมื่อลูกคลิกเมาส์ นอกจากนี้ หากตั้งค่า Advance After Time ไว้ การเปลี่ยนจะทำอัตโนมัติหลังจากเวลาที่กำหนดผ่านไป
-5. เขียนงานนำเสนอที่แก้ไขแล้วเป็นไฟล์งานนำเสนอ
+คุณสามารถกำหนดระยะเวลาที่สไลด์อยู่บนหน้าจอและว่าการคลิกเมาส์จะเลื่อนสไลด์โชว์หรือไม่ คุณสมบัติดังต่อไปนี้ควบคุมพฤติกรรมนี้:
 
-```c#
- // สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
- using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
- {
+- [AdvanceOnClick](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/advanceonclick/) อนุญาตให้ผู้ชมเลื่อนหน้าจอด้วยการคลิกเมาส์
+- [AdvanceAfter](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/advanceafter/) เปิดใช้งานการเลื่อนอัตโนมัติ
+- [AdvanceAfterTime](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/advanceaftertime/) กำหนดระยะเวลาหน่วงก่อนการเลื่อนอัตโนมัติเป็นมิลลิวินาที
 
-     // ใช้การเปลี่ยนแบบวงกลมบนสไลด์ที่ 1
-     pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+เปิดใช้งานทั้งการคลิกและการเลื่อนตามเวลาเพื่อให้ผู้ชมสามารถดำเนินการต่อด้วยการคลิกหรือรอจนถึงตัวจับเวลา หากต้องการใช้เฉพาะตัวจับเวลา ให้ตั้งค่า [AdvanceOnClick](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/advanceonclick/) เป็น `false` ระยะหน่วงกำหนดว่าจะเลื่อนสไลด์โชว์เมื่อใด; มันไม่ได้กำหนดระยะเวลาแสดงเอฟเฟกต์การเปลี่ยนจริง
 
+ตัวอย่างนี้กำหนดเอฟเฟกต์ที่แตกต่างให้กับสามสไลด์แรกและเปิดการเลื่อนอัตโนมัติหลังจาก 3, 5, และ 7 วินาทีตามลำดับ การคลิกเมาส์ก็สามารถเลื่อนสไลด์เหล่านี้ได้เช่นกัน ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสามสไลด์
 
-     // ตั้งค่าเวลาการเปลี่ยนเป็น 3 วินาที
-     pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-     pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-     // ใช้การเปลี่ยนแบบคอมบบนสไลด์ที่ 2
-     pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
+using var presentation = new Presentation("input.pptx");
 
+if (presentation.Slides.Count >= 3)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-     // ตั้งค่าเวลาการเปลี่ยนเป็น 5 วินาที
-     pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-     pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
-     // ใช้การเปลี่ยนแบบซูมบนสไลด์ที่ 3
-     pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-
-     // ตั้งค่าเวลาการเปลี่ยนเป็น 7 วินาที
-     pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-     pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-     // บันทึกงานนำเสนอลงดิสก์
-     pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
- }
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
+}
 ```
 
-นอกจากนี้โดยใช้คุณสมบัติ[AdvanceAfter](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/advanceafter/) คุณสามารถตรวจสอบได้ว่าการเปลี่ยนสไลด์ได้ถูกกำหนดให้ย้ายไปสไลด์ถัดไปหรือถูกปิดการตั้งค่านั้นหรือไม่
+เพื่อดูว่าการเลื่อนตามเวลาถูกเปิดใช้งานหรือไม่ ให้อ่านค่า [AdvanceAfter](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/advanceafter/) ค่าหน่วงที่จัดเก็บเพียงอย่างเดียวไม่ได้บ่งบอกว่าตัวจับเวลากำลังทำงาน
 
-โค้ด C# นี้สาธิตการทำงาน:
+ตัวอย่างต่อไปเปิดไฟล์ที่บันทึกไว้ข้างต้น รายงานตัวจับเวลาที่เปิดอยู่แต่ละรายการ และปิดการเลื่อนอัตโนมัติสำหรับสไลด์ที่มีระยะหน่วงมากกว่าสองวินาที แล้วเปิดการคลิกเมาส์สำหรับสไลด์เหล่านั้นและบันทึกการตั้งค่าใหม่
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์งานนำเสนอ
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
     {
-        // รับการเปลี่ยนสไลด์
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
 
-        // ตรวจสอบว่าการตั้งค่า Advance After Time ถูกเปิดใช้งานหรือไม่
-        if (slideTransition.AdvanceAfter)
+        if (transition.AdvanceAfterTime > 2000)
         {
-            // พิมพ์ค่าของ Advance After Time
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
         }
+    }
+}
 
-        // ปิดการทำงานของการเปลี่ยนหลังจากเวลาที่กำหนดหากค่าของ AdvancedAfterTime มากกว่า 2 วินาที
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **ควบคุมเวลาการเปลี่ยนสไลด์อย่างแม่นยำ**
+
+ใช้ [Duration](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/duration/) เพื่อระบุความยาวที่แน่นอนของเอฟเฟกต์การเปลี่ยนเป็นมิลลิวินาที คุณสมบัติ [SlideShowTransition](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/slideshowtransition/) ของสไลด์เปิดเผยการตั้งค่าเหล่านี้ผ่าน [ISlideShowTransition](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/):
+
+| Property | Purpose |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/duration/) | กำหนดระยะเวลาของเอฟเฟกต์การเปลี่ยนเองเป็นมิลลิวินาที |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | กำหนดระยะหน่วงเวลาก่อนสไลด์เลื่อนไปโดยอัตโนมัติเป็นมิลลิวินาที เปิดใช้งาน [AdvanceAfter](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/advanceafter/) เพื่อเปิดตัวจับเวลานี้ |
+| [Speed](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/speed/) | เลือกประเภทความเร็วที่กำหนดไว้ล่วงหน้าจาก [TransitionSpeed](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium หรือ Fast ใช้เมื่อไม่ได้ระบุระยะเวลาอย่างแม่นยำ |
+
+[Duration](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/duration/) ควบคุมเฉพาะเอฟเฟกต์การเปลี่ยน; มันไม่ได้กำหนดว่าสตอกจะคงอยู่บนหน้าจอเป็นเวลานานเท่าใด ตั้งค่าหน่วงเวลาการเลื่อนอัตโนมัติแยกต่างหาก เมื่อไม่มีการตั้งค่าระยะเวลาชัดเจน Aspose.Slides จะคำนวณระยะเวลาเอฟเฟกต์จากประเภทการเปลี่ยนและค่า [Speed](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/speed/)
+
+### **ใช้ระยะเวลาเดียวกันกับทุกสไลด์**
+
+เพื่อให้จังหวะสม่ำเสมอ ให้ใช้เอฟเฟกต์และระยะเวลาที่แน่นอนเดียวกันกับทุกสไลด์ ตัวอย่างนี้โหลด `input.pptx` เลือก Fade จาก [TransitionType](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitiontype/) และตั้งระยะเวลาการเปลี่ยนเป็น 750 มิลลิวินาที สำหรับแต่ละสไลด์ นอกจากนี้ยังเปิดการเลื่อนอัตโนมัติหลังจาก 5 000 มิลลิวินาทีและปิดการเลื่อนด้วยการคลิกเมาส์ แล้วบันทึกผลเป็น PPTX
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // กำหนดการเลื่อนอัตโนมัติโดยแยกจากระยะเวลาเอฟเฟกต์.
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **ตั้งระยะเวลาต่างกันสำหรับสไลด์แต่ละสไลด์**
+
+สไลด์ที่แตกต่างกันสามารถใช้ระยะเวลาเอฟเฟกต์ที่ต่างกันได้ ตัวอย่างเช่น ใช้การเปลี่ยนสั้น ๆ สำหรับสไลด์หัวเรื่องและการเปลี่ยนยาวกว่าสำหรับการแนะนำส่วน ตัวอย่างนี้ตั้งค่า 500 มิลลิวินาทีสำหรับสไลด์แรกและ 1 200 มิลลิวินาทีสำหรับสไลด์ที่สอง ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสองสไลด์
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **ประสานการเปลี่ยนกับผลลัพธ์แบบเคลื่อนไหว**
+
+เมื่อเตรียม [animated GIF](/slides/th/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/th/net/export-to-html5/) หรือ [video](/slides/th/net/convert-powerpoint-to-video/) ให้ตั้งระยะเวลาการเปลี่ยนอย่างแม่นยำก่อนการส่งออกเพื่อให้ตรงกับจังหวะที่ต้องการ ตัวอย่างเช่น ใช้การจางแบบ Fade 600 มิลลิวินาทีระหว่างฉาก และปรับระยะหน่วงการเลื่อนของแต่ละสไลด์แยกกันเพื่อให้มีเวลาสำหรับการบรรยายหรือเนื้อหา
+
+สำหรับ GIF และวิดีโอ ให้ประสานอัตราเฟรมของผลลัพธ์กับระยะเวลาเอฟเฟกต์: 600 มิลลิวินาทีเทียบกับ 18 เฟรมที่ 30 เฟรมต่อวินาที ใน HTML5 เปิดใช้งานการเปลี่ยนแบบเคลื่อนไหวในการตั้งค่าการส่งออก ตรวจสอบเอฟเฟกต์และตัวเลือกเวลาที่สนับสนุนโดยรูปแบบการส่งออกที่เลือก และดูตัวอย่างผลลัพธ์เพื่อยืนยันการซิงโครไนซ์
+
+### **อ่านระยะเวลาการเปลี่ยนที่มีอยู่**
+
+อ่านค่า [Duration](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/duration/) ก่อนแก้ไขการเปลี่ยนเพื่อดูว่ามีค่าที่ระบุชัดเจนหรือไม่ ค่า `-1` หมายความว่าไม่มีการตั้งค่าระยะเวลาชัดเจน; ค่าที่เป็นจำนวนเต็มบวกหรือศูนย์ระบุระยะเวลาที่เก็บไว้เป็นมิลลิวินาที ค่าที่ไม่ได้ตั้งไว้ไม่ใช่ระยะเวลาการเล่นที่คำนวณได้: Aspose.Slides ใช้ประเภทการเปลี่ยนและ [Speed](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/speed/) เพื่อคำนวณระยะเวลานั้น การตั้งค่าประเภทการเปลี่ยนอาจทำให้มีการกำหนดระยะเวลาโดยอัตโนมัติ ดังนั้นควรตรวจสอบการตั้งค่าเดิมก่อน
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
-## **การเปลี่ยนแบบ Morph**
-Aspose.Slides for .NET ตอนนี้สนับสนุน[Morph Transition](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/imorphtransition) ซึ่งเป็นการเปลี่ยนแบบ Morph ใหม่ที่นำเข้ามาใน PowerPoint 2019 การเปลี่ยนแบบ Morph ช่วยให้คุณสร้างการเคลื่อนไหวราบรื่นจากสไลด์หนึ่งไปยังสไลด์ต่อไป บทความนี้อธิบายแนวคิดและวิธีใช้การเปลี่ยนแบบ Morph เพื่อใช้การเปลี่ยนแบบ Morph อย่างมีประสิทธิภาพ คุณจะต้องมีสไลด์สองสไลด์ที่มีออบเจกต์อย่างน้อยหนึ่งออบเจกต์ที่เหมือนกัน วิธีที่ง่ายที่สุดคือทำสำเนาสไลด์แล้วย้ายออบเจกต์บนสไลด์ที่สองไปยังตำแหน่งที่ต่างออกไป
+## **การเปลี่ยน Morph**
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีเพิ่มสำเนาสไลด์ที่มีข้อความบางส่วนไปยังงานนำเสนอและตั้งค่าการเปลี่ยนเป็น[morph type](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/imorphtransition/properties/morphtype)บนสไลด์ที่สอง
+การเปลี่ยน Morph ทำแอนิเมชันการเปลี่ยนแปลงระหว่างวัตถุในสไลด์ต่อเนื่อง เพื่อสร้างเอฟเฟกต์ Morph อย่างง่าย ให้คัดลอกสไลด์ ย้ายหรือปรับขนาดวัตถุบนสำเนา แล้วใช้การเปลี่ยน Morph กับสไลด์ที่สอง ทำให้วัตถุที่เกี่ยวข้องสามารถแอนิเมชันจากสถานะเดิมไปยังสถานะที่แก้ไข
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+ตัวอย่างต่อไปนี้สร้างสไลด์ที่มีสี่เหลี่ยมข้อความ คัดลอกสไลด์และเปลี่ยนตำแหน่งและขนาดของสี่เหลี่ยมบนสำเนา จากนั้นเลือก Morph จาก enumeration [TransitionType](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitiontype/) สำหรับสไลด์ที่สอง เปิดไฟล์ที่บันทึกในตัวชมพรีเซนเทชั่นที่รองรับ Morph เพื่อดูเอฟเฟกต์ระหว่างการแสดงสไลด์
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+using var presentation = new Presentation();
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
+
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
+
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
 
-## **ประเภทการเปลี่ยนแบบ Morph**
-ได้เพิ่ม enum[Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionmorphtype) ใหม่ ซึ่งแสดงประเภทต่างๆ ของการเปลี่ยนสไลด์แบบ Morph
+## **ประเภทการเปลี่ยน Morph**
 
-Enum TransitionMorphType มีสมาชิกสามตัว:
+enumeration [TransitionMorphType](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionmorphtype/) กำหนดว่าการจับคู่และแอนิเมชันของ Morph จะทำอย่างไร:
 
-- ByObject: การเปลี่ยน Morph จะดำเนินการโดยพิจารณา shapes เป็นออบเจกต์ที่ไม่แยกย่อย
-- ByWord: การเปลี่ยน Morph จะดำเนินการโดยถ่ายโอนข้อความตามคำเมื่อเป็นไปได้
-- ByChar: การเปลี่ยน Morph จะดำเนินการโดยถ่ายโอนข้อความตามอักขระเมื่อเป็นไปได้
+- [ByObject](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionmorphtype/) พิจารณาแต่ละรูปเป็นวัตถุทั้งหมด
+- [ByWord](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionmorphtype/) ทำแอนิเมชันข้อความโดยจับคู่คำที่เป็นไปได้
+- [ByChar](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionmorphtype/) ทำแอนิเมชันข้อความโดยจับคู่อักขระที่เป็นไปได้
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีตั้งค่าการเปลี่ยน Morph ให้กับสไลด์และเปลี่ยนประเภท Morph:
+ตั้งค่า [Type](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/type/) ของการเปลี่ยนเป็น Morph ก่อนเข้าถึง [Value](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/value/). ค่าที่ได้จะให้ส่วนต่อประสาน [IMorphTransition](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/imorphtransition/) ซึ่งคุณสมบัติ [MorphType](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/imorphtransition/morphtype/) เลือกโหมดการจับคู่
 
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+ตัวอย่างนี้เปิดพรีเซนเทชั่นที่สร้างในส่วนก่อนหน้าและกำหนดให้สไลด์ที่สองใช้การแอนิเมชัน Morph ตามคำ
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
+
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
 ## **ตั้งค่าเอฟเฟกต์การเปลี่ยน**
-Aspose.Slides for .NET รองรับการตั้งค่าเอฟเฟกต์การเปลี่ยน เช่น from black, from left, from right เป็นต้น เพื่อกำหนดเอฟเฟกต์การเปลี่ยน โปรดทำตามขั้นตอนด้านล่าง:
 
-- สร้างอินสแตนซ์ของคลาส[Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation)
-- รับอ้างอิงของสไลด์
-- ตั้งค่าเอฟเฟกต์การเปลี่ยน
-- เขียนงานนำเสนอเป็นไฟล์[PPTX](https://docs.fileformat.com/presentation/pptx/)
+บางการเปลี่ยนเปิดเผยตัวเลือกเพิ่มเติม เช่น ทิศทางหรือว่าจะเริ่มจากหน้าจอสีดำหรือไม่ ตัวเลือกที่มีอยู่ขึ้นกับ [Type](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/type/) ที่เลือก ตั้งค่าประเภทก่อน แล้วใช้ส่วนต่อประสานที่เหมาะสมจาก [Value](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/value/)
 
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าเอฟเฟกต์การเปลี่ยนแล้ว
+ตัวอย่างต่อไปนี้ใช้การเปลี่ยน Cut กับสไลด์แรกของ `input.pptx` โดยตั้งค่า [FromBlack](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) ผ่าน [IOptionalBlackTransition](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/ioptionalblacktransition/) เพื่อให้การเปลี่ยนเริ่มจากหน้าจอสีดำ
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-// ตั้งค่าเอฟเฟกต์
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
 
-// บันทึกงานนำเสนอลงดิสก์
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+if (transition.Value is IOptionalBlackTransition cutTransition)
+{
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
+}
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
 **ฉันสามารถควบคุมความเร็วการเล่นของการเปลี่ยนสไลด์ได้หรือไม่?**
 
-ใช่. ตั้งค่า[Speed](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/speed/) ของการเปลี่ยนโดยใช้การตั้งค่า[TransitionSpeed](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionspeed/) (เช่น slow/medium/fast)
+ใช่. ควรเลือกใช้ [Duration](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/duration/) เมื่อต้องการระยะเวลาเอฟเฟกต์ที่แม่นยำเป็นมิลลิวินาที ใช้ [Speed](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/speed/) เมื่อหมวดหมู่ความเร็วที่กำหนดไว้ล่วงหน้าใน [TransitionSpeed](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionspeed/) — Slow, Medium หรือ Fast — เพียงพอและไม่มีการตั้งค่าระยะเวลาชัดเจน การตั้งค่าเหล่านี้ควบคุมเอฟเฟกต์การเปลี่ยนโดยไม่กระทบต่อระยะเวลาการเลื่อนอัตโนมัติ
 
-**ฉันสามารถแนบเสียงเข้ากับการเปลี่ยนและทำให้วนซ้ำได้หรือไม่?**
+**ฉันสามารถแนบเสียงกับการเปลี่ยนสไลด์และทำให้วนซ้ำได้หรือไม่?**
 
-ใช่. คุณสามารถฝังเสียงสำหรับการเปลี่ยนและควบคุมพฤติกรรมผ่านการตั้งค่า เช่น [Sound](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/sound/), [SoundMode](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/soundmode/), [SoundLoop](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/soundloop/), พร้อมเมตาดาต้าเช่น [SoundIsBuiltIn](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) และ [SoundName](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/soundname/)
+ได้. กำหนดเสียงที่ฝังไว้ให้กับ [Sound](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/sound/), ตั้งค่า [SoundMode](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/soundmode/) เป็น StartSound จาก enumeration [TransitionSoundMode](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitionsoundmode/), และเปิดใช้งาน [SoundLoop](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/soundloop/). เสียงจะวนซ้ำจนกว่าจะมีเหตุการณ์เสียงต่อไปในสไลด์โชว์
 
 **วิธีที่เร็วที่สุดในการใช้การเปลี่ยนเดียวกันกับทุกสไลด์คืออะไร?**
 
-กำหนดประเภทการเปลี่ยนที่ต้องการในการตั้งค่าการเปลี่ยนของแต่ละสไลด์; การเปลี่ยนจะถูกเก็บแยกตามสไลด์ ดังนั้นการใช้ประเภทเดียวกันกับทุกสไลด์จะให้ผลลัพธ์ที่สอดคล้องกัน
+วนลูปผ่านคอลเลกชัน [Slides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/slides/th/) ของพรีเซนเทชั่นและตั้งค่า [Type](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/type/) ของการเปลี่ยนของแต่ละสไลด์เป็นค่าเดียวกัน ตั้งค่าตัวเลือกเวลาและเอฟเฟกต์อื่น ๆ ในลูปเดียวกันเพื่อให้พฤติกรรมสม่ำเสมอในทุกสไลด์
 
-**ฉันจะตรวจสอบการเปลี่ยนที่ตั้งอยู่ในสไลด์ปัจจุบันได้อย่างไร?**
+**ฉันจะตรวจสอบว่าการเปลี่ยนใดถูกตั้งค่าบนสไลด์ขณะนี้ได้อย่างไร?**
 
-ตรวจสอบ[การตั้งค่าการเปลี่ยน](https://reference.aspose.com/slides/th/net/aspose.slides/baseslide/slideshowtransition/)ของสไลด์และอ่าน[ประเภทการเปลี่ยน](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/slideshowtransition/type/)ของมัน; ค่าดังกล่าวบอกคุณได้อย่างชัดเจนว่าเอฟเฟกต์ใดถูกนำไปใช้
+อ่านคุณสมบัติ [Type](https://reference.aspose.com/slides/th/net/aspose.slides/islideshowtransition/type/) จาก [SlideShowTransition](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/slideshowtransition/) ของสไลด์ จะได้ค่าจาก enumeration [TransitionType](https://reference.aspose.com/slides/th/net/aspose.slides.slideshow/transitiontype/); None หมายความว่าไม่มีการใช้เอฟเฟกต์การเปลี่ยนใด ๆ

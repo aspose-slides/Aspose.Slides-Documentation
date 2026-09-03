@@ -1,167 +1,332 @@
 ---
-title: 幻灯片切换
+title: 使用 JavaScript 管理演示文稿中的幻灯片切换
+linktitle: 幻灯片切换
 type: docs
 weight: 80
 url: /zh/nodejs-java/slide-transition/
-keywords: "PowerPoint 幻灯片切换，JavaScript 中的 Morph 切换"
-description: "PowerPoint 幻灯片切换，PowerPoint 在 JavaScript 中的 Morph 切换"
+keywords:
+  - 幻灯片切换
+  - 添加幻灯片切换
+  - 应用幻灯片切换
+  - 高级幻灯片切换
+  - Morph 切换
+  - 切换类型
+  - 切换效果
+  - PowerPoint
+  - OpenDocument
+  - 演示文稿
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "使用 Aspose.Slides for Node.js via Java 应用幻灯片切换、配置自动幻灯片前进，并自定义 Morph 及其他切换效果。"
 ---
-
 ## **概述**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Node.js via Java 也允许开发人员管理或自定义幻灯片的切换效果。在本主题中，我们将讨论如何使用 Aspose.Slides for Node.js via Java 轻松控制幻灯片切换。
-
-{{% /alert %}} 
-
-为了更容易理解，我们演示了使用 Aspose.Slides for Node.js via Java 管理简单幻灯片切换的用法。开发人员不仅可以在幻灯片上应用不同的切换效果，还可以自定义这些切换效果的行为。
+幻灯片切换控制幻灯片在放映期间的出现方式。使用 Aspose.Slides for Node.js via Java，您可以为每张幻灯片选择切换效果，配置通过鼠标单击或计时器进行的切换，并调整针对特定效果的选项。本文使用 JavaScript 示例来应用切换、设置精确的切换时长、管理幻灯片计时，并在两张幻灯片之间创建 Morph 切换。示例还展示了如何将设置保存为 PPTX 文件。
 
 ## **添加幻灯片切换**
-要创建一个简单的幻灯片切换效果，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) 类的实例。
-1. 通过 TransitionType 枚举，从 Aspose.Slides for Node.js via Java 提供的切换效果中为幻灯片应用 Slide Transition Type。
-1. 写入修改后的演示文稿文件。
+要应用切换，使用 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类加载演示文稿，并通过 [getSlideShowTransition](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) 访问幻灯片的切换设置。使用来自 [TransitionType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitiontype/) 枚举的值调用 [setType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setType)，然后保存演示文稿。
+
+下面的示例对第一张幻灯片应用 Circle 切换，对第二张幻灯片应用 Comb 切换。请使用至少包含两张幻灯片的 `input.pptx` 文件。
+
 ```javascript
-// 实例化 Presentation 类以加载源演示文稿文件
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // 在第 1 张幻灯片上应用圆形类型切换
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // 在第 2 张幻灯片上应用梳形类型切换
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // 将演示文稿写入磁盘
-    presentation.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(slides.TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(slides.TransitionType.Comb);
+
+        presentation.save("slide-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **添加高级幻灯片切换**
-在上节中，我们仅在幻灯片上应用了一个简单的切换效果。现在，要使该简单切换效果更好且可控，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) 类的实例。
-1. 通过 Aspose.Slides for Node.js via Java 提供的切换效果为幻灯片应用 Slide Transition Type。
-1. 您还能将切换设置为单击后前进、在特定时间后前进，或两者兼而有之。
-1. 如果将幻灯片切换设置为单击后前进，则仅在有人单击鼠标时才会前进。此外，如果设置了 Advance After Time 属性，则在指定的时间过去后，切换会自动前进。
-1. 将修改后的演示文稿写入为演示文稿文件。
+您可以配置幻灯片在屏幕上的停留时长以及是否通过鼠标单击推进放映。以下方法控制此行为：
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) 允许观众通过单击鼠标来推进。
+- [setAdvanceAfter](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) 启用自动推进。
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) 指定自动推进前的延迟，以毫秒为单位。
+
+同时启用点击和计时推进，使观众可以通过点击继续或等待计时器。若仅使用计时器，请向 [setAdvanceOnClick](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) 传递 `false`。延迟决定放映何时推进；它不设置视觉切换效果的时长。
+
+此示例为前三张幻灯片分配不同的效果，并分别在 3、5、7 秒后启用自动推进。鼠标单击也可以推进这些幻灯片。请使用至少包含三张幻灯片的 `input.pptx` 文件。
+
 ```javascript
-// 实例化表示演示文稿文件的 Presentation 类
-var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // 在第 1 张幻灯片上应用圆形类型切换
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // 设置 3 秒的切换时间
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
-    // 在第 2 张幻灯片上应用梳形类型切换
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // 设置 5 秒的切换时间
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
-    // 在第 3 张幻灯片上应用缩放类型切换
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(aspose.slides.TransitionType.Zoom);
-    // 设置 7 秒的切换时间
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-    // 将演示文稿写入磁盘
-    pres.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 3) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
+
+        const thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(slides.TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
+
+        presentation.save("advanced-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+要检查是否启用了计时推进，请调用 [getAdvanceAfter](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter)。单独存储的延迟并不表示计时器已激活。
+
+下面的示例打开上述保存的文件，报告每个已启用的计时器，并对延迟超过两秒的幻灯片禁用自动推进。为这些幻灯片启用鼠标单击并保存更新后的设置。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("advanced-transitions.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            console.log("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **精确控制切换时机**
+
+使用 [setDuration](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setDuration) 可以指定切换效果的精确时长（单位为毫秒）。幻灯片的 [getSlideShowTransition](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) 方法通过 [SlideShowTransition](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/) 公开这些设置：
+
+| 方法 | 目的 |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | 设置切换效果本身的时长，单位为毫秒。 |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | 设置幻灯片自动推进前的延迟，单位为毫秒。向 [setAdvanceAfter](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) 传递 `true` 以激活此计时器。 |
+| [setSpeed](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | 从 [TransitionSpeed](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitionspeed/) 中选择预定义的速度类别：Slow、Medium 或 Fast。当未指定精确时长时使用该设置。 |
+
+[setDuration] 仅控制切换效果本身；它不决定幻灯片的可见时长。自动推进的延迟需单独配置。当未设置显式时长时，Aspose.Slides 会根据切换类型和 [getSpeed](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) 的值来确定效果时长。
+
+### **为每张幻灯片应用相同的时长**
+
+为保持一致的节奏，对每张幻灯片应用相同的效果和精确时长。此示例加载 `input.pptx`，从 [TransitionType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitiontype/) 中选择 Fade，并为每个切换设置 750 毫秒的时长。它分别在 5,000 毫秒后启用自动推进，并禁用鼠标单击推进，然后将结果保存为 PPTX。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Fade);
+        transition.setDuration(750);
+
+        // 配置自动推进，使其独立于效果时长。
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **为单个幻灯片设置不同的时长**
+
+不同的幻灯片可以使用不同的效果时长。例如，对标题幻灯片使用较短的切换，对章节介绍使用较长的切换。此示例为第一张幻灯片设置 500 毫秒，为第二张幻灯片设置 1,200 毫秒。请使用至少包含两张幻灯片的 `input.pptx` 文件。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **将切换与动画输出协调**
+
+在准备 [animated GIF](/slides/zh/nodejs-java/convert-powerpoint-to-animated-gif/)、[HTML5 演示](/slides/zh/nodejs-java/export-to-html5/) 或 [视频](/slides/zh/nodejs-java/convert-powerpoint-to-video/) 时，导出前请设置精确的切换时长以匹配预期的节奏。例如，在场景之间使用 600 毫秒的淡入淡出，并分别调整每张幻灯片的推进延迟，以留出旁白或内容的时间。
+
+对于 GIF 和视频，需要将输出帧率与效果时长相匹配：600 毫秒对应 30 帧每秒时的 18 帧。在 HTML5 中，在导出设置中启用动画切换。检查所选导出格式支持的效果和时机选项，并预览输出以确认同步。
+
+### **读取已有的切换时长**
+
+在修改切换前调用 [getDuration](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#getDuration) 以确定是否存有显式值。值为 `-1` 表示未设置显式时长；非负值表示以毫秒为单位的存储时长。未设置的值并非计算后的播放时长：Aspose.Slides 会根据切换类型和 [getSpeed](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) 的值来确定该时长。设置切换类型可能会初始化时长，因此请先检查原始设置。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        const duration = transition.getDuration();
+
+        if (duration >= 0) {
+            console.log("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            console.log("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Morph 切换**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Node.js via Java 现在支持 [Morph Transition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MorphTransition)。它们代表在 PowerPoint 2019 中引入的新 Morph 切换。
+Morph 切换在连续幻灯片的对象之间动画化变化。要创建简单的 Morph 效果，复制一张幻灯片，在副本上移动或调整对象大小，然后对第二张幻灯片应用 Morph。这样切换会为对应的对象在原始状态和修改后状态之间进行动画。
 
-{{% /alert %}} 
+下面的示例创建包含文字矩形的幻灯片，克隆该幻灯片，并在克隆上更改矩形的位置和大小。随后为第二张幻灯片从 [TransitionType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitiontype/) 枚举中选择 Morph。使用支持 Morph 的演示文稿查看器打开保存的文件，即可在放映时看到效果。
 
-Morph 切换允许您对幻灯片之间的平滑移动进行动画化。本文描述了其概念以及如何使用 Morph 切换。要有效使用 Morph 切换，您需要拥有两张至少有一个公共对象的幻灯片。最简单的方法是复制幻灯片，然后将第二张幻灯片上的对象移动到其他位置。
-
-下面的代码片段演示了如何向演示文稿中添加带有文本的幻灯片克隆，并为第二张幻灯片设置 [morph type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TransitionType) 切换。
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-    var shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const rectangle = firstSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
+
+    const secondSlide = presentation.getSlides().addClone(firstSlide);
+    const movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
+
+    secondSlide.getSlideShowTransition().setType(slides.TransitionType.Morph);
+
+    presentation.save("morph-transition.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **Morph 切换类型**
-新增了 [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TransitionMorphType) 枚举。它表示不同类型的 Morph 幻灯片切换。
 
-TransitionMorphType 枚举有三个成员：
+[TransitionMorphType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitionmorphtype/) 枚举控制 Morph 如何匹配并动画化内容：
 
-- ByObject：Morph 切换将在将形状视为不可分割的对象时执行。
-- ByWord：Morph 切换将在可能的情况下按词转移文本进行执行。
-- ByChar：Morph 切换将在可能的情况下按字符转移文本进行执行。
+- [ByObject](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) 将每个形状视为整体对象。
+- [ByWord](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) 在可能的情况下按单词匹配文本进行动画化。
+- [ByChar](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) 在可能的情况下按字符匹配文本进行动画化。
 
-下面的代码片段展示了如何为幻灯片设置 Morph 切换并更改 Morph 类型：
+在访问 [getValue](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#getValue) 之前使用 [setType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setType) 选择 Morph。该值随后提供一个 [MorphTransition](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/morphtransition/) 对象，其 [setMorphType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/morphtransition/#setMorphType) 方法用于选择匹配模式。
+
+此示例打开前一节创建的演示文稿，并将第二张幻灯片配置为使用基于单词的 Morph 动画。
+
 ```javascript
-var presentation = new aspose.slides.Presentation("presentation.pptx");
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setMorphType(aspose.slides.TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        const transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Morph);
+        const transitionValue = transition.getValue();
+
+        if (java.instanceOf(transitionValue, "com.aspose.slides.IMorphTransition")) {
+            transitionValue.setMorphType(slides.TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", slides.SaveFormat.Pptx);
+        } else {
+            console.log("Morph transition options are unavailable.");
+        }
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **设置切换效果**
-Aspose.Slides for Node.js via Java 支持设置切换效果，例如，从黑色、从左、从右等。要设置切换效果，请按照以下步骤操作：
 
-- 创建 [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) 类的实例。
-- 获取幻灯片的引用。
-- 设置切换效果。
-- 将演示文稿写入为 [PPTX ](https://docs.fileformat.com/presentation/pptx/) 文件。
+某些切换提供额外选项，如方向或是否从黑屏开始。可用选项取决于使用 [setType] 选择的切换。首先设置类型，然后从 [getValue] 获取相应的切换对象。
 
-以下示例中，我们已经设置了切换效果。
+下面的示例对 `input.pptx` 的第一张幻灯片应用 Cut 切换。它通过 [OptionalBlackTransition](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/optionalblacktransition/) 调用 [setFromBlack](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack)，使切换从黑屏开始。
+
 ```javascript
-// 创建 Presentation 类的实例
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // 设置效果
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Cut);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setFromBlack(true);
-    // 将演示文稿写入磁盘
-    presentation.save("SetTransitionEffects_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(slides.TransitionType.Cut);
+    const transitionValue = transition.getValue();
+
+    if (java.instanceOf(transitionValue, "com.aspose.slides.IOptionalBlackTransition")) {
+        transitionValue.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-
-## **FAQ**
+## **常见问题**
 
 **我可以控制幻灯片切换的播放速度吗？**
 
-是的。使用 [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) 设置来设置切换的 [speed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setspeed/)（例如，slow/medium/fast）。
+可以。当需要以毫秒为单位的精确效果时长时，推荐使用 [setDuration](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setDuration)。如果预定义的 [TransitionSpeed](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitionspeed/)（Slow、Medium 或 Fast）类别已足够且未设置显式时长，则使用 [setSpeed](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setSpeed)。这些设置独立于自动推进延迟，专门控制切换效果。
 
 **我可以为切换附加音频并使其循环吗？**
 
-是的。您可以为切换嵌入声音，并通过诸如声音模式和循环等设置来控制行为（例如，[setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsound/)、[setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundmode/)、[setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundloop/)），加上元数据如 [setSoundIsBuiltIn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) 和 [setSoundName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundname/)。
+可以。使用 [setSound](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setSound) 分配嵌入的音频，将 [TransitionSoundMode](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitionsoundmode/) 枚举中的 StartSound 传递给 [setSoundMode](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode)，并将 [setSoundLoop](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) 设置为 `true`。音频将在幻灯片放映中循环播放，直至出现下一个声音事件。
 
-**将相同的切换应用于每张幻灯片的最快方法是什么？**
+**将相同的切换快速应用于每张幻灯片的最快方法是什么？**
 
-在每张幻灯片的切换设置上配置所需的切换类型；切换是按幻灯片存储的，因此在所有幻灯片上使用相同的类型即可实现一致的效果。
+遍历演示文稿的 [getSlides](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/#getSlides) 集合，对每张幻灯片的切换调用相同的 [setType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#setType) 值。将在同一循环中设置所有计时和效果选项，以保持跨幻灯片行为的一致性。
 
-**我如何检查幻灯片当前设置了哪个切换？**
+**我如何检查幻灯片当前设置的切换类型？**
 
-检查幻灯片的 [transition settings](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) 并读取其 [transition type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/gettype/)；该值会明确指示当前应用的效果。
+对幻灯片的 [getSlideShowTransition](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) 结果调用 [getType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/slideshowtransition/#getType)。它返回 [TransitionType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/transitiontype/) 枚举中的值；None 表示未应用任何切换效果。

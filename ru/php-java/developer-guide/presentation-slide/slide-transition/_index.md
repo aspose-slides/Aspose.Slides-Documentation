@@ -6,10 +6,10 @@ weight: 80
 url: /ru/php-java/slide-transition/
 keywords:
 - переход слайда
-- добавление перехода слайда
-- применение перехода слайда
+- добавить переход слайда
+- применить переход слайда
 - расширенный переход слайда
-- морф-переход
+- переход Morph
 - тип перехода
 - эффект перехода
 - PowerPoint
@@ -17,154 +17,330 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Узнайте, как настраивать переходы слайдов в Aspose.Slides для PHP через Java, получив пошаговые инструкции для презентаций PowerPoint и OpenDocument."
+description: "Применяйте переходы слайдов, настраивайте автоматическое продвижение слайдов и кастомизируйте переход Morph и другие эффекты переходов с помощью Aspose.Slides для PHP через Java."
 ---
-
 ## **Обзор**
-{{% alert color="primary" %}} 
-Aspose.Slides for PHP via Java также позволяет разработчикам управлять и настраивать эффекты переходов слайдов. В этой теме мы рассмотрим управление переходами слайдов с большой легкостью, используя Aspose.Slides for PHP via Java.
-{{% /alert %}} 
-Чтобы упростить понимание, мы продемонстрировали использование Aspose.Slides for PHP via Java для управления простыми переходами слайдов. Разработчики могут не только применять различные эффекты переходов к слайдам, но и настраивать поведение этих эффектов.
 
-## **Добавить переход слайда**
-Чтобы создать простой эффект перехода слайда, выполните следующие шаги:
+Переходы слайдов управляют тем, как слайды появляются во время показа. С помощью Aspose.Slides для PHP через Java можно выбрать эффект перехода для каждого слайда, настроить продвижение по щелчку мыши или таймеру и отрегулировать параметры, специфичные для эффекта. В этой статье используются примеры PHP для применения переходов, установки точных длительностей переходов, управления временем показа слайдов и создания перехода Morph между двумя слайдами. Примеры также показывают, как сохранить настройки в файл PPTX.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-2. Примените тип перехода слайда, выбрав один из эффектов переходов, предлагаемых Aspose.Slides for PHP via Java, через перечисление TransitionType.
-3. Запишите изменённый файл презентации.
+## **Добавление перехода слайда**
+
+Чтобы применить переход, загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) и получите доступ к настройкам перехода слайда через [getSlideShowTransition](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseslide/#getSlideShowTransition). Используйте [setType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setType) со значением из перечисления [TransitionType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitiontype/), затем сохраните презентацию.
+
+В следующем примере применяется переход Circle к первому слайду и переход Comb ко второму. Используйте файл `input.pptx` минимум с двумя слайдами.
+
 ```php
-  # Создать экземпляр класса Presentation для загрузки исходного файла презентации
-  $presentation = new Presentation("AccessSlides.pptx");
-  try {
-    # Применить переход типа circle на слайде 1
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
-    # Применить переход типа comb на слайде 2
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
-    # Записать презентацию на диск
-    $presentation->save("SampleTransition_out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
+        $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
+
+        $presentation->save("slide-transitions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+## **Добавление расширенного перехода слайда**
 
-## **Добавить расширенный переход слайда**
-В предыдущем разделе мы применили простой эффект перехода к слайду. Теперь, чтобы улучшить и контролировать этот эффект, выполните следующие шаги:
+Можно настроить, как долго слайд остается на экране и будет ли щелчок мыши продвигать показ слайдов. Следующие методы управляют этим поведением:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation).
-2. Примените тип перехода слайда, выбрав один из эффектов переходов, предлагаемых Aspose.Slides for PHP via Java.
-3. Вы также можете установить переход «Advance On Click», через определённый промежуток времени или оба варианта.
-4. Если переход слайда включён «Advance On Click», он будет продвигаться только при щелчке мышью. Кроме того, если установлено свойство «Advance After Time», переход будет происходить автоматически после указанного времени.
-5. Запишите изменённую презентацию как файл презентации.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) позволяет пользователю продвигать слайд щелчком мыши.
+- [setAdvanceAfter](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) включает автоматическое продвижение.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) задает задержку перед автоматическим продвижением в миллисекундах.
+
+Включите одновременно щелчок и таймер, чтобы пользователь мог перейти по щелчку или подождать таймер. Чтобы использовать только таймер, передайте `false` в [setAdvanceOnClick](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Задержка управляет моментом продвижения показа, но не задаёт длительность визуального эффекта перехода.
+
+В этом примере различным слайдам назначаются разные эффекты, а автоматическое продвижение включается после 3, 5 и 7 секунд соответственно. По щелчку мыши эти слайды также могут продвигаться. Используйте файл `input.pptx` минимум с тремя слайдами.
+
 ```php
-  # Создать экземпляр класса Presentation, представляющего файл презентации
-  $pres = new Presentation("BetterSlideTransitions.pptx");
-  try {
-    # Применить переход типа circle на слайде 1
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
-    # Установить время перехода 3 секунды
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceAfterTime(3000);
-    # Применить переход типа comb на слайде 2
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
-    # Установить время перехода 5 секунд
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceAfterTime(5000);
-    # Применить переход типа zoom на слайде 3
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setType(TransitionType::Zoom);
-    # Установить время перехода 7 секунд
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceAfterTime(7000);
-    # Записать презентацию на диск
-    $pres->save("SampleTransition_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
 
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 3) {
+        $firstTransition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+        $firstTransition->setType(TransitionType::Circle);
+        $firstTransition->setAdvanceOnClick(true);
+        $firstTransition->setAdvanceAfter(true);
+        $firstTransition->setAdvanceAfterTime(3000);
 
-## **Морф‑переход**
-{{% alert color="primary" %}} 
-Aspose.Slides for PHP via Java теперь поддерживает [Morph Transition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/). Это новый морф‑переход, представленный в PowerPoint 2019.
-{{% /alert %}} 
-Морф‑переход позволяет анимировать плавное перемещение от одного слайда к другому. В этой статье описывается концепция и способы использования морф‑перехода. Чтобы эффективно использовать морф‑переход, вам нужны два слайда с хотя бы одним общим объектом. Самый простой способ – дублировать слайд, а затем переместить объект на втором слайде в другое место.
+        $secondTransition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $secondTransition->setType(TransitionType::Comb);
+        $secondTransition->setAdvanceOnClick(true);
+        $secondTransition->setAdvanceAfter(true);
+        $secondTransition->setAdvanceAfterTime(5000);
 
-Следующий фрагмент кода демонстрирует, как добавить клон слайда с текстом в презентацию и установить переход типа [morph type](https://reference.aspose.com/slides/php-java/aspose.slides/TransitionType) для второго слайда.
-```php
-  $presentation = new Presentation();
-  try {
-    $autoshape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
-    $autoshape->getTextFrame()->setText("Morph Transition in PowerPoint Presentations");
-    $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
-    $shape = $presentation->getSlides()->get_Item(1)->getShapes()->get_Item(0);
-    $shape->setX($shape->getX() + 100);
-    $shape->setY($shape->getY() + 50);
-    $shape->setWidth($shape->getWidth() - 200);
-    $shape->setHeight($shape->getHeight() - 10);
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
-  } finally {
+        $thirdTransition = $presentation->getSlides()->get_Item(2)->getSlideShowTransition();
+        $thirdTransition->setType(TransitionType::Zoom);
+        $thirdTransition->setAdvanceOnClick(true);
+        $thirdTransition->setAdvanceAfter(true);
+        $thirdTransition->setAdvanceAfterTime(7000);
+
+        $presentation->save("advanced-transitions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least three slides." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+Чтобы проверить, включено ли автоматическое продвижение по таймеру, вызовите [getAdvanceAfter](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Хранение задержки само по себе не указывает, что таймер активен.
 
-## **Типы морф‑переходов**
-Новый перечисление [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/TransitionMorphType) добавлено. Оно представляет различные типы морф‑переходов слайда.
+Следующий пример открывает файл, сохранённый выше, выводит информацию о каждом включённом таймере и отключает автоматическое продвижение для слайдов с задержкой более двух секунд. Для этих слайдов включается щелчок мышью, после чего настройки сохраняются.
 
-Перечисление TransitionMorphType имеет три члена:
-
-- ByObject: морф‑переход будет выполнен с учётом фигур как неделимых объектов.
-- ByWord: морф‑переход будет выполнен с передачей текста по словам, где это возможно.
-- ByChar: морф‑переход будет выполнен с передачей текста по символам, где это возможно.
-
-Следующий фрагмент кода показывает, как установить морф‑переход для слайда и изменить тип морфа:
 ```php
-  $presentation = new Presentation("presentation.pptx");
-  try {
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setMorphType(TransitionMorphType::ByWord);
-    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+
+        if (java_values($transition->getAdvanceAfter())) {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": advance after " . java_values($transition->getAdvanceAfterTime()) . " ms." . PHP_EOL;
+
+            if (java_values($transition->getAdvanceAfterTime()) > 2000) {
+                $transition->setAdvanceAfter(false);
+                $transition->setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    $presentation->save("adjusted-transitions.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+## **Точное управление временем перехода**
 
-## **Установить эффекты перехода**
-Aspose.Slides for PHP via Java поддерживает установку эффектов перехода, таких как «from black», «from left», «from right» и др. Чтобы задать эффект перехода, выполните следующие шаги:
+Используйте [setDuration](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setDuration) для указания точной длительности эффекта перехода в миллисекундах. Метод [getSlideShowTransition](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseslide/#getSlideShowTransition) слайда предоставляет доступ к этим настройкам через [SlideShowTransition](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/):
 
-- Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-- Получите ссылку на слайд.
-- Установите эффект перехода.
-- Запишите презентацию как файл [PPTX](https://docs.fileformat.com/presentation/pptx/)​.
+| Метод | Назначение |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setDuration) | Устанавливает длительность самих эффектов перехода в миллисекундах. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Задает задержку перед автоматическим продвижением слайда в миллисекундах. Передайте `true` в [setAdvanceAfter](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter), чтобы активировать таймер. |
+| [setSpeed](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setSpeed) | Выбирает предустановленную категорию скорости из [TransitionSpeed](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitionspeed/): Slow, Medium или Fast. Используется, когда точная длительность не указана. |
 
-В приведённом ниже примере мы задали эффекты перехода.
+[setDuration](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setDuration) управляет только эффектом перехода; она не определяет, как долго слайд остаётся видимым. Задержку автоматического продвижения настраивайте отдельно. Если явная длительность не задана, Aspose.Slides определяет её из типа перехода и значения [getSpeed](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#getSpeed).
+
+### **Применить одинаковую длительность ко всем слайдам**
+
+Для согласованного темпа примените один и тот же эффект и точную длительность ко всем слайдам. Этот пример загружает `input.pptx`, выбирает Fade из [TransitionType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitiontype/) и задаёт каждой анимации длительность 750 миллисекунд. Затем он отдельно включает автоматическое продвижение после 5 000 миллисекунд и отключает продвижение щелчком мыши, после чего сохраняет результат в PPTX.
+
 ```php
-  # Создать экземпляр класса Presentation
-  $presentation = new Presentation("AccessSlides.pptx");
-  try {
-    # Установить эффект
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Cut);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setFromBlack(true);
-    # Записать презентацию на диск
-    $presentation->save("SetTransitionEffects_out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+        $transition->setType(TransitionType::Fade);
+        $transition->setDuration(750);
+
+        // Настройте автоматическое продвижение независимо от длительности эффекта.
+        $transition->setAdvanceAfter(true);
+        $transition->setAdvanceAfterTime(5000);
+        $transition->setAdvanceOnClick(false);
+    }
+
+    $presentation->save("precise-transitions.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+### **Установка разных длительностей для отдельных слайдов**
+
+Разные слайды могут использовать разные длительности эффектов. Например, можно задать короткий переход для титульного слайда и более длительный для введения раздела. Этот пример задаёт 500 мс для первого слайда и 1 200 мс для второго. Используйте файл `input.pptx` минимум с двумя слайдами.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $firstTransition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+        $firstTransition->setType(TransitionType::Fade);
+        $firstTransition->setDuration(500);
+
+        $secondTransition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $secondTransition->setType(TransitionType::Push);
+        $secondTransition->setDuration(1200);
+
+        $presentation->save("individual-transition-durations.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Координация переходов с анимированным выводом**
+
+При подготовке [анимированного GIF](/slides/ru/php-java/convert-powerpoint-to-animated-gif/), [презентации HTML5](/slides/ru/php-java/export-to-html5/) или [видео](/slides/ru/php-java/convert-powerpoint-to-video/), установите точные длительности переходов перед экспортом, чтобы соответствовать задуманному темпу. Например, используйте 600‑мс плавное исчезание между сценами и отдельно настройте задержку продвижения каждого слайда, чтобы обеспечить время для озвучки или контента.
+
+Для GIF и видео согласуйте частоту кадров вывода с длительностью эффекта: 600 мс соответствуют 18 кадрам при 30 fps. В HTML5 включите анимированные переходы в настройках экспорта. Проверьте поддерживаемые эффекты и варианты таймингов выбранного формата и предварительно просмотрите результат для подтверждения синхронизации.
+
+### **Чтение существующей длительности перехода**
+
+Вызовите [getDuration](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#getDuration) до изменения перехода, чтобы определить, хранится ли явное значение. Значение `-1` означает, что явная длительность не установлена; неотрицательное значение указывает сохранённую длительность в миллисекундах. Неустановленное значение не является рассчитанной длительностью воспроизведения: Aspose.Slides использует тип перехода и значение [getSpeed](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#getSpeed) для её расчёта. Установка типа перехода может инициализировать длительность, поэтому сначала проверьте исходные настройки.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+        $duration = java_values($transition->getDuration());
+
+        if ($duration >= 0) {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": stored transition duration is " . $duration . " ms." . PHP_EOL;
+        } else {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": no explicit duration; timing depends on transition type " . java_values($transition->getType()) . " and speed " . java_values($transition->getSpeed()) . "." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Переход Morph**
+
+Переход Morph анимирует изменения между объектами на последовательных слайдах. Чтобы создать простой эффект Morph, склонируйте слайд, переместите или измените размер объекта в копии и примените переход Morph ко второму слайду. Это даёт возможность анимировать соответствующие объекты между их исходным и изменённым состоянием.
+
+В следующем примере создаётся слайд с текстовым прямоугольником, копируется, а в копии меняются позиция и размер прямоугольника. Затем для второго слайда выбирается Morph из перечисления [TransitionType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitiontype/). Откройте сохранённый файл в просмотрщике презентаций, поддерживающем Morph, чтобы увидеть эффект во время показа.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $rectangle = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
+    $rectangle->getTextFrame()->setText("Morph transition");
+
+    $secondSlide = $presentation->getSlides()->addClone($firstSlide);
+    $movedRectangle = $secondSlide->getShapes()->get_Item(0);
+    $movedRectangle->setX(java_values($movedRectangle->getX()) + 100);
+    $movedRectangle->setY(java_values($movedRectangle->getY()) + 50);
+    $movedRectangle->setWidth(java_values($movedRectangle->getWidth()) - 200);
+    $movedRectangle->setHeight(java_values($movedRectangle->getHeight()) - 10);
+
+    $secondSlide->getSlideShowTransition()->setType(TransitionType::Morph);
+
+    $presentation->save("morph-transition.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Типы перехода Morph**
+
+Перечисление [TransitionMorphType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitionmorphtype/) определяет, как Morph сопоставляет и анимирует содержимое:
+
+- [ByObject](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitionmorphtype/#ByObject) рассматривает каждую форму как единый объект.
+- [ByWord](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitionmorphtype/#ByWord) анимирует текст, сопоставляя слова, где это возможно.
+- [ByChar](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitionmorphtype/#ByChar) анимирует текст, сопоставляя символы, где это возможно.
+
+Используйте [setType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setType) для выбора Morph перед вызовом [getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#getValue). Полученное значение предоставляет объект [MorphTransition](https://reference.aspose.com/slides/ru/php-java/aspose.slides/morphtransition/), у которого метод [setMorphType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/morphtransition/#setMorphType) выбирает режим сопоставления.
+
+В этом примере открывается презентация, созданная в предыдущем разделе, и настраивается второй слайд для анимации Morph на уровне слов.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionMorphType;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("morph-transition.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $transition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $transition->setType(TransitionType::Morph);
+        $morphTransition = $transition->getValue();
+
+        if (!java_is_null($morphTransition)) {
+            $morphTransition->setMorphType(TransitionMorphType::ByWord);
+            $presentation->save("morph-by-word.pptx", SaveFormat::Pptx);
+        } else {
+            echo "Morph transition options are unavailable." . PHP_EOL;
+        }
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Установка эффектов перехода**
+
+Некоторые переходы раскрывают дополнительные параметры, такие как направление или начало эффекта с чёрного экрана. Доступные параметры зависят от выбранного перехода через [setType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setType). Сначала задайте тип, затем используйте соответствующий объект перехода, полученный через [getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#getValue).
+
+В следующем примере применяется переход Cut к первому слайду `input.pptx`. Через [OptionalBlackTransition](https://reference.aspose.com/slides/ru/php-java/aspose.slides/optionalblacktransition/) вызывается [setFromBlack](https://reference.aspose.com/slides/ru/php-java/aspose.slides/optionalblacktransition/#setFromBlack), чтобы переход начинался с чёрного экрана.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $transition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+    $transition->setType(TransitionType::Cut);
+    $cutTransition = $transition->getValue();
+
+    if (!java_is_null($cutTransition)) {
+        $cutTransition->setFromBlack(true);
+        $presentation->save("cut-from-black.pptx", SaveFormat::Pptx);
+    } else {
+        echo "Cut transition options are unavailable." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **FAQ**
 
-**Могу ли я контролировать скорость воспроизведения перехода слайда?**  
-Да. Установите [speed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setspeed/) перехода с помощью настройки [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) (например, slow/medium/fast).
+**Можно ли управлять скоростью воспроизведения перехода слайда?**
 
-**Могу ли я прикрепить аудио к переходу и сделать его зацикленным?**  
-Да. Вы можете встроить звук в переход и управлять его поведением через параметры, такие как режим звука и зацикливание (например, [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsound/), [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundmode/), [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundloop/), а также метаданные, такие как [setSoundIsBuiltIn](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) и [setSoundName](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundname/)).
+Да. Предпочтительно используйте [setDuration](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setDuration), когда нужна точная длительность эффекта в миллисекундах. Используйте [setSpeed](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setSpeed), когда достаточно предустановленной категории [TransitionSpeed](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitionspeed/) — Slow, Medium или Fast, и явная длительность не задаётся. Эти настройки управляют только эффектом перехода, независимо от задержки автоматического продвижения.
 
-**Какой самый быстрый способ применить один и тот же переход ко всем слайдам?**  
-Настройте желаемый тип перехода в параметрах перехода каждого слайда; переходы хранятся отдельно для каждого слайда, поэтому применение одинакового типа ко всем слайдам дает единообразный результат.
+**Можно ли прикрепить звук к переходу и зациклить его?**
 
-**Как я могу проверить, какой переход сейчас установлен на слайде?**  
-Осмотрите [transition settings](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) слайда и прочитайте его [transition type](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/settype/); это значение точно указывает, какой эффект применён.
+Да. Присвойте встроенный звук с помощью [setSound](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setSound), передайте `StartSound` из перечисления [TransitionSoundMode](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitionsoundmode/) в [setSoundMode](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setSoundMode) и включите [setSoundLoop](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setSoundLoop) со значением `true`. Звук будет зацикливаться до следующего звукового события в показе.
+
+**Как быстрее всего применить один и тот же переход ко всем слайдам?**
+
+Пройдите в цикле коллекцию слайдов презентации через [getSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/#getSlides) и вызовите [setType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#setType) с одинаковым значением для перехода каждого слайда. Установите любые параметры времени и эффекта в том же цикле, чтобы поведение оставалось одинаковым для всех слайдов.
+
+**Как проверить, какой переход сейчас установлен на слайде?**
+
+Вызовите [getType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slideshowtransition/#getType) у результата [getSlideShowTransition](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseslide/#getSlideShowTransition) слайда. Он вернёт значение из перечисления [TransitionType](https://reference.aspose.com/slides/ru/php-java/aspose.slides/transitiontype/); `None` означает, что переход не применяется.

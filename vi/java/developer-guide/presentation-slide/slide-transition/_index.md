@@ -17,170 +17,312 @@ keywords:
 - bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Khám phá cách tùy chỉnh chuyển tiếp slide trong Aspose.Slides cho Java, với hướng dẫn chi tiết từng bước cho các bài thuyết trình PowerPoint và OpenDocument."
+description: "Áp dụng chuyển tiếp slide, cấu hình tiến trình tự động của slide, và tùy chỉnh Morph và các hiệu ứng chuyển tiếp khác với Aspose.Slides cho Java."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý các chuyển tiếp slide trong bài thuyết trình bằng Aspose.Slides. Nó chỉ ra cách áp dụng các loại chuyển tiếp cho slide, cấu hình hành vi chuyển tiếp như chuyển tiếp khi nhấp chuột hoặc sau một khoảng thời gian nhất định, kiểm tra và tắt việc tự động chuyển tiếp, sử dụng chuyển tiếp Morph và các loại của nó, và thiết lập các tùy chọn hiệu ứng chuyển tiếp. Các ví dụ minh họa cách tải hoặc tạo một bài thuyết trình, chỉnh sửa cài đặt chuyển tiếp cho các slide đã chọn, và lưu kết quả dưới dạng tệp PPTX. Bài viết cũng trả lời các câu hỏi phổ biến về tốc độ chuyển tiếp, âm thanh chuyển tiếp, áp dụng cùng một chuyển tiếp cho nhiều slide, và kiểm tra chuyển tiếp hiện đang được đặt trên một slide.
+Chuyển tiếp slide kiểm soát cách các slide xuất hiện trong buổi trình chiếu. Với Aspose.Slides for Java, bạn có thể chọn hiệu ứng chuyển tiếp cho mỗi slide, cấu hình tiến trình bằng cú nhấp chuột hoặc bộ đếm thời gian, và điều chỉnh các tùy chọn đặc thù cho một hiệu ứng. Bài viết này sử dụng các ví dụ Java để áp dụng chuyển tiếp, đặt thời lượng chuyển tiếp chính xác, quản lý thời gian slide và tạo chuyển tiếp Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu cài đặt vào tệp PPTX.
 
 ## **Thêm chuyển tiếp slide**
-Để tạo một hiệu ứng chuyển tiếp slide đơn giản, làm theo các bước dưới đây:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation) class.
-2. Áp dụng một loại Slide Transition Type trên slide từ một trong các hiệu ứng chuyển tiếp do Aspose.Slides for Java cung cấp thông qua TransitionType enum
-3. Ghi tệp bài thuyết trình đã sửa đổi.
+Để áp dụng một chuyển tiếp, tải một bản trình chiếu bằng lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) và truy cập cài đặt chuyển tiếp của slide thông qua [getSlideShowTransition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Sử dụng [setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setType-int-) với giá trị từ liệt kê [TransitionType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitiontype/), sau đó lưu bản trình chiếu.
+
+Ví dụ sau áp dụng chuyển tiếp Circle cho slide đầu tiên và chuyển tiếp Comb cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
 
 ```java
-// Khởi tạo lớp Presentation để tải tệp bài thuyết trình nguồn
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Áp dụng chuyển tiếp kiểu vòng tròn cho slide 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // Áp dụng chuyển tiếp kiểu lược cho slide 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // Ghi bài thuyết trình ra đĩa
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Thêm chuyển tiếp slide nâng cao**
-Trong phần trên, chúng ta chỉ áp dụng một hiệu ứng chuyển tiếp đơn giản trên slide. Bây giờ, để làm cho hiệu ứng chuyển tiếp đơn giản đó tốt hơn và được kiểm soát, hãy làm theo các bước dưới đây:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation) class.
-2. Áp dụng một loại Slide Transition Type trên slide từ một trong các hiệu ứng chuyển tiếp do Aspose.Slides for Java cung cấp
-3. Bạn cũng có thể đặt chuyển tiếp để Advance On Click, sau một khoảng thời gian cụ thể hoặc cả hai.
-4. Nếu chuyển tiếp slide được bật để Advance On Click, chuyển tiếp sẽ chỉ tiến lên khi ai đó nhấp chuột. Hơn nữa, nếu thuộc tính Advance After Time được đặt, chuyển tiếp sẽ tự động tiến lên sau khoảng thời gian đã chỉ định.
-5. Ghi bài thuyết trình đã sửa đổi dưới dạng tệp bài thuyết trình.
+Bạn có thể cấu hình thời gian một slide ở trên màn hình và liệu một cú nhấp chuột có tiến tới buổi trình chiếu hay không. Các phương thức sau kiểm soát hành vi này:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) cho phép người xem tiến tới bằng cách nhấp chuột.
+- [setAdvanceAfter](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) cho phép tiến tới tự động.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) chỉ định độ trễ trước khi tiến tới tự động, tính bằng milisecond.
+
+Kích hoạt cả hai cách tiến tới bằng nhấp chuột và thời gian để cho phép người xem chuyển tiếp bằng nhấp chuột hoặc chờ bộ đếm. Để chỉ sử dụng bộ đếm, truyền `false` cho [setAdvanceOnClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Độ trễ kiểm soát thời điểm buổi trình chiếu tiến tới; nó không xác định thời lượng của hiệu ứng chuyển tiếp hình ảnh.
+
+Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và kích hoạt tiến trình tự động sau 3, 5 và 7 giây tương ứng. Các slide cũng có thể được tiến tới bằng nhấp chuột. Sử dụng tệp `input.pptx` có ít nhất ba slide.
 
 ```java
-// Khởi tạo lớp Presentation đại diện cho tệp bài thuyết trình
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Áp dụng chuyển tiếp kiểu vòng tròn cho slide 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // Đặt thời gian chuyển tiếp là 3 giây
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // Áp dụng chuyển tiếp kiểu lược cho slide 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // Đặt thời gian chuyển tiếp là 5 giây
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // Áp dụng chuyển tiếp kiểu thu phóng cho slide 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // Đặt thời gian chuyển tiếp là 7 giây
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // Ghi bài thuyết trình ra đĩa
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
+}
+```
+
+Để kiểm tra xem tiến trình tự động có được bật hay không, gọi [getAdvanceAfter](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Một độ trễ được lưu không đồng nghĩa với việc bộ đếm đang hoạt động.
+
+Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo mỗi bộ đếm được bật, và tắt tiến trình tự động cho các slide có độ trễ lớn hơn hai giây. Nó bật nhấp chuột cho những slide này và lưu lại cài đặt đã cập nhật.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kiểm soát thời gian chuyển tiếp một cách chính xác**
+
+Sử dụng [setDuration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setDuration-int-) để chỉ định độ dài chính xác của hiệu ứng chuyển tiếp tính bằng milisecond. Phương pháp [getSlideShowTransition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) của slide tiết lộ các cài đặt này thông qua [ISlideShowTransition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/):
+
+| Phương thức | Mục đích |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | Đặt thời lượng của hiệu ứng chuyển tiếp tính bằng milisecond. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Đặt độ trễ trước khi slide tiến tới tự động, tính bằng milisecond. Truyền `true` cho [setAdvanceAfter](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) để kích hoạt bộ đếm này. |
+| [setSpeed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Chọn một danh mục tốc độ được xác định trước từ [TransitionSpeed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitionspeed/): Slow, Medium hoặc Fast. Được dùng khi không chỉ định thời lượng cụ thể. |
+
+[setDuration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setDuration-int-) chỉ điều khiển hiệu ứng chuyển tiếp; nó không quyết định thời gian slide vẫn hiển thị. Cấu hình độ trễ tiến trình tự động riêng biệt. Khi không có thời lượng cụ thể, Aspose.Slides xác định thời lượng hiệu ứng dựa trên loại chuyển tiếp và giá trị [getSpeed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#getSpeed--) .
+
+### **Áp dụng cùng một thời lượng cho mọi slide**
+
+Để duy trì nhịp độ đồng nhất, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitiontype/), và cho mỗi chuyển tiếp thời lượng 750 milisecond. Nó cũng bật tiến trình tự động sau 5.000 milisecond và tắt tiến trình bằng nhấp chuột, sau đó lưu kết quả dưới dạng PPTX.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // Cấu hình tiến trình tự động một cách độc lập với thời lượng hiệu ứng.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Đặt thời lượng khác nhau cho các slide riêng lẻ**
+
+Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, sử dụng chuyển tiếp ngắn cho slide tiêu đề và chuyển tiếp dài hơn cho phần giới thiệu. Ví dụ này đặt 500 milisecond cho slide đầu tiên và 1.200 milisecond cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Phối hợp chuyển tiếp với đầu ra hoạt hình**
+
+Khi chuẩn bị một [animated GIF](/slides/vi/java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/java/export-to-html5/), hoặc [video](/slides/vi/java/convert-powerpoint-to-video/), đặt thời lượng chuyển tiếp chính xác trước khi xuất để khớp với nhịp độ mong muốn. Ví dụ, sử dụng fade 600 milisecond giữa các cảnh, và điều chỉnh độ trễ tiến trình của mỗi slide riêng biệt để cho phép thời gian cho lời thuyết minh hoặc nội dung.
+
+Đối với GIF và video, đồng bộ tốc độ khung hình đầu ra với thời lượng hiệu ứng: 600 milisecond tương đương 18 khung hình ở 30 khung hình/giây. Trong HTML5, bật chuyển tiếp hoạt hình trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian được hỗ trợ bởi định dạng xuất đã chọn, và xem trước kết quả để xác nhận đồng bộ.
+
+### **Đọc thời lượng chuyển tiếp hiện có**
+
+Gọi [getDuration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#getDuration--) trước khi sửa đổi chuyển tiếp để xác định xem có giá trị rõ ràng nào đã được lưu không. Giá trị `-1` có nghĩa là không có thời lượng cụ thể được đặt; giá trị không âm chỉ thời lượng đã lưu tính bằng milisecond. Giá trị chưa đặt không phải là thời lượng phát tính toán: Aspose.Slides sử dụng loại chuyển tiếp và giá trị [getSpeed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#getSpeed--) để xác định thời lượng đó. Việc đặt loại chuyển tiếp có thể khởi tạo thời lượng, vì vậy hãy kiểm tra cài đặt gốc trước.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Chuyển tiếp Morph**
-{{% alert color="primary" %}} 
-Aspose.Slides for Java hiện đã hỗ trợ [Morph Transition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IMorphTransition). Chúng đại diện cho chuyển tiếp morph mới được giới thiệu trong PowerPoint 2019.
-{{% /alert %}} 
 
-Chuyển tiếp Morph cho phép bạn tạo hoạt ảnh di chuyển mượt mà từ slide này sang slide tiếp theo. Bài viết này mô tả khái niệm và cách sử dụng chuyển tiếp Morph. Để sử dụng chuyển tiếp Morph một cách hiệu quả, bạn cần có hai slide có ít nhất một đối tượng chung. Cách dễ nhất là sao chép slide và sau đó di chuyển đối tượng trên slide thứ hai đến vị trí khác.
+Chuyển tiếp Morph hoạt ảnh các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển tiếp Morph cho slide thứ hai. Điều này cho phép các đối tượng tương ứng chuyển động giữa trạng thái ban đầu và trạng thái đã sửa đổi.
 
-Đoạn mã sau đây cho bạn thấy cách thêm một bản sao của slide có một số văn bản vào bài thuyết trình và đặt chuyển tiếp loại [morph type](https://reference.aspose.com/slides/vi/java/com.aspose.slides/TransitionType) cho slide thứ hai.
+Ví dụ sau tạo một slide có hình chữ nhật chứa văn bản, sao chép slide, và thay đổi vị trí và kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ liệt kê [TransitionType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong trình xem hỗ trợ Morph để xem hiệu ứng trong buổi trình chiếu.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
+} finally {
     presentation.dispose();
 }
 ```
 
 ## **Các loại chuyển tiếp Morph**
-Enum mới [TransitionMorphType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/TransitionMorphType) đã được thêm. Nó đại diện cho các loại chuyển tiếp slide Morph khác nhau.
 
-Enum TransitionMorphType có ba thành viên:
+Liệt kê [TransitionMorphType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitionmorphtype/) quy định cách Morph khớp và hoạt ảnh nội dung:
 
-- ByObject: Chuyển tiếp Morph sẽ được thực hiện bằng cách xem các hình dạng như các đối tượng không thể chia tách.
-- ByWord: Chuyển tiếp Morph sẽ được thực hiện bằng cách chuyển văn bản theo từ khi có thể.
-- ByChar: Chuyển tiếp Morph sẽ được thực hiện bằng cách chuyển văn bản theo ký tự khi có thể.
+- [ByObject](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitionmorphtype/#ByObject) xem mỗi hình dạng như một đối tượng toàn bộ.
+- [ByWord](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitionmorphtype/#ByWord) hoạt ảnh văn bản bằng cách ghép các từ khi có thể.
+- [ByChar](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitionmorphtype/#ByChar) hoạt ảnh văn bản bằng cách ghép ký tự khi có thể.
 
-Đoạn mã sau đây cho bạn thấy cách đặt chuyển tiếp morph cho slide và thay đổi loại morph:
+Sử dụng [setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setType-int-) để chọn Morph trước khi truy cập [getValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#getValue--). Giá trị trả về cung cấp giao diện [IMorphTransition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imorphtransition/), trong đó phương thức [setMorphType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imorphtransition/#setMorphType-int-) chọn chế độ ghép.
+
+Ví dụ này mở bản trình chiếu đã tạo ở phần trước và cấu hình slide thứ hai sử dụng hoạt ảnh Morph dựa trên từ.
 
 ```java
-Presentation presentation = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Đặt hiệu ứng chuyển tiếp**
-Aspose.Slides for Java hỗ trợ thiết lập các hiệu ứng chuyển tiếp như, từ đen, từ trái, từ phải, v.v. Để đặt hiệu ứng chuyển tiếp, vui lòng làm theo các bước dưới đây:
 
-- Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation) class.
-- Lấy tham chiếu của slide.
-- Thiết lập hiệu ứng chuyển tiếp.
-- Ghi bài thuyết trình dưới dạng tệp [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
+Một số chuyển tiếp cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc liệu hiệu ứng có bắt đầu từ màn hình đen hay không. Các tùy chọn khả dụng phụ thuộc vào chuyển tiếp đã chọn bằng [setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setType-int-). Đặt loại trước, sau đó sử dụng giao diện thích hợp từ [getValue](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#getValue--).
 
-Trong ví dụ dưới đây, chúng tôi đã đặt các hiệu ứng chuyển tiếp.
+Ví dụ sau áp dụng chuyển tiếp Cut cho slide đầu tiên của `input.pptx`. Nó gọi [setFromBlack](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) thông qua [IOptionalBlackTransition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ioptionalblacktransition/) để chuyển tiếp bắt đầu từ màn hình đen.
 
 ```java
-// Tạo một thể hiện của lớp Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Đặt hiệu ứng
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // Ghi bài thuyết trình ra đĩa
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
 **Tôi có thể kiểm soát tốc độ phát của chuyển tiếp slide không?**
 
-Có. Đặt [speed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) của chuyển tiếp bằng cách sử dụng cài đặt [TransitionSpeed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitionspeed/) (ví dụ: chậm/trung bình/nhanh).
+Có. Ưu tiên sử dụng [setDuration](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setDuration-int-) khi bạn cần thời lượng hiệu ứng chính xác tính bằng milisecond. Sử dụng [setSpeed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) khi một danh mục [TransitionSpeed](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitionspeed/) đã định (Slow, Medium hoặc Fast) là đủ và không có thời lượng cụ thể nào được đặt. Các cài đặt này kiểm soát hiệu ứng chuyển tiếp một cách độc lập so với độ trễ tiến trình tự động.
 
-**Tôi có thể đính kèm âm thanh vào chuyển tiếp và làm cho nó lặp lại không?**
+**Tôi có thể đính kèm âm thanh vào một chuyển tiếp và lặp lại không?**
 
-Có. Bạn có thể nhúng âm thanh cho chuyển tiếp và kiểm soát hành vi qua các cài đặt như chế độ âm thanh và vòng lặp (ví dụ: [setSound](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), cùng với siêu dữ liệu như [setSoundIsBuiltIn](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) và [setSoundName](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+Có. Gán âm thanh nhúng bằng [setSound](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), truyền StartSound từ liệt kê [TransitionSoundMode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitionsoundmode/) cho [setSoundMode](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), và bật [setSoundLoop](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) với `true`. Âm thanh sẽ lặp lại cho đến sự kiện âm thanh tiếp theo trong buổi trình chiếu.
 
 **Cách nhanh nhất để áp dụng cùng một chuyển tiếp cho mọi slide là gì?**
 
-Cấu hình loại chuyển tiếp mong muốn trên cài đặt chuyển tiếp của từng slide; chuyển tiếp được lưu riêng cho mỗi slide, vì vậy áp dụng cùng một loại cho tất cả các slide sẽ cho kết quả nhất quán.
+Lặp qua bộ sưu tập [getSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlides--) của bản trình chiếu và gọi [setType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#setType-int-) với cùng một giá trị cho mỗi slide. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để giữ hành vi nhất quán giữa các slide.
 
-**Làm thế nào tôi có thể kiểm tra chuyển tiếp nào hiện đang được đặt trên một slide?**
+**Làm thế nào để kiểm tra chuyển tiếp nào hiện đang được đặt trên một slide?**
 
-Kiểm tra [cài đặt chuyển tiếp](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseslide/#getSlideShowTransition--) của slide và đọc [loại chuyển tiếp](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slideshowtransition/#setType-int-); giá trị đó cho bạn biết chính xác hiệu ứng nào đã được áp dụng.
+Gọi [getType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islideshowtransition/#getType--) trên kết quả trả về của [getSlideShowTransition](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) của slide. Nó trả về một giá trị từ liệt kê [TransitionType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/transitiontype/); None nghĩa là không có hiệu ứng chuyển tiếp nào được áp dụng.

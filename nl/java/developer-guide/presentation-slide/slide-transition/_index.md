@@ -1,5 +1,5 @@
 ---
-title: Diaovergangen beheren in presentaties met Java
+title: Beheer diaovergangen in presentaties met Java
 linktitle: Diaovergang
 type: docs
 weight: 80
@@ -9,7 +9,7 @@ keywords:
 - diaovergang toevoegen
 - diaovergang toepassen
 - geavanceerde diaovergang
-- morph-overgang
+- Morph‑overgang
 - overgangstype
 - overgangseffect
 - PowerPoint
@@ -17,172 +17,312 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Ontdek hoe u diaovergangen kunt aanpassen in Aspose.Slides for Java, met stapsgewijze begeleiding voor PowerPoint- en OpenDocument-presentaties."
+description: "Diaovergangen toepassen, automatische dia‑voortzetting configureren en Morph‑ en andere overgangseffecten aanpassen met Aspose.Slides voor Java."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je diaovergangen in presentaties beheert met Aspose.Slides. Het laat zien hoe je overgangstypen toepast op dia's, het gedrag van de overgang configureert, zoals doorgaan bij klikken of na een opgegeven tijd, controleert en automatische voortgang uitschakelt, de Morph‑overgang en de bijbehorende types gebruikt, en opties voor overgangseffecten instelt. De voorbeelden tonen hoe je een presentatie laadt of maakt, de overgangsinstellingen voor geselecteerde dia's wijzigt, en het resultaat opslaat als een PPTX‑bestand. Het artikel beantwoordt ook veelgestelde vragen over de snelheid van de overgang, overgangsgeluiden, hetzelfde overgangstype toepassen op meerdere dia's, en hoe je de momenteel ingestelde overgang op een dia controleert.
+Diaovergangen bepalen hoe dia's verschijnen tijdens een diavoorstelling. Met Aspose.Slides for Java kun je voor elke dia een overgangseffect kiezen, de voortgang per muisklik of timer configureren en opties die specifiek zijn voor een effect aanpassen. Dit artikel gebruikt Java‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, diatiming te beheren en een Morph‑overgang tussen twee dia's te maken. De voorbeelden laten ook zien hoe je de instellingen opslaat in een PPTX‑bestand.
 
 ## **Diaovergang toevoegen**
-Om een eenvoudig diaovergangseffect te maken, volg de onderstaande stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation) klasse.  
-2. Pas een Slide Transition Type toe op de dia uit een van de overgangseffecten die door Aspose.Slides for Java worden aangeboden via de TransitionType‑enum.  
-3. Schrijf het gewijzigde presentatie‑bestand.
+Om een overgang toe te passen, laad je een presentatie met de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse en krijg je via [getSlideShowTransition](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) toegang tot de overgangsinstellingen van de dia. Gebruik [setType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setType-int-) met een waarde uit de [TransitionType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitiontype/)-enumeratie, daarna sla je de presentatie op.
+
+Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia's.
 
 ```java
-// Instantieer de Presentation-klasse om het bronpresentatie-bestand te laden
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Pas een cirkeltype-overgang toe op dia 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // Pas een kamtype-overgang toe op dia 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // Schrijf de presentatie naar schijf
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Geavanceerde diaovergang toevoegen**
-In de vorige sectie hebben we een eenvoudige overgang toegepast op de dia. Nu, om die eenvoudige overgang nog beter en gecontroleerder te maken, volg je de onderstaande stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation) klasse.  
-2. Pas een Slide Transition Type toe op de dia uit een van de overgangseffecten die door Aspose.Slides for Java worden aangeboden.  
-3. Je kunt de overgang ook instellen op Doorgaan bij klikken, na een specifieke tijdsperiode of beide.  
-4. Als de diaovergang is ingeschakeld om door te gaan bij klikken, gaat de overgang alleen verder wanneer iemand klikt met de muis. Bovendien, als de eigenschap Advance After Time is ingesteld, gaat de overgang automatisch verder nadat de opgegeven tijd is verstreken.  
-5. Schrijf de gewijzigde presentatie weg als een presentatiebestand.
+Je kunt configureren hoe lang een dia op het scherm blijft en of een muisklik de diavoorstelling voortzet. De volgende methoden regelen dit gedrag:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) laat de kijker de diavoorstelling voortzetten door te klikken.
+- [setAdvanceAfter](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) schakelt automatisch voortzetten in.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) geeft de vertraging vóór automatisch voortzetten op, in milliseconden.
+
+Schakel zowel klikken als timer‑voortzetting in zodat de kijker kan doorgaan met een klik of kan wachten op de timer. Om alleen de timer te gebruiken, geef `false` door aan [setAdvanceOnClick](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). De vertraging bepaalt wanneer de diavoorstelling voortzet; hij stelt de duur van het visuele overgangseffect niet in.
+
+Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia's en schakelt automatisch voortzetten in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia's ook voortzetten. Gebruik een `input.pptx`‑bestand met minstens drie dia's.
 
 ```java
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Pas een cirkeltype-overgang toe op dia 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // Stel de overgangstijd in op 3 seconden
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // Pas een kamtype-overgang toe op dia 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // Stel de overgangstijd in op 5 seconden
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // Pas een zoomtype-overgang toe op dia 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // Stel de overgangstijd in op 7 seconden
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // Schrijf de presentatie naar schijf
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
+}
+```
+
+Om te controleren of timer‑voortzetting ingeschakeld is, roep je [getAdvanceAfter](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--) aan. Een opgeslagen vertraging alleen duidt niet aan dat de timer actief is.
+
+Het volgende voorbeeld opent het hierboven opgeslagen bestand, meldt elke ingeschakelde timer en schakelt automatisch voortzetten uit voor dia's met een vertraging langer dan twee seconden. Voor die dia's wordt klikken ingeschakeld en worden de bijgewerkte instellingen opgeslagen.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Overgangstiming nauwkeurig regelen**
+
+Gebruik [setDuration](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setDuration-int-) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [getSlideShowTransition](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--)‑methode van de dia maakt deze instellingen beschikbaar via [ISlideShowTransition](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/):
+
+| Methode | Doel |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | Stelt de duur van het overgangseffect zelf in, in milliseconden. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Stelt de vertraging vóór automatisch voortzetten in, in milliseconden. Geef `true` door aan [setAdvanceAfter](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) om deze timer te activeren. |
+| [setSpeed](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Selecteert een voorgedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitionspeed/): Slow, Medium of Fast. Wordt gebruikt wanneer geen exacte duur is gespecificeerd. |
+
+[setDuration](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setDuration-int-) beïnvloedt alleen het overgangseffect; hij bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortzettingsvertraging afzonderlijk. Wanneer geen expliciete duur is opgegeven, bepaalt Aspose.Slides de effectduur op basis van het overgangstype en de waarde van [getSpeed](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#getSpeed--).
+
+### **Zelfde duur toepassen op elke dia**
+
+Voor een gelijkmatig tempo pas je hetzelfde effect en dezelfde exacte duur toe op elke dia. Dit voorbeeld laadt `input.pptx`, selecteert Fade uit [TransitionType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitiontype/) en geeft elke overgang een duur van 750 milliseconden. Het schakelt automatisch voortzetten in na 5 000 milliseconden en schakelt voortzetten per muisklik uit, daarna slaat het resultaat op als PPTX.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // Configureer automatische voortzetting onafhankelijk van de effectduur.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Verschillende duur per dia instellen**
+
+Verschillende dia's kunnen verschillende effectduren hebben. Bijvoorbeeld een korte overgang voor een titel-dia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 milliseconden in voor de eerste dia en 1 200 milliseconden voor de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia's.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Overgangen coördineren met geanimeerde uitvoer**
+
+Bij het voorbereiden van een [animated GIF](/slides/nl/java/convert-powerpoint-to-animated-gif/), een [HTML5 presentation](/slides/nl/java/export-to-html5/) of een [video](/slides/nl/java/convert-powerpoint-to-video/), stel je exacte overgangsduren in vóór export zodat ze overeenkomen met het gewenste tempo. Gebruik bijvoorbeeld een fade van 600 milliseconden tussen scènes en pas elke dia‑vervolgvertraging afzonderlijk aan om tijd te geven aan de bijbehorende voice‑over of inhoud.
+
+Voor GIF en video stem je de frame‑rate af op de effectduur: 600 milliseconden komt overeen met 18 frames bij 30 fps. In HTML5 schakel je geanimeerde overgangen in de exportinstellingen in. Controleer de ondersteunde effecten en timingopties van het gekozen exportformaat en bekijk een preview om synchronisatie te bevestigen.
+
+### **Bestaande overgangsduur lezen**
+
+Roep [getDuration](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#getDuration--) aan vóór je de overgang wijzigt om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden weer. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides bepaalt de duur aan de hand van het overgangstype en de waarde van [getSpeed](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#getSpeed--). Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de oorspronkelijke instellingen.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Morph‑overgang**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Java ondersteunt nu de [Morph Transition](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IMorphTransition). Ze vertegenwoordigen de nieuwe morph‑overgang geïntroduceerd in PowerPoint 2019.
+De Morph‑overgang animeert wijzigingen tussen objecten op opeenvolgende dia's. Om een eenvoudige Morph‑effect te creëren, kloon je een dia, verplaats of wijzig je de grootte van een object op de kloon, en pas je de Morph‑overgang toe op de tweede dia. Hierdoor krijgt de overgang de overeenkomstige objecten om te animeren tussen hun oorspronkelijke en gewijzigde staat.
 
-{{% /alert %}} 
-
-De Morph‑overgang maakt het mogelijk om een vloeiende beweging van de ene dia naar de volgende te animeren. Dit artikel beschrijft het concept en hoe je de Morph‑overgang gebruikt. Om de Morph‑overgang effectief te gebruiken, heb je twee dia's nodig met ten minste één gemeenschappelijk object. De makkelijkste manier is om de dia te dupliceren en vervolgens het object op de tweede dia naar een andere plek te verplaatsen.
-
-De volgende code‑fragment toont hoe je een kloon van de dia met wat tekst toevoegt aan de presentatie en een overgang van het type morph instelt op de tweede dia.
+Het volgende voorbeeld maakt een dia met een tekst‑rechthoek, kloont de dia en wijzigt de positie en grootte van de rechthoek op de kloon. Vervolgens selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitiontype/)‑enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatieweergave die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
+} finally {
     presentation.dispose();
 }
 ```
 
 ## **Morph‑overgangstypen**
-Er is een nieuwe enum [TransitionMorphType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/TransitionMorphType) toegevoegd. Deze vertegenwoordigt verschillende typen Morph‑diaovergangen.
 
-TransitionMorphType‑enum heeft drie leden:
+De [TransitionMorphType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitionmorphtype/)‑enumeratie bepaalt hoe Morph overeenkomt en animeert:
 
-- ByObject: Morph‑overgang wordt uitgevoerd met vormen als ondeelbare objecten.  
-- ByWord: Morph‑overgang wordt uitgevoerd door tekst per woord over te dragen waar mogelijk.  
-- ByChar: Morph‑overgang wordt uitgevoerd door tekst per teken over te dragen waar mogelijk.
+- [ByObject](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitionmorphtype/#ByObject) behandelt elke vorm als één geheel.
+- [ByWord](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitionmorphtype/#ByWord) animeert tekst door woorden waar mogelijk te koppelen.
+- [ByChar](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitionmorphtype/#ByChar) animeert tekst door tekens waar mogelijk te koppelen.
 
-De volgende code‑fragment toont hoe je een morph‑overgang instelt op een dia en het morph‑type wijzigt:
+Gebruik [setType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setType-int-) om Morph te selecteren voordat je [getValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#getValue--) aanroept. De verkregen waarde levert de [IMorphTransition](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imorphtransition/)‑interface, waarvan de [setMorphType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/imorphtransition/#setMorphType-int-)‑methode de koppelingsmodus kiest.
+
+Dit voorbeeld opent de presentatie die in de vorige sectie is gemaakt en configureert de tweede dia om woordgebaseerde Morph‑animatie te gebruiken.
 
 ```java
-Presentation presentation = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Overgangseffecten instellen**
-Aspose.Slides for Java ondersteunt het instellen van overgangseffecten zoals van zwart, van links, van rechts, enz. Om het overgangseffect in te stellen, volg de onderstaande stappen:
 
-- Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-- Haal de referentie van de dia op.  
-- Stel het overgangseffect in.  
-- Schrijf de presentatie weg als een [PPTX](https://docs.fileformat.com/presentation/pptx/)‑bestand.
+Sommige overgangen bieden extra opties, zoals richting of of het effect start vanaf een zwart scherm. De beschikbare opties hangen af van de overgang die met [setType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setType-int-) is gekozen. Stel eerst het type in en gebruik vervolgens de juiste interface via [getValue](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#getValue--).
 
-In het onderstaande voorbeeld hebben we de overgangseffecten ingesteld.
+Het volgende voorbeeld past een Cut‑overgang toe op de eerste dia van `input.pptx`. Het roept [setFromBlack](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) aan via [IOptionalBlackTransition](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ioptionalblacktransition/) zodat de overgang start vanaf een zwart scherm.
 
 ```java
-// Maak een instantie van de Presentation-klasse
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Stel effect in
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // Schrijf de presentatie naar schijf
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
 **Kan ik de afspeelsnelheid van een diaovergang regelen?**
 
-Ja. Stel de [speed](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) van de overgang in met de [TransitionSpeed](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitionspeed/)‑instelling (bijv. langzaam/medium/snel).
+Ja. Geef de voorkeur aan [setDuration](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setDuration-int-) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [setSpeed](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) wanneer een voorgedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitionspeed/)-categorie – Slow, Medium of Fast – volstaat en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de timer‑voortzettingsvertraging.
 
-**Kan ik audio aan een overgang koppelen en laten herhalen?**
+**Kan ik audio aan een overgang koppelen en laten loopen?**
 
-Ja. Je kunt een geluid voor de overgang insluiten en het gedrag regelen via instellingen zoals sound‑mode en looping (bijv. [setSound](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), plus metadata zoals [setSoundIsBuiltIn](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) en [setSoundName](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+Ja. Wijs ingesloten audio toe met [setSound](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), geef `StartSound` uit de [TransitionSoundMode](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitionsoundmode/)-enumeratie door aan [setSoundMode](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), en schakel [setSoundLoop](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) in met `true`. Het geluid blijft loopen tot het volgende geluid‑event in de diavoorstelling.
 
 **Wat is de snelste manier om dezelfde overgang op elke dia toe te passen?**
 
-Configureer het gewenste overgangstype in de overgangsinstellingen van elke dia; overgangen worden per dia opgeslagen, dus door hetzelfde type op alle dia's toe te passen krijg je een consistent resultaat.
+Loop door de presentatie‑collectie [getSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSlides--) en roep voor elke dia [setType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#setType-int-) aan met dezelfde waarde. Stel eventuele timing‑ en effectopties binnen dezelfde lus in om het gedrag consistent te houden over alle dia's.
 
 **Hoe kan ik controleren welke overgang momenteel op een dia is ingesteld?**
 
-Bekijk de [transition settings](https://reference.aspose.com/slides/nl/java/com.aspose.slides/baseslide/#getSlideShowTransition--) van de dia en lees het [transition type](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideshowtransition/#setType-int-); die waarde vertelt precies welk effect is toegepast.
+Roep [getType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islideshowtransition/#getType--) aan op het resultaat van de dia‑[getSlideShowTransition](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) methode. Het retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/transitiontype/)-enumeratie; `None` betekent dat er geen overgangseffect is toegepast.

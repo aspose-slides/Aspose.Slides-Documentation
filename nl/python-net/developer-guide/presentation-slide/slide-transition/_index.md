@@ -1,184 +1,278 @@
 ---
-title: Beheer dia‑overgangen in presentaties met Python
-linktitle: Dia‑overgang
+title: Beheer diaovergangen in presentaties met Python
+linktitle: Diaovergang
 type: docs
 weight: 90
 url: /nl/python-net/slide-transition/
 keywords:
-- dia‑overgang
-- dia‑overgang toevoegen
-- dia‑overgang toepassen
-- geavanceerde dia‑overgang
-- morph‑overgang
+- diaovergang
+- diaovergang toevoegen
+- diaovergang toepassen
+- geavanceerde diaovergang
+- Morph-overgang
 - overgangstype
 - overgangseffect
+- PowerPoint
+- OpenDocument
+- presentatie
 - Python
 - Aspose.Slides
-description: "Ontdek hoe u dia‑overgangen kunt aanpassen in Aspose.Slides voor Python via .NET, met stapsgewijze begeleiding voor PowerPoint‑ en OpenDocument‑presentaties."
+description: "Pas diaovergangen toe, configureer automatische voortzetting van dia's, en pas Morph en andere overgangseffecten aan met Aspose.Slides for Python via .NET."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Python biedt volledige controle over dia‑overgangen, van het selecteren van een overgangstype tot het configureren van timing en triggers als onderdeel van geautomatiseerde presentatieworkflows. Je kunt dia’s laten doorgaan bij een klik en/of na een opgegeven vertraging, en het visuele gedrag verfijnen met effecten zoals een zwarte overgang of directionele intredingen. De bibliotheek ondersteunt ook de Morph‑overgang die in PowerPoint 2019 is geïntroduceerd, inclusief modi die morphen per object, woord of teken om een vloeiende, samenhangende beweging tussen dia’s te creëren.
+Diaovergangen bepalen hoe dia's verschijnen tijdens een diavoorstelling. Met Aspose.Slides for Python via .NET kun je voor elke dia een overgangseffect kiezen, de voortgang instellen op muisklik of timer, en opties aanpassen die specifiek zijn voor een effect. Dit artikel gebruikt Python‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, diatiming te beheren en een Morph‑overgang tussen twee dia's te maken. De voorbeelden laten ook zien hoe je de instellingen opslaat in een PPTX‑bestand.
 
-## **Diaovergangen toevoegen**
+## **Diaovergang toevoegen**
 
-Om dit makkelijker te begrijpen, laat dit voorbeeld zien hoe je Aspose.Slides for Python gebruikt om eenvoudige dia‑overgangen te beheren. Ontwikkelaars kunnen verschillende overgangseffecten op dia’s toepassen en hun gedrag aanpassen. Volg deze stappen om een eenvoudige dia‑overgang te maken:
+Om een overgang toe te passen, laad je een presentatie met de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse en krijg je toegang tot de eigenschap [slide_show_transition](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/slide_show_transition/) van de dia. Stel de [type](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/type/) in op een waarde uit de enumeratie [TransitionType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitiontype/), sla vervolgens de presentatie op.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Pas een dia‑overgang toe met een van de effecten uit de [TransitionType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitiontype/)‑enum.
-1. Sla het aangepaste presentatie‑bestand op.
+Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een bestand `input.pptx` met minstens twee dia's.
 
-```py
+```python
 import aspose.slides as slides
 
-# Instantieer de Presentation-klasse om een presentatiebestand te laden.
-with slides.Presentation("sample.pptx") as presentation:
-    # Pas een cirkelovergang toe op dia 1.
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+        presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # Pas een kamovergang toe op dia 2.
-    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
-
-    # Sla de presentatie op naar schijf.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("slide-transitions.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least two slides.")
 ```
 
-## **Geavanceerde diaovergangen toevoegen**
+## **Geavanceerde diaovergang toevoegen**
 
-In dit gedeelte hebben we een eenvoudig overgangseffect op een dia toegepast. Om dat effect meer gecontroleerd en verfijnd te maken, volg je deze stappen:
+Je kunt configureren hoe lang een dia op het scherm blijft en of een muisklik de diavoorstelling voortzet. De volgende eigenschappen regelen dit gedrag:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Pas een dia‑overgang toe met een van de effecten uit de [TransitionType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitiontype/)‑enum.
-1. Configureer de overgang om **Advance On Click**, na een specifieke tijdsperiode, of beide in te stellen.
-1. Sla het aangepaste presentatie‑bestand op.
+- [advance_on_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) laat de kijker de diavoorstelling voortzetten door te klikken.
+- [advance_after](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) maakt automatische voortzetting mogelijk.
+- [advance_after_time](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) geeft de vertraging vóór automatische voortzetting op, in milliseconden.
 
-Als **Advance On Click** is ingeschakeld, gaat de dia alleen vooruit wanneer de gebruiker klikt. Als de eigenschap **Advance After Time** is ingesteld, gaat de dia automatisch verder na de opgegeven interval.
+Schakel zowel klik‑ als timer‑voortzetting in zodat de kijker kan doorgaan met een klik of kan wachten op de timer. Om alleen de timer te gebruiken, stel je [advance_on_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) in op `False`. De vertraging bepaalt wanneer de diavoorstelling doorgaat; hij stelt niet de duur van het visuele overgangseffect in.
 
-```py
+Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia's en schakelt automatische voortzetting in na respectievelijk 3, 5 en 7 seconden. Muisklikken kunnen deze dia's ook voortzetten. Gebruik een bestand `input.pptx` met minstens drie dia's.
+
+```python
 import aspose.slides as slides
 
-# Instantieer de Presentation-klasse om een presentatiebestand te openen.
-with slides.Presentation("sample.pptx") as presentation:
-    slide0 = presentation.slides[0]
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 3:
+        first_transition = presentation.slides[0].slide_show_transition
+        first_transition.type = slides.slideshow.TransitionType.CIRCLE
+        first_transition.advance_on_click = True
+        first_transition.advance_after = True
+        first_transition.advance_after_time = 3000
 
-    # Pas een cirkelovergang toe op dia 1.
-    slide0.slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+        second_transition = presentation.slides[1].slide_show_transition
+        second_transition.type = slides.slideshow.TransitionType.COMB
+        second_transition.advance_on_click = True
+        second_transition.advance_after = True
+        second_transition.advance_after_time = 5000
 
-    # Schakel doorgaan bij klikken in en stel een automatische doorgang van 3 seconden in.
-    slide0.slide_show_transition.advance_on_click = True
-    slide0.slide_show_transition.advance_after_time = 3000
+        third_transition = presentation.slides[2].slide_show_transition
+        third_transition.type = slides.slideshow.TransitionType.ZOOM
+        third_transition.advance_on_click = True
+        third_transition.advance_after = True
+        third_transition.advance_after_time = 7000
 
-    slide1 = presentation.slides[1]
+        presentation.save("advanced-transitions.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least three slides.")
+```
 
-    # Pas een kamovergang toe op dia 2.
-    slide1.slide_show_transition.type = slides.slideshow.TransitionType.COMB
+Om te controleren of timer‑voortzetting ingeschakeld is, lees je [advance_after](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Een opgeslagen vertraging alleen geeft niet aan dat de timer actief is.
 
-    # Schakel doorgaan bij klikken in en stel een automatische doorgang van 5 seconden in.
-    slide1.slide_show_transition.advance_on_click = True
-    slide1.slide_show_transition.advance_after_time = 5000
+Het volgende voorbeeld opent het hierboven opgeslagen bestand, meldt elke ingeschakelde timer en schakelt automatische voortzetting uit voor dia's met een vertraging groter dan twee seconden. Het schakelt muisklikken in voor die dia's en slaat de bijgewerkte instellingen op.
 
-    slide2 = presentation.slides[2]
+```python
+import aspose.slides as slides
 
-    # Pas een zoomovergang toe op dia 3.
-    slide2.slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+with slides.Presentation("advanced-transitions.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
 
-    # Schakel doorgaan bij klikken in en stel een automatische doorgang van 7 seconden in.
-    slide2.slide_show_transition.advance_on_click = True
-    slide2.slide_show_transition.advance_after_time = 7000
+        if transition.advance_after:
+            print(f"Slide {slide.slide_number}: advance after {transition.advance_after_time} ms.")
 
-    # Sla de presentatie op naar schijf.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+            if transition.advance_after_time > 2000:
+                transition.advance_after = False
+                transition.advance_on_click = True
+
+    presentation.save("adjusted-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Overgangstiming nauwkeurig regelen**
+
+Gebruik [duration](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/duration/) om de exacte lengte van een overgangseffect op te geven in milliseconden. De eigenschap [slide_show_transition](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/slide_show_transition/) van de dia maakt deze instellingen beschikbaar via [SlideShowTransition](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/):
+
+| Eigenschap | Doel |
+| --- | --- |
+| [duration](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Stelt de duur van het overgangseffect zelf in, in milliseconden. |
+| [advance_after_time](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Stelt de vertraging vóór automatische voortzetting van de dia in, in milliseconden. Schakel [advance_after](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) in om deze timer te activeren. |
+| [speed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Selecteert een vooraf gedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM of FAST. Wordt gebruikt wanneer geen exacte duur is opgegeven. |
+
+[duration](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/duration/) beïnvloedt alleen het overgangseffect; hij bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de automatische voortzettingstimer apart. Wanneer geen expliciete duur is ingesteld, bepaalt Aspose.Slides de effectduur aan de hand van het overgangstype en de [speed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/speed/)‑waarde.
+
+### **Zelfde duur toepassen op elke dia**
+
+Voor een gelijk tempo kun je hetzelfde effect en dezelfde exacte duur op elke dia toepassen. Dit voorbeeld laadt `input.pptx`, kiest Fade uit [TransitionType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitiontype/), en geeft elke overgang een duur van 750 milliseconden. Het schakelt bovendien automatische voortzetting in na 5.000 milliseconden en schakelt voortzetting via muisklik uit, waarna het resultaat als PPTX wordt opgeslagen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+        transition.type = slides.slideshow.TransitionType.FADE
+        transition.duration = 750
+
+        # Stel automatische voortzetting in, onafhankelijk van de duur van het effect.
+        transition.advance_after = True
+        transition.advance_after_time = 5000
+        transition.advance_on_click = False
+
+    presentation.save("precise-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Verschillende duur per individuele dia instellen**
+
+Verschillende dia's kunnen verschillende effectduurtijd hebben. Bijvoorbeeld, gebruik een korte overgang voor een titeldia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 milliseconden in voor de eerste dia en 1.200 milliseconden voor de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia's.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        first_transition = presentation.slides[0].slide_show_transition
+        first_transition.type = slides.slideshow.TransitionType.FADE
+        first_transition.duration = 500
+
+        second_transition = presentation.slides[1].slide_show_transition
+        second_transition.type = slides.slideshow.TransitionType.PUSH
+        second_transition.duration = 1200
+
+        presentation.save("individual-transition-durations.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least two slides.")
+```
+
+### **Overgangen afstemmen op geanimeerde output**
+
+Wanneer je een [animated GIF](/slides/nl/python-net/convert-powerpoint-to-animated-gif/), [HTML5‑presentatie](/slides/nl/python-net/export-to-html5/) of [video](/slides/nl/python-net/convert-powerpoint-to-video/) maakt, stel dan exacte overgangsduren in vóór export zodat ze overeenstemmen met het beoogde tempo. Gebruik bijvoorbeeld een fade‑overgang van 600 milliseconden tussen scènes en pas de voortzettingstimer van elke dia apart aan om tijd te geven voor de bijbehorende commentaar of inhoud.
+
+Voor GIF‑ en video‑output stem je de framesnelheid af op de effectduur: 600 milliseconden komen overeen met 18 frames bij 30 fps. In HTML5 schakelt je geanimeerde overgangen in via de exportinstellingen. Controleer de ondersteunde effecten en timingopties van het gekozen exportformaat en bekijk een preview om synchronisatie te bevestigen.
+
+### **Bestaande overgangsduur uitlezen**
+
+Lees [duration](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/duration/) uit voordat je de overgang wijzigt om te bepalen of er een expliciete waarde opgeslagen is. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden weer. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides gebruikt het overgangstype en de [speed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/speed/) om die duur te bepalen. Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de oorspronkelijke instellingen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+        duration = transition.duration
+
+        if duration >= 0:
+            print(f"Slide {slide.slide_number}: stored transition duration is {duration} ms.")
+        else:
+            print(f"Slide {slide.slide_number}: no explicit duration; timing depends on {transition.type} and {transition.speed}.")
 ```
 
 ## **Morph‑overgang**
 
-Aspose.Slides for Python ondersteunt de [Morph transition](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/morphtransition/), die de soepele beweging van de ene dia naar de andere animeert. Dit gedeelte legt uit hoe je de Morph‑overgang gebruikt. Om het effectief te gebruiken, heb je twee dia’s nodig met minstens één object gemeenschappelijk. De eenvoudigste aanpak is een dia te dupliceren en vervolgens het object op de tweede dia naar een andere positie te verplaatsen.
+De Morph‑overgang animeert wijzigingen tussen objecten op opeenvolgende dia's. Om een eenvoudige Morph‑animatie te maken, kloon je een dia, verplaats of wijzig je de grootte van een object op de kloon, en pas je de Morph‑overgang toe op de tweede dia. Zo krijgt de overgang de corresponderende objecten om te animeren tussen hun oorspronkelijke en gewijzigde status.
 
-De volgende code‑fragment toont hoe je een dia met tekst dupliceert en een Morph‑overgang op de tweede dia toepast.
+Het volgende voorbeeld maakt een dia met een tekst‑rechthoek, kloont de dia en verandert de positie en grootte van de rechthoek op de kloon. Vervolgens selecteert het Morph uit de enumeratie [TransitionType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitiontype/) voor de tweede dia. Open het opgeslagen bestand in een presentatieweergave die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    slide0 = presentation.slides[0]
+    first_slide = presentation.slides[0]
+    rectangle = first_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
+    rectangle.text_frame.text = "Morph transition"
 
-    auto_shape = slide0.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
-    auto_shape.text_frame.text = "Morph Transition in PowerPoint Presentations"
+    second_slide = presentation.slides.add_clone(first_slide)
+    moved_rectangle = second_slide.shapes[0]
+    moved_rectangle.x += 100
+    moved_rectangle.y += 50
+    moved_rectangle.width -= 200
+    moved_rectangle.height -= 10
 
-    # Kloon de eerste dia om een tweede dia te maken met dezelfde vormen voor Morph‑continuïteit.
-    slide1 = presentation.slides.add_clone(slide0)
+    second_slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
 
-    # Selecteer dezelfde rechthoek op de tweede dia en wijzig de positie en grootte.
-    shape = slide1.shapes[0]
-    shape.x += 100
-    shape.y += 50
-    shape.width -= 200
-    shape.height -= 10
-
-    # Schakel de Morph‑overgang in op de tweede dia om de vormwijzigingen soepel te animeren.
-    slide1.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("morph-transition.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Morph‑overgangstypen**
 
-De [TransitionMorphType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionmorphtype/)‑enum vertegenwoordigt de verschillende typen Morph‑dia‑overgangen.
+De enumeratie [TransitionMorphType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionmorphtype/) bepaalt hoe Morph content koppelt en animeert:
 
-Het volgende code‑fragment laat zien hoe je een Morph‑overgang op een dia toepast en het morph‑type wijzigt:
+- [BY_OBJECT](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionmorphtype/) behandelt elke vorm als één geheel.
+- [BY_WORD](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionmorphtype/) animeert tekst door woorden te koppelen waar mogelijk.
+- [BY_CHAR](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionmorphtype/) animeert tekst door karakters te koppelen waar mogelijk.
 
-```py
+Stel het overgangs[t]ype](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/type/) in op Morph voordat je de [value](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/value/) benadert. De waarde levert vervolgens het [MorphTransition](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/morphtransition/)‑object, waarvan de eigenschap [morph_type](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/morphtransition/morph_type/) de koppelmodus selecteert.
+
+Dit voorbeeld opent de presentatie die in de vorige sectie is gemaakt en configureert de tweede dia om woord‑gebaseerde Morph‑animatie te gebruiken.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("morph-transition.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        transition = presentation.slides[1].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.MORPH
+        morph_transition = transition.value
 
-    slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-    slide.slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
-    
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        if isinstance(morph_transition, slides.slideshow.MorphTransition):
+            morph_transition.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
+            presentation.save("morph-by-word.pptx", slides.export.SaveFormat.PPTX)
+        else:
+            print("Morph transition options are unavailable.")
+    else:
+        print("The input presentation must contain at least two slides.")
 ```
 
 ## **Overgangseffecten instellen**
 
-Aspose.Slides for Python stelt je in staat om overgangseffecten in te stellen zoals **From Black**, **From Left**, **From Right**, enzovoort. Volg deze stappen om een overgangseffect te configureren:
+Sommige overgangen bieden extra opties, zoals richting of of het effect start vanaf een zwart scherm. De beschikbare opties hangen af van het gekozen overgangs[t]ype](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/type/). Stel eerst het type in en gebruik daarna het juiste overgangsobject via zijn [value](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/value/).
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie op naar de dia.
-1. Stel het gewenste overgangseffect in.
-1. Sla de presentatie op als een PPTX‑bestand.
+Het volgende voorbeeld past een Cut‑overgang toe op de eerste dia van `input.pptx`. Het stelt [from_black](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) in via [OptionalBlackTransition](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/optionalblacktransition/) zodat de overgang start vanaf een zwart scherm.
 
-In het voorbeeld hieronder stellen we verschillende overgangseffecten in.
-
-```py
+```python
 import aspose.slides as slides
 
-# Instantieer de Presentation-klasse om een presentatiebestand te openen.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("input.pptx") as presentation:
+    transition = presentation.slides[0].slide_show_transition
+    transition.type = slides.slideshow.TransitionType.CUT
+    cut_transition = transition.value
 
-    # Pas een Cut‑overgang toe en schakel From Black in.
-    slide.slide_show_transition.type = slides.slideshow.TransitionType.CUT
-    slide.slide_show_transition.value.from_black = True
-
-    # Sla de presentatie op naar schijf.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    if isinstance(cut_transition, slides.slideshow.OptionalBlackTransition):
+        cut_transition.from_black = True
+        presentation.save("cut-from-black.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Cut transition options are unavailable.")
 ```
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kan ik de afspeelsnelheid van een dia‑overgang regelen?**
+**Kan ik de afspeelsnelheid van een diaovergang regelen?**
 
-Ja. Stel de [speed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/speed/) van de overgang in via de [TransitionSpeed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionspeed/)‑instelling (bijv. slow/medium/fast).
+Ja. Geef de voorkeur aan [duration](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/duration/) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [speed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/speed/) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionspeed/)‑categorie — SLOW, MEDIUM of FAST — voldoende is en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de timer voor automatische voortzetting.
 
 **Kan ik audio aan een overgang koppelen en laten herhalen?**
 
-Ja. Je kunt een geluid voor de overgang insluiten en het gedrag beheren via instellingen zoals sound‑mode en looping (bijv. [sound](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/sound/), [sound_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/), [sound_loop](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/), plus metadata zoals [sound_is_built_in](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/sound_is_built_in/) en [sound_name](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/sound_name/)).
+Ja. Wijs ingesloten audio toe aan [sound](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/sound/), stel [sound_mode](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) in op START_SOUND uit de enumeratie [TransitionSoundMode](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitionsoundmode/), en schakel [sound_loop](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/) in. Het geluid blijft herhalen tot het volgende geluidsevenement in de diavoorstelling.
 
 **Wat is de snelste manier om dezelfde overgang op elke dia toe te passen?**
 
-Configureer het gewenste overgangstype in de overgangsinstellingen van elke dia; overgangen worden per dia opgeslagen, dus het toepassen van hetzelfde type op alle dia’s levert een consistent resultaat op.
+Loop door de [slides](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/slides/nl/)‑collectie van de presentatie en stel voor elke dia de overgangs[t]ype](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/type/) in op dezelfde waarde. Stel eventuele timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia's.
 
-**Hoe kan ik controleren welke overgang momenteel op een dia is ingesteld?**
+**Hoe kan ik controleren welke overgang momenteel op een dia staat?**
 
-Inspecteer de [transition settings](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/slide_show_transition/) van de dia en lees het [transition type](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/type/); die waarde geeft precies aan welk effect is toegepast.
+Lees de eigenschap [type](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/slideshowtransition/type/) uit van de dia‑eigenschap [slide_show_transition](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slide/slide_show_transition/). Deze retourneert een waarde uit de enumeratie [TransitionType](https://reference.aspose.com/slides/nl/python-net/aspose.slides.slideshow/transitiontype/); NONE betekent dat er geen overgangseffect is toegepast.

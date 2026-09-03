@@ -1,167 +1,332 @@
 ---
-title: انتقال الشريحة
+title: إدارة انتقالات الشرائح في العروض التقديمية باستخدام JavaScript
+linktitle: انتقال الشريحة
 type: docs
 weight: 80
 url: /ar/nodejs-java/slide-transition/
-keywords: "انتقال شريحة PowerPoint، انتقال morph في JavaScript"
-description: "انتقال شريحة PowerPoint، انتقال morph PowerPoint في JavaScript"
+keywords:
+- انتقال شريحة
+- إضافة انتقال شريحة
+- تطبيق انتقال شريحة
+- انتقال شريحة متقدم
+- انتقال Morph
+- نوع الانتقال
+- تأثير الانتقال
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص تأثيرات Morph وغيرها من تأثيرات الانتقال باستخدام Aspose.Slides for Node.js via Java."
 ---
-
 ## **نظرة عامة**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Node.js عبر Java يتيح أيضًا للمطورين إدارة أو تخصيص تأثيرات انتقال الشرائح. في هذا الموضوع، سنناقش التحكم في انتقالات الشرائح بسهولة كبيرة باستخدام Aspose.Slides for Node.js عبر Java.
+تتحكم انتقالات الشرائح في كيفية ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides for Node.js via Java، يمكنك اختيار تأثير الانتقال لكل شريحة، تكوين التقدم بالنقر بالماوس أو المؤقت، وضبط الخيارات الخاصة بكل تأثير. تستخدم هذه المقالة أمثلة JavaScript لتطبيق الانتقالات، تحديد مدة الانتقال بدقة، إدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتين. تُظهر الأمثلة أيضًا كيفية حفظ الإعدادات في ملف PPTX.
 
-{{% /alert %}} 
+## **إضافة انتقال شريحة**
 
-لتسهيل الفهم، قمنا بشرح كيفية استخدام Aspose.Slides for Node.js عبر Java لإدارة انتقالات الشرائح البسيطة. يمكن للمطورين ليس فقط تطبيق تأثيرات انتقال مختلفة على الشرائح، بل أيضًا تخصيص سلوك هذه التأثيرات.
+لتطبيق انتقال، قم بتحميل عرض تقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) وواصل إلى إعدادات انتقال الشريحة عبر [getSlideShowTransition](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). استخدم [setType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setType) مع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitiontype/)، ثم احفظ العرض التقديمي.
 
-## **إضافة انتقال للشفرة**
-لإنشاء تأثير انتقال شريحة بسيط، اتبع الخطوات التالية:
+المثال التالي يطبق انتقال Circle على الشريحة الأولى وانتقال Comb على الشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) .
-2. تطبيق نوع انتقال شريحة على الشريحة من أحد تأثيرات الانتقال التي تقدمها Aspose.Slides for Node.js عبر Java عبر التعداد TransitionType.
-3. كتابة ملف العرض المعدل.
 ```javascript
-// إنشاء كائن من فئة Presentation لتحميل ملف العرض المصدر
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // تطبيق انتقال من نوع دائرة على الشريحة 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // تطبيق انتقال من نوع مشط على الشريحة 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // كتابة العرض إلى القرص
-    presentation.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(slides.TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(slides.TransitionType.Comb);
+
+        presentation.save("slide-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **إضافة انتقال شريحة متقدم**
-في القسم السابق، قمنا فقط بتطبيق تأثير انتقال بسيط على الشريحة. الآن، لجعل هذا التأثير البسيط أفضل وأكثر تحكمًا، يرجى اتباع الخطوات التالية:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) .
-2. تطبيق نوع انتقال شريحة على الشريحة من أحد تأثيرات الانتقال التي تقدمها Aspose.Slides for Node.js عبر Java.
-3. يمكنك أيضًا تعيين الانتقال إلى Advance On Click، أو بعد فترة زمنية محددة، أو كليهما.
-4. إذا تم تمكين انتقال الشريحة إلى Advance On Click، سيتقدم الانتقال فقط عندما ينقر المستخدم بالفأرة. علاوة على ذلك، إذا تم تعيين خاصية Advance After Time، سيتقدم الانتقال تلقائيًا بعد مرور الوقت المحدد.
-5. كتابة العرض المعدل كملف عرض.
+يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كان النقر بالماوس سيؤدي إلى تقدم عرض الشرائح. تتحكم الطرق التالية في هذا السلوك:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) يسمح للمشاهد بالتقدم بالنقر بالماوس.
+- [setAdvanceAfter](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) يفعّل التقدم التلقائي.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) يحدد التأخير قبل التقدم التلقائي، بالميليثانية.
+
+فعّل كل من النقر والتوقيت لتسمح للمشاهد بالتقدم بالنقر أو الانتظار للعداد. لاستخدام المؤقت فقط، مرّر `false` إلى [setAdvanceOnClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). يتحكم التأخير في وقت تقدم عرض الشرائح؛ لا يحدد مدة تأثير الانتقال البصري.
+
+هذا المثال يعيّن تأثيرات مختلفة للشرائح الثلاث الأولى ويفعل التقدم التلقائي بعد 3، 5، و7 ثوانٍ على التوالي. يمكن للنقرات أيضًا تقدم هذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
+
 ```javascript
-// إنشاء كائن من الفئة Presentation الذي يمثل ملف عرض تقديمي
-var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // تطبيق انتقال من نوع دائرة على الشريحة 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // ضبط وقت الانتقال إلى 3 ثوانٍ
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
-    // تطبيق انتقال من نوع مشط على الشريحة 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // ضبط وقت الانتقال إلى 5 ثوانٍ
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
-    // تطبيق انتقال من نوع تكبير على الشريحة 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(aspose.slides.TransitionType.Zoom);
-    // ضبط وقت الانتقال إلى 7 ثوانٍ
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-    // كتابة العرض إلى القرص
-    pres.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 3) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
+
+        const thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(slides.TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
+
+        presentation.save("advanced-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+للتحقق ما إذا كان التقدم الزمني مفعّلًا، استدعِ [getAdvanceAfter](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). التخزين المتأخر وحده لا يدل على أن المؤقت نشط.
+
+المثال التالي يفتح الملف المحفوظ أعلاه، يُبلّغ عن كل مؤقت مفعّل، ويعطل التقدم التلقائي للشرائح التي لديها تأخير أكبر من ثانيتين. يُفعّل النقرات لهذه الشرائح ويحفظ الإعدادات المحدثة.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("advanced-transitions.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            console.log("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **التحكم في توقيت الانتقال بدقة**
+
+استخدم [setDuration](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setDuration) لتحديد الطول الدقيق لتأثير الانتقال بالميليثانية. تُظهر طريقة الشريحة [getSlideShowTransition](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) هذه الإعدادات عبر [SlideShowTransition](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/):
+
+| الطريقة | الغرض |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | يحدد مدة تأثير الانتقال نفسه، بالميليثانية. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | يحدد التأخير قبل أن تتقدم الشريحة تلقائيًا، بالميليثانية. مرّر `true` إلى [setAdvanceAfter](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) لتفعيل هذا المؤقت. |
+| [setSpeed](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | يختار فئة سرعة محددة مسبقًا من [TransitionSpeed](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitionspeed/): Slow أو Medium أو Fast. تُستعمل عندما لا تُحدد مدة دقيقة. |
+
+[setDuration](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setDuration) يتحكم فقط في تأثير الانتقال؛ لا يحدّد مدة بقاء الشريحة مرئية. اضبط تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدد مدة صريحة، تُحدد Aspose.Slides مدة التأثير بناءً على نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+
+### **تطبيق نفس المدة على كل شريحة**
+
+لتحقيق إيقاع ثابت، طبّق نفس التأثير والمدة الدقيقة على كل شريحة. هذا المثال يحمل `input.pptx`، يختار Fade من [TransitionType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitiontype/)، ويعطي كل انتقال مدة 750 ميليثانية. يُفعّل بشكل منفصل التقدم التلقائي بعد 5 000 ميليثانية ويعطل التقدم بالنقر، ثم يحفظ النتيجة كملف PPTX.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Fade);
+        transition.setDuration(750);
+
+        // تكوين التقدم التلقائي بشكل مستقل عن مدة التأثير.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **تعيين مدد مختلفة للشرائح الفردية**
+
+يمكن للشرائح المختلفة استخدام مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا قصيرًا لشريحة العنوان وانتقالًا أطول لتقديم قسم. هذا المثال يعيّن 500 ميليثانية للشفرة الأولى و1 200 ميليثانية للثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **التنسيق بين الانتقالات والمخرجات المتحركة**
+
+عند إعداد [animated GIF](/slides/ar/nodejs-java/convert-powerpoint-to-animated-gif/)، [HTML5 presentation](/slides/ar/nodejs-java/export-to-html5/)، أو [video](/slides/ar/nodejs-java/convert-powerpoint-to-video/)، حدّد مدد الانتقال الدقيقة قبل التصدير لتطابق الإيقاع المطلوب. على سبيل المثال، استخدم تلاشيًا (fade) مدته 600 ميليثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بشكل منفصل للسماح بالوقت المخصص للسرد أو المحتوى.
+
+بالنسبة لـ GIF والفيديو، نسّق معدل إطارات الإخراج مع مدة التأثير: 600 ميليثانية تعادل 18 إطارًا عند 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقق من التأثيرات وخيارات التوقيت المدعومة من صيغة التصدير المختارة، واستعرض المخرجات لتأكيد التزامن.
+
+### **قراءة مدة الانتقال الحالية**
+
+استدعِ [getDuration](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#getDuration) قبل تعديل الانتقال لتحديد ما إذا كانت هناك قيمة صريحة مخزّنة. القيمة `-1` تعني عدم وجود مدة صريحة؛ القيمة غير السالبة تحدد المدة المخزّنة بالميليثانية. القيمة غير المُحددة ليست مدة التشغيل المحسوبة: تستخدم Aspose.Slides نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) لتحديد تلك المدة. تعيين نوع الانتقال قد يهيئ مدة، لذا افحص الإعدادات الأصلية أولاً.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        const duration = transition.getDuration();
+
+        if (duration >= 0) {
+            console.log("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            console.log("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **انتقال Morph**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Node.js عبر Java يدعم الآن [Morph Transition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MorphTransition). وهو يمثل انتقال Morph الجديد المقدم في PowerPoint 2019.
+يُحاكي انتقال Morph تغييرات الكائنات بين الشرائح المتتابعة. لإنشاء تأثير Morph بسيط، استنسخ شريحة، حرّك أو غيّر حجم كائن على النسخة، وطبق انتقال Morph على الشريحة الثانية. يمنح ذلك الكائنات المطابقة فرصة للإنّيميشن بين حالتها الأصلية والمعدلة.
 
-{{% /alert %}} 
+المثال التالي ينشئ شريحة بها مستطيل نصي، يستنسخ الشريحة، ويغيّر موقع المستطيل وحجمه على النسخة. ثم يختار Morph من تعداد [TransitionType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitiontype/) للشريحة الثانية. افتح الملف المحفوظ في عارض عروض يدعم Morph لرؤية التأثير أثناء عرض الشرائح.
 
-يسمح لك انتقال Morph بتحريك سلس من شريحة إلى أخرى. يصف هذا المقال المفهوم وكيفية استخدام انتقال Morph. لاستخدامه بفعالية، تحتاج إلى شريحتين على الأقل تشتركان في عنصر واحد. أسهل طريقة هي تكرار الشريحة ثم نقل العنصر في الشريحة الثانية إلى موضع مختلف.
-
-يعرض المقتطف البرمجي التالي كيفية إضافة نسخة من الشريحة بها بعض النص إلى العرض وتعيين نوع انتقال [morph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TransitionType) للشريحة الثانية.
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-    var shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const rectangle = firstSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
+
+    const secondSlide = presentation.getSlides().addClone(firstSlide);
+    const movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
+
+    secondSlide.getSlideShowTransition().setType(slides.TransitionType.Morph);
+
+    presentation.save("morph-transition.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **أنواع انتقال Morph**
-تم إضافة تعداد [TransitionMorphType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TransitionMorphType) جديد. يمثل أنواعًا مختلفة من انتقال شريحة Morph.
 
-يحتوي تعداد TransitionMorphType على ثلاثة أعضاء:
+يُحدد تعداد [TransitionMorphType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitionmorphtype/) طريقة مطابقة المحتوى وإنمائه:
 
-- ByObject: سيتم تنفيذ انتقال Morph مع اعتبار الأشكال ككائنات غير قابلة للتقسيم.
-- ByWord: سيتم تنفيذ انتقال Morph بنقل النص كلمة بكلمة حيثما أمكن.
-- ByChar: سيتم تنفيذ انتقال Morph بنقل النص حرفًا بحرف حيثما أمكن.
+- [ByObject](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) يعامل كل شكل ككائن كامل.
+- [ByWord](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) يُحرك النص بمطابقة الكلمات حيثما أمكن.
+- [ByChar](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) يُحرك النص بمطابقة الأحرف حيثما أمكن.
 
-يعرض المقتطف البرمجي التالي كيفية تعيين انتقال Morph إلى الشريحة وتغيير نوع Morph:
+استخدم [setType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setType) لاختيار Morph قبل الوصول إلى [getValue](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#getValue). ثم توفّر القيمة كائن [MorphTransition](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/morphtransition/)؛ تُحدّد الطريقة المطابقة عبر طريقة [setMorphType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/morphtransition/#setMorphType).
+
+هذا المثال يفتح العرض التقديمي الذي أُنشئ في القسم السابق ويُعدّل الشريحة الثانية لتستخدم إنمائية Morph القائمة على الكلمات.
+
 ```javascript
-var presentation = new aspose.slides.Presentation("presentation.pptx");
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setMorphType(aspose.slides.TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        const transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Morph);
+        const transitionValue = transition.getValue();
+
+        if (java.instanceOf(transitionValue, "com.aspose.slides.IMorphTransition")) {
+            transitionValue.setMorphType(slides.TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", slides.SaveFormat.Pptx);
+        } else {
+            console.log("Morph transition options are unavailable.");
+        }
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **تعيين تأثيرات الانتقال**
-Aspose.Slides for Node.js عبر Java يدعم تعيين تأثيرات الانتقال مثل من الأسود، من اليسار، من اليمين وغيرها. لتعيين تأثير الانتقال، يرجى اتباع الخطوات التالية:
 
-- إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) .
-- الحصول على مرجع الشريحة.
-- تعيين تأثير الانتقال.
-- كتابة العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+بعض الانتقالات تكشف عن خيارات إضافية، مثل الاتجاه أو ما إذا كان التأثير يبدأ من شاشة سوداء. تعتمد الخيارات المتاحة على الانتقال المختار عبر [setType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setType). حدّد النوع أولاً، ثم استخدم كائن الانتقال المناسب من [getValue](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#getValue).
 
-في المثال أدناه، قمنا بتعيين تأثيرات الانتقال.
+المثال التالي يطبق انتقال Cut على الشريحة الأولى في `input.pptx`. يستدعي [setFromBlack](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) عبر [OptionalBlackTransition](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/optionalblacktransition/) لجعل الانتقال يبدأ من شاشة سوداء.
+
 ```javascript
-// إنشاء مثيل من فئة Presentation
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // تعيين التأثير
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Cut);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setFromBlack(true);
-    // كتابة العرض إلى القرص
-    presentation.save("SetTransitionEffects_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(slides.TransitionType.Cut);
+    const transitionValue = transition.getValue();
+
+    if (java.instanceOf(transitionValue, "com.aspose.slides.IOptionalBlackTransition")) {
+        transitionValue.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
 
-نعم. عيّن [سرعة](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setspeed/) الانتقال باستخدام إعداد [TransitionSpeed](https://reference.aspose.com/slides/nodejs-java/aspose.slides/transitionspeed/) (مثلاً slow/medium/fast).
+نعم. يُفضل استخدام [setDuration](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setDuration) عندما تحتاج إلى مدة تأثير دقيقة بالميليثانية. استخدم [setSpeed](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) عندما تكون فئة [TransitionSpeed](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitionspeed/) المعرفة مسبقًا—Slow أو Medium أو Fast—كافية ولا توجد مدة صريحة مُحددة. تتحكم هذه الإعدادات في تأثير الانتقال بشكل مستقل عن تأخير التقدم التلقائي.
 
-**هل يمكنني إرفاق صوت بانتقال وجعله يتكرر؟**
+**هل يمكن إرفاق صوت بانتقال وجعله يتكرر؟**
 
-نعم. يمكنك تضمين صوت للانتقال والتحكم في سلوكه عبر إعدادات مثل وضع الصوت والتكرار (مثلاً [setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsound/)، [setSoundMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundmode/)، [setSoundLoop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundloop/)، بالإضافة إلى بيانات تعريف مثل [setSoundIsBuiltIn](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) و [setSoundName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/setsoundname/)).
+نعم. عيّن صوتًا مضمّنًا عبر [setSound](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setSound)، مرّر StartSound من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitionsoundmode/) إلى [setSoundMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode)، وفعل [setSoundLoop](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) بالـ `true`. يتكرر الصوت حتى حدث صوتي التالي في عرض الشرائح.
 
-**ما أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
+**ما هي أسرع طريقة لتطبيق نفس الانتقال على كل الشريحة؟**
 
-قم بتكوين نوع الانتقال المطلوب في إعدادات انتقال كل شريحة؛ يتم تخزين الانتقالات لكل شريحة على حدة، لذا فإن تطبيق نفس النوع على جميع الشرائح يعطي نتيجة متسقة.
+قم بالتكرار خلال مجموعة [getSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#getSlides) في العرض التقديمي واستدعِ [setType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#setType) بنفس القيمة لكل شريحة. اضبط أي خيارات توقيت وتأثير داخل الحلقة نفسها للحفاظ على سلوك موحد عبر الشرائح.
 
-**كيف يمكنني التحقق من الانتقال المعين حاليًا على شريحة؟**
+**كيف يمكنني التحقق من الانتقال الحالي المُعيّن على شريحة؟**
 
-تحقق من [إعدادات الانتقال](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) للشريحة واقرأ [نوع الانتقال](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideshowtransition/gettype/)؛ هذه القيمة تخبرك بالضبط أي تأثير تم تطبيقه.
+استدعِ [getType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slideshowtransition/#getType) على نتيجة [getSlideShowTransition](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) للشفرة. تُرجع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/transitiontype/)؛ قيمة None تعني عدم تطبيق تأثير انتقال.
