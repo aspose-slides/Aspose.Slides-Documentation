@@ -18,215 +18,329 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Discover how to customize slide transitions in Aspose.Slides for .NET, with step-by-step guidance for PowerPoint and OpenDocument presentations."
+description: "Apply slide transitions, configure automatic slide advancement, and customize Morph and other transition effects with Aspose.Slides for .NET."
 ---
 
 ## **Overview**
 
-This article explains how to manage slide transitions in presentations using Aspose.Slides. It shows how to apply transition types to slides, configure transition behavior such as advancing on click or after a specified time, check and disable automatic advancement, use the Morph transition and its types, and set transition effect options. The examples demonstrate how to load or create a presentation, modify transition settings for selected slides, and save the result as a PPTX file. The article also answers common questions about transition speed, transition sounds, applying the same transition to multiple slides, and checking the transition currently set on a slide.
+Slide transitions control how slides appear during a slide show. With Aspose.Slides for .NET, you can choose a transition effect for each slide, configure advancement by mouse click or timer, and adjust options specific to an effect. This article uses C# examples to apply transitions, set exact transition durations, manage slide timing, and create a Morph transition between two slides. The examples also show how to save the settings to a PPTX file.
 
 ## **Add Slide Transition**
-To make it easier to understand, we have demonstrated the use of Aspose.Slides for .NET to manage simple slide transitions. Developers can not only apply different slide transition effects on the slides but also customize the behavior of these transition effects. To create a simple slide transition effect, follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Apply a Slide Transition Type on the slide from one of the transition effects offered by Aspose.Slides for .NET through TransitionType enum
-1. Write the modified presentation file.
+To apply a transition, load a presentation with the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and access the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) property. Set its [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration, then save the presentation.
 
-```c#
+The following example applies a Circle transition to the first slide and a Comb transition to the second. Use an `input.pptx` file with at least two slides.
+
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
 
-// Instantiate Presentation class to load the source presentation file
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
-{
-    // Apply circle type transition on slide 1
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+using var presentation = new Presentation("input.pptx");
 
-    // Apply comb type transition on slide 2
+if (presentation.Slides.Count >= 2)
+{
+    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // Write the presentation to disk
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
-
 ## **Add Advanced Slide Transition**
-In the above section, we just applied a simple transition effect on the slide. Now, to make that simple transition effect even better and controlled, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Apply a Slide Transition Type on the slide from one of the transition effects offered by Aspose.Slides for .NET
-1. You can also set the transition to Advance On Click, after a specific time period or both.
-1. If the slide transition is enabled to Advance On Click, the transition will only advance when someone will click the mouse. Moreover, if the Advance After Time property is set, the transition will advance automatically after the specified advance time will be passed.
-1. Write the modified presentation as a presentation file.
+You can configure how long a slide remains on screen and whether a mouse click advances the slide show. The following properties control this behavior:
 
-```c#
+- [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) allows the viewer to advance by clicking the mouse.
+- [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) enables automatic advancement.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceaftertime/) specifies the delay before automatic advancement, in milliseconds.
+
+Enable both click and timed advancement to let the viewer move on with a click or wait for the timer. To use only the timer, set [AdvanceOnClick](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceonclick/) to `false`. The delay controls when the slide show advances; it does not set the duration of the visual transition effect.
+
+This example assigns different effects to the first three slides and enables automatic advancement after 3, 5, and 7 seconds, respectively. Mouse clicks can also advance these slides. Use an `input.pptx` file with at least three slides.
+
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
 
-// Instantiate Presentation class that represents a presentation file
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 3)
 {
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-    // Apply circle type transition on slide 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-    // Set the transition time of 3 seconds
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // Apply comb type transition on slide 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
-
-
-    // Set the transition time of 5 seconds
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // Apply zoom type transition on slide 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // Set the transition time of 7 seconds
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // Write the presentation to disk
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
 }
 ```
 
-Additionally, using the [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) property, you can check whether a slide transition has been configured to move to the next slide or disable the setting.
+To check whether timed advancement is enabled, read [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/). A stored delay alone does not indicate that the timer is active.
 
-This C# code demonstrates the operation:
+The next example opens the file saved above, reports each enabled timer, and disables automatic advancement for slides with a delay greater than two seconds. It enables mouse clicks for those slides and saves the updated settings.
 
-```c#
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
+
+        if (transition.AdvanceAfterTime > 2000)
+        {
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
+        }
+    }
+}
+
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **Control Transition Timing Precisely**
+
+Use [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) to specify the exact length of a transition effect in milliseconds. The slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/) property exposes these settings through [ISlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/):
+
+| Property | Purpose |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) | Sets the duration of the transition effect itself, in milliseconds. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Sets the delay before the slide advances automatically, in milliseconds. Enable [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) to activate this timer. |
+| [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) | Selects a predefined speed category from [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium, or Fast. It is used when an exact duration is not specified. |
+
+[Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) controls only the transition effect; it does not determine how long the slide remains visible. Configure the automatic advancement delay separately. When no explicit duration is set, Aspose.Slides determines the effect duration from the transition type and [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) value.
+
+### **Apply the Same Duration to Every Slide**
+
+For consistent pacing, apply the same effect and exact duration to every slide. This example loads `input.pptx`, selects Fade from [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/), and gives each transition a duration of 750 milliseconds. It separately enables automatic advancement after 5,000 milliseconds and disables advancement by mouse click, then saves the result as PPTX.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // Configure automatic advancement independently of the effect duration.
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **Set Different Durations for Individual Slides**
+
+Different slides can use different effect durations. For example, use a brief transition for a title slide and a longer transition for a section introduction. This example sets 500 milliseconds for the first slide and 1,200 milliseconds for the second. Use an `input.pptx` file with at least two slides.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **Coordinate Transitions with Animated Output**
+
+When preparing an [animated GIF](/slides/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/net/export-to-html5/), or [video](/slides/net/convert-powerpoint-to-video/), set exact transition durations before export to match the intended pacing. For example, use a 600-millisecond fade between scenes, and adjust each slide's advancement delay separately to allow time for its narration or content.
+
+For GIF and video, coordinate the output frame rate with the effect duration: 600 milliseconds corresponds to 18 frames at 30 frames per second. In HTML5, enable animated transitions in the export settings. Check the chosen export format's supported effects and timing options, and preview the output to confirm synchronization.
+
+### **Read an Existing Transition Duration**
+
+Read [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) before modifying the transition to determine whether an explicit value is stored. A value of `-1` means no explicit duration is set; a nonnegative value specifies the stored duration in milliseconds. The unset value is not the calculated playback duration: Aspose.Slides uses the transition type and [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) to determine that duration. Setting a transition type can initialize a duration, so inspect the original settings first.
+
+```csharp
+using System;
 using Aspose.Slides;
 
-// Instantiates a Presentation class that represents a presentation file
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
     {
-        // Gets the slide Transition
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
-
-        // Checks wthether the Advance After Time setting is enabled
-        if (slideTransition.AdvanceAfter)
-        {
-            // Prints the Advance After Time value
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
-        }
-
-        // Disables the transition after a specific time if the AdvancedAfterTime value is greater than 2 seconds
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
 ## **Morph Transition**
-Aspose.Slides for .NET now supports the [Morph Transition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition). They represent a new morph transition introduced in PowerPoint 2019. The Morph transition allows you to animate smooth movement from one slide to the next. This article describes the concept and how to use the Morph transition. To use the Morph transition effectively, you will need to have two slides with at least one object in common. The easiest way is to duplicate the slide and then move the object on the second slide to a different place.
 
-The following code snippet shows you how to add a clone of the slide with some text to the presentation and set a transition of [morph type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) to the second slide.
+The Morph transition animates changes between objects on consecutive slides. To create a simple Morph effect, clone a slide, move or resize an object on the clone, and apply the Morph transition to the second slide. This gives the transition corresponding objects to animate between their original and modified states.
 
+The following example creates a slide with a text rectangle, clones the slide, and changes the rectangle's position and size on the clone. It then selects Morph from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration for the second slide. Open the saved file in a presentation viewer that supports Morph to see the effect during a slide show.
 
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+using var presentation = new Presentation();
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
-
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **Morph Transition Types**
-New [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype) enum has been added. It represents different types of Morph slide transition.
 
-TransitionMorphType enum has three members:
+The [TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) enumeration controls how Morph matches and animates content:
 
-- ByObject: Morph transition will be performed considering shapes as indivisible objects.
-- ByWord: Morph transition will be performed with transferring text by words where possible.
-- ByChar: Morph transition will be performed with transferring text by characters where possible.
+- [ByObject](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) treats each shape as a whole object.
+- [ByWord](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animates text by matching words where possible.
+- [ByChar](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype/) animates text by matching characters where possible.
 
-The following code snippet shows you how to set morph transition to slide and change morph type:
+Set the transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to Morph before accessing its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/). The value then provides the [IMorphTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/) interface, whose [MorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/morphtype/) property selects the matching mode.
 
-```c#
+This example opens the presentation created in the previous section and configures the second slide to use word-based Morph animation.
+
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
 
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
+
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
-
-
 ## **Set Transition Effects**
-Aspose.Slides for .NET supports setting the transition effects like, from black, from left, from right etc. In order to set the Transition Effect. Please follow the steps below:
 
-- Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
-- Get the reference of the slide.
-- Setting the transition effect.
-- Write the presentation as a [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
+Some transitions expose additional options, such as direction or whether the effect starts from a black screen. The available options depend on the selected transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/). Set the type first, then use the appropriate interface from its [Value](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/value/).
 
-In the example given below, we have set the transition effects.
+The following example applies a Cut transition to the first slide of `input.pptx`. It sets [FromBlack](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) through [IOptionalBlackTransition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/ioptionalblacktransition/) so that the transition starts from a black screen.
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
 
-// Create an instance of Presentation class
-Presentation presentation = new Presentation("AccessSlides.pptx");
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
 
-// Set effect
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
-
-// Write the presentation to disk
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+if (transition.Value is IOptionalBlackTransition cutTransition)
+{
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
+}
 ```
 
 ## **FAQ**
 
-### Can I control the playback speed of a slide transition?
+**Can I control the playback speed of a slide transition?**
 
-Yes. Set the transition’s [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) using the [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) setting (e.g., slow/medium/fast).
+Yes. Prefer [Duration](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/duration/) when you need an exact effect duration in milliseconds. Use [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) when a predefined [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) category—Slow, Medium, or Fast—is sufficient and no explicit duration is set. These settings control the transition effect independently of the automatic advancement delay.
 
-### Can I attach audio to a transition and make it loop?
+**Can I attach audio to a transition and make it loop?**
 
-Yes. You can embed a sound for the transition and control behavior via settings like sound mode and looping (e.g., [Sound](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/sound/), [SoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundmode/), [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundloop/), plus metadata such as [SoundIsBuiltIn](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) and [SoundName](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundname/)).
+Yes. Assign embedded audio to [Sound](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/sound/), set [SoundMode](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundmode/) to StartSound from the [TransitionSoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionsoundmode/) enumeration, and enable [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/soundloop/). The audio loops until the next sound event in the slide show.
 
-### What’s the fastest way to apply the same transition to every slide?
+**What's the fastest way to apply the same transition to every slide?**
 
-Configure the desired transition type on each slide’s transition settings; transitions are stored per slide, so applying the same type across all slides gives a consistent result.
+Loop through the presentation's [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection and set each slide's transition [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) to the same value. Set any timing and effect options in the same loop to keep the behavior consistent across slides.
 
-### How can I check which transition is currently set on a slide?
+**How can I check which transition is currently set on a slide?**
 
-Inspect the slide’s [transition settings](https://reference.aspose.com/slides/net/aspose.slides/baseslide/slideshowtransition/) and read its [transition type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/type/); that value tells you exactly which effect is applied.
+Read the [Type](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/type/) property from the slide's [SlideShowTransition](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideshowtransition/). It returns a value from the [TransitionType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitiontype/) enumeration; None means that no transition effect is applied.
