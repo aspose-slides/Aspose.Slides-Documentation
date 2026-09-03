@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Textfeldern in Präsentationen auf Android
+title: Textfelder in Präsentationen auf Android verwalten
 linktitle: Textfeld verwalten
 type: docs
 weight: 20
@@ -18,319 +18,278 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides für Android via Java erleichtert das Erstellen, Bearbeiten und Klonen von Textfeldern in PowerPoint- und OpenDocument-Dateien und verbessert die Automatisierung Ihrer Präsentationen."
+description: "Erstellen, Erkennen, Formatieren und Aktualisieren von Textfeldern in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Android via Java."
 ---
 ## **Einleitung**
 
-Texte auf Folien befinden sich typischerweise in Textfeldern oder Formen. Daher muss man, um Text zu einer Folie hinzuzufügen, zunächst ein Textfeld hinzufügen und dann Text in das Textfeld einfügen. Aspose.Slides für Android via Java stellt das Interface [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/IAutoShape) bereit, das das Hinzufügen einer Form mit Text ermöglicht.
+In Aspose.Slides for Android via Java wird Folientext in TextFrames gespeichert, die zu Shapes gehören. Die [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/) Schnittstelle stellt die am häufigsten vorkommende texttragende Form dar und gibt ihren Text über die [IAutoShape.getTextFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) Methode frei.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides stellt außerdem das Interface [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/IShape) bereit, mit dem Formen zu Folien hinzugefügt werden können. Allerdings können nicht alle über das `IShape`‑Interface hinzugefügten Formen Text enthalten. Formen, die über das [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/IAutoShape)‑Interface hinzugefügt werden, können jedoch Text enthalten.
+{{% alert color="info" title="Note" %}}
+
+Jede Auto‑Form implementiert [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/), aber nicht jede Form ist eine Auto‑Form oder unterstützt einen TextFrame. Beim Verarbeiten einer vorhandenen Präsentation prüfen Sie, ob eine Form [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/) implementiert, bevor Sie auf deren Text zugreifen.
+
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-Deshalb, wenn Sie mit einer Form arbeiten, der Sie Text hinzufügen möchten, sollten Sie prüfen und bestätigen, dass sie über das `IAutoShape`‑Interface gecastet wurde. Nur dann können Sie mit [TextFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/TextFrame) arbeiten, das eine Eigenschaft von `IAutoShape` ist. Siehe den Abschnitt [Update Text](https://docs.aspose.com/slides/de/androidjava/manage-textbox/#update-text) auf dieser Seite.
-{{% /alert %}}
+## **Textfeld auf einer Folie erstellen**
 
-## **Ein Textfeld auf einer Folie erstellen**
-
-Um ein Textfeld auf einer Folie zu erstellen, führen Sie diese Schritte aus:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/Presentation).
-2. Holen Sie eine Referenz für die erste Folie in der neu erstellten Präsentation. 
-3. Fügen Sie ein [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/IAutoShape)‑Objekt mit [ShapeType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) auf `Rectangle` an einer angegebenen Position auf der Folie hinzu und erhalten Sie die Referenz für das neu hinzugefügte `IAutoShape`‑Objekt.
-4. Fügen Sie die Eigenschaft `TextFrame` dem `IAutoShape`‑Objekt hinzu, das Text enthalten wird. Im nachfolgenden Beispiel haben wir diesen Text hinzugefügt: *Aspose TextBox*
-5. Schließlich schreiben Sie die PPTX‑Datei über das `Presentation`‑Objekt. 
-
-Dieser Java‑Code — eine Implementierung der oben genannten Schritte — zeigt, wie Text zu einer Folie hinzugefügt wird:
-
-```java
-import com.aspose.slides.*;
-
-// Instanziert die Präsentation
-Presentation pres = new Presentation();
-try {
-    // Erhält die erste Folie in der Präsentation
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Fügt eine AutoShape mit dem Typ Rechteck hinzu
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Fügt dem Rechteck einen TextFrame hinzu
-    ashp.addTextFrame(" ");
-
-    // Greift auf den TextFrame zu
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // Erstellt das Paragraph-Objekt für den TextFrame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Erstellt ein Portion-Objekt für den Absatz
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // Setzt den Text
-    portion.setText("Aspose TextBox");
-
-    // Speichert die Präsentation auf der Festplatte
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Prüfen, ob eine Form ein Textfeld ist**
-
-Aspose.Slides bietet die Methode [isTextBox](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/#isTextBox--) des [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/)‑Interface, mit der Sie Formen untersuchen und Textfelder identifizieren können.
-
-![Textfeld und Form](istextbox.png)
-
-Dieser Java‑Code zeigt, wie Sie prüfen können, ob eine Form als Textfeld erstellt wurde: 
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-Beachten Sie, dass wenn Sie einfach eine Autoform über die Methode `addAutoShape` des [IShapeCollection](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapecollection/)‑Interface hinzufügen, die Methode `isTextBox` der Autoform `false` zurückgibt. Nachdem Sie jedoch Text zur Autoform über die Methode `addTextFrame` oder die Methode `setText` hinzugefügt haben, gibt die Eigenschaft `isTextBox` `true` zurück.
+Um ein Textfeld zu erstellen, fügen Sie einer Folie eine Auto‑Form hinzu, fügen Sie dessen TextFrame Text hinzu und speichern die Präsentation. Das folgende Beispiel erstellt ein rechteckiges Textfeld:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() gibt false zurück
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() gibt true zurück
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() gibt false zurück
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() gibt true zurück
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() gibt false zurück
-shape3.addTextFrame("");
-// shape3.isTextBox() gibt false zurück
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() gibt false zurück
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() gibt false zurück
-```
-
-## **Die Form finden, die einen Textrahmen besitzt**
-
-In generischem Text‑Verarbeitungscode können Sie ein [ITextFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/) erhalten, ohne bereits zu wissen, welches Präsentationsobjekt es enthält. Verwenden Sie die Methode [ITextFrame.getParentShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#getParentShape--) um zum zugehörigen [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/) zurückz navigieren.
-
-Für einen Textrahmen, der zu einem [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/) oder einer anderen text‑enthält‑Form gehört, gibt [ITextFrame.getParentShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#getParentShape--) den Eigentümer zurück und [ITextFrame.getParentCell](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#getParentCell--) gibt `null` zurück. Beide Methoden bieten nur Lese‑Navigation, sodass ihr Aufruf die Besitzverhältnisse nicht ändert. Prüfen Sie immer, ob der zurückgegebene Wert `null` ist, bevor Sie auf die Form zugreifen.
-
-Ein vollständiges Beispiel, das Form‑ und Tabellenzellen‑Eigentümer identifiziert, einschließlich Formen, die zu SmartArt‑Knoten gehören, finden Sie unter [Suchen und Ersetzen von Text](/slides/de/androidjava/search-and-replace-text/).
-
-## **Spalten zu einem Textfeld hinzufügen**
-
-Aspose.Slides stellt die Eigenschaften [ColumnCount](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) und [ColumnSpacing](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (aus dem [ITextFrameFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ITextFrameFormat)‑Interface und der Klasse [TextFrameFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/TextFrameFormat)) bereit, mit denen Sie Spalten zu Textfeldern hinzufügen können. Sie können die Anzahl der Spalten in einem Textfeld angeben und den Abstand in Punkt zwischen den Spalten festlegen.
-
-Dieser Java‑Code demonstriert den beschriebenen Vorgang: 
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // Erhält die erste Folie in der Präsentation
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // Fügt eine AutoShape mit dem Typ Rechteck hinzu
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // Fügt dem Rechteck einen TextFrame hinzu
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // Erhält das Textformat des TextFrames
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // Legt die Anzahl der Spalten im TextFrame fest
-    format.setColumnCount(3);
-
-    // Legt den Abstand zwischen den Spalten fest
-    format.setColumnSpacing(10);
-
-    // Speichert die Präsentation
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Spalten zu einem Textrahmen hinzufügen**
-Aspose.Slides für Android via Java bietet die Eigenschaft [ColumnCount](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (aus dem [ITextFrameFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ITextFrameFormat)‑Interface), mit der Sie Spalten in Textrahmen hinzufügen können. Über diese Eigenschaft können Sie die gewünschte Spaltenanzahl in einem Textrahmen festlegen.
+Die an [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) übergebenen Koordinaten und Abmessungen werden in Punkten gemessen. [IAutoShape.addTextFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) initialisiert den TextFrame mit dem angegebenen Text.
 
-Dieser Java‑Code zeigt, wie Sie eine Spalte innerhalb eines Textrahmens hinzufügen:
+## **Überprüfen, ob ein Shape ein Textfeld ist**
+
+Verwenden Sie die [IAutoShape.isTextBox](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/#isTextBox--) Methode, um festzustellen, ob eine Auto‑Form als Textfeld behandelt wird. Dies ist nützlich, wenn eine Präsentation sowohl texttragende als auch rein grafische Auto‑Formen enthält.
+
+![Ein Textfeld und ein Shape](istextbox.png)
+
+Das folgende Beispiel prüft jede Auto‑Form in einer Präsentation:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+Eine neu hinzugefügte Auto‑Form wird nicht als Textfeld betrachtet, bis sie nicht‑leeren Text enthält. Sie können diesen Text über [IAutoShape.addTextFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) oder [ITextFrame.setText](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) bereitstellen. Das Hinzufügen oder Zuweisen eines leeren Strings lässt [IAutoShape.isTextBox](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/#isTextBox--) `false` zurückgeben:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+Der erste und zweite Aufruf geben `true` aus; die letzten beiden geben `false` aus.
+
+## **Das Shape finden, dem ein TextFrame gehört**
+
+Generischer Text‑Verarbeitungscode kann ein [ITextFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/) erhalten, ohne zu wissen, welches Präsentationsobjekt es enthält. Verwenden Sie die schreibgeschützte [ITextFrame.getParentShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#getParentShape--) Methode, um zum besitzenden [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/) zurückzunavigieren.
+
+Für ein TextFrame, das einer Auto‑Form oder einer anderen texttragenden Form gehört, liefert [ITextFrame.getParentShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#getParentShape--) den Besitzer und [ITextFrame.getParentCell](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#getParentCell--) liefert `null`. Überprüfen Sie den zurückgegebenen Wert, bevor Sie darauf zugreifen. Um sowohl Shape‑ als auch Tabellenzellen‑Besitzer zu identifizieren, einschließlich Shapes, die zu SmartArt‑Knoten gehören, siehe [Search and Replace Text](/slides/de/androidjava/search-and-replace-text/).
+
+## **Spalten zu einem Textfeld hinzufügen**
+
+Die [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-) Methode teilt das TextFrame in Spalten, während [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) den Abstand zwischen den Spalten in Punkten festlegt. Beide Einstellungen gehören zu [ITextFrameFormat](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/) und können über das TextFrame eines vorhandenen Textfelds geändert werden. Der Text fließt zwischen den Spalten innerhalb derselben Form um; er setzt nicht in einer anderen Form fort.
+
+Das folgende Beispiel erstellt ein dreispaltiges Textfeld mit 10 Punkten Abstand zwischen den Spalten, speichert die Präsentation und liest die gespeicherten Einstellungen aus der Ausgabedatei zurück:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Text aus einzelnen Spalten extrahieren**
+
+Verwenden Sie [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/#splitTextByColumns--) um den jedem visuellen Spaltenbereich zugeordneten Text eines vorhandenen TextFrames abzurufen. Die Methode gibt für jede Spalte einen String in spaltenbasierter Lesereihenfolge zurück. Ein einspaltiges TextFrame liefert ein Array mit einem Element, und eine leere Spalte wird durch einen leeren String dargestellt. Die Strings enthalten ausschließlich Klartext; Formatierungen auf Portionsebene werden nicht erhalten.
+
+Dies ist nützlich, wenn Sie:
+
+- Text extrahieren und dabei die spaltenbasierte Lesereihenfolge beibehalten.
+- Den Inhalt von Folien mit mehreren Spalten indizieren oder vergleichen.
+- Jede Spalte in eine separate Datei, ein Datenbankfeld oder ein anderes Ziel exportieren.
+- Untersuchen, wie Text nach einer Änderung der Spaltenanzahl mit [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-), des Abstands mit [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-), der Schriftart oder der Größe des TextFrames umverteilt wird.
+
+Die Methode gibt den Text zurück, der im aktuellen [ITextFrame](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextframe/) verteilt ist; sie fließt Text nicht automatisch zwischen separaten Shapes oder Textfeldern. Die Spaltenverteilung kann von verfügbaren Schriftarten und anderen Text‑Layout‑Einstellungen abhängen, stellen Sie also sicher, dass die erforderlichen Schriftarten verfügbar sind, wenn konsistente Ergebnisse wichtig sind.
+
+Das folgende Beispiel lädt eine Präsentation, findet die erste mehrspaltige Auto‑Form mit einem TextFrame, liest die konfigurierte Spaltenanzahl und schreibt den Text jeder Spalte in eine separate Datei. Shapes, die keinen TextFrame bereitstellen, werden übersprungen.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            String outputPath = "Column-" + columnNumber + ".txt";
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try (FileOutputStream outputStream = new FileOutputStream(outputPath)) {
+                outputStream.write(textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Text aktualisieren**
 
-Aspose.Slides ermöglicht es Ihnen, den in einem Textfeld enthaltenen Text oder alle Texte in einer Präsentation zu ändern bzw. zu aktualisieren. 
+Um Text in einer gesamten Präsentation zu aktualisieren, iterieren Sie über die Folien und Shapes, wählen Auto‑Shapes aus und bearbeiten dann deren Text‑Portionen. Die Arbeit auf Portionsebene ermöglicht es, sowohl Text als auch Zeichenformatierung zu ändern.
 
-Dieser Java‑Code demonstriert eine Operation, bei der alle Texte in einer Präsentation aktualisiert oder geändert werden:
+Das folgende Beispiel ersetzt jedes Vorkommen von `years` durch `months` im Text von Auto‑Shapes und macht jede betroffene Portion fett:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) // Prüft, ob die Form einen Textrahmen unterstützt (IAutoShape). 
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) // Durchläuft die Absätze im Textrahmen
-                {
-                    for (IPortion portion : paragraph.getPortions()) // Durchläuft jeden Teil im Absatz
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); // Ändert den Text
-                        portion.getPortionFormat().setFontBold(NullableBool.True); // Ändert die Formatierung
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    // Speichert die geänderte Präsentation
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ein Textfeld mit Hyperlink hinzufügen** 
+Diese Traversierung aktualisiert Text nur in Auto‑Shapes. Text, der in Tabellen, Diagrammen, SmartArt oder gruppierten Shapes gespeichert ist, erfordert die Traversierung der jeweiligen Objekt‑Sammlungen.
 
-Sie können einen Link in ein Textfeld einfügen. Wenn das Textfeld angeklickt wird, wird der Link geöffnet. 
+## **Ein Textfeld mit Hyperlink hinzufügen**
 
-Um ein Textfeld mit einem Link hinzuzufügen, führen Sie diese Schritte aus:
+Einem bestimmten Textabschnitt kann ein Hyperlink zugewiesen werden, sodass nur dieser Text als anklickbarer Link fungiert. Verwenden Sie [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), um den Abschnitt mit einer externen URL zu verknüpfen.
 
-1. Erstellen Sie eine Instanz der `Presentation`‑Klasse. 
-2. Holen Sie eine Referenz für die erste Folie in der neu erstellten Präsentation. 
-3. Fügen Sie ein `AutoShape`‑Objekt mit `ShapeType` auf `Rectangle` an einer angegebenen Position auf der Folie hinzu und erhalten Sie die Referenz des neu hinzugefügten AutoShape‑Objekts.
-4. Fügen Sie dem `AutoShape`‑Objekt ein `TextFrame` hinzu und setzen Sie den Text des ersten Abschnitts. Im Beispiel unten haben wir diesen Text verwendet: *Aspose.Slides*
-5. Holen Sie das [IHyperlinkManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ihyperlinkmanager/)‑Objekt aus dem `PortionFormat` des gewünschten Abschnitts des `TextFrame`.
-6. Rufen Sie [setExternalHyperlinkClick](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) auf diesem Objekt auf, um den Link festzulegen, der beim Klicken auf den Text geöffnet wird.
-7. Schließlich schreiben Sie die PPTX‑Datei über das `Presentation`‑Objekt. 
-
-Dieser Java‑Code — eine Implementierung der oben genannten Schritte — zeigt, wie Sie ein Textfeld mit Hyperlink zu einer Folie hinzufügen:
+Das folgende Beispiel erstellt verknüpften Text und speichert ihn in einer Präsentation:
 
 ```java
 import com.aspose.slides.*;
 
-// Instanziert eine Presentation‑Klasse, die eine PPTX darstellt
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Holt die erste Folie in der Präsentation
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // Fügt ein AutoShape‑Objekt mit dem Typ Rechteck hinzu
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // Castet die Form zu AutoShape
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // Greift auf die ITextFrame‑Eigenschaft der AutoShape zu
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // Fügt dem Frame etwas Text hinzu
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // Setzt den Hyperlink für den Portion‑Text
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // Speichert die PPTX‑Präsentation
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einem Textfeld und einem Text‑Platzhalter bei der Arbeit mit Master‑Folien?**
+**Was ist der Unterschied zwischen einem Textfeld und einem Textplatzhalter auf einer Master‑ oder Layout‑Folien?**
 
-Ein [Platzhalter](/slides/de/androidjava/manage-placeholder/) erbt Stil/Position vom [Master](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/masterslide/) und kann in [Layouts](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/layoutslide/) überschrieben werden, während ein reguläres Textfeld ein unabhängiges Objekt auf einer bestimmten Folie ist und sich nicht ändert, wenn Sie das Layout wechseln.
+Ein [Platzhalter](/slides/de/androidjava/manage-placeholder/) kann seine Position und Formatierung von einer [Master‑Folien](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/masterslide/) oder einer [Layout‑Folien](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/layoutslide/) erben. Ein reguläres Textfeld ist eine unabhängige Form auf der Folie, auf der es erstellt wurde, und übernimmt kein Platzhalter‑Verhalten, wenn das Layout geändert wird.
 
-**Wie kann ich einen massenhaften Text‑Austausch in der gesamten Präsentation durchführen, ohne Text in Diagrammen, Tabellen und SmartArt zu berühren?**
+**Wie kann ich Text ersetzen, ohne den Text in Diagrammen, Tabellen oder SmartArt zu ändern?**
 
-Begrenzen Sie Ihre Iteration auf Autoformen, die Textrahmen besitzen, und schließen Sie eingebettete Objekte ([Diagramme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/chart/), [Tabellen](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/smartart/)) aus, indem Sie deren Sammlungen separat durchlaufen oder diese Objekttypen überspringen.
+Beschränken Sie die Traversierung auf Shapes, die [IAutoShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iautoshape/) implementieren, wie im Beispiel „Text aktualisieren“ gezeigt. Diagramme, Tabellen und SmartArt speichern Text in ihren eigenen Objektmodellen, sodass sie durch diese Schleife nicht verändert werden.

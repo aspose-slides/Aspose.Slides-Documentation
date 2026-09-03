@@ -11,309 +11,255 @@ keywords:
 - aktualizovat text
 - vytvořit textové pole
 - zkontrolovat textové pole
-- přidat sloupec textu
+- přidat textový sloupec
 - přidat hyperodkaz
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides pro .NET usnadňuje vytváření, úpravu a klonování textových polí v souborech PowerPoint a OpenDocument, což zvyšuje efektivitu automatizace vašich prezentací."
+description: "Vytvořit, identifikovat, formátovat a aktualizovat textová pole v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET."
 ---
 ## **Úvod**
 
-Texty na snímcích jsou obvykle umístěny v textových polích nebo tvarech. Proto musíte nejprve přidat textové pole a teprve potom do něj vložit text. 
+V Aspose.Slides for .NET je text snímku uložen v textových rámečcích, které patří k objektům. Rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) představuje nejběžnější tvar nesoucí text a zpřístupňuje jeho text pomocí vlastnosti [IAutoShape.TextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/textframe/).
 
-Chcete‑li přidat tvar, který může obsahovat text, poskytuje Aspose.Slides pro .NET rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape). 
-
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides také poskytuje rozhraní [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape), které umožňuje přidávat tvary na snímky. Ne všechny tvary přidané pomocí rozhraní `IShape` mohou obsahovat text. Tvary přidané pomocí rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape) obvykle text obsahují. 
-
-Proto při práci s existujícím tvarem, ke kterému chcete přidat text, byste měli ověřit, že byl převeden pomocí rozhraní `IAutoShape`. Teprve pak můžete pracovat s [TextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/properties/textframe), který je vlastností rozhraní `IAutoShape`. Viz sekce [Update Text](https://docs.aspose.com/slides/cs/net/manage-textbox/#update-text) na této stránce. 
-
+{{% alert color="info" title="Note" %}}
+Každý automatický tvar implementuje [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/), ale ne každý tvar je automatický tvar nebo podporuje textový rámec. Při zpracování existující prezentace zkontrolujte, zda objekt implementuje `IAutoShape`, než přistoupíte k jeho textu.
 {{% /alert %}}
 
 ## **Vytvoření textového pole na snímku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation). 
-2. Získejte odkaz na první snímek pomocí jeho indexu. 
-3. Přidejte objekt [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape) s nastavením [ShapeType](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/properties/shapetype) na `Rectangle` na zadané pozici na snímku a získejte odkaz na nově přidaný objekt `IAutoShape`. 
-4. Přidejte vlastnost `TextFrame` k objektu `IAutoShape`, která bude obsahovat text. V níže uvedeném příkladu jsme přidali tento text: *Aspose TextBox* 
-5. Nakonec uložte soubor PPTX pomocí objektu `Presentation`. 
+Chcete‑li vytvořit textové pole, přidejte automatický tvar na snímek, přidejte text do jeho textového rámce a uložte prezentaci. Následující příklad vytvoří obdélníkové textové pole:
 
-Tento C# kód – implementace výše uvedených kroků – ukazuje, jak přidat text na snímek:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Vytvoří instanci PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // Získá první snímek v prezentaci
-    ISlide sld = pres.Slides[0];
-
-    // Přidá AutoShape s typem nastaveným na Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Přidá TextFrame do obdélníku
-    ashp.AddTextFrame(" ");
-
-    // Přistupuje k textovému rámci
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // Vytvoří objekt Paragraph pro textový rámec
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Vytvoří objekt Portion pro odstavec
-    IPortion portion = para.Portions[0];
-
-    // Nastaví text
-    portion.Text = "Aspose TextBox";
-
-    // Uloží prezentaci na disk
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-## **Kontrola, zda se jedná o tvar textového pole**
+Souřadnice a rozměry předávané metodě [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/addautoshape/) jsou měřeny v bodech. Metoda [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/addtextframe/) inicializuje textový rámec dodaným textem.
 
-Aspose.Slides poskytuje vlastnost [IsTextBox](https://reference.aspose.com/slides/cs/net/aspose.slides/autoshape/istextbox/) rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/), která umožňuje prozkoumat tvary a identifikovat textová pole.
+## **Kontrola, zda jde o tvar textového pole**
+
+Použijte vlastnost [AutoShape.IsTextBox](https://reference.aspose.com/slides/cs/net/aspose.slides/autoshape/istextbox/) k určení, zda je automatický tvar považován za textové pole. To je užitečné, když prezentace obsahuje jak tvary nesoucí text, tak čistě grafické automatické tvary.
 
 ![Textové pole a tvar](istextbox.png)
 
-Tento C# kód ukazuje, jak zkontrolovat, zda byl tvar vytvořen jako textové pole: 
+Následující příklad prozkoumá každý automatický tvar v prezentaci:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-Všimněte si, že pokud pouze přidáte automatický tvar pomocí metody `AddAutoShape` rozhraní [IShapeCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/ishapecollection/), vlastnost `IsTextBox` automatického tvaru vrátí `false`. Po přidání textu do automatického tvaru pomocí metody `AddTextFrame` nebo vlastnosti `Text` se pak `IsTextBox` vrátí `true`.
+Nově přidaný automatický tvar není považován za textové pole, dokud neobsahuje ne‑prázdný text. Text můžete dodat pomocí [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/addtextframe/) nebo [ITextFrame.Text](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/text/). Přidání nebo přiřazení prázdného řetězce ponechá `IsTextBox` nastaven na `false`:
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox je nepravda
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox je pravda
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox je nepravda
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox je pravda
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox je nepravda
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox je nepravda
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox je nepravda
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox je nepravda
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
 
-## **Vyhledání tvaru, který vlastní TextFrame**
+První dvě volání vypíšou `True`; poslední dvě `False`.
 
-V obecné kódu pro zpracování textu můžete obdržet objekt [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) aniž byste věděli, který objekt prezentace jej obsahuje. Použijte vlastnost [ITextFrame.ParentShape](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentshape/) k návratu k vlastnímu [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/).
+## **Nalezení tvaru, který vlastní textový rámec**
 
-Pro TextFrame, který patří k [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/) nebo jinému tvaru obsahujícímu text, je nastavena vlastnost [ITextFrame.ParentShape](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentshape/) a [ITextFrame.ParentCell](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentcell/) je `null`. Obě vlastnosti jsou jen pro čtení, takže jejich čtení nemění vlastnictví. Vždy před přístupem k tvaru zkontrolujte, zda vrácená hodnota není `null`.
+Obecný kód pro zpracování textu může získat [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/) aniž by věděl, který objekt prezentace jej obsahuje. Použijte jen‑pro‑čtení vlastnost [ITextFrame.ParentShape](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentshape/) pro návrat k jeho vlastnímu [IShape](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/).
 
-Kompletní příklad, který identifikuje vlastníky tvarů a buněk tabulek, včetně tvarů spojených s uzly SmartArt, najdete v sekci [Search and Replace Text](/slides/cs/net/search-and-replace-text/).
+U textového rámce vlastněného automatickým tvarem nebo jiným tvarem nesoucím text obsahuje `ParentShape` vlastníka a [ITextFrame.ParentCell](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/parentcell/) je `null`. Zkontrolujte vrácenou hodnotu před přístupem. Pro identifikaci jak vlastníků tvarů, tak buněk tabulek, včetně tvarů spojených s uzly SmartArt, viz [Search and Replace Text](/slides/cs/net/search-and-replace-text/).
 
 ## **Přidání sloupců do textového pole**
 
-Aspose.Slides poskytuje vlastnosti [ColumnCount](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/properties/columncount) a [ColumnSpacing](https://reference.aspose.com/slides/cs/net/aspose.slides/textframeformat/properties/columnspacing) (z rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat) a třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/textframeformat)), které umožňují přidat sloupce do textových polí. Můžete zadat počet sloupců v textovém poli a poté mezeru v bodech mezi sloupci. 
+Vlastnost [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/columncount/) dělí textový rámec na sloupce, zatímco [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/columnspacing/) nastavuje mezeru mezi sloupci v bodech. Obě nastavení patří do [ITextFrameFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/) a lze je změnit přes textový rámec existujícího textového pole. Text se přetéká mezi sloupci uvnitř stejného tvaru; nepřechází do jiného tvaru.
 
-Tento C# kód demonstruje popsanou operaci: 
+Následující příklad vytvoří třísloupcové textové pole s 10 bodi mezi sloupci, uloží prezentaci a načte uložená nastavení z výstupního souboru:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// Získá první snímek v prezentaci
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// Přidá AutoShape s typem nastaveným na Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// Přidá TextFrame do obdélníku
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// Získá formát textu TextFrame
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// Určuje počet sloupců v TextFrame
-	format.ColumnCount = 3;
-
-	// Určuje mezery mezi sloupci
-	format.ColumnSpacing = 10;
-
-	// Uloží prezentaci
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **Přidání sloupců do TextFrame**
+## **Extrahování textu z jednotlivých sloupců**
 
-Aspose.Slides for .NET poskytuje vlastnost [ColumnCount](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/properties/columncount) (z rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat)), která umožňuje přidat sloupce v TextFrame. Pomocí této vlastnosti můžete určit požadovaný počet sloupců v TextFrame. 
+Použijte [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/cs/net/aspose.slides/textframe/splittextbycolumns/) k získání textu přiřazeného ke každému vizuálnímu sloupci v existujícím textovém rámci. Metoda vrací jeden řetězec pro každý sloupec v pořadí čtení sloupců. Textový rámec s jedním sloupcem vrátí pole s jedním prvkem a prázdný sloupec je reprezentován prázdným řetězcem. Řetězce obsahují pouze prostý text; formátování na úrovni částí není zachováno.
 
- Tento C# kód ukazuje, jak přidat sloupec do TextFrame:
+To je užitečné, když potřebujete:
 
-```c#
-using System.Diagnostics;
+- Extrahovat text při zachování pořadí čtení založeného na sloupcích.
+- Indexovat nebo porovnávat obsah snímků s více sloupci.
+- Exportovat každý sloupec do samostatného souboru, databázového pole nebo jiného cíle.
+- Prozkoumat, jak se text přerozdělí po změně [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/columnspacing/), písma nebo velikosti textového rámce.
+
+Metoda hlásí text rozdělený v aktuálním [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/); automaticky nepřesouvá text mezi samostatnými tvary nebo textovými poli. Distribuce sloupců může záviset na dostupných písmech a dalších nastaveních rozvržení textu, takže zajistěte, aby požadovaná písma byla k dispozici, pokud jsou důsledné výsledky podstatné.
+
+Následující příklad načte prezentaci, najde první automatický tvar s více sloupci a textovým rámcem, přečte jeho nastavený počet sloupců a zapíše text z každého sloupce do samostatného souboru. Tvary, které neposkytují textový rámec, jsou přeskočeny.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **Aktualizace textu**
 
-Aspose.Slides vám umožňuje změnit nebo aktualizovat text obsažený v textovém poli nebo veškerý text v celé prezentaci. 
+Chcete‑li aktualizovat text v celé prezentaci, projděte snímky a tvary, vyberte automatické tvary a upravte jejich textové části. Práce na úrovni částí vám umožní měnit jak text, tak formátování znaků.
 
-Tento C# kód demonstruje operaci, při níž jsou aktualizovány nebo změněny všechny texty v prezentaci:
+Následující příklad nahradí každé výskyt `years` řetězcem `months` v textu automatických tvarů a každou zasaženou část zvýrazní tučným písmem:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //Kontroluje, zda tvar podporuje textový rámec (IAutoShape). 
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Prochází odstavce v textovém rámci
-               {
-                   foreach (IPortion portion in paragraph.Portions) //Prochází každou část v odstavci
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //Mění text
-                       portion.PortionFormat.FontBold = NullableBool.True; //Mění formátování
-                   }
-               }
-           }
-       }
-   }
-  
-   //Ukládá upravenou prezentaci
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **Přidání textového pole s hyperodkazem** 
+Tento průchod aktualizuje text pouze v automatických tvarech. Text uložený v tabulkách, grafech, SmartArt nebo seskupených tvarech vyžaduje procházení jejich vlastních kolekcí.
 
-Do textového pole můžete vložit odkaz. Po kliknutí na textové pole se uživatelé přesměrují na tento odkaz. 
+## **Přidání textového pole s hyperodkazem**
 
-1. Vytvořte instanci třídy `Presentation`. 
-2. Získejte odkaz na první snímek pomocí jeho indexu.  
-3. Přidejte objekt `AutoShape` s nastavením `ShapeType` na `Rectangle` na zadané pozici na snímku a získejte odkaz na nově přidaný objekt AutoShape. 
-4. Přidejte `TextFrame` k objektu `AutoShape`, který bude obsahovat *Aspose TextBox* jako výchozí text. 
-5. Vytvořte instanci třídy `IHyperlinkManager`. 
-6. Přiřaďte objekt `IHyperlinkManager` k vlastnosti [HyperlinkClick](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/properties/hyperlinkclick) spojené s požadovanou částí `TextFrame`. 
-7. Nakonec uložte soubor PPTX pomocí objektu `Presentation`. 
+Hyperodkaz může být přiřazen konkrétní textové části, takže jen tato část funguje jako kliknutelný odkaz. Použijte [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/cs/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) k propojení části s externí URL.
 
-Tento C# kód – implementace výše uvedených kroků – ukazuje, jak přidat textové pole s hyperodkazem na snímek:
+Následující příklad vytvoří propojený text a uloží jej do prezentace:
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// Získá první snímek v prezentaci
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// Přidá objekt AutoShape s nastaveným typem na Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// Přetypuje tvar na AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// Přistupuje k vlastnosti ITextFrame spojené s AutoShape
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// Přidá text do rámce
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// Nastaví hyperodkaz pro text části
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// Uloží PPTX prezentaci
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
-## **Časté dotazy**
+## **FAQ**
 
-**Jaký je rozdíl mezi textovým polem a textovým zástupcem při práci s master snímky?**
+**Jaký je rozdíl mezi textovým polem a textovým zástupcem na hlavním snímku nebo rozvržení?**
 
-[Placeholder](/slides/cs/net/manage-placeholder/) dědí styl/pozici z [masteru](https://reference.aspose.com/slides/cs/net/aspose.slides/masterslide/) a může být přepsán na [layoutách](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutslide/), zatímco běžné textové pole je samostatný objekt na konkrétním snímku a nezmění se při přepínání layoutů.
+[Placeholder](/slides/cs/net/manage-placeholder/) může zdědit svou pozici a formátování z [master slide](https://reference.aspose.com/slides/cs/net/aspose.slides/masterslide/) nebo [layout slide](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutslide/). Běžné textové pole je samostatný tvar na snímku, kde bylo vytvořeno, a nezíská chování zástupce při změně rozvržení.
 
-**Jak provést hromadnou výměnu textu v celé prezentaci, aniž bych zasáhl do textu v diagramech, tabulkách a SmartArt?**
+**Jak mohu nahradit text, aniž bych změnil text v grafech, tabulkách nebo SmartArt?**
 
-Omezte iteraci na automatické tvary, které mají TextFrame, a vyloučte vložené objekty ([grafy](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/chart/), [tabulky](https://reference.aspose.com/slides/cs/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cs/net/aspose.slides.smartart/smartart/)) tím, že projdete jejich kolekce samostatně nebo přeskočíte tyto typy objektů.
+Omezte procházení na tvary, které implementují [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/), jak je ukázáno v příkladu Aktualizace textu. Grafy, tabulky a SmartArt ukládají text ve svých vlastních objektových modelech, takže nejsou tímto cyklem upraveny.

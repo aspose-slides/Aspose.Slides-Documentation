@@ -17,208 +17,212 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Το Aspose.Slides για Python μέσω .NET καθιστά εύκολη τη δημιουργία, επεξεργασία και κλωνοποίηση πλαισίων κειμένου σε αρχεία PowerPoint και OpenDocument, βελτιώνοντας την αυτοματοποίηση των παρουσιάσεών σας."
+description: "Δημιουργήστε, εντοπίστε, μορφοποιήστε και ενημερώστε πλαίσια κειμένου σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python μέσω .NET."
 ---
 ## **Εισαγωγή**
 
-Τα κείμενα στις διαφάνειες συνήθως υπάρχουν σε πλαίσια κειμένου ή σχήματα. Επομένως, για να προσθέσετε κείμενο σε μια διαφάνεια, πρέπει να προσθέσετε ένα πλαίσιο κειμένου και στη συνέχεια να βάλετε κάποιο κείμενο μέσα στο πλαίσιο. Το Aspose.Slides for Python παρέχει την κλάση [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) που σας επιτρέπει να προσθέσετε ένα σχήμα που περιέχει κείμενο.
+Στο Aspose.Slides for Python via .NET, το κείμενο της διαφάνειας αποθηκεύεται σε πλαίσια κειμένου που ανήκουν σε σχήματα. Η κλάση [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) αντιπροσωπεύει το πιο κοινό σχήμα που περιέχει κείμενο και εκθέτει το κείμενό του μέσω της ιδιότητας [AutoShape.text_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/text_frame/).
 
-{{% alert title="Info" color="info" %}}
-Το Aspose.Slides παρέχει επίσης την κλάση [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/). Ωστόσο, δεν μπορούν όλα τα σχήματα να περιέχουν κείμενο.
+{{% alert color="info" title="Note" %}}
+
+Κάθε αυτόματο σχήμα κληρονομεί από το [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/), αλλά δεν είναι κάθε σχήμα αυτόματο σχήμα ή υποστηρίζει πλαίσιο κειμένου. Κατά την επεξεργασία μιας υπάρχουσας παρουσίασης, χρησιμοποιήστε `isinstance(shape, slides.AutoShape)` για να ελέγξετε τον τύπο του σχήματος πριν προσπελάσετε το κείμενό του.
+
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-Επομένως, όταν χειρίζεστε ένα σχήμα στο οποίο θέλετε να προσθέσετε κείμενο, ίσως θελήσετε να ελέγξετε και να επιβεβαιώσετε ότι έχει μετατραπεί μέσω της κλάσης [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/). Μόνο τότε θα μπορείτε να εργαστείτε με το [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/), το οποίο είναι μια ιδιότητα της [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/). Δείτε την ενότητα [Update Text](/slides/el/python-net/manage-textbox/#update-text) σε αυτή τη σελίδα.
-{{% /alert %}}
+## **Δημιουργία πλαισίου κειμένου σε διαφάνεια**
 
-## **Δημιουργία πλαισίων κειμένου στις διαφάνειες**
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-2. Αποκτήστε μια αναφορά στην πρώτη διαφάνεια.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) με `ShapeType.RECTANGLE` στην επιθυμητή θέση στη διαφάνεια.
-4. Ορίστε το κείμενο στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
-5. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
-
-Το ακόλουθο παράδειγμα Python υλοποιεί αυτά τα βήματα:
-
-```py
-import aspose.slides as slides
-
-# Δημιουργία της κλάσης Presentation.
-with slides.Presentation() as presentation:
-
-    # Αποκτήστε την πρώτη διαφάνεια στην παρουσίαση.
-    slide = presentation.slides[0]
-
-    # Προσθήκη AutoShape τύπου RECTANGLE.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    shape.text_frame.text = "Aspose TextBox"
-
-    # Αποθήκευση της παρουσίασης στο δίσκο.
-    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Έλεγχος αν ένα σχήμα είναι πλαίσιο κειμένου**
-
-Το Aspose.Slides παρέχει την ιδιότητα [is_text_box](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/is_text_box/) στην κλάση [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/), η οποία σας επιτρέπει να καθορίσετε αν ένα σχήμα είναι πλαίσιο κειμένου.
-
-![Πλαίσιο κειμένου και σχήμα](istextbox.png)
-
-Αυτό το παράδειγμα Python δείχνει πώς να ελέγξετε αν ένα σχήμα δημιουργήθηκε ως πλαίσιο κειμένου:
+Για να δημιουργήσετε ένα πλαίσιο κειμένου, προσθέστε ένα αυτόματο σχήμα σε μια διαφάνεια, προσθέστε κείμενο στο πλαίσιο κειμένου του και αποθηκεύστε την παρουσίαση. Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο πλαίσιο κειμένου:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
-    for slide in presentation.slides:
-        for shape in slide.shapes:
-            if isinstance(shape, slides.AutoShape):
-                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 300, 50)
+    text_box.add_text_frame("Aspose TextBox")
+
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Σημειώστε ότι αν προσθέσετε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) χρησιμοποιώντας την κλάση [ShapeCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/), η ιδιότητα `is_text_box` του σχήματος επιστρέφει `False`. Ωστόσο, αφού προσθέσετε κείμενο—είτε με τη μέθοδο `add_text_frame` είτε ορίζοντας την ιδιότητα `text`—η `is_text_box` επιστρέφει `True`.
+Οι συντεταγμένες και οι διαστάσεις που περνιούνται στη μέθοδο [ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_auto_shape/) μετρώνται σε σημεία. Η μέθοδος [AutoShape.add_text_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/add_text_frame/) αρχικοποιεί το πλαίσιο κειμένου με το παρεχόμενο κείμενο.
 
-```py
+## **Έλεγχος για σχήμα πλαισίου κειμένου**
+
+Χρησιμοποιήστε την ιδιότητα [AutoShape.is_text_box](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/is_text_box/) για να προσδιορίσετε αν ένα αυτόματο σχήμα αντιμετωπίζεται ως πλαίσιο κειμένου. Αυτό είναι χρήσιμο όταν μια παρουσίαση περιέχει τόσο σχήματα που φέρουν κείμενο όσο και καθαρά γραφικά αυτόματα σχήματα.
+
+![Πλαίσιο κειμένου και σχήμα](istextbox.png)
+
+Το παρακάτω παράδειγμα ελέγχει κάθε αυτόματο σχήμα σε μια παρουσίαση:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 120, 40)
+    text_box.add_text_frame("Text box")
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 10, 40, 40)
+
+    for current_slide in presentation.slides:
+        for shape in current_slide.shapes:
+            if isinstance(shape, slides.AutoShape):
+                print("The shape is a text box." if shape.is_text_box else "The shape is not a text box.")
+```
+
+Ένα νεοπροστιθέμενο αυτόματο σχήμα δεν θεωρείται πλαίσιο κειμένου μέχρι να περιέχει μη κενό κείμενο. Μπορείτε να δώσετε αυτό το κείμενο μέσω της μεθόδου [AutoShape.add_text_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/add_text_frame/) ή της ιδιότητας [TextFrame.text](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/text/). Η προσθήκη ή ανάθεση μιας κενής συμβολοσειράς αφήνει την ιδιότητα [is_text_box](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/is_text_box/) σε `False`:
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
-    # shape1.is_text_box είναι ψευδές
-    shape1.add_text_frame("shape 1")
-    # shape1.is_text_box είναι αληθές
+    shape1.add_text_frame("Shape 1")
+    print(shape1.is_text_box)
 
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
-    # shape2.is_text_box είναι ψευδές
-    shape2.text_frame.text = "shape 2"
-    # shape2.is_text_box είναι αληθές
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 100, 40)
+    shape2.text_frame.text = "Shape 2"
+    print(shape2.is_text_box)
 
-    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
-    # shape3.is_text_box είναι ψευδές
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 100, 40)
     shape3.add_text_frame("")
-    # shape3.is_text_box είναι ψευδές
+    print(shape3.is_text_box)
 
-    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
-    # shape4.is_text_box είναι ψευδές
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 100, 40)
     shape4.text_frame.text = ""
-    # shape4.is_text_box είναι ψευδές
+    print(shape4.is_text_box)
 ```
 
-## **Εύρεση του σχήματος που κατέχει ένα TextFrame**
+Οι δύο πρώτες κλήσεις εκτυπώνουν `True`; οι δύο τελευταίες εκτυπώνουν `False`.
 
-Σε γενικό κώδικα επεξεργασίας κειμένου, μπορεί να λάβετε ένα [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) χωρίς να γνωρίζετε εκ των προτέρων ποιο αντικείμενο παρουσίασης το περιέχει. Χρησιμοποιήστε την ιδιότητα [TextFrame.parent_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_shape/) για να πλοηγηθείτε πίσω στο ιδιοκτησιακό [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/).
+## **Εύρεση σχήματος που κατέχει πλαίσιο κειμένου**
 
-Για ένα TextFrame που ανήκει σε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) ή σε άλλο σχήμα που περιέχει κείμενο, το [TextFrame.parent_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_shape/) είναι ορισμένο και το [TextFrame.parent_cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_cell/) είναι `None`. Και οι δύο ιδιότητες είναι μόνο για ανάγνωση και χρησιμεύουν στην πλοήγηση, επομένως η ανάγνωσή τους δεν αλλάζει την ιδιοκτησία. Πάντα ελέγχετε την επιστρεφόμενη τιμή για `None` πριν προσπελάσετε το σχήμα.
+Γενικός κώδικας επεξεργασίας κειμένου μπορεί να λάβει ένα [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) χωρίς να γνωρίζει ποιο αντικείμενο παρουσίασης το περιέχει. Χρησιμοποιήστε την ιδιότητα μόνο για ανάγνωση [TextFrame.parent_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_shape/) για να επιστρέψετε στο ιδιοκτησιακό του [Shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/).
 
-Για ένα πλήρες παράδειγμα που εντοπίζει τους ιδιοκτήτες σχήματος και κελιού πίνακα, συμπεριλαμβανομένων των σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/python-net/search-and-replace-text/).
+Για ένα πλαίσιο κειμένου που ανήκει σε ένα αυτόματο σχήμα ή σε άλλο σχήμα που φέρει κείμενο, η ιδιότητα [parent_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_shape/) περιέχει τον ιδιοκτήτη και η ιδιότητα [TextFrame.parent_cell](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/parent_cell/) είναι `None`. Ελέγξτε την επιστρεφόμενη τιμή πριν την προσπελάσετε. Για την ταυτοποίηση τόσο των ιδιοκτητών σχήματος όσο και των κελιών πίνακα, συμπεριλαμβανομένων των σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε την ενότητα [Search and Replace Text](/slides/el/python-net/search-and-replace-text/).
 
-## **Προσθήκη στηλών σε πλαίσια κειμένου**
+## **Προσθήκη στηλών σε πλαίσιο κειμένου**
 
-Το Aspose.Slides παρέχει τις ιδιότητες [column_count](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/column_count/) και [column_spacing](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/column_spacing/) στην κλάση [TextFrameFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/) για να προσθέσετε στήλες σε πλαίσια κειμένου. Μπορείτε να ορίσετε τον αριθμό των στηλών και το διάστημα (σε points) μεταξύ των στηλών.
+Η ιδιότητα [TextFrameFormat.column_count](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/column_count/) διαιρεί το πλαίσιο κειμένου σε στήλες, ενώ η ιδιότητα [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/column_spacing/) ορίζει το κενό μεταξύ των στηλών σε σημεία. Και οι δύο ρυθμίσεις ανήκουν στο [TextFrameFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/) και μπορούν να τροποποιηθούν μέσω του πλαισίου κειμένου ενός υπάρχοντος πλαισίου κειμένου. Το κείμενο ανακυκλώνεται μεταξύ των στηλών μέσα στο ίδιο σχήμα· δεν συνεχίζεται σε άλλο σχήμα.
 
-Ο ακόλουθος κώδικας Python επιδεικνύει αυτή τη λειτουργία:
+Το παρακάτω παράδειγμα δημιουργεί ένα πλαίσιο κειμένου με τρεις στήλες και 10 σημεία μεταξύ των στηλών, αποθηκεύει την παρουσίαση και διαβάζει τις αποθηκευμένες ρυθμίσεις από το αρχείο εξόδου:
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 200)
+    text_box.add_text_frame("This text is distributed automatically across all columns in the text box.")
 
-	# Λάβετε την πρώτη διαφάνεια στην παρουσίαση.
-	slide = presentation.slides[0]
+    text_frame_format = text_box.text_frame.text_frame_format
+    text_frame_format.column_count = 3
+    text_frame_format.column_spacing = 10
 
-	# Προσθέστε ένα AutoShape τύπου RECTANGLE.
-	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    presentation.save("TextBoxColumns.pptx", slides.export.SaveFormat.PPTX)
 
-	# Προσθέστε ένα TextFrame στο ορθογώνιο.
-	shape.add_text_frame("All of these columns are confined to a single text container—" +
-	"you can add or delete text, and any new or remaining text automatically reflows " +
-	"within the container. You cannot have text flow from one container to another, " +
-	"though—PowerPoint’s column options for text are limited!")
+with slides.Presentation("TextBoxColumns.pptx") as saved_presentation:
+    saved_text_box = saved_presentation.slides[0].shapes[0]
+    if isinstance(saved_text_box, slides.AutoShape):
+        saved_format = saved_text_box.text_frame.text_frame_format
+        print(f"Columns: {saved_format.column_count}; spacing: {saved_format.column_spacing} points")
+```
 
-	# Λάβετε τη μορφοποίηση κειμένου του TextFrame.
-	format = shape.text_frame.text_frame_format
+## **Εξαγωγή κειμένου από μεμονωμένες στήλες**
 
-	# Ορίστε τον αριθμό των στηλών στο TextFrame.
-	format.column_count = 3
+Χρησιμοποιήστε τη μέθοδο [TextFrame.split_text_by_columns](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/split_text_by_columns/) για να ανακτήσετε το κείμενο που έχει εκχωρηθεί σε κάθε οπτική στήλη σε ένα υπάρχον πλαίσιο κειμένου. Η μέθοδος επιστρέφει μία συμβολοσειρά για κάθε στήλη, με στήλη‑βάση σειρά ανάγνωσης. Ένα πλαίσιο κειμένου μίας στήλης παράγει μια λίστα με ένα στοιχείο, και μια κενή στήλη αντιπροσωπεύεται από κενή συμβολοσειρά. Οι συμβολοσειρές περιέχουν μόνο απλό κείμενο· η μορφοποίηση σε επίπεδο τμήματος δεν διατηρείται.
 
-	# Ορίστε το διάστημα μεταξύ των στηλών.
-	format.column_spacing = 10
+Αυτό είναι χρήσιμο όταν χρειάζεται να:
 
-	# Αποθηκεύστε την παρουσίαση.
-	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+- Εξαγωγή κειμένου διατηρώντας τη στήλη‑βάση σειρά ανάγνωσης.
+- Καταγραφή ή σύγκριση του περιεχομένου διαφανειών με πολλαπλές στήλες.
+- Εξαγωγή κάθε στήλης σε ξεχωριστό αρχείο, πεδίο βάσης δεδομένων ή άλλο προορισμό.
+- Επιθεώρηση του πώς το κείμενο αναμετατίθεται μετά την αλλαγή του [TextFrameFormat.column_count](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/column_count/), του [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframeformat/column_spacing/), της γραμματοσειράς ή του μεγέθους του πλαισίου κειμένου.
+
+Η μέθοδος αναφέρει το κείμενο που διανέμεται εντός του τρέχοντος [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/); δεν ρέει αυτόματα το κείμενο μεταξύ ξεχωριστών σχημάτων ή πλαισίων κειμένου. Η κατανομή των στηλών μπορεί να εξαρτάται από τις διαθέσιμες γραμματοσειρές και άλλες ρυθμίσεις διάταξης κειμένου, γι’ αυτό βεβαιωθείτε ότι οι απαιτούμενες γραμματοσειρές είναι διαθέσιμες όταν η συνοχή των αποτελεσμάτων είναι σημαντική.
+
+Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση, βρίσκει το πρώτο αυτόματο σχήμα με πολλαπλές στήλες και πλαίσιο κειμένου, διαβάζει τον προρυθμισμένο αριθμό στηλών του και γράφει το κείμενο από κάθε στήλη σε ξεχωριστό αρχείο. Σχήματα που δεν παρέχουν πλαίσιο κειμένου παραλείπονται.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("MultiColumnText.pptx") as presentation:
+    text_box = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+            column_count = shape.text_frame.text_frame_format.column_count
+            if column_count > 1:
+                text_box = shape
+                break
+
+    if text_box is None:
+        print("No multi-column text frame was found.")
+    else:
+        text_frame = text_box.text_frame
+        configured_column_count = text_frame.text_frame_format.column_count
+        column_texts = text_frame.split_text_by_columns()
+
+        print(f"Configured columns: {configured_column_count}")
+
+        for column_number, column_text in enumerate(column_texts, start=1):
+            print(f"Column {column_number}: {column_text}")
+            with open(f"Column-{column_number}.txt", "w", encoding="utf-8") as column_file:
+                column_file.write(column_text)
 ```
 
 ## **Ενημέρωση κειμένου**
 
-Το Aspose.Slides σας επιτρέπει να ενημερώσετε το κείμενο σε ένα μόνο πλαίσιο κειμένου ή σε ολόκληρη την παρουσίαση. 
+Για να ενημερώσετε το κείμενο σε όλη την παρουσίαση, επαναλάβετε τις διαφάνειες και τα σχήματα, επιλέξτε αυτόματα σχήματα και, στη συνέχεια, επεξεργαστείτε τα τμήματα κειμένου τους. Η εργασία σε επίπεδο τμήματος σας επιτρέπει να αλλάξετε τόσο το κείμενο όσο και τη μορφοποίηση χαρακτήρων.
 
-Το παρακάτω παράδειγμα Python δείχνει πώς να ενημερώσετε όλο το κείμενο σε μια παρουσίαση:
+Το παρακάτω παράδειγμα αντικαθιστά κάθε εμφάνιση του `years` με το `months` σε κείμενο αυτόματου σχήματος και κάνει το κάθε επηρεαζόμενο τμήμα έντονο:
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
+with slides.Presentation("Text.pptx") as presentation:
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                for paragraph in shape.text_frame.paragraphs:
-                    for portion in paragraph.portions:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if "years" in portion.text:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = slides.NullableBool.TRUE
-  
-    # Αποθηκεύστε την τροποποιημένη παρουσίαση.
+
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Προσθήκη πλαισίων κειμένου με συνδέσμους** 
+Αυτή η διέλευση ενημερώνει το κείμενο μόνο σε αυτόματα σχήματα. Το κείμενο που είναι αποθηκευμένο σε πίνακες, διαγράμματα, SmartArt ή ομαδοποιημένα σχήματα απαιτεί διέλευση των συλλογών των αντίστοιχων αντικειμένων.
 
-Μπορείτε να εισάγετε έναν σύνδεσμο σε ένα πλαίσιο κειμένου. Όταν κάνετε κλικ στο πλαίσιο, ο σύνδεσμος ανοίγει.
+## **Προσθήκη πλαισίου κειμένου με υπερσύνδεσμο**
 
-Για να προσθέσετε ένα πλαίσιο κειμένου που περιέχει υπερσύνδεσμο, ακολουθήστε τα παρακάτω βήματα:
+Ένας υπερσύνδεσμος μπορεί να εκχωρηθεί σε ένα συγκεκριμένο τμήμα κειμένου, ώστε μόνο αυτό το κείμενο να λειτουργεί ως κλικ-σύνδεσμος. Χρησιμοποιήστε τη μέθοδο [HyperlinkManager.set_external_hyperlink_click](https://reference.aspose.com/slides/el/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/) για να συσχετίσετε το τμήμα με ένα εξωτερικό URL.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-2. Αποκτήστε μια αναφορά στην πρώτη διαφάνεια.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) με `ShapeType.RECTANGLE` στην επιθυμητή θέση στη διαφάνεια.
-4. Ορίστε το κείμενο στο [TextFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/textframe/) του σχήματος.
-5. Αποκτήστε μια αναφορά στο [HyperlinkManager](https://reference.aspose.com/slides/el/python-net/aspose.slides/hyperlinkmanager/).
-6. Χρησιμοποιήστε την ιδιότητα `hyperlink_manager` για να ορίσετε έναν εξωτερικό σύνδεσμο κλικ.
-7. Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
+Το παρακάτω παράδειγμα δημιουργεί συνδεδεμένο κείμενο και το αποθηκεύει σε μια παρουσίαση:
 
-Αυτό το παράδειγμα Python δείχνει πώς να προσθέσετε ένα πλαίσιο κειμένου με υπερσύνδεσμο σε μια διαφάνεια:
-
-```py
+```python
 import aspose.slides as slides
 
-# Δημιουργία της κλάσης Presentation.
 with slides.Presentation() as presentation:
-
-    # Λάβετε την πρώτη διαφάνεια στην παρουσίαση.
     slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 200, 50)
+    text_box.add_text_frame("Aspose.Slides")
 
-    # Προσθέστε ένα AutoShape τύπου RECTANGLE.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    text_portion = text_box.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_manager.set_external_hyperlink_click("https://www.aspose.com/")
 
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    # Προσθέστε κείμενο στο πλαίσιο.
-    text_portion.text = "Aspose.Slides"
-
-    # Ορίστε έναν υπερσύνδεσμο για το κείμενο του τμήματος.
-    hyperlink_manager = text_portion.portion_format.hyperlink_manager
-    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
-
-    # Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Ποια είναι η διαφορά μεταξύ ενός πλαισίου κειμένου και ενός κράτησης θέσης κειμένου όταν εργάζεστε με κύριες διαφάνειες;**
+**Ποια είναι η διαφορά μεταξύ πλαισίου κειμένου και κράτησης θέσης κειμένου σε κύρια ή διάταξη διαφάνειας;**
 
-Ένα [placeholder](/slides/el/python-net/manage-placeholder/) κληρονομεί το στυλ/θέση από το [master](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslide/) και μπορεί να παραμετροποιηθεί σε [layouts](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/), ενώ ένα κανονικό πλαίσιο κειμένου είναι ανεξάρτητο αντικείμενο σε μια συγκεκριμένη διαφάνεια και δεν αλλάζει όταν αλλάζετε τα layout.
+Ένα [placeholder](/slides/el/python-net/manage-placeholder/) μπορεί να κληρονομήσει τη θέση και τη μορφοποίηση του από μια [master slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/masterslide/) ή μια [layout slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/layoutslide/). Ένα κανονικό πλαίσιο κειμένου είναι ένα ανεξάρτητο σχήμα στη διαφάνεια όπου δημιουργήθηκε και δεν υιοθετεί τη συμπεριφορά κράτησης θέσης όταν αλλάζει η διάταξη.
 
-**Πώς μπορώ να εκτελέσω μαζική αντικατάσταση κειμένου σε όλη την παρουσίαση χωρίς να αγγίξω το κείμενο μέσα σε γραφήματα, πίνακες και SmartArt;**
+**Πώς μπορώ να αντικαταστήσω κείμενο χωρίς να αλλάξω το κείμενο σε διαγράμματα, πίνακες ή SmartArt;**
 
-Περιορίστε την επανάληψή σας σε auto-shapes που έχουν text frames και εξαιρέστε ενσωματωμένα αντικείμενα ([charts](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/el/python-net/aspose.slides.smartart/smartart/)) διασχίζοντας τις συλλογές τους χωριστά ή παραλείποντας αυτούς τους τύπους αντικειμένων.
+Περιορίστε τη διέλευση στα στιγμιότυπα του [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/), όπως φαίνεται στο παράδειγμα Ενημέρωση κειμένου. Οι πίνακες, τα διαγράμματα και το SmartArt αποθηκεύουν κείμενο στα δικά τους μοντέλα αντικειμένων, επομένως δεν τροποποιούνται από αυτόν τον βρόχο.

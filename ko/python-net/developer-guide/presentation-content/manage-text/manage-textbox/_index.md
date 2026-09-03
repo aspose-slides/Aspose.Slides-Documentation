@@ -1,5 +1,5 @@
 ---
-title: Python을 사용한 프레젠테이션에서 텍스트 상자 관리
+title: Python으로 프레젠테이션 텍스트 상자 관리
 linktitle: 텍스트 상자 관리
 type: docs
 weight: 20
@@ -13,212 +13,213 @@ keywords:
 - 텍스트 상자 확인
 - 텍스트 열 추가
 - 하이퍼링크 추가
-- PowerPoint
+- 파워포인트
 - 프레젠테이션
-- Python
+- 파이썬
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET을 사용하면 PowerPoint 및 OpenDocument 파일에서 텍스트 상자를 쉽게 만들고, 편집하며, 복제할 수 있어 프레젠테이션 자동화를 강화합니다."
+description: "Aspose.Slides for Python via .NET를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션의 텍스트 상자를 생성하고, 식별하며, 서식 지정하고, 업데이트합니다."
 ---
 ## **소개**
 
-슬라이드의 텍스트는 일반적으로 텍스트 상자 또는 도형에 존재합니다. 따라서 슬라이드에 텍스트를 추가하려면 텍스트 상자를 추가하고 그 안에 텍스트를 넣어야 합니다. Aspose.Slides for Python은 텍스트를 포함하는 도형을 추가할 수 있는 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/) 클래스를 제공합니다.
+Aspose.Slides for Python via .NET에서 슬라이드 텍스트는 도형에 속하는 텍스트 프레임에 저장됩니다. [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/) 클래스는 가장 일반적인 텍스트가 포함된 도형을 나타내며, 해당 텍스트를 [AutoShape.text_frame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/text_frame/) 속성을 통해 노출합니다.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides는 또한 [Shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/shape/) 클래스를 제공합니다. 하지만 모든 도형이 텍스트를 포함할 수 있는 것은 아닙니다.
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}}
-따라서 텍스트를 추가하려는 도형을 다룰 때는 해당 도형이 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/) 클래스로 캐스팅되었는지 확인하고 싶을 수 있습니다. 그래야만 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/) 아래의 속성인 [TextFrame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/)을 사용할 수 있습니다. 이 페이지의 [텍스트 업데이트](/slides/ko/python-net/manage-textbox/#update-text) 섹션을 참고하십시오.
+{{% alert color="info" title="Note" %}}
+모든 자동 도형은 [Shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/shape/)을 상속하지만, 모든 도형이 자동 도형이거나 텍스트 프레임을 지원하는 것은 아닙니다. 기존 프레젠테이션을 처리할 때는 텍스트에 접근하기 전에 `isinstance(shape, slides.AutoShape)`를 사용하여 도형 유형을 확인하십시오.
 {{% /alert %}}
 
 ## **슬라이드에 텍스트 상자 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.  
-2. 첫 번째 슬라이드에 대한 참조를 가져옵니다.  
-3. 슬라이드의 원하는 위치에 `ShapeType.RECTANGLE`를 사용하여 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/)을 추가합니다.  
-4. 도형의 [TextFrame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/)에 텍스트를 설정합니다.  
-5. 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 Python 예제는 이러한 단계를 구현합니다:
-
-```py
-import aspose.slides as slides
-
-# Presentation 클래스를 인스턴스화합니다.
-with slides.Presentation() as presentation:
-
-    # 프레젠테이션의 첫 번째 슬라이드를 가져옵니다.
-    slide = presentation.slides[0]
-
-    # RECTANGLE 타입의 AutoShape을 추가합니다.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    shape.text_frame.text = "Aspose TextBox"
-
-    # 프레젠테이션을 디스크에 저장합니다.
-    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **도형이 텍스트 상자인지 확인하기**
-
-Aspose.Slides는 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/) 클래스에 [is_text_box](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/is_text_box/) 속성을 제공하며, 이를 사용해 도형이 텍스트 상자인지 판단할 수 있습니다.
-
-![텍스트 상자와 도형](istextbox.png)
-
-다음 Python 예제는 도형이 텍스트 상자로 생성되었는지 확인하는 방법을 보여줍니다:
+텍스트 상자를 만들려면 슬라이드에 자동 도형을 추가하고, 해당 텍스트 프레임에 텍스트를 추가한 뒤 프레젠테이션을 저장합니다. 다음 예제는 사각형 텍스트 상자를 생성합니다:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
-    for slide in presentation.slides:
-        for shape in slide.shapes:
-            if isinstance(shape, slides.AutoShape):
-                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 300, 50)
+    text_box.add_text_frame("Aspose TextBox")
+
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-참고로 [ShapeCollection](https://reference.aspose.com/slides/ko/python-net/aspose.slides/shapecollection/) 클래스를 사용해 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/)을 추가하면 해당 도형의 `is_text_box` 속성은 `False`를 반환합니다. 그러나 텍스트를 추가한 후(`add_text_frame` 메서드 사용 또는 `text` 속성 설정) `is_text_box`는 `True`를 반환합니다.
+[ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/shapecollection/add_auto_shape/)에 전달되는 좌표와 크기는 포인트 단위로 측정됩니다. [AutoShape.add_text_frame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/add_text_frame/)은 제공된 텍스트로 텍스트 프레임을 초기화합니다.
 
-```py
+## **텍스트 상자 도형 확인**
+
+[AutoShape.is_text_box](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/is_text_box/) 속성을 사용하여 자동 도형이 텍스트 상자로 간주되는지 확인합니다. 프레젠테이션에 텍스트가 포함된 자동 도형과 순수 그래픽 자동 도형이 모두 포함된 경우에 유용합니다.
+
+![텍스트 상자와 도형](istextbox.png)
+
+다음 예제는 프레젠테이션의 모든 자동 도형을 검사합니다:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 120, 40)
+    text_box.add_text_frame("Text box")
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 10, 40, 40)
+
+    for current_slide in presentation.slides:
+        for shape in current_slide.shapes:
+            if isinstance(shape, slides.AutoShape):
+                print("The shape is a text box." if shape.is_text_box else "The shape is not a text box.")
+```
+
+새로 추가된 자동 도형은 비어 있지 않은 텍스트를 포함하기 전까지는 텍스트 상자로 간주되지 않습니다. 해당 텍스트는 [AutoShape.add_text_frame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/add_text_frame/) 또는 [TextFrame.text](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/text/)을 통해 제공할 수 있습니다. 빈 문자열을 추가하거나 할당하면 [is_text_box](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/is_text_box/)이 `False`로 설정됩니다:
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
-    # shape1.is_text_box은 false
-    shape1.add_text_frame("shape 1")
-    # shape1.is_text_box은 true
+    shape1.add_text_frame("Shape 1")
+    print(shape1.is_text_box)
 
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
-    # shape2.is_text_box은 false
-    shape2.text_frame.text = "shape 2"
-    # shape2.is_text_box은 true
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 100, 40)
+    shape2.text_frame.text = "Shape 2"
+    print(shape2.is_text_box)
 
-    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
-    # shape3.is_text_box은 false
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 100, 40)
     shape3.add_text_frame("")
-    # shape3.is_text_box은 false
+    print(shape3.is_text_box)
 
-    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
-    # shape4.is_text_box은 false
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 100, 40)
     shape4.text_frame.text = ""
-    # shape4.is_text_box은 false
+    print(shape4.is_text_box)
 ```
 
-## **TextFrame을 소유하는 도형 찾기**
+첫 번째와 두 번째 호출은 `True`를 출력하고, 마지막 두 호출은 `False`를 출력합니다.
 
-일반적인 텍스트 처리 코드에서는 [TextFrame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/)을 받지만 이를 포함하는 프레젠테이션 객체를 알지 못할 수 있습니다. [TextFrame.parent_shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/parent_shape/) 속성을 사용하여 소유자 [Shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/shape/)으로 돌아갈 수 있습니다.
+## **텍스트 프레임을 소유하는 도형 찾기**
 
-[AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/) 또는 다른 텍스트가 포함된 도형에 속하는 텍스트 프레임의 경우, [TextFrame.parent_shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/parent_shape/)이 설정되어 있고 [TextFrame.parent_cell](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/parent_cell/)은 `None`입니다. 두 속성 모두 읽기 전용 네비게이션 속성이므로 읽는 것만으로 소유권이 변하지 않습니다. 도형에 접근하기 전에 반환값이 `None`인지 항상 확인하십시오.
+일반 텍스트 처리 코드는 해당 텍스트 프레임을 포함하는 프레젠테이션 객체를 알지 못한 채 [TextFrame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/)을 받을 수 있습니다. 읽기 전용 [TextFrame.parent_shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/parent_shape/) 속성을 사용하여 해당 프레임을 소유한 [Shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/shape/)으로 되돌아갈 수 있습니다.
 
-SmartArt 노드와 연결된 도형을 포함한 도형 및 테이블 셀 소유자를 식별하는 완전한 예제는 [텍스트 검색 및 바꾸기](/slides/ko/python-net/search-and-replace-text/)를 참고하십시오.
+자동 도형이나 다른 텍스트가 포함된 도형이 소유한 텍스트 프레임의 경우, [parent_shape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/parent_shape/)에 소유자가 들어 있고 [TextFrame.parent_cell](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/parent_cell/)은 `None`입니다. 접근하기 전에 반환 값을 확인하십시오. 도형 및 테이블 셀 소유자를 모두 식별하려면, SmartArt 노드와 연결된 도형을 포함하여, [Search and Replace Text](/slides/ko/python-net/search-and-replace-text/)를 참조하십시오.
 
-## **텍스트 상자에 열 추가하기**
+## **텍스트 상자에 열 추가**
 
-Aspose.Slides는 텍스트 상자에 열을 추가하기 위해 [TextFrameFormat](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframeformat/) 클래스의 [column_count](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframeformat/column_count/) 및 [column_spacing](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframeformat/column_spacing/) 속성을 제공합니다. 열 수를 지정하고 열 사이의 간격(포인트)을 설정할 수 있습니다.
+[TextFrameFormat.column_count](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframeformat/column_count/) 속성은 텍스트 프레임을 여러 열로 나누고, [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframeformat/column_spacing/) 속성은 열 사이의 간격을 포인트 단위로 설정합니다. 두 설정은 [TextFrameFormat](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframeformat/)에 속하며 기존 텍스트 상자의 텍스트 프레임을 통해 변경할 수 있습니다. 텍스트는 동일한 도형 내에서 열 사이에 재배치되며, 다른 도형으로 이어지지는 않습니다.
 
-다음 Python 코드는 이 작업을 보여줍니다:
+다음 예제는 열 사이에 10포인트 간격을 두고 3열 텍스트 상자를 생성한 뒤 프레젠테이션을 저장하고, 출력 파일에서 저장된 설정을 다시 읽어옵니다:
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 200)
+    text_box.add_text_frame("This text is distributed automatically across all columns in the text box.")
 
-	# 프레젠테이션의 첫 번째 슬라이드를 가져옵니다.
-	slide = presentation.slides[0]
+    text_frame_format = text_box.text_frame.text_frame_format
+    text_frame_format.column_count = 3
+    text_frame_format.column_spacing = 10
 
-	# RECTANGLE 타입의 AutoShape을 추가합니다.
-	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    presentation.save("TextBoxColumns.pptx", slides.export.SaveFormat.PPTX)
 
-	# 사각형에 TextFrame을 추가합니다.
-	shape.add_text_frame("All of these columns are confined to a single text container—" +
-	"you can add or delete text, and any new or remaining text automatically reflows " +
-	"within the container. You cannot have text flow from one container to another, " +
-	"though—PowerPoint’s column options for text are limited!")
+with slides.Presentation("TextBoxColumns.pptx") as saved_presentation:
+    saved_text_box = saved_presentation.slides[0].shapes[0]
+    if isinstance(saved_text_box, slides.AutoShape):
+        saved_format = saved_text_box.text_frame.text_frame_format
+        print(f"Columns: {saved_format.column_count}; spacing: {saved_format.column_spacing} points")
+```
 
-	# TextFrame의 텍스트 형식을 가져옵니다.
-	format = shape.text_frame.text_frame_format
+## **개별 열에서 텍스트 추출**
 
-	# TextFrame의 열 개수를 지정합니다.
-	format.column_count = 3
+기존 텍스트 프레임에서 각 시각적 열에 할당된 텍스트를 가져오려면 [TextFrame.split_text_by_columns](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/split_text_by_columns/)을 사용합니다. 이 메서드는 열 기반 읽기 순서대로 각 열에 대해 문자열 하나를 반환합니다. 단일 열 텍스트 프레임은 하나의 요소가 있는 리스트를 생성하고, 빈 열은 빈 문자열로 표시됩니다. 반환된 문자열은 일반 텍스트만 포함하며, 부분 수준 서식은 보존되지 않습니다.
 
-	# 열 사이의 간격을 지정합니다.
-	format.column_spacing = 10
+다음과 같은 경우에 유용합니다:
+- 열 기반 읽기 순서를 유지하면서 텍스트 추출.
+- 다중 열 슬라이드의 내용을 인덱싱하거나 비교.
+- 각 열을 별도의 파일, 데이터베이스 필드 또는 다른 대상에 내보내기.
+- 폰트, 텍스트 프레임 크기 또는 [TextFrameFormat.column_count](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframeformat/column_count/), [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframeformat/column_spacing/)을 변경한 후 텍스트가 어떻게 재배치되는지 확인.
 
-	# 프레젠테이션을 저장합니다.
-	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+이 메서드는 현재 [TextFrame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/) 내에 배분된 텍스트를 보고하며, 별도의 도형이나 텍스트 상자 사이에 텍스트를 자동으로 흐르게 하지 않습니다. 열 배분은 사용 가능한 폰트 및 기타 텍스트 레이아웃 설정에 따라 달라질 수 있으므로, 일관된 결과가 필요할 때는 필요한 폰트가 제공되는지 확인하십시오.
+
+다음 예제는 프레젠테이션을 로드하고, 텍스트 프레임이 있는 첫 번째 다중 열 자동 도형을 찾아 구성된 열 수를 읽은 뒤 각 열의 텍스트를 별도의 파일에 기록합니다. 텍스트 프레임을 제공하지 않는 도형은 건너뜁니다.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("MultiColumnText.pptx") as presentation:
+    text_box = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+            column_count = shape.text_frame.text_frame_format.column_count
+            if column_count > 1:
+                text_box = shape
+                break
+
+    if text_box is None:
+        print("No multi-column text frame was found.")
+    else:
+        text_frame = text_box.text_frame
+        configured_column_count = text_frame.text_frame_format.column_count
+        column_texts = text_frame.split_text_by_columns()
+
+        print(f"Configured columns: {configured_column_count}")
+
+        for column_number, column_text in enumerate(column_texts, start=1):
+            print(f"Column {column_number}: {column_text}")
+            with open(f"Column-{column_number}.txt", "w", encoding="utf-8") as column_file:
+                column_file.write(column_text)
 ```
 
 ## **텍스트 업데이트**
 
-Aspose.Slides를 사용하면 단일 텍스트 상자 또는 전체 프레젠테이션의 텍스트를 업데이트할 수 있습니다.
+프레젠테이션 전체의 텍스트를 업데이트하려면 슬라이드와 도형을 반복하고, 자동 도형을 선택한 후 텍스트 부분을 편집합니다. 부분 수준에서 작업하면 텍스트와 문자 서식을 모두 변경할 수 있습니다.
 
-다음 Python 예제는 프레젠테이션의 모든 텍스트를 업데이트하는 방법을 보여줍니다:
+다음 예제는 자동 도형 텍스트에서 `years`를 모두 `months`로 교체하고, 영향을 받은 각 부분을 굵게 만듭니다:
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
+with slides.Presentation("Text.pptx") as presentation:
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                for paragraph in shape.text_frame.paragraphs:
-                    for portion in paragraph.portions:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if "years" in portion.text:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = slides.NullableBool.TRUE
-  
-    # 수정된 프레젠테이션을 저장합니다.
+
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **하이퍼링크가 있는 텍스트 상자 추가**
+이 순회는 자동 도형의 텍스트만 업데이트합니다. 표, 차트, SmartArt 또는 그룹화된 도형에 저장된 텍스트는 해당 객체의 컬렉션을 순회해야 합니다.
 
-텍스트 상자에 링크를 삽입할 수 있습니다. 텍스트 상자를 클릭하면 링크가 열립니다.
+## **하이퍼링크가 포함된 텍스트 상자 추가**
 
-하이퍼링크가 포함된 텍스트 상자를 추가하려면 다음 단계를 따르세요.
+하이퍼링크는 특정 텍스트 부분에 할당할 수 있으므로 해당 텍스트만 클릭 가능한 링크가 됩니다. [HyperlinkManager.set_external_hyperlink_click](https://reference.aspose.com/slides/ko/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/)을 사용하여 해당 부분을 외부 URL과 연결합니다.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.  
-2. 첫 번째 슬라이드에 대한 참조를 가져옵니다.  
-3. 슬라이드의 원하는 위치에 `ShapeType.RECTANGLE`를 사용하여 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/)을 추가합니다.  
-4. 도형의 [TextFrame](https://reference.aspose.com/slides/ko/python-net/aspose.slides/textframe/)에 텍스트를 설정합니다.  
-5. [HyperlinkManager](https://reference.aspose.com/slides/ko/python-net/aspose.slides/hyperlinkmanager/)에 대한 참조를 가져옵니다.  
-6. `hyperlink_manager` 속성을 사용하여 외부 클릭 하이퍼링크를 설정합니다.  
-7. 프레젠테이션을 PPTX 파일로 저장합니다.
+다음 예제는 연결된 텍스트를 생성하고 프레젠테이션에 저장합니다:
 
-다음 Python 예제는 슬라이드에 하이퍼링크가 포함된 텍스트 상자를 추가하는 방법을 보여줍니다:
-
-```py
+```python
 import aspose.slides as slides
 
-# Presentation 클래스를 인스턴스화합니다.
 with slides.Presentation() as presentation:
-
-    # 프레젠테이션의 첫 번째 슬라이드를 가져옵니다.
     slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 200, 50)
+    text_box.add_text_frame("Aspose.Slides")
 
-    # RECTANGLE 타입의 AutoShape을 추가합니다.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    text_portion = text_box.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_manager.set_external_hyperlink_click("https://www.aspose.com/")
 
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    # 프레임에 텍스트를 추가합니다.
-    text_portion.text = "Aspose.Slides"
-
-    # 포션 텍스트에 하이퍼링크를 설정합니다.
-    hyperlink_manager = text_portion.portion_format.hyperlink_manager
-    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
-
-    # 프레젠테이션을 PPTX 파일로 저장합니다.
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**마스터 슬라이드 작업 시 텍스트 상자와 텍스트 플레이스홀더의 차이점은 무엇인가요?**
+**텍스트 상자와 마스터 또는 레이아웃 슬라이드의 텍스트 플레이스홀더의 차이점은 무엇인가요?**
 
-[플레이스홀더](/slides/ko/python-net/manage-placeholder/)는 [마스터](https://reference.aspose.com/slides/ko/python-net/aspose.slides/masterslide/)에서 스타일/위치를 상속받으며 [레이아웃](https://reference.aspose.com/slides/ko/python-net/aspose.slides/layoutslide/)에서 재정의될 수 있는 반면, 일반 텍스트 상자는 특정 슬라이드에 독립적인 객체로 레이아웃을 변경해도 변하지 않습니다.
+[placeholder](/slides/ko/python-net/manage-placeholder/)는 [master slide](https://reference.aspose.com/slides/ko/python-net/aspose.slides/masterslide/) 또는 [layout slide](https://reference.aspose.com/slides/ko/python-net/aspose.slides/layoutslide/)로부터 위치와 서식을 상속받을 수 있습니다. 일반 텍스트 상자는 생성된 슬라이드에 독립적인 도형이며, 레이아웃이 변경될 때 플레이스홀더 동작을 취득하지 않습니다.
 
-**차트, 테이블 및 SmartArt 내부의 텍스트를 건드리지 않고 프레젠테이션 전체에서 대량 텍스트 교체를 수행하려면 어떻게 해야 하나요?**
+**차트, 표 또는 SmartArt의 텍스트를 변경하지 않고 텍스트를 교체하려면 어떻게 해야 하나요?**
 
-텍스트 프레임이 있는 자동 도형만 반복하고, 포함된 객체([charts](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/ko/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ko/python-net/aspose.slides.smartart/smartart/))를 별도의 컬렉션을 순회하거나 해당 객체 유형을 건너뛰어 제외하십시오.
+Update Text 예제와 같이 순회를 [AutoShape](https://reference.aspose.com/slides/ko/python-net/aspose.slides/autoshape/) 인스턴스로 제한하십시오. 차트, 표 및 SmartArt는 자체 객체 모델에 텍스트를 저장하므로 해당 루프에 의해 수정되지 않습니다.

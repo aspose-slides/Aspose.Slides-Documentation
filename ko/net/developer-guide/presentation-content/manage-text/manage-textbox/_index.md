@@ -9,7 +9,7 @@ keywords:
 - 텍스트 프레임
 - 텍스트 추가
 - 텍스트 업데이트
-- 텍스트 상자 생성
+- 텍스트 상자 만들기
 - 텍스트 상자 확인
 - 텍스트 열 추가
 - 하이퍼링크 추가
@@ -18,302 +18,248 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: ".NET용 Aspose.Slides를 사용하면 PowerPoint 및 OpenDocument 파일에서 텍스트 상자를 쉽게 생성, 편집 및 복제할 수 있어 프레젠테이션 자동화가 향상됩니다."
+description: "Aspose.Slides for .NET을 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 텍스트 상자를 만들고, 식별하고, 서식 지정하며, 업데이트합니다."
 ---
 ## **소개**
 
-슬라이드의 텍스트는 일반적으로 텍스트 상자 또는 도형에 존재합니다. 따라서 슬라이드에 텍스트를 추가하려면 먼저 텍스트 상자를 추가하고 그 안에 텍스트를 넣어야 합니다.
+Aspose.Slides for .NET에서 슬라이드 텍스트는 모양에 속하는 텍스트 프레임에 저장됩니다. The [IAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape/) 인터페이스는 가장 일반적인 텍스트가 포함된 모양을 나타내며, 해당 텍스트는 [IAutoShape.TextFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape/textframe/) 속성을 통해 노출됩니다.
 
-텍스트를 담을 수 있는 도형을 추가할 수 있도록 Aspose.Slides for .NET은 [IAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape) 인터페이스를 제공합니다.
-
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides는 또한 슬라이드에 도형을 추가할 수 있도록 [IShape](https://reference.aspose.com/slides/ko/net/aspose.slides/ishape) 인터페이스를 제공합니다. 그러나 `IShape` 인터페이스를 통해 추가된 모든 도형이 텍스트를 담을 수 있는 것은 아닙니다. [IAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape) 인터페이스를 통해 추가된 도형은 일반적으로 텍스트를 포함합니다.
-
-따라서 텍스트를 추가하려는 기존 도형을 다룰 때는 해당 도형이 `IAutoShape` 인터페이스를 통해 캐스팅되었는지 확인하고 싶을 수 있습니다. 그래야만 `IAutoShape` 아래의 속성인 [TextFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape/properties/textframe)을 사용할 수 있습니다. 이 페이지의 [Update Text](https://docs.aspose.com/slides/ko/net/manage-textbox/#update-text) 섹션을 참조하세요.
-
+{{% alert color="info" title="Note" %}}
+모든 자동 모양은 IShape를 구현하지만, 모든 모양이 자동 모양이거나 텍스트 프레임을 지원하는 것은 아닙니다. 기존 프레젠테이션을 처리할 때는 텍스트에 접근하기 전에 해당 모양이 `IAutoShape`를 구현하는지 확인하십시오.
 {{% /alert %}}
 
 ## **슬라이드에 텍스트 상자 만들기**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/net/aspose.slides/presentation) 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 통해 첫 번째 슬라이드의 참조를 가져옵니다.  
-3. 슬라이드의 지정된 위치에 [ShapeType](https://reference.aspose.com/slides/ko/net/aspose.slides/igeometryshape/properties/shapetype)을 `Rectangle`으로 설정한 [IAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape) 객체를 추가하고 새로 추가된 `IAutoShape` 객체에 대한 참조를 얻습니다.  
-4. `IAutoShape` 객체에 텍스트를 포함할 `TextFrame` 속성을 추가합니다. 아래 예제에서는 이 텍스트를 추가했습니다: *Aspose TextBox*  
-5. 마지막으로 `Presentation` 객체를 통해 PPTX 파일을 저장합니다.  
+텍스트 상자를 만들려면 슬라이드에 자동 모양을 추가하고, 해당 텍스트 프레임에 텍스트를 삽입한 다음 프레젠테이션을 저장합니다. 다음 예제는 사각형 텍스트 상자를 생성합니다:
 
-위 단계들을 구현한 이 C# 코드는 슬라이드에 텍스트를 추가하는 방법을 보여줍니다:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// PresentationEx 인스턴스 생성
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // 프레젠테이션의 첫 번째 슬라이드 가져오기
-    ISlide sld = pres.Slides[0];
-
-    // 유형을 Rectangle로 설정한 AutoShape 추가
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Rectangle에 TextFrame 추가
-    ashp.AddTextFrame(" ");
-
-    // 텍스트 프레임에 접근
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // 텍스트 프레임용 Paragraph 객체 생성
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Paragraph용 Portion 객체 생성
-    IPortion portion = para.Portions[0];
-
-    // 텍스트 설정
-    portion.Text = "Aspose TextBox";
-
-    // 프레젠테이션을 디스크에 저장
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-## **텍스트 상자 도형 확인**
+[IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/ishapecollection/addautoshape/)에 전달되는 좌표와 크기는 포인트 단위로 측정됩니다. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape/addtextframe/)은 제공된 텍스트로 텍스트 프레임을 초기화합니다.
 
-Aspose.Slides는 [IAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape/) 인터페이스에서 제공하는 [IsTextBox](https://reference.aspose.com/slides/ko/net/aspose.slides/autoshape/istextbox/) 속성을 통해 도형을 검사하고 텍스트 상자를 식별할 수 있게 합니다.
+## **텍스트 상자 모양 확인**
 
-![텍스트 상자와 도형](istextbox.png)
+[AutoShape.IsTextBox](https://reference.aspose.com/slides/ko/net/aspose.slides/autoshape/istextbox/) 속성을 사용하여 자동 모양이 텍스트 상자로 간주되는지 여부를 판단합니다. 프레젠테이션에 텍스트가 포함된 자동 모양과 순수 그래픽 자동 모양이 모두 포함된 경우 유용합니다.
 
-이 C# 코드는 도형이 텍스트 상자로 생성되었는지 확인하는 방법을 보여줍니다:
+![A text box and a shape](istextbox.png)
 
-```c#
+다음 예제는 프레젠테이션의 모든 자동 모양을 검사합니다:
+
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-`AddAutoShape` 메서드를 사용해 [IShapeCollection](https://reference.aspose.com/slides/ko/net/aspose.slides/ishapecollection/) 인터페이스에서 자동 도형을 단순히 추가하면 해당 자동 도형의 `IsTextBox` 속성은 `false`를 반환합니다. 그러나 `AddTextFrame` 메서드나 `Text` 속성을 사용해 자동 도형에 텍스트를 추가하면 `IsTextBox` 속성은 `true`를 반환합니다.
+새로 추가된 자동 모양은 비어 있지 않은 텍스트를 포함하기 전까지는 텍스트 상자로 간주되지 않습니다. 해당 텍스트는 [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape/addtextframe/) 또는 [ITextFrame.Text](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/text/)를 통해 제공할 수 있습니다. 빈 문자열을 추가하거나 할당하면 `IsTextBox`가 `false`로 유지됩니다:
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox 은 false
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox 은 true
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox 은 false
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox 은 true
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox 은 false
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox 은 false
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox 은 false
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox 은 false
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
 
-## **텍스트 프레임을 소유한 도형 찾기**
+첫 번째와 두 번째 호출은 `True`를 출력하고, 마지막 두 호출은 `False`를 출력합니다.
 
-일반적인 텍스트 처리 코드에서는 [ITextFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/)을 받을 때 이를 포함하고 있는 프레젠테이션 객체를 미리 알지 못할 수 있습니다. 소유자 [IShape](https://reference.aspose.com/slides/ko/net/aspose.slides/ishape/) 로 돌아가기 위해 [ITextFrame.ParentShape](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/parentshape/) 속성을 사용합니다.
+## **텍스트 프레임을 소유한 모양 찾기**
 
-[IAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape/) 또는 다른 텍스트를 포함하는 도형에 속한 텍스트 프레임의 경우, [ITextFrame.ParentShape](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/parentshape/)은 설정되어 있고 [ITextFrame.ParentCell](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/parentcell/)은 `null`입니다. 두 속성은 읽기 전용 탐색 속성이므로 읽어도 소유권이 변경되지 않습니다. 도형에 접근하기 전에 반환값이 `null`인지 항상 확인하십시오.
+일반적인 텍스트 처리 코드는 [ITextFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/)을 받지만 해당 프레임을 포함하는 프레젠테이션 객체를 알지 못할 수 있습니다. 읽기 전용 [ITextFrame.ParentShape](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/parentshape/) 속성을 사용하여 소유하는 [IShape](https://reference.aspose.com/slides/ko/net/aspose.slides/ishape/)로 돌아갈 수 있습니다.
 
-SmartArt 노드와 연결된 도형을 포함하여 도형 및 테이블 셀 소유자를 식별하는 전체 예제는 [Search and Replace Text](/slides/ko/net/search-and-replace-text/)를 참고하십시오.
+자동 모양이나 다른 텍스트가 포함된 모양이 소유한 텍스트 프레임의 경우, `ParentShape`에 소유자가 들어 있으며 [ITextFrame.ParentCell](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/parentcell/)은 `null`입니다. 접근하기 전에 반환된 값을 확인하십시오. 모양과 표 셀 소유자를 모두 식별하려면, SmartArt 노드와 연결된 모양을 포함하여, [Search and Replace Text](/slides/ko/net/search-and-replace-text/)를 참조하십시오.
 
 ## **텍스트 상자에 열 추가**
 
-Aspose.Slides는 텍스트 상자에 열을 추가할 수 있도록 [ITextFrameFormat](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat) 인터페이스와 [TextFrameFormat](https://reference.aspose.com/slides/ko/net/aspose.slides/textframeformat) 클래스에서 제공하는 [ColumnCount](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat/properties/columncount) 및 [ColumnSpacing](https://reference.aspose.com/slides/ko/net/aspose.slides/textframeformat/properties/columnspacing) 속성을 제공합니다. 텍스트 상자의 열 수와 열 사이의 포인트 단위 간격을 지정할 수 있습니다.
+[ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat/columncount/) 속성은 텍스트 프레임을 여러 열로 나누고, [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat/columnspacing/)은 열 사이의 간격을 포인트 단위로 설정합니다. 두 설정 모두 [ITextFrameFormat](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat/)에 속하며 기존 텍스트 상자의 텍스트 프레임을 통해 변경할 수 있습니다. 텍스트는 같은 모양 내부의 열 사이에서 흐르며, 다른 모양으로 이어지지는 않습니다.
 
-C# 코드 예제는 위에서 설명한 동작을 보여줍니다:
+다음 예제는 열 사이에 10포인트 간격을 두고 3열 텍스트 상자를 생성한 뒤, 프레젠테이션을 저장하고 출력 파일에서 저장된 설정을 다시 읽어옵니다:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// 프레젠테이션의 첫 번째 슬라이드 가져오기
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// 유형을 Rectangle로 설정한 AutoShape 추가
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// Rectangle에 TextFrame 추가
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// TextFrame의 텍스트 형식 가져오기
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// TextFrame의 열 수 지정
-	format.ColumnCount = 3;
-
-	// 열 사이의 간격 지정
-	format.ColumnSpacing = 10;
-
-	// 프레젠테이션 저장
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **텍스트 프레임에 열 추가**
+## **개별 열에서 텍스트 추출**
 
-Aspose.Slides for .NET은 [ITextFrameFormat](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat) 인터페이스에서 제공하는 [ColumnCount](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat/properties/columncount) 속성을 통해 텍스트 프레임에 열을 추가할 수 있게 합니다. 이 속성을 사용해 텍스트 프레임의 원하는 열 수를 지정할 수 있습니다.
+[TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/ko/net/aspose.slides/textframe/splittextbycolumns/)를 사용하여 기존 텍스트 프레임에서 각 시각적 열에 할당된 텍스트를 가져올 수 있습니다. 이 메서드는 열 기반 읽기 순서대로 각 열에 대해 하나의 문자열을 반환합니다. 단일 열 텍스트 프레임은 요소가 하나인 배열을 반환하고, 빈 열은 빈 문자열로 표시됩니다. 반환된 문자열은 순수 텍스트만 포함하며, 부분 수준 서식은 유지되지 않습니다.
 
-다음 C# 코드는 텍스트 프레임 안에 열을 추가하는 방법을 보여줍니다:
+이 기능은 다음과 같은 경우에 유용합니다:
 
-```c#
-using System.Diagnostics;
+- 열 기반 읽기 순서를 유지하면서 텍스트를 추출해야 할 때.
+- 다열 슬라이드의 내용을 인덱싱하거나 비교할 때.
+- 각 열을 별도의 파일, 데이터베이스 필드 또는 다른 대상으로 내보낼 때.
+- [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframeformat/columnspacing/), 글꼴 또는 텍스트 프레임 크기를 변경한 후 텍스트가 어떻게 재배분되는지 검토할 때.
+
+이 메서드는 현재 [ITextFrame](https://reference.aspose.com/slides/ko/net/aspose.slides/itextframe/) 내부에 배분된 텍스트를 보고하며, 별도 모양이나 텍스트 상자 사이에 텍스트를 자동으로 흐르게 하지는 않습니다. 열 배분은 사용 가능한 글꼴 및 기타 텍스트 레이아웃 설정에 따라 달라질 수 있으므로, 일관된 결과가 중요한 경우 필요한 글꼴이 확보되어 있는지 확인하십시오.
+
+다음 예제는 프레젠테이션을 로드하고, 텍스트 프레임이 있는 최초의 다열 자동 모양을 찾은 뒤, 설정된 열 개수를 읽고, 각 열의 텍스트를 별도의 파일에 기록합니다. 텍스트 프레임을 제공하지 않는 모양은 건너뜁니다.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **텍스트 업데이트**
 
-Aspose.Slides를 사용하면 텍스트 상자에 포함된 텍스트나 프레젠테이션 전체에 포함된 모든 텍스트를 변경하거나 업데이트할 수 있습니다.
+프레젠테이션 전체의 텍스트를 업데이트하려면 슬라이드와 모양을 순회하면서 자동 모양을 선택하고 해당 텍스트 부분을 편집합니다. 부분 수준에서 작업하면 텍스트와 문자 서식을 모두 변경할 수 있습니다.
 
-다음 C# 코드는 프레젠테이션의 모든 텍스트를 업데이트하거나 변경하는 작업을 보여줍니다:
+다음 예제는 자동 모양 텍스트에서 모든 `years`를 `months`로 교체하고, 영향을 받은 각 부분을 굵게 만듭니다:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) // shape이 텍스트 프레임(IAutoShape)을 지원하는지 확인합니다.
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) // 텍스트 프레임의 단락을 순회합니다.
-               {
-                   foreach (IPortion portion in paragraph.Portions) // 단락의 각 포션을 순회합니다.
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); // 텍스트를 변경합니다.
-                       portion.PortionFormat.FontBold = NullableBool.True; // 서식을 변경합니다.
-                   }
-               }
-           }
-       }
-   }
-  
-   // 수정된 프레젠테이션을 저장합니다.
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
+
+이 순회는 자동 모양의 텍스트만 업데이트합니다. 표, 차트, SmartArt 또는 그룹화된 모양에 저장된 텍스트를 수정하려면 해당 객체들의 컬렉션을 별도로 순회해야 합니다.
 
 ## **하이퍼링크가 있는 텍스트 상자 추가**
 
-텍스트 상자 안에 링크를 삽입할 수 있습니다. 텍스트 상자를 클릭하면 사용자가 해당 링크를 열게 됩니다.
+하이퍼링크는 특정 텍스트 부분에 할당할 수 있어 해당 텍스트만 클릭 가능한 링크가 됩니다. [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/ko/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)을 사용하여 그 부분을 외부 URL에 연결합니다.
 
-1. `Presentation` 클래스의 인스턴스를 생성합니다.  
-2. 인덱스를 통해 첫 번째 슬라이드의 참조를 가져옵니다.  
-3. 슬라이드의 지정된 위치에 `ShapeType`을 `Rectangle`으로 설정한 `AutoShape` 객체를 추가하고 새로 추가된 AutoShape 객체에 대한 참조를 얻습니다.  
-4. `AutoShape` 객체에 기본 텍스트로 *Aspose TextBox*를 포함하는 `TextFrame`을 추가합니다.  
-5. `IHyperlinkManager` 클래스를 인스턴스화합니다.  
-6. 선택한 `TextFrame` 부분에 연결된 [HyperlinkClick](https://reference.aspose.com/slides/ko/net/aspose.slides/shape/properties/hyperlinkclick) 속성에 `IHyperlinkManager` 객체를 할당합니다.  
-7. 마지막으로 `Presentation` 객체를 통해 PPTX 파일을 저장합니다.  
+다음 예제는 링크가 설정된 텍스트를 생성하고 이를 프레젠테이션에 저장합니다:
 
-위 단계들을 구현한 이 C# 코드는 슬라이드에 하이퍼링크가 포함된 텍스트 상자를 추가하는 방법을 보여줍니다:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// 프레젠테이션에서 첫 번째 슬라이드를 가져옵니다
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// 유형을 Rectangle로 설정한 AutoShape 객체를 추가합니다
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// 도형을 AutoShape으로 캐스팅합니다
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// AutoShape에 연결된 ITextFrame 속성에 접근합니다
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// 프레임에 텍스트를 추가합니다
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// 포션 텍스트에 하이퍼링크를 설정합니다
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// PPTX 프레젠테이션을 저장합니다
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**마스터 슬라이드 작업 시 텍스트 상자와 텍스트 자리표시자(Placeholder)의 차이점은 무엇인가요?**
+**마스터 또는 레이아웃 슬라이드의 텍스트 상자와 텍스트 자리표시자(placeholder)의 차이점은 무엇인가요?**
 
-[placeholder](/slides/ko/net/manage-placeholder/)는 [master](https://reference.aspose.com/slides/ko/net/aspose.slides/masterslide/)에서 스타일/위치를 상속받으며 [layouts](https://reference.aspose.com/slides/ko/net/aspose.slides/layoutslide/)에서 재정의될 수 있지만, 일반 텍스트 상자는 특정 슬라이드에 독립적인 객체이므로 레이아웃을 전환해도 변경되지 않습니다.
+A [placeholder](/slides/ko/net/manage-placeholder/) can inherit its position and formatting from a [master slide](https://reference.aspose.com/slides/ko/net/aspose.slides/masterslide/) or [layout slide](https://reference.aspose.com/slides/ko/net/aspose.slides/layoutslide/). A regular text box is an independent shape on the slide where it was created and does not acquire placeholder behavior when the layout changes.
 
-**차트, 표, SmartArt 내부의 텍스트는 건드리지 않고 프레젠테이션 전체에서 텍스트를 일괄 교체하려면 어떻게 해야 하나요?**
+**차트, 표 또는 SmartArt의 텍스트를 변경하지 않고 텍스트만 교체하려면 어떻게 해야 하나요?**
 
-텍스트 프레임이 있는 자동 도형만 반복하도록 제한하고, 포함된 객체([charts](https://reference.aspose.com/slides/ko/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/ko/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ko/net/aspose.slides.smartart/smartart/))는 별도의 컬렉션을 순회하거나 해당 객체 유형을 건너뛰어 제외합니다.
+Limit the traversal to shapes that implement [IAutoShape](https://reference.aspose.com/slides/ko/net/aspose.slides/iautoshape/), as shown in the Update Text example. Charts, tables, and SmartArt store text in their own object models, so they are not modified by that loop.

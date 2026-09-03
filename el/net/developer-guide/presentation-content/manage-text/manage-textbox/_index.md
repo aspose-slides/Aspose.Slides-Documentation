@@ -12,308 +12,256 @@ keywords:
 - δημιουργία πλαισίου κειμένου
 - έλεγχος πλαισίου κειμένου
 - προσθήκη στήλης κειμένου
-- προσθήκη υπερσυνδέσμου
+- προσθήκη υπερσύνδεσμου
 - PowerPoint
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Το Aspose.Slides για .NET διευκολύνει τη δημιουργία, επεξεργασία και κλωνοποίηση πλαισίων κειμένου σε αρχεία PowerPoint και OpenDocument, ενισχύοντας την αυτοματοποίηση των παρουσιάσεών σας."
+description: "Δημιουργία, αναγνώριση, μορφοποίηση και ενημέρωση πλαισίων κειμένου σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για .NET."
 ---
 ## **Εισαγωγή**
 
-Τα κείμενα στις διαφάνειες συνήθως υπάρχουν σε πλαίσια κειμένου ή σχήματα. Συνεπώς, για να προσθέσετε κείμενο σε μια διαφάνεια, πρέπει πρώτα να προσθέσετε ένα πλαίσιο κειμένου και στη συνέχεια να εισάγετε κάποιο κείμενο μέσα στο πλαίσιο.
+Στο Aspose.Slides για .NET, το κείμενο των διαφανειών αποθηκεύεται σε πλαίσια κειμένου που ανήκουν σε σχήματα. Η διεπαφή [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) αντιπροσωπεύει το πιο συνηθισμένο σχήμα που περιέχει κείμενο και εκθέτει το κείμενό του μέσω της ιδιότητας [IAutoShape.TextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/textframe/).
 
-Για να μπορείτε να προσθέσετε ένα σχήμα που μπορεί να περιέχει κείμενο, το Aspose.Slides για .NET παρέχει τη διεπαφή [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape) .
+{{% alert color="info" title="Note" %}}
 
-{{% alert title="Note" color="warning" %}} 
-
-Το Aspose.Slides παρέχει επίσης τη διεπαφή [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape) ώστε να μπορείτε να προσθέτετε σχήματα σε διαφάνειες. Ωστόσο, δεν μπορούν όλα τα σχήματα που προστίθενται μέσω της διεπαφής `IShape` να περιέχουν κείμενο. Τα σχήματα που προστίθενται μέσω της διεπαφής [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape) συνήθως περιέχουν κείμενο.
-
-Συνεπώς, όταν εργάζεστε με ένα υπάρχον σχήμα στο οποίο θέλετε να προσθέσετε κείμενο, ίσως θελήσετε να ελέγξετε και να επιβεβαιώσετε ότι έχει μετατραπεί μέσω της διεπαφής `IAutoShape`. Μόνο τότε θα μπορείτε να εργαστείτε με το [TextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/properties/textframe), το οποίο είναι μια ιδιότητα του `IAutoShape`. Δείτε την ενότητα [Update Text](https://docs.aspose.com/slides/el/net/manage-textbox/#update-text) σε αυτή τη σελίδα. 
+Κάθε αυτόματο σχήμα υλοποιεί το [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/), αλλά δεν είναι κάθε σχήμα αυτόματο σχήμα ή υποστηρίζει πλαίσιο κειμένου. Κατά την επεξεργασία μιας υπάρχουσας παρουσίασης, ελέγξτε ότι ένα σχήμα υλοποιεί το `IAutoShape` πριν αποκτήσετε πρόσβαση στο κείμενό του.
 
 {{% /alert %}}
 
 ## **Δημιουργία Πλαισίου Κειμένου σε Διαφάνεια**
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation). 
-2. Αποκτήστε την αναφορά της πρώτης διαφάνειας μέσω του δείκτη της. 
-3. Προσθέστε ένα αντικείμενο [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape) με την ιδιότητα [ShapeType](https://reference.aspose.com/slides/el/net/aspose.slides/igeometryshape/properties/shapetype) ορισμένη σε `Rectangle` σε συγκεκριμένη θέση στη διαφάνεια και λάβετε την αναφορά του νεοδημιουργημένου αντικειμένου `IAutoShape`. 
-4. Προσθέστε την ιδιότητα `TextFrame` στο αντικείμενο `IAutoShape` που θα περιέχει κείμενο. Στο παρακάτω παράδειγμα, προσθέσαμε το κείμενο: *Aspose TextBox* 
-5. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`. 
+Για να δημιουργήσετε ένα πλαίσιο κειμένου, προσθέστε ένα αυτόματο σχήμα σε μια διαφάνεια, προσθέστε κείμενο στο πλαίσιο κειμένου του και αποθηκεύστε την παρουσίαση. Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο πλαίσιο κειμένου:
 
-Αυτός ο κώδικας C# — υλοποίηση των παραπάνω βημάτων — δείχνει πώς να προσθέσετε κείμενο σε μια διαφάνεια:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Δημιουργεί ένα αντικείμενο PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // Αποκτά την πρώτη διαφάνεια στην παρουσίαση
-    ISlide sld = pres.Slides[0];
-
-    // Προσθέτει ένα AutoShape με τύπο ορισμένο ως Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Προσθέτει TextFrame στο Rectangle
-    ashp.AddTextFrame(" ");
-
-    // Πρόσβαση στο πλαίσιο κειμένου
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // Δημιουργεί το αντικείμενο Paragraph για το πλαίσιο κειμένου
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Δημιουργεί ένα αντικείμενο Portion για την παράγραφο
-    IPortion portion = para.Portions[0];
-
-    // Ορίζει το κείμενο
-    portion.Text = "Aspose TextBox";
-
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
+
+Οι συντεταγμένες και οι διαστάσεις που περνούν στη μέθοδο [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addautoshape/) μετρώνται σε μονάδες σημείου (points). Η μέθοδος [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/addtextframe/) αρχικοποιεί το πλαίσιο κειμένου με το παρεχόμενο κείμενο.
 
 ## **Έλεγχος για Σχήμα Πλαισίου Κειμένου**
 
-Το Aspose.Slides παρέχει την ιδιότητα [IsTextBox](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/istextbox/) από τη διεπαφή [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) , επιτρέποντάς σας να εξετάζετε σχήματα και να εντοπίζετε πλαίσια κειμένου.
+Χρησιμοποιήστε την ιδιότητα [AutoShape.IsTextBox](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/istextbox/) για να προσδιορίσετε εάν ένα αυτόματο σχήμα θεωρείται πλαίσιο κειμένου. Αυτό είναι χρήσιμο όταν μια παρουσίαση περιέχει τόσο σχήματα που περιέχουν κείμενο όσο και καθαρά γραφικά αυτόματα σχήματα.
 
-![Πλαίσιο κειμένου και σχήμα](istextbox.png)
+![Ένα πλαίσιο κειμένου και ένα σχήμα](istextbox.png)
 
-Αυτός ο κώδικας C# δείχνει πώς να ελέγξετε αν ένα σχήμα δημιουργήθηκε ως πλαίσιο κειμένου: 
+Το παρακάτω παράδειγμα επιθεωρεί κάθε αυτόματο σχήμα σε μια παρουσίαση:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-Σημειώστε ότι εάν προσθέσετε απλώς ένα autoshape χρησιμοποιώντας τη μέθοδο `AddAutoShape` από τη διεπαφή [IShapeCollection](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/) , η ιδιότητα `IsTextBox` του autoshape θα επιστρέψει `false`. Ωστόσο, αφού προσθέσετε κείμενο στο autoshape χρησιμοποιώντας τη μέθοδο `AddTextFrame` ή την ιδιότητα `Text`, η ιδιότητα `IsTextBox` επιστρέφει `true`.
+Ένα πρόσφατα προστιθέν αυτοματοποιημένο σχήμα δεν θεωρείται πλαίσιο κειμένου μέχρι να περιέχει μη κενό κείμενο. Μπορείτε να παρέχετε αυτό το κείμενο μέσω της [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/addtextframe/) ή του [ITextFrame.Text](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/text/). Η προσθήκη ή ανάθεση ενός κενό string αφήνει το `IsTextBox` σε `false`:
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox είναι ψευδές
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox είναι αληθές
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox είναι ψευδές
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox είναι αληθές
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox είναι ψευδές
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox είναι ψευδές
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox είναι ψευδές
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox είναι ψευδές
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
 
-## **Εύρεση του Σχήματος που Κατέχει ένα Πλαίσιο Κειμένου**
+Οι δύο πρώτες κλήσεις εκτυπώνουν `True`; οι δύο τελευταίες εκτυπώνουν `False`.
 
-Σε γενικό κώδικα επεξεργασίας κειμένου, μπορεί να λάβετε ένα [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) χωρίς να γνωρίζετε ήδη ποιο αντικείμενο παρουσίασης το περιέχει. Χρησιμοποιήστε την ιδιότητα [ITextFrame.ParentShape](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/parentshape/) για να πλοηγηθείτε πίσω στο κειμενικό [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/).
+## **Εύρεση του Σχήματος που Κατέχει Πλαίσιο Κειμένου**
 
-Για ένα πλαίσιο κειμένου που ανήκει σε ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) ή σε άλλο σχήμα που περιέχει κείμενο, η ιδιότητα [ITextFrame.ParentShape](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/parentshape/) είναι ορισμένη και η [ITextFrame.ParentCell](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/parentcell/) είναι `null`. Και οι δύο ιδιότητες είναι μόνο για ανάγνωση και η ανάγνωσή τους δεν αλλάζει την ιδιοκτησία. Πάντα ελέγχετε την τιμή που επιστρέφει για `null` πριν προσπελάσετε το σχήμα.
+Ο γενικός κώδικας επεξεργασίας κειμένου μπορεί να λάβει ένα [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/) χωρίς να γνωρίζει ποιο αντικείμενο παρουσίασης το περιέχει. Χρησιμοποιήστε την μόνο για ανάγνωση ιδιότητα [ITextFrame.ParentShape](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/parentshape/) για να μεταβείτε πίσω στο κτήτοσα [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/).
 
-Για ένα πλήρες παράδειγμα που εντοπίζει ιδιοκτήτες σχήματος και κελιού πίνακα, συμπεριλαμβανομένων σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/net/search-and-replace-text/).
+Για ένα πλαίσιο κειμένου που ανήκει σε αυτόματο σχήμα ή σε άλλο σχήμα που περιέχει κείμενο, το `ParentShape` περιέχει τον ιδιοκτήτη και το [ITextFrame.ParentCell](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/parentcell/) είναι `null`. Ελέγξτε την επιστρεφόμενη τιμή πριν την προσπελάσετε. Για να εντοπίσετε τόσο ιδιοκτήτες σχήματος όσο και κελιών πίνακα, συμπεριλαμβανομένων των σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/net/search-and-replace-text/).
 
 ## **Προσθήκη Στηλών σε Πλαίσιο Κειμένου**
 
-Το Aspose.Slides παρέχει τις ιδιότητες [ColumnCount](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/properties/columncount) και [ColumnSpacing](https://reference.aspose.com/slides/el/net/aspose.slides/textframeformat/properties/columnspacing) (από τη διεπαφή [ITextFrameFormat](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat) και την κλάση [TextFrameFormat](https://reference.aspose.com/slides/el/net/aspose.slides/textframeformat)) που σας επιτρέπουν να προσθέτετε στήλες σε πλαίσια κειμένου. Μπορείτε να καθορίσετε τον αριθμό των στηλών σε ένα πλαίσιο κειμένου και στη συνέχεια το διάστημα σε σημεία μεταξύ των στηλών. 
+Η ιδιότητα [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/columncount/) χωρίζει το πλαίσιο κειμένου σε στήλες, ενώ το [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/columnspacing/) ορίζει το κενό μεταξύ των στηλών σε points. Και οι δύο ρυθμίσεις ανήκουν στο [ITextFrameFormat](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/) και μπορούν να αλλάξουν μέσω του πλαισίου κειμένου ενός υπάρχοντος πλαισίου κειμένου. Το κείμενο αναδιατάσσεται μεταξύ των στηλών εντός του ίδιου σχήματος· δεν συνεχίζεται σε άλλο σχήμα.
 
-Αυτός ο κώδικας C# επιδεικνύει τη περιγραφόμενη λειτουργία: 
+Το παρακάτω παράδειγμα δημιουργεί ένα πλαίσιο κειμένου τριών στηλών με 10 points μεταξύ των στηλών, αποθηκεύει την παρουσίαση και διαβάζει τις αποθηκευμένες ρυθμίσεις από το αρχείο εξόδου:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// Προσθέτει ένα AutoShape με τύπο ορισμένο ως Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// Προσθέτει TextFrame στο Rectangle
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// Λαμβάνει τη μορφή κειμένου του TextFrame
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// Καθορίζει τον αριθμό των στηλών στο TextFrame
-	format.ColumnCount = 3;
-
-	// Καθορίζει το διάστημα μεταξύ των στηλών
-	format.ColumnSpacing = 10;
-
-	// Αποθηκεύει την παρουσίαση
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **Προσθήκη Στηλών σε Πλαίσιο Κειμένου**
+## **Εξαγωγή Κειμένου από Ατομικές Στήλες**
 
-Το Aspose.Slides για .NET παρέχει την ιδιότητα [ColumnCount](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/properties/columncount) (από τη διεπαφή [ITextFrameFormat](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat)) που σας επιτρέπει να προσθέτετε στήλες σε πλαίσια κειμένου. Μέσω αυτής της ιδιότητας, μπορείτε να καθορίσετε τον επιθυμητό αριθμό στηλών σε ένα πλαίσιο κειμένου. 
+Χρησιμοποιήστε το [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/el/net/aspose.slides/textframe/splittextbycolumns/) για να ανακτήσετε το κείμενο που έχει ανατεθεί σε κάθε οπτική στήλη σε ένα υπάρχον πλαίσιο κειμένου. Η μέθοδος επιστρέφει ένα string για κάθε στήλη, με σειρά ανάγνωσης βάσει στήλης. Ένα πλαίσιο κειμένου μιας στήλης παράγει έναν πίνακα με ένα στοιχείο, και μια κενή στήλη αντιπροσωπεύεται από κενό string. Τα strings περιέχουν μόνο απλό κείμενο· η μορφοποίηση σε επίπεδο τμήματος δεν διατηρείται.
 
-Αυτός ο κώδικας C# δείχνει πώς να προσθέσετε μια στήλη μέσα σε ένα πλαίσιο κειμένου:
+Αυτό είναι χρήσιμο όταν χρειάζεται να:
 
-```c#
-using System.Diagnostics;
+- Εξάγετε το κείμενο διατηρώντας τη σειρά ανάγνωσης βάσει στήλης.
+- Καταχωρήσετε ή συγκρίνετε το περιεχόμενο διαφανειών πολλαπλών στηλών.
+- Εξάγετε κάθε στήλη σε ξεχωριστό αρχείο, πεδίο βάσης δεδομένων ή άλλο προορισμό.
+- Εξετάσετε πώς διανέμεται το κείμενο μετά από αλλαγή του [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/columncount/), του [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/columnspacing/), της γραμματοσειράς ή του μεγέθους του πλαισίου κειμένου.
+
+Η μέθοδος αναφέρει το κείμενο που διανέμεται εντός του τρέχοντος [ITextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/itextframe/); δεν ρέει αυτόματα το κείμενο μεταξύ διαφορετικών σχημάτων ή πλαισίων κειμένου. Η κατανομή των στηλών μπορεί να εξαρτάται από τις διαθέσιμες γραμματοσειρές και άλλες ρυθμίσεις διάταξης κειμένου, επομένως βεβαιωθείτε ότι οι απαιτούμενες γραμματοσειρές είναι διαθέσιμες όταν είναι σημαντικό να υπάρχουν συνεπή αποτελέσματα.
+
+Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση, βρίσκει το πρώτο αυτόματο σχήμα πολλαπλών στηλών με πλαίσιο κειμένου, διαβάζει τον διαμορφωμένο αριθμό στηλών του και γράφει το κείμενο από κάθε στήλη σε ξεχωριστό αρχείο. Σχήματα που δεν παρέχουν πλαίσιο κειμένου παραλείπονται.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **Ενημέρωση Κειμένου**
 
-Το Aspose.Slides σας επιτρέπει να αλλάξετε ή να ενημερώσετε το κείμενο που περιέχεται σε ένα πλαίσιο κειμένου ή όλο το κείμενο που περιέχεται σε μια παρουσίαση. 
+Για να ενημερώσετε το κείμενο σε όλη την παρουσίαση, επαναλάβετε τις διαφάνειες και τα σχήματα, επιλέξτε τα αυτόματα σχήματα και, στη συνέχεια, επεξεργαστείτε τα τμήματα κειμένου τους. Η εργασία σε επίπεδο τμήματος σας επιτρέπει να αλλάξετε τόσο το κείμενο όσο και τη μορφοποίηση των χαρακτήρων.
 
-Αυτός ο κώδικας C# επιδεικνύει μια λειτουργία όπου όλα τα κείμενα σε μια παρουσίαση ενημερώνονται ή αλλάζουν:
+Το παρακάτω παράδειγμα αντικαθιστά κάθε εμφανιζόμενο `years` με `months` σε κείμενο αυτόματου σχήματος και κάνει κάθε επηρεασμένο τμήμα έντονο:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //Ελέγχει εάν το σχήμα υποστηρίζει πλαίσιο κειμένου (IAutoShape). 
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Διατρέχει τις παραγράφους στο πλαίσιο κειμένου
-               {
-                   foreach (IPortion portion in paragraph.Portions) //Διατρέχει κάθε τμήμα στην παράγραφο
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //Αλλάζει το κείμενο
-                       portion.PortionFormat.FontBold = NullableBool.True; //Αλλάζει τη μορφοποίηση
-                   }
-               }
-           }
-       }
-   }
-  
-   //Αποθηκεύει την τροποποιημένη παρουσίαση
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσθήκη Πλαισίου Κειμένου με Υπερσύνδεσμο** 
+Αυτή η διέλευση ενημερώνει το κείμενο μόνο σε αυτόματα σχήματα. Το κείμενο που αποθηκεύεται σε πίνακες, διαγράμματα, SmartArt ή ομαδοποιημένα σχήματα απαιτεί διέλευση των συλλογών αυτών των αντικειμένων.
 
-Μπορείτε να εισάγετε έναν σύνδεσμο μέσα σε ένα πλαίσιο κειμένου. Όταν γίνεται κλικ στο πλαίσιο κειμένου, οι χρήστες οδηγούνται να ανοίξουν το σύνδεσμο. 
+## **Προσθήκη Πλαισίου Κειμένου με Υπερσύνδεσμο**
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης `Presentation`. 
-2. Αποκτήστε την αναφορά της πρώτης διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα αντικείμενο `AutoShape` με `ShapeType` ορισμένο σε `Rectangle` σε συγκεκριμένη θέση στη διαφάνεια και λάβετε την αναφορά του νεοσυμπληρωμένου αντικειμένου AutoShape. 
-4. Προσθέστε ένα `TextFrame` στο αντικείμενο `AutoShape` που περιέχει *Aspose TextBox* ως προεπιλεγμένο κείμενο. 
-5. Δημιουργήστε μια παρουσία της κλάσης `IHyperlinkManager`. 
-6. Αναθέστε το αντικείμενο `IHyperlinkManager` στην ιδιότητα [HyperlinkClick](https://reference.aspose.com/slides/el/net/aspose.slides/shape/properties/hyperlinkclick) που σχετίζεται με το προτιμώμενο τμήμα του `TextFrame`. 
-7. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`. 
+Μπορεί να ανατεθεί ένας υπερσύνδεσμος σε συγκεκριμένο τμήμα κειμένου, ώστε μόνο αυτό το κείμενο να λειτουργεί ως κλικ‑able σύνδεσμος. Χρησιμοποιήστε το [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/el/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) για να συσχετίσετε το τμήμα με μια εξωτερική διεύθυνση URL.
 
-Αυτός ο κώδικας C# — υλοποίηση των παραπάνω βημάτων — δείχνει πώς να προσθέσετε ένα πλαίσιο κειμένου με υπερσύνδεσμο σε μια διαφάνεια:
+Το παρακάτω παράδειγμα δημιουργεί κείμενο με σύνδεσμο και το αποθηκεύει σε μια παρουσίαση:
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα PPTX
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// Προσθέτει ένα αντικείμενο AutoShape με τύπο ορισμένο ως Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// Μετατρέπει το σχήμα σε AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// Πρόσβαση στην ιδιότητα ITextFrame που σχετίζεται με το AutoShape
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// Προσθέτει κάποιο κείμενο στο πλαίσιο
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// Ορίζει τον υπερσύνδεσμο για το κείμενο του τμήματος
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// Αποθηκεύει την παρουσίαση PPTX
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Ποια είναι η διαφορά μεταξύ πλαισίου κειμένου και κράτησης θέσης κειμένου όταν εργάζεστε με κύριες διαφάνειες;**
+**Ποια είναι η διαφορά μεταξύ ενός πλαισίου κειμένου και ενός κράτησης θέσης κειμένου σε κύρια ή διάταξη διαφάνειας;**
 
-Ένα [placeholder](/slides/el/net/manage-placeholder/) κληρονομεί το στυλ/θέση από το [master](https://reference.aspose.com/slides/el/net/aspose.slides/masterslide/) και μπορεί να αντικατασταθεί σε [layouts](https://reference.aspose.com/slides/el/net/aspose.slides/layoutslide/), ενώ ένα κανονικό πλαίσιο κειμένου είναι ανεξάρτητο αντικείμενο σε μια συγκεκριμένη διαφάνεια και δεν αλλάζει όταν αλλάζετε τα layouts.
+Ένα [placeholder](/slides/el/net/manage-placeholder/) μπορεί να κληρονομήσει τη θέση και τη μορφοποίησή του από μια [master slide](https://reference.aspose.com/slides/el/net/aspose.slides/masterslide/) ή μια [layout slide](https://reference.aspose.com/slides/el/net/aspose.slides/layoutslide/). Ένα κανονικό πλαίσιο κειμένου είναι ένα ανεξάρτητο σχήμα στη διαφάνεια όπου δημιουργήθηκε και δεν αποκτά τη συμπεριφορά κράτησης θέσης όταν αλλάζει η διάταξη.
 
-**Πώς μπορώ να πραγματοποιήσω αντικατάσταση κειμένου μαζικά σε όλη την παρουσίαση χωρίς να επηρεάσω το κείμενο μέσα σε γραφήματα, πίνακες και SmartArt;**
+**Πώς μπορώ να αντικαταστήσω κείμενο χωρίς να αλλάξω το κείμενο σε διαγράμματα, πίνακες ή SmartArt;**
 
-Περιορίστε την επανάληψή σας σε αυτό-σχήματα που έχουν πλαίσια κειμένου και εξαιρέστε ενσωματωμένα αντικείμενα ([charts](https://reference.aspose.com/slides/el/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/el/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/el/net/aspose.slides.smartart/smartart/)) διασχίζοντας τις συλλογές τους ξεχωριστά ή παραλείποντας αυτούς τους τύπους αντικειμένων.
+Περιορίστε τη διέλευση σε σχήματα που υλοποιούν το [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/), όπως φαίνεται στο παράδειγμα Ενημέρωση Κειμένου. Τα διαγράμματα, οι πίνακες και το SmartArt αποθηκεύουν το κείμενο στα δικά τους μοντέλα αντικειμένων, επομένως δεν τροποποιούνται από αυτόν τον βρόχο.

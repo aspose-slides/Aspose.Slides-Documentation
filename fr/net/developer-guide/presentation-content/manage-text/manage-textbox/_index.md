@@ -1,6 +1,6 @@
 ---
-title: Gestion des zones de texte dans les présentations en .NET
-linktitle: Gestion de la zone de texte
+title: Gérer les zones de texte dans les présentations en .NET
+linktitle: Gérer la zone de texte
 type: docs
 weight: 20
 url: /fr/net/manage-textbox/
@@ -18,302 +18,248 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides pour .NET facilite la création, la modification et le clonage des zones de texte dans les fichiers PowerPoint et OpenDocument, améliorant ainsi l'automatisation de vos présentations."
+description: "Créer, identifier, formater et mettre à jour les zones de texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour .NET."
 ---
 ## **Introduction**
 
-Les textes sur les diapositives se trouvent généralement dans des zones de texte ou des formes. Par conséquent, pour ajouter du texte à une diapositive, vous devez d'abord ajouter une zone de texte, puis y placer du texte. 
+Dans Aspose.Slides for .NET, le texte des diapositives est stocké dans des cadres de texte qui appartiennent aux formes. L'interface [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/) représente la forme la plus courante contenant du texte et expose son texte via la propriété [IAutoShape.TextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/textframe/).
 
-Pour vous permettre d'ajouter une forme pouvant contenir du texte, Aspose.Slides for .NET fournit l'interface [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape). 
-
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides fournit également l'interface [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape) pour vous permettre d'ajouter des formes aux diapositives. Cependant, toutes les formes ajoutées via l'interface `IShape` ne peuvent pas contenir de texte. Les formes ajoutées via l'interface [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape) contiennent généralement du texte. 
-
-Par conséquent, lorsque vous traitez une forme existante à laquelle vous souhaitez ajouter du texte, vous devez vérifier et confirmer qu’elle a été castée via l'interface `IAutoShape`. Ce n’est qu’à ce moment‑là que vous pourrez travailler avec [TextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/properties/textframe), qui est une propriété de `IAutoShape`. Consultez la section [Update Text](https://docs.aspose.com/slides/fr/net/manage-textbox/#update-text) sur cette page. 
-
+{{% alert color="info" title="Note" %}}
+Chaque forme auto implémente [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/), mais toutes les formes ne sont pas des formes auto ou ne prennent pas en charge un cadre de texte. Lors du traitement d'une présentation existante, vérifiez qu'une forme implémente `IAutoShape` avant d'accéder à son texte.
 {{% /alert %}}
 
 ## **Créer une zone de texte sur une diapositive**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/net/aspose.slides/presentation). 
-2. Obtenez la référence de la première diapositive via son indice. 
-3. Ajoutez un objet [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape) avec la propriété [ShapeType](https://reference.aspose.com/slides/fr/net/aspose.slides/igeometryshape/properties/shapetype) définie sur `Rectangle` à une position spécifiée sur la diapositive et obtenez la référence de l’objet `IAutoShape` nouvellement ajouté. 
-4. Ajoutez une propriété `TextFrame` à l’objet `IAutoShape` qui contiendra du texte. Dans l’exemple ci‑dessous, nous avons ajouté ce texte : *Aspose TextBox* 
-5. Enfin, écrivez le fichier PPTX via l’objet `Presentation`. 
+Pour créer une zone de texte, ajoutez une forme auto à une diapositive, ajoutez du texte à son cadre de texte, puis enregistrez la présentation. L'exemple suivant crée une zone de texte rectangulaire :
 
-Ce code C#—une implémentation des étapes ci‑dessus—vous montre comment ajouter du texte à une diapositive :
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Instancie PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // Obtient la première diapositive de la présentation
-    ISlide sld = pres.Slides[0];
-
-    // Ajoute une AutoShape avec le type défini sur Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Ajoute un TextFrame au Rectangle
-    ashp.AddTextFrame(" ");
-
-    // Accède au cadre de texte
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // Crée l'objet Paragraph pour le cadre de texte
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Crée un objet Portion pour le paragraphe
-    IPortion portion = para.Portions[0];
-
-    // Définit le texte
-    portion.Text = "Aspose TextBox";
-
-    // Enregistre la présentation sur le disque
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-## **Vérifier une forme de zone de texte**
+Les coordonnées et les dimensions passées à [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/addautoshape/) sont exprimées en points. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/addtextframe/) initialise le cadre de texte avec le texte fourni.
 
-Aspose.Slides fournit la propriété [IsTextBox](https://reference.aspose.com/slides/fr/net/aspose.slides/autoshape/istextbox/) de l’interface [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/) permettant d’examiner les formes et d’identifier les zones de texte.
+## **Vérifier la forme d'une zone de texte**
 
-![Text box and shape](istextbox.png)
+Utilisez la propriété [AutoShape.IsTextBox](https://reference.aspose.com/slides/fr/net/aspose.slides/autoshape/istextbox/) pour déterminer si une forme auto est traitée comme une zone de texte. Cela est utile lorsqu'une présentation contient à la fois des formes auto contenant du texte et des formes purement graphiques.
 
-Ce code C# vous montre comment vérifier si une forme a été créée en tant que zone de texte : 
+![Une zone de texte et une forme](istextbox.png)
 
-```c#
+L'exemple suivant inspecte chaque forme auto d'une présentation :
+
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-Notez que si vous ajoutez simplement une forme automatique avec la méthode `AddAutoShape` de l’interface [IShapeCollection](https://reference.aspose.com/slides/fr/net/aspose.slides/ishapecollection/), la propriété `IsTextBox` de la forme automatique renverra `false`. En revanche, après avoir ajouté du texte à la forme automatique à l’aide de la méthode `AddTextFrame` ou de la propriété `Text`, la propriété `IsTextBox` renvoie `true`.
+Une forme auto nouvellement ajoutée n'est pas considérée comme une zone de texte tant qu'elle ne contient pas de texte non vide. Vous pouvez fournir ce texte via [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/addtextframe/) ou [ITextFrame.Text](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/text/). Ajouter ou affecter une chaîne vide laisse `IsTextBox` à `false` :
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox est false
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox est true
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox est false
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox est true
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox est false
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox est false
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox est false
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox est false
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
+
+Les deux premiers appels affichent `True` ; les deux derniers affichent `False`.
 
 ## **Trouver la forme qui possède un cadre de texte**
 
-Dans du code générique de traitement de texte, vous pouvez recevoir un objet [ITextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/) sans savoir quelle présentation le contient. Utilisez la propriété [ITextFrame.ParentShape](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/parentshape/) pour revenir à la [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/) propriétaire.
+Le code générique de traitement de texte peut recevoir un [ITextFrame](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/) sans connaître l'objet de présentation qui le contient. Utilisez la propriété en lecture seule [ITextFrame.ParentShape](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/parentshape/) pour revenir à son [IShape](https://reference.aspose.com/slides/fr/net/aspose.slides/ishape/) propriétaire.
 
-Pour un cadre de texte qui appartient à un [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/) ou à une autre forme contenant du texte, la propriété [ITextFrame.ParentShape](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/parentshape/) est définie et la propriété [ITextFrame.ParentCell](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/parentcell/) est `null`. Les deux propriétés sont en lecture seule, donc les lire ne modifie pas la propriété. Vérifiez toujours la valeur renvoyée pour `null` avant d’accéder à la forme.
-
-Pour un exemple complet qui identifie les propriétaires de forme et de cellule de tableau, y compris les formes associées aux nœuds SmartArt, consultez [Search and Replace Text](/slides/fr/net/search-and-replace-text/).
+Pour un cadre de texte appartenant à une forme auto ou à une autre forme contenant du texte, `ParentShape` contient le propriétaire et [ITextFrame.ParentCell](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframe/parentcell/) est `null`. Vérifiez la valeur retournée avant de l'utiliser. Pour identifier à la fois les propriétaires de forme et de cellule de tableau, y compris les formes associées aux nœuds SmartArt, consultez [Search and Replace Text](/slides/fr/net/search-and-replace-text/).
 
 ## **Ajouter des colonnes à une zone de texte**
 
-Aspose.Slides fournit les propriétés [ColumnCount](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/properties/columncount) et [ColumnSpacing](https://reference.aspose.com/slides/fr/net/aspose.slides/textframeformat/properties/columnspacing) (de l’interface [ITextFrameFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat) et de la classe [TextFrameFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/textframeformat)) pour vous permettre d’ajouter des colonnes aux zones de texte. Vous spécifiez le nombre de colonnes dans une zone de texte, puis l’espacement en points entre les colonnes. 
+La propriété [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/columncount/) divise le cadre de texte en colonnes, tandis que [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/columnspacing/) définit l'écart entre les colonnes en points. Les deux paramètres appartiennent à [ITextFrameFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/) et peuvent être modifiés via le cadre de texte d'une zone de texte existante. Le texte se répartit entre les colonnes à l'intérieur de la même forme ; il ne continue pas dans une autre forme.
 
-Ce code C# illustre l’opération décrite : 
+L'exemple suivant crée une zone de texte à trois colonnes avec 10 points entre les colonnes, enregistre la présentation et lit les paramètres stockés à partir du fichier de sortie :
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// Obtient la première diapositive de la présentation
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// Ajoute une AutoShape avec le type défini sur Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// Ajoute un TextFrame au Rectangle
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// Obtient le format de texte du TextFrame
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// Spécifie le nombre de colonnes dans le TextFrame
-	format.ColumnCount = 3;
-
-	// Spécifie l'espacement entre les colonnes
-	format.ColumnSpacing = 10;
-
-	// Enregistre la présentation
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **Ajouter des colonnes à un cadre de texte**
+## **Extraire le texte des colonnes individuelles**
 
-Aspose.Slides for .NET fournit la propriété [ColumnCount](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/properties/columncount) (de l’interface [ITextFrameFormat](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat)) qui permet d’ajouter des colonnes dans les cadres de texte. Grâce à cette propriété, vous pouvez spécifier le nombre de colonnes souhaité dans un cadre de texte. 
+Utilisez [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/fr/net/aspose.slides/textframe/splittextbycolumns/) pour récupérer le texte attribué à chaque colonne visuelle d'un cadre de texte existant. La méthode renvoie une chaîne pour chaque colonne, dans l'ordre de lecture basé sur les colonnes. Un cadre de texte à une seule colonne produit un tableau contenant un seul élément, et une colonne vide est représentée par une chaîne vide. Les chaînes contiennent uniquement du texte brut ; le formatage au niveau des portions n’est pas conservé.
 
-Ce code C# vous montre comment ajouter une colonne dans un cadre de texte :
+Cela est utile lorsque vous devez :
 
-```c#
-using System.Diagnostics;
+- Extraire le texte tout en préservant son ordre de lecture par colonne.  
+- Indexer ou comparer le contenu des diapositives multi‑colonnes.  
+- Exporter chaque colonne vers un fichier distinct, un champ de base de données ou une autre destination.  
+- Inspecter comment le texte est redistribué après modification de [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/fr/net/aspose.slides/itextframeformat/columnspacing/), de la police ou de la taille du cadre de texte.
+
+La méthode indique le texte distribué au sein du [ITextFrame] actuel ; elle ne fait pas couler automatiquement le texte entre des formes ou zones de texte distinctes. La distribution en colonnes peut dépendre des polices disponibles et d’autres paramètres de mise en page du texte, assurez‑vous donc que les polices requises sont présentes lorsque des résultats cohérents sont importants.
+
+L'exemple suivant charge une présentation, trouve la première forme auto à colonnes multiples avec un cadre de texte, lit son nombre de colonnes configuré et écrit le texte de chaque colonne dans un fichier séparé. Les formes ne fournissant pas de cadre de texte sont ignorées.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **Mettre à jour le texte**
 
-Aspose.Slides vous permet de modifier ou de mettre à jour le texte contenu dans une zone de texte ou tous les textes d’une présentation. 
+Pour mettre à jour le texte dans l’ensemble d’une présentation, parcourez les diapositives et les formes, sélectionnez les formes auto, puis modifiez leurs portions de texte. Travailler au niveau des portions vous permet de changer à la fois le texte et le formatage des caractères.
 
-Ce code C# montre une opération où tous les textes d’une présentation sont mis à jour ou modifiés :
+L'exemple suivant remplace chaque occurrence de `years` par `months` dans le texte des formes auto et met chaque portion affectée en gras :
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //Vérifie si la forme prend en charge le cadre de texte (IAutoShape). 
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Parcourt les paragraphes du cadre de texte
-               {
-                   foreach (IPortion portion in paragraph.Portions) //Parcourt chaque portion du paragraphe
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //Modifie le texte
-                       portion.PortionFormat.FontBold = NullableBool.True; //Modifie le formatage
-                   }
-               }
-           }
-       }
-   }
-  
-   //Enregistre la présentation modifiée
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **Ajouter une zone de texte avec un hyperlien** 
+Ce parcours ne met à jour le texte que dans les formes auto. Le texte stocké dans les tableaux, graphiques, SmartArt ou formes groupées nécessite un parcours des collections propres à ces objets.
 
-Vous pouvez insérer un lien à l’intérieur d’une zone de texte. Lorsque la zone de texte est cliquée, les utilisateurs sont dirigés vers le lien. 
+## **Ajouter une zone de texte avec un hyperlien**
 
-1. Créez une instance de la classe `Presentation`. 
-2. Obtenez la référence de la première diapositive via son indice.  
-3. Ajoutez un objet `AutoShape` avec la propriété `ShapeType` définie sur `Rectangle` à une position spécifiée sur la diapositive et obtenez la référence de l’objet AutoShape nouvellement ajouté. 
-4. Ajoutez un `TextFrame` à l’objet `AutoShape` contenant *Aspose TextBox* comme texte par défaut. 
-5. Instanciez la classe `IHyperlinkManager`. 
-6. Assignez l’objet `IHyperlinkManager` à la propriété [HyperlinkClick](https://reference.aspose.com/slides/fr/net/aspose.slides/shape/properties/hyperlinkclick) associée à la partie de `TextFrame` que vous souhaitez hyperlier. 
-7. Enfin, écrivez le fichier PPTX via l’objet `Presentation`. 
+Un hyperlien peut être attribué à une portion de texte précise, de sorte que seul ce texte agit comme lien cliquable. Utilisez [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/fr/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) pour associer la portion à une URL externe.
 
-Ce code C#—une implémentation des étapes ci‑dessus—vous montre comment ajouter une zone de texte avec un hyperlien à une diapositive :
+L'exemple suivant crée du texte lié et l’enregistre dans une présentation :
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Instancie une classe Presentation qui représente un PPTX
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// Obtient la première diapositive de la présentation
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// Ajoute un objet AutoShape avec le type défini sur Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// Convertit la forme en AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// Accède à la propriété ITextFrame associée à l'AutoShape
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// Ajoute du texte au cadre
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// Définit le lien hypertexte pour le texte de la portion
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// Enregistre la présentation PPTX
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Quelle est la différence entre une zone de texte et un espace réservé de texte lorsqu’on travaille avec les diapos de maître ?**
+**Quelle est la différence entre une zone de texte et un espace réservé de texte sur une diapositive maître ou de mise en page ?**
 
-Un [placeholder](/slides/fr/net/manage-placeholder/) hérite du style/position du [master](https://reference.aspose.com/slides/fr/net/aspose.slides/masterslide/) et peut être remplacé sur les [layouts](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutslide/), tandis qu’une zone de texte ordinaire est un objet indépendant sur une diapositive spécifique et ne change pas lorsque vous changez de layout.
+Un [placeholder](/slides/fr/net/manage-placeholder/) peut hériter de sa position et de son formatage d’une [master slide](https://reference.aspose.com/slides/fr/net/aspose.slides/masterslide/) ou d’une [layout slide](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutslide/). Une zone de texte ordinaire est une forme indépendante sur la diapositive où elle a été créée et n’acquiert pas le comportement d’espace réservé lorsque la mise en page change.
 
-**Comment effectuer un remplacement massif de texte dans l’ensemble de la présentation sans toucher au texte des graphiques, tableaux et SmartArt ?**
+**Comment remplacer du texte sans modifier le texte dans les graphiques, les tableaux ou le SmartArt ?**
 
-Limitez votre itération aux formes automatiques qui possèdent des cadres de texte et excluez les objets incorporés ([charts](https://reference.aspose.com/slides/fr/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/fr/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/fr/net/aspose.slides.smartart/smartart/)) en parcourant leurs collections séparément ou en sautant ces types d’objets.
+Limitez le parcours aux formes qui implémentent [IAutoShape](https://reference.aspose.com/slides/fr/net/aspose.slides/iautoshape/), comme illustré dans l’exemple Mettre à jour le texte. Les graphiques, tableaux et SmartArt stockent le texte dans leurs propres modèles d’objets, ils ne sont donc pas modifiés par cette boucle.

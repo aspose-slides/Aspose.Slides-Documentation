@@ -1,224 +1,226 @@
 ---
-title: Python でプレゼンテーションのテキスト ボックスを管理する
-linktitle: テキスト ボックスの管理
+title: Python でプレゼンテーションのテキストボックスを管理する
+linktitle: テキストボックスの管理
 type: docs
 weight: 20
 url: /ja/python-net/manage-textbox/
 keywords:
-- テキスト ボックス
-- テキスト フレーム
-- テキスト の追加
-- テキスト の更新
-- テキスト ボックス の作成
-- テキスト ボックス の確認
-- テキスト 列 の追加
-- ハイパーリンク の追加
+- テキストボックス
+- テキストフレーム
+- テキスト追加
+- テキスト更新
+- テキストボックス作成
+- テキストボックス確認
+- テキスト列追加
+- ハイパーリンク追加
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用すると、PowerPoint および OpenDocument ファイル内のテキスト ボックスを簡単に作成、編集、複製でき、プレゼンテーションの自動化を強化します。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストボックスを作成、識別、書式設定、更新します。"
 ---
-## **はじめに**
+## **導入**
 
-スライド上のテキストは通常、テキスト ボックスまたは図形に存在します。そのため、スライドにテキストを追加するには、テキスト ボックスを追加し、そのテキスト ボックス内にテキストを入力する必要があります。Aspose.Slides for Python は、テキストを含む図形を追加できる [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) クラスを提供します。
+Aspose.Slides for Python via .NET では、スライドのテキストはシェイプに属するテキストフレームに格納されます。[AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) クラスは最も一般的なテキストを保持するシェイプを表し、そのテキストは [AutoShape.text_frame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/text_frame/) プロパティで取得できます。
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides には、[Shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shape/) クラスも用意されています。ただし、すべての図形がテキストを保持できるわけではありません。{{% /alert %}}
+{{% alert color="info" title="Note" %}}
+すべての AutoShape は [Shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shape/) を継承しますが、すべてのシェイプが AutoShape であるわけでもテキストフレームをサポートしているわけでもありません。既存のプレゼンテーションを処理する際は、テキストにアクセスする前に `isinstance(shape, slides.AutoShape)` を使用してシェイプのタイプを確認してください。
+{{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-したがって、テキストを追加したい図形を扱う場合は、その図形が [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) クラスにキャストされているか確認することが重要です。これにより、[AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) のプロパティである [TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) を使用できるようになります。このページの [Update Text](/slides/ja/python-net/manage-textbox/#update-text) セクションをご覧ください。{{% /alert %}}
+## **スライド上にテキストボックスを作成する**
 
-## **スライドにテキスト ボックスを作成する**
-
-テキスト ボックスをスライドに作成するには:
-
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. 最初のスライドへの参照を取得します。
-3. スライド上の目的の位置に `ShapeType.RECTANGLE` を指定した [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
-4. 図形の [TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) にテキストを設定します。
-5. プレゼンテーションを PPTX ファイルとして保存します。
-
-以下の Python サンプルがこれらの手順を実装しています。
-
-```py
-import aspose.slides as slides
-
-# Presentation クラスのインスタンスを作成します。
-with slides.Presentation() as presentation:
-
-    # プレゼンテーションの最初のスライドを取得します。
-    slide = presentation.slides[0]
-
-    # タイプ RECTANGLE の AutoShape を追加します。
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    shape.text_frame.text = "Aspose TextBox"
-
-    # プレゼンテーションをディスクに保存します。
-    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **図形がテキスト ボックスかどうかを確認する**
-
-Aspose.Slides は、[AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) クラスに [is_text_box](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/is_text_box/) プロパティを提供しており、図形がテキスト ボックスかどうかを判定できます。
-
-![Text box and shape](istextbox.png)
-
-この Python の例は、図形がテキスト ボックスとして作成されたかどうかを確認する方法を示します。
+テキストボックスを作成するには、スライドに AutoShape を追加し、そのテキストフレームにテキストを設定してプレゼンテーションを保存します。以下の例は長方形のテキストボックスを作成します。
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
-    for slide in presentation.slides:
-        for shape in slide.shapes:
-            if isinstance(shape, slides.AutoShape):
-                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 300, 50)
+    text_box.add_text_frame("Aspose TextBox")
+
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[ShapeCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shapecollection/) クラスを使用して [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加した場合、図形の `is_text_box` プロパティは `False` を返します。ただし、`add_text_frame` メソッドでテキストを追加するか、`text` プロパティを設定すると、`is_text_box` は `True` を返します。
+座標とサイズは [ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shapecollection/add_auto_shape/) にポイント単位で渡されます。[AutoShape.add_text_frame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/add_text_frame/) は指定されたテキストでテキストフレームを初期化します。
 
-```py
+## **テキストボックスシェイプかどうかの確認**
+
+テキストボックスとして扱われるかどうかは、[AutoShape.is_text_box](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/is_text_box/) プロパティで判断できます。プレゼンテーションにテキストを保持する AutoShape と純粋にグラフィックだけの AutoShape が混在している場合に便利です。
+
+![テキストボックスとシェイプ](istextbox.png)
+
+以下の例はプレゼンテーション内のすべての AutoShape を検査します。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 120, 40)
+    text_box.add_text_frame("Text box")
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 10, 40, 40)
+
+    for current_slide in presentation.slides:
+        for shape in current_slide.shapes:
+            if isinstance(shape, slides.AutoShape):
+                print("The shape is a text box." if shape.is_text_box else "The shape is not a text box.")
+```
+
+新しく追加された AutoShape は、空でないテキストが含まれるまでテキストボックスとはみなされません。そのテキストは [AutoShape.add_text_frame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/add_text_frame/) または [TextFrame.text](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/text/) で設定できます。空文字列を追加または代入すると、[is_text_box](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/is_text_box/) は `False` のままです。
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
-    # shape1.is_text_box は false
-    shape1.add_text_frame("shape 1")
-    # shape1.is_text_box は true
+    shape1.add_text_frame("Shape 1")
+    print(shape1.is_text_box)
 
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
-    # shape2.is_text_box は false
-    shape2.text_frame.text = "shape 2"
-    # shape2.is_text_box は true
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 100, 40)
+    shape2.text_frame.text = "Shape 2"
+    print(shape2.is_text_box)
 
-    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
-    # shape3.is_text_box は false
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 100, 40)
     shape3.add_text_frame("")
-    # shape3.is_text_box は false
+    print(shape3.is_text_box)
 
-    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
-    # shape4.is_text_box は false
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 100, 40)
     shape4.text_frame.text = ""
-    # shape4.is_text_box は false
+    print(shape4.is_text_box)
 ```
 
-## **TextFrame を所有する図形を見つける**
+最初の 2 回の呼び出しは `True` を出力し、後の 2 回は `False` を出力します。
 
-一般的なテキスト処理コードでは、どのプレゼンテーションオブジェクトが所有しているか分からないまま [TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) を受け取ることがあります。[TextFrame.parent_shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/parent_shape/) プロパティを使用して、所有する [Shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shape/) に戻ります。
+## **テキストフレームを所有するシェイプを見つける**
 
-[AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) やその他のテキストを含む図形に属するテキスト フレームの場合、[TextFrame.parent_shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/parent_shape/) が設定され、[TextFrame.parent_cell](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/parent_cell/) は `None` です。これらのプロパティは読み取り専用のナビゲーション プロパティであり、取得しても所有権は変わりません。図形にアクセスする前に、返された値が `None` でないことを必ず確認してください。
+汎用的なテキスト処理コードは、どのプレゼンテーションオブジェクトが所有しているか分からないまま [TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) を受け取ることがあります。読み取り専用の [TextFrame.parent_shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/parent_shape/) プロパティを使って、所有する [Shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shape/) に遡ることができます。
 
-SmartArt ノードに関連付けられた図形を含む、図形およびテーブルセルの所有者を特定する完全な例については、[Search and Replace Text](/slides/ja/python-net/search-and-replace-text/) を参照してください。
+AutoShape や他のテキストを保持するシェイプが所有するテキストフレームの場合、[parent_shape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/parent_shape/) に所有者が格納され、[TextFrame.parent_cell](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/parent_cell/) は `None` です。アクセスする前に取得した値を確認してください。シェイプとテーブルセルの所有者（SmartArt ノードに関連付けられたシェイプを含む）を特定するには、[Search and Replace Text](/slides/ja/python-net/search-and-replace-text/) を参照してください。
 
-## **テキスト ボックスに列を追加する**
+## **テキストボックスに列を追加する**
 
-Aspose.Slides は、テキスト ボックスに列を追加するために、[TextFrameFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/) クラスの [column_count](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/column_count/) と [column_spacing](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/column_spacing/) プロパティを提供します。列数を指定し、列間の間隔（ポイント単位）を設定できます。
+[TextFrameFormat.column_count](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/column_count/) プロパティはテキストフレームを列に分割し、[TextFrameFormat.column_spacing](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/column_spacing/) は列間の間隔をポイントで設定します。これらはどちらも [TextFrameFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/) に属し、既存のテキストボックスのテキストフレームを介して変更できます。テキストは同一シェイプ内の列間で再配置され、別のシェイプへは続きません。
 
-以下の Python コードはこの操作を示しています。
+以下の例は、列間 10 ポイントの 3 列テキストボックスを作成し、プレゼンテーションを保存し、出力ファイルから設定を読み戻します。
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 200)
+    text_box.add_text_frame("This text is distributed automatically across all columns in the text box.")
 
-	# プレゼンテーションの最初のスライドを取得します。
-	slide = presentation.slides[0]
+    text_frame_format = text_box.text_frame.text_frame_format
+    text_frame_format.column_count = 3
+    text_frame_format.column_spacing = 10
 
-	# タイプ RECTANGLE の AutoShape を追加します。
-	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    presentation.save("TextBoxColumns.pptx", slides.export.SaveFormat.PPTX)
 
-	# 矩形に TextFrame を追加します。
-	shape.add_text_frame("All of these columns are confined to a single text container—" +
-	"you can add or delete text, and any new or remaining text automatically reflows " +
-	"within the container. You cannot have text flow from one container to another, " +
-	"though—PowerPoint’s column options for text are limited!")
+with slides.Presentation("TextBoxColumns.pptx") as saved_presentation:
+    saved_text_box = saved_presentation.slides[0].shapes[0]
+    if isinstance(saved_text_box, slides.AutoShape):
+        saved_format = saved_text_box.text_frame.text_frame_format
+        print(f"Columns: {saved_format.column_count}; spacing: {saved_format.column_spacing} points")
+```
 
-	# TextFrame のテキスト形式を取得します。
-	format = shape.text_frame.text_frame_format
+## **個々の列からテキストを抽出する**
 
-	# TextFrame の列数を指定します。
-	format.column_count = 3
+既存のテキストフレーム内の各ビジュアル列に割り当てられたテキストを取得するには、[TextFrame.split_text_by_columns](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/split_text_by_columns/) を使用します。このメソッドは列ごとに 1 つの文字列を、列の読み順で返します。単一列のテキストフレームは要素が 1 つのリストを生成し、空の列は空文字列で表されます。返される文字列はプレーンテキストのみで、部分レベルの書式は保持されません。
 
-	# 列間の間隔を指定します。
-	format.column_spacing = 10
+これは次のような場合に便利です：
 
-	# プレゼンテーションを保存します。
-	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+- 列ベースの読み順を保ったままテキストを抽出する。
+- マルチ列スライドの内容をインデックス化または比較する。
+- 各列を別々のファイル、データベースフィールド、またはその他の宛先にエクスポートする。
+- フォントやテキストフレームのサイズ、[TextFrameFormat.column_count](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/column_count/)、[TextFrameFormat.column_spacing](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframeformat/column_spacing/) を変更した後、テキストがどのように再配置されるかを調査する。
+
+このメソッドは現在の [TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) 内に配分されたテキストを報告します。別々のシェイプやテキストボックス間で自動的にテキストが流れることはありません。列の配分は利用可能なフォントやその他のテキストレイアウト設定に依存するため、一貫した結果が必要な場合は必要なフォントが利用可能であることを確認してください。
+
+以下の例はプレゼンテーションを読み込み、テキストフレームを持つ最初のマルチ列 AutoShape を見つけ、設定された列数を取得し、各列のテキストを別々のファイルに書き出します。テキストフレームを持たないシェイプはスキップされます。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("MultiColumnText.pptx") as presentation:
+    text_box = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+            column_count = shape.text_frame.text_frame_format.column_count
+            if column_count > 1:
+                text_box = shape
+                break
+
+    if text_box is None:
+        print("No multi-column text frame was found.")
+    else:
+        text_frame = text_box.text_frame
+        configured_column_count = text_frame.text_frame_format.column_count
+        column_texts = text_frame.split_text_by_columns()
+
+        print(f"Configured columns: {configured_column_count}")
+
+        for column_number, column_text in enumerate(column_texts, start=1):
+            print(f"Column {column_number}: {column_text}")
+            with open(f"Column-{column_number}.txt", "w", encoding="utf-8") as column_file:
+                column_file.write(column_text)
 ```
 
 ## **テキストの更新**
 
-Aspose.Slides を使用すると、単一のテキスト ボックスまたはプレゼンテーション全体のテキストを更新できます。
+プレゼンテーション全体のテキストを更新するには、スライドとシェイプを順に走査し、AutoShape を選択してテキストの部分を編集します。部分レベルで作業することで、テキストと文字書式の両方を変更できます。
 
-以下の Python の例は、プレゼンテーション内のすべてのテキストを更新する方法を示しています。
+以下の例は、AutoShape のテキスト内の `years` をすべて `months` に置換し、対象となった部分を太字にします。
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
+with slides.Presentation("Text.pptx") as presentation:
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                for paragraph in shape.text_frame.paragraphs:
-                    for portion in paragraph.portions:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if "years" in portion.text:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = slides.NullableBool.TRUE
-  
-    # 変更したプレゼンテーションを保存します。
+
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ハイパーリンク付きテキスト ボックスを追加する**
+この走査は AutoShape のテキストのみを更新します。テーブル、チャート、SmartArt、またはグループ化されたシェイプに格納されたテキストは、それらオブジェクトのコレクションを走査する必要があります。
 
-テキスト ボックスにリンクを挿入できます。テキスト ボックスがクリックされると、リンクが開きます。
+## **ハイパーリンク付きテキストボックスの追加**
 
-ハイパーリンクを含むテキスト ボックスを追加するには、次の手順を実行します。
+ハイパーリンクは特定のテキスト部分に割り当てることができ、その部分だけがクリック可能なリンクになります。[HyperlinkManager.set_external_hyperlink_click](https://reference.aspose.com/slides/ja/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/) を使用して、部分と外部 URL を関連付けます。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. 最初のスライドへの参照を取得します。
-3. スライド上の目的の位置に `ShapeType.RECTANGLE` を指定した [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
-4. 図形の [TextFrame](https://reference.aspose.com/slides/ja/python-net/aspose.slides/textframe/) にテキストを設定します。
-5. [HyperlinkManager](https://reference.aspose.com/slides/ja/python-net/aspose.slides/hyperlinkmanager/) への参照を取得します。
-6. `hyperlink_manager` プロパティを使用して外部クリック ハイパーリンクを設定します。
-7. プレゼンテーションを PPTX ファイルとして保存します。
+以下の例はリンク付きテキストを作成し、プレゼンテーションに保存します。
 
-この Python の例は、スライドにハイパーリンク付きテキスト ボックスを追加する方法を示しています。
-
-```py
+```python
 import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成します。
 with slides.Presentation() as presentation:
-
-    # プレゼンテーションの最初のスライドを取得します。
     slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 200, 50)
+    text_box.add_text_frame("Aspose.Slides")
 
-    # タイプ RECTANGLE の AutoShape を追加します。
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    text_portion = text_box.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_manager.set_external_hyperlink_click("https://www.aspose.com/")
 
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    # フレームにテキストを追加します。
-    text_portion.text = "Aspose.Slides"
-
-    # テキスト部分にハイパーリンクを設定します。
-    hyperlink_manager = text_portion.portion_format.hyperlink_manager
-    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
-
-    # プレゼンテーションを PPTX ファイルとして保存します。
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**マスタースライドで作業する際のテキスト ボックスとテキスト プレースホルダーの違いは何ですか？**
+**テキストボックスとマスターまたはレイアウトスライド上のテキストプレースホルダーの違いは何ですか？**
 
-[placeholder](/slides/ja/python-net/manage-placeholder/) は [master](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslide/) からスタイルと位置を継承し、[layouts](https://reference.aspose.com/slides/ja/python-net/aspose.slides/layoutslide/) で上書きできます。一方、通常のテキスト ボックスは特定のスライド上の独立したオブジェクトであり、レイアウトを切り替えても変わりません。
+[placeholder](/slides/ja/python-net/manage-placeholder/) は、[master slide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslide/) または [layout slide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/layoutslide/) から位置と書式を継承できます。通常のテキストボックスは作成されたスライド上の独立したシェイプであり、レイアウトが変更されてもプレースホルダーの動作を取得しません。
 
-**チャート、テーブル、SmartArt 内のテキストを変更せずに、プレゼンテーション全体で一括テキスト置換を行うにはどうすればよいですか？**
+**チャート、テーブル、または SmartArt のテキストを変更せずにテキストを置換するにはどうすればよいですか？**
 
-テキスト フレームを持つ AutoShape のみを対象に反復処理し、埋め込みオブジェクト（[charts](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chart/)、[tables](https://reference.aspose.com/slides/ja/python-net/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/ja/python-net/aspose.slides.smartart/smartart/)）はそれぞれのコレキションを別途走査するか、該当するオブジェクトタイプをスキップすることで除外します。
+Update Text の例のように、走査を [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) のインスタンスに限定してください。チャート、テーブル、SmartArt はそれぞれ独自のオブジェクトモデルにテキストを保持しているため、そのループでは変更されません。

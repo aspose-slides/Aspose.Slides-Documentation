@@ -6,7 +6,7 @@ weight: 20
 url: /nl/net/manage-textbox/
 keywords:
 - tekstvak
-- tekstframe
+- tekstkader
 - tekst toevoegen
 - tekst bijwerken
 - tekstvak maken
@@ -18,302 +18,247 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides voor .NET maakt het eenvoudig om tekstvakken te maken, te bewerken en te dupliceren in PowerPoint- en OpenDocument-bestanden, waardoor uw presentatiesautomatisering wordt verbeterd."
+description: "Maak, identificeer, formatteer en werk tekstvakken bij in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor .NET."
 ---
-## **Introductie**
+## **Inleiding**
 
-Teksten op dia's bestaan meestal in tekstvakken of vormen. Daarom moet je eerst een tekstvak toevoegen en vervolgens wat tekst in het tekstvak plaatsen.
+In Aspose.Slides for .NET wordt de tekst van dia's opgeslagen in tekstkaders die behoren tot vormen. De [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) interface vertegenwoordigt de meest voorkomende vorm die tekst bevat en maakt de tekst beschikbaar via de eigenschap [IAutoShape.TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/textframe/).
 
-Om je een vorm toe te voegen die tekst kan bevatten, biedt Aspose.Slides voor .NET de [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape) interface. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides biedt ook de [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape) interface om vormen toe te voegen aan dia's. Echter, niet alle vormen die via de `IShape`-interface worden toegevoegd, kunnen tekst bevatten. Vormen die via de [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape) interface worden toegevoegd, bevatten doorgaans tekst. 
-
-Daarom wil je bij het werken met een bestaande vorm waaraan je tekst wilt toevoegen, controleren en bevestigen dat deze via de `IAutoShape`-interface is gecast. Alleen dan kun je werken met [TextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/properties/textframe), een eigenschap onder `IAutoShape`. Zie de sectie [Update Text](https://docs.aspose.com/slides/nl/net/manage-textbox/#update-text) op deze pagina. 
-
+{{% alert color="info" title="Opmerking" %}}
+Elke auto-vorm implementeert [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/), maar niet elke vorm is een auto-vorm of ondersteunt een tekstkader. Bij het verwerken van een bestaande presentatie controleer je of een vorm `IAutoShape` implementeert voordat je de tekst benadert.
 {{% /alert %}}
 
-## **Maak een tekstvak op een dia**
+## **Maak een Tekstvak op een Dia**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation) klasse. 
-2. Haal de referentie van de eerste dia op via de index. 
-3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape) object toe met [ShapeType](https://reference.aspose.com/slides/nl/net/aspose.slides/igeometryshape/properties/shapetype) ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg de referentie voor het nieuw toegevoegde `IAutoShape` object. 
-4. Voeg een `TextFrame`-eigenschap toe aan het `IAutoShape` object die tekst zal bevatten. In het onderstaande voorbeeld hebben we deze tekst toegevoegd: *Aspose TextBox* 
-5. Schrijf tenslotte het PPTX‑bestand weg via het `Presentation` object. 
+Om een tekstvak te maken, voeg je een auto-vorm toe aan een dia, voeg je tekst toe aan het tekstkader en sla je de presentatie op. Het volgende voorbeeld maakt een rechthoekig tekstvak:
 
-Deze C#‑code – een implementatie van de bovenstaande stappen – toont hoe je tekst aan een dia toevoegt:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Instancieert PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // Haalt de eerste dia op in de presentatie
-    ISlide sld = pres.Slides[0];
-
-    // Voegt een AutoShape toe met type ingesteld op Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Voegt TextFrame toe aan de Rectangle
-    ashp.AddTextFrame(" ");
-
-    // Benadert het tekstframe
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // Creëert het Paragraph-object voor het tekstframe
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Creëert een Portion-object voor de alinea
-    IPortion portion = para.Portions[0];
-
-    // Stelt de tekst in
-    portion.Text = "Aspose TextBox";
-
-    // Slaat de presentatie op schijf op
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-## **Controleer op een tekstvakvorm**
+De coördinaten en afmetingen die aan [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addautoshape/) worden doorgegeven, worden gemeten in punten. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/addtextframe/) initialiseert het tekstkader met de opgegeven tekst.
 
-Aspose.Slides biedt de [IsTextBox](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/istextbox/) eigenschap van de [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) interface, waarmee je vormen kunt onderzoeken en tekstvakken kunt identificeren.
+## **Controleren op een Tekstvakvorm**
 
-![Text box and shape](istextbox.png)
+Gebruik de eigenschap [AutoShape.IsTextBox](https://reference.aspose.com/slides/nl/net/aspose.slides/autoshape/istextbox/) om te bepalen of een auto-vorm wordt behandeld als een tekstvak. Dit is nuttig wanneer een presentatie zowel tekstdragende als puur grafische auto-vormen bevat.
 
-Deze C#‑code laat zien hoe je controleert of een vorm is gemaakt als tekstvak: 
+![Een tekstvak en een vorm](istextbox.png)
 
-```c#
+Het volgende voorbeeld inspecteert elke auto-vorm in een presentatie:
+
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
-}
-```
-
-Let op dat wanneer je simpelweg een autoshape toevoegt met de `AddAutoShape`‑methode van de [IShapeCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/) interface, de `IsTextBox`‑eigenschap van de autoshape `false` teruggeeft. Nadat je echter tekst aan de autoshape toevoegt met de `AddTextFrame`‑methode of de `Text`‑eigenschap, geeft de `IsTextBox`‑eigenschap `true` terug.
-
-```cs
-using Aspose.Slides;
-
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox is false
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox is true
-
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox is false
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox is true
-
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox is false
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox is false
-
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox is false
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox is false
-}
-```
-
-## **Vind de vorm die een TextFrame bezit**
-
-In generieke tekstverwerkingscode kun je een [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) ontvangen zonder te weten welk presentatie‑object deze bevat. Gebruik de [ITextFrame.ParentShape](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/parentshape/) eigenschap om terug te navigeren naar de eigenaar‑[IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/).
-
-Voor een tekstframe dat behoort tot een [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) of een andere tekstbevattende vorm, is [ITextFrame.ParentShape](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/parentshape/) ingesteld en is [ITextFrame.ParentCell](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/parentcell/) `null`. Beide eigenschappen zijn alleen‑lezen navigatie‑eigenschappen, dus het lezen ervan wijzigt het eigenaarschap niet. Controleer altijd de geretourneerde waarde op `null` voordat je de vorm benadert.
-
-Voor een volledig voorbeeld dat vorm‑ en tabelcel‑eigenaren identificeert, inclusief vormen die gekoppeld zijn aan SmartArt‑knooppunten, zie [Search and Replace Text](/slides/nl/net/search-and-replace-text/).
-
-## **Voeg kolommen toe aan een tekstvak**
-
-Aspose.Slides biedt de [ColumnCount](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/properties/columncount) en [ColumnSpacing](https://reference.aspose.com/slides/nl/net/aspose.slides/textframeformat/properties/columnspacing) eigenschappen (van de [ITextFrameFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat) interface en de [TextFrameFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/textframeformat) klasse) om kolommen toe te voegen aan tekstvakken. Je kunt het aantal kolommen in een tekstvak opgeven en vervolgens de tussenruimte in punten tussen de kolommen bepalen. 
-
-Deze C#‑code demonstreert de beschreven bewerking: 
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation presentation = new Presentation())
-{
-	// Haalt de eerste dia op in de presentatie
-	ISlide slide = presentation.Slides[0];
-
-	// Voegt een AutoShape toe met type ingesteld op Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-	// Voegt TextFrame toe aan de Rectangle
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
-
-	// Haalt het tekstformaat van TextFrame op
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// Specificeert het aantal kolommen in TextFrame
-	format.ColumnCount = 3;
-
-	// Specificeert de afstand tussen de kolommen
-	format.ColumnSpacing = 10;
-
-	// Slaat de presentatie op
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Voeg kolommen toe aan een TextFrame**
-
-Aspose.Slides voor .NET biedt de [ColumnCount](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/properties/columncount) eigenschap (van de [ITextFrameFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat) interface) waarmee je kolommen kunt toevoegen in tekstframes. Via deze eigenschap kun je het gewenste aantal kolommen in een tekstframe opgeven. 
-
-Deze C#‑code laat zien hoe je een kolom toevoegt binnen een tekstframe:
-
-```c#
-using System.Diagnostics;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
-{
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
-    }
-
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
     }
 }
 ```
 
-## **Tekst bijwerken**
+Een nieuw toegevoegde auto-vorm wordt niet beschouwd als een tekstvak totdat deze niet-lege tekst bevat. Je kunt die tekst leveren via [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/addtextframe/) of [ITextFrame.Text](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/text/). Het toevoegen of toewijzen van een lege tekenreeks laat `IsTextBox` op `false` staan:
 
-Aspose.Slides stelt je in staat de tekst in een tekstvak of alle teksten in een presentatie te wijzigen of bij te werken. 
+```csharp
+using System;
+using Aspose.Slides;
 
-Deze C#‑code toont een bewerking waarbij alle teksten in een presentatie worden bijgewerkt of aangepast:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
+
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
+
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
+
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
+```
+
+De eerste twee oproepen geven `True` weer; de laatste twee geven `False` weer.
+
+## **Vind de Vorm die een Tekstkader Bezit**
+
+Generieke tekstverwerkingscode kan een [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) ontvangen zonder te weten welk presentatie-object het bevat. Gebruik de alleen-lezen eigenschap [ITextFrame.ParentShape](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/parentshape/) om terug te navigeren naar de bijbehorende [IShape](https://reference.aspose.com/slides/nl/net/aspose.slides/ishape/).
+
+Voor een tekstkader dat eigendom is van een auto-vorm of een andere tekstdragende vorm, bevat `ParentShape` de eigenaar en is [ITextFrame.ParentCell](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/parentcell/) `null`. Controleer de geretourneerde waarde voordat je deze benadert. Om zowel vorm- als tabelcel-eigenaren te identificeren, inclusief vormen die gekoppeld zijn aan SmartArt-knooppunten, zie [Zoeken en Vervangen van Tekst](/slides/nl/net/search-and-replace-text/).
+
+## **Kolommen Toevoegen aan een Tekstvak**
+
+De eigenschap [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/columncount/) verdeelt het tekstkader in kolommen, terwijl [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/columnspacing/) de ruimte tussen kolommen in punten instelt. Beide instellingen behoren tot [ITextFrameFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/) en kunnen worden aangepast via het tekstkader van een bestaand tekstvak. Tekst wordt opnieuw verdeeld tussen kolommen binnen dezelfde vorm; het gaat niet verder naar een andere vorm.
+
+Het volgende voorbeeld maakt een tekstvak met drie kolommen en 10 punten tussen de kolommen, slaat de presentatie op en leest de opgeslagen instellingen terug uit het uitvoerbestand:
+
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
+
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
+
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
+```
+
+## **Tekst Extracten uit Individuele Kolommen**
+
+Gebruik [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/nl/net/aspose.slides/textframe/splittextbycolumns/) om de tekst op te halen die aan elke visuele kolom in een bestaand tekstkader is toegewezen. De methode retourneert één tekenreeks voor elke kolom, in kolomgebaseerde leesvolgorde. Een tekstkader met één kolom levert een array met één element op, en een lege kolom wordt weergegeven door een lege tekenreeks. De tekenreeksen bevatten alleen platte tekst; opgedeelde opmaak wordt niet bewaard.
+
+Dit is nuttig wanneer je moet:
+- Tekst extraheren terwijl de kolomgebaseerde leesvolgorde behouden blijft.
+- De inhoud van dia's met meerdere kolommen indexeren of vergelijken.
+- Elke kolom exporteren naar een apart bestand, database-veld of andere bestemming.
+- Controleren hoe tekst opnieuw wordt verdeeld na het wijzigen van [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframeformat/columnspacing/), het lettertype of de grootte van het tekstkader.
+
+De methode rapporteert de tekst die binnen het huidige [ITextFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/itextframe/) is verdeeld; het laat tekst niet automatisch vloeien tussen afzonderlijke vormen of tekstvakken. Kolomverdeling kan afhankelijk zijn van beschikbare lettertypen en andere tekst-lay-outinstellingen, dus zorg ervoor dat de benodigde lettertypen beschikbaar zijn wanneer consistente resultaten belangrijk zijn.
+
+Het volgende voorbeeld laadt een presentatie, vindt de eerste auto-vorm met meerdere kolommen en een tekstkader, leest het geconfigureerde aantal kolommen, en schrijft de tekst van elke kolom naar een apart bestand. Vormen die geen tekstkader bieden, worden overgeslagen.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //Controleert of vorm een tekstframe ondersteunt (IAutoShape). 
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Itereert door alinea's in het tekstframe
-               {
-                   foreach (IPortion portion in paragraph.Portions) //Itereert door elk gedeelte in de alinea
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //Wijzigt de tekst
-                       portion.PortionFormat.FontBold = NullableBool.True; //Wijzigt opmaak
-                   }
-               }
-           }
-       }
-   }
-  
-   //Slaat de aangepaste presentatie op
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
+    {
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
+}
+
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
+
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
+    {
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
+    }
 }
 ```
 
-## **Voeg een tekstvak met een hyperlink toe**
+## **Tekst Bijwerken**
 
-Je kunt een link invoegen in een tekstvak. Wanneer op het tekstvak wordt geklikt, worden gebruikers doorgestuurd naar de link. 
+Om tekst in een hele presentatie bij te werken, doorloop je de dia's en vormen, selecteer je auto-vormen en bewerk je vervolgens hun tekstdelen. Werken op het niveau van delen stelt je in staat zowel tekst als teken-opmaak te wijzigen.
 
-1. Maak een instantie van de `Presentation` klasse. 
-2. Haal de referentie van de eerste dia op via de index.  
-3. Voeg een `AutoShape` object toe met `ShapeType` ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg een referentie naar het nieuw toegevoegde AutoShape‑object. 
-4. Voeg een `TextFrame` toe aan het `AutoShape` object dat *Aspose TextBox* bevat als standaardtekst. 
-5. Instantieer de `IHyperlinkManager` klasse. 
-6. Wijs het `IHyperlinkManager` object toe aan de [HyperlinkClick](https://reference.aspose.com/slides/nl/net/aspose.slides/shape/properties/hyperlinkclick) eigenschap die verbonden is met het gewenste gedeelte van het `TextFrame`. 
-7. Schrijf tenslotte het PPTX‑bestand weg via het `Presentation` object. 
+Het volgende voorbeeld vervangt elke instantie van `years` door `months` in auto-vormtekst en maakt elk getroffen deel vet:
 
-Deze C#‑code – een implementatie van de bovenstaande stappen – laat zien hoe je een tekstvak met een hyperlink aan een dia toevoegt:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Instantieert een Presentation-klasse die een PPTX vertegenwoordigt
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation("Text.pptx");
 
-// Haalt de eerste dia op in de presentatie
-ISlide slide = pptxPresentation.Slides[0];
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
 
-// Voegt een AutoShape-object toe met type ingesteld op Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
+}
 
-// Converteert de vorm naar AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
+```
 
-// Benadert de ITextFrame eigenschap die bij de AutoShape hoort
-pptxAutoShape.AddTextFrame("");
+Deze doorloop werkt alleen tekst bij in auto-vormen. Tekst die is opgeslagen in tabellen, grafieken, SmartArt of gegroepeerde vormen vereist een doorloop van de eigen collecties van die objecten.
 
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
+## **Een Tekstvak Toevoegen met een Hyperlink**
 
-// Voegt wat tekst toe aan het frame
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
+Een hyperlink kan aan een specifiek tekstddeel worden toegewezen, zodat alleen die tekst als klikbare link fungeert. Gebruik [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/nl/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) om het deel te koppelen aan een externe URL.
 
-// Stelt de hyperlink in voor de tekst van het gedeelte
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
+Het volgende voorbeeld maakt gelinkte tekst aan en slaat deze op in een presentatie:
 
-// Slaat de PPTX-presentatie op
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
+
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
+
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Wat is het verschil tussen een tekstvak en een tekst‑placeholder bij het werken met masterslides?**
+**Wat is het verschil tussen een tekstvak en een tekst‑placeholder op een master‑ of layout‑dia?**
 
-Een [placeholder](/slides/nl/net/manage-placeholder/) erft stijl/positie van de [master](https://reference.aspose.com/slides/nl/net/aspose.slides/masterslide/) en kan worden overschreven op [layouts](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutslide/), terwijl een regulier tekstvak een onafhankelijk object is op een specifieke dia en niet verandert wanneer je van layout wisselt.
+Een [placeholder](/slides/nl/net/manage-placeholder/) kan zijn positie en opmaak overnemen van een [master‑dia](https://reference.aspose.com/slides/nl/net/aspose.slides/masterslide/) of [layout‑dia](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutslide/). Een regulier tekstvak is een onafhankelijke vorm op de dia waarop het is gemaakt en krijgt geen placeholder‑gedrag wanneer de lay‑out verandert.
 
-**Hoe kan ik een bulk‑tekstvervanging uitvoeren in de hele presentatie zonder tekst in diagrammen, tabellen en SmartArt aan te raken?**
+**Hoe kan ik tekst vervangen zonder de tekst in grafieken, tabellen of SmartArt te wijzigen?**
 
-Beperk je iteratie tot autoshapes die tekstframes hebben en sluit ingesloten objecten ([charts](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/nl/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/nl/net/aspose.slides.smartart/smartart/)) uit door hun collecties apart te doorlopen of die objecttypen over te slaan.
+Beperk de doorloop tot vormen die [IAutoShape](https://reference.aspose.com/slides/nl/net/aspose.slides/iautoshape/) implementeren, zoals getoond in het voorbeeld Tekst Bijwerken. Grafieken, tabellen en SmartArt slaan tekst op in hun eigen objectmodellen, dus die worden niet aangepast door die lus.

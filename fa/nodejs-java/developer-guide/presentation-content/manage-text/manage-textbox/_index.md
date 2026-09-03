@@ -1,12 +1,12 @@
 ---
-title: مدیریت جعبه‌های متن در ارائه‌ها با استفاده از JavaScript
+title: مدیریت جعبه‌های متن در ارائه‌ها با JavaScript
 linktitle: مدیریت جعبه متن
 type: docs
 weight: 20
 url: /fa/nodejs-java/manage-textbox/
 keywords:
 - جعبه متن
-- چارچوب متن
+- فریم متن
 - افزودن متن
 - به‌روزرسانی متن
 - ایجاد جعبه متن
@@ -16,98 +16,64 @@ keywords:
 - پاورپوینت
 - ارائه
 - Node.js
-- JavaScript
+- جاوااسکریپت
 - Aspose.Slides
-description: "Aspose.Slides برای Node.js ایجاد، ویرایش و تکثیر جعبه‌های متن در فایل‌های PowerPoint و OpenDocument را آسان می‌سازد و خودکارسازی ارائه‌های شما را بهبود می‌بخشد."
+description: "ایجاد، شناسایی، قالب‌بندی و به‌روزرسانی جعبه‌های متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Node.js از طریق Java."
 ---
 ## **مقدمه**
 
-متن‌ها در اسلایدها معمولاً در جعبه‌های متن یا شکل‌ها وجود دارند. بنابراین، برای افزودن متن به یک اسلاید، باید یک جعبه متن اضافه کنید و سپس متنی داخل آن قرار دهید. Aspose.Slides برای Node.js از طریق Java کلاس [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/AutoShape) را فراهم می‌کند که به شما امکان افزودن شکلی حاوی متن را می‌دهد.
+در Aspose.Slides برای Node.js از طریق Java، متن اسلاید در فریم‌های متنی که به اشکال تعلق دارند ذخیره می‌شود. کلاس [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) نشان‌دهنده رایج‌ترین شکل حامل متن است و متن آن را از طریق متد [AutoShape.getTextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/#getTextFrame) نمایش می‌دهد.
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides همچنین کلاس [Shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape) را فراهم می‌کند که به شما امکان افزودن شکل‌ها به اسلایدها را می‌دهد. اما همهٔ شکل‌های اضافه‌شده از طریق کلاس `Shape` می‌توانند متن را نگه دارند. اما شکل‌هایی که از طریق کلاس [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/AutoShape) اضافه می‌شوند می‌توانند متن داشته باشند.
-
+{{% alert color="info" title="Note" %}}
+هر شکل خودکار از [Shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/) مشتق می‌شود، اما هر شکل یک شکل خودکار نیست یا فریم متنی را پشتیبانی نمی‌کند. هنگام پردازش یک ارائه موجود، قبل از دسترسی به متن، بررسی کنید که یک شکل نمونه‌ای از [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) باشد.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
+## **ایجاد یک جعبه متن در اسلاید**
 
-بنابراین، وقتی با شکلی که می‌خواهید متن به آن اضافه کنید سروکار دارید، ممکن است بخواهید بررسی و تأیید کنید که آن از طریق کلاس `AutoShape` تبدیل شده است. تنها در این صورت می‌توانید با [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/TextFrame) که یک ویژگی تحت `AutoShape` است کار کنید. بخش [Update Text](https://docs.aspose.com/slides/fa/nodejs-java/manage-textbox/#update-text) را در این صفحه ببینید.
-
-{{% /alert %}}
-
-## **ایجاد جعبه متن در اسلاید**
-
-برای ایجاد یک جعبه متن در اسلاید، این مراحل را دنبال کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع اولین اسلاید در ارائهٔ تازه‌ساخته‌شده را دریافت کنید.  
-3. یک شیء [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/AutoShape) با [ShapeType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) تنظیم‌شده به `Rectangle` در موقعیت مشخصی روی اسلاید اضافه کنید و مرجع شیء `AutoShape` جدید را به دست آورید.  
-4. یک ویژگی `TextFrame` به شیء `AutoShape` اضافه کنید که متنی درون آن قرار می‌گیرد. در مثال زیر این متن را اضافه کردیم: *Aspose TextBox*  
-5. در نهایت، فایل PPTX را از طریق شیء `Presentation` بنویسید.  
-
-این کد JavaScript—اجرای مراحل فوق—نحوه افزودن متن به یک اسلاید را نشان می‌دهد:
+برای ایجاد یک جعبه متن، یک شکل خودکار را به اسلاید اضافه کنید، متن را به فریم متنی آن اضافه کنید و ارائه را ذخیره کنید. مثال زیر یک جعبه متن مستطیلی ایجاد می‌کند:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// نمونه‌سازی Presentation
-// دریافت اولین اسلاید در ارائه
-// افزودن AutoShape با نوع تنظیم‌شده به Rectangle
-// افزودن TextFrame به Rectangle
-// دسترسی به فریم متن
-// ایجاد شیء Paragraph برای فریم متن
-// ایجاد شیء Portion برای پاراگراف
-// تنظیم متن
-// ذخیره ارائه در دیسک
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Gets the first slide in the presentation
-    var sld = pres.getSlides().get_Item(0);
-    // Adds an AutoShape with type set as Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Adds TextFrame to the Rectangle
-    ashp.addTextFrame(" ");
-    // Accesses the text frame
-    var txtFrame = ashp.getTextFrame();
-    // Creates the Paragraph object for text frame
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Creates a Portion object for paragraph
-    var portion = para.getPortions().get_Item(0);
-    // Sets Text
-    portion.setText("Aspose TextBox");
-    // Saves the presentation to disk
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+مختصات و ابعادی که به [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/#addAutoShape) ارسال می‌شوند بر حسب نقطه اندازه‌گیری می‌شوند. [AutoShape.addTextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/#addTextFrame) فریم متنی را با متن ارائه‌شده مقداردهی اولیه می‌کند.
+
 ## **بررسی شکل جعبه متن**
 
-Aspose.Slides متد [isTextBox](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/#isTextBox) را از کلاس [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) فراهم می‌کند که به شما امکان بررسی شکل‌ها و شناسایی جعبه‌های متن را می‌دهد.
+از متد [AutoShape.isTextBox](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/#isTextBox) برای تعیین اینکه آیا یک شکل خودکار به‌عنوان جعبه متن در نظر گرفته می‌شود استفاده کنید. این متد زمانی مفید است که یک ارائه شامل هر دو شکل خودکار حامل متن و شکل‌های صرفاً گرافیکی باشد.
 
-![Text box and shape](istextbox.png)
+![یک جعبه متن و یک شکل](istextbox.png)
 
-این کد JavaScript نشان می‌دهد چگونه بررسی کنید آیا یک شکل به‌عنوان جعبه متن ایجاد شده است یا نه:
+مثال زیر هر شکل خودکار در یک ارائه را بررسی می‌کند:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -116,233 +82,219 @@ try {
 }
 ```
 
-توجه داشته باشید که اگر فقط یک AutoShape را با متد `addAutoShape` از کلاس [ShapeCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/) اضافه کنید، متد `isTextBox` برای آن AutoShape مقدار `false` را برمی‌گرداند. اما پس از افزودن متن به AutoShape با استفاده از متد `addTextFrame` یا `setText`، ویژگی `isTextBox` مقدار `true` می‌دهد.
+یک شکل خودکار جدید تا زمانی که متن غیر خالی داشته باشد به‌عنوان جعبه متن در نظر گرفته نمی‌شود. می‌توانید آن متن را از طریق [AutoShape.addTextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/#addTextFrame) یا [TextFrame.setText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#setText) تأمین کنید. افزودن یا اختصاص یک رشته خالی باعث می‌شود [AutoShape.isTextBox](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/#isTextBox) مقدار `false` برگرداند:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() مقدار false را برمی‌گرداند
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() مقدار true را برمی‌گرداند
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() مقدار false را برمی‌گرداند
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() مقدار true را برمی‌گرداند
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() مقدار false را برمی‌گرداند
-shape3.addTextFrame("");
-// shape3.isTextBox() مقدار false را برمی‌گرداند
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() مقدار false را برمی‌گرداند
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() مقدار false را برمی‌گرداند
-```
-
-## **یافتن شکلی که مالک TextFrame است**
-
-در کدهای عمومی پردازش متن، ممکن است یک [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) دریافت کنید بدون اینکه بدانید کدام شیء ارائه آن را شامل می‌شود. از متد [TextFrame.getParentShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#getParentShape--) برای بازگشت به [Shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/) مالک استفاده کنید.
-
-برای یک TextFrame که به یک [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) یا شکل دیگری حاوی متن تعلق دارد، متد [TextFrame.getParentShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#getParentShape--) مالک را برمی‌گرداند و متد [TextFrame.getParentCell](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#getParentCell--) مقدار `null` برمی‌گرداند. هر دو متد مسیریابی فقط‑خواندنی هستند، بنابراین فراخوانی آن‌ها مالکیت را تغییر نمی‌دهد. همیشه قبل از دسترسی به شکل، مقدار برگشتی را برای `null` بررسی کنید.
-
-برای مثال کامل که مالکین شکل و سلول جدول را شناسایی می‌کند، از جمله شکل‌های مرتبط با گره‌های SmartArt، به [Search and Replace Text](/slides/fa/nodejs-java/search-and-replace-text/) مراجعه کنید.
-
-## **افزودن ستون در جعبه متن**
-
-Aspose.Slides متدهای [setColumnCount](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) و [setColumnSpacing](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) را از کلاس [TextFrameFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/TextFrameFormat) ارائه می‌دهد که به شما امکان افزودن ستون‌ها به جعبه‌های متن را می‌دهد. می‌توانید تعداد ستون‌ها را در یک جعبه متن مشخص کنید و فاصلهٔ بین ستون‌ها را بر حسب پوینت تنظیم کنید.
-
-این کد JavaScript عملیات توصیف‌شده را نشان می‌دهد:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // دریافت اولین اسلاید در ارائه
-    var slide = pres.getSlides().get_Item(0);
-    // افزودن AutoShape با نوع تنظیم‌شده به Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // افزودن TextFrame به Rectangle
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // دریافت قالب متن TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // تعیین تعداد ستون‌ها در TextFrame
-    format.setColumnCount(3);
-    // تعیین فاصله بین ستون‌ها
-    format.setColumnSpacing(10);
-    // ذخیرهٔ ارائه
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **افزودن ستون در TextFrame**
+دو فراخوانی اول `true` چاپ می‌کنند؛ دو فراخوانی آخر `false` چاپ می‌کنند.
 
-Aspose.Slides برای Node.js از طریق Java متد [setColumnCount](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) را از کلاس [TextFrameFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/TextFrameFormat) فراهم می‌کند که به شما امکان افزودن ستون‌ها در TextFrameها را می‌دهد. از طریق این ویژگی می‌توانید تعداد ستون‌های دلخواه خود را در یک TextFrame مشخص کنید.
+## **یافتن شکلی که فریم متن را در اختیار دارد**
 
-این کد JavaScript نشان می‌دهد چگونه یک ستون داخل TextFrame اضافه کنید:
+کد عمومی پردازش متن ممکن است یک [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) دریافت کند بدون اینکه بداند کدام شیء ارائه آن را در خود دارد. از متد فقط‑خواندنی [TextFrame.getParentShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#getParentShape) برای بازگشت به [Shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shape/) مالک آن استفاده کنید.
+
+برای فریم متنی که به یک شکل خودکار یا شکل دیگری حامل متن تعلق دارد، [TextFrame.getParentShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#getParentShape) مالک را برمی‌گرداند و [TextFrame.getParentCell](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#getParentCell) مقدار `null` بر می‌گرداند. قبل از دسترسی به آن مقدار برگشتی را بررسی کنید. برای شناسایی هر دو مالک شکل و خانه جدول، شامل شکل‌های مرتبط با گره‌های SmartArt، به [Search and Replace Text](/slides/fa/nodejs-java/search-and-replace-text/) مراجعه کنید.
+
+## **افزودن ستون‌ها به جعبه متن**
+
+متد [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setColumnCount) فریم متن را به ستون‌ها تقسیم می‌کند، در حالی که [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) فاصله بین ستون‌ها را بر حسب نقطه تنظیم می‌کند. هر دو تنظیم متعلق به [TextFrameFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/) هستند و می‌توانند از طریق فریم متنی یک جعبه متن موجود تغییر کنند. متن بین ستون‌ها داخل همان شکل دوباره جریان می‌یابد؛ به شکل دیگری ادامه نمی‌یابد.
+
+مثال زیر یک جعبه متن سه‌ستونی با ۱۰ نقطه فاصله بین ستون‌ها ایجاد می‌کند، ارائه را ذخیره می‌نماید و تنظیمات ذخیره‌شده را از فایل خروجی می‌خواند:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // فاصله ستون هرگز تنظیم نشد، بنابراین به صورت NaN گزارش می‌شود.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **استخراج متن از ستون‌های جداگانه**
+
+از [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#splitTextByColumns) برای بازیابی متنی که به هر ستون بصری در یک فریم متن موجود اختصاص یافته استفاده کنید. این متد یک رشته برای هر ستون بر اساس ترتیب خواندن ستونی برمی‌گرداند. یک فریم متن تک‌ستونی آرایه‌ای با یک عنصر تولید می‌کند و یک ستون خالی توسط یک رشته خالی نشان داده می‌شود. رشته‌ها صرفاً متن ساده را شامل می‌شوند؛ قالب‌بندی در سطح بخش حفظ نمی‌شود.
+
+این موارد زمانی مفید است که نیاز داشته باشید:
+
+- استخراج متن در حالی که ترتیب خواندن مبتنی بر ستون حفظ می‌شود.
+- فهرست‌بندی یا مقایسه محتوای اسلایدهای چندستونی.
+- خروجی هر ستون به یک فایل جداگانه، فیلد پایگاه‌داده یا مقصد دیگری.
+- بررسی نحوه توزیع مجدد متن پس از تغییر تعداد ستون‌ها با [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setColumnCount)، فاصله با [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing)، قلم یا اندازه فریم متن.
+
+این متد متن توزیع‌شده در داخل [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) فعلی را گزارش می‌دهد؛ متن را به‌صورت خودکار بین شکل‌ها یا جعبه‌های متن جداگرانه جریان نمی‌دهد. توزیع ستون‌ها می‌تواند به فونت‌های موجود و سایر تنظیمات چیدمان متن وابسته باشد، لذا برای نتایج سازگار اطمینان حاصل کنید که فونت‌های مورد نیاز در دسترس باشند.
+
+مثال زیر یک ارائه را بارگذاری می‌کند، اولین شکل خودکار چندستونی دارای فریم متن را پیدا می‌کند، تعداد ستون‌های پیکربندی‌شده را می‌خواند و متن هر ستون را به یک فایل جداگانه می‌نویسد. شکل‌هایی که فریم متن ندارند نادیده گرفته می‌شوند.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **به‌روزرسانی متن**
 
-Aspose.Slides به شما اجازه می‌دهد متن موجود در یک جعبه متن یا تمام متون موجود در یک ارائه را تغییر یا به‌روزرسانی کنید.
+برای به‌روزرسانی متن در سرتاسر یک ارائه، اسلایدها و شکل‌ها را پیمایش کنید، شکل‌های خودکار را انتخاب کنید و سپس بخش‌های متنی آن‌ها را ویرایش کنید. کار در سطح بخش به شما امکان تغییر هم متن و هم قالب‌بندی کاراکترها را می‌دهد.
 
-این کد JavaScript عملیاتی را نشان می‌دهد که در آن تمام متون یک ارائه به‌روزرسانی یا تغییر می‌یابند:
+مثال زیر تمام موارد `years` را در متن شکل‌های خودکار با `months` جایگزین می‌کند و هر بخش تحت تأثیر را به صورت بولد در می‌آورد:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // بررسی می‌کند که آیا شکل از فریم متن (IAutoShape) پشتیبانی می‌کند.
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // در میان پاراگراف‌های فریم متن پیمایش می‌کند
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // در میان هر بخش از پاراگراف پیمایش می‌کند
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// متن را تغییر می‌دهد
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// قالب‌بندی را تغییر می‌دهد
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // ارائهٔ تغییر یافته را ذخیره می‌کند
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **افزودن جعبه متن با پیوند** 
+این پیمایش فقط متن را در شکل‌های خودکار به‌روز می‌کند. متنی که در جدول‌ها، نمودارها، SmartArt یا شکل‌های گروهی ذخیره شده است نیاز به پیمایش مجموعه‌های خود آن اشیاء دارد.
 
-می‌توانید یک لینک را داخل جعبه متن درج کنید. وقتی جعبه متن کلیک شود، کاربران به باز کردن لینک هدایت می‌شوند.
+## **افزودن جعبه متن با پیوند**
 
-برای افزودن جعبه متن حاوی یک لینک، این مراحل را دنبال کنید:
+یک پیوند می‌تواند به بخش خاصی از متن اختصاص یابد، به‌طوری که فقط همان متن به‌عنوان لینک کلیک‌پذیر عمل کند. از [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) برای مرتبط‌سازی آن بخش با یک URL خارجی استفاده کنید.
 
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.  
-2. مرجع اولین اسلاید در ارائهٔ تازه‌ساخته‌شده را دریافت کنید.  
-3. یک شیء `AutoShape` با `ShapeType` تنظیم‌شده به `Rectangle` در موقعیت مشخصی روی اسلاید اضافه کنید و مرجع شیء AutoShape جدید را به دست آورید.  
-4. یک `TextFrame` به شیء `AutoShape` اضافه کنید و متن اولین بخش آن را تنظیم کنید. در مثال زیر از این متن استفاده کردیم: *Aspose.Slides*  
-5. `HyperlinkManager` آن بخش را از طریق `PortionFormat` آن دریافت کنید.  
-6. متد `setExternalHyperlinkClick` را روی `HyperlinkManager` فراخوانی کنید تا لینک به بخش متصل شود.  
-7. در نهایت، فایل PPTX را از طریق شیء `Presentation` بنویسید.  
-
-این کد JavaScript—اجرای مراحل فوق—نحوه افزودن جعبه متن با پیوند به اسلاید را نشان می‌دهد:
+مثال زیر متن پیوندی ایجاد می‌کند و آن را در یک ارائه ذخیره می‌نماید:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// یک نمونه از کلاس Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // اولین اسلاید در ارائه را دریافت می‌کند
-    var slide = pres.getSlides().get_Item(0);
-    // یک شیء AutoShape با نوع تنظیم‌شده به Rectangle اضافه می‌کند
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // تبدیل (کست) شیء shape به AutoShape
-    var pptxAutoShape = shape;
-    // به ویژگی ITextFrame مرتبط با AutoShape دسترسی پیدا می‌کند
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // متنی به فریم اضافه می‌کند
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // پیوند (Hyperlink) متن بخش را تنظیم می‌کند
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // ارائهٔ PPTX را ذخیره می‌کند
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**تفاوت جعبه متن و جای‌نگهدار متن در هنگام کار با اسلایدهای مستر چیست؟**
+**تفاوت جعبه متن و متغیر متن (placeholder) در اسلاید مستر یا لِی‌آوت چیست؟**
 
-یک [placeholder](/slides/fa/nodejs-java/manage-placeholder/) استایل/موقعیت را از [master](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) به ارث می‌برد و می‌تواند در [layouts](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/) بازنویسی شود، در حالی که یک جعبه متن معمولی یک شیء مستقل بر روی اسلاید مشخص است و هنگام تغییر لایه‌ها تغییر نمی‌کند.
+یک [placeholder](/slides/fa/nodejs-java/manage-placeholder/) می‌تواند موقعیت و قالب‌بندی خود را از یک [master slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) یا [layout slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/) به ارث ببرد. یک جعبه متن عادی یک شکل مستقل بر روی اسلایدی است که در آن ایجاد شده و هنگام تغییر لِی‌آوت، رفتار placeholder را به‌دست نمی‌آورد.
 
-**چگونه می‌توانم جایگزینی متنی انبوه را در سراسر ارائه انجام دهم بدون آنکه به متن داخل نمودارها، جدول‌ها و SmartArt دست بزنم؟**
+**چگونه می‌توانم متن را جایگزین کنم بدون این که متن در نمودارها، جدول‌ها یا SmartArt تغییر یابد؟**
 
-دورهٔ تکرار خود را به AutoShapeهایی که TextFrame دارند محدود کنید و اشیای جاسازی‌شده ([charts](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/chart/)، [tables](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/table/)، [SmartArt](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/smartart/)) را با پیمایش مجموعه‌های آن‌ها به‌صورت جداگانه یا نادیده‌گیری آن انواع اشیاء حذف کنید.
+پیمایش را به شکل‌هایی که نمونه‌ای از [AutoShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/autoshape/) هستند محدود کنید، همان‌طور که در مثال به‌روزرسانی متن نشان داده شده است. نمودارها، جدول‌ها و SmartArt متن را در مدل شیء خود ذخیره می‌کنند، لذا توسط این حلقه تغییر نمی‌یابند.

@@ -1,5 +1,5 @@
 ---
-title: Gestionar cuadros de texto en presentaciones con JavaScript
+title: Gestionar cuadros de texto en presentaciones usando JavaScript
 linktitle: Gestionar cuadro de texto
 type: docs
 weight: 20
@@ -18,88 +18,62 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js facilita la creación, edición y clonación de cuadros de texto en archivos PowerPoint y OpenDocument, mejorando la automatización de sus presentaciones."
+description: "Crear, identificar, dar formato y actualizar cuadros de texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Node.js mediante Java."
 ---
 ## **Introducción**
 
-Los textos en las diapositivas suelen estar en cuadros de texto o formas. Por lo tanto, para añadir texto a una diapositiva, debes añadir un cuadro de texto y luego colocar texto dentro del mismo. Aspose.Slides for Node.js via Java proporciona la clase [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/AutoShape) que permite añadir una forma que contiene texto.
+En Aspose.Slides para Node.js mediante Java, el texto de la diapositiva se almacena en marcos de texto que pertenecen a formas. La clase [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/) representa la forma que más comúnmente contiene texto y expone su texto mediante el método [AutoShape.getTextFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides también proporciona la clase [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/Shape) que permite añadir formas a las diapositivas. Sin embargo, no todas las formas añadidas a través de la clase `Shape` pueden contener texto. Pero las formas añadidas mediante la clase [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/AutoShape) pueden contener texto.
-
+{{% alert color="info" title="Note" %}}
+Todas las autoformas derivan de [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/), pero no todas las formas son autoformas o admiten un marco de texto. Al procesar una presentación existente, compruebe que una forma sea una instancia de [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/) antes de acceder a su texto.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
+## **Crear un cuadro de texto en una diapositiva**
 
-Por lo tanto, cuando trabajes con una forma a la que deseas añadir texto, puede que necesites comprobar y confirmar que fue convertida mediante la clase `AutoShape`. Sólo entonces podrás trabajar con [TextFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/TextFrame), que es una propiedad de `AutoShape`. Consulta la sección [Update Text](https://docs.aspose.com/slides/es/nodejs-java/manage-textbox/#update-text) en esta página.
-
-{{% /alert %}}
-
-## **Crear cuadro de texto en la diapositiva**
-
-Para crear un cuadro de texto en una diapositiva, sigue estos pasos:
-
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/Presentation).
-2. Obtén una referencia a la primera diapositiva de la presentación recién creada. 
-3. Añade un objeto [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/AutoShape) con [ShapeType](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) configurado como `Rectangle` en una posición especificada de la diapositiva y obtén la referencia al objeto `AutoShape` recién añadido.
-4. Añade una propiedad `TextFrame` al objeto `AutoShape` que contendrá texto. En el ejemplo siguiente, añadimos este texto: *Aspose TextBox*
-5. Finalmente, escribe el archivo PPTX mediante el objeto `Presentation`. 
-
-Este código JavaScript—una implementación de los pasos anteriores—muestra cómo añadir texto a una diapositiva:
+Para crear un cuadro de texto, añada una autoforma a una diapositiva, agregue texto a su marco de texto y guarde la presentación. El siguiente ejemplo crea un cuadro de texto rectangular:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Instancia la presentación
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtiene la primera diapositiva de la presentación
-    var sld = pres.getSlides().get_Item(0);
-    // Añade un AutoShape con el tipo establecido como Rectángulo
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Añade un TextFrame al rectángulo
-    ashp.addTextFrame(" ");
-    // Accede al marco de texto
-    var txtFrame = ashp.getTextFrame();
-    // Crea el objeto Paragraph para el marco de texto
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Crea un objeto Portion para el párrafo
-    var portion = para.getPortions().get_Item(0);
-    // Establece el texto
-    portion.setText("Aspose TextBox");
-    // Guarda la presentación en disco
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Comprobar forma de cuadro de texto**
+Las coordenadas y dimensiones pasadas a [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/#addAutoShape) se miden en puntos. [AutoShape.addTextFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/#addTextFrame) inicializa el marco de texto con el texto suministrado.
 
-Aspose.Slides ofrece el método [isTextBox](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/#isTextBox) de la clase [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/) , lo que permite examinar las formas e identificar los cuadros de texto.
+## **Comprobar si una forma es un cuadro de texto**
 
-![Text box and shape](istextbox.png)
+Utilice el método [AutoShape.isTextBox](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/#isTextBox) para determinar si una autoforma se trata como un cuadro de texto. Esto es útil cuando una presentación contiene tanto autoformas con texto como autoformas puramente gráficas.
 
-Este código JavaScript muestra cómo comprobar si una forma se creó como un cuadro de texto:
+![Un cuadro de texto y una forma](istextbox.png)
+
+El siguiente ejemplo inspecciona cada autoforma en una presentación:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -108,233 +82,219 @@ try {
 }
 ```
 
-Ten en cuenta que si simplemente añades una forma automática usando el método `addAutoShape` de la clase [ShapeCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shapecollection/) , el método `isTextBox` de la forma automática devolverá `false`. Sin embargo, después de añadir texto a la forma automática mediante el método `addTextFrame` o el método `setText`, la propiedad `isTextBox` devuelve `true`.
+Una autoforma recién añadida no se considera un cuadro de texto hasta que contiene texto no vacío. Puede proporcionar ese texto mediante [AutoShape.addTextFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/#addTextFrame) o [TextFrame.setText](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#setText). Añadir o asignar una cadena vacía hace que [AutoShape.isTextBox](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/#isTextBox) devuelva `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() devuelve false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() devuelve true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() devuelve false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() devuelve true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() devuelve false
-shape3.addTextFrame("");
-// shape3.isTextBox() devuelve false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() devuelve false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() devuelve false
-```
-
-## **Encontrar la forma que posee un marco de texto**
-
-En código genérico de procesamiento de texto, puedes recibir un [TextFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/) sin saber ya qué objeto de presentación lo contiene. Utiliza el método [TextFrame.getParentShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#getParentShape--) para volver a la [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/) propietaria.
-
-Para un marco de texto que pertenece a un [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/) u otra forma que contenga texto, [TextFrame.getParentShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#getParentShape--) devuelve el propietario y [TextFrame.getParentCell](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#getParentCell--) devuelve `null`. Ambos métodos proporcionan navegación de solo lectura, por lo que llamarlos no cambia la propiedad. Siempre verifica que el valor devuelto no sea `null` antes de acceder a la forma.
-
-Para un ejemplo completo que identifica los propietarios de forma y de celdas de tabla, incluidas las formas asociadas a nodos de SmartArt, consulta [Search and Replace Text](/slides/es/nodejs-java/search-and-replace-text/).
-
-## **Añadir columna en cuadro de texto**
-
-Aspose.Slides ofrece los métodos [setColumnCount](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) y [setColumnSpacing](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) de la clase [TextFrameFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/TextFrameFormat) que permiten añadir columnas a los cuadros de texto. Puedes especificar el número de columnas en un cuadro de texto y establecer el espaciado en puntos entre columnas.
-
-Este código en JavaScript demuestra la operación descrita: 
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtiene la primera diapositiva de la presentación
-    var slide = pres.getSlides().get_Item(0);
-    // Añade un AutoShape con el tipo establecido como Rectángulo
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Añade un TextFrame al rectángulo
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Obtiene el formato de texto del TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Especifica el número de columnas en el TextFrame
-    format.setColumnCount(3);
-    // Especifica el espaciado entre columnas
-    format.setColumnSpacing(10);
-    // Guarda la presentación
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Añadir columna en marco de texto**
+Las dos primeras llamadas imprimen `true`; las dos últimas imprimen `false`.
 
-Aspose.Slides for Node.js via Java ofrece el método [setColumnCount](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) de la clase [TextFrameFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/TextFrameFormat) que permite añadir columnas en marcos de texto. Mediante esta propiedad, puedes especificar el número de columnas que prefieras en un marco de texto.
+## **Encontrar la forma que posee un marco de texto**
 
-Este código JavaScript muestra cómo añadir una columna dentro de un marco de texto:
+El código genérico de procesamiento de texto puede recibir un [TextFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/) sin saber qué objeto de la presentación lo contiene. Utilice el método de solo lectura [TextFrame.getParentShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#getParentShape) para volver a su [Shape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/) propietario.
+
+Para un marco de texto perteneciente a una autoforma u otra forma con texto, [TextFrame.getParentShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#getParentShape) devuelve el propietario y [TextFrame.getParentCell](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#getParentCell) devuelve `null`. Compruebe el valor devuelto antes de acceder a él. Para identificar tanto propietarios de forma como de celda de tabla, incluidas las formas asociadas a nodos de SmartArt, consulte [Buscar y reemplazar texto](/slides/es/nodejs-java/search-and-replace-text/).
+
+## **Añadir columnas a un cuadro de texto**
+
+El método [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#setColumnCount) divide el marco de texto en columnas, mientras que [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) establece el espacio entre columnas en puntos. Ambos ajustes pertenecen a [TextFrameFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/) y pueden modificarse a través del marco de texto de un cuadro de texto existente. El texto se redistribuye entre columnas dentro de la misma forma; no continúa en otra forma.
+
+El siguiente ejemplo crea un cuadro de texto de tres columnas con 10 puntos entre columnas, guarda la presentación y lee los ajustes almacenados del archivo de salida:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // El espaciado de columnas nunca se estableció, por lo que se informa como NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Extraer texto de columnas individuales**
+
+Utilice [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/#splitTextByColumns) para obtener el texto asignado a cada columna visual en un marco de texto existente. El método devuelve una cadena por cada columna, en orden de lectura basado en columnas. Un marco de texto de una sola columna produce una matriz con un elemento, y una columna vacía se representa con una cadena vacía. Las cadenas contienen solo texto sin formato; el formato a nivel de porción no se conserva.
+
+Esto es útil cuando necesita:
+
+- Extraer texto conservando su orden de lectura basado en columnas.
+- Indexar o comparar el contenido de diapositivas con varias columnas.
+- Exportar cada columna a un archivo separado, campo de base de datos u otro destino.
+- Examinar cómo se redistribuye el texto tras cambiar el número de columnas con [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#setColumnCount), el espaciado con [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), la fuente o el tamaño del marco de texto.
+
+El método informa del texto distribuido dentro del [TextFrame](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/textframe/) actual; no fluye automáticamente el texto entre formas o cuadros de texto separados. La distribución de columnas puede depender de las fuentes disponibles y de otras configuraciones de maquetación, así que asegúrese de que las fuentes requeridas estén accesibles cuando la consistencia sea importante.
+
+El siguiente ejemplo carga una presentación, encuentra la primera autoforma multi‑columna con un marco de texto, lee su número de columnas configurado y escribe el texto de cada columna en un archivo separado. Las formas que no proporcionan un marco de texto se omiten.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Actualizar texto**
 
-Aspose.Slides permite cambiar o actualizar el texto contenido en un cuadro de texto o todos los textos de una presentación. 
+Para actualizar texto en toda la presentación, recorra las diapositivas y las formas, seleccione las autoformas y luego edite sus porciones de texto. Trabajar a nivel de porción le permite cambiar tanto el texto como el formato de los caracteres.
 
-Este código JavaScript muestra una operación en la que todos los textos de una presentación se actualizan o cambian:
+El siguiente ejemplo reemplaza cada aparición de `years` por `months` en el texto de las autoformas y pone en negrita cada porción afectada:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Comprueba si la forma admite marco de texto (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Recorre los párrafos del marco de texto
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Recorre cada porción del párrafo
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Cambia el texto
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Cambia el formato
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Guarda la presentación modificada
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Añadir cuadro de texto con hipervínculo** 
+Este recorrido actualiza el texto solo en autoformas. El texto almacenado en tablas, gráficos, SmartArt o formas agrupadas requiere recorrer las colecciones propias de esos objetos.
 
-Puedes insertar un enlace dentro de un cuadro de texto. Cuando se hace clic en el cuadro de texto, los usuarios son dirigidos a abrir el enlace. 
+## **Añadir un cuadro de texto con hipervínculo**
 
-Para añadir un cuadro de texto que contenga un enlace, sigue estos pasos:
+Se puede asignar un hipervínculo a una porción de texto específica, de modo que solo ese texto actúe como enlace clicable. Utilice [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) para asociar la porción con una URL externa.
 
-1. Crea una instancia de la clase `Presentation`. 
-2. Obtén una referencia a la primera diapositiva de la presentación recién creada. 
-3. Añade un objeto `AutoShape` con `ShapeType` configurado como `Rectangle` en una posición especificada de la diapositiva y obtén una referencia del objeto AutoShape recién añadido.
-4. Añade un `TextFrame` al objeto `AutoShape` y establece el texto de su primera porción. En el ejemplo siguiente, usamos este texto: *Aspose.Slides*
-5. Obtén el `HyperlinkManager` de esa porción a través de su `PortionFormat`.
-6. Llama a `setExternalHyperlinkClick` en el `HyperlinkManager` para adjuntar el enlace a la porción.
-7. Finalmente, escribe el archivo PPTX mediante el objeto `Presentation`. 
-
-Este código JavaScript—una implementación de los pasos anteriores—muestra cómo añadir un cuadro de texto con un hipervínculo a una diapositiva:
+El siguiente ejemplo crea texto enlazado y lo guarda en una presentación:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Instancia una clase Presentation que representa un PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Obtiene la primera diapositiva de la presentación
-    var slide = pres.getSlides().get_Item(0);
-    // Añade un objeto AutoShape con el tipo establecido como Rectángulo
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Convierte la forma a AutoShape
-    var pptxAutoShape = shape;
-    // Accede a la propiedad ITextFrame asociada con el AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Añade algo de texto al marco
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Establece el hipervínculo para el texto de la porción
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Guarda la presentación PPTX
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Preguntas frecuentes**
 
-**¿Cuál es la diferencia entre un cuadro de texto y un marcador de posición de texto al trabajar con diapositivas maestras?**
+**¿Cuál es la diferencia entre un cuadro de texto y un marcador de posición de texto en una diapositiva maestra o de diseño?**
 
-Un [placeholder](/slides/es/nodejs-java/manage-placeholder/) hereda el estilo/posición de la [master](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/masterslide/) y puede ser anulado en los [layouts](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/layoutslide/), mientras que un cuadro de texto regular es un objeto independiente en una diapositiva concreta y no cambia al cambiar de layout.
+Un [marcador de posición](/slides/es/nodejs-java/manage-placeholder/) puede heredar su posición y formato de una [diapositiva maestra](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/masterslide/) o una [diapositiva de diseño](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/layoutslide/). Un cuadro de texto normal es una forma independiente en la diapositiva donde se creó y no adquiere el comportamiento de marcador de posición cuando el diseño cambia.
 
-**¿Cómo puedo realizar un reemplazo masivo de texto en toda la presentación sin afectar el texto dentro de gráficos, tablas y SmartArt?**
+**¿Cómo puedo reemplazar texto sin modificar el texto en gráficos, tablas o SmartArt?**
 
-Limita tu iteración a auto‑shapes que tengan marcos de texto y excluye los objetos incrustados ([charts](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/smartart/)) recorriendo sus colecciones por separado o saltándote esos tipos de objetos.
+Limite el recorrido a las formas que sean instancias de [AutoShape](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/autoshape/), como se muestra en el ejemplo de Actualizar texto. Los gráficos, tablas y SmartArt almacenan texto en sus propios modelos de objetos, por lo que no se modifican con ese bucle.

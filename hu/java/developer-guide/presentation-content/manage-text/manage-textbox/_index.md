@@ -17,312 +17,277 @@ keywords:
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Az Aspose.Slides for Java megkönnyíti a szövegdobozok létrehozását, szerkesztését és klónozását PowerPoint és OpenDocument fájlokban, ezáltal javítva a prezentáció automatizálását."
+description: "Szövegdobozok létrehozása, azonosítása, formázása és frissítése PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Java használatával."
 ---
 ## **Bevezetés**
 
-A diákon lévő szövegek általában szövegdobozokban vagy alakzatokban vannak. Ezért egy szöveg hozzáadásához egy diára szövegdobozt kell létrehozni, majd szöveget kell elhelyezni a szövegdobozban. Az Aspose.Slides for Java biztosítja a [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IAutoShape) interfészt, amely lehetővé teszi, hogy szöveget tartalmazó alakzatot adjunk hozzá.
+Az Aspose.Slides for Java‑ban a dia szövegét olyan szövegkeretekben tárolják, amelyek alakzatokhoz tartoznak. Az [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) interfész képviseli a leggyakoribb szöveget tartalmazó alakzatot, és a szövegét a [IAutoShape.getTextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/#getTextFrame--) metóduson keresztül teszi elérhetővé.
 
-{{% alert title="Info" color="info" %}}
-Az Aspose.Slides továbbiakban a [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShape) interfészt is biztosítja, amely lehetővé teszi alakzatok hozzáadását a diákhoz. Azonban nem minden, az `IShape` interfészen keresztül hozzáadott alakzat képes szöveget tárolni. A [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IAutoShape) interfészen keresztül hozzáadott alakzatok viszont tartalmazhatnak szöveget.
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-Ezért, amikor olyan alakzattal dolgozunk, amelyhez szöveget szeretnénk hozzáadni, érdemes ellenőrizni és megerősíteni, hogy az `IAutoShape` interfészen keresztül lett-e átkonvertálva. Csak ekkor tudunk a [TextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/TextFrame) tulajdonsággal dolgozni, amely az `IAutoShape` része. Lásd a [Szöveg frissítése](https://docs.aspose.com/slides/hu/java/manage-textbox/#update-text) szekciót ezen az oldalon. 
+{{% alert color="info" title="Megjegyzés" %}}
+Minden automatikus alakzat implementálja az [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/), de nem minden alakzat automatikus alakzat, vagy támogat szövegkeretet. Létező prezentáció feldolgozásakor ellenőrizze, hogy egy alakzat implementálja-e az [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) interfészt, mielőtt hozzáférne a szövegéhez.
 {{% /alert %}}
 
 ## **Szövegdoboz létrehozása egy dián**
 
-A szövegdoboz létrehozásához egy dián kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Presentation) osztályból. 
-2. Szerezzen referenciát az újonnan létrehozott bemutató első diájához. 
-3. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IAutoShape) objektumot a [ShapeType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IGeometryShape#setShapeType-int-) `Rectangle` értékkel a dia megadott pozíciójába, és szerezze meg az újonnan hozzáadott `IAutoShape` objektum referenciáját. 
-4. Adj egy `TextFrame` tulajdonságot az `IAutoShape` objektumhoz, amely szöveget fog tartalmazni. Az alábbi példában ezt a szöveget adtuk hozzá: *Aspose TextBox*
-5. Végül írd ki a PPTX fájlt a `Presentation` objektum segítségével. 
-
-Ez a Java kód — az előző lépések megvalósítása — megmutatja, hogyan adhat szöveget egy diához:
-
-```java
-import com.aspose.slides.*;
-
-// Példányosítja a Presentation objektumot
-Presentation pres = new Presentation();
-try {
-    // Lekéri a prezentáció első diaját
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Hozzáad egy AutoShape‑t, típusként Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Hozzáad egy TextFrame‑et a Rectangle-hez
-    ashp.addTextFrame(" ");
-
-    // Eléri a szövegkeretet
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // Létrehozza a Paragraph objektumot a szövegkerethez
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Létrehozza a Portion objektumot a bekezdéshez
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // Beállítja a szöveget
-    portion.setText("Aspose TextBox");
-
-    // Mentse a prezentációt a lemezen
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Szövegdoboz alakzat ellenőrzése**
-
-Az Aspose.Slides a [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) interfészén keresztül elérhető [isTextBox](https://reference.aspose.com/slides/hu/java/com.aspose.slides/autoshape/#isTextBox--) metódust biztosítja, amely lehetővé teszi az alakzatok vizsgálatát és a szövegdobozok azonosítását.
-
-![Szövegdoboz és alakzat](istextbox.png)
-
-Ez a Java kód megmutatja, hogyan ellenőrizheti, hogy egy alakzat szövegdobozként lett-e létrehozva:
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-Vegye figyelembe, hogy ha egyszerűen egy autoshape‑et ad hozzá az `addAutoShape` metódussal a [IShapeCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/) interfészből, akkor az autoshape `isTextBox` metódusa `false` értéket ad. Azonban ha szöveget ad hozzá az autoshape-hez az `addTextFrame` vagy a `setText` metódussal, akkor az `isTextBox` tulajdonság `true`‑t ad vissza.
+Szövegdoboz létrehozásához adjon hozzá egy automatikus alakzatot a diára, szúrjon be szöveget a szövegkeretébe, és mentse a prezentációt. Az alábbi példa egy téglalap alakú szövegdobozt hoz létre:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() false értéket ad vissza
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() true értéket ad vissza
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() false értéket ad vissza
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() true értéket ad vissza
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() false értéket ad vissza
-shape3.addTextFrame("");
-// shape3.isTextBox() false értéket ad vissza
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() false értéket ad vissza
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() false értéket ad vissza
-```
-
-## **Az alakzat megtalálása, amelyik a szövegkeretet birtokolja**
-
-Általános szövegfeldolgozó kódban előfordulhat, hogy egy [ITextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/) objektumot kap, anélkül, hogy tudná, melyik prezentációs objektum tartalmazza. Használja az [ITextFrame.getParentShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentShape--) metódust a tulajdonos [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) visszakereséséhez.
-
-Egy szövegkeret, amely egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) vagy más szöveget tartalmazó alakzathoz tartozik, a [ITextFrame.getParentShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentShape--) módszerrel az alapesetben a tulajdonost adja vissza, míg a [ITextFrame.getParentCell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentCell--) `null`‑t ad. Mindkét módszer csak olvasási célú navigációt biztosít, ezért meghívásuk nem módosítja a tulajdonjogot. Mindig ellenőrizze a visszatérő értéket `null`‑ra, mielőtt hozzáférne az alakzathoz.
-
-A szöveg‑keret és táblacell tulajdonosok, valamint a SmartArt‑csomópontokhoz kapcsolódó alakzatok azonosításáról teljes példát a [Szöveg keresése és cseréje](/slides/hu/java/search-and-replace-text/) oldalon talál.
-
-## **Oszlopok hozzáadása egy szövegdobozhoz**
-
-Az Aspose.Slides biztosítja a [ColumnCount](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) és a [ColumnSpacing](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) tulajdonságokat (az [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITextFrameFormat) interfész és a [TextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/TextFrameFormat) osztály részeként), amelyek lehetővé teszik oszlopok hozzáadását a szövegdobozokhoz. Meghatározhatja a szövegdobozban lévő oszlopok számát, valamint a pontokban megadott távolságot az oszlopok között.
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // Lekéri a prezentáció első diaját
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // Hozzáad egy AutoShape‑t, típusként Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // Hozzáad egy TextFrame‑et a Rectangle-hez
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // Lekéri a TextFrame szövegformátumát
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // Megadja a oszlopok számát a TextFrame-ben
-    format.setColumnCount(3);
-
-    // Megadja az oszlopok közti távolságot
-    format.setColumnSpacing(10);
-
-    // Mentse a prezentációt
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Oszlopok hozzáadása egy szövegkerethez**
+Az [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) metódusnak átadott koordinátákat és méreteket pontban mérik. Az [IAutoShape.addTextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) inicializálja a szövegkeretet a megadott szöveggel.
 
-Az Aspose.Slides for Java biztosítja a [ColumnCount](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) tulajdonságot (az [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ITextFrameFormat) interfész részeként), amely lehetővé teszi oszlopok hozzáadását a szövegkeretekben. Ezzel a tulajdonsággal megadhatja a kívánt oszlopszámot egy szövegkeretben.
+## **Szövegdoboz alakzat ellenőrzése**
+
+Használja az [IAutoShape.isTextBox](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/#isTextBox--) metódust annak meghatározására, hogy egy automatikus alakzat szövegdobozként van‑e kezelve. Ez hasznos, ha egy prezentáció szöveget tartalmazó és kizárólag grafikus automatikus alakzatokat is tartalmaz.
+
+![Egy szövegdoboz és egy alakzat](istextbox.png)
+
+Az alábbi példa minden automatikus alakzatot vizsgál meg egy prezentációban:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    ITextFrameFormat format = shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+Egy frissen hozzáadott automatikus alakzat nem tekintendő szövegdoboznak, amíg nem tartalmaz nem üres szöveget. A szöveget megadhatja az [IAutoShape.addTextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) vagy az [ITextFrame.setText](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#setText-java.lang.String-) használatával. Üres karakterlánc hozzáadása vagy hozzárendelése azt eredményezi, hogy az [IAutoShape.isTextBox](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/#isTextBox--) `false`‑t ad vissza:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+Az első két hívás `true`‑t, az utolsó két hívás `false`‑t ír ki.
+
+## **A szövegkeretet birtokló alakzat megtalálása**
+
+Általános szövegfeldolgozó kód kaphat egy [ITextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/)‑t anélkül, hogy tudná, melyik prezentációs objektum tartalmazza. Használja a csak‑olvasásra szánt [ITextFrame.getParentShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentShape--) metódust a tulajdonos [IShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/)‑hez való visszalépéshez.
+
+Automatikus alakzat vagy más szöveget tartalmazó alakzat birtokában lévő szövegkeret esetén az [ITextFrame.getParentShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentShape--) visszaadja a tulajdonost, az [ITextFrame.getParentCell](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#getParentCell--) pedig `null`‑t. A visszaadott értéket ellenőrizze, mielőtt használja. A forma‑ és táblázat‑cellában lévő tulajdonosok, köztük a SmartArt‑csomópontokhoz kapcsolódó alakzatok azonosításához lásd a [Szöveg keresése és cseréje](/slides/hu/java/search-and-replace-text/) oldalát.
+
+## **Oszlopok hozzáadása egy szövegdobozhoz**
+
+Az [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/#setColumnCount-int-) metódus oszlopokra osztja a szövegkeretet, míg az [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) beállítja az oszlopok közti hézagot pontban. Mindkét beállítás az [ITextFrameFormat](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/) része, és megváltoztatható egy meglévő szövegdoboz szövegkeretén keresztül. A szöveg áramlik az oszlopok között ugyanabban az alakzatban; nem folytatódik egy másik alakzatra.
+
+Az alábbi példa háromoszlopos szövegdobozt hoz létre 10 pontos oszlopközökkel, menti a prezentációt, és visszaolvassa a beállításokat a kimeneti fájlból:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Szöveg kinyerése egyedi oszlopokból**
+
+Használja az [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/#splitTextByColumns--) metódust a meglévő szövegkeretben szereplő vizuális oszlopok szövegének lekéréséhez. A metódus minden oszlophoz egy karakterláncot ad vissza, oszlop‑alapú olvasási sorrendben. Egy egyoszlopos szövegkeret egy elemmel rendelkező tömböt eredményez, a üres oszlop egy üres karakterlánccal van jelölve. A karakterláncok csak egyszerű szöveget tartalmaznak; a rész‑szintű formázás nem kerül megőrzésre.
+
+Ez akkor hasznos, ha:
+- Kinyerni a szöveget, miközben megőrzöd az oszlop‑alapú olvasási sorrendet.
+- Indexelni vagy összehasonlítani a többoszlopos diák tartalmát.
+- Minden oszlopot külön fájlba, adatbázis‑mezőbe vagy más célhelyre exportálni.
+- Megvizsgálni, hogy a szöveget hogyan osztja újra az oszlopszám ([ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/#setColumnCount-int-)), a távolság ([ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-)), a betűtípus vagy a szövegkeret méretének módosítása után.
+
+A metódus a jelenlegi [ITextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/itextframe/)‑ben elosztott szöveget jelenti; nem áramoltja automatikusan a szöveget különálló alakzatok vagy szövegdobozok között. Az oszlopelrendezés függhet a rendelkezésre álló betűkészletektől és egyéb szöveg‑elrendezési beállításoktól, ezért ügyeljen arra, hogy a szükséges betűkészletek elérhetők legyenek, ha a konzisztens eredmények fontosak.
+
+Az alábbi példa betölt egy prezentációt, megtalálja az első többoszlopos automatikus alakzatot szövegkerettel, kiolvassa a konfigurált oszlopszámot, és minden oszlop szövegét külön fájlba írja. A szövegkeretet nem biztosító alakzatok kihagyásra kerülnek:
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            Path outputPath = Paths.get("Column-" + columnNumber + ".txt");
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try {
+                Files.write(outputPath, textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Szöveg frissítése**
 
-Az Aspose.Slides lehetővé teszi a szövegdobozban vagy a teljes prezentációban lévő szövegek módosítását vagy frissítését.
+A szöveg frissítéséhez a teljes prezentációban járja be a diákat és az alakzatokat, válassza ki az automatikus alakzatokat, majd szerkessze a szövegrétegeiket. A rész‑szintű munka lehetővé teszi a szöveg és a karakterformázás egyidejű módosítását.
+
+Az alábbi példa minden `years` előfordulást `months`‑ra cserél az automatikus alakzat‑szövegben, és a módosított részeket félkövérre állítja:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //Ellenőrzi, hogy az alakzat támogatja-e a szövegkeretet (IAutoShape).
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Végigiterál a szövegkeret bekezdésein
-                {
-                    for (IPortion portion : paragraph.getPortions()) //Végigiterál a bekezdés minden részletén
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //Módosítja a szöveget
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //Módosítja a formázást
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //Mentés a módosított prezentáció
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Ez a bejárás csak az automatikus alakzatok szövegét módosítja. A táblákban, diagramokban, SmartArt‑ban vagy csoportos alakzatokban tárolt szöveghez a megfelelő objektumok saját gyűjteményeinek bejárása szükséges.
+
 ## **Szövegdoboz hozzáadása hiperhivatkozással**
 
-Egy szövegdobozba beilleszthet hivatkozást. Amikor a szövegdobozra kattintanak, a felhasználók a hivatkozás megnyitására kerülnek.
+Egy hiperhivatkozás egy adott szövegrétegre rendelhető, így csak ez a szöveg válik kattinthatóvá. Használja az [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) metódust a rész külső URL‑hez való társításához.
 
-A hivatkozást tartalmazó szövegdoboz hozzáadásához kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a `Presentation` osztályból. 
-2. Szerezzen referenciát az újonnan létrehozott prezentáció első diájához. 
-3. Adj hozzá egy `AutoShape` objektumot a `ShapeType` `Rectangle` értékkel a dia megadott pozíciójába, és szerezze meg az újonnan hozzáadott AutoShape objektum referenciáját.
-4. Adj egy `TextFrame`‑et az `AutoShape` objektumhoz, amely alapértelmezett szövege a *Aspose TextBox*. 
-5. Példányosítsa az `IHyperlinkManager` osztályt. 
-6. Rendelje az `IHyperlinkManager` objektumot a [HyperlinkClick](https://reference.aspose.com/slides/hu/java/com.aspose.slides/Shape#getHyperlinkClick--) tulajdonsághoz, amely a `TextFrame` kívánt részéhez van társítva. 
-7. Végül írd ki a PPTX fájlt a `Presentation` objektum segítségével. 
+Az alábbi példa hivatkozott szöveget hoz létre, és elmenti egy prezentációba:
 
 ```java
 import com.aspose.slides.*;
 
-// Példányosít egy Presentation osztályt, amely egy PPTX-et képvisel
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Lekéri a prezentáció első diaját
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // Hozzáad egy AutoShape objektumot, típusként Rectangle
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // Átkonvertálja az alakzatot AutoShape-re
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // Eléri az AutoShape-hez társított ITextFrame tulajdonságot
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // Hozzáad némi szöveget a kerethez
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // Beállítja a hiperhivatkozást a részlet szövegéhez
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // Mentse a PPTX prezentációt
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **GYIK**
 
-**Mi a különbség a szövegdoboz és a helykitöltő között, amikor master diákon dolgozunk?**
+**Mi a különbség egy szövegdoboz és egy szöveg‑helyfoglaló között a mester‑ vagy elrendezés‑dián?**
 
-Egy [helykitöltő](/slides/hu/java/manage-placeholder/) örökli a stílust és a pozíciót a [mester](/slides/hu/java/masterslide/) diáról, és a [elrendezések](/slides/hu/java/layoutslide/) során felülírható, míg egy szabályos szövegdoboz egy önálló objektum egy adott dián, és nem változik, ha az elrendezéseket váltja.
+Egy [placeholder](/slides/hu/java/manage-placeholder/) örökölheti a pozícióját és formázását egy [master slide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/masterslide/) vagy [layout slide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/layoutslide/)‑tól. Egy hagyományos szövegdoboz független alakzat a dián, ahol létre lett hozva, és nem kap placeholder viselkedést, ha az elrendezés megváltozik.
 
-**Hogyan végezhetek tömeges szövegcserét a teljes prezentáción anélkül, hogy a diagramok, táblák és SmartArt szövegét érinteném?**
+**Hogyan cserélhetem le a szöveget anélkül, hogy a diagramok, táblák vagy SmartArt szövegét módosítanám?**
 
-Korlátozza az iterációt azokra az autoshape‑ekre, amelyek szövegkerettel rendelkeznek, és hagyja ki a beágyazott objektumokat ([diagramok](https://reference.aspose.com/slides/hu/java/com.aspose.slides/chart/), [táblák](https://reference.aspose.com/slides/hu/java/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/smartart/)) azzal, hogy a gyűjteményeiket külön-külön járja be, vagy kihagyja ezeket a típusokat.
+Korlátozza a bejárást azokra az alakzatokra, amelyek implementálják az [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/)‑t, ahogy az a Szöveg frissítése példában látható. A diagramok, táblák és SmartArt a saját objektummodeljükben tárolják a szöveget, ezért ez a ciklus nem módosítja őket.

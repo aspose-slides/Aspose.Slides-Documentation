@@ -1,5 +1,5 @@
 ---
-title: C++ használatával szövegdobozok kezelése prezentációkban
+title: Szövegdobozok kezelése prezentációkban C++ használatával
 linktitle: Szövegdoboz kezelése
 type: docs
 weight: 20
@@ -17,113 +17,88 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Az Aspose.Slides for C++ megkönnyíti a szövegdobozok létrehozását, szerkesztését és másolását PowerPoint és OpenDocument fájlokban, ezáltal javítva a prezentáció automatizálását."
+description: "Szövegdobozok létrehozása, azonosítása, formázása és frissítése PowerPoint és OpenDocument prezentációkban az Aspose.Slides for C++ használatával."
 ---
 ## **Bevezetés**
 
-A diákon lévő szövegek általában szövegdobozokban vagy alakzatokban vannak. Ezért egy szöveg hozzáadásához a diára szövegdobozt kell hozzáadni, majd szöveget helyezni a szövegdobozba. Az Aspose.Slides for C++ biztosítja a [IAutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_auto_shape) interfészt, amely lehetővé teszi olyan alakzat hozzáadását, amely szöveget tartalmaz.
+Az Aspose.Slides for C++-ban a diák szövege szövegkeretekben tárolódik, amelyek alakzatokhoz tartoznak. A [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) interfész a leggyakoribb szöveget tartalmazó alakzatot képviseli, és a szövegét a [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/get_textframe/) metódussal teszi elérhetővé.
 
-{{% alert title="Info" color="info" %}}
-Az Aspose.Slides emellett biztosítja az [IShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_shape) interfészt, amely lehetővé teszi alakzatok hozzáadását a diákhoz. Azonban nem minden, az `IShape` interfészen keresztül hozzáadott alakzat képes szöveget tárolni. Azonban a [IAutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_auto_shape) interfészen keresztül hozzáadott alakzatok tartalmazhatnak szöveget. 
+{{% alert color="info" title="Megjegyzés" %}}
+
+Minden automatikus alakzat megvalósítja az [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) interfészt, de nem minden alakzat automatikus alakzat vagy támogat szövegkeretet. Egy meglévő prezentáció feldolgozásakor ellenőrizze, hogy az alakzat implementálja‑e az [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) interfészt, mielőtt hozzáférne a szövegéhez.
+
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-Ezért, amikor egy olyan alakzattal dolgozunk, amelyhez szöveget szeretnénk hozzáadni, érdemes ellenőrizni és megerősíteni, hogy az `IAutoShape` interfészen keresztül lett átalakítva. Csak ekkor lesz lehetőség a [TextFrame](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.text_frame) használatára, amely az `IAutoShape` egy tulajdonsága. Lásd a [Update Text](https://docs.aspose.com/slides/hu/cpp/manage-textbox/#update-text) szakaszt ezen az oldalon. 
-{{% /alert %}}
+## **Szövegdoboz létrehozása egy dián**
 
-## **Szövegdoboz létrehozása a dián**
-
-Egy szövegdoboz létrehozásához a dián, kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.presentation) osztályból. 
-2. Szerezzen egy hivatkozást az újonnan létrehozott prezentáció első diájához. 
-3. Adjunk hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_auto_shape) objektumot, amelynek a [ShapeType](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) `Rectangle`-re van állítva, a dia megadott pozíciójában, és szerezzük meg az újonnan hozzáadott `IAutoShape` objektum hivatkozását. 
-4. Adjunk egy `TextFrame` tulajdonságot a `IAutoShape` objektumhoz, amely szöveget fog tartalmazni. Az alábbi példában ezt a szöveget adtuk hozzá: *Aspose TextBox*
-5. Végül írjuk ki a PPTX fájlt a `Presentation` objektumon keresztül. 
-
-Ez a C++ kód – a fenti lépések megvalósítása – bemutatja, hogyan lehet szöveget hozzáadni egy diához:
+Egy szövegdoboz létrehozásához adjon egy automatikus alakzatot a diához, szöveget adjon a szövegkeretéhez, majd mentse a prezentációt. A következő példa egy téglalap alakú szövegdobozt hoz létre:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Példányosítja a Presentation objektumot
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// Lekéri a prezentáció első diát
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Hozzáad egy AutoShape-ot, típusát Téglalapra állítva
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Hozzáad TextFrame-et a Téglalaphoz
-ashp->AddTextFrame(u" ");
-
-// Hozzáfér a szövegkerethez
-auto txtFrame = ashp->get_TextFrame();
-
-// Létrehozza a Paragraph objektumot a szövegkerethez
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Létrehozza a Portion objektumot a bekezdéshez
-auto portion = para->get_Portions()->idx_get(0);
-
-// Beállítja a szöveget
-portion->set_Text(u"Aspose TextBox");
-
-// Elmenti a prezentációt a lemezre
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
+
+A [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addautoshape/)‑nek átadott koordinátákat és méreteket pontokban mérik. Az [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/addtextframe/) inicializálja a szövegkeretet a megadott szöveggel.
 
 ## **Szövegdoboz alakzat ellenőrzése**
 
-Az Aspose.Slides biztosítja a [get_IsTextBox](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/get_istextbox/) metódust az [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) interfészen, amely lehetővé teszi az alakzatok vizsgálatát és a szövegdobozok azonosítását.
+Használja az [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/get_istextbox/) metódust annak meghatározására, hogy egy automatikus alakzat szövegdobozként kezelhető‑e. Ez hasznos, ha egy prezentáció szöveget tartalmazó és kizárólag grafikus automatikus alakzatokat egyaránt tartalmaz.
 
-![Text box and shape](istextbox.png)
+![Egy szövegdoboz és egy alakzat](istextbox.png)
 
-Ez a C++ kód bemutatja, hogyan ellenőrizhető, hogy egy alakzat szövegdobozként lett-e létrehozva: 
+A következő példa minden automatikus alakzatot vizsgál meg egy prezentációban:
 
-```c++
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-Vegye figyelembe, hogy ha egyszerűen egy autóalakzatot ad hozzá az [IShapeCollection](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/) interfész `AddAutoShape` metódusával, az autóalakzat `get_IsTextBox` metódusa `false` értéket ad vissza. Azonban, ha szöveget ad hozzá az autóalakzathoz a `AddTextFrame` vagy a `set_Text` metódussal, a `get_IsTextBox` metódus `true` értéket ad vissza.
+Egy újonnan hozzáadott automatikus alakzat nem tekinthető szövegdoboznak, amíg nem tartalmaz nem üres szöveget. Ezt a szöveget megadhatja az [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/addtextframe/) vagy az [ITextFrame::set_Text](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/set_text/) segítségével. Üres karakterlánc hozzáadása vagy hozzárendelése azt eredményezi, hogy az [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/get_istextbox/) `false` értéket ad vissza:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -132,7 +107,9 @@ Vegye figyelembe, hogy ha egyszerűen egy autóalakzatot ad hozzá az [IShapeCol
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -140,154 +117,148 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() hamis értéket ad vissza
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() igaz értéket ad vissza
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() hamis értéket ad vissza
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() igaz értéket ad vissza
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() hamis értéket ad vissza
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() hamis értéket ad vissza
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() hamis értéket ad vissza
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() hamis értéket ad vissza
+Console::WriteLine(shape4->get_IsTextBox());
 ```
 
-## **A szövegkeretet birtokló alakzat megtalálása**
+Az első két ellenőrzés `true`‑t ad vissza; az utolsó két `false`‑t.
 
-Általános szövegfeldolgozó kódban előfordulhat, hogy egy [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/) objektumot kapunk anélkül, hogy tudnánk, mely prezentációs objektum tartalmazza. Használja az [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/get_parentshape/) metódust, hogy visszatérjen a tulajdonos [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/) objektumhoz.
+## **Szövegkeretet birtokló alakzat megtalálása**
 
-Egy szövegkeret esetén, amely egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) vagy egy másik szöveget tartalmazó alakzathoz tartozik, az [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/get_parentshape/) a tulajdonost adja vissza, míg az [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr`-t. Mindkét metódus csak olvasási navigációt biztosít, ezért a hívásuk nem változtatja meg a tulajdonjogot. Mindig ellenőrizze a visszaadott értéket `nullptr`-ra, mielőtt hozzáférne az alakzathoz.
+Általános szövegfeldolgozó kód megkaphat egy [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/)-et anélkül, hogy tudná, melyik prezentációs objektum tartalmazza. Használja az [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/get_parentshape/) metódust a tulajdonos [IShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/)-hez való visszavezetéshez.
 
-Egy teljes példa, amely az alakzat- és táblacellatulajdonosokat azonosítja, beleértve a SmartArt csomópontokkal kapcsolatos alakzatokat, megtalálható a [Search and Replace Text](/slides/hu/cpp/search-and-replace-text/) oldalon.
+Ha a szövegkeret egy automatikus alakzat vagy más szöveget tartalmazó alakzat tulajdona, az [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/get_parentshape/) visszaadja a tulajdonost, míg az [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr`‑t ad. Mindkét metódus csak olvasási célú navigációt biztosít. A visszaadott értéket ellenőrizze `nullptr`‑ra, mielőtt felhasználná. Az alakzat‑ és táblacella‑tulajdonosok egyidejű azonosításához, beleértve a SmartArt‑csomópontokhoz kapcsolódó alakzatokat, lásd a [Keresés és csere szöveg](/slides/hu/cpp/search-and-replace-text/) oldalt.
 
 ## **Oszlopok hozzáadása egy szövegdobozhoz**
 
-Az Aspose.Slides biztosítja a [set_ColumnCount](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) és a [set_ColumnSpacing](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) metódusokat (az [ITextFrameFormat](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_text_frame_format) interfész és a [TextFrameFormat](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_text_frame_format) osztály részeként), amelyek lehetővé teszik oszlopok hozzáadását a szövegdobozokhoz. Megadhatja a szövegdobozban lévő oszlopok számát, valamint a pontokban megadott távolságot az oszlopok között. 
+Az [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframeformat/set_columncount/) metódus a szövegkeretet oszlopokra osztja, míg az [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframeformat/set_columnspacing/) beállítja az oszlopok közti távolságot pontokban. Mindkét metódus az [ITextFrameFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframeformat/) része, és egy meglévő szövegdoboz szövegkeretén keresztül hívható. A szöveg az oszlopok között ugyanazon alakzaton belül újraoszlik; nem folytatódik egy másik alakzatba.
 
-Ez a C++ kód bemutatja a leírt műveletet: 
+A következő példa egy háromoszlopos szövegdobozt hoz létre, amelynek oszlopai között 10 pont távolság van, elmenti a prezentációt, és visszaolvassa a beállításokat a kimeneti fájlból:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// Lekéri a prezentáció első diát
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// Hozzáad egy AutoShape-ot, típusát Téglalapra állítva
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// Hozzáad TextFrame-et a Téglalaphoz
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// Lekéri a TextFrame szövegformátumát
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// Megadja a TextFrame oszlopainak számát
-format->set_ColumnCount(3);
-
-// Megadja az oszlopok közötti távolságot
-format->set_ColumnSpacing(10);
-
-// Elmenti a prezentációt
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **Oszlopok hozzáadása egy szövegkerethez**
-Az Aspose.Slides for C++ biztosítja a [set_ColumnCount](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) metódust (az [ITextFrameFormat](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_text_frame_format) interfészen), amely lehetővé teszi oszlopok hozzáadását a szövegkeretekben. Ezzel a metódussal meghatározhatja a kívánt oszlopszámot egy szövegkeretben. 
+## **Szöveg kinyerése egyes oszlopokból**
 
-Ez a C++ kód bemutatja, hogyan lehet oszlopot hozzáadni egy szövegkerethez:
+Használja az [ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/splittextbycolumns/) metódust, hogy visszanyerje az egyes vizuális oszlopokhoz rendelt szöveget egy meglévő szövegkeretben. A metódus minden oszlophoz egy karakterláncot ad vissza, oszlop‑alapú olvasási sorrendben. Egy egyoszlopos szövegkeret egy elemmel rendelkező tömböt eredményez, és egy üres oszlop egy üres karakterlánccal van reprezentálva. A karakterláncok csak egyszerű szöveget tartalmaznak; a részlet‑szintű formázás nem marad meg.
+
+Ez akkor hasznos, ha:
+
+- Szöveget kell kinyerni úgy, hogy megmaradjon az oszlop‑alapú olvasási sorrend.
+- Többoszlopos diák tartalmát indexelni vagy összehasonlítani kívánja.
+- Minden oszlopot külön fájlba, adatbázismezőbe vagy más célba szeretné exportálni.
+- Szeretné ellenőrizni, hogyan oszlik újra a szöveg az oszlopszám [ITextFrameFormat::set_ColumnCount] vagy a távolság [ITextFrameFormat::set_ColumnSpacing] beállítása, illetve a betűtípus vagy a szövegkeret méretének módosítása után.
+
+A metódus a jelenlegi [ITextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/)‑ben elosztott szöveget jelenti; nem folyik automatikusan szöveg más alakzatok vagy szövegdobozok közé. Az oszlopeloszlás függhet a rendelkezésre álló betűtípusoktól és egyéb szöveg‑elrendezési beállításoktól, ezért győződjön meg róla, hogy a szükséges betűtípusok elérhetők, ha konzisztens eredményre van szükség.
 
 ```cpp
-#include <DOM/AutoShape.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::IO;
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
 }
 
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+if (textBox == nullptr)
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
+    Console::WriteLine(u"No multi-column text frame was found.");
 }
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+else
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
 }
 ```
 
 ## **Szöveg frissítése**
 
-Az Aspose.Slides lehetővé teszi a szövegdobozban vagy a teljes prezentációban lévő szövegek módosítását vagy frissítését. 
-
-Ez a C++ kód egy olyan műveletet mutat be, amely során a prezentáció összes szövege frissül vagy módosul:
+A szöveg frissítéséhez egy prezentáción belül iteráljon a diákon és alakzatokon, válassza ki az automatikus alakzatokat, majd szerkessze a szövegrészeiket. A részlet‑szintű munkavégzés lehetővé teszi a szöveg és a karakterformázás együttes módosítását.
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -297,27 +268,38 @@ Ez a C++ kód egy olyan műveletet mutat be, amely során a prezentáció össze
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //Szöveget módosít
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //Formázást módosít
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -325,78 +307,50 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//Menti a módosított prezentációt
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **Szövegdoboz hozzáadása hiperhivatkozással** 
+Ez a bejárás csak az automatikus alakzatok szövegét módosítja. A táblákban, diagramokban, SmartArt‑ban vagy csoportos alakzatokban tárolt szöveg módosításához azok gyűjteményeit kell bejárni.
 
-Hozzáadhat egy hivatkozást egy szövegdobozhoz. Ha a szövegdobozt rákattintják, a felhasználók a linket nyitják meg. 
+## **Szövegdoboz hozzáadása hiperhivatkozással**
 
-Egy linket tartalmazó szövegdoboz hozzáadásához kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a `Presentation` osztályból. 
-2. Szerezzen hivatkozást az újonnan létrehozott prezentáció első diájához. 
-3. Adjunk hozzá egy `AutoShape` objektumot, amelynek a `ShapeType` `Rectangle`-re van állítva a dia megadott pozíciójában, és szerezzük meg az újonnan hozzáadott AutoShape objektum hivatkozását.
-4. Adjunk egy `TextFrame`-et az `AutoShape` objektumhoz, amely alapértelmezett szövegként a *Aspose TextBox*-t tartalmazza. 
-5. Példányosítsa az `IHyperlinkManager` osztályt. 
-6. Rendelje hozzá az `IHyperlinkManager` objektumot a [set_HyperlinkClick](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) metódushoz, amely a `TextFrame` kívánt részéhez tartozik. 
-7. Végül írja ki a PPTX fájlt a `Presentation` objektumon keresztül. 
-
-Ez a C++ kód – a fenti lépések megvalósítása – bemutatja, hogyan adhat hozzá egy hiperhivatkozással ellátott szövegdobozt a diához:
+Hiperhivatkozást hozzárendelhet egy adott szövegrészlethez, így csak ez a szöveg lesz kattintható link. Használja az [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) metódust a részlet külső URL‑hez való kapcsolásához.
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Példányosít egy Presentation osztályt, amely egy PPTX-et képvisel
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// Lekéri a prezentáció első diáját
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// Hozzáad egy AutoShape objektumot, típusát Téglalapra állítva
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// Átkonvertálja az alakzatot AutoShape-re
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// Hozzáfér az AutoShape-hez tartozó ITextFrame tulajdonsághoz
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// Hozzáad némi szöveget a kerethez
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// Beállítja a hiperhivatkozást a szövegrésszel
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// Elmenti a PPTX prezentációt
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Mi a különbség egy szövegdoboz és egy szöveghelytartó között a mesterdiák használatakor?**
+**Mi a különbség egy szövegdoboz és egy szöveggelőtag között egy mester‑ vagy elrendezés‑dián?**
 
-A [placeholder](/slides/hu/cpp/manage-placeholder/) örökli a stílust és pozíciót a [master](https://reference.aspose.com/slides/hu/cpp/aspose.slides/masterslide/) diától, és felülírható a [layoutok](https://reference.aspose.com/slides/hu/cpp/aspose.slides/layoutslide/) során, míg egy normál szövegdoboz egy független objektum egy adott dián, és nem változik a layoutok váltásakor.
+A [placeholder](/slides/hu/cpp/manage-placeholder/) örökölheti a pozícióját és formázását egy [master slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/masterslide/) vagy [layout slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/layoutslide/)‑ról. Egy szabályos szövegdoboz független alakzat a dián, ahol létrehozták, és nem kap placeholder‑szerű viselkedést, ha az elrendezés megváltozik.
 
-**Hogyan végezhetek tömeges szövegcsere műveletet a prezentáción belül anélkül, hogy a diagramok, táblázatok és SmartArt elemek szövegét módosítanám?**
+**Hogyan cserélhetem le a szöveget anélkül, hogy a diagramok, táblák vagy SmartArt szövegét megváltoztatnám?**
 
-Korlátozza az iterációt azok<|endoftext|>
+Korlátozza a bejárást csak azokra az alakzatokra, amelyek implementálják az [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/)‑t, ahogyan az a Szöveg frissítése példában látható. A diagramok, táblák és SmartArt saját objektummodellekben tárolják a szöveget, ezért az a ciklus nem módosítja őket.

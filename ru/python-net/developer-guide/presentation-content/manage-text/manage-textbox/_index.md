@@ -1,226 +1,225 @@
 ---
-title: Управление текстовыми полями в презентациях с Python
-linktitle: Управление текстовым полем
+title: "Управление текстовыми блоками в презентациях с помощью Python"
+linktitle: "Управление текстовым блоком"
 type: docs
 weight: 20
 url: /ru/python-net/manage-textbox/
 keywords:
-- текстовое поле
-- текстовый кадр
+- текстовый блок
+- текстовый фрейм
 - добавить текст
 - обновить текст
-- создать текстовое поле
-- проверить текстовое поле
+- создать текстовый блок
+- проверить текстовый блок
 - добавить колонку текста
 - добавить гиперссылку
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Aspose.Slides для Python через .NET упрощает создание, редактирование и клонирование текстовых полей в файлах PowerPoint и OpenDocument, улучшая автоматизацию ваших презентаций."
+description: "Создавайте, определяйте, форматируйте и обновляйте текстовые блоки в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET."
 ---
 ## **Введение**
 
-Текст на слайдах обычно находится в текстовых полях или фигурах. Поэтому, чтобы добавить текст на слайд, необходимо добавить текстовое поле, а затем поместить в него текст. Aspose.Slides for Python предоставляет класс [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/), который позволяет добавить форму, содержащую текст.
+В Aspose.Slides for Python via .NET текст слайдов хранится в текстовых фреймах, которые принадлежат фигурам. Класс [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) представляет наиболее распространённую форму, содержащую текст, и предоставляет её текст через свойство [AutoShape.text_frame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/text_frame/).
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides также предоставляет класс [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/). Однако не все формы могут содержать текст.
+{{% alert color="info" title="Note" %}}
+Каждая автофигура наследуется от [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/), но не каждая фигура является автофигурой или поддерживает текстовый фрейм. При обработке существующей презентации используйте `isinstance(shape, slides.AutoShape)`, чтобы проверить тип фигуры перед доступом к её тексту.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-Поэтому, когда вы работаете с фигурой, к которой хотите добавить текст, рекомендуется проверить и убедиться, что она приведена к классу [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/). Только тогда вы сможете работать с [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/), который является свойством класса [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/). Смотрите раздел [Update Text](/slides/ru/python-net/manage-textbox/#update-text) на этой странице.
-{{% /alert %}}
+## **Создание текстового блока на слайде**
 
-## **Создание текстовых полей на слайдах**
-
-Чтобы создать текстовое поле на слайде:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
-2. Получите ссылку на первый слайд.
-3. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) с `ShapeType.RECTANGLE` в нужное место на слайде.
-4. Установите текст в [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) формы.
-5. Сохраните презентацию в файл PPTX.
-
-Следующий пример на Python реализует эти шаги:
-
-```py
-import aspose.slides as slides
-
-# Создать экземпляр класса Presentation.
-with slides.Presentation() as presentation:
-
-    # Получить первый слайд в презентации.
-    slide = presentation.slides[0]
-
-    # Добавить AutoShape типа RECTANGLE.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    shape.text_frame.text = "Aspose TextBox"
-
-    # Сохранить презентацию на диск.
-    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Проверка, является ли фигура текстовым полем**
-
-Aspose.Slides предоставляет свойство [is_text_box](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/is_text_box/) в классе [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/), которое позволяет определить, является ли фигура текстовым полем.
-
-![Text box and shape](istextbox.png)
-
-Этот пример на Python показывает, как проверить, было ли фигура создана как текстовое поле:
+Чтобы создать текстовый блок, добавьте автофигуру на слайд, добавьте текст в её текстовый фрейм и сохраните презентацию. Следующий пример создаёт прямоугольный текстовый блок:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
-    for slide in presentation.slides:
-        for shape in slide.shapes:
-            if isinstance(shape, slides.AutoShape):
-                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 300, 50)
+    text_box.add_text_frame("Aspose TextBox")
+
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Обратите внимание, что если вы добавляете [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) с помощью класса [ShapeCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shapecollection/), свойство `is_text_box` формы возвращает `False`. Однако после добавления текста — либо методом `add_text_frame`, либо установкой свойства `text` — `is_text_box` возвращает `True`.
+Координаты и размеры, передаваемые в [ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shapecollection/add_auto_shape/), измеряются в пунктах. [AutoShape.add_text_frame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/add_text_frame/) инициализирует текстовый фрейм переданным текстом.
 
-```py
+## **Проверка, является ли форма текстовым блоком**
+
+Используйте свойство [AutoShape.is_text_box](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/is_text_box/) для определения, рассматривается ли автофигура как текстовый блок. Это полезно, когда презентация содержит как текстовые, так и чисто графические автофигуры.
+
+![Текстовый блок и фигура](istextbox.png)
+
+Следующий пример проверяет каждую автофигуру в презентации:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 120, 40)
+    text_box.add_text_frame("Text box")
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 10, 40, 40)
+
+    for current_slide in presentation.slides:
+        for shape in current_slide.shapes:
+            if isinstance(shape, slides.AutoShape):
+                print("The shape is a text box." if shape.is_text_box else "The shape is not a text box.")
+```
+
+Новодобавленная автофигура не считается текстовым блоком, пока она не содержит непустой текст. Вы можете задать этот текст через [AutoShape.add_text_frame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/add_text_frame/) или [TextFrame.text](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/text/). Добавление или присвоение пустой строки оставляет [is_text_box](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/is_text_box/) со значением `False`:
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
-    # shape1.is_text_box ложно
-    shape1.add_text_frame("shape 1")
-    # shape1.is_text_box истинно
+    shape1.add_text_frame("Shape 1")
+    print(shape1.is_text_box)
 
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
-    # shape2.is_text_box ложно
-    shape2.text_frame.text = "shape 2"
-    # shape2.is_text_box истинно
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 100, 40)
+    shape2.text_frame.text = "Shape 2"
+    print(shape2.is_text_box)
 
-    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
-    # shape3.is_text_box ложно
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 100, 40)
     shape3.add_text_frame("")
-    # shape3.is_text_box ложно
+    print(shape3.is_text_box)
 
-    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
-    # shape4.is_text_box ложно
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 100, 40)
     shape4.text_frame.text = ""
-    # shape4.is_text_box ложно
+    print(shape4.is_text_box)
 ```
 
-## **Нахождение формы, владеющей TextFrame**
+Первые два вызова выводят `True`; последние два — `False`.
 
-В универсальном коде обработки текста вы можете получить объект [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) без предварительного знания, какой объект презентации его содержит. Используйте свойство [TextFrame.parent_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/parent_shape/), чтобы перейти к принадлежащей ему [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/).
+## **Нахождение формы, которой принадлежит текстовый фрейм**
 
-Для TextFrame, принадлежащего [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) или другой фигуре, содержащей текст, свойство [TextFrame.parent_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/parent_shape/) установлено, а [TextFrame.parent_cell](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/parent_cell/) имеет значение `None`. Оба свойства являются только для чтения и служат навигационными, поэтому их чтение не изменяет владельца. Всегда проверяйте возвращаемое значение на `None` перед обращением к фигуре.
+Общий код обработки текста может получать объект [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) без знания, какому объекту презентации он принадлежит. Используйте только для чтения свойство [TextFrame.parent_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/parent_shape/), чтобы перейти к его владельцу — [Shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/).
 
-Полный пример, определяющий владельцев фигур и ячеек таблиц, включая фигуры, связанные с узлами SmartArt, смотрите в разделе [Search and Replace Text](/slides/ru/python-net/search-and-replace-text/).
+Если текстовый фрейм принадлежит автофигуре или другой фигуре, содержащей текст, [parent_shape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/parent_shape/) содержит владельца, а [TextFrame.parent_cell](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/parent_cell/) равно `None`. Проверьте возвращённое значение перед доступом к нему. Чтобы определить как владельцев фигур, так и ячеек таблиц, включая фигуры, связанные с узлами SmartArt, см. [Search and Replace Text](/slides/ru/python-net/search-and-replace-text/).
 
-## **Добавление столбцов в текстовые поля**
+## **Добавление колонок в текстовый блок**
 
-Aspose.Slides предоставляет свойства [column_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/column_count/) и [column_spacing](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/column_spacing/) в классе [TextFrameFormat](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/), позволяющие добавить столбцы в текстовые поля. Вы можете задать количество столбцов и установить интервал (в пунктах) между ними.
+Свойство [TextFrameFormat.column_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/column_count/) делит текстовый фрейм на колонки, а [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/column_spacing/) задаёт расстояние между колонками в пунктах. Оба параметра относятся к [TextFrameFormat](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/) и могут быть изменены через текстовый фрейм существующего текстового блока. Текст перераспределяется между колонками внутри одной формы; он не продолжается в другую форму.
 
-Следующий код на Python демонстрирует эту операцию:
+Следующий пример создаёт трёхколоночный текстовый блок с 10 пунктами между колонками, сохраняет презентацию и считывает сохранённые настройки из выходного файла:
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 200)
+    text_box.add_text_frame("This text is distributed automatically across all columns in the text box.")
 
-	# Получить первый слайд в презентации.
-	slide = presentation.slides[0]
+    text_frame_format = text_box.text_frame.text_frame_format
+    text_frame_format.column_count = 3
+    text_frame_format.column_spacing = 10
 
-	# Добавить AutoShape типа RECTANGLE.
-	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    presentation.save("TextBoxColumns.pptx", slides.export.SaveFormat.PPTX)
 
-	# Добавить TextFrame к прямоугольнику.
-	shape.add_text_frame("All of these columns are confined to a single text container—" +
-	"you can add or delete text, and any new or remaining text automatically reflows " +
-	"within the container. You cannot have text flow from one container to another, " +
-	"though—PowerPoint’s column options for text are limited!")
+with slides.Presentation("TextBoxColumns.pptx") as saved_presentation:
+    saved_text_box = saved_presentation.slides[0].shapes[0]
+    if isinstance(saved_text_box, slides.AutoShape):
+        saved_format = saved_text_box.text_frame.text_frame_format
+        print(f"Columns: {saved_format.column_count}; spacing: {saved_format.column_spacing} points")
+```
 
-	# Получить формат текста TextFrame.
-	format = shape.text_frame.text_frame_format
+## **Извлечение текста из отдельных колонок**
 
-	# Указать количество колонок в TextFrame.
-	format.column_count = 3
+Используйте [TextFrame.split_text_by_columns](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/split_text_by_columns/) для получения текста, назначенного каждой визуальной колонке в существующем текстовом фрейме. Метод возвращает одну строку для каждой колонки в порядке чтения по колонкам. Текстовый фрейм с одной колонкой возвращает список из одного элемента, а пустая колонка представлена пустой строкой. Строки содержат только обычный текст; форматирование на уровне частей не сохраняется.
 
-	# Указать расстояние между колонками.
-	format.column_spacing = 10
+Это полезно, когда вам нужно:
+- Извлечь текст, сохранив порядок чтения по колонкам.
+- Проиндексировать или сравнить содержание слайдов с несколькими колонками.
+- Экспортировать каждую колонку в отдельный файл, поле базы данных или другое место назначения.
+- Проверить, как текст перераспределяется после изменения [TextFrameFormat.column_count](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/column_count/), [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframeformat/column_spacing/), шрифта или размера текстового фрейма.
 
-	# Сохранить презентацию.
-	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+Метод сообщает текст, распределённый внутри текущего [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/); он не переходит автоматически между отдельными формами или текстовыми блоками. Распределение колонок может зависеть от доступных шрифтов и других настроек макета текста, поэтому убедитесь, что необходимые шрифты доступны, когда важны согласованные результаты.
+
+Следующий пример загружает презентацию, находит первую автофигуру с несколькими колонками и текстовым фреймом, считывает её настроенное количество колонок и записывает текст каждой колонки в отдельный файл. Фигуры без текстового фрейма пропускаются.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("MultiColumnText.pptx") as presentation:
+    text_box = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+            column_count = shape.text_frame.text_frame_format.column_count
+            if column_count > 1:
+                text_box = shape
+                break
+
+    if text_box is None:
+        print("No multi-column text frame was found.")
+    else:
+        text_frame = text_box.text_frame
+        configured_column_count = text_frame.text_frame_format.column_count
+        column_texts = text_frame.split_text_by_columns()
+
+        print(f"Configured columns: {configured_column_count}")
+
+        for column_number, column_text in enumerate(column_texts, start=1):
+            print(f"Column {column_number}: {column_text}")
+            with open(f"Column-{column_number}.txt", "w", encoding="utf-8") as column_file:
+                column_file.write(column_text)
 ```
 
 ## **Обновление текста**
 
-Aspose.Slides позволяет обновлять текст в отдельном текстовом поле или во всей презентации.
+Чтобы обновить текст во всей презентации, пройдите по слайдам и фигурам, выберите автофигуры и затем отредактируйте их части текста. Работа на уровне частей позволяет менять как текст, так и форматирование символов.
 
-Следующий пример на Python демонстрирует, как обновить весь текст в презентации:
+Следующий пример заменяет каждое вхождение `years` на `months` в тексте автофигур и делает каждую затронутую часть жирной:
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
+with slides.Presentation("Text.pptx") as presentation:
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                for paragraph in shape.text_frame.paragraphs:
-                    for portion in paragraph.portions:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if "years" in portion.text:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = slides.NullableBool.TRUE
-  
-    # Сохранить изменённую презентацию.
+
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Добавление текстовых полей с гиперссылками**
+Этот проход обновляет текст только в автофигурах. Текст, хранящийся в таблицах, диаграммах, SmartArt или сгруппированных фигурах, требует обхода собственных коллекций этих объектов.
 
-Вы можете вставить ссылку в текстовое поле. При щелчке по полю ссылка откроется.
+## **Добавление текстового блока с гиперссылкой**
 
-Чтобы добавить текстовое поле, содержащее гиперссылку, выполните следующие действия:
+Гиперссылка может быть назначена определённой части текста, поэтому только этот текст будет кликабельным. Используйте [HyperlinkManager.set_external_hyperlink_click](https://reference.aspose.com/slides/ru/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/) для связывания части с внешним URL.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/).
-2. Получите ссылку на первый слайд.
-3. Добавьте [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) с `ShapeType.RECTANGLE` в нужное место на слайде.
-4. Установите текст в [TextFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/textframe/) формы.
-5. Получите ссылку на [HyperlinkManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/hyperlinkmanager/).
-6. Используйте свойство `hyperlink_manager`, чтобы задать внешнюю гиперссылку при щелчке.
-7. Сохраните презентацию в файл PPTX.
+Следующий пример создаёт связанный текст и сохраняет его в презентацию:
 
-Этот пример на Python показывает, как добавить текстовое поле с гиперссылкой на слайд:
-
-```py
+```python
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation.
 with slides.Presentation() as presentation:
-
-    # Получить первый слайд в презентации.
     slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 200, 50)
+    text_box.add_text_frame("Aspose.Slides")
 
-    # Добавить AutoShape типа RECTANGLE.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    text_portion = text_box.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_manager.set_external_hyperlink_click("https://www.aspose.com/")
 
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    # Добавить текст в кадр.
-    text_portion.text = "Aspose.Slides"
-
-    # Установить гиперссылку для текста части.
-    hyperlink_manager = text_portion.portion_format.hyperlink_manager
-    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
-
-    # Сохранить презентацию в файл PPTX.
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**В чем разница между текстовым полем и заполнителем текста при работе с главными слайдами?**
+**What is the difference between a text box and a text placeholder on a master or layout slide?**
 
-[placeholder](/slides/ru/python-net/manage-placeholder/) наследует стиль/позицию от [master](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslide/) и может быть переопределён на [layouts](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/), тогда как обычное текстовое поле является независимым объектом на конкретном слайде и не меняется при переключении макетов.
+[placeholder](/slides/ru/python-net/manage-placeholder/) может наследовать своё положение и форматирование от [master slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslide/) или [layout slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/). Обычный текстовый блок — это независимая фигура на том слайде, где он был создан, и не получает поведения плейсхолдера при изменении макета.
 
-**Как выполнить массовую замену текста во всей презентации, не затрагивая текст внутри диаграмм, таблиц и SmartArt?**
+**How can I replace text without changing text in charts, tables, or SmartArt?**
 
-Ограничьте итерацию авто-формами, имеющими текстовые кадры, и исключите встроенные объекты ([charts](https://reference.aspose.com/slides/ru/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/ru/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ru/python-net/aspose.slides.smartart/smartart/)), проходя их коллекции отдельно или пропуская такие типы объектов.
+Ограничьте обход экземплярами [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/), как показано в примере «Update Text». Диаграммы, таблицы и SmartArt хранят текст в собственных моделях объектов, поэтому они не изменяются этим циклом.

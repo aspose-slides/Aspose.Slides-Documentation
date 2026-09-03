@@ -1,6 +1,6 @@
 ---
-title: "Hantera textrutor i presentationer med JavaScript"
-linktitle: "Hantera textruta"
+title: Hantera textrutor i presentationer med JavaScript
+linktitle: Hantera textruta
 type: docs
 weight: 20
 url: /sv/nodejs-java/manage-textbox/
@@ -18,84 +18,64 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides för Node.js gör det enkelt att skapa, redigera och duplicera textrutor i PowerPoint- och OpenDocument-filer, vilket förbättrar din presentationsautomatisering."
+description: "Skapa, identifiera, formatera och uppdatera textrutor i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Node.js via Java."
 ---
 ## **Introduktion**
 
-Text på bildspel finns vanligtvis i textrutor eller former. Därför, för att lägga till text på en bild, måste du lägga till en textruta och sedan placera någon text i textrutan. Aspose.Slides för Node.js via Java tillhandahåller klassen [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/AutoShape) som låter dig lägga till en form som innehåller text.
+I Aspose.Slides för Node.js via Java lagras bildtext i textramar som tillhör former. Klassen [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) representerar den vanligaste textbärande formen och exponerar dess text via metoden [AutoShape.getTextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides tillhandahåller också klassen [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Shape) som låter dig lägga till former på bilder. Dock kan inte alla former som läggs till via `Shape`-klassen innehålla text. Men former som läggs till via [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/AutoShape)-klassen kan innehålla text.
+{{% alert color="info" title="Note" %}}
+
+Varje autoform härstammar från [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/), men inte varje form är en autoform eller stöder en textram. När du bearbetar en befintlig presentation, kontrollera att en form är en instans av [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) innan du får åtkomst till dess text.
+
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-Därför, när du arbetar med en form som du vill lägga till text i, kan du vilja kontrollera och bekräfta att den har kastats via `AutoShape`-klassen. Endast då kan du arbeta med [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/TextFrame), som är en egenskap under `AutoShape`. Se avsnittet [Update Text](https://docs.aspose.com/slides/sv/nodejs-java/manage-textbox/#update-text) på den här sidan.
-{{% /alert %}}
+## **Skapa en textruta på en bild**
 
-## **Skapa textruta på bild**
-
-För att skapa en textruta på en bild, följ dessa steg:
-
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation)‑klassen.  
-2. Hämta en referens till den första bilden i den nyss skapade presentationen.  
-3. Lägg till ett [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/AutoShape)‑objekt med [ShapeType](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) inställt på `Rectangle` på en specificerad position på bilden och hämta referensen till det nyligen tillagda `AutoShape`‑objektet.  
-4. Lägg till en `TextFrame`‑egenskap till `AutoShape`‑objektet som ska innehålla text. I exemplet nedan lade vi till följande text: *Aspose TextBox*  
-5. Skriv slutligen PPTX‑filen via `Presentation`‑objektet.  
-
-Denna JavaScript‑kod—en implementering av stegen ovan—visa hur du lägger till text på en bild:
+För att skapa en textruta, lägg till en autoform på en bild, lägg till text i dess textram och spara presentationen. Följande exempel skapar en rektangulär textruta:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Instansierar en presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Hämtar den första bilden i presentationen
-    var sld = pres.getSlides().get_Item(0);
-    // Lägger till en AutoShape med typ inställd på rektangel
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Lägger till ett TextFrame till rektangeln
-    ashp.addTextFrame(" ");
-    // Kommer åt textramen
-    var txtFrame = ashp.getTextFrame();
-    // Skapar Paragraph-objektet för textramen
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Skapar ett Portion-objekt för paragrafen
-    var portion = para.getPortions().get_Item(0);
-    // Ställer in texten
-    portion.setText("Aspose TextBox");
-    // Sparar presentationen till disk
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Kontrollera textrutaform**
+Koordinaterna och dimensionerna som skickas till [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/#addAutoShape) mäts i punkter. [AutoShape.addTextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/#addTextFrame) initierar textramen med den angivna texten.
 
-Aspose.Slides tillhandahåller metoden [isTextBox](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/#isTextBox) från klassen [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) som låter dig undersöka former och identifiera textrutor.
+## **Kontrollera om en form är en textruta**
 
-![Text box and shape](istextbox.png)
+Använd metoden [AutoShape.isTextBox](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/#isTextBox) för att avgöra om en autoform behandlas som en textruta. Detta är användbart när en presentation innehåller både textbärande och enbart grafiska autoformer.
 
-Denna JavaScript‑kod visar hur du kontrollerar om en form skapades som en textruta:
+![En textruta och en form](istextbox.png)
+
+Följande exempel inspekterar varje autoform i en presentation:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -104,233 +84,219 @@ try {
 }
 ```
 
-Observera att om du bara lägger till en autoshape med metoden `addAutoShape` från klassen [ShapeCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shapecollection/) kommer `isTextBox`‑metoden för autoshapen att returnera `false`. Däremot, efter att du har lagt till text i autoshapen med metoden `addTextFrame` eller `setText`, returnerar `isTextBox`‑egenskapen `true`.
+En nylagt autoform betraktas inte som en textruta förrän den innehåller icke‑tom text. Du kan ange den texten via [AutoShape.addTextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/#addTextFrame) eller [TextFrame.setText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#setText). Att lägga till eller tilldela en tom sträng gör att [AutoShape.isTextBox](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/#isTextBox) returnerar `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() returnerar false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() returnerar true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() returnerar false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() returnerar true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() returnerar false
-shape3.addTextFrame("");
-// shape3.isTextBox() returnerar false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() returnerar false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() returnerar false
-```
-
-## **Hitta formen som äger ett TextFrame**
-
-I generisk textbearbetningskod kan du få ett [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/) utan att redan veta vilket presentationsobjekt som innehåller det. Använd metoden [TextFrame.getParentShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentShape--) för att navigera tillbaka till den ägande [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/).
-
-För ett TextFrame som tillhör en [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/) eller en annan textinnehållande form, returnerar [TextFrame.getParentShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentShape--) ägaren och [TextFrame.getParentCell](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentCell--) returnerar `null`. Båda metoderna ger skrivskyddad navigering, så att anropa dem ändrar inte ägandeskapet. Kontrollera alltid det returnerade värdet för `null` innan du får åtkomst till formen.
-
-För ett komplett exempel som identifierar form- och tabellcellägare, inklusive former kopplade till SmartArt‑noder, se [Search and Replace Text](/slides/sv/nodejs-java/search-and-replace-text/).
-
-## **Lägg till kolumn i textruta**
-
-Aspose.Slides tillhandahåller metoderna [setColumnCount](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) och [setColumnSpacing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) från klassen [TextFrameFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/TextFrameFormat) som låter dig lägga till kolumner i textrutor. Du kan ange antalet kolumner i en textruta och ställa in avståndet i punkter mellan kolumnerna.
-
-Denna kod i JavaScript demonstrerar den beskrivna operationen: 
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Hämtar den första bilden i presentationen
-    var slide = pres.getSlides().get_Item(0);
-    // Lägg till en AutoShape med typ inställd på rektangel
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Lägg till ett TextFrame till rektangeln
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Hämtar textformatet för TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Anger antalet kolumner i TextFrame
-    format.setColumnCount(3);
-    // Anger avståndet mellan kolumnerna
-    format.setColumnSpacing(10);
-    // Sparar presentationen
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Lägg till kolumn i TextFrame**
+De två första anropen skriver ut `true`; de två sista skriver ut `false`.
 
-Aspose.Slides för Node.js via Java tillhandahåller metoden [setColumnCount](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) från klassen [TextFrameFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/TextFrameFormat) som låter dig lägga till kolumner i TextFrames. Med denna egenskap kan du ange önskat antal kolumner i ett TextFrame.
+## **Hitta formen som äger en textram**
 
-Denna JavaScript‑kod visar hur du lägger till en kolumn i ett TextFrame:
+Generisk text‑behandlingskod kan ta emot en [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/) utan att veta vilket presentationsobjekt som innehåller den. Använd den skrivskyddade metoden [TextFrame.getParentShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentShape) för att navigera tillbaka till dess ägande [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/).
+
+För en textram som ägs av en autoform eller en annan textbärande form returnerar [TextFrame.getParentShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentShape) ägaren och [TextFrame.getParentCell](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentCell) returnerar `null`. Kontrollera det returnerade värdet innan du använder det. För att identifiera både form‑ och tabell‑cell‑ägare, inklusive former som är kopplade till SmartArt‑noder, se [Search and Replace Text](/slides/sv/nodejs-java/search-and-replace-text/).
+
+## **Lägg till kolumner i en textruta**
+
+Metoden [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframeformat/#setColumnCount) delar textramen i kolumner, medan [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) anger avståndet mellan kolumner i punkter. Båda inställningarna tillhör [TextFrameFormat](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframeformat/) och kan ändras via textramen i en befintlig textruta. Text flödar om mellan kolumner inom samma form; den fortsätter inte in i en annan form.
+
+Följande exempel skapar en tre‑kolumns textruta med 10 punkter mellan kolumnerna, sparar presentationen och läser de lagrade inställningarna från utdatafilen:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // Kolumnavståndet var aldrig inställt, så det rapporteras som NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Extrahera text från enskilda kolumner**
+
+Använd [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#splitTextByColumns) för att hämta den text som är tilldelad varje visuell kolumn i en befintlig textram. Metoden returnerar en sträng för varje kolumn i kolumnbaserad läsordning. En en‑kolumns textram ger en array med ett element, och en tom kolumn representeras av en tom sträng. Strängarna innehåller enbart vanlig text; formatering på portionsnivå bevaras inte.
+
+Detta är användbart när du behöver:
+
+- Extrahera text samtidigt som den kolumnbaserade läsordningen bevaras.
+- Indexera eller jämföra innehållet i bildspel med flera kolumner.
+- Exportera varje kolumn till en separat fil, databasfält eller annan destination.
+- Inspektera hur text omfördelas efter att ha ändrat antalet kolumner med [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframeformat/#setColumnCount), avståndet med [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), teckensnittet eller storleken på textramen.
+
+Metoden rapporterar texten som distribueras inom den aktuella [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/); den flödar inte automatiskt text mellan separata former eller textrutor. Kolumndistribution kan bero på tillgängliga teckensnitt och andra textlayout‑inställningar, så se till att de nödvändiga teckensnitten finns tillgängliga när konsekventa resultat är viktiga.
+
+Följande exempel laddar en presentation, hittar den första multi‑kolumns autoformen med en textram, läser dess konfigurerade kolumnantal och skriver texten från varje kolumn till en separat fil. Former som inte tillhandahåller en textram hoppas över.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Uppdatera text**
 
-Aspose.Slides låter dig ändra eller uppdatera texten som finns i en textruta eller all text i en presentation. 
+För att uppdatera text i hela en presentation, iterera genom bilderna och formerna, välj autoformer och redigera sedan deras textportioner. Att arbeta på portionsnivå låter dig ändra både text och teckenformatering.
 
-Denna JavaScript‑kod demonstrerar en operation där all text i en presentation uppdateras eller ändras:
+Följande exempel ersätter varje förekomst av `years` med `months` i auto‑form‑text och gör varje påverkad portion fetstil:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Kontrollerar om formen stöder textram (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Itererar genom stycken i textram
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Itererar genom varje del i stycket
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Ändrar text
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Ändrar formatering
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Sparar den ändrade presentationen
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Lägg till textruta med hyperlänk** 
+Denna genomgång uppdaterar endast text i autoformer. Text som lagras i tabeller, diagram, SmartArt eller grupperade former kräver att deras egna samlingar traverseras.
 
-Du kan infoga en länk i en textruta. När textrutan klickas på dirigeras användarna till att öppna länken. 
+## **Lägg till en textruta med hyperlänk**
 
-För att lägga till en textruta som innehåller en länk, följ dessa steg:
+En hyperlänk kan tilldelas en specifik textportion, så att endast den texten fungerar som den klickbara länken. Använd [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) för att koppla portionen till en extern URL.
 
-1. Skapa en instans av `Presentation`‑klassen.  
-2. Hämta en referens till den första bilden i den nyss skapade presentationen.  
-3. Lägg till ett `AutoShape`‑objekt med `ShapeType` inställd på `Rectangle` på en specificerad position på bilden och hämta en referens till det nyss tillagda AutoShape‑objektet.  
-4. Lägg till ett `TextFrame` till `AutoShape`‑objektet och sätt texten för dess första del. I exemplet nedan använde vi följande text: *Aspose.Slides*  
-5. Hämta `HyperlinkManager` för den delen via dess `PortionFormat`.  
-6. Anropa `setExternalHyperlinkClick` på `HyperlinkManager` för att fästa länken på delen.  
-7. Skriv slutligen PPTX‑filen via `Presentation`‑objektet. 
-
-Denna JavaScript‑kod—en implementering av stegen ovan—visar hur du lägger till en textruta med hyperlänk på en bild:
+Följande exempel skapar länkt text och sparar den i en presentation:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Instansierar en Presentation-klass som representerar en PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Hämtar den första bilden i presentationen
-    var slide = pres.getSlides().get_Item(0);
-    // Lägger till ett AutoShape-objekt med typ inställd på rektangel
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Castar formen till AutoShape
-    var pptxAutoShape = shape;
-    // Hämtar ITextFrame-egenskapen som är associerad med AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Lägger till lite text i ramen
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Ställer in hyperlänken för delens text
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Sparar PPTX-presentationen
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Vad är skillnaden mellan en textruta och en textplatshållare när du arbetar med masterbilder?**
+**Vad är skillnaden mellan en textruta och en platshållare för text på en master‑ eller layoutbild?**
 
-En [placeholder](/slides/sv/nodejs-java/manage-placeholder/) ärver stil/position från [master](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterslide/) och kan överskrivas på [layouts](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/layoutslide/), medan en vanlig textruta är ett självständigt objekt på en specifik bild och förändras inte när du byter layout.
+En [placeholder](/slides/sv/nodejs-java/manage-placeholder/) kan ärva sin position och formatering från en [master slide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterslide/) eller [layout slide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/layoutslide/). En vanlig textruta är en oberoende form på bilden där den skapades och får inte platshållarbeteende när layouten ändras.
 
-**Hur kan jag utföra en massersättning av text i hela presentationen utan att förändra text i diagram, tabeller och SmartArt?**
+**Hur kan jag ersätta text utan att ändra text i diagram, tabeller eller SmartArt?**
 
-Begränsa din iteration till autoshapes som har textframes och uteslut inbäddade objekt ([charts](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/smartart/)) genom att traversera deras samlingar separat eller hoppa över de objekttyperna.
+Begränsa traverseringen till former som är instanser av [AutoShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/autoshape/), som visas i exemplet för Uppdatera text. Diagram, tabeller och SmartArt lagrar text i sina egna objektmodeller, så de ändras inte av den loopen.

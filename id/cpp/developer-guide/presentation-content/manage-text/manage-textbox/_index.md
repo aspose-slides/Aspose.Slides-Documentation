@@ -6,7 +6,7 @@ weight: 20
 url: /id/cpp/manage-textbox/
 keywords:
 - kotak teks
-- frame teks
+- bingkai teks
 - tambahkan teks
 - perbarui teks
 - buat kotak teks
@@ -17,113 +17,86 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Aspose.Slides untuk C++ memudahkan pembuatan, penyuntingan, dan kloning kotak teks dalam file PowerPoint dan OpenDocument, meningkatkan otomatisasi presentasi Anda."
+description: "Buat, identifikasi, format, dan perbarui kotak teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk C++."
 ---
 ## **Pendahuluan**
 
-Teks pada slide biasanya berada dalam kotak teks atau bentuk. Oleh karena itu, untuk menambahkan teks ke slide, Anda harus menambahkan kotak teks dan kemudian memasukkan teks ke dalam kotak teks tersebut. Aspose.Slides untuk C++ menyediakan antarmuka [IAutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_auto_shape) yang memungkinkan Anda menambahkan bentuk yang berisi teks.
+Dalam Aspose.Slides untuk C++, teks slide disimpan dalam bingkai teks yang dimiliki oleh bentuk. Antarmuka [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) mewakili bentuk yang paling umum membawa teks dan mengekspos teksnya melalui metode [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/get_textframe/).
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides juga menyediakan antarmuka [IShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_shape) yang memungkinkan Anda menambahkan bentuk ke slide. Namun, tidak semua bentuk yang ditambahkan melalui antarmuka `IShape` dapat memuat teks. Tetapi bentuk yang ditambahkan melalui antarmuka [IAutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_auto_shape) dapat berisi teks. 
-{{% /alert %}}
-
-{{% alert title="Catatan" color="warning" %}} 
-Oleh karena itu, saat berurusan dengan sebuah bentuk yang ingin Anda tambahkan teks, Anda mungkin ingin memeriksa dan memastikan bahwa bentuk tersebut telah di-cast melalui antarmuka `IAutoShape`. Hanya dengan begitu Anda dapat bekerja dengan [TextFrame](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.text_frame), yang merupakan properti di bawah `IAutoShape`. Lihat bagian [Update Text](https://docs.aspose.com/slides/id/cpp/manage-textbox/#update-text) pada halaman ini. 
+{{% alert color="info" title="Note" %}}
+Setiap auto shape mengimplementasikan [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/), tetapi tidak setiap shape adalah auto shape atau mendukung bingkai teks. Saat memproses presentasi yang ada, periksa bahwa sebuah shape mengimplementasikan [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) sebelum mengakses teksnya.
 {{% /alert %}}
 
 ## **Buat Kotak Teks pada Slide**
 
-Untuk membuat kotak teks pada slide, ikuti langkah-langkah berikut:
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.presentation). 
-2. Dapatkan referensi ke slide pertama dalam presentasi yang baru dibuat. 
-3. Tambahkan objek [IAutoShape](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_auto_shape) dengan [ShapeType](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) yang diatur sebagai `Rectangle` pada posisi yang ditentukan di slide dan dapatkan referensi ke objek `IAutoShape` yang baru ditambahkan. 
-4. Tambahkan properti `TextFrame` ke objek `IAutoShape` yang akan berisi teks. Pada contoh di bawah, kami menambahkan teks berikut: *Aspose TextBox*
-5. Terakhir, tulis file PPTX melalui objek `Presentation`. 
-
-Kode C++ ini—implementasi dari langkah-langkah di atas—menunjukkan cara menambahkan teks ke slide:
+Untuk membuat kotak teks, tambahkan auto shape ke slide, tambahkan teks ke bingkai teksnya, dan simpan presentasi. Contoh berikut membuat kotak teks persegi panjang:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Membuat instansi Presentation
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// Mendapatkan slide pertama dalam presentasi
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Menambahkan AutoShape dengan tipe diatur sebagai Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Menambahkan TextFrame ke Rectangle
-ashp->AddTextFrame(u" ");
-
-// Mengakses text frame
-auto txtFrame = ashp->get_TextFrame();
-
-// Membuat objek Paragraph untuk text frame
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Membuat objek Portion untuk paragraf
-auto portion = para->get_Portions()->idx_get(0);
-
-// Mengatur Teks
-portion->set_Text(u"Aspose TextBox");
-
-// Menyimpan presentasi ke disk
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
+
+Koordinat dan dimensi yang diberikan ke [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/addautoshape/) diukur dalam poin. [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/addtextframe/) menginisialisasi bingkai teks dengan teks yang diberikan.
 
 ## **Periksa Bentuk Kotak Teks**
 
-Aspose.Slides menyediakan metode [get_IsTextBox](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/get_istextbox/) dari antarmuka [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) yang memungkinkan Anda memeriksa bentuk dan mengidentifikasi kotak teks.
+Gunakan metode [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/get_istextbox/) untuk menentukan apakah sebuah auto shape diperlakukan sebagai kotak teks. Ini berguna ketika presentasi berisi baik auto shape yang membawa teks maupun auto shape yang hanya grafis.
 
-![Kotak teks dan bentuk](istextbox.png)
+![Kotak teks dan sebuah bentuk](istextbox.png)
 
-Kode C++ ini menunjukkan cara memeriksa apakah sebuah bentuk dibuat sebagai kotak teks: 
+Contoh berikut memeriksa setiap auto shape dalam sebuah presentasi:
 
-```c++
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-Perhatikan bahwa jika Anda hanya menambahkan sebuah autoshape menggunakan metode `AddAutoShape` dari antarmuka [IShapeCollection](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapecollection/) , metode `get_IsTextBox` pada autoshape akan mengembalikan `false`. Namun, setelah Anda menambahkan teks ke autoshape menggunakan metode `AddTextFrame` atau metode `set_Text`, metode `get_IsTextBox` akan mengembalikan `true`.
+Auto shape yang baru ditambahkan tidak dianggap sebagai kotak teks sampai ia berisi teks tidak kosong. Anda dapat memberikan teks tersebut melalui [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/addtextframe/) atau [ITextFrame::set_Text](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/set_text/). Menambahkan atau menetapkan string kosong membuat [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/get_istextbox/) mengembalikan `false`:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -132,7 +105,9 @@ Perhatikan bahwa jika Anda hanya menambahkan sebuah autoshape menggunakan metode
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -140,155 +115,152 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() mengembalikan false
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() mengembalikan true
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() mengembalikan false
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() mengembalikan true
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() mengembalikan false
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() mengembalikan false
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() mengembalikan false
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() mengembalikan false
+Console::WriteLine(shape4->get_IsTextBox());
 ```
 
-## **Temukan Bentuk yang Memiliki Text Frame**
+Dua pemeriksaan pertama mengembalikan `true`; dua pemeriksaan terakhir mengembalikan `false`.
 
-Dalam kode pemrosesan teks umum, Anda mungkin menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) tanpa mengetahui objek presentasi mana yang memilikinya. Gunakan [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentshape/) untuk menavigasi kembali ke [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) pemiliknya.
+## **Temukan Bentuk yang Memiliki Bingkai Teks**
 
-Untuk sebuah text frame yang dimiliki oleh sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) atau bentuk lain yang berisi teks, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentshape/) mengembalikan pemilik dan [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentcell/) mengembalikan `nullptr`. Kedua metode tersebut menyediakan navigasi baca-saja, sehingga memanggilnya tidak mengubah kepemilikan. Selalu periksa nilai yang dikembalikan untuk `nullptr` sebelum mengakses bentuk.
+Kode pemrosesan teks umum mungkin menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) tanpa mengetahui objek presentasi mana yang memilikinya. Gunakan metode [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentshape/) untuk menavigasi kembali ke [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) pemiliknya.
 
-Untuk contoh lengkap yang mengidentifikasi pemilik bentuk dan sel tabel, termasuk bentuk yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/cpp/search-and-replace-text/).
+Untuk bingkai teks yang dimiliki oleh auto shape atau bentuk lain yang membawa teks, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentshape/) mengembalikan pemiliknya dan [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentcell/) mengembalikan `nullptr`. Kedua metode menyediakan navigasi read-only. Periksa nilai yang dikembalikan untuk `nullptr` sebelum mengaksesnya. Untuk mengidentifikasi pemilik shape dan sel tabel, termasuk shape yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/cpp/search-and-replace-text/).
 
 ## **Tambahkan Kolom ke Kotak Teks**
 
-Aspose.Slides menyediakan metode [set_ColumnCount](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) dan [set_ColumnSpacing](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) (dari antarmuka [ITextFrameFormat](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_text_frame_format) dan kelas [TextFrameFormat](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_text_frame_format)) yang memungkinkan Anda menambahkan kolom ke kotak teks. Anda dapat menentukan jumlah kolom dalam kotak teks dan mengatur jarak dalam point antara kolom. 
+Metode [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_columncount/) membagi bingkai teks menjadi kolom, sementara [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_columnspacing/) menentukan jarak antar kolom dalam poin. Kedua metode merupakan bagian dari [ITextFrameFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/) dan dapat dipanggil melalui bingkai teks dari kotak teks yang ada. Teks mengalir ulang di antara kolom dalam shape yang sama; tidak berlanjut ke shape lain.
 
-Kode C++ ini menunjukkan operasi yang dijelaskan: 
+Contoh berikut membuat kotak teks tiga kolom dengan jarak 10 poin antar kolom, menyimpan presentasi, dan membaca pengaturan yang disimpan kembali dari file output:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// Mendapatkan slide pertama dalam presentasi
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// Menambahkan AutoShape dengan tipe diatur sebagai Rectangle
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// Menambahkan TextFrame ke Rectangle
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// Mendapatkan format teks dari TextFrame
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// Menentukan jumlah kolom dalam TextFrame
-format->set_ColumnCount(3);
-
-// Menentukan jarak antar kolom
-format->set_ColumnSpacing(10);
-
-// Menyimpan presentasi
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **Tambahkan Kolom ke Text Frame**
+## **Ekstrak Teks dari Setiap Kolom**
 
-Aspose.Slides untuk C++ menyediakan metode [set_ColumnCount](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) (dari antarmuka [ITextFrameFormat](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.i_text_frame_format)) yang memungkinkan Anda menambahkan kolom dalam text frame. Melalui metode ini, Anda dapat menentukan jumlah kolom yang diinginkan dalam sebuah text frame. 
+Gunakan [ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/splittextbycolumns/) untuk mengambil teks yang ditetapkan ke setiap kolom visual dalam bingkai teks yang ada. Metode ini mengembalikan satu string untuk setiap kolom, dalam urutan pembacaan berdasarkan kolom. Bingkai teks satu kolom menghasilkan array dengan satu elemen, dan kolom kosong direpresentasikan dengan string kosong. String tersebut hanya berisi teks biasa; pemformatan pada tingkat bagian tidak dipertahankan.
 
-Kode C++ ini menunjukkan cara menambahkan kolom di dalam text frame:
+Ini berguna ketika Anda perlu:
+
+- Ekstrak teks sambil mempertahankan urutan baca berbasis kolom.
+- Indeks atau bandingkan konten slide multi-kolom.
+- Ekspor setiap kolom ke file terpisah, bidang basis data, atau tujuan lain.
+- Periksa bagaimana teks didistribusikan ulang setelah mengatur jumlah kolom dengan [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_columncount/) atau jarak dengan [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/set_columnspacing/), atau mengubah font atau ukuran bingkai teks.
+
+Metode ini melaporkan teks yang didistribusikan dalam [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) saat ini; tidak secara otomatis mengalirkan teks antara shape atau kotak teks terpisah. Distribusi kolom dapat bergantung pada font yang tersedia dan pengaturan tata letak teks lainnya, jadi pastikan font yang dibutuhkan tersedia ketika hasil yang konsisten penting.
+
+Contoh berikut memuat sebuah presentasi, menemukan auto shape multi-kolom pertama dengan bingkai teks pada slide pertama, membaca jumlah kolom yang dikonfigurasi, dan menulis teks dari setiap kolom ke file terpisah. Shape yang tidak menyediakan bingkai teks akan dilewati.
 
 ```cpp
-#include <DOM/AutoShape.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::IO;
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
 }
 
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+if (textBox == nullptr)
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
+    Console::WriteLine(u"No multi-column text frame was found.");
 }
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+else
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
 }
 ```
 
 ## **Perbarui Teks**
 
-Aspose.Slides memungkinkan Anda mengubah atau memperbarui teks yang terdapat dalam kotak teks atau semua teks dalam sebuah presentasi. 
+Untuk memperbarui teks di seluruh presentasi, iterasi melalui slide dan shape, pilih auto shape, lalu edit bagian teksnya. Bekerja pada tingkat bagian memungkinkan Anda mengubah teks dan pemformatan karakter.
 
-Kode C++ ini menunjukkan operasi di mana semua teks dalam sebuah presentasi diperbarui atau diubah:
+Contoh berikut menggantikan setiap kemunculan `years` dengan `months` dalam bagian teks auto-shape individual dan membuat setiap bagian yang terpengaruh menjadi tebal:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -298,27 +270,38 @@ Kode C++ ini menunjukkan operasi di mana semua teks dalam sebuah presentasi dipe
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    // Mengubah teks
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    // Mengubah format
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -326,78 +309,52 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-// Menyimpan presentasi yang sudah diubah
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **Tambahkan Kotak Teks dengan Tautan** 
+Travers ini memperbarui teks hanya pada auto shape. Teks yang disimpan dalam tabel, diagram, SmartArt, atau shape yang dikelompokkan memerlukan travers pada koleksi objek masing-masing.
 
-Anda dapat menyisipkan tautan di dalam kotak teks. Saat kotak teks diklik, pengguna akan diarahkan untuk membuka tautan. 
+## **Tambahkan Kotak Teks dengan Tautan**
 
-Untuk menambahkan kotak teks yang berisi tautan, ikuti langkah-langkah berikut:
+Tautan dapat ditetapkan ke bagian teks tertentu, sehingga hanya teks tersebut yang berfungsi sebagai tautan yang dapat diklik. Gunakan [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) untuk mengaitkan bagian tersebut dengan URL eksternal.
 
-1. Buat sebuah instance kelas `Presentation`. 
-2. Dapatkan referensi ke slide pertama dalam presentasi yang baru dibuat. 
-3. Tambahkan objek `AutoShape` dengan `ShapeType` yang diatur sebagai `Rectangle` pada posisi yang ditentukan di slide dan dapatkan referensi ke objek AutoShape yang baru ditambahkan.
-4. Tambahkan `TextFrame` ke objek `AutoShape` yang berisi *Aspose TextBox* sebagai teks default. 
-5. Instansiasikan kelas `IHyperlinkManager`. 
-6. Tetapkan objek `IHyperlinkManager` ke metode [set_HyperlinkClick](https://reference.aspose.com/slides/id/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) yang terkait dengan bagian `TextFrame` pilihan Anda. 
-7. Terakhir, tulis file PPTX melalui objek `Presentation`. 
-
-Kode C++ ini—implementasi dari langkah-langkah di atas—menunjukkan cara menambahkan kotak teks dengan tautan ke slide:
+Contoh berikut membuat teks yang ditautkan dan menyimpannya ke presentasi:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Membuat instance kelas Presentation yang mewakili file PPTX
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// Mendapatkan slide pertama dalam presentasi
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// Menambahkan objek AutoShape dengan tipe diatur sebagai Rectangle
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// Meng-cast shape menjadi AutoShape
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// Mengakses properti ITextFrame yang terkait dengan AutoShape
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// Menambahkan beberapa teks ke frame
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// Menetapkan Hyperlink untuk teks portion
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// Menyimpan presentasi PPTX
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Apa perbedaan antara kotak teks dan placeholder teks saat bekerja dengan master slide?**
+**Apa perbedaan antara kotak teks dan placeholder teks pada slide master atau layout?**
 
-Sebuah [placeholder](/slides/id/cpp/manage-placeholder/) mewarisi gaya/posisi dari [master](https://reference.aspose.com/slides/id/cpp/aspose.slides/masterslide/) dan dapat ditimpa pada [layout](https://reference.aspose.com/slides/id/cpp/aspose.slides/layoutslide/), sedangkan kotak teks biasa adalah objek independen pada slide tertentu dan tidak berubah saat Anda beralih layout.
+Sebuah [placeholder](/slides/id/cpp/manage-placeholder/) dapat mewarisi posisi dan formatnya dari sebuah [master slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/masterslide/) atau [layout slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/layoutslide/). Kotak teks biasa adalah shape independen pada slide tempat ia dibuat dan tidak memperoleh perilaku placeholder ketika layout berubah.
 
-**Bagaimana cara melakukan penggantian teks secara massal di seluruh presentasi tanpa memengaruhi teks di dalam chart, table, dan SmartArt?**
+**Bagaimana saya dapat mengganti teks tanpa mengubah teks dalam diagram, tabel, atau SmartArt?**
 
-Batasi iterasi Anda hanya pada auto-shape yang memiliki text frame dan kecualikan objek tersemat ([chart](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chart/), [table](https://reference.aspose.com/slides/id/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/id/cpp/aspose.slides.smartart/smartart/)) dengan menelusuri koleksi mereka secara terpisah atau melewatkan tipe objek tersebut.
+Batasi traversal hanya pada shape yang mengimplementasikan [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/), seperti yang ditunjukkan dalam contoh Perbarui Teks. Diagram, tabel, dan SmartArt menyimpan teks dalam model objek masing-masing, sehingga tidak diubah oleh loop tersebut.

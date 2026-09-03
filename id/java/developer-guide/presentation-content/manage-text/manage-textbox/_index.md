@@ -7,333 +7,287 @@ url: /id/java/manage-textbox/
 keywords:
 - kotak teks
 - bingkai teks
-- menambah teks
-- memperbarui teks
-- membuat kotak teks
-- memeriksa kotak teks
-- menambah kolom teks
-- menambah hyperlink
+- tambahkan teks
+- perbarui teks
+- buat kotak teks
+- periksa kotak teks
+- tambahkan kolom teks
+- tambahkan tautan hiper
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Aspose.Slides untuk Java memudahkan pembuatan, penyuntingan, dan penyalinan kotak teks di file PowerPoint dan OpenDocument, meningkatkan otomatisasi presentasi Anda."
+description: "Buat, identifikasi, format, dan perbarui kotak teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java."
 ---
 ## **Pendahuluan**
 
-Teks pada slide biasanya berada di dalam kotak teks atau bentuk. Oleh karena itu, untuk menambahkan teks ke sebuah slide, Anda harus menambahkan kotak teks terlebih dahulu, lalu menaruh teks di dalamnya. Aspose.Slides for Java menyediakan antarmuka [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/IAutoShape) yang memungkinkan Anda menambahkan bentuk yang berisi teks.
+Di Aspose.Slides for Java, teks slide disimpan dalam bingkai teks yang menjadi bagian dari shape. Antarmuka [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/) mewakili shape yang paling umum berisi teks dan mengekspose teksnya melalui metode [IAutoShape.getTextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/#getTextFrame--) .
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides juga menyediakan antarmuka [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShape) yang memungkinkan Anda menambahkan bentuk ke slide. Namun, tidak semua bentuk yang ditambahkan melalui antarmuka `IShape` dapat menampung teks. Sebaliknya, bentuk yang ditambahkan melalui antarmuka [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/IAutoShape) dapat berisi teks. 
-
+{{% alert color="info" title="Note" %}}
+Setiap auto shape mengimplementasikan [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/), tetapi tidak setiap shape adalah auto shape atau mendukung bingkai teks. Saat memproses presentasi yang ada, periksa bahwa sebuah shape mengimplementasikan [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/) sebelum mengakses teksnya.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
+## **Buat Kotak Teks pada Slide**
 
-Karena itu, ketika Anda berurusan dengan sebuah bentuk yang ingin Anda tambahkan teks, sebaiknya periksa dan pastikan bahwa bentuk tersebut telah di‑cast melalui antarmuka `IAutoShape`. Hanya dengan begitu Anda dapat bekerja dengan [TextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/TextFrame), yang merupakan properti dari `IAutoShape`. Lihat bagian [Perbarui Teks](https://docs.aspose.com/slides/id/java/manage-textbox/#update-text) pada halaman ini. 
-
-{{% /alert %}}
-
-## **Membuat Kotak Teks pada Slide**
-
-Untuk membuat kotak teks pada slide, ikuti langkah‑langkah berikut:
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation). 
-2. Dapatkan referensi ke slide pertama dalam presentasi yang baru dibuat. 
-3. Tambahkan objek [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/IAutoShape) dengan [ShapeType](https://reference.aspose.com/slides/id/java/com.aspose.slides/IGeometryShape#setShapeType-int-) yang disetel ke `Rectangle` pada posisi yang ditentukan di slide, dan peroleh referensi ke objek `IAutoShape` yang baru ditambahkan. 
-4. Tambahkan properti `TextFrame` ke objek `IAutoShape` yang akan berisi teks. Pada contoh di bawah, kami menambahkan teks: *Aspose TextBox*
-5. Akhirnya, tulis file PPTX melalui objek `Presentation`. 
-
-Kode Java berikut—implementasi langkah‑langkah di atas—menunjukkan cara menambahkan teks ke sebuah slide:
-
-```java
-import com.aspose.slides.*;
-
-// Membuat Instance Presentation
-Presentation pres = new Presentation();
-try {
-    // Mengambil slide pertama dalam presentasi
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Menambahkan AutoShape dengan tipe diatur sebagai Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Menambahkan TextFrame ke Rectangle
-    ashp.addTextFrame(" ");
-
-    // Mengakses text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // Membuat objek Paragraph untuk text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Membuat objek Portion untuk paragraf
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // Mengatur Teks
-    portion.setText("Aspose TextBox");
-
-    // Menyimpan presentasi ke disk
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Memeriksa Bentuk Kotak Teks**
-
-Aspose.Slides menyediakan metode [isTextBox](https://reference.aspose.com/slides/id/java/com.aspose.slides/autoshape/#isTextBox--) dari antarmuka [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/) yang memungkinkan Anda memeriksa bentuk dan mengidentifikasi kotak teks.
-
-![Text box and shape](istextbox.png)
-
-Kode Java berikut menunjukkan cara memeriksa apakah sebuah bentuk dibuat sebagai kotak teks: 
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-Perlu dicatat bahwa jika Anda hanya menambahkan auto‑shape menggunakan metode `addAutoShape` dari antarmuka [IShapeCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/), metode `isTextBox` pada auto‑shape akan mengembalikan `false`. Namun, setelah Anda menambahkan teks ke auto‑shape menggunakan metode `addTextFrame` atau metode `setText`, properti `isTextBox` akan mengembalikan `true`.
+Untuk membuat kotak teks, tambahkan auto shape ke slide, tambahkan teks ke bingkai teksnya, dan simpan presentasi. Contoh berikut membuat kotak teks persegi panjang:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() mengembalikan false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() mengembalikan true
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() mengembalikan false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() mengembalikan true
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() mengembalikan false
-shape3.addTextFrame("");
-// shape3.isTextBox() mengembalikan false
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() mengembalikan false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() mengembalikan false
-```
-
-## **Menemukan Bentuk yang Memiliki Text Frame**
-
-Dalam kode pemrosesan teks generik, Anda mungkin menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/) tanpa mengetahui objek presentasi mana yang memuatnya. Gunakan metode [ITextFrame.getParentShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentShape--) untuk menavigasi kembali ke [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) pemiliknya.
-
-Untuk sebuah text frame yang dimiliki oleh sebuah [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/) atau bentuk lain yang berisi teks, [ITextFrame.getParentShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentShape--) mengembalikan pemiliknya dan [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentCell--) mengembalikan `null`. Kedua metode memberikan navigasi hanya‑baca, sehingga pemanggilannya tidak mengubah kepemilikan. Selalu periksa nilai kembali untuk `null` sebelum mengakses bentuk.
-
-Untuk contoh lengkap yang mengidentifikasi pemilik bentuk dan sel tabel, termasuk bentuk yang terkait dengan node SmartArt, lihat [Cari dan Ganti Teks](/slides/id/java/search-and-replace-text/).
-
-## **Menambahkan Kolom ke Kotak Teks**
-
-Aspose.Slides menyediakan properti [ColumnCount](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) dan [ColumnSpacing](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (dari antarmuka [ITextFrameFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITextFrameFormat) dan kelas [TextFrameFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/TextFrameFormat)) yang memungkinkan Anda menambahkan kolom ke kotak teks. Anda dapat menentukan jumlah kolom dalam kotak teks dan mengatur jarak antar kolom dalam poin.
-
-Kode Java berikut mendemonstrasikan operasi tersebut: 
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // Mendapatkan slide pertama dalam presentasi
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // Menambahkan AutoShape dengan tipe diatur sebagai Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // Menambahkan TextFrame ke Rectangle
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // Mendapatkan format teks dari TextFrame
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // Menentukan jumlah kolom dalam TextFrame
-    format.setColumnCount(3);
-
-    // Menentukan jarak antar kolom
-    format.setColumnSpacing(10);
-
-    // Menyimpan presentasi
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Menambahkan Kolom ke Text Frame**
-Aspose.Slides for Java menyediakan properti [ColumnCount](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (dari antarmuka [ITextFrameFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITextFrameFormat)) yang memungkinkan Anda menambahkan kolom dalam text frame. Melalui properti ini, Anda dapat menentukan jumlah kolom yang diinginkan dalam sebuah text frame. 
+Koordinat dan dimensi yang diberikan ke [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) diukur dalam poin. [IAutoShape.addTextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) menginisialisasi bingkai teks dengan teks yang diberikan.
 
-Kode Java berikut menunjukkan cara menambahkan kolom di dalam text frame:
+## **Periksa Shape Kotak Teks**
+
+Gunakan metode [IAutoShape.isTextBox](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/#isTextBox--) untuk menentukan apakah sebuah auto shape diperlakukan sebagai kotak teks. Ini berguna ketika presentasi berisi baik shape yang membawa teks maupun shape grafis murni.
+
+![Kotak teks dan sebuah shape](istextbox.png)
+
+Contoh berikut memeriksa setiap auto shape dalam sebuah presentasi:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    ITextFrameFormat format = shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Memperbarui Teks**
-
-Aspose.Slides memungkinkan Anda mengubah atau memperbarui teks yang terdapat dalam kotak teks atau semua teks dalam sebuah presentasi. 
-
-Kode Java berikut mendemonstrasikan operasi di mana semua teks dalam sebuah presentasi diperbarui atau diubah:
+Sebuah auto shape yang baru ditambahkan tidak dianggap sebagai kotak teks hingga ia berisi teks tidak kosong. Anda dapat memberikan teks tersebut melalui [IAutoShape.addTextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) atau [ITextFrame.setText](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#setText-java.lang.String-). Menambahkan atau menetapkan string kosong menyebabkan [IAutoShape.isTextBox](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/#isTextBox--) mengembalikan `false`:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation();
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //Memeriksa apakah bentuk mendukung text frame (IAutoShape). 
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Iterasi melalui paragraf di text frame
-                {
-                    for (IPortion portion : paragraph.getPortions()) //Iterasi melalui setiap portion dalam paragraf
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //Mengubah teks
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //Mengubah format
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+Dua pemanggilan pertama mencetak `true`; dua pemanggilan terakhir mencetak `false`.
+
+## **Temukan Shape yang Memiliki Bingkai Teks**
+
+Kode pemrosesan teks generik dapat menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/) tanpa mengetahui objek presentasi mana yang memilikinya. Gunakan metode baca-saja [ITextFrame.getParentShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentShape--) untuk menavigasi kembali ke [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) pemiliknya.
+
+Untuk bingkai teks yang dimiliki oleh auto shape atau shape lain yang membawa teks, [ITextFrame.getParentShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentShape--) mengembalikan pemiliknya dan [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentCell--) mengembalikan `null`. Periksa nilai yang dikembalikan sebelum mengaksesnya. Untuk mengidentifikasi pemilik shape dan sel tabel, termasuk shape yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/java/search-and-replace-text/).
+
+## **Tambahkan Kolom ke Kotak Teks**
+
+Metode [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/#setColumnCount-int-) membagi bingkai teks menjadi kolom, sementara [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) mengatur jarak antara kolom dalam poin. Kedua pengaturan termasuk dalam [ITextFrameFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/) dan dapat diubah melalui bingkai teks pada kotak teks yang ada. Teks mengalir ulang di antara kolom dalam shape yang sama; tidak berlanjut ke shape lain.
+
+Contoh berikut membuat kotak teks tiga kolom dengan jarak 10 poin antara kolom, menyimpan presentasi, dan membaca kembali pengaturan yang disimpan dari file keluaran:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ekstrak Teks dari Setiap Kolom**
+
+Gunakan [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#splitTextByColumns--) untuk mengambil teks yang ditetapkan ke setiap kolom visual dalam bingkai teks yang ada. Metode ini mengembalikan satu string untuk tiap kolom, dalam urutan baca berdasarkan kolom. Bingkai teks satu kolom menghasilkan array dengan satu elemen, dan kolom kosong diwakili oleh string kosong. String berisi teks polos saja; pemformatan tingkat bagian tidak dipertahankan.
+
+Ini berguna ketika Anda perlu:
+- Mengekstrak teks sambil mempertahankan urutan baca berbasis kolom.
+- Mengindeks atau membandingkan konten slide multi-kolom.
+- Mengekspor setiap kolom ke file terpisah, field basis data, atau tujuan lain.
+- Memeriksa bagaimana teks didistribusikan kembali setelah mengubah jumlah kolom dengan [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/#setColumnCount-int-), jaraknya dengan [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-), font, atau ukuran bingkai teks.
+
+Metode ini melaporkan teks yang tersebar dalam [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/) saat ini; ia tidak secara otomatis mengalirkan teks antara shape atau kotak teks yang terpisah. Distribusi kolom dapat bergantung pada font yang tersedia dan pengaturan tata letak teks lainnya, jadi pastikan font yang diperlukan tersedia ketika hasil yang konsisten penting.
+
+Contoh berikut memuat sebuah presentasi, menemukan auto shape multi-kolom pertama dengan bingkai teks, membaca jumlah kolom yang dikonfigurasi, dan menulis teks dari setiap kolom ke file terpisah. Shape yang tidak menyediakan bingkai teks dilewati.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            Path outputPath = Paths.get("Column-" + columnNumber + ".txt");
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try {
+                Files.write(outputPath, textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Perbarui Teks**
+
+Untuk memperbarui teks di seluruh presentasi, iterasi melalui slide dan shape, pilih auto shape, dan kemudian edit bagian teksnya. Bekerja pada tingkat bagian memungkinkan Anda mengubah teks dan pemformatan karakter sekaligus.
+
+Contoh berikut mengganti setiap kemunculan `years` dengan `months` dalam teks auto shape dan membuat setiap bagian yang terkena menjadi tebal:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Text.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //Menyimpan presentasi yang dimodifikasi
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Menambahkan Kotak Teks dengan Hyperlink** 
+Penelusuran ini memperbarui teks hanya dalam auto shape. Teks yang disimpan dalam tabel, bagan, SmartArt, atau shape yang dikelompokkan memerlukan penelusuran koleksi objek masing‑masing.
 
-Anda dapat menyisipkan tautan di dalam sebuah kotak teks. Ketika kotak teks diklik, pengguna akan diarahkan ke tautan tersebut. 
+## **Tambahkan Kotak Teks dengan Tautan Hiper**
 
-Untuk menambahkan kotak teks yang berisi tautan, ikuti langkah‑langkah berikut:
+Sebuah tautan hiper dapat ditetapkan ke bagian teks tertentu, sehingga hanya teks tersebut yang berfungsi sebagai tautan yang dapat diklik. Gunakan [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/id/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) untuk mengaitkan bagian tersebut dengan URL eksternal.
 
-1. Buat instance kelas `Presentation`. 
-2. Dapatkan referensi ke slide pertama dalam presentasi yang baru dibuat. 
-3. Tambahkan objek `AutoShape` dengan `ShapeType` yang disetel ke `Rectangle` pada posisi yang ditentukan di slide, dan peroleh referensi ke objek AutoShape yang baru ditambahkan.
-4. Tambahkan `TextFrame` ke objek `AutoShape` yang berisi *Aspose TextBox* sebagai teks default. 
-5. Instansiasi kelas `IHyperlinkManager`. 
-6. Tetapkan objek `IHyperlinkManager` ke properti [HyperlinkClick](https://reference.aspose.com/slides/id/java/com.aspose.slides/Shape#getHyperlinkClick--) yang terkait dengan bagian yang Anda inginkan dalam `TextFrame`. 
-7. Akhirnya, tulis file PPTX melalui objek `Presentation`. 
-
-Kode Java berikut—implementasi langkah‑langkah di atas—menunjukkan cara menambahkan kotak teks dengan hyperlink ke sebuah slide:
+Contoh berikut membuat teks bertautan dan menyimpannya ke presentasi:
 
 ```java
 import com.aspose.slides.*;
 
-// Membuat instance kelas Presentation yang mewakili PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Mengambil slide pertama dalam presentasi
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // Menambahkan objek AutoShape dengan tipe diatur sebagai Rectangle
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // Mengubah tipe shape menjadi AutoShape
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // Mengakses properti ITextFrame yang terkait dengan AutoShape
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // Menambahkan teks ke dalam frame
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // Mengatur Hyperlink untuk teks portion
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // Menyimpan presentasi PPTX
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Apa perbedaan antara kotak teks dan placeholder teks saat bekerja dengan slide master?**
+**Apa perbedaan antara kotak teks dan placeholder teks pada slide master atau layout?**
 
-Sebuah [placeholder](/slides/id/java/manage-placeholder/) mewarisi gaya/posisi dari [master](https://reference.aspose.com/slides/id/java/com.aspose.slides/masterslide/) dan dapat ditimpa pada [layout](https://reference.aspose.com/slides/id/java/com.aspose.slides/layoutslide/), sedangkan kotak teks biasa adalah objek independen pada slide tertentu dan tidak berubah saat Anda beralih layout.
+Sebuah [placeholder](/slides/id/java/manage-placeholder/) dapat mewarisi posisi dan pemformatannya dari sebuah [master slide](https://reference.aspose.com/slides/id/java/com.aspose.slides/masterslide/) atau [layout slide](https://reference.aspose.com/slides/id/java/com.aspose.slides/layoutslide/). Kotak teks biasa adalah shape independen pada slide tempat ia dibuat dan tidak memperoleh perilaku placeholder ketika tata letak berubah.
 
-**Bagaimana cara melakukan penggantian teks massal di seluruh presentasi tanpa memengaruhi teks di dalam bagan, tabel, dan SmartArt?**
+**Bagaimana saya dapat mengganti teks tanpa mengubah teks dalam bagan, tabel, atau SmartArt?**
 
-Batasi iterasi Anda pada auto‑shape yang memiliki text frame dan kecualikan objek tersemat ([chart](https://reference.aspose.com/slides/id/java/com.aspose.slides/chart/), [table](https://reference.aspose.com/slides/id/java/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/id/java/com.aspose.slides/smartart/)) dengan menelusuri koleksi mereka secara terpisah atau melewatkan tipe objek tersebut.
+Batasi penelusuran hanya pada shape yang mengimplementasikan [IAutoShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/iautoshape/), seperti yang ditunjukkan dalam contoh Perbarui Teks. Bagan, tabel, dan SmartArt menyimpan teks dalam model objek masing‑masing, sehingga tidak diubah oleh loop tersebut.

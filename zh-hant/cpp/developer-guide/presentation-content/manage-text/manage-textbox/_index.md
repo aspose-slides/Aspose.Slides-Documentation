@@ -17,115 +17,88 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ 使您能輕鬆在 PowerPoint 與 OpenDocument 檔案中建立、編輯與複製文字方塊，提升簡報自動化的效能。"
+description: "使用 Aspose.Slides for C++ 在 PowerPoint 與 OpenDocument 簡報中建立、辨識、格式化與更新文字方塊。"
 ---
 ## **簡介**
 
-投影片上的文字通常位於文字方塊或圖形中。因此，要在投影片上新增文字，必須先新增文字方塊，然後將文字放入該文字方塊。Aspose.Slides for C++ 提供了 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_auto_shape) 介面，可讓您新增包含文字的圖形。
+在 Aspose.Slides for C++ 中，投影片文字儲存在屬於圖形的文字框中。 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 介面代表最常見的含文字圖形，並透過 [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/get_textframe/) 方法取得其文字。
 
-{{% alert title="資訊" color="info" %}}
+{{% alert color="info" title="注意" %}}
 
-Aspose.Slides 亦提供 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_shape) 介面，可讓您將圖形新增至投影片。然而，透過 `IShape` 介面新增的圖形並非全部都能容納文字。但透過 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_auto_shape) 介面新增的圖形可能包含文字。 
-
-{{% /alert %}}
-
-{{% alert title="注意" color="warning" %}} 
-
-因此，當處理想要新增文字的圖形時，您可能需要檢查並確認該圖形已透過 `IAutoShape` 介面轉型。只有這樣才可以使用 `IAutoShape` 之下的屬性 [TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.text_frame)，請參閱本頁面的 [更新文字](https://docs.aspose.com/slides/zh-hant/cpp/manage-textbox/#update-text) 章節。 
+每個自動圖形都實作 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/)，但不是所有圖形都是自動圖形或支援文字框。處理現有簡報時，存取文字前請先檢查圖形是否實作 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/)。
 
 {{% /alert %}}
 
 ## **在投影片上建立文字方塊**
 
-要在投影片上建立文字方塊，請依照以下步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.presentation) 類別的實例。 
-2. 取得新建立簡報中第一張投影片的參考。 
-3. 在投影片的指定位置加入一個 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_auto_shape) 物件，將 [ShapeType](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) 設為 `Rectangle`，並取得新加入的 `IAutoShape` 物件的參考。 
-4. 在 `IAutoShape` 物件上加入 `TextFrame` 屬性以容納文字。在下例中，我們加入的文字為：*Aspose TextBox*
-5. 最後，透過 `Presentation` 物件寫入 PPTX 檔案。 
+若要建立文字方塊，請在投影片上新增自動圖形、向其文字框加入文字，然後儲存簡報。以下範例會建立一個矩形文字方塊：
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 實例化 Presentation
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// 取得簡報中的第一張投影片
-auto sld = pres->get_Slides()->idx_get(0);
-
-// 新增類型設定為 Rectangle 的 AutoShape
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// 在矩形上新增 TextFrame
-ashp->AddTextFrame(u" ");
-
-// 存取文字框
-auto txtFrame = ashp->get_TextFrame();
-
-// 為文字框建立 Paragraph 物件
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// 為段落建立 Portion 物件
-auto portion = para->get_Portions()->idx_get(0);
-
-// 設定文字
-portion->set_Text(u"Aspose TextBox");
-
-// 將簡報儲存至磁碟
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
 
-## **檢查文字方塊圖形**
+傳遞給 [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapecollection/addautoshape/) 的座標與尺寸以點為單位。 [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/addtextframe/) 會以提供的文字初始化文字框。
 
-Aspose.Slides 從 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 介面提供 [get_IsTextBox](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/get_istextbox/) 方法，使您能檢查圖形並辨識文字方塊。
+## **檢查是否為文字方塊圖形**
+
+使用 [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/get_istextbox/) 方法判斷自動圖形是否被視為文字方塊。此功能在簡報同時包含含文字與純圖形的自動圖形時很有用。
 
 ![文字方塊與圖形](istextbox.png)
 
-以下 C++ 程式碼示範如何檢查圖形是否已建立為文字方塊： 
+以下範例會檢查簡報中的每個自動圖形：
 
-```c++
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-請注意，如果僅使用 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapecollection/) 介面的 `AddAutoShape` 方法新增自動圖形，該自動圖形的 `get_IsTextBox` 方法將回傳 `false`。但是，當您使用 `AddTextFrame` 方法或 `set_Text` 方法為自動圖形加入文字後，`get_IsTextBox` 方法會回傳 `true`。
+新加入的自動圖形在未包含非空文字前不會被視為文字方塊。您可以透過 [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/addtextframe/) 或 [ITextFrame::set_Text](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/set_text/) 提供文字。將空字串設定或指派給它會使 [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/get_istextbox/) 回傳 `false`：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -134,7 +107,9 @@ presentation->Dispose();
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -142,154 +117,152 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() 回傳 false
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() 回傳 true
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() 回傳 false
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() 回傳 true
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() 回傳 false
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() 回傳 false
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() 回傳 false
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() 回傳 false
+Console::WriteLine(shape4->get_IsTextBox());
 ```
 
-## **尋找擁有文字框的圖形**
+前兩個檢查回傳 `true`，最後兩個回傳 `false`。
 
-在一般的文字處理程式碼中，您可能會取得一個 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/) 卻未事先知道它屬於哪個簡報物件。使用 [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentshape/) 可返回其擁有者 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/)。
+## **找出擁有文字框的圖形**
 
-對於屬於 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 或其他含文字圖形的文字框，[ITextFrame::get_ParentShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentshape/) 會返回其擁有者，而 [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentcell/) 會返回 `nullptr`。這兩個方法僅提供唯讀的導覽，呼叫它們不會改變所有權。在存取圖形前，務必先檢查回傳值是否為 `nullptr`。
+通用的文字處理程式碼可能會收到一個 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)，卻不知道它屬於哪個簡報物件。使用 [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentshape/) 方法即可回溯至其擁有者 [IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/)。
 
-欲取得完整示例，說明如何辨識圖形與表格儲存格的擁有者（包括與 SmartArt 節點相關的圖形），請參考 [搜尋與取代文字](/slides/zh-hant/cpp/search-and-replace-text/)。
+對於由自動圖形或其他含文字圖形擁有的文字框，[ITextFrame::get_ParentShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentshape/) 會回傳擁有者，而 [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentcell/) 則回傳 `nullptr`。兩者皆提供唯讀的導向功能。在存取前請檢查回傳值是否為 `nullptr`。若要同時識別圖形與表格儲存格的擁有者（包括與 SmartArt 節點相關的圖形），請參閱 [Search and Replace Text](/slides/zh-hant/cpp/search-and-replace-text/)。
 
 ## **為文字方塊新增欄位**
 
-Aspose.Slides 提供 [set_ColumnCount](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) 與 [set_ColumnSpacing](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) 方法（來自 [ITextFrameFormat](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_text_frame_format) 介面與 [TextFrameFormat](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_text_frame_format) 類別），可為文字方塊新增欄位。您可以指定文字方塊的欄位數量，並設定欄位之間的點數間距。 
+[ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_columncount/) 方法會將文字框分割成多個欄位，而 [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_columnspacing/) 則設定欄位之間的間距（單位為點）。這兩個方法屬於 [ITextFrameFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/)，可透過現有文字方塊的文字框呼叫。文字會在同一圖形內的欄位間重新排列，不會流入其他圖形。
 
-以下 C++ 程式碼示範上述操作： 
+以下範例會建立一個三欄文字方塊，欄位之間間距為 10 點，儲存簡報，並從輸出檔案讀回設定：
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// 取得簡報中的第一張投影片
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// 新增類型設定為 Rectangle 的 AutoShape
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// 在矩形上新增 TextFrame
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// 取得 TextFrame 的文字格式
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// 指定 TextFrame 的欄位數量
-format->set_ColumnCount(3);
-
-// 指定欄位之間的間距
-format->set_ColumnSpacing(10);
-
-// 儲存簡報
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **為文字框新增欄位**
-Aspose.Slides for C++ 提供 [set_ColumnCount](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) 方法（來自 [ITextFrameFormat](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.i_text_frame_format) 介面），可在文字框中新增欄位。透過此方法，您可以指定文字框的欄位數量。 
+## **從個別欄位擷取文字**
 
-以下 C++ 程式碼示範如何在文字框內新增欄位：
+使用 [ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/splittextbycolumns/) 可取得既有文字框中每個可視欄位所對應的文字。此方法會依欄位閱讀順序回傳每個欄位的一個字串。單欄文字框會產生只有一個元素的陣列，空欄位則以空字串表示。回傳的字串僅包含純文字；不保留段落層級的格式資訊。
+
+此功能在以下情境中很有用：
+
+- 在保留欄位閱讀順序的前提下擷取文字。
+- 索引或比較多欄投影片的內容。
+- 將每個欄位匯出至不同檔案、資料庫欄位或其他目的地。
+- 檢查在使用 [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_columncount/) 或 [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframeformat/set_columnspacing/)、變更字型或文字框大小後，文字如何重新分配。
+
+此方法僅回報目前 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/) 內的文字分佈；不會自動在不同圖形或文字方塊之間流動文字。欄位分配可能受可用字型與其他排版設定影響，若結果的一致性很重要，請確保所需字型已安裝。
+
+以下範例會載入簡報，找出第一張投影片上第一個具有多欄文字框的自動圖形，讀取其欄位數，並將每個欄位的文字寫入各自的檔案。未提供文字框的圖形會被跳過。
 
 ```cpp
-#include <DOM/AutoShape.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::IO;
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
 }
 
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+if (textBox == nullptr)
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
+    Console::WriteLine(u"No multi-column text frame was found.");
 }
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+else
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
 }
 ```
 
 ## **更新文字**
 
-Aspose.Slides 允許您變更或更新文字方塊中的文字，或簡報中所有文字。 
+若要在整個簡報中更新文字，請遍歷投影片與圖形，挑選自動圖形，然後編輯其文字段落。於段落層級進行操作可同時變更文字與字元格式。
 
-以下 C++ 程式碼示範如何更新或變更簡報中所有文字：
+以下範例會將每個自動圖形文字段落中的 `years` 替換為 `months`，並將受影響的段落加粗：
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -299,27 +272,38 @@ Aspose.Slides 允許您變更或更新文字方塊中的文字，或簡報中所
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //變更文字
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //變更格式
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -327,76 +311,52 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//儲存已修改的簡報
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **為文字方塊新增超連結** 
+此遍歷僅會更新自動圖形中的文字。儲存在表格、圖表、SmartArt 或群組圖形中的文字需另外遍歷這些物件的集合。
 
-您可以在文字方塊中插入連結。當使用者點擊該文字方塊時，將會開啟該連結。 
+## **新增帶有超連結的文字方塊**
 
-若要新增包含連結的文字方塊，請依照以下步驟執行：
+超連結可以指派給特定文字段落，只有該段文字會成為可點擊的連結。使用 [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) 將段落與外部 URL 相關聯。
 
-1. 建立 `Presentation` 類別的實例。 
-2. 取得新建立簡報中第一張投影片的參考。 
-3. 在投影片的指定位置加入 `AutoShape` 物件，將 `ShapeType` 設為 `Rectangle`，並取得新加入的 AutoShape 物件的參考。 
-4. 在 `AutoShape` 物件上加入 `TextFrame`，其預設文字為 *Aspose TextBox*。 
-5. 建立 `IHyperlinkManager` 類別的實例。 
-6. 將 `IHyperlinkManager` 物件指派給 `TextFrame` 中您想要的部分之 [set_HyperlinkClick](https://reference.aspose.com/slides/zh-hant/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) 方法。 
-7. 最後，透過 `Presentation` 物件寫入 PPTX 檔案。 
+以下範例會建立帶有連結的文字，並將其儲存至簡報：
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 建立表示 PPTX 的 Presentation 類別實例
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// 取得簡報中的第一張投影片
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// 新增類型設定為 Rectangle 的 AutoShape 物件
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// 將圖形轉型為 AutoShape
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// 存取與 AutoShape 相關聯的 ITextFrame 屬性
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// 為文字框加入文字
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// 為文字區段設定超連結
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// 儲存 PPTX 簡報
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
-## **常見問題**
+## **常見問答**
 
-**在使用母片時，文字方塊與文字佔位符有何差異？**
+**文字方塊與母版或版面投影片上的文字佔位符有何差異？**
 
-[佔位符](/slides/zh-hant/cpp/manage-placeholder/) 繼承自 [master](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/masterslide/) 的樣式/位置，且可在 [layouts](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/layoutslide/) 上覆寫；相較之下，普通的文字方塊是特定投影片上的獨立物件，切換版面配置時不會改變。
+[placeholder](/slides/zh-hant/cpp/manage-placeholder/) 可以從 [master slide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/masterslide/) 或 [layout slide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/layoutslide/) 繼承其位置與格式。一般的文字方塊則是建立於當前投影片的獨立圖形，版面變更時不會自動取得佔位符的行為。
 
-**如何在簡報中大量取代文字，同時不影響圖表、表格與 SmartArt 中的文字？**
+**如何在不更改圖表、表格或 SmartArt 文字的情況下替換文字？**
 
-將遍歷限制在具有文字框的自動圖形，並排除嵌入式物件（[charts](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.charts/chart/)、[tables](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.smartart/smartart/)），可分別遍歷其集合或跳過這些物件類型。
+如同「更新文字」範例所示，將遍歷限制在實作 [IAutoShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iautoshape/) 的圖形上。圖表、表格與 SmartArt 皆在各自的物件模型中儲存文字，所以不會被該迴圈修改。

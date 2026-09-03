@@ -1,5 +1,5 @@
 ---
-title: مدیریت جعبه‌های متن در ارائه‌ها در Android
+title: مدیریت جعبه‌های متن در ارائه‌ها بر روی Android
 linktitle: مدیریت جعبه متن
 type: docs
 weight: 20
@@ -13,325 +13,281 @@ keywords:
 - بررسی جعبه متن
 - افزودن ستون متن
 - افزودن پیوند
-- پاورپوینت
+- PowerPoint
 - ارائه
-- اندروید
-- جاوا
+- Android
+- Java
 - Aspose.Slides
-description: "Aspose.Slides برای Android از طریق Java ایجاد، ویرایش و تکثیر جعبه‌های متن در فایل‌های PowerPoint و OpenDocument را آسان می‌کند و خودکارسازی ارائه شما را ارتقا می‌دهد."
+description: "ایجاد، شناسایی، قالب‌بندی و به‌روزرسانی جعبه‌های متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Android از طریق Java."
 ---
 ## **مقدمه**
 
-متن‌ها در اسلایدها معمولاً در جعبه‌های متن یا شکل‌ها وجود دارند. بنابراین، برای افزودن متن به یک اسلاید، باید یک جعبه متن اضافه کنید و سپس متنی داخل آن قرار دهید. Aspose.Slides برای Android از طریق Java رابط [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IAutoShape) را ارائه می‌دهد که به شما امکان افزودن شکلی حاوی متن را می‌دهد.
+در Aspose.Slides برای Android از طریق Java، متن اسلاید در چارچوب‌های متنی که متعلق به اشکال هستند ذخیره می‌شود. رابط [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) نمایانگر رایج‌ترین شکل حاوی متن است و متن آن را از طریق روش [IAutoShape.getTextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) در دسترس می‌گذارد.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides همچنین رابط [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IShape) را ارائه می‌دهد که به شما امکان افزودن اشکال به اسلایدها را می‌دهد. با این حال، تمام اشکالی که از طریق رابط `IShape` اضافه می‌شوند نمی‌توانند متن نگه دارند. اما اشکالی که از طریق رابط [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IAutoShape) اضافه می‌شوند می‌توانند متن داشته باشند.
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-بنابراین، هنگامی که با شکلی که می‌خواهید متن اضافه کنید کار می‌کنید، ممکن است بخواهید بررسی و اطمینان حاصل کنید که آن از طریق رابط `IAutoShape` تبدیل (cast) شده است. فقط در این صورت می‌توانید با [TextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/TextFrame) کار کنید که یک ویژگی تحت `IAutoShape` است. بخش [Update Text](https://docs.aspose.com/slides/fa/androidjava/manage-textbox/#update-text) را در این صفحه مشاهده کنید.
+{{% alert color="info" title="Note" %}}
+هر شکل خودکار پیاده‌سازی‌کنندهٔ [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) است، اما هر شکل خودکار نیست و یا از چارچوب متن پشتیبانی نمی‌کند. هنگام پردازش یک ارائهٔ موجود، قبل از دسترسی به متن، اطمینان حاصل کنید که شکل پیاده‌سازی‌کنندهٔ [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) است.
 {{% /alert %}}
 
 ## **ایجاد یک جعبه متن در اسلاید**
 
-برای ایجاد یک جعبه متن روی اسلاید، این مراحل را انجام دهید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع اولین اسلاید در ارائه تازه ساخته‌شده را به دست آورید.  
-3. یک شیء [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IAutoShape) با [ShapeType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) تنظیم‌شده به `Rectangle` در موقعیتی مشخص بر روی اسلاید اضافه کنید و مرجع شیء `IAutoShape` تازه اضافه‌شده را دریافت کنید.  
-4. ویژگی `TextFrame` را به شیء `IAutoShape` اضافه کنید که متنی را در خود دارد. در مثال زیر این متن را اضافه کردیم: *Aspose TextBox*  
-5. در نهایت، فایل PPTX را از طریق شیء `Presentation` بنویسید.  
-
-این کد جاوا—پیاده‌سازی مراحل بالا—نحوه افزودن متن به یک اسلاید را نشان می‌دهد:
-
-```java
-import com.aspose.slides.*;
-
-// یک شیء Presentation ایجاد می‌کند
-Presentation pres = new Presentation();
-try {
-    // اسلاید اول ارائه را دریافت می‌کند
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // یک AutoShape با نوع تنظیم‌شده به Rectangle اضافه می‌کند
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // یک TextFrame به Rectangle اضافه می‌کند
-    ashp.addTextFrame(" ");
-
-    // به TextFrame دسترسی پیدا می‌کند
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // شیء Paragraph را برای TextFrame ایجاد می‌کند
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // شیء Portion را برای پاراگراف ایجاد می‌کند
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // متن را تنظیم می‌کند
-    portion.setText("Aspose TextBox");
-
-    // ارائه را روی دیسک ذخیره می‌کند
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **بررسی وجود یک شکل جعبه متن**
-
-Aspose.Slides متد [isTextBox](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#isTextBox--) را از رابط [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) ارائه می‌دهد که به شما امکان بررسی اشکال و شناسایی جعبه‌های متن را می‌دهد.
-
-![جعبه متن و شکل](istextbox.png)
-
-این کد جاوا نشان می‌دهد که چگونه می‌توانید بررسی کنید آیا یک شکل به عنوان جعبه متن ایجاد شده است یا خیر:
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-توجه داشته باشید که اگر فقط یک شکل خودکار را با فراخوانی متد `addAutoShape` از رابط [IShapeCollection](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/) اضافه کنید، متد `isTextBox` برای آن شکل خودکار مقدار `false` برمی‌گرداند. با این حال، پس از افزودن متن به شکل خودکار با استفاده از متد `addTextFrame` یا متد `setText`، ویژگی `isTextBox` مقدار `true` برمی‌گرداند.
+برای ایجاد یک جعبه متن، یک شکل خودکار را به اسلاید اضافه کنید، متن را به چارچوب متن آن اضافه کنید و ارائه را ذخیره کنید. مثال زیر یک جعبه متن مستطیلی ایجاد می‌کند:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() مقدار false بر می‌گرداند
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() مقدار true بر می‌گرداند
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() مقدار false بر می‌گرداند
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() مقدار true بر می‌گرداند
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() مقدار false بر می‌گرداند
-shape3.addTextFrame("");
-// shape3.isTextBox() مقدار false بر می‌گرداند
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() مقدار false بر می‌گرداند
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() مقدار false بر می‌گرداند
-```
-
-## **یافتن شکلی که یک چارچوب متن را مالک است**
-
-در کدهای عمومی پردازش متن، ممکن است یک [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) را دریافت کنید بدون اینکه از قبل بدانید کدام شیء ارائه آن را شامل می‌شود. از متد [ITextFrame.getParentShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#getParentShape--) برای بازگشت به [IShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishape/) مالک استفاده کنید.
-
-برای چارچوب متنی که متعلق به یک [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) یا شکل دیگری حاوی متن است، متد [ITextFrame.getParentShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#getParentShape--) صاحب را برمی‌گرداند و متد [ITextFrame.getParentCell](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#getParentCell--) مقدار `null` برمی‌گرداند. هر دو متد ناوبری فقط‑خواندنی هستند، بنابراین فراخوانی آنها مالکیت را تغییر نمی‌دهد. همیشه قبل از دسترسی به شکل مقدار برگشتی را برای `null` بررسی کنید.
-
-برای یک مثال کامل که مالکین شکل و سلول جدول را شناسایی می‌کند، از جمله شکل‌های مرتبط با گره‌های SmartArt، به [Search and Replace Text](/slides/fa/androidjava/search-and-replace-text/) مراجعه کنید.
-
-## **افزودن ستون‌ها به یک جعبه متن**
-
-Aspose.Slides ویژگی‌های [ColumnCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) و [ColumnSpacing](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (از رابط [ITextFrameFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ITextFrameFormat) و کلاس [TextFrameFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/TextFrameFormat)) را فراهم می‌کند که به شما امکان افزودن ستون‌ها به جعبه‌های متن را می‌دهد. می‌توانید تعداد ستون‌ها را مشخص کنید و فاصله بین ستون‌ها را بر حسب نقطه تنظیم کنید.
-
-این کد در جاوا عمل توصیف‌شده را نشان می‌دهد:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // اسلاید اول ارائه را دریافت می‌کند
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // یک AutoShape با نوع تنظیم‌شده به Rectangle اضافه می‌کند
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // یک TextFrame به Rectangle اضافه می‌کند
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // فرمت متن TextFrame را دریافت می‌کند
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // تعداد ستون‌ها در TextFrame را مشخص می‌کند
-    format.setColumnCount(3);
-
-    // فاصله بین ستون‌ها را مشخص می‌کند
-    format.setColumnSpacing(10);
-
-    // ارائه را ذخیره می‌کند
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **افزودن ستون‌ها به یک چارچوب متن**
+مختصات و ابعادی که به روش [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) منتقل می‌شوند، به واحد نقطه (points) سنجش می‌شوند. روش [IAutoShape.addTextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) چارچوب متن را با متنی که ارائه می‌شود مقداردهی اولیه می‌کند.
 
-Aspose.Slides برای Android از طریق Java ویژگی [ColumnCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (از رابط [ITextFrameFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ITextFrameFormat)) را ارائه می‌دهد که اجازه می‌دهد ستون‌ها در چارچوب‌های متن اضافه شوند. از طریق این ویژگی می‌توانید تعداد ستون‌های مورد نظر خود را در یک چارچوب متن مشخص کنید.
+## **بررسی شکل جعبه متن**
 
-این کد جاوا نشان می‌دهد که چگونه می‌توانید یک ستون داخل یک چارچوب متن اضافه کنید:
+از روش [IAutoShape.isTextBox](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#isTextBox--) برای تعیین این که آیا یک شکل خودکار به عنوان جعبه متن در نظر گرفته می‌شود استفاده کنید. این هنگامیکه ارائه شامل هر دو شکل خودکار حاوی متن و شکل‌های صرفاً گرافیکی باشد، مفید است.
+
+![یک جعبه متن و یک شکل](istextbox.png)
+
+مثال زیر هر شکل خودکار موجود در یک ارائه را بررسی می‌کند:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+یک شکل خودکار که تازه اضافه شده تا زمانی که متن غیر خالی داشته باشد، به‌عنوان جعبه متن در نظر گرفته نمی‌شود. می‌توانید آن متن را از طریق [IAutoShape.addTextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) یا [ITextFrame.setText](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) فراهم کنید. افزودن یا تخصیص یک رشتهٔ خالی، باعث می‌شود که روش [IAutoShape.isTextBox](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/#isTextBox--) مقدار `false` برگرداند:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+دو فراخوانی اول `true` چاپ می‌کنند؛ دو فراخوانی آخر `false` چاپ می‌کنند.
+
+## **یافتن شکلی که چارچوب متن را در اختیار دارد**
+
+کدهای عمومی پردازش متن ممکن است یک [ITextFrame](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/) دریافت کنند بدون این‌که بدانند کدام شی ارائه آن را شامل می‌شود. برای بازگشت به شکل مالک از روش فقط‑خواندنی [ITextFrame.getParentShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#getParentShape--) استفاده کنید.
+
+برای چارچوب متنی که متعلق به یک شکل خودکار یا شکل دیگری حاوی متن است، [ITextFrame.getParentShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#getParentShape--) مالک را برمی‌گرداند و [ITextFrame.getParentCell](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#getParentCell--) مقدار `null` می‌دهد. قبل از دسترسی مقدار برگردانده‌شده را بررسی کنید. برای شناسایی هر دو مالک شکل و سلول جدول، از جمله اشکالی که به گره‌های SmartArt مرتبط هستند، به بخش [Search and Replace Text](/slides/fa/androidjava/search-and-replace-text/) مراجعه کنید.
+
+## **افزودن ستون‌ها به جعبه متن**
+
+روش [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-) چارچوب متن را به ستون‌ها تقسیم می‌کند، در حالی که [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) فاصلهٔ بین ستون‌ها را برحسب نقطه تنظیم می‌کند. هر دو تنظیم متعلق به [ITextFrameFormat](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/) هستند و می‌توان آن‌ها را از طریق چارچوب متن یک جعبه متن موجود تغییر داد. متن بین ستون‌های داخل یک شکل مجدداً جریان می‌یابد؛ اما به شکل دیگری ادامه نمی‌یابد.
+
+مثال زیر یک جعبه متن سه‌ستونی با ۱۰ نقطه فاصله بین ستون‌ها ایجاد می‌کند، ارائه را ذخیره می‌کند و تنظیمات ذخیره‌شده را از فایل خروجی می‌خواند:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **استخراج متن از ستون‌های جداگانه**
+
+از [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframe/#splitTextByColumns--) برای دریافت متنی که به هر ستون بصری در یک چارچوب متن موجود اختصاص یافته است، استفاده کنید. این روش برای هر ستون یک رشته برمی‌گرداند، به ترتیب خواندن مبتنی بر ستون. یک چارچوب متن تک‌ستونی آرایه‌ای با یک عنصر تولید می‌کند و یک ستون خالی با رشتهٔ خالی نمایان می‌شود. رشته‌ها فقط شامل متن ساده هستند؛ قالب‌بندی در سطح بخش حفظ نمی‌شود.
+
+این موارد مفید هستند زمانی که نیاز دارید:
+
+- استخراج متن در حالی که ترتیب خواندن بر اساس ستون حفظ می‌شود.
+- ایندکس یا مقایسهٔ محتوای اسلایدهای چندستونی.
+- صادر کردن هر ستون به یک فایل جداگانه، فیلد پایگاه داده یا مقصد دیگری.
+- بررسی نحوهٔ توزیع دوبارهٔ متن پس از تغییر تعداد ستون‌ها با [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-)، فاصله با [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-)، فونت یا اندازهٔ چارچوب متن.
+
+این روش متن توزیع‌شده در داخل [ITextFrame] جاری را گزارش می‌دهد؛ به‌صورت خودکار متن را بین شکل‌ها یا جعبه‌های متن جداگانه جابجا نمی‌کند. توزیع ستون می‌تواند به فونت‌های در دسترس و سایر تنظیمات طرح‌بندی متن وابسته باشد، بنابراین هنگامیکه نتایج سازگار اهمیت دارند، اطمینان حاصل کنید که فونت‌های مورد نیاز موجود باشند.
+
+مثال زیر یک ارائه را بارگذاری می‌کند، اولین شکل خودکار چندستونی دارای چارچوب متن را پیدا می‌کند، تعداد ستون پیکربندی‌شده را می‌خواند و متن هر ستون را به یک فایل جداگانه می‌نویسد. شکل‌هایی که چارچوب متنی ندارند، نادیده گرفته می‌شوند.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            String outputPath = "Column-" + columnNumber + ".txt";
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try (FileOutputStream outputStream = new FileOutputStream(outputPath)) {
+                outputStream.write(textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **به‌روزرسانی متن**
 
-Aspose.Slides به شما امکان تغییر یا به‌روزرسانی متنی که در جعبه متن یا تمام متن‌های موجود در یک ارائه وجود دارد را می‌دهد.
+برای به‌روزرسانی متن در سراسر یک ارائه، اسلایدها و اشکال را مرور کنید، شکل‌های خودکار را انتخاب کنید و سپس بخش‌های متنی آن‌ها را ویرایش کنید. کار در سطح بخش به شما امکان می‌دهد هم متن و هم قالب‌بندی نویسه‌ای را تغییر دهید.
 
-این کد جاوا عملی را نشان می‌دهد که در آن تمام متن‌های یک ارائه به‌روزرسانی یا تغییر می‌یابند:
+مثال زیر هر رخداد `years` را با `months` در متن شکل خودکار جایگزین می‌کند و هر بخش تحت تأثیر را بولد می‌سازد:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //بررسی می‌کند که آیا شکل از فریم متن (IAutoShape) پشتیبانی می‌کند.
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //از میان پاراگراف‌های فریم متن عبور می‌کند
-                {
-                    for (IPortion portion : paragraph.getPortions()) //از میان هر بخش در پاراگراف عبور می‌کند
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //متن را تغییر می‌دهد
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //قالب‌بندی را تغییر می‌دهد
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //ارائهٔ تغییر یافته را ذخیره می‌کند
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **افزودن یک جعبه متن با پیوند هیپرتکست**
+این پیمایش فقط متن را در شکل‌های خودکار به‌روز می‌کند. متنی که در جدول‌ها، نمودارها، SmartArt یا اشکال گروه‌بندی‌شده ذخیره شده‌اند، نیاز به مرور مجموعهٔ خود آن اشیاء دارد.
 
-می‌توانید یک پیوند را داخل جعبه متن درج کنید. وقتی جعبه متن کلیک شود، کاربران به باز کردن پیوند هدایت می‌شوند.
+## **افزودن جعبه متن با پیوند**
 
-برای افزودن یک جعبه متن شامل یک پیوند، این مراحل را دنبال کنید:
+یک پیوند می‌تواند به بخش متنی خاصی اختصاص یابد، به‌طوری که فقط همان متن به‌صورت لینک قابل کلیک عمل کند. از [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) برای مرتبط‌سازی بخش با یک URL خارجی استفاده کنید.
 
-1. یک نمونه از کلاس `Presentation` ایجاد کنید.  
-2. مرجع اولین اسلاید در ارائه تازه ساخته‌شده را به دست آورید.  
-3. یک شیء `AutoShape` با `ShapeType` تنظیم‌شده به `Rectangle` در موقعیتی مشخص بر روی اسلاید اضافه کنید و مرجع شیء AutoShape تازه اضافه‌شده را دریافت کنید.  
-4. یک `TextFrame` به شیء `AutoShape` اضافه کنید و متن بخش اول آن را تنظیم کنید. در مثال زیر از این متن استفاده کردیم: *Aspose.Slides*  
-5. شیء [IHyperlinkManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ihyperlinkmanager/) را از `PortionFormat` بخش مورد نظر `TextFrame` خود به دست آورید.  
-6. متد [setExternalHyperlinkClick](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) را بر روی آن شیء فراخوانی کنید تا پیوندی که هنگام کلیک بر متن باز می‌شود، تنظیم شود.  
-7. در نهایت، فایل PPTX را از طریق شیء `Presentation` بنویسید.  
-
-این کد جاوا—پیاده‌سازی مراحل بالا—نحوه افزودن یک جعبه متن با پیوند هیپرتکست به اسلاید را نشان می‌دهد:
+مثال زیر متن لینک‌دار ایجاد می‌کند و آن را در یک ارائه ذخیره می‌نماید:
 
 ```java
 import com.aspose.slides.*;
 
-// شیء Presentation که نمایانگر یک فایل PPTX است را ایجاد می‌کند
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // اسلاید اول ارائه را دریافت می‌کند
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // یک شیء AutoShape با نوع تنظیم‌شده به Rectangle اضافه می‌کند
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // شکل را به AutoShape تبدیل می‌کند
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // به ویژگی ITextFrame مرتبط با AutoShape دسترسی پیدا می‌کند
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // متنی به فریم اضافه می‌کند
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // پیوند هیپرتکست برای متن Portion تنظیم می‌شود
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // ارائهٔ PPTX را ذخیره می‌کند
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **پرسش‌های متداول**
 
-**تفاوت جعبه متن و محل‌دار متن هنگام کار با اسلایدهای مستر چیست؟**
+**تفاوت جعبه متن و محل‌دار متن در اسلاید مستر یا طرح‌بندی چیست؟**
 
-یک [placeholder](/slides/fa/androidjava/manage-placeholder/) سبک/موقعیت را از [master](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/masterslide/) به ارث می‌برد و می‌تواند در [layouts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/layoutslide/) بازنویسی شود، در حالی که یک جعبه متن عادی یک شیء مستقل بر روی اسلاید خاص است و هنگام تغییر طرح‌بندی‌ها تغییر نمی‌کند.
+یک [placeholder](/slides/fa/androidjava/manage-placeholder/) می‌تواند موقعیت و قالب‌بندی خود را از یک [master slide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/masterslide/) یا [layout slide](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/layoutslide/) به ارث ببرد. یک جعبه متن عادی شکل مستقلی روی اسلایدی است که در آن ساخته شده و هنگام تغییر طرح‌بندی رفتار placeholder را به‌دست نمی‌آورد.
 
-**چگونه می‌توانم جایگزینی متن به‌صورت انبوه در سراسر ارائه انجام دهم بدون اینکه به متن داخل نمودارها، جداول و SmartArt دست بزنم؟**
+**چگونه می‌توان متن را جایگزین کرد بدون اینکه متن در نمودارها، جدول‌ها یا SmartArt تغییر کند؟**
 
-تکرار خود را به اشکال خودکاری که دارای چارچوب متن هستند محدود کنید و اشیای توکار ([charts](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/chart/)، [tables](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/table/)، [SmartArt](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/smartart/)) را به‌صورت جداگانه پیمایش کرده یا از آن نوع اشیاء صرف‌نظر کنید.
+پیمایش را به اشکالی که پیاده‌سازی‌کنندهٔ [IAutoShape](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iautoshape/) هستند محدود کنید، همان‌طور که در مثال به‌روزرسانی متن نشان داده شده است. نمودارها، جدول‌ها و SmartArt متن خود را در مدل‌های شیء خود ذخیره می‌کنند، بنابراین آن حلقه آن‌ها را تغییر نمی‌دهد.

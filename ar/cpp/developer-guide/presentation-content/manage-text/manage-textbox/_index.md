@@ -1,133 +1,104 @@
 ---
-title: إدارة مربعات النص في العروض التقديمية باستخدام C++
-linktitle: إدارة مربع النص
+title: إدارة صناديق النص في العروض التقديمية باستخدام C++
+linktitle: إدارة صندوق النص
 type: docs
 weight: 20
 url: /ar/cpp/manage-textbox/
 keywords:
-- مربع نص
+- صندوق نص
 - إطار نص
 - إضافة نص
-- تحديث النص
-- إنشاء مربع نص
-- التحقق من مربع النص
+- تحديث نص
+- إنشاء صندوق نص
+- التحقق من صندوق النص
 - إضافة عمود نص
-- إضافة رابط تشعبي
+- إضافة ارتباط تشعبي
 - PowerPoint
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "يتيح Aspose.Slides للغة C++ إنشاء وتحرير واستنساخ مربعات النص بسهولة في ملفات PowerPoint وOpenDocument، مما يعزز أتمتة عروضك التقديمية."
+description: "إنشاء وتحديد وتنسيق وتحديث صناديق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ C++."
 ---
-## **المقدمة**
+## **مقدمة**
 
-عادةً ما تكون النصوص على الشرائح موجودة في مربعات النص أو الأشكال. لذلك، لإضافة نص إلى شريحة، عليك إضافة مربع نص ثم وضع بعض النص داخل مربع النص. توفر Aspose.Slides للغة C++ الواجهة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_auto_shape) التي تسمح لك بإضافة شكل يحتوي على نص.
+في Aspose.Slides للـ C++، يتم تخزين نص الشريحة في إطارات نصية تنتمي إلى الأشكال. تمثل الواجهة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) الشكل الأكثر شيوعًا الذي يحمل نصًا وتكشف نصه عبر طريقة [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/get_textframe/).
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="ملاحظة" %}}
 
-توفر Aspose.Slides أيضًا الواجهة [IShape](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_shape) التي تسمح لك بإضافة أشكال إلى الشرائح. ومع ذلك، ليس كل الأشكال التي تُضاف عبر واجهة `IShape` يمكنها احتواء نص. أما الأشكال التي تُضاف عبر واجهة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_auto_shape) فقد تحتوي على نص. 
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-لذلك، عند التعامل مع شكل ترغب في إضافة نص إليه، قد تحتاج إلى التحقق والتأكد من أنه تم تحويله عبر واجهة `IAutoShape`. فقط عندها ستتمكن من العمل مع [TextFrame](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.text_frame)، وهي خاصية ضمن `IAutoShape`. راجع قسم [Update Text](https://docs.aspose.com/slides/ar/cpp/manage-textbox/#update-text) في هذه الصفحة. 
+كل شكل تلقائي ينفذ [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/)، ولكن ليس كل شكل هو شكل تلقائي أو يدعم إطار نص. عند معالجة عرض تقديمي موجود، تحقق من أن الشكل ينفذ [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) قبل الوصول إلى نصه.
 
 {{% /alert %}}
 
-## **إنشاء مربع نص على شريحة**
+## **إنشاء صندوق نص على شريحة**
 
-لإنشاء مربع نص على شريحة، اتبع الخطوات التالية:
-
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.presentation). 
-2. الحصول على مرجع للشفرة الأولى في العرض التقديمي الجديد. 
-3. إضافة كائن [IAutoShape](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_auto_shape) مع تعيين [ShapeType](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) إلى `Rectangle` في موضع محدد على الشريحة والحصول على مرجع لكائن `IAutoShape` المضاف حديثًا. 
-4. إضافة خاصية `TextFrame` إلى كائن `IAutoShape` الذي سيحمل نصًا. في المثال أدناه، أضفنا هذا النص: *Aspose TextBox*
-5. أخيرًا، احفظ ملف PPTX عبر كائن `Presentation`. 
-
-يعرض لك هذا الكود C++—تنفيذ للخطوات السابقة—كيفية إضافة نص إلى شريحة:
+لإنشاء صندوق نص، أضف شكلاً تلقائيًا إلى شريحة، أضف نصًا إلى إطاره النصي، واحفظ العرض التقديمي. المثال التالي ينشئ صندوق نص مستطيل:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// ينشئ كائن Presentation
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// يحصل على الشريحة الأولى في العرض التقديمي
-auto sld = pres->get_Slides()->idx_get(0);
-
-// يضيف AutoShape مع تعيين النوع إلى Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// يضيف TextFrame إلى الـ Rectangle
-ashp->AddTextFrame(u" ");
-
-// يصل إلى إطار النص
-auto txtFrame = ashp->get_TextFrame();
-
-// ينشئ كائن Paragraph لإطار النص
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// ينشئ كائن Portion للفقرة
-auto portion = para->get_Portions()->idx_get(0);
-
-// يضبط النص
-portion->set_Text(u"Aspose TextBox");
-
-// يحفظ العرض التقديمي إلى القرص
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
 
-## **التحقق من شكل مربع النص**
+الإحداثيات والأبعاد التي تمرر إلى [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/addautoshape/) تقاس بالنقاط. تقوم [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/addtextframe/) بتهيئة إطار النص بالنص المقدم.
 
-توفر Aspose.Slides طريقة [get_IsTextBox](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/get_istextbox/) من واجهة [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/)، مما يتيح لك فحص الأشكال وتحديد مربعات النص.
+## **التحقق من وجود شكل صندوق نص**
 
-![مربع نص وشكل](istextbox.png)
+استخدم طريقة [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/get_istextbox/) لتحديد ما إذا كان الشكل التلقائي يُعامل كصندوق نص. هذا مفيد عندما يحتوي العرض التقديمي على كل من الأشكال التي تحمل نصًا والأشكال الرسومية فقط.
 
-يظهر لك هذا الكود C++ كيفية التحقق مما إذا كان الشكل قد تم إنشاؤه كمربع نص: 
+![صندوق نص وشكل](istextbox.png)
 
-```c++
+المثال التالي يفحص كل شكل تلقائي في عرض تقديمي:
+
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-لاحظ أنه إذا قمت ببساطة بإضافة شكل تلقائي باستخدام طريقة `AddAutoShape` من واجهة [IShapeCollection](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/)، فإن طريقة `get_IsTextBox` للشكل التلقائي ستعيد `false`. ومع ذلك، بعد إضافة نص إلى الشكل التلقائي باستخدام طريقة `AddTextFrame` أو طريقة `set_Text`، تُعيد طريقة `get_IsTextBox` القيمة `true`.
+الشكل التلقائي المضاف حديثًا لا يُعتبر صندوق نص إلا إذا احتوى على نص غير فارغ. يمكنك إمداد هذا النص عبر [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/addtextframe/) أو [ITextFrame::set_Text](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/set_text/). إضافة أو تعيين سلسلة فارغة يجعل [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/get_istextbox/) تُعيد `false`:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -136,7 +107,9 @@ presentation->Dispose();
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -144,155 +117,152 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() ترجع false
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() ترجع true
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() ترجع false
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() ترجع true
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() ترجع false
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() ترجع false
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() ترجع false
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() ترجع false
+Console::WriteLine(shape4->get_IsTextBox());
 ```
 
-## **العثور على الشكل الذي يمتلك إطار النص**
+الفحصان الأولان يُعيدان `true`؛ الفحصان الأخيران يُعيدان `false`.
 
-في شفرة معالجة النصوص العامة، قد تستقبل كائن [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) دون معرفة مسبقة أي كائن عرض تقديمي يحتويه. استخدم [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentshape/) للعودة إلى الشكل المالك [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/).
+## **العثور على الشكل الذي يمتلك إطار نص**
 
-بالنسبة لإطار نص ينتمي إلى [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) أو شكل آخر يحتوي نصًا، تُعيد [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentshape/) المالك وتُعيد [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentcell/) القيمة `nullptr`. توفر الطريقتان تنقلًا للقراءة فقط، لذا لا يغيّر استدعاؤهما الملكية. تحقق دائمًا من أن القيمة المرتجعة ليست `nullptr` قبل الوصول إلى الشكل.
+قد يتلقى كود معالجة النص العامة كائنًا من نوع [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) دون معرفة أي كائن عرض تقديمي يحتويه. استخدم طريقة [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentshape/) للعودة إلى [IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) المالك.
 
-للحصول على مثال كامل يحدد مالكي الأشكال وخلايا الجداول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [بحث واستبدال النص](/slides/ar/cpp/search-and-replace-text/).
+بالنسبة لإطار نص مملوك لشكل تلقائي أو شكل آخر يحمل نصًا، تُرجع [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentshape/) المالك و[ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentcell/) تُعيد `nullptr`. كلا الطريقتين توفران تنقلًا للقراءة فقط. تحقق من القيمة المرتجعة لتكون ليست `nullptr` قبل الوصول إليها. لتحديد كل من مالكي الشكل وخلايا الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/cpp/search-and-replace-text/).
 
-## **إضافة أعمدة إلى مربع النص**
+## **إضافة أعمدة إلى صندوق نص**
 
-توفر Aspose.Slides الطريقتين [set_ColumnCount](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) و[set_ColumnSpacing](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) (من واجهة [ITextFrameFormat](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_text_frame_format) والفئة [TextFrameFormat](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_text_frame_format)) اللتين تتيحان لك إضافة أعمدة إلى مربعات النص. يمكنك تحديد عدد الأعمدة في مربع النص وتعيين مقدار التباعد بين الأعمدة بوحدات النقاط.
+تقسّم طريقة [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_columncount/) إطار النص إلى أعمدة، بينما تُحدد طريقة [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_columnspacing/) الفجوة بين الأعمدة بالنقاط. كلا الطريقتين تنتميان إلى [ITextFrameFormat](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/) ويمكن استدعاؤهما عبر إطار النص لصندوق نص موجود. يعاد تدفق النص بين الأعمدة داخل الشكل نفسه؛ لا يستمر في شكل آخر.
 
-يوضح لك هذا الكود C++ العملية المذكورة: 
+المثال التالي ينشئ صندوق نص بثلاثة أعمدة مع 10 نقاط بين الأعمدة، يحفظ العرض التقديمي، ويقرأ الإعدادات المخزنة مرة أخرى من الملف الناتج:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// يحصل على الشريحة الأولى في العرض التقديمي
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// إضافة AutoShape مع تعيين النوع إلى Rectangle
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// إضافة TextFrame إلى الـ Rectangle
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// يحصل على تنسيق النص لإطار النص
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// تحديد عدد الأعمدة في TextFrame
-format->set_ColumnCount(3);
-
-// تحديد التباعد بين الأعمدة
-format->set_ColumnSpacing(10);
-
-// يحفظ العرض التقديمي
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **إضافة أعمدة إلى إطار النص**
+## **استخراج النص من الأعمدة الفردية**
 
-توفر Aspose.Slides للغة C++ طريقة [set_ColumnCount](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) (من واجهة [ITextFrameFormat](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.i_text_frame_format)) التي تتيح لك إضافة أعمدة في إطارات النص. من خلال هذه الطريقة، يمكنك تحديد عدد الأعمدة المفضل لديك في إطار النص. 
+استخدم [ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/splittextbycolumns/) لاسترجاع النص المخصص لكل عمود بصري في إطار نص موجود. تُعيد الطريقة سلسلة واحدة لكل عمود، وفق ترتيب القراءة القائم على الأعمدة. يُنتج إطار نص بعمود واحد مصفوفة ذات عنصر واحد، والعمود الفارغ يُمثَّل بسلسلة فارغة. السلاسل تحتوي على نص عادي فقط؛ لا يتم حفظ تنسيق المستوى الجزئي.
 
-يظهر لك هذا الكود C++ كيفية إضافة عمود داخل إطار النص:
+هذا مفيد عندما تحتاج إلى:
+
+- استخراج النص مع الحفاظ على ترتيب القراءة القائم على الأعمدة.
+- فهرسة أو مقارنة محتوى الشرائح متعددة الأعمدة.
+- تصدير كل عمود إلى ملف منفصل أو حقل قاعدة بيانات أو وجهة أخرى.
+- فحص كيفية إعادة توزيع النص بعد ضبط عدد الأعمدة باستخدام [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_columncount/) أو الفجوة باستخدام [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframeformat/set_columnspacing/)، أو تغيير الخط أو حجم إطار النص.
+
+تُبلغ الطريقة النص المُوزَّع داخل [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) الحالي؛ لا تقوم تلقائيًا بتدفق النص بين أشكال أو صناديق نص منفصلة. قد يعتمد توزيع الأعمدة على الخطوط المتاحة وإعدادات تخطيط النص الأخرى، لذا تأكد من توفر الخطوط المطلوبة عندما تكون النتائج المتسقة مهمة.
+
+المثال التالي يحمل عرضًا تقديميًا، يجد أول شكل تلقائي متعدد الأعمدة يحتوي على إطار نص في الشريحة الأولى، يقرأ عدد الأعمدة المكوَّن، ويكتب النص من كل عمود إلى ملف منفصل. تُتخطى الأشكال التي لا توفر إطار نص.
 
 ```cpp
-#include <DOM/AutoShape.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::IO;
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
 }
 
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+if (textBox == nullptr)
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
+    Console::WriteLine(u"No multi-column text frame was found.");
 }
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+else
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
 }
 ```
 
 ## **تحديث النص**
 
-تتيح لك Aspose.Slides تغيير أو تحديث النص الموجود في مربع النص أو جميع النصوص الموجودة في العرض التقديمي. 
+لتحديث النص في جميع أنحاء العرض التقديمي، قم بالتكرار عبر الشرائح والأشكال، حدد الأشكال التلقائية، ثم حرر مقاطع النص الخاصة بها. يتيح لك العمل على مستوى المقطع تغيير كل من النص وتنسيق الأحرف.
 
-يبين لك هذا الكود C++ عملية يتم فيها تحديث أو تغيير جميع النصوص في عرض تقديمي:
+المثال التالي يستبدل كل ظهور لـ `years` بـ `months` داخل مقاطع النص للأشكال التلقائية ويجعل كل مقاطع متأثرة عريضة:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -302,27 +272,38 @@ pres->Save(outPptxFileName, SaveFormat::Pptx);
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //تغيير النص
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //تغيير التنسيق
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -330,78 +311,52 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//حفظ العرض التقديمي المعدل
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **إضافة مربع نص مع رابط تشعبي** 
+هذا الاستعراض يُحدِّث النص فقط في الأشكال التلقائية. النص المخزن في الجداول أو المخططات أو SmartArt أو الأشكال المجمعة يتطلب استعراض مجموعات تلك الكائنات الخاصة.
 
-يمكنك إدراج رابط داخل مربع نص. عند النقر على مربع النص، يتم توجيه المستخدمين لفتح الرابط. 
+## **إضافة صندوق نص مع ارتباط تشعبي**
 
-لإضافة مربع نص يحتوي على رابط، اتبع الخطوات التالية:
+يمكن إسناد ارتباط تشعبي إلى مقطع نص محدد، بحيث يكون ذلك النص فقط هو القابل للنقر. استخدم [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) لربط المقطع بعنوان URL خارجي.
 
-1. إنشاء نسخة من الفئة `Presentation`. 
-2. الحصول على مرجع للشفرة الأولى في العرض التقديمي الجديد. 
-3. إضافة كائن `AutoShape` مع تعيين `ShapeType` إلى `Rectangle` في موضع محدد على الشريحة والحصول على مرجع لكائن AutoShape المضاف حديثًا.
-4. إضافة `TextFrame` إلى كائن `AutoShape` الذي يحتوي على *Aspose TextBox* كنص افتراضي. 
-5. إنشاء نسخة من الفئة `IHyperlinkManager`. 
-6. تعيين كائن `IHyperlinkManager` إلى طريقة [set_HyperlinkClick](https://reference.aspose.com/slides/ar/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) المرتبطة بالجزء المفضل لديك من `TextFrame`. 
-7. أخيرًا، احفظ ملف PPTX عبر كائن `Presentation`. 
-
-يعرض لك هذا الكود C++—تنفيذ للخطوات السابقة—كيفية إضافة مربع نص مع رابط تشعبي إلى شريحة:
+المثال التالي ينشئ نصًا مرتبطًا ويحفظه إلى عرض تقديمي:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// ينشئ كائن Presentation يمثل ملف PPTX
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// يحصل على الشريحة الأولى في العرض التقديمي
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// يضيف كائن AutoShape مع تعيين النوع إلى Rectangle
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// يحول الشكل إلى AutoShape
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// يصل إلى خاصية ITextFrame المرتبطة بـ AutoShape
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// يضيف بعض النص إلى الإطار
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// يضبط الرابط التشعبي لنص الجزء
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// يحفظ عرض PPTX التقديمي
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
 ## **الأسئلة المتكررة**
 
-**ما الفرق بين مربع النص وعناصر النائب النصي عند العمل مع الشرائح الرئيسة؟**
+**ما الفرق بين صندوق النص وعلامة نائب النص في الشريحة الرئيسة أو شريحة التخطيط؟**
 
-يُورث الـ[placeholder](/slides/ar/cpp/manage-placeholder/) النمط/الموضع من الـ[master](https://reference.aspose.com/slides/ar/cpp/aspose.slides/masterslide/)، ويمكن تعديلّه على الـ[layouts](https://reference.aspose.com/slides/ar/cpp/aspose.slides/layoutslide/)، بينما مربع النص العادي هو كائن مستقل على شريحة معينة ولا يتغير عند تبديل التخطيطات.
+يمكن أن يرث [placeholder](/slides/ar/cpp/manage-placeholder/) موضعه وتنسيقه من [الشريحة الرئيسة](https://reference.aspose.com/slides/ar/cpp/aspose.slides/masterslide/) أو [شريحة التخطيط](https://reference.aspose.com/slides/ar/cpp/aspose.slides/layoutslide/). صندوق النص العادي هو شكل مستقل على الشريحة التي تم إنشاؤه فيها ولا يكتسب سلوك علامة نائب النص عند تغيير التخطيط.
 
-**كيف يمكنني تنفيذ استبدال نصي جماعي عبر العرض التقديمي دون التأثير على النص داخل المخططات والجداول وSmartArt؟**
+**كيف يمكنني استبدال النص دون تغيير النص في المخططات أو الجداول أو SmartArt؟**
 
-قصر تكرارك على الأشكال التلقائية التي تحتوي على إطارات نصية واستبعاد الكائنات المضمنة ([charts](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/ar/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/smartart/)) عن طريق تصفح مجموعاتهم بشكل منفصل أو تخطي تلك الأنواع من الكائنات.
+قصر الاستعراض على الأشكال التي تنفذ [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/)، كما هو موضح في مثال تحديث النص. المخططات والجداول وSmartArt تخزن النص في نماذج الكائنات الخاصة بها، لذا لا يتم تعديلها بهذه الحلقة.

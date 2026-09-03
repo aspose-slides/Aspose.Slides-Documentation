@@ -1,16 +1,16 @@
 ---
-title: Управление текстовыми полями в презентациях на .NET
-linktitle: Управление текстовым полем
+title: Управление текстовыми блоками в презентациях в .NET
+linktitle: Управление текстовым блоком
 type: docs
 weight: 20
 url: /ru/net/manage-textbox/
 keywords:
-- текстовое поле
+- текстовый блок
 - текстовый кадр
 - добавить текст
 - обновить текст
-- создать текстовое поле
-- проверить текстовое поле
+- создать текстовый блок
+- проверить текстовый блок
 - добавить колонку текста
 - добавить гиперссылку
 - PowerPoint
@@ -18,302 +18,248 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides для .NET упрощает создание, редактирование и клонирование текстовых полей в файлах PowerPoint и OpenDocument, улучшая автоматизацию ваших презентаций."
+description: "Создавайте, идентифицируйте, форматируйте и обновляйте текстовые блоки в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET."
 ---
 ## **Введение**
 
-Текст на слайдах обычно находится в текстовых полях или фигурах. Поэтому, чтобы добавить текст на слайд, необходимо сначала добавить текстовое поле, а затем поместить текст внутрь него. 
+В Aspose.Slides for .NET текст слайдов хранится в текстовых кадрах, которые принадлежат фигурам. Интерфейс [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) представляет наиболее распространённую фигуру, содержащую текст, и предоставляет доступ к её тексту через свойство [IAutoShape.TextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/textframe/).
 
-Чтобы вы могли добавить форму, способную содержать текст, Aspose.Slides для .NET предоставляет интерфейс [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape). 
-
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides также предоставляет интерфейс [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape), позволяющий добавлять фигуры на слайды. Однако не все фигуры, добавленные через интерфейс `IShape`, могут содержать текст. Фигуры, добавленные через интерфейс [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape), обычно содержат текст. 
-
-Поэтому, работая с существующей фигурой, к которой вы хотите добавить текст, вам может потребоваться проверить и убедиться, что она приведена к типу `IAutoShape`. Только тогда вы сможете работать с [TextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/properties/textframe), который является свойством `IAutoShape`. См. раздел [Update Text](https://docs.aspose.com/slides/ru/net/manage-textbox/#update-text) на этой странице. 
-
+{{% alert color="info" title="Note" %}}
+Каждая автофигура реализует [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/), но не каждая фигура является автофигурой или поддерживает текстовый кадр. При обработке существующей презентации проверьте, реализует ли фигура `IAutoShape`, прежде чем обращаться к её тексту.
 {{% /alert %}}
 
-## **Создание текстового поля на слайде**
+## **Создание текстового блока на слайде**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation). 
-2. Получите ссылку на первый слайд по его индексу. 
-3. Добавьте объект [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape) с параметром [ShapeType](https://reference.aspose.com/slides/ru/net/aspose.slides/igeometryshape/properties/shapetype), установленным в `Rectangle`, в указанную позицию на слайде и получите ссылку на вновь добавленный объект `IAutoShape`. 
-4. Добавьте свойство `TextFrame` к объекту `IAutoShape`, которое будет содержать текст. В приведённом ниже примере мы добавили текст: *Aspose TextBox*
-5. Наконец, запишите файл PPTX через объект `Presentation`. 
+Чтобы создать текстовый блок, добавьте автофигуру на слайд, добавьте текст в её текстовый кадр и сохраните презентацию. Следующий пример создаёт прямоугольный текстовый блок:
 
-This C# code—an implementation of the steps above—shows you how to add text to a slide:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Создаёт объект PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // Получает первый слайд в презентации
-    ISlide sld = pres.Slides[0];
-
-    // Добавляет AutoShape с типом Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Добавляет TextFrame к прямоугольнику
-    ashp.AddTextFrame(" ");
-
-    // Доступ к текстовому кадру
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // Создаёт объект Paragraph для текстового кадра
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Создаёт объект Portion для абзаца
-    IPortion portion = para.Portions[0];
-
-    // Устанавливает текст
-    portion.Text = "Aspose TextBox";
-
-    // Сохраняет презентацию на диск
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-## **Проверка фигуры на наличие текстового поля**
+Координаты и размеры, передаваемые в [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addautoshape/), измеряются в пунктах. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/addtextframe/) инициализирует текстовый кадр переданным текстом.
 
-Aspose.Slides предоставляет свойство [IsTextBox](https://reference.aspose.com/slides/ru/net/aspose.slides/autoshape/istextbox/) из интерфейса [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) , позволяющее проверять фигуры и определять текстовые поля.
+## **Проверка, является ли фигура текстовым блоком**
 
-![Text box and shape](istextbox.png)
+Используйте свойство [AutoShape.IsTextBox](https://reference.aspose.com/slides/ru/net/aspose.slides/autoshape/istextbox/) для определения, рассматривается ли автофигура как текстовый блок. Это полезно, когда презентация содержит как фигуры с текстом, так и чисто графические автофигуры.
 
-Приведённый код C# показывает, как проверить, была ли фигура создана как текстовое поле: 
+![Текстовый блок и фигура](istextbox.png)
 
-```c#
+Следующий пример проверяет каждую автофигуру в презентации:
+
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-Обратите внимание, что если вы просто добавите автофигуру с помощью метода `AddAutoShape` из интерфейса [IShapeCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/) , свойство `IsTextBox` автофигуры вернёт `false`. Однако после того, как вы добавите текст в автофигуру с помощью метода `AddTextFrame` или свойства `Text`, свойство `IsTextBox` вернёт `true`.
+Новую автофигуру не считают текстовым блоком, пока в ней не будет непустого текста. Вы можете задать этот текст через [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/addtextframe/) или [ITextFrame.Text](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/text/). Добавление или присвоение пустой строки оставляет `IsTextBox` равным `false`:
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox имеет значение false
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox имеет значение true
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox имеет значение false
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox имеет значение true
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox имеет значение false
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox имеет значение false
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox имеет значение false
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox имеет значение false
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
 
-## **Поиск фигуры, владеющей текстовым кадром**
+Первые два вызова выводят `True`; последние два — `False`.
 
-В общем коде обработки текста вы можете получить объект [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) , не зная, какой объект презентации его содержит. Используйте свойство [ITextFrame.ParentShape](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentshape/) , чтобы вернуться к владеющей фигурой [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/).
+## **Нахождение фигуры, владеющей текстовым кадром**
 
-Для текстового кадра, принадлежащего [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) или другой фигуре, содержащей текст, свойство [ITextFrame.ParentShape](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentshape/) задано, а [ITextFrame.ParentCell](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentcell/) имеет значение `null`. Оба свойства являются только для чтения, поэтому их чтение не меняет владельца. Всегда проверяйте возвращаемое значение на `null` перед обращением к фигуре.
+Общий код обработки текста может получать [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/) без информации, какая презентация его содержит. Используйте только для чтения свойство [ITextFrame.ParentShape](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentshape/) для перехода к владелецу [IShape](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/).
 
-Для полного примера, определяющего владельцев фигур и ячеек таблиц, включая фигуры, связанные с узлами SmartArt, смотрите [Search and Replace Text](/slides/ru/net/search-and-replace-text/).
+Для текстового кадра, принадлежащего автофигуре или другой фигуре с текстом, `ParentShape` содержит владельца, а [ITextFrame.ParentCell](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/parentcell/) равно `null`. Проверьте возвращаемое значение перед доступом к нему. Чтобы определить как фигуру, так и ячейку таблицы‑владельца, включая фигуры, связанные с узлами SmartArt, см. [Search and Replace Text](/slides/ru/net/search-and-replace-text/).
 
-## **Добавление колонок в текстовое поле**
+## **Добавление колонок в текстовый блок**
 
-Aspose.Slides предоставляет свойства [ColumnCount](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/properties/columncount) и [ColumnSpacing](https://reference.aspose.com/slides/ru/net/aspose.slides/textframeformat/properties/columnspacing) (из интерфейса [ITextFrameFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat) и класса [TextFrameFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/textframeformat)) , позволяющие добавлять колонки в текстовые поля. Вы можете указать количество колонок в текстовом поле и задать расстояние в пунктах между колонками. 
+Свойство [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/columncount/) делит текстовый кадр на колонки, а [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/columnspacing/) задаёт промежуток между колонками в пунктах. Оба параметра принадлежат [ITextFrameFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/) и могут быть изменены через текстовый кадр существующего текстового блока. Текст переflows внутри колонок одной фигуры; он не продолжается в другой фигуре.
 
-Этот код на C# демонстрирует описанную операцию: 
+Следующий пример создаёт трёхколоночный текстовый блок с 10 пунктами между колонками, сохраняет презентацию и считывает сохранённые настройки из выходного файла:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// Получает первый слайд в презентации
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// Добавляет AutoShape с типом Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// Добавляет TextFrame к прямоугольнику
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// Получает формат текста TextFrame
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// Указывает количество колонок в TextFrame
-	format.ColumnCount = 3;
-
-	// Указывает расстояние между колонками
-	format.ColumnSpacing = 10;
-
-	// Сохраняет презентацию
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **Добавление колонок в текстовый кадр**
+## **Извлечение текста из отдельных колонок**
 
-Aspose.Slides для .NET предоставляет свойство [ColumnCount](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/properties/columncount) (из интерфейса [ITextFrameFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat)) , позволяющее добавлять колонки в текстовые кадры. С помощью этого свойства можно задать желаемое количество колонок в текстовом кадре. 
+Используйте [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/ru/net/aspose.slides/textframe/splittextbycolumns/) для получения текста, присвоенного каждой визуальной колонке в существующем текстовом кадре. Метод возвращает одну строку для каждой колонки в порядке чтения по колонкам. Текстовый кадр с одной колонкой возвращает массив из одного элемента, а пустая колонка представлена пустой строкой. Строки содержат только обычный текст; форматирование уровней части не сохраняется.
 
-Приведённый код C# показывает, как добавить колонку внутри текстового кадра:
+Это полезно, когда нужно:
 
-```c#
-using System.Diagnostics;
+- Извлечь текст, сохранив порядок чтения по колонкам.
+- Проиндексировать или сравнить содержимое слайдов с несколькими колонками.
+- Экспортировать каждую колонку в отдельный файл, поле базы данных или другое место.
+- Проанализировать, как текст перераспределяется после изменения [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframeformat/columnspacing/), шрифта или размера текстового кадра.
+
+Метод сообщает о тексте, распределённом внутри текущего [ITextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/itextframe/); он не переносит текст автоматически между отдельными фигурами или текстовыми блоками. Распределение колонок может зависеть от доступных шрифтов и других настроек верстки, поэтому убедитесь, что требуемые шрифты доступны, когда важна консистентность результатов.
+
+Следующий пример загружает презентацию, ищет первую автофигуру с несколькими колонками и текстовым кадром, считывает её текущий счётчик колонок и записывает текст каждой колонки в отдельный файл. Фигуры без текстового кадра пропускаются.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **Обновление текста**
 
-Aspose.Slides позволяет изменять или обновлять текст, содержащийся в текстовом поле, или весь текст в презентации. 
+Чтобы обновить текст во всей презентации, переберите слайды и фигуры, выберите автофигуры и отредактируйте их части текста. Работа на уровне части позволяет изменять как сам текст, так и форматирование символов.
 
-Этот код на C# демонстрирует операцию, при которой весь текст в презентации обновляется или меняется:
+Следующий пример заменяет каждое вхождение `years` на `months` в тексте автофигур и делает каждую затронутую часть жирной:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) // Проверяет, поддерживает ли фигура текстовый кадр (IAutoShape).
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) // Перебирает абзацы в текстовом кадре
-               {
-                   foreach (IPortion portion in paragraph.Portions) // Перебирает каждую часть в абзаце
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); // Меняет текст
-                       portion.PortionFormat.FontBold = NullableBool.True; // Меняет форматирование
-                   }
-               }
-           }
-       }
-   }
-  
-   // Сохраняет изменённую презентацию
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **Добавление текстового поля со ссылкой** 
+Этот обход обновляет текст только в автофигурах. Текст, хранящийся в таблицах, диаграммах, SmartArt или групповых фигурах, требует обхода соответствующих коллекций этих объектов.
 
-Вы можете вставить ссылку внутри текстового поля. При щелчке по полю пользователи будут перенаправлены к открытию ссылки. 
+## **Добавление текстового блока со ссылкой**
 
-1. Создайте экземпляр класса `Presentation`. 
-2. Получите ссылку на первый слайд по его индексу.  
-3. Добавьте объект `AutoShape` с `ShapeType`, установленным в `Rectangle`, в указанную позицию на слайде и получите ссылку на вновь добавленный объект AutoShape. 
-4. Добавьте `TextFrame` к объекту `AutoShape`, содержащий *Aspose TextBox* в качестве текста по умолчанию. 
-5. Создайте экземпляр класса `IHyperlinkManager`. 
-6. Назначьте объект `IHyperlinkManager` свойству [HyperlinkClick](https://reference.aspose.com/slides/ru/net/aspose.slides/shape/properties/hyperlinkclick) , связанному с выбранной вами частью `TextFrame`. 
-7. Наконец, запишите файл PPTX через объект `Presentation`. 
+Гиперссылка может быть назначена конкретной части текста, так что только эта часть будет кликабельна. Используйте [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/ru/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) для связывания части с внешним URL.
 
-This C# code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
+Следующий пример создаёт связанный текст и сохраняет его в презентацию:
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Создаёт экземпляр класса Presentation, представляющего PPTX
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// Получает первый слайд в презентации
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// Добавляет объект AutoShape с типом Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// Приводит фигуру к типу AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// Получает свойство ITextFrame, связанное с AutoShape
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// Добавляет текст в кадр
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// Устанавливает гиперссылку для текста части
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// Сохраняет PPTX‑презентацию
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**В чём разница между текстовым полем и заполняемым текстовым маркером при работе с мастер‑слайдами?**
+**В чём разница между текстовым блоком и заполнителем текста на мастер‑слайде или шаблоне?**
 
-Заполнитель [placeholder] наследует стиль/позицию от [master] и может быть переопределён на [layouts], тогда как обычное текстовое поле является независимым объектом на конкретном слайде и не меняется при переключении макетов.
+[Заполнитель](/slides/ru/net/manage-placeholder/) может наследовать своё положение и форматирование от [главного слайда](https://reference.aspose.com/slides/ru/net/aspose.slides/masterslide/) или [шаблона слайда](https://reference.aspose.com/slides/ru/net/aspose.slides/layoutslide/). Обычный текстовый блок — это независимая фигура на том слайде, где он был создан, и не получает поведения заполнителя при изменении шаблона.
 
-**Как выполнить массовую замену текста во всей презентации, не затрагивая текст внутри диаграмм, таблиц и SmartArt?**
+**Как заменить текст, не затрагивая текст в диаграммах, таблицах или SmartArt?**
 
-Ограничьте итерацию автофигурами, имеющими текстовые кадры, и исключите вложенные объекты ([charts], [tables], [SmartArt]), проходя их коллекции отдельно либо пропуская такие типы объектов.
+Ограничьте обход фигурами, реализующими [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/), как показано в примере «Обновление текста». Диаграммы, таблицы и SmartArt хранят текст в собственных моделях объектов, поэтому они не изменяются этим циклом.

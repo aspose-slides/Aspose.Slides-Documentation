@@ -1,5 +1,5 @@
 ---
-title: إدارة مربعات النص في العروض التقديمية باستخدام Python
+title: إدارة مربعات النص في العروض التقديمية باستخدام بايثون
 linktitle: إدارة مربع النص
 type: docs
 weight: 20
@@ -8,219 +8,218 @@ keywords:
 - مربع نص
 - إطار نص
 - إضافة نص
-- تحديث النص
+- تحديث نص
 - إنشاء مربع نص
-- تحقق من مربع النص
+- التحقق من مربع النص
 - إضافة عمود نص
-- إضافة رابط تشعبي
+- إضافة ارتباط تشعبي
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python عبر .NET يجعل إنشاء وتعديل واستنساخ مربعات النص في ملفات PowerPoint وOpenDocument أمرًا سهلاً، مما يعزز أتمتة العروض التقديمية الخاصة بك."
+description: "إنشاء وتحديد وتنسيق وتحديث مربعات النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لبايثون عبر .NET."
 ---
-## **المقدمة**
+## **مقدمة**
 
-عادةً ما تكون النصوص على الشرائح موجودة في مربعات النص أو الأشكال. لذلك، لإضافة نص إلى شريحة، يجب عليك إضافة مربع نص ثم وضع بعض النص داخل مربع النص. توفر Aspose.Slides for Python الفئة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) التي تتيح لك إضافة شكل يحتوي على نص.
+في Aspose.Slides for Python عبر .NET، يتم تخزين نص الشريحة في إطارات نصية تنتمي إلى الأشكال. تمثل الفئة AutoShape الشكل الأكثر شيوعًا الذي يحتوي على نص وتعرض نصه من خلال الخاصية AutoShape.text_frame.
 
-{{% alert title="Info" color="info" %}}
-توفر Aspose.Slides أيضًا الفئة [Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/). ومع ذلك، لا يمكن لجميع الأشكال احتواء النص.
+{{% alert color="info" title="Note" %}}
+كل شكل تلقائي يرث من Shape، لكن ليس كل شكل هو شكل تلقائي أو يدعم إطار نصي. عند معالجة عرض تقديمي موجود، استخدم `isinstance(shape, slides.AutoShape)` للتحقق من نوع الشكل قبل الوصول إلى نصه.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-لذلك، عند التعامل مع شكل تريد إضافة نص إليه، قد ترغب في التحقق والتأكد من أنه تم تحويله عبر الفئة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/). فقط عندها ستتمكن من العمل مع [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/)، وهي خاصية ضمن [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/). راجع قسم [Update Text](/slides/ar/python-net/manage-textbox/#update-text) في هذه الصفحة.
-{{% /alert %}}
+## **إنشاء مربع نص على شريحة**
 
-## **إنشاء مربعات نص على الشرائح**
-
-لإنشاء مربع نص على شريحة:
-
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع إلى الشريحة الأولى.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) باستخدام `ShapeType.RECTANGLE` في الموقع المطلوب على الشريحة.
-4. تعيين النص في [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
-5. حفظ العرض التقديمي كملف PPTX.
-
-مثال Python التالي يطبق هذه الخطوات:
-
-```py
-import aspose.slides as slides
-
-# إنشاء مثيل لفئة Presentation.
-with slides.Presentation() as presentation:
-
-    # الحصول على الشريحة الأولى في العرض التقديمي.
-    slide = presentation.slides[0]
-
-    # إضافة AutoShape من النوع RECTANGLE.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    shape.text_frame.text = "Aspose TextBox"
-
-    # حفظ العرض التقديمي على القرص.
-    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **التحقق مما إذا كان الشكل مربع نص**
-
-توفر Aspose.Slides الخاصية [is_text_box](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/is_text_box/) في الفئة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/)، والتي تسمح لك بتحديد ما إذا كان الشكل مربع نص.
-
-![مربع نص وشكل](istextbox.png)
-
-يوضح مثال Python التالي كيفية التحقق مما إذا كان الشكل قد تم إنشاؤه كمربع نص:
+لإنشاء مربع نص، أضف شكلاً تلقائيًا إلى شريحة، أضف نصًا إلى إطار النص الخاص به، واحفظ العرض التقديمي. المثال التالي ينشئ مربع نص مستطيل:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
-    for slide in presentation.slides:
-        for shape in slide.shapes:
-            if isinstance(shape, slides.AutoShape):
-                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 300, 50)
+    text_box.add_text_frame("Aspose TextBox")
+
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-لاحظ أنه إذا أضفت [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) باستخدام الفئة [ShapeCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/)، فإن خاصية `is_text_box` للشكل تُرجع `False`. ومع ذلك، بعد إضافة النص—إما باستخدام طريقة `add_text_frame` أو عن طريق تعيين خاصية `text`—تُرجع `is_text_box` القيمة `True`.
+الإحداثيات والأبعاد التي تُمرَّر إلى ShapeCollection.add_auto_shape تُقاس بالنقاط. تقوم AutoShape.add_text_frame بتهيئة إطار النص بالنص المزوَّد.
 
-```py
+## **التحقق من شكل مربع النص**
+
+استخدم الخاصية AutoShape.is_text_box لتحديد ما إذا كان الشكل التلقائي يُعامل كمربع نص. هذا مفيد عندما يحتوي العرض التقديمي على أشكال تلقائية تحمل نصًا وأخرى رسومية بحتة.
+
+![مربع نص وشكل](istextbox.png)
+
+المثال التالي يفحص كل شكل تلقائي في عرض تقديمي:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 120, 40)
+    text_box.add_text_frame("Text box")
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 10, 40, 40)
+
+    for current_slide in presentation.slides:
+        for shape in current_slide.shapes:
+            if isinstance(shape, slides.AutoShape):
+                print("The shape is a text box." if shape.is_text_box else "The shape is not a text box.")
+```
+
+لا يُعتبر الشكل التلقائي المضاف حديثًا مربع نص حتى يحتوي على نص غير فارغ. يمكنك توفير ذلك النص عبر AutoShape.add_text_frame أو TextFrame.text. إضافة أو تعيين سلسلة فارغة يترك الخاصية is_text_box مُعينة إلى `False`:
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
-    # shape1.is_text_box هو خطأ
-    shape1.add_text_frame("shape 1")
-    # shape1.is_text_box هو صحيح
+    shape1.add_text_frame("Shape 1")
+    print(shape1.is_text_box)
 
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
-    # shape2.is_text_box هو خطأ
-    shape2.text_frame.text = "shape 2"
-    # shape2.is_text_box هو صحيح
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 100, 40)
+    shape2.text_frame.text = "Shape 2"
+    print(shape2.is_text_box)
 
-    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
-    # shape3.is_text_box هو خطأ
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 100, 40)
     shape3.add_text_frame("")
-    # shape3.is_text_box هو خطأ
+    print(shape3.is_text_box)
 
-    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
-    # shape4.is_text_box هو خطأ
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 100, 40)
     shape4.text_frame.text = ""
-    # shape4.is_text_box هو خطأ
+    print(shape4.is_text_box)
 ```
 
-## **العثور على الشكل الذي يمتلك إطار النص**
+ستطبع الاستدعائين الأولين `True`؛ والاثنين الأخيرين `False`.
 
-في شفرة معالجة النص العامة، قد تتلقى [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) دون معرفة مسبقة أي كائن عرض تقديمي يحتويه. استخدم الخاصية [TextFrame.parent_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/parent_shape/) للتنقل مرة أخرى إلى الـ[Shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/) المالك.
+## **إيجاد الشكل الذي يمتلك إطار النص**
 
-بالنسبة لإطار نص ينتمي إلى [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) أو شكل آخر يحتوي على نص، تكون الخاصية [TextFrame.parent_shape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/parent_shape/) مُعينة وتكون الخاصية [TextFrame.parent_cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/parent_cell/) `None`. كلا الخاصيتين خاصيتان للملاحة للقراءة فقط، لذا فإن قراءتهما لا يغيّر الملكية. دائمًا تحقق من القيمة المرتجعة لتكون ليست `None` قبل الوصول إلى الشكل.
+قد يتلقى شفرة معالجة النص العامة كائن TextFrame دون معرفة أي كائن عرض تقديمي يحتويه. استخدم الخاصية للقراءة فقط TextFrame.parent_shape للانتقال مرة أخرى إلى الشكل المالك Shape.
 
-لمثال كامل يحدد مالكي الشكل وخلايا الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/python-net/search-and-replace-text/).
+لإطار نص مملوك لشكل تلقائي أو شكل آخر يحمل نصًا، يحتوي parent_shape على المالك وتكون TextFrame.parent_cell هي `None`. تحقق من القيمة المرجعة قبل الوصول إليها. لتحديد كل من مالكي الشكل وخلايا الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [بحث واستبدال النص](/slides/ar/python-net/search-and-replace-text/).
 
-## **إضافة أعمدة إلى مربعات النص**
+## **إضافة أعمدة إلى مربع النص**
 
-توفر Aspose.Slides الخاصيتين [column_count](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframeformat/column_count/) و[column_spacing](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframeformat/column_spacing/) في الفئة [TextFrameFormat](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframeformat/) لإضافة أعمدة إلى مربعات النص. يمكنك تحديد عدد الأعمدة وضبط المسافة (بالنقاط) بين الأعمدة.
+خاصية TextFrameFormat.column_count تقسم إطار النص إلى أعمدة، بينما TextFrameFormat.column_spacing تحدد الفاصل بين الأعمدة بالنقاط. كلا الإعدادين ينتميان إلى TextFrameFormat ويمكن تغييرهما عبر إطار النص لمربع نص موجود. يعاد تدفق النص بين الأعمدة داخل الشكل نفسه؛ ولا يستمر إلى شكل آخر.
 
-الكود Python التالي يوضح هذه العملية:
+المثال التالي ينشئ مربع نص بثلاثة أعمدة مع مسافة 10 نقاط بين الأعمدة، يحفظ العرض التقديمي، ويقرأ الإعدادات المخزنة مرة أخرى من ملف الإخراج:
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 200)
+    text_box.add_text_frame("This text is distributed automatically across all columns in the text box.")
 
-	# احصل على الشريحة الأولى في العرض التقديمي.
-	slide = presentation.slides[0]
+    text_frame_format = text_box.text_frame.text_frame_format
+    text_frame_format.column_count = 3
+    text_frame_format.column_spacing = 10
 
-	# أضف AutoShape من النوع RECTANGLE.
-	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    presentation.save("TextBoxColumns.pptx", slides.export.SaveFormat.PPTX)
 
-	# أضف TextFrame إلى المستطيل.
-	shape.add_text_frame("All of these columns are confined to a single text container—" +
-	"you can add or delete text, and any new or remaining text automatically reflows " +
-	"within the container. You cannot have text flow from one container to another, " +
-	"though—PowerPoint’s column options for text are limited!")
+with slides.Presentation("TextBoxColumns.pptx") as saved_presentation:
+    saved_text_box = saved_presentation.slides[0].shapes[0]
+    if isinstance(saved_text_box, slides.AutoShape):
+        saved_format = saved_text_box.text_frame.text_frame_format
+        print(f"Columns: {saved_format.column_count}; spacing: {saved_format.column_spacing} points")
+```
 
-	# احصل على تنسيق النص في TextFrame.
-	format = shape.text_frame.text_frame_format
+## **استخراج النص من الأعمدة الفردية**
 
-	# حدد عدد الأعمدة في TextFrame.
-	format.column_count = 3
+استخدم TextFrame.split_text_by_columns لاسترجاع النص المخصص لكل عمود بصري في إطار نص موجود. تُرجع الطريقة سلسلة واحدة لكل عمود، بترتيب القراءة حسب الأعمدة. إطار نص بعمود واحد ينتج قائمة بعنصر واحد، والعمود الفارغ يُمثَّل بسلسلة فارغة. السلاسل تحتوي على نص عادي فقط؛ ولا يتم حفظ تنسيق مستوى الجزء.
 
-	# حدد التباعد بين الأعمدة.
-	format.column_spacing = 10
+هذا مفيد عندما تحتاج إلى:
+- استخراج النص مع الحفاظ على ترتيب القراءة حسب الأعمدة.
+- فهرسة أو مقارنة محتوى الشرائح متعددة الأعمدة.
+- تصدير كل عمود إلى ملف منفصل أو حقل قاعدة بيانات أو هدف آخر.
+- فحص كيفية إعادة توزيع النص بعد تغيير TextFrameFormat.column_count أو TextFrameFormat.column_spacing أو الخط أو حجم إطار النص.
 
-	# احفظ العرض التقديمي.
-	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+الطريقة تُبلِّغ عن النص الموزَّع داخل TextFrame الحالي؛ ولا تُعيد تلقائيًا تدفق النص بين الأشكال أو مربعات النص المنفصلة. قد تعتمد توزيع الأعمدة على الخطوط المتوفرة وإعدادات تخطيط النص الأخرى، لذا تأكَّد من توفر الخطوط المطلوبة عندما تكون النتائج المتسقة مهمة.
+
+المثال التالي يحمل عرضًا تقديميًا، يجد أول شكل تلقائي متعدد الأعمدة يحتوي على إطار نص، يقرأ عدد الأعمدة المُعدَّة، ويكتب النص من كل عمود إلى ملف منفصل. يتم تخطي الأشكال التي لا توفر إطار نص.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("MultiColumnText.pptx") as presentation:
+    text_box = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+            column_count = shape.text_frame.text_frame_format.column_count
+            if column_count > 1:
+                text_box = shape
+                break
+
+    if text_box is None:
+        print("No multi-column text frame was found.")
+    else:
+        text_frame = text_box.text_frame
+        configured_column_count = text_frame.text_frame_format.column_count
+        column_texts = text_frame.split_text_by_columns()
+
+        print(f"Configured columns: {configured_column_count}")
+
+        for column_number, column_text in enumerate(column_texts, start=1):
+            print(f"Column {column_number}: {column_text}")
+            with open(f"Column-{column_number}.txt", "w", encoding="utf-8") as column_file:
+                column_file.write(column_text)
 ```
 
 ## **تحديث النص**
 
-تسمح لك Aspose.Slides بتحديث النص في مربع نص واحد أو عبر العرض التقديمي بأكمله.
+لتحديث النص في جميع أنحاء العرض التقديمي، احرص على المرور عبر الشرائح والأشكال، اختر الأشكال التلقائية، ثم حرر أجزاء النص الخاصة بها. العمل على مستوى الجزء يتيح لك تعديل كل من النص وتنسيق الأحرف.
 
-مثال Python التالي يوضح كيفية تحديث جميع النصوص في عرض تقديمي:
+المثال التالي يستبدل كل ظهور لـ `years` بـ `months` في نص الشكل التلقائي ويجعل كل جزء متأثر بالخط عريض:
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
+with slides.Presentation("Text.pptx") as presentation:
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                for paragraph in shape.text_frame.paragraphs:
-                    for portion in paragraph.portions:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if "years" in portion.text:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = slides.NullableBool.TRUE
-  
-    # احفظ العرض التقديمي المعدل.
+
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إضافة مربعات نص مع روابط تشعبية**
+هذا التجول يُحدّث النص فقط في الأشكال التلقائية. النص المخزن في الجداول أو المخططات أو SmartArt أو الأشكال المجمعة يتطلب مرورًا عبر مجموعات تلك الكائنات نفسها.
 
-يمكنك إدراج رابط في مربع نص. عند النقر على مربع النص، يفتح الرابط.
+## **إضافة مربع نص مع ارتباط تشعبي**
 
-لإضافة مربع نص يحتوي على رابط تشعبي، اتبع الخطوات التالية:
+يمكن تعيين ارتباط تشعبي إلى جزء نص محدد، بحيث يكون ذلك النص فقط هو الرابط القابل للنقر. استخدم HyperlinkManager.set_external_hyperlink_click لربط الجزء بعنوان URL خارجي.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/).
-2. الحصول على مرجع إلى الشريحة الأولى.
-3. إضافة [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) باستخدام `ShapeType.RECTANGLE` في الموقع المطلوب على الشريحة.
-4. تعيين النص في [TextFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/textframe/) الخاص بالشكل.
-5. الحصول على مرجع إلى [HyperlinkManager](https://reference.aspose.com/slides/ar/python-net/aspose.slides/hyperlinkmanager/).
-6. استخدام خاصية `hyperlink_manager` لتعيين رابط تشعبي خارجي للنقر.
-7. حفظ العرض التقديمي كملف PPTX.
+المثال التالي ينشئ نصًا مرتبطًا ويحفظه في عرض تقديمي:
 
-مثال Python التالي يوضح كيفية إضافة مربع نص مع رابط تشعبي إلى شريحة:
-
-```py
+```python
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة Presentation.
 with slides.Presentation() as presentation:
-
-    # الحصول على الشريحة الأولى في العرض التقديمي.
     slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 200, 50)
+    text_box.add_text_frame("Aspose.Slides")
 
-    # إضافة AutoShape من النوع RECTANGLE.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    text_portion = text_box.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_manager.set_external_hyperlink_click("https://www.aspose.com/")
 
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    # إضافة نص إلى الإطار.
-    text_portion.text = "Aspose.Slides"
-
-    # تعيين رابط تشعبي لنص الجزء.
-    hyperlink_manager = text_portion.portion_format.hyperlink_manager
-    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
-
-    # حفظ العرض التقديمي كملف PPTX.
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **الأسئلة المتكررة**
 
-**ما الفرق بين مربع النص وعناصر النائب النصي عند العمل مع الشرائح الرئيسية؟**
+**ما الفرق بين مربع النص وعنصر نائب على شريحة رئيسية أو شريحة تخطيطية؟**
 
-[placeholder](/slides/ar/python-net/manage-placeholder/) يرث النمط/الموقع من الـ[master](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslide/) ويمكن تجاوزها في الـ[layouts](https://reference.aspose.com/slides/ar/python-net/aspose.slides/layoutslide/)، بينما مربع النص العادي هو كائن مستقل على شريحة معينة ولا يتغير عند تغيير التخطيطات.
+يمكن لعناصر الـ [عنصر نائب](/slides/ar/python-net/manage-placeholder/) أن يرث موقعه وتنسيقه من [الشريحة الرئيسية](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslide/) أو [شريحة تخطيط](https://reference.aspose.com/slides/ar/python-net/aspose.slides/layoutslide/). بينما يكون مربع النص العادي شكلاً مستقلاً على الشريحة التي تم إنشاؤه فيها ولا يكتسب سلوك العنصر النائب عندما يتغير التخطيط.
 
-**كيف يمكنني إجراء استبدال نصي شامل عبر العرض التقديمي دون التأثير على النص داخل المخططات والجداول وSmartArt؟**
+**كيف يمكنني استبدال النص دون تغيير النص في المخططات أو الجداول أو SmartArt؟**
 
-قصر التكرار على الأشكال الذاتية التي لديها إطارات نصية واستثنِ الكائنات المدمجة ([charts](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/ar/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ar/python-net/aspose.slides.smartart/smartart/)) عبر استعراض مجموعاتها بشكل منفصل أو تخطي تلك الأنواع من الكائنات.
+قصر المرور على مثيلات AutoShape، كما هو موضح في مثال تحديث النص. تخزن المخططات والجداول وSmartArt النص في نماذج كائناتهم الخاصة، لذا لا يتم تعديلها بواسطة تلك الحلقة.

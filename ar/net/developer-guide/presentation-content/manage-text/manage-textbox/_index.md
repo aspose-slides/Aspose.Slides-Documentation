@@ -5,10 +5,10 @@ type: docs
 weight: 20
 url: /ar/net/manage-textbox/
 keywords:
-- صندوق النص
-- إطار النص
+- صندوق نص
+- إطار نص
 - إضافة نص
-- تحديث النص
+- تحديث نص
 - إنشاء صندوق نص
 - التحقق من صندوق النص
 - إضافة عمود نص
@@ -18,302 +18,247 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "يُسهل Aspose.Slides for .NET إنشاء وتحرير واستنساخ صناديق النص في ملفات PowerPoint و OpenDocument، مما يعزز أتمتة العروض التقديمية الخاصة بك."
+description: "إنشاء وتحديد وتنسيق وتحديث صناديق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ .NET."
 ---
 ## **المقدمة**
 
-عادةً ما تكون النصوص على الشرائح موجودة في صناديق النص أو الأشكال. لذلك، لإضافة نص إلى شريحة، عليك إضافة صندوق نص أولاً ثم وضع بعض النص داخل صندوق النص. 
+في Aspose.Slides for .NET، يتم تخزين نص الشريحة في إطارات النص التي تنتمي إلى الأشكال. تمثل الواجهة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) الشكل الأكثر شيوعًا الذي يحمل النص وتكشف عن نصه عبر الخاصية [IAutoShape.TextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/textframe/).
 
-للسماح لك بإضافة شكل يمكنه احتواء النص، توفر Aspose.Slides for .NET واجهة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape). 
-
-{{% alert title="Note" color="warning" %}} 
-
-توفر Aspose.Slides أيضًا واجهة [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape) لتتيح لك إضافة أشكال إلى الشرائح. ومع ذلك، ليست جميع الأشكال المضافة عبر واجهة `IShape` قادرة على احتواء النص. عادةً ما تحتوي الأشكال المضافة عبر واجهة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape) على نص. 
-
-لذلك، عند التعامل مع شكل موجود ترغب في إضافة نص إليه، قد ترغب في التحقق والتأكد من أنه تم تحويله عبر واجهة `IAutoShape`. فقط عندئذٍ ستتمكن من العمل مع [TextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/properties/textframe)، وهي خاصية تابعة لـ `IAutoShape`. راجع قسم [Update Text](https://docs.aspose.com/slides/ar/net/manage-textbox/#update-text) في هذه الصفحة. 
-
+{{% alert color="info" title="ملاحظة" %}}
+كل شكل تلقائي ينفذ [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/)، ولكن ليس كل شكل هو شكل تلقائي أو يدعم إطار نص. عند معالجة عرض تقديمي موجود، تحقق من أن الشكل ينفذ `IAutoShape` قبل الوصول إلى نصه.
 {{% /alert %}}
 
-## **إنشاء صندوق نص على شريحة**
+## **إنشاء مربع نص على الشريحة**
 
-1. أنشئ مثيلًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation). 
-2. احصل على مرجع الشريحة الأولى من خلال فهرسها. 
-3. أضف كائنًا من نوع [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape) مع ضبط [ShapeType](https://reference.aspose.com/slides/ar/net/aspose.slides/igeometryshape/properties/shapetype) على `Rectangle` في موضع محدد على الشريحة واحصل على المرجع للكائن `IAutoShape` المضاف حديثًا. 
-4. أضف خاصية `TextFrame` إلى كائن `IAutoShape` لتحتوي على نص. في المثال أدناه، أضفنا هذا النص: *Aspose TextBox* 
-5. أخيرًا، احفظ ملف PPTX عبر كائن `Presentation`. 
+لإنشاء مربع نص، قم بإضافة شكل تلقائي إلى شريحة، أضف نصًا إلى إطار النص الخاص به، واحفظ العرض التقديمي. المثال التالي ينشئ مربع نص مستطيل:
 
-هذا الكود C#—تنفيذ للخطوات أعلاه—يظهر لك كيفية إضافة نص إلى شريحة:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// ينشئ كائن PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // يحصل على الشريحة الأولى في العرض التقديمي
-    ISlide sld = pres.Slides[0];
-
-    // يضيف AutoShape مع تعيين النوع كـ Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // يضيف TextFrame إلى الـ Rectangle
-    ashp.AddTextFrame(" ");
-
-    // يصل إلى إطار النص
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // ينشئ كائن Paragraph لإطار النص
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // ينشئ كائن Portion للفقرة
-    IPortion portion = para.Portions[0];
-
-    // يضبط النص
-    portion.Text = "Aspose TextBox";
-
-    // يحفظ العرض التقديمي على القرص
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-## **التحقق من شكل صندوق النص**
+الإحداثيات والأبعاد الممرَّرة إلى [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/addautoshape/) تُقاس بالنقاط. تقوم [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/addtextframe/) بتهيئة إطار النص بالنص المزوَّد.
 
-توفر Aspose.Slides الخاصية [IsTextBox](https://reference.aspose.com/slides/ar/net/aspose.slides/autoshape/istextbox/) من واجهة [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) لتسمح لك بفحص الأشكال وتحديد صناديق النص.
+## **التحقق من كون الشكل مربع نص**
 
-![صندوق نص وشكل](istextbox.png)
+استخدم الخاصية [AutoShape.IsTextBox](https://reference.aspose.com/slides/ar/net/aspose.slides/autoshape/istextbox/) لتحديد ما إذا كان الشكل التلقائي يُعامل كمربع نص. هذا مفيد عندما يحتوي العرض التقديمي على أشكال تلقائية تحمل نصًا وأخرى رسومية بحتة.
 
-هذا الكود C# يوضح لك كيفية التحقق ما إذا تم إنشاء الشكل كصندوق نص: 
+![مربع نص وشكل](istextbox.png)
 
-```c#
+المثال التالي يفحص كل شكل تلقائي في عرض تقديمي:
+
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-لاحظ أنه إذا قمت ببساطة بإضافة شكل تلقائي باستخدام طريقة `AddAutoShape` من واجهة [IShapeCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapecollection/)، ستُعيد خاصية `IsTextBox` للقالب التلقائي القيمة `false`. ومع ذلك، بعد إضافة نص إلى القالب التلقائي باستخدام طريقة `AddTextFrame` أو خاصية `Text`، ستُعيد خاصية `IsTextBox` القيمة `true`.
+لا يُعتبر الشكل التلقائي المضاف حديثًا مربع نص حتى يحتوي على نص غير فارغ. يمكنك توفير ذلك النص عبر [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/addtextframe/) أو [ITextFrame.Text](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/text/). إضافة أو تعيين سلسلة فارغة يترك `IsTextBox` مضبوطًا على `false`:
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox غير صحيح
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox صحيح
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox غير صحيح
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox صحيح
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox غير صحيح
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox غير صحيح
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox غير صحيح
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox غير صحيح
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
 
-## **العثور على الشكل الذي يمتلك إطار نص**
+الاستدعاءان الأولان يطبعان `True`؛ والاستدعاءان الأخيران يطبعان `False`.
 
-في كود معالجة النصوص العامة، قد تستلم كائنًا من نوع [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) دون معرفة الشكل الذي يحتويه مسبقًا. استخدم خاصية [ITextFrame.ParentShape](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentshape/) للعودة إلى [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/) المالكة. 
+## **إيجاد الشكل الذي يمتلك إطار نص**
 
-بالنسبة لإطار نص ينتمي إلى [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) أو أي شكل آخر يحتوي على نص، تُحدد خاصية [ITextFrame.ParentShape](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentshape/) وتكون خاصية [ITextFrame.ParentCell](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentcell/) ذات قيمة `null`. كلا الخصيصين هما خصائص تنقل للقراءة فقط، لذا فإن قراءتهما لا يغيّر الملكية. تحقق دائمًا من أن القيمة المرتجعة ليست `null` قبل الوصول إلى الشكل. 
+قد يتلقى كود معالجة النص العامة كائنًا من النوع [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) دون معرفة أي كائن عرض تقديمي يحتويه. استخدم الخاصية للقراءة فقط [ITextFrame.ParentShape](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentshape/) للعودة إلى [IShape](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/) المالك.
 
-لمثال كامل يحدد مالكي الشكل وخلايا الجداول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، انظر إلى [Search and Replace Text](/slides/ar/net/search-and-replace-text/). 
+لإطار نص مملوك لشكل تلقائي أو شكل آخر يحمل نصًا، يحتوي `ParentShape` على المالك وتكون [ITextFrame.ParentCell](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/parentcell/) `null`. تحقق من القيمة المرجعة قبل الوصول إليها. لتحديد كل من مالكي الشكل وخلية الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/net/search-and-replace-text/).
 
-## **إضافة أعمدة إلى صندوق النص**
+## **إضافة أعمدة إلى مربع النص**
 
-توفر Aspose.Slides الخصائص [ColumnCount](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/properties/columncount) و[ColumnSpacing](https://reference.aspose.com/slides/ar/net/aspose.slides/textframeformat/properties/columnspacing) (من واجهة [ITextFrameFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat) وفئة [TextFrameFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/textframeformat)) لتسمح لك بإضافة أعمدة إلى صناديق النص. يمكنك تحديد عدد الأعمدة في صندوق النص ثم تحديد التباعد بين الأعمدة بالنقاط. 
+خاصية [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/columncount/) تقسم إطار النص إلى أعمدة، بينما [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/columnspacing/) تحدد الفجوة بين الأعمدة بالنقاط. كلا الإعدادين ينتميان إلى [ITextFrameFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/) ويمكن تغييرهما عبر إطار النص لمربع نص موجود. يعيد تدفق النص بين الأعمدة داخل الشكل نفسه؛ لا يستمر في شكل آخر.
 
-هذا الكود C# يوضح العملية الموصوفة: 
+المثال التالي ينشئ مربع نص ثلاثي الأعمدة مع 10 نقاط بين الأعمدة، يحفظ العرض التقديمي، ويقرأ الإعدادات المخزنة مرة أخرى من ملف الإخراج:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// يحصل على الشريحة الأولى في العرض التقديمي
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// يضيف AutoShape مع تعيين النوع كـ Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// يضيف TextFrame إلى الـ Rectangle
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// يحصل على تنسيق النص لإطار النص
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// يحدد عدد الأعمدة في إطار النص
-	format.ColumnCount = 3;
-
-	// يحدد التباعد بين الأعمدة
-	format.ColumnSpacing = 10;
-
-	// يحفظ العرض التقديمي
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **إضافة أعمدة إلى إطار النص**
+## **استخراج النص من الأعمدة الفردية**
 
-توفر Aspose.Slides for .NET خاصية [ColumnCount](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/properties/columncount) (من واجهة [ITextFrameFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat)) التي تسمح لك بإضافة أعمدة في إطارات النص. من خلال هذه الخاصية، يمكنك تحديد عدد الأعمدة المفضل في إطار النص. 
+استخدم [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/ar/net/aspose.slides/textframe/splittextbycolumns/) لاسترجاع النص المخصص لكل عمود مرئي في إطار نص موجود. تُرجع الطريقة سلسلة واحدة لكل عمود، بترتيب القراءة القائم على الأعمدة. ينتج إطار نص عمود واحد مصفوفة ذات عنصر واحد، والعمود الفارغ يُمثَّل بسلسلة فارغة. السلاسل تحتوي على نص عادي فقط؛ لا يتم الحفاظ على تنسيق المستويات الجزئية.
 
-هذا الكود C# يوضح لك كيفية إضافة عمود داخل إطار نص:
+هذا مفيد عندما تحتاج إلى:
+- استخراج النص مع الحفاظ على ترتيب القراءة القائم على الأعمدة.
+- فهرسة أو مقارنة محتوى الشرائح متعددة الأعمدة.
+- تصدير كل عمود إلى ملف منفصل، أو حقل قاعدة بيانات، أو وجهة أخرى.
+- فحص كيفية إعادة توزيع النص بعد تغيير [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/columncount/)، [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/columnspacing/)، الخط، أو حجم إطار النص.
 
-```c#
-using System.Diagnostics;
+الطريقة تُبلغ عن النص الموزع داخل [ITextFrame](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframe/) الحالي؛ لا تقوم تلقائيًا بتدفق النص بين أشكال أو مربعات نص منفصلة. قد يعتمد توزيع الأعمدة على الخطوط المتوفرة وإعدادات تخطيط النص الأخرى، لذا تأكد من توفر الخطوط المطلوبة عندما تكون النتائج المتسقة مهمة.
+
+المثال التالي يحمل عرض تقديمي، يجد أول شكل تلقائي متعدد الأعمدة يحتوي على إطار نص، يقرأ عدد الأعمدة المُكوَّن، ويكتب النص من كل عمود إلى ملف منفصل. تُهمل الأشكال التي لا توفّر إطار نص.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **تحديث النص**
 
-تتيح لك Aspose.Slides تغيير أو تحديث النص الموجود في صندوق نص أو جميع النصوص الموجودة في عرض تقديمي. 
+لتحديث النص في جميع أنحاء عرض تقديمي، كرّر عبر الشرائح والأشكال، اختر الأشكال التلقائية، ثم حرّر أجزاء نصها. العمل على مستوى الجزء يتيح لك تغيير كلًا من النص وتنسيق الأحرف.
 
-هذا الكود C# يُظهر عملية تحديث أو تغيير جميع النصوص في عرض تقديمي:
+المثال التالي يستبدل كل تواجد لكلمة `years` بـ `months` في نص الشكل التلقائي ويجعل كل جزء متأثر غامقًا:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //يتحقق ما إذا كان الشكل يدعم إطار النص (IAutoShape).
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //يتنقل عبر الفقرات في إطار النص
-               {
-                   foreach (IPortion portion in paragraph.Portions) //يتنقل عبر كل قطعة في الفقرة
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //يُغيّر النص
-                       portion.PortionFormat.FontBold = NullableBool.True; //يُغيّر التنسيق
-                   }
-               }
-           }
-       }
-   }
-  
-   //يحفظ العرض التقديمي المعدل
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **إضافة صندوق نص مع ارتباط تشعبي** 
+هذا التجول يحدّث النص فقط في الأشكال التلقائية. النص المخزن في الجداول أو المخططات أو SmartArt أو الأشكال المجمعة يتطلب التجول في مجموعات تلك الكائنات الخاصة.
 
-يمكنك إدراج ارتباط داخل صندوق نص. عند النقر على صندوق النص، يتم توجيه المستخدمين لفتح الارتباط. 
+## **إضافة مربع نص مع ارتباط تشعبي**
 
-1. أنشئ مثيلًا من الفئة `Presentation`. 
-2. احصل على مرجع الشريحة الأولى من خلال فهرسها.  
-3. أضف كائن `AutoShape` مع ضبط `ShapeType` على `Rectangle` في موضع محدد على الشريحة واحصل على مرجع كائن AutoShape المضاف حديثًا. 
-4. أضف `TextFrame` إلى كائن `AutoShape` يحتوي على *Aspose TextBox* كنص افتراضي. 
-5. أنشئ كائنًا من الفئة `IHyperlinkManager`. 
-6. عيّن كائن `IHyperlinkManager` إلى خاصية [HyperlinkClick](https://reference.aspose.com/slides/ar/net/aspose.slides/shape/properties/hyperlinkclick) المرتبطة بالجزء المفضل من `TextFrame`. 
-7. أخيرًا، احفظ ملف PPTX عبر كائن `Presentation`. 
+يمكن تعيين ارتباط تشعبي إلى جزء نصي محدد، بحيث يكون ذلك النص فقط هو القابل للنقر. استخدم [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/ar/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) لربط الجزء بعنوان URL خارجي.
 
-هذا الكود C#—تنفيذ للخطوات أعلاه—يظهر لك كيفية إضافة صندوق نص مع ارتباط تشعبي إلى شريحة:
+المثال التالي ينشئ نصًا مرتبطًا ويحفظه إلى عرض تقديمي:
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// ينشئ كائنًا من فئة Presentation تمثل ملف PPTX
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// يحصل على الشريحة الأولى في العرض التقديمي
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// يضيف كائن AutoShape مع تعيين النوع كـ Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// يحول الشكل إلى AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// يصل إلى خاصية ITextFrame المرتبطة بـ AutoShape
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// يضيف نصًا إلى الإطار
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// يحدد الارتباط التشعبي لنص الجزء
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// يحفظ عرض PPTX
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**ما الفرق بين صندوق النص وعلامة العنصر النائب للنص عند العمل مع الشرائح الرئيسية؟**
+**ما هو الفرق بين مربع النص وعلامة النص النائبة على الشريحة الرئيسية أو شريحة التخطيط؟**
 
-العنصر النائب [placeholder](/slides/ar/net/manage-placeholder/) يرث النمط/الموقع من [master](https://reference.aspose.com/slides/ar/net/aspose.slides/masterslide/) ويمكن تجاوزها في [layouts](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutslide/)، بينما صندوق النص العادي هو كائن مستقل على شريحة محددة ولا يتغير عند تبديل التخطيطات.
+يمكن لـ [placeholder](/slides/ar/net/manage-placeholder/) أن يرث موقعه وتنسيقه من [master slide](https://reference.aspose.com/slides/ar/net/aspose.slides/masterslide/) أو [layout slide](https://reference.aspose.com/slides/ar/net/aspose.slides/layoutslide/). مربع النص العادي هو شكل مستقل على الشريحة التي تم إنشاؤه فيها ولا يكتسب سلوك العنصر النائب عندما يتغير التخطيط.
 
-**كيف يمكنني إجراء استبدال نص جماعي عبر العرض التقديمي دون المساس بالنص داخل المخططات والجداول وSmartArt؟**
+**كيف يمكنني استبدال النص دون تغيير النص في المخططات أو الجداول أو SmartArt؟**
 
-قصر التكرار على الأشكال التلقائية التي تحتوي على إطارات نص وتستثني الكائنات المضمنة ([charts](https://reference.aspose.com/slides/ar/net/aspose.slides.charts/chart/)، [tables](https://reference.aspose.com/slides/ar/net/aspose.slides/table/)، [SmartArt](https://reference.aspose.com/slides/ar/net/aspose.slides.smartart/smartart/)) عن طريق استعراض مجموعاتها بشكل منفصل أو تخطي تلك الأنواع من الكائنات.
+حدد التجول إلى الأشكال التي تنفّذ [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/)، كما هو موضح في مثال تحديث النص. المخططات والجداول وSmartArt تخزن النص في نماذج كائناتها الخاصة، لذا لا يتم تعديلها بهذه الحلقة.

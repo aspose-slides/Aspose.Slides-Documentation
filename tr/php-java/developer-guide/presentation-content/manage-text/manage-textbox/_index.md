@@ -17,296 +17,290 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP, PowerPoint ve OpenDocument dosyalarında metin kutularını kolayca oluşturmanızı, düzenlemenizi ve kopyalamanızı sağlar ve sunum otomasyonunuzu geliştirir."
+description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument sunumlarında metin kutularını oluşturun, tanımlayın, biçimlendirin ve güncelleyin."
 ---
 ## **Giriş**
 
-Slaytlardaki metinler genellikle metin kutularında veya şekillerde bulunur. Bu nedenle, bir slayta metin eklemek için bir metin kutusu eklemeniz ve ardından kutuya bazı metin yerleştirmeniz gerekir. Aspose.Slides for PHP via Java, bazı metin içeren bir şekil eklemenizi sağlayan [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) sınıfını sağlar.
+Aspose.Slides for PHP via Java'da slayt metni, şekillere ait metin çerçevelerinde depolanır. [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) sınıfı en yaygın metin içeren şekli temsil eder ve metnini [AutoShape::getTextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/#getTextFrame) yöntemi aracılığıyla ortaya koyar.
 
-{{% alert title="Bilgi" color="info" %}}
-
-Aspose.Slides ayrıca slaytlara şekil eklemenizi sağlayan [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sınıfını sunar. Ancak, `Shape` sınıfı aracılığıyla eklenen tüm şekiller metin tutamaz. `AutoShape` sınıfı aracılığıyla eklenen şekiller ise metin içerebilir.
-
-{{% /alert %}}
-
-{{% alert title="Not" color="warning" %}} 
-
-Bu nedenle, metin eklemek istediğiniz bir şekille çalışırken, şeklin `AutoShape` sınıfı aracılığıyla oluşturulduğunu kontrol edip doğrulamanız gerekebilir. Ancak o zaman `AutoShape` altındaki bir özellik olan [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) ile çalışabilirsiniz. Bu sayfadaki [Metni Güncelle](/slides/tr/php-java/manage-textbox/#update-text) bölümüne bakın.
-
+{{% alert color="info" title="Note" %}}
+Her otomatik şekil [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) sınıfından türetilir, ancak her şekil otomatik şekil değildir veya bir metin çerçevesini desteklemez. Mevcut bir sunumu işlerken, bir şeklin metnine erişmeden önce şeklin bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) olduğunu kontrol etmek için `java_instanceof` kullanın.
 {{% /alert %}}
 
 ## **Bir Slayta Metin Kutusu Oluşturma**
 
-Bir slayta metin kutusu oluşturmak için şu adımları izleyin:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-2. Yeni oluşturulan sunumun ilk slaytı için bir referans alın.  
-3. Slayt üzerindeki belirli bir konumda şekil türü olarak [Rectangle](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapetype/#Rectangle) ayarlı bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) nesnesi ekleyin ve yeni eklenen `AutoShape` nesnesinin referansını elde edin.  
-4. `AutoShape` nesnesine bir `TextFrame` ekleyin; bu çerçeve bir metin içerecek. Aşağıdaki örnekte *Aspose TextBox* metnini ekledik.  
-5. Son olarak, `Presentation` nesnesi aracılığıyla PPTX dosyasını kaydedin.  
-
-Bu PHP kodu—yukarıdaki adımların bir uygulaması—size bir slayta nasıl metin ekleneceğini gösterir:
+Bir metin kutusu oluşturmak için, slayta bir otomatik şekil ekleyin, metni metin çerçevesine ekleyin ve sunumu kaydedin. Aşağıdaki örnek dikdörtgen bir metin kutusu oluşturur:
 
 ```php
-  # Presentation nesnesini oluşturur
-  $pres = new Presentation();
-  try {
-    # Sunumdaki ilk slaytı alır
-    $sld = $pres->getSlides()->get_Item(0);
-    # Rectangle olarak ayarlanmış bir AutoShape ekler
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Rectangle'a TextFrame ekler
-    $ashp->addTextFrame(" ");
-    # Metin çerçevesine erişir
-    $txtFrame = $ashp->getTextFrame();
-    # Metin çerçevesi için Paragraph nesnesi oluşturur
-    $para = $txtFrame->getParagraphs()->get_Item(0);
-    # Paragraf için Portion nesnesi oluşturur
-    $portion = $para->getPortions()->get_Item(0);
-    # Metni ayarlar
-    $portion->setText("Aspose TextBox");
-    # Sunumu diske kaydeder
-    $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-## **Metin Kutusu Şekli Kontrolü**
-
-Aspose.Slides, şekilleri incelemenize ve metin kutularını tanımlamanıza olanak tanıyan [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) sınıfından [isTextBox](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/istextbox/) yöntemini sağlar.
-
-![Metin kutusu ve şekil](istextbox.png)
-
-Bu PHP kodu, bir şeklin metin kutusu olarak oluşturulup oluşturulmadığını kontrol etmenizi gösterir:
-
-```php
-class ShapeCallback {
-    function invoke($shape, $slide, $index) {
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-            $autoShape = $shape;
-            echo(java_is_true($autoShape->isTextBox()) ? "shape is a text box" : "shape is not a text box");
-        }
-    }
-}
-
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
-    ForEach_::shape($presentation, $forEachShapeCallback);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+    $textBox->addTextFrame("Aspose TextBox");
+
+    $presentation->save("TextBox.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Şunu unutmayın: `addAutoShape` yöntemini [ShapeCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/) sınıfından kullanarak bir autoshape eklediğinizde, autoshape'in `isTextBox` yöntemi `false` döndürür. Ancak, `addTextFrame` veya `setText` yöntemleriyle autoshape'e metin eklediğinizde, `isTextBox` özelliği `true` döndürür.
+[ShapeCollection::addAutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/#addAutoShape)'a geçirilen koordinatlar ve boyutlar puan cinsindendir. [AutoShape::addTextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/#addTextFrame) metin çerçevesini sağlanan metinle başlatır.
+
+## **Metin Kutusu Şekli İçin Kontrol**
+
+Bir otomatik şeklin metin kutusu olarak kabul edilip edilmediğini belirlemek için [AutoShape::isTextBox](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/#isTextBox) yöntemini kullanın. Bu, bir sunumun hem metin içeren hem de yalnızca grafiksel otomatik şekilleri barındırdığı durumlarda faydalıdır.
+
+![Bir metin kutusu ve bir şekil](istextbox.png)
+
+Aşağıdaki örnek bir sunumdaki tüm otomatik şekilleri inceler:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
-$slide = $presentation->getSlides()->get_Item(0);
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+    $textBox->addTextFrame("Text box");
+    $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
 
-$shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->isTextBox() false döner
-$shape1->addTextFrame("shape 1");
-// shape1->isTextBox() true döner
-
-$shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->isTextBox() false döner
-$shape2->getTextFrame()->setText("shape 2");
-// shape2->isTextBox() true döner
-
-$shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->isTextBox() false döner
-$shape3->addTextFrame("");
-// shape3->isTextBox() false döner
-
-$shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->isTextBox() false döner
-$shape4->getTextFrame()->setText("");
-// shape4->isTextBox() false döner
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $currentSlide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($currentSlide->getShapes()->size()); $shapeIndex++) {
+            $shape = $currentSlide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $autoShapeClass)) {
+                echo (java_is_true($shape->isTextBox()) ? "The shape is a text box." : "The shape is not a text box.") . PHP_EOL;
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Yeni eklenen bir otomatik şekil, boş olmayan metin içerene kadar metin kutusu olarak kabul edilmez. Bu metni [AutoShape::addTextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/#addTextFrame) veya [TextFrame::setText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#setText) aracılığıyla sağlayabilirsiniz. Boş bir dize eklemek veya atamak, [AutoShape::isTextBox](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/#isTextBox) metodunun `false` döndürmesine neden olur:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+    $shape1->addTextFrame("Shape 1");
+    echo (java_is_true($shape1->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+    $shape2->getTextFrame()->setText("Shape 2");
+    echo (java_is_true($shape2->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
+    $shape3->addTextFrame("");
+    echo (java_is_true($shape3->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
+    $shape4->getTextFrame()->setText("");
+    echo (java_is_true($shape4->isTextBox()) ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+İlk iki çağrı `true`, son iki çağrı `false` yazdırır.
 
 ## **Bir Metin Çerçevesine Sahip Şekli Bulma**
 
-Genel metin işleme kodunda, hangi sunum nesnesinin içerdiğini bilmeden bir [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) alabilirsiniz. Sahibi olan [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) nesnesine geri dönmek için [TextFrame::getParentShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentShape) yöntemini kullanın.
+Genel metin işleme kodu, hangi sunum nesnesinin içerdiğini bilmeden bir [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) alabilir. Sahibi olan [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) ’e geri gitmek için yalnızca okunabilir [TextFrame::getParentShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentShape) yöntemini kullanın.
 
-[AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) veya başka bir metin içeren şekle ait bir metin çerçevesi için, [TextFrame::getParentShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentShape) sahibi döndürür ve [TextFrame::getParentCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentCell) `null` döndürür. Her iki yöntem de yalnızca okuma amaçlı gezinme sağlar; çağrıldıklarında mülkiyet değişmez. Şekle erişmeden önce her zaman dönen değeri `java_is_null` ile kontrol edin.
+Bir otomatik şekil veya başka bir metin içeren şekil tarafından sahip olunan bir metin çerçevesi için, [TextFrame::getParentShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentShape) sahibi döndürür ve [TextFrame::getParentCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentCell) `null` döndürür. Erişmeden önce döndürülen değeri `java_is_null` ile kontrol edin. Şekil ve tablo hücresi sahiplerini, SmartArt düğümlerine bağlı şekilleri de içerecek şekilde tanımlamak için [Search and Replace Text](/slides/tr/php-java/search-and-replace-text/) bölümüne bakın.
 
-SmartArt düğümleriyle ilişkili şekilleri de içeren, şekil ve tablo hücresi sahiplerini tanımlayan tam bir örnek için [Metin Ara ve Değiştir](/slides/tr/php-java/search-and-replace-text/) bölümüne bakın.
+## **Bir Metin Kutusuna Sütun Ekleme**
 
-## **Metin Kutusuna Sütun Ekleme**
+[TextFrameFormat::setColumnCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setColumnCount) yöntemi metin çerçevesini sütunlara böler, [TextFrameFormat::setColumnSpacing](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setColumnSpacing) ise sütunlar arasındaki boşluğu puan cinsinden ayarlar. Her iki ayar da [TextFrameFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/) sınıfına aittir ve mevcut bir metin kutusunun metin çerçevesi üzerinden değiştirilebilir. Metin aynı şekil içinde sütunlar arasında yeniden akar; başka bir şekle devam etmez.
 
-Aspose.Slides, [TextFrameFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/) sınıfından [setColumnCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/setcolumncount/) ve [setColumnSpacing](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/setcolumnspacing/) yöntemlerini sağlayarak metin kutularına sütun eklemenize olanak tanır. Bir metin kutusundaki sütun sayısını belirtebilir ve sütunlar arasındaki boşluğu puan cinsinden ayarlayabilirsiniz.
-
-Bu kod, açıklanan işlemi göstermektedir:
+Aşağıdaki örnek, sütunlar arasında 10 puan boşluk olan üç sütunlu bir metin kutusu oluşturur, sunumu kaydeder ve çıktıyı dosyasından saklanan ayarları geri okur:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Sunumdaki ilk slaytı alır
-    $slide = $pres->getSlides()->get_Item(0);
-    # Şekil türü Rectangle olarak ayarlanmış bir AutoShape ekler
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Rectangle'a TextFrame ekler
-    $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
-    # TextFrame'in metin formatını alır
-    $format = $aShape->getTextFrame()->getTextFrameFormat();
-    # TextFrame'de sütun sayısını belirtir
-    $format->setColumnCount(3);
-    # Sütunlar arasındaki boşluğu belirtir
-    $format->setColumnSpacing(10);
-    # Sunumu kaydeder
-    $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+    $textBox->addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    $textFrameFormat = $textBox->getTextFrame()->getTextFrameFormat();
+    $textFrameFormat->setColumnCount(3);
+    $textFrameFormat->setColumnSpacing(10);
+
+    $presentation->save("TextBoxColumns.pptx", SaveFormat::Pptx);
+
+    $savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        $savedTextBox = $savedPresentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+        $savedFormat = $savedTextBox->getTextFrame()->getTextFrameFormat();
+        echo "Columns: " . java_values($savedFormat->getColumnCount()) . "; spacing: " . java_values($savedFormat->getColumnSpacing()) . " points" . PHP_EOL;
+    } finally {
+        $savedPresentation->dispose();
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Metin Çerçevesine Sütun Ekleme**
-Aspose.Slides for PHP via Java, metin çerçevelerine sütun eklemenizi sağlayan [TextFrameFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/) sınıfından [setColumnCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/setcolumncount/) yöntemini sunar. Bu özellik sayesinde bir metin çerçevesinde istediğiniz sütun sayısını belirtebilirsiniz.
+## **Tek Tek Sütunlardan Metin Çıkarma**
 
-Bu PHP kodu, bir metin çerçevesine nasıl sütun ekleyeceğinizi gösterir:
+Mevcut bir metin çerçevesindeki her görsel sütuna atanan metni elde etmek için [TextFrame::splitTextByColumns](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#splitTextByColumns) kullanın. Metod, sütun bazlı okuma sırasına göre her sütun için bir dize döndürür. Tek sütunlu bir metin çerçevesi bir elemanlı bir dizi üretir ve boş bir sütun boş bir dizeyle temsil edilir. Dize yalnızca düz metin içerir; bölüm düzeyindeki biçimlendirme korunmaz.
 
-```php
-  $outPptxFileName = "ColumnsTest.pptx";
-  $pres = new Presentation();
-  try {
-    $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    $format = $shape1->getTextFrame()->getTextFrameFormat();
-    $format->setColumnCount(2);
-    $shape1->getTextFrame()->setText("All these columns are forced to stay within a single text container -- " . "you can add or delete text - and the new or remaining text automatically adjusts " . "itself to stay within the container. You cannot have text spill over from one container " . "to other, though -- because PowerPoint's column options for text are limited!");
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(Double->NaN == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test)) {
-        $test->dispose();
-      }
-    }
-    $format->setColumnSpacing(20);
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test1 = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test1->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(20 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test1)) {
-        $test1->dispose();
-      }
-    }
-    $format->setColumnCount(3);
-    $format->setColumnSpacing(15);
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test2 = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test2->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(3 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(15 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test2)) {
-        $test2->dispose();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+Bu, şunlara ihtiyaç duyduğunuzda faydalıdır:
 
-## **Metni Güncelle**
+- Metni, sütun bazlı okuma sırasını koruyarak çıkarın.
+- Çok sütunlu slaytların içeriğini indeksleyin veya karşılaştırın.
+- Her sütunu ayrı bir dosyaya, veritabanı alanına veya başka bir hedefe aktarın.
+- Sütun sayısını [TextFrameFormat::setColumnCount](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setColumnCount), boşluğu [TextFrameFormat::setColumnSpacing](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/#setColumnSpacing), yazı tipini veya metin çerçevesi boyutunu değiştirerek metnin nasıl yeniden dağıtıldığını inceleyin.
 
-Aspose.Slides, bir metin kutusunda veya bir sunumdaki tüm metinlerdeki içeriği değiştirmenize veya güncellemenize izin verir.
+Metod, mevcut [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) içinde dağıtılan metni raporlar; ayrı şekiller veya metin kutuları arasında otomatik olarak akış sağlamaz. Sütun dağılımı kullanılabilir yazı tiplerine ve diğer metin düzeni ayarlarına bağlı olabilir; tutarlı sonuçların önemli olduğu durumlarda gerekli yazı tiplerinin mevcut olduğundan emin olun.
 
-Bu PHP kodu, bir sunumdaki tüm metinlerin güncellenmesini veya değiştirilmesini gösteren bir işlemi örnekler:
+Aşağıdaki örnek bir sunumu yükler, metin çerçevesi olan ilk çok sütunlu otomatik şekli bulur, yapılandırılmış sütun sayısını okur ve her sütundan metni ayrı bir dosyaya yazar. Metin çerçevesi sağlamayan şekiller atlanır.
 
 ```php
-  $pres = new Presentation("text.pptx");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      foreach($slide->getShapes() as $shape) {
-        # Şeklin metin çerçevesini (IAutoShape) destekleyip desteklemediğini kontrol eder.
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-          $autoShape = $shape;
-          # Metin çerçevesindeki paragrafları iterasyonla gezer
-          foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # Paragraftaki her bölümü iterasyonla gezer
-            foreach($paragraph->getPortions() as $portion) {
-              $portion->setText($portion->getText()->replace("years", "months"));// Metni değiştirir
+use aspose\slides\Presentation;
 
-              $portion->getPortionFormat()->setFontBold(NullableBool::True);// Biçimlendirmeyi değiştirir
-
+$presentation = new Presentation("MultiColumnText.pptx");
+try {
+    $textBox = null;
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($shape, $autoShapeClass)) {
+            $textFrame = $shape->getTextFrame();
+            if (!java_is_null($textFrame)) {
+                $columnCount = java_values($textFrame->getTextFrameFormat()->getColumnCount());
+                if ($columnCount > 1) {
+                    $textBox = $shape;
+                    break;
+                }
             }
-          }
         }
-      }
     }
-    # Değiştirilmiş sunumu kaydeder
-    $pres->save("text-changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    if ($textBox === null) {
+        echo "No multi-column text frame was found." . PHP_EOL;
+    } else {
+        $textFrame = $textBox->getTextFrame();
+        $configuredColumnCount = java_values($textFrame->getTextFrameFormat()->getColumnCount());
+        $columnTexts = java_values($textFrame->splitTextByColumns());
+
+        echo "Configured columns: " . $configuredColumnCount . PHP_EOL;
+
+        foreach ($columnTexts as $columnIndex => $columnText) {
+            $columnNumber = $columnIndex + 1;
+            echo "Column " . $columnNumber . ": " . $columnText . PHP_EOL;
+            $outputPath = "Column-" . $columnNumber . ".txt";
+            $bytesWritten = file_put_contents($outputPath, $columnText);
+            if ($bytesWritten === false) {
+                echo "Could not write column " . $columnNumber . " to " . $outputPath . PHP_EOL;
+            }
+        }
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Köprü İçeren Metin Kutusu Ekle**
+## **Metni Güncelleme**
 
-Bir metin kutusunun içine bir bağlantı ekleyebilirsiniz. Metin kutusuna tıklandığında kullanıcılar bağlantıyı açmak için yönlendirilir.
+Sunum boyunca metni güncellemek için slaytlar ve şekiller üzerinde dolaşın, otomatik şekilleri seçin ve ardından metin bölümlerini düzenleyin. Bölüm seviyesinde çalışmak, hem metni hem de karakter biçimlendirmesini değiştirmenizi sağlar.
 
-Bir bağlantı içeren metin kutusu eklemek için şu adımları izleyin:
-
-1. `Presentation` sınıfının bir örneğini oluşturun.  
-2. Yeni oluşturulan sunumun ilk slaytı için bir referans alın.  
-3. Slayt üzerindeki belirli bir konumda `ShapeType` değerini `Rectangle` olarak ayarladığınız bir `AutoShape` nesnesi ekleyin ve yeni eklenen AutoShape nesnesinin referansını elde edin.  
-4. `AutoShape` nesnesine *Aspose TextBox* varsayılan metnini içeren bir `TextFrame` ekleyin.  
-5. `HyperlinkManager` sınıfını örnekleyin.  
-6. `TextFrame` içindeki istediğiniz bölüme [setExternalHyperlinkClick](https://reference.aspose.com/slides/tr/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) yöntemiyle bir köprü atayın.  
-7. Son olarak, `Presentation` nesnesi aracılığıyla PPTX dosyasını kaydedin.  
-
-Bu PHP kodu—yukarıdaki adımların bir uygulaması—size bir slayta köprü içeren bir metin kutusu eklemenin yolunu gösterir:
+Aşağıdaki örnek, otomatik şekil metninde `years` ifadesinin her geçişini `months` ile değiştirir ve etkilenen her bölümü kalın yapar:
 
 ```php
-  # Bir PPTX temsil eden Presentation sınıfının bir örneğini oluşturur
-  $pres = new Presentation();
-  try {
-    # Sunumdaki ilk slaytı alır
-    $slide = $pres->getSlides()->get_Item(0);
-    # Türü Rectangle olarak ayarlanmış bir AutoShape nesnesi ekler
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # Şekli AutoShape tipine dönüştürür
-    $pptxAutoShape = $shape;
-    # AutoShape ile ilişkili ITextFrame özelliğine erişir
-    $pptxAutoShape->addTextFrame("");
-    $textFrame = $pptxAutoShape->getTextFrame();
-    # Çerçeveye bir metin ekler
-    $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # Parça metni için Köprüyü ayarlar
-    $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
-    $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
-    # PPTX sunumunu kaydeder
-    $pres->save("hLink_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Text.pptx");
+try {
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($slide->getShapes()->size()); $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, $autoShapeClass)) {
+                continue;
+            }
+
+            $textFrame = $shape->getTextFrame();
+            if (java_is_null($textFrame)) {
+                continue;
+            }
+
+            for ($paragraphIndex = 0; $paragraphIndex < java_values($textFrame->getParagraphs()->getCount()); $paragraphIndex++) {
+                $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+                for ($portionIndex = 0; $portionIndex < java_values($paragraph->getPortions()->getCount()); $portionIndex++) {
+                    $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                    $text = java_values($portion->getText());
+                    if ($text !== null && strpos($text, "years") !== false) {
+                        $updatedText = str_replace("years", "months", $text);
+                        $portion->setText($updatedText);
+                        $portion->getPortionFormat()->setFontBold(NullableBool::True);
+                    }
+                }
+            }
+        }
     }
-  }
+
+    $presentation->save("TextChanged.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Bu dolaşım yalnızca otomatik şekillerdeki metni günceller. Tablo, grafik, SmartArt veya gruplandırılmış şekillerde depolanan metin, bu nesnelerin kendi koleksiyonları arasında dolaşma gerektirir.
+
+## **Bir Metin Kutusuna Köprü Ekleme**
+
+Bir köprü, belirli bir metin bölümüne atanabilir, böylece sadece o metin tıklanabilir bağlantı olur. Bölümü dış bir URL ile ilişkilendirmek için [HyperlinkManager::setExternalHyperlinkClick](https://reference.aspose.com/slides/tr/php-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) kullanın.
+
+Aşağıdaki örnek bağlantılı metin oluşturur ve bir sunuma kaydeder:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+    $textBox->addTextFrame("Aspose.Slides");
+
+    $textPortion = $textBox->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $textPortion->getPortionFormat()->getHyperlinkManager()->setExternalHyperlinkClick("https://www.aspose.com/");
+
+    $presentation->save("Hyperlink.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **SSS**
 
-**Ana slaytlarla çalışırken bir metin kutusu ile bir metin yer tutucusu arasındaki fark nedir?**
+**Bir ana slayt veya düzen slaytındaki bir metin kutusu ile metin tutucusu arasındaki fark nedir?**
 
-Bir [placeholder](/slides/tr/php-java/manage-placeholder/) stil/konumu [master](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslide/) üzerinden devralır ve [layouts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/) üzerinde geçersiz kılınabilir, oysa normal bir metin kutusu belirli bir slaytta bağımsız bir nesnedir ve düzenleri değiştirdiğinizde değişmez.
+[placeholder](/slides/tr/php-java/manage-placeholder/) bir [master slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslide/) veya [layout slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/) konum ve biçimlendirmesini devralabilir. Normal bir metin kutusu, yaratıldığı slaytta bağımsız bir şekildir ve düzen değiştiğinde tutucu davranışı kazanmaz.
 
-**Grafikler, tablolar ve SmartArt içindeki metinlere dokunmadan sunumda toplu metin değiştirme nasıl yapılır?**
+**Grafiklerde, tablolarda veya SmartArt'ta metni değiştirmeden metni nasıl değiştirebilirim?**
 
-Metin çerçevelerine sahip autoshape'leri yineleyerek ve yerleşik nesneleri ([charts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/tr/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartart/)) dışarıda bırakarak koleksiyonlarını ayrı ayrı gezebilir veya bu nesne türlerini atlayabilirsiniz.
+Dolaşımı, Metni Güncelleme örneğinde gösterildiği gibi sadece [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) nesneleriyle sınırlayın. Grafikler, tablolar ve SmartArt, metni kendi nesne modellerinde depolar; bu nedenle döngü tarafından değiştirilmezler.

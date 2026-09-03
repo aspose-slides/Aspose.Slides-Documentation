@@ -1,6 +1,6 @@
 ---
-title: Quản lý các hộp văn bản trong bản trình chiếu bằng Java
-linktitle: Quản lý hộp văn bản
+title: Quản lý các hộp văn bản trong bản trình bày bằng Java
+linktitle: Quản lý Hộp Văn Bản
 type: docs
 weight: 20
 url: /vi/java/manage-textbox/
@@ -14,326 +14,280 @@ keywords:
 - thêm cột văn bản
 - thêm siêu liên kết
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java giúp bạn dễ dàng tạo, chỉnh sửa và sao chép các hộp văn bản trong các tệp PowerPoint và OpenDocument, nâng cao khả năng tự động hoá bản trình chiếu của bạn."
+description: "Tạo, xác định, định dạng và cập nhật các hộp văn bản trong các bản thuyết trình PowerPoint và OpenDocument bằng cách sử dụng Aspose.Slides cho Java."
 ---
-## **Introduction**
+## **Giới thiệu**
 
-Văn bản trên các slide thường nằm trong các hộp văn bản hoặc hình dạng. Do đó, để thêm văn bản vào một slide, bạn phải thêm một hộp văn bản và sau đó đưa một số văn bản vào trong hộp văn bản đó. Aspose.Slides for Java cung cấp giao diện [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) cho phép bạn thêm một hình dạng chứa một số văn bản.
+Trong Aspose.Slides for Java, văn bản của slide được lưu trong các khung văn bản thuộc về các shape. Giao diện [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) đại diện cho hình dạng chứa văn bản phổ biến nhất và cung cấp văn bản của nó thông qua phương thức [IAutoShape.getTextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/#getTextFrame--) .
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides cũng cung cấp giao diện [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IShape) cho phép bạn thêm các hình dạng vào slide. Tuy nhiên, không phải tất cả các hình dạng được thêm thông qua giao diện `IShape` đều có thể chứa văn bản. Nhưng các hình dạng được thêm thông qua giao diện [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) có thể chứa văn bản. 
-
+{{% alert color="info" title="Note" %}}
+Mỗi auto shape đều triển khai [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/), nhưng không phải mọi shape đều là auto shape hoặc hỗ trợ khung văn bản. Khi xử lý một bản trình bày hiện có, hãy kiểm tra xem một shape có triển khai [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) trước khi truy cập văn bản của nó.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
+## **Tạo một hộp văn bản trên slide**
 
-Do đó, khi làm việc với một hình dạng mà bạn muốn thêm văn bản, bạn có thể muốn kiểm tra và xác nhận rằng nó đã được ép kiểu qua giao diện `IAutoShape`. Chỉ khi đó bạn mới có thể làm việc với [TextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/TextFrame), một thuộc tính của `IAutoShape`. Xem phần [Update Text](https://docs.aspose.com/slides/vi/java/manage-textbox/#update-text) trên trang này. 
-
-{{% /alert %}}
-
-## **Create a Text Box on a Slide**
-
-Để tạo một hộp văn bản trên slide, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Presentation). 
-2. Lấy tham chiếu tới slide đầu tiên trong bản trình chiếu mới tạo. 
-3. Thêm một đối tượng [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IAutoShape) với [ShapeType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/IGeometryShape#setShapeType-int-) được đặt là `Rectangle` tại một vị trí xác định trên slide và lấy tham chiếu tới đối tượng `IAutoShape` vừa được thêm. 
-4. Thêm thuộc tính `TextFrame` vào đối tượng `IAutoShape` sẽ chứa một văn bản. Trong ví dụ dưới đây, chúng tôi đã thêm văn bản này: *Aspose TextBox*
-5. Cuối cùng, ghi tệp PPTX thông qua đối tượng `Presentation`. 
-
-Mã Java—một triển khai của các bước trên—cho bạn thấy cách thêm văn bản vào một slide:
-
-```java
-import com.aspose.slides.*;
-
-// Tạo một đối tượng Presentation
-Presentation pres = new Presentation();
-try {
-    // Lấy slide đầu tiên trong bản trình chiếu
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Thêm một AutoShape với loại được đặt là Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Thêm TextFrame vào Rectangle
-    ashp.addTextFrame(" ");
-
-    // Truy cập khung văn bản
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // Tạo đối tượng Paragraph cho khung văn bản
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Tạo đối tượng Portion cho đoạn văn
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // Đặt văn bản
-    portion.setText("Aspose TextBox");
-
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Check for a Text Box Shape**
-
-Aspose.Slides cung cấp phương thức [isTextBox](https://reference.aspose.com/slides/vi/java/com.aspose.slides/autoshape/#isTextBox--) từ giao diện [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) cho phép bạn kiểm tra các hình dạng và xác định các hộp văn bản.
-
-![Hộp văn bản và hình dạng](istextbox.png)
-
-Mã Java này cho bạn thấy cách kiểm tra xem một hình dạng có được tạo dưới dạng hộp văn bản hay không: 
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-Lưu ý rằng nếu bạn chỉ đơn giản thêm một autoshape bằng phương thức `addAutoShape` từ giao diện [IShapeCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/), phương thức `isTextBox` của autoshape sẽ trả về `false`. Tuy nhiên, sau khi bạn thêm văn bản vào autoshape bằng phương thức `addTextFrame` hoặc phương thức `setText`, thuộc tính `isTextBox` sẽ trả về `true`.
+Để tạo một hộp văn bản, thêm một auto shape vào slide, thêm văn bản vào khung văn bản của nó và lưu bản trình bày. Ví dụ sau tạo một hộp văn bản hình chữ nhật:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() trả về false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() trả về true
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() trả về false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() trả về true
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() trả về false
-shape3.addTextFrame("");
-// shape3.isTextBox() trả về false
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() trả về false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() trả về false
-```
-
-## **Find the Shape That Owns a Text Frame**
-
-Trong mã xử lý văn bản chung, bạn có thể nhận được một đối tượng [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) mà chưa biết đối tượng bản trình chiếu nào chứa nó. Sử dụng phương thức [ITextFrame.getParentShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#getParentShape--) để quay lại hình dạng sở hữu [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/).
-
-Đối với một khung văn bản thuộc về một [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/) hoặc một hình dạng khác chứa văn bản, [ITextFrame.getParentShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#getParentShape--) trả về chủ sở hữu và [ITextFrame.getParentCell](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#getParentCell--) trả về `null`. Cả hai phương thức đều cung cấp điều hướng chỉ đọc, vì vậy việc gọi chúng không thay đổi quyền sở hữu. Luôn kiểm tra giá trị trả về có phải `null` trước khi truy cập hình dạng.
-
-Đối với một ví dụ đầy đủ xác định chủ sở hữu hình dạng và ô bảng, bao gồm các hình dạng liên quan tới nút SmartArt, xem [Search and Replace Text](/slides/vi/java/search-and-replace-text/).
-
-## **Add Columns to a Text Box**
-
-Aspose.Slides cung cấp các thuộc tính [ColumnCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) và [ColumnSpacing](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (từ giao diện [ITextFrameFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextFrameFormat) và lớp [TextFrameFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/TextFrameFormat)) cho phép bạn thêm cột vào các hộp văn bản. Bạn có thể chỉ định số cột trong hộp văn bản và thiết lập khoảng cách giữa các cột tính bằng điểm.
-
-Mã Java dưới đây minh họa hoạt động đã mô tả: 
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // Lấy slide đầu tiên trong bản trình chiếu
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // Thêm một AutoShape với loại được đặt là Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // Thêm TextFrame vào Rectangle
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // Lấy định dạng văn bản của TextFrame
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // Xác định số cột trong TextFrame
-    format.setColumnCount(3);
-
-    // Xác định khoảng cách giữa các cột
-    format.setColumnSpacing(10);
-
-    // Lưu bản trình chiếu
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Add Columns to a Text Frame**
-Aspose.Slides for Java cung cấp thuộc tính [ColumnCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (từ giao diện [ITextFrameFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ITextFrameFormat)) cho phép bạn thêm cột trong các khung văn bản. Thông qua thuộc tính này, bạn có thể chỉ định số cột mong muốn trong một khung văn bản. 
+Các tọa độ và kích thước truyền cho [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) được đo bằng điểm. [IAutoShape.addTextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) khởi tạo khung văn bản với văn bản được cung cấp.
 
-Mã Java này cho bạn thấy cách thêm một cột vào bên trong một khung văn bản:
+## **Kiểm tra hình dạng hộp văn bản**
+
+Sử dụng phương thức [IAutoShape.isTextBox](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/#isTextBox--) để xác định liệu một auto shape có được coi là hộp văn bản hay không. Điều này hữu ích khi một bản trình bày chứa cả các auto shape chứa văn bản và các auto shape chỉ là đồ họa.
+
+![Hộp văn bản và một shape](istextbox.png)
+
+Ví dụ sau kiểm tra mọi auto shape trong một bản trình bày:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    ITextFrameFormat format = shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Update Text**
-
-Aspose.Slides cho phép bạn thay đổi hoặc cập nhật văn bản chứa trong một hộp văn bản hoặc tất cả các văn bản trong một bản trình chiếu. 
-
-Mã Java này minh họa một thao tác mà trong đó tất cả các văn bản trong bản trình chiếu được cập nhật hoặc thay đổi:
+Một auto shape mới thêm sẽ không được coi là hộp văn bản cho đến khi nó chứa văn bản không rỗng. Bạn có thể cung cấp văn bản đó qua [IAutoShape.addTextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) hoặc [ITextFrame.setText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#setText-java.lang.String-). Thêm hoặc gán một chuỗi rỗng sẽ khiến [IAutoShape.isTextBox](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/#isTextBox--) trả về `false`:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation();
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //Kiểm tra xem hình dạng có hỗ trợ khung văn bản (IAutoShape) hay không.
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Lặp qua các đoạn trong khung văn bản
-                {
-                    for (IPortion portion : paragraph.getPortions()) //Lặp qua từng phần trong đoạn
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //Thay đổi văn bản
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //Thay đổi định dạng
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+Hai lời gọi đầu tiên in ra `true`; hai lời gọi cuối in ra `false`.
+
+## **Tìm hình dạng sở hữu khung văn bản**
+
+Mã xử lý văn bản chung có thể nhận một [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) mà không biết đối tượng trình bày nào chứa nó. Sử dụng phương thức chỉ đọc [ITextFrame.getParentShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#getParentShape--) để điều hướng trở lại [IShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishape/) sở hữu nó.
+
+Đối với khung văn bản thuộc sở hữu của một auto shape hoặc một shape chứa văn bản khác, [ITextFrame.getParentShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#getParentShape--) trả về chủ sở hữu và [ITextFrame.getParentCell](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#getParentCell--) trả về `null`. Kiểm tra giá trị trả về trước khi truy cập. Để xác định cả chủ sở hữu shape và ô bảng, bao gồm các shape liên kết với nút SmartArt, xem [Search and Replace Text](/slides/vi/java/search-and-replace-text/).
+
+## **Thêm cột vào hộp văn bản**
+
+Phương thức [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setColumnCount-int-) chia khung văn bản thành các cột, trong khi [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) đặt khoảng cách giữa các cột bằng điểm. Cả hai thiết lập đều thuộc về [ITextFrameFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/) và có thể thay đổi thông qua khung văn bản của một hộp văn bản hiện có. Văn bản sẽ tái luồng giữa các cột trong cùng một shape; nó sẽ không tiếp tục sang shape khác.
+
+Ví dụ sau tạo một hộp văn bản ba cột với 10 điểm giữa các cột, lưu bản trình bày và đọc lại các thiết lập đã lưu từ tệp đầu ra:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Trích xuất văn bản từ từng cột**
+
+Sử dụng [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#splitTextByColumns--) để lấy văn bản được gán cho mỗi cột hiển thị trong một khung văn bản hiện có. Phương thức trả về một chuỗi cho mỗi cột, theo thứ tự đọc dựa trên cột. Một khung văn bản một cột tạo ra một mảng với một phần tử, và một cột trống được biểu diễn bằng một chuỗi rỗng. Các chuỗi chỉ chứa văn bản thuần; định dạng cấp phần không được bảo lưu.
+
+Điều này hữu ích khi bạn cần:
+- Trích xuất văn bản trong khi giữ nguyên thứ tự đọc dựa trên cột.
+- Lập chỉ mục hoặc so sánh nội dung của các slide đa cột.
+- Xuất mỗi cột ra một tệp riêng, trường cơ sở dữ liệu, hoặc đích khác.
+- Kiểm tra cách văn bản được phân phối lại sau khi thay đổi số cột bằng [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setColumnCount-int-), khoảng cách bằng [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-), phông chữ, hoặc kích thước khung văn bản.
+
+Phương thức báo cáo văn bản được phân phối trong [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/) hiện tại; nó không tự động chuyển văn bản giữa các shape hoặc hộp văn bản riêng biệt. Phân phối cột có thể phụ thuộc vào phông chữ có sẵn và các thiết lập bố cục văn bản khác, vì vậy hãy đảm bảo các phông chữ cần thiết có sẵn khi kết quả nhất quán là quan trọng.
+
+Ví dụ sau tải một bản trình bày, tìm auto shape đa cột đầu tiên có khung văn bản, đọc số cột đã cấu hình và ghi văn bản từ mỗi cột ra một tệp riêng. Các shape không cung cấp khung văn bản sẽ bị bỏ qua.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            Path outputPath = Paths.get("Column-" + columnNumber + ".txt");
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try {
+                Files.write(outputPath, textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Cập nhật văn bản**
+
+Để cập nhật văn bản trên toàn bộ bản trình bày, lặp qua các slide và shape, chọn auto shape, sau đó chỉnh sửa các phần văn bản của chúng. Làm việc ở mức phần cho phép bạn thay đổi cả văn bản và định dạng ký tự.
+
+Ví dụ sau thay thế mọi lần xuất hiện của `years` bằng `months` trong văn bản auto-shape và làm cho mỗi phần bị ảnh hưởng trở nên in đậm:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Text.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //Lưu bản trình chiếu đã chỉnh sửa
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Add a Text Box with a Hyperlink** 
+Quá trình duyệt này chỉ cập nhật văn bản trong auto shape. Văn bản lưu trong bảng, biểu đồ, SmartArt hoặc các shape được nhóm yêu cầu duyệt các bộ sưu tập riêng của các đối tượng đó.
 
-Bạn có thể chèn một liên kết vào bên trong một hộp văn bản. Khi hộp văn bản được nhấp, người dùng sẽ được chuyển đến mở liên kết.
+## **Thêm một hộp văn bản với siêu liên kết**
 
-Để thêm một hộp văn bản chứa liên kết, thực hiện các bước sau:
+Siêu liên kết có thể được gán cho một phần văn bản cụ thể, vì vậy chỉ phần văn bản đó hoạt động như liên kết có thể nhấp. Sử dụng [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) để liên kết phần đó với một URL bên ngoài.
 
-1. Tạo một thể hiện của lớp `Presentation`. 
-2. Lấy tham chiếu tới slide đầu tiên trong bản trình chiếu mới tạo. 
-3. Thêm một đối tượng `AutoShape` với `ShapeType` được đặt là `Rectangle` tại một vị trí xác định trên slide và lấy tham chiếu tới đối tượng AutoShape vừa được thêm.
-4. Thêm một `TextFrame` vào đối tượng `AutoShape` chứa *Aspose TextBox* làm văn bản mặc định. 
-5. Khởi tạo lớp `IHyperlinkManager`. 
-6. Gán đối tượng `IHyperlinkManager` cho thuộc tính [HyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/Shape#getHyperlinkClick--) liên quan tới phần bạn muốn trong `TextFrame`. 
-7. Cuối cùng, ghi tệp PPTX thông qua đối tượng `Presentation`. 
-
-Mã Java—một triển khai của các bước trên—cho bạn thấy cách thêm một hộp văn bản có siêu liên kết vào slide:
+Ví dụ sau tạo văn bản có liên kết và lưu nó vào một bản trình bày:
 
 ```java
 import com.aspose.slides.*;
 
-// Tạo một đối tượng Presentation đại diện cho file PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên trong bản trình chiếu
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // Thêm một đối tượng AutoShape với loại được đặt là Rectangle
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // Ép kiểu hình dạng sang AutoShape
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // Truy cập thuộc tính ITextFrame liên kết với AutoShape
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // Thêm một số văn bản vào khung
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // Đặt siêu liên kết cho đoạn văn bản
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // Lưu bản trình chiếu PPTX
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Sự khác biệt giữa hộp văn bản và trình giữ chỗ văn bản khi làm việc với các slide mẫu là gì?**
+**Sự khác nhau giữa hộp văn bản và placeholder văn bản trên slide master hoặc layout là gì?**
 
-Một [placeholder](/slides/vi/java/manage-placeholder/) kế thừa kiểu dáng/vị trí từ [master](https://reference.aspose.com/slides/vi/java/com.aspose.slides/masterslide/) và có thể bị ghi đè trên [layouts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/layoutslide/), trong khi một hộp văn bản thông thường là một đối tượng độc lập trên một slide cụ thể và không thay đổi khi bạn chuyển đổi layout.
+Một [placeholder](/slides/vi/java/manage-placeholder/) có thể kế thừa vị trí và định dạng từ một [master slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/masterslide/) hoặc [layout slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/layoutslide/). Một hộp văn bản thường là một shape độc lập trên slide mà nó được tạo và không nhận hành vi placeholder khi layout thay đổi.
 
-**Làm sao thực hiện thay thế văn bản hàng loạt trên toàn bộ bản trình chiếu mà không ảnh hưởng tới văn bản bên trong biểu đồ, bảng và SmartArt?**
+**Làm thế nào để thay thế văn bản mà không thay đổi văn bản trong biểu đồ, bảng hoặc SmartArt?**
 
-Hạn chế vòng lặp của bạn chỉ tới các auto‑shape có khung văn bản và loại trừ các đối tượng nhúng ([charts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/vi/java/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/vi/java/com.aspose.slides/smartart/)) bằng cách duyệt các bộ sưu tập của chúng riêng biệt hoặc bỏ qua những loại đối tượng đó.
+Hạn chế việc duyệt chỉ đến các shape triển khai [IAutoShape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iautoshape/), như trong ví dụ Cập nhật Văn bản. Biểu đồ, bảng và SmartArt lưu văn bản trong mô hình đối tượng riêng của chúng, vì vậy chúng không bị thay đổi bởi vòng lặp đó.

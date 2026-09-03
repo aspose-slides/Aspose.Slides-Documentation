@@ -1,5 +1,5 @@
 ---
-title: Quản lý Hộp Văn Bản trong Bản Trình Chiếu bằng C++
+title: Quản lý các hộp văn bản trong bản trình bày bằng C++
 linktitle: Quản lý Hộp Văn Bản
 type: docs
 weight: 20
@@ -14,120 +14,89 @@ keywords:
 - thêm cột văn bản
 - thêm siêu liên kết
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - C++
 - Aspose.Slides
-description: "Aspose.Slides cho C++ giúp bạn dễ dàng tạo, chỉnh sửa và sao chép các hộp văn bản trong các tệp PowerPoint và OpenDocument, nâng cao khả năng tự động hoá bản trình chiếu."
+description: "Tạo, xác định, định dạng và cập nhật các hộp văn bản trong bản trình bày PowerPoint và OpenDocument bằng cách sử dụng Aspose.Slides cho C++."
 ---
 ## **Giới thiệu**
 
-Văn bản trên các slide thường tồn tại trong hộp văn bản hoặc hình dạng. Do đó, để thêm văn bản vào một slide, bạn phải thêm một hộp văn bản và sau đó đặt một đoạn văn bản vào bên trong hộp văn bản. Aspose.Slides cho C++ cung cấp giao diện [IAutoShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_auto_shape) cho phép bạn thêm một hình dạng chứa một số văn bản.
+Trong Aspose.Slides cho C++, văn bản của slide được lưu trong các khung văn bản (text frames) thuộc về các hình dạng. Giao diện [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) đại diện cho hình dạng chứa văn bản phổ biến nhất và cung cấp văn bản của nó thông qua phương thức [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/get_textframe/).
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides cũng cung cấp giao diện [IShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_shape) cho phép bạn thêm các hình dạng vào slide. Tuy nhiên, không phải tất cả các hình dạng được thêm thông qua giao diện `IShape` đều có thể chứa văn bản. Nhưng các hình dạng được thêm thông qua giao diện [IAutoShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_auto_shape) có thể chứa văn bản. 
-
+{{% alert color="info" title="Lưu ý" %}}
+Mỗi auto shape đều triển khai [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/), nhưng không phải mọi hình dạng đều là auto shape hoặc hỗ trợ khung văn bản. Khi xử lý một bản trình bày hiện có, hãy kiểm tra xem một hình dạng có triển khai [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) trước khi truy cập văn bản của nó.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
+## **Tạo một hộp văn bản trên slide**
 
-Do đó, khi xử lý một hình dạng mà bạn muốn thêm văn bản, bạn có thể muốn kiểm tra và xác nhận rằng nó đã được ép kiểu qua giao diện `IAutoShape`. Chỉ khi đó bạn mới có thể làm việc với [TextFrame](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.text_frame), đây là một thuộc tính của `IAutoShape`. Xem phần [Cập nhật văn bản](https://docs.aspose.com/slides/vi/cpp/manage-textbox/#update-text) trên trang này. 
-
-{{% /alert %}}
-
-## **Tạo một Hộp Văn Bản trên Slide**
-
-Để tạo một hộp văn bản trên slide, thực hiện các bước sau:
-
-1. Tạo một instance của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation). 
-2. Lấy tham chiếu tới slide đầu tiên trong bản trình chiếu mới tạo. 
-3. Thêm một đối tượng [IAutoShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_auto_shape) với [ShapeType](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) được đặt là `Rectangle` tại vị trí xác định trên slide và lấy tham chiếu tới đối tượng `IAutoShape` vừa thêm. 
-4. Thêm thuộc tính `TextFrame` vào đối tượng `IAutoShape` sẽ chứa một đoạn văn bản. Trong ví dụ dưới đây, chúng tôi đã thêm văn bản này: *Aspose TextBox*
-5. Cuối cùng, ghi tệp PPTX thông qua đối tượng `Presentation`. 
-
-Mã C++—một triển khai của các bước trên—cho bạn thấy cách thêm văn bản vào slide:
+Để tạo một hộp văn bản, thêm một auto shape vào slide, thêm văn bản vào khung văn bản của nó và lưu bản trình bày. Ví dụ sau tạo một hộp văn bản hình chữ nhật:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Khởi tạo Presentation
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// Lấy slide đầu tiên trong bản trình chiếu
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Thêm AutoShape với kiểu được đặt là Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Thêm TextFrame vào Rectangle
-ashp->AddTextFrame(u" ");
-
-// Truy cập khung văn bản
-auto txtFrame = ashp->get_TextFrame();
-
-// Tạo đối tượng Paragraph cho khung văn bản
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Tạo đối tượng Portion cho đoạn văn
-auto portion = para->get_Portions()->idx_get(0);
-
-// Thiết lập văn bản
-portion->set_Text(u"Aspose TextBox");
-
-// Lưu bản trình chiếu vào đĩa
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
 
-## **Kiểm tra Hình Dạng Hộp Văn Bản**
+Các tọa độ và kích thước truyền cho [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addautoshape/) được đo bằng điểm. [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/addtextframe/) khởi tạo khung văn bản với văn bản được cung cấp.
 
-Aspose.Slides cung cấp phương thức [get_IsTextBox](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/get_istextbox/) từ giao diện [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) cho phép bạn kiểm tra các hình dạng và xác định hộp văn bản.
+## **Kiểm tra xem hình dạng có phải là hộp văn bản không**
 
-![Hộp văn bản và hình dạng](istextbox.png)
+Sử dụng phương thức [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/get_istextbox/) để xác định liệu một auto shape có được coi là hộp văn bản hay không. Điều này hữu ích khi một bản trình bày chứa cả các auto shape có văn bản và các auto shape chỉ là đồ họa.
 
-Mã C++ này cho bạn thấy cách kiểm tra xem một hình dạng có được tạo dưới dạng hộp văn bản hay không:
+![Một hộp văn bản và một hình dạng](istextbox.png)
 
-```c++
+Ví dụ sau kiểm tra mọi auto shape trong một bản trình bày:
+
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-Lưu ý rằng nếu bạn chỉ thêm một auto‑shape bằng phương thức `AddAutoShape` từ giao diện [IShapeCollection](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/), phương thức `get_IsTextBox` của auto‑shape sẽ trả về `false`. Tuy nhiên, sau khi bạn thêm văn bản vào auto‑shape bằng phương thức `AddTextFrame` hoặc phương thức `set_Text`, phương thức `get_IsTextBox` sẽ trả về `true`.
+Một auto shape mới được thêm vào sẽ không được coi là hộp văn bản cho tới khi nó chứa văn bản không rỗng. Bạn có thể cung cấp văn bản đó thông qua [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/addtextframe/) hoặc [ITextFrame::set_Text](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/set_text/). Gán một chuỗi rỗng sẽ khiến [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/get_istextbox/) trả về `false`:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -136,7 +105,9 @@ Lưu ý rằng nếu bạn chỉ thêm một auto‑shape bằng phương thức
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -144,155 +115,152 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() trả về false
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() trả về true
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() trả về false
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() trả về true
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() trả về false
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() trả về false
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() trả về false
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() trả về false
+Console::WriteLine(shape4->get_IsTextBox());
 ```
 
-## **Tìm Hình Dạng Sở Hữu Khung Văn Bản**
+Hai kiểm tra đầu tiên trả về `true`; hai kiểm tra cuối trả về `false`.
 
-Trong mã xử lý văn bản chung, bạn có thể nhận một [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) mà chưa biết đối tượng bản trình chiếu nào chứa nó. Sử dụng [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentshape/) để quay lại hình dạng sở hữu [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/).
+## **Tìm hình dạng sở hữu một khung văn bản**
 
-Đối với một khung văn bản thuộc về một [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/) hoặc một hình dạng khác chứa văn bản, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentshape/) trả về chủ sở hữu và [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentcell/) trả về `nullptr`. Cả hai phương thức đều cung cấp điều hướng chỉ‑đọc, do đó gọi chúng không thay đổi quyền sở hữu. Luôn luôn kiểm tra giá trị trả về xem có phải là `nullptr` trước khi truy cập hình dạng.
+Mã xử lý văn bản chung có thể nhận một [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) mà không biết đối tượng bản trình bày nào chứa nó. Sử dụng phương thức [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentshape/) để quay lại hình dạng sở hữu [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/).
 
-Đối với một ví dụ đầy đủ xác định chủ sở hữu hình dạng và ô bảng, bao gồm các hình dạng liên quan tới nút SmartArt, xem [Tìm kiếm và Thay thế Văn bản](/slides/vi/cpp/search-and-replace-text/).
+Đối với một khung văn bản thuộc về một auto shape hoặc một hình dạng khác có văn bản, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentshape/) trả về chủ sở hữu và [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentcell/) trả về `nullptr`. Cả hai phương thức đều cung cấp điều hướng chỉ đọc. Kiểm tra giá trị trả về đối với `nullptr` trước khi truy cập. Để xác định cả chủ sở hữu hình dạng và ô bảng, bao gồm các hình dạng liên quan tới nút SmartArt, hãy xem mục [Search and Replace Text](/slides/vi/cpp/search-and-replace-text/).
 
-## **Thêm Cột vào Hộp Văn Bản**
+## **Thêm cột vào hộp văn bản**
 
-Aspose.Slides cung cấp các phương thức [set_ColumnCount](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) và [set_ColumnSpacing](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) (từ giao diện [ITextFrameFormat](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_text_frame_format) và lớp [TextFrameFormat](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_text_frame_format)) cho phép bạn thêm các cột vào hộp văn bản. Bạn có thể chỉ định số cột trong một hộp văn bản và đặt khoảng cách giữa các cột tính bằng điểm.
+Phương thức [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_columncount/) chia khung văn bản thành các cột, trong khi [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_columnspacing/) đặt khoảng cách giữa các cột tính bằng điểm. Cả hai phương thức đều thuộc về [ITextFrameFormat](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/) và có thể được gọi thông qua khung văn bản của một hộp văn bản hiện có. Văn bản được luồng lại giữa các cột trong cùng một hình dạng; nó sẽ không tiếp tục sang một hình dạng khác.
 
-Mã C++ dưới đây minh họa thao tác đã mô tả:
+Ví dụ sau tạo một hộp văn bản ba cột với khoảng 10 điểm giữa các cột, lưu bản trình bày và đọc lại các cài đặt đã lưu từ tệp đầu ra:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// Lấy slide đầu tiên trong bản trình chiếu
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// Thêm một AutoShape với kiểu được đặt là Rectangle
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// Thêm TextFrame vào Rectangle
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// Lấy định dạng văn bản của TextFrame
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// Xác định số cột trong TextFrame
-format->set_ColumnCount(3);
-
-// Xác định khoảng cách giữa các cột
-format->set_ColumnSpacing(10);
-
-// Lưu bản trình chiếu
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **Thêm Cột vào Khung Văn Bản**
+## **Trích xuất văn bản từ từng cột**
 
-Aspose.Slides cho C++ cung cấp phương thức [set_ColumnCount](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) (từ giao diện [ITextFrameFormat](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_text_frame_format)) cho phép bạn thêm các cột trong khung văn bản. Thông qua phương thức này, bạn có thể chỉ định số cột mong muốn trong khung văn bản.
+Sử dụng [ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/splittextbycolumns/) để lấy văn bản được gán cho mỗi cột hiển thị trong một khung văn bản hiện có. Phương thức trả về một chuỗi cho mỗi cột, theo thứ tự đọc dựa trên cột. Khung văn bản một cột sẽ tạo một mảng có một phần tử, và một cột trống được biểu diễn bằng một chuỗi rỗng. Các chuỗi chỉ chứa văn bản thuần; định dạng cấp phần không được lưu giữ.
 
-Mã C++ này cho bạn thấy cách thêm một cột vào trong khung văn bản:
+Điều này hữu ích khi bạn cần:
 
-```cpp
-#include <DOM/AutoShape.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
-#include <system/string.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System;
+- Trích xuất văn bản đồng thời giữ thứ tự đọc theo cột.
+- Lập chỉ mục hoặc so sánh nội dung của các slide đa cột.
+- Xuất mỗi cột ra một tệp riêng, trường trong cơ sở dữ liệu hoặc đích khác.
+- Kiểm tra cách văn bản được phân phối lại sau khi thiết lập số cột bằng [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_columncount/) hoặc khoảng cách bằng [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframeformat/set_columnspacing/), hoặc khi thay đổi phông chữ hoặc kích thước khung văn bản.
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+Phương thức báo cáo văn bản đã phân phối trong [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) hiện tại; nó không tự động luồng văn bản giữa các hình dạng hoặc hộp văn bản riêng biệt. Phân phối cột có thể phụ thuộc vào phông chữ khả dụng và các cài đặt bố cục văn bản khác, vì vậy hãy chắc chắn rằng các phông chữ cần thiết có sẵn khi kết quả nhất quán là quan trọng.
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
-}
-
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
-}
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
-}
-```
-
-## **Cập nhật Văn bản**
-
-Aspose.Slides cho phép bạn thay đổi hoặc cập nhật văn bản được chứa trong một hộp văn bản hoặc tất cả các văn bản trong một bản trình chiếu.
-
-Mã C++ này minh họa một thao tác trong đó tất cả các văn bản trong bản trình chiếu được cập nhật hoặc thay đổi:
+Ví dụ sau tải một bản trình bày, tìm auto shape đa cột đầu tiên có khung văn bản trên slide đầu, đọc số cột đã cấu hình và ghi văn bản từ mỗi cột ra một tệp riêng. Các hình dạng không cung cấp khung văn bản sẽ bị bỏ qua.
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
+
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
+{
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
+}
+
+if (textBox == nullptr)
+{
+    Console::WriteLine(u"No multi-column text frame was found.");
+}
+else
+{
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
+}
+```
+
+## **Cập nhật văn bản**
+
+Để cập nhật văn bản trong toàn bộ bản trình bày, duyệt qua các slide và hình dạng, chọn các auto shape, sau đó chỉnh sửa các phần văn bản của chúng. Làm việc ở cấp phần cho phép bạn thay đổi cả văn bản và định dạng ký tự.
+
+Ví dụ sau thay thế mọi xuất hiện của `years` bằng `months` trong các phần văn bản của từng auto shape và đặt phần bị ảnh hưởng thành in đậm:
+
+```cpp
+#include <DOM/IAutoShape.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -302,27 +270,38 @@ Mã C++ này minh họa một thao tác trong đó tất cả các văn bản tr
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //Thay đổi văn bản
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //Thay đổi định dạng
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -330,78 +309,52 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//Lưu bản trình chiếu đã chỉnh sửa
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **Thêm Hộp Văn Bản có Siêu liên kết** 
+Quá trình duyệt này chỉ cập nhật văn bản trong auto shape. Văn bản lưu trong bảng, biểu đồ, SmartArt hoặc các hình dạng nhóm yêu cầu duyệt qua các bộ sưu tập riêng của các đối tượng đó.
 
-Bạn có thể chèn một liên kết bên trong hộp văn bản. Khi hộp văn bản được nhấp, người dùng sẽ được dẫn tới mở liên kết.
+## **Thêm hộp văn bản có siêu liên kết**
 
-Để thêm một hộp văn bản chứa liên kết, thực hiện các bước sau:
+Một siêu liên kết có thể được gán cho một phần văn bản cụ thể, vì vậy chỉ phần văn bản đó sẽ hoạt động như một liên kết có thể nhấp. Sử dụng [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) để liên kết phần văn bản với URL bên ngoài.
 
-1. Tạo một instance của lớp `Presentation`. 
-2. Lấy tham chiếu tới slide đầu tiên trong bản trình chiếu mới tạo. 
-3. Thêm một đối tượng `AutoShape` với `ShapeType` được đặt là `Rectangle` tại vị trí xác định trên slide và lấy tham chiếu tới đối tượng AutoShape vừa thêm.
-4. Thêm một `TextFrame` vào đối tượng `AutoShape` chứa *Aspose TextBox* làm văn bản mặc định. 
-5. Khởi tạo lớp `IHyperlinkManager`. 
-6. Gán đối tượng `IHyperlinkManager` vào phương thức [set_HyperlinkClick](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) liên quan tới phần bạn muốn trong `TextFrame`. 
-7. Cuối cùng, ghi tệp PPTX thông qua đối tượng `Presentation`. 
-
-Mã C++—một triển khai của các bước trên—cho bạn thấy cách thêm một hộp văn bản có siêu liên kết vào slide:
+Ví dụ sau tạo văn bản có liên kết và lưu nó vào một bản trình bày:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Khởi tạo một lớp Presentation đại diện cho một PPTX
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// Lấy slide đầu tiên trong bản trình chiếu
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// Thêm một đối tượng AutoShape với loại được đặt là Rectangle
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// Ép kiểu hình dạng sang AutoShape
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// Truy cập thuộc tính ITextFrame liên quan tới AutoShape
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// Thêm một số văn bản vào khung
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// Đặt siêu liên kết cho đoạn văn bản
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// Lưu bản trình chiếu PPTX
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Sự khác biệt giữa hộp văn bản và placeholder văn bản khi làm việc với master slide là gì?**
+**Sự khác nhau giữa hộp văn bản và phần giữ chỗ văn bản trên slide mẫu hoặc bố cục là gì?**
 
-Một [placeholder](/slides/vi/cpp/manage-placeholder/) thừa kế kiểu dáng/vị trí từ [master](https://reference.aspose.com/slides/vi/cpp/aspose.slides/masterslide/) và có thể được ghi đè trên [layouts](https://reference.aspose.com/slides/vi/cpp/aspose.slides/layoutslide/), trong khi một hộp văn bản thông thường là một đối tượng độc lập trên một slide cụ thể và không thay đổi khi bạn chuyển đổi layout.
+Một [placeholder](/slides/vi/cpp/manage-placeholder/) có thể kế thừa vị trí và định dạng từ một [master slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/masterslide/) hoặc [layout slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/layoutslide/). Một hộp văn bản thông thường là một hình dạng độc lập trên slide mà nó được tạo và không nhận hành vi giữ chỗ khi bố cục thay đổi.
 
-**Làm thế nào để thực hiện thay thế văn bản hàng loạt trên toàn bộ bản trình chiếu mà không ảnh hưởng tới văn bản bên trong biểu đồ, bảng và SmartArt?**
+**Làm thế nào để thay thế văn bản mà không thay đổi văn bản trong biểu đồ, bảng hoặc SmartArt?**
 
-Hạn chế vòng lặp của bạn chỉ đối với các auto‑shape có khung văn bản và loại trừ các đối tượng nhúng ([charts](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/vi/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/vi/cpp/aspose.slides.smartart/smartart/)) bằng cách duyệt các bộ sưu tập của chúng riêng biệt hoặc bỏ qua các loại đối tượng đó.
+Hạn chế việc duyệt chỉ đối với các hình dạng triển khai [IAutoShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iautoshape/), như trong ví dụ Cập nhật văn bản. Biểu đồ, bảng và SmartArt lưu văn bản trong mô hình đối tượng riêng của chúng, vì vậy chúng sẽ không bị thay đổi bởi vòng lặp đó.

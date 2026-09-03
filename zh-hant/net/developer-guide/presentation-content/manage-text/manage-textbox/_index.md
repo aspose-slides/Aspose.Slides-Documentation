@@ -11,309 +11,255 @@ keywords:
 - 更新文字
 - 建立文字方塊
 - 檢查文字方塊
-- 新增文字欄位
+- 新增文字欄
 - 新增超連結
 - PowerPoint
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET 讓您輕鬆在 PowerPoint 與 OpenDocument 檔案中建立、編輯與複製文字方塊，提升簡報自動化的效率。"
+description: "使用 Aspose.Slides for .NET 在 PowerPoint 與 OpenDocument 簡報中建立、識別、格式化與更新文字方塊。"
 ---
-## **介紹**
+## **簡介**
 
-投影片上的文字通常存在於文字方塊或圖形中。因此，要在投影片上加入文字，必須先新增文字方塊，然後把文字放入該文字方塊中。
+在 Aspose.Slides for .NET 中，投影片文字儲存在屬於圖形的文字框中。[IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 介面代表最常見的含文字圖形，並透過 [IAutoShape.TextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/textframe/) 屬性公開其文字。
 
-為了讓您能新增可容納文字的圖形，Aspose.Slides for .NET 提供了[IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape)介面。
-
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides 也提供了[IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape)介面，以便您向投影片中新增圖形。然而，透過`IShape`介面新增的圖形並不一定能容納文字。透過[IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape)介面新增的圖形通常會包含文字。
-
-因此，當處理已存在且您想加入文字的圖形時，您可能需要檢查並確認它是以`IAutoShape`介面轉型的。只有這樣，您才能使用屬於`IAutoShape`的[TextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/properties/textframe)。請參閱本頁面的[Update Text](https://docs.aspose.com/slides/zh-hant/net/manage-textbox/#update-text)章節。
-
+{{% alert color="info" title="注意" %}}
+每個自動圖形皆實作 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/)，但不是所有圖形都是自動圖形或支援文字框。處理現有簡報時，請先確認圖形實作 `IAutoShape`，再存取其文字。
 {{% /alert %}}
 
 ## **在投影片上建立文字方塊**
 
-1. 建立一個[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation)類別的實例。  
-2. 透過索引取得第一張投影片的參考。  
-3. 在投影片的指定位置新增一個[IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape)物件，將[ShapeType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igeometryshape/properties/shapetype)設定為`Rectangle`，並取得新加入的`IAutoShape`物件的參考。  
-4. 為`IAutoShape`物件新增一個`TextFrame`屬性，以容納文字。在下列範例中，我們加入的文字為 *Aspose TextBox*。  
-5. 最後，透過`Presentation`物件寫入 PPTX 檔案。  
+要建立文字方塊，先將自動圖形加入投影片，於其文字框加入文字，然後儲存簡報。以下範例建立一個矩形文字方塊：
 
-以下 C# 程式碼示範了上述步驟，說明如何在投影片上加入文字：
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 建立 PresentationEx 實例
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // 取得簡報中的第一張投影片
-    ISlide sld = pres.Slides[0];
-
-    // 新增類型設定為 Rectangle 的 AutoShape
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // 為矩形新增 TextFrame
-    ashp.AddTextFrame(" ");
-
-    // 取得文字框
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // 為文字框建立 Paragraph 物件
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // 為段落建立 Portion 物件
-    IPortion portion = para.Portions[0];
-
-    // 設定文字
-    portion.Text = "Aspose TextBox";
-
-    // 將簡報儲存至磁碟
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-## **檢查是否為文字方塊圖形**
+傳遞給 [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addautoshape/) 的座標與尺寸以點為單位。[IAutoShape.AddTextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/addtextframe/) 會以提供的文字初始化文字框。
 
-Aspose.Slides 從[IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/)介面提供了[IsTextBox](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/autoshape/istextbox/)屬性，讓您檢查圖形並辨識文字方塊。
+## **檢查文字方塊圖形**
+
+使用 [AutoShape.IsTextBox](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/autoshape/istextbox/) 屬性判斷自動圖形是否被視為文字方塊。當簡報同時包含含文字與純圖形的自動圖形時，此功能相當有用。
 
 ![文字方塊與圖形](istextbox.png)
 
-以下 C# 程式碼示範了如何檢查圖形是否為文字方塊：
+以下範例檢查簡報中的每個自動圖形：
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-請注意，如果您僅使用[IShapeCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/)介面的`AddAutoShape`方法新增自動圖形，該自動圖形的`IsTextBox`屬性會回傳`false`。但在使用`AddTextFrame`方法或`Text`屬性為自動圖形加入文字後，`IsTextBox`屬性會回傳`true`。
+新加入的自動圖形在包含非空文字之前不會被視為文字方塊。您可以透過 [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/addtextframe/) 或 [ITextFrame.Text](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/text/) 提供文字。加入或指派空字串會使 `IsTextBox` 為 `false`：
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox 為 false
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox 為 true
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox 為 false
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox 為 true
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox 為 false
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox 為 false
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox 為 false
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox 為 false
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
 
-## **尋找擁有 TextFrame 的圖形**
+前兩次呼叫會印出 `True`；後兩次則印出 `False`。
 
-在一般的文字處理程式碼中，您可能會收到一個[ITextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/)，卻不知道它屬於哪個投影片物件。請使用[ITextFrame.ParentShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/parentshape/)屬性，返回擁有它的[IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/)。
+## **尋找擁有文字框的圖形**
 
-對於屬於[IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/)或其他可容納文字的圖形的文字框，[ITextFrame.ParentShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/parentshape/) 會被設定，而[ITextFrame.ParentCell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/parentcell/) 會是 `null`。這兩個屬性皆為唯讀導覽屬性，讀取它們不會改變擁有權。存取圖形前，務必先檢查回傳值是否為 `null`。
+通用文字處理程式碼可能收到一個 [ITextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/)，卻不知道是哪個簡報物件擁有它。使用唯讀的 [ITextFrame.ParentShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/parentshape/) 屬性可返回其擁有者的 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/)。
 
-欲取得完整的範例，說明如何辨識圖形與表格儲存格的擁有者（包括與 SmartArt 節點相關的圖形），請參閱[Search and Replace Text](/slides/zh-hant/net/search-and-replace-text/)。
+對於由自動圖形或其他含文字圖形擁有的文字框，`ParentShape` 包含所有者，而 [ITextFrame.ParentCell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/parentcell/) 為 `null`。在存取之前先檢查返回值。若需同時識別圖形與表格儲存格的擁有者（包括與 SmartArt 節點關聯的圖形），請參閱 [Search and Replace Text](/slides/zh-hant/net/search-and-replace-text/)。
 
-## **為文字方塊加入欄位**
+## **在文字方塊中加入欄位**
 
-Aspose.Slides 提供了[ColumnCount](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/properties/columncount)和[ColumnSpacing](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframeformat/properties/columnspacing)屬性（分別來自[ITextFrameFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat)介面與[TextFrameFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframeformat)類別），讓您能在文字方塊中加入欄位。您可以指定文字方塊的欄位數量，並設定欄位之間的點距。
+[ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/columncount/) 屬性將文字框分割成多個欄位，而 [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/columnspacing/) 則以點為單位設定欄位間的間距。這兩個設定皆屬於 [ITextFrameFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/)，可透過既有文字方塊的文字框進行變更。文字在同一圖形內的欄位之間重新流動；不會延伸至其他圖形。
 
-以下 C# 程式碼示範了此操作：
+以下範例建立一個三欄文字方塊，欄位間距為 10 點，儲存簡報，並從輸出檔案讀回儲存的設定：
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// 取得簡報中的第一張投影片
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// 新增類型設定為 Rectangle 的 AutoShape
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// 為矩形新增 TextFrame
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// 取得 TextFrame 的文字格式
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// 指定 TextFrame 中的欄位數量
-	format.ColumnCount = 3;
-
-	// 指定欄位之間的間距
-	format.ColumnSpacing = 10;
-
-	// 儲存簡報
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **為文字框加入欄位**
+## **從各單獨欄位擷取文字**
 
-Aspose.Slides for .NET 從[ITextFrameFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat)介面提供了[ColumnCount](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/properties/columncount)屬性，讓您能在文字框中加入欄位。透過此屬性，您可以指定文字框中希望的欄位數量。
+使用 [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframe/splittextbycolumns/) 可取得既有文字框中每個視覺欄位的文字。此方法會依欄位閱讀順序為每個欄位回傳一個字串。單欄文字框會產生僅含一個元素的陣列，空欄位則以空字串表示。回傳的字串僅包含純文字；不會保留片段層級的格式資訊。
 
-以下 C# 程式碼示範了如何在文字框內加入欄位：
+此功能在以下情境特別有用：
 
-```c#
-using System.Diagnostics;
+- 在保留欄位閱讀順序的同時擷取文字。
+- 索引或比較多欄投影片的內容。
+- 將每個欄位匯出至獨立檔案、資料庫欄位或其他目的地。
+- 檢查在變更 [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/columncount/)、[ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframeformat/columnspacing/)、字型或文字框大小後，文字如何重新分配。
+
+此方法僅報告目前 [ITextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/) 內的文字分配情況，並不會自動在不同圖形或文字方塊之間流動文字。欄位分配可能受可用字型及其他文字排版設定影響，若結果一致性很重要，請確保必要的字型已安裝。
+
+以下範例載入簡報，找到第一個具有多欄文字框的自動圖形，讀取其設定的欄位數，並將每個欄位的文字寫入獨立檔案。未提供文字框的圖形會被略過。
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **更新文字**
 
-Aspose.Slides 允許您變更或更新文字方塊中的文字，或是整個投影片中的所有文字。
+要在整個簡報中更新文字，遍歷投影片與圖形，選取自動圖形，然後編輯其文字片段。以片段層級操作可同時變更文字與字元格式。
 
-以下 C# 程式碼示範了如何更新或變更投影片中所有的文字：
+以下範例將自動圖形文字中的所有 `years` 替換為 `months`，並將受影響的片段設為粗體：
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //檢查形狀是否支援文字框 (IAutoShape)。
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //迭代文字框中的段落
-               {
-                   foreach (IPortion portion in paragraph.Portions) //迭代段落中的每個 Portion
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //變更文字
-                       portion.PortionFormat.FontBold = NullableBool.True; //變更格式
-                   }
-               }
-           }
-       }
-   }
-  
-   //儲存已修改的簡報
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **在文字方塊中加入超連結**
+此遍歷僅會更新自動圖形中的文字。儲存在表格、圖表、SmartArt 或群組圖形中的文字，需要遍歷這些物件各自的集合。
 
-您可以在文字方塊內插入連結。當使用者點擊文字方塊時，會導向該連結。
+## **加入帶有超連結的文字方塊**
 
-1. 建立`Presentation`類別的實例。  
-2. 透過索引取得第一張投影片的參考。  
-3. 在投影片的指定位置新增一個`AutoShape`物件，將`ShapeType`設定為`Rectangle`，並取得新加入的 AutoShape 物件的參考。  
-4. 為該`AutoShape`物件新增一個`TextFrame`，其預設文字為 *Aspose TextBox*。  
-5. 建立`IHyperlinkManager`類別的實例。  
-6. 將`IHyperlinkManager`物件指派給您在`TextFrame`中選取的文字段落所對應的[HyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shape/properties/hyperlinkclick)屬性。  
-7. 最後，透過`Presentation`物件寫入 PPTX 檔案。  
+超連結可以指派給特定的文字片段，只有該片段會成為可點擊的連結。使用 [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) 可將片段與外部 URL 相關聯。
 
-以下 C# 程式碼示範了如何在投影片上加入帶有超連結的文字方塊：
+以下範例建立帶有超連結的文字，並將其儲存至簡報：
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// 實例化代表 PPTX 的 Presentation 類別
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// 取得簡報中的第一張投影片
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// 新增類型設定為 Rectangle 的 AutoShape 物件
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// 將形狀轉型為 AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// 取得與 AutoShape 相關聯的 ITextFrame 屬性
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// 向框架加入一些文字
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// 為 Portion 文字設定超連結
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// 儲存 PPTX 簡報
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
-## **常見問題**
+## **常見問答**
 
-**在使用母片時，文字方塊與文字佔位符有何不同？**
+**文字方塊與母片或版面投影片上的文字佔位區有何差異？**
 
-[placeholder](/slides/zh-hant/net/manage-placeholder/)會從[master](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masterslide/)繼承樣式/位置，且可在[layouts](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/layoutslide/)上覆寫；相較之下，一般的文字方塊是特定投影片上的獨立物件，切換版面配置時不會改變。
+[placeholder](/slides/zh-hant/net/manage-placeholder/) 可以從 [master slide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/masterslide/) 或 [layout slide](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/layoutslide/) 繼承其位置與格式。一般的文字方塊則是建立所在投影片上的獨立圖形，版面變更時不會取得佔位區的行為。
 
-**如何在整份投影片中執行大量文字取代，同時不觸及圖表、表格與 SmartArt 內的文字？**
+**如何在不變更圖表、表格或 SmartArt 中文字的情況下取代文字？**
 
-只遍歷具有文字框的自動圖形，並排除嵌入物件（[charts](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/chart/)、[tables](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.smartart/smartart/)），可透過分別遍歷其集合或跳過這些物件類型來達成。
+將遍歷限制於實作 `IAutoShape` 的圖形，如「更新文字」範例所示。圖表、表格與 SmartArt 皆在各自的物件模型中儲存文字，因而不會被該迴圈修改。

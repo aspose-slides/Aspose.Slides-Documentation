@@ -1,5 +1,5 @@
 ---
-title: Quản lý Hộp Văn Bản trong Bản Trình Chiếu bằng .NET
+title: Quản lý Hộp Văn Bản trong Bản Trình chiếu trên .NET
 linktitle: Quản lý Hộp Văn Bản
 type: docs
 weight: 20
@@ -14,306 +14,252 @@ keywords:
 - thêm cột văn bản
 - thêm siêu liên kết
 - PowerPoint
-- trình chiếu
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides cho .NET giúp bạn dễ dàng tạo, chỉnh sửa và sao chép các hộp văn bản trong các tệp PowerPoint và OpenDocument, nâng cao khả năng tự động hoá bản trình chiếu của bạn."
+description: "Tạo, xác định, định dạng và cập nhật hộp văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho .NET."
 ---
 ## **Giới thiệu**
 
-Văn bản trên các slide thường tồn tại trong hộp văn bản hoặc hình dạng. Do đó, để thêm văn bản vào một slide, bạn phải thêm một hộp văn bản trước và sau đó đặt một số văn bản vào bên trong hộp văn bản. 
+Trong Aspose.Slides for .NET, văn bản trên slide được lưu trong các khung văn bản thuộc về các hình dạng. Giao diện [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) đại diện cho hình dạng chứa văn bản phổ biến nhất và cung cấp văn bản của nó thông qua thuộc tính [IAutoShape.TextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/textframe/).
 
-Để cho phép bạn thêm một hình dạng có thể chứa văn bản, Aspose.Slides cho .NET cung cấp giao diện [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape). 
-
-{{% alert title="Lưu ý" color="warning" %}} 
-
-Aspose.Slides cũng cung cấp giao diện [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape) để cho phép bạn thêm các hình dạng vào slide. Tuy nhiên, không phải tất cả các hình dạng được thêm thông qua giao diện `IShape` đều có thể chứa văn bản. Các hình dạng được thêm thông qua giao diện [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape) thường chứa văn bản. 
-
-Do đó, khi làm việc với một hình dạng hiện có mà bạn muốn thêm văn bản, bạn có thể muốn kiểm tra và xác nhận rằng nó đã được ép kiểu qua giao diện `IAutoShape`. Chỉ khi đó bạn mới có thể làm việc với [TextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/properties/textframe), đó là một thuộc tính của `IAutoShape`. Xem phần [Update Text](https://docs.aspose.com/slides/vi/net/manage-textbox/#update-text) trên trang này. 
-
+{{% alert color="info" title="Note" %}}
+Mỗi hình tự động đều thực hiện [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/), nhưng không phải mọi hình đều là hình tự động hoặc hỗ trợ khung văn bản. Khi xử lý một bản trình chiếu hiện có, hãy kiểm tra xem một hình có thực hiện `IAutoShape` hay không trước khi truy cập văn bản của nó.
 {{% /alert %}}
 
 ## **Tạo một Hộp Văn Bản trên Slide**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation). 
-2. Lấy tham chiếu của slide đầu tiên thông qua chỉ mục của nó. 
-3. Thêm một đối tượng [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape) với [ShapeType](https://reference.aspose.com/slides/vi/net/aspose.slides/igeometryshape/properties/shapetype) được đặt là `Rectangle` tại vị trí xác định trên slide và lấy tham chiếu cho đối tượng `IAutoShape` vừa được thêm. 
-4. Thêm thuộc tính `TextFrame` vào đối tượng `IAutoShape` sẽ chứa một đoạn văn bản. Trong ví dụ dưới đây, chúng tôi đã thêm đoạn văn bản này: *Aspose TextBox* 
-5. Cuối cùng, ghi tệp PPTX thông qua đối tượng `Presentation`. 
+Để tạo một hộp văn bản, thêm một hình tự động vào slide, thêm văn bản vào khung văn bản của nó và lưu bản trình chiếu. Ví dụ sau tạo một hộp văn bản hình chữ nhật:
 
-Mã C# này—một triển khai các bước trên—cho bạn thấy cách thêm văn bản vào slide:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Tạo một đối tượng PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // Lấy slide đầu tiên trong bản trình chiếu
-    ISlide sld = pres.Slides[0];
-
-    // Thêm một AutoShape với loại được đặt là Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Thêm TextFrame vào Rectangle
-    ashp.AddTextFrame(" ");
-
-    // Truy cập khung văn bản
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // Tạo đối tượng Paragraph cho khung văn bản
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Tạo đối tượng Portion cho đoạn văn
-    IPortion portion = para.Portions[0];
-
-    // Đặt văn bản
-    portion.Text = "Aspose TextBox";
-
-    // Lưu bản trình chiếu vào đĩa
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
 
-## **Kiểm tra Hình dạng Hộp Văn Bản**
+Các tọa độ và kích thước được truyền vào [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addautoshape/) được đo bằng điểm. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/addtextframe/) khởi tạo khung văn bản với văn bản được cung cấp.
 
-Aspose.Slides cung cấp thuộc tính [IsTextBox](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/istextbox/) từ giao diện [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) , cho phép bạn kiểm tra các hình dạng và xác định hộp văn bản.
+## **Kiểm tra Hình Hộp Văn Bản**
 
-![Hộp văn bản và hình dạng](istextbox.png)
+Sử dụng thuộc tính [AutoShape.IsTextBox](https://reference.aspose.com/slides/vi/net/aspose.slides/autoshape/istextbox/) để xác định xem một hình tự động có được coi là hộp văn bản hay không. Điều này hữu ích khi một bản trình chiếu chứa cả các hình tự động có văn bản và các hình tự động chỉ có đồ họa.
 
-Mã C# này cho bạn thấy cách kiểm tra xem một hình dạng có được tạo dưới dạng hộp văn bản hay không: 
+![Một hộp văn bản và một hình dạng](istextbox.png)
 
-```c#
+Ví dụ sau kiểm tra mọi hình tự động trong một bản trình chiếu:
+
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-Lưu ý rằng nếu bạn chỉ thêm một autoshape bằng phương thức `AddAutoShape` từ giao diện [IShapeCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/), thuộc tính `IsTextBox` của autoshape sẽ trả về `false`. Tuy nhiên, sau khi bạn thêm văn bản vào autoshape bằng phương thức `AddTextFrame` hoặc thuộc tính `Text`, thuộc tính `IsTextBox` sẽ trả về `true`.
+Một hình tự động mới được thêm vào sẽ không được xem là hộp văn bản cho đến khi nó chứa văn bản không rỗng. Bạn có thể cung cấp văn bản đó thông qua [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/addtextframe/) hoặc [ITextFrame.Text](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/text/). Thêm hoặc gán một chuỗi rỗng sẽ để `IsTextBox` ở trạng thái `false`:
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox là false
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox là true
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox là false
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox là true
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox là false
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox là false
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox là false
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox là false
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
 
-## **Tìm Hình dạng Sở hữu Khung Văn Bản**
+Hai lời gọi đầu tiên in ra `True`; hai lời gọi cuối in ra `False`.
 
-Trong mã xử lý văn bản tổng quát, bạn có thể nhận được một [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) mà chưa biết đối tượng trình chiếu nào chứa nó. Sử dụng thuộc tính [ITextFrame.ParentShape](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/parentshape/) để điều hướng trở lại [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/) sở hữu.
+## **Tìm Hình Sở Hữu Khung Văn Bản**
 
-Đối với một khung văn bản thuộc về một [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/) hoặc một hình dạng chứa văn bản khác, [ITextFrame.ParentShape](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/parentshape/) được đặt và [ITextFrame.ParentCell](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/parentcell/) là `null`. Cả hai thuộc tính đều là thuộc tính chỉ đọc, vì vậy việc đọc chúng không làm thay đổi quyền sở hữu. Luôn kiểm tra giá trị trả về xem có phải `null` trước khi truy cập vào hình dạng.
+Mã xử lý văn bản chung có thể nhận một [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) mà không biết đối tượng bản trình chiếu nào chứa nó. Hãy sử dụng thuộc tính chỉ đọc [ITextFrame.ParentShape](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/parentshape/) để quay lại hình sở hữu [IShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishape/).
 
-Đối với một ví dụ hoàn chỉnh xác định chủ sở hữu hình dạng và ô bảng, bao gồm các hình dạng liên kết với nút SmartArt, xem [Search and Replace Text](/slides/vi/net/search-and-replace-text/).
+Đối với khung văn bản được sở hữu bởi một hình tự động hoặc một hình dạng khác chứa văn bản, `ParentShape` chứa chủ sở hữu và [ITextFrame.ParentCell](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/parentcell/) có giá trị `null`. Kiểm tra giá trị trả về trước khi truy cập. Để xác định cả chủ sở hữu hình và ô bảng, bao gồm các hình liên kết với nút SmartArt, xem [Tìm và Thay Thế Văn Bản](/slides/vi/net/search-and-replace-text/).
 
 ## **Thêm Cột vào Hộp Văn Bản**
 
-Aspose.Slides cung cấp các thuộc tính [ColumnCount](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/properties/columncount) và [ColumnSpacing](https://reference.aspose.com/slides/vi/net/aspose.slides/textframeformat/properties/columnspacing) (từ giao diện [ITextFrameFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat) và lớp [TextFrameFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/textframeformat)) để cho phép bạn thêm cột vào hộp văn bản. Bạn có thể chỉ định số cột trong hộp văn bản và sau đó chỉ định khoảng cách (đơn vị điểm) giữa các cột. 
+Thuộc tính [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/columncount/) chia khung văn bản thành các cột, trong khi [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/columnspacing/) thiết lập khoảng cách giữa các cột bằng điểm. Cả hai thiết lập này thuộc về [ITextFrameFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/) và có thể thay đổi thông qua khung văn bản của một hộp văn bản hiện có. Văn bản được sắp lại giữa các cột trong cùng một hình; nó không tiếp tục sang hình khác.
 
-Mã C# này minh họa hoạt động đã mô tả: 
+Ví dụ sau tạo một hộp văn bản ba cột với khoảng cách 10 điểm giữa các cột, lưu bản trình chiếu và đọc lại các cài đặt đã lưu từ tệp kết quả:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// Lấy slide đầu tiên trong bản trình chiếu
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// Thêm một AutoShape với loại được đặt là Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// Thêm TextFrame vào Rectangle
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// Lấy định dạng văn bản của TextFrame
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// Xác định số cột trong TextFrame
-	format.ColumnCount = 3;
-
-	// Xác định khoảng cách giữa các cột
-	format.ColumnSpacing = 10;
-
-	// Lưu bản trình chiếu
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **Thêm Cột vào Khung Văn Bản**
+## **Trích xuất Văn Bản từ Các Cột Riêng Lẻ**
 
-Aspose.Slides cho .NET cung cấp thuộc tính [ColumnCount](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/properties/columncount) (từ giao diện [ITextFrameFormat](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat)) cho phép bạn thêm cột trong khung văn bản. Thông qua thuộc tính này, bạn có thể chỉ định số cột mong muốn trong một khung văn bản. 
+Sử dụng [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/vi/net/aspose.slides/textframe/splittextbycolumns/) để lấy văn bản được gán cho mỗi cột hiển thị trong một khung văn bản hiện có. Phương thức trả về một chuỗi cho mỗi cột, theo thứ tự đọc dựa trên cột. Một khung văn bản một cột tạo ra một mảng với một phần tử, và một cột rỗng được biểu diễn bằng một chuỗi rỗng. Các chuỗi chỉ chứa văn bản thuần; định dạng cấp phần không được bảo lưu.
 
-Mã C# này cho bạn thấy cách thêm một cột vào khung văn bản:
+Điều này hữu ích khi bạn cần:
 
-```c#
-using System.Diagnostics;
+- Trích xuất văn bản đồng thời bảo lưu thứ tự đọc dựa trên cột.
+- Đánh chỉ mục hoặc so sánh nội dung của các slide đa cột.
+- Xuất mỗi cột ra một tệp riêng, trường cơ sở dữ liệu hoặc đích khác.
+- Kiểm tra cách văn bản được phân phối lại sau khi thay đổi [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframeformat/columnspacing/), phông chữ hoặc kích thước khung văn bản.
+
+Phương thức báo cáo văn bản phân phối trong [ITextFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/itextframe/) hiện tại; nó không tự động chuyển văn bản giữa các hình hoặc hộp văn bản riêng biệt. Phân phối cột có thể phụ thuộc vào phông chữ có sẵn và các thiết lập bố cục văn bản khác, vì vậy hãy đảm bảo các phông chữ cần thiết có sẵn khi kết quả nhất quán là quan trọng.
+
+Ví dụ sau tải một bản trình chiếu, tìm hình tự động đa cột đầu tiên có khung văn bản, đọc số cột đã cấu hình và ghi văn bản từ mỗi cột ra một tệp riêng. Các hình không cung cấp khung văn bản sẽ bị bỏ qua.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
-## **Cập nhật Văn bản**
+## **Cập nhật Văn Bản**
 
-Aspose.Slides cho phép bạn thay đổi hoặc cập nhật văn bản có trong một hộp văn bản hoặc tất cả các văn bản có trong một trình chiếu. 
+Để cập nhật văn bản trong toàn bộ bản trình chiếu, lặp qua các slide và hình dạng, chọn các hình tự động, sau đó chỉnh sửa các phần văn bản của chúng. Làm việc ở mức phần cho phép bạn thay đổi cả văn bản và định dạng ký tự.
 
-Mã C# này trình bày một thao tác trong đó tất cả các văn bản trong một trình chiếu được cập nhật hoặc thay đổi:
+Ví dụ sau thay thế mọi lần xuất hiện của `years` bằng `months` trong văn bản của hình tự động và làm in đậm mỗi phần bị ảnh hưởng:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //Kiểm tra xem hình dạng có hỗ trợ khung văn bản (IAutoShape) hay không. 
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Duyệt qua các đoạn trong khung văn bản
-               {
-                   foreach (IPortion portion in paragraph.Portions) //Duyệt qua từng phần trong đoạn
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //Thay đổi văn bản
-                       portion.PortionFormat.FontBold = NullableBool.True; //Thay đổi định dạng
-                   }
-               }
-           }
-       }
-   }
-  
-   //Lưu bản trình chiếu đã sửa đổi
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **Thêm Hộp Văn Bản với Siêu liên kết** 
+Quá trình duyệt này chỉ cập nhật văn bản trong các hình tự động. Văn bản được lưu trong bảng, biểu đồ, SmartArt hoặc các hình nhóm yêu cầu duyệt các bộ sưu tập riêng của các đối tượng đó.
 
-Bạn có thể chèn một liên kết bên trong hộp văn bản. Khi hộp văn bản được nhấp, người dùng sẽ được chuyển hướng mở liên kết. 
+## **Thêm Hộp Văn Bản với Siêu Liên Kết**
 
-1. Tạo một thể hiện của lớp `Presentation`. 
-2. Lấy tham chiếu của slide đầu tiên thông qua chỉ mục của nó.  
-3. Thêm một đối tượng `AutoShape` với `ShapeType` được đặt là `Rectangle` tại vị trí xác định trên slide và lấy tham chiếu của đối tượng AutoShape vừa được thêm. 
-4. Thêm một `TextFrame` vào đối tượng `AutoShape` chứa *Aspose TextBox* làm văn bản mặc định. 
-5. Tạo một thể hiện của lớp `IHyperlinkManager`. 
-6. Gán đối tượng `IHyperlinkManager` cho thuộc tính [HyperlinkClick](https://reference.aspose.com/slides/vi/net/aspose.slides/shape/properties/hyperlinkclick) liên kết với phần bạn muốn trong `TextFrame`. 
-7. Cuối cùng, ghi tệp PPTX thông qua đối tượng `Presentation`. 
+Một siêu liên kết có thể được gán cho một phần văn bản cụ thể, vì vậy chỉ phần văn bản đó sẽ hoạt động như một liên kết có thể nhấp. Sử dụng [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/vi/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) để liên kết phần đó với một URL bên ngoài.
 
-Mã C# này—một triển khai các bước trên—cho bạn thấy cách thêm một hộp văn bản có siêu liên kết vào slide:
+Ví dụ sau tạo văn bản có liên kết và lưu nó vào một bản trình chiếu:
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Tạo một đối tượng Presentation đại diện cho một tệp PPTX
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// Lấy slide đầu tiên trong bản trình chiếu
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// Thêm một đối tượng AutoShape với loại được đặt là Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// Ép hình dạng sang AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// Truy cập thuộc tính ITextFrame liên kết với AutoShape
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// Thêm một số văn bản vào khung
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// Đặt siêu liên kết cho đoạn văn bản
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// Lưu bản trình chiếu PPTX
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Sự khác biệt giữa hộp văn bản và trình giữ chỗ văn bản khi làm việc với các slide mẫu là gì?**
+**What is the difference between a text box and a text placeholder on a master or layout slide?**
 
-Một [placeholder](/slides/vi/net/manage-placeholder/) kế thừa kiểu/dựng hình từ [master](https://reference.aspose.com/slides/vi/net/aspose.slides/masterslide/) và có thể được ghi đè trên [layouts](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutslide/), trong khi một hộp văn bản thông thường là một đối tượng độc lập trên một slide cụ thể và không thay đổi khi bạn chuyển đổi layout.
+Một [placeholder](/slides/vi/net/manage-placeholder/) có thể kế thừa vị trí và định dạng từ một [master slide](https://reference.aspose.com/slides/vi/net/aspose.slides/masterslide/) hoặc [layout slide](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutslide/). Một hộp văn bản thông thường là một hình độc lập trên slide nơi nó được tạo và không nhận hành vi của trình giữ chỗ khi bố cục thay đổi.
 
-**Làm thế nào để thực hiện việc thay thế văn bản hàng loạt trên toàn bộ trình chiếu mà không ảnh hưởng đến văn bản trong biểu đồ, bảng và SmartArt?**
+**How can I replace text without changing text in charts, tables, or SmartArt?**
 
-Hạn chế việc duyệt qua các tự động hình dạng có khung văn bản và loại trừ các đối tượng nhúng ([charts](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/vi/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/vi/net/aspose.slides.smartart/smartart/)) bằng cách duyệt các bộ sưu tập của chúng riêng biệt hoặc bỏ qua các kiểu đối tượng đó.
+Hạn chế việc duyệt chỉ các hình dạng thực hiện [IAutoShape](https://reference.aspose.com/slides/vi/net/aspose.slides/iautoshape/), như đã trình bày trong ví dụ Cập nhật Văn Bản. Các biểu đồ, bảng và SmartArt lưu văn bản trong mô hình đối tượng riêng của chúng, vì vậy chúng sẽ không bị thay đổi bởi vòng lặp đó.

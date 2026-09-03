@@ -1,226 +1,228 @@
 ---
-title: Beheer van tekstvakken in presentaties met Python
-linktitle: Beheer tekstvak
+title: "Beheer tekstvakken in presentaties met Python"
+linktitle: "Beheer tekstvak"
 type: docs
 weight: 20
 url: /nl/python-net/manage-textbox/
 keywords:
-- tekstvak
-- tekstframe
-- tekst toevoegen
-- tekst bijwerken
-- tekstvak maken
-- tekstvak controleren
-- tekstkolom toevoegen
-- hyperlink toevoegen
-- PowerPoint
-- presentatie
-- Python
-- Aspose.Slides
-description: "Aspose.Slides voor Python via .NET maakt het eenvoudig om tekstvakken te maken, te bewerken en te klonen in PowerPoint- en OpenDocument-bestanden, waardoor uw presentatiesautomatisering wordt verbeterd."
+- "tekstvak"
+- "tekstframe"
+- "tekst toevoegen"
+- "tekst bijwerken"
+- "tekstvak maken"
+- "tekstvak controleren"
+- "tekstkolom toevoegen"
+- "hyperlink toevoegen"
+- "PowerPoint"
+- "presentatie"
+- "Python"
+- "Aspose.Slides"
+description: "Maak, identificeer, formatteer en werk tekstvakken bij in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Python via .NET."
 ---
 ## **Introductie**
 
-Teksten op dia's staan meestal in tekstvakken of vormen. Daarom moet je, om tekst aan een dia toe te voegen, een tekstvak toevoegen en vervolgens tekst in dat vak plaatsen. Aspose.Slides for Python biedt de [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/)‑klasse waarmee je een vorm met tekst kunt toevoegen.
+In Aspose.Slides for Python via .NET wordt de tekst van een dia opgeslagen in tekstframes die bij vormen horen. De [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) klasse vertegenwoordigt de meest voorkomende tekstdragende vorm en maakt haar tekst beschikbaar via de [AutoShape.text_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/text_frame/) eigenschap.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides biedt ook de [Shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/)‑klasse. Echter kunnen niet alle vormen tekst bevatten.
+{{% alert color="info" title="Note" %}}
+
+Elke auto‑vorm erft van [Shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/), maar niet elke vorm is een auto‑vorm of ondersteunt een tekstframe. Bij het verwerken van een bestaande presentatie, gebruik `isinstance(shape, slides.AutoShape)` om het type vorm te controleren voordat u de tekst benadert.
+
 {{% /alert %}}
 
-{{% alert title="Opmerking" color="warning" %}}
-Wanneer je met een vorm werkt waaraan je tekst wilt toevoegen, wil je wellicht controleren of deze via de [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/)‑klasse is omgezet. Pas daarna kun je werken met [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/), een eigenschap van [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/). Zie de sectie [Update Text](/slides/nl/python-net/manage-textbox/#update-text) op deze pagina.
-{{% /alert %}}
+## **Een tekstvak op een dia maken**
 
-## **Tekstvakken maken op dia's**
-
-Om een tekstvak op een dia te maken:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-2. Haal een referentie op naar de eerste dia.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) met `ShapeType.RECTANGLE` toe op de gewenste positie op de dia.
-4. Stel de tekst in het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm in.
-5. Sla de presentatie op als een PPTX‑bestand.
-
-Het volgende Python‑voorbeeld implementeert deze stappen:
-
-```py
-import aspose.slides as slides
-
-# Instantieer de Presentation-klasse.
-with slides.Presentation() as presentation:
-
-    # Haal de eerste dia op in de presentatie.
-    slide = presentation.slides[0]
-
-    # Voeg een AutoShape van het type RECTANGLE toe.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    shape.text_frame.text = "Aspose TextBox"
-
-    # Sla de presentatie op schijf.
-    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Controleren of een vorm een tekstvak is**
-
-Aspose.Slides biedt de eigenschap [is_text_box](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/is_text_box/) op de [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/)‑klasse, waarmee je kunt bepalen of een vorm een tekstvak is.
-
-![Tekstvak en vorm](istextbox.png)
-
-Dit Python‑voorbeeld toont hoe je controleert of een vorm als tekstvak is aangemaakt:
+Om een tekstvak te maken, voegt u een auto‑vorm toe aan een dia, voegt u tekst toe aan het tekstframe en slaat u de presentatie op. Het volgende voorbeeld maakt een rechthoekig tekstvak:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
-    for slide in presentation.slides:
-        for shape in slide.shapes:
-            if isinstance(shape, slides.AutoShape):
-                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 300, 50)
+    text_box.add_text_frame("Aspose TextBox")
+
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Merk op dat wanneer je een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toevoegt via de [ShapeCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/)‑klasse, de eigenschap `is_text_box` van de vorm `False` teruggeeft. Nadat je echter tekst hebt toegevoegd – ofwel met de `add_text_frame`‑methode of door de `text`‑eigenschap in te stellen – geeft `is_text_box` `True` terug.
+De coördinaten en afmetingen die worden doorgegeven aan [ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shapecollection/add_auto_shape/) worden gemeten in punten. [AutoShape.add_text_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/add_text_frame/) initialiseert het tekstframe met de opgegeven tekst.
 
-```py
+## **Controleren op een tekstvak‑vorm**
+
+Gebruik de eigenschap [AutoShape.is_text_box](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/is_text_box/) om te bepalen of een auto‑vorm als een tekstvak wordt beschouwd. Dit is nuttig wanneer een presentatie zowel tekstdragende als louter grafische auto‑vormen bevat.
+
+![A text box and a shape](istextbox.png)
+
+Het volgende voorbeeld inspecteert elke auto‑vorm in een presentatie:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 120, 40)
+    text_box.add_text_frame("Text box")
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 10, 40, 40)
+
+    for current_slide in presentation.slides:
+        for shape in current_slide.shapes:
+            if isinstance(shape, slides.AutoShape):
+                print("The shape is a text box." if shape.is_text_box else "The shape is not a text box.")
+```
+
+Een nieuw toegevoegde auto‑vorm wordt niet gezien als een tekstvak totdat deze niet‑leeg tekst bevat. U kunt die tekst leveren via [AutoShape.add_text_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/add_text_frame/) of [TextFrame.text](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/text/). Het toevoegen of toewijzen van een lege tekenreeks laat [is_text_box](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/is_text_box/) op `False` staan:
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
-    # shape1.is_text_box is onwaar
-    shape1.add_text_frame("shape 1")
-    # shape1.is_text_box is waar
+    shape1.add_text_frame("Shape 1")
+    print(shape1.is_text_box)
 
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
-    # shape2.is_text_box is onwaar
-    shape2.text_frame.text = "shape 2"
-    # shape2.is_text_box is waar
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 100, 40)
+    shape2.text_frame.text = "Shape 2"
+    print(shape2.is_text_box)
 
-    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
-    # shape3.is_text_box is onwaar
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 100, 40)
     shape3.add_text_frame("")
-    # shape3.is_text_box is onwaar
+    print(shape3.is_text_box)
 
-    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
-    # shape4.is_text_box is onwaar
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 100, 40)
     shape4.text_frame.text = ""
-    # shape4.is_text_box is onwaar
+    print(shape4.is_text_box)
 ```
 
-## **De vorm vinden die een TextFrame bezit**
+De eerste twee oproepen geven `True` weer; de laatste twee geven `False` weer.
 
-In generieke tekstverwerkingscode kun je een [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) ontvangen zonder te weten tot welke presentatie‑object het behoort. Gebruik de eigenschap [TextFrame.parent_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_shape/) om terug te navigeren naar de bijbehorende [Shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/).
+## **De vorm vinden die een tekstframe bezit**
 
-Voor een tekstframe dat behoort tot een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) of een andere tekstdragende vorm, is [TextFrame.parent_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_shape/) ingesteld en is [TextFrame.parent_cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_cell/) `None`. Beide eigenschappen zijn alleen‑lezen navigatie‑eigenschappen, dus het lezen ervan verandert de eigendom niet. Controleer altijd op `None` voordat je de vorm benadert.
+Generieke tekstverwerkingscode kan een [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) ontvangen zonder te weten welk presentatiesobject het bevat. Gebruik de alleen‑lezen [TextFrame.parent_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_shape/) eigenschap om terug te navigeren naar de bijbehorende [Shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/).
 
-Voor een compleet voorbeeld dat vorm‑ en tabelcel‑eigenaars identificeert, inclusief vormen die bij SmartArt‑knooppunten horen, zie [Search and Replace Text](/slides/nl/python-net/search-and-replace-text/).
+Voor een tekstframe dat eigendom is van een auto‑vorm of een andere tekstdragende vorm, bevat [parent_shape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_shape/) de eigenaar en is [TextFrame.parent_cell](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/parent_cell/) `None`. Controleer de geretourneerde waarde voordat u deze benadert. Om zowel vorm‑ als tabelcellaandelen te identificeren, inclusief vormen die aan SmartArt‑knooppunten zijn gekoppeld, zie [Zoek en vervang tekst](/slides/nl/python-net/search-and-replace-text/).
 
-## **Kolommen toevoegen aan tekstvakken**
+## **Kolommen toevoegen aan een tekstvak**
 
-Aspose.Slides biedt de eigenschappen [column_count](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/column_count/) en [column_spacing](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/column_spacing/) op de [TextFrameFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/)‑klasse om kolommen aan tekstvakken toe te voegen. Je kunt het aantal kolommen opgeven en de ruimte (in punten) tussen kolommen instellen.
+De eigenschap [TextFrameFormat.column_count](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/column_count/) verdeelt het tekstframe in kolommen, terwijl [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/column_spacing/) de tussenruimte tussen kolommen in punten instelt. Beide instellingen behoren tot [TextFrameFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/) en kunnen worden gewijzigd via het tekstframe van een bestaand tekstvak. Tekst wordt opnieuw verdeeld tussen kolommen binnen dezelfde vorm; hij gaat niet door naar een andere vorm.
 
-De volgende Python‑code toont deze bewerking:
+Het volgende voorbeeld maakt een tekstvak met drie kolommen en 10 punten tussen de kolommen, slaat de presentatie op en leest de opgeslagen instellingen terug uit het uitvoerbestand:
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 200)
+    text_box.add_text_frame("This text is distributed automatically across all columns in the text box.")
 
-	# Haal de eerste dia op in de presentatie.
-	slide = presentation.slides[0]
+    text_frame_format = text_box.text_frame.text_frame_format
+    text_frame_format.column_count = 3
+    text_frame_format.column_spacing = 10
 
-	# Voeg een AutoShape van het type RECTANGLE toe.
-	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    presentation.save("TextBoxColumns.pptx", slides.export.SaveFormat.PPTX)
 
-	# Voeg een TextFrame toe aan de rechthoek.
-	shape.add_text_frame("All of these columns are confined to a single text container—" +
-	"you can add or delete text, and any new or remaining text automatically reflows " +
-	"within the container. You cannot have text flow from one container to another, " +
-	"though—PowerPoint’s column options for text are limited!")
+with slides.Presentation("TextBoxColumns.pptx") as saved_presentation:
+    saved_text_box = saved_presentation.slides[0].shapes[0]
+    if isinstance(saved_text_box, slides.AutoShape):
+        saved_format = saved_text_box.text_frame.text_frame_format
+        print(f"Columns: {saved_format.column_count}; spacing: {saved_format.column_spacing} points")
+```
 
-	# Haal het tekstopmaak van het TextFrame op.
-	format = shape.text_frame.text_frame_format
+## **Tekst extraheren uit individuele kolommen**
 
-	# Geef het aantal kolommen op in het TextFrame.
-	format.column_count = 3
+Gebruik [TextFrame.split_text_by_columns](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/split_text_by_columns/) om de tekst op te halen die aan elke visuele kolom in een bestaand tekstframe is toegewezen. De methode retourneert één tekenreeks per kolom, in kolomgebaseerde leesvolgorde. Een tekstframe met één kolom levert een lijst met één element op, en een lege kolom wordt weergegeven door een lege tekenreeks. De tekenreeksen bevatten alleen platte tekst; op‑gedeelte‑niveau opmaak wordt niet behouden.
 
-	# Geef de tussenruimte tussen kolommen op.
-	format.column_spacing = 10
+Dit is nuttig wanneer u wilt:
 
-	# Sla de presentatie op.
-	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+- Tekst extraheren terwijl de kolomgebaseerde leesvolgorde behouden blijft.
+- De inhoud van dia's met meerdere kolommen indexeren of vergelijken.
+- Elke kolom exporteren naar een apart bestand, databaseveld of andere bestemming.
+- Controleren hoe tekst wordt herverdeeld na het wijzigen van [TextFrameFormat.column_count](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/column_count/), [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/column_spacing/), het lettertype of de grootte van het tekstframe.
+
+De methode geeft de tekst weer die binnen het huidige [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) is verdeeld; hij laat tekst niet automatisch van de ene vorm of tekstvak naar de andere vloeien. De kolomverdeling kan afhankelijk zijn van beschikbare lettertypen en andere tekst‑layoutinstellingen, dus zorg ervoor dat de benodigde lettertypen beschikbaar zijn wanneer consistente resultaten belangrijk zijn.
+
+Het volgende voorbeeld laadt een presentatie, zoekt de eerste auto‑vorm met meerdere kolommen en een tekstframe, leest het geconfigureerde aantal kolommen en schrijft de tekst van elke kolom naar een apart bestand. Vormen die geen tekstframe bieden, worden overgeslagen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("MultiColumnText.pptx") as presentation:
+    text_box = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+            column_count = shape.text_frame.text_frame_format.column_count
+            if column_count > 1:
+                text_box = shape
+                break
+
+    if text_box is None:
+        print("No multi-column text frame was found.")
+    else:
+        text_frame = text_box.text_frame
+        configured_column_count = text_frame.text_frame_format.column_count
+        column_texts = text_frame.split_text_by_columns()
+
+        print(f"Configured columns: {configured_column_count}")
+
+        for column_number, column_text in enumerate(column_texts, start=1):
+            print(f"Column {column_number}: {column_text}")
+            with open(f"Column-{column_number}.txt", "w", encoding="utf-8") as column_file:
+                column_file.write(column_text)
 ```
 
 ## **Tekst bijwerken**
 
-Aspose.Slides stelt je in staat om de tekst in één tekstvak of in de hele presentatie bij te werken.
+Om tekst in een hele presentatie bij te werken, doorloopt u de dia's en vormen, selecteert u auto‑vormen en bewerkt u vervolgens hun tekstgedeelten. Werken op het gedeelte‑niveau stelt u in staat zowel de tekst als de karakteropmaak te wijzigen.
 
-Het volgende Python‑voorbeeld demonstreert hoe je alle tekst in een presentatie bijwerkt:
+Het volgende voorbeeld vervangt elke voorkomen van `years` door `months` in auto‑shape‑tekst en maakt elk getroffen gedeelte vet:
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
+with slides.Presentation("Text.pptx") as presentation:
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                for paragraph in shape.text_frame.paragraphs:
-                    for portion in paragraph.portions:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if "years" in portion.text:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = slides.NullableBool.TRUE
-  
-    # Sla de gewijzigde presentatie op.
+
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tekstvakken met hyperlinks toevoegen** 
+Deze doorloop werkt alleen tekst bij in auto‑vormen. Tekst opgeslagen in tabellen, grafieken, SmartArt of gegroepeerde vormen vereist een doorloop van de respectieve collecties van die objecten.
 
-Je kunt een koppeling in een tekstvak invoegen. Wanneer op het tekstvak wordt geklikt, wordt de koppeling geopend.
+## **Een tekstvak met een hyperlink toevoegen**
 
-Om een tekstvak met een hyperlink toe te voegen, volg je deze stappen:
+Een hyperlink kan worden toegewezen aan een specifiek tekstgedeelte, zodat alleen die tekst als klikbare link fungeert. Gebruik [HyperlinkManager.set_external_hyperlink_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/) om het gedeelte te koppelen aan een externe URL.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑klasse.
-2. Haal een referentie op naar de eerste dia.
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) met `ShapeType.RECTANGLE` toe op de gewenste positie op de dia.
-4. Stel de tekst in het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm in.
-5. Haal een referentie op naar de [HyperlinkManager](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkmanager/).
-6. Gebruik de eigenschap `hyperlink_manager` om een externe klik‑hyperlink in te stellen.
-7. Sla de presentatie op als een PPTX‑bestand.
+Het volgende voorbeeld maakt gekoppelde tekst aan en slaat deze op in een presentatie:
 
-Dit Python‑voorbeeld toont hoe je een tekstvak met een hyperlink aan een dia toevoegt:
-
-```py
+```python
 import aspose.slides as slides
 
-# Instantieer de Presentation-klasse.
 with slides.Presentation() as presentation:
-
-    # Haal de eerste dia op in de presentatie.
     slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 200, 50)
+    text_box.add_text_frame("Aspose.Slides")
 
-    # Voeg een AutoShape van het type RECTANGLE toe.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    text_portion = text_box.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_manager.set_external_hyperlink_click("https://www.aspose.com/")
 
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    # Voeg tekst toe aan het frame.
-    text_portion.text = "Aspose.Slides"
-
-    # Stel een hyperlink in voor de portion-tekst.
-    hyperlink_manager = text_portion.portion_format.hyperlink_manager
-    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
-
-    # Sla de presentatie op als een PPTX-bestand.
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Wat is het verschil tussen een tekstvak en een tekst‑plaatsaanduiding bij het werken met masterslides?**
+**Wat is het verschil tussen een tekstvak en een tekst‑placeholder op een master‑ of lay‑outdia?**
 
-Een [placeholder](/slides/nl/python-net/manage-placeholder/) erft stijl/positie van de [master](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslide/) en kan op [layouts](https://reference.aspose.com/slides/nl/python-net/aspose.slides/layoutslide/) worden overschreven, terwijl een regulier tekstvak een onafhankelijk object is op een specifieke dia en niet verandert wanneer je van layout wisselt.
+Een placeholder kan zijn positie en opmaak overnemen van een [master slide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslide/) of [layout slide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/layoutslide/). Een regulier tekstvak is een onafhankelijke vorm op de dia waarop het is aangemaakt en krijgt geen placeholder‑gedrag wanneer de lay‑out verandert.
 
-**Hoe kan ik een bulk‑tekstvervanging uitvoeren in de hele presentatie zonder tekst in grafieken, tabellen en SmartArt aan te raken?**
+**Hoe kan ik tekst vervangen zonder de tekst in grafieken, tabellen of SmartArt te wijzigen?**
 
-Beperk je iteratie tot auto‑shapes die tekstframes hebben en sluit ingesloten objecten ([charts](https://reference.aspose.com/slides/nl/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/nl/python-net/aspose.slides.smartart/smartart/)) uit door hun collecties apart te doorlopen of die objecttypen over te slaan.
+Beperk de doorloop tot [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) instanties, zoals getoond in het voorbeeld Tekst bijwerken. Grafieken, tabellen en SmartArt slaan tekst op in hun eigen objectmodellen, waardoor ze niet worden gewijzigd door die lus.

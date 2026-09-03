@@ -1,6 +1,6 @@
 ---
-title: Quản lý hộp văn bản trong bản trình chiếu bằng JavaScript
-linktitle: Quản lý hộp văn bản
+title: Quản lý các hộp văn bản trong bản trình chiếu bằng JavaScript
+linktitle: Quản lý Hộp Văn Bản
 type: docs
 weight: 20
 url: /vi/nodejs-java/manage-textbox/
@@ -18,88 +18,62 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js giúp bạn dễ dàng tạo, chỉnh sửa và sao chép các hộp văn bản trong tệp PowerPoint và OpenDocument, nâng cao khả năng tự động hoá bản trình chiếu của bạn."
+description: "Tạo, xác định, định dạng và cập nhật các hộp văn bản trong bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Node.js qua Java."
 ---
 ## **Giới thiệu**
 
-Văn bản trên các slide thường nằm trong các hộp văn bản hoặc hình dạng. Do đó, để thêm văn bản vào một slide, bạn phải thêm một hộp văn bản và sau đó đặt một số văn bản bên trong hộp văn bản. Aspose.Slides for Node.js via Java cung cấp lớp [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AutoShape) cho phép bạn thêm một hình dạng chứa một số văn bản.
+Trong Aspose.Slides cho Node.js qua Java, văn bản trên slide được lưu trong các khung văn bản thuộc về các hình dạng. Lớp [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) đại diện cho hình dạng chứa văn bản phổ biến nhất và cung cấp văn bản của nó thông qua phương thức [AutoShape.getTextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Thông tin" color="info" %}}
-
-Aspose.Slides cũng cung cấp lớp [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Shape) cho phép bạn thêm các hình dạng vào slide. Tuy nhiên, không phải tất cả các hình dạng được thêm thông qua lớp `Shape` đều có thể chứa văn bản. Nhưng các hình dạng được thêm thông qua lớp [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AutoShape) có thể chứa văn bản.
-
+{{% alert color="info" title="Note" %}}
+Mỗi auto shape kế thừa từ [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/), nhưng không phải mọi shape đều là auto shape hoặc hỗ trợ khung văn bản. Khi xử lý một bản trình chiếu hiện có, hãy kiểm tra xem một shape có phải là một thể hiện của [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) trước khi truy cập văn bản của nó.
 {{% /alert %}}
 
-{{% alert title="Lưu ý" color="warning" %}} 
+## **Tạo hộp văn bản trên một slide**
 
-Do đó, khi làm việc với một hình dạng mà bạn muốn thêm văn bản, bạn có thể muốn kiểm tra và xác nhận rằng nó đã được ép kiểu qua lớp `AutoShape`. Chỉ khi đó bạn mới có thể làm việc với [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TextFrame), một thuộc tính của `AutoShape`. Xem phần [Update Text](https://docs.aspose.com/slides/vi/nodejs-java/manage-textbox/#update-text) trên trang này.
-
-{{% /alert %}}
-
-## **Tạo Hộp Văn Bản trên Slide**
-
-Để tạo một hộp văn bản trên slide, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation).
-2. Lấy tham chiếu đến slide đầu tiên trong bản trình bày mới tạo. 
-3. Thêm một đối tượng [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AutoShape) với [ShapeType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) được đặt là `Rectangle` tại vị trí chỉ định trên slide và lấy tham chiếu đến đối tượng `AutoShape` vừa được thêm.
-4. Thêm thuộc tính `TextFrame` vào đối tượng `AutoShape` để chứa văn bản. Trong ví dụ dưới đây, chúng tôi đã thêm văn bản: *Aspose TextBox*
-5. Cuối cùng, ghi tệp PPTX thông qua đối tượng `Presentation`. 
-
-Đoạn mã JavaScript—một triển khai của các bước trên—cho bạn thấy cách thêm văn bản vào slide:
+Để tạo một hộp văn bản, thêm một auto shape vào slide, thêm văn bản vào khung văn bản của nó và lưu bản trình chiếu. Ví dụ sau tạo một hộp văn bản hình chữ nhật:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Khởi tạo Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lấy slide đầu tiên trong bản trình chiếu
-    var sld = pres.getSlides().get_Item(0);
-    // Thêm AutoShape với loại được đặt là Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Thêm TextFrame vào Rectangle
-    ashp.addTextFrame(" ");
-    // Truy cập khung văn bản
-    var txtFrame = ashp.getTextFrame();
-    // Tạo đối tượng Paragraph cho khung văn bản
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Tạo đối tượng Portion cho đoạn văn
-    var portion = para.getPortions().get_Item(0);
-    // Đặt văn bản
-    portion.setText("Aspose TextBox");
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Kiểm tra Hình dạng Hộp Văn Bản**
+Các tọa độ và kích thước truyền vào [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/#addAutoShape) được đo bằng điểm. [AutoShape.addTextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/#addTextFrame) khởi tạo khung văn bản với văn bản được cung cấp.
 
-Aspose.Slides cung cấp phương thức [isTextBox](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/#isTextBox) từ lớp [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) cho phép bạn kiểm tra các hình dạng và xác định hộp văn bản.
+## **Kiểm tra hình dạng hộp văn bản**
 
-![Hộp văn bản và hình dạng](istextbox.png)
+Sử dụng phương thức [AutoShape.isTextBox](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/#isTextBox) để xác định xem một auto shape có được coi là hộp văn bản hay không. Điều này hữu ích khi một bản trình chiếu chứa cả các auto shape chứa văn bản và các auto shape chỉ là đồ họa thuần túy.
 
-Đoạn mã JavaScript này cho bạn thấy cách kiểm tra xem một hình dạng có được tạo dưới dạng hộp văn bản hay không:
+![Một hộp văn bản và một hình dạng](istextbox.png)
+
+Ví dụ sau kiểm tra mọi auto shape trong một bản trình chiếu:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -108,233 +82,219 @@ try {
 }
 ```
 
-Lưu ý rằng nếu bạn chỉ thêm một autoshape bằng phương thức `addAutoShape` từ lớp [ShapeCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/), phương thức `isTextBox` của autoshape sẽ trả về `false`. Tuy nhiên, sau khi bạn thêm văn bản vào autoshape bằng phương thức `addTextFrame` hoặc `setText`, thuộc tính `isTextBox` sẽ trả về `true`.
+Một auto shape mới được thêm vào sẽ không được coi là hộp văn bản cho đến khi nó chứa văn bản không rỗng. Bạn có thể cung cấp văn bản đó thông qua [AutoShape.addTextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/#addTextFrame) hoặc [TextFrame.setText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#setText). Thêm hoặc gán một chuỗi rỗng sẽ khiến [AutoShape.isTextBox](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/#isTextBox) trả về `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() trả về false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() trả về true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() trả về false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() trả về true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() trả về false
-shape3.addTextFrame("");
-// shape3.isTextBox() trả về false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() trả về false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() trả về false
-```
-
-## **Tìm Hình Dạng Sở Hữu Khung Văn Bản**
-
-Trong mã xử lý văn bản chung, bạn có thể nhận được một [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) mà chưa biết đối tượng trình chiếu nào chứa nó. Sử dụng phương thức [TextFrame.getParentShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentShape--) để điều hướng trở lại hình dạng sở hữu [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/).
-
-Đối với một khung văn bản thuộc về một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) hoặc một hình dạng chứa văn bản khác, [TextFrame.getParentShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentShape--) trả về chủ sở hữu và [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentCell--) trả về `null`. Cả hai phương thức đều cung cấp điều hướng chỉ đọc, vì vậy việc gọi chúng không thay đổi quyền sở hữu. Luôn kiểm tra giá trị trả về có phải `null` trước khi truy cập vào hình dạng.
-
-Đối với một ví dụ đầy đủ xác định chủ sở hữu hình dạng và ô bảng, bao gồm các hình dạng liên kết với nút SmartArt, xem [Search and Replace Text](/slides/vi/nodejs-java/search-and-replace-text/).
-
-## **Thêm Cột trong Hộp Văn Bản**
-
-Aspose.Slides cung cấp các phương thức [setColumnCount](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) và [setColumnSpacing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) từ lớp [TextFrameFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TextFrameFormat) cho phép bạn thêm các cột vào hộp văn bản. Bạn có thể chỉ định số cột trong hộp văn bản và đặt khoảng cách giữa các cột tính bằng điểm.
-
-Đoạn mã JavaScript dưới đây minh họa thao tác đã mô tả:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lấy slide đầu tiên trong bản trình chiếu
-    var slide = pres.getSlides().get_Item(0);
-    // Thêm một AutoShape với loại được đặt là Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Thêm TextFrame vào Rectangle
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Lấy định dạng văn bản của TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Xác định số cột trong TextFrame
-    format.setColumnCount(3);
-    // Xác định khoảng cách giữa các cột
-    format.setColumnSpacing(10);
-    // Lưu bản trình chiếu
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Thêm Cột trong Khung Văn Bản**
+Hai lời gọi đầu tiên in ra `true`; hai lời gọi cuối in ra `false`.
 
-Aspose.Slides for Node.js via Java cung cấp phương thức [setColumnCount](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) từ lớp [TextFrameFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TextFrameFormat) cho phép bạn thêm các cột trong khung văn bản. Thông qua thuộc tính này, bạn có thể chỉ định số cột mong muốn trong một khung văn bản.
+## **Tìm hình dạng sở hữu khung văn bản**
 
-Đoạn mã JavaScript này cho bạn thấy cách thêm một cột vào trong khung văn bản:
+Mã xử lý văn bản tổng quát có thể nhận được một [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) mà không biết đối tượng bản trình chiếu nào chứa nó. Sử dụng phương thức chỉ đọc [TextFrame.getParentShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentShape) để quay lại [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) sở hữu nó.
+
+Đối với một khung văn bản thuộc sở hữu của một auto shape hoặc một hình dạng chứa văn bản khác, [TextFrame.getParentShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentShape) trả về chủ sở hữu và [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentCell) trả về `null`. Kiểm tra giá trị trả về trước khi truy cập. Để xác định cả chủ sở hữu hình dạng và ô bảng, bao gồm các hình dạng liên quan tới nút SmartArt, xem mục [Search and Replace Text](/slides/vi/nodejs-java/search-and-replace-text/).
+
+## **Thêm cột vào hộp văn bản**
+
+Phương thức [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setColumnCount) chia khung văn bản thành các cột, trong khi [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) đặt khoảng cách giữa các cột tính bằng điểm. Cả hai thiết lập đều thuộc về [TextFrameFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/) và có thể được thay đổi thông qua khung văn bản của một hộp văn bản hiện có. Văn bản sẽ được phân bố lại giữa các cột trong cùng một hình dạng; nó sẽ không tiếp tục sang một hình dạng khác.
+
+Ví dụ sau tạo một hộp văn bản ba cột với khoảng cách 10 điểm giữa các cột, lưu bản trình chiếu và đọc lại các thiết lập đã lưu từ tệp đầu ra:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // Khoảng cách cột chưa bao giờ được đặt, vì vậy nó được báo là NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
-        }
-    }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
-        }
+        savedPresentation.dispose();
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Cập nhật Văn Bản**
+## **Trích xuất văn bản từ các cột riêng lẻ**
 
-Aspose.Slides cho phép bạn thay đổi hoặc cập nhật văn bản chứa trong một hộp văn bản hoặc tất cả các văn bản trong một bản trình chiếu.
+Sử dụng [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#splitTextByColumns) để lấy văn bản được gán cho mỗi cột hiển thị trong một khung văn bản hiện có. Phương thức trả về một chuỗi cho mỗi cột, theo thứ tự đọc dựa trên cột. Một khung văn bản một cột sẽ tạo ra một mảng với một phần tử, và một cột trống được biểu thị bằng một chuỗi rỗng. Các chuỗi chỉ chứa văn bản thuần; định dạng ở mức phần không được bảo tồn.
 
-Đoạn mã JavaScript này minh họa một thao tác mà trong đó tất cả các văn bản trong bản trình chiếu được cập nhật hoặc thay đổi:
+Điều này hữu ích khi bạn cần:
+
+- Trích xuất văn bản đồng thời giữ nguyên thứ tự đọc dựa trên cột.
+- Lập chỉ mục hoặc so sánh nội dung của các slide đa cột.
+- Xuất mỗi cột ra một tệp riêng, trường cơ sở dữ liệu, hoặc đích khác.
+- Kiểm tra cách văn bản được phân phối lại sau khi thay đổi số cột bằng [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setColumnCount), khoảng cách bằng [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), phông chữ, hoặc kích thước khung văn bản.
+
+Phương thức báo cáo văn bản được phân bố trong [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) hiện tại; nó không tự động di chuyển văn bản giữa các hình dạng hoặc hộp văn bản riêng biệt. Phân bố cột có thể phụ thuộc vào phông chữ có sẵn và các cài đặt bố cục văn bản khác, vì vậy hãy đảm bảo các phông chữ cần thiết có sẵn khi kết quả nhất quán là quan trọng.
+
+Ví dụ sau tải một bản trình chiếu, tìm auto shape đa cột đầu tiên có khung văn bản, đọc số cột đã cấu hình và ghi văn bản từ mỗi cột ra một tệp riêng. Các hình dạng không cung cấp khung văn bản sẽ bị bỏ qua.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Cập nhật văn bản**
+
+Để cập nhật văn bản trên toàn bộ bản trình chiếu, lặp qua các slide và shape, chọn các auto shape, sau đó chỉnh sửa các phần văn bản của chúng. Làm việc ở mức phần cho phép bạn thay đổi cả văn bản và định dạng ký tự.
+
+Ví dụ sau thay thế mọi xuất hiện của `years` bằng `months` trong văn bản auto-shape và làm cho mỗi phần bị ảnh hưởng trở nên in đậm:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Kiểm tra nếu hình dạng hỗ trợ khung văn bản (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Duyệt qua các đoạn trong khung văn bản
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Duyệt qua mỗi phần trong đoạn
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Thay đổi văn bản
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Thay đổi định dạng
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Lưu bản trình chiếu đã chỉnh sửa
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Thêm Hộp Văn Bản với Siêu Liên Kết** 
+Quy trình này chỉ cập nhật văn bản trong các auto shape. Văn bản được lưu trong bảng, biểu đồ, SmartArt hoặc các shape nhóm yêu cầu duyệt qua các bộ sưu tập riêng của các đối tượng đó.
 
-Bạn có thể chèn một liên kết bên trong hộp văn bản. Khi hộp văn bản được nhấp, người dùng sẽ được chuyển hướng đến liên kết đó.
+## **Thêm hộp văn bản có siêu liên kết**
 
-Để thêm một hộp văn bản chứa liên kết, thực hiện các bước sau:
+Siêu liên kết có thể được gán cho một phần văn bản cụ thể, do đó chỉ phần văn bản đó hoạt động như liên kết có thể nhấp. Sử dụng [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) để liên kết phần đó với một URL bên ngoài.
 
-1. Tạo một thể hiện của lớp `Presentation`. 
-2. Lấy tham chiếu đến slide đầu tiên trong bản trình chiếu mới tạo. 
-3. Thêm một đối tượng `AutoShape` với `ShapeType` được đặt là `Rectangle` tại vị trí chỉ định trên slide và lấy tham chiếu đến đối tượng AutoShape vừa được thêm.
-4. Thêm một `TextFrame` vào đối tượng `AutoShape` và đặt văn bản cho phần đầu tiên của nó. Trong ví dụ dưới đây, chúng tôi đã sử dụng văn bản: *Aspose.Slides*
-5. Lấy `HyperlinkManager` của phần đó thông qua `PortionFormat` của nó.
-6. Gọi `setExternalHyperlinkClick` trên `HyperlinkManager` để gắn liên kết vào phần đó.
-7. Cuối cùng, ghi tệp PPTX thông qua đối tượng `Presentation`. 
-
-Đoạn mã JavaScript—một triển khai của các bước trên—cho bạn thấy cách thêm một hộp văn bản có siêu liên kết vào slide:
+Ví dụ sau tạo văn bản có liên kết và lưu nó vào một bản trình chiếu:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Khởi tạo một lớp Presentation đại diện cho file PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Lấy slide đầu tiên trong bản trình chiếu
-    var slide = pres.getSlides().get_Item(0);
-    // Thêm một đối tượng AutoShape với loại được đặt là Rectangle
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Ép kiểu shape thành AutoShape
-    var pptxAutoShape = shape;
-    // Truy cập thuộc tính ITextFrame liên kết với AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Thêm một số văn bản vào khung
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Đặt siêu liên kết cho phần văn bản
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Lưu bản trình chiếu PPTX
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
-**Sự khác nhau giữa hộp văn bản và trình giữ chỗ văn bản khi làm việc với các slide master là gì?**
+**Khác biệt giữa hộp văn bản và trình giữ chỗ văn bản trên slide master hoặc layout là gì?**
 
-Một [placeholder](/slides/vi/nodejs-java/manage-placeholder/) kế thừa kiểu/định vị từ [master](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/) và có thể được ghi đè trên [layouts](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/), trong khi một hộp văn bản thông thường là một đối tượng độc lập trên một slide cụ thể và không thay đổi khi bạn chuyển đổi layout.
+Một [placeholder](/slides/vi/nodejs-java/manage-placeholder/) có thể kế thừa vị trí và định dạng từ một [master slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslide/) hoặc [layout slide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslide/). Một hộp văn bản thông thường là một shape độc lập trên slide nơi nó được tạo và không nhận hành vi placeholder khi bố cục thay đổi.
 
-**Làm thế nào để thực hiện thay thế văn bản hàng loạt trên toàn bộ bản trình chiếu mà không ảnh hưởng đến văn bản trong biểu đồ, bảng và SmartArt?**
+**Làm sao tôi có thể thay thế văn bản mà không thay đổi văn bản trong biểu đồ, bảng hoặc SmartArt?**
 
-Hạn chế vòng lặp của bạn chỉ đối với các auto-shape có khung văn bản và loại bỏ các đối tượng nhúng ([charts](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/smartart/)) bằng cách duyệt các bộ sưu tập của chúng riêng biệt hoặc bỏ qua các loại đối tượng đó.
+Giới hạn việc duyệt chỉ các shape là thể hiện của [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/), như được mô tả trong ví dụ Cập nhật văn bản. Biểu đồ, bảng và SmartArt lưu văn bản trong mô hình đối tượng riêng của chúng, vì vậy chúng không bị thay đổi bởi vòng lặp đó.

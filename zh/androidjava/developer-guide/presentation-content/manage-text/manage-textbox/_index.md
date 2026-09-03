@@ -1,6 +1,6 @@
 ---
-title: 在 Android 上管理演示文稿中的文本框
-linktitle: 管理文本框
+title: "在 Android 上管理演示文稿文本框"
+linktitle: "管理文本框"
 type: docs
 weight: 20
 url: /zh/androidjava/manage-textbox/
@@ -18,324 +18,276 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java 使在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框变得轻而易举，提升您的演示文稿自动化。"
+description: "使用 Aspose.Slides for Android via Java 在 PowerPoint 和 OpenDocument 演示文稿中创建、识别、格式化和更新文本框。"
 ---
-## **简介**
+## **介绍**
 
-Slides上的文本通常位于文本框或形状中。因此，要向幻灯片添加文本，必须先添加文本框，然后在文本框中放入文本。Aspose.Slides for Android via Java 提供了`[IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IAutoShape)`接口，允许添加包含文本的形状。
+在 Aspose.Slides for Android via Java 中，幻灯片文本存储在属于形状的文本框中。 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 接口表示最常见的承载文本的形状，并通过 [IAutoShape.getTextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) 方法公开其文本。
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides 还提供了`[IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IShape)`接口，允许向幻灯片添加形状。然而，并非所有通过`IShape`接口添加的形状都能容纳文本。但通过`[IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IAutoShape)`接口添加的形状可以包含文本。
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-因此，在处理需要添加文本的形状时，您可能需要检查并确认它是通过`IAutoShape`接口进行强制转换的。只有这样，您才能使用`[TextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/TextFrame)`，它是`IAutoShape`下的一个属性。请参阅本页的`[Update Text](https://docs.aspose.com/slides/zh/androidjava/manage-textbox/#update-text)`章节。
-
+{{% alert color="info" title="Note" %}}
+每个自动形状都实现了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/)，但并非所有形状都是自动形状或支持文本框。在处理现有演示文稿时，在访问其文本之前，请先检查形状是否实现了 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)。
 {{% /alert %}}
 
 ## **在幻灯片上创建文本框**
 
-要在幻灯片上创建文本框，请按以下步骤操作：
-
-1. 创建`[Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/Presentation)`类的实例。
-2. 获取新创建演示文稿中第一张幻灯片的引用。
-3. 在幻灯片的指定位置添加一个`[IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/IAutoShape)`对象，`ShapeType`设置为`Rectangle`，并获取新添加的`IAutoShape`对象的引用。
-4. 为`IAutoShape`对象添加`TextFrame`属性，以容纳文本。下面的示例中，我们添加了以下文本：*Aspose TextBox*
-5. 最后，通过`Presentation`对象写入PPTX文件。 
-
-下面的 Java 代码实现了上述步骤，演示了如何向幻灯片添加文本：
-
-```java
-import com.aspose.slides.*;
-
-// 实例化 Presentation
-Presentation pres = new Presentation();
-try {
-    // 获取演示文稿中的第一张幻灯片
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 添加类型为 Rectangle 的 AutoShape
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // 为矩形添加 TextFrame
-    ashp.addTextFrame(" ");
-
-    // 访问文本框架
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // 为文本框架创建 Paragraph 对象
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // 为段落创建 Portion 对象
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // 设置文本
-    portion.setText("Aspose TextBox");
-
-    // 将演示文稿保存到磁盘
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **检查是否为文本框形状**
-
-Aspose.Slides 提供了`[isTextBox](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/#isTextBox--)`方法，来自`[IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)`接口，允许您检查形状并识别文本框。
-
-![Text box and shape](istextbox.png)
-
-以下 Java 代码展示了如何检查形状是否作为文本框创建： 
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-请注意，如果仅使用`[IShapeCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/)`接口的`addAutoShape`方法添加自动形状，则该自动形状的`isTextBox`方法将返回`false`。但是，在使用`addTextFrame`方法或`setText`方法向自动形状添加文本后，`isTextBox`属性将返回`true`。
+要创建文本框，向幻灯片添加自动形状，在其文本框中添加文本，然后保存演示文稿。下面的示例创建了一个矩形文本框：
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() 返回 false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() 返回 true
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() 返回 false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() 返回 true
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() 返回 false
-shape3.addTextFrame("");
-// shape3.isTextBox() 返回 false
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() 返回 false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() 返回 false
-```
-
-## **查找拥有 TextFrame 的形状**
-
-在通用文本处理代码中，您可能会收到一个`[ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)`，但并不知道它所属的演示文稿对象。使用`[ITextFrame.getParentShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/#getParentShape--)`方法可以返回其所属的`[IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/)`。
-
-对于属于`[IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)`或其他包含文本的形状的 TextFrame，`ITextFrame.getParentShape`返回所有者，而`[ITextFrame.getParentCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/#getParentCell--)`返回`null`。这两个方法提供只读导航，调用它们不会更改所有权。访问形状前请始终检查返回值是否为`null`。
-
-有关识别形状和表格单元格所有者的完整示例（包括与 SmartArt 节点关联的形状），请参阅`[Search and Replace Text](/slides/zh/androidjava/search-and-replace-text/)`。
-
-## **向文本框添加列**
-
-Aspose.Slides 提供了`[ColumnCount](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-)`和`[ColumnSpacing](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-)`属性（来自`[ITextFrameFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat)`接口和`[TextFrameFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/TextFrameFormat)`类），允许向文本框添加列。您可以指定文本框的列数以及列之间的点距。
-
-下面的 Java 代码演示了上述操作： 
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // 获取演示文稿中的第一张幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // 添加类型为 Rectangle 的 AutoShape
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // 为矩形添加 TextFrame
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // 获取 TextFrame 的文本格式
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // 指定 TextFrame 中的列数
-    format.setColumnCount(3);
-
-    // 指定列之间的间距
-    format.setColumnSpacing(10);
-
-    // 保存演示文稿
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **向 TextFrame 添加列**
+传递给 [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) 的坐标和尺寸以点为单位。 [IAutoShape.addTextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) 使用提供的文本初始化文本框。
 
-Aspose.Slides for Android via Java 提供了`[ColumnCount](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-)`属性（来自`[ITextFrameFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ITextFrameFormat)`接口），允许在 TextFrame 中添加列。通过此属性，您可以指定 TextFrame 中希望的列数。
+## **检查文本框形状**
 
-下面的 Java 代码展示了如何在 TextFrame 中添加列：
+使用 [IAutoShape.isTextBox](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/#isTextBox--) 方法来判断自动形状是否被视为文本框。当演示文稿同时包含承载文本的自动形状和纯图形自动形状时，这非常有用。
+
+![文本框和形状](istextbox.png)
+
+下面的示例检查演示文稿中的每个自动形状：
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+新添加的自动形状在包含非空文本之前不会被视为文本框。可以通过 [IAutoShape.addTextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) 或 [ITextFrame.setText](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) 提供该文本。添加或分配空字符串会导致 [IAutoShape.isTextBox](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/#isTextBox--) 返回 `false`：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+前两次调用打印 `true`；后两次打印 `false`。
+
+## **查找拥有文本框的形状**
+
+通用的文本处理代码可能会收到一个 [ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/)，但不知道它属于哪个演示对象。使用只读的 [ITextFrame.getParentShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/#getParentShape--) 方法可以返回其所属的 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/)。
+
+对于由自动形状或其他承载文本的形状拥有的文本框， [ITextFrame.getParentShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/#getParentShape--) 返回所有者，而 [ITextFrame.getParentCell](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/#getParentCell--) 返回 `null`。在访问返回值之前请先检查它。要识别形状和表格单元格所有者（包括与 SmartArt 节点关联的形状），请参阅 [Search and Replace Text](/slides/zh/androidjava/search-and-replace-text/)。
+
+## **向文本框添加列**
+
+[ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-) 方法将文本框划分为若干列，而 [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) 方法以点为单位设置列间间距。这两个设置均属于 [ITextFrameFormat](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframeformat/)，可以通过现有文本框的文本框进行更改。文本在同一形状内部的列之间重新换行；不会继续流入其他形状。
+
+下面的示例创建了一个三列文本框，列间距为 10 点，保存演示文稿并从输出文件中读取存储的设置：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **从单独列中提取文本**
+
+使用 [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/#splitTextByColumns--) 可以检索现有文本框中每个可视列分配的文本。该方法按列的阅读顺序返回每列一个字符串。单列文本框返回仅包含一个元素的数组，空列则表示为空字符串。返回的字符串仅包含纯文本；不会保留段落级别的格式。
+
+这在以下场景中很有用：
+
+- 在保留基于列的阅读顺序的同时提取文本。
+- 索引或比较多列幻灯片的内容。
+- 将每列导出到单独的文件、数据库字段或其他目标。
+- 检查在更改列数（使用 [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-)）、列间距（使用 [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-)）、字体或文本框大小后，文本是如何重新分布的。
+
+该方法报告当前 [ITextFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/itextframe/) 内部的文本分布；不会自动在不同形状或文本框之间流动文本。列的分布可能受可用字体和其他文本布局设置的影响，因此在结果一致性很重要时，请确保所需字体可用。
+
+下面的示例加载演示文稿，找到第一个带有文本框的多列自动形状，读取其配置的列数，并将每列的文本写入单独的文件。没有提供文本框的形状将被跳过。
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            String outputPath = "Column-" + columnNumber + ".txt";
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try (FileOutputStream outputStream = new FileOutputStream(outputPath)) {
+                outputStream.write(textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **更新文本**
 
-Aspose.Slides 允许您更改或更新文本框中的文本，或演示文稿中所有文本。
+要在整个演示文稿中更新文本，遍历幻灯片和形状，选择自动形状，然后编辑其文本段落。在段落级别工作可以同时更改文本和字符格式。
 
-下面的 Java 代码演示了将演示文稿中所有文本更新或更改的操作：
+下面的示例将自动形状文本中所有出现的 `years` 替换为 `months`，并将受影响的段落加粗：
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //检查形状是否支持文本框（IAutoShape）。
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //遍历文本框中的段落
-                {
-                    for (IPortion portion : paragraph.getPortions()) //遍历段落中的每个片段
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //更改文本
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //更改格式
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //保存修改后的演示文稿
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **添加带有超链接的文本框**
+此遍历仅更新自动形状中的文本。存储在表格、图表、SmartArt 或组合形状中的文本需要遍历这些对象各自的集合。
 
-您可以在文本框中插入链接。单击文本框时，用户会被导向打开该链接。 
+## **添加带超链接的文本框**
 
-要添加包含链接的文本框，请按以下步骤操作：
+可以将超链接分配给特定的文本段落，这样只有该文本会作为可点击链接。使用 [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) 将该段落与外部 URL 关联。
 
-1. 创建`Presentation`类的实例。 
-2. 获取新创建演示文稿中第一张幻灯片的引用。 
-3. 在幻灯片的指定位置添加一个`AutoShape`对象，`ShapeType`设置为`Rectangle`，并获取新添加的 AutoShape 对象的引用。 
-4. 为`AutoShape`对象添加`TextFrame`并设置其第一段的文本。下面的示例中使用的文本为：*Aspose.Slides* 
-5. 从所选`TextFrame`的`PortionFormat`中获取`[IHyperlinkManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ihyperlinkmanager/)`对象。 
-6. 对该对象调用`[setExternalHyperlinkClick](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)`，设置文本被单击时打开的链接。 
-7. 最后，通过`Presentation`对象写入PPTX文件。 
-
-下面的 Java 代码实现了上述步骤，演示了如何向幻灯片添加带超链接的文本框：
+下面的示例创建带链接的文本并保存到演示文稿：
 
 ```java
 import com.aspose.slides.*;
 
-// 实例化表示 PPTX 的 Presentation 类
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 获取演示文稿中的第一张幻灯片
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // 添加类型为 Rectangle 的 AutoShape 对象
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // 将形状转换为 AutoShape
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // 访问与 AutoShape 关联的 ITextFrame 属性
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // 向框中添加一些文本
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // 为片段文本设置超链接
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // 保存 PPTX 演示文稿
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **常见问题**
 
-**在使用母版幻灯片时，文本框和文本占位符有什么区别？**
+**文本框与母版或布局幻灯片上的文本占位符有何区别？**
 
-`[placeholder](/slides/zh/androidjava/manage-placeholder/)`继承自`[master](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/masterslide/)`的样式/位置，并且可以在`[layouts](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/layoutslide/)`上进行覆盖，而普通文本框是特定幻灯片上的独立对象，切换布局时不会改变。
+[placeholder](/slides/zh/androidjava/manage-placeholder/) 可以继承其位置和格式自 [master slide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/masterslide/) 或 [layout slide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/layoutslide/)。普通文本框是创建所在幻灯片上的独立形状，在布局更改时不会获得占位符行为。
 
-**如何在整个演示文稿中批量替换文本，而不影响图表、表格和 SmartArt 中的文本？**
+**如何在不更改图表、表格或 SmartArt 中文本的情况下替换文本？**
 
-将遍历范围限制在具有文本框的自动形状上，排除嵌入对象（`[charts](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/chart/)`、`[tables](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/table/)`、`[SmartArt](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/smartart/)`），可以分别遍历它们的集合或跳过这些对象类型。
+将遍历限制在实现了 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 的形状，如 “更新文本” 示例所示。图表、表格和 SmartArt 将文本存储在各自的对象模型中，因此不会被该循环修改。

@@ -1,6 +1,6 @@
 ---
-title: JavaScript を使用したプレゼンテーションでのテキスト ボックス管理
-linktitle: テキスト ボックスの管理
+title: JavaScript を使用してプレゼンテーションのテキスト ボックスを管理する
+linktitle: テキスト ボックスを管理する
 type: docs
 weight: 20
 url: /ja/nodejs-java/manage-textbox/
@@ -11,100 +11,69 @@ keywords:
 - テキストの更新
 - テキスト ボックスの作成
 - テキスト ボックスの確認
-- テキスト列の追加
+- テキスト 列の追加
 - ハイパーリンクの追加
 - PowerPoint
 - プレゼンテーション
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js は、PowerPoint および OpenDocument ファイル内のテキスト ボックスの作成、編集、複製を簡単にし、プレゼンテーションの自動化を強化します。"
+description: "Aspose.Slides for Node.js via Java を使用して、PowerPoint および OpenDocument プレゼンテーション内のテキスト ボックスを作成、識別、書式設定、更新します。"
 ---
-## **概要**
+## **はじめに**
 
-スライド上のテキストは通常、テキスト ボックスまたはシェイプに存在します。したがって、スライドにテキストを追加するには、テキスト ボックスを追加し、そのテキスト ボックス内にテキストを配置する必要があります。Aspose.Slides for Node.js via Java は、テキストを含むシェイプを追加できる[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/AutoShape)クラスを提供します。
+Aspose.Slides for Node.js via Java では、スライドのテキストはシェイプに属するテキストフレームに格納されます。 [AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) クラスは、最も一般的なテキストを保持するシェイプを表し、そのテキストを [AutoShape.getTextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/#getTextFrame) メソッドで取得できます。
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides は、スライドにシェイプを追加できる[Shape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Shape)クラスも提供します。ただし、`Shape` クラスで追加したすべてのシェイプがテキストを保持できるわけではありません。一方、[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/AutoShape) クラスで追加したシェイプはテキストを含むことができます。
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-したがって、テキストを追加したいシェイプを扱う場合は、`AutoShape` クラスとしてキャストされていることを確認したほうがよいでしょう。そうすれば、`AutoShape` のプロパティである[TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/TextFrame)を操作できます。このページの[Update Text](https://docs.aspose.com/slides/ja/nodejs-java/manage-textbox/#update-text)セクションをご参照ください。
+{{% alert color="info" title="Note" %}}
+すべての AutoShape は [Shape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/) から派生しますが、すべてのシェイプが AutoShape であるわけでも、テキストフレームをサポートしているわけでもありません。既存のプレゼンテーションを処理する際は、テキストにアクセスする前にシェイプが [AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) のインスタンスかどうかを確認してください。
 {{% /alert %}}
 
 ## **スライドにテキスト ボックスを作成する**
 
-テキスト ボックスをスライドに作成する手順は以下の通りです。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。  
-2. 新しく作成したプレゼンテーションの最初のスライドへの参照を取得します。  
-3. スライド上の指定位置に `Rectangle` として `ShapeType` を設定した[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/AutoShape) オブジェクトを追加し、追加された `AutoShape` オブジェクトへの参照を取得します。  
-4. テキストを格納する `TextFrame` プロパティを `AutoShape` オブジェクトに追加します。下記の例では、*Aspose TextBox* というテキストを追加しています。  
-5. 最後に、`Presentation` オブジェクトを使用して PPTX ファイルを書き出します。  
-
-この JavaScript コード（上記手順の実装例）は、スライドにテキストを追加する方法を示しています。
+テキスト ボックスを作成するには、スライドに AutoShape を追加し、そのテキストフレームにテキストを設定して、プレゼンテーションを保存します。以下の例は矩形のテキスト ボックスを作成します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Instantiates Presentation
-// プレゼンテーションのインスタンスを作成
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Gets the first slide in the presentation
-    // プレゼンテーションの最初のスライドを取得
-    var sld = pres.getSlides().get_Item(0);
-    // Adds an AutoShape with type set as Rectangle
-    // タイプを Rectangle に設定した AutoShape を追加
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Adds TextFrame to the Rectangle
-    // Rectangle に TextFrame を追加
-    ashp.addTextFrame(" ");
-    // Accesses the text frame
-    // テキスト フレームにアクセス
-    var txtFrame = ashp.getTextFrame();
-    // Creates the Paragraph object for text frame
-    // テキスト フレーム用の Paragraph オブジェクトを作成
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Creates a Portion object for paragraph
-    // Paragraph 用の Portion オブジェクトを作成
-    var portion = para.getPortions().get_Item(0);
-    // Sets Text
-    // テキストを設定
-    portion.setText("Aspose TextBox");
-    // Saves the presentation to disk
-    // プレゼンテーションをディスクに保存
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **テキスト ボックス シェイプかどうかの判定**
+[ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shapecollection/#addAutoShape) に渡す座標とサイズはポイント単位です。 [AutoShape.addTextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/#addTextFrame) は、指定されたテキストでテキストフレームを初期化します。
 
-Aspose.Slides は、[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) クラスの[isTextBox](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/#isTextBox) メソッドを提供しており、シェイプを調べてテキスト ボックスかどうかを識別できます。
+## **テキスト ボックス シェイプかどうかを確認する**
 
-![Text box and shape](istextbox.png)
+[AutoShape.isTextBox](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/#isTextBox) メソッドを使用して、AutoShape がテキスト ボックスとして扱われるかどうかを判定できます。これは、プレゼンテーションにテキストを保持するシェイプと純粋なグラフィック シェイプの両方が含まれる場合に便利です。
 
-この JavaScript コードは、シェイプがテキスト ボックスとして作成されたかどうかを確認する方法を示しています。
+![テキスト ボックスとシェイプ](istextbox.png)
+
+次の例は、プレゼンテーション内のすべての AutoShape を調べます。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -113,233 +82,219 @@ try {
 }
 ```
 
-`ShapeCollection` クラスの `addAutoShape` メソッドで単にオートシェイプを追加しただけの場合、オートシェイプの `isTextBox` メソッドは `false` を返します。ただし、`addTextFrame` メソッドまたは `setText` メソッドでオートシェイプにテキストを追加した後は、`isTextBox` プロパティは `true` を返します。
+新しく追加された AutoShape は、空でないテキストが含まれるまでテキスト ボックスとは見なされません。テキストは [AutoShape.addTextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/#addTextFrame) または [TextFrame.setText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#setText) で設定できます。空文字列を設定すると、[AutoShape.isTextBox](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/#isTextBox) は `false` を返します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() は false を返します
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() は true を返します
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() は false を返します
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() は true を返します
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() は false を返します
-shape3.addTextFrame("");
-// shape3.isTextBox() は false を返します
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() は false を返します
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() は false を返します
-```
-
-## **TextFrame を所有するシェイプの取得**
-
-汎用的なテキスト処理コードでは、どのプレゼンテーション オブジェクトが所有しているか分からないまま [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) を受け取ることがあります。その場合は、[TextFrame.getParentShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentShape--) メソッドを使用して、所有している [Shape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/) に遡ります。
-
-[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) や他のテキストを含むシェイプに属するテキスト フレームの場合、`TextFrame.getParentShape` は所有シェイプを返し、`TextFrame.getParentCell` は `null` を返します。両メソッドは読み取り専用のナビゲーションを提供するため、呼び出しても所有権は変更されません。シェイプにアクセスする前に、返された値が `null` でないことを必ず確認してください。
-
-シェイプおよびテーブル セルの所有者（SmartArt ノードに関連付けられたシェイプを含む）を特定する完全なサンプルは、[Search and Replace Text](/slides/ja/nodejs-java/search-and-replace-text/) を参照してください。
-
-## **テキスト ボックスに列を追加する**
-
-Aspose.Slides は、[TextFrameFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/TextFrameFormat) クラスの[setColumnCount](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) と[setColumnSpacing](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) メソッドを提供しており、テキスト ボックスに列を追加できます。列数と列間のポイント単位の間隔を指定できます。
-
-以下の JavaScript コードは、上記の操作を示しています。
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションの最初のスライドを取得
-    var slide = pres.getSlides().get_Item(0);
-    // タイプを Rectangle に設定した AutoShape を追加
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Rectangle に TextFrame を追加
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // TextFrame のテキスト フォーマットを取得
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // TextFrame の列数を指定
-    format.setColumnCount(3);
-    // 列間の間隔を指定
-    format.setColumnSpacing(10);
-    // プレゼンテーションを保存
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **テキスト フレームに列を追加する**
+最初の 2 回の呼び出しは `true`、後の 2 回は `false` を出力します。
 
-Aspose.Slides for Node.js via Java は、[TextFrameFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/TextFrameFormat) クラスの[setColumnCount](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) メソッドを提供しており、テキスト フレーム内に列を追加できます。このプロパティを使用して、テキスト フレーム内の希望する列数を指定できます。
+## **テキスト フレームを所有するシェイプを見つける**
 
-この JavaScript コードは、テキスト フレーム内に列を追加する方法を示しています。
+汎用的なテキスト処理コードは、どのプレゼンテーション オブジェクトが所有しているか分からないまま [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) を受け取ることがあります。読み取り専用の [TextFrame.getParentShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentShape) メソッドを使用して、所有シェイプへ遡ることができます。
+
+AutoShape や他のテキストを保持するシェイプが所有するテキストフレームの場合、[TextFrame.getParentShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentShape) は所有者シェイプを返し、[TextFrame.getParentCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentCell) は `null` を返します。取得した値が `null` でないことを確認してから使用してください。シェイプとテーブル セルの両方の所有者、さらに SmartArt ノードに関連付けられたシェイプを特定する方法は、[Search and Replace Text](/slides/ja/nodejs-java/search-and-replace-text/) を参照してください。
+
+## **テキスト ボックスに列を追加する**
+
+[TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframeformat/#setColumnCount) メソッドはテキストフレームを列に分割し、[TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) は列間の間隔（ポイント）を設定します。これらの設定はすべて [TextFrameFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframeformat/) に属し、既存のテキスト ボックスのテキストフレームを通じて変更できます。列間でテキストが再配置されますが、テキストは別のシェイプへは流れません。
+
+次の例は、列数 3、列間 10 ポイントのテキスト ボックスを作成し、プレゼンテーションを保存してから設定を読み込み直します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // 列間隔は設定されていなかったため、NaN として報告されます。
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **個々の列からテキストを抽出する**
+
+[TextFrame.splitTextByColumns](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#splitTextByColumns) を使用すると、既存のテキストフレーム内で視覚的に分割された各列に割り当てられたテキストを取得できます。このメソッドは列ごとに 1 つの文字列を返し、列ベースの読み取り順になります。単一列のテキストフレームは要素が 1 つの配列を返し、空の列は空文字列で表されます。返される文字列はプレーンテキストのみで、部分レベルの書式情報は保持されません。
+
+この機能は次のようなシナリオで役立ちます。
+
+- 列ベースの読み取り順を保ったままテキストを抽出したい場合  
+- マルチ列スライドの内容をインデックス化または比較したい場合  
+- 各列を個別のファイル、データベース フィールド、または他の宛先にエクスポートしたい場合  
+- [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframeformat/#setColumnCount)、[TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing)、フォント、テキストフレームのサイズを変更したときにテキストがどのように再配置されるかを検証したい場合  
+
+このメソッドは現在の [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) 内に配置されたテキストを報告するだけで、別々のシェイプやテキスト ボックス間で自動的にテキストを流しません。列の分布は利用可能なフォントやその他のレイアウト設定に依存するため、結果の一貫性が重要な場合は必要なフォントが利用可能であることを確認してください。
+
+次の例はプレゼンテーションを読み込み、テキストフレームを持つ最初のマルチ列 AutoShape を見つけ、設定された列数を取得し、各列のテキストを個別のファイルに書き出します。テキストフレームを提供しないシェイプはスキップされます。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **テキストの更新**
 
-Aspose.Slides を使用すると、テキスト ボックス内のテキストやプレゼンテーション全体に含まれるすべてのテキストを変更または更新できます。
+プレゼンテーション全体のテキストを更新するには、スライドとシェイプを反復処理し、AutoShape を選択してテキスト部分を編集します。部分レベルで操作することで、テキストだけでなく文字書式も変更できます。
 
-以下の JavaScript コードは、プレゼンテーション内のすべてのテキストを更新または変更する操作を示しています。
+次の例は、AutoShape のテキスト中の `years` をすべて `months` に置換し、該当する部分を太字にします。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // シェイプがテキスト フレーム (IAutoShape) をサポートしているかチェックします。
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // テキスト フレーム内の段落を反復処理します
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // 段落内の各ポーションを反復処理します
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// テキストを変更します
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// 書式を変更します
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // 変更されたプレゼンテーションを保存します
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **ハイパーリンク付きテキスト ボックスの追加**
+この走査は AutoShape のみのテキストを更新します。テーブル、チャート、SmartArt、グループ化シェイプ内のテキストは、それらオブジェクト固有のコレクションを走査しない限り変更されません。
 
-テキスト ボックス内にリンクを挿入できます。テキスト ボックスがクリックされると、ユーザーはそのリンク先を開きます。
+## **ハイパーリンク付きテキスト ボックスを追加する**
 
-ハイパーリンクを含むテキスト ボックスを追加する手順は以下の通りです。
+ハイパーリンクは特定のテキスト部分に割り当てられ、その部分だけがクリック可能になります。外部 URL と結びつけるには、[HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) を使用します。
 
-1. `Presentation` クラスのインスタンスを作成します。  
-2. 新しく作成したプレゼンテーションの最初のスライドへの参照を取得します。  
-3. スライド上の指定位置に `Rectangle` として `ShapeType` を設定した `AutoShape` オブジェクトを追加し、追加された AutoShape オブジェクトへの参照を取得します。  
-4. `AutoShape` オブジェクトに `TextFrame` を追加し、最初の Portion のテキストを設定します。下記の例では *Aspose.Slides* というテキストを使用しています。  
-5. その Portion の `PortionFormat` から `HyperlinkManager` を取得します。  
-6. `HyperlinkManager` の `setExternalHyperlinkClick` を呼び出して、リンクを Portion に付与します。  
-7. 最後に、`Presentation` オブジェクトを使用して PPTX ファイルを書き出します。  
-
-この JavaScript コード（上記手順の実装例）は、ハイパーリンク付きテキスト ボックスをスライドに追加する方法を示しています。
+次の例はリンク付きテキストを作成し、プレゼンテーションに保存します。
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// PPTX を表す Presentation クラスのインスタンスを作成
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションの最初のスライドを取得
-    var slide = pres.getSlides().get_Item(0);
-    // タイプを Rectangle に設定した AutoShape オブジェクトを追加
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // シェイプを AutoShape にキャスト
-    var pptxAutoShape = shape;
-    // AutoShape に関連付けられた ITextFrame プロパティにアクセス
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // フレームにテキストを追加
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // ポーション テキストにハイパーリンクを設定
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // PPTX プレゼンテーションを保存
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**マスタースライドを使用する際、テキスト ボックスとテキスト プレースホルダーの違いは何ですか？**
+**テキスト ボックスとマスターまたはレイアウト スライド上のテキスト プレースホルダーの違いは何ですか？**
 
-プレースホルダー（[/slides/ja/nodejs-java/manage-placeholder/]）は[マスター](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/masterslide/)からスタイルと位置を継承し、[レイアウト](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/layoutslide/)で上書き可能です。一方、通常のテキスト ボックスは特定のスライド上に配置された独立したオブジェクトであり、レイアウトを切り替えても変わりません。
+[プレースホルダー](/slides/ja/nodejs-java/manage-placeholder/) は、[マスタースライド](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/masterslide/) または [レイアウトスライド](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/layoutslide/) から位置と書式を継承できます。通常のテキスト ボックスは作成されたスライド上の独立したシェイプであり、レイアウトが変更されてもプレースホルダーの動作を取得しません。
 
-**グラフ、テーブル、SmartArt 内のテキストを除外して、プレゼンテーション全体で一括テキスト置換を行うにはどうすればよいですか？**
+**チャート、テーブル、SmartArt のテキストを変更せずにテキストだけを置換するにはどうすればよいですか？**
 
-テキスト フレームを持つオートシェイプだけを対象に反復処理し、埋め込みオブジェクト（[チャート](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/chart/)、[テーブル](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/smartart/)）は別個にコレクションを走査するか、該当オブジェクトタイプをスキップすることで実現できます。
+Update Text の例のように、[AutoShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/autoshape/) のインスタンスであるシェイプだけを走査対象に限定してください。チャート、テーブル、SmartArt はそれぞれ独自のオブジェクトモデルでテキストを保持しているため、このループでは変更されません。

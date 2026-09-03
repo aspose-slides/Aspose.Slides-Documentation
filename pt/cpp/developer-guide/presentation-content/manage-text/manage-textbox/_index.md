@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Caixas de Texto em Apresentações Usando C++
-linktitle: Gerenciar Caixa de Texto
+title: Gerenciar caixas de texto em apresentações usando C++
+linktitle: Gerenciar caixa de texto
 type: docs
 weight: 20
 url: /pt/cpp/manage-textbox/
@@ -17,113 +17,88 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ facilita a criação, edição e clonagem de caixas de texto em arquivos PowerPoint e OpenDocument, aprimorando a automação de suas apresentações."
+description: "Criar, identificar, formatar e atualizar caixas de texto em apresentações PowerPoint e OpenDocument usando Aspose.Slides para C++."
 ---
 ## **Introdução**
 
-Os textos em slides normalmente existem em caixas de texto ou formas. Portanto, para adicionar um texto a um slide, você deve adicionar uma caixa de texto e então colocar algum texto dentro da caixa de texto. Aspose.Slides for C++ fornece a [IAutoShape](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_auto_shape) interface que permite adicionar uma forma contendo algum texto.
+No Aspose.Slides for C++, o texto dos slides é armazenado em quadros de texto que pertencem a formas. A interface [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/) representa a forma mais comum que contém texto e expõe seu texto através do método [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/get_textframe/).
 
-{{% alert title="Info" color="info" %}}
-O Aspose.Slides também fornece a [IShape](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_shape) interface que permite adicionar formas aos slides. No entanto, nem todas as formas adicionadas através da interface `IShape` podem conter texto. Mas as formas adicionadas através da interface [IAutoShape](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_auto_shape) podem conter texto.
+{{% alert color="info" title="Nota" %}}
+
+Cada forma automática implementa [IShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/), mas nem toda forma é uma forma automática ou suporta um quadro de texto. Ao processar uma apresentação existente, verifique se uma forma implementa [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/) antes de acessar seu texto.
+
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-Portanto, ao lidar com uma forma à qual você deseja adicionar texto, pode ser necessário verificar e confirmar que ela foi convertida através da interface `IAutoShape`. Só então você poderá trabalhar com [TextFrame](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.text_frame), que é uma propriedade de `IAutoShape`. Veja a seção [Update Text](https://docs.aspose.com/slides/pt/cpp/manage-textbox/#update-text) nesta página. 
-{{% /alert %}}
+## **Criar uma caixa de texto em um slide**
 
-## **Criar uma Caixa de Texto em um Slide**
-
-Para criar uma caixa de texto em um slide, siga estas etapas:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation). 
-2. Obtenha uma referência para o primeiro slide da apresentação recém‑criada. 
-3. Adicione um objeto [IAutoShape](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_auto_shape) com [ShapeType](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) definido como `Rectangle` em uma posição especificada no slide e obtenha a referência para o objeto `IAutoShape` recém‑adicionado. 
-4. Adicione a propriedade `TextFrame` ao objeto `IAutoShape` que conterá um texto. No exemplo abaixo, adicionamos este texto: *Aspose TextBox*
-5. Finalmente, grave o arquivo PPTX através do objeto `Presentation`. 
-
-Este código C++ —uma implementação das etapas acima—mostra como adicionar texto a um slide:
+Para criar uma caixa de texto, adicione uma forma automática a um slide, adicione texto ao seu quadro de texto e salve a apresentação. O exemplo a seguir cria uma caixa de texto retangular:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Instancia a Presentation
-// Obtém o primeiro slide da apresentação
-// Adiciona um AutoShape com o tipo definido como Rectangle
-// Adiciona um TextFrame ao Rectangle
-// Acessa o TextFrame
-// Cria o objeto Paragraph para o TextFrame
-// Cria um objeto Portion para o parágrafo
-// Define o texto
-// Salva a apresentação no disco
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-auto sld = pres->get_Slides()->idx_get(0);
-
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-ashp->AddTextFrame(u" ");
-
-auto txtFrame = ashp->get_TextFrame();
-
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-auto portion = para->get_Portions()->idx_get(0);
-
-portion->set_Text(u"Aspose TextBox");
-
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
 
-## **Verificar se a Forma é uma Caixa de Texto**
+As coordenadas e dimensões passadas para [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishapecollection/addautoshape/) são medidas em pontos. [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/addtextframe/) inicializa o quadro de texto com o texto fornecido.
 
-O Aspose.Slides fornece o método [get_IsTextBox](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/get_istextbox/) da interface [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/), permitindo examinar formas e identificar caixas de texto.
+## **Verificar se a forma é uma caixa de texto**
 
-![Caixa de texto e forma](istextbox.png)
+Use o método [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/get_istextbox/) para determinar se uma forma automática é tratada como uma caixa de texto. Isso é útil quando uma apresentação contém tanto formas automáticas que contêm texto quanto formas puramente gráficas.
 
-Este código C++ mostra como verificar se uma forma foi criada como uma caixa de texto: 
+![Uma caixa de texto e uma forma](istextbox.png)
 
-```c++
+O exemplo a seguir inspeciona cada forma automática em uma apresentação:
+
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-Observe que se você simplesmente adicionar uma forma automática usando o método `AddAutoShape` da interface [IShapeCollection](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishapecollection/), o método `get_IsTextBox` da forma automática retornará `false`. Contudo, depois de adicionar texto à forma automática usando o método `AddTextFrame` ou o método `set_Text`, o método `get_IsTextBox` retornará `true`.
+Uma forma automática recém‑adicionada não é considerada uma caixa de texto até que contenha texto não vazio. Você pode fornecer esse texto através de [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/addtextframe/) ou [ITextFrame::set_Text](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/set_text/). Adicionar ou atribuir uma string vazia faz com que [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/get_istextbox/) retorne `false`:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -132,7 +107,9 @@ Observe que se você simplesmente adicionar uma forma automática usando o méto
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -140,154 +117,152 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() retorna false
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() retorna true
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() retorna false
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() retorna true
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() retorna false
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() retorna false
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() retorna false
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() retorna false
+Console::WriteLine(shape4->get_IsTextBox());
 ```
 
-## **Encontrar a Forma que Possui um Quadro de Texto**
+As duas primeiras verificações retornam `true`; as duas últimas retornam `false`.
 
-Em código genérico de processamento de texto, você pode receber um [ITextFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/) sem saber qual objeto de apresentação o contém. Use [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/get_parentshape/) para navegar de volta ao [IShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/) proprietário.
+## **Encontrar a forma que possui um quadro de texto**
 
-Para um quadro de texto que pertence a um [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/) ou outra forma que contém texto, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/get_parentshape/) retorna o proprietário e [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/get_parentcell/) retorna `nullptr`. Ambos os métodos fornecem navegação somente leitura, portanto chamá‑los não altera a propriedade. Sempre verifique se o valor retornado é `nullptr` antes de acessar a forma.
+Um código genérico de processamento de texto pode receber um [ITextFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/) sem saber qual objeto da apresentação o contém. Use o método [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/get_parentshape/) para navegar de volta à sua forma proprietária [IShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/).
 
-Para um exemplo completo que identifica proprietários de forma e de célula de tabela, incluindo formas associadas a nós de SmartArt, veja [Search and Replace Text](/slides/pt/cpp/search-and-replace-text/).
+Para um quadro de texto que é propriedade de uma forma automática ou outra forma que contém texto, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/get_parentshape/) retorna o proprietário e [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/get_parentcell/) retorna `nullptr`. Ambos os métodos fornecem navegação somente leitura. Verifique o valor retornado por `nullptr` antes de acessá‑lo. Para identificar tanto proprietários de forma quanto de célula de tabela, incluindo formas associadas a nós de SmartArt, veja [Search and Replace Text](/slides/pt/cpp/search-and-replace-text/).
 
-## **Adicionar Colunas a uma Caixa de Texto**
+## **Adicionar colunas a uma caixa de texto**
 
-O Aspose.Slides fornece os métodos [set_ColumnCount](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) e [set_ColumnSpacing](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) (da interface [ITextFrameFormat](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_text_frame_format) e da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_text_frame_format)) que permitem adicionar colunas a caixas de texto. Você pode especificar o número de colunas em uma caixa de texto e definir o espaçamento em pontos entre as colunas. 
+O método [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframeformat/set_columncount/) divide o quadro de texto em colunas, enquanto [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframeformat/set_columnspacing/) define o espaço entre as colunas em pontos. Ambos os métodos pertencem a [ITextFrameFormat](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframeformat/) e podem ser chamados através do quadro de texto de uma caixa de texto existente. O texto refaz a disposição entre colunas dentro da mesma forma; não continua em outra forma.
 
-Este código em C++ demonstra a operação descrita: 
+O exemplo a seguir cria uma caixa de texto de três colunas com 10 pontos entre as colunas, salva a apresentação e lê as configurações armazenadas de volta a partir do arquivo de saída:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// Obtém o primeiro slide da apresentação
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// Adiciona um AutoShape com tipo definido como Rectangle
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// Adiciona TextFrame ao Rectangle
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// Obtém o formato de texto do TextFrame
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// Especifica o número de colunas no TextFrame
-format->set_ColumnCount(3);
-
-// Especifica o espaçamento entre colunas
-format->set_ColumnSpacing(10);
-
-// Salva a apresentação
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **Adicionar Colunas a um Quadro de Texto**
-O Aspose.Slides for C++ fornece o método [set_ColumnCount](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) (da interface [ITextFrameFormat](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.i_text_frame_format)) que permite adicionar colunas em quadros de texto. Por meio deste método, você pode especificar o número desejado de colunas em um quadro de texto. 
+## **Extrair texto de colunas individuais**
 
-Este código C++ mostra como adicionar uma coluna dentro de um quadro de texto:
+Use [ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/splittextbycolumns/) para recuperar o texto atribuído a cada coluna visual em um quadro de texto existente. O método retorna uma string para cada coluna, na ordem de leitura baseada em colunas. Um quadro de texto de única coluna produz um array com um elemento, e uma coluna vazia é representada por uma string vazia. As strings contêm apenas texto simples; a formatação em nível de porções não é preservada.
 
-```cpp
-#include <DOM/AutoShape.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
-#include <system/string.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System;
+Isso é útil quando você precisa:
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+- Extrair texto preservando sua ordem de leitura baseada em colunas.
+- Indexar ou comparar o conteúdo de slides com múltiplas colunas.
+- Exportar cada coluna para um arquivo separado, campo de banco de dados ou outro destino.
+- Inspecionar como o texto é redistribuído após definir a contagem de colunas com [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframeformat/set_columncount/) ou o espaçamento com [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframeformat/set_columnspacing/), ou ao alterar a fonte ou o tamanho do quadro de texto.
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
+O método relata o texto distribuído dentro do [ITextFrame](https://reference.aspose.com/slides/pt/cpp/aspose.slides/itextframe/) atual; ele não flui automaticamente o texto entre formas ou caixas de texto separadas. A distribuição de colunas pode depender de fontes disponíveis e outras configurações de layout de texto, portanto certifique‑se de que as fontes necessárias estejam disponíveis quando resultados consistentes forem importantes.
 
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
-}
-
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
-}
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
-}
-```
-
-## **Atualizar Texto**
-
-O Aspose.Slides permite alterar ou atualizar o texto contido em uma caixa de texto ou todos os textos contidos em uma apresentação. 
-
-Este código C++ demonstra uma operação em que todos os textos de uma apresentação são atualizados ou alterados:
+O exemplo a seguir carrega uma apresentação, encontra a primeira forma automática de múltiplas colunas com um quadro de texto no primeiro slide, lê sua contagem de colunas configurada e grava o texto de cada coluna em um arquivo separado. Formas que não fornecem um quadro de texto são ignoradas.
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
+
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
+{
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
+}
+
+if (textBox == nullptr)
+{
+    Console::WriteLine(u"No multi-column text frame was found.");
+}
+else
+{
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
+}
+```
+
+## **Atualizar texto**
+
+Para atualizar texto em toda a apresentação, itere pelos slides e formas, selecione formas automáticas e então edite suas porções de texto. Trabalhar no nível de porções permite modificar tanto o texto quanto a formatação de caracteres.
+
+O exemplo a seguir substitui cada ocorrência de `years` por `months` dentro das porções de texto de formas automáticas individuais e torna cada porção afetada em negrito:
+
+```cpp
+#include <DOM/IAutoShape.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -297,27 +272,38 @@ Este código C++ demonstra uma operação em que todos os textos de uma apresent
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //Altera o texto
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //Altera a formatação
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -325,78 +311,52 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//Salva a apresentação modificada
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **Adicionar uma Caixa de Texto com um Hiperlink** 
+Esta travessia atualiza texto apenas em formas automáticas. Texto armazenado em tabelas, gráficos, SmartArt ou formas agrupadas requer a travessia das próprias coleções desses objetos.
 
-Você pode inserir um link dentro de uma caixa de texto. Quando a caixa de texto é clicada, os usuários são direcionados para abrir o link. 
+## **Adicionar uma caixa de texto com hiperlink**
 
-Para adicionar uma caixa de texto contendo um link, siga estas etapas:
+Um hiperlink pode ser atribuído a uma porção de texto específica, de modo que somente esse texto funcione como link clicável. Use [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) para associar a porção a uma URL externa.
 
-1. Crie uma instância da classe `Presentation`. 
-2. Obtenha uma referência para o primeiro slide da apresentação recém‑criada. 
-3. Adicione um objeto `AutoShape` com `ShapeType` definido como `Rectangle` em uma posição especificada no slide e obtenha a referência do objeto AutoShape recém‑adicionado.
-4. Adicione um `TextFrame` ao objeto `AutoShape` que contém *Aspose TextBox* como texto padrão. 
-5. Instancie a classe `IHyperlinkManager`. 
-6. Atribua o objeto `IHyperlinkManager` ao método [set_HyperlinkClick](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) associado à sua parte preferida do `TextFrame`. 
-7. Finalmente, grave o arquivo PPTX através do objeto `Presentation`. 
-
-Este código C++ —uma implementação das etapas acima—mostra como adicionar uma caixa de texto com um hiperlink a um slide:
+O exemplo a seguir cria texto vinculado e o salva em uma apresentação:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Instancia a classe Presentation que representa um PPTX
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// Obtém o primeiro slide da apresentação
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// Adiciona um objeto AutoShape com o tipo definido como Rectangle
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// Converte a forma para AutoShape
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// Acessa a propriedade ITextFrame associada ao AutoShape
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// Adiciona algum texto ao quadro
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// Define o hiperlink para o texto da porção
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// Salva a apresentação PPTX
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Qual é a diferença entre uma caixa de texto e um placeholder de texto ao trabalhar com slides mestres?**
+**Qual é a diferença entre uma caixa de texto e um marcador de posição de texto em um slide mestre ou de layout?**
 
-Um [placeholder](/slides/pt/cpp/manage-placeholder/) herda estilo/posição do [master](https://reference.aspose.com/slides/pt/cpp/aspose.slides/masterslide/) e pode ser sobrescrito nos [layouts](https://reference.aspose.com/slides/pt/cpp/aspose.slides/layoutslide/), enquanto uma caixa de texto regular é um objeto independente em um slide específico e não muda ao trocar de layout.
+Um [placeholder](/slides/pt/cpp/manage-placeholder/) pode herdar sua posição e formatação de um [master slide](https://reference.aspose.com/slides/pt/cpp/aspose.slides/masterslide/) ou de um [layout slide](https://reference.aspose.com/slides/pt/cpp/aspose.slides/layoutslide/). Uma caixa de texto regular é uma forma independente no slide onde foi criada e não adquire o comportamento de marcador de posição quando o layout é alterado.
 
-**Como posso realizar a substituição em massa de texto em toda a apresentação sem alterar o texto dentro de gráficos, tabelas e SmartArt?**
+**Como posso substituir texto sem alterar o texto em gráficos, tabelas ou SmartArt?**
 
-Limite sua iteração a auto‑shapes que possuam quadros de texto e exclua objetos incorporados ([charts](https://reference.aspose.com/slides/pt/cpp/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/pt/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/pt/cpp/aspose.slides.smartart/smartart/)) percorrendo suas coleções separadamente ou pulando esses tipos de objeto.
+Limite a travessia às formas que implementam [IAutoShape](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iautoshape/), como mostrado no exemplo Atualizar Texto. Gráficos, tabelas e SmartArt armazenam texto em seus próprios modelos de objeto, portanto não são modificados por esse laço.

@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση πλαισίων κειμένου σε παρουσιάσεις με χρήση PHP
+title: Διαχείριση πλαισίων κειμένου σε παρουσιάσεις με PHP
 linktitle: Διαχείριση πλαισίου κειμένου
 type: docs
 weight: 20
@@ -12,298 +12,297 @@ keywords:
 - δημιουργία πλαισίου κειμένου
 - έλεγχος πλαισίου κειμένου
 - προσθήκη στήλης κειμένου
-- προσθήκη υπερσυνδέσμου
+- προσθήκη υπερσύνδεσμου
 - PowerPoint
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Το Aspose.Slides for PHP καθιστά εύκολη τη δημιουργία, επεξεργασία και κλωνοποίηση πλαισίων κειμένου σε αρχεία PowerPoint και OpenDocument, βελτιώνοντας την αυτοματοποίηση των παρουσιάσεών σας."
+description: "Δημιουργία, αναγνώριση, μορφοποίηση και ενημέρωση πλαισίων κειμένου σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας Aspose.Slides για PHP μέσω Java."
 ---
 ## **Εισαγωγή**
 
-Τα κείμενα στις διαφάνειες συνήθως βρίσκονται σε πλαίσια κειμένου ή σχήματα. Συνεπώς, για να προσθέσετε κείμενο σε μια διαφάνεια, πρέπει να προσθέσετε ένα πλαίσιο κειμένου και στη συνέχεια να τοποθετήσετε κάποιο κείμενο μέσα στο πλαίσιο. Aspose.Slides for PHP via Java παρέχει την κλάση [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) που σάς επιτρέπει να προσθέσετε ένα σχήμα που περιέχει κάποιο κείμενο.
+Στο Aspose.Slides για PHP μέσω Java, το κείμενο της διαφάνειας αποθηκεύεται σε πλαίσια κειμένου που ανήκουν σε σχήματα. Η κλάση [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) αντιπροσωπεύει το πιο κοινό σχήμα που περιέχει κείμενο και εκθέτει το κείμενό του μέσω της μεθόδου [AutoShape::getTextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
-Το Aspose.Slides παρέχει επίσης την κλάση [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) που σάς επιτρέπει να προσθέσετε σχήματα στις διαφάνειες. Ωστόσο, όχι όλα τα σχήματα που προστίθενται μέσω της κλάσης `Shape` μπορούν να περιέχουν κείμενο. Τα σχήματα που προστίθενται μέσω της κλάσης [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) μπορούν όμως να περιέχουν κείμενο.
-{{% /alert %}}
+{{% alert color="info" title="Note" %}}
 
-{{% alert title="Note" color="warning" %}} 
-Επομένως, όταν εργάζεστε με ένα σχήμα στο οποίο θέλετε να προσθέσετε κείμενο, ίσως θέλετε να ελέγξετε και να επιβεβαιώσετε ότι δημιουργήθηκε μέσω της κλάσης `AutoShape`. Μόνο τότε θα μπορείτε να εργαστείτε με την κλάση [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/), η οποία είναι ιδιότητα της `AutoShape`. Δείτε την ενότητα [Update Text](/slides/el/php-java/manage-textbox/#update-text) σε αυτήν τη σελίδα.
+Κάθε αυτόματο σχήμα προέρχεται από το [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/), αλλά δεν είναι κάθε σχήμα αυτόματο σχήμα ή υποστηρίζει πλαίσιο κειμένου. Όταν επεξεργάζεστε μια υπάρχουσα παρουσία, χρησιμοποιήστε `java_instanceof` για να ελέγξετε ότι ένα σχήμα είναι ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) πριν αποκτήσετε πρόσβαση στο κείμενό του.
+
 {{% /alert %}}
 
 ## **Δημιουργία πλαισίου κειμένου σε διαφάνεια**
 
-Για να δημιουργήσετε ένα πλαίσιο κειμένου σε μια διαφάνεια, ακολουθήστε τα ακόλουθα βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πάρτε μια αναφορά για την πρώτη διαφάνεια στην νεοδημιουργημένη παρουσία. 
-3. Προσθέστε ένα αντικείμενο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) με τύπο σχήματος ορισμένο ως [Rectangle](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapetype/#Rectangle) σε μια καθορισμένη θέση στη διαφάνεια και λάβετε την αναφορά για το νεοπροστέθειμε αντικείμενο `AutoShape`.
-4. Προσθέστε ένα `TextFrame` στο αντικείμενο `AutoShape` που θα περιέχει κείμενο. Στο παρακάτω παράδειγμα, προσθέσαμε το κείμενο: *Aspose TextBox*
-5. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`. 
-
-Αυτός ο κώδικας PHP — μια υλοποίηση των παραπάνω βημάτων — δείχνει πώς να προσθέσετε κείμενο σε μια διαφάνεια:
+Για να δημιουργήσετε ένα πλαίσιο κειμένου, προσθέστε ένα αυτόματο σχήμα σε μια διαφάνεια, προσθέστε κείμενο στο πλαίσιο κειμένου του και αποθηκεύστε την παρουσία. Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο πλαίσιο κειμένου:
 
 ```php
-  # Δημιουργεί παρουσίαση
-  $pres = new Presentation();
-  try {
-    # Αποκτά την πρώτη διαφάνεια στην παρουσίαση
-    $sld = $pres->getSlides()->get_Item(0);
-    # Προσθέτει AutoShape με τύπο ορισμένο ως Rectangle
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Προσθέτει TextFrame στο Rectangle
-    $ashp->addTextFrame(" ");
-    # Προσπελαύνει το πλαίσιο κειμένου
-    $txtFrame = $ashp->getTextFrame();
-    # Δημιουργεί το αντικείμενο Paragraph για το πλαίσιο κειμένου
-    $para = $txtFrame->getParagraphs()->get_Item(0);
-    # Δημιουργεί ένα αντικείμενο Portion για την παράγραφο
-    $portion = $para->getPortions()->get_Item(0);
-    # Ορίζει κείμενο
-    $portion->setText("Aspose TextBox");
-    # Αποθηκεύει την παρουσίαση στο δίσκο
-    $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-## **Έλεγχος για σχήμα πλαισίου κειμένου**
-
-Το Aspose.Slides παρέχει τη μέθοδο [isTextBox](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/istextbox/) από την κλάση [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) , επιτρέποντάς σας να εξετάζετε τα σχήματα και να εντοπίζετε τα πλαίσια κειμένου.
-
-![Πλαίσιο κειμένου και σχήμα](istextbox.png)
-
-Αυτός ο κώδικας PHP σας δείχνει πώς να ελέγξετε αν ένα σχήμα δημιουργήθηκε ως πλαίσιο κειμένου:
-
-```php
-class ShapeCallback {
-    function invoke($shape, $slide, $index) {
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-            $autoShape = $shape;
-            echo(java_is_true($autoShape->isTextBox()) ? "shape is a text box" : "shape is not a text box");
-        }
-    }
-}
-
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
-    ForEach_::shape($presentation, $forEachShapeCallback);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+    $textBox->addTextFrame("Aspose TextBox");
+
+    $presentation->save("TextBox.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Σημειώστε ότι εάν προσθέσετε απλώς ένα autoshape χρησιμοποιώντας τη μέθοδο `addAutoShape` από την κλάση [ShapeCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/), η μέθοδος `isTextBox` του autoshape θα επιστρέψει `false`. Ωστόσο, αφού προσθέσετε κείμενο στο autoshape χρησιμοποιώντας τη μέθοδο `addTextFrame` ή τη μέθοδο `setText`, η ιδιότητα `isTextBox` επιστρέφει `true`.
+Οι συντεταγμένες και διαστάσεις που περνάνε στο [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/#addAutoShape) μετρώνται σε σημεία. Η [AutoShape::addTextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/#addTextFrame) αρχικοποιεί το πλαίσιο κειμένου με το παρεχόμενο κείμενο.
+
+## **Έλεγχος για σχήμα πλαισίου κειμένου**
+
+Χρησιμοποιήστε τη μέθοδο [AutoShape::isTextBox](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/#isTextBox) για να προσδιορίσετε εάν ένα αυτόματο σχήμα αντιμετωπίζεται ως πλαίσιο κειμένου. Αυτό είναι χρήσιμο όταν μια παρουσία περιλαμβάνει τόσο σχήματα με κείμενο όσο και καθαρά γραφικά αυτόματα σχήματα.
+
+![Ένα πλαίσιο κειμένου και ένα σχήμα](istextbox.png)
+
+Το παρακάτω παράδειγμα εξετάζει κάθε αυτόματο σχήμα σε μια παρουσία:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
-$slide = $presentation->getSlides()->get_Item(0);
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+    $textBox->addTextFrame("Text box");
+    $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
 
-$shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->isTextBox() επιστρέφει false
-$shape1->addTextFrame("shape 1");
-// shape1->isTextBox() επιστρέφει true
-
-$shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->isTextBox() επιστρέφει false
-$shape2->getTextFrame()->setText("shape 2");
-// shape2->isTextBox() επιστρέφει true
-
-$shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->isTextBox() επιστρέφει false
-$shape3->addTextFrame("");
-// shape3->isTextBox() επιστρέφει false
-
-$shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->isTextBox() επιστρέφει false
-$shape4->getTextFrame()->setText("");
-// shape4->isTextBox() επιστρέφει false
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $currentSlide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($currentSlide->getShapes()->size()); $shapeIndex++) {
+            $shape = $currentSlide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $autoShapeClass)) {
+                echo (java_is_true($shape->isTextBox()) ? "The shape is a text box." : "The shape is not a text box.") . PHP_EOL;
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Εύρεση του σχήματος που κατέχει ένα πλαίσιο κειμένου**
+Ένα πρόσφατα προστεθειμένο αυτόματο σχήμα δεν θεωρείται πλαίσιο κειμένου μέχρι να περιέχει μη κενό κείμενο. Μπορείτε να παρέχετε αυτό το κείμενο μέσω της [AutoShape::addTextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/#addTextFrame) ή του [TextFrame::setText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#setText). Η προσθήκη ή ανάθεση μιας κενής συμβολοσειράς αφήνει τη [AutoShape::isTextBox](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/#isTextBox) να επιστρέφει `false`:
 
-Σε γενικό κώδικα επεξεργασίας κειμένου, μπορεί να λάβετε ένα [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) χωρίς να γνωρίζετε εκ των προτέρων ποιο αντικείμενο παρουσία το περιέχει. Χρησιμοποιήστε τη μέθοδο [TextFrame::getParentShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParentShape) για να επιστρέψετε στο ιδιοκτητικό [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/).
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
-Για ένα πλαίσιο κειμένου που ανήκει σε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) ή σε άλλο σχήμα που περιέχει κείμενο, η [TextFrame::getParentShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParentShape) επιστρέφει τον ιδιοκτήτη και η [TextFrame::getParentCell](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParentCell) επιστρέφει `null`. Και οι δύο μέθοδοι παρέχουν πλοήγηση μόνο για ανάγνωση, έτσι η κλήση τους δεν αλλάζει την ιδιοκτησία. Πάντα ελέγχετε την επιστραφόμενη τιμή με `java_is_null` πριν αποκτήσετε πρόσβαση στο σχήμα.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-Για ένα πλήρες παράδειγμα που προσδιορίζει ιδιοκτήτες σχήματος και κελιού‑πίνακα, συμπεριλαμβανομένων σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/php-java/search-and-replace-text/).
+    $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+    $shape1->addTextFrame("Shape 1");
+    echo (java_is_true($shape1->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+    $shape2->getTextFrame()->setText("Shape 2");
+    echo (java_is_true($shape2->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
+    $shape3->addTextFrame("");
+    echo (java_is_true($shape3->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
+    $shape4->getTextFrame()->setText("");
+    echo (java_is_true($shape4->isTextBox()) ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+Οι δύο πρώτες κλήσεις εκτυπώνουν `true`; οι δύο τελευταίες εκτυπώνουν `false`.
+
+## **Εύρεση του σχήματος που κατέχει πλαίσιο κειμένου**
+
+Γενικός κώδικας επεξεργασίας κειμένου μπορεί να λάβει ένα [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) χωρίς να γνωρίζει ποιο αντικείμενο παρουσία το περιέχει. Χρησιμοποιήστε τη μέθοδο μόνο για ανάγνωση [TextFrame::getParentShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParentShape) για να πλοηγηθείτε πίσω στο ιδιοκτησιακό του [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/).
+
+Για ένα πλαίσιο κειμένου που ανήκει σε ένα αυτόματο σχήμα ή σε κάποιο άλλο σ_shape_ με κείμενο, η [TextFrame::getParentShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParentShape) επιστρέφει τον κάτοχο και η [TextFrame::getParentCell](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParentCell) επιστρέφει `null`. Ελέγξτε την επιστρεφόμενη τιμή με `java_is_null` πριν την προσπελάσετε. Για να προσδιορίσετε τόσο τους κάτοχους σχήματος όσο και των κελιών πινάκων, συμπεριλαμβανομένων των σχημάτων που συνδέονται με κόμβους SmartArt, δείτε [Search and Replace Text](/slides/el/php-java/search-and-replace-text/).
 
 ## **Προσθήκη στηλών σε πλαίσιο κειμένου**
 
-Το Aspose.Slides παρέχει τις μεθόδους [setColumnCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/setcolumncount/) και [setColumnSpacing](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/setcolumnspacing/) από την κλάση [TextFrameFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/) που σας επιτρέπουν να προσθέσετε στήλες σε πλαίσια κειμένου. Μπορείτε να καθορίσετε τον αριθμό των στηλών σε ένα πλαίσιο κειμένου και να ορίσετε την απόσταση μεταξύ τους σε σημεία.
+Η μέθοδος [TextFrameFormat::setColumnCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setColumnCount) διαιρεί το πλαίσιο κειμένου σε στήλες, ενώ η [TextFrameFormat::setColumnSpacing](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setColumnSpacing) ορίζει το κενό μεταξύ των στηλών σε σημεία. Και οι δύο ρυθμίσεις ανήκουν στο [TextFrameFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/) και μπορούν να αλλάξουν μέσω του πλαισίου κειμένου ενός υπάρχοντος πλαισίου κειμένου. Το κείμενο ρέει ξανά μεταξύ των στηλών μέσα στο ίδιο σχήμα· δεν συνεχίζεται σε άλλο σχήμα.
 
-Αυτός ο κώδικας δείχνει τη περιγεγραμμένη λειτουργία:
+Το παρακάτω παράδειγμα δημιουργεί ένα πλαίσιο κειμένου τριών στηλών με 10 σημεία διάστημα μεταξύ των στηλών, αποθηκεύει την παρουσία και διαβάζει τις αποθηκευμένες ρυθμίσεις από το αρχείο εξόδου:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθέτει AutoShape με τύπο ορισμένο ως Rectangle
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Προσθέτει TextFrame στο Rectangle
-    $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
-    # Λαμβάνει τη μορφή κειμένου του TextFrame
-    $format = $aShape->getTextFrame()->getTextFrameFormat();
-    # Καθορίζει τον αριθμό των στηλών στο TextFrame
-    $format->setColumnCount(3);
-    # Καθορίζει την απόσταση μεταξύ των στηλών
-    $format->setColumnSpacing(10);
-    # Αποθηκεύει την παρουσίαση
-    $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+    $textBox->addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    $textFrameFormat = $textBox->getTextFrame()->getTextFrameFormat();
+    $textFrameFormat->setColumnCount(3);
+    $textFrameFormat->setColumnSpacing(10);
+
+    $presentation->save("TextBoxColumns.pptx", SaveFormat::Pptx);
+
+    $savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        $savedTextBox = $savedPresentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+        $savedFormat = $savedTextBox->getTextFrame()->getTextFrameFormat();
+        echo "Columns: " . java_values($savedFormat->getColumnCount()) . "; spacing: " . java_values($savedFormat->getColumnSpacing()) . " points" . PHP_EOL;
+    } finally {
+        $savedPresentation->dispose();
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Προσθήκη στηλών σε πλαίσιο κειμένου**
+## **Εξαγωγή κειμένου από μεμονωμένες στήλες**
 
-Το Aspose.Slides for PHP via Java παρέχει τη μέθοδο [setColumnCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/setcolumncount/) από την κλάση [TextFrameFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/) που σας επιτρέπει να προσθέσετε στήλες σε πλαίσια κειμένου. Μέσω αυτής της ιδιότητας, μπορείτε να καθορίσετε τον επιθυμητό αριθμό στηλών σε ένα πλαίσιο κειμένου.
+Χρησιμοποιήστε το [TextFrame::splitTextByColumns](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#splitTextByColumns) για να ανακτήσετε το κείμενο που έχει ανατεθεί σε κάθε οπτική στήλη ενός υπάρχοντος πλαισίου κειμένου. Η μέθοδος επιστρέφει μία συμβολοσειρά για κάθε στήλη, με τη σειρά ανάγνωσης βάσει στηλών. Ένα πλαίσιο κειμένου μίας στήλης παράγει έναν πίνακα με ένα στοιχείο, και μια κενή στήλη αναπαρίσταται από μια κενή συμβολοσειρά. Οι συμβολοσειρές περιέχουν μόνο ακατέργαστο κείμενο· η μορφοποίηση σε επίπεδο τμήματος δεν διατηρείται.
 
-Αυτός ο κώδικας PHP δείχνει πώς να προσθέσετε μια στήλη μέσα σε ένα πλαίσιο κειμένου:
+Αυτό είναι χρήσιμο όταν χρειάζεται να:
+
+- Εξαγάγετε κείμενο διατηρώντας τη σειρά ανάγνωσης κατά στήλες.
+- Ευρετηριάσετε ή συγκρίνετε το περιεχόμενο διαφανειών πολλαπλών στηλών.
+- Εξάγετε κάθε στήλη σε ξεχωριστό αρχείο, πεδίο βάσης δεδομένων ή άλλο προορισμό.
+- Εξετάσετε πώς το κείμενο αναδιανέμεται μετά την αλλαγή του αριθμού στηλών με το [TextFrameFormat::setColumnCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setColumnCount), του διαστήματος με το [TextFrameFormat::setColumnSpacing](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setColumnSpacing), της γραμματοσειράς ή του μεγέθους του πλαισίου κειμένου.
+
+Η μέθοδος αναφέρει το κείμενο που κατανέμεται εντός του τρέχοντος [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/); δεν μεταφέρει αυτόματα το κείμενο μεταξύ ξεχωριστών σχημάτων ή πλαισίων κειμένου. Η κατανομή ανά στήλη εξαρτάται από τις διαθέσιμες γραμματοσειρές και άλλες ρυθμίσεις διάταξης κειμένου, οπότε βεβαιωθείτε ότι οι απαιτούμενες γραμματοσειρές είναι διαθέσιμες όταν τα αποτελέσματα πρέπει να είναι συνεπή.
+
+Το παρακάτω παράδειγμα φορτώνει μια παρουσία, βρίσκει το πρώτο αυτόματο σχήμα πολλαπλών στηλών με πλαίσιο κειμένου, διαβάζει τον διαμορφωμένο αριθμό στηλών και γράφει το κείμενο από κάθε στήλη σε ξεχωριστό αρχείο. Τα σχήματα που δεν παρέχουν πλαίσιο κειμένου παραλείπονται.
 
 ```php
-  $outPptxFileName = "ColumnsTest.pptx";
-  $pres = new Presentation();
-  try {
-    $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    $format = $shape1->getTextFrame()->getTextFrameFormat();
-    $format->setColumnCount(2);
-    $shape1->getTextFrame()->setText("All these columns are forced to stay within a single text container -- " . "you can add or delete text - and the new or remaining text automatically adjusts " . "itself to stay within the container. You cannot have text spill over from one container " . "to other, though -- because PowerPoint's column options for text are limited!");
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(Double->NaN == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test)) {
-        $test->dispose();
-      }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("MultiColumnText.pptx");
+try {
+    $textBox = null;
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($shape, $autoShapeClass)) {
+            $textFrame = $shape->getTextFrame();
+            if (!java_is_null($textFrame)) {
+                $columnCount = java_values($textFrame->getTextFrameFormat()->getColumnCount());
+                if ($columnCount > 1) {
+                    $textBox = $shape;
+                    break;
+                }
+            }
+        }
     }
-    $format->setColumnSpacing(20);
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test1 = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test1->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(20 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test1)) {
-        $test1->dispose();
-      }
+
+    if ($textBox === null) {
+        echo "No multi-column text frame was found." . PHP_EOL;
+    } else {
+        $textFrame = $textBox->getTextFrame();
+        $configuredColumnCount = java_values($textFrame->getTextFrameFormat()->getColumnCount());
+        $columnTexts = java_values($textFrame->splitTextByColumns());
+
+        echo "Configured columns: " . $configuredColumnCount . PHP_EOL;
+
+        foreach ($columnTexts as $columnIndex => $columnText) {
+            $columnNumber = $columnIndex + 1;
+            echo "Column " . $columnNumber . ": " . $columnText . PHP_EOL;
+            $outputPath = "Column-" . $columnNumber . ".txt";
+            $bytesWritten = file_put_contents($outputPath, $columnText);
+            if ($bytesWritten === false) {
+                echo "Could not write column " . $columnNumber . " to " . $outputPath . PHP_EOL;
+            }
+        }
     }
-    $format->setColumnCount(3);
-    $format->setColumnSpacing(15);
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test2 = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test2->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(3 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(15 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test2)) {
-        $test2->dispose();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Ενημέρωση κειμένου**
 
-Το Aspose.Slides σας επιτρέπει να αλλάξετε ή να ενημερώσετε το κείμενο που περιέχεται σε ένα πλαίσιο κειμένου ή όλο το κείμενο που περιέχεται σε μια παρουσία.
+Για να ενημερώσετε το κείμενο σε όλη την παρουσία, επαναλάβετε τις διαφάνειες και τα σχήματα, επιλέξτε τα αυτόματα σχήματα και, στη συνέχεια, επεξεργαστείτε τα τμήματά τους. Η εργασία σε επίπεδο τμήματος σας επιτρέπει να αλλάξετε τόσο το κείμενο όσο και τη μορφοποίηση των χαρακτήρων.
 
-Αυτός ο κώδικας PHP παρουσιάζει μια λειτουργία όπου όλα τα κείμενα σε μια παρουσία ενημερώνονται ή αλλάζουν:
+Το παρακάτω παράδειγμα αντικαθιστά κάθε εμφάνιση του `years` με το `months` σε κείμενο αυτόματων σχημάτων και κάνει κάθε επηρεασμένο τμήμα έντονο:
 
 ```php
-  $pres = new Presentation("text.pptx");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      foreach($slide->getShapes() as $shape) {
-        # Ελέγχει αν το σχήμα υποστηρίζει πλαίσιο κειμένου (IAutoShape).
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-          $autoShape = $shape;
-          # Διατρέχει τις παραγράφους στο πλαίσιο κειμένου
-          foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # Διατρέχει κάθε τμήμα στην παράγραφο
-            foreach($paragraph->getPortions() as $portion) {
-              $portion->setText($portion->getText()->replace("years", "months"));// Αλλάζει το κείμενο
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-              $portion->getPortionFormat()->setFontBold(NullableBool::True);// Αλλάζει τη μορφοποίηση
-
+$presentation = new Presentation("Text.pptx");
+try {
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($slide->getShapes()->size()); $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, $autoShapeClass)) {
+                continue;
             }
-          }
+
+            $textFrame = $shape->getTextFrame();
+            if (java_is_null($textFrame)) {
+                continue;
+            }
+
+            for ($paragraphIndex = 0; $paragraphIndex < java_values($textFrame->getParagraphs()->getCount()); $paragraphIndex++) {
+                $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+                for ($portionIndex = 0; $portionIndex < java_values($paragraph->getPortions()->getCount()); $portionIndex++) {
+                    $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                    $text = java_values($portion->getText());
+                    if ($text !== null && strpos($text, "years") !== false) {
+                        $updatedText = str_replace("years", "months", $text);
+                        $portion->setText($updatedText);
+                        $portion->getPortionFormat()->setFontBold(NullableBool::True);
+                    }
+                }
+            }
         }
-      }
     }
-    # Αποθηκεύει την τροποποιημένη παρουσίαση
-    $pres->save("text-changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("TextChanged.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Αυτή η διαπέραση ενημερώνει το κείμενο μόνο σε αυτόματα σχήματα. Το κείμενο που αποθηκεύεται σε πίνακες, διαγράμματα, SmartArt ή ομαδοποιημένα σχήματα απαιτεί διαπέραση των συλλογών των αντίστοιχων αντικειμένων.
 
 ## **Προσθήκη πλαισίου κειμένου με υπερσύνδεσμο**
 
-Μπορείτε να εισαγάγετε έναν σύνδεσμο μέσα σε ένα πλαίσιο κειμένου. Όταν το πλαίσιο κειμένου κλικάρεται, οι χρήστες μεταφέρονται για άνοιγμα του συνδέσμου.
+Ένας υπερσύνδεσμος μπορεί να εκχωρηθεί σε συγκεκριμένο τμήμα κειμένου, ώστε μόνο αυτό το κείμενο να λειτουργεί ως κλικαρίσσιμος σύνδεσμος. Χρησιμοποιήστε το [HyperlinkManager::setExternalHyperlinkClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) για να συσχετίσετε το τμήμα με μια εξωτερική διεύθυνση URL.
 
-Για να προσθέσετε ένα πλαίσιο κειμένου που περιέχει σύνδεσμο, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης `Presentation`. 
-2. Πάρτε μια αναφορά για την πρώτη διαφάνεια στην νεοδημιουργημένη παρουσία. 
-3. Προσθέστε ένα αντικείμενο `AutoShape` με `ShapeType` ορισμένο ως `Rectangle` σε μια καθορισμένη θέση στη διαφάνεια και λάβετε μια αναφορά του νεοπροστέθειμένου αντικειμένου AutoShape.
-4. Προσθέστε ένα `TextFrame` στο αντικείμενο `AutoShape` που περιέχει *Aspose TextBox* ως προεπιλεγμένο κείμενο. 
-5. Δημιουργήστε μια παρουσία της κλάσης `HyperlinkManager`. 
-6. Ορίστε έναν υπερσύνδεσμο χρησιμοποιώντας τη μέθοδο [setExternalHyperlinkClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) που σχετίζεται με το επιθυμητό τμήμα του `TextFrame`.
-7. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`. 
-
-Αυτός ο κώδικας PHP — μια υλοποίηση των παραπάνω βημάτων — δείχνει πώς να προσθέσετε ένα πλαίσιο κειμένου με υπερσύνδεσμο σε μια διαφάνεια:
+Το παρακάτω παράδειγμα δημιουργεί συνδεδεμένο κείμενο και το αποθηκεύει σε μια παρουσία:
 
 ```php
-  # Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει αρχείο PPTX
-  $pres = new Presentation();
-  try {
-    # Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθέτει αντικείμενο AutoShape με τύπο ορισμένο ως Rectangle
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # Κάνει cast το σχήμα σε AutoShape
-    $pptxAutoShape = $shape;
-    # Προσπελαύνει την ιδιότητα ITextFrame που σχετίζεται με το AutoShape
-    $pptxAutoShape->addTextFrame("");
-    $textFrame = $pptxAutoShape->getTextFrame();
-    # Προσθέτει κείμενο στο πλαίσιο
-    $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # Ορίζει τον υπερσύνδεσμο για το κείμενο του τμήματος
-    $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
-    $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
-    # Αποθηκεύει την παρουσίαση PPTX
-    $pres->save("hLink_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+    $textBox->addTextFrame("Aspose.Slides");
+
+    $textPortion = $textBox->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $textPortion->getPortionFormat()->getHyperlinkManager()->setExternalHyperlinkClick("https://www.aspose.com/");
+
+    $presentation->save("Hyperlink.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+## **Συχνές Ερωτήσεις**
 
-**Ποια είναι η διαφορά μεταξύ πλαισίου κειμένου και placeholder κειμένου όταν δουλεύετε με master διαφάνειες;**
+**Ποια είναι η διαφορά μεταξύ ενός πλαισίου κειμένου και ενός σύμμεινου κειμένου σε μια κύρια ή διάταξη διαφάνειας;**
 
-Ένα [placeholder](/slides/el/php-java/manage-placeholder/) κληρονομεί το στυλ/θέση από το [master](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/) και μπορεί να παρακαμφθεί σε [layouts](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/), ενώ ένα κανονικό πλαίσιο κειμένου είναι ένα αυτόνομα αντικείμενο σε μια συγκεκριμένη διαφάνεια και δεν αλλάζει όταν αλλάζετε τα layout.
+Ένα [placeholder](/slides/el/php-java/manage-placeholder/) μπορεί να κληρονομήσει τη θέση και τη μορφοποίησή του από μια [master slide](https://reference.aspose.com/slides/el/php-java/aspose.slides/masterslide/) ή [layout slide](https://reference.aspose.com/slides/el/php-java/aspose.slides/layoutslide/). Ένα κανονικό πλαίσιο κειμένου είναι ένα ανεξάρτητο σχήμα στη διαφάνεια όπου δημιουργήθηκε και δεν αποκτά τη συμπεριφορά του σύμμεινου όταν η διάταξη αλλάζει.
 
-**Πώς μπορώ να κάνω μαζική αντικατάσταση κειμένου σε όλη την παρουσία χωρίς να επηρεάσω το κείμενο μέσα σε γραφήματα, πίνακες και SmartArt;**
+**Πώς μπορώ να αντικαταστήσω κείμενο χωρίς να αλλάξω το κείμενο σε διαγράμματα, πίνακες ή SmartArt;**
 
-Περιορίστε την επανάληψή σας σε auto‑shapes που έχουν πλαίσια κειμένου και αποκλείστε τα ενσωματωμένα αντικείμενα ([charts](https://reference.aspose.com/slides/el/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/el/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/el/php-java/aspose.slides/smartart/)) διασχίζοντας τις συλλογές τους ξεχωριστά ή παρακάμπτοντας αυτούς τους τύπους αντικειμένων.
+Περιορίστε τη διαπέραση σε αντικείμενα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) όπως φαίνεται στο παράδειγμα Ενημέρωσης Κειμένου. Τα διαγράμματα, οι πίνακες και το SmartArt αποθηκεύουν κείμενο στα δικά τους μοντέλα αντικειμένων, οπότε δεν τροποποιούνται από αυτήν τη βρόχο.

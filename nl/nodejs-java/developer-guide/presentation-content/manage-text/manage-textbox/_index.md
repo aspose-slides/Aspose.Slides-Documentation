@@ -1,12 +1,12 @@
 ---
 title: Beheer tekstvakken in presentaties met JavaScript
-linktitle: Beheer Tekstvak
+linktitle: Beheer tekstvak
 type: docs
 weight: 20
 url: /nl/nodejs-java/manage-textbox/
 keywords:
 - tekstvak
-- tekstframe
+- tekstkader
 - tekst toevoegen
 - tekst bijwerken
 - tekstvak maken
@@ -18,88 +18,64 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides voor Node.js maakt het eenvoudig om tekstvakken te maken, bewerken en dupliceren in PowerPoint- en OpenDocument-bestanden, waardoor uw presentaties-automatisering wordt verbeterd."
+description: "Maak, identificeer, formatteer en werk tekstvakken bij in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Node.js via Java."
 ---
-## **Introductie**
+## **Inleiding**
 
-Teksten op dia’s bestaan meestal in tekstvakken of vormen. Daarom moet je, om tekst aan een dia toe te voegen, een tekstvak toevoegen en vervolgens wat tekst in het tekstvak plaatsen. Aspose.Slides for Node.js via Java biedt de [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/AutoShape) klasse die je in staat stelt een vorm toe te voegen die tekst bevat.
+In Aspose.Slides voor Node.js via Java wordt de tekst van een dia opgeslagen in tekstkaders die tot vormen behoren. De [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/)-klasse vertegenwoordigt de meest voorkomende vorm die tekst bevat en geeft de tekst beschikbaar via de [AutoShape.getTextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/#getTextFrame)‑methode.
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides biedt ook de [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Shape) klasse die je toestaat vormen aan dia's toe te voegen. Echter, niet alle vormen die via de `Shape`-klasse worden toegevoegd, kunnen tekst bevatten. Vormen die via de [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/AutoShape) klasse worden toegevoegd, kunnen wel tekst bevatten.
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-Daarom, wanneer je werkt met een vorm waaraan je tekst wilt toevoegen, wil je mogelijk controleren en bevestigen dat deze is gecast via de `AutoShape`-klasse. Alleen dan kun je werken met [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/TextFrame), dat een eigenschap is van `AutoShape`. Zie de sectie [Update Text](https://docs.aspose.com/slides/nl/nodejs-java/manage-textbox/#update-text) op deze pagina.
+Elke auto‑vorm is afgeleid van [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/), maar niet elke vorm is een auto‑vorm of ondersteunt een tekstkader. Bij het verwerken van een bestaande presentatie moet u controleren of een vorm een instantie is van [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/) voordat u de tekst benadert.
 
 {{% /alert %}}
 
-## **Maak een tekstvak op een dia**
+## **Een tekstvak maken op een dia**
 
-Om een tekstvak op een dia te maken, doorloop je de volgende stappen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) klasse.
-2. Verkrijg een referentie naar de eerste dia in de nieuw aangemaakte presentatie. 
-3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/AutoShape) object toe met [ShapeType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg de referentie naar het nieuw toegevoegde `AutoShape`-object.
-4. Voeg een `TextFrame`-eigenschap toe aan het `AutoShape`-object die tekst zal bevatten. In het onderstaande voorbeeld hebben we deze tekst toegevoegd: *Aspose TextBox*
-5. Schrijf tenslotte het PPTX‑bestand via het `Presentation`‑object. 
-
-Deze JavaScript‑code—een implementatie van de bovenstaande stappen—toont hoe je tekst aan een dia kunt toevoegen:
+Om een tekstvak te maken, voegt u een auto‑vorm toe aan een dia, voegt u tekst toe aan het tekstkader en slaat u de presentatie op. Het volgende voorbeeld maakt een rechthoekig tekstvak:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Instantieert Presentatie
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Haalt de eerste dia op uit de presentatie
-    var sld = pres.getSlides().get_Item(0);
-    // Voegt een AutoShape toe met type ingesteld op Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Voegt TextFrame toe aan de Rectangle
-    ashp.addTextFrame(" ");
-    // Benadert het tekstframe
-    var txtFrame = ashp.getTextFrame();
-    // Maakt het Paragraph-object voor het tekstframe
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Maakt een Portion-object voor de alinea
-    var portion = para.getPortions().get_Item(0);
-    // Stelt tekst in
-    portion.setText("Aspose TextBox");
-    // Slaat de presentatie op op schijf
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Controleren op tekstvakvorm**
+De coördinaten en afmetingen die aan [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/#addAutoShape) worden doorgegeven, worden gemeten in punten. [AutoShape.addTextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/#addTextFrame) initialiseert het tekstkader met de opgegeven tekst.
 
-Aspose.Slides biedt de [isTextBox](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/#isTextBox) methode van de [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/) klasse, waarmee je vormen kunt onderzoeken en tekstvakken kunt identificeren.
+## **Controleren op een tekstvakvorm**
 
-![Text box and shape](istextbox.png)
+Gebruik de [AutoShape.isTextBox](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/#isTextBox)‑methode om te bepalen of een auto‑vorm wordt beschouwd als een tekstvak. Dit is handig wanneer een presentatie zowel tekstdragende als puur grafische auto‑vormen bevat.
 
-Deze JavaScript‑code laat zien hoe je kunt controleren of een vorm als tekstvak is aangemaakt:
+![A text box and a shape](istextbox.png)
+
+Het volgende voorbeeld inspecteert elke auto‑vorm in een presentatie:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -108,233 +84,219 @@ try {
 }
 ```
 
-Merk op dat als je simpelweg een autoshape toevoegt met de `addAutoShape`‑methode van de [ShapeCollection](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/) klasse, de `isTextBox`‑methode van de autoshape `false` retourneert. Nadat je echter tekst aan de autoshape hebt toegevoegd met de `addTextFrame`‑methode of de `setText`‑methode, geeft de `isTextBox`‑eigenschap `true` terug.
+Een nieuw toegevoegde auto‑vorm wordt pas als tekstvak beschouwd wanneer ze niet‑lege tekst bevat. U kunt die tekst leveren via [AutoShape.addTextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/#addTextFrame) of [TextFrame.setText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#setText). Het toevoegen of toewijzen van een lege tekenreeks zorgt ervoor dat [AutoShape.isTextBox](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/#isTextBox) `false` teruggeeft:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() retourneert false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() retourneert true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() retourneert false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() retourneert true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() retourneert false
-shape3.addTextFrame("");
-// shape3.isTextBox() retourneert false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() retourneert false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() retourneert false
-```
-
-## **Vind de vorm die een tekstframe bezit**
-
-In generieke tekstverwerkingscode kun je een [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) ontvangen zonder al te weten welk presentatie‑object het bevat. Gebruik de [TextFrame.getParentShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentShape--) methode om terug te navigeren naar de eigenaar, de [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/).
-
-Voor een tekstframe dat behoort tot een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/) of een andere tekst‑behorende vorm, retourneert [TextFrame.getParentShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentShape--) de eigenaar en [TextFrame.getParentCell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentCell--) `null`. Beide methoden bieden alleen‑lezen navigatie, dus aanroepen verandert de eigendom niet. Controleer altijd of de geretourneerde waarde `null` is voordat je toegang krijgt tot de vorm.
-
-Voor een volledig voorbeeld dat vorm‑ en tabelcel‑eigenaars identificeert, inclusief vormen die gekoppeld zijn aan SmartArt‑knooppunten, zie [Search and Replace Text](/slides/nl/nodejs-java/search-and-replace-text/).
-
-## **Kolom toevoegen in tekstvak**
-
-Aspose.Slides biedt de [setColumnCount](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) en [setColumnSpacing](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) methoden van de [TextFrameFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/TextFrameFormat) klasse die je in staat stellen kolommen aan tekstvakken toe te voegen. Je kunt het aantal kolommen in een tekstvak specificeren en de afstand in punten tussen kolommen instellen.
-
-Deze JavaScript‑code demonstreert de beschreven bewerking: 
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Haalt de eerste dia op uit de presentatie
-    var slide = pres.getSlides().get_Item(0);
-    // Voeg een AutoShape toe met type ingesteld op Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Voeg TextFrame toe aan de Rectangle
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Haalt het tekstformaat van TextFrame op
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Stelt het aantal kolommen in TextFrame in
-    format.setColumnCount(3);
-    // Stelt de afstand tussen kolommen in
-    format.setColumnSpacing(10);
-    // Slaat de presentatie op
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Kolom toevoegen in tekstframe**
+De eerste twee oproepen geven `true` weer; de laatste twee geven `false` weer.
 
-Aspose.Slides for Node.js via Java biedt de [setColumnCount](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) methode van de [TextFrameFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/TextFrameFormat) klasse die je in staat stelt kolommen in tekstframes toe te voegen. Via deze eigenschap kun je het gewenste aantal kolommen in een tekstframe instellen.
+## **Zoek de vorm die een tekstkader bezit**
 
-Deze JavaScript‑code laat zien hoe je een kolom toevoegt binnen een tekstframe:
+Generieke tekstverwerkingscode kan een [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) ontvangen zonder te weten welk presentatie‑object het bevat. Gebruik de alleen‑lezen [TextFrame.getParentShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentShape)‑methode om terug te navigeren naar de bijbehorende [Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/).
+
+Voor een tekstkader dat eigendom is van een auto‑vorm of een andere tekstdragende vorm, geeft [TextFrame.getParentShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentShape) de eigenaar terug en geeft [TextFrame.getParentCell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentCell) `null` terug. Controleer de geretourneerde waarde voordat u deze benadert. Om zowel vorm‑ als tabelcel‑eigenaars te identificeren, inclusief vormen die gekoppeld zijn aan SmartArt‑knooppunten, zie [Search and Replace Text](/slides/nl/nodejs-java/search-and-replace-text/).
+
+## **Kolommen toevoegen aan een tekstvak**
+
+De [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setColumnCount)‑methode verdeelt het tekstkader in kolommen, terwijl [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) de ruimte tussen kolommen in punten instelt. Beide instellingen behoren tot [TextFrameFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/) en kunnen worden aangepast via het tekstkader van een bestaand tekstvak. Tekst stroomt opnieuw tussen kolommen binnen dezelfde vorm; hij gaat niet verder naar een andere vorm.
+
+Het volgende voorbeeld maakt een drie‑koloms tekstvak met 10 punten tussen de kolommen, slaat de presentatie op en leest de opgeslagen instellingen terug uit het uitvoerbestand:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // De kolomafstand werd nooit ingesteld, dus wordt gerapporteerd als NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tekst extraheren uit individuele kolommen**
+
+Gebruik [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#splitTextByColumns) om de tekst op te halen die aan elke visuele kolom in een bestaand tekstkader is toegewezen. De methode retourneert één tekenreeks per kolom, in kolom‑gebaseerde leesvolgorde. Een tekstkader met één kolom produceert een array met één element, en een lege kolom wordt weergegeven door een lege tekenreeks. De tekenreeksen bevatten alleen platte tekst; op‑gedeelte‑niveau opmaak wordt niet behouden.
+
+Dit is nuttig wanneer u:
+
+- Tekst extraheren terwijl de kolom‑gebaseerde leesvolgorde behouden blijft.
+- De inhoud van dia's met meerdere kolommen indexeren of vergelijken.
+- Elke kolom exporteren naar een afzonderlijk bestand, database‑veld of andere bestemming.
+- Inspecteren hoe tekst wordt herverdeeld na het wijzigen van het aantal kolommen met [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setColumnCount), de tussenafstand met [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), het lettertype of de grootte van het tekstkader.
+
+De methode meldt de tekst die is verdeeld binnen het huidige [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/), maar laat tekst niet automatisch van de ene vorm naar een andere of tussen tekstvakken stromen. Kolom‑verdeling kan afhangen van beschikbare lettertypen en andere tekst‑indelingsinstellingen, dus zorg ervoor dat de benodigde lettertypen beschikbaar zijn wanneer consistente resultaten belangrijk zijn.
+
+Het volgende voorbeeld laadt een presentatie, vindt de eerste auto‑vorm met meerdere kolommen en een tekstkader, leest het geconfigureerde aantal kolommen, en schrijft de tekst van elke kolom naar een afzonderlijk bestand. Vormen die geen tekstkader bieden, worden overgeslagen.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Tekst bijwerken**
 
-Aspose.Slides maakt het mogelijk om de tekst in een tekstvak of alle teksten in een presentatie te wijzigen of bij te werken.
+Om tekst door de hele presentatie bij te werken, doorloopt u de dia's en vormen, selecteert u auto‑vormen en bewerkt u vervolgens hun tekstgedeelten. Werken op gedeelten‑niveau maakt het mogelijk zowel tekst als teken‑opmaak te wijzigen.
 
-Deze JavaScript‑code demonstreert een bewerking waarbij alle teksten in een presentatie worden bijgewerkt of gewijzigd:
+Het volgende voorbeeld vervangt elke instantie van `years` door `months` in de tekst van auto‑vormen en maakt elk getroffen gedeelte vet:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Controleert of vorm een tekstframe ondersteunt (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Doorloopt alinea's in het tekstframe
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Doorloopt elke portion in de alinea
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Verandert tekst
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Verandert opmaak
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Slaat gewijzigde presentatie op
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Tekstvak met hyperlink toevoegen** 
+Deze doorloop werkt alleen tekst bij in auto‑vormen. Tekst die is opgeslagen in tabellen, grafieken, SmartArt of gegroepeerde vormen vereist een doorloop van de respectieve collecties van die objecten.
 
-Je kunt een koppeling invoegen in een tekstvak. Wanneer op het tekstvak wordt geklikt, wordt de gebruiker doorgestuurd naar de link. 
+## **Een tekstvak met een hyperlink toevoegen**
 
-Om een tekstvak met een link toe te voegen, doorloop je de volgende stappen:
+Een hyperlink kan aan een specifiek tekstgedeelte worden toegewezen, zodat alleen die tekst als klikbare link fungeert. Gebruik [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) om het gedeelte te koppelen aan een externe URL.
 
-1. Maak een instantie van de `Presentation`‑klasse. 
-2. Verkrijg een referentie naar de eerste dia in de nieuw aangemaakte presentatie. 
-3. Voeg een `AutoShape`‑object toe met `ShapeType` ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg een referentie naar het nieuw toegevoegde AutoShape‑object.
-4. Voeg een `TextFrame` toe aan het `AutoShape`‑object en stel de tekst van het eerste segment in. In het onderstaande voorbeeld hebben we deze tekst gebruikt: *Aspose.Slides*
-5. Verkrijg de `HyperlinkManager` van dat segment via zijn `PortionFormat`.
-6. Roep `setExternalHyperlinkClick` aan op de `HyperlinkManager` om de link aan het segment toe te voegen.
-7. Schrijf tenslotte het PPTX‑bestand via het `Presentation`‑object. 
-
-Deze JavaScript‑code—een implementatie van de bovenstaande stappen—toont hoe je een tekstvak met een hyperlink aan een dia kunt toevoegen:
+Het volgende voorbeeld maakt gekoppelde tekst en slaat deze op in een presentatie:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Instantieert een Presentation-klasse die een PPTX vertegenwoordigt
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Haalt de eerste dia op uit de presentatie
-    var slide = pres.getSlides().get_Item(0);
-    // Voegt een AutoShape-object toe met type ingesteld op Rectangle
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Cast de vorm naar AutoShape
-    var pptxAutoShape = shape;
-    // Benadert de ITextFrame-eigenschap die bij de AutoShape hoort
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Voegt wat tekst toe aan het frame
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Stelt de hyperlink in voor de portion-tekst
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Slaat de PPTX-presentatie op
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Wat is het verschil tussen een tekstvak en een tekst‑placeholder bij het werken met masterslides?**
+**Wat is het verschil tussen een tekstvak en een tekst‑placeholder op een master‑ of lay‑outdia?**
 
-Een [placeholder](/slides/nl/nodejs-java/manage-placeholder/) erft stijl/positie van de [master](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/) en kan overschreven worden op [layouts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/), terwijl een regulier tekstvak een onafhankelijk object is op een specifieke dia en niet verandert wanneer je van layout wisselt.
+Een [placeholder](/slides/nl/nodejs-java/manage-placeholder/) kan zijn positie en opmaak overerven van een [master‑dia](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslide/) of een [layout‑dia](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslide/). Een regulier tekstvak is een onafhankelijke vorm op de dia waarop het werd gemaakt en krijgt geen placeholder‑gedrag wanneer de lay‑out verandert.
 
-**Hoe kan ik een bulk‑tekstvervanging uitvoeren door de hele presentatie zonder tekst in grafieken, tabellen en SmartArt aan te raken?**
+**Hoe kan ik tekst vervangen zonder de tekst in grafieken, tabellen of SmartArt te wijzigen?**
 
-Beperk je iteratie tot auto‑shapes die tekstframes hebben en sluit ingesloten objecten ([charts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/smartart/)) uit door hun collecties apart te doorlopen of die objecttypen over te slaan.
+Beperk de doorloop tot vormen die instanties zijn van [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/), zoals getoond in het voorbeeld Tekst bijwerken. Grafieken, tabellen en SmartArt slaan tekst op in hun eigen objectmodellen, dus ze worden niet aangepast door die lus.

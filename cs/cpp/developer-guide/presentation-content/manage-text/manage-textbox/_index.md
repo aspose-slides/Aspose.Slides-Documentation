@@ -1,6 +1,6 @@
 ---
 title: Správa textových polí v prezentacích pomocí C++
-linktitle: Správa textového pole
+linktitle: Spravovat textové pole
 type: docs
 weight: 20
 url: /cs/cpp/manage-textbox/
@@ -17,111 +17,86 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Aspose.Slides pro C++ usnadňuje vytváření, úpravu a klonování textových polí v souborech PowerPoint a OpenDocument, což zvyšuje automatizaci vašich prezentací."
+description: "Vytvářejte, identifikujte, formátujte a aktualizujte textová pole v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro C++."
 ---
 ## **Úvod**
 
-Texty na snímcích jsou obvykle umístěny v textových polích nebo tvarech. Proto musíte k přidání textu na snímek nejprve přidat textové pole a poté do něj vložit text. Aspose.Slides pro C++ poskytuje rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape), které umožňuje přidat tvar obsahující text.
+V Aspose.Slides pro C++ je text snímku uložen v textových rámcích, které patří k tvarem. Rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) představuje nejběžnější tvar nesoucí text a zpřístupňuje jeho text prostřednictvím metody [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/get_textframe/).
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides také poskytuje rozhraní [IShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_shape), které umožňuje přidávat tvary na snímky. Nicméně ne všechny tvary přidané přes rozhraní `IShape` mohou obsahovat text. Tvary přidané přes rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape) však mohou obsahovat text. 
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-Proto při práci s tvarem, ke kterému chcete přidat text, byste měli zkontrolovat a potvrdit, že byl přetypován přes rozhraní `IAutoShape`. Teprve pak budete moci pracovat s [TextFrame](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.text_frame), což je vlastnost pod `IAutoShape`. Viz sekce [Update Text](https://docs.aspose.com/slides/cs/cpp/manage-textbox/#update-text) na této stránce. 
+{{% alert color="info" title="Note" %}}
+Každý automatický tvar implementuje [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/), ale ne každý tvar je automatický tvar nebo podporuje textový rámec. Při zpracování existující prezentace zkontrolujte, že tvar implementuje [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/), než k jeho textu přistoupíte.
 {{% /alert %}}
 
 ## **Vytvoření textového pole na snímku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.presentation).  
-2. Získejte odkaz na první snímek nově vytvořené prezentace.  
-3. Přidejte objekt [IAutoShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_auto_shape) s [ShapeType](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) nastaveným na `Rectangle` na určené pozici na snímku a získejte odkaz na nově přidaný objekt `IAutoShape`.  
-4. Přidejte vlastnost `TextFrame` k objektu `IAutoShape`, která bude obsahovat text. V níže uvedeném příkladu jsme přidali tento text: *Aspose TextBox*  
-5. Nakonec zapište soubor PPTX pomocí objektu `Presentation`.  
-
-Tento C++ kód—implementace výše uvedených kroků—ukazuje, jak přidat text na snímek:
+Pro vytvoření textového pole přidejte automatický tvar na snímek, přidejte text do jeho textového rámce a uložte prezentaci. Následující příklad vytváří obdélníkové textové pole:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Vytvoří instanci Presentation
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// Získá první snímek v prezentaci
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Přidá AutoShape s typem nastaveným jako Obdélník
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Přidá TextFrame do obdélníku
-ashp->AddTextFrame(u" ");
-
-// Přistoupí k textovému rámci
-auto txtFrame = ashp->get_TextFrame();
-
-// Vytvoří objekt Paragraph pro textový rámec
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Vytvoří objekt Portion pro odstavec
-auto portion = para->get_Portions()->idx_get(0);
-
-// Nastaví text
-portion->set_Text(u"Aspose TextBox");
-
-// Uloží prezentaci na disk
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
 
-## **Kontrola tvaru textového pole**
+Souřadnice a rozměry předávané metodě [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/addautoshape/) jsou měřeny v bodech. [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/addtextframe/) inicializuje textový rámec s dodaným textem.
 
-Aspose.Slides poskytuje metodu [get_IsTextBox](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/get_istextbox/) z rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/), která vám umožní prozkoumat tvary a identifikovat textová pole.
+## **Kontrola, zda je tvar textovým polem**
 
-![Text box and shape](istextbox.png)
+Použijte metodu [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/get_istextbox/) k určení, zda je automatický tvar považován za textové pole. To je užitečné, když prezentace obsahuje jak tvary nesoucí text, tak čistě grafické automatické tvary.
 
-Tento C++ kód ukazuje, jak zkontrolovat, zda byl tvar vytvořen jako textové pole: 
+![Textové pole a tvar](istextbox.png)
 
-```c++
+Následující příklad prochází každý automatický tvar v prezentaci:
+
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-Všimněte si, že pokud jednoduše přidáte automatický tvar pomocí metody `AddAutoShape` z rozhraní [IShapeCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/), metoda `get_IsTextBox` tohoto tvaru vrátí `false`. Po přidání textu do tvaru pomocí metody `AddTextFrame` nebo metody `set_Text` však metoda `get_IsTextBox` vrátí `true`.
+Nově přidaný automatický tvar není považován za textové pole, dokud neobsahuje neprázdný text. Tento text můžete poskytnout prostřednictvím [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/addtextframe/) nebo [ITextFrame::set_Text](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/set_text/). Přidání nebo přiřazení prázdného řetězce způsobí, že [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/get_istextbox/) vrátí `false`:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -130,7 +105,9 @@ Všimněte si, že pokud jednoduše přidáte automatický tvar pomocí metody `
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -138,155 +115,151 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() vrací false
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() vrací true
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() vrací false
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() vrací true
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() vrací false
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() vrací false
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() vrací false
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() vrací false
+Console::WriteLine(shape4->get_IsTextBox());
 ```
 
-## **Najděte tvar, který vlastní Text Frame**
+První dvě kontroly vrací `true`; poslední dvě vrací `false`.
 
-V obecném kódu pro zpracování textu můžete získat objekt [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) aniž byste věděli, který objekt prezentace jej obsahuje. K navigaci zpět na vlastníka použijte [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentshape/).
+## **Najít tvar, který vlastní textový rámec**
 
-Pro textový rámec, který patří k [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) nebo jinému tvaru obsahujícímu text, metoda [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentshape/) vrací vlastníka a metoda [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentcell/) vrací `nullptr`. Obě metody poskytují pouze čtecí navigaci, takže jejich volání nemění vlastnictví. Před přístupem k tvaru vždy zkontrolujte, zda vrácená hodnota není `nullptr`.
+Obecný kód pro zpracování textu může získat [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) aniž by věděl, který objekt prezentace jej obsahuje. Použijte metodu [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentshape/) k návratu k jeho vlastníkovi [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/).
 
-Kompletní příklad, který identifikuje vlastníky tvarů a buněk tabulek, včetně tvarů spojených s uzly SmartArt, najdete v sekci [Search and Replace Text](/slides/cs/cpp/search-and-replace-text/).
+Pro textový rámec vlastněný automatickým tvarem nebo jiným tvarem nesoucím text metoda [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentshape/) vrací vlastníka a [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentcell/) vrací `nullptr`. Obě metody poskytují pouze‑čtení navigaci. Před přístupem zkontrolujte vrácenou hodnotu na `nullptr`. Chcete-li identifikovat jak vlastníky tvarů, tak buněk tabulky, včetně tvarů spojených s uzly SmartArt, viz [Vyhledat a nahradit text](/slides/cs/cpp/search-and-replace-text/).
 
 ## **Přidání sloupců do textového pole**
 
-Aspose.Slides poskytuje metody [set_ColumnCount](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) a [set_ColumnSpacing](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) (z rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_text_frame_format) a třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_text_frame_format)), které umožňují přidávat sloupce do textových polí. Můžete určit počet sloupců v textovém poli a nastavit mezery mezi sloupci v bodech.
+Metoda [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/set_columncount/) rozdělí textový rámec do sloupců, zatímco [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/set_columnspacing/) nastaví mezeru mezi sloupci v bodech. Obě metody patří do [ITextFrameFormat](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/) a lze je volat přes textový rámec existujícího textového pole. Text se v rámci stejného tvaru přetéká mezi sloupci; nepřechází do jiného tvaru.
 
-Tento kód v C++ demonstruje popsanou operaci: 
+Následující příklad vytvoří třísloupcové textové pole s 10 body mezi sloupci, uloží prezentaci a načte uložená nastavení zpět ze výstupního souboru:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// Získá první snímek v prezentaci
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// Přidá AutoShape s typem nastaveným na Obdélník
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// Přidá TextFrame do obdélníku
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// Získá formát textu TextFrame
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// Určí počet sloupců v TextFrame
-format->set_ColumnCount(3);
-
-// Určí mezery mezi sloupci
-format->set_ColumnSpacing(10);
-
-// Uloží prezentaci
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **Přidání sloupců do Text Frame**
+## **Extrahování textu z jednotlivých sloupců**
 
-Aspose.Slides pro C++ poskytuje metodu [set_ColumnCount](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) (z rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_text_frame_format)), která umožňuje přidávat sloupce do textových rámců. Pomocí této metody můžete zadat požadovaný počet sloupců v textovém rámci.
+Použijte [ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/splittextbycolumns/) k získání textu přiřazeného každému vizuálnímu sloupci v existujícím textovém rámci. Metoda vrací jeden řetězec pro každý sloupec ve sloupcovém pořadí čtení. Jednosloupcový textový rámec vytvoří pole s jedním prvkem a prázdný sloupec je reprezentován prázdným řetězcem. Řetězce obsahují pouze prostý text; formátování na úrovni částí není zachováno.
 
-Tento C++ kód ukazuje, jak přidat sloupec uvnitř textového rámce:
+To je užitečné, když potřebujete:
+- Extrahovat text při zachování jeho sloupcového pořadí čtení.
+- Indexovat nebo porovnat obsah vícesloupcových snímků.
+- Exportovat každý sloupec do samostatného souboru, databázového pole nebo jiného cíle.
+- Zkontrolovat, jak je text přerozdělen po nastavení počtu sloupců pomocí [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/set_columncount/) nebo mezery pomocí [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframeformat/set_columnspacing/), či po změně písma nebo velikosti textového rámce.
+
+Metoda hlásí text rozdělený v aktuálním [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/); automaticky nepřetéká text mezi samostatnými tvary nebo textovými poli. Rozdělení sloupců může záviset na dostupných fontech a dalších nastaveních rozvržení textu, proto se ujistěte, že požadované fonty jsou k dispozici, když jsou důležité konzistentní výsledky.
+
+Následující příklad načte prezentaci, najde první vícesloupcový automatický tvar s textovým rámcem na prvním snímku, přečte jeho nastavený počet sloupců a zapíše text z každého sloupce do samostatného souboru. Tvary, které neposkytují textový rámec, jsou přeskočeny.
 
 ```cpp
-#include <DOM/AutoShape.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::IO;
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
 }
 
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+if (textBox == nullptr)
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
+    Console::WriteLine(u"No multi-column text frame was found.");
 }
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+else
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
 }
 ```
 
 ## **Aktualizace textu**
 
-Aspose.Slides vám umožňuje změnit nebo aktualizovat text obsažený v textovém poli nebo veškerý text v prezentaci. 
+Pro aktualizaci textu v celé prezentaci projděte snímky a tvary, vyberte automatické tvary a poté upravte jejich textové části. Práce na úrovni částí vám umožní měnit jak text, tak formátování znaků.
 
-Tento C++ kód demonstruje operaci, při které je aktualizován nebo změněn veškerý text v prezentaci:
+Následující příklad nahradí každou výskyt `years` za `months` v jednotlivých textových částech automatického tvaru a učiní každou dotčenou část tučnou:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -296,27 +269,38 @@ Tento C++ kód demonstruje operaci, při které je aktualizován nebo změněn v
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //Změní text
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //Změní formátování
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -324,76 +308,50 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//Uloží upravenou prezentaci
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **Přidání textového pole s hypertextovým odkazem** 
+Toto procházení aktualizuje text pouze v automatických tvarech. Text uložený v tabulkách, grafech, SmartArt nebo seskupených tvarech vyžaduje procházení vlastních kolekcí těchto objektů.
 
-Můžete vložit odkaz do textového pole. Když je textové pole kliknuto, uživatelé jsou přesměrováni na otevření odkazu. 
+## **Přidání textového pole s hyperodkazem**
 
-1. Vytvořte instanci třídy `Presentation`.  
-2. Získejte odkaz na první snímek nově vytvořené prezentace.  
-3. Přidejte objekt `AutoShape` s `ShapeType` nastaveným na `Rectangle` na určené pozici na snímku a získejte odkaz na nově přidaný objekt AutoShape.  
-4. Přidejte `TextFrame` k objektu `AutoShape`, který bude obsahovat *Aspose TextBox* jako výchozí text.  
-5. Vytvořte instanci třídy `IHyperlinkManager`.  
-6. Přiřaďte objekt `IHyperlinkManager` k metodě [set_HyperlinkClick](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) spojené s požadovanou částí `TextFrame`.  
-7. Nakonec zapište soubor PPTX pomocí objektu `Presentation`. 
-
-Tento C++ kód—implementace výše uvedených kroků—ukazuje, jak přidat textové pole s hypertextovým odkazem na snímek:
+Hyperodkaz může být přiřazen konkrétní textové části, takže pouze tento text funguje jako klikací odkaz. Použijte [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) k propojení této části s externí URL.
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Vytvoří instanci třídy Presentation, která představuje PPTX
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// Získá první snímek v prezentaci
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// Přidá objekt AutoShape s typem nastaveným na Obdélník
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// Přetypuje tvar na AutoShape
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// Přistoupí k vlastnosti ITextFrame přidružené k AutoShape
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// Přidá text do rámce
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// Nastaví hyperodkaz pro text částí
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// Uloží PPTX prezentaci
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
-**Jaký je rozdíl mezi textovým polem a textovým zástupcem při práci s hlavními snímky?**
+**Jaký je rozdíl mezi textovým polem a textovým zástupcem na hlavním nebo rozložení snímku?**
 
-[Placeholder](/slides/cs/cpp/manage-placeholder/) dědí styl/pozici z [masteru](https://reference.aspose.com/slides/cs/cpp/aspose.slides/masterslide/) a může být přepsán v [rozvrzích](https://reference.aspose.com/slides/cs/cpp/aspose.slides/layoutslide/), zatímco běžné textové pole je samostatný objekt na konkrétním snímku a během změny rozvržení se nemění.
+Zástupce [placeholder](/slides/cs/cpp/manage-placeholder/) může zdědit svou pozici a formátování z [hlavního snímku](https://reference.aspose.com/slides/cs/cpp/aspose.slides/masterslide/) nebo [rozložení snímku](https://reference.aspose.com/slides/cs/cpp/aspose.slides/layoutslide/). Běžné textové pole je nezávislý tvar na snímku, kde bylo vytvořeno, a nezíská chování zástupce, když se rozložení změní.
 
-**Jak mohu provést hromadnou náhradu textu v celé prezentaci, aniž bych zasáhl do textu v grafech, tabulkách a SmartArt?**
+**Jak mohu nahradit text, aniž bych změnil text v grafech, tabulkách nebo SmartArt?**
 
-Omezte iteraci na automatické tvary, které mají textové rámy, a vyloučte vložené objekty ([grafy](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/chart/), [tabulky](https://reference.aspose.com/slides/cs/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cs/cpp/aspose.slides.smartart/smartart/)) tím, že projdete jejich kolekce samostatně nebo přeskočíte tyto typy objektů.
+Omezte procházení na tvary, které implementují [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/), jak je ukázáno v příkladu Aktualizace textu. Grafy, tabulky a SmartArt ukládají text ve svých vlastních modelových objektech, takže nejsou tímto cyklem upraveny.
