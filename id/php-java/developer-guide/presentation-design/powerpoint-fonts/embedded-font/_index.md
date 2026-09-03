@@ -1,141 +1,259 @@
 ---
 title: Menyematkan Font dalam Presentasi Menggunakan PHP
-linktitle: Menyematkan Font
+linktitle: Font Tersematkan
 type: docs
 weight: 40
 url: /id/php-java/embedded-font/
 keywords:
-- menambahkan font
+- tambahkan font
 - menyematkan font
 - penyematan font
-- mengambil font yang disematkan
-- menambahkan font yang disematkan
-- menghapus font yang disematkan
-- mengompres font yang disematkan
+- ambil font yang disematkan
+- tambahkan font yang disematkan
+- hapus font yang disematkan
+- kompres font yang disematkan
 - PowerPoint
-- OpenDocument
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Menyematkan font TrueType dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk PHP via Java, memastikan rendering yang akurat di semua platform."
+description: "Kelola font yang disematkan dalam PowerPoint dengan Aspose.Slides untuk PHP via Java. Tambahkan, ambil, hapus, dan kompres font untuk mempertahankan tampilan teks dan mengurangi ukuran file."
 ---
 ## **Pendahuluan**
 
-**Embedded fonts in PowerPoint** berguna ketika Anda ingin presentasi Anda tampil dengan benar saat dibuka di sistem atau perangkat apa pun. Jika Anda menggunakan font pihak ketiga atau non‑standar karena berkreasi dengan pekerjaan Anda, maka Anda memiliki alasan lebih untuk menyematkan font Anda. Sebaliknya (tanpa font yang disematkan), teks atau angka pada slide Anda, tata letak, gaya, dll. dapat berubah atau menjadi kotak‑kotak yang membingungkan. 
+Menyematkan font menyimpan data font di dalam presentasi PowerPoint. Ketika penampil mendukung font yang disematkan, ia dapat menampilkan teks menggunakan font tersebut bahkan jika font tidak terpasang pada sistem target. Ini membantu mempertahankan jeda baris, spasi teks, dan tata letak slide.
 
-Kelas [FontsManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/FontsManager), kelas [FontData](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontdata/) dan kelas [Compress](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/) berisi sebagian besar metode yang Anda perlukan untuk bekerja dengan font yang disematkan dalam presentasi PowerPoint.
+Aspose.Slides untuk PHP via Java memungkinkan Anda mengambil, menambah, dan menghapus font yang disematkan melalui kelas [FontsManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/) yang dikembalikan oleh [Presentation::getFontsManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getFontsManager). Anda juga dapat mengurangi ukuran data font yang disematkan dengan menghapus karakter yang tidak digunakan oleh presentasi.
+
+Contoh di bawah ini bekerja dengan file PPTX. Sebelum menyematkan font, pastikan data font tersedia untuk Aspose.Slides dan lisensinya memperbolehkan penyematan.
 
 ## **Dapatkan dan Hapus Font yang Disematkan**
 
-Aspose.Slides menyediakan metode [getEmbeddedFonts](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) (yang dipaparkan oleh kelas [FontsManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/FontsManager)) untuk memungkinkan Anda memperoleh (atau mengetahui) font yang disematkan dalam sebuah presentasi. Untuk menghapus font, metode [removeEmbeddedFont](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont) (yang dipaparkan oleh kelas yang sama) digunakan.
+Gunakan [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) untuk menampilkan daftar font yang disimpan dalam sebuah presentasi. Untuk menghapus satu font, berikan sebuah font dari daftar tersebut ke [FontsManager::removeEmbeddedFont](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont), lalu simpan presentasinya.
 
-Kode PHP berikut menunjukkan cara mendapatkan dan menghapus font yang disematkan dari sebuah presentasi:
+Contoh berikut menampilkan daftar font yang disematkan dalam `EmbeddedFonts.pptx` dan menghapus Calibri jika ada:
 
 ```php
-  # Membuat objek Presentation yang mewakili file presentasi
-  $pres = new Presentation("EmbeddedFonts.pptx");
-  try {
-    # Merender slide yang berisi bingkai teks yang menggunakan "FunSized" yang disematkan
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # Menyimpan gambar ke disk dalam format JPEG
-    try {
-      $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-    $fontsManager = $pres->getFontsManager();
-    # Mendapatkan semua font yang disematkan
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
     $embeddedFonts = $fontsManager->getEmbeddedFonts();
-    # Mencari font "Calibri"
-    $calibriEmbeddedFont = null;
-    $Array = new java_class("java.lang.reflect.Array");
-    for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
-      echo("" . $embeddedFonts[$i]->getFontName());
-      if ("Calibri"->equals($embeddedFonts[$i]->getFontName())) {
-        $calibriEmbeddedFont = $embeddedFonts[$i];
-        break;
-      }
+
+    foreach ($embeddedFonts as $font) {
+        echo java_values($font->getFontName()) . PHP_EOL;
     }
-    # Menghapus font "Calibri"
-    $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
-    # Merender presentasi; "Calibri" font diganti dengan yang sudah ada
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # Menyimpan gambar ke disk dalam format JPEG
-    try {
-      $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+
+    $fontToRemove = null;
+    foreach ($embeddedFonts as $font) {
+        $fontName = java_values($font->getFontName());
+        if (strcasecmp($fontName, "Calibri") === 0) {
+            $fontToRemove = $font;
+            break;
+        }
     }
-    # Menyimpan presentasi tanpa font "Calibri" yang disematkan ke disk
-    $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    if ($fontToRemove !== null) {
+        $fontsManager->removeEmbeddedFont($fontToRemove);
+        $presentation->save("WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+    } else {
+        echo "Calibri is not embedded. No output file was created." . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Tambahkan Font yang Disematkan**
+Menghapus font yang disematkan menghapus data font yang disimpan; hal ini tidak mengubah font yang ditetapkan pada teks. Jika font terpasang pada sistem target, teks masih dapat menggunakannya. Jika tidak, proses render mungkin memerlukan [font substitution](/slides/id/php-java/font-substitution/), yang dapat memengaruhi tata letak.
 
-Dengan menggunakan kelas [EmbedFontCharacters](https://reference.aspose.com/slides/id/php-java/aspose.slides/embedfontcharacters/) dan dua overload dari metode [addEmbeddedFont](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#addEmbeddedFont), Anda dapat memilih aturan (penyematan) yang diinginkan untuk menyematkan font dalam sebuah presentasi. Kode PHP berikut menunjukkan cara menyematkan dan menambahkan font ke sebuah presentasi:
+## **Periksa Data Font dan Izin Penyematan**
+
+Gunakan kelas [FontsManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/) untuk memeriksa font sebelum menyematkannya. Panggil [FontsManager::getFonts](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#getFonts) untuk mengambil font yang digunakan dalam presentasi. Untuk setiap font, berikan objek [FontData](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontdata/) dan nilai [FontStyleType](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontstyletype/) yang diperlukan ke [FontsManager::getFontBytes](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#getFontBytes). Metode ini mengembalikan data biner untuk gaya font tersebut, atau `null` ketika font atau gaya yang diminta tidak tersedia. Jangan berikan hasil `null` ke [FontsManager::getFontEmbeddingLevel](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#getFontEmbeddingLevel), karena metode itu memerlukan array byte.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/id/php-java/aspose.slides/embeddinglevel/) adalah enumerasi flag yang melaporkan pembatasan penyematan yang disimpan dalam font:
+
+- `Installable` memungkinkan penyematan dan instalasi permanen pada sistem lain, tergantung pada lisensi font.
+- `Restricted` melarang penyematan kecuali izin diperoleh dari pemilik sah font ketika flag ini satu‑satunya flag izin penggunaan.
+- `PreviewPrint` memungkinkan penggunaan sementara untuk melihat dan mencetak; dokumen yang berisi font harus bersifat baca‑saja.
+- `Editable` memungkinkan penggunaan sementara dan memperbolehkan dokumen diedit serta disimpan.
+- `NoSubsetting` adalah pembatasan tambahan yang melarang penyematan hanya sebagian glyph. Menyematkan semua karakter ketika flag ini ada.
+- `BitmapOnly` adalah pembatasan tambahan yang hanya memperbolehkan bitmap strike disematkan, bukan data outline. Jika font tidak memiliki bitmap strike, font tidak dapat disematkan.
+
+Empat nilai pertama menggambarkan izin penggunaan, sementara `NoSubsetting` dan `BitmapOnly` dapat digabungkan dengan mereka. Periksa modifier dengan operasi bitwise. Karena `Installable` bernilai nol, mask bit izin penggunaan dan bandingkan hasilnya dengan `Installable` alih‑alih memeriksanya sebagai flag. Font saat ini seharusnya mengatur paling banyak satu bit izin penggunaan. Untuk kompatibilitas dengan font lama yang mengatur lebih dari satu, pembantu di bawah ini memilih izin paling tidak restriktif: `Editable`, kemudian `PreviewPrint`, kemudian `Restricted`.
+
+Contoh berikut mengaudit data reguler, tebal, miring, dan tebal‑miring yang tersedia untuk setiap font yang dikembalikan oleh `FontsManager::getFonts`. Ia melewatkan gaya yang tidak tersedia, font yang terbatas, font bitmap‑only, font yang terbatas pada preview dan print karena output tetap dapat diedit, serta font yang sudah disematkan. Jika ada gaya yang tersedia memiliki `NoSubsetting`, semua karakter untuk keluarga font tersebut akan disematkan.
 
 ```php
-  # Memuat presentasi
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    $allFonts = $pres->getFontsManager()->getFonts();
-    $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
-    $Array = new java_class("java.lang.reflect.Array");
-    foreach($allFonts as $font) {
-      $embeddedFontsContainsFont = false;
-      for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
-        if ($embeddedFonts[$i]->equals($font)) {
-          $embeddedFontsContainsFont = true;
-          break;
+use aspose\slides\EmbedFontCharacters;
+use aspose\slides\EmbeddingLevel;
+use aspose\slides\FontStyleType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+function getUsagePermission($level) {
+    $permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    $permissions = $level & $permissionMask;
+
+    if (($permissions & EmbeddingLevel::Editable) !== 0) {
+        return EmbeddingLevel::Editable;
+    }
+
+    if (($permissions & EmbeddingLevel::PreviewPrint) !== 0) {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if (($permissions & EmbeddingLevel::Restricted) !== 0) {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+}
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
+    $fontStyles = [
+        FontStyleType::Regular,
+        FontStyleType::Bold,
+        FontStyleType::Italic,
+        FontStyleType::Bold | FontStyleType::Italic
+    ];
+
+    $embeddedFontNames = [];
+    foreach ($fontsManager->getEmbeddedFonts() as $embeddedFont) {
+        $fontName = java_values($embeddedFont->getFontName());
+        $embeddedFontNames[strtolower($fontName)] = true;
+    }
+
+    $fontsToEmbed = [];
+    $embeddingRules = [];
+    foreach ($fontsManager->getFonts() as $font) {
+        $fontName = java_values($font->getFontName());
+        if (isset($embeddedFontNames[strtolower($fontName)])) {
+            echo $fontName . ": already embedded." . PHP_EOL;
+            continue;
         }
-      }
-      if (!$embeddedFontsContainsFont) {
-        $pres->getFontsManager()->addEmbeddedFont($font, EmbedFontCharacters->All);
-        $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
-      }
+
+        $hasAvailableData = false;
+        $allAvailableStylesCanBeEmbedded = true;
+        $previewPrintOnly = false;
+        $requiresFullFont = false;
+
+        foreach ($fontStyles as $fontStyle) {
+            $fontBytes = $fontsManager->getFontBytes($font, $fontStyle);
+            if (java_is_null($fontBytes)) {
+                echo $fontName . " (" . $fontStyle . "): font data is unavailable." . PHP_EOL;
+                continue;
+            }
+
+            $hasAvailableData = true;
+            $embeddingLevel = java_values($fontsManager->getFontEmbeddingLevel($fontBytes, $fontName));
+            $usagePermission = getUsagePermission($embeddingLevel);
+            $noSubsetting = ($embeddingLevel & EmbeddingLevel::NoSubsetting) !== 0;
+            $bitmapOnly = ($embeddingLevel & EmbeddingLevel::BitmapOnly) !== 0;
+
+            $requiresFullFont = $requiresFullFont || $noSubsetting;
+            $previewPrintOnly = $previewPrintOnly || $usagePermission === EmbeddingLevel::PreviewPrint;
+            $allAvailableStylesCanBeEmbedded = $allAvailableStylesCanBeEmbedded && $usagePermission !== EmbeddingLevel::Restricted && !$bitmapOnly;
+
+            echo $fontName . " (" . $fontStyle . "): " . $embeddingLevel . "." . PHP_EOL;
+        }
+
+        if (!$hasAvailableData) {
+            echo $fontName . ": skipped because no requested style is available." . PHP_EOL;
+        } elseif (!$allAvailableStylesCanBeEmbedded) {
+            echo $fontName . ": skipped because at least one available style does not permit outline embedding." . PHP_EOL;
+        } elseif ($previewPrintOnly) {
+            echo $fontName . ": skipped because this example produces an editable presentation." . PHP_EOL;
+        } else {
+            $rule = $requiresFullFont ? EmbedFontCharacters::All : EmbedFontCharacters::OnlyUsed;
+            $fontsToEmbed[] = $font;
+            $embeddingRules[] = $rule;
+        }
     }
-    # Menyimpan presentasi ke disk
-    $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    for ($i = 0; $i < count($fontsToEmbed); $i++) {
+        $fontsManager->addEmbeddedFont($fontsToEmbed[$i], $embeddingRules[$i]);
     }
-  }
+
+    $presentation->save("WithAuditedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pemeriksaan ini melaporkan pembatasan yang dikodekan dalam setiap berkas font. Ini tidak memberikan lisensi, membuktikan bahwa Anda memperoleh font secara legal, atau menggantikan pengecekan perjanjian lisensi font sebelum mendistribusikan salinan yang disematkan.
+
+## **Tambah Font yang Disematkan**
+
+Gunakan [FontsManager::addEmbeddedFont](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#addEmbeddedFont) untuk menyematkan sebuah font. Overload-nya menerima baik objek [FontData](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontdata/) atau array byte yang berisi data font. Enumerasi [EmbedFontCharacters](https://reference.aspose.com/slides/id/php-java/aspose.slides/embedfontcharacters/) mengontrol karakter mana yang dimasukkan:
+
+- [All](https://reference.aspose.com/slides/id/php-java/aspose.slides/embedfontcharacters/) menyematkan semua karakter dalam font. Gunakan opsi ini ketika penerima perlu mengedit presentasi dan memasukkan teks baru.
+- [OnlyUsed](https://reference.aspose.com/slides/id/php-java/aspose.slides/embedfontcharacters/) hanya menyematkan karakter yang digunakan dalam presentasi untuk mengurangi ukuran berkas. Pilih opsi ini untuk presentasi selesai yang terutama ditujukan untuk ditampilkan.
+
+Contoh berikut menggunakan [FontsManager::getFonts](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#getFonts) untuk mengambil font yang digunakan dalam `Fonts.pptx` dan menyematkan yang belum disematkan. Font yang akan ditambahkan harus tersedia pada mesin yang menjalankan kode. Font yang sudah disematkan tetap mempertahankan set karakter saat ini.
+
+```php
+use aspose\slides\EmbedFontCharacters;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
+    $allFonts = $fontsManager->getFonts();
+    $embeddedFonts = $fontsManager->getEmbeddedFonts();
+    $embeddedFontNames = [];
+
+    foreach ($embeddedFonts as $embeddedFont) {
+        $fontName = java_values($embeddedFont->getFontName());
+        $embeddedFontNames[strtolower($fontName)] = true;
+    }
+
+    foreach ($allFonts as $font) {
+        $fontName = java_values($font->getFontName());
+        $normalizedFontName = strtolower($fontName);
+        if (!isset($embeddedFontNames[$normalizedFontName])) {
+            $fontsManager->addEmbeddedFont($font, EmbedFontCharacters::All);
+            $embeddedFontNames[$normalizedFontName] = true;
+        }
+    }
+
+    $presentation->save("WithEmbeddedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Kompres Font yang Disematkan**
 
-Agar Anda dapat mengompres font yang disematkan dalam sebuah presentasi dan mengurangi ukuran berkasnya, Aspose.Slides menyediakan metode [compressEmbeddedFonts](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/#compressEmbeddedFonts) (yang dipaparkan oleh kelas [Compress](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/)).
+[Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/id/php-java/aspose.slides/compress/#compressEmbeddedFonts) mengurangi data font yang disematkan dengan menghapus karakter yang tidak terpakai. Ia beroperasi pada font yang sudah disematkan, sehingga pengurangan ukuran tergantung pada berapa banyak data font yang tidak terpakai yang ada dalam presentasi.
 
-Kode PHP berikut menunjukkan cara mengompres font PowerPoint yang disematkan:
+Contoh berikut mengompres font dalam `EmbeddedFonts.pptx` dan menyimpan hasilnya sebagai berkas terpisah:
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->compressEmbeddedFonts($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    Compress::compressEmbeddedFonts($presentation);
+    $presentation->save("CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Simpan berkas asli jika penerima mungkin perlu menambah teks nanti. Karakter yang dihapus selama kompresi tidak lagi tersedia dari font yang disematkan, bahkan jika Anda awalnya menyematkan semua karakter.
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui bahwa font tertentu dalam presentasi masih akan digantikan selama rendering meskipun telah disematkan?**
+**Bagaimana saya dapat memeriksa apakah font yang disematkan masih akan digantikan selama rendering?**
 
-Periksa [informasi substitusi](/slides/id/php-java/font-substitution/) di manajer font dan [aturan fallback/substitusi](/slides/id/php-java/fallback-font/): jika font tidak tersedia atau dibatasi, fallback akan digunakan.
+Panggil [FontsManager::getSubstitutions](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/#getSubstitutions) dalam lingkungan tempat Anda merender presentasi untuk melihat font mana yang akan diganti oleh Aspose.Slides. Juga periksa pengaturan [font substitution](/slides/id/php-java/font-substitution/) dan aturan [font fallback](/slides/id/php-java/fallback-font/). Fallback menangani karakter yang hilang, sehingga menyematkan font tidak menyelesaikan karakter yang tidak ada dalam font tersebut.
 
-**Apakah layak menyematkan font "system" seperti Arial/Calibri?**
+**Haruskah saya menyematkan font umum seperti Arial dan Calibri?**
 
-Biasanya tidak—font tersebut hampir selalu tersedia. Namun untuk portabilitas penuh dalam lingkungan "tipis" (Docker, server Linux tanpa font yang terpasang sebelumnya), menyematkan font sistem dapat menghilangkan risiko substitusi yang tidak terduga.
+Dasarkan keputusan pada lingkungan target. Jika font yang diperlukan tersedia di setiap mesin yang membuka atau merender presentasi, menyematkannya dapat menambah ukuran berkas yang tidak diperlukan. Jika penerima atau server mungkin tidak memiliki font tersebut, menyematkannya dapat membantu mempertahankan tampilan yang diinginkan, asalkan lisensinya memperbolehkannya.

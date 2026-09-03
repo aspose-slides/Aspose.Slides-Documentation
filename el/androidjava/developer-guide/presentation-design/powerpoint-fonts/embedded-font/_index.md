@@ -1,145 +1,268 @@
 ---
-title: Ενσωμάτωση γραμματοσειρών σε παρουσιάσεις στο Android
-linktitle: Ενσωμάτωση γραμματοσειράς
+title: Ενσωμάτωση Γραμματοσειρών σε Παρουσιάσεις στο Android
+linktitle: Ενσωματωμένες Γραμματοσειρές
 type: docs
 weight: 40
 url: /el/androidjava/embedded-font/
 keywords:
 - προσθήκη γραμματοσειράς
 - ενσωμάτωση γραμματοσειράς
-- ενσωμάτωση γραμματοσειρών
+- ενσωμάτωση γραμματοσειράς
 - λήψη ενσωματωμένης γραμματοσειράς
 - προσθήκη ενσωματωμένης γραμματοσειράς
 - αφαίρεση ενσωματωμένης γραμματοσειράς
 - συμπίεση ενσωματωμένης γραμματοσειράς
 - PowerPoint
-- OpenDocument
-- presentation
+- παρουσίαση
 - Android
 - Java
 - Aspose.Slides
-description: "Ενσωματώστε γραμματοσειρές TrueType σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για Android μέσω Java, διασφαλίζοντας ακριβή απόδοση σε όλες τις πλατφόρμες."
+description: "Διαχειριστείτε τις ενσωματωμένες γραμματοσειρές στο PowerPoint με το Aspose.Slides για Android μέσω Java. Προσθέστε, ανακτήστε, αφαιρέστε και συμπιέστε γραμματοσειρές για να διατηρήσετε την εμφάνιση του κειμένου και να μειώσετε το μέγεθος του αρχείου."
 ---
 ## **Εισαγωγή**
 
-**Ενσωματωμένες γραμματοσειρές στο PowerPoint** είναι χρήσιμες όταν θέλετε η παρουσίασή σας να εμφανίζεται σωστά σε οποιοδήποτε σύστημα ή συσκευή. Αν χρησιμοποιήσατε γραμματοσειρά τρίτου μέρους ή μη τυπική επειδή ήσασταν δημιουργικοί στη δουλειά σας, τότε έχετε ακόμη περισσότερους λόγους για να ενσωματώσετε τη γραμματοσειρά σας. Διαφορετικά (χωρίς ενσωματωμένες γραμματοσειρές), το κείμενο ή οι αριθμοί στις διαφάνειες, η διάταξη, το στυλ κ.λπ. μπορεί να αλλάξουν ή να μετατραπούν σε συγκεχυμένα ορθογώνια.
+Η ενσωμάτωση γραμματοσειρών αποθηκεύει τα δεδομένα γραμματοσειράς μέσα σε μια παρουσίαση PowerPoint. Όταν ένας προβολέας υποστηρίζει ενσωματωμένες γραμματοσειρές, μπορεί να εμφανίζει κείμενο χρησιμοποιώντας αυτές τις γραμματοσειρές ακόμη και αν δεν είναι εγκατεστημένες στο σύστημα‑στόχο. Αυτό βοηθά στη διατήρηση των αλλαγών γραμμής, του διαστήματος του κειμένου και της διάταξης των διαφανειών.
 
-Οι κλάσεις [FontsManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FontsManager), [FontData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontdata/) και [Compress](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/compress/) και οι διεπαφές τους περιέχουν τις περισσότερες ιδιότητες και μεθόδους που χρειάζεστε για να εργαστείτε με ενσωματωμένες γραμματοσειρές σε παρουσιάσεις PowerPoint.
+Το Aspose.Slides for Android μέσω Java σας επιτρέπει να ανακτάτε, να προσθέτετε και να αφαιρείτε ενσωματωμένες γραμματοσειρές μέσω της διεπαφής [IFontsManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/) που επιστρέφεται από το [Presentation.getFontsManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getFontsManager--). Μπορείτε επίσης να μειώσετε το μέγεθος των δεδομένων ενσωματωμένων γραμματοσειρών αφαιρώντας χαρακτήρες που δεν χρησιμοποιεί η παρουσίαση.
 
-## **Λήψη και κατάργηση ενσωματωμένων γραμματοσειρών**
+Τα παραδείγματα παρακάτω λειτουργούν με αρχεία PPTX. Πριν ενσωματώσετε μια γραμματοσειρά, βεβαιωθείτε ότι τα δεδομένα της γραμματοσειράς είναι διαθέσιμα στο Aspose.Slides και ότι η άδειά της επιτρέπει την ενσωμάτωση.
 
-Η Aspose.Slides παρέχει τη μέθοδο [getEmbeddedFonts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (που εκτίθεται από την κλάση [FontsManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/FontsManager)) ώστε να μπορείτε να λάβετε (ή να ανακαλύψετε) τις γραμματοσειρές που έχουν ενσωματωθεί σε μια παρουσίαση. Για την αφαίρεση γραμματοσειρών, χρησιμοποιείται η μέθοδος [removeEmbeddedFont](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (που εκτίθεται από την ίδια κλάση).
+## **Ανάκτηση και Αφαίρεση Ενσωματωμένων Γραμματοσειρών**
 
-Αυτός ο κώδικας Java σας δείχνει πώς να λάβετε και να αφαιρέσετε ενσωματωμένες γραμματοσειρές από μια παρουσίαση:
+Χρησιμοποιήστε το [getEmbeddedFonts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) για να απαριθμήσετε τις γραμματοσειρές που αποθηκεύονται σε μια παρουσίαση. Για να αφαιρέσετε μία, περάστε μια γραμματοσειρά από αυτή τη λίστα στη μέθοδο [removeEmbeddedFont](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-), και έπειτα αποθηκεύστε την παρουσίαση.
 
+Το παρακάτω παράδειγμα απαριθμεί τις ενσωματωμένες γραμματοσειρές στο αρχείο `EmbeddedFonts.pptx` και αφαιρεί το Calibri αν υπάρχει:
 ```java
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    // Αποδίδει μια διαφάνεια που περιέχει ένα πλαίσιο κειμένου που χρησιμοποιεί την ενσωματωμένη "FunSized"
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    // Αποθηκεύει την εικόνα στο δίσκο σε μορφή JPEG
-    try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
-    // Λαμβάνει όλες τις ενσωματωμένες γραμματοσειρές
+    IFontsManager fontsManager = presentation.getFontsManager();
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // Βρίσκει τη γραμματοσειρά "Calibri"
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
+    for (IFontData font : embeddedFonts) {
+        System.out.println(font.getFontName());
+    }
+
+    IFontData fontToRemove = null;
+    for (IFontData font : embeddedFonts) {
+        if ("Calibri".equalsIgnoreCase(font.getFontName())) {
+            fontToRemove = font;
             break;
         }
     }
 
-    // Καταργεί τη γραμματοσειρά "Calibri"
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
-    // Renders the presentation; "Calibri" font is replaced with an existing one
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     // Αποθηκεύει την εικόνα στο δίσκο σε μορφή JPEG
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
-    // Αποθηκεύει την παρουσίαση χωρίς την ενσωματωμένη γραμματοσειρά "Calibri" στο δίσκο
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+    if (fontToRemove != null) {
+        fontsManager.removeEmbeddedFont(fontToRemove);
+        presentation.save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Calibri is not embedded. No output file was created.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Προσθήκη ενσωματωμένων γραμματοσειρών**
+Η αφαίρεση μιας ενσωματωμένης γραμματοσειράς αφαιρεί τα αποθηκευμένα δεδομένα της γραμματοσειράς· δεν αλλάζει τη γραμματοσειρά που έχει αντιστοιχιστεί στο κείμενο. Εάν η γραμματοσειρά είναι εγκατεστημένη στο σύστημα‑στόχο, το κείμενο μπορεί να τη χρησιμοποιεί ακόμη. Διαφορετικά, η απόδοση ενδέχεται να απαιτήσει [font substitution](/slides/el/androidjava/font-substitution/), κάτι που μπορεί να επηρεάσει τη διάταξη.
 
-Χρησιμοποιώντας την απαρίθμηση [EmbedFontCharacters](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/embedfontcharacters/) καθώς και τις δύο υπερφορτωμένες εκδόσεις της μεθόδου [addEmbeddedFont](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-), μπορείτε να επιλέξετε τον προτιμώμενο (ενσωμάτωσης) κανόνα για την ενσωμάτωση των γραμματοσειρών σε μια παρουσίαση. Αυτός ο κώδικας Java σας δείχνει πώς να ενσωματώσετε και να προσθέσετε γραμματοσειρές σε μια παρουσίαση:
+## **Επιθεώρηση Δεδομένων Γραμματοσειράς και Δικαιωμάτων Ενσωμάτωσης**
 
+Χρησιμοποιήστε τη διεπαφή [IFontsManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/) για να επιθεωρήσετε τις γραμματοσειρές πριν τις ενσωματώσετε. Καλέστε τη μέθοδο [IFontsManager.getFonts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) για να ανακτήσετε τις γραμματοσειρές που χρησιμοποιούνται στην παρουσίαση. Για κάθε γραμματοσειρά, περάστε ένα αντικείμενο [IFontData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontdata/) και την απαιτούμενη τιμή [FontStyleType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontstyletype/) στη μέθοδο [IFontsManager.getFontBytes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getFontBytes-com.aspose.slides.IFontData-int-). Η μέθοδος επιστρέφει τα δυαδικά δεδομένα για αυτό το στυλ γραμματοσειράς, ή `null` όταν η ζητούμενη γραμματοσειρά ή στυλ δεν είναι διαθέσιμα. Μην περάσετε ένα αποτέλεσμα `null` στη μέθοδο [IFontsManager.getFontEmbeddingLevel](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getFontEmbeddingLevel-byte---java.lang.String-), επειδή αυτή η μέθοδος απαιτεί σειρά byte.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/embeddinglevel/) είναι μια απαριθμητική σημαία (flags enumeration) που αναφέρει τους περιορισμούς ενσωμάτωσης που αποθηκεύονται στη γραμματοσειρά:
+
+- `Installable` επιτρέπει την ενσωμάτωση και την μόνιμη εγκατάσταση σε άλλο σύστημα, υπό την άδεια της γραμματοσειράς.
+- `Restricted` απαγορεύει την ενσωμάτωση εκτός εάν ληφθεί άδεια από τον νόμιμο κάτοχο της γραμματοσειράς όταν είναι η μόνη σημαία άδειας χρήσης.
+- `PreviewPrint` επιτρέπει προσωρινή χρήση για προβολή και εκτύπωση· ένα έγγραφο που περιέχει τη γραμματοσειρά πρέπει να είναι μόνο για ανάγνωση.
+- `Editable` επιτρέπει προσωρινή χρήση και επιτρέπει το έγγραφο να επεξεργασθεί και να αποθηκευτεί.
+- `NoSubsetting` είναι ένας επιπλέον περιορισμός που απαγορεύει την ενσωμάτωση μόνο ενός υποσυνόλου των γλύφων. Ενσωματώνει όλους τους χαρακτήρες όταν αυτή η σημαία είναι παρούσα.
+- `BitmapOnly` είναι ένας επιπλέον περιορισμός που επιτρέπει μόνο bitmap strikes να ενσωματωθούν, όχι δεδομένα περίγραμμα. Εάν η γραμματοσειρά δεν έχει bitmap strikes, δεν μπορεί να ενσωματωθεί.
+
+Οι πρώτες τέσσερις τιμές περιγράφουν την άδεια χρήσης, ενώ τα `NoSubsetting` και `BitmapOnly` μπορούν να συνδυαστούν με αυτές. Ελέγξτε τις τροποποιητικές σημαίες με λογικές πράξεις bitwise. Επειδή το `Installable` είναι μηδέν, εφαρμόστε μάσκα στα bits άδειας χρήσης και συγκρίνετε το αποτέλεσμα με `Installable` αντί να το ελέγξετε ως σημαία. Οι τρέχουσες γραμματοσειρές πρέπει να θέτουν το πολύ ένα bit άδειας χρήσης. Για συμβατότητα με παλαιότερες γραμματοσειρές που θέτουν περισσότερα από ένα, ο βοηθός παρακάτω επιλέγει την λιγότερο περιοριστική άδεια: `Editable`, έπειτα `PreviewPrint`, έπειτα `Restricted`.
+
+Το παρακάτω παράδειγμα ελέγχει τα δεδομένα κανονικού, έντονου, πλαγίου και έντονο‑πλάγιου που είναι διαθέσιμα για κάθε γραμματοσειρά που επιστρέφεται από τη μέθοδο `getFonts`. Παραλείπει στυλ που δεν είναι διαθέσιμα, περιορισμένες γραμματοσειρές, γραμματοσειρές μόνο bitmap, γραμματοσειρές που περιορίζονται σε προεπισκόπηση και εκτύπωση επειδή η έξοδος παραμένει επεξεργάσιμη, και γραμματοσειρές που είναι ήδη ενσωματωμένες. Εάν κάποιο διαθέσιμο στυλ έχει `NoSubsetting`, ενσωματώνει όλους τους χαρακτήρες για αυτή την οικογένεια γραμματοσειρών.
 ```java
-// Φορτώνει την παρουσίαση
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.EmbeddingLevel;
+import com.aspose.slides.FontStyleType;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
-            }
+class EmbeddingPermission {
+    int getUsagePermission(int level) {
+        int permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+        int permissions = level & permissionMask;
+
+        if ((permissions & EmbeddingLevel.Editable) != 0) {
+            return EmbeddingLevel.Editable;
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        if ((permissions & EmbeddingLevel.PreviewPrint) != 0) {
+            return EmbeddingLevel.PreviewPrint;
+        }
+
+        if ((permissions & EmbeddingLevel.Restricted) != 0) {
+            return EmbeddingLevel.Restricted;
+        }
+
+        return EmbeddingLevel.Installable;
+    }
+}
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    int[] fontStyles = {
+        FontStyleType.Regular,
+        FontStyleType.Bold,
+        FontStyleType.Italic,
+        FontStyleType.Bold | FontStyleType.Italic
+    };
+
+    Set<String> embeddedFontNames = new HashSet<String>();
+    for (IFontData embeddedFont : fontsManager.getEmbeddedFonts()) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    EmbeddingPermission permissionHelper = new EmbeddingPermission();
+    List<IFontData> fontsToEmbed = new ArrayList<IFontData>();
+    List<Integer> embeddingRules = new ArrayList<Integer>();
+    for (IFontData font : fontsManager.getFonts()) {
+        if (embeddedFontNames.contains(font.getFontName().toLowerCase(Locale.ROOT))) {
+            System.out.println(font.getFontName() + ": already embedded.");
+            continue;
+        }
+
+        boolean hasAvailableData = false;
+        boolean allAvailableStylesCanBeEmbedded = true;
+        boolean previewPrintOnly = false;
+        boolean requiresFullFont = false;
+
+        for (int fontStyle : fontStyles) {
+            byte[] fontBytes = fontsManager.getFontBytes(font, fontStyle);
+            if (fontBytes == null) {
+                System.out.println(font.getFontName() + " (" + fontStyle + "): font data is unavailable.");
+                continue;
+            }
+
+            hasAvailableData = true;
+            int embeddingLevel = fontsManager.getFontEmbeddingLevel(fontBytes, font.getFontName());
+            int usagePermission = permissionHelper.getUsagePermission(embeddingLevel);
+            boolean noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+            boolean bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+            requiresFullFont |= noSubsetting;
+            previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+            allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+            System.out.println(font.getFontName() + " (" + fontStyle + "): " + embeddingLevel + ".");
+        }
+
+        if (!hasAvailableData) {
+            System.out.println(font.getFontName() + ": skipped because no requested style is available.");
+        } else if (!allAvailableStylesCanBeEmbedded) {
+            System.out.println(font.getFontName() + ": skipped because at least one available style does not permit outline embedding.");
+        } else if (previewPrintOnly) {
+            System.out.println(font.getFontName() + ": skipped because this example produces an editable presentation.");
+        } else {
+            int rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+            fontsToEmbed.add(font);
+            embeddingRules.add(rule);
         }
     }
 
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < fontsToEmbed.size(); i++) {
+        fontsManager.addEmbeddedFont(fontsToEmbed.get(i), embeddingRules.get(i));
+    }
+
+    presentation.save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Συμπίεση ενσωματωμένων γραμματοσειρών**
+Αυτή η επιθεώρηση αναφέρει τους περιορισμούς που κωδικοποιούνται σε κάθε αρχείο γραμματοσειράς. Δεν παρέχει άδεια, δεν αποδεικνύει ότι αποκτήσατε τη γραμματοσειρά νόμιμα, ούτε αντικαθιστά τον έλεγχο της άδειας χρήσης της γραμματοσειράς πριν τη διανομή μιας ενσωματωμένης αντιγραφής.
 
-Για να μπορείτε να συμπιέσετε τις γραμματοσειρές που έχουν ενσωματωθεί σε μια παρουσίαση και να μειώσετε το μέγεθος του αρχείου, η Aspose.Slides παρέχει τη μέθοδο [compressEmbeddedFonts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (που εκτίθεται από την κλάση [Compress](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/compress/)).
+## **Προσθήκη Ενσωματωμένων Γραμματοσειρών**
 
-Αυτός ο κώδικας Java σας δείχνει πώς να συμπιέσετε τις ενσωματωμένες γραμματοσειρές PowerPoint:
+Χρησιμοποιήστε τη μέθοδο [addEmbeddedFont](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) για να ενσωματώσετε μια γραμματοσειρά. Οι υπερφορτώσεις της δέχονται είτε ένα αντικείμενο [IFontData](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontdata/) είτε μια σειρά byte που περιέχει τα δεδομένα της γραμματοσειράς. Η απαριθμητική τιμή [EmbedFontCharacters](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/embedfontcharacters/) ελέγχει ποιοι χαρακτήρες περιλαμβάνονται:
 
+- [All](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/embedfontcharacters/) ενσωματώνει όλους τους χαρακτήρες στη γραμματοσειρά. Χρησιμοποιήστε αυτή την επιλογή όταν οι αποδέκτες χρειάζεται να επεξεργαστούν την παρουσίαση και να εισάγουν νέο κείμενο.
+- [OnlyUsed](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/embedfontcharacters/) ενσωματώνει μόνο τους χαρακτήρες που χρησιμοποιούνται στην παρουσίαση για μείωση του μεγέθους του αρχείου. Επιλέξτε αυτή την επιλογή για μια ολοκληρωμένη παρουσίαση που προορίζεται κυρίως για προβολή.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί τη μέθοδο [getFonts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) για να ανακτήσει τις γραμματοσειρές που χρησιμοποιούνται στο αρχείο `Fonts.pptx` και ενσωματώνει εκείνες που δεν είναι ήδη ενσωματωμένες. Οι γραμματοσειρές που θα προστεθούν πρέπει να είναι διαθέσιμες στη συσκευή Android ή να έχουν καταχωρηθεί στο Aspose.Slides. Οι υπάρχουσες ενσωματωμένες γραμματοσειρές διατηρούν τα τρέχοντα σύνολα χαρακτήρων τους.
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+Presentation presentation = new Presentation("Fonts.pptx");
 try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    IFontsManager fontsManager = presentation.getFontsManager();
+    IFontData[] allFonts = fontsManager.getFonts();
+    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
+    Set<String> embeddedFontNames = new HashSet<String>();
+
+    for (IFontData embeddedFont : embeddedFonts) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    for (IFontData font : allFonts) {
+        String fontName = font.getFontName().toLowerCase(Locale.ROOT);
+        if (!embeddedFontNames.contains(fontName)) {
+            fontsManager.addEmbeddedFont(font, EmbedFontCharacters.All);
+            embeddedFontNames.add(fontName);
+        }
+    }
+
+    presentation.save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Συμπίεση Ενσωματωμένων Γραμματοσειρών**
 
-**Πώς μπορώ να διαπιστώ ότι μια συγκεκριμένη γραμματοσειρά στην παρουσίαση θα αντικατασταθεί κατά τη διαδικασία απόδοσης παρά το ότι έχει ενσωματωθεί;**
+[Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) μειώνει τα δεδομένα ενσωματωμένων γραμματοσειρών αφαιρώντας αχρησιμοποίητους χαρακτήρες. Λειτουργεί σε γραμματοσειρές που είναι ήδη ενσωματωμένες, επομένως η μείωση του μεγέθους εξαρτάται από το πόσα αχρησιμοποίητα δεδομένα γραμματοσειρών περιέχει η παρουσίαση.
 
-Ελέγξτε τις [πληροφορίες υποκατάστασης](/slides/el/androidjava/font-substitution/) στον διαχειριστή γραμματοσειρών και τους [κανόνες υποκατάστασης/εφεδρείας](/slides/el/androidjava/fallback-font/): εάν η γραμματοσειρά δεν είναι διαθέσιμη ή περιορίζεται, θα χρησιμοποιηθεί μια εφεδρική.
+Το παρακάτω παράδειγμα συμπιέζει τις γραμματοσειρές στο αρχείο `EmbeddedFonts.pptx` και αποθηκεύει το αποτέλεσμα ως ξεχωριστό αρχείο:
+```java
+import com.aspose.slides.Compress;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-**Αξίζει να ενσωματώσω τις «συστημικές» γραμματοσειρές όπως Arial/Calibri;**
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    Compress.compressEmbeddedFonts(presentation);
+    presentation.save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-Συνήθως όχι — είναι σχεδόν πάντα διαθέσιμες. Ωστόσο, για πλήρη φορητότητα σε «λεπτά» περιβάλλοντα (Docker, ένας διακομιστής Linux χωρίς προεγκατεστημένες γραμματοσειρές), η ενσωμάτωση των συστημικών γραμματοσειρών μπορεί να εξαλείψει τον κίνδυνο απροσδόκητων υποκαταστάσεων.
+Διατηρήστε το αρχικό αρχείο εάν οι αποδέκτες ενδέχεται να χρειαστεί να προσθέσουν κείμενο αργότερα. Οι χαρακτήρες που αφαιρέθηκαν κατά τη συμπίεση δεν είναι πλέον διαθέσιμοι από την ενσωματωμένη γραμματοσειρά, ακόμη και αν αρχικά ενσωματώσατε όλους τους χαρακτήρες.
+
+## **Συχνές Ερωτήσεις**
+
+**Πώς μπορώ να ελέγξω εάν μια ενσωματωμένη γραμματοσειρά θα αντικατασταθεί ακόμα κατά την απόδοση;**
+
+Καλέστε τη μέθοδο [getSubstitutions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) στο περιβάλλον όπου αποδίδετε την παρουσίαση για να δείτε ποιες γραμματοσειρές θα αντικαταστήσει η Aspose.Slides. Επίσης ελέγξτε τις ρυθμίσεις [font substitution](/slides/el/androidjava/font-substitution/) και τους κανόνες [font fallback](/slides/el/androidjava/fallback-font/). Το fallback διαχειρίζεται ελλιπείς χαρακτήρες, επομένως η ενσωμάτωση μιας γραμματοσειράς δεν λύνει χαρακτήρες που δεν περιέχονται στη γραμματοσειρά.
+
+**Πρέπει να ενσωματώνω κοινές γραμματοσειρές όπως Arial και Calibri;**
+
+Βάσει της απόφασης στο περιβάλλον‑στόχο. Εάν οι απαιτούμενες γραμματοσειρές είναι διαθέσιμες σε κάθε συσκευή που ανοίγει ή αποδίδει την παρουσίαση, η ενσωμάτωσή τους μπορεί να προσθέσει περιττό μέγεθος αρχείου. Εάν οι αποδέκτες ή οι διακομιστές μπορεί να μην έχουν αυτές τις γραμματοσειρές, η ενσωμάτωση μπορεί να βοηθήσει στη διατήρηση της προγραμματισμένης εμφάνισης, υπό την προϋπόθεση ότι οι άδειές τους το επιτρέπουν.

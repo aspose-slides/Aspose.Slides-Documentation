@@ -1,140 +1,267 @@
 ---
-title: Lettertypen insluiten in presentaties met JavaScript
-linktitle: Lettertype insluiten
+title: Lettertypen insluiten in presentaties in JavaScript
+linktitle: Ingesloten lettertypen
 type: docs
 weight: 40
 url: /nl/nodejs-java/embedded-font/
 keywords:
 - lettertype toevoegen
 - lettertype insluiten
-- insluiten van lettertype
+- insluiting van lettertype
 - ingesloten lettertype ophalen
 - ingesloten lettertype toevoegen
 - ingesloten lettertype verwijderen
 - ingesloten lettertype comprimeren
 - PowerPoint
-- OpenDocument
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Insluit TrueType-lettertypen in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Node.js via Java, waardoor nauwkeurige weergave op alle platforms wordt gegarandeerd."
+description: "Beheer ingesloten lettertypen in PowerPoint met Aspose.Slides voor Node.js via Java. Voeg lettertypen toe, haal ze op, verwijder ze en comprimeer ze om de weergave van tekst te behouden en de bestandsgrootte te verkleinen."
 ---
 ## **Inleiding**
 
-**Ingebedde lettertypen in PowerPoint** zijn handig wanneer u wilt dat uw presentatie er op elk systeem of apparaat correct uitziet. Als u een lettertype van een derde partij of een niet‑standaard lettertype hebt gebruikt omdat u creatief bent geweest, dan hebt u nog meer redenen om uw lettertype in te sluiten. Anders (zonder ingesloten lettertypen) kunnen de teksten of cijfers op uw dia’s, de lay‑out, opmaak, enz. veranderen of zich omzetten in verwarrende rechthoeken. 
+Het insluiten van lettertypen slaat lettertypegegevens op in een PowerPoint‑presentatie. Wanneer een viewer ingesloten lettertypen ondersteunt, kan hij tekst weergeven met die lettertypen, zelfs als ze niet op het doelsysteem geïnstalleerd zijn. Dit helpt om regeleinden, tekstopmaak en de lay‑out van dia’s te behouden.
 
-De [FontsManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/FontsManager) klasse, de [FontData](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontdata/) klasse, de [Compress](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/) klasse en hun klassen bevatten het grootste deel van de eigenschappen en methoden die u nodig hebt om met ingesloten lettertypen in PowerPoint‑presentaties te werken.
+Aspose.Slides for Node.js via Java stelt je in staat om ingesloten lettertypen op te halen, toe te voegen en te verwijderen via de [FontsManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/)‑klasse die wordt geretourneerd door [Presentation.getFontsManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/getfontsmanager/). Je kunt ook de omvang van ingesloten lettertypegegevens verkleinen door tekens te verwijderen die de presentatie niet gebruikt.
 
-## **Ingesloten lettertypen ophalen of verwijderen uit een presentatie**
+De voorbeelden hieronder werken met PPTX‑bestanden. Zorg er voor je een lettertype insluit ervoor dat de lettertypegegevens beschikbaar zijn voor Aspose.Slides en dat de licentie het insluiten toestaat.
 
-Aspose.Slides biedt de [getEmbeddedFonts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) methode (uitgebracht door de [FontsManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/FontsManager) klasse) om u de ingesloten lettertypen in een presentatie te laten ophalen (of te ontdekken). Om lettertypen te verwijderen, wordt de [removeEmbeddedFont](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/#removeEmbeddedFont-aspose.slides.IFontData-) methode (uitgebracht door dezelfde klasse) gebruikt.
+## **Ophalen en Verwijderen van Ingesloten Lettertypen**
 
-Deze JavaScript‑code toont hoe u ingesloten lettertypen uit een presentatie kunt ophalen en verwijderen:
+Gebruik [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/getembeddedfonts/) om de lettertypen die in een presentatie zijn opgeslagen te tonen. Om er één te verwijderen, geef een lettertype uit die lijst door aan [FontsManager.removeEmbeddedFont](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/removeembeddedfont/), sla vervolgens de presentatie op.
+
+Het volgende voorbeeld toont de ingesloten lettertypen in `EmbeddedFonts.pptx` en verwijdert Calibri als dat aanwezig is:
 
 ```javascript
-// Instantieert een Presentation‑object dat een presentatiedocument vertegenwoordigt
-var pres = new aspose.slides.Presentation("EmbeddedFonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("EmbeddedFonts.pptx");
 try {
-    // Renderen van een dia met een tekstvak dat het ingesloten "FunSized"-lettertype gebruikt
-    var slideImage = pres.getSlides().get_Item(0).getImage(java.newInstanceSync("java.awt.Dimension", 960, 720));
-    // Sla de afbeelding op schijf in JPEG‑formaat
-    try {
-        slideImage.save("picture1_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
-    }
-    var fontsManager = pres.getFontsManager();
-    // Haal alle ingesloten lettertypen op
+    var fontsManager = presentation.getFontsManager();
     var embeddedFonts = fontsManager.getEmbeddedFonts();
-    // Zoek het "Calibri"-lettertype
-    var calibriEmbeddedFont = null;
+
     for (var i = 0; i < embeddedFonts.length; i++) {
-        console.log("" + embeddedFonts[i].getFontName());
-        if ("Calibri" == embeddedFonts[i].getFontName()) {
-            calibriEmbeddedFont = embeddedFonts[i];
+        console.log(embeddedFonts[i].getFontName());
+    }
+
+    var fontToRemove = null;
+    for (var i = 0; i < embeddedFonts.length; i++) {
+        if (String(embeddedFonts[i].getFontName()).toLowerCase() === "calibri") {
+            fontToRemove = embeddedFonts[i];
             break;
         }
     }
-    // Verwijder het "Calibri"-lettertype
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-    // Render de presentatie; het "Calibri"-lettertype wordt vervangen door een bestaand lettertype
-    slideImage = pres.getSlides().get_Item(0).getImage(java.newInstanceSync("java.awt.Dimension", 960, 720));
-    // Sla de afbeelding op schijf in JPEG‑formaat
-    try {
-        slideImage.save("picture2_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+
+    if (fontToRemove !== null) {
+        fontsManager.removeEmbeddedFont(fontToRemove);
+        presentation.save("WithoutEmbeddedCalibri.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("Calibri is not embedded. No output file was created.");
     }
-    // Sla de presentatie op zonder ingesloten "Calibri"-lettertype op schijf
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", aspose.slides.SaveFormat.Ppt);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ingesloten lettertypen toevoegen aan een presentatie**
+Het verwijderen van een ingesloten lettertype verwijdert de opgeslagen lettertypegegevens; het wijzigt niet het aan de tekst toegewezen lettertype. Als het lettertype op het doelsysteem geïnstalleerd is, kan de tekst het nog steeds gebruiken. Anders vereist de weergave mogelijk [font substitution](/slides/nl/nodejs-java/font-substitution/), wat de lay‑out kan beïnvloeden.
 
-Met behulp van de [EmbedFontCharacters](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/embedfontcharacters/) enumeratie en twee overloads van de [addEmbeddedFont](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/#addEmbeddedFont-aspose.slides.IFontData-int-) methode, kunt u de door u gewenste (insluit‑)regel selecteren om de lettertypen in een presentatie in te sluiten. Deze JavaScript‑code laat zien hoe u lettertypen kunt insluiten en toevoegen aan een presentatie:
+## **Inspectie van Lettertypegegevens en Insluitrechten**
+
+Gebruik de [FontsManager](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/)‑klasse om lettertypen te inspecteren voordat je ze insluit. Roep [FontsManager.getFonts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/getfonts/) aan om de lettertypen op te halen die in de presentatie worden gebruikt. Voor elk lettertype geef je een [FontData](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontdata/)‑object en de vereiste [FontStyleType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontstyletype/)‑waarde door aan [FontsManager.getFontBytes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/#getFontBytes). De methode retourneert de binaire gegevens voor die lettertype‑stijl, of `null` wanneer het gevraagde lettertype of de stijl niet beschikbaar is. Geef geen `null`‑resultaat door aan [FontsManager.getFontEmbeddingLevel](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/#getFontEmbeddingLevel), want die methode vereist een byte‑array. In Node.js converteer je de geretourneerde JavaScript‑array naar een Java‑byte‑array met `java.newArray` voordat je deze doorgeeft aan `getFontEmbeddingLevel`.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/embeddinglevel/) geeft de insluitbeperkingen weer die in het lettertype zijn opgeslagen als een reeks vlaggen:
+
+- `Installable` staat insluiten en permanente installatie op een ander systeem toe, onder voorbehoud van de licentie van het lettertype.
+- `Restricted` verbiedt insluiten tenzij toestemming is verkregen van de juridische eigenaar van het lettertype wanneer dit de enige gebruiks‑toestemmingsvlag is.
+- `PreviewPrint` staat tijdelijk gebruik toe voor weergave en afdrukken; een document dat het lettertype bevat moet alleen‑lezen zijn.
+- `Editable` staat tijdelijk gebruik toe en maakt het mogelijk het document te bewerken en op te slaan.
+- `NoSubsetting` is een extra beperking die verbiedt alleen een subset van de glyphs in te sluiten. Sluit alle tekens in wanneer deze vlag aanwezig is.
+- `BitmapOnly` is een extra beperking die alleen bitmap‑strikes toestaat om in te sluiten, niet outline‑data. Als het lettertype geen bitmap‑strikes heeft, kan het niet worden ingesloten.
+
+De eerste vier waarden beschrijven de gebruiks‑toestemming, terwijl `NoSubsetting` en `BitmapOnly` ermee gecombineerd kunnen worden. Controleer de modifiers met bitwise‑operaties. Omdat `Installable` nul is, maskeer je de gebruiks‑toestemmingsbits en vergelijk je het resultaat met `Installable` in plaats van het als een vlag te testen. Huidige lettertypen zouden maximaal één gebruiks‑toestemmingsbit moeten instellen. Voor compatibiliteit met oudere lettertypen die meer dan één instellen, kiest de onderstaande helper de minst beperkende toestemming: `Editable`, daarna `PreviewPrint`, daarna `Restricted`.
+
+Het volgende voorbeeld controleert de reguliere, vet, cursief en vet‑cursief gegevens die beschikbaar zijn voor elk door `getFonts` geretourneerd lettertype. Het slaat niet‑beschikbare stijlen, beperkte lettertypen, uitsluitend‑bitmap‑lettertypen, lettertypen beperkt tot preview en print (omdat de output bewerkbaar blijft) en reeds ingesloten lettertypen over. Als een beschikbare stijl `NoSubsetting` heeft, wordt voor die lettertype‑familie elk teken ingesloten.
 
 ```javascript
-// Laadt de presentatie
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+function getUsagePermission(level) {
+    var permissionMask = aspose.slides.EmbeddingLevel.Restricted | aspose.slides.EmbeddingLevel.PreviewPrint | aspose.slides.EmbeddingLevel.Editable;
+    var permissions = level & permissionMask;
+
+    if ((permissions & aspose.slides.EmbeddingLevel.Editable) !== 0) {
+        return aspose.slides.EmbeddingLevel.Editable;
+    }
+
+    if ((permissions & aspose.slides.EmbeddingLevel.PreviewPrint) !== 0) {
+        return aspose.slides.EmbeddingLevel.PreviewPrint;
+    }
+
+    if ((permissions & aspose.slides.EmbeddingLevel.Restricted) !== 0) {
+        return aspose.slides.EmbeddingLevel.Restricted;
+    }
+
+    return aspose.slides.EmbeddingLevel.Installable;
+}
+
+var presentation = new aspose.slides.Presentation("Fonts.pptx");
 try {
-    var allFonts = pres.getFontsManager().getFonts();
-    var embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
-    allFonts.forEach(font => {
-        var embeddedFontsContainsFont = false;
-        for (var i = 0; i < embeddedFonts.length; i++) {
-            if (embeddedFonts[i].equals(font)) {
-                embeddedFontsContainsFont = true;
-                break;
+    var fontsManager = presentation.getFontsManager();
+    var fontStyles = [aspose.slides.FontStyleType.Regular, aspose.slides.FontStyleType.Bold, aspose.slides.FontStyleType.Italic, aspose.slides.FontStyleType.Bold | aspose.slides.FontStyleType.Italic];
+
+    var embeddedFontNames = new Set();
+    var embeddedFonts = fontsManager.getEmbeddedFonts();
+    for (var i = 0; i < embeddedFonts.length; i++) {
+        embeddedFontNames.add(String(embeddedFonts[i].getFontName()).toLowerCase());
+    }
+
+    var fontsToEmbed = [];
+    var embeddingRules = [];
+    var fonts = fontsManager.getFonts();
+    for (var i = 0; i < fonts.length; i++) {
+        var font = fonts[i];
+        var fontName = String(font.getFontName());
+        if (embeddedFontNames.has(fontName.toLowerCase())) {
+            console.log(fontName + ": already embedded.");
+            continue;
+        }
+
+        var hasAvailableData = false;
+        var allAvailableStylesCanBeEmbedded = true;
+        var previewPrintOnly = false;
+        var requiresFullFont = false;
+
+        for (var j = 0; j < fontStyles.length; j++) {
+            var fontStyle = fontStyles[j];
+            var fontBytes = fontsManager.getFontBytes(font, fontStyle);
+            if (fontBytes === null) {
+                console.log(fontName + " (" + fontStyle + "): font data is unavailable.");
+                continue;
+            }
+
+            hasAvailableData = true;
+            var fontByteValues = Array.from(fontBytes);
+            var javaFontBytes = java.newArray("byte", fontByteValues);
+            var embeddingLevel = fontsManager.getFontEmbeddingLevel(javaFontBytes, fontName);
+            var usagePermission = getUsagePermission(embeddingLevel);
+            var noSubsetting = (embeddingLevel & aspose.slides.EmbeddingLevel.NoSubsetting) !== 0;
+            var bitmapOnly = (embeddingLevel & aspose.slides.EmbeddingLevel.BitmapOnly) !== 0;
+
+            requiresFullFont = requiresFullFont || noSubsetting;
+            previewPrintOnly = previewPrintOnly || usagePermission === aspose.slides.EmbeddingLevel.PreviewPrint;
+            allAvailableStylesCanBeEmbedded = allAvailableStylesCanBeEmbedded && usagePermission !== aspose.slides.EmbeddingLevel.Restricted && !bitmapOnly;
+
+            console.log(fontName + " (" + fontStyle + "): " + embeddingLevel + ".");
+        }
+
+        if (!hasAvailableData) {
+            console.log(fontName + ": skipped because no requested style is available.");
+        } else if (!allAvailableStylesCanBeEmbedded) {
+            console.log(fontName + ": skipped because at least one available style does not permit outline embedding.");
+        } else if (previewPrintOnly) {
+            console.log(fontName + ": skipped because this example produces an editable presentation.");
+        } else {
+            var rule = requiresFullFont ? aspose.slides.EmbedFontCharacters.All : aspose.slides.EmbedFontCharacters.OnlyUsed;
+            fontsToEmbed.push(font);
+            embeddingRules.push(rule);
+        }
+    }
+
+    for (var i = 0; i < fontsToEmbed.length; i++) {
+        fontsManager.addEmbeddedFont(fontsToEmbed[i], embeddingRules[i]);
+    }
+
+    presentation.save("WithAuditedFonts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Deze inspectie meldt de beperkingen die in elk lettertype‑bestand zijn gecodeerd. Het verleent geen licentie, bewijst niet dat je het lettertype legaal hebt verkregen, en vervangt niet het controleren van de licentieovereenkomst van het lettertype voordat je een ingesloten kopie distribueert.
+
+## **Ingesloten Lettertypen Toevoegen**
+
+Gebruik [FontsManager.addEmbeddedFont](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/addembeddedfont/) om een lettertype in te sluiten. De overloads accepteren ofwel een [FontData](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontdata/)‑object of een byte‑array met de lettertype‑data. [EmbedFontCharacters](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/embedfontcharacters/) bepaalt welke tekens worden opgenomen:
+
+- `All` sluit alle tekens in het lettertype in. Gebruik deze optie wanneer ontvangers de presentatie moeten kunnen bewerken en nieuwe tekst moeten invoeren.
+- `OnlyUsed` sluit alleen de in de presentatie gebruikte tekens in om de bestandsgrootte te verkleinen. Kies deze optie voor een voltooide presentatie die voornamelijk bedoeld is voor weergave.
+
+Het volgende voorbeeld gebruikt [FontsManager.getFonts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/getfonts/) om de in `Fonts.pptx` gebruikte lettertypen op te halen en sluit die in die nog niet ingesloten zijn. De toe te voegen lettertypen moeten beschikbaar zijn op de machine die de code uitvoert. Bestaande ingesloten lettertypen behouden hun huidige tekensets.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("Fonts.pptx");
+try {
+    var fontsManager = presentation.getFontsManager();
+    var allFonts = fontsManager.getFonts();
+    var embeddedFonts = fontsManager.getEmbeddedFonts();
+    var embeddedFontNames = new Set();
+    var fontStyles = [aspose.slides.FontStyleType.Regular, aspose.slides.FontStyleType.Bold, aspose.slides.FontStyleType.Italic, aspose.slides.FontStyleType.Bold | aspose.slides.FontStyleType.Italic];
+
+    for (var i = 0; i < embeddedFonts.length; i++) {
+        embeddedFontNames.add(String(embeddedFonts[i].getFontName()).toLowerCase());
+    }
+
+    for (var i = 0; i < allFonts.length; i++) {
+        var font = allFonts[i];
+        var fontName = String(font.getFontName()).toLowerCase();
+        if (!embeddedFontNames.has(fontName)) {
+            var hasAvailableData = false;
+            for (var j = 0; j < fontStyles.length; j++) {
+                if (fontsManager.getFontBytes(font, fontStyles[j]) !== null) {
+                    hasAvailableData = true;
+                    break;
+                }
+            }
+
+            if (hasAvailableData) {
+                fontsManager.addEmbeddedFont(font, aspose.slides.EmbedFontCharacters.All);
+                embeddedFontNames.add(fontName);
+            } else {
+                console.log(font.getFontName() + ": skipped because its font data is unavailable.");
             }
         }
-        if (!embeddedFontsContainsFont) {
-            pres.getFontsManager().addEmbeddedFont(font, aspose.slides.EmbedFontCharacters.All);
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
-        }
-    });
-    // Slaat de presentatie op schijf
-    pres.save("AddEmbeddedFont_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
     }
+
+    presentation.save("WithEmbeddedFonts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Ingesloten lettertypen comprimeren**
+## **Ingesloten Lettertypen Comprimeren**
 
-Om u in staat te stellen de ingesloten lettertypen in een presentatie te comprimeren en de bestandsgrootte te verkleinen, biedt Aspose.Slides de [compressEmbeddedFonts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts-aspose.slides.Presentation-) methode (uitgebracht door de [Compress](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/) klasse).
+[Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/compress/compressembeddedfonts/) verkleint ingesloten lettertype‑data door ongebruikte tekens te verwijderen. Het werkt op lettertypen die al ingesloten zijn, dus de grootte‑reductie hangt af van hoeveel ongebruikte lettertype‑data de presentatie bevat.
 
-Deze JavaScript‑code laat zien hoe u ingesloten PowerPoint‑lettertypen kunt comprimeren:
+Het volgende voorbeeld comprimeert de lettertypen in `EmbeddedFonts.pptx` en slaat het resultaat op als een apart bestand:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("EmbeddedFonts.pptx");
 try {
-    aspose.slides.Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+    aspose.slides.Compress.compressEmbeddedFonts(presentation);
+    presentation.save("CompressedEmbeddedFonts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Bewaar het originele bestand als ontvangers later tekst moeten kunnen toevoegen. Tekens die tijdens compressie zijn verwijderd, zijn niet meer beschikbaar vanuit het ingesloten lettertype, zelfs als je oorspronkelijk alle tekens had ingesloten.
 
 ## **FAQ**
 
-**Hoe kan ik zien dat een specifiek lettertype in de presentatie toch wordt vervangen tijdens het renderen, ondanks het insluiten?**
+**Hoe kan ik controleren of een ingesloten lettertype nog steeds zal worden vervangen tijdens het renderen?**
 
-Controleer de [substitution information](/slides/nl/nodejs-java/font-substitution/) in de lettertype‑manager en de [fallback/substitution rules](/slides/nl/nodejs-java/fallback-font/): als het lettertype niet beschikbaar of beperkt is, wordt een fallback gebruikt.
+Roep [FontsManager.getSubstitutions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) aan in de omgeving waarin je de presentatie rendert om te zien welke lettertypen Aspose.Slides zal vervangen. Controleer ook de instellingen voor [font substitution](/slides/nl/nodejs-java/font-substitution/) en de regels voor [font fallback](/slides/nl/nodejs-java/fallback-font/). Fallback behandelt ontbrekende tekens, dus het insluiten van een lettertype lost geen tekens op die het lettertype zelf niet bevat.
 
-**Is het de moeite waard om “systeem”‑lettertypen zoals Arial/Calibri in te sluiten?**
+**Moet ik algemene lettertypen zoals Arial en Calibri insluiten?**
 
-Meestal niet — ze zijn vrijwel altijd beschikbaar. Maar voor volledige draagbaarheid in “dunne” omgevingen (Docker, een Linux‑server zonder vooraf geïnstalleerde lettertypen) kan het insluiten van systeem‑lettertypen het risico op onverwachte substituties wegnemen.
+Baseer de beslissing op de doelomgeving. Als de benodigde lettertypen op elke machine die de presentatie opent of rendert beschikbaar zijn, kan het insluiten ervan onnodige bestandsgrootte toevoegen. Als ontvangers of servers die lettertypen mogelijk niet hebben, kan insluiten helpen om het beoogde uiterlijk te behouden, mits hun licenties het toestaan.

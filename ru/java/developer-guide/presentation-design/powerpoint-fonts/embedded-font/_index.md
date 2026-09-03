@@ -1,143 +1,271 @@
 ---
-title: Встраивание шрифтов в презентации с использованием Java
-linktitle: Встраивание шрифта
+title: Встраивание шрифтов в презентации на Java
+linktitle: Встроенные шрифты
 type: docs
 weight: 40
 url: /ru/java/embedded-font/
 keywords:
 - добавить шрифт
 - встроить шрифт
-- встраивание шрифтов
+- встраивание шрифта
 - получить встроенный шрифт
 - добавить встроенный шрифт
 - удалить встроенный шрифт
 - сжать встроенный шрифт
 - PowerPoint
-- OpenDocument
 - презентация
 - Java
 - Aspose.Slides
-description: "Встраивание TrueType шрифтов в презентации PowerPoint и OpenDocument с помощью Aspose.Slides for Java, обеспечивая точный рендеринг на всех платформах."
+description: "Управляйте встроенными шрифтами в PowerPoint с помощью Aspose.Slides для Java. Добавляйте, получайте, удаляйте и сжимайте шрифты, чтобы сохранить внешний вид текста и уменьшить размер файла."
 ---
+## **Введение**
 
-**Встроенные шрифты в PowerPoint** полезны, когда вы хотите, чтобы ваша презентация отображалась правильно на любой системе или устройстве. Если вы использовали сторонний или нестандартный шрифт, потому что проявили креативность в своей работе, у вас есть еще больше причин встроить шрифт. В противном случае (без встроенных шрифтов) тексты или цифры на слайдах, макет, стилизация и т.д. могут измениться или превратиться в непонятные прямоугольники. 
+Встраивание шрифтов сохраняет данные шрифта внутри презентации PowerPoint. Когда просмотрщик поддерживает встроенные шрифты, он может отображать текст с использованием этих шрифтов, даже если они не установлены в целевой системе. Это помогает сохранить разрывы строк, межсимвольные интервалы и макет слайдов.
 
-Классы [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager), [FontData](https://reference.aspose.com/slides/java/com.aspose.slides/fontdata/), [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) и их интерфейсы содержат большинство свойств и методов, необходимых для работы со встроенными шрифтами в презентациях PowerPoint. 
+Aspose.Slides for Java позволяет получать, добавлять и удалять встроенные шрифты через интерфейс [IFontsManager](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/) , возвращаемый [Presentation.getFontsManager](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#getFontsManager--). Вы также можете уменьшить размер данных встроенного шрифта, удалив символы, которые презентация не использует.
 
-## **Получить и удалить встроенные шрифты**
+Приведённые ниже примеры работают с файлами PPTX. Перед встраиванием шрифта убедитесь, что его данные доступны Aspose.Slides и его лицензия разрешает встраивание.
 
-Aspose.Slides предоставляет метод [getEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (доступный через класс [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager)), позволяющий получить (или узнать) шрифты, встроенные в презентацию. Для удаления шрифтов используется метод [removeEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (также доступный через тот же класс).
+## **Получение и удаление встроенных шрифтов**
 
-Этот Java‑код показывает, как получить и удалить встроенные шрифты из презентации:
+Используйте [getEmbeddedFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) , чтобы получить список шрифтов, хранящихся в презентации. Чтобы удалить один, передайте шрифт из этого списка в [removeEmbeddedFont](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-), затем сохраните презентацию.
+
+Следующий пример выводит список встроенных шрифтов в файле `EmbeddedFonts.pptx` и удаляет Calibri, если он присутствует:
+
 ```java
-// Создает объект Presentation, представляющий файл презентации
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    // Рендерит слайд, содержащий текстовый кадр, использующий встроенный "FunSized"
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    // Сохраняет изображение на диск в формате JPEG
-    try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
-    // Получает все встроенные шрифты
+    IFontsManager fontsManager = presentation.getFontsManager();
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // Находит шрифт "Calibri"
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
+    for (IFontData font : embeddedFonts) {
+        System.out.println(font.getFontName());
+    }
+
+    IFontData fontToRemove = null;
+    for (IFontData font : embeddedFonts) {
+        if ("Calibri".equalsIgnoreCase(font.getFontName())) {
+            fontToRemove = font;
             break;
         }
     }
 
-    // Удаляет шрифт "Calibri"
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
-    // Рендерит презентацию; шрифт "Calibri" заменяется существующим
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     // Сохраняет изображение на диск в формате JPEG
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
-    // Сохраняет презентацию без встроенного "Calibri" шрифта на диск
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+    if (fontToRemove != null) {
+        fontsManager.removeEmbeddedFont(fontToRemove);
+        presentation.save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Calibri is not embedded. No output file was created.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Удаление встроенного шрифта удаляет его хранимые данные шрифта; это не изменяет шрифт, назначенный тексту. Если шрифт установлен в целевой системе, текст всё равно может его использовать. В противном случае при рендеринге может потребоваться [замена шрифтов](/slides/ru/java/font-substitution/), что может повлиять на макет.
 
-## **Добавить встроенные шрифты**
+## **Проверка данных шрифта и прав на встраивание**
 
-С помощью перечисления [EmbedFontCharacters](https://reference.aspose.com/slides/java/com.aspose.slides/embedfontcharacters/) и двух перегрузок метода [addEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) вы можете выбрать предпочтительное правило (встраивания) для включения шрифтов в презентацию. Этот Java‑код демонстрирует, как встроить и добавить шрифты в презентацию:
+Используйте интерфейс [IFontsManager](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/) , чтобы проверять шрифты перед их встраиванием. Вызовите [IFontsManager.getFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#getFonts--) , чтобы получить шрифты, использованные в презентации. Для каждого шрифта передайте объект [IFontData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontdata/) и требуемое значение [FontStyleType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/fontstyletype/) , в метод [IFontsManager.getFontBytes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#getFontBytes-com.aspose.slides.IFontData-int-) . Метод возвращает бинарные данные для данного стиля шрифта или `null`, если запрошенный шрифт или стиль недоступны. Не передавайте результат `null` в [IFontsManager.getFontEmbeddingLevel](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#getFontEmbeddingLevel-byte---java.lang.String-), поскольку этот метод требует массив байтов.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/ru/java/com.aspose.slides/embeddinglevel/) — это перечисление флагов, которое сообщает об ограничениях встраивания, хранящихся в шрифте:
+
+- `Installable` разрешает встраивание и постоянную установку на другой системе, в соответствии с лицензией шрифта.
+- `Restricted` запрещает встраивание, если только не получено разрешение от законного владельца шрифта, когда это единственный флаг разрешения использования.
+- `PreviewPrint` разрешает временное использование для просмотра и печати; документ, содержащий шрифт, должен быть только для чтения.
+- `Editable` разрешает временное использование и позволяет редактировать и сохранять документ.
+- `NoSubsetting` — дополнительное ограничение, запрещающее встраивание только подмножества глифов. При наличии этого флага необходимо встраивать все символы.
+- `BitmapOnly` — дополнительное ограничение, позволяющее встраивать только растровые наборы шрифта, а не контурные данные. Если у шрифта нет растровых наборов, его нельзя встраивать.
+
+Первые четыре значения описывают разрешения на использование, в то время как `NoSubsetting` и `BitmapOnly` могут комбинироваться с ними. Проверяйте модификаторы с помощью побитовых операций. Поскольку `Installable` равен нулю, маскируйте биты разрешения использования и сравнивайте результат с `Installable`, а не проверяйте его как флаг. Текущие шрифты должны устанавливать не более одного бита разрешения использования. Для совместимости со старыми шрифтами, которые задают более одного, вспомогательная функция ниже выбирает наименее ограничительное разрешение: `Editable`, затем `PreviewPrint`, затем `Restricted`.
+
+Следующий пример проверяет обычные, полужирные, курсивные и полужирно‑курсивные данные, доступные для каждого шрифта, возвращаемого `getFonts`. Он пропускает недоступные стили, ограниченные шрифты, шрифты только с растровыми наборами, шрифты, ограниченные только просмотром и печатью, поскольку вывод остаётся редактируемым, а также уже встроенные шрифты. Если любой доступный стиль имеет `NoSubsetting`, он встраивает все символы для данного семейства шрифтов.
+
 ```java
-// Загружает презентацию
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.EmbeddingLevel;
+import com.aspose.slides.FontStyleType;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
-            }
+class EmbeddingPermission {
+    int getUsagePermission(int level) {
+        int permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+        int permissions = level & permissionMask;
+
+        if ((permissions & EmbeddingLevel.Editable) != 0) {
+            return EmbeddingLevel.Editable;
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        if ((permissions & EmbeddingLevel.PreviewPrint) != 0) {
+            return EmbeddingLevel.PreviewPrint;
+        }
+
+        if ((permissions & EmbeddingLevel.Restricted) != 0) {
+            return EmbeddingLevel.Restricted;
+        }
+
+        return EmbeddingLevel.Installable;
+    }
+}
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    int[] fontStyles = {
+        FontStyleType.Regular,
+        FontStyleType.Bold,
+        FontStyleType.Italic,
+        FontStyleType.Bold | FontStyleType.Italic
+    };
+
+    Set<String> embeddedFontNames = new HashSet<String>();
+    for (IFontData embeddedFont : fontsManager.getEmbeddedFonts()) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    EmbeddingPermission permissionHelper = new EmbeddingPermission();
+    List<IFontData> fontsToEmbed = new ArrayList<IFontData>();
+    List<Integer> embeddingRules = new ArrayList<Integer>();
+    for (IFontData font : fontsManager.getFonts()) {
+        if (embeddedFontNames.contains(font.getFontName().toLowerCase(Locale.ROOT))) {
+            System.out.println(font.getFontName() + ": already embedded.");
+            continue;
+        }
+
+        boolean hasAvailableData = false;
+        boolean allAvailableStylesCanBeEmbedded = true;
+        boolean previewPrintOnly = false;
+        boolean requiresFullFont = false;
+
+        for (int fontStyle : fontStyles) {
+            byte[] fontBytes = fontsManager.getFontBytes(font, fontStyle);
+            if (fontBytes == null) {
+                System.out.println(font.getFontName() + " (" + fontStyle + "): font data is unavailable.");
+                continue;
+            }
+
+            hasAvailableData = true;
+            int embeddingLevel = fontsManager.getFontEmbeddingLevel(fontBytes, font.getFontName());
+            int usagePermission = permissionHelper.getUsagePermission(embeddingLevel);
+            boolean noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+            boolean bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+            requiresFullFont |= noSubsetting;
+            previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+            allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+            System.out.println(font.getFontName() + " (" + fontStyle + "): " + embeddingLevel + ".");
+        }
+
+        if (!hasAvailableData) {
+            System.out.println(font.getFontName() + ": skipped because no requested style is available.");
+        } else if (!allAvailableStylesCanBeEmbedded) {
+            System.out.println(font.getFontName() + ": skipped because at least one available style does not permit outline embedding.");
+        } else if (previewPrintOnly) {
+            System.out.println(font.getFontName() + ": skipped because this example produces an editable presentation.");
+        } else {
+            int rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+            fontsToEmbed.add(font);
+            embeddingRules.add(rule);
         }
     }
 
-    // Сохраняет презентацию на диск
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < fontsToEmbed.size(); i++) {
+        fontsManager.addEmbeddedFont(fontsToEmbed.get(i), embeddingRules.get(i));
+    }
+
+    presentation.save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Эта проверка сообщает об ограничениях, закодированных в каждом файле шрифта. Она не предоставляет лицензии, не доказывает, что вы получили шрифт легально, и не заменяет проверку лицензионного соглашения шрифта перед распространением встроенной копии.
 
-## **Сжать встроенные шрифты**
+## **Добавление встроенных шрифтов**
 
-Чтобы вы могли сжать встроенные в презентацию шрифты и уменьшить размер файла, Aspose.Slides предоставляет метод [compressEmbeddedFonts](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (доступный через класс [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/)).
+Используйте [addEmbeddedFont](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) , чтобы встроить шрифт. Его перегрузки принимают либо объект [IFontData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontdata/) , либо массив байтов, содержащий данные шрифта. Перечисление [EmbedFontCharacters](https://reference.aspose.com/slides/ru/java/com.aspose.slides/embedfontcharacters/) определяет, какие символы включать:
 
-Этот Java‑код показывает, как сжать встроенные шрифты PowerPoint:
+- [All](https://reference.aspose.com/slides/ru/java/com.aspose.slides/embedfontcharacters/) встраивает все символы шрифта. Используйте эту опцию, когда получатели нуждаются в редактировании презентации и вводе нового текста.
+- [OnlyUsed](https://reference.aspose.com/slides/ru/java/com.aspose.slides/embedfontcharacters/) встраивает только символы, используемые в презентации, чтобы уменьшить размер файла. Выберите эту опцию для готовой презентации, предназначенной в основном для просмотра.
+
+Следующий пример использует [getFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#getFonts--) , чтобы получить шрифты, использованные в `Fonts.pptx`, и встраивает те, которые ещё не встроены. Шрифты для добавления должны быть доступны на машине, где выполняется код. Существующие встроенные шрифты сохраняют свои текущие наборы символов.
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+Presentation presentation = new Presentation("Fonts.pptx");
 try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    IFontsManager fontsManager = presentation.getFontsManager();
+    IFontData[] allFonts = fontsManager.getFonts();
+    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
+    Set<String> embeddedFontNames = new HashSet<String>();
+
+    for (IFontData embeddedFont : embeddedFonts) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    for (IFontData font : allFonts) {
+        String fontName = font.getFontName().toLowerCase(Locale.ROOT);
+        if (!embeddedFontNames.contains(fontName)) {
+            fontsManager.addEmbeddedFont(font, EmbedFontCharacters.All);
+            embeddedFontNames.add(fontName);
+        }
+    }
+
+    presentation.save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Сжатие встроенных шрифтов**
+
+[Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/ru/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) уменьшает данные встроенных шрифтов, удаляя неиспользуемые символы. Он работает с уже встроенными шрифтами, поэтому степень уменьшения размера зависит от количества неиспользуемых данных шрифта в презентации.
+
+Следующий пример сжимает шрифты в `EmbeddedFonts.pptx` и сохраняет результат в отдельный файл:
+
+```java
+import com.aspose.slides.Compress;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    Compress.compressEmbeddedFonts(presentation);
+    presentation.save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Сохраните оригинальный файл, если получатели могут позже добавить текст. Символы, удалённые во время сжатия, больше недоступны из встроенного шрифта, даже если изначально вы встраивали все символы.
 
 ## **Часто задаваемые вопросы**
 
-**Как можно определить, что конкретный шрифт в презентации все равно будет заменён при рендеринге, несмотря на встраивание?**
+**Как проверить, будет ли встроенный шрифт заменяться при рендеринге?**
 
-Проверьте [информацию о замене](/slides/ru/java/font-substitution/) в менеджере шрифтов и [правила резервного/заменяющего](/slides/ru/java/fallback-font/): если шрифт недоступен или ограничен, будет использован запасной вариант.
+Вызовите [getSubstitutions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) , в среде, где вы рендерите презентацию, чтобы увидеть, какие шрифты Aspose.Slides заменит. Также проверьте настройки [font substitution](/slides/ru/java/font-substitution/) и правила [font fallback](/slides/ru/java/fallback-font/). Fallback обрабатывает отсутствующие символы, поэтому встраивание шрифта не решает проблему символов, которых в самом шрифте нет.
 
-**Стоит ли встраивать «системные» шрифты, такие как Arial/Calibri?**
+**Стоит ли встраивать распространённые шрифты, такие как Arial и Calibri?**
 
-Обычно нет — они почти всегда доступны. Однако для полной переносимости в «ограниченных» средах (Docker, Linux‑сервер без предустановленных шрифтов) встраивание системных шрифтов может избавиться от риска неожиданных замен.
+Решение следует принимать, исходя из целевой среды. Если необходимые шрифты доступны на каждой машине, открывающей или рендерящей презентацию, их встраивание может увеличить размер файла без необходимости. Если у получателей или серверов могут отсутствовать эти шрифты, их встраивание поможет сохранить задуманное оформление, при условии, что лицензии позволяют это.

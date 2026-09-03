@@ -1,6 +1,6 @@
 ---
-title: Einbetten von Schriftarten in Präsentationen auf Android
-linktitle: Schriftart einbetten
+title: Schriftarten in Präsentationen auf Android einbetten
+linktitle: Eingebettete Schriftarten
 type: docs
 weight: 40
 url: /de/androidjava/embedded-font/
@@ -8,137 +8,265 @@ keywords:
 - Schriftart hinzufügen
 - Schriftart einbetten
 - Schriftart-Einbettung
-- eingebettete Schriftart abrufen
-- eingebettete Schriftart hinzufügen
-- eingebettete Schriftart entfernen
-- eingebettete Schriftart komprimieren
+- Eingebettete Schriftart abrufen
+- Eingebettete Schriftart hinzufügen
+- Eingebettete Schriftart entfernen
+- Eingebettete Schriftart komprimieren
 - PowerPoint
-- OpenDocument
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Einbetten von TrueType-Schriftarten in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Android über Java, um eine genaue Wiedergabe auf allen Plattformen sicherzustellen."
+description: "Verwalten Sie eingebettete Schriftarten in PowerPoint mit Aspose.Slides für Android via Java. Fügen Sie Schriftarten hinzu, rufen Sie sie ab, entfernen Sie sie und komprimieren Sie sie, um das Erscheinungsbild des Textes beizubehalten und die Dateigröße zu reduzieren."
 ---
+## **Einführung**
 
-**Eingebettete Schriftarten in PowerPoint** sind nützlich, wenn Ihre Präsentation auf jedem System oder Gerät korrekt angezeigt werden soll. Wenn Sie eine Drittanbieter‑ oder nicht‑standardmäßige Schriftart verwendet haben, weil Sie kreativ waren, haben Sie noch mehr Gründe, Ihre Schriftart einzubetten. Andernfalls (ohne eingebettete Schriftarten) können Texte oder Zahlen in Ihren Folien, das Layout, Styling usw. sich ändern oder in verwirrende Rechtecke umgewandelt werden. 
+Das Einbetten von Schriften speichert Schriftartdaten innerhalb einer PowerPoint-Präsentation. Wenn ein Betrachter eingebettete Schriften unterstützt, kann er Text mit diesen Schriften anzeigen, selbst wenn sie nicht auf dem Zielsystem installiert sind. Dies hilft, Zeilenumbrüche, Textabstände und das Folienlayout beizubehalten.
 
-Die Klasse [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) , die Klasse [FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) , die Klasse [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)  und ihre Schnittstellen enthalten die meisten Eigenschaften und Methoden, die Sie benötigen, um mit eingebetteten Schriftarten in PowerPoint‑Präsentationen zu arbeiten.
+Aspose.Slides for Android via Java ermöglicht das Abrufen, Hinzufügen und Entfernen eingebetteter Schriftarten über die [IFontsManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/) Schnittstelle, die von [Presentation.getFontsManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/#getFontsManager--) zurückgegeben wird. Sie können die Größe der eingebetteten Schriftartdaten außerdem reduzieren, indem Sie Zeichen entfernen, die in der Präsentation nicht verwendet werden.
+
+Die untenstehenden Beispiele arbeiten mit PPTX-Dateien. Vor dem Einbetten einer Schriftart sollten Sie sicherstellen, dass deren Schriftartdaten für Aspose.Slides verfügbar sind und die Lizenz das Einbetten zulässt.
 
 ## **Abrufen und Entfernen eingebetteter Schriftarten**
 
-Aspose.Slides stellt die Methode [getEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (bereitgestellt von der Klasse [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager)) zur Verfügung, mit der Sie die in einer Präsentation eingebetteten Schriftarten abrufen (oder herausfinden) können. Zum Entfernen von Schriftarten wird die Methode [removeEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (ebenfalls von derselben Klasse) verwendet.
+Verwenden Sie [getEmbeddedFonts](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) , um die in einer Präsentation gespeicherten Schriften aufzulisten. Um eine zu entfernen, übergeben Sie eine Schrift aus dieser Liste an [removeEmbeddedFont](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-), und speichern anschließend die Präsentation.
 
-Dieser Java‑Code zeigt, wie man eingebettete Schriftarten aus einer Präsentation abruft und entfernt:
+Das folgende Beispiel listet die eingebetteten Schriften in `EmbeddedFonts.pptx` auf und entfernt Calibri, falls sie vorhanden ist:
+
 ```java
-// Instanziert ein Presentation-Objekt, das eine Präsentationsdatei darstellt
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    // Rendert eine Folie, die einen Textframe enthält, der die eingebettete "FunSized"-Schriftart verwendet
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    //Speichert das Bild im JPEG-Format auf der Festplatte
-    try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
-    // Ruft alle eingebetteten Schriftarten ab
+    IFontsManager fontsManager = presentation.getFontsManager();
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // Findet die Schriftart "Calibri"
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
+    for (IFontData font : embeddedFonts) {
+        System.out.println(font.getFontName());
+    }
+
+    IFontData fontToRemove = null;
+    for (IFontData font : embeddedFonts) {
+        if ("Calibri".equalsIgnoreCase(font.getFontName())) {
+            fontToRemove = font;
             break;
         }
     }
 
-    // Entfernt die Schriftart "Calibri"
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
-    // Rendert die Präsentation; die Schriftart "Calibri" wird durch eine vorhandene ersetzt
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     //Speichert das Bild im JPEG-Format auf der Festplatte
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
-    // Speichert die Präsentation ohne eingebettete "Calibri"-Schriftart auf der Festplatte
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+    if (fontToRemove != null) {
+        fontsManager.removeEmbeddedFont(fontToRemove);
+        presentation.save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Calibri is not embedded. No output file was created.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Das Entfernen einer eingebetteten Schriftart löscht deren gespeicherte Schriftartdaten; es ändert nicht die dem Text zugewiesene Schriftart. Ist die Schriftart auf dem Zielsystem installiert, kann der Text sie weiterhin verwenden. Andernfalls kann das Rendern eine [Schriftarten-Substitution](/slides/de/androidjava/font-substitution/) erfordern, was das Layout beeinträchtigen kann.
 
-## **Hinzufügen eingebetteter Schriftarten**
+## **Untersuchen von Schriftartdaten und Einbettungsberechtigungen**
 
-Mit dem Aufzählungstyp [EmbedFontCharacters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/embedfontcharacters/) und zwei Überladungen der Methode [addEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) können Sie die gewünschte (Einbettungs‑) Regel auswählen, um Schriftarten in einer Präsentation einzubetten. Dieser Java‑Code zeigt, wie man Schriftarten einbettet und einer Präsentation hinzufügt:
+Verwenden Sie die [IFontsManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/) Schnittstelle, um Schriftarten vor dem Einbetten zu untersuchen. Rufen Sie [IFontsManager.getFonts](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) auf, um die in der Präsentation verwendeten Schriftarten zu erhalten. Für jede Schriftart übergeben Sie ein [IFontData](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontdata/) Objekt und den erforderlichen [FontStyleType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fontstyletype/) Wert an [IFontsManager.getFontBytes](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/#getFontBytes-com.aspose.slides.IFontData-int-). Die Methode gibt die Binärdaten für diesen Schriftschnitt zurück oder `null`, wenn die angeforderte Schriftart oder der Stil nicht verfügbar ist. Übergeben Sie kein `null` Ergebnis an [IFontsManager.getFontEmbeddingLevel](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/#getFontEmbeddingLevel-byte---java.lang.String-), da diese Methode ein Byte‑Array erwartet.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/embeddinglevel/) ist eine Flags‑Aufzählung, die die in der Schriftart gespeicherten Einbettungsbeschränkungen meldet:
+
+- `Installable` erlaubt das Einbetten und die dauerhafte Installation auf einem anderen System, vorbehaltlich der Lizenz der Schriftart.
+- `Restricted` verbietet das Einbetten, es sei denn, die Erlaubnis wird vom rechtlichen Eigentümer der Schriftart eingeholt, wenn es das einzige Berechtigungs‑Flag ist.
+- `PreviewPrint` erlaubt die temporäre Nutzung zum Anzeigen und Drucken; ein Dokument, das die Schriftart enthält, muss schreibgeschützt sein.
+- `Editable` erlaubt die temporäre Nutzung und gestattet das Bearbeiten und Speichern des Dokuments.
+- `NoSubsetting` ist eine zusätzliche Beschränkung, die das Einbetten nur eines Teilbereichs der Glyphen verbietet. Betten Sie alle Zeichen ein, wenn dieses Flag gesetzt ist.
+- `BitmapOnly` ist eine zusätzliche Beschränkung, die nur das Einbetten von Bitmap‑Zeichensätzen erlaubt, nicht von Konturdaten. Hat die Schriftart keine Bitmap‑Zeichensätze, kann sie nicht eingebettet werden.
+
+Die ersten vier Werte beschreiben die Nutzungsberechtigung, während `NoSubsetting` und `BitmapOnly` mit ihnen kombiniert werden können. Prüfen Sie die Modifikatoren mittels bitweiser Operationen. Da `Installable` den Wert Null hat, maskieren Sie die Nutzungs‑Berechtigungsbits und vergleichen das Ergebnis mit `Installable`, anstatt es als Flag zu prüfen. Aktuelle Schriftarten sollten höchstens ein Nutzungs‑Berechtigungs‑Bit setzen. Für die Kompatibilität mit älteren Schriftarten, die mehr als ein Bit setzen, wählt die nachstehende Hilfsfunktion die am wenigsten restriktive Berechtigung: `Editable`, dann `PreviewPrint`, dann `Restricted`.
+
+Das folgende Beispiel prüft die regulären, fetten, kursiven und fett‑kursiven Daten, die für jede von `getFonts` zurückgegebene Schriftart verfügbar sind. Es überspringt nicht verfügbare Stile, eingeschränkte Schriftarten, reine Bitmap‑Schriftarten, Schriftarten, die auf Vorschau und Druck beschränkt sind (da die Ausgabe editierbar bleibt), und bereits eingebettete Schriftarten. Hat ein verfügbarer Stil `NoSubsetting`, werden alle Zeichen für diese Schriftfamilie eingebettet.
+
 ```java
-// Lädt die Präsentation
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.EmbeddingLevel;
+import com.aspose.slides.FontStyleType;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
-            }
+class EmbeddingPermission {
+    int getUsagePermission(int level) {
+        int permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+        int permissions = level & permissionMask;
+
+        if ((permissions & EmbeddingLevel.Editable) != 0) {
+            return EmbeddingLevel.Editable;
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        if ((permissions & EmbeddingLevel.PreviewPrint) != 0) {
+            return EmbeddingLevel.PreviewPrint;
+        }
+
+        if ((permissions & EmbeddingLevel.Restricted) != 0) {
+            return EmbeddingLevel.Restricted;
+        }
+
+        return EmbeddingLevel.Installable;
+    }
+}
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    int[] fontStyles = {
+        FontStyleType.Regular,
+        FontStyleType.Bold,
+        FontStyleType.Italic,
+        FontStyleType.Bold | FontStyleType.Italic
+    };
+
+    Set<String> embeddedFontNames = new HashSet<String>();
+    for (IFontData embeddedFont : fontsManager.getEmbeddedFonts()) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    EmbeddingPermission permissionHelper = new EmbeddingPermission();
+    List<IFontData> fontsToEmbed = new ArrayList<IFontData>();
+    List<Integer> embeddingRules = new ArrayList<Integer>();
+    for (IFontData font : fontsManager.getFonts()) {
+        if (embeddedFontNames.contains(font.getFontName().toLowerCase(Locale.ROOT))) {
+            System.out.println(font.getFontName() + ": already embedded.");
+            continue;
+        }
+
+        boolean hasAvailableData = false;
+        boolean allAvailableStylesCanBeEmbedded = true;
+        boolean previewPrintOnly = false;
+        boolean requiresFullFont = false;
+
+        for (int fontStyle : fontStyles) {
+            byte[] fontBytes = fontsManager.getFontBytes(font, fontStyle);
+            if (fontBytes == null) {
+                System.out.println(font.getFontName() + " (" + fontStyle + "): font data is unavailable.");
+                continue;
+            }
+
+            hasAvailableData = true;
+            int embeddingLevel = fontsManager.getFontEmbeddingLevel(fontBytes, font.getFontName());
+            int usagePermission = permissionHelper.getUsagePermission(embeddingLevel);
+            boolean noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+            boolean bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+            requiresFullFont |= noSubsetting;
+            previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+            allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+            System.out.println(font.getFontName() + " (" + fontStyle + "): " + embeddingLevel + ".");
+        }
+
+        if (!hasAvailableData) {
+            System.out.println(font.getFontName() + ": skipped because no requested style is available.");
+        } else if (!allAvailableStylesCanBeEmbedded) {
+            System.out.println(font.getFontName() + ": skipped because at least one available style does not permit outline embedding.");
+        } else if (previewPrintOnly) {
+            System.out.println(font.getFontName() + ": skipped because this example produces an editable presentation.");
+        } else {
+            int rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+            fontsToEmbed.add(font);
+            embeddingRules.add(rule);
         }
     }
 
-    // Speichert die Präsentation auf der Festplatte
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < fontsToEmbed.size(); i++) {
+        fontsManager.addEmbeddedFont(fontsToEmbed.get(i), embeddingRules.get(i));
+    }
+
+    presentation.save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Diese Untersuchung meldet die in jeder Schriftdatei codierten Beschränkungen. Sie gewährt keine Lizenz, beweist nicht, dass Sie die Schriftart legal erworben haben, und ersetzt nicht die Prüfung der Lizenzvereinbarung der Schriftart, bevor Sie eine eingebettete Kopie verbreiten.
 
-## **Komprimieren eingebetteter Schriftarten**
+## **Eingebettete Schriften hinzufügen**
 
-Damit Sie die in einer Präsentation eingebetteten Schriftarten komprimieren und die Dateigröße reduzieren können, stellt Aspose.Slides die Methode [compressEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (angeboten von der Klasse [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/)) zur Verfügung.
+Verwenden Sie [addEmbeddedFont](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) , um eine Schriftart einzubetten. Die Überladungen akzeptieren entweder ein [IFontData](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontdata/) Objekt oder ein Byte‑Array, das die Schriftartdaten enthält. Die Aufzählung [EmbedFontCharacters](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/embedfontcharacters/) steuert, welche Zeichen eingeschlossen werden:
 
-Dieser Java‑Code zeigt, wie man eingebettete PowerPoint‑Schriftarten komprimiert:
+- [All](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/embedfontcharacters/) bettet alle Zeichen der Schriftart ein. Verwenden Sie diese Option, wenn Empfänger die Präsentation bearbeiten und neuen Text eingeben müssen.
+- [OnlyUsed](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/embedfontcharacters/) bettet nur die in der Präsentation verwendeten Zeichen ein, um die Dateigröße zu reduzieren. Wählen Sie diese Option für eine fertige Präsentation, die hauptsächlich zum Anzeigen gedacht ist.
+
+Das folgende Beispiel verwendet [getFonts](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) , um die in `Fonts.pptx` verwendeten Schriftarten abzurufen und bettet jene ein, die noch nicht eingebettet sind. Die hinzuzufügenden Schriftarten müssen auf dem Android‑Gerät verfügbar oder bei Aspose.Slides registriert sein. Bereits eingebettete Schriftarten behalten ihre aktuellen Zeichensätze bei.
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+Presentation presentation = new Presentation("Fonts.pptx");
 try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    IFontsManager fontsManager = presentation.getFontsManager();
+    IFontData[] allFonts = fontsManager.getFonts();
+    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
+    Set<String> embeddedFontNames = new HashSet<String>();
+
+    for (IFontData embeddedFont : embeddedFonts) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    for (IFontData font : allFonts) {
+        String fontName = font.getFontName().toLowerCase(Locale.ROOT);
+        if (!embeddedFontNames.contains(fontName)) {
+            fontsManager.addEmbeddedFont(font, EmbedFontCharacters.All);
+            embeddedFontNames.add(fontName);
+        }
+    }
+
+    presentation.save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Komprimieren eingebetteter Schriften**
+
+[Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) reduziert die Daten eingebetteter Schriftarten, indem nicht verwendete Zeichen entfernt werden. Sie arbeitet mit bereits eingebetteten Schriftarten, sodass die Größenreduktion davon abhängt, wie viele unbenutzte Schriftartdaten die Präsentation enthält.
+
+Das folgende Beispiel komprimiert die Schriftarten in `EmbeddedFonts.pptx` und speichert das Ergebnis in einer separaten Datei:
+
+```java
+import com.aspose.slides.Compress;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    Compress.compressEmbeddedFonts(presentation);
+    presentation.save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Bewahren Sie die Originaldatei auf, falls Empfänger später Text hinzufügen müssen. Während der Komprimierung entfernte Zeichen stehen aus der eingebetteten Schriftart nicht mehr zur Verfügung, selbst wenn Sie ursprünglich alle Zeichen eingebettet haben.
 
 ## **FAQ**
 
-**Wie kann ich erkennen, dass eine bestimmte Schriftart in der Präsentation trotz Einbettung beim Rendern noch substituiert wird?**
+**Wie kann ich prüfen, ob eine eingebettete Schriftart während des Renderns weiterhin substituiert wird?**
 
-Prüfen Sie die [substitution information](/slides/de/androidjava/font-substitution/) im Font‑Manager und die [fallback/substitution rules](/slides/de/androidjava/fallback-font/): Wenn die Schriftart nicht verfügbar oder eingeschränkt ist, wird ein Ersatz verwendet.
+Rufen Sie [getSubstitutions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) in der Umgebung auf, in der Sie die Präsentation rendern, um zu sehen, welche Schriftarten Aspose.Slides ersetzt. Prüfen Sie außerdem die Einstellungen für [Schriftarten-Substitution](/slides/de/androidjava/font-substitution/) und die Regeln für [Schriftarten-Fallback](/slides/de/androidjava/fallback-font/). Fallback behandelt fehlende Zeichen, sodass das Einbetten einer Schriftart nicht die Zeichen löst, die die Schriftart selbst nicht enthält.
 
-**Lohnt es sich, Systemschriftarten wie Arial/Calibri einzubetten?**
+**Sollte ich verbreitete Schriftarten wie Arial und Calibri einbetten?**
 
-In der Regel nicht – sie sind fast immer verfügbar. Aber für volle Portabilität in „dünnen“ Umgebungen (Docker, ein Linux‑Server ohne vorinstallierte Schriftarten) kann das Einbetten von Systemschriftarten das Risiko unerwarteter Substitutionen beseitigen.
+Treffen Sie die Entscheidung basierend auf der Zielumgebung. Sind die erforderlichen Schriftarten auf jedem Gerät, das die Präsentation öffnet oder rendert, verfügbar, kann das Einbetten unnötig Dateigröße hinzufügen. Fehlen die Schriftarten jedoch bei Empfängern oder Servern, kann das Einbetten helfen, das gewünschte Aussehen zu bewahren, vorausgesetzt, die Lizenz erlaubt dies.

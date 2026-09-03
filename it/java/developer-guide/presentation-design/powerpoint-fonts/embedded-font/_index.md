@@ -1,140 +1,271 @@
 ---
-title: Incorporare i caratteri nelle presentazioni con Java
-linktitle: Incorporamento del carattere
+title: Incorporare i caratteri nelle presentazioni in Java
+linktitle: Caratteri incorporati
 type: docs
 weight: 40
 url: /it/java/embedded-font/
 keywords:
-- aggiungere carattere
-- incorporare carattere
-- incorporamento del carattere
-- ottenere carattere incorporato
-- aggiungere carattere incorporato
-- rimuovere carattere incorporato
-- comprimere carattere incorporato
+- aggiungi carattere
+- incorpora carattere
+- incorporamento carattere
+- ottieni carattere incorporato
+- aggiungi carattere incorporato
+- rimuovi carattere incorporato
+- comprimi carattere incorporato
 - PowerPoint
-- OpenDocument
 - presentazione
 - Java
 - Aspose.Slides
-description: "Incorpora i caratteri TrueType nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per Java, garantendo una resa accurata su tutte le piattaforme."
+description: "Gestisci i caratteri incorporati in PowerPoint con Aspose.Slides per Java. Aggiungi, recupera, rimuovi e comprimi i caratteri per preservare l'aspetto del testo e ridurre le dimensioni del file."
 ---
 ## **Introduzione**
 
-**I caratteri incorporati in PowerPoint** sono utili quando vuoi che la tua presentazione appaia correttamente su qualsiasi sistema o dispositivo. Se hai utilizzato un carattere di terze parti o non standard perché sei stato creativo nel tuo lavoro, allora hai ancora più motivi per incorporare il carattere. Altrimenti (senza caratteri incorporati), i testi o i numeri nelle tue diapositive, il layout, lo stile, ecc. possono cambiare o trasformarsi in rettangoli incomprensibili. 
+L’incorporamento dei caratteri memorizza i dati del font all’interno di una presentazione PowerPoint. Quando un visualizzatore supporta i caratteri incorporati, può visualizzare il testo usando tali caratteri anche se non sono installati sul sistema di destinazione. Questo aiuta a preservare le interruzioni di riga, la spaziatura del testo e il layout delle diapositive.
 
-La classe [FontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsManager), la classe [FontData](https://reference.aspose.com/slides/it/java/com.aspose.slides/fontdata/), la classe [Compress](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/) e le loro interfacce contengono la maggior parte delle proprietà e dei metodi di cui hai bisogno per lavorare con i caratteri incorporati nelle presentazioni PowerPoint. 
+Aspose.Slides for Java consente di recuperare, aggiungere e rimuovere caratteri incorporati tramite l’interfaccia [IFontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/) restituita da [Presentation.getFontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/#getFontsManager--). È inoltre possibile ridurre le dimensioni dei dati dei caratteri incorporati rimuovendo i caratteri che la presentazione non utilizza.
 
-## **Ottenere e rimuovere i caratteri incorporati**
+Gli esempi seguenti funzionano con file PPTX. Prima di incorporare un carattere, assicurarsi che i dati del carattere siano disponibili per Aspose.Slides e che la licenza lo consenta.
 
-Aspose.Slides fornisce il metodo [getEmbeddedFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (esposto dalla classe [FontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/FontsManager)) per consentirti di ottenere (o scoprire) i caratteri incorporati in una presentazione. Per rimuovere i caratteri, si utilizza il metodo [removeEmbeddedFont](https://reference.aspose.com/slides/it/java/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (esposto dalla stessa classe).
+## **Recuperare e rimuovere i caratteri incorporati**
+
+Usa [getEmbeddedFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) per elencare i caratteri memorizzati in una presentazione. Per rimuoverne uno, passa un carattere da quell’elenco a [removeEmbeddedFont](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-), quindi salva la presentazione.
+
+L’esempio seguente elenca i caratteri incorporati in `EmbeddedFonts.pptx` e rimuove Calibri se presente:
 
 ```java
-// Istanzia un oggetto Presentation che rappresenta un file di presentazione
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    // Renderizza una diapositiva contenente un frame di testo che utilizza il carattere incorporato "FunSized"
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    //Save l'immagine su disco in formato JPEG
-    try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
-    // Ottiene tutti i caratteri incorporati
+    IFontsManager fontsManager = presentation.getFontsManager();
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // Trova il carattere "Calibri"
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
+    for (IFontData font : embeddedFonts) {
+        System.out.println(font.getFontName());
+    }
+
+    IFontData fontToRemove = null;
+    for (IFontData font : embeddedFonts) {
+        if ("Calibri".equalsIgnoreCase(font.getFontName())) {
+            fontToRemove = font;
             break;
         }
     }
 
-    // Rimuove il carattere "Calibri"
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
-    // Renderizza la presentazione; il carattere "Calibri" è sostituito con uno esistente
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     //Save l'immagine su disco in formato JPEG
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
-    // Salva la presentazione senza il carattere "Calibri" incorporato su disco
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+    if (fontToRemove != null) {
+        fontsManager.removeEmbeddedFont(fontToRemove);
+        presentation.save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Calibri is not embedded. No output file was created.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Aggiungere caratteri incorporati**
+Rimuovere un carattere incorporato elimina i dati del carattere memorizzati; non modifica il carattere assegnato al testo. Se il carattere è installato sul sistema di destinazione, il testo può comunque usarlo. Altrimenti, il rendering potrebbe richiedere la [sostituzione dei caratteri](/slides/it/java/font-substitution/), il che può influire sul layout.
 
-Utilizzando l'enumerazione [EmbedFontCharacters](https://reference.aspose.com/slides/it/java/com.aspose.slides/embedfontcharacters/) e due overload del metodo [addEmbeddedFont](https://reference.aspose.com/slides/it/java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-), puoi scegliere la regola di incorporamento preferita per incorporare i caratteri in una presentazione. Questo codice Java ti mostra come incorporare e aggiungere caratteri a una presentazione:
+## **Ispezionare i dati del carattere e le autorizzazioni di incorporamento**
+
+Usa l’interfaccia [IFontsManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/) per ispezionare i caratteri prima di incorporarli. Chiama [IFontsManager.getFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getFonts--) per recuperare i caratteri utilizzati nella presentazione. Per ogni carattere, passa un oggetto [IFontData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontdata/) e il valore richiesto di [FontStyleType](https://reference.aspose.com/slides/it/java/com.aspose.slides/fontstyletype/) a [IFontsManager.getFontBytes](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getFontBytes-com.aspose.slides.IFontData-int-). Il metodo restituisce i dati binari per quello stile di carattere, o `null` quando il carattere o lo stile richiesto non è disponibile. Non passare un risultato `null` a [IFontsManager.getFontEmbeddingLevel](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getFontEmbeddingLevel-byte---java.lang.String-), poiché quel metodo richiede un array di byte.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/it/java/com.aspose.slides/embeddinglevel/) è una enumerazione a flag che segnala le restrizioni di incorporamento memorizzate nel carattere:
+
+- `Installable` consente l’incorporamento e l’installazione permanente su un altro sistema, secondo la licenza del carattere.
+- `Restricted` vieta l’incorporamento a meno che non sia ottenuto il permesso dal proprietario legale del carattere quando è l’unico flag di autorizzazione all’uso.
+- `PreviewPrint` consente l’uso temporaneo per visualizzare e stampare; un documento contenente il carattere deve essere di sola lettura.
+- `Editable` consente l’uso temporaneo e permette al documento di essere modificato e salvato.
+- `NoSubsetting` è una restrizione aggiuntiva che vieta l’incorporamento di un sottoinsieme di glifi. Incorporare tutti i caratteri quando è presente questo flag.
+- `BitmapOnly` è una restrizione aggiuntiva che consente di incorporare solo le varianti bitmap, non i dati contorno. Se il carattere non ha varianti bitmap, non può essere incorporato.
+
+I primi quattro valori descrivono l’autorizzazione all’uso, mentre `NoSubsetting` e `BitmapOnly` possono essere combinati con essi. Controlla i modificatori con operazioni bitwise. Poiché `Installable` è zero, maschera i bit di autorizzazione all’uso e confronta il risultato con `Installable` invece di verificarlo come flag. I caratteri attuali dovrebbero impostare al più un bit di autorizzazione all’uso. Per compatibilità con caratteri più vecchi che ne impostano più di uno, l’aiuto mostrato di seguito seleziona l’autorizzazione meno restrittiva: `Editable`, poi `PreviewPrint`, poi `Restricted`.
+
+L’esempio seguente esamina i dati regolari, grassetto, corsivo e grassetto‑corsivo disponibili per ogni carattere restituito da `getFonts`. Salta gli stili non disponibili, i caratteri con restrizioni, i caratteri solo‑bitmap, i caratteri limitati a anteprima e stampa perché l’output rimane modificabile, e i caratteri già incorporati. Se uno stile disponibile ha `NoSubsetting`, incorpora tutti i caratteri per quella famiglia di caratteri.
 
 ```java
-// Carica la presentazione
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.EmbeddingLevel;
+import com.aspose.slides.FontStyleType;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
-            }
+class EmbeddingPermission {
+    int getUsagePermission(int level) {
+        int permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+        int permissions = level & permissionMask;
+
+        if ((permissions & EmbeddingLevel.Editable) != 0) {
+            return EmbeddingLevel.Editable;
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        if ((permissions & EmbeddingLevel.PreviewPrint) != 0) {
+            return EmbeddingLevel.PreviewPrint;
+        }
+
+        if ((permissions & EmbeddingLevel.Restricted) != 0) {
+            return EmbeddingLevel.Restricted;
+        }
+
+        return EmbeddingLevel.Installable;
+    }
+}
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    int[] fontStyles = {
+        FontStyleType.Regular,
+        FontStyleType.Bold,
+        FontStyleType.Italic,
+        FontStyleType.Bold | FontStyleType.Italic
+    };
+
+    Set<String> embeddedFontNames = new HashSet<String>();
+    for (IFontData embeddedFont : fontsManager.getEmbeddedFonts()) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    EmbeddingPermission permissionHelper = new EmbeddingPermission();
+    List<IFontData> fontsToEmbed = new ArrayList<IFontData>();
+    List<Integer> embeddingRules = new ArrayList<Integer>();
+    for (IFontData font : fontsManager.getFonts()) {
+        if (embeddedFontNames.contains(font.getFontName().toLowerCase(Locale.ROOT))) {
+            System.out.println(font.getFontName() + ": already embedded.");
+            continue;
+        }
+
+        boolean hasAvailableData = false;
+        boolean allAvailableStylesCanBeEmbedded = true;
+        boolean previewPrintOnly = false;
+        boolean requiresFullFont = false;
+
+        for (int fontStyle : fontStyles) {
+            byte[] fontBytes = fontsManager.getFontBytes(font, fontStyle);
+            if (fontBytes == null) {
+                System.out.println(font.getFontName() + " (" + fontStyle + "): font data is unavailable.");
+                continue;
+            }
+
+            hasAvailableData = true;
+            int embeddingLevel = fontsManager.getFontEmbeddingLevel(fontBytes, font.getFontName());
+            int usagePermission = permissionHelper.getUsagePermission(embeddingLevel);
+            boolean noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+            boolean bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+            requiresFullFont |= noSubsetting;
+            previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+            allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+            System.out.println(font.getFontName() + " (" + fontStyle + "): " + embeddingLevel + ".");
+        }
+
+        if (!hasAvailableData) {
+            System.out.println(font.getFontName() + ": skipped because no requested style is available.");
+        } else if (!allAvailableStylesCanBeEmbedded) {
+            System.out.println(font.getFontName() + ": skipped because at least one available style does not permit outline embedding.");
+        } else if (previewPrintOnly) {
+            System.out.println(font.getFontName() + ": skipped because this example produces an editable presentation.");
+        } else {
+            int rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+            fontsToEmbed.add(font);
+            embeddingRules.add(rule);
         }
     }
 
-    // Salva la presentazione su disco
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < fontsToEmbed.size(); i++) {
+        fontsManager.addEmbeddedFont(fontsToEmbed.get(i), embeddingRules.get(i));
+    }
+
+    presentation.save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+Questa ispezione segnala le restrizioni codificate in ciascun file di carattere. Non concede una licenza, non dimostra che il carattere sia stato ottenuto legalmente e non sostituisce il controllo del contratto di licenza del carattere prima di distribuire una copia incorporata.
+
+## **Aggiungere caratteri incorporati**
+
+Usa [addEmbeddedFont](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) per incorporare un carattere. Le sue sovraccarichi accettano sia un oggetto [IFontData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontdata/) sia un array di byte contenente i dati del carattere. L’enumerazione [EmbedFontCharacters](https://reference.aspose.com/slides/it/java/com.aspose.slides/embedfontcharacters/) controlla quali caratteri sono inclusi:
+
+- [All](https://reference.aspose.com/slides/it/java/com.aspose.slides/embedfontcharacters/) incorpora tutti i caratteri del font. Usa questa opzione quando i destinatari devono modificare la presentazione e inserire nuovo testo.
+- [OnlyUsed](https://reference.aspose.com/slides/it/java/com.aspose.slides/embedfontcharacters/) incorpora solo i caratteri usati nella presentazione per ridurre le dimensioni del file. Scegli questa opzione per una presentazione definitiva destinata principalmente alla visualizzazione.
+
+L’esempio seguente utilizza [getFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getFonts--) per recuperare i caratteri usati in `Fonts.pptx` e incorpora quelli non già incorporati. I caratteri da aggiungere devono essere disponibili sulla macchina che esegue il codice. I caratteri incorporati esistenti mantengono i set di caratteri correnti.
+
+```java
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    IFontData[] allFonts = fontsManager.getFonts();
+    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
+    Set<String> embeddedFontNames = new HashSet<String>();
+
+    for (IFontData embeddedFont : embeddedFonts) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    for (IFontData font : allFonts) {
+        String fontName = font.getFontName().toLowerCase(Locale.ROOT);
+        if (!embeddedFontNames.contains(fontName)) {
+            fontsManager.addEmbeddedFont(font, EmbedFontCharacters.All);
+            embeddedFontNames.add(fontName);
+        }
+    }
+
+    presentation.save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Comprimere i caratteri incorporati**
 
-Per consentirti di comprimere i caratteri incorporati in una presentazione e ridurne la dimensione del file, Aspose.Slides fornisce il metodo [compressEmbeddedFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (esposto dalla classe [Compress](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/)).
+[Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/it/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) riduce i dati dei caratteri incorporati eliminando i caratteri inutilizzati. Operano sui caratteri già incorporati, quindi la riduzione delle dimensioni dipende da quanti dati di carattere inutilizzati contiene la presentazione.
+
+L’esempio seguente comprime i caratteri in `EmbeddedFonts.pptx` e salva il risultato in un file separato:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.Compress;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    Compress.compressEmbeddedFonts(presentation);
+    presentation.save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Conserva il file originale se i destinatari potrebbero aver bisogno di aggiungere testo in seguito. I caratteri rimossi durante la compressione non sono più disponibili dal carattere incorporato, anche se inizialmente erano stati incorporati tutti i caratteri.
+
 ## **FAQ**
 
-**Come posso capire se un carattere specifico nella presentazione verrà ancora sostituito durante il rendering nonostante sia incorporato?**
+**Come posso verificare se un carattere incorporato verrà comunque sostituito durante il rendering?**
 
-Controlla le [informazioni sulla sostituzione](/slides/it/java/font-substitution/) nel gestore dei caratteri e le [regole di fallback/sostituzione](/slides/it/java/fallback-font/): se il carattere non è disponibile o è limitato, verrà utilizzato un fallback.
+Chiama [getSubstitutions](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) nell’ambiente in cui esegui il rendering della presentazione per vedere quali caratteri Aspose.Slides sostituirà. Controlla anche le impostazioni di [sostituzione dei caratteri](/slides/it/java/font-substitution/) e le regole di [fallback dei caratteri](/slides/it/java/fallback-font/). Il fallback gestisce i caratteri mancanti, quindi incorporare un carattere non risolve i caratteri che il carattere stesso non contiene.
 
-**Vale la pena incorporare i caratteri "di sistema" come Arial/Calibri?**
+**Devo incorporare caratteri comuni come Arial e Calibri?**
 
-Di solito no—sono quasi sempre disponibili. Tuttavia, per una piena portabilità in ambienti "leggeri" (Docker, un server Linux senza caratteri preinstallati), incorporare i caratteri di sistema può eliminare il rischio di sostituzioni inattese.
+Fai la scelta in base all’ambiente di destinazione. Se i caratteri richiesti sono disponibili su ogni macchina che apre o rende la presentazione, incorporarli potrebbe aggiungere una dimensione di file non necessaria. Se i destinatari o i server potrebbero non avere quei caratteri, incorporarli può aiutare a preservare l’aspetto previsto, a condizione che le loro licenze lo consentano.

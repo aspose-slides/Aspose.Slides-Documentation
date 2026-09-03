@@ -1,6 +1,6 @@
 ---
 title: Betűkészletek beágyazása prezentációkba PHP használatával
-linktitle: Betűkészlet beágyazása
+linktitle: Beágyazott betűkészletek
 type: docs
 weight: 40
 url: /hu/php-java/embedded-font/
@@ -13,126 +13,247 @@ keywords:
 - beágyazott betűkészlet eltávolítása
 - beágyazott betűkészlet tömörítése
 - PowerPoint
-- OpenDocument
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Beágyazott TrueType betűkészletek PowerPoint és OpenDocument prezentációkba az Aspose.Slides for PHP via Java segítségével, biztosítva a pontos megjelenítést minden platformon."
+description: "Kezelje a beágyazott betűkészleteket a PowerPointban az Aspose.Slides for PHP via Java használatával. Betűkészletek hozzáadása, lekérése, eltávolítása és tömörítése a szöveg megjelenésének megőrzése és a fájlméret csökkentése érdekében."
 ---
 ## **Bevezetés**
 
-**A PowerPointba ágyazott betűkészletek** hasznosak, amikor azt szeretné, hogy a bemutatója minden rendszeren vagy eszközön helyesen jelenjen meg. Ha harmadik fél vagy nem szabványos betűkészletet használt, mert kreatív volt a munkájában, akkor még több ok áll a betűkészlet beágyazása mellett. Ellenkező esetben (beágyazott betűkészletek nélkül) a diákon lévő szövegek vagy számok, az elrendezés, a stílus stb. megváltozhatnak vagy zavaró téglalapokká alakulhatnak.
+A betűkészletek beágyazása a betűtípus‑adatokat a PowerPoint‑prezentációba tárolja. Ha a megjelenítő támogatja a beágyazott betűkészleteket, akkor a szöveget a betűkészletekkel jelenítheti meg, még ha azok nincsenek is telepítve a célrendszeren. Ez segít megőrizni a sortöréseket, a szövegközöket és a diaelrendezést.
 
-A [FontsManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/FontsManager) osztály, a [FontData](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontdata/) osztály és a [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) osztály tartalmazza a legtöbb szükséges metódust a PowerPoint‑prezentációkba ágyazott betűkészletek kezeléséhez.
+Az Aspose.Slides for PHP via Java lehetővé teszi beágyazott betűkészletek lekérdezését, hozzáadását és eltávolítását a [FontsManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/) osztályon keresztül, amely a [Presentation::getFontsManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#getFontsManager) visszaadja. A beágyazott betűtípus‑adat méretét is csökkentheted a prezentáció által nem használt karakterek eltávolításával.
+
+Az alábbi példák PPTX fájlokkal működnek. Betűkészlet beágyazása előtt győződj meg arról, hogy a betűtípus‑adatok elérhetők az Aspose.Slides számára, és a licenc engedélyezi a beágyazást.
 
 ## **Beágyazott betűkészletek lekérése és eltávolítása**
 
-Az Aspose.Slides a [getEmbeddedFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) metódust (amely a [FontsManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/FontsManager) osztályban érhető el) biztosítja, hogy lekérdezhesse (vagy megtudja), mely betűkészletek vannak beágyazva egy bemutatóban. A betűkészletek eltávolításához a [removeEmbeddedFont](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont) metódust (szintén ugyanabban az osztályban) használják.
+Használd a [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) metódust a prezentációban tárolt betűkészletek listázásához. Egy betűkészlet eltávolításához add át a listából a betűt a [FontsManager::removeEmbeddedFont](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont) metódusnak, majd mentsd el a prezentációt.
 
-Ez a PHP kód megmutatja, hogyan lehet lekérni és eltávolítani a beágyazott betűkészleteket egy bemutatóból:
+Az alábbi példa listázza a `EmbeddedFonts.pptx` fájl beágyazott betűkészleteit, és eltávolítja a Calibrít, ha megtalálható:
+
 ```php
-  # Egy Presentation objektum példányosítása, amely egy prezentációs fájlt képvisel
-  $pres = new Presentation("EmbeddedFonts.pptx");
-  try {
-    # Egy diát renderel, amely szövegkeretet tartalmaz, beágyazott "FunSized" betűkészlettel
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # A képet JPEG formátumban a lemezen menti
-    try {
-      $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-    $fontsManager = $pres->getFontsManager();
-    # Az összes beágyazott betűkészlet lekérése
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
     $embeddedFonts = $fontsManager->getEmbeddedFonts();
-    # A "Calibri" betűkészlet megtalálása
-    $calibriEmbeddedFont = null;
-    $Array = new java_class("java.lang.reflect.Array");
-    for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
-      echo("" . $embeddedFonts[$i]->getFontName());
-      if ("Calibri"->equals($embeddedFonts[$i]->getFontName())) {
-        $calibriEmbeddedFont = $embeddedFonts[$i];
-        break;
-      }
+
+    foreach ($embeddedFonts as $font) {
+        echo java_values($font->getFontName()) . PHP_EOL;
     }
-    # A "Calibri" betűkészlet eltávolítása
-    $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
-    # A prezentáció renderelése; "Calibri" betűkészlet egy meglévővel lesz helyettesítve
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # A képet JPEG formátumban a lemezen menti
-    try {
-      $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+
+    $fontToRemove = null;
+    foreach ($embeddedFonts as $font) {
+        $fontName = java_values($font->getFontName());
+        if (strcasecmp($fontName, "Calibri") === 0) {
+            $fontToRemove = $font;
+            break;
+        }
     }
-    # A prezentáció mentése a beágyazott "Calibri" betűkészlet nélkül a lemezre
-    $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    if ($fontToRemove !== null) {
+        $fontsManager->removeEmbeddedFont($fontToRemove);
+        $presentation->save("WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+    } else {
+        echo "Calibri is not embedded. No output file was created." . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Egy beágyazott betűkészlet eltávolítása a tárolt betűtípus‑adatot törli; a szöveghez rendelt betűt nem változtatja meg. Ha a betűt a célrendszeren telepítve van, a szöveg továbbra is használhatja azt. Egyébként a rendereléshez szükség lehet [font substitution](/slides/hu/php-java/font-substitution/)-ra, ami befolyásolhatja az elrendezést.
+
+## **Betűtípus‑adatok és beágyazási engedélyek ellenőrzése**
+
+Használd a [FontsManager](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/) osztályt a betűkészletek beágyazása előtti vizsgálatához. Hívd a [FontsManager::getFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getFonts) metódust a prezentációban használt betűkészletek lekéréséhez. Minden egyes betűkészlethez add át egy [FontData](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontdata/) objektumot és a szükséges [FontStyleType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontstyletype/) értéket a [FontsManager::getFontBytes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getFontBytes) metódusnak. A metódus a betűtípus‑stílus bináris adatait adja vissza, vagy `null`‑t, ha a kért betűt vagy stílust nem találja. Ne add át a `null` eredményt a [FontsManager::getFontEmbeddingLevel](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getFontEmbeddingLevel) metódusnak, mert az byte‑tömböt vár.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/hu/php-java/aspose.slides/embeddinglevel/) egy jelzőenumeráció, amely a betűtípusban tárolt beágyazási korlátozásokat jelzi:
+
+- `Installable` engedélyezi a beágyazást és a tartós telepítést egy másik rendszeren, a betűtípus licencétől függően.
+- `Restricted` tilos a beágyazás, hacsak a betűtípus jogtulajdonosától nem kapunk engedélyt, ha ez az egyetlen használati engedély jelző.
+- `PreviewPrint` engedélyezi az ideiglenes használatot megtekintéshez és nyomtatáshoz; a betűkészletet tartalmazó dokumentumnak csak olvashatónak kell lennie.
+- `Editable` engedélyezi az ideiglenes használatot, és lehetővé teszi a dokumentum szerkesztését és mentését.
+- `NoSubsetting` egy további korlátozás, amely megtiltja a csak egy részhalmaz beágyazását. Ha ez a jelző jelen van, az összes karaktert be kell ágyazni.
+- `BitmapOnly` egy további korlátozás, amely csak bitmap változatok beágyazását engedélyezi, nem az outline adatokat. Ha a betűtípusnak nincs bitmap változata, nem lehet beágyazni.
+
+Az első négy érték a használati engedélyt írja le, míg a `NoSubsetting` és a `BitmapOnly` kombinálható velük. Ellenőrizd a módosítókat bitwise műveletekkel. Mivel az `Installable` értéke null, maszkoljuk a használati engedély biteket, és hasonlítsuk össze az eredményt az `Installable`‑nel, ahelyett, hogy flagként ellenőriznénk. A jelenlegi betűtípusoknak legfeljebb egy használati engedély bitet kell beállítaniuk. Régebbi betűtípusok, amelyek egynél több bitet állítanak be, kompatibilitás céljából a lenti segéd a legkevésbé korlátozó engedélyt választja: `Editable`, majd `PreviewPrint`, majd `Restricted`.
+
+Az alábbi példa ellenőrzi a normál, félkövér, dőlt és félkövér‑dőlt adatokat minden, a `FontsManager::getFonts` által visszaadott betűkészlethez. Kihagyja a nem elérhető stílusokat, a korlátozott, bitmap‑only betűkészleteket, a csak megtekintésre és nyomtatásra korlátozottakat, mivel a kimenet szerkeszthető marad, valamint a már beágyazott betűkészleteket. Ha bármely elérhető stílus `NoSubsetting`‑et tartalmaz, az összes karaktert beágyazza az adott betűcsaládhoz.
+
+```php
+use aspose\slides\EmbedFontCharacters;
+use aspose\slides\EmbeddingLevel;
+use aspose\slides\FontStyleType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+function getUsagePermission($level) {
+    $permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    $permissions = $level & $permissionMask;
+
+    if (($permissions & EmbeddingLevel::Editable) !== 0) {
+        return EmbeddingLevel::Editable;
+    }
+
+    if (($permissions & EmbeddingLevel::PreviewPrint) !== 0) {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if (($permissions & EmbeddingLevel::Restricted) !== 0) {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+}
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
+    $fontStyles = [
+        FontStyleType::Regular,
+        FontStyleType::Bold,
+        FontStyleType::Italic,
+        FontStyleType::Bold | FontStyleType::Italic
+    ];
+
+    $embeddedFontNames = [];
+    foreach ($fontsManager->getEmbeddedFonts() as $embeddedFont) {
+        $fontName = java_values($embeddedFont->getFontName());
+        $embeddedFontNames[strtolower($fontName)] = true;
+    }
+
+    $fontsToEmbed = [];
+    $embeddingRules = [];
+    foreach ($fontsManager->getFonts() as $font) {
+        $fontName = java_values($font->getFontName());
+        if (isset($embeddedFontNames[strtolower($fontName)])) {
+            echo $fontName . ": already embedded." . PHP_EOL;
+            continue;
+        }
+
+        $hasAvailableData = false;
+        $allAvailableStylesCanBeEmbedded = true;
+        $previewPrintOnly = false;
+        $requiresFullFont = false;
+
+        foreach ($fontStyles as $fontStyle) {
+            $fontBytes = $fontsManager->getFontBytes($font, $fontStyle);
+            if (java_is_null($fontBytes)) {
+                echo $fontName . " (" . $fontStyle . "): font data is unavailable." . PHP_EOL;
+                continue;
+            }
+
+            $hasAvailableData = true;
+            $embeddingLevel = java_values($fontsManager->getFontEmbeddingLevel($fontBytes, $fontName));
+            $usagePermission = getUsagePermission($embeddingLevel);
+            $noSubsetting = ($embeddingLevel & EmbeddingLevel::NoSubsetting) !== 0;
+            $bitmapOnly = ($embeddingLevel & EmbeddingLevel::BitmapOnly) !== 0;
+
+            $requiresFullFont = $requiresFullFont || $noSubsetting;
+            $previewPrintOnly = $previewPrintOnly || $usagePermission === EmbeddingLevel::PreviewPrint;
+            $allAvailableStylesCanBeEmbedded = $allAvailableStylesCanBeEmbedded && $usagePermission !== EmbeddingLevel::Restricted && !$bitmapOnly;
+
+            echo $fontName . " (" . $fontStyle . "): " . $embeddingLevel . "." . PHP_EOL;
+        }
+
+        if (!$hasAvailableData) {
+            echo $fontName . ": skipped because no requested style is available." . PHP_EOL;
+        } elseif (!$allAvailableStylesCanBeEmbedded) {
+            echo $fontName . ": skipped because at least one available style does not permit outline embedding." . PHP_EOL;
+        } elseif ($previewPrintOnly) {
+            echo $fontName . ": skipped because this example produces an editable presentation." . PHP_EOL;
+        } else {
+            $rule = $requiresFullFont ? EmbedFontCharacters::All : EmbedFontCharacters::OnlyUsed;
+            $fontsToEmbed[] = $font;
+            $embeddingRules[] = $rule;
+        }
+    }
+
+    for ($i = 0; $i < count($fontsToEmbed); $i++) {
+        $fontsManager->addEmbeddedFont($fontsToEmbed[$i], $embeddingRules[$i]);
+    }
+
+    $presentation->save("WithAuditedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Ez az ellenőrzés jelentést készít minden betűfájlban kódolt korlátozásról. Nem ad licencet, nem bizonyítja, hogy a betűt legális módon szerezted be, és nem helyettesíti a betűtípus licencszerződésének ellenőrzését a beágyazott másolat terjesztése előtt.
 
 ## **Beágyazott betűkészletek hozzáadása**
 
-Az [EmbedFontCharacters](https://reference.aspose.com/slides/hu/php-java/aspose.slides/embedfontcharacters/) osztály és a [addEmbeddedFont](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#addEmbeddedFont) metódus két túlterhelése segítségével kiválaszthatja a kívánt (beágyazási) szabályt a betűkészletek bemutatóba ágyazásához. Ez a PHP kód megmutatja, hogyan ágyazhat be és adhat hozzá betűkészleteket egy bemutatóhoz:
+Használd a [FontsManager::addEmbeddedFont](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#addEmbeddedFont) metódust betűkészlet beágyazásához. A túlterhelések elfogadnak egy [FontData](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontdata/) objektumot vagy egy byte‑tömböt, amely a betűtípus‑adatokat tartalmazza. Az [EmbedFontCharacters](https://reference.aspose.com/slides/hu/php-java/aspose.slides/embedfontcharacters/) enumeráció szabályozza, hogy mely karakterek legyenek belefoglalva:
+
+- `All` beágyazza a betűkészlet összes karakterét. Ezt a lehetőséget akkor használd, ha a címzetteknek szerkeszteniük kell a prezentációt és új szöveget beírni.
+- `OnlyUsed` csak a prezentációban használt karaktereket ágyazza be a fájlméret csökkentése érdekében. Ezt a lehetőséget választod egy kész prezentációhoz, amely elsősorban megtekintésre szolgál.
+
+Az alábbi példa a [FontsManager::getFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getFonts) segítségével lekéri a `Fonts.pptx` fájlban használt betűkészleteket, és beágyazza azokat, amelyek még nincsenek beágyazva. A hozzáadandó betűkészleteknek elérhetőnek kell lenniük azon a gépen, amelyen a kód fut. A már létező beágyazott betűkészletek megtartják a jelenlegi karakterkészletüket.
+
 ```php
-  # Betölti a prezentációt
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    $allFonts = $pres->getFontsManager()->getFonts();
-    $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
-    $Array = new java_class("java.lang.reflect.Array");
-    foreach($allFonts as $font) {
-      $embeddedFontsContainsFont = false;
-      for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
-        if ($embeddedFonts[$i]->equals($font)) {
-          $embeddedFontsContainsFont = true;
-          break;
+use aspose\slides\EmbedFontCharacters;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
+    $allFonts = $fontsManager->getFonts();
+    $embeddedFonts = $fontsManager->getEmbeddedFonts();
+    $embeddedFontNames = [];
+
+    foreach ($embeddedFonts as $embeddedFont) {
+        $fontName = java_values($embeddedFont->getFontName());
+        $embeddedFontNames[strtolower($fontName)] = true;
+    }
+
+    foreach ($allFonts as $font) {
+        $fontName = java_values($font->getFontName());
+        $normalizedFontName = strtolower($fontName);
+        if (!isset($embeddedFontNames[$normalizedFontName])) {
+            $fontsManager->addEmbeddedFont($font, EmbedFontCharacters::All);
+            $embeddedFontNames[$normalizedFontName] = true;
         }
-      }
-      if (!$embeddedFontsContainsFont) {
-        $pres->getFontsManager()->addEmbeddedFont($font, EmbedFontCharacters->All);
-        $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
-      }
     }
-    # A prezentációt lemezre menti
-    $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("WithEmbeddedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Beágyazott betűkészletek tömörítése**
 
-Az beágyazott betűkészletek tömörítésével és a fájlméret csökkentésével segíteni, az Aspose.Slides a [compressEmbeddedFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#compressEmbeddedFonts) metódust (amely a [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) osztályban érhető el) biztosítja.
+A [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#compressEmbeddedFonts) a beágyazott betűtípus‑adatot a nem használt karakterek eltávolításával csökkenti. Már beágyazott betűkészleteken működik, így a méretcsökkenés a prezentációban található fel nem használt betűtípus‑adat mennyiségétől függ.
 
-Ez a PHP kód megmutatja, hogyan lehet tömöríteni a beágyazott PowerPoint betűkészleteket:
+Az alábbi példa tömöríti az `EmbeddedFonts.pptx` fájl betűkészleteit, és az eredményt külön fájlként menti:
+
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->compressEmbeddedFonts($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    Compress::compressEmbeddedFonts($presentation);
+    $presentation->save("CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Tartsd meg az eredeti fájlt, ha a címzettek később szöveget szeretnének hozzáadni. A tömörítés során eltávolított karakterek már nem állnak rendelkezésre a beágyazott betűtípusból, még akkor sem, ha eredetileg az összes karaktert beágyaztad.
 
 ## **GYIK**
 
-**Hogyan tudhatom, hogy egy adott betűkészlet a bemutatóban a beágyazás ellenére is helyettesítésre kerül a renderelés során?**
+**Hogyan ellenőrizhetem, hogy egy beágyazott betűkészlet a renderelés során még mindig helyettesítésre kerül-e?**
 
-Ellenőrizze a [helyettesítési információkat](/slides/hu/php-java/font-substitution/) a betűkészlet-kezelőben és a [visszalépési/helyettesítési szabályokat](/slides/hu/php-java/fallback-font/): ha a betűkészlet nem érhető el vagy korlátozott, akkor egy visszalépő betűkészlet lesz használva.
+Hívd a [FontsManager::getSubstitutions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/fontsmanager/#getSubstitutions) metódust abban a környezetben, ahol a prezentációt rendereled, hogy megtudd, mely betűkészleteket cseréli ki az Aspose.Slides. Ellenőrizd továbbá a [font substitution](/slides/hu/php-java/font-substitution/) beállításokat és a [font fallback](/slides/hu/php-java/fallback-font/) szabályokat. A fallback a hiányzó karaktereket kezeli, így egy betűkészlet beágyazása nem oldja meg azokat a karaktereket, amelyek a betűkészletben nincsenek.
 
-**Éri-e meg a "rendszer" betűkészletek, például az Arial/Calibri beágyazása?**
+**Érdemes általános betűkészleteket, például Arial‑t vagy Calibri‑t beágyazni?**
 
-Általában nem – ezek szinte mindig elérhetők. Azonban vékony környezetek („könnyű” környezetek, például Docker vagy egy előre telepített betűkészletek nélküli Linux szerver) a rendszerbetűkészletek beágyazása kiküszöbölheti a váratlan helyettesítések kockázatát.
+A döntést a célkörnyezet alapján hozd meg. Ha a szükséges betűkészletek minden olyan gépen rendelkezésre állnak, amely megnyitja vagy rendereli a prezentációt, a beágyazás felesleges fájlméret-növekedést okozhat. Ha a címzettek vagy a szerverek esetleg nem rendelkeznek ezekkel a betűkkel, a beágyazás segíthet megőrizni a kívánt megjelenést, feltéve hogy a licencük engedélyezi azt.

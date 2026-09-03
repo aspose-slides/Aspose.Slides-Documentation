@@ -1,109 +1,196 @@
 ---
-title: Menyematkan Font dalam Presentasi dengan Python
-linktitle: Menyematkan Font
+title: Sematkan Font dalam Presentasi dengan Python
+linktitle: Font yang Disematkan
 type: docs
 weight: 40
 url: /id/python-net/embedded-font/
 keywords:
-- menambahkan font
-- menyematkan font
+- tambahkan font
+- sematkan font
 - penyematan font
-- mengambil font yang disematkan
-- menambahkan font yang disematkan
-- menghapus font yang disematkan
-- mengompres font yang disematkan
+- dapatkan font yang disematkan
+- tambahkan font yang disematkan
+- hapus font yang disematkan
+- kompres font yang disematkan
 - PowerPoint
-- OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Menyematkan font TrueType dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Python via .NET, memastikan rendering yang akurat di semua platform."
+description: "Kelola font yang disematkan dalam PowerPoint dengan Aspose.Slides untuk Python via .NET. Gunakan Python untuk menambahkan, mengambil, menghapus, dan mengompres font guna mempertahankan tampilan teks dan mengurangi ukuran file."
 ---
 ## **Pendahuluan**
 
-**Menyematkan font dalam PowerPoint** memastikan presentasi Anda mempertahankan tampilan yang dimaksud di berbagai sistem. Baik menggunakan font unik untuk kreativitas maupun yang standar, menyematkan font mencegah gangguan pada teks dan tata letak.
+Menyematkan font menyimpan data font di dalam presentasi PowerPoint. Ketika pemirsa mendukung font yang disematkan, ia dapat menampilkan teks menggunakan font tersebut meskipun font tidak terpasang pada sistem target. Ini membantu mempertahankan pemisahan baris, jarak teks, dan tata letak slide.
 
-Jika Anda menggunakan font pihak ketiga atau non-standar karena berkreasi dengan pekerjaan Anda, maka Anda memiliki alasan lebih untuk menyematkan font tersebut. Sebaliknya (tanpa font yang disematkan), teks atau angka pada slide, tata letak, gaya, dll. dapat berubah atau menjadi kotak‑kotak yang membingungkan.
+Aspose.Slides for Python via .NET memungkinkan Anda mengambil, menambah, dan menghapus font yang disematkan melalui properti [fonts_manager](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/fonts_manager/) dari objek [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/). Anda juga dapat mengurangi ukuran data font yang disematkan dengan menghapus karakter yang tidak digunakan oleh presentasi.
 
-Gunakan kelas [FontsManager](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontdata/), dan [Compress](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/) untuk mengelola font yang disematkan.
+Contoh di bawah ini bekerja dengan file PPTX. Sebelum menyematkan sebuah font, pastikan data font tersebut tersedia untuk Aspose.Slides dan lisensinya memperbolehkan penyematan.
 
 ## **Dapatkan dan Hapus Font yang Disematkan**
 
-Ambil atau hapus font yang disematkan dari sebuah presentasi dengan mudah menggunakan metode [get_embedded_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) dan [remove_embedded_font](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/remove_embedded_font/).
+Gunakan [get_embedded_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) untuk menampilkan daftar font yang tersimpan dalam sebuah presentasi. Untuk menghapus satu font, berikan sebuah font dari daftar tersebut ke [remove_embedded_font](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/remove_embedded_font/), lalu simpan presentasinya.
 
-Kode Python berikut menunjukkan cara mengambil dan menghapus font yang disematkan dari sebuah presentasi:
+Contoh berikut menampilkan font yang disematkan dalam `EmbeddedFonts.pptx` dan menghapus Calibri jika ada:
 
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# Instansiasi kelas Presentation yang mewakili file presentasi.
 with slides.Presentation("EmbeddedFonts.pptx") as presentation:
-    slide = presentation.slides[0]
-
-    # Render slide yang berisi bingkai teks yang menggunakan font 'FunSized' yang disematkan.
-    with slide.get_image(draw.Size(960, 720)) as image:
-        image.save("picture1_out.png", slides.ImageFormat.PNG)
-
     fonts_manager = presentation.fonts_manager
-
-    # Ambil semua font yang disematkan.
     embedded_fonts = fonts_manager.get_embedded_fonts()
 
-    # Temukan font 'Calibri'.
-    font_data = list(filter(lambda data : data.font_name == "Calibri", embedded_fonts))[0]
+    for font in embedded_fonts:
+        print(font.font_name)
 
-    # Hapus font 'Calibri'.
-    fonts_manager.remove_embedded_font(font_data)
-
-    # Render slide; font 'Calibri' akan diganti dengan yang sudah ada.
-    with slide.get_image(draw.Size(960, 720)) as image:
-        image.save("picture2_out.png", slides.ImageFormat.PNG)
-
-    # Simpan presentasi tanpa font 'Calibri' yang disematkan ke disk.
-    presentation.save("WithoutEmbeddedFonts.ppt", slides.export.SaveFormat.PPT)
+    font_to_remove = next((font for font in embedded_fonts if font.font_name.casefold() == "calibri"), None)
+    if font_to_remove is not None:
+        fonts_manager.remove_embedded_font(font_to_remove)
+        presentation.save("WithoutEmbeddedCalibri.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Calibri is not embedded. No output file was created.")
 ```
+
+Menghapus font yang disematkan menghapus data font yang tersimpan; hal ini tidak mengubah font yang ditetapkan pada teks. Jika font tersebut terpasang pada sistem target, teks masih dapat menggunakannya. Jika tidak, proses rendering mungkin memerlukan [font substitution](/slides/id/python-net/font-substitution/), yang dapat memengaruhi tata letak.
+
+## **Periksa Data Font dan Izin Penyematan**
+
+Gunakan kelas [FontsManager](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/) untuk memeriksa font sebelum menyematkannya. Panggil [get_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_fonts/) untuk mengambil font yang digunakan dalam presentasi. Untuk setiap font, berikan objek [FontData](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontdata/) dan nilai [FontStyleType](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontstyletype/) yang diperlukan ke [get_font_bytes](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_font_bytes/). Metode ini mengembalikan data biner untuk gaya font tersebut, atau `None` bila font atau gaya yang diminta tidak tersedia. Jangan memberikan hasil `None` ke [get_font_embedding_level](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_font_embedding_level/), karena metode itu memerlukan array byte.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/id/python-net/aspose.slides/embeddinglevel/) adalah enumerasi flag yang melaporkan pembatasan penyematan yang disimpan dalam font:
+
+- `INSTALLABLE` memperbolehkan penyematan dan instalasi permanen pada sistem lain, tergantung pada lisensi font.
+- `RESTRICTED` melarang penyematan kecuali izin diperoleh dari pemilik hukum font ketika itu adalah satu‑satunya flag izin penggunaan.
+- `PREVIEW_PRINT` memperbolehkan penggunaan sementara untuk melihat dan mencetak; dokumen yang berisi font tersebut harus bersifat hanya‑baca.
+- `EDITABLE` memperbolehkan penggunaan sementara dan memungkinkan dokumen diedit serta disimpan.
+- `NO_SUBSETTING` merupakan pembatas tambahan yang melarang penyematan hanya sebagian glyph. Sematkan semua karakter bila flag ini ada.
+- `BITMAP_ONLY` merupakan pembatas tambahan yang hanya memperbolehkan penyematan bitmap strike, bukan data outline. Jika font tidak memiliki bitmap strike, font tidak dapat disematkan.
+
+Empat nilai pertama menggambarkan izin penggunaan, sementara `NO_SUBSETTING` dan `BITMAP_ONLY` dapat digabungkan dengan mereka. Periksa modifier dengan operasi bitwise. Karena `INSTALLABLE` bernilai nol, maskilah bit izin penggunaan dan bandingkan hasilnya dengan `INSTALLABLE`. Font saat ini seharusnya mengatur paling banyak satu bit izin penggunaan. Untuk kompatibilitas dengan font lama yang mengatur lebih dari satu, pembantu di bawah ini memilih izin paling tidak restriktif: `EDITABLE`, kemudian `PREVIEW_PRINT`, kemudian `RESTRICTED`.
+
+Contoh berikut mengaudit data reguler, tebal, miring, dan tebal‑miring yang tersedia untuk setiap font yang dikembalikan oleh `get_fonts`. Ia melewatkan gaya yang tidak tersedia, font yang dibatasi, font bitmap‑only, font yang terbatas pada pratinjau dan cetak karena output tetap dapat diedit, serta font yang sudah disematkan. Jika ada gaya yang tersedia memiliki `NO_SUBSETTING`, ia menyematkan semua karakter untuk keluarga font tersebut.
+
+```python
+import aspose.slides as slides
+
+
+def get_usage_permission(level):
+    permission_mask = slides.EmbeddingLevel.RESTRICTED | slides.EmbeddingLevel.PREVIEW_PRINT | slides.EmbeddingLevel.EDITABLE
+    permissions = level & permission_mask
+
+    if permissions & slides.EmbeddingLevel.EDITABLE:
+        return slides.EmbeddingLevel.EDITABLE
+
+    if permissions & slides.EmbeddingLevel.PREVIEW_PRINT:
+        return slides.EmbeddingLevel.PREVIEW_PRINT
+
+    if permissions & slides.EmbeddingLevel.RESTRICTED:
+        return slides.EmbeddingLevel.RESTRICTED
+
+    return slides.EmbeddingLevel.INSTALLABLE
+
+
+with slides.Presentation("Fonts.pptx") as presentation:
+    fonts_manager = presentation.fonts_manager
+    font_styles = [slides.FontStyleType.REGULAR, slides.FontStyleType.BOLD, slides.FontStyleType.ITALIC, slides.FontStyleType.BOLD | slides.FontStyleType.ITALIC]
+
+    embedded_font_names = {font.font_name.casefold() for font in fonts_manager.get_embedded_fonts()}
+
+    embedding_plan = []
+    for font in fonts_manager.get_fonts():
+        if font.font_name.casefold() in embedded_font_names:
+            print(f"{font.font_name}: already embedded.")
+            continue
+
+        has_available_data = False
+        all_available_styles_can_be_embedded = True
+        preview_print_only = False
+        requires_full_font = False
+
+        for font_style in font_styles:
+            font_bytes = fonts_manager.get_font_bytes(font, font_style)
+            if font_bytes is None:
+                print(f"{font.font_name} ({font_style}): font data is unavailable.")
+                continue
+
+            has_available_data = True
+            embedding_level = fonts_manager.get_font_embedding_level(font_bytes, font.font_name)
+            usage_permission = get_usage_permission(embedding_level)
+            no_subsetting = bool(embedding_level & slides.EmbeddingLevel.NO_SUBSETTING)
+            bitmap_only = bool(embedding_level & slides.EmbeddingLevel.BITMAP_ONLY)
+
+            requires_full_font |= no_subsetting
+            preview_print_only |= usage_permission == slides.EmbeddingLevel.PREVIEW_PRINT
+            all_available_styles_can_be_embedded &= usage_permission != slides.EmbeddingLevel.RESTRICTED and not bitmap_only
+
+            print(f"{font.font_name} ({font_style}): {embedding_level}.")
+
+        if not has_available_data:
+            print(f"{font.font_name}: skipped because no requested style is available.")
+        elif not all_available_styles_can_be_embedded:
+            print(f"{font.font_name}: skipped because at least one available style does not permit outline embedding.")
+        elif preview_print_only:
+            print(f"{font.font_name}: skipped because this example produces an editable presentation.")
+        else:
+            rule = slides.export.EmbedFontCharacters.ALL if requires_full_font else slides.export.EmbedFontCharacters.ONLY_USED
+            embedding_plan.append((font, rule))
+
+    for font, rule in embedding_plan:
+        fonts_manager.add_embedded_font(font, rule)
+
+    presentation.save("WithAuditedFonts.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Pemeriksaan ini melaporkan pembatasan yang dikodekan dalam setiap file font. Pemeriksaan ini tidak memberikan lisensi, tidak membuktikan bahwa Anda memperoleh font secara legal, dan tidak menggantikan pemeriksaan perjanjian lisensi font sebelum mendistribusikan salinan yang disematkan.
 
 ## **Tambahkan Font yang Disematkan**
 
-Dengan menggunakan enum [EmbedFontCharacters](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/embedfontcharacters/) dan dua overload dari metode [add_embedded_font](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/add_embedded_font/), Anda dapat memilih aturan (penyematan) yang diinginkan untuk menyematkan font dalam sebuah presentasi. Kode Python berikut menunjukkan cara menyematkan dan menambahkan font ke sebuah presentasi:
+Gunakan [add_embedded_font](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/add_embedded_font/) untuk menyematkan sebuah font. Overload‑nya menerima baik objek [FontData](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontdata/) atau array byte yang berisi data font. Enumerasi [EmbedFontCharacters](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/embedfontcharacters/) mengontrol karakter mana yang disertakan:
+
+- [ALL](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/embedfontcharacters/) menyematkan semua karakter dalam font. Gunakan opsi ini ketika penerima perlu mengedit presentasi dan memasukkan teks baru.
+- [ONLY_USED](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/embedfontcharacters/) hanya menyematkan karakter yang digunakan dalam presentasi untuk mengurangi ukuran file. Pilih opsi ini untuk presentasi selesai yang terutama ditujukan untuk ditampilkan.
+
+Contoh berikut menggunakan [get_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_fonts/) untuk mengambil font yang digunakan dalam `Fonts.pptx` dan menyematkan yang belum disematkan. Font yang akan ditambahkan harus tersedia pada mesin yang menjalankan kode. Font yang sudah disematkan tetap mempertahankan set karakter saat ini.
 
 ```python
 import aspose.slides as slides
 
-# Muat sebuah presentasi.
 with slides.Presentation("Fonts.pptx") as presentation:
-    all_fonts = presentation.fonts_manager.get_fonts()
-    embedded_fonts = presentation.fonts_manager.get_embedded_fonts()
+    fonts_manager = presentation.fonts_manager
+    all_fonts = fonts_manager.get_fonts()
+    embedded_fonts = fonts_manager.get_embedded_fonts()
+    embedded_names = {font.font_name.casefold() for font in embedded_fonts}
 
     for font in all_fonts:
-        if font not in embedded_fonts:
-            presentation.fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
+        normalized_name = font.font_name.casefold()
+        if normalized_name not in embedded_names:
+            fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
+            embedded_names.add(normalized_name)
 
-    # Simpan presentasi ke disk.
-    presentation.save("AddEmbeddedFont.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("WithEmbeddedFonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Kompres Font yang Disematkan**
 
-Optimalkan ukuran file dengan mengompres font yang disematkan menggunakan [compress_embedded_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/).
+[compress_embedded_fonts](https://reference.aspose.com/slides/id/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/) mengurangi data font yang disematkan dengan menghapus karakter yang tidak digunakan. Ia beroperasi pada font yang sudah disematkan, sehingga pengurangan ukuran bergantung pada seberapa banyak data font yang tidak terpakai yang ada dalam presentasi.
 
-Contoh kode untuk kompresi:
+Contoh berikut mengompres font dalam `EmbeddedFonts.pptx` dan menyimpan hasilnya sebagai file terpisah:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("EmbeddedFonts.pptx") as presentation:
     slides.lowcode.Compress.compress_embedded_fonts(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("CompressedEmbeddedFonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+Simpan file asli jika penerima mungkin perlu menambahkan teks di kemudian hari. Karakter yang dihapus selama kompresi tidak lagi tersedia dari font yang disematkan, bahkan bila Anda awalnya menyematkan semua karakter.
 
-**Bagaimana saya dapat mengetahui bahwa font tertentu dalam presentasi masih akan digantikan selama rendering meskipun sudah disematkan?**
+## **Tanya Jawab**
 
-Periksa [informasi substitusi](/slides/id/python-net/font-substitution/) di manajer font dan [aturan fallback/substitusi](/slides/id/python-net/fallback-font/): jika font tidak tersedia atau dibatasi, fallback akan digunakan.
+**Bagaimana saya dapat memeriksa apakah font yang disematkan masih akan diganti selama rendering?**
 
-**Apakah layak menyematkan font "sistem" seperti Arial/Calibri?**
+Panggil [get_substitutions](https://reference.aspose.com/slides/id/python-net/aspose.slides/fontsmanager/get_substitutions/) dalam lingkungan tempat Anda merender presentasi untuk melihat font mana yang akan diganti oleh Aspose.Slides. Juga periksa pengaturan [font substitution](/slides/id/python-net/font-substitution/) dan aturan [font fallback](/slides/id/python-net/fallback-font/). Fallback menangani karakter yang hilang, sehingga penyematan font tidak menyelesaikan karakter yang tidak terdapat dalam font itu sendiri.
 
-Biasanya tidak—font tersebut hampir selalu tersedia. Namun untuk portabilitas penuh di lingkungan "tipis" (Docker, server Linux tanpa font yang terpasang sebelumnya), menyematkan font sistem dapat menghilangkan risiko substitusi yang tidak terduga.
+**Haruskah saya menyematkan font umum seperti Arial dan Calibri?**
+
+Buat keputusan berdasarkan lingkungan target. Jika font yang dibutuhkan tersedia di setiap mesin yang membuka atau merender presentasi, menyematkannya dapat menambah ukuran file yang tidak perlu. Jika penerima atau server mungkin tidak memiliki font tersebut, menyematkannya dapat membantu mempertahankan tampilan yang diinginkan, dengan catatan lisensinya memperbolehkan hal itu.

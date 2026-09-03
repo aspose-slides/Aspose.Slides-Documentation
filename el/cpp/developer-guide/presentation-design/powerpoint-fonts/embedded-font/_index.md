@@ -1,128 +1,310 @@
 ---
-title: Ενσωμάτωση γραμματοσειρών σε παρουσιάσεις με C++
-linktitle: Ενσωμάτωση γραμματοσειράς
+title: Ενσωμάτωση Γραμματοσειρών σε Παρουσιάσεις σε C++
+linktitle: Ενσωματωμένες Γραμματοσειρές
 type: docs
 weight: 40
 url: /el/cpp/embedded-font/
 keywords:
 - προσθήκη γραμματοσειράς
 - ενσωμάτωση γραμματοσειράς
-- ενσωμάτωση γραμματοσειρών
+- ενσωμάτωση γραμματοσειράς
 - λήψη ενσωματωμένης γραμματοσειράς
 - προσθήκη ενσωματωμένης γραμματοσειράς
 - αφαίρεση ενσωματωμένης γραμματοσειράς
 - συμπίεση ενσωματωμένης γραμματοσειράς
 - PowerPoint
-- OpenDocument
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Ενσωματώστε γραμματοσειρές TrueType σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides for C++, εξασφαλίζοντας ακριβή απόδοση σε όλες τις πλατφόρμες."
+description: "Διαχείριση ενσωματωμένων γραμματοσειρών στο PowerPoint με το Aspose.Slides για C++. Προσθήκη, ανάκτηση, αφαίρεση και συμπίεση γραμματοσειρών για τη διατήρηση της εμφάνισης του κειμένου και τη μείωση του μεγέθους του αρχείου."
 ---
 ## **Εισαγωγή**
 
-**Οι ενσωματωμένες γραμματοσειρές στο PowerPoint** βοηθούν να εξασφαλίσουν ότι η παρουσίασή σας διατηρεί την προγραμματισμένη της εμφάνιση όταν ανοίγεται σε οποιοδήποτε σύστημα ή συσκευή. Αυτό είναι ιδιαίτερα σημαντικό όταν χρησιμοποιείτε προσαρμοσμένες, τρίτων ή μη τυπικές γραμματοσειρές για branding ή δημιουργικούς σκοπούς. Χωρίς ενσωματωμένες γραμματοσειρές, το κείμενο μπορεί να αντικατασταθεί, οι διατάξεις να σπάσουν και οι χαρακτήρες να εμφανιστούν ως μη αναγνώσιμα σύμβολα ή ορθογώνια, θέτοντας σε κίνδυνο το συνολικό σχέδιο.
+Η ενσωμάτωση γραμματοσειρών αποθηκεύει τα δεδομένα γραμματοσειράς μέσα σε μια παρουσίαση PowerPoint. Όταν ένας προβολέας υποστηρίζει ενσωματωμένες γραμματοσειρές, μπορεί να εμφανίσει το κείμενο χρησιμοποιώντας αυτές τις γραμματοσειρές ακόμη και αν δεν είναι εγκατεστημένες στο σύστημα‑στόχο. Αυτό βοηθά στη διατήρηση των αλλαγών γραμμής, του διαστήματος κειμένου και της διάταξης των διαφανειών.
 
-Aspose.Slides for C++ παρέχει ένα σύνολο ισχυρών API για τη διαχείριση ενσωματωμένων γραμματοσειρών προγραμματιστικά. Μπορείτε να χρησιμοποιήσετε τις κλάσεις [FontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/) και [FontData](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontdata/) για να ελέγξετε, να προσθέσετε ή να αφαιρέσετε ενσωματωμένες γραμματοσειρές στα αρχεία της παρουσίασής σας. Επιπλέον, η κλάση [Compress](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/) σας επιτρέπει να βελτιστοποιήσετε το μέγεθος του αρχείου συμπτύσσοντας τα δεδομένα της γραμματοσειράς χωρίς να επηρεάζει την ποιότητα ή την εμφάνιση. Αυτά τα εργαλεία σας δίνουν πλήρη έλεγχο της ενσωμάτωσης γραμματοσειρών, βοηθώντας σας να διατηρήσετε συνεπή τυπογραφία σε όλες τις πλατφόρμες ενώ μειώνετε το μέγεθος του αρχείου όταν χρειάζεται.
+Το Aspose.Slides for C++ σας επιτρέπει να ανακτήσετε, να προσθέσετε και να αφαιρέσετε ενσωματωμένες γραμματοσειρές μέσω της μεθόδου [Presentation::get_FontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_fontsmanager/) ενός [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/). Μπορείτε επίσης να μειώσετε το μέγεθος των ενσωματωμένων δεδομένων γραμματοσειράς αφαιρώντας χαρακτήρες που δεν χρησιμοποιεί η παρουσίαση.
 
-## **Λήψη ενσωματωμένων γραμματοσειρών από μια παρουσίαση**
+Τα παραδείγματα παρακάτω λειτουργούν με αρχεία PPTX. Πριν ενσωματώσετε μια γραμματοσειρά, βεβαιωθείτε ότι τα δεδομένα της γραμματοσειράς είναι διαθέσιμα στο Aspose.Slides και η άδειά της επιτρέπει την ενσωμάτωση.
 
-Aspose.Slides for C++ παρέχει τη μέθοδο `GetEmbeddedFonts` μέσω της κλάσης [FontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/) , η οποία σας επιτρέπει να ανακτήσετε μια λίστα με τις γραμματοσειρές που είναι ενσωματωμένες σε μια παρουσίαση PowerPoint. Αυτό μπορεί να είναι χρήσιμο για έλεγχο χρήσης γραμματοσειρών, διασφάλιση συμμόρφωσης με τις οδηγίες branding, ή επαλήθευση ότι όλες οι απαραίτητες γραμματοσειρές έχουν ενσωματωθεί σωστά πριν την κοινή χρήση του αρχείου. Ο παρακάτω κώδικας C++ δείχνει πώς να λάβετε ενσωματωμένες γραμματοσειρές από ένα αρχείο παρουσίασης:
+## **Λήψη και Αφαίρεση Ενσωματωμένων Γραμματοσειρών**
 
+Χρησιμοποιήστε το [IFontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/getembeddedfonts/) για να παραθέσετε τις γραμματοσειρές που είναι αποθηκευμένες σε μια παρουσίαση. Για να αφαιρέσετε μία, περάστε μια γραμματοσειρά από αυτή τη λίστα στο [IFontsManager::RemoveEmbeddedFont](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/removeembeddedfont/), στη συνέχεια αποθηκεύστε την παρουσίαση.
+
+Το παρακάτω παράδειγμα παραθέτει τις ενσωματωμένες γραμματοσειρές στο `EmbeddedFonts.pptx` και αφαιρεί τη Calibri εάν υπάρχει:
 ```cpp
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparison.h>
 
-// Λήψη όλων των ενσωματωμένων γραμματοσειρών.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Εκτύπωση ονομάτων των ενσωματωμένων γραμματοσειρών.
-for (auto&& fontData : embeddedFonts)
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+SharedPtr<IFontData> fontToRemove;
+
+for (auto&& font : embeddedFonts)
 {
-    Console::WriteLine(fontData->get_FontName());
+    Console::WriteLine(font->get_FontName());
+
+    if (String::Equals(font->get_FontName(), u"Calibri", StringComparison::OrdinalIgnoreCase))
+    {
+        fontToRemove = font;
+    }
+}
+
+if (fontToRemove != nullptr)
+{
+    fontsManager->RemoveEmbeddedFont(fontToRemove);
+    presentation->Save(u"WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Calibri is not embedded. No output file was created.");
 }
 
 presentation->Dispose();
 ```
 
-## **Προσθήκη ενσωματωμένων γραμματοσειρών σε μια παρουσίαση**
+Η αφαίρεση μιας ενσωματωμένης γραμματοσειράς αφαιρεί τα αποθηκευμένα δεδομένα της γραμματοσειράς· δεν αλλάζει τη γραμματοσειρά που έχει ανατεθεί στο κείμενο. Εάν η γραμματοσειρά είναι εγκατεστημένη στο σύστημα‑στόχο, το κείμενο μπορεί ακόμη να τη χρησιμοποιήσει. Διαφορετικά, η απόδοση ενδέχεται να απαιτήσει [αντικατάσταση γραμματοσειράς](/slides/el/cpp/font-substitution/), το οποίο μπορεί να επηρεάσει τη διάταξη.
 
-Το Aspose.Slides for C++ σας επιτρέπει να ενσωματώσετε γραμματοσειρές σε μια παρουσίαση PowerPoint χρησιμοποιώντας τη μέθοδο [AddEmbeddedFont](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/addembeddedfont/) , η οποία διαθέτει δύο υπερφορτώσεις για ευέλικτη χρήση. Μπορείτε να ελέγξετε πόσο της γραμματοσειράς θα ενσωματωθεί χρησιμοποιώντας την απαρίθμηση [EmbedFontCharacters](https://reference.aspose.com/slides/el/cpp/aspose.slides.export/embedfontcharacters/) — π.χ., επιλέγοντας να ενσωματωθούν μόνο οι χρησιμοποιημένοι χαρακτήρες ή ολόκληρο το σύνολο της γραμματοσειράς. Αυτή η λειτουργία είναι ιδιαίτερα χρήσιμη κατά την προετοιμασία μιας παρουσίασης για κοινή χρήση ή διανομή, εξασφαλίζοντας ότι προσαρμοσμένες ή μη τυπικές γραμματοσειρές εμφανίζονται σωστά σε όλα τα συστήματα, ακόμη και αν αυτές οι γραμματοσειρές δεν είναι εγκατεστημένες. Ο παρακάτω κώδικας C++ ελέγχει όλες τις γραμματοσειρές που χρησιμοποιούνται σε μια παρουσίαση και ενσωματώνει τυχόν γραμματοσειρές που δεν είναι ήδη ενσωματωμένες.
+## **Έλεγχος Δεδομένων Γραμματοσειράς και Δικαιωμάτων Ενσωμάτωσης**
 
+Χρησιμοποιήτε τη διεπαφή [IFontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/) για να ελέγξετε τις γραμματοσειρές πριν τις ενσωματώσετε. Καλείτε το [IFontsManager::GetFonts](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/getfonts/) για να ανακτήσετε τις γραμματοσειρές που χρησιμοποιούνται στην παρουσίαση. Για κάθε γραμματοσειρά, περάστε ένα αντικείμενο [IFontData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontdata/) και την απαιτούμενη τιμή [FontStyleType](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontstyletype/) στο [IFontsManager::GetFontBytes](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/getfontbytes/). Η μέθοδος επιστρέφει τα δυαδικά δεδομένα για αυτό το στυλ γραμματοσειράς, ή `nullptr` όταν η ζητούμενη γραμματοσειρά ή το στυλ δεν είναι διαθέσιμο. Μην περάσετε ένα αποτέλεσμα `nullptr` στο [IFontsManager::GetFontEmbeddingLevel](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/getfontembeddinglevel/), επειδή αυτή η μέθοδος απαιτεί έναν πίνακα byte.
+
+Το [EmbeddingLevel](https://reference.aspose.com/slides/el/cpp/aspose.slides/embeddinglevel/) είναι μια απαρίθμηση σημαδιών που αναφέρει τους περιορισμούς ενσωμάτωσης που είναι αποθηκευμένοι στη γραμματοσειρά:
+
+- `Installable` επιτρέπει την ενσωμάτωση και μόνιμη εγκατάσταση σε άλλο σύστημα, σύμφωνα με την άδεια της γραμματοσειράς.
+- `Restricted` απαγορεύει την ενσωμάτωση εκτός εάν ληφθεί άδεια από τον νόμιμο κάτοχο της γραμματοσειράς όταν είναι η μοναδική σημαία άδειας χρήσης.
+- `PreviewPrint` επιτρέπει προσωρινή χρήση για προβολή και εκτύπωση· ένα έγγραφο που περιέχει τη γραμματοσειρά πρέπει να είναι μόνο για ανάγνωση.
+- `Editable` επιτρέπει προσωρινή χρήση και επιτρέπει την επεξεργασία και αποθήκευση του εγγράφου.
+- `NoSubsetting` είναι ένας πρόσθετος περιορισμός που απαγορεύει την ενσωμάτωση μόνο ενός υποσυνόλου των γλυφών. Ενσωματώστε όλους τους χαρακτήρες όταν αυτή η σημαία είναι παρούσα.
+- `BitmapOnly` είναι ένας πρόσθετος περιορισμός που επιτρέπει την ενσωμάτωση μόνο bitmap εκδόσεων, όχι δεδομένων περιγράμματος. Εάν η γραμματοσειρά δεν έχει bitmap εκδόσεις, δεν μπορεί να ενσωματωθεί.
+
+Οι πρώτες τέσσερις τιμές περιγράφουν την άδεια χρήσης, ενώ τα `NoSubsetting` και `BitmapOnly` μπορούν να συνδυαστούν με αυτές. Ελέγξτε τους τροποποιητές με λογικές (bitwise) πράξεις. Επειδή το `Installable` είναι μηδέν, χρησιμεύστε σε μάσκα στα bits άδειας χρήσης και συγκρίνετε το αποτέλεσμα με το `Installable`. Οι τρέχουσες γραμματοσειρές πρέπει να ορίζουν το πολύ ένα bit άδειας χρήσης. Για συμβατότητα με παλαιότερες γραμματοσειρές που ορίζουν περισσότερα από ένα, ο βοηθητικός κώδικας παρακάτω επιλέγει την λιγότερο περιοριστική άδεια: `Editable`, μετά `PreviewPrint`, μετά `Restricted`.
+
+Το παρακάτω παράδειγμα ελέγχει τα κανονικά, έντονα, πλαγία και έντονα‑πλαγια δεδομένα που είναι διαθέσιμα για κάθε γραμματοσειρά που επιστρέφεται από το `GetFonts`. Παράβλεπει τα μη διαθέσιμα στυλ, τις περιορισμένες γραμματοσειρές, τις γραμματοσειρές μόνο bitmap, τις γραμματοσειρές περιορισμένες σε προβολή και εκτύπωση επειδή το αποτέλεσμα παραμένει επεξεργάσιμο, και τις γραμματοσειρές που είναι ήδη ενσωματωμένες. Εάν κάποιο διαθέσιμο στυλ έχει `NoSubsetting`, ενσωματώνει όλους τους χαρακτήρες για αυτή την οικογένεια γραμματοσειρών.
 ```cpp
-// Φόρτωση αρχείου παρουσίασης.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/EmbeddingLevel.h>
+#include <DOM/FontStyleType.h>
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/collections/list.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
 
-auto usedFonts = presentation->get_FontsManager()->GetFonts();
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 
-for (auto&& fontData : usedFonts)
+auto getUsagePermission = [](EmbeddingLevel level)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+    const auto permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    auto permissions = level & permissionMask;
+
+    if ((permissions & EmbeddingLevel::Editable) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Editable;
+    }
+
+    if ((permissions & EmbeddingLevel::PreviewPrint) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if ((permissions & EmbeddingLevel::Restricted) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+};
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto fontStyles = MakeArray<FontStyleType>({
+    FontStyleType::Regular,
+    FontStyleType::Bold,
+    FontStyleType::Italic,
+    FontStyleType::Bold | FontStyleType::Italic
+});
+auto fontStyleNames = MakeArray<String>({u"regular", u"bold", u"italic", u"bold-italic"});
+
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+for (auto&& embeddedFont : fontsManager->GetEmbeddedFonts())
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+auto fontsToEmbedAll = MakeObject<List<SharedPtr<IFontData>>>();
+auto fontsToEmbedUsedOnly = MakeObject<List<SharedPtr<IFontData>>>();
+for (auto&& font : fontsManager->GetFonts())
+{
+    if (embeddedFontNames->Contains(font->get_FontName()))
+    {
+        Console::WriteLine(u"{0}: already embedded.", font->get_FontName());
+        continue;
+    }
+
+    auto hasAvailableData = false;
+    auto allAvailableStylesCanBeEmbedded = true;
+    auto previewPrintOnly = false;
+    auto requiresFullFont = false;
+
+    for (auto styleIndex = 0; styleIndex < fontStyles->get_Length(); styleIndex++)
+    {
+        auto fontStyle = fontStyles[styleIndex];
+        auto fontBytes = fontsManager->GetFontBytes(font, fontStyle);
+        if (fontBytes == nullptr)
         {
-            return data == fontData;
-        };
+            Console::WriteLine(u"{0} ({1}): font data is unavailable.", font->get_FontName(), fontStyleNames[styleIndex]);
+            continue;
+        }
 
-    // Έλεγχος αν η γραμματοσειρά είναι ήδη ενσωματωμένη.
-    bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
-    if (!isEmbeddedFont)
-    {
-        // Ενσωμάτωση της γραμματοσειράς στην παρουσίαση.
-        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+        hasAvailableData = true;
+        auto embeddingLevel = fontsManager->GetFontEmbeddingLevel(fontBytes, font->get_FontName());
+        auto usagePermission = getUsagePermission(embeddingLevel);
+        auto noSubsetting = (embeddingLevel & EmbeddingLevel::NoSubsetting) != EmbeddingLevel::Installable;
+        auto bitmapOnly = (embeddingLevel & EmbeddingLevel::BitmapOnly) != EmbeddingLevel::Installable;
+
+        requiresFullFont |= noSubsetting;
+        previewPrintOnly |= usagePermission == EmbeddingLevel::PreviewPrint;
+        allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel::Restricted && !bitmapOnly;
+
+        Console::WriteLine(u"{0} ({1}): embedding level {2}.", font->get_FontName(), fontStyleNames[styleIndex], static_cast<uint16_t>(embeddingLevel));
     }
 
+    if (!hasAvailableData)
+    {
+        Console::WriteLine(u"{0}: skipped because no requested style is available.", font->get_FontName());
+    }
+    else if (!allAvailableStylesCanBeEmbedded)
+    {
+        Console::WriteLine(u"{0}: skipped because at least one available style does not permit outline embedding.", font->get_FontName());
+    }
+    else if (previewPrintOnly)
+    {
+        Console::WriteLine(u"{0}: skipped because this example produces an editable presentation.", font->get_FontName());
+    }
+    else if (requiresFullFont)
+    {
+        fontsToEmbedAll->Add(font);
+    }
+    else
+    {
+        fontsToEmbedUsedOnly->Add(font);
+    }
 }
 
-// Αποθήκευση της παρουσίασης στο δίσκο.
-presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Αφαίρεση ενσωματωμένων γραμματοσειρών από μια παρουσίαση**
-
-Aspose.Slides for C++ παρέχει τη μέθοδο `RemoveEmbeddedFont` μέσω της κλάσης [FontsManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/fontsmanager/) , η οποία σας επιτρέπει να αφαιρέσετε συγκεκριμένες ενσωματωμένες γραμματοσειρές από μια παρουσίαση PowerPoint. Αυτό μπορεί να βοηθήσει στη μείωση του συνολικού μεγέθους του αρχείου, ιδιαίτερα εάν οι ενσωματωμένες γραμματοσειρές δεν χρησιμοποιούνται πλέον ή δεν χρειάζονται. Η αφαίρεση αχρησιμοποίητων γραμματοσειρών μπορεί επίσης να βελτιώσει την απόδοση και να διασφαλίσει ότι η παρουσίασή σας περιλαμβάνει μόνο τους απαραίτητους πόρους. Ο παρακάτω κώδικας C++ δείχνει πώς να αφαιρέσετε μια ενσωματωμένη γραμματοσειρά από μια παρουσίαση:
-
-```cpp
-auto fontName = u"Calibri";
-
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
-
-// Λήψη όλων των ενσωματωμένων γραμματοσειρών.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
-
-for (auto&& fontData : embeddedFonts)
+for (auto&& font : fontsToEmbedAll)
 {
-    if (fontData->get_FontName().Equals(fontName))
-    {
-        // Αφαίρεση της ενσωματωμένης γραμματοσειράς.
-        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+}
 
-        break;
+for (auto&& font : fontsToEmbedUsedOnly)
+{
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::OnlyUsed);
+}
+
+presentation->Save(u"WithAuditedFonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Αυτή η εξέταση αναφέρει τους περιορισμούς που είναι κωδικοποιημένοι σε κάθε αρχείο γραμματοσειράς. Δεν παρέχει άδεια, δεν αποδεικνύει ότι αποκτήσατε τη γραμματοσειρά νόμιμα, ούτε αντικαθιστά τον έλεγχο της άδειας χρήσης της γραμματοσειράς πριν τη διανομή ενός ενσωματωμένου αντιγράφου.
+
+## **Προσθήκη Ενσωματωμένων Γραμματοσειρών**
+
+Χρησιμοποιήστε το [IFontsManager::AddEmbeddedFont](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/addembeddedfont/) για να ενσωματώσετε μια γραμματοσειρά. Οι υπερφορτώσεις του δέχονται είτε ένα αντικείμενο [IFontData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontdata/) είτε έναν πίνακα byte που περιέχει τα δεδομένα της γραμματοσειράς. Η απαρίθμηση [EmbedFontCharacters](https://reference.aspose.com/slides/el/cpp/aspose.slides.export/embedfontcharacters/) ελέγχει ποιοι χαρακτήρες περιλαμβάνονται:
+
+- [All](https://reference.aspose.com/slides/el/cpp/aspose.slides.export/embedfontcharacters/) ενσωματώνει όλους τους χαρακτήρες στη γραμματοσειρά. Χρησιμοποιήστε αυτή την επιλογή όταν οι παραλήπτες χρειάζεται να επεξεργαστούν την παρουσίαση και να εισάγουν νέο κείμενο.
+- [OnlyUsed](https://reference.aspose.com/slides/el/cpp/aspose.slides.export/embedfontcharacters/) ενσωματώνει μόνο τους χαρακτήρες που χρησιμοποιούνται στην παρουσίαση για να μειωθεί το μέγεθος του αρχείου. Επιλέξτε αυτή την επιλογή για μια τελική παρουσίαση που προορίζεται κυρίως για προβολή.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί το [IFontsManager::GetFonts](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/getfonts/) για να ανακτήσει τις γραμματοσειρές που χρησιμοποιούνται στο `Fonts.pptx` και ενσωματώνει εκείνες που δεν είναι ήδη ενσωματωμένες. Οι γραμματοσειρές που θα προστεθούν πρέπει να είναι διαθέσιμες στο μηχάνημα που εκτελεί τον κώδικα. Οι υπάρχουσες ενσωματωμένες γραμματοσειρές διατηρούν τα τρέχοντα σύνολα χαρακτήρων τους.
+```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/collections/sorted_set.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto allFonts = fontsManager->GetFonts();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+for (auto&& embeddedFont : embeddedFonts)
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+for (auto&& font : allFonts)
+{
+    if (!embeddedFontNames->Contains(font->get_FontName()))
+    {
+        fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        embeddedFontNames->Add(font->get_FontName());
     }
 }
 
-presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Save(u"WithEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Συμπίεση ενσωματωμένων γραμματοσειρών**
+## **Συμπίεση Ενσωματωμένων Γραμματοσειρών**
 
-Το Aspose.Slides for C++ παρέχει τη μέθοδο `CompressEmbeddedFonts` μέσω της κλάσης [Compress](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/) , επιτρέποντάς σας να μειώσετε το συνολικό μέγεθος του αρχείου μιας παρουσίασης βελτιστοποιώντας τα ενσωματωμένα δεδομένα γραμματοσειράς. Αυτό είναι ιδιαίτερα χρήσιμο όταν η παρουσίασή σας περιλαμβάνει μεγάλες ή πολλαπλές γραμματοσειρές και θέλετε να διατηρήσετε το αρχείο ελαφρύ για κοινή χρήση, αποθήκευση ή online χρήση — χωρίς να θυσιάζετε την οπτική ακεραιότητα του περιεχομένου. Ο παρακάτω κώδικας C++ δείχνει πώς να συμπιέσετε ενσωματωμένες γραμματοσειρές σε μια παρουσίαση PowerPoint:
+Η [Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) μειώνει τα ενσωματωμένα δεδομένα γραμματοσειράς αφαιρώντας τους αχρησιμοποίητους χαρακτήρες. Λειτουργεί σε γραμματοσειρές που είναι ήδη ενσωματωμένες, έτσι η μείωση του μεγέθους εξαρτάται από το πόσα αχρησιμοποίητα δεδομένα γραμματοσειράς περιέχει η παρουσίαση.
 
+Το παρακάτω παράδειγμα συμπιέζει τις γραμματοσειρές στο `EmbeddedFonts.pptx` και αποθηκεύει το αποτέλεσμα ως ξεχωριστό αρχείο:
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/shared_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
 Compress::CompressEmbeddedFonts(presentation);
-
-presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Save(u"CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Συχνές ερωτήσεις**
+Διατηρήστε το αρχικό αρχείο εάν οι παραλήπτες ενδέχεται να χρειαστεί να προσθέσουν κείμενο αργότερα. Οι χαρακτήρες που αφαιρέθηκαν κατά τη συμπίεση δεν είναι πλέον διαθέσιμοι από την ενσωματωμένη γραμματοσειρά, ακόμη και αν αρχικά ενσωματώσατε όλους τους χαρακτήρες.
 
-**Πώς μπορώ να διαπιστώ ότι μια συγκεκριμένη γραμματοσειρά στην παρουσίαση θα αντικατασταθεί κατά την απόδοση παρόλο που είναι ενσωματωμένη;**  
-Ελέγξτε τις [πληροφορίες αντικατάστασης](/slides/el/cpp/font-substitution/) στο διαχειριστή γραμματοσειρών και τους [κανόνες εναλλακτικών/αντικατάστασης](/slides/el/cpp/fallback-font/): εάν η γραμματοσειρά δεν είναι διαθέσιμη ή περιορίζεται, θα χρησιμοποιηθεί εναλλακτική.
+## **Συχνές Ερωτήσεις**
 
-**Αξίζει η ενσωμάτωση των «συστημικών» γραμματοσειρών όπως Arial/Calibri;**  
-Κατά κανόνα όχι—είναι σχεδόν πάντα διαθέσιμες. Ωστόσο, για πλήρη φορητότητα σε «ελαφριά» περιβάλλοντα (Docker, διακομιστής Linux χωρίς προεγκατεστημένες γραμματοσειρές), η ενσωμάτωση συστημικών γραμματοσειρών μπορεί να εξαλείψει τον κίνδυνο απροσδόκητων αντικαταστάσεων.
+**Πώς μπορώ να ελέγξω αν μια ενσωματωμένη γραμματοσειρά θα αντικατασταθεί ακόμη κατά την απόδοση;**
+
+Καλέστε το [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifontsmanager/getsubstitutions/) στο περιβάλλον όπου αποδίδετε την παρουσίαση για να δείτε ποιες γραμματοσειρές θα αντικαταστήσει το Aspose.Slides. Επίσης ελέγξτε τις ρυθμίσεις [αντικατάσταση γραμματοσειράς](/slides/el/cpp/font-substitution/) και τους κανόνες [εναλλακτική γραμματοσειράς](/slides/el/cpp/fallback-font/). Το fallback διαχειρίζεται τους ελλειπόντες χαρακτήρες, έτσι η ενσωμάτωση μιας γραμματοσειράς δεν επιλύει χαρακτήρες που η ίδια η γραμματοσειρά δεν περιέχει.
+
+**Πρέπει να ενσωματώσω κοινές γραμματοσειρές όπως Arial και Calibri;**
+
+Λάβετε την απόφαση με βάση το περιβάλλον‑στόχο. Εάν οι απαιτούμενες γραμματοσειρές είναι διαθέσιμες σε κάθε μηχάνημα που ανοίγει ή αποδίδει την παρουσίαση, η ενσωμάτωση τους μπορεί να προσθέσει περιττό μέγεθος αρχείου. Εάν οι παραλήπτες ή οι διακομιστές μπορεί να μην διαθέτουν αυτές τις γραμματοσειρές, η ενσωμάτωσή τους μπορεί να βοηθήσει στη διατήρηση της προθυμημένης εμφάνισης, εφόσον οι άδειές τους το επιτρέπουν.

@@ -1,141 +1,314 @@
 ---
-title: Schriftarten in Präsentationen mit C++ einbetten
-linktitle: Schriftart einbetten
+title: "Schriftarten in Präsentationen in C++ einbetten"
+linktitle: "Eingebettete Schriftarten"
 type: docs
 weight: 40
 url: /de/cpp/embedded-font/
 keywords:
-- Schrift hinzufügen
-- Schriftart einbetten
-- Schriftarteinbettung
-- eingebettete Schriftart abrufen
-- eingebettete Schriftart hinzufügen
-- eingebettete Schriftart entfernen
-- eingebettete Schriftart komprimieren
-- PowerPoint
-- OpenDocument
-- Präsentation
-- C++
-- Aspose.Slides
-description: "Betten Sie TrueType-Schriftarten in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für C++ ein, um eine genaue Darstellung auf allen Plattformen zu gewährleisten."
+- "Schrift hinzufügen"
+- "Schriftart einbetten"
+- "Schriftart-Einbettung"
+- "Eingebettete Schriftart abrufen"
+- "Eingebettete Schriftart hinzufügen"
+- "Eingebettete Schriftart entfernen"
+- "Eingebettete Schriftart komprimieren"
+- "PowerPoint"
+- "Präsentation"
+- "C++"
+- "Aspose.Slides"
+description: "Verwalten Sie eingebettete Schriftarten in PowerPoint mit Aspose.Slides für C++. Fügen Sie Schriftarten hinzu, rufen Sie sie ab, entfernen und komprimieren Sie sie, um das Erscheinungsbild des Textes zu erhalten und die Dateigröße zu reduzieren."
 ---
+## **Einführung**
 
-## **Übersicht**
+Das Einbetten von Schriftarten speichert Schriftartdaten in einer PowerPoint-Präsentation. Wenn ein Betrachter eingebettete Schriftarten unterstützt, kann er Text mit diesen Schriftarten anzeigen, selbst wenn sie nicht auf dem Zielsystem installiert sind. Dies hilft, Zeilenumbrüche, Textabstände und das Folienlayout beizubehalten.
 
-**Eingebettete Schriftarten in PowerPoint** helfen sicherzustellen, dass Ihre Präsentation ihr beabsichtigtes Aussehen behält, wenn sie auf einem beliebigen System oder Gerät geöffnet wird. Dies ist besonders wichtig, wenn benutzerdefinierte, fremde oder nicht‑standardmäßige Schriftarten für Branding‑ oder Kreativzwecke verwendet werden. Ohne eingebettete Schriftarten kann Text ersetzt werden, Layouts können brechen und Zeichen können als unlesbare Symbole oder Rechtecke erscheinen, was das Gesamtdesign beeinträchtigt.
+Aspose.Slides for C++ ermöglicht das Abrufen, Hinzufügen und Entfernen eingebetteter Schriftarten über die [Presentation::get_FontsManager](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/get_fontsmanager/) Methode einer [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/). Sie können die Größe eingebetteter Schriftartdaten auch reduzieren, indem Sie Zeichen entfernen, die in der Präsentation nicht verwendet werden.
 
-Aspose.Slides for C++ bietet eine Reihe leistungsstarker APIs zur programmgesteuerten Verwaltung eingebetteter Schriftarten. Sie können die [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) und [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) Klassen verwenden, um eingebettete Schriftarten in Ihren Präsentationsdateien zu untersuchen, hinzuzufügen oder zu entfernen. Zusätzlich ermöglicht die [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) Klasse, die Dateigröße zu optimieren, indem Schriftartdaten komprimiert werden, ohne Qualität oder Aussehen zu beeinträchtigen.
+Die nachfolgenden Beispiele arbeiten mit PPTX-Dateien. Vor dem Einbetten einer Schriftart stellen Sie sicher, dass deren Schriftartdaten für Aspose.Slides verfügbar sind und die Lizenz das Einbetten erlaubt.
 
-Diese Werkzeuge geben Ihnen die volle Kontrolle über das Einbetten von Schriftarten und helfen Ihnen, eine konsistente Typografie über Plattformen hinweg beizubehalten, während Sie bei Bedarf die Dateigröße reduzieren.
+## **Abrufen und Entfernen eingebetteter Schriftarten**
 
-## **Eingebettete Schriftarten aus einer Präsentation abrufen**
+Verwenden Sie [IFontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getembeddedfonts/) um die in einer Präsentation gespeicherten Schriftarten aufzulisten. Um eine zu entfernen, übergeben Sie eine Schriftart aus dieser Liste an [IFontsManager::RemoveEmbeddedFont](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/removeembeddedfont/) und speichern anschließend die Präsentation.
 
-Aspose.Slides for C++ stellt die Methode `GetEmbeddedFonts` über die [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) Klasse bereit, mit der Sie eine Liste der in einer PowerPoint‑Präsentation eingebetteten Schriftarten abrufen können. Dies kann nützlich sein, um die Schriftartnutzung zu prüfen, die Einhaltung von Branding‑Richtlinien sicherzustellen oder zu überprüfen, dass alle notwendigen Schriftarten vor dem Teilen der Datei korrekt enthalten sind.
+Das folgende Beispiel listet die eingebetteten Schriftarten in `EmbeddedFonts.pptx` auf und entfernt Calibri, falls sie vorhanden ist:
 
-Der folgende C++‑Code zeigt, wie man eingebettete Schriftarten aus einer Präsentationsdatei abruft:
 ```cpp
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparison.h>
 
-// Alle eingebetteten Schriftarten abrufen.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Namen der eingebetteten Schriftarten ausgeben.
-for (auto&& fontData : embeddedFonts)
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+SharedPtr<IFontData> fontToRemove;
+
+for (auto&& font : embeddedFonts)
 {
-    Console::WriteLine(fontData->get_FontName());
+    Console::WriteLine(font->get_FontName());
+
+    if (String::Equals(font->get_FontName(), u"Calibri", StringComparison::OrdinalIgnoreCase))
+    {
+        fontToRemove = font;
+    }
+}
+
+if (fontToRemove != nullptr)
+{
+    fontsManager->RemoveEmbeddedFont(fontToRemove);
+    presentation->Save(u"WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Calibri is not embedded. No output file was created.");
 }
 
 presentation->Dispose();
 ```
 
+Das Entfernen einer eingebetteten Schriftart löscht deren gespeicherte Schriftartdaten; es ändert nicht die dem Text zugewiesene Schriftart. Ist die Schriftart auf dem Zielsystem installiert, kann der Text sie weiterhin verwenden. Andernfalls kann die Darstellung eine [font substitution](/slides/de/cpp/font-substitution/) erfordern, was das Layout beeinträchtigen kann.
 
-## **Eingebettete Schriftarten zu einer Präsentation hinzufügen**
+## **Untersuchen von Schriftartdaten und Einbettungsberechtigungen**
 
-Aspose.Slides for C++ ermöglicht das Einbetten von Schriftarten in eine PowerPoint‑Präsentation mittels der [AddEmbeddedFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/) Methode, die zwei Überladungen für flexible Verwendung bietet. Sie können steuern, wie viel von der Schriftart eingebettet wird, indem Sie die Aufzählung [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) verwenden – zum Beispiel, indem Sie nur verwendete Zeichen oder das gesamte Schriftartenset einbetten. Diese Funktion ist besonders nützlich, wenn Sie eine Präsentation zum Teilen oder zur Verteilung vorbereiten, um sicherzustellen, dass benutzerdefinierte oder nicht‑standardmäßige Schriftarten auf allen Systemen korrekt angezeigt werden, selbst wenn diese Schriftarten nicht installiert sind.
+Verwenden Sie die [IFontsManager](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/) Schnittstelle, um Schriftarten vor dem Einbetten zu prüfen. Rufen Sie [IFontsManager::GetFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getfonts/) auf, um die in der Präsentation verwendeten Schriftarten zu erhalten. Für jede Schriftart übergeben Sie ein [IFontData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontdata/) Objekt und den erforderlichen [FontStyleType](https://reference.aspose.com/slides/de/cpp/aspose.slides/fontstyletype/) Wert an [IFontsManager::GetFontBytes](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getfontbytes/). Die Methode liefert die Binärdaten für diesen Schriftschnitt zurück oder `nullptr`, wenn die angeforderte Schriftart oder der Stil nicht verfügbar ist. Übergeben Sie das Ergebnis `nullptr` nicht an [IFontsManager::GetFontEmbeddingLevel](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getfontembeddinglevel/), da diese Methode ein Byte‑Array erwartet.
 
-Der folgende C++‑Code überprüft alle in einer Präsentation verwendeten Schriftarten und bettet alle Schriftarten ein, die noch nicht eingebettet sind.
+[EmbeddingLevel](https://reference.aspose.com/slides/de/cpp/aspose.slides/embeddinglevel/) ist eine Aufzählung mit Flags, die die im Schriftart gespeicherten Einbettungsbeschränkungen angibt:
+
+- `Installable` erlaubt das Einbetten und die permanente Installation auf einem anderen System, vorbehaltlich der Lizenz der Schriftart.
+- `Restricted` verbietet das Einbetten, es sei denn, die Erlaubnis des rechtlichen Eigentümers der Schriftart wird eingeholt, wenn es das einzige Nutzungsberechtigung‑Flag ist.
+- `PreviewPrint` erlaubt die temporäre Nutzung zum Anzeigen und Drucken; ein Dokument, das die Schriftart enthält, muss schreibgeschützt sein.
+- `Editable` erlaubt die temporäre Nutzung und ermöglicht das Bearbeiten und Speichern des Dokuments.
+- `NoSubsetting` ist eine zusätzliche Beschränkung, die das Einbetten nur eines Teilbereichs der Glyphen verbietet. Betten Sie alle Zeichen ein, wenn dieses Flag gesetzt ist.
+- `BitmapOnly` ist eine zusätzliche Beschränkung, die nur das Einbetten von Bitmap‑Schriftschnitten erlaubt, nicht jedoch von Konturdaten. Wenn die Schriftart keine Bitmap‑Schriftschnitte besitzt, kann sie nicht eingebettet werden.
+
+Die ersten vier Werte beschreiben die Nutzungsberechtigung, während `NoSubsetting` und `BitmapOnly` mit ihnen kombiniert werden können. Prüfen Sie die Modifikatoren mittels bitweiser Operationen. Da `Installable` den Wert null hat, maskieren Sie die Nutzungs‑Berechtigungs‑Bits und vergleichen das Ergebnis mit `Installable`. Aktuelle Schriftarten sollten höchstens ein Nutzungs‑Berechtigungs‑Bit setzen. Zur Kompatibilität mit älteren Schriftarten, die mehr als eines setzen, wählt die untenstehende Hilfsfunktion die am wenigsten restriktive Berechtigung aus: `Editable`, dann `PreviewPrint`, dann `Restricted`.
+
+Das folgende Beispiel prüft die regulären, fetten, kursiven und fett‑kursiven Daten, die für jede von `GetFonts` zurückgegebene Schriftart verfügbar sind. Es überspringt nicht verfügbare Stile, eingeschränkte Schriftarten, ausschließlich bitmap‑basierte Schriftarten, Schriftarten, die nur für Vorschau und Druck beschränkt sind, weil die Ausgabe editierbar bleibt, sowie bereits eingebettete Schriftarten. Hat ein verfügbarer Stil das Flag `NoSubsetting`, werden alle Zeichen für diese Schriftfamilie eingebettet.
+
 ```cpp
-// Laden Sie eine Präsentationsdatei.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/EmbeddingLevel.h>
+#include <DOM/FontStyleType.h>
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/collections/list.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
 
-auto usedFonts = presentation->get_FontsManager()->GetFonts();
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 
-for (auto&& fontData : usedFonts)
+auto getUsagePermission = [](EmbeddingLevel level)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+    const auto permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    auto permissions = level & permissionMask;
+
+    if ((permissions & EmbeddingLevel::Editable) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Editable;
+    }
+
+    if ((permissions & EmbeddingLevel::PreviewPrint) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if ((permissions & EmbeddingLevel::Restricted) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+};
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto fontStyles = MakeArray<FontStyleType>({
+    FontStyleType::Regular,
+    FontStyleType::Bold,
+    FontStyleType::Italic,
+    FontStyleType::Bold | FontStyleType::Italic
+});
+auto fontStyleNames = MakeArray<String>({u"regular", u"bold", u"italic", u"bold-italic"});
+
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+for (auto&& embeddedFont : fontsManager->GetEmbeddedFonts())
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+auto fontsToEmbedAll = MakeObject<List<SharedPtr<IFontData>>>();
+auto fontsToEmbedUsedOnly = MakeObject<List<SharedPtr<IFontData>>>();
+for (auto&& font : fontsManager->GetFonts())
+{
+    if (embeddedFontNames->Contains(font->get_FontName()))
+    {
+        Console::WriteLine(u"{0}: already embedded.", font->get_FontName());
+        continue;
+    }
+
+    auto hasAvailableData = false;
+    auto allAvailableStylesCanBeEmbedded = true;
+    auto previewPrintOnly = false;
+    auto requiresFullFont = false;
+
+    for (auto styleIndex = 0; styleIndex < fontStyles->get_Length(); styleIndex++)
+    {
+        auto fontStyle = fontStyles[styleIndex];
+        auto fontBytes = fontsManager->GetFontBytes(font, fontStyle);
+        if (fontBytes == nullptr)
         {
-            return data == fontData;
-        };
+            Console::WriteLine(u"{0} ({1}): font data is unavailable.", font->get_FontName(), fontStyleNames[styleIndex]);
+            continue;
+        }
 
-    // Prüfen, ob die Schriftart bereits eingebettet ist.
-    bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
-    if (!isEmbeddedFont)
-    {
-        // Schriftart in die Präsentation einbetten.
-        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+        hasAvailableData = true;
+        auto embeddingLevel = fontsManager->GetFontEmbeddingLevel(fontBytes, font->get_FontName());
+        auto usagePermission = getUsagePermission(embeddingLevel);
+        auto noSubsetting = (embeddingLevel & EmbeddingLevel::NoSubsetting) != EmbeddingLevel::Installable;
+        auto bitmapOnly = (embeddingLevel & EmbeddingLevel::BitmapOnly) != EmbeddingLevel::Installable;
+
+        requiresFullFont |= noSubsetting;
+        previewPrintOnly |= usagePermission == EmbeddingLevel::PreviewPrint;
+        allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel::Restricted && !bitmapOnly;
+
+        Console::WriteLine(u"{0} ({1}): embedding level {2}.", font->get_FontName(), fontStyleNames[styleIndex], static_cast<uint16_t>(embeddingLevel));
     }
 
+    if (!hasAvailableData)
+    {
+        Console::WriteLine(u"{0}: skipped because no requested style is available.", font->get_FontName());
+    }
+    else if (!allAvailableStylesCanBeEmbedded)
+    {
+        Console::WriteLine(u"{0}: skipped because at least one available style does not permit outline embedding.", font->get_FontName());
+    }
+    else if (previewPrintOnly)
+    {
+        Console::WriteLine(u"{0}: skipped because this example produces an editable presentation.", font->get_FontName());
+    }
+    else if (requiresFullFont)
+    {
+        fontsToEmbedAll->Add(font);
+    }
+    else
+    {
+        fontsToEmbedUsedOnly->Add(font);
+    }
 }
 
-// Präsentation auf die Festplatte speichern.
-presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-
-## **Eingebettete Schriftarten aus einer Präsentation entfernen**
-
-Aspose.Slides for C++ stellt die Methode `RemoveEmbeddedFont` über die [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) Klasse bereit, mit der Sie bestimmte in einer PowerPoint‑Präsentation eingebettete Schriftarten entfernen können. Dies kann helfen, die Gesamtdateigröße zu reduzieren, insbesondere wenn die eingebetteten Schriftarten nicht mehr verwendet oder benötigt werden. Das Entfernen nicht genutzter Schriftarten kann zudem die Leistung verbessern und sicherstellen, dass Ihre Präsentation nur essentielle Ressourcen enthält.
-
-Der folgende C++‑Code zeigt, wie man eine eingebettete Schriftart aus einer Präsentation entfernt:
-```cpp
-auto fontName = u"Calibri";
-
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
-
-// Alle eingebetteten Schriftarten abrufen.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
-
-for (auto&& fontData : embeddedFonts)
+for (auto&& font : fontsToEmbedAll)
 {
-    if (fontData->get_FontName().Equals(fontName))
-    {
-        // Entfernen Sie die eingebettete Schriftart.
-        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+}
 
-        break;
+for (auto&& font : fontsToEmbedUsedOnly)
+{
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::OnlyUsed);
+}
+
+presentation->Save(u"WithAuditedFonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Diese Überprüfung gibt die in jeder Schriftdatei codierten Beschränkungen aus. Sie gewährt keine Lizenz, beweist nicht, dass Sie die Schriftart legal erworben haben, und ersetzt nicht die Prüfung der Lizenzvereinbarung der Schriftart, bevor Sie eine eingebettete Kopie verteilen.
+
+## **Hinzufügen eingebetteter Schriftarten**
+
+Verwenden Sie [IFontsManager::AddEmbeddedFont](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/addembeddedfont/), um eine Schriftart einzubetten. Die Überladungen akzeptieren entweder ein [IFontData](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontdata/) Objekt oder ein Byte‑Array, das die Schriftardaten enthält. Die Aufzählung [EmbedFontCharacters](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/embedfontcharacters/) bestimmt, welche Zeichen eingeschlossen werden:
+
+- [All](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/embedfontcharacters/) bettet alle Zeichen der Schriftart ein. Verwenden Sie diese Option, wenn Empfänger die Präsentation bearbeiten und neuen Text eingeben müssen.
+- [OnlyUsed](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/embedfontcharacters/) bettet nur die in der Präsentation verwendeten Zeichen ein, um die Dateigröße zu reduzieren. Wählen Sie diese Option für eine fertige Präsentation, die hauptsächlich zum Anzeigen gedacht ist.
+
+Das folgende Beispiel verwendet [IFontsManager::GetFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getfonts/), um die in `Fonts.pptx` verwendeten Schriftarten zu erhalten und bettet jene ein, die noch nicht eingebettet sind. Die hinzuzufügenden Schriftarten müssen auf dem ausführenden Rechner verfügbar sein. Bereits eingebettete Schriftarten behalten ihren aktuellen Zeichensatz bei.
+
+```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/collections/sorted_set.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto allFonts = fontsManager->GetFonts();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+for (auto&& embeddedFont : embeddedFonts)
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+for (auto&& font : allFonts)
+{
+    if (!embeddedFontNames->Contains(font->get_FontName()))
+    {
+        fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        embeddedFontNames->Add(font->get_FontName());
     }
 }
 
-presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Save(u"WithEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Komprimieren eingebetteter Schriftarten**
 
-## **Eingebettete Schriftarten komprimieren**
+[Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/de/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) reduziert eingebettete Schriftartdaten, indem nicht verwendete Zeichen entfernt werden. Sie arbeitet mit bereits eingebetteten Schriftarten, sodass die Größenreduktion vom Umfang der nicht genutzten Schriftartdaten in der Präsentation abhängt.
 
-Aspose.Slides for C++ stellt die Methode `CompressEmbeddedFonts` über die [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) Klasse bereit, mit der Sie die Gesamtdateigröße einer Präsentation reduzieren können, indem Sie die eingebetteten Schriftartdaten optimieren. Das ist besonders nützlich, wenn Ihre Präsentation große oder mehrere Schriftarten enthält und Sie die Datei für das Teilen, die Speicherung oder die Online‑Nutzung leichtgewichtig halten möchten – ohne die visuelle Treue des Inhalts zu beeinträchtigen.
+Das folgende Beispiel komprimiert die Schriftarten in `EmbeddedFonts.pptx` und speichert das Ergebnis als separate Datei:
 
-Der folgende C++‑Code zeigt, wie man eingebettete Schriftarten in einer PowerPoint‑Präsentation komprimiert:
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/shared_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
 Compress::CompressEmbeddedFonts(presentation);
-
-presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Save(u"CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Bewahren Sie die Originaldatei auf, falls Empfänger später Text hinzufügen müssen. Während der Komprimierung entfernte Zeichen stehen aus der eingebetteten Schriftart nicht mehr zur Verfügung, selbst wenn Sie ursprünglich alle Zeichen eingebettet haben.
 
 ## **FAQ**
 
-**Wie kann ich feststellen, dass eine bestimmte Schriftart in der Präsentation trotz Einbettung weiterhin beim Rendern substituiert wird?**
+**Wie kann ich überprüfen, ob eine eingebettete Schriftart bei der Darstellung noch substituiert wird?**
 
-Prüfen Sie die [Substitutionsinformationen](/slides/de/cpp/font-substitution/) im Font‑Manager und die [Fallback-/Substitutionsregeln](/slides/de/cpp/fallback-font/): Wenn die Schriftart nicht verfügbar oder eingeschränkt ist, wird ein Ersatz verwendet.
+Rufen Sie [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifontsmanager/getsubstitutions/) in der Umgebung auf, in der Sie die Präsentation rendern, um zu sehen, welche Schriftarten Aspose.Slides ersetzen wird. Prüfen Sie außerdem die Einstellungen für [font substitution](/slides/de/cpp/font-substitution/) und die Regeln für [font fallback](/slides/de/cpp/fallback-font/). Fallback behandelt fehlende Zeichen, sodass das Einbetten einer Schriftart Zeichen, die die Schriftart selbst nicht enthält, nicht löst.
 
-**Lohnt es sich, „System“-Schriftarten wie Arial/Calibri einzubetten?**
+**Sollte ich gängige Schriftarten wie Arial und Calibri einbetten?**
 
-In der Regel nicht – sie sind fast immer verfügbar. Aber für volle Portabilität in „dünnen“ Umgebungen (Docker, ein Linux‑Server ohne vorinstallierte Schriftarten) kann das Einbetten von System‑Schriftarten das Risiko unerwarteter Substitutionen beseitigen.
+Treffen Sie die Entscheidung basierend auf der Zielumgebung. Sind die benötigten Schriftarten auf jedem Rechner, der die Präsentation öffnet oder rendert, verfügbar, kann das Einbetten zu unnötiger Dateigröße führen. Wenn Empfänger oder Server diese Schriftarten möglicherweise nicht haben, kann das Einbetten helfen, das beabsichtigte Erscheinungsbild zu bewahren, vorausgesetzt, ihre Lizenzen erlauben es.

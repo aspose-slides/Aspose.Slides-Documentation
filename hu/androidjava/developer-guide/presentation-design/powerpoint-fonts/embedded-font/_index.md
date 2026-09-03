@@ -1,145 +1,272 @@
 ---
-title: Betűtípusok beágyazása prezentációkba Androidon
-linktitle: Betűtípus beágyazása
+title: Betűkészletek beágyazása prezentációkba Androidon
+linktitle: Beágyazott betűkészletek
 type: docs
 weight: 40
 url: /hu/androidjava/embedded-font/
 keywords:
-- betűtípus hozzáadása
-- betűtípus beágyazása
-- betűtípus beágyazás
-- beágyazott betűtípus lekérdezése
-- beágyazott betűtípus hozzáadása
-- beágyazott betűtípus eltávolítása
-- beágyazott betűtípus tömörítése
+- betűkészlet hozzáadása
+- betűkészlet beágyazása
+- betűkészlet beágyazás
+- beágyazott betűkészlet lekérése
+- beágyazott betűkészlet hozzáadása
+- beágyazott betűkészlet eltávolítása
+- beágyazott betűkészlet tömörítése
 - PowerPoint
-- OpenDocument
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "TrueType betűtípusok beágyazása PowerPoint és OpenDocument prezentációkba az Androidra készült Aspose.Slides Java használatával, biztosítva a pontos megjelenítést minden platformon."
+description: "Kezelje a beágyazott betűkészleteket PowerPointban az Aspose.Slides for Android via Java segítségével. Adjon hozzá, kérje le, távolítsa el és tömörítse a betűkészleteket a szöveg megjelenésének megőrzése és a fájlméret csökkentése érdekében."
 ---
 ## **Bevezetés**
 
-**Beágyazott betűtípusok a PowerPointban** hasznosak, ha azt szeretné, hogy a bemutatója minden rendszeren vagy eszközön helyesen jelenjen meg. Ha harmadik féltől származó vagy nem szabványos betűtípust használt, mert kreatív volt a munkájában, akkor még több oka van a betűtípus beágyazására. Ellenkező esetben (beágyazott betűtípusok nélkül) a diákon lévő szövegek vagy számok, az elrendezés, a stílus stb. megváltozhatnak vagy zavaró téglalapokká alakulhatnak. 
+A betűkészletek beágyazása betűkészlet‑adatokat tárol a PowerPoint‑prezentációban. Ha a megjelenítő támogatja a beágyazott betűkészleteket, meg tudja jeleníteni a szöveget a betűkkel még akkor is, ha azok nincsenek telepítve a célrendszeren. Ez segít megőrizni a sortöréseket, a szöveg távolságait és a dia elrendezését.
 
-A [FontsManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FontsManager) osztály, a [FontData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontdata/) osztály, a [Compress](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/) osztály és azok interfészei tartalmazzák a legtöbb tulajdonságot és metódust, amelyekre a PowerPoint‑bemutatók beágyazott betűtípusaival való munka során szüksége van.
+Az Aspose.Slides for Android via Java lehetővé teszi a beágyazott betűkészletek lekérését, hozzáadását és eltávolítását az [IFontsManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/) felületen keresztül, amelyet a [Presentation.getFontsManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getFontsManager--) ad vissza. Emellett csökkentheti a beágyazott betűkészlet‑adat méretét az olyan karakterek eltávolításával, amelyeket a prezentáció nem használ.
 
-## **Beágyazott betűtípusok lekérése és eltávolítása**
+Az alábbi példák PPTX fájlokkal működnek. Betűkészlet beágyazása előtt győződjön meg arról, hogy a betűkészlet‑adatai elérhetők az Aspose.Slides számára, és a licenc lehetővé teszi a beágyazást.
 
-Az Aspose.Slides a [getEmbeddedFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) metódust (a [FontsManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FontsManager) osztály által biztosítva) kínálja, amely lehetővé teszi a bemutatóban beágyazott betűtípusok lekérését (vagy megtudását). A betűtípusok eltávolításához a [removeEmbeddedFont](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) metódust (ugyanazon osztály által) használják.
+## **Beágyazott betűkészletek lekérése és eltávolítása**
 
-Ez a Java kód bemutatja, hogyan lehet beágyazott betűtípusokat lekérni és eltávolítani egy bemutatóból:
+Használja a [getEmbeddedFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) metódust a prezentációban tárolt betűkészletek listázásához. Egy betűkészlet eltávolításához adja át a listából a betűkészletet a [removeEmbeddedFont](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) metódusnak, majd mentse a prezentációt.
+
+Az alábbi példa listázza a beágyazott betűkészleteket a `EmbeddedFonts.pptx` fájlban, és eltávolítja a Calibrít, ha jelen van:
 
 ```java
-// Egy Presentation objektumot hoz létre, amely egy prezentációs fájlt képvisel
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    // Renderel egy diát, amely szövegkeretet tartalmaz, ami beágyazott "FunSized" betűtípust használ
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    //A képet JPEG formátumban menti le a lemezre
-    try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
-    // Lekéri az összes beágyazott betűtípust
+    IFontsManager fontsManager = presentation.getFontsManager();
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // Megkeresi a "Calibri" betűtípust
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
+    for (IFontData font : embeddedFonts) {
+        System.out.println(font.getFontName());
+    }
+
+    IFontData fontToRemove = null;
+    for (IFontData font : embeddedFonts) {
+        if ("Calibri".equalsIgnoreCase(font.getFontName())) {
+            fontToRemove = font;
             break;
         }
     }
 
-    // Eltávolítja a "Calibri" betűtípust
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
-    // Rendereli a prezentációt; a "Calibri" betűtípus helyettesítve van egy meglévővel
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     //A képet JPEG formátumban menti le a lemezre
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
-    // Mentse a prezentációt a beágyazott "Calibri" betűtípus nélkül a lemezre
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+    if (fontToRemove != null) {
+        fontsManager.removeEmbeddedFont(fontToRemove);
+        presentation.save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Calibri is not embedded. No output file was created.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Beágyazott betűtípusok hozzáadása**
+Egy beágyazott betűkészlet eltávolítása törli a tárolt betűkészlet‑adatokat; nem módosítja a szöveghez rendelt betűtípust. Ha a betűkészlet telepítve van a célrendszeren, a szöveg továbbra is használhatja. Ellenkező esetben a rendereléshez [betűtípus helyettesítés](/slides/hu/androidjava/font-substitution/) lehet szükséges, ami befolyásolhatja az elrendezést.
 
-Az [EmbedFontCharacters](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/embedfontcharacters/) felsorolt típus és a [addEmbeddedFont](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) metódus két túlterhelése segítségével kiválaszthatja a kívánt (beágyazási) szabályt a betűtípusok bemutatóba való beágyazásához. Ez a Java kód bemutatja, hogyan lehet betűtípusokat beágyazni és hozzáadni egy bemutatóhoz:
+## **Betűkészlet‑adatok és beágyazási engedélyek ellenőrzése**
+
+Használja az [IFontsManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/) felületet a betűkészletek beágyazás előtti ellenőrzéséhez. Hívja meg a [IFontsManager.getFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) metódust a prezentációban használt betűkészletek lekéréséhez. Minden egyes betűkészlethez adjon át egy [IFontData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontdata/) objektumot és a szükséges [FontStyleType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontstyletype/) értéket a [IFontsManager.getFontBytes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getFontBytes-com.aspose.slides.IFontData-int-) metódusnak. A metódus visszaadja a betűkészlet stílusának bináris adatait, vagy `null`‑t, ha a kért betűkészlet vagy stílus nem érhető el. Ne adjon át `null` eredményt a [IFontsManager.getFontEmbeddingLevel](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getFontEmbeddingLevel-byte---java.lang.String-) metódusnak, mivel ez a metódus byte‑tömböt igényel.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/embeddinglevel/) egy zászló‑enumeráció, amely a betűkészletben tárolt beágyazási korlátozásokat jelzi:
+
+- `` `Installable` `` engedélyezi a beágyazást és a tartós telepítést egy másik rendszeren, a betűkészlet licencétől függően.
+- `` `Restricted` `` tiltja a beágyazást, kivéve ha a betűkészlet jogtulajdonosától engedélyt kapunk, amikor ez az egyetlen használati‑engedély zászló.
+- `` `PreviewPrint` `` engedélyezi az ideiglenes használatot megtekintéshez és nyomtatáshoz; a betűkészletet tartalmazó dokumentum csak olvasásra van korlátozva.
+- `` `Editable` `` engedélyezi az ideiglenes használatot, és lehetővé teszi a dokumentum szerkesztését és mentését.
+- `` `NoSubsetting` `` további korlátozás, amely megtiltja a csak a glifek részhalmazának beágyazását. Ha ez a zászló jelen van, minden karaktert be kell ágyazni.
+- `` `BitmapOnly` `` további korlátozás, amely csak bitmap‑változatok beágyazását engedélyezi, nem az outline adatot. Ha a betűkészletnek nincs bitmap változata, nem ágyazható be.
+
+Az első négy érték a használati engedélyt írja le, míg a `` `NoSubsetting` `` és `` `BitmapOnly` `` ezekhez kombinálható. Ellenőrizze a módosítókat bitműveletekkel. Mivel a `` `Installable` `` nulla, maszkolja a használati‑engedély biteket, és hasonlítsa össze az eredményt a `` `Installable` `` értékével ahelyett, hogy zászlóként ellenőrizné. A jelenlegi betűkészleteknek legfeljebb egy használati‑engedély bitet kell beállítaniuk. A régebbi, több bitet beállító betűkészletekkel való kompatibilitás érdekében az alábbi segédfüggvény a legkevésbé korlátozó engedélyt választja: `` `Editable` ``, majd `` `PreviewPrint` ``, majd `` `Restricted` ``.
+
+Az alábbi példa auditálja a normál, félkövér, dőlt és félkövér‑dőlt adatokat minden betűkészlethez, amelyet a `getFonts` visszaad. Kihagyja a nem elérhető stílusokat, a korlátozott betűkészleteket, a csak bitmap‑betűkészleteket, a megtekintésre és nyomtatásra korlátozott betűkészleteket, mivel a kimenet szerkeszthető marad, valamint a már beágyazott betűkészleteket. Ha bármely elérhető stílus rendelkezik `` `NoSubsetting` `` értékkel, minden karaktert beágyaz a betűkészlet családhoz.
 
 ```java
-// Betölti a prezentációt
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.EmbeddingLevel;
+import com.aspose.slides.FontStyleType;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
-            }
+class EmbeddingPermission {
+    int getUsagePermission(int level) {
+        int permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+        int permissions = level & permissionMask;
+
+        if ((permissions & EmbeddingLevel.Editable) != 0) {
+            return EmbeddingLevel.Editable;
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        if ((permissions & EmbeddingLevel.PreviewPrint) != 0) {
+            return EmbeddingLevel.PreviewPrint;
+        }
+
+        if ((permissions & EmbeddingLevel.Restricted) != 0) {
+            return EmbeddingLevel.Restricted;
+        }
+
+        return EmbeddingLevel.Installable;
+    }
+}
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    int[] fontStyles = {
+        FontStyleType.Regular,
+        FontStyleType.Bold,
+        FontStyleType.Italic,
+        FontStyleType.Bold | FontStyleType.Italic
+    };
+
+    Set<String> embeddedFontNames = new HashSet<String>();
+    for (IFontData embeddedFont : fontsManager.getEmbeddedFonts()) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    EmbeddingPermission permissionHelper = new EmbeddingPermission();
+    List<IFontData> fontsToEmbed = new ArrayList<IFontData>();
+    List<Integer> embeddingRules = new ArrayList<Integer>();
+    for (IFontData font : fontsManager.getFonts()) {
+        if (embeddedFontNames.contains(font.getFontName().toLowerCase(Locale.ROOT))) {
+            System.out.println(font.getFontName() + ": already embedded.");
+            continue;
+        }
+
+        boolean hasAvailableData = false;
+        boolean allAvailableStylesCanBeEmbedded = true;
+        boolean previewPrintOnly = false;
+        boolean requiresFullFont = false;
+
+        for (int fontStyle : fontStyles) {
+            byte[] fontBytes = fontsManager.getFontBytes(font, fontStyle);
+            if (fontBytes == null) {
+                System.out.println(font.getFontName() + " (" + fontStyle + "): font data is unavailable.");
+                continue;
+            }
+
+            hasAvailableData = true;
+            int embeddingLevel = fontsManager.getFontEmbeddingLevel(fontBytes, font.getFontName());
+            int usagePermission = permissionHelper.getUsagePermission(embeddingLevel);
+            boolean noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+            boolean bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+            requiresFullFont |= noSubsetting;
+            previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+            allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+            System.out.println(font.getFontName() + " (" + fontStyle + "): " + embeddingLevel + ".");
+        }
+
+        if (!hasAvailableData) {
+            System.out.println(font.getFontName() + ": skipped because no requested style is available.");
+        } else if (!allAvailableStylesCanBeEmbedded) {
+            System.out.println(font.getFontName() + ": skipped because at least one available style does not permit outline embedding.");
+        } else if (previewPrintOnly) {
+            System.out.println(font.getFontName() + ": skipped because this example produces an editable presentation.");
+        } else {
+            int rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+            fontsToEmbed.add(font);
+            embeddingRules.add(rule);
         }
     }
 
-    // Mentse a prezentációt a lemezre
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < fontsToEmbed.size(); i++) {
+        fontsManager.addEmbeddedFont(fontsToEmbed.get(i), embeddingRules.get(i));
+    }
+
+    presentation.save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Beágyazott betűtípusok tömörítése**
+Ez az ellenőrzés jelentéseket készít a betűkészlet‑fájlokban kódolt korlátozásokról. Nem ad licencet, nem bizonyítja, hogy a betűkészletet jogszerűen szerezte be, és nem helyettesíti a betűkészlet licencszerződésének ellenőrzését a beágyazott másolat terjesztése előtt.
 
-Annak érdekében, hogy a bemutatóban beágyazott betűtípusokat tömöríthesse és csökkentse a fájlméretét, az Aspose.Slides a [compressEmbeddedFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) metódust (a [Compress](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/) osztály által) biztosítja.
+## **Beágyazott betűkészletek hozzáadása**
 
-Ez a Java kód bemutatja, hogyan lehet beágyazott PowerPoint betűtípusokat tömöríteni:
+Használja a [addEmbeddedFont](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) metódust egy betűkészlet beágyazásához. A túlterhelései elfogadnak vagy egy [IFontData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontdata/) objektumot, vagy egy byte‑tömböt, amely a betűkészlet adatokat tartalmazza. Az [EmbedFontCharacters](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/embedfontcharacters/) enumeráció határozza meg, mely karakterek legyenek belefoglalva:
+
+- [All](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/embedfontcharacters/) embeds all characters in the font. Use this option when recipients need to edit the presentation and enter new text.
+- [OnlyUsed](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/embedfontcharacters/) embeds only the characters used in the presentation to reduce file size. Choose this option for a finished presentation that is primarily intended for viewing.
+
+Az alábbi példa a [getFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) metódust használja a `Fonts.pptx` fájlban használt betűkészletek lekérésére, és beágyazza azokat, amelyek még nincsenek beágyazva. A hozzáadandó betűkészleteknek elérhetőnek kell lenniük az Android‑eszközön vagy regisztrálva kell lenniük az Aspose.Slides‑ben. A már létező beágyazott betűkészletek megtartják a jelenlegi karakterkészletüket.
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+Presentation presentation = new Presentation("Fonts.pptx");
 try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    IFontsManager fontsManager = presentation.getFontsManager();
+    IFontData[] allFonts = fontsManager.getFonts();
+    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
+    Set<String> embeddedFontNames = new HashSet<String>();
+
+    for (IFontData embeddedFont : embeddedFonts) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    for (IFontData font : allFonts) {
+        String fontName = font.getFontName().toLowerCase(Locale.ROOT);
+        if (!embeddedFontNames.contains(fontName)) {
+            fontsManager.addEmbeddedFont(font, EmbedFontCharacters.All);
+            embeddedFontNames.add(fontName);
+        }
+    }
+
+    presentation.save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Beágyazott betűkészletek tömörítése**
+
+[Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) csökkenti a beágyazott betűkészlet‑adatokat a nem használt karakterek eltávolításával. Már beágyazott betűkészleteken működik, így a méretcsökkentés a prezentációban található nem használt betűkészlet‑adat mennyiségétől függ.
+
+Az alábbi példa tömöríti a `EmbeddedFonts.pptx` betűkészleteit, és a eredményt külön fájlba menti:
+
+```java
+import com.aspose.slides.Compress;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    Compress.compressEmbeddedFonts(presentation);
+    presentation.save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Tartsa meg az eredeti fájlt, ha a címzetteknek később szöveget kell hozzáadniuk. A tömörítés során eltávolított karakterek már nem elérhetőek a beágyazott betűkészletből, még akkor sem, ha eredetileg az összes karaktert beágyazta.
 
 ## **GYIK**
 
-**Hogyan tudom megállapítani, hogy a bemutató egy adott betűtípusa a renderelés során továbbra is helyettesítésre kerül a beágyazás ellenére?**
+**Hogyan ellenőrizhetem, hogy egy beágyazott betűkészlet továbbra is helyettesítésre kerül-e a renderelés során?**
 
-Ellenőrizze a [helyettesítési információkat](/slides/hu/androidjava/font-substitution/) a betűtípus‑kezelőben, valamint a [visszaesési/helyettesítési szabályokat](/slides/hu/androidjava/fallback-font/): ha a betűtípus nem érhető el vagy korlátozott, egy helyettesítő kerül felhasználásra.
+Hívja meg a [getSubstitutions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) metódust abban a környezetben, ahol a prezentációt rendereli, hogy lássa, mely betűkészleteket cseréli le az Aspose.Slides. Ellenőrizze továbbá a [betűtípus helyettesítés](/slides/hu/androidjava/font-substitution/) beállításokat és a [betűkészlet helyettesítő](/slides/hu/androidjava/fallback-font/) szabályokat. A fallback kezeli a hiányzó karaktereket, így egy betűkészlet beágyazása nem oldja meg azokat a karaktereket, amelyeket a betűkészlet maga sem tartalmaz.
 
-**Érdemes „rendszer” betűtípusokat, például az Arial‑t vagy a Calibri‑t beágyazni?**
+**Érdemes-e általános betűkészleteket, például az Arial‑t és a Calibri‑t beágyazni?**
 
-Általában nem – ezek szinte mindig rendelkezésre állnak. Azonban „sovány” környezetekben (Docker, előre telepített betűtípusok nélküli Linux‑szerver) a rendszer‑betűtípusok beágyazása kiküszöbölheti a váratlan helyettesítések kockázatát.
+A döntést a célkörnyezet alapján hozza meg. Ha a szükséges betűkészletek minden olyan eszközön elérhetők, amely megnyitja vagy rendereli a prezentációt, a beágyazás csak felesleges fájlméretet adhat hozzá. Ha a címzettek vagy szerverek esetleg nem rendelkeznek ezekkel a betűkészletekkel, a beágyazás segíthet megőrizni a kívánt megjelenést, feltéve hogy a licencek lehetővé teszik.

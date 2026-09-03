@@ -1,6 +1,6 @@
 ---
-title: ฝังฟอนต์ในงานนำเสนอโดยใช้ С++
-linktitle: ฝังฟอนต์
+title: ฝังฟอนต์ในงานนำเสนอด้วย C++
+linktitle: ฟอนต์ที่ฝังไว้
 type: docs
 weight: 40
 url: /th/cpp/embedded-font/
@@ -8,125 +8,301 @@ keywords:
 - เพิ่มฟอนต์
 - ฝังฟอนต์
 - การฝังฟอนต์
-- รับฟอนต์ที่ฝัง
-- เพิ่มฟอนต์ที่ฝัง
-- ลบฟอนต์ที่ฝัง
-- บีบอัดฟอนต์ที่ฝัง
+- ดึงฟอนต์ที่ฝังไว้
+- เพิ่มฟอนต์ที่ฝังไว้
+- ลบฟอนต์ที่ฝังไว้
+- บีบอัดฟอนต์ที่ฝังไว้
 - PowerPoint
-- OpenDocument
 - งานนำเสนอ
-- С++
+- C++
 - Aspose.Slides
-description: "ฝังฟอนต์ TrueType ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ С++ เพื่อให้การเรนเดอร์ที่แม่นยำบนทุกแพลตฟอร์ม"
+description: "จัดการฟอนต์ที่ฝังไว้ใน PowerPoint ด้วย Aspose.Slides สำหรับ C++. เพิ่ม ดึง ลบ และบีบอัดฟอนต์ เพื่อรักษาการแสดงผลของข้อความและลดขนาดไฟล์."
 ---
 ## **บทนำ**
 
-**ฟอนต์ที่ฝังใน PowerPoint** ช่วยให้มั่นใจว่าการนำเสนอของคุณคงรูปลักษณ์ตามที่ตั้งใจเมื่อเปิดบนระบบหรืออุปกรณ์ใดก็ได้ นี่เป็นสิ่งสำคัญอย่างยิ่งเมื่อใช้ฟอนต์ที่กำหนดเอง, ฟอนต์จากบุคคลที่สาม, หรือฟอนต์ที่ไม่เป็นมาตรฐานสำหรับการสร้างแบรนด์หรือการออกแบบเชิงสร้างสรรค์ หากไม่มีฟอนต์ที่ฝังไว้ ข้อความอาจถูกแทนที่, การจัดวางอาจเสียหาย, และอักขระอาจปรากฏเป็นสัญลักษณ์หรือสี่เหลี่ยมที่อ่านไม่ออก ทำให้การออกแบบโดยรวมเสียหาย
+การฝังฟอนต์จะเก็บข้อมูลฟอนต์ไว้ภายในไฟล์งานนำเสนอ PowerPoint เมื่อโปรแกรมแสดงผลรองรับฟอนต์ที่ฝังไว้ มันสามารถแสดงข้อความโดยใช้ฟอนต์เหล่านั้นได้แม้ว่าจะไม่ได้ติดตั้งบนระบบเป้าหมาย ซึ่งช่วยรักษาการแบ่งบรรทัด การเว้นระยะข้อความ และการจัดวางสไลด์
 
-Aspose.Slides for C++ ให้ชุด API ที่มีประสิทธิภาพเพื่อจัดการฟอนต์ที่ฝังไว้โดยโปรแกรม คุณสามารถใช้คลาส [FontsManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/) และ [FontData](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontdata/) เพื่อสืบค้น, เพิ่ม หรือ ลบ ฟอนต์ที่ฝังไว้ในไฟล์การนำเสนอของคุณ นอกจากนี้คลาส [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) ช่วยให้คุณปรับขนาดไฟล์โดยการบีบอัดข้อมูลฟอนต์โดยไม่กระทบต่อคุณภาพหรือรูปลักษณ์
+Aspose.Slides for C++ ให้คุณดึงข้อมูล เพิ่ม และลบฟอนต์ที่ฝังไว้ผ่านเมธอด [Presentation::get_FontsManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_fontsmanager/) ของ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/). คุณยังสามารถลดขนาดข้อมูลฟอนต์ที่ฝังไว้โดยการลบอักขระที่งานนำเสนอไม่ได้ใช้
 
-เครื่องมือเหล่านี้ให้การควบคุมเต็มที่ในการฝังฟอนต์ ช่วยให้คุณรักษาการจัดรูปแบบตัวอักษรที่สอดคล้องกันระหว่างแพลตฟอร์มต่าง ๆ พร้อมทั้งลดขนาดไฟล์เมื่อต้องการ
+ตัวอย่างต่อไปนี้ทำงานกับไฟล์ PPTX ก่อนที่จะฝังฟอนต์ ให้ตรวจสอบว่าข้อมูลฟอนต์พร้อมใช้งานกับ Aspose.Slides และสัญญาอนุญาตของฟอนต์อนุญาตให้ฝังได้หรือไม่
 
-## **รับฟอนต์ที่ฝังจากการนำเสนอ**
+## **ดึงและลบฟอนต์ที่ฝังไว้**
 
-Aspose.Slides for C++ ให้เมธอด `GetEmbeddedFonts` ผ่านคลาส [FontsManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/) ซึ่งช่วยให้คุณดึงรายการฟอนต์ที่ฝังในงานนำเสนอ PowerPoint ได้ สิ่งนี้มีประโยชน์สำหรับการตรวจสอบการใช้ฟอนต์, ตรวจสอบการปฏิบัติตามแนวทางแบรนด์, หรือยืนยันว่าฟอนต์ที่จำเป็นทั้งหมดได้ถูกใส่อย่างถูกต้องก่อนแชร์ไฟล์
+ใช้ [IFontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/getembeddedfonts/) เพื่อแสดงรายการฟอนต์ที่เก็บในงานนำเสนอ หากต้องการลบฟอนต์ ให้ส่งฟอนต์จากรายการนั้นไปยัง [IFontsManager::RemoveEmbeddedFont](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/removeembeddedfont/), แล้วบันทึกงานนำเสนอ
 
+ตัวอย่างต่อไปนี้จะแสดงรายการฟอนต์ที่ฝังไว้ใน `EmbeddedFonts.pptx` และลบ Calibri หากมีอยู่:
 ```cpp
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparison.h>
 
-// Get all embedded fonts.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Print names of the embedded fonts.
-for (auto&& fontData : embeddedFonts)
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+SharedPtr<IFontData> fontToRemove;
+
+for (auto&& font : embeddedFonts)
 {
-    Console::WriteLine(fontData->get_FontName());
+    Console::WriteLine(font->get_FontName());
+
+    if (String::Equals(font->get_FontName(), u"Calibri", StringComparison::OrdinalIgnoreCase))
+    {
+        fontToRemove = font;
+    }
+}
+
+if (fontToRemove != nullptr)
+{
+    fontsManager->RemoveEmbeddedFont(fontToRemove);
+    presentation->Save(u"WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Calibri is not embedded. No output file was created.");
 }
 
 presentation->Dispose();
 ```
 
-## **เพิ่มฟอนต์ที่ฝังในการนำเสนอ**
+การลบฟอนต์ที่ฝังไว้จะลบข้อมูลฟอนต์ที่เก็บไว้; มันไม่ได้เปลี่ยนฟอนต์ที่กำหนดให้กับข้อความ หากฟอนต์ติดตั้งบนระบบเป้าหมาย ข้อความยังคงใช้ฟอนต์นั้นได้ มิฉะนั้น การเรนเดอร์อาจต้องอาศัย [font substitution](/slides/th/cpp/font-substitution/) ซึ่งอาจกระทบต่อการจัดวาง
 
-Aspose.Slides for C++ อนุญาตให้คุณฝังฟอนต์ลงในงานนำเสนอ PowerPoint โดยใช้เมธอด [AddEmbeddedFont](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/addembeddedfont/) ซึ่งมีสองรูปแบบการโอเวอร์โหลดเพื่อการใช้งานที่ยืดหยุ่น คุณสามารถควบคุมปริมาณฟอนต์ที่ฝังโดยใช้ enumeration [EmbedFontCharacters](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/embedfontcharacters/) — ตัวอย่างเช่น เลือกฝังเฉพาะอักขระที่ใช้หรือชุดฟอนต์ทั้งหมด ฟีเจอร์นี้มีประโยชน์อย่างยิ่งเมื่อเตรียมงานนำเสนอเพื่อแชร์หรือแจกจ่าย เพื่อให้แน่ใจว่าฟอนต์ที่กำหนดเองหรือฟอนต์ที่ไม่เป็นมาตรฐานจะแสดงอย่างถูกต้องบนทุกระบบ แม้ว่าฟอนต์เหล่านั้นจะไม่ได้ติดตั้ง
+## **ตรวจสอบข้อมูลฟอนต์และสิทธิ์การฝัง**
 
-โค้ด C++ ด้านล่างตรวจสอบฟอนต์ทั้งหมดที่ใช้ในงานนำเสนอ และฝังฟอนต์ที่ยังไม่ได้ฝังไว้
+ใช้ส่วนติดต่อ [IFontsManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/) เพื่อตรวจสอบฟอนต์ก่อนทำการฝัง เรียก [IFontsManager::GetFonts](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/getfonts/) เพื่อดึงฟอนต์ที่ใช้ในงานนำเสนอ สำหรับแต่ละฟอนต์ ส่งอ็อบเจกต์ [IFontData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontdata/) และค่า [FontStyleType](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontstyletype/) ที่ต้องการไปยัง [IFontsManager::GetFontBytes](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/getfontbytes/). เมธอดจะคืนค่าข้อมูลไบต์ของสไตล์ฟอนต์นั้น หรือ `nullptr` เมื่อฟอนต์หรือสไตล์ที่ขอไม่ได้อยู่ อย่าส่งผลลัพธ์ `nullptr` ไปยัง [IFontsManager::GetFontEmbeddingLevel](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/getfontembeddinglevel/) เพราะเมธอดนี้ต้องการอาเรย์ไบต์
 
+[EmbeddingLevel](https://reference.aspose.com/slides/th/cpp/aspose.slides/embeddinglevel/) เป็นการกำหนดค่าแบบ flags ที่รายงานข้อจำกัดการฝังที่เก็บอยู่ในฟอนต์:
+
+- `Installable` อนุญาตให้ฝังและทำการติดตั้งถาวรบนระบบอื่นได้ ตามเงื่อนไขของสัญญาอนุญาตฟอนต์
+- `Restricted` ห้ามฝังฟอนต์ เว้นแต่จะได้รับอนุญาตจากเจ้าของลิขสิทธิ์ของฟอนต์ เมื่อเป็นแฟล็กสิทธิ์การใช้งานเพียงอย่างเดียว
+- `PreviewPrint` อนุญาตให้ใช้ชั่วคราวสำหรับการดูและพิมพ์; เอกสารที่มีฟอนต์ต้องเป็นแบบอ่านอย่างเดียว
+- `Editable` อนุญาตให้ใช้ชั่วคราวและให้เอกสารสามารถแก้ไขและบันทึกได้
+- `NoSubsetting` เป็นข้อจำกัดเพิ่มเติมที่ห้ามฝังส่วนย่อยของ glyphs; หากมีแฟล็กนี้ต้องฝังอักขระทั้งหมด
+- `BitmapOnly` เป็นข้อจำกัดเพิ่มเติมที่อนุญาตให้ฝังเฉพาะ bitmap strikes เท่านั้น ไม่ใช่ข้อมูลโครงร่าง; หากฟอนต์ไม่มี bitmap strikes จะไม่สามารถฝังได้
+
+ค่าสี่ค่าตัวแรกอธิบายสิทธิ์การใช้งาน ในขณะที่ `NoSubsetting` และ `BitmapOnly` สามารถรวมกับค่าเหล่านั้นได้ ตรวจสอบตัวแปรด้วยการดำเนินการบิตเวิร์ด เนื่องจาก `Installable` มีค่าเป็นศูนย์ ให้ทำการมาสก์บิตสิทธิ์การใช้งานและเปรียบเทียบผลลัพธ์กับ `Installable`. ฟอนต์ปัจจุบันควรตั้งบิตสิทธิ์การใช้งานไม่เกินหนึ่งบิต เพื่อความเข้ากันได้กับฟอนต์เก่าที่ตั้งหลายบิต ตัวช่วยด้านล่างจะเลือกสิทธิ์ที่ผ่อนปรนที่สุด: `Editable`, ตามด้วย `PreviewPrint`, ตามด้วย `Restricted`
+
+ตัวอย่างต่อไปนี้ตรวจสอบข้อมูลแบบปกติ, หนา, เอน และหนาเอียงของฟอนต์ทุกตัวที่คืนค่าโดย `GetFonts`. มันจะข้ามสไตล์ที่ไม่มี, ฟอนต์ที่มีข้อจำกัด, ฟอนต์ bitmap‑only, ฟอนต์ที่จำกัดการใช้งานเพียง preview และ print เนื่องจากผลลัพธ์ยังคงแก้ไขได้, และฟอนต์ที่ฝังไว้แล้ว หากสไตล์ใดมี `NoSubsetting` จะฝังอักขระทั้งหมดของตระกูลฟอนต์นั้น
 ```cpp
-// โหลดไฟล์งานนำเสนอ.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/EmbeddingLevel.h>
+#include <DOM/FontStyleType.h>
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/collections/list.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
 
-auto usedFonts = presentation->get_FontsManager()->GetFonts();
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 
-for (auto&& fontData : usedFonts)
+auto getUsagePermission = [](EmbeddingLevel level)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+    const auto permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    auto permissions = level & permissionMask;
+
+    if ((permissions & EmbeddingLevel::Editable) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Editable;
+    }
+
+    if ((permissions & EmbeddingLevel::PreviewPrint) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if ((permissions & EmbeddingLevel::Restricted) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+};
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto fontStyles = MakeArray<FontStyleType>({
+    FontStyleType::Regular,
+    FontStyleType::Bold,
+    FontStyleType::Italic,
+    FontStyleType::Bold | FontStyleType::Italic
+});
+auto fontStyleNames = MakeArray<String>({u"regular", u"bold", u"italic", u"bold-italic"});
+
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+for (auto&& embeddedFont : fontsManager->GetEmbeddedFonts())
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+auto fontsToEmbedAll = MakeObject<List<SharedPtr<IFontData>>>();
+auto fontsToEmbedUsedOnly = MakeObject<List<SharedPtr<IFontData>>>();
+for (auto&& font : fontsManager->GetFonts())
+{
+    if (embeddedFontNames->Contains(font->get_FontName()))
+    {
+        Console::WriteLine(u"{0}: already embedded.", font->get_FontName());
+        continue;
+    }
+
+    auto hasAvailableData = false;
+    auto allAvailableStylesCanBeEmbedded = true;
+    auto previewPrintOnly = false;
+    auto requiresFullFont = false;
+
+    for (auto styleIndex = 0; styleIndex < fontStyles->get_Length(); styleIndex++)
+    {
+        auto fontStyle = fontStyles[styleIndex];
+        auto fontBytes = fontsManager->GetFontBytes(font, fontStyle);
+        if (fontBytes == nullptr)
         {
-            return data == fontData;
-        };
+            Console::WriteLine(u"{0} ({1}): font data is unavailable.", font->get_FontName(), fontStyleNames[styleIndex]);
+            continue;
+        }
 
-    // ตรวจสอบว่าฟอนต์นี้ฝังไว้แล้วหรือยัง.
-    bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
-    if (!isEmbeddedFont)
-    {
-        // ฝังฟอนต์ลงในงานนำเสนอ.
-        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+        hasAvailableData = true;
+        auto embeddingLevel = fontsManager->GetFontEmbeddingLevel(fontBytes, font->get_FontName());
+        auto usagePermission = getUsagePermission(embeddingLevel);
+        auto noSubsetting = (embeddingLevel & EmbeddingLevel::NoSubsetting) != EmbeddingLevel::Installable;
+        auto bitmapOnly = (embeddingLevel & EmbeddingLevel::BitmapOnly) != EmbeddingLevel::Installable;
+
+        requiresFullFont |= noSubsetting;
+        previewPrintOnly |= usagePermission == EmbeddingLevel::PreviewPrint;
+        allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel::Restricted && !bitmapOnly;
+
+        Console::WriteLine(u"{0} ({1}): embedding level {2}.", font->get_FontName(), fontStyleNames[styleIndex], static_cast<uint16_t>(embeddingLevel));
     }
 
+    if (!hasAvailableData)
+    {
+        Console::WriteLine(u"{0}: skipped because no requested style is available.", font->get_FontName());
+    }
+    else if (!allAvailableStylesCanBeEmbedded)
+    {
+        Console::WriteLine(u"{0}: skipped because at least one available style does not permit outline embedding.", font->get_FontName());
+    }
+    else if (previewPrintOnly)
+    {
+        Console::WriteLine(u"{0}: skipped because this example produces an editable presentation.", font->get_FontName());
+    }
+    else if (requiresFullFont)
+    {
+        fontsToEmbedAll->Add(font);
+    }
+    else
+    {
+        fontsToEmbedUsedOnly->Add(font);
+    }
 }
 
-// บันทึกงานนำเสนอลงดิสก์.
-presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **ลบฟอนต์ที่ฝังจากการนำเสนอ**
-
-Aspose.Slides for C++ ให้เมธอด `RemoveEmbeddedFont` ผ่านคลาส [FontsManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/fontsmanager/) ซึ่งทำให้คุณสามารถลบฟอนต์เฉพาะที่ฝังอยู่ในงานนำเสนอ PowerPoint ได้ สิ่งนี้ช่วยลดขนาดไฟล์โดยรวม โดยเฉพาะหากฟอนต์ที่ฝังไว้ไม่ถูกใช้หรือไม่จำเป็นอีกต่อไป การลบฟอนต์ที่ไม่ใช้ยังช่วยปรับปรุงประสิทธิภาพและทำให้การนำเสนอของคุณมีเฉพาะทรัพยากรที่จำเป็นเท่านั้น
-
-```cpp
-auto fontName = u"Calibri";
-
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
-
-// รับฟอนต์ที่ฝังทั้งหมด.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
-
-for (auto&& fontData : embeddedFonts)
+for (auto&& font : fontsToEmbedAll)
 {
-    if (fontData->get_FontName().Equals(fontName))
-    {
-        // ลบฟอนต์ที่ฝังไว้.
-        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+}
 
-        break;
+for (auto&& font : fontsToEmbedUsedOnly)
+{
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::OnlyUsed);
+}
+
+presentation->Save(u"WithAuditedFonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+การตรวจสอบนี้รายงานข้อจำกัดที่เข้ารหัสในแต่ละไฟล์ฟอนต์ มันไม่ได้ให้สิทธิ์การใช้งาน, ยืนยันว่าคุณได้ฟอนต์อย่างถูกกฎหมาย, หรือแทนที่การตรวจสอบสัญญาอนุญาตของฟอนต์ก่อนแจกจ่ายสำเนาที่ฝังไว้
+
+## **เพิ่มฟอนต์ที่ฝังไว้**
+
+ใช้ [IFontsManager::AddEmbeddedFont](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/addembeddedfont/) เพื่อฝังฟอนต์ การโอเวอร์โหลดของเมธอดรับอ็อบเจกต์ [IFontData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontdata/) หรืออาเรย์ไบต์ที่มีข้อมูลฟอนต์ ค่าตัวเลือก [EmbedFontCharacters](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/embedfontcharacters/) ควบคุมว่ารวมอักขระใดบ้าง:
+
+- [All](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/embedfontcharacters/) ฝังอักขระทั้งหมดในฟอนต์ ใช้ตัวเลือกนี้เมื่อผู้รับต้องการแก้ไขงานนำเสนอและป้อนข้อความใหม่
+- [OnlyUsed](https://reference.aspose.com/slides/th/cpp/aspose.slides.export/embedfontcharacters/) ฝังเฉพาะอักขระที่ใช้ในงานนำเสนอเพื่อลดขนาดไฟล์ เลือกตัวเลือกนี้สำหรับงานนำเสนอที่เสร็จสมบูรณ์และมุ่งเน้นการดูเท่านั้น
+
+ตัวอย่างต่อไปนี้ใช้ [IFontsManager::GetFonts](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/getfonts/) เพื่อดึงฟอนต์ที่ใช้ใน `Fonts.pptx` และฝังฟอนต์ที่ยังไม่ได้ฝัง ฟอนต์ที่ต้องเพิ่มต้องพร้อมใช้งานบนเครื่องที่รันโค้ด ฟอนต์ที่ฝังอยู่แล้วจะคงชุดอักขระเดิมไว้
+```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/collections/sorted_set.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto allFonts = fontsManager->GetFonts();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+for (auto&& embeddedFont : embeddedFonts)
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+for (auto&& font : allFonts)
+{
+    if (!embeddedFontNames->Contains(font->get_FontName()))
+    {
+        fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        embeddedFontNames->Add(font->get_FontName());
     }
 }
 
-presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Save(u"WithEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **บีบอัดฟอนต์ที่ฝัง**
+## **บีบอัดฟอนต์ที่ฝังไว้**
 
-Aspose.Slides for C++ ให้เมธอด `CompressEmbeddedFonts` ผ่านคลาส [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) ซึ่งช่วยให้คุณลดขนาดไฟล์โดยรวมของงานนำเสนอโดยการปรับข้อมูลฟอนต์ที่ฝังให้เป็นไปอย่างมีประสิทธิภาพ สิ่งนี้เป็นประโยชน์อย่างยิ่งเมื่อการนำเสนอของคุณมีฟอนต์ขนาดใหญ่หรือหลายฟอนต์ และคุณต้องการให้ไฟล์มีขนาดเบาเพื่อการแชร์, การเก็บรักษา หรือการใช้งานออนไลน์ — โดยไม่กระทบต่อความแม่นยำของภาพ
+[Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) ลดข้อมูลฟอนต์ที่ฝังไว้โดยการลบอักขระที่ไม่ได้ใช้ มันทำงานกับฟอนต์ที่ฝังไว้แล้ว ดังนั้นการลดขนาดขึ้นอยู่กับจำนวนข้อมูลฟอนต์ที่ไม่ได้ใช้ในงานนำเสนอ
 
+ตัวอย่างต่อไปนี้บีบอัดฟอนต์ใน `EmbeddedFonts.pptx` และบันทึกผลลัพธ์เป็นไฟล์แยก
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/shared_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
 Compress::CompressEmbeddedFonts(presentation);
-
-presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Save(u"CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+เก็บไฟล์ต้นฉบับไว้หากผู้รับอาจต้องเพิ่มข้อความในภายหลัง อักขระที่ถูกลบระหว่างการบีบอัดจะไม่สามารถเข้าถึงได้จากฟอนต์ที่ฝังไว้ แม้คุณจะฝังอักขระทั้งหมดไว้ตั้งแต่แรก
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะทราบได้อย่างไรว่าฟอนต์เฉพาะในงานนำเสนอจะยังคงถูกแทนที่ในระหว่างการเรนเดอร์แม้จะฝังแล้ว?**  
-ตรวจสอบ [ข้อมูลการแทนที่](/slides/th/cpp/font-substitution/) ใน font manager และ [กฎการสำรอง/การแทนที่](/slides/th/cpp/fallback-font/): หากฟอนต์ไม่พร้อมใช้งานหรือถูกจำกัด จะใช้ฟอนต์สำรองแทน
+**How can I check whether an embedded font will still be substituted during rendering?**  
+เรียก [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifontsmanager/getsubstitutions/) ในสภาพแวดล้อมที่คุณเรนเดอร์งานนำเสนอเพื่อดูฟอนต์ใดบ้างที่ Aspose.Slides จะเปลี่ยน นอกจากนี้ตรวจสอบการตั้งค่า [font substitution](/slides/th/cpp/font-substitution/) และกฎ [font fallback](/slides/th/cpp/fallback-font/) ด้วย ฟอลแบ็กจัดการอักขระที่หายไป ดังนั้นการฝังฟอนต์ไม่ได้แก้ปัญหาอักขระที่ฟอนต์นั้นเองไม่มี
 
-**คุ้มค่าหรือไม่ที่จะฝังฟอนต์ “system” เช่น Arial/Calibri?**  
-โดยทั่วไปไม่ — พวกมันมักจะพร้อมใช้งานอยู่แล้ว แต่สำหรับการพกพาเต็มรูปแบบในสภาพแวดล้อม “บาง” (Docker, เซิร์ฟเวอร์ Linux ที่ไม่มีฟอนต์ติดตั้งล่วงหน้า) การฝังฟอนต์ระบบสามารถขจัดความเสี่ยงของการแทนที่ที่ไม่คาดคิดได้
+**Should I embed common fonts such as Arial and Calibri?**  
+ให้พิจารณาตามสภาพแวดล้อมเป้าหมาย หากฟอนต์ที่ต้องการมีอยู่บนทุกเครื่องที่เปิดหรือเรนเดอร์งานนำเสนอ การฝังอาจเพิ่มขนาดไฟล์โดยไม่จำเป็น หากผู้รับหรือเซิร์ฟเวอร์อาจไม่มีฟอนต์เหล่านั้น การฝังฟอนต์จะช่วยรักษารูปแบบตามที่ตั้งใจได้ แต่ต้องตรวจสอบว่าสัญญาอนุญาตของฟอนต์อนุญาตให้ฝังได้หรือไม่
