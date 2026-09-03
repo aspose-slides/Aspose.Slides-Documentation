@@ -1,5 +1,5 @@
 ---
-title: จัดการการเปลี่ยนสไลด์ในงานนำเสนอบน Android
+title: จัดการการเปลี่ยนสไลด์ในการพรีเซนเทชันบน Android
 linktitle: การเปลี่ยนสไลด์
 type: docs
 weight: 80
@@ -14,157 +14,297 @@ keywords:
 - เอฟเฟกต์การเปลี่ยน
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- พรีเซนเทชัน
 - Android
 - Java
 - Aspose.Slides
-description: "ค้นพบวิธีปรับแต่งการเปลี่ยนสไลด์ใน Aspose.Slides สำหรับ Android ผ่าน Java ด้วยคำแนะนำทีละขั้นตอนสำหรับงานนำเสนอ PowerPoint และ OpenDocument"
+description: "ใช้การเปลี่ยนสไลด์, กำหนดการเลื่อนสไลด์อัตโนมัติ, และปรับแต่ง Morph รวมถึงเอฟเฟกต์การเปลี่ยนอื่น ๆ ด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการการเปลี่ยนสไลด์ในงานนำเสนอด้วย Aspose.Slides โดยแสดงวิธีการใส่ประเภทการเปลี่ยนสไลด์ลงในสไลด์, กำหนดพฤติกรรมการเปลี่ยนเช่น การก้าวต่อไปเมื่อคลิกหรือหลังจากเวลาที่กำหนด, ตรวจสอบและปิดการก้าวต่ออัตโนมัติ, ใช้การเปลี่ยน Morph และประเภทต่าง ๆ ของมัน, และตั้งค่าตัวเลือกของเอฟเฟกต์การเปลี่ยน สาธิตตัวอย่างการโหลดหรือสร้างงานนำเสนอ, แก้ไขการตั้งค่าการเปลี่ยนสำหรับสไลด์ที่เลือก, และบันทึกผลลัพธ์เป็นไฟล์ PPTX บทความนี้ยังตอบคำถามที่พบบ่อยเกี่ยวกับความเร็วของการเปลี่ยน, เสียงในการเปลี่ยน, การใช้การเปลี่ยนเดียวกันกับหลายสไลด์, และการตรวจสอบการเปลี่ยนที่ตั้งค่าอยู่ในสไลด์ปัจจุบัน
+การเปลี่ยนสไลด์ควบคุมวิธีการแสดงสไลด์ระหว่างการแสดงสไลด์โชว์ ด้วย Aspose.Slides for Android via Java คุณสามารถเลือกเอฟเฟกต์การเปลี่ยนสำหรับแต่ละสไลด์ ตั้งค่าการเลื่อนหน้าด้วยการคลิกเมาส์หรือไทม์เมอร์ และปรับตัวเลือกเฉพาะของเอฟเฟกต์ บทความนี้ใช้ตัวอย่าง Java เพื่อใช้การเปลี่ยน, กำหนดระยะเวลาการเปลี่ยนอย่างแม่นยำ, จัดการเวลาแสดงสไลด์, และสร้างการเปลี่ยน Morph ระหว่างสองสไลด์ ตัวอย่างยังแสดงวิธีบันทึกการตั้งค่าเป็นไฟล์ PPTX
 
 ## **เพิ่มการเปลี่ยนสไลด์**
-เพื่อสร้างเอฟเฟกต์การเปลี่ยนสไลด์แบบง่าย ให้ทำตามขั้นตอนด้านล่าง:
 
-1. สร้างอินสแตนซ์ของ[Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)คลาส
-1. ใช้ประเภทการเปลี่ยนสไลด์บนสไลด์จากหนึ่งในเอฟเฟกต์การเปลี่ยนที่ Aspose.Slides for Android via Java มีให้ผ่าน enum TransitionType
-1. เขียนไฟล์งานนำเสนอที่แก้ไขแล้ว
+เพื่อใช้การเปลี่ยน โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และเข้าถึงการตั้งค่าการเปลี่ยนของสไลด์ผ่าน [getSlideShowTransition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). ใช้ [setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) พร้อมค่าจาก enumeration [TransitionType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitiontype/) จากนั้นบันทึกงานนำเสนอ
+
+ตัวอย่างต่อไปนี้ใช้การเปลี่ยน Circle กับสไลด์แรกและการเปลี่ยน Comb กับสไลด์ที่สอง ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสองสไลด์
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation เพื่อโหลดไฟล์งานนำเสนอต้นฉบับ
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // ใช้การเปลี่ยนแบบวงกลมในสไลด์ที่ 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // ใช้การเปลี่ยนแบบคอมบในสไลด์ที่ 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // บันทึกงานนำเสนอลงดิสก์
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **เพิ่มการเปลี่ยนสไลด์ขั้นสูง**
-ในส่วนก่อนหน้าเราเพียงแค่ใส่เอฟเฟกต์การเปลี่ยนแบบง่ายลงในสไลด์ ตอนนี้เพื่อทำให้เอฟเฟกต์นั้นดียิ่งขึ้นและควบคุมได้ โปรดทำตามขั้นตอนด้านล่าง:
 
-1. สร้างอินสแตนซ์ของ[Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation)คลาส
-1. ใช้ประเภทการเปลี่ยนสไลด์บนสไลด์จากหนึ่งในเอฟเฟกต์การเปลี่ยนที่ Aspose.Slides for Android via Java มีให้
-1. คุณสามารถตั้งค่าการเปลี่ยนให้ “Advance On Click”, “After a specific time period” หรือทั้งสองอย่างได้
-1. ถ้าการเปลี่ยนสไลด์ถูกเปิดให้ “Advance On Click” การเปลี่ยนจะดำเนินต่อเมื่อผู้ใช้คลิกเมาส์เท่านั้น นอกจากนี้ หากตั้งค่าคุณสมบัติ “Advance After Time” การเปลี่ยนจะดำเนินอัตโนมัติหลังจากเวลาที่กำหนดผ่านไป
-1. เขียนงานนำเสนอที่แก้ไขแล้วเป็นไฟล์งานนำเสนอ
+คุณสามารถกำหนดระยะเวลาที่สไลด์แสดงบนหน้าจอและว่าการคลิกเมาส์จะเลื่อนสไลด์โชว์หรือไม่ วิธีต่อไปนี้ควบคุมพฤติกรรมดังกล่าว
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) อนุญาตให้ผู้ชมเลื่อนหน้าด้วยการคลิกเมาส์
+- [setAdvanceAfter](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) เปิดใช้งานการเลื่อนอัตโนมัติ
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) ระบุความล่าช้าก่อนการเลื่อนอัตโนมัติ หน่วยเป็นมิลลิวินาที
+
+เปิดใช้งานทั้งการคลิกและการเลื่อนตามเวลาเพื่อให้ผู้ชมเลือกได้ว่าจะคลิกหรือรอไทม์เมอร์ หากต้องการใช้เฉพาะไทม์เมอร์ ให้ส่งค่า `false` ไปที่ [setAdvanceOnClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) ค่าล่าช้าเป็นการกำหนดเวลาที่สไลด์โชว์จะเลื่อนต่อ ไม่ได้ตั้งระยะเวลาของเอฟเฟกต์การเปลี่ยน
+
+ตัวอย่างนี้กำหนดเอฟเฟกต์ต่างกันให้กับสามสไลด์แรกและเปิดใช้การเลื่อนอัตโนมัติหลัง 3, 5, และ 7 วินาที ตามลำดับ การคลิกเมาส์ก็สามารถเลื่อนสไลด์เหล่านี้ได้เช่นกัน ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสามสไลด์
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // ใช้การเปลี่ยนแบบวงกลมในสไลด์ที่ 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // ตั้งเวลาการเปลี่ยนเป็น 3 วินาที
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // ใช้การเปลี่ยนแบบคอมบในสไลด์ที่ 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // ตั้งเวลาการเปลี่ยนเป็น 5 วินาที
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // ใช้การเปลี่ยนแบบซูมในสไลด์ที่ 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // ตั้งเวลาการเปลี่ยนเป็น 7 วินาที
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
+}
+```
+
+เพื่อตรวจสอบว่าการเลื่อนตามเวลาถูกเปิดใช้งานหรือไม่ ให้เรียก [getAdvanceAfter](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--) ความล่าช้าที่เก็บไว้เพียงอย่างเดียวไม่ได้หมายความว่าไทม์เมอร์ทำงาน
+
+ตัวอย่างต่อไปเปิดไฟล์ที่บันทึกไว้ข้างต้น รายงานไทม์เมอร์ที่เปิดใช้งานแต่ละตัวและปิดการเลื่อนอัตโนมัติสำหรับสไลด์ที่มีความล่าช้ามากกว่าสองวินาที พร้อมเปิดการคลิกเมาส์สำหรับสไลด์เหล่านั้นแล้วบันทึกการตั้งค่าอัปเดต
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ควบคุมระยะเวลาการเปลี่ยนอย่างแม่นยำ**
+
+ใช้ [setDuration](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) เพื่อระบุความยาวของเอฟเฟกต์การเปลี่ยนเป็นมิลลิวินาที วิธี [getSlideShowTransition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) ของสไลด์จะเปิดเผยการตั้งค่าเหล่านี้ผ่านอินเตอร์เฟส [ISlideShowTransition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/) :
+
+| เมธอด | วัตถุประสงค์ |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | กำหนดระยะเวลาของเอฟเฟกต์การเปลี่ยนเอง หน่วยเป็นมิลลิวินาที |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | กำหนดความล่าช้าก่อนสไลด์เลื่อนอัตโนมัติ หน่วยเป็นมิลลิวินาที ส่งค่า `true` ไปที่ [setAdvanceAfter](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) เพื่อเปิดไทม์เมอร์ |
+| [setSpeed](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | เลือกประเภทความเร็วจาก enumeration [TransitionSpeed](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitionspeed/) : Slow, Medium, หรือ Fast ใช้เมื่อไม่มีการกำหนดระยะเวลาที่แน่ชัด |
+
+[setDuration](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) ควบคุมเฉพาะเอฟเฟกต์การเปลี่ยน ไม่ได้กำหนดระยะเวลาที่สไลด์ยังคงมองเห็น Configure ความล่าช้าการเลื่อนอัตโนมัติแยกต่างหาก เมื่ไม่ได้กำหนดระยะเวลาชัดเจน Aspose.Slides จะกำหนดระยะเวลาเอฟเฟกต์จากประเภทการเปลี่ยนและค่า [getSpeed](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) 
+
+### **ใช้ระยะเวลาเดียวกันกับทุกสไลด์**
+
+เพื่อให้จังหวะสม่ำเสมอ ให้ใช้เอฟเฟกต์และระยะเวลาที่เท่ากันกับทุกสไลด์ ตัวอย่างนี้โหลด `input.pptx` เลือก Fade จาก [TransitionType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitiontype/) และกำหนดระยะเวลา 750 มิลลิวินาทีสำหรับแต่ละการเปลี่ยน พร้อมเปิดการเลื่อนอัตโนมัติหลัง 5,000 มิลลิวินาทีและปิดการเลื่อนด้วยคลิกเมาส์ แล้วบันทึกเป็น PPTX
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // กำหนดการเลื่อนอัตโนมัติแยกต่างหากจากระยะเวลาเอฟเฟกต์.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **กำหนดระยะเวลาต่างกันสำหรับสไลด์แต่ละอัน**
+
+สไลด์ต่าง ๆ สามารถใช้ระยะเวลาเอฟเฟกต์ที่แตกต่างกันได้ เช่น ใช้การเปลี่ยนสั้นสำหรับสไลด์หัวเรื่องและการเปลี่ยนยาวสำหรับการแนะนำหัวข้อ ตัวอย่างนี้กำหนด 500 มิลลิวินาทีสำหรับสไลด์แรกและ 1,200 มิลลิวินาทีสำหรับสไลด์ที่สอง ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสองสไลด์
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **ประสานการเปลี่ยนกับผลลัพธ์ที่เป็นภาพเคลื่อนไหว**
+
+เมื่อเตรียม [animated GIF](/slides/th/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/th/androidjava/export-to-html5/), หรือ [video](/slides/th/androidjava/convert-powerpoint-to-video/) ให้ตั้งระยะเวลาการเปลี่ยนอย่างแม่นยำก่อนส่งออกเพื่อให้ตรงกับจังหวะที่ต้องการ ตัวอย่างเช่น ใช้การเฟด 600 มิลลิวินาทีระหว่างฉากและปรับความล่าช้าการเลื่อนของแต่ละสไลด์แยกกันเพื่อให้มีเวลาอธิบายหรือเนื้อหา
+
+สำหรับ GIF และวิดีโอให้ประสานอัตราเฟรมของผลลัพธ์กับระยะเวลาเอฟเฟกต์: 600 มิลลิวินาทีนั้นเท่ากับ 18 เฟรมที่ 30 เฟรมต่อวินาที ใน HTML5 ให้เปิดใช้งานการเปลี่ยนแบบเคลื่อนไหวในการตั้งค่าการส่งออก ตรวจสอบเอฟเฟกต์และตัวเลือกเวลาที่รองรับของรูปแบบส่งออกที่เลือกและดูตัวอย่างผลลัพธ์เพื่อยืนยันการซิงโครไนซ์
+
+### **อ่านระยะเวลาการเปลี่ยนที่มีอยู่**
+
+เรียก [getDuration](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) ก่อนแก้ไขการเปลี่ยนเพื่อดูว่ามีค่าที่กำหนดไว้หรือไม่ ค่า `-1` หมายถึงไม่มีการกำหนดระยะเวลาชัดเจน ค่าไม่เป็นลบจะระบุระยะเวลาที่เก็บไว้เป็นมิลลิวินาที ค่าที่ไม่ได้ตั้งค่าไม่ได้เป็นระยะเวลาการเล่นที่คำนวณ: Aspose.Slides จะใช้ประเภทการเปลี่ยนและค่า [getSpeed](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) เพื่อกำหนดระยะเวลานั้น การตั้งค่าประเภทการเปลี่ยนอาจทำให้ระยะเวลาถูกตั้งค่าโดยอัตโนมัติ ดังนั้นควรตรวจสอบการตั้งค่าเดิมก่อน
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **การเปลี่ยน Morph**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Android via Java ตอนนี้รองรับ[Morph Transition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IMorphTransition) ซึ่งเป็นการเปลี่ยน Morph ใหม่ที่แนะนำใน PowerPoint 2019
+การเปลี่ยน Morph ทำให้เกิดการเคลื่อนไหวของการเปลี่ยนแปลงระหว่างวัตถุบนสไลด์ที่ต่อเนื่องกัน เพื่อสร้างเอฟเฟกต์ Morph อย่างง่าย ให้คัดลอกสไลด์ ย้ายหรือปรับขนาดวัตถุบนสไลด์สำเนา แล้วใช้การเปลี่ยน Morph กับสไลด์ที่สอง วิธีนี้ทำให้วัตถุที่ตรงกันทำการเคลื่อนไหวจากสถานะเดิมไปยังสถานะที่แก้ไข
 
-{{% /alert %}} 
-
-การเปลี่ยน Morph ช่วยให้คุณทำแอนิเมชันการเคลื่อนที่แบบราบรื่นจากสไลด์หนึ่งไปยังสไลด์ต่อไป บทความนี้อธิบายแนวคิดและวิธีใช้การเปลี่ยน Morph ให้ได้ผลดีที่สุด คุณต้องมีสไลด์สองสไลด์ที่มีอย่างน้อยหนึ่งออบเจ็กต์ร่วมกัน วิธีที่ง่ายที่สุดคือทำสำเนาสไลด์แล้วย้ายออบเจ็กต์ในสไลด์ที่สองไปยังตำแหน่งใหม่
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีเพิ่มสำเนาของสไลด์พร้อมข้อความลงในงานนำเสนอและตั้งการเปลี่ยนเป็น[morph type](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/TransitionType)ให้กับสไลด์ที่สอง
+ตัวอย่างต่อไปสร้างสไลด์ที่มีสี่เหลี่ยมข้อความ คัดลอกสไลด์และเปลี่ยนตำแหน่งและขนาดของสี่เหลี่ยมบนสไลด์สำเนา แล้วเลือก Morph จาก enumeration [TransitionType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitiontype/) สำหรับสไลด์ที่สอง เปิดไฟล์ที่บันทึกในโปรแกรมดูงานนำเสนอที่รองรับ Morph เพื่อดูเอฟเฟกต์ในระหว่างการแสดงสไลด์
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
+} finally {
     presentation.dispose();
 }
 ```
 
 ## **ประเภทการเปลี่ยน Morph**
-ได้เพิ่ม enumใหม่[TransitionMorphType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/TransitionMorphType)ซึ่งแสดงประเภทต่าง ๆ ของการเปลี่ยนสไลด์ Morph
 
-enum TransitionMorphType มีสามสมาชิก:
+enumeration [TransitionMorphType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitionmorphtype/) ควบคุมวิธีที่ Morph จับคู่และเคลื่อนไหวเนื้อหา
 
-- ByObject: การเปลี่ยน Morph จะทำโดยพิจารณาแต่ละรูปร่างเป็นออบเจ็กต์ที่ไม่สามารถแยกย่อยได้
-- ByWord: การเปลี่ยน Morph จะทำโดยย้ายข้อความตามคำเมื่อเป็นไปได้
-- ByChar: การเปลี่ยน Morph จะทำโดยย้ายข้อความตามอักขระเมื่อเป็นไปได้
+- [ByObject](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) ถือแต่ละรูปร่างเป็นวัตถุทั้งหมด
+- [ByWord](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) เคลื่อนไหวข้อความโดยจับคู่คำเมื่อเป็นไปได้
+- [ByChar](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) เคลื่อนไหวข้อความโดยจับคู่อักขระเมื่อเป็นไปได้
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีตั้งการเปลี่ยน Morph ให้สไลด์และเปลี่ยนประเภท Morph:
+ใช้ [setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) เพื่อเลือก Morph ก่อนเข้าถึง [getValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#getValue--) ค่าที่ได้จะให้อินเตอร์เฟส [IMorphTransition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imorphtransition/) ซึ่งเมธอด [setMorphType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) จะเลือกโหมดการจับคู่
+
+ตัวอย่างนี้เปิดงานนำเสนอที่สร้างในส่วนก่อนหน้าและกำหนดให้สไลด์ที่สองใช้การเคลื่อนไหว Morph แบบจับคู่ตามคำ
 
 ```java
-Presentation presentation = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **ตั้งค่าเอฟเฟกต์การเปลี่ยน**
-Aspose.Slides for Android via Java รองรับการตั้งค่าเอฟเฟกต์การเปลี่ยนเช่น จากสีดำ, จากซ้าย, จากขวา ฯลฯ เพื่อกำหนดเอฟเฟกต์การเปลี่ยน โปรดทำตามขั้นตอนด้านล่าง:
 
-- สร้างอินสแตนซ์ของ[Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)คลาส
-- รับอ้างอิงของสไลด์
-- ตั้งค่าเอฟเฟกต์การเปลี่ยน
-- เขียนงานนำเสนอเป็นไฟล์[PPTX](https://docs.fileformat.com/presentation/pptx/) 
+บางการเปลี่ยนเปิดเผยตัวเลือกเพิ่มเติม เช่น ทิศทางหรือว่าการเปลี่ยนจะเริ่มจากหน้าจอสีดำ ตัวเลือกที่ใช้ได้ขึ้นกับการเปลี่ยนที่เลือกด้วย [setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) ตั้งค่าชนิดก่อน แล้วใช้อินเตอร์เฟสที่เหมาะสมจาก [getValue](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#getValue--)
 
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าเอฟเฟกต์การเปลี่ยน
+ตัวอย่างต่อไปใช้การเปลี่ยน Cut กับสไลด์แรกของ `input.pptx` เรียก [setFromBlack](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) ผ่านอินเตอร์เฟส [IOptionalBlackTransition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ioptionalblacktransition/) เพื่อให้การเปลี่ยนเริ่มจากหน้าจอสีดำ
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // ตั้งค่าเอฟเฟกต์
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // บันทึกงานนำเสนอลงดิสก์
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -172,18 +312,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถควบคุมความเร็วในการเล่นการเปลี่ยนสไลด์ได้หรือไม่?**
+**ฉันสามารถควบคุมความเร็วการเล่นของการเปลี่ยนสไลด์ได้หรือไม่?**
 
-ได้ครับ ตั้งค่า[ความเร็ว](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideshowtransition/#setSpeed-int-)ของการเปลี่ยนโดยใช้การตั้งค่า[TransitionSpeed](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitionspeed/) (เช่น ช้า/ปานกลาง/เร็ว)
+ใช่ ให้ใช้ [setDuration](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) عندما تحتاج إلى مدة تأثير دقيقة بالمللي ثانية. استخدم [setSpeed](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) عندما تكون فئة [TransitionSpeed](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitionspeed/) مسبقة التعريف—Slow, Medium, أو Fast—كافية ولا يتطلب تحديد مدة صريحة. هذه الإعدادات تتحكم في تأثير الانتقال بشكل مستقل عن تأخير التقدم التلقائي.
 
-**ฉันสามารถใส่เสียงเข้ากับการเปลี่ยนและทำให้มันวนซ้ำได้หรือไม่?**
+**ฉันสามารถแนบเสียงกับการเปลี่ยนและทำให้มันวนซ้ำได้หรือไม่?**
 
-ได้ คุณสามารถฝังเสียงสำหรับการเปลี่ยนและควบคุมพฤติกรรมผ่านการตั้งค่าเช่นโหมดเสียงและการวนซ้ำ (เช่น [setSound](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), รวมถึงเมตาดาต้าเช่น [setSoundIsBuiltIn](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-)และ[setSoundName](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-))
+ใช่ กำหนดเสียงที่ฝังไว้ด้วย [setSound](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-) ส่งค่า StartSound จาก enumeration [TransitionSoundMode](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitionsoundmode/) ไปที่ [setSoundMode](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-) และเปิดใช้งาน [setSoundLoop](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) ด้วยค่า `true` เสียงจะวนซ้ำจนกว่าจะมีเหตุการณ์เสียงถัดไปในสไลด์โชว์
 
 **วิธีที่เร็วที่สุดในการใช้การเปลี่ยนเดียวกันกับทุกสไลด์คืออะไร?**
 
-กำหนดประเภทการเปลี่ยนที่ต้องการในการตั้งค่าการเปลี่ยนของแต่ละสไลด์; การเปลี่ยนจะถูกเก็บไว้ต่อสไลด์ ดังนั้นการใช้ประเภทเดียวกันกับทุกสไลด์จะให้ผลลัพธ์สอดคล้องกัน
+วนลูปผ่านคอลเลกชัน [getSlides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getSlides--) ของงานนำเสนอและเรียก [setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) ด้วยค่าเดียวกันสำหรับการเปลี่ยนของแต่ละสไลด์ ตั้งค่าตัวเลือกเวลาและเอฟเฟกต์อื่น ๆ ภายในลูปเดียวกันเพื่อให้พฤติกรรมสอดคล้องกันทั้งงาน
 
-**ฉันจะตรวจสอบได้อย่างไรว่าการเปลี่ยนใดถูกตั้งค่าอยู่ในสไลด์ปัจจุบัน?**
+**ฉันจะตรวจสอบว่าการเปลี่ยนใดถูกตั้งค่าอยู่ในสไลด์ปัจจุบันได้อย่างไร?**
 
-ตรวจสอบ[การตั้งค่าการเปลี่ยนของสไลด์](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseslide/#getSlideShowTransition--)และอ่าน[ประเภทการเปลี่ยน](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slideshowtransition/#setType-int-)ของมัน ค่าดังกล่าวจะแสดงให้คุณทราบว่ามีเอฟเฟกต์ใดถูกนำไปใช้อยู่ตอนนี้
+เรียก [getType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideshowtransition/#getType--) บนผลลัพธ์ของ [getSlideShowTransition](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) ของสไลด์ จะคืนค่าจาก enumeration [TransitionType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/transitiontype/) ค่า None หมายถึงไม่มีการใช้เอฟเฟกต์การเปลี่ยนใด ๆ

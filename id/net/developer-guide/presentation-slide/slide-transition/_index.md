@@ -6,11 +6,11 @@ weight: 90
 url: /id/net/slide-transition/
 keywords:
 - transisi slide
-- tambahkan transisi slide
-- terapkan transisi slide
+- menambahkan transisi slide
+- menerapkan transisi slide
 - transisi slide lanjutan
 - transisi morph
-- jenis transisi
+- tipe transisi
 - efek transisi
 - PowerPoint
 - OpenDocument
@@ -18,186 +18,328 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Temukan cara menyesuaikan transisi slide di Aspose.Slides untuk .NET, dengan panduan langkah demi langkah untuk presentasi PowerPoint dan OpenDocument."
+description: "Terapkan transisi slide, konfigurasikan kemajuan slide otomatis, dan sesuaikan Morph serta efek transisi lain dengan Aspose.Slides untuk .NET."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menjelaskan cara mengelola transisi slide dalam presentasi menggunakan Aspose.Slides. Artikel ini menunjukkan cara menerapkan jenis transisi pada slide, mengonfigurasi perilaku transisi seperti maju pada klik atau setelah waktu tertentu, memeriksa dan menonaktifkan kemajuan otomatis, menggunakan transisi Morph dan jenis-jenisnya, serta mengatur opsi efek transisi. Contoh-contoh menunjukkan cara memuat atau membuat presentasi, memodifikasi pengaturan transisi untuk slide yang dipilih, dan menyimpan hasilnya sebagai file PPTX. Artikel ini juga menjawab pertanyaan umum tentang kecepatan transisi, suara transisi, menerapkan transisi yang sama ke beberapa slide, dan memeriksa transisi yang saat ini diatur pada slide.
+Transisi slide mengontrol bagaimana slide muncul selama pertunjukan slide. Dengan Aspose.Slides untuk .NET, Anda dapat memilih efek transisi untuk setiap slide, mengonfigurasi kemajuan dengan klik mouse atau timer, dan menyesuaikan opsi spesifik untuk sebuah efek. Artikel ini menggunakan contoh C# untuk menerapkan transisi, mengatur durasi transisi yang tepat, mengelola waktu slide, dan membuat transisi Morph antara dua slide. Contoh-contoh juga menunjukkan cara menyimpan pengaturan ke file PPTX.
 
 ## **Menambahkan Transisi Slide**
-Untuk mempermudah pemahaman, kami telah mendemonstrasikan penggunaan Aspose.Slides untuk .NET dalam mengelola transisi slide sederhana. Pengembang tidak hanya dapat menerapkan efek transisi slide yang berbeda pada slide tetapi juga menyesuaikan perilaku efek transisi tersebut. Untuk membuat efek transisi slide sederhana, ikuti langkah-langkah di bawah ini:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-1. Terapkan Slide Transition Type pada slide dari salah satu efek transisi yang ditawarkan oleh Aspose.Slides untuk .NET melalui enum TransitionType
-1. Tulis file presentasi yang telah dimodifikasi.
+Untuk menerapkan transisi, muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dan akses properti [SlideShowTransition](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseslide/slideshowtransition/) slide. Atur [Type](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/type/)‑nya ke nilai dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitiontype/), kemudian simpan presentasi.
 
-```c#
-// Membuat instance kelas Presentation untuk memuat file presentasi sumber
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+Contoh berikut menerapkan transisi Circle pada slide pertama dan transisi Comb pada slide kedua. Gunakan file `input.pptx` dengan setidaknya dua slide.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    // Terapkan transisi tipe lingkaran pada slide 1
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
-
-    // Terapkan transisi tipe sisir pada slide 2
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // Simpan presentasi ke disk
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
 ## **Menambahkan Transisi Slide Lanjutan**
-Pada bagian di atas, kami hanya menerapkan efek transisi sederhana pada slide. Sekarang, untuk membuat efek transisi sederhana tersebut lebih baik dan terkendali, ikuti langkah-langkah berikut:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-1. Terapkan Slide Transition Type pada slide dari salah satu efek transisi yang ditawarkan oleh Aspose.Slides untuk .NET
-1. Anda juga dapat mengatur transisi menjadi Advance On Click, setelah periode waktu tertentu, atau keduanya.
-1. Jika transisi slide diaktifkan untuk Advance On Click, transisi hanya akan maju ketika seseorang mengklik mouse. Selain itu, jika properti Advance After Time diatur, transisi akan maju secara otomatis setelah waktu yang ditentukan berlalu.
-1. Tulis presentasi yang telah dimodifikasi sebagai file presentasi.
+Anda dapat mengonfigurasi berapa lama slide tetap di layar dan apakah klik mouse melanjutkan pertunjukan slide. Properti‑properti berikut mengontrol perilaku ini:
 
-```c#
-// Membuat instance kelas Presentation yang mewakili file presentasi
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+- [AdvanceOnClick](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/advanceonclick/) memungkinkan penonton melanjutkan dengan mengklik mouse.
+- [AdvanceAfter](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/advanceafter/) mengaktifkan kemajuan otomatis.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/advanceaftertime/) menentukan penundaan sebelum kemajuan otomatis, dalam milidetik.
+
+Aktifkan kedua kemajuan klik dan berjangka waktu agar penonton dapat melanjutkan dengan klik atau menunggu timer. Untuk hanya menggunakan timer, atur [AdvanceOnClick](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/advanceonclick/) menjadi `false`. Penundaan mengontrol kapan pertunjukan slide melanjutkan; itu bukan durasi efek transisi visual.
+
+Contoh ini menetapkan efek yang berbeda pada tiga slide pertama dan mengaktifkan kemajuan otomatis setelah 3, 5, dan 7 detik masing‑masing. Klik mouse juga dapat melanjutkan slide‑slide ini. Gunakan file `input.pptx` dengan setidaknya tiga slide.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 3)
 {
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-    // Terapkan transisi tipe lingkaran pada slide 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-    // Atur waktu transisi selama 3 detik
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // Terapkan transisi tipe sisir pada slide 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
-
-
-    // Atur waktu transisi selama 5 detik
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // Terapkan transisi tipe zoom pada slide 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // Atur waktu transisi selama 7 detik
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // Simpan presentasi ke disk
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
 }
 ```
 
-Selain itu, dengan menggunakan properti [AdvanceAfter](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/advanceafter/), Anda dapat memeriksa apakah transisi slide telah dikonfigurasi untuk berpindah ke slide berikutnya atau menonaktifkan pengaturannya.
+Untuk memeriksa apakah kemajuan berjangka waktu diaktifkan, baca [AdvanceAfter](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/advanceafter/). Penundaan yang tersimpan saja tidak menunjukkan bahwa timer aktif.
 
-Kode C# berikut mendemonstrasikan operasi tersebut:
+Contoh berikut membuka file yang disimpan di atas, melaporkan setiap timer yang diaktifkan, dan menonaktifkan kemajuan otomatis untuk slide dengan penundaan lebih dari dua detik. Ia mengaktifkan klik mouse untuk slide‑slide tersebut dan menyimpan pengaturan yang diperbarui.
 
-```c#
-// Membuat instance kelas Presentation yang mewakili file presentasi
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
     {
-        // Mendapatkan transisi slide
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
 
-        // Memeriksa apakah pengaturan Advance After Time diaktifkan
-        if (slideTransition.AdvanceAfter)
+        if (transition.AdvanceAfterTime > 2000)
         {
-            // Mencetak nilai Advance After Time
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
         }
+    }
+}
 
-        // Menonaktifkan transisi setelah waktu tertentu jika nilai AdvanceAfterTime lebih besar dari 2 detik
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **Mengontrol Waktu Transisi Secara Tepat**
+
+Gunakan [Duration](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/duration/) untuk menentukan panjang tepat efek transisi dalam milidetik. Properti [SlideShowTransition](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseslide/slideshowtransition/) slide mengekspos pengaturan ini melalui [ISlideShowTransition](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/):
+
+| Properti | Tujuan |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/duration/) | Menetapkan durasi efek transisi itu sendiri, dalam milidetik. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Menetapkan penundaan sebelum slide maju secara otomatis, dalam milidetik. Aktifkan [AdvanceAfter](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/advanceafter/) untuk mengaktifkan timer ini. |
+| [Speed](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/speed/) | Memilih kategori kecepatan yang telah ditentukan dari [TransitionSpeed](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium, atau Fast. Digunakan ketika durasi tepat tidak ditentukan. |
+
+[Duration](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/duration/) mengontrol hanya efek transisi; ia tidak menentukan berapa lama slide tetap terlihat. Konfigurasikan penundaan kemajuan otomatis secara terpisah. Ketika tidak ada durasi eksplisit yang ditetapkan, Aspose.Slides menentukan durasi efek dari jenis transisi dan nilai [Speed](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/speed/).
+
+### **Terapkan Durasi yang Sama pada Setiap Slide**
+
+Untuk ritme yang konsisten, terapkan efek yang sama dan durasi tepat pada setiap slide. Contoh ini memuat `input.pptx`, memilih Fade dari [TransitionType](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitiontype/), dan memberi setiap transisi durasi 750 milidetik. Ia juga mengaktifkan kemajuan otomatis setelah 5.000 milidetik dan menonaktifkan kemajuan melalui klik mouse, kemudian menyimpan hasilnya sebagai PPTX.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // Konfigurasikan kemajuan otomatis secara terpisah dari durasi efek.
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **Atur Durasi Berbeda untuk Slide Individual**
+
+Slide yang berbeda dapat menggunakan durasi efek yang berbeda. Misalnya, gunakan transisi singkat untuk slide judul dan transisi lebih lama untuk pengenalan bagian. Contoh ini menetapkan 500 milidetik untuk slide pertama dan 1.200 milidetik untuk slide kedua. Gunakan file `input.pptx` dengan setidaknya dua slide.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **Koordinasikan Transisi dengan Output Animasi**
+
+Saat menyiapkan [animated GIF](/slides/id/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/id/net/export-to-html5/), atau [video](/slides/id/net/convert-powerpoint-to-video/), atur durasi transisi yang tepat sebelum mengekspor untuk mencocokkan kecepatan yang diinginkan. Misalnya, gunakan fade 600 milidetik antara adegan, dan sesuaikan penundaan kemajuan tiap slide secara terpisah untuk memberi waktu narasi atau konten.
+
+Untuk GIF dan video, koordinasikan frame rate output dengan durasi efek: 600 milidetik setara dengan 18 frame pada 30 frame per detik. Pada HTML5, aktifkan transisi animasi dalam pengaturan ekspor. Periksa efek dan opsi waktu yang didukung oleh format ekspor yang dipilih, dan pratinjau output untuk memastikan sinkronisasi.
+
+### **Baca Durasi Transisi yang Ada**
+
+Baca [Duration](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/duration/) sebelum mengubah transisi untuk menentukan apakah nilai eksplisit tersimpan. Nilai `-1` berarti tidak ada durasi eksplisit yang diatur; nilai non‑negatif menentukan durasi yang tersimpan dalam milidetik. Nilai yang tidak diatur bukan durasi pemutaran yang dihitung: Aspose.Slides menggunakan jenis transisi dan [Speed](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/speed/) untuk menentukan durasi tersebut. Menetapkan jenis transisi dapat menginisialisasi durasi, jadi inspeksi pengaturan asli terlebih dahulu.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
 ## **Transisi Morph**
-Aspose.Slides untuk .NET kini mendukung [Morph Transition](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/imorphtransition). Ini merupakan transisi morph baru yang diperkenalkan di PowerPoint 2019. Transisi Morph memungkinkan Anda menganimasikan pergerakan halus dari satu slide ke slide berikutnya. Artikel ini menjelaskan konsep dan cara menggunakan transisi Morph. Untuk menggunakan transisi Morph secara efektif, Anda memerlukan dua slide dengan setidaknya satu objek yang sama. Cara termudah adalah menggandakan slide dan kemudian memindahkan objek pada slide kedua ke tempat lain.
 
-Potongan kode berikut menunjukkan cara menambahkan klon slide dengan beberapa teks ke presentasi dan mengatur transisi menjadi [morph type](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) pada slide kedua.
+Transisi Morph menganimasikan perubahan antara objek pada slide berurutan. Untuk membuat efek Morph sederhana, klon slide, pindahkan atau ubah ukuran sebuah objek pada klon, dan terapkan transisi Morph pada slide kedua. Ini memberi transisi objek‑objek yang sesuai untuk dianimasikan antara keadaan asli dan yang dimodifikasi.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+Contoh berikut membuat slide dengan kotak teks, mengklon slide, dan mengubah posisi serta ukuran kotak pada klon. Kemudian ia memilih Morph dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitiontype/) untuk slide kedua. Buka file yang disimpan di penampil presentasi yang mendukung Morph untuk melihat efek selama pertunjukan slide.
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+using var presentation = new Presentation();
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
+
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
+
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
 
 ## **Jenis Transisi Morph**
-Enum baru [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionmorphtype) telah ditambahkan. Enum ini mewakili berbagai jenis transisi slide Morph.
 
-Enum TransitionMorphType memiliki tiga anggota:
+Enumerasi [TransitionMorphType](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionmorphtype/) mengontrol bagaimana Morph mencocokkan dan menganimasikan konten:
 
-- ByObject: Transisi Morph akan dilakukan dengan mempertimbangkan bentuk sebagai objek yang tidak dapat dibagi.
-- ByWord: Transisi Morph akan dilakukan dengan mentransfer teks per kata bila memungkinkan.
-- ByChar: Transisi Morph akan dilakukan dengan mentransfer teks per karakter bila memungkinkan.
+- [ByObject](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionmorphtype/) memperlakukan setiap bentuk sebagai satu objek utuh.
+- [ByWord](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionmorphtype/) menganimasikan teks dengan mencocokkan kata bila memungkinkan.
+- [ByChar](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionmorphtype/) menganimasikan teks dengan mencocokkan karakter bila memungkinkan.
 
-Potongan kode berikut menunjukkan cara mengatur transisi morph pada slide dan mengubah jenis morph:
+Atur [Type](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/type/) transisi menjadi Morph sebelum mengakses [Value](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/value/). Nilai tersebut kemudian menyediakan antarmuka [IMorphTransition](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/imorphtransition/), yang properti [MorphType](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/imorphtransition/morphtype/)‑nya memilih mode pencocokan.
 
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+Contoh ini membuka presentasi yang dibuat pada bagian sebelumnya dan mengkonfigurasi slide kedua untuk menggunakan animasi Morph berbasis kata.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
+
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
-## **Mengatur Efek Transisi**
-Aspose.Slides untuk .NET mendukung pengaturan efek transisi seperti from black, from left, from right, dll. Untuk mengatur Efek Transisi, ikuti langkah-langkah berikut:
+## **Menetapkan Efek Transisi**
 
-- Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-- Dapatkan referensi slide.
-- Atur efek transisi.
-- Tulis presentasi sebagai file [PPTX](https://docs.fileformat.com/presentation/pptx/).
+Beberapa transisi mengekspos opsi tambahan, seperti arah atau apakah efek dimulai dari layar hitam. Opsi yang tersedia bergantung pada [Type](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/type/) transisi yang dipilih. Atur tipe terlebih dahulu, lalu gunakan antarmuka yang sesuai dari [Value](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/value/).
 
-Pada contoh di bawah ini, kami telah mengatur efek transisi.
+Contoh berikut menerapkan transisi Cut pada slide pertama `input.pptx`. Ia mengatur [FromBlack](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) melalui [IOptionalBlackTransition](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/ioptionalblacktransition/) sehingga transisi dimulai dari layar hitam.
 
-```c#
-// Membuat instance kelas Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-// Atur efek
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
 
-// Simpan presentasi ke disk
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+if (transition.Value is IOptionalBlackTransition cutTransition)
+{
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
+}
 ```
 
 ## **FAQ**
 
 **Apakah saya dapat mengontrol kecepatan pemutaran transisi slide?**
 
-Ya. Atur [Speed](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/speed/) transisi dengan menggunakan pengaturan [TransitionSpeed](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionspeed/) (mis., slow/medium/fast).
+Ya. Gunakan [Duration](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/duration/) ketika Anda memerlukan durasi efek yang tepat dalam milidetik. Gunakan [Speed](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/speed/) ketika kategori [TransitionSpeed](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionspeed/) yang telah ditentukan—Slow, Medium, atau Fast—cukup dan tidak ada durasi eksplisit yang diatur. Pengaturan ini mengontrol efek transisi secara terpisah dari penundaan kemajuan otomatis.
 
-**Apakah saya dapat melampirkan audio ke transisi dan membuatnya berulang?**
+**Apakah saya dapat menempelkan audio ke transisi dan menjadikannya berulang?**
 
-Ya. Anda dapat menyematkan suara untuk transisi dan mengontrol perilakunya melalui pengaturan seperti mode suara dan pengulangan (mis., [Sound](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/sound/), [SoundMode](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/soundmode/), [SoundLoop](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/soundloop/), serta metadata seperti [SoundIsBuiltIn](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) dan [SoundName](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/soundname/)).
+Ya. Tetapkan audio tersemat ke [Sound](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/sound/), atur [SoundMode](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/soundmode/) menjadi StartSound dari enumerasi [TransitionSoundMode](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitionsoundmode/), dan aktifkan [SoundLoop](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/soundloop/). Audio akan berulang hingga acara suara berikutnya dalam pertunjukan slide.
 
-**Apa cara tercepat untuk menerapkan transisi yang sama ke setiap slide?**
+**Apa cara tercepat untuk menerapkan transisi yang sama pada setiap slide?**
 
-Konfigurasikan jenis transisi yang diinginkan pada pengaturan transisi setiap slide; transisi disimpan per slide, sehingga menerapkan jenis yang sama pada semua slide menghasilkan hasil yang konsisten.
+Loop melalui koleksi [Slides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/slides/id/) presentasi dan atur [Type](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/type/) transisi setiap slide ke nilai yang sama. Atur opsi waktu dan efek apa pun dalam loop yang sama untuk menjaga perilaku konsisten di seluruh slide.
 
-**Bagaimana cara memeriksa transisi mana yang saat ini diatur pada slide?**
+**Bagaimana saya dapat memeriksa transisi apa yang saat ini diterapkan pada slide?**
 
-Periksa [pengaturan transisi](https://reference.aspose.com/slides/id/net/aspose.slides/baseslide/slideshowtransition/) slide dan baca [jenis transisinya](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/slideshowtransition/type/); nilai tersebut memberi tahu Anda secara tepat efek apa yang diterapkan.
+Baca properti [Type](https://reference.aspose.com/slides/id/net/aspose.slides/islideshowtransition/type/) dari [SlideShowTransition](https://reference.aspose.com/slides/id/net/aspose.slides/ibaseslide/slideshowtransition/) slide. Ia mengembalikan nilai dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/net/aspose.slides.slideshow/transitiontype/); None berarti tidak ada efek transisi yang diterapkan.

@@ -1,170 +1,308 @@
 ---
-title: Diaátmenetek kezelése Androidos prezentációkban
-linktitle: Diaátmenet
+title: Diavetítések diavetítési áttűnéseinek kezelése Androidon
+linktitle: Dia áttűnés
 type: docs
 weight: 80
 url: /hu/androidjava/slide-transition/
 keywords:
-- diaátmenet
-- diaátmenet hozzáadása
-- diaátmenet alkalmazása
-- fejlett diaátmenet
-- morph átmenet
-- átmenettípus
-- átmeneti hatás
+- dia áttűnés
+- dia áttűnés hozzáadása
+- dia áttűnés alkalmazása
+- speciális dia áttűnés
+- Morph áttűnés
+- áttűnés típusa
+- áttűnés hatása
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Fedezze fel, hogyan testreszabhatja a diaátmeneteket az Aspose.Slides for Android via Java segítségével, lépésről lépésre útmutatóval PowerPoint és OpenDocument prezentációkhoz."
+description: "Alkalmazzon dia áttűnéseket, konfigurálja az automatikus dia előrehaladást, és testreszabja a Morph és egyéb áttűnési hatásokat az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan kezelhetők a diaátmenetek a prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan alkalmazhatók átmenettípusok a diákra, hogyan konfigurálható az átmenet viselkedése, például a kattintásra vagy meghatározott idő után való előrehaladás, hogyan ellenőrizhető és letiltható az automatikus előrehaladás, hogyan használható a Morph átmenet és típusai, valamint hogyan állíthatók be az átmenet hatásbeállításai. A példák bemutatják, hogyan töltsünk be vagy hozzunk létre egy prezentációt, módosítsuk a kiválasztott diák átmenet beállításait, és mentse az eredményt PPTX fájlként. A cikk emellett válaszol gyakori kérdésekre az átmenet sebességéről, átmenet hangokról, ugyanazon átmenet több diára való alkalmazásáról, valamint arra vonatkozóan, hogyan ellenőrizhető a diához jelenleg beállított átmenet.
+A diavetítés áttűnések szabályozzák, hogyan jelennek meg a diák a diavetítés során. Az Aspose.Slides for Android via Java segítségével minden diára kiválaszthat egy áttűnési hatást, beállíthatja a haladást egérkattintással vagy időzítővel, valamint módosíthatja a hatáshoz specifikus opciókat. Ez a cikk Java példákat használ az áttűnések alkalmazásához, a pontos áttűnési időtartamok meghatározásához, a diák időzítésének kezeléséhez és egy Morph áttűnés létrehozásához két dia között. A példák azt is bemutatják, hogyan menthetőek a beállítások PPTX fájlba.
 
-## **Diaátmenet hozzáadása**
-Egyszerű diaátmenet‑hatás létrehozásához kövesse az alábbi lépéseket:
+## **Diavetítés áttűnés hozzáadása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból.
-1. Alkalmazzon egy Diaátmenet típust a diára az Aspose.Slides for Android via Java által kínált átmeneti hatások közül a TransitionType felsoroltán keresztül.
-1. Írja ki a módosított prezentáció fájlt.
+Az áttűnés alkalmazásához töltsön be egy prezentációt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztállyal, és érje el a dia áttűnési beállításait a [getSlideShowTransition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) segítségével. Használja a [setType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) metódust a [TransitionType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitiontype/) felsorolás egy értékével, majd mentse a prezentációt.
+
+A következő példa kör (Circle) áttűnését alkalmazza az első diára, és comb (Comb) áttűnését a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
 
 ```java
-// Példányosítsa a Presentation osztályt a forrás prezentációs fájl betöltéséhez
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Alkalmazzon kör típusú átmenetet az 1. diára
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // Alkalmazzon fésű típusú átmenetet a 2. diára
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // Írja a prezentációt a lemezre
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Fejlett diaátmenet hozzáadása**
-Az előző szakaszban csak egy egyszerű átmeneti hatást alkalmaztunk a diára. Most, hogy ezt az egyszerű átmenetet még jobbá és irányíthatóbbá tegyük, kövesse az alábbi lépéseket:
+## **Speciális diavetítés áttűnés hozzáadása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation) osztályból.
-1. Alkalmazzon egy Diaátmenet típust a diára az Aspose.Slides for Android via Java által kínált átmeneti hatások közül.
-1. Azt is beállíthatja, hogy az átmenet kattintásra, egy adott idő elteltével vagy mindkettőre haladjon előre.
-1. Ha a diaátmenet a „Haladjon előre kattintásra” beállítással van engedélyezve, az átmenet csak akkor halad előre, ha valaki rákattint az egérre. Ezenkívül, ha az „Advance After Time” (Idő után előrehaladás) tulajdonság be van állítva, az átmenet automatikusan halad előre a megadott idő letelte után.
-1. Írja ki a módosított prezentációt prezentáció fájlként.
+Megadhatja, mennyi ideig marad a dia a képernyőn, és hogy egérkattintás előreviszi-e a diavetítést. A következő módszerek szabályozzák ezt a viselkedést:
+- [setAdvanceOnClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) lehetővé teszi a nézőnek, hogy egérkattintással lépjen előre.
+- [setAdvanceAfter](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) engedélyezi az automatikus előrehaladást.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) határozza meg az automatikus előrehaladás késleltetését ezredmásodpercben.
+
+Engedélyezze mind a kattintásos, mind az időzített előrehaladást, hogy a néző kattintással vagy a várakozási idő leteltével folytathassa a diavetítést. Ha csak az időzítőt kívánja használni, adja át a `false` értéket a [setAdvanceOnClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) metódusnak. A késleltetés azt határozza meg, mikor lép tovább a diavetítés; nem állítja be a vizuális áttűnési effektus időtartamát.
+
+Ez a példa különböző hatásokat rendel az első három diára, és automatikus előrehaladást engedélyez 3, 5 és 7 másodperc után, sorrendben. Egérkattintással is lehet előrelépni ezeken a diákon. Használjon egy `input.pptx` fájlt, amely legalább három diát tartalmaz.
 
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Alkalmazzon kör típusú átmenetet az 1. diára
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // Állítsa be az átmenet időt 3 másodpercre
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // Alkalmazzon fésű típusú átmenetet a 2. diára
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // Állítsa be az átmenet időt 5 másodpercre
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // Alkalmazzon zoom típusú átmenetet a 3. diára
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // Állítsa be az átmenet időt 7 másodpercre
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // Írja a prezentációt a lemezre
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Morph átmenet**
-{{% alert color="primary" %}} 
+A timed előrehaladás engedélyezésének ellenőrzéséhez hívja meg a [getAdvanceAfter](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--) metódust. A tárolt késleltetés önmagában nem jelzi, hogy az időzítő aktív.
 
-Az Aspose.Slides for Android via Java most már támogatja a [Morph Transition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IMorphTransition) funkciót. Ezek a PowerPoint 2019‑ben bevezetett új morph átmenetet képviselik.
-
-{{% /alert %}} 
-
-A Morph átmenet lehetővé teszi, hogy sima mozgást animáljon az egyik diáról a következőre. Ez a cikk leírja a koncepciót és a Morph átmenet használatát. A Morph átmenet hatékony használatához két diára van szükség, amelyeknek legalább egy közös objektuma van. A legegyszerűbb módja, ha megkettőzzük a diát, majd a második dián a objektumot egy másik helyre helyezzük.
-
-Az alábbi kódrészlet bemutatja, hogyan adhatunk egy klónozott diát szöveggel a prezentációhoz, és állíthatunk be egy [morph type](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/TransitionType) átmenetet a második diára.
+A következő példa megnyitja a fent mentett fájlt, jelentést készít minden engedélyezett időzítőről, és letiltja az automatikus előrehaladást azoknak a diáknak, amelyek késleltetése több mint két másodperc. Engedélyezi a kattintást ezeknél a diáknál, és elmenti a frissített beállításokat.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Az áttűnés időzítésének pontos szabályozása**
+
+Használja a [setDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) metódust egy áttűnési effektus pontos hosszának ezredmásodpercben történő megadásához. A dia [getSlideShowTransition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) metódusa ezeket a beállításokat az [ISlideShowTransition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/) interfészen keresztül teszi elérhetővé:
+
+| Módszer | Leírás |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Beállítja magának az áttűnési effektusnak az időtartamát ezredmásodpercben. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Beállítja az automatikus dia előrehaladás előtti késleltetést ezredmásodpercben. A [setAdvanceAfter](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) metódusnak `true` értéket adva aktiválja ezt az időzítőt. |
+| [setSpeed](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Kiválaszt egy előre definiált sebességkategóriát a [TransitionSpeed](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitionspeed/) felsorolásból: Slow, Medium vagy Fast. Akkor használják, ha nincs megadva pontos időtartam. |
+
+A [setDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) csak az áttűnési effektust szabályozza; nem határozza meg, mennyi ideig látható a dia. Az automatikus előrehaladás késleltetését külön kell beállítani. Ha nincs explicit időtartam megadva, az Aspose.Slides a effektus időtartamát a áttűnés típusából és a [getSpeed](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) értékből számítja.
+
+### **Azonos időtartam alkalmazása minden diára**
+
+Az egységes ritmus érdekében alkalmazza ugyanazt a hatást és pontos időtartamot minden diára. Ez a példa betölti a `input.pptx` fájlt, a [TransitionType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitiontype/) enumerációból a Fade-ot választja, és minden áttűnésnek 750 ezredmásodperc időtartamot ad. Külön engedélyezi az automatikus előrehaladást 5 000 ezredmásodperc után, és letiltja a kattintásos előrehaladást, majd elmenti az eredményt PPTX formátumban.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // Az automatikus előrehaladást konfigurálja a hatás időtartamától függetlenül.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Különböző időtartamok beállítása egyes diákhoz**
+
+A különböző diák különböző effektus időtartamokat használhatnak. Például egy rövid áttűnést a címdiára, és egy hosszabb áttűnést a szakasz bevezetőjére. Ez a példa 500 ezredmásodpercet állít be az első diára, és 1 200 ezredmásodpercet a másodikra. Használjon egy `input.pptx` fájlt, amely legalább két diát tartalmaz.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Az áttűnések összehangolása animált kimenettel**
+
+Animált [animated GIF](/slides/hu/androidjava/convert-powerpoint-to-animated-gif/), [HTML5 prezentáció](/slides/hu/androidjava/export-to-html5/) vagy [videó](/slides/hu/androidjava/convert-powerpoint-to-video/) előkészítésekor állítsa be a pontos áttűnési időtartamokat exportálás előtt, hogy egyezzen a kívánt tempóval. Például használjon 600 ezredmásodperces fade-et a jelenetek között, és állítsa be minden dia előrehaladási késleltetését külön, hogy legyen idő a narrációnak vagy tartalomnak.
+
+GIF és videó esetén igazítsa a kimeneti képkockasebességet az effektus időtartamához: 600 ezredmásodperc 18 képkockának felel meg 30 fps mellett. HTML5 esetén engedélyezze az animált áttűnéseket az exportálási beállításokban. Ellenőrizze a választott export formátum által támogatott hatásokat és időzítési lehetőségeket, és tekintse meg az előnézetet a szinkronizáció ellenőrzéséhez.
+
+### **Létező áttűnési időtartam beolvasása**
+
+Hívja meg a [getDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) metódust az áttűnés módosítása előtt, hogy megállapítsa, van-e tárolt explicit érték. A `-1` érték azt jelenti, hogy nincs explicit időtartam beállítva; egy nemnegatív érték a tárolt ezredmásodpercben megadott időt jelzi. A nem beállított érték nem a kiszámított lejátszási időt jelenti: az Aspose.Slides a áttűnés típusát és a [getSpeed](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) értékét használja a időtartam meghatározásához. Egy áttűnési típus beállítása inicializálhat egy időtartamot, ezért először tekintse át az eredeti beállításokat.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Morph áttűnés**
+
+A Morph áttűnés animálja a változásokat egymás utáni diák objektumai között. Egyszerű Morph hatás létrehozásához klónozzon egy diát, mozdítsa vagy módosítsa méretét egy objektumnak a klónon, és alkalmazza a Morph áttűnést a második diára. Ez lehetővé teszi, hogy az áttűnés a megfelelő objektumokat animálja az eredeti és a módosított állapot között.
+
+A következő példa létrehoz egy diát egy szöveges téglalappal, klónozza a diát, és megváltoztatja a téglalap pozícióját és méretét a klónon. Ezután a [TransitionType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitiontype/) felsorolásból a Morph-ot választja a második diára. Nyissa meg a mentett fájlt egy Morph-ot támogató prezentációs megjelenítőben, hogy lássa a hatást a diavetítés során.
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-## **Morph átmenet típusok**
-Új [TransitionMorphType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/TransitionMorphType) felsorolt került hozzáadásra. Különböző Morph diaátmenet típusokat képvisel.
-
-A TransitionMorphType felsorolt három taggal rendelkezik:
-
-- ByObject: A Morph átmenet úgy lesz végrehajtva, mintha a formákat elválaszthatatlan objektumoknak tekintenénk.
-- ByWord: A Morph átmenet szöveget szavak szerint továbbítja, ahol lehetséges.
-- ByChar: A Morph átmenet szöveget karakterek szerint továbbítja, ahol lehetséges.
-
-Az alábbi kódrészlet bemutatja, hogyan állítható be a morph átmenet egy diára, és hogyan módosítható a morph típus:
-
-```java
-Presentation presentation = new Presentation("presentation.pptx");
-try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Átmeneti hatások beállítása**
-Az Aspose.Slides for Android via Java támogatja az átmeneti hatások beállítását, mint például a feketéből, balról, jobbról stb. Az átmeneti hatás beállításához kövesse az alábbi lépéseket:
+## **Morph áttűnés típusok**
 
-- Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-- Szerezze meg a dia hivatkozását.
-- Állítsa be az átmeneti hatást.
-- Írja ki a prezentációt [PPTX ](https://docs.fileformat.com/presentation/pptx/) fájlként.
+A [TransitionMorphType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitionmorphtype/) felsorolás szabályozza, hogy a Morph hogyan párosítja és animálja a tartalmat:
+- [ByObject](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) minden alakzatot egy teljes objektumként kezel.
+- [ByWord](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) a szöveget úgy animálja, hogy ahol lehetséges, szavak alapján párosít.
+- [ByChar](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) a szöveget karakterek alapján animálja, ahol lehetséges.
 
-Az alábbi példában beállítottuk az átmeneti hatásokat.
+Használja a [setType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) metódust a Morph kiválasztásához, mielőtt hozzáférne a [getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#getValue--) metódushoz. Az érték ezután biztosítja az [IMorphTransition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imorphtransition/) interfészt, amelynek a [setMorphType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) metódusa választja ki a párosítási módot.
+
+Ez a példa megnyitja az előző szakaszban létrehozott prezentációt, és beállítja a második diát úgy, hogy szó-alapú Morph animációt használjon.
 
 ```java
-// Példányosítsa a Presentation osztályt
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
 try {
-    // Állítsa be a hatást
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // Írja a prezentációt a lemezre
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Áttűnési hatások beállítása**
+
+Egyes áttűnések további opciókat kínálnak, például irányt vagy azt, hogy a hatás fekete képernyőről indul-e. Az elérhető opciók a [setType]‑val kiválasztott áttűnéstől függenek. Először állítsa be a típust, majd használja a megfelelő interfészt a [getValue]‑ból.
+
+A következő példa egy Cut áttűnéset alkalmaz az `input.pptx` első diájára. A [setFromBlack](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) metódust a [IOptionalBlackTransition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ioptionalblacktransition/) interfészen keresztül hívja, hogy az áttűnés fekete képernyőről induljon.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -172,18 +310,18 @@ try {
 
 ## **GYIK**
 
-**Módosíthatom a diaátmenet lejátszási sebességét?**
+**Le tudom-e szabályozni egy diavetítés áttűnési lejátszási sebességét?**
 
-Igen. Állítsa be az átmenet [sebesség](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideshowtransition/#setSpeed-int-) paraméterét a [TransitionSpeed](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitionspeed/) beállítással (pl. lassú/közepes/gyors).
+Igen. Ha pontos effektus időtartamra van szüksége ezredmásodpercben, használja a [setDuration](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) metódust. Ha egy előre definiált [TransitionSpeed](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitionspeed/) kategória—Slow, Medium vagy Fast—elég, és nincs explicit időtartam megadva, akkor a [setSpeed](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) használható. Ezek a beállítások az áttűnési hatást szabályozzák az automatikus előrehaladási késleltetéstől függetlenül.
 
-**Csatolhatok hangot egy átmenethez, és ismételhetem azt?**
+**Csatolhatok-e hangot egy áttűnéshez, és ismételhetem azt?**
 
-Igen. Hangot ágyazhatsz be az átmenethez, és a viselkedést beállíthatod olyan opciókkal, mint a hang mód és a hurok (pl. [setSound](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), valamint metaadatok, mint a [setSoundIsBuiltIn](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) és a [setSoundName](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+Igen. A beágyazott hangot a [setSound](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-) metódussal adhatja hozzá, a [TransitionSoundMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitionsoundmode/) felsorolásból a StartSound értéket adja át a [setSoundMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-) metódusnak, és a [setSoundLoop](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) metódust `true`‑ra állítja. A hang addig ismétlődik, amíg a diavetítésben a következő hangesemény meg nem jelenik.
 
-**Mi a leggyorsabb módja annak, hogy ugyanazt az átmenetet minden diára alkalmazzam?**
+**Mi a leggyorsabb módja annak, hogy ugyanazt az áttűnést alkalmazzuk minden diára?**
 
-Állítsa be a kívánt átmenettípust minden dia átmenetbeállításában; az átmenetek diánként vannak tárolva, ezért ugyanazt a típust az összes diára alkalmazva konzisztens eredményt kap.
+A legegyszerűbb módja, ha végigiterál a prezentáció [getSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getSlides--) gyűjteményén, és minden dia áttűnésénél a [setType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) metódust ugyanazzal az értékkel hívja. Az időzítési és effektus beállításokat ugyanabban a ciklusban állítsa be, hogy a viselkedés következetes maradjon a diák között.
 
-**Hogyan ellenőrizhetem, hogy melyik átmenet van jelenleg beállítva egy dián?**
+**Hogyan ellenőrizhetem, melyik áttűnés van jelenleg beállítva egy dián?**
 
-Vizsgálja meg a dia [transition settings](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslide/#getSlideShowTransition--) beállításait, és olvassa ki a [transition type](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideshowtransition/#setType-int-) értékét; ez az érték pontosan megmutatja, melyik hatás van alkalmazva.
+Hívja meg a [getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideshowtransition/#getType--) metódust a dia [getSlideShowTransition](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) eredményén. Ez visszaad egy értéket a [TransitionType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/transitiontype/) felsorolásból; a None azt jelenti, hogy nincs áttűnési effektus alkalmazva.

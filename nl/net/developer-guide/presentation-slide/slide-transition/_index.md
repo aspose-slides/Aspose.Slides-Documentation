@@ -9,7 +9,7 @@ keywords:
 - diaovergang toevoegen
 - diaovergang toepassen
 - geavanceerde diaovergang
-- morph‑overgang
+- Morph-overgang
 - overgangstype
 - overgangseffect
 - PowerPoint
@@ -18,186 +18,328 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ontdek hoe u diaovergangen kunt aanpassen in Aspose.Slides voor .NET, met stapsgewijze begeleiding voor PowerPoint- en OpenDocument‑presentaties."
+description: "Pas diaovergangen toe, configureer automatische dia-voortzetting en pas Morph- en andere overgangseffecten aan met Aspose.Slides voor .NET."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u diaovergangen in presentaties kunt beheren met Aspose.Slides. Het laat zien hoe u overgangstypen op dia's toepast, het gedrag van de overgang configureert, zoals doorgaan bij een muisklik of na een opgegeven tijd, controleert en automatische doorgang uitschakelt, de Morph‑overgang en de verschillende typen ervan gebruikt, en opties voor overgangseffecten instelt. De voorbeelden laten zien hoe u een presentatie laadt of maakt, de overgangsinstellingen voor geselecteerde dia's wijzigt, en het resultaat opslaat als een PPTX‑bestand. Het artikel beantwoordt ook veelgestelde vragen over de snelheid van de overgang, overgangsgeluiden, dezelfde overgang op meerdere dia's toepassen en controleren welke overgang momenteel op een dia is ingesteld.
+Diaovergangen bepalen hoe dia's verschijnen tijdens een diavoorstelling. Met Aspose.Slides for .NET kun je voor elke dia een overgangseffect kiezen, de voortgang per muisklik of timer configureren, en opties die specifiek zijn voor een effect aanpassen. Dit artikel gebruikt C#‑voorbeelden om overgangen toe te passen, exacte overgangsduren in te stellen, diatiming te beheren en een Morph‑overgang tussen twee dia's te creëren. De voorbeelden laten ook zien hoe je de instellingen opslaat in een PPTX‑bestand.
 
 ## **Diaovergang toevoegen**
-Om het begrip te vergemakkelijken hebben we een voorbeeld getoond van het gebruik van Aspose.Slides voor .NET om eenvoudige diaovergangen te beheren. Ontwikkelaars kunnen niet alleen verschillende diaovergangseffecten op de dia's toepassen, maar ook het gedrag van deze overgangseffecten aanpassen. Om een eenvoudig diaovergangseffect te maken, volgt u de onderstaande stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse.
-2. Pas een diaovergangstype toe op de dia vanuit een van de overgangseffecten die Aspose.Slides voor .NET biedt via de TransitionType‑enum.
-3. Schrijf het gewijzigde presentatiebestand weg.
+Om een overgang toe te passen, laad je een presentatie met de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse en krijg je toegang tot de [SlideShowTransition](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseslide/slideshowtransition/)‑eigenschap van de dia. Stel de [Type](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/type/) in op een waarde uit de [TransitionType](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitiontype/)‑enumeratie en sla vervolgens de presentatie op.
 
-```c#
-// Instantieer Presentation‑klasse om het bronpresentatie‑bestand te laden
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+Het volgende voorbeeld past een Circle‑overgang toe op de eerste dia en een Comb‑overgang op de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia's.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    // Pas cirkeltype‑overgang toe op dia 1
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
-
-    // Pas comb‑type overgang toe op dia 2
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // Schrijf de presentatie naar schijf
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
 ## **Geavanceerde diaovergang toevoegen**
-In de bovenstaande sectie hebben we enkel een eenvoudig overgangseffect op de dia toegepast. Om dat eenvoudige overgangseffect nu nog beter en beter bestuurbaar te maken, volgt u de onderstaande stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse.
-2. Pas een diaovergangstype toe op de dia vanuit een van de overgangseffecten die Aspose.Slides voor .NET biedt.
-3. U kunt de overgang ook instellen om door te gaan bij een muisklik, na een specifieke tijdsperiode of beide.
-4. Als de diaovergang is ingesteld op “Doorlopen bij klik”, zal de overgang alleen doorgaan wanneer iemand klikt met de muis. Bovendien, als de eigenschap AdvanceAfterTime is ingesteld, loopt de overgang automatisch door na de opgegeven tijd.
-5. Schrijf de gewijzigde presentatie weg als een presentatiedocument.
+Je kunt configureren hoe lang een dia op het scherm blijft en of een muisklik de diavoorstelling voortzet. De volgende eigenschappen regelen dit gedrag:
 
-```c#
-// Instantieer Presentation-klasse die een presentatie-bestand vertegenwoordigt
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+- [AdvanceOnClick](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/advanceonclick/) stelt de kijker in staat om door te gaan met een muisklik.
+- [AdvanceAfter](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/advanceafter/) schakelt automatische voortzetting in.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/advanceaftertime/) geeft de vertraging vóór automatische voortzetting op, in milliseconden.
+
+Schakel zowel klik‑ als tijdsgebaseerde voortzetting in zodat de kijker kan doorgaan met een klik of wachten op de timer. Gebruik alleen de timer door [AdvanceOnClick](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/advanceonclick/) op `false` te zetten. De vertraging bepaalt wanneer de diavoorstelling verdergaat; hij stelt de duur van het visuele overgangseffect niet in.
+
+Dit voorbeeld kent verschillende effecten toe aan de eerste drie dia's en schakelt automatische voortzetting in na respectievelijk 3, 5 en 7 seconden. Ook muisklikken kunnen deze dia's voortzetten. Gebruik een `input.pptx`‑bestand met minstens drie dia's.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 3)
 {
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-    // Pas cirkeltype-overgang toe op dia 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-    // Stel de overgangstijd in op 3 seconden
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // Pas comb-type overgang toe op dia 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
-
-
-    // Stel de overgangstijd in op 5 seconden
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // Pas zoomtype-overgang toe op dia 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // Stel de overgangstijd in op 7 seconden
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // Schrijf de presentatie naar schijf
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
 }
 ```
 
-Bovendien kunt u met de [AdvanceAfter](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/advanceafter/)‑eigenschap controleren of een diaovergang is geconfigureerd om naar de volgende dia te gaan of de instelling uitschakelen.
+Om te controleren of tijdsgebaseerde voortzetting is ingeschakeld, lees je [AdvanceAfter](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/advanceafter/). Een opgeslagen vertraging alleen duidt niet aan dat de timer actief is.
 
-Deze C#‑code demonstreert de werking:
+Het volgende voorbeeld opent het hierboven opgeslagen bestand, meldt elke ingestelde timer en schakelt automatische voortzetting uit voor dia's met een vertraging groter dan twee seconden. Het schakelt muisklikken voor die dia's in en slaat de bijgewerkte instellingen op.
 
-```c#
-// Instantieert een Presentation-klasse die een presentatie-bestand vertegenwoordigt
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
     {
-        // Haalt de dia-Transition op
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
 
-        // Controleert of de instelling Advance After Time is ingeschakeld
-        if (slideTransition.AdvanceAfter)
+        if (transition.AdvanceAfterTime > 2000)
         {
-            // Print de waarde van Advance After Time
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
         }
+    }
+}
 
-        // Schakelt de overgang uit na een specifieke tijd als de waarde van AdvanceAfterTime groter is dan 2 seconden
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **Overgangstiming nauwkeurig regelen**
+
+Gebruik [Duration](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/duration/) om de exacte lengte van een overgangseffect in milliseconden op te geven. De [SlideShowTransition](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseslide/slideshowtransition/)‑eigenschap van de dia maakt deze instellingen toegankelijk via [ISlideShowTransition](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/):
+
+| Eigenschap | Doel |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/duration/) | Stelt de duur van het overgangseffect zelf in, in milliseconden. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Stelt de vertraging vóór automatische voortzetting van de dia in, in milliseconden. Schakel [AdvanceAfter](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/advanceafter/) in om deze timer te activeren. |
+| [Speed](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/speed/) | Selecteert een vooraf gedefinieerde snelheidscategorie uit [TransitionSpeed](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium of Fast. Wordt gebruikt wanneer geen exacte duur is opgegeven. |
+
+[Duration](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/duration/) regelt alleen het overgangseffect; hij bepaalt niet hoe lang de dia zichtbaar blijft. Configureer de vertraging voor automatische voortzetting apart. Wanneer geen expliciete duur is ingesteld, bepaalt Aspose.Slides de effectduur op basis van het overgangstype en de [Speed](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/speed/)‑waarde.
+
+### **Dezelfde duur voor elke dia toepassen**
+
+Voor een gelijkmatig tempo pas je hetzelfde effect en dezelfde exacte duur toe op elke dia. Dit voorbeeld laadt `input.pptx`, selecteert Fade uit [TransitionType](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitiontype/) en geeft elke overgang een duur van 750 milliseconden. Het schakelt apart automatische voortzetting in na 5.000 milliseconden en schakelt voortzetting per muisklik uit, waarna het resultaat als PPTX wordt opgeslagen.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // Configureer automatische voortzetting onafhankelijk van de effectduur.
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **Verschillende duur per individuele dia**
+
+Verschillende dia's kunnen verschillende overgangsduren gebruiken. Bijvoorbeeld een korte overgang voor een titel-dia en een langere overgang voor een sectie‑introductie. Dit voorbeeld stelt 500 milliseconden in voor de eerste dia en 1.200 milliseconden voor de tweede. Gebruik een `input.pptx`‑bestand met minstens twee dia's.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **Overgangen afstemmen op geanimeerde uitvoer**
+
+Wanneer je een [animated GIF](/slides/nl/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/nl/net/export-to-html5/) of [video](/slides/nl/net/convert-powerpoint-to-video/) voorbereidt, stel dan exacte overgangsduren in vóór export zodat het tempo overeenkomt met de beoogde weergave. Bijvoorbeeld, gebruik een fade van 600 milliseconden tussen scènes en pas elke dia‑vervolgvertraging apart aan om tijd te geven aan de bijbehorende voice‑over of inhoud.
+
+Voor GIF‑ en video‑output moet je het aantal frames per seconde afstemmen op de effectduur: 600 milliseconden komt overeen met 18 frames bij 30 fps. In HTML5 schakel je geanimeerde overgangen in de exportinstellingen in. Controleer de ondersteunde effecten en timingopties van het gekozen exportformaat en bekijk een voorbeeld om de synchronisatie te bevestigen.
+
+### **Bestaande overgangsduur uitlezen**
+
+Lees [Duration](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/duration/) uit voordat je de overgang aanpast om te bepalen of er een expliciete waarde is opgeslagen. Een waarde van `-1` betekent dat er geen expliciete duur is ingesteld; een niet‑negatieve waarde geeft de opgeslagen duur in milliseconden weer. De niet‑ingestelde waarde is niet de berekende afspeelduur: Aspose.Slides bepaalt die duur aan de hand van het overgangstype en [Speed](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/speed/). Het instellen van een overgangstype kan een duur initialiseren, dus inspecteer eerst de oorspronkelijke instellingen.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
 ## **Morph‑overgang**
-Aspose.Slides voor .NET ondersteunt nu de [Morph Transition](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/imorphtransition). Ze vertegenwoordigen een nieuwe morph‑overgang geïntroduceerd in PowerPoint 2019. De Morph‑overgang maakt het mogelijk om een soepele beweging van de ene dia naar de andere te animeren. Dit artikel beschrijft het concept en hoe u de Morph‑overgang gebruikt. Om de Morph‑overgang effectief te gebruiken, moet u twee dia's hebben met ten minste één gemeenschappelijk object. De gemakkelijkste manier is om de dia te dupliceren en vervolgens het object op de tweede dia naar een andere plaats te verplaatsen.
 
-De volgende codefragment toont hoe u een kloon van de dia met wat tekst aan de presentatie toevoegt en een overgang van het [morph type](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) instelt op de tweede dia.
+De Morph‑overgang animeert veranderingen tussen objecten op opeenvolgende dia's. Om een eenvoudige Morph‑effect te maken, kloon je een dia, verplaats of wijzig je de grootte van een object op de kloon en pas je de Morph‑overgang toe op de tweede dia. Hierdoor krijgen de corresponderende objecten een animatie tussen hun oorspronkelijke en gewijzigde toestand.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+Het volgende voorbeeld maakt een dia met een tekst‑rechthoek, kloont de dia en wijzigt de positie en grootte van de rechthoek op de kloon. Vervolgens selecteert het Morph uit de [TransitionType](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitiontype/)‑enumeratie voor de tweede dia. Open het opgeslagen bestand in een presentatie‑viewer die Morph ondersteunt om het effect tijdens een diavoorstelling te zien.
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+using var presentation = new Presentation();
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
+
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
+
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
 
 ## **Morph‑overgangstypen**
-Niewe enum Aspose.Slides.SlideShow.TransitionMorphType is toegevoegd. Het vertegenwoordigt verschillende typen van Morph‑diaovergangen.
 
-TransitionMorphType‑enum heeft drie leden:
+De [TransitionMorphType](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitionmorphtype/)‑enumeratie bepaalt hoe Morph overeenkomt en animeert:
 
-- ByObject: Morph‑overgang wordt uitgevoerd met vormen als ondeelbare objecten.
-- ByWord: Morph‑overgang wordt uitgevoerd door tekst waar mogelijk per woord over te dragen.
-- ByChar: Morph‑overgang wordt uitgevoerd door tekst waar mogelijk per teken over te dragen.
+- [ByObject](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitionmorphtype/) behandelt elke vorm als één geheel.
+- [ByWord](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitionmorphtype/) animeert tekst door woorden waar mogelijk te matchen.
+- [ByChar](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitionmorphtype/) animeert tekst door tekens waar mogelijk te matchen.
 
-Het onderstaande codefragment toont hoe u een morph‑overgang op een dia instelt en het morph‑type wijzigt:
+Stel de overgangs‑[Type](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/type/) in op Morph voordat je toegang krijgt tot de [Value](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/value/). De waarde levert vervolgens de [IMorphTransition](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/imorphtransition/)‑interface, waarvan de [MorphType](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/imorphtransition/morphtype/)‑eigenschap de match‑modus selecteert.
 
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+Dit voorbeeld opent de presentatie die in de vorige sectie is aangemaakt en configureert de tweede dia om woord‑gebaseerde Morph‑animatie te gebruiken.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
+
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
 ## **Overgangseffecten instellen**
-Aspose.Slides voor .NET ondersteunt het instellen van overgangseffecten zoals “van zwart”, “van links”, “van rechts”, enz. Om het overgangseffect in te stellen, volgt u de onderstaande stappen:
 
-- Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse.
-- Haal de referentie van de dia op.
-- Stel het overgangseffect in.
-- Schrijf de presentatie weg als een [PPTX](https://docs.fileformat.com/presentation/pptx/)‑bestand.
+Sommige overgangen bieden extra opties, zoals richting of of het effect start vanaf een zwart scherm. De beschikbare opties hangen af van het geselecteerde overgangs‑[Type](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/type/). Stel eerst het type in en gebruik vervolgens de juiste interface via zijn [Value](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/value/).
 
-In het onderstaande voorbeeld hebben we de overgangseffecten ingesteld.
+Het volgende voorbeeld past een Cut‑overgang toe op de eerste dia van `input.pptx`. Het stelt [FromBlack](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) in via [IOptionalBlackTransition](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/ioptionalblacktransition/) zodat de overgang start vanaf een zwart scherm.
 
-```c#
-// Maak een instantie van de Presentation-klasse
-Presentation presentation = new Presentation("AccessSlides.pptx");
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-// Stel effect in
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
 
-// Schrijf de presentatie naar schijf
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+if (transition.Value is IOptionalBlackTransition cutTransition)
+{
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
+}
 ```
 
 ## **FAQ**
 
 **Kan ik de afspeelsnelheid van een diaovergang regelen?**
 
-Ja. Stel de [Speed](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/speed/) van de overgang in via de [TransitionSpeed](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitionspeed/)‑instelling (bijv. langzaam/middelhoog/snel).
+Ja. Geef de voorkeur aan [Duration](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/duration/) wanneer je een exacte effectduur in milliseconden nodig hebt. Gebruik [Speed](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/speed/) wanneer een vooraf gedefinieerde [TransitionSpeed](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitionspeed/)‑categorie — Slow, Medium of Fast — voldoende is en er geen expliciete duur is ingesteld. Deze instellingen regelen het overgangseffect onafhankelijk van de vertraging voor automatische voortzetting.
 
-**Kan ik audio aan een overgang toevoegen en deze laten herhalen?**
+**Kan ik audio aan een overgang koppelen en laten loopen?**
 
-Ja. U kunt een geluid inbedden voor de overgang en het gedrag beheren via instellingen zoals geluidsmodus en herhaling (bijv. [Sound](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/sound/), [SoundMode](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/soundmode/), [SoundLoop](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/soundloop/), plus metadata zoals [SoundIsBuiltIn](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) en [SoundName](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/soundname/)).
+Ja. Wijs ingebedde audio toe aan [Sound](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/sound/), stel [SoundMode](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/soundmode/) in op StartSound vanuit de [TransitionSoundMode](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitionsoundmode/)‑enumeratie, en schakel [SoundLoop](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/soundloop/) in. De audio loopt tot het volgende geluidsonderdeel in de diavoorstelling.
 
 **Wat is de snelste manier om dezelfde overgang op elke dia toe te passen?**
 
-Configureer het gewenste overgangstype in de overgangsinstellingen van elke dia; overgangen worden per dia opgeslagen, dus het toepassen van hetzelfde type op alle dia’s levert een consistent resultaat op.
+Loop door de [Slides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/slides/nl/)‑collectie van de presentatie en stel voor elke dia de overgangs‑[Type](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/type/) in op dezelfde waarde. Stel eventuele timing‑ en effectopties in dezelfde lus in om het gedrag consistent te houden over alle dia's.
 
 **Hoe kan ik controleren welke overgang momenteel op een dia is ingesteld?**
 
-Bekijk de [transition settings](https://reference.aspose.com/slides/nl/net/aspose.slides/baseslide/slideshowtransition/) van de dia en lees het [transition type](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/slideshowtransition/type/); die waarde vertelt u precies welk effect is toegepast.
+Lees de [Type](https://reference.aspose.com/slides/nl/net/aspose.slides/islideshowtransition/type/)‑eigenschap van de dia‑[SlideShowTransition](https://reference.aspose.com/slides/nl/net/aspose.slides/ibaseslide/slideshowtransition/). Deze retourneert een waarde uit de [TransitionType](https://reference.aspose.com/slides/nl/net/aspose.slides.slideshow/transitiontype/)‑enumeratie; None betekent dat er geen overgangseffect is toegepast.

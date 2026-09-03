@@ -1,186 +1,345 @@
 ---
-title: スライド トランジション
+title: .NET でプレゼンテーションのスライド遷移を管理する
+linktitle: スライド遷移
 type: docs
 weight: 90
 url: /ja/net/slide-transition/
-keywords: "スライド トランジションを追加, PowerPoint スライド トランジション, モーフ トランジション, 高度なスライド トランジション, トランジション効果, C#, Csharp, .NET, Aspose.Slides"
-description: "C#または.NETでPowerPointスライド トランジションとトランジション効果を追加"
+keywords:
+- スライド遷移
+- スライド遷移の追加
+- スライド遷移の適用
+- 高度なスライド遷移
+- モーフ遷移
+- 遷移タイプ
+- 遷移効果
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET を使用してスライド遷移を適用し、自動スライド進行を設定し、Morph などの遷移効果をカスタマイズします。"
 ---
+## **概要**
 
-## **スライド トランジションの追加**
-理解しやすくするために、Aspose.Slides for .NET を使用してシンプルなスライド トランジションを管理する方法を示しました。開発者はスライドにさまざまなトランジション効果を適用できるだけでなく、これらの効果の挙動もカスタマイズできます。シンプルなスライド トランジション効果を作成するには、以下の手順に従います。
+スライド遷移は、スライドショー中にスライドがどのように表示されるかを制御します。Aspose.Slides for .NET を使用すると、各スライドに遷移効果を選択でき、マウスクリックまたはタイマーによる進行を設定し、効果固有のオプションを調整できます。本記事では C# のサンプルを使って遷移を適用し、正確な遷移時間を設定し、スライドのタイミングを管理し、2 枚のスライド間で Morph 遷移を作成する方法を示します。また、設定を PPTX ファイルに保存する方法も紹介します。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
-2. TransitionType 列挙体で提供されるトランジション効果のいずれかを使用して、スライドにスライド トランジション タイプを適用します。  
-3. 変更されたプレゼンテーション ファイルを書き出します。  
-```c#
-// ソースプレゼンテーションファイルを読み込むために Presentation クラスのインスタンスを作成します
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+## **スライド遷移の追加**
+
+遷移を適用するには、[Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスでプレゼンテーションを読み込み、スライドの [SlideShowTransition](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseslide/slideshowtransition/) プロパティにアクセスします。その [Type](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/type/) を [TransitionType](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitiontype/) 列挙体の値に設定し、プレゼンテーションを保存します。
+
+以下の例は、最初のスライドに Circle 遷移を、2 番目のスライドに Comb 遷移を適用します。2 枚以上のスライドを含む `input.pptx` ファイルを使用してください。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    // スライド 1 にサークルタイプのトランジションを適用します
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
-
-    // スライド 2 にコンブタイプのトランジションを適用します
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // プレゼンテーションをディスクに保存します
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
+## **高度なスライド遷移の追加**
 
-## **高度なスライド トランジションの追加**
-前節ではシンプルなトランジション効果をスライドに適用しました。ここでは、そのシンプルなトランジション効果をさらに高度かつ制御可能にする手順を示します。
+スライドが画面に表示され続ける時間や、マウスクリックでスライドショーを進めるかどうかを構成できます。以下のプロパティがこの動作を制御します。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
-2. Aspose.Slides for .NET が提供するトランジション効果のいずれかを使用して、スライドにスライド トランジション タイプを適用します。  
-3. トランジションを「クリックで進む」か、特定の時間経過後、またはその両方で進むように設定できます。  
-4. スライド トランジションが「クリックで進む」に設定されている場合、マウスクリック時にのみ次へ進みます。さらに、Advance After Time プロパティが設定されている場合、指定された時間が経過すると自動的に次へ進みます。  
-5. 変更されたプレゼンテーションをプレゼンテーション ファイルとして書き出します。  
-```c#
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+- [AdvanceOnClick](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/advanceonclick/) は、マウスクリックで進められるかを指定します。
+- [AdvanceAfter](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/advanceafter/) は自動進行を有効にします。
+- [AdvanceAfterTime](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/advanceaftertime/) は自動進行までの遅延時間（ミリ秒）を指定します。
+
+クリックとタイマーの両方を有効にすれば、クリックでもタイマーでも次へ進められます。タイマーだけを使用したい場合は、[AdvanceOnClick](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/advanceonclick/) を `false` に設定します。遅延はスライドショーの進行タイミングを制御しますが、視覚的な遷移効果の長さを設定するものではありません。
+
+この例では、最初の 3 枚のスライドに異なる効果を割り当て、3 秒、5 秒、7 秒後に自動進行するように設定します。マウスクリックでもスライドは進められます。3 枚以上のスライドを含む `input.pptx` ファイルを使用してください。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 3)
 {
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-    // スライド 1 にサークルタイプのトランジションを適用します
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-    // トランジション時間を 3 秒に設定します
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // スライド 2 にコンブタイプのトランジションを適用します
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
-
-
-    // トランジション時間を 5 秒に設定します
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // スライド 3 にズームタイプのトランジションを適用します
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // トランジション時間を 7 秒に設定します
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // プレゼンテーションをディスクに保存します
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
 }
 ```
 
+タイマーが有効かどうかを確認するには、[AdvanceAfter](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/advanceafter/) を読み取ります。遅延が保存されているだけでは、タイマーがアクティブであることを示すわけではありません。
 
-さらに、[AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/) プロパティを使用して、スライド トランジションが次のスライドへ移動するように構成されているか、または設定が無効になっているかを確認できます。
+次の例では、上記で保存したファイルを開き、2 秒以上の遅延が設定されているスライドの自動進行を無効にし、クリックでの進行を有効にして設定を保存します。
 
-以下の C# コードが操作を示しています。  
-```c#
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
     {
-        // スライドのトランジションを取得します
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
 
-        // Advance After Time 設定が有効かどうかを確認します
-        if (slideTransition.AdvanceAfter)
+        if (transition.AdvanceAfterTime > 2000)
         {
-            // Advance After Time の値を出力します
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
         }
+    }
+}
 
-        // AdvancedAfterTime の値が 2 秒より大きい場合、指定時間後のトランジションを無効にします
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **遷移タイミングの正確な制御**
+
+[Duration](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/duration/) を使用して、遷移効果自体の長さ（ミリ秒）を正確に指定できます。スライドの [SlideShowTransition](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseslide/slideshowtransition/) プロパティは、[ISlideShowTransition](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/) を介してこれらの設定を公開します。
+
+| プロパティ | 用途 |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/duration/) | 遷移効果そのものの長さ（ミリ秒）を設定します。 |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | スライドが自動的に進むまでの遅延（ミリ秒）を設定します。[AdvanceAfter](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/advanceafter/) を有効にするとタイマーが作動します。 |
+| [Speed](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/speed/) | [TransitionSpeed](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitionspeed/) 列挙体から「Slow」「Medium」「Fast」のいずれかの速度カテゴリを選択します。明示的な Duration が指定されていない場合に使用されます。 |
+
+[Duration](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/duration/) は遷移効果のみを制御し、スライドが表示され続ける時間は決定しません。自動進行の遅延は別途設定してください。明示的な Duration が設定されていない場合、Aspose.Slides は遷移タイプと [Speed](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/speed/) の値から効果の長さを自動的に決定します。
+
+### **すべてのスライドに同じ Duration を適用する**
+
+一定のペースを保つために、すべてのスライドに同じ効果と正確な Duration を適用します。この例では `input.pptx` を読み込み、[TransitionType](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitiontype/) から Fade を選択し、各遷移に 750 ミリ秒の Duration を設定します。また自動進行を 5,000 ミリ秒後に有効にし、マウスクリックによる進行は無効にして PPTX として保存します。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // エフェクトの期間とは別に自動進行を設定します。
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **スライドごとに異なる Duration を設定する**
+
+スライドごとに異なる効果時間を使用できます。たとえば、タイトルスライドには短い遷移、セクション紹介スライドには長い遷移を設定します。この例では 1 枚目に 500 ミリ秒、2 枚目に 1,200 ミリ秒の Duration を設定します。2 枚以上のスライドを含む `input.pptx` を使用してください。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **アニメーション出力と遷移を調整する**
+
+[animated GIF](/slides/ja/net/convert-powerpoint-to-animated-gif/)、[HTML5 プレゼンテーション](/slides/ja/net/export-to-html5/)、または [video](/slides/ja/net/convert-powerpoint-to-video/) を作成する場合、エクスポート前に正確な遷移 Duration を設定して意図したテンポに合わせます。たとえばシーン間のフェードに 600 ミリ秒を使用し、各スライドの進行遅延も個別に調整してナレーションやコンテンツの時間を確保します。
+
+GIF や動画では、効果時間に合わせてフレームレートを調整します。600 ミリ秒は 30 fps の場合 18 フレームに相当します。HTML5 ではエクスポート設定でアニメーション遷移を有効にします。使用するエクスポート形式がサポートする効果とタイミングオプションを確認し、プレビューで同期を確認してください。
+
+### **既存の遷移 Duration を読み取る**
+
+遷移を変更する前に [Duration](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/duration/) を読み取り、明示的な値が保存されているか確認します。`-1` は明示的な Duration が設定されていないことを意味し、非負の値はミリ秒単位で保存された Duration を示します。未設定の値は再生時間の計算結果ではなく、Aspose.Slides が遷移タイプと [Speed](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/speed/) から算出します。遷移タイプを設定すると Duration が初期化されることがあるため、まず元の設定を調べてください。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
+## **Morph 遷移**
 
-## **モーフ トランジション**
-Aspose.Slides for .NET は現在、[Morph Transition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition) をサポートしています。これは PowerPoint 2019 で導入された新しいモーフ トランジションです。Morph トランジションにより、あるスライドから次のスライドへの滑らかな移動をアニメーション化できます。この記事では概念と Morph トランジションの使用方法を説明します。Morph トランジションを効果的に使用するには、少なくとも 1 つの共通オブジェクトを持つ 2 枚のスライドが必要です。最も簡単な方法はスライドを複製し、2 枚目のスライドでオブジェクトを別の位置に移動することです。
+Morph 遷移は、連続するスライド間でオブジェクトの変更をアニメーション化します。簡単な Morph 効果を作成するには、スライドを複製し、複製スライド上のオブジェクトを移動またはサイズ変更し、2 枚目のスライドに Morph 遷移を適用します。これにより、元の状態と変更後の状態の間で対応するオブジェクトがアニメーションします。
 
-以下のコード スニペットは、プレゼンテーションにテキストを含むスライドのクローンを追加し、2 枚目のスライドに [morph type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) のトランジションを設定する方法を示します。  
-```c#
-using (Presentation presentation = new Presentation())
+以下の例では、テキスト矩形を含むスライドを作成し、それを複製して矩形の位置とサイズを変更します。続いて 2 枚目のスライドの [TransitionType](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitiontype/) 列挙体から Morph を選択します。Morph をサポートするプレゼンテーションビューアで保存ファイルを開くと、スライドショー中に効果が確認できます。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation();
+
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
+
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
+
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
+
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
+```
+
+## **Morph 遷移の種類**
+
+[TransitionMorphType](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitionmorphtype/) 列挙体は、Morph がコンテンツをどのようにマッチさせてアニメーション化するかを制御します。
+
+- [ByObject](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitionmorphtype/) は各シェイプ全体をオブジェクトとして扱います。
+- [ByWord](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitionmorphtype/) は可能な場合に単語単位でテキストをアニメーション化します。
+- [ByChar](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitionmorphtype/) は可能な場合に文字単位でテキストをアニメーション化します。
+
+遷移の [Type](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/type/) を Morph に設定した後、[Value](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/value/) から取得できる [IMorphTransition](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/imorphtransition/) インターフェイスの [MorphType](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/imorphtransition/morphtype/) プロパティでマッチングモードを選択します。
+
+この例では、前節で作成したプレゼンテーションを開き、2 枚目のスライドに単語ベースの Morph アニメーションを設定します。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
-
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
-
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
-
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
+## **遷移効果の設定**
 
-## **モーフ トランジションのタイプ**
-新しい [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype) 列挙体が追加されました。これはさまざまなタイプのモーフ スライド トランジションを表します。
+一部の遷移は方向や黒画面から開始するかどうかなど、追加オプションを提供します。利用できるオプションは選択した遷移の [Type](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/type/) に依存します。まずタイプを設定し、次にその [Value](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/value/) から適切なインターフェイスを使用します。
 
-TransitionMorphType 列挙体には 3 つのメンバーがあります。
+以下の例は `input.pptx` の最初のスライドに Cut 遷移を適用し、[IOptionalBlackTransition](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/ioptionalblacktransition/) を介して [FromBlack](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) を設定し、黒画面から開始するようにします。
 
-- **ByObject**: 形状を分割不可能なオブジェクトとして扱い、モーフ トランジションを実行します。  
-- **ByWord**: 可能な限り単語単位でテキストを転送しながらモーフ トランジションを実行します。  
-- **ByChar**: 可能な限り文字単位でテキストを転送しながらモーフ トランジションを実行します。
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-以下のコード スニペットは、スライドにモーフ トランジションを設定し、モーフ タイプを変更する方法を示します。  
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
+
+if (transition.Value is IOptionalBlackTransition cutTransition)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
 }
 ```
-
-
-## **トランジション効果の設定**
-Aspose.Slides for .NET は、黒から、左から、右から などのトランジション効果の設定をサポートしています。トランジション効果を設定するには、以下の手順に従ってください。
-
-- [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
-- スライドの参照を取得します。  
-- トランジション効果を設定します。  
-- プレゼンテーションを [PPTX](https://docs.fileformat.com/presentation/pptx/) ファイルとして書き出します。
-
-以下の例では、トランジション効果を設定しています。  
-```c#
-// Presentation クラスのインスタンスを作成します
-Presentation presentation = new Presentation("AccessSlides.pptx");
-
-// エフェクトを設定します
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
-
-// プレゼンテーションをディスクに保存します
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
-```
-
 
 ## **FAQ**
 
-**スライド トランジションの再生速度を制御できますか？**
+**スライド遷移の再生速度を制御できますか？**
 
-はい。トランジションの [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) を [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) 設定（例: slow/medium/fast）で指定できます。
+はい。ミリ秒単位で正確な効果時間が必要な場合は [Duration](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/duration/) を使用してください。事前定義された [TransitionSpeed](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitionspeed/)（Slow、Medium、Fast）のカテゴリで十分で、明示的な Duration を設定しない場合は [Speed](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/slideshowtransition/speed/) を使用します。これらの設定は自動進行遅延とは独立して遷移効果を制御します。
 
-**トランジションにオーディオを添付してループさせることはできますか？**
+**遷移に音声を添付してループさせることはできますか？**
 
-はい。トランジション用にサウンドを埋め込み、Sound、SoundMode、SoundLoop などの設定や、SoundIsBuiltIn、SoundName といったメタデータで動作を制御できます。
+はい。[Sound](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/sound/) に埋め込み音声を割り当て、[TransitionSoundMode](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitionsoundmode/) 列挙体の StartSound を [SoundMode](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/soundmode/) に設定し、[SoundLoop](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/soundloop/) を有効にします。音声は次のサウンドイベントが発生するまでループします。
 
-**すべてのスライドに同じトランジションを適用する最速の方法は何ですか？**
+**すべてのスライドに同じ遷移を適用する最速の方法は？**
 
-各スライドのトランジション設定で目的のトランジション タイプを構成すれば、スライドごとに保存されるため、すべてのスライドに同一タイプを適用するだけで一貫した結果が得られます。
+プレゼンテーションの [Slides](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/slides/ja/) コレクションをループし、各スライドの遷移 [Type](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/type/) を同じ値に設定します。同じループ内でタイミングや効果オプションも設定すれば、スライド間で動作を統一できます。
 
-**現在のスライドに設定されているトランジションを確認する方法は？**
+**スライドに現在設定されている遷移を確認する方法は？**
 
-スライドの [transition settings](https://reference.aspose.com/slides/net/aspose.slides/baseslide/slideshowtransition/) を調べ、[transition type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/type/) を取得します。その値が適用されているエフェクトを正確に示します。
+スライドの [SlideShowTransition](https://reference.aspose.com/slides/ja/net/aspose.slides/ibaseslide/slideshowtransition/) から [Type](https://reference.aspose.com/slides/ja/net/aspose.slides/islideshowtransition/type/) プロパティを読み取ります。返されるのは [TransitionType](https://reference.aspose.com/slides/ja/net/aspose.slides.slideshow/transitiontype/) 列挙体の値です。None が返された場合、遷移効果は設定されていません。

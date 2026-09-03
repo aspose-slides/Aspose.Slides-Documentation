@@ -1,186 +1,341 @@
 ---
-title: "انتقال الشريحة"
+title: إدارة انتقالات الشرائح في العروض التقديمية في .NET
+linktitle: انتقال الشريحة
 type: docs
 weight: 90
 url: /ar/net/slide-transition/
-keywords: "إضافة انتقال الشريحة, انتقال شريحة PowerPoint, انتقال morph, انتقال شريحة متقدم, تأثيرات الانتقال, C#, Csharp, .NET, Aspose.Slides"
-description: "إضافة انتقال شريحة PowerPoint وتأثيرات الانتقال في C# أو .NET"
+keywords:
+- انتقال الشريحة
+- إضافة انتقال الشريحة
+- تطبيق انتقال الشريحة
+- انتقال شريحة متقدم
+- انتقال Morph
+- نوع الانتقال
+- تأثير الانتقال
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- .NET
+- C#
+- Aspose.Slides
+description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص انتقال Morph وغيره من تأثيرات الانتقال باستخدام Aspose.Slides لـ .NET."
 ---
+## **نظرة عامة**
 
-## **إضافة انتقال الشريحة**
-لتسهيل الفهم، قدمنا مثالًا على استخدام Aspose.Slides for .NET لإدارة انتقالات الشرائح البسيطة. يمكن للمطوّرين ليس فقط تطبيق تأثيرات انتقال مختلفة على الشرائح بل أيضًا تخصيص سلوك هذه التأثيرات. لإنشاء تأثير انتقال شريحة بسيط، اتّبع الخطوات التالية:
+تتحكم انتقالات الشرائح في طريقة ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides for .NET، يمكنك اختيار تأثير انتقال لكل شريحة، تكوين التقدم عبر النقر بالفأرة أو المؤقت، وضبط الخيارات الخاصة بتأثير معين. تستخدم هذه المقالة أمثلة C# لتطبيق الانتقالات، تحديد مدة الانتقال بدقة، إدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتين. كما تظهر الأمثلة كيفية حفظ الإعدادات إلى ملف PPTX.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-1. تطبيق نوع انتقال الشريحة على الشريحة باستخدام أحد تأثيرات الانتقال المتوفرة في Aspose.Slides for .NET عبر تعداد TransitionType.
-1. كتابة ملف العرض المعدّل.
-```c#
-// إنشاء كائن من فئة Presentation لتحميل ملف العرض المصدر
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+## **إضافة انتقال للشرائح**
+
+لتطبيق انتقال، قم بتحميل عرض تقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) والوصول إلى خاصية [SlideShowTransition](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseslide/slideshowtransition/) للشرائح. عيّن [Type](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/type/) إلى قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitiontype/)، ثم احفظ العرض التقديمي.
+
+المثال التالي يطبق انتقال Circle على الشريحة الأولى وانتقال Comb على الشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    // تطبيق انتقال بنوع دائرة على الشريحة 1
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
-
-    // تطبيق انتقال بنوع مشط على الشريحة 2
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // حفظ العرض إلى القرص
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
+## **إضافة انتقال متقدم للشرائح**
 
-## **إضافة انتقال شريحة متقدّم**
-في القسم السابق، قمنا بتطبيق تأثير انتقال بسيط على الشريحة. الآن، لجعل هذا التأثير أبسط وأكثر تحكمًا، يرجى اتباع الخطوات التالية:
+يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كان النقر بالفأرة يتقدم بعرض الشرائح. الخصائص التالية تتحكم في هذا السلوك:
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-1. تطبيق نوع انتقال الشريحة على الشريحة باستخدام أحد تأثيرات الانتقال المتوفرة في Aspose.Slides for .NET.
-1. يمكنك أيضًا ضبط الانتقال على التقدم عند النقر، بعد فترة زمنية محددة أو كلاهما.
-1. إذا تم تمكين الانتقال للتقدم عند النقر، سيتقدم الانتقال فقط عند النقر بالفأرة. علاوةً على ذلك، إذا تم تعيين خاصية Advance After Time، سيتقدم الانتقال تلقائيًا بعد مرور الوقت المحدد.
-1. كتابة العرض المعدّل كملف عرض.
-```c#
-// إنشاء كائن من فئة Presentation يمثل ملف عرض تقديمي
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+- [AdvanceOnClick](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/advanceonclick/) يتيح للمشاهد التقدم بالنقر على الفأرة.
+- [AdvanceAfter](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/advanceafter/) يتيح التقدم التلقائي.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/advanceaftertime/) يحدّد التأخير قبل التقدم التلقائي، بالميلي ثانية.
+
+فعّل كل من التقدم بالنقر والتقدم المؤقت للسماح للمشاهد بالمتابعة بالنقر أو الانتظار للمؤقت. لاستخدام المؤقت فقط، عيّن [AdvanceOnClick](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/advanceonclick/) إلى `false`. يتحكم التأخير في توقيت تقدم عرض الشرائح؛ ولا يحدّد مدة تأثير الانتقال البصري.
+
+هذا المثال يعيّن تأثيرات مختلفة للشرائح الثلاث الأولى ويفعل التقدم التلقائي بعد 3، 5، و7 ثوانٍ على التوالي. يمكن للنقرات بالفأرة أيضًا التقدم بهذه الشرائح. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 3)
 {
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-    // تطبيق انتقال من نوع دائرة على الشريحة 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-    // تعيين زمن الانتقال إلى 3 ثوانٍ
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // تطبيق انتقال من نوع مشط على الشريحة 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
-
-
-    // تعيين زمن الانتقال إلى 5 ثوانٍ
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // تطبيق انتقال من نوع تكبير على الشريحة 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // تعيين زمن الانتقال إلى 7 ثوانٍ
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // حفظ العرض على القرص
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
 }
 ```
 
+للتحقق مما إذا كان التقدم المؤقت مفعَّلًا، اقرأ [AdvanceAfter](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/advanceafter/). مجرد وجود تأخير مخزن لا يدل على أن المؤقت نشط.
 
-بالإضافة إلى ذلك، باستخدام خاصية [AdvanceAfter](https://reference.aspose.com/slides/net/aspose.slides/islideshowtransition/advanceafter/)، يمكنك التحقق مما إذا كان تم تكوين انتقال الشريحة للانتقال إلى الشريحة التالية أو تعطيل الإعداد.
+المثال التالي يفتح الملف المحفوظ أعلاه، يبلغ عن كل مؤقت مفعَّل، ويعطّل التقدم التلقائي للشرائح التي لديها تأخير أكبر من ثانيتين. يُفعّل النقر بالفأرة لهذه الشرائح ويحفظ الإعدادات المحدثة.
 
-يعرض الكود التالي عملية ذلك في C#:
-```c#
-// ينشئ كائنًا من فئة Presentation يمثل ملف عرض تقديمي
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
     {
-        // يحصل على انتقال الشريحة
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
 
-        // يتحقق مما إذا كان إعداد التقدم بعد الوقت مفعلاً
-        if (slideTransition.AdvanceAfter)
+        if (transition.AdvanceAfterTime > 2000)
         {
-            // يطبع قيمة التقدم بعد الوقت
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
         }
+    }
+}
 
-        // يعطل الانتقال بعد فترة زمنية محددة إذا كانت قيمة AdvancedAfterTime أكبر من ثانيتين
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **التحكم بدقة في توقيت الانتقال**
+
+استخدم [Duration](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/duration/) لتحديد الطول الدقيق لتأثير الانتقال بالميلي ثانية. خاصية [SlideShowTransition](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseslide/slideshowtransition/) للشرائح تكشف عن هذه الإعدادات عبر [ISlideShowTransition](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/):
+
+| Property | Purpose |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/duration/) | يحدد مدة تأثير الانتقال نفسه، بالميلي ثانية. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | يحدد التأخير قبل أن تتقدم الشريحة تلقائيًا، بالميلي ثانية. فعّل [AdvanceAfter](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/advanceafter/) لتفعيل هذا المؤقت. |
+| [Speed](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/speed/) | يختار فئة سرعة مسبقة من [TransitionSpeed](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitionspeed/): Slow، Medium، أو Fast. يستخدم عندما لا يتم تحديد مدة دقيقة. |
+
+[Duration](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/duration/) يتحكم فقط في تأثير الانتقال؛ ولا يحدّد مدة بقاء الشريحة مرئية. قم بتكوين تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدد مدة صريحة، يحدد Aspose.Slides مدة التأثير بناءً على نوع الانتقال وقيمة [Speed](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/speed/).
+
+### **تطبيق نفس المدة على كل شريحة**
+
+لتنظيم الإيقاع بشكل ثابت، طبّق نفس التأثير والمدة الدقيقة على كل شريحة. هذا المثال يحمّل `input.pptx`، يختار Fade من [TransitionType](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitiontype/)، ويعطي كل انتقال مدة 750 ميلي ثانية. كما يفعّل التقدم التلقائي بعد 5,000 ميلي ثانية ويعطّل التقدم بالنقر، ثم يحفظ النتيجة كملف PPTX.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // تكوين التقدم التلقائي بشكل مستقل عن مدة التأثير.
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **تعيين مدد مختلفة للشرائح الفردية**
+
+يمكن للشرائح المختلفة استخدام مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا قصيرًا لشريحة العنوان وانتقالًا أطول لمقدمة القسم. هذا المثال يحدد 500 ميلي ثانية للشرحة الأولى و1,200 ميلي ثانية للشرحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **تنسيق الانتقالات مع الإخراج المتحرك**
+
+عند إعداد [GIF متحرك](/slides/ar/net/convert-powerpoint-to-animated-gif/)، [عرض HTML5](/slides/ar/net/export-to-html5/)، أو [الفيديو](/slides/ar/net/convert-powerpoint-to-video/)، حدد مدد الانتقال الدقيقة قبل التصدير لتتناسب مع الإيقاع المطلوب. على سبيل المثال، استخدم تلاشيًا بمدة 600 ميلي ثانية بين المشاهد، واضبط تأخير تقدم كل شريحة بشكل منفصل لتوفير وقت للسرد أو المحتوى.
+
+للـ GIF والفيديو، نسّق معدل الإطار مع مدة التأثير: 600 ميلي ثانية تعادل 18 إطارًا عند 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقق من تأثيرات وإعدادات التوقيت المدعومة في تنسيق التصدير المختار، وقم بمعاينة النتيجة لتأكيد التزامن.
+
+### **قراءة مدة الانتقال الحالية**
+
+اقرأ [Duration](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/duration/) قبل تعديل الانتقال لتحديد ما إذا كان هناك قيمة صريحة مخزنة. القيمة `-1` تعني عدم تحديد مدة صريحة؛ والقيمة غير السالبة تحدد المدة المخزنة بالميلي ثانية. القيمة غير المضبوطة ليست مدة التشغيل المحتسبة: يستخدم Aspose.Slides نوع الانتقال و[Speed](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/speed/) لتحديد تلك المدة. تعيين نوع الانتقال قد يهيئ مدةً، لذا تحقق من الإعدادات الأصلية أولاً.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
-
 ## **انتقال Morph**
-يدعم Aspose.Slides for .NET الآن [Morph Transition](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition). وهو يمثل انتقال Morph الجديد الذي تم تقديمه في PowerPoint 2019. يسمح انتقال Morph بإنشاء حركة سلسة من شريحة إلى أخرى. تصف هذه المقالة المفهوم وكيفية استخدام انتقال Morph. لاستخدام انتقال Morph بفعالية، ستحتاج إلى شريحتين تحتويان على كائن واحد على الأقل مشترك. أسهل طريقة هي استنساخ الشريحة ثم نقل الكائن في الشريحة الثانية إلى موقع مختلف.
 
-يعرض المقتطف البرمجي التالي كيفية إضافة نسخة من الشريحة تحتوي على بعض النصوص إلى العرض وتعيين انتقال من نوع [morph type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) للشريحة الثانية.
-```c#
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+يُحرك انتقال Morph التغييرات بين الكائنات على الشرائح المتتالية. لإنشاء تأثير Morph بسيط، انسخ شريحة، حرّك أو غير حجم كائن على النسخة، وطبق انتقال Morph على الشريحة الثانية. يمنح ذلك الكائنات المتطابقة للانتقال فرصة التحريك بين حالتها الأصلية والمعدّلة.
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+using var presentation = new Presentation();
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
+
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
+
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **أنواع انتقال Morph**
-تم إضافة تعداد [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionmorphtype) جديد. يمثل أنواعًا مختلفة من انتقال شريحة Morph.
 
-يحتوي تعداد TransitionMorphType على ثلاث قيم:
+تتحكم تعداد [TransitionMorphType](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitionmorphtype/) في طريقة مطابقة وتحريك المحتوى بواسطة Morph:
 
-- ByObject: يتم تنفيذ انتقال Morph مع اعتبار الأشكال ككائنات غير قابلة للتقسيم.
-- ByWord: يتم تنفيذ انتقال Morph بنقل النص كلمةً كلمةً حيثما أمكن.
-- ByChar: يتم تنفيذ انتقال Morph بنقل النص حرفًا بحرف حيثما أمكن.
+- [ByObject](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitionmorphtype/) يعامل كل شكل ككائن كامل.
+- [ByWord](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitionmorphtype/) يحرك النص بمطابقة الكلمات حيثما أمكن.
+- [ByChar](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitionmorphtype/) يحرك النص بمطابقة الأحرف حيثما أمكن.
 
-يعرض المقتطف البرمجي التالي كيفية تعيين انتقال Morph للشريحة وتغيير نوع Morph:
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+عيّن [Type](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/type/) للانتقال إلى Morph قبل الوصول إلى [Value](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/value/). ثم توفر القيمة واجهة [IMorphTransition](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/imorphtransition/)، التي يختار خاصية [MorphType](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/imorphtransition/morphtype/) وضع المطابقة.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
+
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
-
 ## **تعيين تأثيرات الانتقال**
-يدعم Aspose.Slides for .NET تعيين تأثيرات الانتقال مثل الانتقال من الأسود، من اليسار، من اليمين، إلخ. لتعيين تأثير الانتقال، يرجى اتباع الخطوات التالية:
 
-- إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) .
-- الحصول على مرجع الشريحة.
-- تعيين تأثير الانتقال.
-- كتابة العرض كملف [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+بعض الانتقالات تكشف عن خيارات إضافية، مثل الاتجاه أو ما إذا كان التأثير يبدأ من شاشة سوداء. الخيارات المتاحة تعتمد على [Type](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/type/) الانتقال المختار. عيّن النوع أولاً، ثم استخدم الواجهة المناسبة من [Value](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/value/).
 
-في المثال أدناه، قمنا بتعيين تأثيرات الانتقال.
-```c#
-// إنشاء كائن من فئة Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+المثال التالي يطبق انتقال Cut على الشريحة الأولى من `input.pptx`. يضبط [FromBlack](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) عبر [IOptionalBlackTransition](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/ioptionalblacktransition/) لجعل الانتقال يبدأ من شاشة سوداء.
 
-// تعيين التأثير
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-// حفظ العرض إلى القرص
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
+
+if (transition.Value is IOptionalBlackTransition cutTransition)
+{
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
+}
 ```
-
 
 ## **الأسئلة المتكررة**
 
 **هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
 
-نعم. اضبط خاصية [Speed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/speed/) للانتقال باستخدام إعداد [TransitionSpeed](https://reference.aspose.com/slides/net/aspose.slides.slideshow/transitionspeed/) (مثلاً، بطيء/متوسط/سريع).
+نعم. يفضَّل استخدام [Duration](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/duration/) عندما تحتاج إلى مدة تأثير دقيقة بالميلي ثانية. استخدم [Speed](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/slideshowtransition/speed/) عندما تكون فئة [TransitionSpeed](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitionspeed/) مسبقة—Slow، Medium، أو Fast—كافية ولا يتم تعيين مدة صريحة. تتحكم هذه الإعدادات في تأثير الانتقال بشكل مستقل عن تأخير التقدم التلقائي.
 
 **هل يمكنني إرفاق صوت بالانتقال وجعله يتكرر؟**
 
-نعم. يمكنك تضمين صوت للانتقال والتحكم في سلوكه عبر إعدادات مثل وضع الصوت وإعادة التكرار (مثلاً، [Sound](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/sound/)، [SoundMode](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundmode/)، [SoundLoop](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundloop/)، بالإضافة إلى بيانات وصفية مثل [SoundIsBuiltIn](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) و [SoundName](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/soundname/)).
+نعم. عيّن الصوت المدمج إلى [Sound](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/sound/)، اضبط [SoundMode](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/soundmode/) إلى StartSound من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitionsoundmode/)، وفعل [SoundLoop](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/soundloop/). سيستمر الصوت في التكرار حتى حدث صوتي التالي في عرض الشرائح.
 
-**ما هي أسرع طريقة لتطبيق نفس الانتقال على جميع الشرائح؟**
+**ما هي أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
 
-قم بتكوين نوع الانتقال المطلوب في إعدادات انتقال كل شريحة؛ لأن الانتقالات تُخزن لكل شريحة على حدة، لذا فإن تطبيق نفس النوع على جميع الشرائح ينتج نتيجة متسقة.
+مرِّر عبر مجموعة [Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/slides/ar/) في العرض التقديمي وعين خاصية [Type](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/type/) للانتقال في كل شريحة إلى نفس القيمة. اضبط أي خيارات توقيت وتأثير في نفس الحلقة للحفاظ على سلوك موحد عبر الشرائح.
 
-**كيف يمكنني التحقق من نوع الانتقال المحدد حاليًا على شريحة ما؟**
+**كيف يمكنني التحقق من الانتقال الحالي المعيّن على شريحة ما؟**
 
-افحص إعدادات انتقال الشريحة عبر [transition settings](https://reference.aspose.com/slides/net/aspose.slides/baseslide/slideshowtransition/) وقراءة [transition type](https://reference.aspose.com/slides/net/aspose.slides.slideshow/slideshowtransition/type/)؛ ستوضح لك القيمة بالضبط أي تأثير تم تطبيقه.
+اقرأ خاصية [Type](https://reference.aspose.com/slides/ar/net/aspose.slides/islideshowtransition/type/) من [SlideShowTransition](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseslide/slideshowtransition/) للشفرة. تُعيد قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/net/aspose.slides.slideshow/transitiontype/)؛ القيمة None تعني عدم تطبيق أي تأثير انتقال.

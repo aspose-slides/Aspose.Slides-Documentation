@@ -6,10 +6,10 @@ weight: 90
 url: /sv/net/slide-transition/
 keywords:
 - bildövergång
-- lägg till bildövergång
+- lägga till bildövergång
 - tillämpa bildövergång
 - avancerad bildövergång
-- morph-övergång
+- Morph-övergång
 - övergångstyp
 - övergångseffekt
 - PowerPoint
@@ -18,190 +18,326 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Upptäck hur du anpassar bildövergångar i Aspose.Slides för .NET, med steg-för-steg-vägledning för PowerPoint- och OpenDocument-presentationer."
+description: "Tillämpa bildövergångar, konfigurera automatisk bildavancemang och anpassa Morph- och andra övergångseffekter med Aspose.Slides för .NET."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man hanterar bildövergångar i presentationer med Aspose.Slides. Den visar hur man tillämpar övergångstyper på bilder, konfigurerar övergångsbeteende såsom att gå vidare vid klick eller efter en angiven tid, kontrollerar och inaktiverar automatisk vidaregång, använder Morph‑övergången och dess typer samt ställer in alternativ för övergångseffekter. Exemplen demonstrerar hur man laddar eller skapar en presentation, ändrar övergångsinställningar för utvalda bilder och sparar resultatet som en PPTX‑fil. Artikeln svarar även på vanliga frågor om övergångshastighet, övergångsljud, att tillämpa samma övergång på flera bilder och att kontrollera vilken övergång som för närvarande är inställd på en bild.
+Bildövergångar styr hur bilder visas under en bildspelspresentation. Med Aspose.Slides för .NET kan du välja en övergångseffekt för varje bild, konfigurera avancerande med musklick eller timer och justera alternativ som är specifika för en effekt. Den här artikeln använder C#-exempel för att tillämpa övergångar, ange exakta övergångsdurationer, hantera bildens timing och skapa en Morph‑övergång mellan två bilder. Exemplen visar också hur du sparar inställningarna till en PPTX‑fil.
 
 ## **Lägg till bildövergång**
-För att göra det lättare att förstå har vi demonstrerat användningen av Aspose.Slides för .NET för att hantera enkla bildövergångar. Utvecklare kan inte bara tillämpa olika bildövergångseffekter på bilderna utan också anpassa beteendet för dessa övergångseffekter. För att skapa en enkel bildövergångseffekt, följ stegen nedan:
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) klassen.
-1. Tillämpa en Slide Transition Type på bilden från ett av de övergångseffekter som erbjuds av Aspose.Slides för .NET via TransitionType‑enum.
-1. Skriv den modifierade presentationsfilen.
+För att tillämpa en övergång, ladda en presentation med klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) och kom åt bildens egenskap [SlideShowTransition](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseslide/slideshowtransition/). Sätt dess [Type](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/type/) till ett värde från uppräkningen [TransitionType](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitiontype/), och spara sedan presentationen.
 
-```c#
-// Instansiera Presentation-klassen för att läsa in källpresentationen
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+Följande exempel tillämpar en Circle‑övergång på den första bilden och en Comb‑övergång på den andra. Använd en `input.pptx`‑fil med minst två bilder.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    // Tillämpa cirkeltyp övergång på bild 1
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
-
-    // Tillämpa comb-typ övergång på bild 2
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // Skriv presentationen till disk
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
-
 
 ## **Lägg till avancerad bildövergång**
-I avsnittet ovan använde vi bara en enkel övergångseffekt på bilden. Nu, för att göra den enkla övergångseffekten ännu bättre och mer kontrollerad, följ stegen nedan:
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) klassen.
-1. Tillämpa en Slide Transition Type på bilden från ett av de övergångseffekter som erbjuds av Aspose.Slides för .NET.
-1. Du kan också ställa in övergången till Advance On Click, efter en specifik tidsperiod eller båda.
-1. Om bildövergången är aktiverad för Advance On Click, kommer övergången bara att gå vidare när någon klickar med musen. Dessutom, om egenskapen Advance After Time är satt, kommer övergången att gå vidare automatiskt efter den angivna tiden har passerat.
-1. Skriv den modifierade presentationen som en presentationsfil.
+Du kan konfigurera hur länge en bild förblir på skärmen och om ett musklick avancerar bildspelsvisningen. Följande egenskaper styr detta beteende:
 
-```c#
-// Instansiera Presentation-klassen som representerar en presentationsfil
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+- [AdvanceOnClick](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/advanceonclick/) låter betraktaren gå vidare genom att klicka med musen.
+- [AdvanceAfter](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/advanceafter/) möjliggör automatisk avancerning.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/advanceaftertime/) anger fördröjningen innan automatisk avancerning, i millisekunder.
+
+Aktivera både klick‑ och tidsbaserad avancerning så att betraktaren kan gå vidare med ett klick eller vänta på timern. För att bara använda timern, sätt [AdvanceOnClick](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/advanceonclick/) till `false`. Fördröjningen styr när bildspelsvisningen avancerar; den anger inte varaktigheten för den visuella övergångseffekten.
+
+Detta exempel tilldelar olika effekter till de tre första bilderna och aktiverar automatisk avancerning efter 3, 5 respektive 7 sekunder. Mus‑klick kan också gå vidare dessa bilder. Använd en `input.pptx`‑fil med minst tre bilder.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 3)
 {
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-    // Tillämpa cirkeltyp övergång på bild 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-    // Ställ in övergångstiden till 3 sekunder
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // Tillämpa comb-typ övergång på bild 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
-
-
-    // Ställ in övergångstiden till 5 sekunder
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // Tillämpa zoom-typ övergång på bild 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // Ställ in övergångstiden till 7 sekunder
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // Skriv presentationen till disk
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
 }
 ```
 
-Dessutom kan du med hjälp av egenskapen [AdvanceAfter](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/advanceafter/) kontrollera om en bildövergång har konfigurerats för att gå till nästa bild eller inaktivera inställningen.
+För att kontrollera om tidsbaserad avancerning är aktiverad, läs [AdvanceAfter](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/advanceafter/). En lagrad fördröjning ensam indikerar inte att timern är aktiv.
 
-Den här C#‑koden demonstrerar operationen:
+Nästa exempel öppnar filen som sparades ovan, rapporterar varje aktiverad timer och inaktiverar automatisk avancerning för bilder med en fördröjning på mer än två sekunder. Det möjliggör mus‑klick för dessa bilder och sparar de uppdaterade inställningarna.
 
-```c#
-// Instansierar en Presentation-klass som representerar en presentationsfil
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
     {
-        // Hämtar bildens övergång
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
 
-        // Kontrollerar om inställningen Advance After Time är aktiverad
-        if (slideTransition.AdvanceAfter)
+        if (transition.AdvanceAfterTime > 2000)
         {
-            // Skriver ut värdet för Advance After Time
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
         }
+    }
+}
 
-        // Inaktiverar övergången efter en viss tid om värdet för AdvanceAfterTime är större än 2 sekunder
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **Styr övergångstid exakt**
+
+Använd [Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/duration/) för att ange den exakta längden på en övergångseffekt i millisekunder. Bildens egenskap [SlideShowTransition](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseslide/slideshowtransition/) visar dessa inställningar via [ISlideShowTransition](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/):
+
+| Property | Syfte |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/duration/) | Anger varaktigheten för själva övergångseffekten, i millisekunder. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Anger fördröjningen innan bilden avancerar automatiskt, i millisekunder. Aktivera [AdvanceAfter](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/advanceafter/) för att slå på denna timer. |
+| [Speed](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/speed/) | Väljer en fördefinierad hastighetskategori från [TransitionSpeed](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium eller Fast. Den används när ingen exakt varaktighet specificeras. |
+
+[Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/duration/) styr endast övergångseffekten; den bestämmer inte hur länge bilden förblir synlig. Konfigurera den automatiska avanceringsfördröjningen separat. När ingen explicit varaktighet är angiven bestämmer Aspose.Slides effektens varaktighet utifrån övergångstypen och [Speed](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/speed/)-värdet.
+
+### **Tilldela samma varaktighet till varje bild**
+
+För en jämn takt, tillämpa samma effekt och exakt varaktighet på varje bild. Detta exempel laddar `input.pptx`, väljer Fade från [TransitionType](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitiontype/), och ger varje övergång en varaktighet på 750 millisekunder. Det aktiverar separat automatisk avancerning efter 5 000 millisekunder och inaktiverar avancerning med musklick, och sparar sedan resultatet som PPTX.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // Konfigurera automatisk avancering oberoende av effektens varaktighet.
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **Ange olika varaktigheter för enskilda bilder**
+
+Olika bilder kan ha olika effektvaraktigheter. Till exempel kan en kort övergång användas för en titelsida och en längre övergång för en sektionens introduktion. Detta exempel anger 500 millisekunder för den första bilden och 1 200 millisekunder för den andra. Använd en `input.pptx`‑fil med minst två bilder.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **Koordinera övergångar med animerad output**
+
+När du förbereder en [animated GIF](/slides/sv/net/convert-powerpoint-to-animated-gif/), [HTML5‑presentation](/slides/sv/net/export-to-html5/) eller [video](/slides/sv/net/convert-powerpoint-to-video/), ange exakta övergångsvaraktigheter innan export för att matcha den avsedda takten. Till exempel, använd en 600‑millisekunders fade mellan scener och justera varje bilds avanceringsfördröjning separat för att ge tid åt dess uppläsning eller innehåll.
+
+För GIF och video, samordna output‑bildhastigheten med effektens varaktighet: 600 millisekunder motsvarar 18 bildrutor vid 30 fps. I HTML5, aktivera animerade övergångar i exportinställningarna. Kontrollera vilka effekter och tidsalternativ som stöds av det valda exportformatet och förhandsgranska resultatet för att bekräfta synkronisering.
+
+### **Läs en befintlig övergångsvaraktighet**
+
+Läs [Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/duration/) innan du ändrar övergången för att avgöra om ett explicit värde är sparat. Ett värde på `-1` betyder att ingen explicit varaktighet är angiven; ett icke‑negativt värde specificerar den lagrade varaktigheten i millisekunder. Det icke‑satta värdet är inte den beräknade uppspelningsvaraktigheten: Aspose.Slides använder övergångstypen och [Speed](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/speed/) för att bestämma den varaktigheten. Att sätta en övergångstyp kan initiera en varaktighet, så inspektera de ursprungliga inställningarna först.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
 ## **Morph‑övergång**
-Aspose.Slides för .NET stöder nu [Morph Transition](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/imorphtransition). Den representerar en ny morph‑övergång som introducerades i PowerPoint 2019. Morph‑övergången låter dig animera en smidig rörelse från en bild till nästa. Den här artikeln beskriver konceptet och hur man använder Morph‑övergången. För att använda Morph‑övergången effektivt behöver du två bilder med minst ett objekt gemensamt. Det enklaste sättet är att duplicera bilden och sedan flytta objektet på den andra bilden till en annan plats.
 
-Följande kodsnutt visar hur du lägger till en klon av bilden med lite text i presentationen och sätter en övergång av [morph type](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) till den andra bilden.
+Morph‑övergången animera förändringar mellan objekt på på varandra följande bilder. För att skapa en enkel Morph‑effekt, klona en bild, flytta eller ändra storlek på ett objekt i klonen och tillämpa Morph‑övergången på den andra bilden. Detta ger övergången motsvarande objekt att animera mellan deras ursprungliga och modifierade tillstånd.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+Följande exempel skapar en bild med en textruta, klonar bilden och ändrar rektangelns position och storlek i klonen. Sedan väljer det Morph från uppräkningen [TransitionType](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitiontype/) för den andra bilden. Öppna den sparade filen i en presentationsvisare som stödjer Morph för att se effekten under ett bildspel.
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+using var presentation = new Presentation();
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
+
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
+
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **Morph‑övergångstyper**
-Den nya [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionmorphtype) enum har lagts till. Den representerar olika typer av Morph‑bildövergång.
 
-TransitionMorphType‑enum har tre medlemmar:
+Uppräkningen [TransitionMorphType](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionmorphtype/) styr hur Morph matchar och animera innehåll:
 
-- ByObject: Morph‑övergången utförs med hänsyn till former som odelbara objekt.
-- ByWord: Morph‑övergången utförs genom att överföra text ord för ord där det är möjligt.
-- ByChar: Morph‑övergången utförs genom att överföra text tecken för tecken där det är möjligt.
+- [ByObject](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionmorphtype/) behandlar varje form som ett helt objekt.
+- [ByWord](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionmorphtype/) animera text genom att matcha ord där det är möjligt.
+- [ByChar](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionmorphtype/) animera text genom att matcha tecken där det är möjligt.
 
-Följande kodsnutt visar hur du sätter morph‑övergång på en bild och ändrar morph‑typ:
+Sätt övergångens [Type](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/type/) till Morph innan du får åtkomst till dess [Value](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/value/). Värdet ger då gränssnittet [IMorphTransition](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/imorphtransition/), vars egenskap [MorphType](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/imorphtransition/morphtype/) väljer matchningsläget.
 
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
+
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
-
-
 ## **Ställ in övergångseffekter**
-Aspose.Slides för .NET stöder att ställa in övergångseffekter som från svart, från vänster, från höger osv. För att ställa in Transition Effect, följ stegen nedan:
 
-- Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation) klassen.
-- Hämta referensen till bilden.
-- Ställ in övergångseffekten.
-- Skriv presentationen som en [PPTX ](https://docs.fileformat.com/presentation/pptx/)fil.
+Vissa övergångar exponerar ytterligare alternativ, såsom riktning eller om effekten startar från en svart skärm. Tillgängliga alternativ beror på den valda övergångens [Type](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/type/). Sätt typen först, och använd sedan det lämpliga gränssnittet från dess [Value](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/value/).
 
-I exemplet nedan har vi ställt in övergångseffekterna.
+Följande exempel tillämpar en Cut‑övergång på den första bilden i `input.pptx`. Det sätter [FromBlack](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) via [IOptionalBlackTransition](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/ioptionalblacktransition/) så att övergången startar från en svart skärm.
 
-```c#
-// Skapa en instans av Presentation-klassen
-Presentation presentation = new Presentation("AccessSlides.pptx");
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-// Ställ in effekt
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
 
-// Skriv presentationen till disk
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+if (transition.Value is IOptionalBlackTransition cutTransition)
+{
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
+}
 ```
 
 ## **FAQ**
 
 **Kan jag kontrollera uppspelningshastigheten för en bildövergång?**
 
-Ja. Ställ in övergångens [Speed](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/speed/) med inställningen [TransitionSpeed](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionspeed/) (t.ex. slow/medium/fast).
+Ja. Föredra [Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/duration/) när du behöver en exakt effektvaraktighet i millisekunder. Använd [Speed](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/speed/) när en fördefinierad kategori i [TransitionSpeed](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium eller Fast räcker och ingen explicit varaktighet är angiven. Dessa inställningar styr övergångseffekten oberoende av den automatiska avanceringsfördröjningen.
 
 **Kan jag bifoga ljud till en övergång och få den att loopa?**
 
-Ja. Du kan bädda in ett ljud för övergången och kontrollera beteendet via inställningar som ljudläge och loopning (t.ex. [Sound](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/sound/), [SoundMode](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/soundmode/), [SoundLoop](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/soundloop/), samt metadata som [SoundIsBuiltIn](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) och [SoundName](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/soundname/)).
+Ja. Tilldela inbäddat ljud till [Sound](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/sound/), sätt [SoundMode](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/soundmode/) till StartSound från uppräkningen [TransitionSoundMode](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitionsoundmode/), och aktivera [SoundLoop](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/soundloop/). Ljudet loopar tills nästa ljudhändelse i bildspelsvisningen.
 
-**Vad är det snabbaste sättet att tillämpa samma övergång på alla bilder?**
+**Vad är det snabbaste sättet att tillämpa samma övergång på varje bild?**
 
-Konfigurera önskad övergångstyp i varje bilds övergångsinställningar; övergångar lagras per bild, så att tillämpa samma typ på alla bilder ger ett konsekvent resultat.
+Loopa igenom presentationens [Slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/slides/sv/)‑samling och sätt varje bilds övergångs[Type](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/type/) till samma värde. Sätt eventuella timing‑ och effektalternativ i samma loop för att hålla beteendet konsekvent över bilderna.
 
 **Hur kan jag kontrollera vilken övergång som för närvarande är inställd på en bild?**
 
-Inspektera bildens [transition settings](https://reference.aspose.com/slides/sv/net/aspose.slides/baseslide/slideshowtransition/) och läs dess [transition type](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/slideshowtransition/type/); det värdet visar exakt vilken effekt som är tillämpad.
+Läs egenskapen [Type](https://reference.aspose.com/slides/sv/net/aspose.slides/islideshowtransition/type/) från bildens [SlideShowTransition](https://reference.aspose.com/slides/sv/net/aspose.slides/ibaseslide/slideshowtransition/). Den returnerar ett värde från uppräkningen [TransitionType](https://reference.aspose.com/slides/sv/net/aspose.slides.slideshow/transitiontype/), och None betyder att ingen övergångseffekt är applicerad.

@@ -18,186 +18,328 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Odkryj, jak dostosować przejścia slajdów w Aspose.Slides dla .NET, z instrukcjami krok po kroku dla prezentacji PowerPoint i OpenDocument."
+description: "Zastosuj przejścia slajdów, skonfiguruj automatyczne przechodzenie slajdów oraz dostosuj Morph i inne efekty przejść przy użyciu Aspose.Slides dla .NET."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak zarządzać przejściami slajdów w prezentacjach przy użyciu Aspose.Slides. Pokazuje, jak zastosować typy przejść do slajdów, skonfigurować zachowanie przejścia, takie jak przechodzenie po kliknięciu lub po określonym czasie, sprawdzić i wyłączyć automatyczne przechodzenie, używać przejścia Morph i jego typów oraz ustawiać opcje efektu przejścia. Przykłady demonstrują, jak wczytać lub utworzyć prezentację, zmodyfikować ustawienia przejścia dla wybranych slajdów oraz zapisać wynik jako plik PPTX. Artykuł odpowiada również na typowe pytania dotyczące szybkości przejścia, dźwięków przejścia, stosowania tego samego przejścia do wielu slajdów oraz sprawdzania, które przejście jest aktualnie ustawione na slajdzie.
+Przejścia slajdów kontrolują, w jaki sposób slajdy pojawiają się podczas pokazu slajdów. Dzięki Aspose.Slides dla .NET możesz wybrać efekt przejścia dla każdego slajdu, skonfigurować przechodzenie po kliknięciu myszy lub timerem oraz dostosować opcje specyficzne dla danego efektu. Ten artykuł używa przykładów w C#, aby zastosować przejścia, ustawić dokładne czasy trwania przejść, zarządzać czasem slajdu i utworzyć przejście Morph między dwoma slajdami. Przykłady pokazują także, jak zapisać ustawienia do pliku PPTX.
 
-## **Dodawanie przejścia slajdu**
-Aby ułatwić zrozumienie, przedstawiliśmy użycie Aspose.Slides dla .NET do zarządzania prostymi przejściami slajdów. Programiści mogą nie tylko stosować różne efekty przejścia na slajdach, ale także dostosowywać zachowanie tych efektów. Aby utworzyć prosty efekt przejścia slajdu, wykonaj poniższe kroki:
+## **Dodaj przejście slajdu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Zastosuj typ przejścia slajdu na slajdzie, wybierając jedną z dostępnych w Aspose.Slides dla .NET wartości wyliczenia TransitionType.
-3. Zapisz zmodyfikowany plik prezentacji.
+Aby zastosować przejście, wczytaj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) i uzyskaj dostęp do właściwości [SlideShowTransition](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseslide/slideshowtransition/) slajdu. Ustaw jej [Type](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/type/) na wartość z wyliczenia [TransitionType](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitiontype/) i następnie zapisz prezentację.
 
-```c#
-// Utwórz instancję klasy Presentation, aby wczytać plik źródłowej prezentacji
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+Poniższy przykład stosuje przejście Circle na pierwszym slajdzie i przejście Comb na drugim. Użyj pliku `input.pptx` zawierającego co najmniej dwa slajdy.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    // Zastosuj przejście typu circle na slajdzie 1
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
-
-    // Zastosuj przejście typu comb na slajdzie 2
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // Zapisz prezentację na dysku
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
-## **Dodawanie zaawansowanego przejścia slajdu**
-W poprzedniej sekcji zastosowaliśmy prosty efekt przejścia na slajdzie. Aby ten efekt uczynić bardziej zaawansowanym i kontrolowanym, wykonaj poniższe kroki:
+## **Dodaj zaawansowane przejście slajdu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Zastosuj typ przejścia slajdu na slajdzie, wybierając jedną z dostępnych w Aspose.Slides dla .NET wartości wyliczenia.
-3. Możesz również ustawić przejście na „Advance On Click”, po określonym czasie lub obie opcje.
-4. Jeśli przejście slajdu jest włączone jako „Advance On Click”, przejście nastąpi tylko po kliknięciu myszy. Ponadto, jeśli właściwość Advance After Time jest ustawiona, przejście nastąpi automatycznie po upływie określonego czasu.
-5. Zapisz zmodyfikowaną prezentację jako plik prezentacji.
+Możesz skonfigurować, jak długo slajd pozostaje na ekranie oraz czy kliknięcie myszy przechodzi do kolejnego slajdu. Następujące właściwości kontrolują to zachowanie:
 
-```c#
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+- [AdvanceOnClick](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/advanceonclick/) umożliwia widzowi przejście po kliknięciu myszy.
+- [AdvanceAfter](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/advanceafter/) włącza automatyczne przechodzenie.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/advanceaftertime/) określa opóźnienie przed automatycznym przejściem, w milisekundach.
+
+Włącz zarówno przejście po kliknięciu, jak i oparte na czasie, aby widz mógł przejść po kliknięciu lub poczekać na timer. Aby używać tylko timera, ustaw [AdvanceOnClick](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/advanceonclick/) na `false`. Opóźnienie kontroluje, kiedy pokaz slajdów przechodzi dalej; nie ustawia ono czasu trwania wizualnego efektu przejścia.
+
+Ten przykład przypisuje różne efekty do pierwszych trzech slajdów i włącza automatyczne przechodzenie po 3, 5 i 7 sekundach, odpowiednio. Kliknięcia myszy również mogą przechodzić te slajdy. Użyj pliku `input.pptx` zawierającego co najmniej trzy slajdy.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 3)
 {
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-    // Zastosuj przejście typu circle na slajdzie 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-    // Ustaw czas przejścia na 3 sekundy
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // Zastosuj przejście typu comb na slajdzie 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
-
-
-    // Ustaw czas przejścia na 5 sekund
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // Zastosuj przejście typu zoom na slajdzie 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // Ustaw czas przejścia na 7 sekund
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // Zapisz prezentację na dysku
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
 }
 ```
 
-Dodatkowo, przy użyciu właściwości [AdvanceAfter](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/advanceafter/) możesz sprawdzić, czy przejście slajdu zostało skonfigurowane do przejścia do następnego slajdu, lub wyłączyć to ustawienie.
+Aby sprawdzić, czy automatyczne przechodzenie jest włączone, odczytaj [AdvanceAfter](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/advanceafter/). Sam zapisany czas opóźnienia nie wskazuje, że timer jest aktywny.
 
-Poniższy kod C# pokazuje, jak to zrobić:
+Kolejny przykład otwiera wcześniej zapisany plik, raportuje każdy włączony timer i wyłącza automatyczne przechodzenie dla slajdów z opóźnieniem większym niż dwie sekundy. Włącza kliknięcia myszy dla tych slajdów i zapisuje zaktualizowane ustawienia.
 
-```c#
-// Tworzy instancję klasy Presentation, która reprezentuje plik prezentacji
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
     {
-        // Pobiera przejście slajdu
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
 
-        // Sprawdza, czy ustawienie Advance After Time jest włączone
-        if (slideTransition.AdvanceAfter)
+        if (transition.AdvanceAfterTime > 2000)
         {
-            // Wypisuje wartość Advance After Time
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
         }
+    }
+}
 
-        // Wyłącza przejście po określonym czasie, jeśli wartość AdvanceAfterTime jest większa niż 2 sekundy
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **Precyzyjna kontrola czasu przejścia**
+
+Użyj [Duration](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/duration/) , aby określić dokładną długość efektu przejścia w milisekundach. Właściwość [SlideShowTransition](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseslide/slideshowtransition/) slajdu udostępnia te ustawienia poprzez [ISlideShowTransition](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/):
+
+| Właściwość | Cel |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/duration/) | Ustawia czas trwania samego efektu przejścia, w milisekundach. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Ustawia opóźnienie przed automatycznym przejściem slajdu, w milisekundach. Włącz [AdvanceAfter](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/advanceafter/), aby aktywować ten timer. |
+| [Speed](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/speed/) | Wybiera predefiniowaną kategorię szybkości z [TransitionSpeed](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium lub Fast. Jest używana, gdy nie określono dokładnego czasu trwania. |
+
+[Duration] kontroluje tylko efekt przejścia; nie określa, jak długo slajd pozostaje widoczny. Opóźnienie automatycznego przechodzenia konfiguruje się oddzielnie. Gdy nie ustawiono wyraźnego czasu trwania, Aspose.Slides wyznacza czas trwania efektu na podstawie typu przejścia i wartości [Speed].
+
+### **Zastosuj ten sam czas trwania dla każdego slajdu**
+
+Aby zachować jednolite tempo, zastosuj ten sam efekt i dokładny czas trwania dla każdego slajdu. Ten przykład wczytuje `input.pptx`, wybiera Fade z [TransitionType](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitiontype/) i nadaje każdemu przejściu czas trwania 750 milisekund. Oddzielnie włącza automatyczne przechodzenie po 5 000 milisekundach i wyłącza przechodzenie po kliknięciu myszy, po czym zapisuje wynik jako PPTX.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // Skonfiguruj automatyczne przechodzenie niezależnie od czasu trwania efektu.
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **Ustaw różne czasy trwania dla poszczególnych slajdów**
+
+Różne slajdy mogą korzystać z różnych czasów trwania efektów. Na przykład użyj krótkiego przejścia dla slajdu tytułowego i dłuższego przejścia dla wprowadzenia sekcji. Ten przykład ustawia 500 milisekund dla pierwszego slajdu i 1 200 milisekund dla drugiego. Użyj pliku `input.pptx` zawierającego co najmniej dwa slajdy.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **Koordynuj przejścia z animowanym wyjściem**
+
+Podczas przygotowywania [animated GIF](/slides/pl/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/pl/net/export-to-html5/), lub [video](/slides/pl/net/convert-powerpoint-to-video/), ustaw dokładne czasy trwania przejść przed eksportem, aby dopasować je do zamierzonego tempa. Na przykład użyj 600‑milisekundowego zaniku (fade) między scenami i osobno dostosuj opóźnienie przechodzenia każdego slajdu, aby umożliwić czas na narrację lub treść.
+
+Dla GIF i wideo skoordynuj częstotliwość klatek wyjściowych z czasem trwania efektu: 600 milisekund odpowiada 18 klatkom przy 30 klatkach na sekundę. W HTML5 włącz animowane przejścia w ustawieniach eksportu. Sprawdź, jakie efekty i opcje czasowe obsługuje wybrany format eksportu oraz podglądaj wynik, aby potwierdzić synchronizację.
+
+### **Odczytaj istniejący czas trwania przejścia**
+
+Odczytaj [Duration](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/duration/) przed modyfikacją przejścia, aby ustalić, czy przechowywana jest wyraźna wartość. Wartość `-1` oznacza, że nie ustawiono jawnego czasu trwania; wartość nieujemna określa przechowywany czas w milisekundach. Nieustawiona wartość nie jest obliczonym czasem odtwarzania: Aspose.Slides używa typu przejścia i [Speed](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/speed/) do określenia tego czasu. Ustawienie typu przejścia może zainicjować czas trwania, więc najpierw sprawdź oryginalne ustawienia.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
 ## **Przejście Morph**
-Aspose.Slides dla .NET obsługuje teraz [Morph Transition](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/imorphtransition). Representuje ono nowy przejście Morph wprowadzone w PowerPoint 2019. Przejście Morph pozwala animować płynny ruch z jednego slajdu do drugiego. W tym artykule opisano koncepcję oraz sposób użycia przejścia Morph. Aby efektywnie wykorzystać przejście Morph, potrzebujesz dwóch slajdów z co najmniej jednym wspólnym obiektem. Najłatwiejszy sposób to skopiowanie slajdu i przesunięcie obiektu na drugim slajdzie w inne miejsce.
 
-Poniższy fragment kodu pokazuje, jak dodać kopię slajdu z tekstem do prezentacji i ustawić przejście typu [morph type](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) na drugim slajdzie.
+Przejście Morph animuje zmiany pomiędzy obiektami na kolejnych slajdach. Aby utworzyć prosty efekt Morph, sklonuj slajd, przesuń lub zmień rozmiar obiektu w klonie, a następnie zastosuj przejście Morph do drugiego slajdu. Dzięki temu przejście animuje odpowiadające obiekty między ich pierwotnym a zmodyfikowanym stanem.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+Poniższy przykład tworzy slajd z prostokątem tekstowym, klonuje slajd i zmienia pozycję oraz rozmiar prostokąta w klonie. Następnie wybiera Morph z wyliczenia [TransitionType](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitiontype/) dla drugiego slajdu. Otwórz zapisany plik w przeglądarce prezentacji obsługującej Morph, aby zobaczyć efekt podczas pokazu slajdów.
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+using var presentation = new Presentation();
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
+
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
+
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
 
 ## **Typy przejścia Morph**
-Dodano nową wyliczeniową [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitionmorphtype). Reprezentuje ona różne typy przejścia Morph.
 
-Wyliczenie TransitionMorphType ma trzy elementy:
+Wyliczenie [TransitionMorphType](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitionmorphtype/) kontroluje, w jaki sposób Morph dopasowuje i animuje treść:
 
-- ByObject: przejście Morph jest wykonywane z uwzględnieniem kształtów jako niepodzielnych obiektów.
-- ByWord: przejście Morph jest wykonywane poprzez przenoszenie tekstu słowo po słowie, tam gdzie to możliwe.
-- ByChar: przejście Morph jest wykonywane poprzez przenoszenie tekstu znak po znaku, tam gdzie to możliwe.
+- [ByObject](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitionmorphtype/) traktuje każdy kształt jako cały obiekt.
+- [ByWord](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitionmorphtype/) animuje tekst, dopasowując słowa, gdy to możliwe.
+- [ByChar](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitionmorphtype/) animuje tekst, dopasowując znaki, gdy to możliwe.
 
-Poniższy fragment kodu pokazuje, jak ustawić przejście Morph na slajdzie i zmienić typ Morph:
+Ustaw właściwość przejścia [Type](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/type/) na Morph przed dostępem do jej [Value](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/value/). Wartość następnie udostępnia interfejs [IMorphTransition](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/imorphtransition/), którego [MorphType](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/imorphtransition/morphtype/) wybiera tryb dopasowania.
 
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+Ten przykład otwiera prezentację utworzoną w poprzedniej sekcji i konfiguruje drugi slajd, aby używał animacji Morph opartej na słowach.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
+
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
-## **Ustawianie efektów przejścia**
-Aspose.Slides dla .NET obsługuje ustawianie efektów przejścia, takich jak „from black”, „from left”, „from right” itp. Aby ustawić efekt przejścia, wykonaj poniższe kroki:
+## **Ustaw efekty przejścia**
 
-- Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-- Pobierz odniesienie do slajdu.
-- Ustaw efekt przejścia.
-- Zapisz prezentację jako plik [PPTX](https://docs.fileformat.com/presentation/pptx/).
+Niektóre przejścia udostępniają dodatkowe opcje, takie jak kierunek lub czy efekt rozpoczyna się od czarnego ekranu. Dostępne opcje zależą od wybranego [Type](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/type/) przejścia. Najpierw ustaw typ, a następnie użyj odpowiedniego interfejsu z jego [Value](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/value/).
 
-W poniższym przykładzie ustawiono efekty przejścia.
+Poniższy przykład stosuje przejście Cut do pierwszego slajdu pliku `input.pptx`. Ustawia [FromBlack](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) za pomocą [IOptionalBlackTransition](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/ioptionalblacktransition/) , aby przejście rozpoczynało się od czarnego ekranu.
 
-```c#
-// Utwórz instancję klasy Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-// Ustaw efekt
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
 
-// Zapisz prezentację na dysku
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+if (transition.Value is IOptionalBlackTransition cutTransition)
+{
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
+}
 ```
 
 ## **FAQ**
 
 **Czy mogę kontrolować prędkość odtwarzania przejścia slajdu?**
 
-Tak. Ustaw właściwość [Speed](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/speed/) przejścia za pomocą ustawienia [TransitionSpeed](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitionspeed/) (np. slow/medium/fast).
+Tak. Preferuj [Duration], gdy potrzebujesz dokładnego czasu trwania efektu w milisekundach. Użyj [Speed], gdy wystarczy predefiniowana kategoria [TransitionSpeed] — Slow, Medium lub Fast — i nie ustawiono wyraźnego czasu trwania. Te ustawienia kontrolują efekt przejścia niezależnie od opóźnienia automatycznego przechodzenia.
 
-**Czy mogę dołączyć dźwięk do przejścia i ustawić jego pętlę?**
+**Czy mogę dołączyć dźwięk do przejścia i sprawić, że będzie się powtarzać?**
 
-Tak. Możesz osadzić dźwięk dla przejścia i kontrolować zachowanie za pomocą ustawień takich jak tryb dźwięku i pętla (np. [Sound](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/sound/), [SoundMode](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/soundmode/), [SoundLoop](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/soundloop/), a także metadane takie jak [SoundIsBuiltIn](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) i [SoundName](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/soundname/)).
+Tak. Przypisz osadzony dźwięk do [Sound](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/sound/), ustaw [SoundMode](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/soundmode/) na StartSound z wyliczenia [TransitionSoundMode](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitionsoundmode/) i włącz [SoundLoop](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/soundloop/). Dźwięk będzie się powtarzał aż do kolejnego zdarzenia dźwiękowego w pokazie slajdów.
 
-**Jaki jest najszybszy sposób zastosowania tego samego przejścia do każdego slajdu?**
+**Jaki jest najszybszy sposób, aby zastosować to samo przejście do każdego slajdu?**
 
-Skonfiguruj żądany typ przejścia w ustawieniach przejścia każdego slajdu; przejścia są przechowywane osobno dla każdego slajdu, więc zastosowanie tego samego typu we wszystkich slajdach daje spójny rezultat.
+Iteruj po kolekcji [Slides](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/slides/pl/) prezentacji i ustaw właściwość [Type](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/type/) przejścia każdego slajdu na tę samą wartość. Ustaw wszystkie opcje czasu i efektów w tej samej pętli, aby zachować spójne zachowanie we wszystkich slajdach.
 
-**Jak mogę sprawdzić, które przejście jest aktualnie ustawione na slajdzie?**
+**Jak mogę sprawdzić, które przejście jest obecnie ustawione na slajdzie?**
 
-Sprawdź [ustawienia przejścia](https://reference.aspose.com/slides/pl/net/aspose.slides/baseslide/slideshowtransition/) slajdu i odczytaj jego [typ przejścia](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/slideshowtransition/type/); ta wartość dokładnie określa, jaki efekt jest zastosowany.
+Odczytaj właściwość [Type](https://reference.aspose.com/slides/pl/net/aspose.slides/islideshowtransition/type/) z [SlideShowTransition](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseslide/slideshowtransition/) slajdu. Zwraca ona wartość z wyliczenia [TransitionType](https://reference.aspose.com/slides/pl/net/aspose.slides.slideshow/transitiontype/); None oznacza, że nie zastosowano żadnego efektu przejścia.

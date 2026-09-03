@@ -1,5 +1,5 @@
 ---
-title: จัดการการเปลี่ยนสไลด์ในงานพรีเซนเทชันด้วย JavaScript
+title: จัดการการเปลี่ยนสไลด์ในงานนำเสนอโดยใช้ JavaScript
 linktitle: การเปลี่ยนสไลด์
 type: docs
 weight: 80
@@ -7,150 +7,308 @@ url: /th/nodejs-java/slide-transition/
 keywords:
 - การเปลี่ยนสไลด์
 - เพิ่มการเปลี่ยนสไลด์
-- ใช้การเปลี่ยนสไลด์
+- นำการเปลี่ยนสไลด์ไปใช้
 - การเปลี่ยนสไลด์ขั้นสูง
 - การเปลี่ยน Morph
 - ประเภทการเปลี่ยน
 - เอฟเฟกต์การเปลี่ยน
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ปรับแต่งการเปลี่ยนสไลด์ใน JavaScript ด้วย Aspose.Slides for Node.js via Java พร้อมคำแนะนำแบบขั้นตอนสำหรับการนำเสนอ PowerPoint และ OpenDocument"
+description: "ใช้การเปลี่ยนสไลด์, กำหนดค่าการเลื่อนสไลด์อัตโนมัติ, และปรับแต่ง Morph รวมถึงเอฟเฟกต์การเปลี่ยนอื่น ๆ ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีจัดการการเปลี่ยนสไลด์ในงานพรีเซนเทชันด้วย Aspose.Slides แสดงวิธีใช้ประเภทการเปลี่ยนสไลด์บนสไลด์ ตั้งค่าพฤติกรรมการเปลี่ยนเช่น การเลื่อนต่อเมื่อคลิกหรือหลังจากเวลาที่กำหนด ตรวจสอบและปิดการเลื่อนอัตโนมัติ ใช้การเปลี่ยน Morph และประเภทต่าง ๆ ของมัน และตั้งค่าตัวเลือกของเอฟเฟกต์การเปลี่ยน ตัวอย่างจะแสดงวิธีโหลดหรือสร้างพรีเซนเทชัน แก้ไขการตั้งค่าการเปลี่ยนสำหรับสไลด์ที่เลือก และบันทึกผลลัพธ์เป็นไฟล์ PPTX บทความยังตอบคำถามทั่วไปเกี่ยวกับความเร็วของการเปลี่ยน เสียงการเปลี่ยน การใช้การเปลี่ยนเดียวกันกับหลายสไลด์ และการตรวจสอบการเปลี่ยนที่ตั้งไว้ในสไลด์ปัจจุบัน
+การเปลี่ยนสไลด์ (Slide transitions) ควบคุมวิธีการแสดงสไลด์ระหว่างการแสดงสไลด์โชว์ ด้วย Aspose.Slides for Node.js via Java คุณสามารถเลือกเอฟเฟกต์การเปลี่ยนสไลด์สำหรับแต่ละสไลด์ ตั้งค่าการเลื่อนหน้าด้วยการคลิกเมาส์หรือด้วยตัวนับเวลา และปรับตัวเลือกที่เฉพาะเจาะจงกับเอฟเฟกต์ได้ บทความนี้ใช้ตัวอย่าง JavaScript เพื่อใช้การเปลี่ยนสไลด์ ตั้งค่าระยะเวลาเปลี่ยนสไลด์ที่แม่นยำ จัดการเวลาของสไลด์ และสร้างการเปลี่ยน Morph ระหว่างสองสไลด์ ตัวอย่างยังแสดงวิธีบันทึกการตั้งค่าเหล่านี้เป็นไฟล์ PPTX อีกด้วย
 
 ## **เพิ่มการเปลี่ยนสไลด์**
-เพื่อสร้างเอฟเฟกต์การเปลี่ยนสไลด์แบบง่าย ให้ทำตามขั้นตอนด้านล่าง:
 
-1. สร้างอินสแตนซ์ของ[Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation)คลาส
-1. ใช้ประเภทการเปลี่ยนสไลด์จากหนึ่งในเอฟเฟกต์การเปลี่ยนที่ Aspose.Slides for Node.js via Java ให้บริการ ผ่านค่า enum TransitionType
-1. เขียนไฟล์พรีเซนเทชันที่แก้ไข
+เพื่อใช้การเปลี่ยนสไลด์ โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) และเข้าถึงการตั้งค่าการเปลี่ยนสไลด์ของสไลด์ผ่านเมธอด [getSlideShowTransition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) ใช้เมธอด [setType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setType) พร้อมค่าจาก enumeration [TransitionType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitiontype/) แล้วบันทึกงานนำเสนอ
+
+ตัวอย่างต่อไปนี้ใช้การเปลี่ยนแบบ Circle กับสไลด์แรกและการเปลี่ยนแบบ Comb กับสไลด์ที่สอง ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสองสไลด์
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation เพื่อโหลดไฟล์พรีเซนเทชันต้นฉบับ
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // ใช้การเปลี่ยนแบบวงกลมบนสไลด์ที่ 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // ใช้การเปลี่ยนแบบคอมบบนสไลด์ที่ 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // บันทึกพรีเซนเทชันลงดิสก์
-    presentation.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(slides.TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(slides.TransitionType.Comb);
+
+        presentation.save("slide-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **เพิ่มการเปลี่ยนสไลด์ขั้นสูง**
-ในส่วนก่อนหน้า เราเพียงใช้เอฟเฟกต์การเปลี่ยนแบบง่ายบนสไลด์เท่านั้น ตอนนี้เพื่อทำให้เอฟเฟกต์การเปลี่ยนนั้นดียิ่งขึ้นและควบคุมได้ โปรดทำตามขั้นตอนด้านล่าง:
 
-1. สร้างอินสแตนซ์ของ[Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation)คลาส
-1. ใช้ประเภทการเปลี่ยนสไลด์จากหนึ่งในเอฟเฟกต์การเปลี่ยนที่ Aspose.Slides for Node.js via Java ให้บริการ
-1. คุณสามารถตั้งค่าการเปลี่ยนให้เลื่อนไปเมื่อคลิก หลังจากช่วงเวลาที่กำหนด หรือทั้งสองอย่างได้
-1. หากการเปลี่ยนสไลด์เปิดใช้งานให้เลื่อนไปเมื่อคลิก การเปลี่ยนจะดำเนินการเมื่อผู้ใช้คลิกเมาส์เท่านั้น นอกจากนี้ หากตั้งค่า Advance After Time การเปลี่ยนจะเลื่อต่ออัตโนมัติหลังจากครบกำหนดเวลา
-1. เขียนพรีเซนเทชันที่แก้ไขเป็นไฟล์พรีเซนเทชัน
+คุณสามารถกำหนดระยะเวลาที่สไลด์แสดงบนหน้าจอและว่าจะให้การคลิกเมาส์ทำให้สไลด์โชว์เลื่อนหน้าหรือไม่ วิธีต่อไปนี้ควบคุมพฤติกรรมดังกล่าว:
 
-```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
-var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
-try {
-    // ใช้การเปลี่ยนแบบวงกลมบนสไลด์ที่ 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // ตั้งระยะเวลาการเปลี่ยนเป็น 3 วินาที
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
-    // ใช้การเปลี่ยนแบบคอมบบนสไลด์ที่ 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // ตั้งระยะเวลาการเปลี่ยนเป็น 5 วินาที
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
-    // ใช้การเปลี่ยนแบบซูมบนสไลด์ที่ 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(aspose.slides.TransitionType.Zoom);
-    // ตั้งระยะเวลาการเปลี่ยนเป็น 7 วินาที
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-    // บันทึกพรีเซนเทชันลงดิสก์
-    pres.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
+- เมธอด [setAdvanceOnClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) ให้ผู้ชมเลื่อนหน้าด้วยการคลิกเมาส์
+- เมธอด [setAdvanceAfter](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) เปิดใช้งานการเลื่อนหน้าอัตโนมัติ
+- เมธอด [setAdvanceAfterTime](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) ระบุตัวหน่วงเวลาก่อนการเลื่อนหน้าอัตโนมัติ (หน่วยเป็นมิลลิวินาที)
 
-## **การเปลี่ยน Morph**
-{{% alert color="primary" %}} 
+เปิดใช้งานทั้งการคลิกและการเลื่อนหน้าตามเวลาเพื่อให้ผู้ชมสามารถกดคลิกเพื่อดำเนินการต่อหรือรอจนกว่าตัวจับเวลาจะทำงาน หากต้องการใช้เพียงตัวจับเวลา ให้ส่งค่า `false` ไปยังเมธอด [setAdvanceOnClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) ตัวหน่วงเวลาจะควบคุมเวลาที่สไลด์โชว์เลื่อนหน้า ไม่ได้กำหนดระยะเวลาของเอฟเฟกต์การเปลี่ยนสไลด์เอง
 
-Aspose.Slides for Node.js via Java ตอนนี้รองรับ[Morph Transition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/MorphTransition) ซึ่งเป็นการเปลี่ยน Morph ใหม่ที่แนะนำใน PowerPoint 2019
-
-{{% /alert %}} 
-
-การเปลี่ยน Morph ช่วยให้คุณทำแอนิเมชันการเคลื่อนที่อย่างราบรื่นจากสไลด์หนึ่งไปยังสไลด์ต่อไป บทความนี้อธิบายแนวคิดและวิธีใช้การเปลี่ยน Morph เพื่อให้ใช้งานได้อย่างมีประสิทธิภาพ คุณจำเป็นต้องมีสไลด์สองสไลด์ที่มีวัตถุอย่างน้อยหนึ่งรายการร่วมกัน วิธีที่ง่ายที่สุดคือทำสำเนาสไลด์แล้วย้ายวัตถุบนสไลด์ที่สองไปยังตำแหน่งอื่น
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีเพิ่มคลอนของสไลด์พร้อมข้อความบางส่วนลงในพรีเซนเทชันและตั้งการเปลี่ยนเป็น[morph type](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TransitionType)บนสไลด์ที่สอง
+ตัวอย่างนี้กำหนดเอฟเฟกต์ต่าง ๆ ให้กับสามสไลด์แรกและเปิดใช้งานการเลื่อนหน้าอัตโนมัติหลังจาก 3, 5 และ 7 วินาทีตามลำดับ การคลิกเมาส์ก็สามารถเลื่อนสไลด์เหล่านี้ได้ ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสามสไลด์
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-    var shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 3) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5
+00);
+
+        const thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(slides.TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
+
+        presentation.save("advanced-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least three slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ประเภทการเปลี่ยน Morph**
-ได้เพิ่ม enum[TransitionMorphType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TransitionMorphType)ใหม่ ซึ่งแทนประเภทต่าง ๆ ของการเปลี่ยนสไลด์ Morph
+เพื่อดูว่าการเลื่อนหน้าตามเวลาถูกเปิดใช้งานหรือไม่ ให้เรียกเมธอด [getAdvanceAfter](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter) ค่าหน่วงเวลาที่เก็บไว้เพียงอย่างเดียวไม่ได้หมายความว่าตัวจับเวลาเปิดอยู่
 
-enum TransitionMorphType มีสมาชิกสามตัว:
-
-- ByObject: การเปลี่ยน Morph จะดำเนินการโดยพิจารณารูปร่างเป็นวัตถุที่ไม่สามารถแยกย่อยได้
-- ByWord: การเปลี่ยน Morph จะดำเนินการโดยถ่ายโอนข้อความตามคำเมื่อเป็นไปได้
-- ByChar: การเปลี่ยน Morph จะดำเนินการโดยถ่ายโอนข้อความตามอักขระเมื่อเป็นไปได้
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีตั้งค่าการเปลี่ยน Morph ให้สไลด์และเปลี่ยนประเภท Morph
+ตัวอย่างต่อไปเปิดไฟล์ที่บันทึกไว้ข้างต้น รายงานตัวจับเวลาที่เปิดใช้งานแต่ละรายการ และปิดการเลื่อนหน้าอัตโนมัติสำหรับสไลด์ที่มีค่าหน่วงเวลามากกว่าสองวินาที พร้อมเปิดการคลิกเมาส์สำหรับสไลด์เหล่านั้น แล้วบันทึกการตั้งค่าใหม่
 
 ```javascript
-var presentation = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("advanced-transitions.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setMorphType(aspose.slides.TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            console.log("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ควบคุมระยะเวลาการเปลี่ยนอย่างแม่นยำ**
+
+ใช้เมธอด [setDuration](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setDuration) เพื่อระบุความยาวของเอฟเฟกต์การเปลี่ยนสไลด์เป็นมิลลิวินาที เมธอด [getSlideShowTransition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) ของสไลด์เปิดเผยการตั้งค่าเหล่านี้ผ่านคลาส [SlideShowTransition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/) :
+
+| เมธอด | วัตถุประสงค์ |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | ตั้งค่าระยะเวลาของเอฟเฟกต์การเปลี่ยนเอง (มิลลิวินาที) |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | ตั้งค่าหน่วงเวลาก่อนสไลด์เลื่อนหน้าอัตโนมัติ (มิลลิวินาที) ส่งค่า `true` ไปยังเมธอด [setAdvanceAfter](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) เพื่อเปิดใช้งานตัวจับเวลา |
+| [setSpeed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | เลือกหมวดความเร็วที่กำหนดไว้ล่วงหน้าใน enumeration [TransitionSpeed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitionspeed/) : Slow, Medium หรือ Fast ใช้เมื่อไม่ได้ระบุระยะเวลาที่แน่นอน |
+
+[setDuration](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setDuration) ควบคุมเฉพาะเอฟเฟกต์การเปลี่ยน ไม่ได้กำหนดระยะเวลาที่สไลด์คงอยู่บนหน้าจอ ตั้งค่าหน่วงเวลาการเลื่อนหน้าอัตโนมัติแยกต่างหาก เมื่อไม่มีการตั้งค่า duration ชัดเจน Aspose.Slides จะคำนวณระยะเวลาจากประเภทของการเปลี่ยนและค่าที่ได้จากเมธอด [getSpeed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#getSpeed)
+
+### **ใช้ระยะเวลาเดียวกันกับทุกสไลด์**
+
+เพื่อให้จังหวะสอดคล้อง ให้ใช้เอฟเฟกต์เดียวกันและระยะเวลาเดียวกันกับทุกสไลด์ ตัวอย่างนี้โหลด `input.pptx` เลือกเอฟเฟกต์ Fade จาก enumeration [TransitionType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitiontype/) แล้วกำหนดระยะเวลา 750 มิลลิวินาทีให้กับการเปลี่ยนแต่ละสไลด์ พร้อมเปิดการเลื่อนหน้าอัตโนมัติหลัง 5,000 มิลลิวินาทีและปิดการเลื่อนด้วยการคลิกเมาส์ แล้วบันทึกเป็นไฟล์ PPTX
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Fade);
+        transition.setDuration(750);
+
+        // กำหนดการเลื่อนหน้าตามอัตโนมัติอย่างแยกจากระยะเวลาเอฟเฟกต์.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **ตั้งค่าระยะเวลาต่าง ๆ สำหรับสไลด์แต่ละอัน**
+
+สไลด์ต่าง ๆ สามารถใช้ระยะเวลาเอฟเฟกต์ที่แตกต่างกันได้ ตัวอย่างเช่น ใช้การเปลี่ยนสั้นสำหรับสไลด์หัวเรื่องและการเปลี่ยนยาวสำหรับสไลด์แนะนำส่วน ตัวอย่างนี้ตั้งค่า 500 มิลลิวินาทีสำหรับสไลด์แรกและ 1,200 มิลลิวินาทีสำหรับสไลด์ที่สอง ใช้ไฟล์ `input.pptx` ที่มีอย่างน้อยสองสไลด์
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **ประสานการเปลี่ยนกับการส่งออกแบบเคลื่อนไหว**
+
+เมื่อเตรียม [animated GIF](/slides/th/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/th/nodejs-java/export-to-html5/), หรือ [video](/slides/th/nodejs-java/convert-powerpoint-to-video/), ให้ตั้งค่าระยะเวลาเปลี่ยนที่แน่นอนก่อนทำการส่งออกเพื่อให้ตรงกับจังหวะที่ต้องการ ตัวอย่างเช่น ใช้การจางแบบ Fade 600 มิลลิวินาทีระหว่างฉาก และปรับหน่วงเวลาการเลื่อนหน้าของแต่ละสไลด์แยกต่างหากเพื่อให้มีเวลาพูดบรรยายหรือแสดงเนื้อหา
+
+สำหรับ GIF และวิดีโอ ให้ประสานอัตราเฟรมของผลลัพธ์กับระยะเวลาเอฟเฟกต์: 600 มิลลิวินาทีเท่ากับ 18 เฟรมที่ 30 เฟรมต่อวินาที ใน HTML5 ให้เปิดใช้การเปลี่ยนแบบเคลื่อนไหวในการตั้งค่าการส่งออก ตรวจสอบเอฟเฟกต์และตัวเลือกเวลาที่สนับสนุนโดยรูปแบบการส่งออกที่เลือกแล้วทำการแสดงตัวอย่างเพื่อยืนยันการซิงโครไนซ์
+
+### **อ่านระยะเวลาเปลี่ยนที่มีอยู่**
+
+เรียกเมธอด [getDuration](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#getDuration) ก่อนทำการเปลี่ยน เพื่อดูว่ามีการเก็บค่าระยะเวลาที่แน่นอนหรือไม่ ค่า `-1` หมายถึงไม่ได้ตั้งระยะเวลาเฉพาะ; ค่าที่เป็นบวกหรือศูนย์หมายถึงระยะเวลาที่เก็บไว้เป็นมิลลิวินาที ค่าที่ไม่ได้ตั้งไม่ใช่ระยะเวลาการเล่นที่คำนวณ: Aspose.Slides จะใช้ประเภทของการเปลี่ยนและค่าจากเมธอด [getSpeed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) เพื่อกำหนดระยะเวลาดังกล่าว การตั้งค่าประเภทของการเปลี่ยนอาจทำให้มีการกำหนดค่า duration เริ่มต้นไว้ ดังนั้นควรตรวจสอบการตั้งค่าเดิมก่อน
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        const duration = transition.getDuration();
+
+        if (duration >= 0) {
+            console.log("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            console.log("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **การเปลี่ยน Morph**
+
+การเปลี่ยน Morph ทำให้เกิดการเคลื่อนไหวของการเปลี่ยนแปลงระหว่างวัตถุบนสไลด์ต่อเนื่อง เพื่อสร้างเอฟเฟกต์ Morph อย่างง่าย ให้คัดลอกสไลด์ ย้ายหรือปรับขนาดวัตถุในสไลด์ที่คัดลอก แล้วใช้การเปลี่ยน Morph กับสไลด์ที่สอง วิธีนี้จะทำให้วัตถุที่เกี่ยวข้องเคลื่อนไหวจากสภาพเดิมไปยังสภาพที่แก้ไขแล้ว
+
+ตัวอย่างต่อไปนี้สร้างสไลด์ที่มีสี่เหลี่ยมข้อความ คัดลอกสไลด์นั้น แล้วเปลี่ยนตำแหน่งและขนาดของสี่เหลี่ยมบนสไลด์ที่คัดลอก จากนั้นเลือก Morph จาก enumeration [TransitionType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitiontype/) สำหรับสไลด์ที่สอง เปิดไฟล์ที่บันทึกในตัวดูงานนำเสนอที่รองรับ Morph เพื่อดูเอฟเฟกต์ระหว่างการแสดงสไลด์
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const rectangle = firstSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
+
+    const secondSlide = presentation.getSlides().addClone(firstSlide);
+    const movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
+
+    secondSlide.getSlideShowTransition().setType(slides.TransitionType.Morph);
+
+    presentation.save("morph-transition.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ประเภทของ Morph Transition**
+
+enumeration [TransitionMorphType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitionmorphtype/) ควบคุมวิธีที่ Morph จับคู่และเคลื่อนไหวเนื้อหา:
+
+- [ByObject](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) ถือรูปทรงแต่ละอย่างเป็นวัตถุทั้งหมด
+- [ByWord](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) เคลื่อนไหวข้อความโดยจับคู่คำเมื่อตรงกัน
+- [ByChar](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) เคลื่อนไหวข้อความโดยจับคู่อักขระเมื่อตรงกัน
+
+ใช้เมธอด [setType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setType) เพื่อเลือก Morph ก่อนเข้าถึงเมธอด [getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#getValue) ค่าที่ได้จะให้วัตถุ [MorphTransition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/morphtransition/) ซึ่งเมธอด [setMorphType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/morphtransition/#setMorphType) จะเลือกโหมดการจับคู่
+
+ตัวอย่างนี้เปิดงานนำเสนอที่สร้างในส่วนก่อนหน้าและกำหนดให้สไลด์ที่สองใช้การเคลื่อนไหว Morph ที่อิงตามคำ
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("morph-transition.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        const transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Morph);
+        const transitionValue = transition.getValue();
+
+        if (java.instanceOf(transitionValue, "com.aspose.slides.IMorphTransition")) {
+            transitionValue.setMorphType(slides.TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", slides.SaveFormat.Pptx);
+        } else {
+            console.log("Morph transition options are unavailable.");
+        }
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **ตั้งค่าเอฟเฟกต์การเปลี่ยน**
-Aspose.Slides for Node.js via Java รองรับการตั้งค่าเอฟเฟกต์การเปลี่ยน เช่น จากสีดำ จากซ้าย จากขวา เป็นต้น เพื่อกำหนดเอฟเฟกต์การเปลี่ยน โปรดทำตามขั้นตอนต่อไปนี้:
 
-- สร้างอินสแตนซ์ของ[Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)คลาส
-- รับการอ้างอิงของสไลด์
-- ตั้งค่าเอฟเฟกต์การเปลี่ยน
-- เขียนพรีเซนเทชันเป็นไฟล์[PPTX](https://docs.fileformat.com/presentation/pptx/) 
+บางเอฟเฟกต์การเปลี่ยนจะเปิดเผยตัวเลือกเพิ่มเติม เช่น ทิศทางหรือว่าเอฟเฟกต์จะเริ่มจากหน้าจอสีดำ ตัวเลือกที่ใช้ได้จะขึ้นอยู่กับการเปลี่ยนที่เลือกด้วยเมธอด [setType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setType) ให้ตั้งค่าประเภทก่อน แล้วใช้วัตถุการเปลี่ยนที่เหมาะสมจากเมธอด [getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#getValue)
 
-ในตัวอย่างด้านล่าง เราได้ตั้งค่าเอฟเฟกต์การเปลี่ยนแล้ว
+ตัวอย่างต่อไปนี้ใช้การเปลี่ยน Cut กับสไลด์แรกของ `input.pptx` โดยเรียกเมธอด [setFromBlack](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) ผ่านคลาส [OptionalBlackTransition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/optionalblacktransition/) เพื่อให้การเปลี่ยนเริ่มจากหน้าจอสีดำ
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // ตั้งค่าเอฟเฟกต์
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Cut);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setFromBlack(true);
-    // เขียนพรีเซนเทชันลงดิสก์
-    presentation.save("SetTransitionEffects_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(slides.TransitionType.Cut);
+    const transitionValue = transition.getValue();
+
+    if (java.instanceOf(transitionValue, "com.aspose.slides.IOptionalBlackTransition")) {
+        transitionValue.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -160,16 +318,16 @@ try {
 
 **ฉันสามารถควบคุมความเร็วการเล่นของการเปลี่ยนสไลด์ได้หรือไม่?**
 
-ใช่ ตั้งค่าความเร็วของการเปลี่ยนโดยใช้[speed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/setspeed/)ผ่านการตั้งค่า[TransitionSpeed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitionspeed/) (เช่น slow/medium/fast)
+ได้. ควรใช้เมธอด [setDuration](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setDuration) เมื่อคุณต้องการระยะเวลาเอฟเฟกต์ที่แน่นอนเป็นมิลลิวินาที ใช้เมธอด [setSpeed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) เมื่อหมวดความเร็วที่กำหนดไว้ล่วงหน้าใน [TransitionSpeed](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitionspeed/) (Slow, Medium, Fast) เพียงพอและไม่ได้ตั้งค่า duration อย่างชัดเจน การตั้งค่าเหล่านี้ควบคุมเอฟเฟกต์การเปลี่ยนแยกจากหน่วงเวลาการเลื่อนหน้าอัตโนมัติ
 
-**ฉันสามารถแนบเสียงกับการเปลี่ยนและทำให้วนรอบได้หรือไม่?**
+**ฉันสามารถแนบเสียงเข้ากับการเปลี่ยนและให้มันวนซ้ำได้หรือไม่?**
 
-ใช่ คุณสามารถฝังเสียงสำหรับการเปลี่ยนและควบคุมพฤติกรรมผ่านการตั้งค่าเช่นโหมดเสียงและการวนรอบ (เช่น[setSound](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/setsound/),[setSoundMode](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/setsoundmode/),[setSoundLoop](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/setsoundloop/), พร้อมเมตาดาต้าเช่น[setSoundIsBuiltIn](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/setsoundisbuiltin/)และ[setSoundName](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/setsoundname/))
+ได้. ใส่เสียงฝังด้วยเมธอด [setSound](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setSound) ส่งค่า `StartSound` จาก enumeration [TransitionSoundMode](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitionsoundmode/) ไปยังเมธอด [setSoundMode](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode) แล้วเปิดใช้งานเมธอด [setSoundLoop](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) ด้วยค่า `true` เสียงจะวนซ้ำจนกว่าจะมีเหตุการณ์เสียงต่อไปในสไลด์โชว์
 
 **วิธีที่เร็วที่สุดในการใช้การเปลี่ยนเดียวกันกับทุกสไลด์คืออะไร?**
 
-กำหนดประเภทการเปลี่ยนที่ต้องการในตั้งค่าการเปลี่ยนของแต่ละสไลด์; การเปลี่ยนจะถูกเก็บเป็นข้อมูลต่อสไลด์ ดังนั้นการใช้ประเภทเดียวกันกับสไลด์ทั้งหมดจะให้ผลลัพธ์ที่สอดคล้องกัน
+ทำลูปผ่านคอลเลกชัน [getSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getSlides) ของงานนำเสนอและเรียกเมธอด [setType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#setType) ด้วยค่าที่เหมือนกันสำหรับการเปลี่ยนของแต่ละสไลด์ ตั้งค่าตัวเลือกเวลาและเอฟเฟกต์ใด ๆ ภายในลูปเดียวกันเพื่อรักษาพฤติกรรมให้สอดคล้องกันทั่วทั้งสไลด์
 
-**ฉันจะตรวจสอบว่าการเปลี่ยนใดตั้งอยู่บนสไลด์ในขณะนี้ได้อย่างไร?**
+**ฉันจะตรวจสอบว่าการเปลี่ยนใดถูกตั้งอยู่บนสไลด์ปัจจุบันได้อย่างไร?**
 
-ตรวจสอบ[transition settings](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition)ของสไลด์และอ่าน[transition type](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/gettype/)ของมัน; ค่าดังกล่าวจะบอกว่ามีเอฟเฟกต์ใดถูกนำไปใช้อยู่ตอนนี้
+เรียกเมธอด [getType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideshowtransition/#getType) บนผลลัพธ์ของเมธอด [getSlideShowTransition](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) ของสไลด์ จะได้ค่าจาก enumeration [TransitionType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/transitiontype/) ค่า `None` หมายถึงไม่มีการตั้งค่าเอฟเฟกต์การเปลี่ยนใด ๆ)

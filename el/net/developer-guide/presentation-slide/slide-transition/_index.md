@@ -8,8 +8,8 @@ keywords:
 - μετάβαση διαφάνειας
 - προσθήκη μετάβασης διαφάνειας
 - εφαρμογή μετάβασης διαφάνειας
-- προηγμένη μετάβαση διαφάνειας
-- μετάβαση morph
+- προχωρημένη μετάβαση διαφάνειας
+- μετάβαση Morph
 - τύπος μετάβασης
 - εφέ μετάβασης
 - PowerPoint
@@ -18,186 +18,328 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανακαλύψτε πώς να προσαρμόζετε τις μεταβάσεις διαφάνειας στο Aspose.Slides για .NET, με καθοδήγηση βήμα προς βήμα για παρουσιάσεις PowerPoint και OpenDocument."
+description: "Εφαρμόστε μεταβάσεις διαφάνειας, ρυθμίστε την αυτόματη προώθηση διαφανειών και προσαρμόστε τις μεταβάσεις Morph και άλλα εφέ μετάβασης με το Aspose.Slides για .NET."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να διαχειρίζεστε τις μεταβάσεις διαφάνειας σε παρουσιάσεις χρησιμοποιώντας το Aspose.Slides. Δείχνει πώς να εφαρμόζετε τύπους μεταβάσεων σε διαφάνειες, να ρυθμίζετε τη συμπεριφορά της μετάβασης όπως η προώθηση με κλικ ή μετά από συγκεκριμένο χρόνο, να ελέγχετε και να απενεργοποιείτε την αυτόματη προώθηση, να χρησιμοποιείτε τη μετάβαση Morph και τους τύπους της, και να ορίζετε επιλογές εφέ μετάβασης. Τα παραδείγματα δείχνουν πώς να φορτώσετε ή να δημιουργήσετε μια παρουσίαση, να τροποποιήσετε τις ρυθμίσεις μετάβασης για επιλεγμένες διαφάνειες και να αποθηκεύσετε το αποτέλεσμα σε αρχείο PPTX. Το άρθρο επίσης απαντά σε συχνές ερωτήσεις σχετικά με την ταχύτητα της μετάβασης, τα ήχους της μετάβασης, την εφαρμογή της ίδιας μετάβασης σε πολλές διαφάνειες και τον έλεγχο της τρέχουσας μετάβασης σε μια διαφάνεια.
+Οι μεταβάσεις διαφάνειας ελέγχουν πώς εμφανίζονται οι διαφάνειες κατά τη διάρκεια μιας παρουσίασης. Με το Aspose.Slides για .NET, μπορείτε να επιλέξετε ένα εφέ μετάβασης για κάθε διαφάνεια, να ρυθμίσετε την προώθηση με κλικ του ποντικιού ή χρονομετρητή, και να προσαρμόσετε επιλογές ειδικές για ένα εφέ. Αυτό το άρθρο χρησιμοποιεί παραδείγματα C# για να εφαρμόσει μεταβάσεις, να ορίσει ακριβείς διάρκειες μετάβασης, να διαχειριστεί το χρόνο των διαφανειών, και να δημιουργήσει μια μετάβαση Morph μεταξύ δύο διαφανειών. Τα παραδείγματα δείχνουν επίσης πώς να αποθηκεύσετε τις ρυθμίσεις σε αρχείο PPTX.
 
 ## **Προσθήκη Μετάβασης Διαφάνειας**
-Για να γίνει πιο εύκολο να κατανοηθεί, παρουσιάσαμε τη χρήση του Aspose.Slides for .NET για τη διαχείριση απλών μεταβάσεων διαφάνειας. Οι προγραμματιστές μπορούν όχι μόνο να εφαρμόζουν διαφορετικά εφέ μετάβασης στις διαφάνειες αλλά και να προσαρμόζουν τη συμπεριφορά αυτών των εφέ. Για να δημιουργήσετε ένα απλό εφέ μετάβασης διαφάνειας, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-2. Εφαρμόστε έναν τύπο μετάβασης διαφάνειας στη διαφάνεια χρησιμοποιώντας ένα από τα εφέ μετάβασης που προσφέρει το Aspose.Slides for .NET μέσω του enum TransitionType.
-3. Αποθηκεύστε το τροποποιημένο αρχείο παρουσίασης.
+Για να εφαρμόσετε μια μετάβαση, φορτώστε μια παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και αποκτήστε πρόσβαση στην ιδιότητα [SlideShowTransition](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/slideshowtransition/) της διαφάνειας. Ορίστε την [Type](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/type/) σε μια τιμή από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitiontype/), κατόπιν αποθηκεύστε την παρουσίαση.
 
-```c#
-// Δημιουργία αντικειμένου Presentation για φόρτωση του αρχείου πηγαίας παρουσίασης
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+Το παρακάτω παράδειγμα εφαρμόζει μια μετάβαση Circle στην πρώτη διαφάνεια και μια μετάβαση Comb στη δεύτερη. Χρησιμοποιήστε ένα αρχείο `input.pptx` με τουλάχιστον δύο διαφάνειες.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    // Εφαρμογή μετάβασης τύπου κύκλου στη διαφάνεια 1
     presentation.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
-
-    // Εφαρμογή μετάβασης τύπου χτένι στη διαφάνεια 2
     presentation.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
 
-    // Αποθήκευση της παρουσίασης στο δίσκο
-    presentation.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("slide-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
-## **Προσθήκη Προηγμένης Μετάβασης Διαφάνειας**
-Στο προηγούμενο τμήμα, εφαρμόσαμε μόνο ένα απλό εφέ μετάβασης στη διαφάνεια. Τώρα, για να κάνετε αυτό το απλό εφέ ακόμη καλύτερο και πιο ελεγχόμενο, ακολουθήστε τα παρακάτω βήματα:
+## **Προσθήκη Προχωρημένης Μετάβασης Διαφάνειας**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-2. Εφαρμόστε έναν τύπο μετάβασης διαφάνειας στη διαφάνεια χρησιμοποιώντας ένα από τα εφέ μετάβασης που προσφέρει το Aspose.Slides for .NET.
-3. Μπορείτε επίσης να ορίσετε τη μετάβαση να προχωρά με κλικ, μετά από συγκεκριμένο χρονικό διάστημα ή και τα δύο.
-4. Εάν η μετάβαση διαφάνειας είναι ενεργοποιημένη για προώθηση με κλικ, η μετάβαση θα προχωρά μόνο όταν κάποιος κάνει κλικ με το ποντίκι. Επιπλέον, εάν έχει οριστεί η ιδιότητα Advance After Time, η μετάβαση θα προχωρά αυτόματα μετά το πέρας του καθορισμένου χρόνου προώθησης.
-5. Αποθηκεύστε το τροποποιημένο αρχείο παρουσίασης.
+Μπορείτε να ρυθμίσετε πόσο καιρό παραμένει μια διαφάνεια στην οθόνη και αν ένα κλικ του ποντικιού προχωρά την παρουσίαση. Οι παρακάτω ιδιότητες ελέγχουν αυτή τη συμπεριφορά:
 
-```c#
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-using (Presentation pres = new Presentation("BetterSlideTransitions.pptx"))
+- [AdvanceOnClick](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/advanceonclick/) επιτρέπει στον θεατή να προχωρήσει με κλικ του ποντικιού.
+- [AdvanceAfter](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/advanceafter/) ενεργοποιεί αυτόματη προώθηση.
+- [AdvanceAfterTime](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/advanceaftertime/) καθορίζει την καθυστέρηση πριν από την αυτόματη προώθηση, σε χιλιοστά του δευτερολέπτου.
+
+Ενεργοποιήστε και τα δύο, κλικ και χρονομετρημένη προώθηση, ώστε ο θεατής να μπορεί να προχωρήσει με κλικ ή να περιμένει τον χρονομετρητή. Για χρήση μόνο του χρονομετρητή, ορίστε το [AdvanceOnClick](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/advanceonclick/) σε `false`. Η καθυστέρηση ελέγχει πότε προχωρά η παρουσίαση· δεν καθορίζει τη διάρκεια του οπτικού εφέ μετάβασης.
+
+Αυτό το παράδειγμα εκχωρεί διαφορετικά εφέ στις πρώτες τρεις διαφάνειες και ενεργοποιεί αυτόματη προώθηση μετά από 3, 5 και 7 δευτερόλεπτα, αντίστοιχα. Τα κλικ του ποντικιού μπορούν επίσης να προωθήσουν αυτές τις διαφάνειες. Χρησιμοποιήστε ένα αρχείο `input.pptx` με τουλάχιστον τρεις διαφάνειες.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 3)
 {
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Circle;
+    firstTransition.AdvanceOnClick = true;
+    firstTransition.AdvanceAfter = true;
+    firstTransition.AdvanceAfterTime = 3000;
 
-    // Εφαρμογή μετάβασης τύπου κύκλου στη διαφάνεια 1
-    pres.Slides[0].SlideShowTransition.Type = TransitionType.Circle;
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Comb;
+    secondTransition.AdvanceOnClick = true;
+    secondTransition.AdvanceAfter = true;
+    secondTransition.AdvanceAfterTime = 5000;
 
+    var thirdTransition = presentation.Slides[2].SlideShowTransition;
+    thirdTransition.Type = TransitionType.Zoom;
+    thirdTransition.AdvanceOnClick = true;
+    thirdTransition.AdvanceAfter = true;
+    thirdTransition.AdvanceAfterTime = 7000;
 
-    // Ορισμός χρόνου μετάβασης στα 3 δευτερόλεπτα
-    pres.Slides[0].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[0].SlideShowTransition.AdvanceAfterTime = 3000;
-
-    // Εφαρμογή μετάβασης τύπου χτένι στη διαφάνεια 2
-    pres.Slides[1].SlideShowTransition.Type = TransitionType.Comb;
-
-
-    // Ορισμός χρόνου μετάβασης στα 5 δευτερόλεπτα
-    pres.Slides[1].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[1].SlideShowTransition.AdvanceAfterTime = 5000;
-
-    // Εφαρμογή μετάβασης τύπου ζουμ στη διαφάνεια 3
-    pres.Slides[2].SlideShowTransition.Type = TransitionType.Zoom;
-
-
-    // Ορισμός χρόνου μετάβασης στα 7 δευτερόλεπτα
-    pres.Slides[2].SlideShowTransition.AdvanceOnClick = true;
-    pres.Slides[2].SlideShowTransition.AdvanceAfterTime = 7000;
-
-    // Αποθήκευση της παρουσίασης στο δίσκο
-    pres.Save("SampleTransition_out.pptx", SaveFormat.Pptx);
+    presentation.Save("advanced-transitions.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least three slides.");
 }
 ```
 
-Επιπλέον, χρησιμοποιώντας την ιδιότητα [AdvanceAfter](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/advanceafter/), μπορείτε να ελέγξετε εάν μια μετάβαση διαφάνειας έχει ρυθμιστεί να μεταβαίνει στην επόμενη διαφάνεια ή να απενεργοποιήσετε τη ρύθμιση.
+Για να ελέγξετε αν είναι ενεργή η χρονομετρημένη προώθηση, διαβάστε το [AdvanceAfter](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/advanceafter/). Μια αποθηκευμένη καθυστέρηση από μόνη της δεν υποδεικνύει ότι ο χρονομετρητής είναι ενεργός.
 
-Αυτός ο κώδικας C# δείχνει τη λειτουργία:
+Το επόμενο παράδειγμα ανοίγει το αρχείο που αποθηκεύτηκε παραπάνω, αναφέρει κάθε ενεργό χρονομετρητή και απενεργοποιεί την αυτόματη προώθηση για διαφάνειες με καθυστέρηση μεγαλύτερη των δύο δευτερολέπτων. Ενεργοποιεί τα κλικ του ποντικιού για αυτές τις διαφάνειες και αποθηκεύει τις ενημερωμένες ρυθμίσεις.
 
-```c#
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
-using (Presentation pres = new Presentation("SampleTransition_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("advanced-transitions.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in pres.Slides)
+    var transition = slide.SlideShowTransition;
+
+    if (transition.AdvanceAfter)
     {
-        // Λαμβάνει τη μετάβαση της διαφάνειας
-        ISlideShowTransition slideTransition = slide.SlideShowTransition;
+        Console.WriteLine($"Slide {slide.SlideNumber}: advance after {transition.AdvanceAfterTime} ms.");
 
-        // Ελέγχει εάν η ρύθμιση AdvanceAfterTime είναι ενεργοποιημένη
-        if (slideTransition.AdvanceAfter)
+        if (transition.AdvanceAfterTime > 2000)
         {
-            // Εκτυπώνει την τιμή AdvanceAfterTime
-            Console.WriteLine("The slide #" + slide.SlideNumber + " AdvancedAfterTime: " + slideTransition.AdvanceAfterTime);
+            transition.AdvanceAfter = false;
+            transition.AdvanceOnClick = true;
         }
+    }
+}
 
-        // Απενεργοποιεί τη μετάβαση μετά από συγκεκριμένο χρόνο αν η τιμή AdvanceAfterTime είναι μεγαλύτερη από 2 δευτερόλεπτα
-        if (slideTransition.AdvanceAfterTime > 2000)
-        {
-            slideTransition.AdvanceAfter = false;
-        }
+presentation.Save("adjusted-transitions.pptx", SaveFormat.Pptx);
+```
+
+## **Ακριβής Έλεγχος Χρόνου Μετάβασης**
+
+Χρησιμοποιήστε το [Duration](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/duration/) για να καθορίσετε το ακριβές μήκος ενός εφέ μετάβασης σε χιλιοστά του δευτερολέπτου. Η ιδιότητα [SlideShowTransition](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/slideshowtransition/) της διαφάνειας εκθέτει αυτές τις ρυθμίσεις μέσω του [ISlideShowTransition](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/):
+
+| Property | Purpose |
+| --- | --- |
+| [Duration](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/duration/) | Ορίζει τη διάρκεια του ίδιου εφέ μετάβασης, σε χιλιοστά του δευτερολέπτου. |
+| [AdvanceAfterTime](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/advanceaftertime/) | Ορίζει την καθυστέρηση πριν η διαφάνεια προχωρήσει αυτόματα, σε χιλιοστά του δευτερολέπτου. Ενεργοποιήστε το [AdvanceAfter](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/advanceafter/) για να ενεργοποιήσετε αυτόν τον χρονομετρητή. |
+| [Speed](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/speed/) | Επιλέγει μια προκαθορισμένη κατηγορία ταχύτητας από το [TransitionSpeed](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionspeed/): Slow, Medium ή Fast. Χρησιμοποιείται όταν δεν καθορίζεται ακριβής διάρκεια. |
+
+Το [Duration](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/duration/) ελέγχει μόνο το εφέ μετάβασης· δεν καθορίζει πόσο καιρό παραμένει ορατή η διαφάνεια. Ρυθμίστε την αυτόματη καθυστέρηση προώθησης ξεχωριστά. Όταν δεν οριστεί ρητή διάρκεια, το Aspose.Slides υπολογίζει τη διάρκεια του εφέ από τον τύπο μετάβασης και την τιμή του [Speed](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/speed/).
+
+### **Εφαρμογή του Ίδιου Διάρκειας σε Όλες τις Διαφάνειες**
+
+Για ομοιόμορφο ρυθμό, εφαρμόστε το ίδιο εφέ και ακριβή διάρκεια σε κάθε διαφάνεια. Αυτό το παράδειγμα φορτώνει το `input.pptx`, επιλέγει Fade από το [TransitionType](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitiontype/), και δίνει σε κάθε μετάβαση διάρκεια 750 χιλιοστών του δευτερολέπτου. Επιπλέον ενεργοποιεί αυτόματη προώθηση μετά από 5 000 χιλιοστά και απενεργοποιεί την προώθηση με κλικ του ποντικιού, κατόπιν αποθηκεύει το αποτέλεσμα ως PPTX.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    transition.Type = TransitionType.Fade;
+    transition.Duration = 750;
+
+    // Διαμορφώστε την αυτόματη προώθηση ανεξάρτητα από τη διάρκεια του εφέ.
+    transition.AdvanceAfter = true;
+    transition.AdvanceAfterTime = 5000;
+    transition.AdvanceOnClick = false;
+}
+
+presentation.Save("precise-transitions.pptx", SaveFormat.Pptx);
+```
+
+### **Ορισμός Διαφορετικών Διάρκειών για Ατομικές Διαφάνειες**
+
+Διαφορετικές διαφάνειες μπορούν να έχουν διαφορετικές διάρκειες εφέ. Για παράδειγμα, χρησιμοποιήστε μια σύντομη μετάβαση για τη διαφάνεια τίτλου και μια μεγαλύτερη για την εισαγωγή ενότητας. Αυτό το παράδειγμα ορίζει 500 χιλιοστά για την πρώτη διαφάνεια και 1 200 χιλιοστά για τη δεύτερη. Χρησιμοποιήστε ένα αρχείο `input.pptx` με τουλάχιστον δύο διαφάνειες.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("input.pptx");
+
+if (presentation.Slides.Count >= 2)
+{
+    var firstTransition = presentation.Slides[0].SlideShowTransition;
+    firstTransition.Type = TransitionType.Fade;
+    firstTransition.Duration = 500;
+
+    var secondTransition = presentation.Slides[1].SlideShowTransition;
+    secondTransition.Type = TransitionType.Push;
+    secondTransition.Duration = 1200;
+
+    presentation.Save("individual-transition-durations.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
+}
+```
+
+### **Συντονισμός Μεταβάσεων με Αναπαραγωγόμενη Έξοδο**
+
+Κατά την προετοιμασία ενός [animated GIF](/slides/el/net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/el/net/export-to-html5/), ή [video](/slides/el/net/convert-powerpoint-to-video/), ορίστε ακριβείς διάρκειες μετάβασης πριν από την εξαγωγή ώστε να ταιριάζουν με το επιθυμητό ρυθμό. Για παράδειγμα, χρησιμοποιήστε μια εξασθένιση 600 χιλιοστών μεταξύ σκηνών και ρυθμίστε την καθυστέρηση προόδου κάθε διαφάνειας ξεχωριστά για να επιτρέψετε χρόνο για την αφήγηση ή το περιεχόμενο.
+
+Για GIF και βίντεο, συντονίστε το ρυθμό καρέ της εξόδου με τη διάρκεια του εφέ: 600 χιλιοστά αντιστοιχούν σε 18 καρέ στα 30 καρέ ανά δευτερόλεπτο. Στο HTML5, ενεργοποιήστε τις κινούμενες μεταβάσεις στις ρυθμίσεις εξαγωγής. Ελέγξτε τις υποστηριζόμενες μεταβάσεις και επιλογές χρόνου του επιλεγμένου μορφότυπου εξόδου και προεπισκοπήστε το αποτέλεσμα για να επιβεβαιώσετε το συγχρονισμό.
+
+### **Ανάγνωση Υπάρχουσας Διάρκειας Μετάβασης**
+
+Διαβάστε το [Duration](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/duration/) πριν τροποποιήσετε τη μετάβαση για να καθορίσετε εάν αποθηκεύεται ρητή τιμή. Μία τιμή `-1` σημαίνει ότι δεν έχει οριστεί ρητή διάρκεια· μια μη αρνητική τιμή καθορίζει τη αποθηκευμένη διάρκεια σε χιλιοστά του δευτερολέπτου. Η μη ορισμένη τιμή δεν είναι η υπολογιζόμενη διάρκεια εκτέλεσης: το Aspose.Slides χρησιμοποιεί τον τύπο μετάβασης και το [Speed](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/speed/) για να καθορίσει αυτήν τη διάρκεια. Η επιλογή τύπου μετάβασης μπορεί να αρχικοποιήσει διάρκεια, γι’ αυτό ελέγξτε πρώτα τις αρχικές ρυθμίσεις.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var transition = slide.SlideShowTransition;
+    var duration = transition.Duration;
+
+    if (duration >= 0)
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: stored transition duration is {duration} ms.");
+    }
+    else
+    {
+        Console.WriteLine($"Slide {slide.SlideNumber}: no explicit duration; timing depends on {transition.Type} and {transition.Speed}.");
     }
 }
 ```
 
 ## **Μετάβαση Morph**
-Το Aspose.Slides for .NET υποστηρίζει τώρα τη [Morph Transition](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/imorphtransition). Αντιπροσωπεύει μια νέα μετάβαση morph που εισήχθη στο PowerPoint 2019. Η μετάβαση Morph σας επιτρέπει να δημιουργήσετε ομαλή κίνηση από τη μία διαφάνεια στην επόμενη. Αυτό το άρθρο περιγράφει την έννοια και πώς να χρησιμοποιήσετε τη μετάβαση Morph. Για να χρησιμοποιήσετε αποτελεσματικά τη μετάβαση Morph, θα χρειαστεί να έχετε δύο διαφάνειες με τουλάχιστον ένα κοινό αντικείμενο. Ο πιο εύκολος τρόπος είναι να διπλασιάσετε τη διαφάνεια και στη συνέχεια να μετακινήσετε το αντικείμενο στη δεύτερη διαφάνεια σε διαφορετική θέση.
 
-Το παρακάτω απόσπασμα κώδικα δείχνει πώς να προσθέσετε ένα αντίγραφο της διαφάνειας με κάποιο κείμενο στην παρουσίαση και να ορίσετε μια μετάβαση του [morph type](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/imorphtransition/properties/morphtype) στη δεύτερη διαφάνεια.
+Η μετάβαση Morph κινεί τις αλλαγές μεταξύ αντικειμένων σε διαδοχικές διαφάνειες. Για να δημιουργήσετε ένα απλό εφέ Morph, αντιγράψτε μια διαφάνεια, μετακινήστε ή αλλάξτε το μέγεθος ενός αντικειμένου στην αντιγραφή, και εφαρμόστε τη μετάβαση Morph στη δεύτερη διαφάνεια. Αυτό παρέχει στα αντίστοιχα αντικείμενα το μονοπάτι κίνησης μεταξύ της αρχικής και της τροποποιημένης κατάστασής τους.
 
-```c#
-using (Presentation presentation = new Presentation())
-{
-    AutoShape autoshape = (AutoShape)presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.TextFrame.Text = "Morph Transition in PowerPoint Presentations";
+Το παρακάτω παράδειγμα δημιουργεί μια διαφάνεια με ένα τετράγωνο κειμένου, αντιγράφει τη διαφάνεια, και αλλάζει τη θέση και το μέγεθος του τετραγώνου στην αντιγραφή. Στη συνέχεια επιλέγει Morph από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitiontype/) για τη δεύτερη διαφάνεια. Ανοίξτε το αποθηκευμένο αρχείο σε προβολέα παρουσίασης που υποστηρίζει Morph για να δείτε το εφέ κατά τη διάρκεια της παρουσίασης.
 
-    presentation.Slides.AddClone(presentation.Slides[0]);
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-    presentation.Slides[1].Shapes[0].X += 100;
-    presentation.Slides[1].Shapes[0].Y += 50;
-    presentation.Slides[1].Shapes[0].Width -= 200;
-    presentation.Slides[1].Shapes[0].Height -= 10;
+using var presentation = new Presentation();
 
-    presentation.Slides[1].SlideShowTransition.Type = Aspose.Slides.SlideShow.TransitionType.Morph;
+var firstSlide = presentation.Slides[0];
+var rectangle = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+rectangle.TextFrame.Text = "Morph transition";
 
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
-}
+var secondSlide = presentation.Slides.AddClone(firstSlide);
+var movedRectangle = secondSlide.Shapes[0];
+movedRectangle.X += 100;
+movedRectangle.Y += 50;
+movedRectangle.Width -= 200;
+movedRectangle.Height -= 10;
+
+secondSlide.SlideShowTransition.Type = TransitionType.Morph;
+
+presentation.Save("morph-transition.pptx", SaveFormat.Pptx);
 ```
 
 ## **Τύποι Μετάβασης Morph**
-Νέο enum [Aspose.Slides.SlideShow.TransitionMorphType](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionmorphtype) προστέθηκε. Αντιπροσωπεύει διαφορετικούς τύπους μετάβασης Morph διαφάνειας.
 
-Το enum TransitionMorphType έχει τρία μέλη:
+Η απαρίθμηση [TransitionMorphType](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionmorphtype/) ελέγχει πώς το Morph ταιριάζει και κινεί το περιεχόμενο:
 
-- ByObject: Η μετάβαση Morph θα πραγματοποιηθεί λαμβάνοντας υπόψη τα σχήματα ως αδιάσπαστα αντικείμενα.
-- ByWord: Η μετάβαση Morph θα πραγματοποιηθεί με τη μεταφορά του κειμένου ανά λέξεις όπου είναι δυνατόν.
-- ByChar: Η μετάβαση Morph θα πραγματοποιηθεί με τη μεταφορά του κειμένου ανά χαρακτήρες όπου είναι δυνατόν.
+- [ByObject](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionmorphtype/) αντιμετωπίζει κάθε σχήμα ως ολόκληρο αντικείμενο.
+- [ByWord](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionmorphtype/) κινεί το κείμενο ταιριάζοντας λέξεις όπου είναι δυνατόν.
+- [ByChar](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionmorphtype/) κινεί το κείμενο ταιριάζοντας χαρακτήρες όπου είναι δυνατόν.
 
-Το παρακάτω απόσπασμα κώδικα δείχνει πώς να ορίσετε τη μετάβαση morph σε διαφάνεια και να αλλάξετε τον τύπο morph:
+Ορίστε την [Type](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/type/) της μετάβασης σε Morph πριν αποκτήσετε πρόσβαση στην [Value](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/value/). Η τιμή παρέχει το interface [IMorphTransition](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/imorphtransition/), του οποίου η ιδιότητα [MorphType](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/imorphtransition/morphtype/) επιλέγει τη λειτουργία αντιστοίχισης.
 
-```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+Αυτό το παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε στην προηγούμενη ενότητα και ρυθμίζει τη δεύτερη διαφάνεια να χρησιμοποιεί μεταφορά Morph βάσει λέξεων.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
+
+using var presentation = new Presentation("morph-transition.pptx");
+
+if (presentation.Slides.Count >= 2)
 {
-    presentation.Slides[0].SlideShowTransition.Type = TransitionType.Morph;
-    ((IMorphTransition)presentation.Slides[0].SlideShowTransition.Value).MorphType = TransitionMorphType.ByWord;
-    presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
+    var transition = presentation.Slides[1].SlideShowTransition;
+    transition.Type = TransitionType.Morph;
+
+    if (transition.Value is IMorphTransition morphTransition)
+    {
+        morphTransition.MorphType = TransitionMorphType.ByWord;
+        presentation.Save("morph-by-word.pptx", SaveFormat.Pptx);
+    }
+    else
+    {
+        Console.WriteLine("Morph transition options are unavailable.");
+    }
+}
+else
+{
+    Console.WriteLine("The input presentation must contain at least two slides.");
 }
 ```
 
 ## **Ορισμός Εφέ Μετάβασης**
-Το Aspose.Slides for .NET υποστηρίζει τον ορισμό εφέ μετάβασης, π.χ. από το μαύρο, από αριστερά, από δεξιά κ.λπ. Για να ορίσετε το εφέ μετάβασης, ακολουθήστε τα παρακάτω βήματα:
 
-- Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation).
-- Αποκτήστε την αναφορά της διαφάνειας.
-- Ορισμός του εφέ μετάβασης.
-- Αποθηκεύστε την παρουσίαση ως αρχείο [PPTX](https://docs.fileformat.com/presentation/pptx/).
+Ορισμένες μεταβάσεις εκθέτουν πρόσθετες επιλογές, όπως κατεύθυνση ή αν το εφέ ξεκινά από μαύρη οθόνη. Οι διαθέσιμες επιλογές εξαρτώνται από τον επιλεγμένο [Type](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/type/). Ορίστε πρώτα τον τύπο, κατόπιν χρησιμοποιήστε το κατάλληλο interface από το [Value](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/value/).
 
-Στο παρακάτω παράδειγμα, έχουμε ορίσει τα εφέ μετάβασης.
+Το παρακάτω παράδειγμα εφαρμόζει μια μετάβαση Cut στην πρώτη διαφάνεια του `input.pptx`. Ορίζει το [FromBlack](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/ioptionalblacktransition/fromblack/) μέσω του [IOptionalBlackTransition](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/ioptionalblacktransition/) ώστε η μετάβαση να ξεκινά από μαύρη οθόνη.
 
-```c#
-// Δημιουργία αντικειμένου Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-// Ορισμός εφέ
-presentation.Slides[0].SlideShowTransition.Type = TransitionType.Cut;
-((OptionalBlackTransition)presentation.Slides[0].SlideShowTransition.Value).FromBlack = true;
+using var presentation = new Presentation("input.pptx");
+var transition = presentation.Slides[0].SlideShowTransition;
+transition.Type = TransitionType.Cut;
 
-// Αποθήκευση της παρουσίασης στο δίσκο
-presentation.Save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+if (transition.Value is IOptionalBlackTransition cutTransition)
+{
+    cutTransition.FromBlack = true;
+    presentation.Save("cut-from-black.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Cut transition options are unavailable.");
+}
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
 **Μπορώ να ελέγξω την ταχύτητα αναπαραγωγής μιας μετάβασης διαφάνειας;**
 
-Ναι. Ορίστε την [Speed](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/speed/) της μετάβασης χρησιμοποιώντας τη ρύθμιση [TransitionSpeed](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionspeed/) (π.χ. αργή/μεσαία/γρήγορη).
+Ναι. Προτιμήστε το [Duration](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/duration/) όταν χρειάζεστε ακριβή διάρκεια εφέ σε χιλιοστά του δευτερολέπτου. Χρησιμοποιήστε το [Speed](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/speed/) όταν μια προκαθορισμένη κατηγορία [TransitionSpeed](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionspeed/)—Slow, Medium ή Fast—είναι επαρκής και δεν έχει οριστεί ρητή διάρκεια. Αυτές οι ρυθμίσεις ελέγχουν το εφέ μετάβασης ανεξάρτητα από την καθυστέρηση αυτόματης προώθησης.
 
-**Μπορώ να συνδέσω ήχο σε μια μετάβαση και να τον επαναλαμβάνω;**
+**Μπορώ να προσθέσω ήχο σε μια μετάβαση και να τον επαναλαμβάνω;**
 
-Ναι. Μπορείτε να ενσωματώσετε έναν ήχο για τη μετάβαση και να ελέγξετε τη συμπεριφορά μέσω ρυθμίσεων όπως η κατάσταση ήχου και η επανάληψη (π.χ., [Sound](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/sound/), [SoundMode](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/soundmode/), [SoundLoop](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/soundloop/), καθώς και μεταδεδομένα όπως [SoundIsBuiltIn](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/soundisbuiltin/) και [SoundName](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/soundname/)).
+Ναι. Αναθέστε ενσωματωμένο ήχο στο [Sound](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/sound/), ορίστε το [SoundMode](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/soundmode/) σε StartSound από την απαρίθμηση [TransitionSoundMode](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitionsoundmode/), και ενεργοποιήστε το [SoundLoop](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/soundloop/). Ο ήχος επαναλαμβάνεται μέχρι το επόμενο ηχητικό γεγονός στην παρουσίαση.
 
-**Ποιος είναι ο πιο γρήγορος τρόπος για να εφαρμόσετε την ίδια μετάβαση σε κάθε διαφάνεια;**
+**Ποιος είναι ο πιο γρήγορος τρόπος για να εφαρμόσω την ίδια μετάβαση σε κάθε διαφάνεια;**
 
-Ρυθμίστε τον επιθυμητό τύπο μετάβασης στη ρύθμιση μετάβασης κάθε διαφάνειας· οι μεταβάσεις αποθηκεύονται ανά διαφάνεια, έτσι η εφαρμογή του ίδιου τύπου σε όλες τις διαφάνειες δίνει ένα συνεπές αποτέλεσμα.
+Διέλθετε τη συλλογή [Slides](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/slides/el/) της παρουσίασης και ορίστε την [Type](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/type/) της μετάβασης σε κάθε διαφάνεια στην ίδια τιμή. Ορίστε τυχόν χρονικές και επιλογές εφέ μέσα στον ίδιο βρόχο για να διατηρήσετε τη συμπεριφορά συνέπεια μεταξύ των διαφανειών.
 
 **Πώς μπορώ να ελέγξω ποια μετάβαση είναι αυτή τη στιγμή ορισμένη σε μια διαφάνεια;**
 
-Εξετάστε τις [ρυθμίσεις μετάβασης](https://reference.aspose.com/slides/el/net/aspose.slides/baseslide/slideshowtransition/) της διαφάνειας και διαβάστε το [transition type](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/slideshowtransition/type/); αυτή η τιμή σας δείχνει ακριβώς ποιο εφέ είναι εφαρμόσμενο.
+Διαβάστε την ιδιότητα [Type](https://reference.aspose.com/slides/el/net/aspose.slides/islideshowtransition/type/) από τη [SlideShowTransition](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseslide/slideshowtransition/) της διαφάνειας. Επιστρέφει μια τιμή από την απαρίθμηση [TransitionType](https://reference.aspose.com/slides/el/net/aspose.slides.slideshow/transitiontype/); η τιμή None σημαίνει ότι δεν έχει εφαρμοστεί κανένα εφέ μετάβασης.

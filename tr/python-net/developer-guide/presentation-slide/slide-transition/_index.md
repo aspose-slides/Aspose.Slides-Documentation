@@ -1,5 +1,5 @@
 ---
-title: Python Kullanarak Sunumlarda Slayt Geçişlerini Yönetme
+title: Python Kullanarak Sunularda Slayt Geçişlerini Yönetme
 linktitle: Slayt Geçişi
 type: docs
 weight: 90
@@ -10,175 +10,269 @@ keywords:
 - slayt geçişi uygula
 - gelişmiş slayt geçişi
 - morph geçişi
-- geçiş türü
+- geçiş tipi
 - geçiş efekti
+- PowerPoint
+- OpenDocument
+- sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python’da .NET aracılığıyla slayt geçişlerini nasıl özelleştireceğinizi keşfedin; PowerPoint ve OpenDocument sunumları için adım adım rehberlik sunar."
+description: "Aspose.Slides for Python via .NET ile slayt geçişlerini uygulayın, otomatik slayt ilerlemeyi yapılandırın ve Morph ve diğer geçiş efektlerini özelleştirin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python, slayt geçişleri üzerinde tam kontrol sağlar; bir geçiş türü seçmekten zamanlamayı ve tetikleyicileri yapılandırmaya kadar otomatik sunum iş akışlarının bir parçası olarak kullanılabilir. Slaytların tıklama ile veya belirli bir gecikmeden sonra ilerlemesini ayarlayabilir ve siyahdan kesme veya yönlü girişler gibi efektlerle görsel davranışı iyileştirebilirsiniz. Kütüphane ayrıca PowerPoint 2019’da tanıtılan Morph geçişini de destekler; nesne, kelime veya karakter bazında morph modları sayesinde slaytlar arasında sorunsuz ve tutarlı bir hareket oluşturulur.
+Slayt geçişleri, bir slayt gösterisi sırasında slaytların nasıl görüneceğini kontrol eder. Aspose.Slides for Python via .NET ile her slayt için bir geçiş efekti seçebilir, geçişin fare tıklamasıyla mı yoksa zamanlayıcıyla mı ilerleyeceğini yapılandırabilir ve efekti özel seçeneklerle ayarlayabilirsiniz. Bu makale, geçişleri uygulamak, kesin geçiş sürelerini ayarlamak, slayt zamanlamasını yönetmek ve iki slayt arasında bir Morph geçişi oluşturmak için Python örnekleri kullanır. Örnekler ayrıca ayarların bir PPTX dosyasına nasıl kaydedileceğini gösterir.
 
-## **Slayt Geçişleri Ekle**
+## **Slayt Geçişi Ekleme**
 
-Bu örnek, Aspose.Slides for Python kullanarak basit slayt geçişlerini nasıl yöneteceğinizi gösterir. Geliştiriciler slaytlara farklı geçiş efektleri uygulayabilir ve davranışlarını özelleştirebilir. Basit bir slayt geçişi oluşturmak için şu adımları izleyin:
+Bir geçiş uygulamak için bir sunumu [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfı ile yükleyin ve slaytın [slide_show_transition](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/slide_show_transition/) özelliğine erişin. Özelliğin [type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/type/) değerini [TransitionType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitiontype/) enum'undan bir değere ayarlayın, ardından sunumu kaydedin.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. [TransitionType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitiontype/) enum’undan bir geçiş efekti uygulayın.
-1. Değiştirilmiş sunum dosyasını kaydedin.
+Aşağıdaki örnek, ilk slayta Circle geçişi, ikinci slayta ise Comb geçişi uygular. En az iki slaytı olan bir `input.pptx` dosyası kullanın.
 
-```py
+```python
 import aspose.slides as slides
 
-# Sunum dosyasını yüklemek için Presentation sınıfının bir örneğini oluşturun.
-with slides.Presentation("sample.pptx") as presentation:
-    # 1. slayta daire geçişi uygula.
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+        presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # 2. slayta tarak geçişi uygula.
-    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
-
-    # Sunumu diske kaydet.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("slide-transitions.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least two slides.")
 ```
 
-## **Gelişmiş Slayt Geçişleri Ekle**
+## **Gelişmiş Slayt Geçişi Ekleme**
 
-Bu bölümde, bir slayta basit bir geçiş efekti uyguladık. Bu efekti daha kontrollü ve pulsatör hâle getirmek için şu adımları izleyin:
+Slaytun ekranda ne kadar kalacağını ve fare tıklamasının slayt gösterisini ilerletip ilerletmeyeceğini yapılandırabilirsiniz. Aşağıdaki özellikler bu davranışı kontrol eder:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. [TransitionType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitiontype/) enum’undan bir geçiş efekti uygulayın.
-1. Geçişi **Advance On Click**, belirli bir zaman diliminden sonra veya her ikisine göre yapılandırın.
-1. Değiştirilmiş sunum dosyasını kaydedin.
+- [advance_on_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) izleyicinin fareyi tıklayarak ilerlemesini sağlar.
+- [advance_after](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) otomatik ilerlemeyi etkinleştirir.
+- [advance_after_time](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) otomatik ilerleme öncesi gecikmeyi milisaniye cinsinden belirtir.
 
-Eğer **Advance On Click** etkinleştirilmişse, slayt yalnızca kullanıcı tıkladığında ilerler. **Advance After Time** özelliği ayarlanmışsa, slayt belirtilen süreden sonra otomatik olarak ilerler.
+İzleyicinin hem tıklama hem de zamanlayıcı ile ilerlemesine izin vermek için her iki seçeneği de etkinleştirin. Yalnızca zamanlayıcıyı kullanmak için [advance_on_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) değerini `False` olarak ayarlayın. Gecikme, slayt gösterisinin ne zaman ilerleyeceğini kontrol eder; görsel geçiş efektinin süresini ayarlamaz.
 
-```py
+Bu örnek, ilk üç slayta farklı efektler atar ve otomatik ilerlemeyi sırasıyla 3, 5 ve 7 saniye sonra etkinleştirir. Fare tıklamaları da bu slaytları ilerletebilir. En az üç slaytı olan bir `input.pptx` dosyası kullanın.
+
+```python
 import aspose.slides as slides
 
-# Sunum dosyasını açmak için Presentation sınıfının bir örneğini oluşturun.
-with slides.Presentation("sample.pptx") as presentation:
-    slide0 = presentation.slides[0]
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 3:
+        first_transition = presentation.slides[0].slide_show_transition
+        first_transition.type = slides.slideshow.TransitionType.CIRCLE
+        first_transition.advance_on_click = True
+        first_transition.advance_after = True
+        first_transition.advance_after_time = 3000
 
-    # 1. slayta daire geçişi uygula.
-    slide0.slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+        second_transition = presentation.slides[1].slide_show_transition
+        second_transition.type = slides.slideshow.TransitionType.COMB
+        second_transition.advance_on_click = True
+        second_transition.advance_after = True
+        second_transition.advance_after_time = 5000
 
-    # Tıklama ile ilerlemeyi etkinleştir ve 3 saniyelik otomatik ilerlemeyi ayarla.
-    slide0.slide_show_transition.advance_on_click = True
-    slide0.slide_show_transition.advance_after_time = 3000
+        third_transition = presentation.slides[2].slide_show_transition
+        third_transition.type = slides.slideshow.TransitionType.ZOOM
+        third_transition.advance_on_click = True
+        third_transition.advance_after = True
+        third_transition.advance_after_time = 7000
 
-    slide1 = presentation.slides[1]
+        presentation.save("advanced-transitions.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least three slides.")
+```
 
-    # 2. slayta tarak geçişi uygula.
-    slide1.slide_show_transition.type = slides.slideshow.TransitionType.COMB
+Zamanlı ilerlemenin etkin olup olmadığını kontrol etmek için [advance_after](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) değerini okuyun. Yalnızca kaydedilmiş bir gecikme, zamanlayıcının aktif olduğunu göstermez.
 
-    # Tıklama ile ilerlemeyi etkinleştir ve 5 saniyelik otomatik ilerlemeyi ayarla.
-    slide1.slide_show_transition.advance_on_click = True
-    slide1.slide_show_transition.advance_after_time = 5000
+Sonraki örnek, yukarıda kaydedilen dosyayı açar, etkin zamanlayıcıları raporlar ve iki saniyeden uzun bir gecikmeye sahip slaytlar için otomatik ilerlemeyi devre dışı bırakır. Bu slaytlar için fare tıklamalarını etkinleştirir ve güncellenmiş ayarları kaydeder.
 
-    slide2 = presentation.slides[2]
+```python
+import aspose.slides as slides
 
-    # 3. slayta yakınlaştırma geçişi uygula.
-    slide2.slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+with slides.Presentation("advanced-transitions.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
 
-    # Tıklama ile ilerlemeyi etkinleştir ve 7 saniyelik otomatik ilerlemeyi ayarla.
-    slide2.slide_show_transition.advance_on_click = True
-    slide2.slide_show_transition.advance_after_time = 7000
+        if transition.advance_after:
+            print(f"Slide {slide.slide_number}: advance after {transition.advance_after_time} ms.")
 
-    # Sunumu diske kaydet.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+            if transition.advance_after_time > 2000:
+                transition.advance_after = False
+                transition.advance_on_click = True
+
+    presentation.save("adjusted-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Geçiş Zamanlamasını Kesin Olarak Kontrol Etme**
+
+Geçiş efektinin tam uzunluğunu milisaniye cinsinden belirtmek için [duration](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/duration/) özelliğini kullanın. Slaytın [slide_show_transition](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/slide_show_transition/) özelliği, bu ayarları [SlideShowTransition](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/) aracılığıyla açar:
+
+| Özellik | Amaç |
+| --- | --- |
+| [duration](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Geçiş efektinin kendisinin süresini milisaniye cinsinden ayarlar. |
+| [advance_after_time](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Slaytın otomatik olarak ilerlemesinden önceki gecikmeyi milisaniye cinsinden ayarlar. Bu zamanlayıcıyı etkinleştirmek için [advance_after](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) özelliğini etkinleştirin. |
+| [speed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | [TransitionSpeed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionspeed/) enum'undan bir ön tanımlı hız kategorisi seçer: SLOW, MEDIUM veya FAST. Kesin bir süre belirtilmediğinde kullanılır. |
+
+[duration](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/duration/) yalnızca geçiş efektini kontrol eder; slaytın ekranda ne kadar kalacağını belirlemez. Otomatik ilerleme gecikmesini ayrı olarak yapılandırın. Açık bir süre ayarlanmamışsa, Aspose.Slides geçiş tipine ve [speed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/speed/) değerine göre efekt süresini belirler.
+
+### **Her Slayta Aynı Süreyi Uygulama**
+
+Tutarlı bir tempo için aynı efekti ve kesin süresi her slayta uygulayın. Bu örnek `input.pptx` dosyasını yükler, [TransitionType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitiontype/) üzerinden Fade seçer ve her geçişe 750 milisaniye süre verir. Ayrıca otomatik ilerlemeyi 5.000 milisaniye sonra etkinleştirir ve fare tıklamasıyla ilerlemeyi devre dışı bırakır, ardından sonucu PPTX olarak kaydeder.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+        transition.type = slides.slideshow.TransitionType.FADE
+        transition.duration = 750
+
+        # Efekt süresinden bağımsız olarak otomatik ilerlemeyi yapılandır.
+        transition.advance_after = True
+        transition.advance_after_time = 5000
+        transition.advance_on_click = False
+
+    presentation.save("precise-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Bireysel Slaytlar İçin Farklı Süreler Ayarlama**
+
+Farklı slaytlar farklı efekt süreleri kullanabilir. Örneğin, başlık slaytı için kısa bir geçiş, bölüm giriş slaytı için daha uzun bir geçiş kullanın. Bu örnek ilk slayta 500 milisaniye, ikinci slayta 1.200 milisaniye süresi ayarlar. En az iki slaytı olan bir `input.pptx` dosyası kullanın.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        first_transition = presentation.slides[0].slide_show_transition
+        first_transition.type = slides.slideshow.TransitionType.FADE
+        first_transition.duration = 500
+
+        second_transition = presentation.slides[1].slide_show_transition
+        second_transition.type = slides.slideshow.TransitionType.PUSH
+        second_transition.duration = 1200
+
+        presentation.save("individual-transition-durations.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least two slides.")
+```
+
+### **Geçişleri Animasyonlu Çıktıyla Koordine Etme**
+
+[animasyonlu GIF](/slides/tr/python-net/convert-powerpoint-to-animated-gif/), [HTML5 sunumu](/slides/tr/python-net/export-to-html5/) veya [video](/slides/tr/python-net/convert-powerpoint-to-video/) hazırlarken, dışa aktarmadan önce kesin geçiş sürelerini ayarlayarak istenen tempo ile eşleşmesini sağlayın. Örneğin sahneler arasında 600 milisaniyelik bir geçiş kullanın ve her slaytın ilerleme gecikmesini ayrı ayrı ayarlayarak anlatım veya içerik için zaman tanıyın.
+
+GIF ve video için, çıktı kare hızını efekt süresiyle eşleştirin: 600 milisaniye, 30 fps'de 18 kareye eşittir. HTML5'te, dışa aktarım ayarlarında animasyonlu geçişleri etkinleştirin. Seçilen dışa aktarım formatının desteklediği efekt ve zamanlama seçeneklerini kontrol edin ve senkronizasyonu doğrulamak için çıktıyı önizleyin.
+
+### **Mevcut Bir Geçiş Süresini Okuma**
+
+Geçişi değiştirmeden önce [duration](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/duration/) değerini okuyun; böylece açık bir değer saklanıp saklanmadığını anlayabilirsiniz. `-1` değeri, açık bir sürenin ayarlanmadığını; negatif olmayan bir değer ise milisaniye cinsinden saklanan sürenin olduğunu gösterir. Bu ayarlanmamış değer, hesaplanan oynatma süresi değildir: Aspose.Slides, geçiş tipine ve [speed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/speed/) değerine göre bu süreci belirler. Bir geçiş tipi ayarlamak bir süre başlatabilir; bu yüzden önce orijinal ayarları inceleyin.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+        duration = transition.duration
+
+        if duration >= 0:
+            print(f"Slide {slide.slide_number}: stored transition duration is {duration} ms.")
+        else:
+            print(f"Slide {slide.slide_number}: no explicit duration; timing depends on {transition.type} and {transition.speed}.")
 ```
 
 ## **Morph Geçişi**
 
-Aspose.Slides for Python, bir slayttan diğerine sorunsuz hareketi animasyonlaştıran [Morph geçişi](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/morphtransition/) destekler. Bu bölüm, Morph geçişinin nasıl kullanılacağını açıklar. Etkili bir şekilde kullanmak için ortak bir nesne içeren iki slayta ihtiyacınız vardır. En kolay yöntem, bir slaytı çoğaltmak ve nesneyi ikinci slaytta farklı bir konuma taşımaktır.
+Morph geçişi, ardışık slaytlardaki nesneler arasındaki değişiklikleri animasyonlu olarak gösterir. Basit bir Morph efekti oluşturmak için bir slaytı klonlayın, klon üzerindeki bir nesneyi taşıyın veya yeniden boyutlandırın ve ikinci slayta Morph geçişi uygulayın. Bu, orijinal ve değiştirilmiş durumlar arasında animasyon yapılacak nesneleri eşleştirir.
 
-Aşağıdaki kod örneği, metin içeren bir slaytı klonlayıp ikinci slayta Morph geçişi uygulamayı gösterir.
+Aşağıdaki örnek, bir metin dikdörtgeni içeren bir slayt oluşturur, slaytı klonlar ve klon üzerindeki dikdörtgenin konum ve boyutunu değiştirir. Ardından ikinci slayt için [TransitionType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitiontype/) enum'undan Morph seçer. Kaydedilen dosyayı Morph'u destekleyen bir sunum görüntüleyicide açtığınızda efekt slayt gösterisi sırasında görülecektir.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    slide0 = presentation.slides[0]
+    first_slide = presentation.slides[0]
+    rectangle = first_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
+    rectangle.text_frame.text = "Morph transition"
 
-    auto_shape = slide0.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
-    auto_shape.text_frame.text = "Morph Transition in PowerPoint Presentations"
+    second_slide = presentation.slides.add_clone(first_slide)
+    moved_rectangle = second_slide.shapes[0]
+    moved_rectangle.x += 100
+    moved_rectangle.y += 50
+    moved_rectangle.width -= 200
+    moved_rectangle.height -= 10
 
-    # İlk slaytı klonlayarak Morph sürekliliği için aynı şekillere sahip ikinci bir slayt oluştur.
-    slide1 = presentation.slides.add_clone(slide0)
+    second_slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
 
-    # İkinci slaytta aynı dikdörtgeni seç ve konum ve boyutunu değiştir.
-    shape = slide1.shapes[0]
-    shape.x += 100
-    shape.y += 50
-    shape.width -= 200
-    shape.height -= 10
-
-    # İkinci slaytta Morph geçişini etkinleştirerek şekil değişikliklerini sorunsuz bir şekilde canlandır.
-    slide1.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("morph-transition.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Morph Geçişi Türleri**
 
-[TransitionMorphType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionmorphtype/) enum’u, farklı Morph slayt geçişi türlerini temsil eder.
+[TransitionMorphType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionmorphtype/) enum'ı, Morph'un içeriği nasıl eşleştireceğini ve animasyonlayacağını kontrol eder:
 
-Aşağıdaki kod örneği, bir slayta Morph geçişi uygulamayı ve morph tipini değiştirmeyi gösterir.
+- [BY_OBJECT](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionmorphtype/) her şekli bütün bir nesne olarak ele alır.
+- [BY_WORD](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionmorphtype/) mümkün olduğunda kelimeleri eşleştirerek metni animasyonlar.
+- [BY_CHAR](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionmorphtype/) mümkün olduğunda karakterleri eşleştirerek metni animasyonlar.
 
-```py
+Geçişin [type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/type/) özelliğini Morph olarak ayarlayın, ardından [value](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/value/) özelliğine erişin. Bu değer, [MorphTransition](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/morphtransition/) nesnesini sağlar; bu nesnenin [morph_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/morphtransition/morph_type/) özelliği eşleştirme modunu seçer.
+
+Bu örnek, önceki bölümde oluşturulan sunumu açar ve ikinci slaytı kelime temelli Morph animasyonu kullanacak şekilde yapılandırır.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("morph-transition.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        transition = presentation.slides[1].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.MORPH
+        morph_transition = transition.value
 
-    slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-    slide.slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
-    
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        if isinstance(morph_transition, slides.slideshow.MorphTransition):
+            morph_transition.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
+            presentation.save("morph-by-word.pptx", slides.export.SaveFormat.PPTX)
+        else:
+            print("Morph transition options are unavailable.")
+    else:
+        print("The input presentation must contain at least two slides.")
 ```
 
-## **Geçiş Efektlerini Ayarla**
+## **Geçiş Efektleri Ayarlama**
 
-Aspose.Slides for Python, **From Black**, **From Left**, **From Right** gibi geçiş efektlerini ayarlamanıza izin verir. Bir geçiş efektini yapılandırmak için şu adımları izleyin:
+Bazı geçişler yön gibi ek seçenekler sunar veya efektin siyah bir ekrandan başlayıp başlamadığını belirler. Kullanılabilir seçenekler seçilen geçişin [type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/type/) değerine bağlıdır. Önce türü ayarlayın, ardından [value](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/value/) üzerinden ilgili geçiş nesnesini kullanın.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. Slayta bir referans alın.
-1. İstediğiniz geçiş etkisini ayarlayın.
-1. Sunumu PPTX dosyası olarak kaydedin.
+Aşağıdaki örnek, `input.pptx` dosyasının ilk slaytına Cut geçişi uygular. [OptionalBlackTransition](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/optionalblacktransition/) üzerinden [from_black](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) özelliğini ayarlayarak geçişin siyah bir ekrandan başlamasını sağlar.
 
-Aşağıdaki örnekte, çeşitli geçiş efektleri ayarladık.
-
-```py
+```python
 import aspose.slides as slides
 
-# Sunum dosyasını açmak için Presentation sınıfının bir örneğini oluşturun.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("input.pptx") as presentation:
+    transition = presentation.slides[0].slide_show_transition
+    transition.type = slides.slideshow.TransitionType.CUT
+    cut_transition = transition.value
 
-    # Cut geçişi uygula ve From Black seçeneğini etkinleştir.
-    slide.slide_show_transition.type = slides.slideshow.TransitionType.CUT
-    slide.slide_show_transition.value.from_black = True
-
-    # Sunumu diske kaydet.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    if isinstance(cut_transition, slides.slideshow.OptionalBlackTransition):
+        cut_transition.from_black = True
+        presentation.save("cut-from-black.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Cut transition options are unavailable.")
 ```
 
-## **FAQ**
+## **SSS**
 
 **Bir slayt geçişinin oynatma hızını kontrol edebilir miyim?**
 
-Evet. Geçişin [speed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/speed/) ayarını, [TransitionSpeed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionspeed/) (ör. slow/medium/fast) kullanarak belirleyebilirsiniz.
+Evet. Milisaniye cinsinden kesin bir efekt süresi gerektiğinde [duration](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/duration/) tercih edin. Ön tanımlı bir [TransitionSpeed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionspeed/) (SLOW, MEDIUM veya FAST) yeterli olduğunda ve açık bir süre ayarlanmamışsa [speed](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/speed/) kullanın. Bu ayarlar geçiş efektini otomatik ilerleme gecikmesinden bağımsız olarak kontrol eder.
 
 **Bir geçişe ses ekleyebilir ve döngüye alabilir miyim?**
 
-Evet. Geçiş için bir ses gömebilir ve ses modu, döngü gibi ayarlarla davranışını kontrol edebilirsiniz (ör. [sound](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/sound/), [sound_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/), [sound_loop](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/), ek olarak [sound_is_built_in](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/sound_is_built_in/) ve [sound_name](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/sound_name/) gibi meta veriler).
+Evet. Gömülü sesi [sound](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/sound/) özelliğine atayın, [TransitionSoundMode](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitionsoundmode/) enum'undan START_SOUND olarak [sound_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) ayarlayın ve [sound_loop](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/) özelliğini etkinleştirin. Ses, slayt gösterisindeki bir sonraki ses olayı gerçekleşene kadar döngüde çalar.
 
-**Aynı geçişi her slayta uygulamanın en hızlı yolu nedir?**
+**Her slayta aynı geçişi en hızlı nasıl uygularım?**
 
-Her slaytın geçiş ayarlarında istenen geçiş tipini yapılandırın; geçişler slayt başına depolandığı için aynı tipi tüm slaytlara uygulamak tutarlı bir sonuç verir.
+Sunumun [slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/slides/tr/) koleksiyonunu döngüye alıp her slaytın geçiş [type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/type/) özelliğini aynı değere ayarlayın. Aynı döngü içinde zamanlama ve efekt seçeneklerini de ayarlayarak davranışın tüm slaytlarda tutarlı olmasını sağlayın.
 
-**Bir slaytta şu anda hangi geçişin ayarlı olduğunu nasıl kontrol edebilirim?**
+**Bir slaytta şu anda hangi geçişin ayarlı olduğunu nasıl kontrol ederim?**
 
-Slaytın [transition settings](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/slide_show_transition/) incelen ve [transition type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/type/) okunarak hangi efektin uygulandığını net olarak öğrenebilirsiniz.
+Slaytın [slide_show_transition](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/slide_show_transition/) özelliğinden [type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/slideshowtransition/type/) değerini okuyun. Bu, [TransitionType](https://reference.aspose.com/slides/tr/python-net/aspose.slides.slideshow/transitiontype/) enum'undan bir değer döndürür; NONE değeri, hiçbir geçiş efektinin uygulanmadığını gösterir.

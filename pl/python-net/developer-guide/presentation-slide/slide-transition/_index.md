@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie przejściami slajdów w prezentacjach przy użyciu Pythona
+title: Zarządzaj przejściami slajdów w prezentacjach przy użyciu Pythona
 linktitle: Przejście slajdu
 type: docs
 weight: 90
@@ -12,173 +12,267 @@ keywords:
 - przejście morph
 - typ przejścia
 - efekt przejścia
+- PowerPoint
+- OpenDocument
+- prezentacja
 - Python
 - Aspose.Slides
-description: "Odkryj, jak dostosować przejścia slajdów w Aspose.Slides for Python poprzez .NET, z instrukcją krok po kroku dla prezentacji PowerPoint i OpenDocument."
+description: "Zastosuj przejścia slajdów, skonfiguruj automatyczne przechodzenie slajdów oraz dostosuj Morph i inne efekty przejścia przy użyciu Aspose.Slides for Python via .NET."
 ---
 ## **Przegląd**
 
-Aspose.Slides for Python zapewnia pełną kontrolę nad przejściami slajdów, począwszy od wyboru typu przejścia, po konfigurowanie czasu i wyzwalaczy w ramach zautomatyzowanych przepływów pracy prezentacji. Możesz ustawić, aby slajdy przechodziły po kliknięciu i/lub po określonym opóźnieniu oraz dopracować zachowanie wizualne za pomocą efektów, takich jak przejścia z czerni lub wejścia w określonym kierunku. Biblioteka obsługuje również przejście Morph wprowadzone w PowerPoint 2019, w tym tryby morphingu według obiektu, słowa lub znaku, aby uzyskać płynny, spójny ruch między slajdami.
+Przejścia slajdów kontrolują sposób wyświetlania slajdów podczas pokazu slajdów. Za pomocą Aspose.Slides for Python via .NET możesz wybrać efekt przejścia dla każdego slajdu, skonfigurować przechodzenie po kliknięciu myszy lub timerem oraz dostosować opcje specyficzne dla efektu. Ten artykuł wykorzystuje przykłady w Pythonie do zastosowania przejść, ustawiania dokładnych czasów trwania przejść, zarządzania czasem wyświetlania slajdu i tworzenia przejścia Morph między dwoma slajdami. Przykłady pokazują również, jak zapisać ustawienia do pliku PPTX.
 
-## **Dodaj przejścia slajdów**
+## **Dodaj przejście slajdu**
 
-Aby ułatwić zrozumienie, ten przykład pokazuje, jak używać Aspose.Slides for Python do zarządzania prostymi przejściami slajdów. Programiści mogą stosować różne efekty przejść slajdów i dostosowywać ich zachowanie. Aby stworzyć proste przejście slajdu, wykonaj następujące kroki:
+Aby zastosować przejście, załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) i uzyskaj dostęp do właściwości [slide_show_transition](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/slide_show_transition/) slajdu. Ustaw jej [type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/type/) na wartość z wyliczenia [TransitionType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/transitiontype/), a następnie zapisz prezentację.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) .
-1. Zastosuj przejście slajdu używając jednego z efektów z wyliczenia [TransitionType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/transitiontype/) .
-1. Zapisz zmodyfikowany plik prezentacji.
+Poniższy przykład stosuje przejście Circle do pierwszego slajdu i przejście Comb do drugiego. Użyj pliku `input.pptx` zawierającego przynajmniej dwa slajdy.
 
-```py
+```python
 import aspose.slides as slides
 
-# Utwórz instancję klasy Presentation, aby wczytać plik prezentacji.
-with slides.Presentation("sample.pptx") as presentation:
-    # Zastosuj przejście koła do slajdu 1.
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+        presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # Zastosuj przejście grzebieniowe do slajdu 2.
-    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
-
-    # Zapisz prezentację na dysku.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("slide-transitions.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least two slides.")
 ```
 
-## **Dodaj zaawansowane przejścia slajdów**
+## **Dodaj zaawansowane przejście slajdu**
 
-W tej sekcji zastosowaliśmy prosty efekt przejścia do slajdu. Aby uczynić ten efekt bardziej kontrolowanym i dopracowanym, wykonaj następujące kroki:
+Możesz skonfigurować, jak długo slajd pozostaje na ekranie oraz czy kliknięcie myszy przechodzi dalej w pokazie slajdów. Następujące właściwości kontrolują to zachowanie:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) .
-1. Zastosuj przejście slajdu używając jednego z efektów z wyliczenia [TransitionType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/transitiontype/) .
-1. Skonfiguruj przejście, aby przechodziło po kliknięciu, po określonym czasie lub oba.
-1. Zapisz zmodyfikowany plik prezentacji.
+- [advance_on_click](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) umożliwia widzowi przejście po kliknięciu myszy.
+- [advance_after](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) umożliwia automatyczne przechodzenie.
+- [advance_after_time](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) określa opóźnienie przed automatycznym przechodzeniem, w milisekundach.
 
-Jeśli **Advance On Click** jest włączona, slajd przechodzi tylko po kliknięciu użytkownika. Jeśli ustawiono właściwość **Advance After Time**, slajd przechodzi automatycznie po określonym przedziale czasu.
+Włącz zarówno przechodzenie po kliknięciu, jak i po upływie czasu, aby widz mógł przejść dalej kliknięciem lub poczekać na timer. Aby używać tylko timera, ustaw [advance_on_click] na `False`. Opóźnienie kontroluje, kiedy pokaz slajdów przechodzi dalej; nie określa czasu trwania efektu wizualnego przejścia.
 
-```py
+Ten przykład przypisuje różne efekty do pierwszych trzech slajdów i włącza automatyczne przechodzenie po 3, 5 i 7 sekundach, odpowiednio. Kliknięcia myszy również mogą przechodzić te slajdy. Użyj pliku `input.pptx` zawierającego przynajmniej trzy slajdy.
+
+```python
 import aspose.slides as slides
 
-# Utwórz instancję klasy Presentation, aby otworzyć plik prezentacji.
-with slides.Presentation("sample.pptx") as presentation:
-    slide0 = presentation.slides[0]
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 3:
+        first_transition = presentation.slides[0].slide_show_transition
+        first_transition.type = slides.slideshow.TransitionType.CIRCLE
+        first_transition.advance_on_click = True
+        first_transition.advance_after = True
+        first_transition.advance_after_time = 3000
 
-    # Zastosuj przejście koła do slajdu 1.
-    slide0.slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+        second_transition = presentation.slides[1].slide_show_transition
+        second_transition.type = slides.slideshow.TransitionType.COMB
+        second_transition.advance_on_click = True
+        second_transition.advance_after = True
+        second_transition.advance_after_time = 5000
 
-    # Włącz przejście po kliknięciu i ustaw automatyczne przejście po 3 sekundach.
-    slide0.slide_show_transition.advance_on_click = True
-    slide0.slide_show_transition.advance_after_time = 3000
+        third_transition = presentation.slides[2].slide_show_transition
+        third_transition.type = slides.slideshow.TransitionType.ZOOM
+        third_transition.advance_on_click = True
+        third_transition.advance_after = True
+        third_transition.advance_after_time = 7000
 
-    slide1 = presentation.slides[1]
+        presentation.save("advanced-transitions.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least three slides.")
+```
 
-    # Zastosuj przejście grzebieniowe do slajdu 2.
-    slide1.slide_show_transition.type = slides.slideshow.TransitionType.COMB
+Aby sprawdzić, czy włączono przechodzenie czasowe, odczytaj [advance_after]. Sam zapisany czas opóźnienia nie oznacza, że timer jest aktywny.
 
-    # Włącz przejście po kliknięciu i ustaw automatyczne przejście po 5 sekundach.
-    slide1.slide_show_transition.advance_on_click = True
-    slide1.slide_show_transition.advance_after_time = 5000
+Następny przykład otwiera zapisany powyżej plik, raportuje każdy włączony timer i wyłącza automatyczne przechodzenie dla slajdów z opóźnieniem większym niż dwie sekundy. Włącza kliknięcia myszy dla tych slajdów i zapisuje zaktualizowane ustawienia.
 
-    slide2 = presentation.slides[2]
+```python
+import aspose.slides as slides
 
-    # Zastosuj przejście przybliżenia do slajdu 3.
-    slide2.slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
+with slides.Presentation("advanced-transitions.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
 
-    # Włącz przejście po kliknięciu i ustaw automatyczne przejście po 7 sekundach.
-    slide2.slide_show_transition.advance_on_click = True
-    slide2.slide_show_transition.advance_after_time = 7000
+        if transition.advance_after:
+            print(f"Slide {slide.slide_number}: advance after {transition.advance_after_time} ms.")
 
-    # Zapisz prezentację na dysku.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+            if transition.advance_after_time > 2000:
+                transition.advance_after = False
+                transition.advance_on_click = True
+
+    presentation.save("adjusted-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Precyzyjna kontrola czasu przejścia**
+
+Użyj [duration] aby określić dokładną długość efektu przejścia w milisekundach. Właściwość [slide_show_transition] slajdu udostępnia te ustawienia poprzez [SlideShowTransition]:
+
+| Właściwość | Cel |
+| --- | --- |
+| [duration] | Ustawia czas trwania samego efektu przejścia, w milisekundach. |
+| [advance_after_time] | Ustawia opóźnienie przed automatycznym przejściem slajdu, w milisekundach. Włącz [advance_after], aby aktywować ten timer. |
+| [speed] | Wybiera predefiniowaną kategorię prędkości z [TransitionSpeed]: SLOW, MEDIUM lub FAST. Jest używana, gdy nie określono dokładnego czasu trwania. |
+
+[duration] kontroluje tylko efekt przejścia; nie określa, jak długo slajd pozostaje widoczny. Opóźnienie automatycznego przejścia należy konfigurować osobno. Gdy nie ustawiono explicite czasu trwania, Aspose.Slides określa czas trwania efektu na podstawie typu przejścia i wartości [speed].
+
+### **Zastosuj ten sam czas trwania dla każdego slajdu**
+
+Dla spójnego tempa zastosuj ten sam efekt i dokładny czas trwania dla każdego slajdu. Ten przykład ładuje `input.pptx`, wybiera Fade z [TransitionType] i nadaje każdemu przejściu czas trwania 750 milisekund. Osobno włącza automatyczne przejście po 5,000 milisekundach i wyłącza przechodzenie po kliknięciu myszy, a następnie zapisuje wynik jako PPTX.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+        transition.type = slides.slideshow.TransitionType.FADE
+        transition.duration = 750
+
+        # Skonfiguruj automatyczne przechodzenie niezależnie od czasu trwania efektu.
+        transition.advance_after = True
+        transition.advance_after_time = 5000
+        transition.advance_on_click = False
+
+    presentation.save("precise-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Ustaw różne czasy trwania dla poszczególnych slajdów**
+
+Różne slajdy mogą mieć różne czasy trwania efektów. Na przykład użyj krótkiego przejścia dla slajdu tytułowego i dłuższego przejścia dla wprowadzenia sekcji. Ten przykład ustawia 500 milisekund dla pierwszego slajdu i 1200 milisekund dla drugiego. Użyj pliku `input.pptx` zawierającego przynajmniej dwa slajdy.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        first_transition = presentation.slides[0].slide_show_transition
+        first_transition.type = slides.slideshow.TransitionType.FADE
+        first_transition.duration = 500
+
+        second_transition = presentation.slides[1].slide_show_transition
+        second_transition.type = slides.slideshow.TransitionType.PUSH
+        second_transition.duration = 1200
+
+        presentation.save("individual-transition-durations.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least two slides.")
+```
+
+### **Skoordynuj przejścia z animowanym wyjściem**
+
+Przy przygotowywaniu [animated GIF](/slides/pl/python-net/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/pl/python-net/export-to-html5/) lub [video](/slides/pl/python-net/convert-powerpoint-to-video/), ustaw dokładne czasy trwania przejść przed eksportem, aby dopasować je do zamierzonego tempa. Na przykład użyj 600-milisekundowego zanikania (fade) między scenami i dostosuj osobno opóźnienie przejścia każdego slajdu, aby umożliwić czas na narrację lub zawartość.
+
+Dla GIF i wideo skoordynuj częstotliwość klatek wyjściowych z czasem trwania efektu: 600 milisekund odpowiada 18 klatkom przy 30 klatkach na sekundę. W HTML5 włącz animowane przejścia w ustawieniach eksportu. Sprawdź, jakie efekty i opcje czasowe obsługuje wybrany format eksportu oraz podglądaj wynik, aby potwierdzić synchronizację.
+
+### **Odczytaj istniejący czas trwania przejścia**
+
+Odczytaj [duration] przed modyfikacją przejścia, aby określić, czy zapisano explicite wartość. Wartość `-1` oznacza, że nie ustawiono wyraźnego czasu trwania; wartość nieujemna określa zapisany czas trwania w milisekundach. Nieustawiona wartość nie jest wyliczonym czasem odtwarzania: Aspose.Slides używa typu przejścia i [speed] do określenia tego czasu. Ustawienie typu przejścia może zainicjować czas trwania, więc najpierw sprawdź oryginalne ustawienia.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+        duration = transition.duration
+
+        if duration >= 0:
+            print(f"Slide {slide.slide_number}: stored transition duration is {duration} ms.")
+        else:
+            print(f"Slide {slide.slide_number}: no explicit duration; timing depends on {transition.type} and {transition.speed}.")
 ```
 
 ## **Przejście Morph**
 
-Aspose.Slides for Python obsługuje [przejście Morph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/morphtransition/), które animuje płynny ruch z jednego slajdu do drugiego. Ta sekcja wyjaśnia, jak używać przejścia Morph. Aby używać go efektywnie, potrzebujesz dwóch slajdów z co najmniej jednym wspólnym obiektem. Najprostsze rozwiązanie to zduplikowanie slajdu, a następnie przeniesienie obiektu na inną pozycję na drugim slajdzie.
+Przejście Morph animuje zmiany pomiędzy obiektami na kolejnych slajdach. Aby stworzyć prosty efekt Morph, sklonuj slajd, przesuń lub zmień rozmiar obiektu na klonie i zastosuj przejście Morph do drugiego slajdu. To zapewnia przejściowi odpowiednie obiekty do animacji między ich pierwotnym a zmodyfikowanym stanem.
 
-Poniższy fragment kodu pokazuje, jak sklonować slajd zawierający tekst i zastosować przejście Morph do drugiego slajdu.
+Poniższy przykład tworzy slajd z prostokątem tekstowym, klonuje slajd i zmienia pozycję oraz rozmiar prostokąta na klonie. Następnie wybiera Morph z wyliczenia [TransitionType] dla drugiego slajdu. Otwórz zapisany plik w przeglądarce prezentacji obsługującej Morph, aby zobaczyć efekt podczas pokazu slajdów.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    slide0 = presentation.slides[0]
+    first_slide = presentation.slides[0]
+    rectangle = first_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
+    rectangle.text_frame.text = "Morph transition"
 
-    auto_shape = slide0.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
-    auto_shape.text_frame.text = "Morph Transition in PowerPoint Presentations"
+    second_slide = presentation.slides.add_clone(first_slide)
+    moved_rectangle = second_slide.shapes[0]
+    moved_rectangle.x += 100
+    moved_rectangle.y += 50
+    moved_rectangle.width -= 200
+    moved_rectangle.height -= 10
 
-    # Sklonuj pierwszy slajd, aby utworzyć drugi slajd z tymi samymi kształtami dla ciągłości Morph.
-    slide1 = presentation.slides.add_clone(slide0)
+    second_slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
 
-    # Wybierz ten sam prostokąt na drugim slajdzie i zmień jego pozycję oraz rozmiar.
-    shape = slide1.shapes[0]
-    shape.x += 100
-    shape.y += 50
-    shape.width -= 200
-    shape.height -= 10
-
-    # Włącz przejście Morph na drugim slajdzie, aby płynnie animować zmiany kształtu.
-    slide1.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("morph-transition.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Typy przejść Morph**
+## **Typy przejścia Morph**
 
-Wyliczenie [TransitionMorphType](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/transitionmorphtype/) reprezentuje różne typy przejść Morph dla slajdów.
+Wyliczenie [TransitionMorphType] kontroluje, w jaki sposób Morph dopasowuje i animuje zawartość:
 
-Poniższy fragment kodu pokazuje, jak zastosować przejście Morph do slajdu i zmienić typ morph:
+- [BY_OBJECT] traktuje każdy kształt jako cały obiekt.
+- [BY_WORD] animuje tekst, dopasowując słowa, gdzie to możliwe.
+- [BY_CHAR] animuje tekst, dopasowując znaki, gdzie to możliwe.
 
-```py
+Ustaw przejście [type] na Morph przed dostępem do jego [value]. Wartość następnie zwraca obiekt [MorphTransition], którego właściwość [morph_type] wybiera tryb dopasowania.
+
+Ten przykład otwiera prezentację stworzoną w poprzedniej sekcji i konfiguruje drugi slajd do używania animacji Morph opartej na słowach.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("morph-transition.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        transition = presentation.slides[1].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.MORPH
+        morph_transition = transition.value
 
-    slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-    slide.slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
-    
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        if isinstance(morph_transition, slides.slideshow.MorphTransition):
+            morph_transition.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
+            presentation.save("morph-by-word.pptx", slides.export.SaveFormat.PPTX)
+        else:
+            print("Morph transition options are unavailable.")
+    else:
+        print("The input presentation must contain at least two slides.")
 ```
 
-## **Ustaw efekty przejść**
+## **Ustaw efekty przejścia**
 
-Aspose.Slides for Python pozwala ustawiać efekty przejść, takie jak **From Black**, **From Left**, **From Right** itp. Aby skonfigurować efekt przejścia, wykonaj następujące kroki:
+Niektóre przejścia udostępniają dodatkowe opcje, takie jak kierunek czy to, czy efekt zaczyna się od czarnego ekranu. Dostępne opcje zależą od wybranego [type] przejścia. Najpierw ustaw typ, a następnie użyj odpowiedniego obiektu przejścia z jego [value].
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) .
-1. Uzyskaj referencję do slajdu.
-1. Ustaw żądany efekt przejścia.
-1. Zapisz prezentację jako plik PPTX.
+Poniższy przykład stosuje przejście Cut do pierwszego slajdu `input.pptx`. Ustawia [from_black] za pośrednictwem [OptionalBlackTransition], aby przejście rozpoczynało się od czarnego ekranu.
 
-W poniższym przykładzie ustawiamy kilka efektów przejść.
-
-```py
+```python
 import aspose.slides as slides
 
-# Utwórz instancję klasy Presentation, aby otworzyć plik prezentacji.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("input.pptx") as presentation:
+    transition = presentation.slides[0].slide_show_transition
+    transition.type = slides.slideshow.TransitionType.CUT
+    cut_transition = transition.value
 
-    # Zastosuj przejście Cut i włącz From Black.
-    slide.slide_show_transition.type = slides.slideshow.TransitionType.CUT
-    slide.slide_show_transition.value.from_black = True
-
-    # Zapisz prezentację na dysku.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    if isinstance(cut_transition, slides.slideshow.OptionalBlackTransition):
+        cut_transition.from_black = True
+        presentation.save("cut-from-black.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Cut transition options are unavailable.")
 ```
 
 ## **FAQ**
 
-**Czy mogę kontrolować prędkość odtwarzania przejścia slajdu?**  
+**Czy mogę kontrolować prędkość odtwarzania przejścia slajdu?**
 
-Tak. Ustaw prędkość przejścia za pomocą [speed](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/speed/) , używając ustawienia [TransitionSpeed](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/transitionspeed/) , (np. wolna/średnia/szybka).
+Tak. Preferuj [duration], gdy potrzebny jest dokładny czas trwania efektu w milisekundach. Użyj [speed], gdy wystarczy predefiniowana kategoria [TransitionSpeed] — SLOW, MEDIUM lub FAST — i nie ustawiono explicite czasu trwania. Te ustawienia kontrolują efekt przejścia niezależnie od opóźnienia automatycznego przejścia.
 
-**Czy mogę dołączyć dźwięk do przejścia i ustawić jego pętlę?**  
+**Czy mogę dołączyć dźwięk do przejścia i sprawić, że będzie się powtarzać?**
 
-Tak. Możesz osadzić dźwięk dla przejścia i kontrolować jego zachowanie za pomocą ustawień, takich jak tryb dźwięku i pętla (np. [sound](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/sound/), [sound_mode](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/), [sound_loop](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/), oraz metadane, takie jak [sound_is_built_in](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/sound_is_built_in/) i [sound_name](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/sound_name/)).
+Tak. Przypisz wbudowany dźwięk do [sound], ustaw [sound_mode] na START_SOUND z wyliczenia [TransitionSoundMode] i włącz [sound_loop]. Dźwięk będzie się powtarzał aż do następnego zdarzenia dźwiękowego w pokazie slajdów.
 
-**Jaki jest najszybszy sposób zastosowania tego samego przejścia do każdego slajdu?**  
+**Jaki jest najszybszy sposób zastosowania tego samego przejścia do każdego slajdu?**
 
-Skonfiguruj żądany typ przejścia w ustawieniach przejścia każdego slajdu; przejścia są przechowywane per slajd, więc zastosowanie tego samego typu we wszystkich slajdach zapewnia spójny rezultat.
+Przejdź pętlą po kolekcji [slides] prezentacji i ustaw [type] przejścia każdego slajdu na tę samą wartość. Ustaw wszystkie opcje czasu i efektów w tej samej pętli, aby zachować spójne zachowanie we wszystkich slajdach.
 
-**Jak mogę sprawdzić, które przejście jest aktualnie ustawione na slajdzie?**  
+**Jak mogę sprawdzić, które przejście jest aktualnie ustawione na slajdzie?**
 
-Sprawdź ustawienia przejścia slajdu ([transition settings](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/slide_show_transition/)) i odczytaj jego [transition type](https://reference.aspose.com/slides/pl/python-net/aspose.slides.slideshow/slideshowtransition/type/) ; ta wartość dokładnie określa, który efekt jest zastosowany.
+Odczytaj właściwość [type] z [slide_show_transition] slajdu. Zwraca ona wartość z wyliczenia [TransitionType]; NONE oznacza, że żaden efekt przejścia nie jest zastosowany.

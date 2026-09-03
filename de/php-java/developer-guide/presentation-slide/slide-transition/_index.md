@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Folienübergängen in Präsentationen mit PHP
+title: Folienübergänge in Präsentationen mit PHP verwalten
 linktitle: Folienübergang
 type: docs
 weight: 80
@@ -8,7 +8,7 @@ keywords:
 - Folienübergang
 - Folienübergang hinzufügen
 - Folienübergang anwenden
-- Erweiterter Folienübergang
+- erweiterter Folienübergang
 - Morph-Übergang
 - Übergangstyp
 - Übergangseffekt
@@ -17,164 +17,330 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Entdecken Sie, wie Sie Folienübergänge in Aspose.Slides für PHP via Java anpassen können, mit Schritt‑für‑Schritt‑Anleitungen für PowerPoint‑ und OpenDocument‑Präsentationen."
+description: "Folienübergänge anwenden, automatisches Vorankommen der Folien konfigurieren und Morph sowie andere Übergangseffekte mit Aspose.Slides für PHP über Java anpassen."
 ---
-
 ## **Übersicht**
-{{% alert color="primary" %}} 
 
-Aspose.Slides für PHP via Java ermöglicht Entwicklern zudem, die Folienübergangseffekte zu verwalten oder anzupassen. In diesem Thema behandeln wir die einfache Steuerung von Folienübergängen mit Aspose.Slides für PHP via Java.
-
-{{% /alert %}} 
-
-Um das Verständnis zu erleichtern, haben wir die Verwendung von Aspose.Slides für PHP via Java zur Verwaltung einfacher Folienübergänge demonstriert. Entwickler können nicht nur verschiedene Folienübergangseffekte auf die Folien anwenden, sondern auch das Verhalten dieser Übergangseffekte anpassen.
+Folienübergänge steuern, wie Folien während einer Bildschirmpräsentation angezeigt werden. Mit Aspose.Slides für PHP über Java können Sie für jede Folie einen Übergangseffekt auswählen, den Fortschritt per Mausklick oder Timer konfigurieren und optionsspezifische Einstellungen anpassen. Dieser Artikel verwendet PHP-Beispiele, um Übergänge anzuwenden, genaue Übergangsdauern festzulegen, die Folienzeit zu verwalten und einen Morph‑Übergang zwischen zwei Folien zu erstellen. Die Beispiele zeigen zudem, wie die Einstellungen in eine PPTX‑Datei gespeichert werden.
 
 ## **Folienübergang hinzufügen**
-Um einen einfachen Folienübergangseffekt zu erstellen, folgen Sie den unten stehenden Schritten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) Klasse.
-1. Wenden Sie einen Folienübergangstyp auf die Folie an, indem Sie einen der von Aspose.Slides für PHP via Java angebotenen Übergangseffekte über das TransitionType‑Enum auswählen.
-1. Schreiben Sie die geänderte Präsentationsdatei.
+Um einen Übergang anzuwenden, laden Sie eine Präsentation mit der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Klasse und greifen Sie über [getSlideShowTransition](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/#getSlideShowTransition) auf die Übergangseinstellungen der Folie zu. Verwenden Sie [setType](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setType) mit einem Wert aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitiontype/), dann speichern Sie die Präsentation.
+
+Das folgende Beispiel wendet einen Kreis‑Übergang auf die erste Folie und einen Kamm‑Übergang auf die zweite Folie an. Verwenden Sie eine Datei `input.pptx` mit mindestens zwei Folien.
+
 ```php
-  # Instantiieren Sie die Presentation-Klasse, um die Quellpräsentationsdatei zu laden
-  $presentation = new Presentation("AccessSlides.pptx");
-  try {
-    # Wenden Sie den Kreis-Übergangstyp auf Folie 1 an
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
-    # Wenden Sie den Kamm-Übergangstyp auf Folie 2 an
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
-    # Speichern Sie die Präsentation auf dem Datenträger
-    $presentation->save("SampleTransition_out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
+        $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
+
+        $presentation->save("slide-transitions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+## **Erweiterten Folienübergang hinzufügen**
 
-## **Erweiterte Folienübergänge hinzufügen**
-Im vorherigen Abschnitt haben wir nur einen einfachen Übergangseffekt auf die Folie angewendet. Um diesen einfachen Übergangseffekt noch besser und kontrollierter zu gestalten, folgen Sie bitte den unten stehenden Schritten:
+Sie können konfigurieren, wie lange eine Folie auf dem Bildschirm bleibt und ob ein Mausklick die Präsentation voranbringt. Die folgenden Methoden steuern dieses Verhalten:
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) Klasse.
-1. Wenden Sie einen Folienübergangstyp auf die Folie an, indem Sie einen der von Aspose.Slides für PHP via Java angebotenen Übergangseffekte auswählen.
-1. Sie können den Übergang auch so einstellen, dass er bei Klick, nach einem bestimmten Zeitraum oder beides voranschreitet.
-1. Wenn der Folienübergang auf „Advance On Click“ (Bei Klick fortschreiten) eingestellt ist, wird er nur dann fortschreiten, wenn jemand die Maus klickt. Außerdem wird der Übergang automatisch fortschreiten, sobald die im Advance After Time‑Eigenschaft festgelegte Zeit verstrichen ist.
-1. Schreiben Sie die geänderte Präsentation in eine Präsentationsdatei.
+- [setAdvanceOnClick](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) ermöglicht dem Betrachter das Vorankommen durch Mausklick.
+- [setAdvanceAfter](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) aktiviert die automatische Vorwärtsbewegung.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) legt die Verzögerung vor der automatischen Vorwärtsbewegung in Millisekunden fest.
+
+Aktivieren Sie sowohl Klick‑ als auch Timer‑Vorwärtsbewegung, damit der Betrachter entweder per Klick weitergehen oder auf den Timer warten kann. Um nur den Timer zu verwenden, übergeben Sie `false` an [setAdvanceOnClick](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Die Verzögerung bestimmt, wann die Präsentation voranschreitet; sie legt nicht die Dauer des visuellen Übergangseffekts fest.
+
+Dieses Beispiel weist den ersten drei Folien unterschiedliche Effekte zu und aktiviert die automatische Vorwärtsbewegung nach 3, 5 bzw. 7 Sekunden. Mausklicks können diese Folien ebenfalls weiterführen. Verwenden Sie eine Datei `input.pptx` mit mindestens drei Folien.
+
 ```php
-  # Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt
-  $pres = new Presentation("BetterSlideTransitions.pptx");
-  try {
-    # Wenden Sie den Kreis‑Übergangstyp auf Folie 1 an
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
-    # Setzen Sie die Übergangszeit von 3 Sekunden
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceAfterTime(3000);
-    # Wenden Sie den Kamm‑Übergangstyp auf Folie 2 an
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
-    # Setzen Sie die Übergangszeit von 5 Sekunden
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceAfterTime(5000);
-    # Wenden Sie den Zoom‑Übergangstyp auf Folie 3 an
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setType(TransitionType::Zoom);
-    # Setzen Sie die Übergangszeit von 7 Sekunden
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceAfterTime(7000);
-    # Schreiben Sie die Präsentation auf die Festplatte
-    $pres->save("SampleTransition_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
 
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 3) {
+        $firstTransition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+        $firstTransition->setType(TransitionType::Circle);
+        $firstTransition->setAdvanceOnClick(true);
+        $firstTransition->setAdvanceAfter(true);
+        $firstTransition->setAdvanceAfterTime(3000);
 
-## **Morph-Übergang**
-{{% alert color="primary" %}} 
+        $secondTransition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $secondTransition->setType(TransitionType::Comb);
+        $secondTransition->setAdvanceOnClick(true);
+        $secondTransition->setAdvanceAfter(true);
+        $secondTransition->setAdvanceAfterTime(5000);
 
-Aspose.Slides für PHP via Java unterstützt jetzt den [Morph Transition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/). Sie stellen den neuen Morph‑Übergang dar, der in PowerPoint 2019 eingeführt wurde.
+        $thirdTransition = $presentation->getSlides()->get_Item(2)->getSlideShowTransition();
+        $thirdTransition->setType(TransitionType::Zoom);
+        $thirdTransition->setAdvanceOnClick(true);
+        $thirdTransition->setAdvanceAfter(true);
+        $thirdTransition->setAdvanceAfterTime(7000);
 
-{{% /alert %}} 
-
-Der Morph‑Übergang ermöglicht es Ihnen, eine sanfte Bewegung von einer Folie zur nächsten zu animieren. Dieser Artikel beschreibt das Konzept und die Verwendung des Morph‑Übergangs. Um den Morph‑Übergang effektiv zu nutzen, benötigen Sie zwei Folien mit mindestens einem gemeinsamen Objekt. Der einfachste Weg ist, die Folie zu duplizieren und das Objekt auf der zweiten Folie an eine andere Position zu verschieben.
-
-Der folgende Code‑Abschnitt zeigt, wie Sie eine Kopie der Folie mit etwas Text zur Präsentation hinzufügen und der zweiten Folie einen Übergang des [morph type](https://reference.aspose.com/slides/php-java/aspose.slides/TransitionType) zuweisen.
-```php
-  $presentation = new Presentation();
-  try {
-    $autoshape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
-    $autoshape->getTextFrame()->setText("Morph Transition in PowerPoint Presentations");
-    $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
-    $shape = $presentation->getSlides()->get_Item(1)->getShapes()->get_Item(0);
-    $shape->setX($shape->getX() + 100);
-    $shape->setY($shape->getY() + 50);
-    $shape->setWidth($shape->getWidth() - 200);
-    $shape->setHeight($shape->getHeight() - 10);
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
-  } finally {
+        $presentation->save("advanced-transitions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least three slides." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+Um zu prüfen, ob die zeitgesteuerte Vorwärtsbewegung aktiviert ist, rufen Sie [getAdvanceAfter](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter) auf. Ein gespeicherter Verzögerungswert allein zeigt nicht an, dass der Timer aktiv ist.
 
-## **Morph-Übergangstypen**
-Ein neues Enum [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/TransitionMorphType) wurde hinzugefügt. Es stellt verschiedene Typen des Morph‑Folienübergangs dar.
+Das nächste Beispiel öffnet die oben gespeicherte Datei, gibt für jede aktivierte Zeitschaltuhr eine Meldung aus und deaktiviert die automatische Vorwärtsbewegung für Folien mit einer Verzögerung von mehr als zwei Sekunden. Für diese Folien wird der Mausklick aktiviert und die geänderten Einstellungen werden gespeichert.
 
-Das TransitionMorphType‑Enum hat drei Mitglieder:
-
-- ByObject: Der Morph‑Übergang wird unter Berücksichtigung der Formen als unteilbare Objekte durchgeführt.
-- ByWord: Der Morph‑Übergang wird nach Möglichkeit Text wortweise übertragen.
-- ByChar: Der Morph‑Übergang wird nach Möglichkeit Text zeichenweise übertragen.
-
-Der folgende Code‑Abschnitt zeigt, wie Sie den Morph‑Übergang für eine Folie festlegen und den Morph‑Typ ändern:
 ```php
-  $presentation = new Presentation("presentation.pptx");
-  try {
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setMorphType(TransitionMorphType::ByWord);
-    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+
+        if (java_values($transition->getAdvanceAfter())) {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": advance after " . java_values($transition->getAdvanceAfterTime()) . " ms." . PHP_EOL;
+
+            if (java_values($transition->getAdvanceAfterTime()) > 2000) {
+                $transition->setAdvanceAfter(false);
+                $transition->setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    $presentation->save("adjusted-transitions.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+## **Übergangszeit genau steuern**
+
+Verwenden Sie [setDuration](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setDuration), um die exakte Länge eines Übergangseffekts in Millisekunden festzulegen. Die Methode [getSlideShowTransition](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/#getSlideShowTransition) der Folie stellt diese Einstellungen über [SlideShowTransition](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/) bereit:
+
+| Methode | Zweck |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setDuration) | Legt die Dauer des Übergangseffekts selbst in Millisekunden fest. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Legt die Verzögerung fest, bevor die Folie automatisch weitergeschaltet wird, in Millisekunden. Übergeben Sie `true` an [setAdvanceAfter](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter), um diesen Timer zu aktivieren. |
+| [setSpeed](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setSpeed) | Wählt eine vordefinierte Geschwindigkeitskategorie aus [TransitionSpeed](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitionspeed/): Slow, Medium oder Fast. Sie wird verwendet, wenn keine exakte Dauer angegeben ist. |
+
+[setDuration](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setDuration) steuert nur den Übergangseffekt; sie bestimmt nicht, wie lange die Folie sichtbar bleibt. Die Verzögerung für die automatische Vorwärtsbewegung muss separat konfiguriert werden. Wenn keine explizite Dauer gesetzt ist, ermittelt Aspose.Slides die Effektdauer aus dem Übergangstyp und dem Wert von [getSpeed](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#getSpeed).
+
+### **Gleiche Dauer auf jeder Folie anwenden**
+
+Für ein konstant gleichmäßiges Tempo wenden Sie denselben Effekt und dieselbe exakte Dauer auf jede Folie an. Dieses Beispiel lädt `input.pptx`, wählt Fade aus [TransitionType](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitiontype/) und gibt jedem Übergang eine Dauer von 750 Millisekunden. Es aktiviert zudem automatisch die Vorwärtsbewegung nach 5.000 Millisekunden und deaktiviert die Vorwärtsbewegung per Mausklick, dann wird das Ergebnis als PPTX gespeichert.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+        $transition->setType(TransitionType::Fade);
+        $transition->setDuration(750);
+
+        // Automatisches Vorankommen unabhängig von der Effektdauer konfigurieren.
+        $transition->setAdvanceAfter(true);
+        $transition->setAdvanceAfterTime(5000);
+        $transition->setAdvanceOnClick(false);
+    }
+
+    $presentation->save("precise-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Unterschiedliche Dauern für einzelne Folien festlegen**
+
+Verschiedene Folien können unterschiedliche Effektdauern verwenden. Beispielsweise kann ein Titel‑Slide einen kurzen Übergang erhalten, während ein Abschnitts‑Intro einen längeren Übergang nutzt. Dieses Beispiel legt 500 Millisekunden für die erste Folie und 1.200 Millisekunden für die zweite Folie fest. Verwenden Sie eine Datei `input.pptx` mit mindestens zwei Folien.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $firstTransition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+        $firstTransition->setType(TransitionType::Fade);
+        $firstTransition->setDuration(500);
+
+        $secondTransition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $secondTransition->setType(TransitionType::Push);
+        $secondTransition->setDuration(1200);
+
+        $presentation->save("individual-transition-durations.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Übergänge mit animierter Ausgabe koordinieren**
+
+Wenn Sie ein [animiertes GIF](/slides/de/php-java/convert-powerpoint-to-animated-gif/), eine [HTML5‑Präsentation](/slides/de/php-java/export-to-html5/) oder ein [Video](/slides/de/php-java/convert-powerpoint-to-video/) erstellen, setzen Sie exakte Übergangsdauern vor dem Export, um das gewünschte Tempo zu treffen. Verwenden Sie z. B. ein 600‑Millisekunden‑Fade zwischen Szenen und passen Sie die Vorwärtsbewegungs‑Verzögerung jeder Folie separat an, um Zeit für die jeweiligen Erzählungen oder Inhalte zu lassen.
+
+Für GIF und Video koordinieren Sie die Bildrate der Ausgabe mit der Effektdauer: 600 Millisekunden entsprechen 18 Frames bei 30 Frames‑pro‑Sekunde. In HTML5 aktivieren Sie animierte Übergänge in den Exporteinstellungen. Prüfen Sie die unterstützten Effekte und Zeiteinstellungen des gewählten Exportformats und prüfen Sie die Ausgabe, um die Synchronisation zu bestätigen.
+
+### **Vorhandene Übergangsdauer auslesen**
+
+Rufen Sie [getDuration](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#getDuration) auf, bevor Sie den Übergang ändern, um festzustellen, ob ein expliziter Wert gespeichert ist. Ein Wert von `-1` bedeutet, dass keine explizite Dauer gesetzt ist; ein nicht‑negativer Wert gibt die gespeicherte Dauer in Millisekunden an. Der nicht gesetzte Wert ist nicht die berechnete Wiedergabedauer: Aspose.Slides ermittelt die Dauer aus dem Übergangstyp und dem Wert von [getSpeed](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#getSpeed). Das Setzen eines Übergangstyps kann eine Dauer initialisieren, daher sollten Sie zunächst die Originaleinstellungen prüfen.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+        $duration = java_values($transition->getDuration());
+
+        if ($duration >= 0) {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": stored transition duration is " . $duration . " ms." . PHP_EOL;
+        } else {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": no explicit duration; timing depends on transition type " . java_values($transition->getType()) . " and speed " . java_values($transition->getSpeed()) . "." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Morph‑Übergang**
+
+Der Morph‑Übergang animiert Änderungen zwischen Objekten auf aufeinanderfolgenden Folien. Um einen einfachen Morph‑Effekt zu erstellen, duplizieren Sie eine Folie, verschieben oder skalieren Sie ein Objekt auf der Kopie und wenden den Morph‑Übergang auf die zweite Folie an. Dadurch erhalten die zugehörigen Objekte eine Animation zwischen ihrem ursprünglichen und geänderten Zustand.
+
+Das folgende Beispiel erstellt eine Folie mit einem Text‑Rechteck, dupliziert die Folie und ändert Position sowie Größe des Rechtecks auf der Kopie. Anschließend wird Morph aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitiontype/) für die zweite Folie ausgewählt. Öffnen Sie die gespeicherte Datei in einem Präsentations‑Viewer, der Morph unterstützt, um den Effekt während einer Bildschirmpräsentation zu sehen.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $rectangle = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
+    $rectangle->getTextFrame()->setText("Morph transition");
+
+    $secondSlide = $presentation->getSlides()->addClone($firstSlide);
+    $movedRectangle = $secondSlide->getShapes()->get_Item(0);
+    $movedRectangle->setX(java_values($movedRectangle->getX()) + 100);
+    $movedRectangle->setY(java_values($movedRectangle->getY()) + 50);
+    $movedRectangle->setWidth(java_values($movedRectangle->getWidth()) - 200);
+    $movedRectangle->setHeight(java_values($movedRectangle->getHeight()) - 10);
+
+    $secondSlide->getSlideShowTransition()->setType(TransitionType::Morph);
+
+    $presentation->save("morph-transition.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Morph‑Übergangstypen**
+
+Die Aufzählung [TransitionMorphType](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitionmorphtype/) bestimmt, wie Morph Inhalte zuordnet und animiert:
+
+- [ByObject](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitionmorphtype/#ByObject) behandelt jede Form als Ganzes.
+- [ByWord](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitionmorphtype/#ByWord) animiert Text, indem nach Möglichkeit Wörter zugeordnet werden.
+- [ByChar](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitionmorphtype/#ByChar) animiert Text, indem nach Möglichkeit Zeichen zugeordnet werden.
+
+Verwenden Sie [setType](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setType), um Morph auszuwählen, bevor Sie [getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#getValue) aufrufen. Der zurückgegebene Wert liefert ein [MorphTransition](https://reference.aspose.com/slides/de/php-java/aspose.slides/morphtransition/)-Objekt, dessen Methode [setMorphType](https://reference.aspose.com/slides/de/php-java/aspose.slides/morphtransition/#setMorphType) den Zuordnungsmodus auswählt.
+
+Dieses Beispiel öffnet die im vorherigen Abschnitt erstellte Präsentation und konfiguriert die zweite Folie so, dass die Wort‑basierte Morph‑Animation verwendet wird.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionMorphType;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("morph-transition.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $transition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $transition->setType(TransitionType::Morph);
+        $morphTransition = $transition->getValue();
+
+        if (!java_is_null($morphTransition)) {
+            $morphTransition->setMorphType(TransitionMorphType::ByWord);
+            $presentation->save("morph-by-word.pptx", SaveFormat::Pptx);
+        } else {
+            echo "Morph transition options are unavailable." . PHP_EOL;
+        }
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **Übergangseffekte festlegen**
-Aspose.Slides für PHP via Java unterstützt das Festlegen von Übergangseffekten wie „von Schwarz“, „von links“, „von rechts“ usw. Um den Übergangseffekt festzulegen, folgen Sie bitte den untenstehenden Schritten:
 
-- Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-- Holen Sie die Referenz der Folie.
-- Legen Sie den Übergangseffekt fest.
-- Schreiben Sie die Präsentation als [PPTX](https://docs.fileformat.com/presentation/pptx/)‑Datei.
+Einige Übergänge bieten zusätzliche Optionen, z. B. Richtung oder ob der Effekt von einem schwarzen Bildschirm startet. Die verfügbaren Optionen hängen vom mit [setType](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setType) gewählten Übergang ab. Setzen Sie zuerst den Typ und verwenden Sie dann das passende Übergangsobjekt aus [getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#getValue).
 
-Im unten gezeigten Beispiel haben wir die Übergangseffekte festgelegt.
+Das folgende Beispiel wendet einen Cut‑Übergang auf die erste Folie von `input.pptx` an. Es ruft [setFromBlack](https://reference.aspose.com/slides/de/php-java/aspose.slides/optionalblacktransition/#setFromBlack) über [OptionalBlackTransition](https://reference.aspose.com/slides/de/php-java/aspose.slides/optionalblacktransition/) auf, sodass der Übergang von einem schwarzen Bildschirm startet.
+
 ```php
-  # Erstellen Sie eine Instanz der Presentation-Klasse
-  $presentation = new Presentation("AccessSlides.pptx");
-  try {
-    # Effekt festlegen
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Cut);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setFromBlack(true);
-    # Speichern Sie die Präsentation auf dem Datenträger
-    $presentation->save("SetTransitionEffects_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
 
+$presentation = new Presentation("input.pptx");
+try {
+    $transition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+    $transition->setType(TransitionType::Cut);
+    $cutTransition = $transition->getValue();
+
+    if (!java_is_null($cutTransition)) {
+        $cutTransition->setFromBlack(true);
+        $presentation->save("cut-from-black.pptx", SaveFormat::Pptx);
+    } else {
+        echo "Cut transition options are unavailable." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **FAQ**
 
 **Kann ich die Wiedergabegeschwindigkeit eines Folienübergangs steuern?**
 
-Ja. Setzen Sie die [speed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setspeed/) des Übergangs über die Einstellung [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) (z. B. slow/medium/fast).
+Ja. Verwenden Sie vorzugsweise [setDuration](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setDuration), wenn Sie eine exakte Effektdauer in Millisekunden benötigen. Nutzen Sie [setSpeed](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setSpeed), wenn eine vordefinierte [TransitionSpeed](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitionspeed/)-Kategorie – Slow, Medium oder Fast – ausreicht und keine explizite Dauer festgelegt ist. Diese Einstellungen steuern den Übergangseffekt unabhängig von der Verzögerung für die automatische Vorwärtsbewegung.
 
-**Kann ich einer Transition Audio hinzufügen und es wiederholen?**
+**Kann ich einer Folienübergang Audio hinzufügen und es wiederholen?**
 
-Ja. Sie können einen Sound für den Übergang einbetten und das Verhalten über Einstellungen wie Sound‑Modus und Wiederholung steuern (z. B. [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsound/), [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundmode/), [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundloop/), plus Metadaten wie [setSoundIsBuiltIn](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) und [setSoundName](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundname/)).
+Ja. Weisen Sie eingebettetes Audio mit [setSound](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setSound) zu, übergeben Sie `StartSound` aus der Aufzählung [TransitionSoundMode](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitionsoundmode/) an [setSoundMode](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setSoundMode) und aktivieren Sie [setSoundLoop](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setSoundLoop) mit `true`. Das Audio wird wiederholt, bis das nächste Sound‑Ereignis in der Präsentation eintritt.
 
 **Was ist der schnellste Weg, denselben Übergang auf jede Folie anzuwenden?**
 
-Konfigurieren Sie den gewünschten Übergangstyp in den Übergangseinstellungen jeder Folie; Übergänge werden pro Folie gespeichert, sodass das Anwenden desselben Typs auf alle Folien ein konsistentes Ergebnis liefert.
+Durchlaufen Sie die [getSlides](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#getSlides)-Sammlung der Präsentation und rufen Sie für jede Folie [setType](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#setType) mit demselben Wert auf. Setzen Sie eventuelle Zeit‑ und Effektoptionen innerhalb derselben Schleife, um ein konsistentes Verhalten über alle Folien hinweg zu gewährleisten.
 
-**Wie kann ich prüfen, welcher Übergang derzeit auf einer Folie eingestellt ist?**
+**Wie kann ich prüfen, welcher Übergang derzeit für eine Folie eingestellt ist?**
 
-Untersuchen Sie die [transition settings](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) der Folie und lesen Sie deren [transition type](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/settype/); dieser Wert gibt genau an, welcher Effekt angewendet wird.
+Rufen Sie [getType](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideshowtransition/#getType) auf dem Ergebnis von [getSlideShowTransition](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/#getSlideShowTransition) der Folie auf. Der zurückgegebene Wert stammt aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/de/php-java/aspose.slides/transitiontype/); `None` bedeutet, dass kein Übergangseffekt angewendet ist.

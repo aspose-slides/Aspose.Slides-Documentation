@@ -9,7 +9,7 @@ keywords:
 - إضافة انتقال الشريحة
 - تطبيق انتقال الشريحة
 - انتقال شريحة متقدم
-- انتقال مورف
+- انتقال Morph
 - نوع الانتقال
 - تأثير الانتقال
 - PowerPoint
@@ -17,164 +17,330 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "اكتشف كيفية تخصيص انتقالات الشرائح في Aspose.Slides for PHP عبر Java، مع إرشادات خطوة بخطوة لعروض PowerPoint و OpenDocument."
+description: "تطبيق انتقالات الشرائح، تكوين التقدم التلقائي للشرائح، وتخصيص انتقال Morph وغيرها من تأثيرات الانتقال باستخدام Aspose.Slides لـ PHP عبر Java."
 ---
-
 ## **نظرة عامة**
-{{% alert color="primary" %}} 
 
-تتيح Aspose.Slides for PHP عبر Java أيضًا للمطورين إدارة أو تخصيص تأثيرات انتقال الشرائح. في هذا الموضوع، سنناقش التحكم في انتقالات الشرائح بسهولة كبيرة باستخدام Aspose.Slides for PHP عبر Java.
+تتحكم انتقالات الشرائح في طريقة ظهور الشرائح أثناء عرض الشرائح. باستخدام Aspose.Slides for PHP عبر Java، يمكنك اختيار تأثير الانتقال لكل شريحة، وتكوين التقدم بواسطة نقرة الفأرة أو المؤقت، وضبط الخيارات الخاصة بكل تأثير. يستخدم هذا المقال أمثلة PHP لتطبيق الانتقالات، وتحديد مدد الانتقال الدقيقة، وإدارة توقيت الشرائح، وإنشاء انتقال Morph بين شريحتين. تُظهر الأمثلة أيضًا كيفية حفظ الإعدادات إلى ملف PPTX.
 
-{{% /alert %}} 
+## **إضافة انتقال شريحة**
 
-لتسهيل الفهم، قمنا بعرض استخدام Aspose.Slides for PHP عبر Java لإدارة انتقالات الشرائح البسيطة. يمكن للمطورين ليس فقط تطبيق تأثيرات انتقال مختلفة على الشرائح، بل أيضًا تخصيص سلوك هذه التأثيرات.
+لتطبيق انتقال، قم بتحميل عرض تقديمي باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) وتوجه إلى إعدادات انتقال الشريحة عبر [getSlideShowTransition](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/#getSlideShowTransition). استخدم [setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setType) مع قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitiontype/)، ثم احفظ العرض التقديمي.
 
-## **إضافة انتقال الشريحة**
-لإنشاء تأثير انتقال شريحة بسيط، اتبع الخطوات أدناه:
+المثال التالي يطبق انتقال Circle على الشريحة الأولى وانتقال Comb على الشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
-2. تطبيق نوع انتقال الشريحة على الشريحة من أحد تأثيرات الانتقال التي تقدمها Aspose.Slides for PHP عبر Java من خلال تعداد TransitionType.
-3. كتابة ملف العرض التقديمي المعدل.
 ```php
-  # إنشاء مثيل فئة Presentation لتحميل ملف العرض التقديمي المصدر
-  $presentation = new Presentation("AccessSlides.pptx");
-  try {
-    # تطبيق انتقال بنوع دائرة على الشريحة 1
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
-    # تطبيق انتقال بنوع مشط على الشريحة 2
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
-    # حفظ العرض التقديمي إلى القرص
-    $presentation->save("SampleTransition_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
 
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
+        $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
+
+        $presentation->save("slide-transitions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **إضافة انتقال شريحة متقدم**
-في القسم السابق، قمنا فقط بتطبيق تأثير انتقال بسيط على الشريحة. الآن، لجعل هذا التأثير البسيط أفضل ومتحكمًا فيه، يرجى اتباع الخطوات أدناه:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) .
-2. تطبيق نوع انتقال الشريحة على الشريحة من أحد تأثيرات الانتقال التي تقدمها Aspose.Slides for PHP عبر Java.
-3. يمكنك أيضًا تعيين الانتقال إلى التقدم عند النقر، بعد فترة زمنية محددة أو كلاهما.
-4. إذا تم تمكين انتقال الشريحة للتقدم عند النقر، فإن الانتقال سيتقدم فقط عندما ينقر أحدهم الفأرة. علاوة على ذلك، إذا تم تعيين خاصية Advance After Time، فإن الانتقال سيتقدم تلقائيًا بعد مرور الوقت المحدد للتقدم.
-5. كتابة العرض التقديمي المعدل كملف عرض تقديمي.
+يمكنك تكوين مدة بقاء الشريحة على الشاشة وما إذا كانت نقرة الفأرة ستتقدم بالعرض. الطرق التالية تتحكم في هذا السلوك:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) يسمح للمُشاهد بالتقدم بالنقر.
+- [setAdvanceAfter](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) يفعّل التقدم التلقائي.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) يحدد التأخير قبل التقدم التلقائي، بالميليثانية.
+
+فعّل كل من النقر والتوقيت لتمكين المُشاهد من الانتقال بالنقر أو الانتظار للمدة المحددة. لاستخدام المؤقت فقط، مرّر القيمة `false` إلى [setAdvanceOnClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). التحكم في التأخير يحدد متى يتقدم العرض؛ لا يحدد مدة تأثير الانتقال البصري.
+
+هذا المثال يعيّن تأثيرات مختلفة للشرائح الثلاث الأولى ويفعّل التقدم التلقائي بعد 3 و5 و7 ثوانٍ على التوالي. يمكن أيضًا التقدم بالنقر. استخدم ملف `input.pptx` يحتوي على ثلاث شرائح على الأقل.
+
 ```php
-  # إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي
-  $pres = new Presentation("BetterSlideTransitions.pptx");
-  try {
-    # تطبيق انتقال بنوع دائرة على الشريحة 1
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
-    # تحديد مدة الانتقال بـ 3 ثوانٍ
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceAfterTime(3000);
-    # تطبيق انتقال بنوع مشط على الشريحة 2
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
-    # تحديد مدة الانتقال بـ 5 ثوانٍ
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceAfterTime(5000);
-    # تطبيق انتقال بنوع تكبير على الشريحة 3
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setType(TransitionType::Zoom);
-    # تحديد مدة الانتقال بـ 7 ثوانٍ
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceAfterTime(7000);
-    # حفظ العرض التقديمي إلى القرص
-    $pres->save("SampleTransition_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 3) {
+        $firstTransition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+        $firstTransition->setType(TransitionType::Circle);
+        $firstTransition->setAdvanceOnClick(true);
+        $firstTransition->setAdvanceAfter(true);
+        $firstTransition->setAdvanceAfterTime(3000);
+
+        $secondTransition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $secondTransition->setType(TransitionType::Comb);
+        $secondTransition->setAdvanceOnClick(true);
+        $secondTransition->setAdvanceAfter(true);
+        $secondTransition->setAdvanceAfterTime(5000);
+
+        $thirdTransition = $presentation->getSlides()->get_Item(2)->getSlideShowTransition();
+        $thirdTransition->setType(TransitionType::Zoom);
+        $thirdTransition->setAdvanceOnClick(true);
+        $thirdTransition->setAdvanceAfter(true);
+        $thirdTransition->setAdvanceAfterTime(7000);
+
+        $presentation->save("advanced-transitions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least three slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+للتحقق مما إذا كان التقدم الزمني مفعلاً، استدعِ [getAdvanceAfter](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). التخزين الوحيد للتأخير لا يعني أن المؤقت نشط.
+
+المثال التالي يفتح الملف المحفوظ أعلاه، يحدد كل مؤقت مفعّل، ويعطل التقدم التلقائي للشرائح التي لديها تأخير أكبر من ثانيتين. يُفعّل النقر لتلك الشرائح ويحفظ الإعدادات المحدثة.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+
+        if (java_values($transition->getAdvanceAfter())) {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": advance after " . java_values($transition->getAdvanceAfterTime()) . " ms." . PHP_EOL;
+
+            if (java_values($transition->getAdvanceAfterTime()) > 2000) {
+                $transition->setAdvanceAfter(false);
+                $transition->setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    $presentation->save("adjusted-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **التحكم في توقيت الانتقال بدقة**
+
+استخدم [setDuration](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setDuration) لتحديد الطول الدقيق لتأثير الانتقال بالميليثانية. تُظهر طريقة [getSlideShowTransition](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/#getSlideShowTransition) للشرائح هذه الإعدادات عبر فئة [SlideShowTransition](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/):
+
+| الطريقة | الغرض |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setDuration) | يحدد مدة تأثير الانتقال نفسه، بالميليثانية. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | يحدد التأخير قبل تقدم الشريحة تلقائيًا، بالميليثانية. مرّر `true` إلى [setAdvanceAfter](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) لتفعيل هذا المؤقت. |
+| [setSpeed](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setSpeed) | يختار فئة سرعة مُعرّفة مسبقًا من [TransitionSpeed](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitionspeed/): Slow أو Medium أو Fast. تُستَخدم عندما لا يتم تحديد مدة صريحة. |
+
+يُتحكم [setDuration](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setDuration) فقط في تأثير الانتقال؛ لا يحدد مدة بقاء الشريحة مرئية. اضبط تأخير التقدم التلقائي بشكل منفصل. عندما لا تُحدد مدة صريحة، يحدد Aspose.Slides مدة التأثير بناءً على نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#getSpeed).
+
+### **تطبيق نفس المدة على كل الشريحة**
+
+لضمان إيقاع ثابت، طبق نفس التأثير والمدة الدقيقة على كل شريحة. هذا المثال يحمل `input.pptx`، يختار Fade من [TransitionType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitiontype/)، ويعطي كل انتقال مدة 750 ميليثانية. يفعّل التقدم التلقائي بعد 5,000 ميليثانية ويعطل التقدم بنقرة الفأرة، ثم يحفظ النتيجة كملف PPTX.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+        $transition->setType(TransitionType::Fade);
+        $transition->setDuration(750);
+
+        // تكوين التقدم التلقائي بشكل مستقل عن مدة التأثير.
+        $transition->setAdvanceAfter(true);
+        $transition->setAdvanceAfterTime(5000);
+        $transition->setAdvanceOnClick(false);
+    }
+
+    $presentation->save("precise-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **تعيين مدد مختلفة للشرائح الفردية**
+
+يمكن أن تستخدم الشرائح المختلفة مدد تأثير مختلفة. على سبيل المثال، استخدم انتقالًا سريعًا لشريحة العنوان وانتقالًا أطول لتقديم قسم. هذا المثال يحدد 500 ميليثانية للشريحة الأولى و1,200 ميليثانية للشريحة الثانية. استخدم ملف `input.pptx` يحتوي على شريحتين على الأقل.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $firstTransition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+        $firstTransition->setType(TransitionType::Fade);
+        $firstTransition->setDuration(500);
+
+        $secondTransition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $secondTransition->setType(TransitionType::Push);
+        $secondTransition->setDuration(1200);
+
+        $presentation->save("individual-transition-durations.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **تنسيق الانتقالات مع المخرجات المتحركة**
+
+عند إعداد [animated GIF](/slides/ar/php-java/convert-powerpoint-to-animated-gif/)، أو [HTML5 presentation](/slides/ar/php-java/export-to-html5/)، أو [video](/slides/ar/php-java/convert-powerpoint-to-video/)، حدد مدد الانتقال الدقيقة قبل التصدير لتتناسب مع الإيقاع المطلوب. على سبيل المثال، استخدم تلاشيًا مدته 600 ميليثانية بين المشاهد، وعدّل تأخير تقدم كل شريحة بشكل منفصل للسماح بالرا narration أو المحتوى.
+
+بالنسبة للـ GIF والفيديو، نسّق معدل الإطارات مع مدة التأثير: 600 ميليثانية تعادل 18 إطارًا عند 30 إطارًا في الثانية. في HTML5، فعّل الانتقالات المتحركة في إعدادات التصدير. تحقق من الدعم للانتقالات وخيارات التوقيت في صيغة التصدير المختارة، واختبر النتيجة للتأكد من التزامن.
+
+### **قراءة مدة الانتقال الحالية**
+
+استدعِ [getDuration](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#getDuration) قبل تعديل الانتقال لتحديد ما إذا كانت قيمة صريحة مخزنة. القيمة `-1` تعني عدم وجود مدة صريحة؛ القيمة غير السالبة تحدد المدة المخزنة بالميليثانية. القيمة غير المضبوطة ليست مدة التشغيل المحسوبة: يستخدم Aspose.Slides نوع الانتقال وقيمة [getSpeed](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#getSpeed) لتحديد تلك المدة. قد يهيّء تعيين نوع الانتقال مدةً مبدئية، لذا افحص الإعدادات الأصلية أولاً.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+        $duration = java_values($transition->getDuration());
+
+        if ($duration >= 0) {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": stored transition duration is " . $duration . " ms." . PHP_EOL;
+        } else {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": no explicit duration; timing depends on transition type " . java_values($transition->getType()) . " and speed " . java_values($transition->getSpeed()) . "." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **انتقال Morph**
-{{% alert color="primary" %}} 
 
-تدعم Aspose.Slides for PHP عبر Java الآن [Morph Transition](https://reference.aspose.com/slides/php-java/aspose.slides/morphtransition/). إنها تمثل انتقاليًّا جديدًا تم تقديمه في PowerPoint 2019.
+يُحرك انتقال Morph التغييرات بين الكائنات في الشرائح المتتالية. لإنشاء تأثير Morph بسيط، استنسخ شريحة، حرّك أو غير حجم كائن على النسخة، وطبّق انتقال Morph على الشريحة الثانية. يُعطي ذلك الكائنات المقابلة القدرة على التحرك بين الحالة الأصلية والمعدلة.
 
-{{% /alert %}} 
+المثال التالي ينشئ شريحة تحتوي على مستطيل نصي، ينسخ الشريحة، ثم يغيّر موقع وحجم المستطيل على النسخة. بعد ذلك يختار Morph من تعداد [TransitionType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitiontype/) للشريحة الثانية. افتح الملف المحفوظ في عارض عروض يدعم Morph لرؤية التأثير أثناء العرض.
 
-يسمح لك انتقال Morph بتحريك حركة سلسة من شريحة إلى أخرى. يصف هذا المقال المفهوم وكيفية استخدام انتقال Morph. لاستخدام انتقال Morph بشكل فعّال، ستحتاج إلى شريحتين تتشاركان على الأقل كائنًا واحدًا. أسهل طريقة هي تكرار الشريحة ثم نقل الكائن في الشريحة الثانية إلى مكان مختلف.
-
-يظهر المقتطف البرمجي التالي كيفية إضافة نسخة من الشريحة مع بعض النص إلى العرض التقديمي وتعيين انتقال من نوع [morph type](https://reference.aspose.com/slides/php-java/aspose.slides/TransitionType) إلى الشريحة الثانية.
 ```php
-  $presentation = new Presentation();
-  try {
-    $autoshape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
-    $autoshape->getTextFrame()->setText("Morph Transition in PowerPoint Presentations");
-    $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
-    $shape = $presentation->getSlides()->get_Item(1)->getShapes()->get_Item(0);
-    $shape->setX($shape->getX() + 100);
-    $shape->setY($shape->getY() + 50);
-    $shape->setWidth($shape->getWidth() - 200);
-    $shape->setHeight($shape->getHeight() - 10);
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
-  } finally {
-    $presentation->dispose();
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionType;
 
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $rectangle = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
+    $rectangle->getTextFrame()->setText("Morph transition");
+
+    $secondSlide = $presentation->getSlides()->addClone($firstSlide);
+    $movedRectangle = $secondSlide->getShapes()->get_Item(0);
+    $movedRectangle->setX(java_values($movedRectangle->getX()) + 100);
+    $movedRectangle->setY(java_values($movedRectangle->getY()) + 50);
+    $movedRectangle->setWidth(java_values($movedRectangle->getWidth()) - 200);
+    $movedRectangle->setHeight(java_values($movedRectangle->getHeight()) - 10);
+
+    $secondSlide->getSlideShowTransition()->setType(TransitionType::Morph);
+
+    $presentation->save("morph-transition.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **أنواع انتقال Morph**
-تم إضافة تعداد جديد [TransitionMorphType](https://reference.aspose.com/slides/php-java/aspose.slides/TransitionMorphType). يمثل أنواعًا مختلفة من انتقال شريحة Morph.
 
-يحتوي تعداد TransitionMorphType على ثلاثة أعضاء:
+يتحكم تعداد [TransitionMorphType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitionmorphtype/) في طريقة مطابقة وإ animating المحتوى:
 
-- ByObject: سيتم تنفيذ انتقال Morph مع اعتبار الأشكال ككائنات غير قابلة للتقسيم.
-- ByWord: سيتم تنفيذ انتقال Morph بنقل النص كلمةً كلمةً حيثما أمكن.
-- ByChar: سيتم تنفيذ انتقال Morph بنقل النص حرفًا بحرف حيثما أمكن.
+- [ByObject](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitionmorphtype/#ByObject) يعامل كل شكل ككائن كامل.
+- [ByWord](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitionmorphtype/#ByWord) يُحرك النص بمطابقة الكلمات حيثما أمكن.
+- [ByChar](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitionmorphtype/#ByChar) يُحرك النص بمطابقة الأحرف حيثما أمكن.
 
-يظهر المقتطف البرمجي التالي كيفية تعيين انتقال Morph إلى الشريحة وتغيير نوع Morph:
+استخدم [setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setType) لاختيار Morph قبل الوصول إلى [getValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#getValue). تُعطي القيمة بعد ذلك كائنًا من نوع [MorphTransition](https://reference.aspose.com/slides/ar/php-java/aspose.slides/morphtransition/)، حيث يحدد [setMorphType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/morphtransition/#setMorphType) وضع المطابقة.
+
+هذا المثال يفتح العرض التقديمي الذي تم إنشاؤه في القسم السابق ويضبط الشريحة الثانية لاستخدام حركة Morph قائمة على الكلمات.
+
 ```php
-  $presentation = new Presentation("presentation.pptx");
-  try {
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setMorphType(TransitionMorphType::ByWord);
-    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionMorphType;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("morph-transition.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $transition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $transition->setType(TransitionType::Morph);
+        $morphTransition = $transition->getValue();
+
+        if (!java_is_null($morphTransition)) {
+            $morphTransition->setMorphType(TransitionMorphType::ByWord);
+            $presentation->save("morph-by-word.pptx", SaveFormat::Pptx);
+        } else {
+            echo "Morph transition options are unavailable." . PHP_EOL;
+        }
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+## **ضبط تأثيرات الانتقال**
 
-## **تعيين تأثيرات الانتقال**
-تدعم Aspose.Slides for PHP عبر Java تعيين تأثيرات الانتقال مثل من الأسود، من اليسار، من اليمين، إلخ. لتعيين تأثير الانتقال، يرجى اتباع الخطوات أدناه:
+بعض الانتقالات تكشف عن خيارات إضافية، مثل الاتجاه أو ما إذا كان يبدأ التأثير من شاشة سوداء. تعتمد الخيارات المتاحة على الانتقال المختار باستخدام [setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setType). حدّد النوع أولاً، ثم استخدم كائن الانتقال المناسب من [getValue](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#getValue).
 
-- إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-- الحصول على مرجع الشريحة.
-- تعيين تأثير الانتقال.
-- كتابة العرض التقديمي كملف [PPTX ](https://docs.fileformat.com/presentation/pptx/).
+المثال التالي يطبق انتقال Cut على الشريحة الأولى من `input.pptx`. يستدعي [setFromBlack](https://reference.aspose.com/slides/ar/php-java/aspose.slides/optionalblacktransition/#setFromBlack) عبر فئة [OptionalBlackTransition](https://reference.aspose.com/slides/ar/php-java/aspose.slides/optionalblacktransition/) لجعل الانتقال يبدأ من شاشة سوداء.
 
-في المثال المعطى أدناه، قمنا بتعيين تأثيرات الانتقال.
 ```php
-  # إنشاء مثيل من فئة Presentation
-  $presentation = new Presentation("AccessSlides.pptx");
-  try {
-    # تعيين التأثير
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Cut);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setFromBlack(true);
-    # حفظ العرض التقديمي إلى القرص
-    $presentation->save("SetTransitionEffects_out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $transition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+    $transition->setType(TransitionType::Cut);
+    $cutTransition = $transition->getValue();
+
+    if (!java_is_null($cutTransition)) {
+        $cutTransition->setFromBlack(true);
+        $presentation->save("cut-from-black.pptx", SaveFormat::Pptx);
+    } else {
+        echo "Cut transition options are unavailable." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
+## **الأسئلة المتكررة**
 
-## **FAQ**
+**هل يمكنني التحكم بسرعة تشغيل انتقال الشريحة؟**
 
-**هل يمكنني التحكم في سرعة تشغيل انتقال الشريحة؟**
+نعم. استخدم [setDuration](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setDuration) عندما تحتاج إلى مدة تأثير دقيقة بالميليثانية. استخدم [setSpeed](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setSpeed) عندما تكون فئة [TransitionSpeed](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitionspeed/) مُحددة (Slow أو Medium أو Fast) كافية ولا توجد مدة صريحة مُحددة. تُتحكم هذه الإعدادات في تأثير الانتقال بشكل منفصل عن تأخير التقدم التلقائي.
 
-نعم. قم بتعيين [speed](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setspeed/) للانتقال باستخدام إعداد [TransitionSpeed](https://reference.aspose.com/slides/php-java/aspose.slides/transitionspeed/) (مثلاً بطيء/متوسط/سريع).
+**هل يمكنني إرفاق صوت بالانتقال وجعله يتكرر؟**
 
-**هل يمكنني إرفاق صوت بانتقال وجعله يتكرر؟**
+نعم. عيّن صوتًا مضمّنًا باستخدام [setSound](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setSound)، مرّر `StartSound` من تعداد [TransitionSoundMode](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitionsoundmode/) إلى [setSoundMode](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setSoundMode)، وفعل [setSoundLoop](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setSoundLoop) بالقيمة `true`. سيتكرر الصوت حتى حدث صوتي لاحق في عرض الشرائح.
 
-نعم. يمكنك تضمين صوت للانتقال والتحكم في سلوكه عبر إعدادات مثل وضع الصوت وإعادة التكرار (مثل [setSound](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsound/), [setSoundMode](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundmode/), [setSoundLoop](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundloop/), بالإضافة إلى بيانات وصفية مثل [setSoundIsBuiltIn](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) و[setSoundName](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/setsoundname/)).
+**ما أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
 
-**ما هي أسرع طريقة لتطبيق نفس الانتقال على كل شريحة؟**
+تجوّل عبر مجموعة [getSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getSlides) في العرض التقديمي واستدعِ [setType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#setType) بنفس القيمة لكل شريحة. اضبط أي إعدادات توقيت أو تأثير داخل الحلقة نفسها للحفاظ على سلوك موحد عبر الشرائح.
 
-قم بتكوين نوع الانتقال المطلوب في إعدادات انتقال كل شريحة؛ يتم تخزين الانتقالات لكل شريحة، لذا فإن تطبيق نفس النوع على جميع الشرائح يوفر نتيجة متسقة.
+**كيف يمكنني التحقق من الانتقال الحالي المُطبق على شريحة معينة؟**
 
-**كيف يمكنني التحقق من الانتقال المحدد حاليًا على شريحة؟**
-
-افحص [إعدادات الانتقال](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getSlideShowTransition) للشريحة واقرأ [نوع الانتقال](https://reference.aspose.com/slides/php-java/aspose.slides/slideshowtransition/settype/); القيمة التي تُظهرها تخبرك بالضبط أي تأثير تم تطبيقه.
+استدعِ [getType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideshowtransition/#getType) على نتيجة [getSlideShowTransition](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/#getSlideShowTransition) للشفرة. ستُعيد قيمة من تعداد [TransitionType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/transitiontype/)؛ القيمة `None` تعني عدم تطبيق أي تأثير انتقال.

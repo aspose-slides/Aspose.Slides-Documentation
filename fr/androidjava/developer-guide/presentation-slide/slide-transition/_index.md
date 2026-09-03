@@ -1,5 +1,5 @@
 ---
-title: Gérer les transitions de diapositives dans les présentations sur Android
+title: Gestion des transitions de diapositives dans les présentations sur Android
 linktitle: Transition de diapositive
 type: docs
 weight: 80
@@ -9,7 +9,7 @@ keywords:
 - ajouter une transition de diapositive
 - appliquer une transition de diapositive
 - transition de diapositive avancée
-- transition morph
+- transition Morph
 - type de transition
 - effet de transition
 - PowerPoint
@@ -18,178 +18,312 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Découvrez comment personnaliser les transitions de diapositives dans Aspose.Slides pour Android via Java, avec un guide étape par étape pour les présentations PowerPoint et OpenDocument."
+description: "Appliquer des transitions de diapositives, configurer l’avancement automatique des diapositives et personnaliser les effets Morph et autres effets de transition avec Aspose.Slides for Android via Java."
 ---
-
 ## **Vue d'ensemble**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Android via Java permet également aux développeurs de gérer ou de personnaliser les effets de transition des diapositives. Dans ce sujet, nous aborderons le contrôle des transitions de diapositives avec une grande facilité en utilisant Aspose.Slides for Android via Java.
-
-{{% /alert %}} 
-
-Pour faciliter la compréhension, nous avons démontré l'utilisation d'Aspose.Slides for Android via Java pour gérer des transitions de diapositives simples. Les développeurs peuvent non seulement appliquer différents effets de transition aux diapositives, mais aussi personnaliser le comportement de ces effets de transition.
+Les transitions de diapositive contrôlent la façon dont les diapositives apparaissent pendant un diaporama. Avec Aspose.Slides for Android via Java, vous pouvez choisir un effet de transition pour chaque diapositive, configurer l’avancement par clic de souris ou par minuteur, et ajuster les options spécifiques à un effet. Cet article utilise des exemples Java pour appliquer des transitions, définir des durées de transition exactes, gérer le minutage des diapositives et créer une transition Morph entre deux diapositives. Les exemples montrent également comment enregistrer les paramètres dans un fichier PPTX.
 
 ## **Ajouter une transition de diapositive**
-Pour créer un effet de transition de diapositive simple, suivez les étapes ci-dessous :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Appliquez un type de transition de diapositive sur la diapositive à partir de l'un des effets de transition proposés par Aspose.Slides for Android via Java via l'énumération TransitionType.
-1. Enregistrez le fichier de présentation modifié.
+Pour appliquer une transition, chargez une présentation avec la classe [Presentation](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/presentation/) et accédez aux paramètres de transition de la diapositive via [getSlideShowTransition](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Utilisez [setType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) avec une valeur de l’énumération [TransitionType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitiontype/), puis enregistrez la présentation.
+
+L’exemple suivant applique une transition Circle à la première diapositive et une transition Comb à la seconde. Utilisez un fichier `input.pptx` contenant au moins deux diapositives.
+
 ```java
-// Instancier la classe Presentation pour charger le fichier de présentation source
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Appliquer la transition de type cercle sur la diapositive 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // Appliquer la transition de type peigne sur la diapositive 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // Enregistrer la présentation sur le disque
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **Ajouter une transition de diapositive avancée**
-Dans la section précédente, nous avons simplement appliqué un effet de transition simple sur la diapositive. Maintenant, pour rendre cet effet de transition simple encore meilleur et contrôlé, veuillez suivre les étapes ci-dessous :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation).
-1. Appliquez un type de transition de diapositive sur la diapositive à partir de l'un des effets de transition proposés par Aspose.Slides for Android via Java.
-1. Vous pouvez également définir la transition pour qu'elle avance au clic, après une période de temps spécifique ou les deux.
-1. Si la transition de la diapositive est activée pour avancer au clic, la transition n'avancera que lorsqu'un utilisateur cliquera avec la souris. De plus, si la propriété Avancer après le temps est définie, la transition avancera automatiquement après le délai spécifié.
-1. Enregistrez la présentation modifiée en tant que fichier de présentation.
+Vous pouvez configurer la durée pendant laquelle une diapositive reste à l’écran et déterminer si un clic de souris fait avancer le diaporama. Les méthodes suivantes contrôlent ce comportement :
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) permet à l’utilisateur d’avancer en cliquant avec la souris.
+- [setAdvanceAfter](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) active l’avancement automatique.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) spécifie le délai avant l’avancement automatique, en millisecondes.
+
+Activez à la fois l’avancement par clic et par minuteur pour laisser le spectateur avancer avec un clic ou attendre le minuteur. Pour n’utiliser que le minuteur, passez `false` à [setAdvanceOnClick](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Le délai contrôle le moment où le diaporama avance ; il ne définit pas la durée de l’effet visuel de transition.
+
+Cet exemple attribue différents effets aux trois premières diapositives et active l’avancement automatique après 3, 5 et 7 secondes, respectivement. Les clics de souris peuvent également faire avancer ces diapositives. Utilisez un fichier `input.pptx` contenant au moins trois diapositives.
+
 ```java
-// Instancier la classe Presentation qui représente un fichier de présentation
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Appliquer la transition de type cercle sur la diapositive 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // Définir le temps de transition à 3 secondes
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // Appliquer la transition de type peigne sur la diapositive 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // Définir le temps de transition à 5 secondes
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // Appliquer la transition de type zoom sur la diapositive 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // Définir le temps de transition à 7 secondes
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // Enregistrer la présentation sur le disque
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Pour vérifier si l’avancement chronométré est activé, appelez [getAdvanceAfter](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Un délai stocké à lui seul n’indique pas que le minuteur est actif.
+
+L’exemple suivant ouvre le fichier enregistré ci‑dessus, signale chaque minuteur activé, et désactive l’avancement automatique pour les diapositives dont le délai dépasse deux secondes. Il active les clics de souris pour ces diapositives et enregistre les paramètres mis à jour.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Contrôler précisément le timing des transitions**
+
+Utilisez [setDuration](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) pour spécifier la longueur exacte d’un effet de transition en millisecondes. La méthode [getSlideShowTransition](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) de la diapositive expose ces paramètres via [ISlideShowTransition](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/) :
+
+| Méthode | Objectif |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) | Détermine la durée de l’effet de transition lui‑même, en millisecondes. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Définit le délai avant que la diapositive avance automatiquement, en millisecondes. Passez `true` à [setAdvanceAfter](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) pour activer ce minuteur. |
+| [setSpeed](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Sélectionne une catégorie de vitesse prédéfinie dans [TransitionSpeed](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitionspeed/) : Slow, Medium ou Fast. Elle est utilisée lorsqu’aucune durée exacte n’est spécifiée. |
+
+[setDuration](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) ne contrôle que l’effet de transition ; il ne détermine pas la durée pendant laquelle la diapositive reste visible. Configurez le délai d’avancement automatique séparément. Lorsqu’aucune durée explicite n’est définie, Aspose.Slides détermine la durée de l’effet à partir du type de transition et de la valeur [getSpeed](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) .
+
+### **Appliquer la même durée à chaque diapositive**
+
+Pour un rythme cohérent, appliquez le même effet et la même durée exacte à chaque diapositive. Cet exemple charge `input.pptx`, sélectionne Fade dans [TransitionType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitiontype/), et attribue à chaque transition une durée de 750 millisecondes. Il active séparément l’avancement automatique après 5 000 millisecondes et désactive l’avancement par clic de souris, puis enregistre le résultat au format PPTX.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // Configurer l'avancement automatique indépendamment de la durée de l'effet.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Définir des durées différentes pour chaque diapositive**
+
+Des diapositives distinctes peuvent utiliser des durées d’effet différentes. Par exemple, utilisez une transition brève pour une diapositive titre et une transition plus longue pour une introduction de section. Cet exemple fixe 500 millisecondes pour la première diapositive et 1 200 millisecondes pour la seconde. Utilisez un fichier `input.pptx` contenant au moins deux diapositives.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Coordonner les transitions avec la sortie animée**
+
+Lors de la préparation d’un [GIF animé](/slides/fr/androidjava/convert-powerpoint-to-animated-gif/), d’une [présentation HTML5](/slides/fr/androidjava/export-to-html5/) ou d’une [vidéo](/slides/fr/androidjava/convert-powerpoint-to-video/), définissez des durées de transition exactes avant l’exportation afin d’obtenir le tempo souhaité. Par exemple, utilisez un fondu de 600 millisecondes entre les scènes, et ajustez séparément le délai d’avancement de chaque diapositive pour laisser le temps à la narration ou au contenu.
+
+Pour les GIF et les vidéos, synchronisez la fréquence d’images de sortie avec la durée de l’effet : 600 millisecondes correspondent à 18 images à 30 images par seconde. En HTML5, activez les transitions animées dans les paramètres d’exportation. Vérifiez les effets et options de temporisation pris en charge par le format d’exportation choisi, et prévisualisez le résultat pour confirmer la synchronisation.
+
+### **Lire la durée d’une transition existante**
+
+Appelez [getDuration](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#getDuration--) avant de modifier la transition afin de savoir si une valeur explicite est stockée. Une valeur de `-1` signifie qu’aucune durée explicite n’est définie ; une valeur non négative indique la durée stockée en millisecondes. Cette valeur non définie n’est pas la durée de lecture calculée : Aspose.Slides utilise le type de transition et la valeur [getSpeed](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#getSpeed--) pour déterminer cette durée. La définition d’un type de transition peut initialiser une durée, il est donc conseillé d’inspecter les paramètres d’origine d’abord.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Transition Morph**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for Android via Java prend désormais en charge la [Transition Morph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMorphTransition). Elles représentent la nouvelle transition morph introduite dans PowerPoint 2019.
+La transition Morph anime les changements entre les objets de diapositives consécutives. Pour créer un effet Morph simple, clonez une diapositive, déplacez ou redimensionnez un objet sur le clone, puis appliquez la transition Morph à la deuxième diapositive. Cela fournit aux objets correspondants une animation entre leurs états d’origine et modifiés.
 
-{{% /alert %}} 
+L’exemple suivant crée une diapositive contenant un rectangle de texte, clone la diapositive, puis modifie la position et la taille du rectangle sur le clone. Il sélectionne ensuite Morph dans l’énumération [TransitionType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitiontype/) pour la deuxième diapositive. Ouvrez le fichier enregistré dans un visualiseur de présentations qui prend en charge Morph pour voir l’effet pendant le diaporama.
 
-La transition Morph vous permet d'animer un déplacement fluide d'une diapositive à la suivante. Cet article décrit le concept et la façon d'utiliser la transition Morph. Pour utiliser efficacement la transition Morph, vous devez disposer de deux diapositives partageant au moins un objet commun. Le moyen le plus simple est de dupliquer la diapositive, puis de déplacer l'objet sur la deuxième diapositive vers un autre emplacement.
-
-Le fragment de code suivant montre comment ajouter un clone de la diapositive contenant du texte à la présentation et définir une transition de type [morph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionType) sur la deuxième diapositive.
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
+} finally {
     presentation.dispose();
 }
 ```
-
 
 ## **Types de transition Morph**
-Le nouvel énumération [TransitionMorphType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TransitionMorphType) a été ajouté. Il représente différents types de transition de diapositive Morph.
 
-L'énumération TransitionMorphType comprend trois membres :
+L’énumération [TransitionMorphType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitionmorphtype/) détermine comment Morph associe et anime le contenu :
 
-- ByObject : la transition Morph sera exécutée en considérant les formes comme des objets indivisibles.
-- ByWord : la transition Morph sera exécutée en transférant le texte par mots lorsque cela est possible.
-- ByChar : la transition Morph sera exécutée en transférant le texte par caractères lorsque cela est possible.
+- [ByObject](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitionmorphtype/#ByObject) traite chaque forme comme un objet complet.
+- [ByWord](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitionmorphtype/#ByWord) anime le texte en associant les mots lorsque c’est possible.
+- [ByChar](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitionmorphtype/#ByChar) anime le texte en associant les caractères lorsque c’est possible.
 
-Le fragment de code suivant montre comment définir une transition Morph sur une diapositive et changer le type de morph.
+Utilisez [setType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) pour sélectionner Morph avant d’accéder à [getValue](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#getValue--). La valeur renvoie ensuite l’interface [IMorphTransition](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imorphtransition/), dont la méthode [setMorphType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imorphtransition/#setMorphType-int-) choisit le mode d’appariement.
+
+Cet exemple ouvre la présentation créée dans la section précédente et configure la deuxième diapositive pour utiliser une animation Morph basée sur les mots.
+
 ```java
-Presentation presentation = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **Définir les effets de transition**
-Aspose.Slides for Android via Java prend en charge la définition des effets de transition tels que « from black », « from left », « from right », etc. Pour définir l'effet de transition, veuillez suivre les étapes ci-dessous :
 
-- Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation).
-- Obtenez la référence de la diapositive.
-- Définissez l'effet de transition.
-- Enregistrez la présentation en tant que fichier [PPTX](https://docs.fileformat.com/presentation/pptx/).
+Certaines transitions exposent des options supplémentaires, comme la direction ou le fait que l’effet démarre à partir d’un écran noir. Les options disponibles dépendent de la transition sélectionnée avec [setType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setType-int-). Définissez d’abord le type, puis utilisez l’interface appropriée obtenue via [getValue](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#getValue--).
 
-Dans l'exemple ci‑dessous, nous avons défini les effets de transition.
+L’exemple suivant applique une transition Cut à la première diapositive de `input.pptx`. Il appelle [setFromBlack](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) via [IOptionalBlackTransition](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ioptionalblacktransition/) afin que la transition commence à partir d’un écran noir.
+
 ```java
-// Créer une instance de la classe Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Définir l'effet
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // Enregistrer la présentation sur le disque
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **FAQ**
 
-**Puis‑je contrôler la vitesse de lecture d'une transition de diapositive ?**
+**Puis‑je contrôler la vitesse de lecture d’une transition de diapositive ?**
 
-Oui. Définissez la [vitesse](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSpeed-int-) de la transition à l'aide du paramètre [TransitionSpeed](https://reference.aspose.com/slides/androidjava/com.aspose.slides/transitionspeed/) (par exemple, lent/moyen/rapide).
+Oui. Privilégiez [setDuration](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setDuration-int-) lorsque vous avez besoin d’une durée d’effet exacte en millisecondes. Utilisez [setSpeed](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setSpeed-int-) lorsqu’une catégorie prédéfinie de [TransitionSpeed](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitionspeed/) — Slow, Medium ou Fast — suffit et qu’aucune durée explicite n’est définie. Ces paramètres contrôlent l’effet de transition indépendamment du délai d’avancement automatique.
 
 **Puis‑je attacher un son à une transition et le faire boucler ?**
 
-Oui. Vous pouvez intégrer un son à la transition et contrôler son comportement via des paramètres tels que le mode son et la boucle (par exemple, [setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), ainsi que des métadonnées comme [setSoundIsBuiltIn](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) et [setSoundName](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+Oui. Assignez un son intégré avec [setSound](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), passez `StartSound` de l’énumération [TransitionSoundMode](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitionsoundmode/) à [setSoundMode](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setSoundMode-int-), et activez [setSoundLoop](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) avec `true`. Le son boucle jusqu’à l’événement sonore suivant du diaporama.
 
-**Quelle est la façon la plus rapide d'appliquer la même transition à chaque diapositive ?**
+**Quelle est la façon la plus rapide d’appliquer la même transition à toutes les diapositives ?**
 
-Configurez le type de transition souhaité dans les paramètres de transition de chaque diapositive ; les transitions sont stockées par diapositive, ainsi appliquer le même type à toutes les diapositives donne un résultat cohérent.
+Parcourez la collection [getSlides](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/presentation/#getSlides--) de la présentation et appelez [setType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#setType-int-) avec la même valeur pour chaque transition de diapositive. Définissez les options de temporisation et d’effet dans la même boucle afin de conserver un comportement cohérent sur toutes les diapositives.
 
-**Comment vérifier quelle transition est actuellement définie sur une diapositive ?**
+**Comment puis‑je vérifier quelle transition est actuellement définie sur une diapositive ?**
 
-Inspectez les [paramètres de transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getSlideShowTransition--) de la diapositive et lisez son [type de transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideshowtransition/#setType-int-); cette valeur indique exactement quel effet est appliqué.
+Appelez [getType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islideshowtransition/#getType--) sur le résultat de [getSlideShowTransition](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ibaseslide/#getSlideShowTransition--) de la diapositive. Cette méthode renvoie une valeur de l’énumération [TransitionType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/transitiontype/) ; `None` signifie qu’aucun effet de transition n’est appliqué.

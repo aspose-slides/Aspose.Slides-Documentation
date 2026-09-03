@@ -9,177 +9,270 @@ keywords:
 - Folienübergang hinzufügen
 - Folienübergang anwenden
 - Erweiterter Folienübergang
-- Morph‑Übergang
+- Morph-Übergang
 - Übergangstyp
 - Übergangseffekt
+- PowerPoint
+- OpenDocument
+- Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folienübergänge in Aspose.Slides für Python über .NET anpassen können, mit Schritt‑für‑Schritt‑Anleitungen für PowerPoint‑ und OpenDocument‑Präsentationen."
+description: "Folienübergänge anwenden, automatisches Voranschreiten der Folien konfigurieren und Morph sowie weitere Übergangseffekte mit Aspose.Slides für Python via .NET anpassen."
 ---
-
 ## **Übersicht**
 
-Aspose.Slides für Python bietet vollständige Kontrolle über Folienübergänge, vom Auswählen eines Übergangstyps bis zum Konfigurieren von Timing und Triggern im Rahmen automatisierter Präsentationsabläufe. Sie können Folien so einstellen, dass sie bei einem Klick und/oder nach einer festgelegten Verzögerung weiterblättern und das visuelle Verhalten mit Effekten wie dem Ausschneiden von Schwarz oder gerichteten Eingängen verfeinern. Die Bibliothek unterstützt außerdem den in PowerPoint 2019 eingeführten Morph‑Übergang, einschließlich Modi, die nach Objekt, Wort oder Zeichen morphieren, um eine glatte, zusammenhängende Bewegung zwischen Folien zu erzeugen.
+Folienübergänge steuern, wie Folien während einer Bildschirmpräsentation angezeigt werden. Mit Aspose.Slides für Python via .NET können Sie für jede Folie einen Übergangseffekt auswählen, das Voranschreiten per Mausklick oder Timer konfigurieren und optionsspezifische Einstellungen für einen Effekt anpassen. Dieser Artikel verwendet Python‑Beispiele, um Übergänge anzuwenden, genaue Übergangsdauern festzulegen, die Folienzeit zu verwalten und einen Morph‑Übergang zwischen zwei Folien zu erstellen. Die Beispiele zeigen zudem, wie die Einstellungen in einer PPTX‑Datei gespeichert werden.
 
-## **Folienübergänge hinzufügen**
+## **Folienübergang hinzufügen**
 
-Um dies leichter verständlich zu machen, zeigt dieses Beispiel, wie Aspose.Slides für Python verwendet wird, um einfache Folienübergänge zu verwalten. Entwickler können verschiedene Folienübergangseffekte auf Folien anwenden und deren Verhalten anpassen. Um einen einfachen Folienübergang zu erstellen, folgen Sie diesen Schritten:
+Um einen Übergang anzuwenden, laden Sie eine Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/) und greifen auf die Eigenschaft [slide_show_transition](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/slide_show_transition/) der Folie zu. Setzen Sie deren [type](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/type/) auf einen Wert aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitiontype/), und speichern Sie anschließend die Präsentation.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Wenden Sie einen Folienübergang an, indem Sie einen der Effekte aus dem [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) Enum verwenden.
-3. Speichern Sie die geänderte Präsentationsdatei.
-```py
+Das folgende Beispiel wendet einen Circle‑Übergang auf die erste Folie und einen Comb‑Übergang auf die zweite an. Verwenden Sie eine `input.pptx`‑Datei mit mindestens zwei Folien.
+
+```python
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, um eine Präsentationsdatei zu laden.
-with slides.Presentation("sample.pptx") as presentation:
-    # Wenden Sie einen Kreis-Übergang auf Folie 1 an.
-    presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        presentation.slides[0].slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+        presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
 
-    # Wenden Sie einen Kamm-Übergang auf Folie 2 an.
-    presentation.slides[1].slide_show_transition.type = slides.slideshow.TransitionType.COMB
-
-    # Speichern Sie die Präsentation auf dem Datenträger.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("slide-transitions.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least two slides.")
 ```
 
+## **Erweiterten Folienübergang hinzufügen**
 
-## **Erweiterte Folienübergänge hinzufügen**
+Sie können konfigurieren, wie lange eine Folie auf dem Bildschirm bleibt und ob ein Mausklick die Vorführung fortsetzt. Die folgenden Eigenschaften steuern dieses Verhalten:
 
-In diesem Abschnitt haben wir einen einfachen Übergangseffekt auf eine Folie angewendet. Um diesen Effekt kontrollierter und verfeinerter zu gestalten, folgen Sie diesen Schritten:
+- [advance_on_click](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) ermöglicht dem Betrachter, durch Klicken der Maus voranzuschreiten.
+- [advance_after](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/) aktiviert das automatische Voranschreiten.
+- [advance_after_time](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) gibt die Verzögerung vor dem automatischen Voranschreiten in Millisekunden an.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Wenden Sie einen Folienübergang an, indem Sie einen der Effekte aus dem [TransitionType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitiontype/) Enum verwenden.
-3. Konfigurieren Sie den Übergang so, dass er bei Klick weitergeht, nach einem bestimmten Zeitraum oder beides.
-4. Speichern Sie die geänderte Präsentationsdatei.
+Aktivieren Sie sowohl Klick‑ als auch Timer‑Fortschritt, damit der Betrachter entweder per Klick weitergeht oder auf den Timer wartet. Um ausschließlich den Timer zu verwenden, setzen Sie [advance_on_click](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/advance_on_click/) auf `False`. Die Verzögerung bestimmt, wann die Vorführung weitergeht; sie legt nicht die Dauer des visuellen Übergangseffekts fest.
 
-Wenn **Advance On Click** aktiviert ist, wird die Folie nur weitergeschaltet, wenn der Benutzer klickt. Ist die Eigenschaft **Advance After Time** gesetzt, wird die Folie nach dem angegebenen Intervall automatisch weitergeschaltet.
-```py
+Dieses Beispiel weist den ersten drei Folien unterschiedliche Effekte zu und aktiviert das automatische Voranschreiten nach 3, 5 bzw. 7 Sekunden. Mausklicks können diese Folien ebenfalls voranbringen. Verwenden Sie eine `input.pptx`‑Datei mit mindestens drei Folien.
+
+```python
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, um eine Präsentationsdatei zu öffnen.
-with slides.Presentation("sample.pptx") as presentation:
-    slide0 = presentation.slides[0]
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 3:
+        first_transition = presentation.slides[0].slide_show_transition
+        first_transition.type = slides.slideshow.TransitionType.CIRCLE
+        first_transition.advance_on_click = True
+        first_transition.advance_after = True
+        first_transition.advance_after_time = 3000
 
-    # Wenden Sie einen Kreis-Übergang auf Folie 1 an.
-    slide0.slide_show_transition.type = slides.slideshow.TransitionType.CIRCLE
+        second_transition = presentation.slides[1].slide_show_transition
+        second_transition.type = slides.slideshow.TransitionType.COMB
+        second_transition.advance_on_click = True
+        second_transition.advance_after = True
+        second_transition.advance_after_time = 5000
 
-    # Aktivieren Sie das Weiterblättern bei Klick und setzen Sie ein automatisches Weiterblättern nach 3 Sekunden.
-    slide0.slide_show_transition.advance_on_click = True
-    slide0.slide_show_transition.advance_after_time = 3000
+        third_transition = presentation.slides[2].slide_show_transition
+        third_transition.type = slides.slideshow.TransitionType.ZOOM
+        third_transition.advance_on_click = True
+        third_transition.advance_after = True
+        third_transition.advance_after_time = 7000
 
-    slide1 = presentation.slides[1]
-
-    # Wenden Sie einen Kamm-Übergang auf Folie 2 an.
-    slide1.slide_show_transition.type = slides.slideshow.TransitionType.COMB
-
-    # Aktivieren Sie das Weiterblättern bei Klick und setzen Sie ein automatisches Weiterblättern nach 5 Sekunden.
-    slide1.slide_show_transition.advance_on_click = True
-    slide1.slide_show_transition.advance_after_time = 5000
-
-    slide2 = presentation.slides[2]
-
-    # Wenden Sie einen Zoom-Übergang auf Folie 3 an.
-    slide2.slide_show_transition.type = slides.slideshow.TransitionType.ZOOM
-
-    # Aktivieren Sie das Weiterblättern bei Klick und setzen Sie ein automatisches Weiterblättern nach 7 Sekunden.
-    slide2.slide_show_transition.advance_on_click = True
-    slide2.slide_show_transition.advance_after_time = 7000
-
-    # Speichern Sie die Präsentation auf dem Datenträger.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        presentation.save("advanced-transitions.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least three slides.")
 ```
 
+Um zu prüfen, ob das zeitgesteuerte Voranschreiten aktiviert ist, lesen Sie [advance_after](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/). Ein gespeicherter Verzögerungswert allein bedeutet nicht, dass der Timer aktiv ist.
+
+Das nächste Beispiel öffnet die oben gespeicherte Datei, gibt jeden aktivierten Timer aus und deaktiviert das automatische Voranschreiten für Folien mit einer Verzögerung von mehr als zwei Sekunden. Für diese Folien wird der Mausklick aktiviert und die aktualisierten Einstellungen werden gespeichert.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("advanced-transitions.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+
+        if transition.advance_after:
+            print(f"Slide {slide.slide_number}: advance after {transition.advance_after_time} ms.")
+
+            if transition.advance_after_time > 2000:
+                transition.advance_after = False
+                transition.advance_on_click = True
+
+    presentation.save("adjusted-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Übergangszeit exakt steuern**
+
+Verwenden Sie [duration](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/duration/), um die genaue Länge eines Übergangseffekts in Millisekunden anzugeben. Die Eigenschaft [slide_show_transition](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/slide_show_transition/) der Folie stellt diese Einstellungen über [SlideShowTransition](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/) bereit:
+
+| Eigenschaft | Zweck |
+| --- | --- |
+| [duration](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/duration/) | Setzt die Dauer des Übergangseffekts selbst, in Millisekunden. |
+| [advance_after_time](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/advance_after_time/) | Legt die Verzögerung fest, bevor die Folie automatisch weitergeht, in Millisekunden. Aktivieren Sie [advance_after](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/advance_after/), um diesen Timer zu aktivieren. |
+| [speed](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/speed/) | Wählt eine vordefinierte Geschwindigkeitskategorie aus [TransitionSpeed](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitionspeed/): SLOW, MEDIUM oder FAST. Sie wird verwendet, wenn keine genaue Dauer angegeben ist. |
+
+[duration](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/duration/) beeinflusst nur den Übergangseffekt; sie bestimmt nicht, wie lange die Folie sichtbar bleibt. Die Verzögerung für das automatische Voranschreiten muss separat konfiguriert werden. Wenn keine explizite Dauer festgelegt ist, ermittelt Aspose.Slides die Effektdauer anhand des Übergangstyps und des [speed](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/speed/)-Werts.
+
+### **Gleiche Dauer für jede Folie anwenden**
+
+Für ein gleichmäßiges Tempo wenden Sie denselben Effekt und dieselbe genaue Dauer auf jede Folie an. Dieses Beispiel lädt `input.pptx`, wählt Fade aus [TransitionType](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitiontype/), und gibt jedem Übergang eine Dauer von 750 Millisekunden. Zusätzlich wird das automatische Voranschreiten nach 5 000 Millisekunden aktiviert und das Voranschreiten per Mausklick deaktiviert, bevor das Ergebnis als PPTX gespeichert wird.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+        transition.type = slides.slideshow.TransitionType.FADE
+        transition.duration = 750
+
+        # Konfigurieren Sie das automatische Voranschreiten unabhängig von der Effektdauer.
+        transition.advance_after = True
+        transition.advance_after_time = 5000
+        transition.advance_on_click = False
+
+    presentation.save("precise-transitions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Unterschiedliche Dauern für einzelne Folien festlegen**
+
+Verschiedene Folien können unterschiedliche Effektdauern verwenden. Beispielweise kann ein kurzer Übergang für eine Titelfolie und ein längerer für eine Abschnittseinleitung eingesetzt werden. Dieses Beispiel setzt 500 Millisekunden für die erste Folie und 1 200 Millisekunden für die zweite. Verwenden Sie eine `input.pptx`‑Datei mit mindestens zwei Folien.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        first_transition = presentation.slides[0].slide_show_transition
+        first_transition.type = slides.slideshow.TransitionType.FADE
+        first_transition.duration = 500
+
+        second_transition = presentation.slides[1].slide_show_transition
+        second_transition.type = slides.slideshow.TransitionType.PUSH
+        second_transition.duration = 1200
+
+        presentation.save("individual-transition-durations.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The input presentation must contain at least two slides.")
+```
+
+### **Übergänge mit animierter Ausgabe abstimmen**
+
+Wenn Sie ein [animated GIF](/slides/de/python-net/convert-powerpoint-to-animated-gif/), eine [HTML5 presentation](/slides/de/python-net/export-to-html5/) oder ein [video](/slides/de/python-net/convert-powerpoint-to-video/) vorbereiten, setzen Sie genaue Übergangsdauern vor dem Export, um das gewünschte Tempo zu erreichen. Beispielsweise können Sie ein 600‑Millisekunden‑Fade zwischen Szenen verwenden und jede Folienverzögerung separat anpassen, damit Zeit für die zugehörige Erzählung oder den Inhalt bleibt.
+
+Für GIF‑ und Videoausgabe koordinieren Sie die Bildrate mit der Effektdauer: 600 Millisekunden entsprechen 18 Frames bei 30 Frames pro Sekunde. In HTML5 aktivieren Sie animierte Übergänge in den Exporteinstellungen. Prüfen Sie die vom gewählten Exportformat unterstützten Effekte und Timing‑Optionen und sehen Sie sich eine Vorschau an, um die Synchronisation zu bestätigen.
+
+### **Bestehende Übergangsdauer auslesen**
+
+Lesen Sie [duration](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/duration/) aus, bevor Sie den Übergang ändern, um festzustellen, ob ein expliziter Wert gespeichert ist. Ein Wert von `-1` bedeutet, dass keine explizite Dauer festgelegt wurde; ein nichtnegativer Wert gibt die gespeicherte Dauer in Millisekunden an. Der nicht gesetzte Wert ist nicht die berechnete Wiedergabedauer: Aspose.Slides ermittelt die Dauer aus dem Übergangstyp und dem [speed](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/speed/). Das Festlegen eines Übergangstyps kann eine Dauer initialisieren, daher sollten Sie zunächst die ursprünglichen Einstellungen prüfen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        transition = slide.slide_show_transition
+        duration = transition.duration
+
+        if duration >= 0:
+            print(f"Slide {slide.slide_number}: stored transition duration is {duration} ms.")
+        else:
+            print(f"Slide {slide.slide_number}: no explicit duration; timing depends on {transition.type} and {transition.speed}.")
+```
 
 ## **Morph-Übergang**
 
-Aspose.Slides für Python unterstützt den [Morph transition](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/morphtransition/), der die flüssige Bewegung von einer Folie zur nächsten animiert. Dieser Abschnitt erklärt, wie der Morph‑Übergang verwendet wird. Um ihn effektiv zu nutzen, benötigen Sie zwei Folien mit mindestens einem gemeinsamen Objekt. Der einfachste Ansatz besteht darin, eine Folie zu duplizieren und das Objekt dann auf der zweiten Folie an eine andere Position zu verschieben.
+Der Morph‑Übergang animiert Änderungen zwischen Objekten auf aufeinanderfolgenden Folien. Um einen einfachen Morph‑Effekt zu erzeugen, duplizieren Sie eine Folie, verschieben oder skalieren Sie ein Objekt auf der Kopie und wenden Sie den Morph‑Übergang auf die zweite Folie an. Dadurch erhalten die entsprechenden Objekte einen Animationspfad zwischen ihrem ursprünglichen und modifizierten Zustand.
 
-Das folgende Codebeispiel zeigt, wie eine Folie, die Text enthält, geklont und ein Morph‑Übergang auf die zweite Folie angewendet wird.
-```py
+Das folgende Beispiel erstellt eine Folie mit einem Textrechteck, dupliziert die Folie und ändert Position und Größe des Rechtecks auf der Kopie. Anschließend wird Morph aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitiontype/) für die zweite Folie ausgewählt. Öffnen Sie die gespeicherte Datei in einem Präsentationsviewer, der Morph unterstützt, um den Effekt während einer Vorführung zu sehen.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    slide0 = presentation.slides[0]
+    first_slide = presentation.slides[0]
+    rectangle = first_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
+    rectangle.text_frame.text = "Morph transition"
 
-    auto_shape = slide0.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 100)
-    auto_shape.text_frame.text = "Morph Transition in PowerPoint Presentations"
+    second_slide = presentation.slides.add_clone(first_slide)
+    moved_rectangle = second_slide.shapes[0]
+    moved_rectangle.x += 100
+    moved_rectangle.y += 50
+    moved_rectangle.width -= 200
+    moved_rectangle.height -= 10
 
-    # Klonen Sie die erste Folie, um eine zweite Folie mit denselben Formen für die Morph-Kontinuität zu erstellen.
-    slide1 = presentation.slides.add_clone(slide0)
+    second_slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
 
-    # Wählen Sie das gleiche Rechteck auf der zweiten Folie aus und ändern Sie dessen Position und Größe.
-    shape = slide1.shapes[0]
-    shape.x += 100
-    shape.y += 50
-    shape.width -= 200
-    shape.height -= 10
-
-    # Aktivieren Sie den Morph-Übergang auf der zweiten Folie, um die Formänderungen glatt zu animieren.
-    slide1.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("morph-transition.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Morph‑Übergangstypen**
 
-## **Morph-Übergangstypen**
+Die Aufzählung [TransitionMorphType](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitionmorphtype/) bestimmt, wie Morph Inhalte abgleicht und animiert:
 
-Das [TransitionMorphType](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionmorphtype/) Enum repräsentiert die verschiedenen Typen von Morph‑Folienübergängen.
+- [BY_OBJECT](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitionmorphtype/) behandelt jede Form als gesamtes Objekt.
+- [BY_WORD](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitionmorphtype/) animiert Text, indem nach Möglichkeit Wörter abgeglichen werden.
+- [BY_CHAR](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitionmorphtype/) animiert Text, indem nach Möglichkeit Zeichen abgeglichen werden.
 
-Das folgende Codebeispiel zeigt, wie ein Morph‑Übergang auf eine Folie angewendet und der Morph‑Typ geändert wird:
-```py
+Setzen Sie den Übergang [type](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/type/) auf Morph, bevor Sie auf dessen [value](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/value/) zugreifen. Der Wert liefert dann das Objekt [MorphTransition](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/morphtransition/), dessen Eigenschaft [morph_type](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/morphtransition/morph_type/) den Abgleichmodus auswählt.
+
+Dieses Beispiel öffnet die in dem vorherigen Abschnitt erstellte Präsentation und konfiguriert die zweite Folie so, dass sie eine wortbasierte Morph‑Animation verwendet.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("morph-transition.pptx") as presentation:
+    if len(presentation.slides) >= 2:
+        transition = presentation.slides[1].slide_show_transition
+        transition.type = slides.slideshow.TransitionType.MORPH
+        morph_transition = transition.value
 
-    slide.slide_show_transition.type = slides.slideshow.TransitionType.MORPH
-    slide.slide_show_transition.value.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
-    
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+        if isinstance(morph_transition, slides.slideshow.MorphTransition):
+            morph_transition.morph_type = slides.slideshow.TransitionMorphType.BY_WORD
+            presentation.save("morph-by-word.pptx", slides.export.SaveFormat.PPTX)
+        else:
+            print("Morph transition options are unavailable.")
+    else:
+        print("The input presentation must contain at least two slides.")
 ```
-
 
 ## **Übergangseffekte festlegen**
 
-Aspose.Slides für Python ermöglicht das Festlegen von Übergangseffekten wie **From Black**, **From Left**, **From Right** usw. Um einen Übergangseffekt zu konfigurieren, folgen Sie diesen Schritten:
+Einige Übergänge bieten zusätzliche Optionen, etwa die Richtung oder ob der Effekt von einem schwarzen Bildschirm startet. Die verfügbaren Optionen hängen vom gewählten Übergangs-[type](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/type/) ab. Setzen Sie zunächst den Typ und verwenden Sie dann das passende Übergangsobjekt aus dessen [value](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/value/).
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse.
-2. Holen Sie eine Referenz zur Folie.
-3. Legen Sie den gewünschten Übergangseffekt fest.
-4. Speichern Sie die Präsentation als PPTX‑Datei.
+Das folgende Beispiel wendet einen Cut‑Übergang auf die erste Folie von `input.pptx` an. Es setzt [from_black](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/optionalblacktransition/from_black/) über [OptionalBlackTransition](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/optionalblacktransition/), sodass der Übergang von einem schwarzen Bildschirm startet.
 
-Im folgenden Beispiel setzen wir mehrere Übergangseffekte.
-```py
+```python
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, um eine Präsentationsdatei zu öffnen.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
+with slides.Presentation("input.pptx") as presentation:
+    transition = presentation.slides[0].slide_show_transition
+    transition.type = slides.slideshow.TransitionType.CUT
+    cut_transition = transition.value
 
-    # Wenden Sie einen Cut-Übergang an und aktivieren Sie From Black.
-    slide.slide_show_transition.type = slides.slideshow.TransitionType.CUT
-    slide.slide_show_transition.value.from_black = True
-
-    # Speichern Sie die Präsentation auf dem Datenträger.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    if isinstance(cut_transition, slides.slideshow.OptionalBlackTransition):
+        cut_transition.from_black = True
+        presentation.save("cut-from-black.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("Cut transition options are unavailable.")
 ```
-
 
 ## **FAQ**
 
 **Kann ich die Wiedergabegeschwindigkeit eines Folienübergangs steuern?**
 
-Ja. Setzen Sie die [speed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/speed/) des Übergangs über die [TransitionSpeed](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/transitionspeed/) Einstellung (z. B. slow/medium/fast).
+Ja. Verwenden Sie [duration](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/duration/), wenn Sie eine exakte Effektdauer in Millisekunden benötigen. Nutzen Sie [speed](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/speed/), wenn eine vordefinierte Kategorie aus [TransitionSpeed](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitionspeed/) — SLOW, MEDIUM oder FAST — ausreicht und keine explizite Dauer festgelegt ist. Diese Einstellungen beeinflussen den Übergangseffekt unabhängig von der automatischen Voranschrittsverzögerung.
 
-**Kann ich einer Transition Audio anhängen und es in einer Schleife wiedergeben?**
+**Kann ich einem Übergang Audio hinzufügen und es wiederholen lassen?**
 
-Ja. Sie können einen Sound für den Übergang einbetten und das Verhalten über Einstellungen wie [sound](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound/), [sound_mode](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/), [sound_loop](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/) steuern, plus Metadaten wie [sound_is_built_in](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_is_built_in/) und [sound_name](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/sound_name/).
+Ja. Weisen Sie eingebettetes Audio der Eigenschaft [sound](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/sound/) zu, setzen Sie [sound_mode](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/sound_mode/) auf START_SOUND aus der Aufzählung [TransitionSoundMode](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitionsoundmode/), und aktivieren Sie [sound_loop](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/sound_loop/). Das Audio wird wiederholt, bis das nächste Sound‑Ereignis in der Vorführung eintritt.
 
-**Was ist der schnellste Weg, denselben Übergang auf jede Folie anzuwenden?**
+**Was ist der schnellste Weg, denselben Übergang auf alle Folien anzuwenden?**
 
-Konfigurieren Sie den gewünschten Übergangstyp in den Übergangseinstellungen jeder Folie; Übergänge werden pro Folie gespeichert, sodass das Anwenden desselben Typs auf alle Folien ein konsistentes Ergebnis liefert.
+Durchlaufen Sie die [slides](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/slides/de/)-Sammlung der Präsentation und setzen Sie für jede Folie den Übergangs-[type](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/type/) auf denselben Wert. Setzen Sie Timing‑ und Effektoptionen im selben Durchlauf, um das Verhalten über alle Folien hinweg konsistent zu halten.
 
-**Wie kann ich prüfen, welcher Übergang derzeit auf einer Folie eingestellt ist?**
+**Wie kann ich prüfen, welcher Übergang gerade für eine Folie eingestellt ist?**
 
-Untersuchen Sie die [transition settings](https://reference.aspose.com/slides/python-net/aspose.slides/slide/slide_show_transition/) der Folie und lesen Sie deren [transition type](https://reference.aspose.com/slides/python-net/aspose.slides.slideshow/slideshowtransition/type/); dieser Wert gibt genau an, welcher Effekt angewendet wird.
+Lesen Sie die Eigenschaft [type](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/slideshowtransition/type/) aus der [slide_show_transition](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/slide_show_transition/)-Eigenschaft der Folie. Sie liefert einen Wert aus der Aufzählung [TransitionType](https://reference.aspose.com/slides/de/python-net/aspose.slides.slideshow/transitiontype/); NONE bedeutet, dass kein Übergangseffekt angewendet ist.

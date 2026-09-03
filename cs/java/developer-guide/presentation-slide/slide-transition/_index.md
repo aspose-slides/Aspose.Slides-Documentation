@@ -1,5 +1,5 @@
 ---
-title: Správa přechodů snímků v prezentacích pomocí Java
+title: Spravovat přechody snímků v prezentacích pomocí Javy
 linktitle: Přechod snímku
 type: docs
 weight: 80
@@ -8,8 +8,8 @@ keywords:
 - přechod snímku
 - přidat přechod snímku
 - aplikovat přechod snímku
-- pokročilý přechod snímku
-- morph přechod
+- rozšířený přechod snímku
+- Morph přechod
 - typ přechodu
 - efekt přechodu
 - PowerPoint
@@ -17,153 +17,293 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Objevte, jak přizpůsobit přechody snímků v Aspose.Slides pro Java, s podrobným průvodcem pro prezentace PowerPoint a OpenDocument."
+description: "Aplikujte přechody snímků, konfigurovat automatické posunování snímků a přizpůsobte Morph a jiné efekty přechodů pomocí Aspose.Slides pro Javu."
 ---
 ## **Přehled**
 
-Článek vysvětluje, jak spravovat přechody snímků v prezentacích pomocí Aspose.Slides. Ukazuje, jak aplikovat typy přechodů na snímky, nakonfigurovat chování přechodu, například pokročování po kliknutí nebo po uplynutí určeného času, zkontrolovat a zakázat automatické pokročování, použít Morph přechod a jeho typy a nastavit možnosti efektu přechodu. Příklady ukazují, jak načíst nebo vytvořit prezentaci, upravit nastavení přechodu pro vybrané snímky a uložit výsledek jako soubor PPTX. Článek také odpovídá na časté otázky o rychlosti přechodu, zvucích přechodu, aplikaci stejného přechodu na více snímků a kontrole přechodu aktuálně nastaveného na snímku.
+Přechody snímků řídí, jak se snímky zobrazují během prezentace. S knihovnou Aspose.Slides pro Java můžete pro každý snímek zvolit efekt přechodu, nakonfigurovat postupování pomocí kliknutí myší nebo časovače a upravit možnosti specifické pro daný efekt. Tento článek používá příklady v jazyce Java k aplikaci přechodů, nastavení přesných délek přechodu, správě časování snímků a vytvoření přechodu Morph mezi dvěma snímky. Příklady také ukazují, jak uložit nastavení do souboru PPTX.
 
-## **Přidat přechod snímku**
-Pro vytvoření jednoduchého efektu přechodu snímku postupujte podle níže uvedených kroků:
+## **Přidání přechodu snímku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. Použijte typ přechodu snímku na snímku z jedněch z efektů přechodu nabízených společností Aspose.Slides pro Java pomocí výčtu TransitionType.
-1. Zapište upravený soubor prezentace.
+Pro aplikaci přechodu načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) a přistupte k nastavení přechodu snímku přes [getSlideShowTransition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Použijte [setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setType-int-) s hodnotou z výčtu [TransitionType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitiontype/), poté prezentaci uložte.
+
+Následující příklad použije přechod Circle na první snímek a přechod Comb na druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
 
 ```java
-// Vytvořte instanci třídy Presentation pro načtení zdrojového souboru prezentace
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Aplikujte přechod typu kruh na snímek 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // Aplikujte přechod typu hřeben na snímek 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // Uložte prezentaci na disk
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Přidat pokročilý přechod snímku**
-V předchozí části jsme aplikovali jednoduchý efekt přechodu na snímek. Nyní, abychom tento jednoduchý efekt učinili ještě lepším a řízenějším, postupujte podle níže uvedených kroků:
+## **Rozšířený přechod snímku**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. Použijte typ přechodu snímku na snímku z jedněch z efektů přechodu nabízených společností Aspose.Slides pro Java.
-1. Můžete také nastavit přechod na Pokročování po kliknutí, po konkrétním časovém intervalu nebo obojí.
-1. Pokud je přechod snímku povolen na Pokročování po kliknutí, přechod se posune pouze po kliknutí myší. Navíc, pokud je nastaven vlastnost Advance After Time, přechod se automaticky posune po uplynutí zadaného času.
-1. Zapište upravenou prezentaci jako soubor prezentace.
+Můžete konfigurovat, jak dlouho snímek zůstane na obrazovce a zda kliknutí myší posune prezentaci dál. Následující metody řídí toto chování:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) umožňuje uživateli posunout prezentaci kliknutím.
+- [setAdvanceAfter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) povoluje automatické posunutí.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) určuje prodlevu před automatickým posunutím v milisekundách.
+
+Povolte jak kliknutí, tak časované posunutí, aby uživatel mohl přejít kliknutím nebo počkat na časovač. Pro použití pouze časovače předávejte `false` do [setAdvanceOnClick](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). Prodleva řídí, kdy se prezentace posune; nenastavuje délku vizuálního efektu přechodu.
+
+Tento příklad přiřadí různé efekty k prvním třem snímkům a povolí automatické posunutí po 3, 5 a 7 sekundách. Kliknutím myši lze tyto snímky také posunout. Použijte soubor `input.pptx` s alespoň třemi snímky.
 
 ```java
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Aplikujte přechod typu kruh na snímek 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // Nastavte dobu trvání přechodu na 3 sekundy
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // Aplikujte přechod typu hřeben na snímek 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // Nastavte dobu trvání přechodu na 5 sekund
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // Aplikujte přechod typu zoom na snímek 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // Nastavte dobu trvání přechodu na 7 sekund
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // Uložte prezentaci na disk
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Morph přechod**
-{{% alert color="primary" %}} 
+Pro kontrolu, zda je časované posunutí aktivní, zavolejte [getAdvanceAfter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Uložená prodleva sama neznamená, že je časovač aktivní.
 
-Aspose.Slides pro Java nyní podporuje [Morph Transition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IMorphTransition). Jedná se o nový morph přechod zavedený v PowerPoint 2019.
-
-{{% /alert %}} 
-
-Morph přechod vám umožňuje animovat plynulý přechod z jednoho snímku na další. Tento článek popisuje koncept a způsob použití Morph přechodu. Pro efektivní použití Morph přechodu potřebujete mít dva snímky s alespoň jedním společným objektem. Nejjednodušší způsob je duplikovat snímek a poté přesunout objekt na druhém snímku na jiné místo.
-
-Následující úryvek kódu ukazuje, jak přidat klon snímku s nějakým textem do prezentace a nastavit přechod typu [morph type](https://reference.aspose.com/slides/cs/java/com.aspose.slides/TransitionType) na druhý snímek.
+Další příklad otevře výše uložený soubor, nahlásí každý povolený časovač a zakáže automatické posunutí pro snímky s prodlevou delší než dvě sekundy. Pro tyto snímky povolí kliknutí myší a uloží aktualizovaná nastavení.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Přesné řízení časování přechodu**
+
+Použijte [setDuration](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setDuration-int-) k určení přesné délky efektu přechodu v milisekundách. Metoda [getSlideShowTransition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) vrací tato nastavení přes rozhraní [ISlideShowTransition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/):
+
+| Metoda | Účel |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | Nastaví délku samotného efektu přechodu v milisekundách. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Nastaví prodlevu před automatickým posunutím snímku v milisekundách. Pro aktivaci tohoto časovače předávejte `true` do [setAdvanceAfter](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-). |
+| [setSpeed](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Vybere předdefinovanou kategorii rychlosti z výčtu [TransitionSpeed](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitionspeed/): Slow, Medium nebo Fast. Používá se, když není zadána přesná délka. |
+
+[setDuration](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setDuration-int-) ovlivňuje jen efekt přechodu; neurčuje, jak dlouho snímek zůstane viditelný. Automatickou prodlevu posunutí nastavte samostatně. Když není explicitně zadána délka, Aspose.Slides odvozuje dobu trvání z typu přechodu a hodnoty [getSpeed](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#getSpeed--).
+
+### **Použít stejnou délku na každý snímek**
+
+Pro jednotné tempo použijte stejný efekt a přesnou délku na všechny snímky. Tento příklad načte `input.pptx`, vybere Fade z [TransitionType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitiontype/) a nastaví každému přechodu délku 750 milisekund. Samostatně povolí automatické posunutí po 5 000 milisekundách a zakáže posunutí kliknutím, poté výsledek uloží jako PPTX.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // Nastavte automatické posunování nezávisle na délce efektu.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Nastavit různé délky pro jednotlivé snímky**
+
+Různé snímky mohou mít různé délky efektu. Například použijte krátký přechod pro úvodní snímek a delší přechod pro úvod sekce. Tento příklad nastaví 500 milisekund pro první snímek a 1 200 milisekund pro druhý. Použijte soubor `input.pptx` s alespoň dvěma snímky.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Koordinovat přechody s animovaným výstupem**
+
+Při přípravě [animated GIF](/slides/cs/java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/cs/java/export-to-html5/) nebo [video](/slides/cs/java/convert-powerpoint-to-video/) nastavte přesné délky přechodů před exportem, aby odpovídaly zamýšlenému tempu. Například použijte 600 ms fade mezi scénami a samostatně upravte prodlevu posunutí každého snímku, aby byl čas na jeho komentář nebo obsah.
+
+Pro GIF a video koordinujte snímkovou frekvenci výstupu s délkou efektu: 600 ms odpovídá 18 snímkům při 30 fps. V HTML5 povolte animované přechody v nastavení exportu. Zkontrolujte, jaké efekty a časování podporuje zvolený formát, a předem si výstup prohlédněte, abyste potvrdili synchronizaci.
+
+### **Načíst existující délku přechodu**
+
+Před úpravou přechodu zavolejte [getDuration](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#getDuration--) a zjistěte, zda je uložena explicitní hodnota. Hodnota `-1` znamená, že není nastavená explicitní délka; nezáporná hodnota udává uloženou délku v milisekundách. Nezadání hodnoty neznamená vypočtenou dobu přehrávání: Aspose.Slides používá typ přechodu a hodnotu [getSpeed](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#getSpeed--) k určení této doby. Nastavení typu přechodu může inicializovat délku, proto nejprve prověřte původní nastavení.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Přechod Morph**
+
+Přechod Morph animuje změny mezi objekty na po sobě jdoucích snímcích. Pro vytvoření jednoduchého efektu Morph klonujte snímek, přesunte nebo změňte velikost objektu na klonu a aplikujte na druhý snímek přechod Morph. Tím získáte animaci odpovídajících objektů mezi jejich původním a upraveným stavem.
+
+Následující příklad vytvoří snímek s textovým obdélníkem, klonuje snímek a změní pozici a velikost obdélníku na klonu. Pak vybere Morph ze výčtu [TransitionType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitiontype/) pro druhý snímek. Otevřete uložený soubor v prohlížeči prezentací, který podporuje Morph, a podívejte se na efekt během prezentace.
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
-    presentation.dispose();
-}
-```
-
-## **Typy Morph přechodu**
-Nový výčet [TransitionMorphType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/TransitionMorphType) byl přidán. Reprezentuje různé typy Morph přechodu snímku.
-
-Výčet TransitionMorphType má tři členy:
-
-- ByObject: Morph přechod bude proveden s ohledem na tvary jako nedělitelné objekty.
-- ByWord: Morph přechod bude proveden převodem textu po slovech, kde je to možné.
-- ByChar: Morph přechod bude proveden převodem textu po znacích, kde je to možné.
-
-Následující úryvek kódu ukazuje, jak nastavit morph přechod na snímek a změnit typ morphu:
-
-```java
-Presentation presentation = new Presentation("presentation.pptx");
-try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Nastavit efekty přechodu**
-Aspose.Slides pro Java podporuje nastavení efektů přechodu, jako jsou z černé, zleva, zprava atd. Pro nastavení efektu přechodu postupujte podle níže uvedených kroků:
+## **Typy přechodu Morph**
 
-- Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/Presentation).
-- Získejte referenci na snímek.
-- Nastavte efekt přechodu.
-- Uložte prezentaci jako soubor [PPTX](https://docs.fileformat.com/presentation/pptx/).
+Výčet [TransitionMorphType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitionmorphtype/) určuje, jak Morph přiřazuje a animuje obsah:
 
-V níže uvedeném příkladu jsme nastavili efekty přechodu.
+- [ByObject](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitionmorphtype/#ByObject) zachází s každým tvarem jako s celým objektem.
+- [ByWord](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitionmorphtype/#ByWord) animuje text porovnáváním slov, kde je to možné.
+- [ByChar](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitionmorphtype/#ByChar) animuje text porovnáváním znaků, kde je to možné.
+
+Použijte [setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setType-int-) pro výběr Morph před přístupem k [getValue](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#getValue--). Hodnota pak poskytne rozhraní [IMorphTransition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imorphtransition/), jehož metoda [setMorphType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imorphtransition/#setMorphType-int-) vybírá režim přiřazení.
+
+Tento příklad otevře prezentaci vytvořenou v předchozí sekci a nakonfiguruje druhý snímek tak, aby používal animaci Morph založenou na slovech.
 
 ```java
-// Vytvořte instanci třídy Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
 try {
-    // Nastavte efekt
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // Uložte prezentaci na disk
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Nastavení efektů přechodu**
+
+Některé přechody odhalují další možnosti, jako je směr nebo zda efekt začíná z černé obrazovky. Dostupné možnosti závisí na přechodu zvoleném pomocí [setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setType-int-). Nejprve nastavte typ, pak použijte příslušné rozhraní z [getValue](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#getValue--).
+
+Následující příklad aplikuje přechod Cut na první snímek `input.pptx`. Volá [setFromBlack](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) přes [IOptionalBlackTransition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ioptionalblacktransition/), takže přechod začíná z černé obrazovky.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -173,16 +313,16 @@ try {
 
 **Mohu řídit rychlost přehrávání přechodu snímku?**
 
-Ano. Nastavte [rychlost](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) přechodu pomocí nastavení [TransitionSpeed](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitionspeed/) (např. pomalá/střední/rychlá).
+Ano. Upřednostněte [setDuration](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setDuration-int-), když potřebujete přesnou délku efektu v milisekundách. Použijte [setSpeed](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setSpeed-int-), když stačí předdefinovaná kategorie [TransitionSpeed](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitionspeed/) – Slow, Medium nebo Fast – a není nastavená explicitní délka. Tato nastavení řídí efekt přechodu nezávisle na automatické prodlevě posunutí.
 
-**Mohu k přechodu připojit zvuk a nastavit jeho opakování?**
+**Mohu k přechodu připojit zvuk a nechat jej opakovat?**
 
-Ano. Můžete vložit zvuk pro přechod a řídit chování pomocí nastavení, jako je režim zvuku a opakování (např. [setSound](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), plus metadata jako [setSoundIsBuiltIn](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) a [setSoundName](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+Ano. Přiřaďte vložený zvuk pomocí [setSound](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), předávejte `StartSound` z výčtu [TransitionSoundMode](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitionsoundmode/) do [setSoundMode](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), a povolte [setSoundLoop](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) s hodnotou `true`. Zvuk bude opakován až do další zvukové události v prezentaci.
 
-**Jaký je nejrychlejší způsob, jak použít stejný přechod na každý snímek?**
+**Jak nejrychleji aplikovat stejný přechod na všechny snímky?**
 
-Konfigurujte požadovaný typ přechodu v nastavení přechodu každého snímku; přechody jsou uloženy pro každý snímek, takže použití stejného typu na všechny snímky poskytne konzistentní výsledek.
+Projděte kolekci [getSlides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getSlides--) prezentace a pro každý snímek zavolejte [setType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#setType-int-) se stejnou hodnotou. V tomtéž cyklu nastavte jakékoli časové a efektové možnosti, aby chování zůstalo konzistentní napříč všemi snímky.
 
-**Jak mohu zkontrolovat, který přechod je aktuálně nastaven na snímku?**
+**Jak zjistit, který přechod je aktuálně nastaven na snímku?**
 
-Prohlédněte si [nastavení přechodu](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslide/#getSlideShowTransition--) snímku a přečtěte jeho [typ přechodu](https://reference.aspose.com/slides/cs/java/com.aspose.slides/slideshowtransition/#setType-int-); tato hodnota vám přesně sdělí, který efekt je aplikován.
+Zavolejte [getType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideshowtransition/#getType--) na výsledku [getSlideShowTransition](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) daného snímku. Vrátí hodnotu z výčtu [TransitionType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/transitiontype/); `None` znamená, že žádný přechod není aplikován.

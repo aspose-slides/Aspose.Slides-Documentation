@@ -6,169 +6,341 @@ weight: 80
 url: /id/php-java/slide-transition/
 keywords:
 - transisi slide
-- menambahkan transisi slide
+- tambahkan transisi slide
 - terapkan transisi slide
 - transisi slide lanjutan
 - transisi morph
-- jenis transisi
+- tipe transisi
 - efek transisi
 - PowerPoint
 - OpenDocument
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Temukan cara menyesuaikan transisi slide di Aspose.Slides untuk PHP via Java, dengan panduan langkah demi langkah untuk presentasi PowerPoint dan OpenDocument."
+description: "Terapkan transisi slide, konfigurasikan pergerakan slide otomatis, dan sesuaikan Morph serta efek transisi lainnya dengan Aspose.Slides untuk PHP via Java."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengelola transisi slide dalam presentasi menggunakan Aspose.Slides. Artikel ini menunjukkan cara menerapkan jenis transisi pada slide, mengonfigurasi perilaku transisi seperti melanjutkan pada klik atau setelah waktu tertentu, memeriksa dan menonaktifkan lanjutan otomatis, menggunakan transisi Morph dan jenis‑nya, serta mengatur opsi efek transisi. Contoh‑contohnya memperlihatkan cara memuat atau membuat presentasi, memodifikasi pengaturan transisi untuk slide yang dipilih, dan menyimpan hasilnya sebagai file PPTX. Artikel ini juga menjawab pertanyaan umum tentang kecepatan transisi, suara transisi, menerapkan transisi yang sama pada banyak slide, dan memeriksa transisi yang saat ini diterapkan pada sebuah slide.
+Transisi slide mengontrol cara slide muncul selama pertunjukan slide. Dengan Aspose.Slides untuk PHP via Java, Anda dapat memilih efek transisi untuk setiap slide, mengonfigurasi pergerakan lewat klik mouse atau timer, serta menyesuaikan opsi khusus untuk sebuah efek. Artikel ini menggunakan contoh PHP untuk menerapkan transisi, menetapkan durasi transisi yang tepat, mengelola waktu slide, dan membuat transisi Morph antara dua slide. Contoh-contoh tersebut juga menunjukkan cara menyimpan pengaturan ke file PPTX.
 
 ## **Menambahkan Transisi Slide**
-Untuk membuat efek transisi slide sederhana, ikuti langkah‑langkah berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation).
-1. Terapkan Slide Transition Type pada slide dari salah satu efek transisi yang ditawarkan oleh Aspose.Slides for PHP via Java melalui enum TransitionType.
-1. Tulis file presentasi yang telah dimodifikasi.
+Untuk menerapkan transisi, muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) dan akses pengaturan transisi slide melalui [getSlideShowTransition](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseslide/#getSlideShowTransition). Gunakan [setType](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setType) dengan nilai dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitiontype/), lalu simpan presentasi.
+
+Contoh berikut menerapkan transisi Circle pada slide pertama dan transisi Comb pada slide kedua. Gunakan file `input.pptx` yang memiliki setidaknya dua slide.
 
 ```php
-  # Membuat instance kelas Presentation untuk memuat file presentasi sumber
-  $presentation = new Presentation("AccessSlides.pptx");
-  try {
-    # Terapkan transisi tipe lingkaran pada slide 1
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
-    # Terapkan transisi tipe sisir pada slide 2
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
-    # Simpan presentasi ke disk
-    $presentation->save("SampleTransition_out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
+        $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
+
+        $presentation->save("slide-transitions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
 ## **Menambahkan Transisi Slide Lanjutan**
-Pada bagian di atas, kita hanya menerapkan efek transisi sederhana pada slide. Sekarang, untuk membuat efek transisi sederhana itu menjadi lebih baik dan terkontrol, ikuti langkah‑langkah berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation).
-1. Terapkan Slide Transition Type pada slide dari salah satu efek transisi yang ditawarkan oleh Aspose.Slides for PHP via Java.
-1. Anda juga dapat mengatur transisi menjadi Advance On Click, setelah periode waktu tertentu, atau keduanya.
-1. Jika transisi slide diaktifkan untuk Advance On Click, transisi hanya akan melanjutkan ketika seseorang mengklik mouse. Selain itu, jika properti Advance After Time ditetapkan, transisi akan melanjutkan secara otomatis setelah waktu yang ditentukan berlalu.
-1. Tulis presentasi yang dimodifikasi sebagai file presentasi.
+Anda dapat mengonfigurasi berapa lama slide tetap di layar dan apakah klik mouse melanjutkan pertunjukan slide. Metode-metode berikut mengontrol perilaku tersebut:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) memungkinkan penonton melanjutkan dengan mengklik mouse.
+- [setAdvanceAfter](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) mengaktifkan pergerakan otomatis.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) menentukan jeda sebelum pergerakan otomatis, dalam milidetik.
+
+Aktifkan kedua pergerakan klik dan berbasis timer supaya penonton dapat melanjutkan dengan klik atau menunggu timer. Untuk menggunakan hanya timer, berikan `false` ke [setAdvanceOnClick](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Jeda mengontrol kapan pertunjukan slide maju; ia tidak menentukan durasi efek transisi visual.
+
+Contoh ini menetapkan efek yang berbeda untuk tiga slide pertama dan mengaktifkan pergerakan otomatis setelah 3, 5, dan 7 detik secara berurutan. Klik mouse juga dapat melanjutkan slide tersebut. Gunakan file `input.pptx` yang memiliki setidaknya tiga slide.
 
 ```php
-  # Membuat instance kelas Presentation yang mewakili file presentasi
-  $pres = new Presentation("BetterSlideTransitions.pptx");
-  try {
-    # Terapkan transisi tipe lingkaran pada slide 1
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
-    # Atur waktu transisi menjadi 3 detik
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceAfterTime(3000);
-    # Terapkan transisi tipe sisir pada slide 2
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
-    # Atur waktu transisi menjadi 5 detik
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceAfterTime(5000);
-    # Terapkan transisi tipe zoom pada slide 3
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setType(TransitionType::Zoom);
-    # Atur waktu transisi menjadi 7 detik
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceOnClick(true);
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceAfterTime(7000);
-    # Simpan presentasi ke disk
-    $pres->save("SampleTransition_out.pptx", SaveFormat::Pptx);
-  } finally {
-    $pres->dispose();
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 3) {
+        $firstTransition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+        $firstTransition->setType(TransitionType::Circle);
+        $firstTransition->setAdvanceOnClick(true);
+        $firstTransition->setAdvanceAfter(true);
+        $firstTransition->setAdvanceAfterTime(3000);
+
+        $secondTransition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $secondTransition->setType(TransitionType::Comb);
+        $secondTransition->setAdvanceOnClick(true);
+        $secondTransition->setAdvanceAfter(true);
+        $secondTransition->setAdvanceAfterTime(5000);
+
+        $thirdTransition = $presentation->getSlides()->get_Item(2)->getSlideShowTransition();
+        $thirdTransition->setType(TransitionType::Zoom);
+        $thirdTransition->setAdvanceOnClick(true);
+        $thirdTransition->setAdvanceAfter(true);
+        $thirdTransition->setAdvanceAfterTime(7000);
+
+        $presentation->save("advanced-transitions.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least three slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Untuk memeriksa apakah pergerakan berbasis timer diaktifkan, panggil [getAdvanceAfter](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Jeda yang disimpan saja tidak menunjukkan bahwa timer sedang aktif.
+
+Contoh berikut membuka file yang disimpan di atas, melaporkan setiap timer yang diaktifkan, dan menonaktifkan pergerakan otomatis untuk slide dengan jeda lebih dari dua detik. Ia mengaktifkan klik mouse untuk slide tersebut dan menyimpan pengaturan yang diperbarui.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+
+        if (java_values($transition->getAdvanceAfter())) {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": advance after " . java_values($transition->getAdvanceAfterTime()) . " ms." . PHP_EOL;
+
+            if (java_values($transition->getAdvanceAfterTime()) > 2000) {
+                $transition->setAdvanceAfter(false);
+                $transition->setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    $presentation->save("adjusted-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Mengontrol Waktu Transisi Secara Tepat**
+
+Gunakan [setDuration](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setDuration) untuk menentukan panjang tepat efek transisi dalam milidetik. Metode [getSlideShowTransition](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseslide/#getSlideShowTransition) pada slide mengungkapkan pengaturan ini melalui [SlideShowTransition](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/):
+
+| Metode | Tujuan |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setDuration) | Menetapkan durasi efek transisi itu sendiri, dalam milidetik. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Menetapkan jeda sebelum slide maju otomatis, dalam milidetik. Berikan `true` ke [setAdvanceAfter](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setAdvanceAfter) untuk mengaktifkan timer ini. |
+| [setSpeed](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setSpeed) | Memilih kategori kecepatan yang telah ditentukan dari [TransitionSpeed](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitionspeed/): Slow, Medium, atau Fast. Digunakan bila durasi tepat tidak ditentukan. |
+
+[setDuration](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setDuration) mengontrol hanya efek transisi; ia tidak menentukan berapa lama slide tetap terlihat. Konfigurasikan jeda pergerakan otomatis secara terpisah. Ketika tidak ada durasi eksplisit yang ditetapkan, Aspose.Slides menentukan durasi efek dari tipe transisi dan nilai [getSpeed](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#getSpeed).
+
+### **Menerapkan Durasi yang Sama pada Setiap Slide**
+
+Untuk ritme yang konsisten, terapkan efek yang sama dan durasi tepat yang sama pada setiap slide. Contoh ini memuat `input.pptx`, memilih Fade dari [TransitionType](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitiontype/), dan memberikan setiap transisi durasi 750 milidetik. Ia secara terpisah mengaktifkan pergerakan otomatis setelah 5.000 milidetik dan menonaktifkan pergerakan lewat klik mouse, kemudian menyimpan hasilnya sebagai PPTX.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+        $transition->setType(TransitionType::Fade);
+        $transition->setDuration(750);
+
+        // Konfigurasikan pergerakan otomatis secara terpisah dari durasi efek.
+        $transition->setAdvanceAfter(true);
+        $transition->setAdvanceAfterTime(5000);
+        $transition->setAdvanceOnClick(false);
+    }
+
+    $presentation->save("precise-transitions.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Menetapkan Durasi Berbeda untuk Slide Individu**
+
+Slide yang berbeda dapat menggunakan durasi efek yang berbeda. Misalnya, gunakan transisi singkat untuk slide judul dan transisi lebih lama untuk pengenalan bagian. Contoh ini menetapkan 500 milidetik untuk slide pertama dan 1.200 milidetik untuk slide kedua. Gunakan file `input.pptx` yang memiliki setidaknya dua slide.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $firstTransition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+        $firstTransition->setType(TransitionType::Fade);
+        $firstTransition->setDuration(500);
+
+        $secondTransition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $secondTransition->setType(TransitionType::Push);
+        $secondTransition->setDuration(1200);
+
+        $presentation->save("individual-transition-durations.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Mengkoordinasikan Transisi dengan Output Animasi**
+
+Saat menyiapkan [animated GIF](/slides/id/php-java/convert-powerpoint-to-animated-gif/), [presentasi HTML5](/slides/id/php-java/export-to-html5/), atau [video](/slides/id/php-java/convert-powerpoint-to-video/), tetapkan durasi transisi yang tepat sebelum ekspor agar sesuai dengan ritme yang diinginkan. Misalnya, gunakan fade selama 600 milidetik antar adegan, dan sesuaikan jeda pergerakan setiap slide secara terpisah untuk memberi waktu pada narasi atau kontennya.
+
+Untuk GIF dan video, sinkronkan frame rate output dengan durasi efek: 600 milidetik bersamaan dengan 18 frame pada 30 frame per detik. Pada HTML5, aktifkan transisi animasi dalam pengaturan ekspor. Periksa efek dan opsi waktu yang didukung oleh format ekspor yang dipilih, dan pratinjau output untuk memastikan sinkronisasi.
+
+### **Membaca Durasi Transisi yang Ada**
+
+Panggil [getDuration](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#getDuration) sebelum mengubah transisi untuk menentukan apakah nilai eksplisit disimpan. Nilai `-1` berarti tidak ada durasi eksplisit yang ditetapkan; nilai non-negatif menentukan durasi yang disimpan dalam milidetik. Nilai yang tidak disetel bukan durasi pemutaran yang dihitung: Aspose.Slides menggunakan tipe transisi dan nilai [getSpeed](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#getSpeed) untuk menentukan durasi tersebut. Menetapkan tipe transisi dapat menginisialisasi durasi, jadi periksa pengaturan asli terlebih dulu.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $transition = $slide->getSlideShowTransition();
+        $duration = java_values($transition->getDuration());
+
+        if ($duration >= 0) {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": stored transition duration is " . $duration . " ms." . PHP_EOL;
+        } else {
+            echo "Slide " . java_values($slide->getSlideNumber()) . ": no explicit duration; timing depends on transition type " . java_values($transition->getType()) . " and speed " . java_values($transition->getSpeed()) . "." . PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Transisi Morph**
-{{% alert color="primary" %}} 
 
-Aspose.Slides for PHP via Java kini mendukung [Morph Transition](https://reference.aspose.com/slides/id/php-java/aspose.slides/morphtransition/). Mereka mewakili transisi morph baru yang diperkenalkan di PowerPoint 2019.
+Transisi Morph menganimasikan perubahan antara objek pada slide berurutan. Untuk membuat efek Morph sederhana, klon slide, pindahkan atau ubah ukuran objek pada klon, dan terapkan transisi Morph pada slide kedua. Ini memberikan objek yang bersesuaian untuk dianimasikan antara keadaan asli dan yang dimodifikasi.
 
-{{% /alert %}} 
-
-Transisi Morph memungkinkan Anda menganimasikan pergerakan mulus dari satu slide ke slide berikutnya. Artikel ini menjelaskan konsepnya dan cara menggunakan transisi Morph. Untuk menggunakan transisi Morph secara efektif, Anda memerlukan dua slide dengan setidaknya satu objek yang sama. Cara termudah adalah menggandakan slide dan kemudian memindahkan objek pada slide kedua ke tempat yang berbeda.
-
-Potongan kode berikut menunjukkan cara menambahkan duplikat slide dengan beberapa teks ke presentasi dan menetapkan transisi [morph type](https://reference.aspose.com/slides/id/php-java/aspose.slides/TransitionType) ke slide kedua.
+Contoh berikut membuat slide dengan sebuah persegi teks, mengkloning slide tersebut, dan mengubah posisi serta ukuran persegi pada klon. Kemudian ia memilih Morph dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitiontype/) untuk slide kedua. Buka file yang disimpan dalam penampil presentasi yang mendukung Morph untuk melihat efeknya selama pertunjukan slide.
 
 ```php
-  $presentation = new Presentation();
-  try {
-    $autoshape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
-    $autoshape->getTextFrame()->setText("Morph Transition in PowerPoint Presentations");
-    $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
-    $shape = $presentation->getSlides()->get_Item(1)->getShapes()->get_Item(0);
-    $shape->setX($shape->getX() + 100);
-    $shape->setY($shape->getY() + 50);
-    $shape->setWidth($shape->getWidth() - 200);
-    $shape->setHeight($shape->getHeight() - 10);
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $rectangle = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
+    $rectangle->getTextFrame()->setText("Morph transition");
+
+    $secondSlide = $presentation->getSlides()->addClone($firstSlide);
+    $movedRectangle = $secondSlide->getShapes()->get_Item(0);
+    $movedRectangle->setX(java_values($movedRectangle->getX()) + 100);
+    $movedRectangle->setY(java_values($movedRectangle->getY()) + 50);
+    $movedRectangle->setWidth(java_values($movedRectangle->getWidth()) - 200);
+    $movedRectangle->setHeight(java_values($movedRectangle->getHeight()) - 10);
+
+    $secondSlide->getSlideShowTransition()->setType(TransitionType::Morph);
+
+    $presentation->save("morph-transition.pptx", SaveFormat::Pptx);
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Jenis‑jenis Transisi Morph**
-Enum baru [TransitionMorphType](https://reference.aspose.com/slides/id/php-java/aspose.slides/TransitionMorphType) telah ditambahkan. Enum ini mewakili berbagai jenis transisi slide Morph.
+## **Jenis Transisi Morph**
 
-Enum TransitionMorphType memiliki tiga anggota:
+Enumerasi [TransitionMorphType](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitionmorphtype/) mengontrol cara Morph mencocokkan dan menganimasi konten:
 
-- ByObject: Transisi Morph akan dilakukan dengan mempertimbangkan bentuk sebagai objek yang tidak dapat dibagi.
-- ByWord: Transisi Morph akan dilakukan dengan mentransfer teks per kata bila memungkinkan.
-- ByChar: Transisi Morph akan dilakukan dengan mentransfer teks per karakter bila memungkinkan.
+- [ByObject](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitionmorphtype/#ByObject) memperlakukan setiap bentuk sebagai satu objek keseluruhan.
+- [ByWord](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitionmorphtype/#ByWord) menganimasi teks dengan mencocokkan kata bila memungkinkan.
+- [ByChar](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitionmorphtype/#ByChar) menganimasi teks dengan mencocokkan karakter bila memungkinkan.
 
-Potongan kode berikut menunjukkan cara menetapkan transisi morph ke slide dan mengubah jenis morph:
+Gunakan [setType](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setType) untuk memilih Morph sebelum mengakses [getValue](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#getValue). Nilai tersebut kemudian menyediakan objek [MorphTransition](https://reference.aspose.com/slides/id/php-java/aspose.slides/morphtransition/), yang metode [setMorphType](https://reference.aspose.com/slides/id/php-java/aspose.slides/morphtransition/#setMorphType)-nya memilih mode pencocokan.
+
+Contoh ini membuka presentasi yang dibuat pada bagian sebelumnya dan mengonfigurasi slide kedua untuk menggunakan animasi Morph berbasis kata.
 
 ```php
-  $presentation = new Presentation("presentation.pptx");
-  try {
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setMorphType(TransitionMorphType::ByWord);
-    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionMorphType;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("morph-transition.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) >= 2) {
+        $transition = $presentation->getSlides()->get_Item(1)->getSlideShowTransition();
+        $transition->setType(TransitionType::Morph);
+        $morphTransition = $transition->getValue();
+
+        if (!java_is_null($morphTransition)) {
+            $morphTransition->setMorphType(TransitionMorphType::ByWord);
+            $presentation->save("morph-by-word.pptx", SaveFormat::Pptx);
+        } else {
+            echo "Morph transition options are unavailable." . PHP_EOL;
+        }
+    } else {
+        echo "The input presentation must contain at least two slides." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
-## **Mengatur Efek Transisi**
-Aspose.Slides for PHP via Java mendukung pengaturan efek transisi seperti from black, from left, from right, dll. Untuk mengatur Transition Effect, ikuti langkah‑langkah berikut:
+## **Menetapkan Efek Transisi**
 
-- Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-- Dapatkan referensi slide.
-- Atur efek transisi.
-- Tulis presentasi sebagai file [PPTX](https://docs.fileformat.com/presentation/pptx/)​.
+Beberapa transisi membuka opsi tambahan, seperti arah atau apakah efek dimulai dari layar hitam. Opsi yang tersedia tergantung pada transisi yang dipilih dengan [setType](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setType). Tetapkan tipe terlebih dahulu, kemudian gunakan objek transisi yang tepat dari [getValue](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#getValue).
 
-Pada contoh di bawah, kami telah mengatur efek transisi.
+Contoh berikut menerapkan transisi Cut pada slide pertama `input.pptx`. Ia memanggil [setFromBlack](https://reference.aspose.com/slides/id/php-java/aspose.slides/optionalblacktransition/#setFromBlack) melalui [OptionalBlackTransition](https://reference.aspose.com/slides/id/php-java/aspose.slides/optionalblacktransition/) sehingga transisi dimulai dari layar hitam.
 
 ```php
-  # Buat sebuah instance kelas Presentation
-  $presentation = new Presentation("AccessSlides.pptx");
-  try {
-    # Atur efek
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Cut);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setFromBlack(true);
-    # Simpan presentasi ke disk
-    $presentation->save("SetTransitionEffects_out.pptx", SaveFormat::Pptx);
-  } finally {
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\TransitionType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $transition = $presentation->getSlides()->get_Item(0)->getSlideShowTransition();
+    $transition->setType(TransitionType::Cut);
+    $cutTransition = $transition->getValue();
+
+    if (!java_is_null($cutTransition)) {
+        $cutTransition->setFromBlack(true);
+        $presentation->save("cut-from-black.pptx", SaveFormat::Pptx);
+    } else {
+        echo "Cut transition options are unavailable." . PHP_EOL;
+    }
+} finally {
     $presentation->dispose();
-  }
+}
 ```
 
 ## **FAQ**
 
 **Apakah saya dapat mengontrol kecepatan pemutaran transisi slide?**
 
-Ya. Tetapkan [speed](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/setspeed/) transisi menggunakan pengaturan [TransitionSpeed](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitionspeed/) (misalnya, slow/medium/fast).
+Ya. Gunakan [setDuration](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setDuration) bila Anda memerlukan durasi efek yang tepat dalam milidetik. Gunakan [setSpeed](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setSpeed) bila kategori [TransitionSpeed](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitionspeed/) yang telah ditentukan—Slow, Medium, atau Fast—cukup dan tidak ada durasi eksplisit yang ditetapkan. Pengaturan ini mengontrol efek transisi secara independen dari jeda pergerakan otomatis.
 
-**Apakah saya dapat melampirkan audio ke transisi dan membuatnya berulang?**
+**Apakah saya dapat menambahkan audio ke transisi dan membuatnya berulang?**
 
-Ya. Anda dapat menyematkan suara untuk transisi dan mengontrol perilakunya melalui pengaturan seperti mode suara dan looping (misalnya, [setSound](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/setsound/), [setSoundMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/setsoundmode/), [setSoundLoop](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/setsoundloop/), plus metadata seperti [setSoundIsBuiltIn](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) dan [setSoundName](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/setsoundname/)).
+Ya. Tetapkan audio tersemat dengan [setSound](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setSound), berikan StartSound dari enumerasi [TransitionSoundMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitionsoundmode/) ke [setSoundMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setSoundMode), dan aktifkan [setSoundLoop](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setSoundLoop) dengan `true`. Audio akan berulang hingga terjadi peristiwa suara berikutnya dalam pertunjukan slide.
 
-**Apa cara tercepat untuk menerapkan transisi yang sama ke setiap slide?**
+**Apa cara tercepat untuk menerapkan transisi yang sama pada setiap slide?**
 
-Konfigurasikan jenis transisi yang diinginkan pada pengaturan transisi setiap slide; transisi disimpan per slide, jadi menerapkan jenis yang sama pada semua slide menghasilkan hasil yang konsisten.
+Loop melalui koleksi [getSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getSlides) pada presentasi dan panggil [setType](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#setType) dengan nilai yang sama untuk transisi setiap slide. Tetapkan opsi waktu dan efek apa pun dalam loop yang sama untuk menjaga perilaku tetap konsisten di seluruh slide.
 
-**Bagaimana cara memeriksa transisi apa yang saat ini diterapkan pada sebuah slide?**
+**Bagaimana saya dapat memeriksa transisi apa yang saat ini diterapkan pada sebuah slide?**
 
-Periksa [transition settings](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseslide/#getSlideShowTransition) slide dan baca [transition type](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/settype/); nilai tersebut memberi tahu Anda secara tepat efek apa yang diterapkan.
+Panggil [getType](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideshowtransition/#getType) pada hasil [getSlideShowTransition](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseslide/#getSlideShowTransition) slide. Ia mengembalikan nilai dari enumerasi [TransitionType](https://reference.aspose.com/slides/id/php-java/aspose.slides/transitiontype/); None berarti tidak ada efek transisi yang diterapkan.

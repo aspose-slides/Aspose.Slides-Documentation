@@ -9,7 +9,7 @@ keywords:
 - thêm chuyển đổi slide
 - áp dụng chuyển đổi slide
 - chuyển đổi slide nâng cao
-- chuyển đổi Morph
+- chuyển đổi morph
 - loại chuyển đổi
 - hiệu ứng chuyển đổi
 - PowerPoint
@@ -18,139 +18,297 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tùy chỉnh chuyển đổi slide trong JavaScript với Aspose.Slides cho Node.js qua Java, với hướng dẫn từng bước cho các bài thuyết trình PowerPoint và OpenDocument."
+description: "Áp dụng chuyển đổi slide, cấu hình tiến hành slide tự động, và tùy chỉnh Morph và các hiệu ứng chuyển đổi khác với Aspose.Slides cho Node.js qua Java."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách quản lý chuyển đổi slide trong bài thuyết trình bằng Aspose.Slides. Nó chỉ ra cách áp dụng các loại chuyển đổi cho slide, cấu hình hành vi chuyển đổi như tiến tới khi nhấn hoặc sau một khoảng thời gian nhất định, kiểm tra và tắt việc tiến tới tự động, sử dụng chuyển đổi Morph và các loại của nó, và thiết lập các tùy chọn hiệu ứng chuyển đổi. Các ví dụ minh họa cách tải hoặc tạo một bài thuyết trình, sửa đổi cài đặt chuyển đổi cho các slide được chọn và lưu kết quả thành tệp PPTX. Bài viết cũng trả lời các câu hỏi thường gặp về tốc độ chuyển đổi, âm thanh chuyển đổi, áp dụng cùng một chuyển đổi cho nhiều slide và kiểm tra chuyển đổi hiện đang được đặt trên một slide.
+Các chuyển đổi slide kiểm soát cách các slide xuất hiện trong buổi chiếu slide. Với Aspose.Slides cho Node.js qua Java, bạn có thể chọn hiệu ứng chuyển đổi cho mỗi slide, cấu hình việc tiến tới bằng cú nhấp chuột hoặc bộ đếm thời gian, và điều chỉnh các tùy chọn riêng cho một hiệu ứng. Bài viết này sử dụng các ví dụ JavaScript để áp dụng chuyển đổi, đặt thời lượng chuyển đổi chính xác, quản lý thời gian slide và tạo chuyển đổi Morph giữa hai slide. Các ví dụ cũng cho thấy cách lưu cài đặt vào tệp PPTX.
 
-## **Thêm Chuyển Đổi Slide**
-Để tạo một hiệu ứng chuyển đổi slide đơn giản, làm theo các bước dưới đây:
+## **Thêm chuyển đổi slide**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation) .
-2. Áp dụng một loại Chuyển Đổi Slide trên slide từ một trong các hiệu ứng chuyển đổi do Aspose.Slides cho Node.js qua Java cung cấp thông qua enum TransitionType.
-3. Ghi tệp bản trình chiếu đã sửa đổi.
+Để áp dụng một chuyển đổi, tải một bản trình bày bằng lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) và truy cập cài đặt chuyển đổi của slide thông qua [getSlideShowTransition](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition). Sử dụng [setType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setType) với một giá trị từ liệt kê [TransitionType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitiontype/), sau đó lưu bản trình bày.
+
+Ví dụ sau áp dụng chuyển đổi Circle cho slide đầu tiên và chuyển đổi Comb cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
 
 ```javascript
-// Khởi tạo lớp Presentation để tải tệp trình chiếu nguồn
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // Áp dụng chuyển đổi kiểu circle trên slide 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // Áp dụng chuyển đổi kiểu comb trên slide 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // Ghi trình chiếu ra đĩa
-    presentation.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(slides.TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(slides.TransitionType.Comb);
+
+        presentation.save("slide-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Thêm Chuyển Đổi Slide Nâng Cao**
-Trong phần trên, chúng ta chỉ áp dụng một hiệu ứng chuyển đổi đơn giản trên slide. Bây giờ, để làm cho hiệu ứng chuyển đổi đơn giản đó tốt hơn và được kiểm soát, vui lòng làm theo các bước dưới đây:
+## **Thêm chuyển đổi slide nâng cao**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation) .
-2. Áp dụng một loại Chuyển Đổi Slide trên slide từ một trong các hiệu ứng chuyển đổi do Aspose.Slides cho Node.js qua Java.
-3. Bạn cũng có thể đặt chuyển đổi để Tiến Tới Khi Nhấn, sau một khoảng thời gian cụ thể hoặc cả hai.
-4. Nếu chuyển đổi slide được bật để Tiến Tới Khi Nhấn, chuyển đổi sẽ chỉ tiến tới khi người dùng nhấp chuột. Hơn nữa, nếu thuộc tính Advance After Time được thiết lập, chuyển đổi sẽ tự động tiến tới sau thời gian đã chỉ định.
-5. Ghi bản trình chiếu đã sửa đổi dưới dạng tệp bản trình chiếu.
+Bạn có thể cấu hình thời gian một slide hiển thị trên màn hình và liệu một cú nhấp chuột có tiến tới buổi chiếu slide hay không. Các phương thức sau kiểm soát hành vi này:
 
-```javascript
-// Khởi tạo lớp Presentation đại diện cho tệp trình chiếu
-var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
-try {
-    // Áp dụng chuyển đổi kiểu circle trên slide 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-    // Đặt thời gian chuyển đổi là 3 giây
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
-    // Áp dụng chuyển đổi kiểu comb trên slide 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-    // Đặt thời gian chuyển đổi là 5 giây
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
-    // Áp dụng chuyển đổi kiểu zoom trên slide 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(aspose.slides.TransitionType.Zoom);
-    // Đặt thời gian chuyển đổi là 7 giây
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-    // Ghi trình chiếu ra đĩa
-    pres.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
+- [setAdvanceOnClick](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick) cho phép người xem tiến tới bằng cách nhấp chuột.
+- [setAdvanceAfter](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) bật tiến tới tự động.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) chỉ định độ trễ trước khi tiến tới tự động, tính bằng mili giây.
 
-## **Chuyển Đổi Morph**
-{{% alert color="primary" %}} 
+Bật cả tiến tới bằng cú nhấp và thời gian để cho phép người xem di chuyển bằng một cú nhấp hoặc chờ bộ hẹn giờ. Để chỉ sử dụng bộ hẹn giờ, truyền `false` vào [setAdvanceOnClick](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceOnClick). Độ trễ điều khiển thời điểm buổi chiếu slide tiến tới; nó không đặt thời lượng của hiệu ứng chuyển đổi trực quan.
 
-Aspose.Slides cho Node.js qua Java hiện hỗ trợ [Morph Transition](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/MorphTransition). Đây là chuyển đổi Morph mới được giới thiệu trong PowerPoint 2019.
-
-{{% /alert %}} 
-
-Chuyển đổi Morph cho phép bạn hoạt ảnh di chuyển mượt mà từ slide này sang slide kế tiếp. Bài viết này mô tả khái niệm và cách sử dụng chuyển đổi Morph. Để sử dụng chuyển đổi Morph hiệu quả, bạn cần có hai slide có ít nhất một đối tượng chung. Cách dễ nhất là sao chép slide và sau đó di chuyển đối tượng trên slide thứ hai đến vị trí khác.
-
-Đoạn mã sau cho bạn thấy cách thêm một bản sao của slide có một số văn bản vào bản trình chiếu và đặt một chuyển đổi dạng [morph type](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TransitionType) cho slide thứ hai.
+Ví dụ này gán các hiệu ứng khác nhau cho ba slide đầu tiên và bật tiến tới tự động sau 3, 5 và 7 giây, tương ứng. Các cú nhấp chuột cũng có thể tiến tới các slide này. Sử dụng tệp `input.pptx` có ít nhất ba slide.
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-    var shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 3) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5
+000);
+
+        const thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(slides.TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
+
+        presentation.save("advanced-transitions.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least three slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Các Loại Chuyển Đổi Morph**
-Enum mới [TransitionMorphType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TransitionMorphType) đã được thêm. Nó đại diện cho các loại chuyển đổi slide Morph khác nhau.
+Để kiểm tra xem tiến tới có thời gian đã được bật hay chưa, gọi [getAdvanceAfter](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#getAdvanceAfter). Một độ trễ được lưu không đồng nghĩa với việc bộ hẹn giờ đang hoạt động.
 
-Enum TransitionMorphType có ba thành viên:
-
-- ByObject: Chuyển đổi Morph sẽ được thực hiện khi xem các hình dạng như các đối tượng không thể chia nhỏ.
-- ByWord: Chuyển đổi Morph sẽ được thực hiện bằng cách chuyển văn bản theo từ khi có thể.
-- ByChar: Chuyển đổi Morph sẽ được thực hiện bằng cách chuyển văn bản theo ký tự khi có thể.
-
-Đoạn mã sau cho bạn thấy cách đặt chuyển đổi Morph cho slide và thay đổi loại Morph:
+Ví dụ tiếp theo mở tệp đã lưu ở trên, báo cáo mỗi bộ hẹn giờ được bật và vô hiệu hoá tiến tới tự động cho các slide có độ trễ lớn hơn hai giây. Nó bật tiến tới bằng cú nhấp cho những slide đó và lưu lại các cài đặt đã cập nhật.
 
 ```javascript
-var presentation = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("advanced-transitions.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setMorphType(aspose.slides.TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            console.log("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Đặt Hiệu Ứng Chuyển Đổi**
-Aspose.Slides cho Node.js qua Java hỗ trợ thiết lập các hiệu ứng chuyển đổi như chuyển từ màu đen, từ trái, từ phải, v.v. Để đặt Hiệu Ứng Chuyển Đổi, vui lòng làm theo các bước dưới đây:
+## **Kiểm soát thời gian chuyển đổi một cách chính xác**
 
-- Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) .
-- Lấy tham chiếu của slide.
-- Thiết lập hiệu ứng chuyển đổi.
-- Ghi bản trình chiếu dưới dạng tệp [PPTX](https://docs.fileformat.com/presentation/pptx/) .
+Sử dụng [setDuration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setDuration) để chỉ định độ dài chính xác của một hiệu ứng chuyển đổi tính bằng mili giây. Phương thức [getSlideShowTransition](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) của slide cung cấp các cài đặt này qua [SlideShowTransition](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/):
 
-Trong ví dụ dưới đây, chúng tôi đã đặt các hiệu ứng chuyển đổi.
+| Phương thức | Mục đích |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setDuration) | Đặt thời lượng của chính hiệu ứng chuyển đổi, tính bằng mili giây. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfterTime) | Đặt độ trễ trước khi slide tiến tới tự động, tính bằng mili giây. Truyền `true` vào [setAdvanceAfter](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setAdvanceAfter) để kích hoạt bộ hẹn giờ này. |
+| [setSpeed](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) | Chọn một loại tốc độ được định trước từ liệt kê [TransitionSpeed](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitionspeed/): Slow, Medium hoặc Fast. Được sử dụng khi không chỉ định thời lượng cụ thể. |
+
+[setDuration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setDuration) chỉ kiểm soát hiệu ứng chuyển đổi; nó không quyết định thời gian slide vẫn hiển thị. Cấu hình độ trễ tiến tới tự động riêng biệt. Khi không đặt thời lượng cụ thể, Aspose.Slides sẽ xác định thời lượng hiệu ứng dựa trên kiểu chuyển đổi và giá trị [getSpeed](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#getSpeed).
+
+### **Áp dụng cùng một thời lượng cho mọi slide**
+
+Để duy trì nhịp độ đồng nhất, áp dụng cùng một hiệu ứng và thời lượng chính xác cho mọi slide. Ví dụ này tải `input.pptx`, chọn Fade từ [TransitionType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitiontype/), và đặt thời lượng cho mỗi chuyển đổi là 750 mili giây. Đồng thời bật tiến tới tự động sau 5.000 mili giây và tắt tiến tới bằng cú nhấp chuột, rồi lưu kết quả dưới dạng PPTX.
 
 ```javascript
-// Tạo một thể hiện của lớp Presentation
-var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // Đặt hiệu ứng
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Cut);
-    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setFromBlack(true);
-    // Ghi trình chiếu ra đĩa
-    presentation.save("SetTransitionEffects_out.pptx", aspose.slides.SaveFormat.Pptx);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        transition.setType(slides.TransitionType.Fade);
+        transition.setDuration(750);
+
+        // Cấu hình tiến trình tự động một cách độc lập với thời lượng hiệu ứng.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Đặt thời lượng khác nhau cho từng slide**
+
+Các slide khác nhau có thể sử dụng thời lượng hiệu ứng khác nhau. Ví dụ, sử dụng chuyển đổi ngắn cho slide tiêu đề và chuyển đổi dài hơn cho phần giới thiệu chương. Ví dụ này đặt 500 mili giây cho slide đầu tiên và 1.200 mili giây cho slide thứ hai. Sử dụng tệp `input.pptx` có ít nhất hai slide.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        const firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(slides.TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        const secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(slides.TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Phối hợp chuyển đổi với đầu ra động**
+
+Khi chuẩn bị một [animated GIF](/slides/vi/nodejs-java/convert-powerpoint-to-animated-gif/), [HTML5 presentation](/slides/vi/nodejs-java/export-to-html5/), hoặc [video](/slides/vi/nodejs-java/convert-powerpoint-to-video/), đặt thời lượng chuyển đổi chính xác trước khi xuất để phù hợp với nhịp độ mong muốn. Ví dụ, sử dụng hiệu ứng fade 600 mili giây giữa các cảnh, và điều chỉnh độ trễ tiến tới của từng slide riêng biệt để cho phép thời gian cho lời thuyết minh hoặc nội dung.
+
+Đối với GIF và video, phối hợp tốc độ khung hình đầu ra với thời lượng hiệu ứng: 600 mili giây tương đương 18 khung hình ở 30 khung hình mỗi giây. Trong HTML5, bật chuyển đổi động trong cài đặt xuất. Kiểm tra các hiệu ứng và tùy chọn thời gian được hỗ trợ bởi định dạng xuất đã chọn, và xem trước đầu ra để xác nhận đồng bộ.
+
+### **Đọc thời lượng chuyển đổi hiện có**
+
+Gọi [getDuration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#getDuration) trước khi chỉnh sửa chuyển đổi để xác định liệu đã lưu giá trị cụ thể nào hay chưa. Giá trị `-1` có nghĩa là chưa đặt thời lượng cụ thể; một giá trị không âm chỉ thời lượng đã lưu tính bằng mili giây. Giá trị chưa đặt không phải là thời lượng phát lại được tính toán: Aspose.Slides sử dụng kiểu chuyển đổi và giá trị [getSpeed](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#getSpeed) để xác định thời lượng đó. Đặt kiểu chuyển đổi có thể khởi tạo thời lượng, vì vậy hãy kiểm tra cài đặt gốc trước.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const transition = slide.getSlideShowTransition();
+        const duration = transition.getDuration();
+
+        if (duration >= 0) {
+            console.log("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            console.log("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Chuyển đổi Morph**
+
+Chuyển đổi Morph tạo hoạt ảnh cho các thay đổi giữa các đối tượng trên các slide liên tiếp. Để tạo hiệu ứng Morph đơn giản, sao chép một slide, di chuyển hoặc thay đổi kích thước một đối tượng trên bản sao, và áp dụng chuyển đổi Morph cho slide thứ hai. Điều này cho phép các đối tượng tương ứng được hoạt ảnh giữa trạng thái gốc và đã chỉnh sửa.
+
+Ví dụ sau tạo một slide với một hình chữ nhật chứa văn bản, sao chép slide, và thay đổi vị trí và kích thước của hình chữ nhật trên bản sao. Sau đó chọn Morph từ liệt kê [TransitionType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitiontype/) cho slide thứ hai. Mở tệp đã lưu trong trình xem bản trình bày hỗ trợ Morph để xem hiệu ứng trong buổi chiếu slide.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const rectangle = firstSlide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
+
+    const secondSlide = presentation.getSlides().addClone(firstSlide);
+    const movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
+
+    secondSlide.getSlideShowTransition().setType(slides.TransitionType.Morph);
+
+    presentation.save("morph-transition.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Các loại chuyển đổi Morph**
+
+Liệt kê [TransitionMorphType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitionmorphtype/) kiểm soát cách Morph khớp và hoạt ảnh nội dung:
+
+- [ByObject](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitionmorphtype/#ByObject) xử lý mỗi hình dạng như một đối tượng hoàn chỉnh.
+- [ByWord](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitionmorphtype/#ByWord) hoạt ảnh văn bản bằng cách khớp các từ khi có thể.
+- [ByChar](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitionmorphtype/#ByChar) hoạt ảnh văn bản bằng cách khớp các ký tự khi có thể.
+
+Sử dụng [setType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setType) để chọn Morph trước khi truy cập [getValue](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#getValue). Giá trị sau đó cung cấp một đối tượng [MorphTransition](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/morphtransition/), phương thức [setMorphType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/morphtransition/#setMorphType) của nó chọn chế độ khớp.
+
+Ví dụ này mở bản trình bày đã tạo ở phần trước và cấu hình slide thứ hai sử dụng hoạt ảnh Morph dựa trên từ.
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("morph-transition.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        const transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(slides.TransitionType.Morph);
+        const transitionValue = transition.getValue();
+
+        if (java.instanceOf(transitionValue, "com.aspose.slides.IMorphTransition")) {
+            transitionValue.setMorphType(slides.TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", slides.SaveFormat.Pptx);
+        } else {
+            console.log("Morph transition options are unavailable.");
+        }
+    } else {
+        console.log("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Đặt hiệu ứng chuyển đổi**
+
+Một số chuyển đổi cung cấp các tùy chọn bổ sung, chẳng hạn như hướng hoặc việc hiệu ứng bắt đầu từ màn hình đen. Các tùy chọn có sẵn phụ thuộc vào chuyển đổi đã chọn bằng [setType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setType). Đặt kiểu trước, sau đó sử dụng đối tượng chuyển đổi thích hợp từ [getValue](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#getValue).
+
+Ví dụ sau áp dụng chuyển đổi Cut cho slide đầu tiên của `input.pptx`. Nó gọi [setFromBlack](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/optionalblacktransition/#setFromBlack) qua [OptionalBlackTransition](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/optionalblacktransition/) để chuyển đổi bắt đầu từ màn hình đen.
+
+```javascript
+const java = require("java");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(slides.TransitionType.Cut);
+    const transitionValue = transition.getValue();
+
+    if (java.instanceOf(transitionValue, "com.aspose.slides.IOptionalBlackTransition")) {
+        transitionValue.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", slides.SaveFormat.Pptx);
+    } else {
+        console.log("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -158,18 +316,18 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể điều chỉnh tốc độ phát của chuyển đổi slide không?**
+**Tôi có thể kiểm soát tốc độ phát của chuyển đổi slide không?**
 
-Có. Thiết lập [speed](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/setspeed/) của chuyển đổi bằng cài đặt [TransitionSpeed](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitionspeed/) (ví dụ: chậm/trung bình/nhanh).
+Có. Ưu tiên sử dụng [setDuration](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setDuration) khi bạn cần thời lượng hiệu ứng chính xác tính bằng mili giây. Sử dụng [setSpeed](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setSpeed) khi một danh mục [TransitionSpeed](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitionspeed/) đã định trước—Slow, Medium hoặc Fast—đủ và không có thời lượng cụ thể nào được đặt. Các cài đặt này kiểm soát hiệu ứng chuyển đổi độc lập với độ trễ tiến tới tự động.
 
-**Tôi có thể đính kèm âm thanh vào một chuyển đổi và lặp lại không?**
+**Tôi có thể gắn âm thanh vào chuyển đổi và làm cho nó lặp lại không?**
 
-Có. Bạn có thể nhúng âm thanh cho chuyển đổi và kiểm soát hành vi qua các cài đặt như chế độ âm thanh và vòng lặp (ví dụ: [setSound](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/setsound/), [setSoundMode](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/setsoundmode/), [setSoundLoop](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/setsoundloop/), cùng các siêu dữ liệu như [setSoundIsBuiltIn](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/setsoundisbuiltin/) và [setSoundName](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/setsoundname/)).
+Có. Gán âm thanh nhúng bằng [setSound](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setSound), truyền StartSound từ liệt kê [TransitionSoundMode](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitionsoundmode/) vào [setSoundMode](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setSoundMode), và bật [setSoundLoop](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setSoundLoop) với `true`. Âm thanh sẽ lặp lại cho đến sự kiện âm thanh tiếp theo trong buổi chiếu slide.
 
 **Cách nhanh nhất để áp dụng cùng một chuyển đổi cho mọi slide là gì?**
 
-Cấu hình loại chuyển đổi mong muốn trên cài đặt chuyển đổi của mỗi slide; vì chuyển đổi được lưu riêng cho mỗi slide, việc áp dụng cùng một loại cho tất cả các slide sẽ cho kết quả đồng nhất.
+Lặp qua bộ sưu tập [getSlides](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getSlides) của bản trình bày và gọi [setType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#setType) với cùng một giá trị cho mỗi chuyển đổi của slide. Đặt bất kỳ tùy chọn thời gian và hiệu ứng nào trong cùng một vòng lặp để duy trì hành vi nhất quán giữa các slide.
 
-**Làm sao tôi có thể kiểm tra chuyển đổi nào đang được đặt trên một slide?**
+**Làm sao tôi kiểm tra chuyển đổi hiện đang được đặt trên một slide?**
 
-Kiểm tra [cài đặt chuyển đổi](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) của slide và đọc [loại chuyển đổi](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/gettype/); giá trị đó cho biết chính xác hiệu ứng nào đang được áp dụng.
+Gọi [getType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideshowtransition/#getType) trên kết quả của [getSlideShowTransition](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/#getSlideShowTransition) của slide. Nó trả về một giá trị từ liệt kê [TransitionType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/transitiontype/); None có nghĩa là không có hiệu ứng chuyển đổi nào được áp dụng.

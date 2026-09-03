@@ -9,7 +9,7 @@ keywords:
 - adicionar transição de slide
 - aplicar transição de slide
 - transição de slide avançada
-- transição morph
+- transição Morph
 - tipo de transição
 - efeito de transição
 - PowerPoint
@@ -17,153 +17,293 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Descubra como personalizar transições de slides no Aspose.Slides for Java, com orientações passo a passo para apresentações PowerPoint e OpenDocument."
+description: "Aplique transições de slide, configure o avanço automático de slides e personalize a Morph e outros efeitos de transição com Aspose.Slides para Java."
 ---
 ## **Visão geral**
 
-Este artigo explica como gerenciar transições de slides em apresentações usando o Aspose.Slides. Ele mostra como aplicar tipos de transição aos slides, configurar o comportamento da transição, como avançar ao clicar ou após um tempo especificado, verificar e desativar o avanço automático, usar a transição Morph e seus tipos, e definir opções de efeito de transição. Os exemplos demonstram como carregar ou criar uma apresentação, modificar as configurações de transição para slides selecionados e salvar o resultado como um arquivo PPTX. O artigo também responde a perguntas comuns sobre velocidade da transição, sons de transição, aplicação da mesma transição a vários slides e como verificar a transição atualmente definida em um slide.
+As transições de slide controlam como os slides aparecem durante uma apresentação. Com o Aspose.Slides para Java, você pode escolher um efeito de transição para cada slide, configurar o avanço por clique do mouse ou por temporizador e ajustar opções específicas de um efeito. Este artigo usa exemplos em Java para aplicar transições, definir durações exatas de transição, gerenciar o tempo dos slides e criar uma transição Morph entre dois slides. Os exemplos também mostram como salvar as configurações em um arquivo PPTX.
 
 ## **Adicionar Transição de Slide**
-Para criar um efeito simples de transição de slide, siga as etapas abaixo:
 
-1. Criar uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation).
-2. Aplicar um Tipo de Transição de Slide no slide a partir de um dos efeitos de transição oferecidos pelo Aspose.Slides for Java através do enum TransitionType.
-3. Gravar o arquivo de apresentação modificado.
+Para aplicar uma transição, carregue uma apresentação com a classe [Apresentação](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) e acesse as configurações de transição do slide através de [getSlideShowTransition](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--). Use [setType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setType-int-) com um valor da enumeração [TransitionType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitiontype/), depois salve a apresentação.
+
+O exemplo a seguir aplica a transição Círculo ao primeiro slide e a transição Comb ao segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
 
 ```java
-// Instanciar a classe Presentation para carregar o arquivo de apresentação fonte
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Aplicar a transição do tipo Circle no slide 1
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 2) {
+        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
 
-    // Aplicar a transição do tipo Comb no slide 2
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-
-    // Gravar a apresentação no disco
-    presentation.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("slide-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Adicionar Transição de Slide Avançada**
-Na seção acima, aplicamos apenas um efeito de transição simples no slide. Agora, para tornar esse efeito de transição simples ainda melhor e controlado, siga as etapas abaixo:
 
-1. Criar uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation).
-2. Aplicar um Tipo de Transição de Slide no slide a partir de um dos efeitos de transição oferecidos pelo Aspose.Slides for Java.
-3. Você também pode definir a transição para Avançar ao Clicar, após um período de tempo específico ou ambos.
-4. Se a transição do slide estiver habilitada para Avançar ao Clicar, a transição só avançará quando alguém clicar o mouse. Além disso, se a propriedade Advance After Time estiver definida, a transição avançará automaticamente após o tempo especificado ter decorrido.
-5. Gravar a apresentação modificada como um arquivo de apresentação.
+Você pode configurar quanto tempo um slide permanece na tela e se um clique do mouse avança a apresentação. Os seguintes métodos controlam esse comportamento:
+
+- [setAdvanceOnClick](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-) permite que o visualizador avance ao clicar o mouse.
+- [setAdvanceAfter](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) habilita o avanço automático.
+- [setAdvanceAfterTime](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) especifica o atraso antes do avanço automático, em milissegundos.
+
+Habilite tanto o avanço por clique quanto o cronometrado para que o visualizador possa prosseguir com um clique ou aguardar o timer. Para usar apenas o timer, passe `false` para [setAdvanceOnClick](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setAdvanceOnClick-boolean-). O atraso controla quando a apresentação avança; ele não define a duração do efeito visual da transição.
+
+Este exemplo atribui efeitos diferentes aos três primeiros slides e habilita o avanço automático após 3, 5 e 7 segundos, respectivamente. Cliques do mouse também podem avançar esses slides. Use um arquivo `input.pptx` com pelo menos três slides.
 
 ```java
-// Instanciar a classe Presentation que representa um arquivo de apresentação
-Presentation pres = new Presentation("BetterSlideTransitions.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Aplicar transição do tipo circle no slide 1
-    pres.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Circle);
+    if (presentation.getSlides().size() >= 3) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Circle);
+        firstTransition.setAdvanceOnClick(true);
+        firstTransition.setAdvanceAfter(true);
+        firstTransition.setAdvanceAfterTime(3000);
 
-    // Definir o tempo de transição de 3 segundos
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Comb);
+        secondTransition.setAdvanceOnClick(true);
+        secondTransition.setAdvanceAfter(true);
+        secondTransition.setAdvanceAfterTime(5000);
 
-    // Aplicar transição do tipo comb no slide 2
-    pres.getSlides().get_Item(1).getSlideShowTransition().setType(TransitionType.Comb);
-    
-    // Definir o tempo de transição de 5 segundos
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+        ISlideShowTransition thirdTransition = presentation.getSlides().get_Item(2).getSlideShowTransition();
+        thirdTransition.setType(TransitionType.Zoom);
+        thirdTransition.setAdvanceOnClick(true);
+        thirdTransition.setAdvanceAfter(true);
+        thirdTransition.setAdvanceAfterTime(7000);
 
-    // Aplicar transição do tipo zoom no slide 3
-    pres.getSlides().get_Item(2).getSlideShowTransition().setType(TransitionType.Zoom);
-    
-    // Definir o tempo de transição de 7 segundos
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-
-    // Gravar a apresentação no disco
-    pres.save("SampleTransition_out.pptx", SaveFormat.Pptx);
+        presentation.save("advanced-transitions.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least three slides.");
+    }
 } finally {
-    pres.dispose();
+    presentation.dispose();
+}
+```
+
+Para verificar se o avanço cronometrado está habilitado, chame [getAdvanceAfter](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#getAdvanceAfter--). Um atraso armazenado sozinho não indica que o timer está ativo.
+
+O próximo exemplo abre o arquivo salvo acima, relata cada timer habilitado e desabilita o avanço automático para slides com atraso maior que dois segundos. Ele habilita cliques do mouse para esses slides e salva as configurações atualizadas.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("advanced-transitions.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+
+        if (transition.getAdvanceAfter()) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": advance after " + transition.getAdvanceAfterTime() + " ms.");
+
+            if (transition.getAdvanceAfterTime() > 2000) {
+                transition.setAdvanceAfter(false);
+                transition.setAdvanceOnClick(true);
+            }
+        }
+    }
+
+    presentation.save("adjusted-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Controlar Precisamente o Tempo da Transição**
+
+Use [setDuration](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setDuration-int-) para especificar o comprimento exato de um efeito de transição em milissegundos. O método [getSlideShowTransition](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) do slide expõe essas configurações através de [ISlideShowTransition](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/):
+
+| Método | Objetivo |
+| --- | --- |
+| [setDuration](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setDuration-int-) | Define a duração do próprio efeito de transição, em milissegundos. |
+| [setAdvanceAfterTime](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setAdvanceAfterTime-long-) | Define o atraso antes de o slide avançar automaticamente, em milissegundos. Passe `true` para [setAdvanceAfter](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setAdvanceAfter-boolean-) para ativar esse timer. |
+| [setSpeed](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) | Seleciona uma categoria de velocidade predefinida da enumeração [TransitionSpeed](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitionspeed/): Slow, Medium ou Fast. É usada quando uma duração exata não é especificada. |
+
+[setDuration](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setDuration-int-) controla apenas o efeito de transição; ele não determina quanto tempo o slide permanece visível. Configure o atraso de avanço automático separadamente. Quando nenhuma duração explícita é definida, o Aspose.Slides determina a duração do efeito a partir do tipo de transição e do valor de [getSpeed](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#getSpeed--).
+
+### **Aplicar a Mesma Duração a Cada Slide**
+
+Para manter um ritmo consistente, aplique o mesmo efeito e a mesma duração exata a todos os slides. Este exemplo carrega `input.pptx`, seleciona Fade da enumeração [TransitionType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitiontype/) e atribui a cada transição uma duração de 750 milissegundos. Ele habilita separadamente o avanço automático após 5.000 milissegundos e desabilita o avanço por clique do mouse, então salva o resultado como PPTX.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        transition.setType(TransitionType.Fade);
+        transition.setDuration(750);
+
+        // Configure o avanço automático independentemente da duração do efeito.
+        transition.setAdvanceAfter(true);
+        transition.setAdvanceAfterTime(5000);
+        transition.setAdvanceOnClick(false);
+    }
+
+    presentation.save("precise-transitions.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Definir Durações Diferentes para Slides Individuais**
+
+Slides diferentes podem usar durações de efeito diferentes. Por exemplo, use uma transição breve para um slide de título e uma transição mais longa para a introdução de uma seção. Este exemplo define 500 milissegundos para o primeiro slide e 1.200 milissegundos para o segundo. Use um arquivo `input.pptx` com pelo menos dois slides.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition firstTransition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+        firstTransition.setType(TransitionType.Fade);
+        firstTransition.setDuration(500);
+
+        ISlideShowTransition secondTransition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        secondTransition.setType(TransitionType.Push);
+        secondTransition.setDuration(1200);
+
+        presentation.save("individual-transition-durations.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Coordenação de Transições com Saída Animada**
+
+Ao preparar um [GIF animado](/slides/pt/java/convert-powerpoint-to-animated-gif/), uma [apresentação HTML5](/slides/pt/java/export-to-html5/) ou um [vídeo](/slides/pt/java/convert-powerpoint-to-video/), defina durações de transição exatas antes da exportação para corresponder ao ritmo desejado. Por exemplo, use um fade de 600 milissegundos entre cenas e ajuste separadamente o atraso de avanço de cada slide para permitir tempo para sua narração ou conteúdo.
+
+Para GIF e vídeo, coordene a taxa de quadros de saída com a duração do efeito: 600 milissegundos correspondem a 18 quadros a 30 quadros por segundo. No HTML5, habilite transições animadas nas configurações de exportação. Verifique os efeitos e opções de tempo suportados pelo formato escolhido e visualize a saída para confirmar a sincronização.
+
+### **Ler a Duração de uma Transição Existente**
+
+Chame [getDuration](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#getDuration--) antes de modificar a transição para determinar se um valor explícito está armazenado. Um valor de `-1` significa que nenhuma duração explícita foi definida; um valor não negativo especifica a duração armazenada em milissegundos. O valor não definido não é a duração de reprodução calculada: o Aspose.Slides usa o tipo de transição e o valor de [getSpeed](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#getSpeed--) para determinar essa duração. Definir um tipo de transição pode inicializar uma duração, portanto inspecione as configurações originais primeiro.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideShowTransition transition = slide.getSlideShowTransition();
+        int duration = transition.getDuration();
+
+        if (duration >= 0) {
+            System.out.println("Slide " + slide.getSlideNumber() + ": stored transition duration is " + duration + " ms.");
+        } else {
+            System.out.println("Slide " + slide.getSlideNumber() + ": no explicit duration; timing depends on transition type " + transition.getType() + " and speed " + transition.getSpeed() + ".");
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Transição Morph**
-{{% alert color="primary" %}} 
 
-O Aspose.Slides for Java agora oferece suporte à [Morph Transition](https://reference.aspose.com/slides/pt/java/com.aspose.slides/IMorphTransition). Ela representa a nova transição morph introduzida no PowerPoint 2019.
+A transição Morph anima mudanças entre objetos em slides consecutivos. Para criar um efeito Morph simples, clone um slide, mova ou redimensione um objeto no clone e aplique a transição Morph ao segundo slide. Isso fornece aos objetos correspondentes a animação entre seus estados original e modificado.
 
-{{% /alert %}} 
-
-A transição Morph permite animar um movimento suave de um slide para o próximo. Este artigo descreve o conceito e como usar a transição Morph. Para usar a transição Morph de forma eficaz, você precisará de dois slides com pelo menos um objeto em comum. A maneira mais fácil é duplicar o slide e então mover o objeto no segundo slide para um local diferente.
-
-O trecho de código a seguir mostra como adicionar um clone do slide com algum texto à apresentação e definir uma transição do [tipo morph](https://reference.aspose.com/slides/pt/java/com.aspose.slides/TransitionType) ao segundo slide.
+O exemplo a seguir cria um slide com um retângulo de texto, clona o slide e altera a posição e o tamanho do retângulo no clone. Em seguida, seleciona Morph da enumeração [TransitionType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitiontype/) para o segundo slide. Abra o arquivo salvo em um visualizador de apresentações que suporte Morph para ver o efeito durante a apresentação.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    AutoShape autoshape = (AutoShape)presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
-    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    IAutoShape rectangle = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 100);
+    rectangle.getTextFrame().setText("Morph transition");
 
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    ISlide secondSlide = presentation.getSlides().addClone(firstSlide);
+    IShape movedRectangle = secondSlide.getShapes().get_Item(0);
+    movedRectangle.setX(movedRectangle.getX() + 100);
+    movedRectangle.setY(movedRectangle.getY() + 50);
+    movedRectangle.setWidth(movedRectangle.getWidth() - 200);
+    movedRectangle.setHeight(movedRectangle.getHeight() - 10);
 
-    IShape shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-    shape.setX(shape.getX() + 100);
-    shape.setY(shape.getY() + 50);
-    shape.setWidth(shape.getWidth() - 200);
-    shape.setHeight(shape.getHeight() - 10);
+    secondSlide.getSlideShowTransition().setType(TransitionType.Morph);
 
-    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(com.aspose.slides.TransitionType.Morph);
-
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-}
-finally {
+    presentation.save("morph-transition.pptx", SaveFormat.Pptx);
+} finally {
     presentation.dispose();
 }
 ```
 
 ## **Tipos de Transição Morph**
-Foi adicionado o novo enum [TransitionMorphType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/TransitionMorphType). Ele representa diferentes tipos de transição de slide Morph.
 
-O enum TransitionMorphType tem três membros:
+A enumeração [TransitionMorphType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitionmorphtype/) controla como o Morph associa e anima o conteúdo:
 
-- ByObject: A transição Morph será executada considerando as formas como objetos indivisíveis.
-- ByWord: A transição Morph será executada transferindo o texto por palavras, onde possível.
-- ByChar: A transição Morph será executada transferindo o texto por caracteres, onde possível.
+- [ByObject](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitionmorphtype/#ByObject) trata cada forma como um objeto completo.
+- [ByWord](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitionmorphtype/#ByWord) anima texto ao corresponder palavras quando possível.
+- [ByChar](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitionmorphtype/#ByChar) anima texto ao corresponder caracteres quando possível.
 
-O trecho de código a seguir mostra como definir a transição morph em um slide e alterar o tipo morph:
+Use [setType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setType-int-) para selecionar Morph antes de acessar [getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#getValue--). O valor então fornece a interface [IMorphTransition](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imorphtransition/), cujo método [setMorphType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/imorphtransition/#setMorphType-int-) seleciona o modo de correspondência.
+
+Este exemplo abre a apresentação criada na seção anterior e configura o segundo slide para usar animação Morph baseada em palavras.
 
 ```java
-Presentation presentation = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("morph-transition.pptx");
 try {
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Morph);
-    ((IMorphTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setMorphType(TransitionMorphType.ByWord);
-    presentation.save("presentation-out.pptx", SaveFormat.Pptx);
+    if (presentation.getSlides().size() >= 2) {
+        ISlideShowTransition transition = presentation.getSlides().get_Item(1).getSlideShowTransition();
+        transition.setType(TransitionType.Morph);
+        ITransitionValueBase transitionValue = transition.getValue();
+
+        if (transitionValue instanceof IMorphTransition) {
+            IMorphTransition morphTransition = (IMorphTransition) transitionValue;
+            morphTransition.setMorphType(TransitionMorphType.ByWord);
+            presentation.save("morph-by-word.pptx", SaveFormat.Pptx);
+        } else {
+            System.out.println("Morph transition options are unavailable.");
+        }
+    } else {
+        System.out.println("The input presentation must contain at least two slides.");
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
 ## **Definir Efeitos de Transição**
-O Aspose.Slides for Java suporta a definição de efeitos de transição como, de preto, da esquerda, da direita etc. Para definir o Efeito de Transição, siga as etapas abaixo:
 
-- Criar uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/Presentation).
-- Obter a referência do slide.
-- Definir o efeito de transição.
-- Gravar a apresentação como um arquivo [PPTX ](https://docs.fileformat.com/presentation/pptx/)file.
+Algumas transições expõem opções adicionais, como direção ou se o efeito inicia a partir de uma tela preta. As opções disponíveis dependem da transição selecionada com [setType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setType-int-). Defina o tipo primeiro e, em seguida, use a interface apropriada de [getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#getValue--).
 
-No exemplo apresentado abaixo, definimos os efeitos de transição.
+O exemplo a seguir aplica uma transição Cut ao primeiro slide de `input.pptx`. Ele invoca [setFromBlack](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ioptionalblacktransition/#setFromBlack-boolean-) através de [IOptionalBlackTransition](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ioptionalblacktransition/) para que a transição inicie a partir de uma tela preta.
 
 ```java
-// Criar uma instância da classe Presentation
-Presentation presentation = new Presentation("AccessSlides.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Definir efeito
-    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(TransitionType.Cut);
-    ((OptionalBlackTransition)presentation.getSlides().get_Item(0).getSlideShowTransition().getValue()).setFromBlack(true);
-    
-    // Gravar a apresentação no disco
-    presentation.save("SetTransitionEffects_out.pptx", SaveFormat.Pptx);
+    ISlideShowTransition transition = presentation.getSlides().get_Item(0).getSlideShowTransition();
+    transition.setType(TransitionType.Cut);
+    ITransitionValueBase transitionValue = transition.getValue();
+
+    if (transitionValue instanceof IOptionalBlackTransition) {
+        IOptionalBlackTransition cutTransition = (IOptionalBlackTransition) transitionValue;
+        cutTransition.setFromBlack(true);
+        presentation.save("cut-from-black.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Cut transition options are unavailable.");
+    }
 } finally {
     presentation.dispose();
 }
@@ -173,16 +313,16 @@ try {
 
 **Posso controlar a velocidade de reprodução de uma transição de slide?**
 
-Sim. Defina a [velocidade](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slideshowtransition/#setSpeed-int-) da transição usando a configuração [TransitionSpeed](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitionspeed/) (por exemplo, lento/médio/rápido).
+Sim. Prefira [setDuration](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setDuration-int-) quando precisar de uma duração exata do efeito em milissegundos. Use [setSpeed](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setSpeed-int-) quando uma categoria predefinida de [TransitionSpeed](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitionspeed/) — Slow, Medium ou Fast — for suficiente e nenhuma duração explícita estiver definida. Essas configurações controlam o efeito de transição independentemente do atraso de avanço automático.
 
-**Posso anexar áudio a uma transição e fazer loop?**
+**Posso anexar áudio a uma transição e fazê‑lo repetir?**
 
-Sim. Você pode incorporar um som à transição e controlar o comportamento por meio de configurações como modo de som e loop (por exemplo, [setSound](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slideshowtransition/#setSound-com.aspose.slides.IAudio-), [setSoundMode](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slideshowtransition/#setSoundMode-int-), [setSoundLoop](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slideshowtransition/#setSoundLoop-boolean-), além de metadados como [setSoundIsBuiltIn](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slideshowtransition/#setSoundIsBuiltIn-boolean-) e [setSoundName](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slideshowtransition/#setSoundName-java.lang.String-)).
+Sim. Atribua áudio incorporado com [setSound](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setSound-com.aspose.slides.IAudio-), passe StartSound da enumeração [TransitionSoundMode](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitionsoundmode/) para [setSoundMode](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setSoundMode-int-), e habilite [setSoundLoop](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setSoundLoop-boolean-) com `true`. O áudio se repete até o próximo evento sonoro na apresentação.
 
-**Qual é a maneira mais rápida de aplicar a mesma transição a todos os slides?**
+**Qual a forma mais rápida de aplicar a mesma transição a todos os slides?**
 
-Configure o tipo de transição desejado nas configurações de transição de cada slide; as transições são armazenadas por slide, portanto aplicar o mesmo tipo em todos os slides fornece um resultado consistente.
+Percorra a coleção [getSlides](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#getSlides--) da apresentação e chame [setType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#setType-int-) com o mesmo valor para a transição de cada slide. Defina quaisquer opções de tempo e efeito no mesmo loop para manter o comportamento consistente em todos os slides.
 
 **Como posso verificar qual transição está atualmente definida em um slide?**
 
-Inspecione as [configurações de transição](https://reference.aspose.com/slides/pt/java/com.aspose.slides/baseslide/#getSlideShowTransition--) do slide e leia o [tipo de transição](https://reference.aspose.com/slides/pt/java/com.aspose.slides/slideshowtransition/#setType-int-); esse valor indica exatamente qual efeito está aplicado.
+Chame [getType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/islideshowtransition/#getType--) no resultado de [getSlideShowTransition](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ibaseslide/#getSlideShowTransition--) do slide. Ele retorna um valor da enumeração [TransitionType](https://reference.aspose.com/slides/pt/java/com.aspose.slides/transitiontype/); None indica que nenhum efeito de transição foi aplicado.
