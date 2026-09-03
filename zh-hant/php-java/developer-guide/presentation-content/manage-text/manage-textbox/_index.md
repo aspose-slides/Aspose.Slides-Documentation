@@ -1,5 +1,5 @@
 ---
-title: 使用 PHP 管理簡報中的文字方塊
+title: 使用 PHP 在簡報中管理文字方塊
 linktitle: 管理文字方塊
 type: docs
 weight: 20
@@ -17,292 +17,290 @@ keywords:
 - 簡報
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP 讓您能輕鬆在 PowerPoint 和 OpenDocument 檔案中建立、編輯與複製文字方塊，提升簡報自動化的效率。"
+description: "使用 Aspose.Slides for PHP via Java 在 PowerPoint 與 OpenDocument 簡報中建立、辨識、格式化與更新文字方塊。"
 ---
 ## **簡介**
 
-投影片上的文字通常位於文字方塊或圖形中。因此，要在投影片上加入文字，必須先新增文字方塊，然後將文字放入該文字方塊中。Aspose.Slides for PHP via Java 提供了 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 類別，可讓您新增包含文字的圖形。
+在 Aspose.Slides for PHP via Java 中，投影片文字儲存在屬於形狀的文字框中。 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 類別代表最常見的含文字形狀，並透過 [AutoShape::getTextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/#getTextFrame) 方法公開其文字。
 
-{{% alert title="資訊" color="info" %}}
-Aspose.Slides 也提供了 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/) 類別，可讓您在投影片上新增圖形。然而，透過 `Shape` 類別加入的並非所有圖形都能容納文字。但透過 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 類別加入的圖形可能包含文字。
-{{% /alert %}}
-
-{{% alert title="注意" color="warning" %}} 
-因此，當處理想要加入文字的圖形時，您可能需要檢查並確認它是透過 `AutoShape` 類別轉型的。只有這樣才能使用 `AutoShape` 之下的屬性 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)。請參閱本頁面的 [Update Text](/slides/zh-hant/php-java/manage-textbox/#update-text) 章節。
+{{% alert color="info" title="注意" %}}
+每個自動形狀皆繼承自 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/)，但不是所有形狀都是自動形狀或支援文字框。處理現有簡報時，請使用 `java_instanceof` 檢查形狀是否為 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 後，才存取其文字。
 {{% /alert %}}
 
 ## **在投影片上建立文字方塊**
 
-建立投影片上的文字方塊，請依照以下步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/presentation/) 類別的實例。  
-2. 取得新建立的簡報中第一張投影片的參考。  
-3. 在投影片的指定位置新增一個形狀類型為 [Rectangle](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapetype/#Rectangle) 的 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 物件，並取得新加入的 `AutoShape` 物件的參考。  
-4. 為 `AutoShape` 物件加入 `TextFrame`，其中將包含文字。以下範例中，我們加入的文字為 *Aspose TextBox*。  
-5. 最後，透過 `Presentation` 物件寫入 PPTX 檔案。  
-
-以下 PHP 程式碼展示了上述步驟，說明如何在投影片上加入文字：
+若要建立文字方塊，先在投影片上加入自動形狀，將文字加入其文字框，然後儲存簡報。以下範例會建立一個矩形文字方塊：
 
 ```php
-  # 實例化 Presentation
-  $pres = new Presentation();
-  try {
-    # 取得簡報中的第一張投影片
-    $sld = $pres->getSlides()->get_Item(0);
-    # 新增類型設定為 Rectangle 的 AutoShape
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # 在 Rectangle 中加入 TextFrame
-    $ashp->addTextFrame(" ");
-    # 存取文字框
-    $txtFrame = $ashp->getTextFrame();
-    # 為文字框建立 Paragraph 物件
-    $para = $txtFrame->getParagraphs()->get_Item(0);
-    # 為段落建立 Portion 物件
-    $portion = $para->getPortions()->get_Item(0);
-    # 設定文字
-    $portion->setText("Aspose TextBox");
-    # 將簡報儲存至磁碟
-    $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-## **檢查文字方塊形狀**
-
-Aspose.Slides 透過 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 類別提供了 [isTextBox](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/istextbox/) 方法，讓您能檢測形狀並辨識是否為文字方塊。
-
-![文字方塊與圖形](istextbox.png)
-
-以下 PHP 程式碼示範如何檢查形狀是否是以文字方塊建立：
-
-```php
-class ShapeCallback {
-    function invoke($shape, $slide, $index) {
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-            $autoShape = $shape;
-            echo(java_is_true($autoShape->isTextBox()) ? "shape is a text box" : "shape is not a text box");
-        }
-    }
-}
-
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
-    ForEach_::shape($presentation, $forEachShapeCallback);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+    $textBox->addTextFrame("Aspose TextBox");
+
+    $presentation->save("TextBox.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-請注意，若您僅使用 [ShapeCollection](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/) 類別的 `addAutoShape` 方法新增自動圖形，該自動圖形的 `isTextBox` 方法會回傳 `false`。但若您使用 `addTextFrame` 方法或 `setText` 方法為自動圖形加入文字後，`isTextBox` 屬性會回傳 `true`。
+傳遞給 [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shapecollection/#addAutoShape) 的座標與尺寸以點為單位。[AutoShape::addTextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/#addTextFrame) 會使用提供的文字初始化文字框。
+
+## **檢查文字方塊形狀**
+
+使用 [AutoShape::isTextBox](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/#isTextBox) 方法判斷自動形狀是否被視為文字方塊。當簡報同時包含含文字與純圖形的自動形狀時，這個方法非常有用。
+
+![文字方塊與形狀](istextbox.png)
+
+以下範例會檢查簡報中的每個自動形狀：
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
-$slide = $presentation->getSlides()->get_Item(0);
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+    $textBox->addTextFrame("Text box");
+    $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
 
-$shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->isTextBox() 傳回 false
-$shape1->addTextFrame("shape 1");
-// shape1->isTextBox() 傳回 true
-
-$shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->isTextBox() 傳回 false
-$shape2->getTextFrame()->setText("shape 2");
-// shape2->isTextBox() 傳回 true
-
-$shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->isTextBox() 傳回 false
-$shape3->addTextFrame("");
-// shape3->isTextBox() 傳回 false
-
-$shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->isTextBox() 傳回 false
-$shape4->getTextFrame()->setText("");
-// shape4->isTextBox() 傳回 false
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $currentSlide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($currentSlide->getShapes()->size()); $shapeIndex++) {
+            $shape = $currentSlide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $autoShapeClass)) {
+                echo (java_is_true($shape->isTextBox()) ? "The shape is a text box." : "The shape is not a text box.") . PHP_EOL;
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **找出擁有 TextFrame 的形狀**
+新加入的自動形狀在未包含非空文字之前不被視為文字方塊。您可以透過 [AutoShape::addTextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/#addTextFrame) 或 [TextFrame::setText](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/#setText) 提供文字。加入或指定空字串會使 [AutoShape::isTextBox](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/#isTextBox) 回傳 `false`：
 
-在通用文字處理程式碼中，您可能只拿到一個 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)，卻不知道它屬於哪個簡報物件。使用 [TextFrame::getParentShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/#getParentShape) 方法即可回溯至擁有它的 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/)。
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
-對於屬於 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 或其他可容納文字的圖形的文字框，`TextFrame::getParentShape` 會回傳其擁有者，而 `TextFrame::getParentCell` 會回傳 `null`。這兩個方法皆為唯讀導向，呼叫它們不會改變所有權。存取圖形前請務必先以 `java_is_null` 檢查回傳值。
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-欲取得完整範例，說明如何辨識形狀與表格儲存格的擁有者（包括與 SmartArt 節點相關的形狀），請參閱 [Search and Replace Text](/slides/zh-hant/php-java/search-and-replace-text/)。
+    $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+    $shape1->addTextFrame("Shape 1");
+    echo (java_is_true($shape1->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+    $shape2->getTextFrame()->setText("Shape 2");
+    echo (java_is_true($shape2->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
+    $shape3->addTextFrame("");
+    echo (java_is_true($shape3->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
+    $shape4->getTextFrame()->setText("");
+    echo (java_is_true($shape4->isTextBox()) ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+前兩次呼叫會印出 `true`；後兩次會印出 `false`。
+
+## **找到擁有文字框的形狀**
+
+通用的文字處理程式碼可能只取得 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/)，卻不知道它屬於哪個簡報物件。使用唯讀的 [TextFrame::getParentShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/#getParentShape) 方法即可回溯到其擁有的 [Shape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/shape/)。
+
+對於由自動形狀或其他含文字形狀擁有的文字框，[TextFrame::getParentShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/#getParentShape) 會回傳擁有者，而 [TextFrame::getParentCell](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/#getParentCell) 會回傳 `null`。在存取之前請使用 `java_is_null` 檢查回傳值。若要同時識別形狀與表格儲存格的擁有者（包含與 SmartArt 節點相關的形狀），請參閱 [Search and Replace Text](/slides/zh-hant/php-java/search-and-replace-text/)。
 
 ## **為文字方塊新增欄位**
 
-Aspose.Slides 提供了 [TextFrameFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/) 類別的 [setColumnCount](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/setcolumncount/) 與 [setColumnSpacing](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/setcolumnspacing/) 方法，讓您能在文字方塊中加入欄位。您可以指定文字方塊的欄位數量，並設定欄位之間的點數間距。
+[TextFrameFormat::setColumnCount](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setColumnCount) 方法會將文字框分割成多個欄位，而 [TextFrameFormat::setColumnSpacing](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/#setColumnSpacing) 則設定欄位之間的間距（單位為點）。這兩項設定皆屬於 [TextFrameFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/)，可透過現有文字方塊的文字框進行變更。文字會在同一形狀內的欄位之間重新排版，不會延伸至其他形狀。
 
-以下程式碼示範上述操作：
+以下範例建立一個三欄文字方塊，欄與欄之間間距為 10 點，儲存簡報，並從輸出檔案讀回設定值：
 
 ```php
-  $pres = new Presentation();
-  try {
-    # 取得簡報中的第一張投影片
-    $slide = $pres->getSlides()->get_Item(0);
-    # 新增類型設定為 Rectangle 的 AutoShape
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # 在 Rectangle 中加入 TextFrame
-    $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
-    # 取得 TextFrame 的文字格式
-    $format = $aShape->getTextFrame()->getTextFrameFormat();
-    # 指定 TextFrame 中的欄位數量
-    $format->setColumnCount(3);
-    # 指定欄位之間的間距
-    $format->setColumnSpacing(10);
-    # 儲存簡報
-    $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+    $textBox->addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    $textFrameFormat = $textBox->getTextFrame()->getTextFrameFormat();
+    $textFrameFormat->setColumnCount(3);
+    $textFrameFormat->setColumnSpacing(10);
+
+    $presentation->save("TextBoxColumns.pptx", SaveFormat::Pptx);
+
+    $savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        $savedTextBox = $savedPresentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+        $savedFormat = $savedTextBox->getTextFrame()->getTextFrameFormat();
+        echo "Columns: " . java_values($savedFormat->getColumnCount()) . "; spacing: " . java_values($savedFormat->getColumnSpacing()) . " points" . PHP_EOL;
+    } finally {
+        $savedPresentation->dispose();
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **為 TextFrame 新增欄位**
-Aspose.Slides for PHP via Java 提供了 [TextFrameFormat](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/) 類別的 [setColumnCount](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframeformat/setcolumncount/) 方法，讓您能在文字框中新增欄位。透過此屬性，您可以指定文字框中想要的欄位數量。
+## **從單一欄位擷取文字**
 
-以下 PHP 程式碼示範如何在文字框內新增欄位：
+使用 [TextFrame::splitTextByColumns](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/#splitTextByColumns) 可取得既有文字框中每個可視欄位所分配的文字。此方法會為每個欄位回傳一個字串，依欄位的閱讀順序排列。單欄文字框會產生僅含一個元素的陣列，空欄位則以空字串表示。回傳的字串僅含純文字；不會保留段落層級的格式資訊。
+
+此功能在以下情境中特別有用：
+
+- 擷取文字同時保留其以欄位為基礎的閱讀順序。
+- 索引或比較多欄投影片的內容。
+- 將每個欄位匯出到不同的檔案、資料庫欄位或其他目的地。
+- 檢查在變更欄位數 (TextFrameFormat::setColumnCount)、欄位間距 (TextFrameFormat::setColumnSpacing)、字型或文字框大小後，文字如何重新分配。
+
+此方法僅回報目前 [TextFrame](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/textframe/) 內的文字分布；不會自動在不同形狀或文字方塊之間流動文字。欄位分布可能受可用字型與其他文字排版設定影響，因此在結果一致性重要時，請確保所需字型已安裝。
+
+以下範例載入簡報，尋找第一個具多欄文字框的自動形狀，讀取其設定的欄位數，並將每個欄位的文字寫入獨立檔案。未提供文字框的形狀會被略過。
 
 ```php
-  $outPptxFileName = "ColumnsTest.pptx";
-  $pres = new Presentation();
-  try {
-    $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    $format = $shape1->getTextFrame()->getTextFrameFormat();
-    $format->setColumnCount(2);
-    $shape1->getTextFrame()->setText("All these columns are forced to stay within a single text container -- " . "you can add or delete text - and the new or remaining text automatically adjusts " . "itself to stay within the container. You cannot have text spill over from one container " . "to other, though -- because PowerPoint's column options for text are limited!");
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(Double->NaN == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test)) {
-        $test->dispose();
-      }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("MultiColumnText.pptx");
+try {
+    $textBox = null;
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($shape, $autoShapeClass)) {
+            $textFrame = $shape->getTextFrame();
+            if (!java_is_null($textFrame)) {
+                $columnCount = java_values($textFrame->getTextFrameFormat()->getColumnCount());
+                if ($columnCount > 1) {
+                    $textBox = $shape;
+                    break;
+                }
+            }
+        }
     }
-    $format->setColumnSpacing(20);
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test1 = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test1->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(20 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test1)) {
-        $test1->dispose();
-      }
+
+    if ($textBox === null) {
+        echo "No multi-column text frame was found." . PHP_EOL;
+    } else {
+        $textFrame = $textBox->getTextFrame();
+        $configuredColumnCount = java_values($textFrame->getTextFrameFormat()->getColumnCount());
+        $columnTexts = java_values($textFrame->splitTextByColumns());
+
+        echo "Configured columns: " . $configuredColumnCount . PHP_EOL;
+
+        foreach ($columnTexts as $columnIndex => $columnText) {
+            $columnNumber = $columnIndex + 1;
+            echo "Column " . $columnNumber . ": " . $columnText . PHP_EOL;
+            $outputPath = "Column-" . $columnNumber . ".txt";
+            $bytesWritten = file_put_contents($outputPath, $columnText);
+            if ($bytesWritten === false) {
+                echo "Could not write column " . $columnNumber . " to " . $outputPath . PHP_EOL;
+            }
+        }
     }
-    $format->setColumnCount(3);
-    $format->setColumnSpacing(15);
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test2 = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test2->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(3 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(15 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test2)) {
-        $test2->dispose();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **更新文字**
 
-Aspose.Slides 允許您變更或更新文字方塊中的文字，或整份簡報中所有文字。
+若要在整份簡報中更新文字，請遍歷投影片與形狀，選取自動形狀，然後編輯其文字段落。於段落層級作業可同時變更文字與字元格式。
 
-以下 PHP 程式碼示範一次更新簡報中所有文字的操作：
+以下範例將自動形狀文字中所有 `years` 替換為 `months`，並將受影響的段落設定為粗體：
 
 ```php
-  $pres = new Presentation("text.pptx");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      foreach($slide->getShapes() as $shape) {
-        # 檢查形狀是否支援文字框 (IAutoShape)。
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-          $autoShape = $shape;
-          # 迭代文字框中的段落
-          foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # 迭代段落中的每個 Portion
-            foreach($paragraph->getPortions() as $portion) {
-              $portion->setText($portion->getText()->replace("years", "months"));// 更改文字
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-              $portion->getPortionFormat()->setFontBold(NullableBool::True);// 更改格式設定
-
+$presentation = new Presentation("Text.pptx");
+try {
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($slide->getShapes()->size()); $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, $autoShapeClass)) {
+                continue;
             }
-          }
+
+            $textFrame = $shape->getTextFrame();
+            if (java_is_null($textFrame)) {
+                continue;
+            }
+
+            for ($paragraphIndex = 0; $paragraphIndex < java_values($textFrame->getParagraphs()->getCount()); $paragraphIndex++) {
+                $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+                for ($portionIndex = 0; $portionIndex < java_values($paragraph->getPortions()->getCount()); $portionIndex++) {
+                    $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                    $text = java_values($portion->getText());
+                    if ($text !== null && strpos($text, "years") !== false) {
+                        $updatedText = str_replace("years", "months", $text);
+                        $portion->setText($updatedText);
+                        $portion->getPortionFormat()->setFontBold(NullableBool::True);
+                    }
+                }
+            }
         }
-      }
     }
-    # 儲存已修改的簡報
-    $pres->save("text-changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("TextChanged.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **新增帶有超連結的文字方塊** 
+此遍歷僅會更新自動形狀中的文字。儲存在表格、圖表、SmartArt 或群組形狀中的文字，必須分別遍歷這些物件的集合才能修改。
 
-您可以在文字方塊內插入連結。點擊文字方塊時，使用者會被導向開啟該連結。
+## **新增帶有超連結的文字方塊**
 
-要新增包含連結的文字方塊，請依照以下步驟：
+超連結可以指派給特定的文字段落，只有該段文字會成為可點擊的連結。使用 [HyperlinkManager::setExternalHyperlinkClick](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) 可將段落與外部 URL 關聯。
 
-1. 建立 `Presentation` 類別的實例。  
-2. 取得新建立的簡報中第一張投影片的參考。  
-3. 在投影片的指定位置新增一個 `ShapeType` 為 `Rectangle` 的 `AutoShape` 物件，並取得新加入的 AutoShape 物件的參考。  
-4. 為 `AutoShape` 物件加入 `TextFrame`，其預設文字為 *Aspose TextBox*。  
-5. 實例化 `HyperlinkManager` 類別。  
-6. 使用 [setExternalHyperlinkClick](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) 方法，將超連結指派給 `TextFrame` 中您選擇的文字區段。  
-7. 最後，透過 `Presentation` 物件寫入 PPTX 檔案。  
-
-以下 PHP 程式碼展示上述步驟，說明如何在投影片上新增帶有超連結的文字方塊：
+以下範例建立帶連結的文字，並將其儲存至簡報：
 
 ```php
-  # 實例化代表 PPTX 的 Presentation 類別
-  $pres = new Presentation();
-  try {
-    # 取得簡報中的第一張投影片
-    $slide = $pres->getSlides()->get_Item(0);
-    # 新增類型設定為 Rectangle 的 AutoShape 物件
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # 將形狀轉型為 AutoShape
-    $pptxAutoShape = $shape;
-    # 存取與 AutoShape 相關的 ITextFrame 屬性
-    $pptxAutoShape->addTextFrame("");
-    $textFrame = $pptxAutoShape->getTextFrame();
-    # 在框中加入一些文字
-    $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # 設定 Portion 文字的超連結
-    $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
-    $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
-    # 儲存 PPTX 簡報
-    $pres->save("hLink_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+    $textBox->addTextFrame("Aspose.Slides");
+
+    $textPortion = $textBox->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $textPortion->getPortionFormat()->getHyperlinkManager()->setExternalHyperlinkClick("https://www.aspose.com/");
+
+    $presentation->save("Hyperlink.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **常見問題**
 
-**在使用母片時，文字方塊與文字佔位符有何差異？**
+**文字方塊與母片或版面配置投影片上的文字佔位區有何差異？**
 
-[placeholder](/slides/zh-hant/php-java/manage-placeholder/) 會從 [master](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/masterslide/) 繼承樣式/位置，且可在 [layouts](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/layoutslide/) 上被覆寫，而一般的文字方塊則是特定投影片上的獨立物件，切換版面配置時不會改變。
+佔位區 ([placeholder](/slides/zh-hant/php-java/manage-placeholder/)) 可以從 [master slide](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/masterslide/) 或 [layout slide](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/layoutslide/) 繼承其位置與格式。一般的文字方塊則是建立於當前投影片上的獨立形狀，版面變更時不會取得佔位區的行為。
 
-**如何在整份簡報中大量取代文字，同時避免影響圖表、表格與 SmartArt 內的文字？**
+**如何在不變更圖表、表格或 SmartArt 文字的前提下取代文字？**
 
-將迭代範圍限制在具有文字框的自動圖形上，並排除內嵌物件（[charts](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/chart/)、[tables](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/smartart/)），可分別遍歷它們的集合或直接跳過這些物件類型。
+將遍歷範圍限制在 [AutoShape](https://reference.aspose.com/slides/zh-hant/php-java/aspose.slides/autoshape/) 物件，如同「更新文字」範例所示。圖表、表格與 SmartArt 會在各自的物件模型中保存文字，因此不會被此迴圈修改。

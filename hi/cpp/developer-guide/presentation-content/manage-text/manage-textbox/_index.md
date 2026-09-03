@@ -1,5 +1,5 @@
 ---
-title: C++ का उपयोग करके प्रस्तुतियों में टेक्स्ट बॉक्स प्रबंधित करें
+title: C++ का प्रयोग करके प्रस्तुतियों में टेक्स्ट बॉक्स को प्रबंधित करें
 linktitle: टेक्स्ट बॉक्स प्रबंधित करें
 type: docs
 weight: 20
@@ -14,120 +14,91 @@ keywords:
 - टेक्स्ट कॉलम जोड़ें
 - हाइपरलिंक जोड़ें
 - PowerPoint
-- प्रस्तुति
+- प्रेज़ेंटेशन
 - C++
 - Aspose.Slides
-description: "C++ के लिए Aspose.Slides PowerPoint और OpenDocument फ़ाइलों में टेक्स्ट बॉक्स बनाना, संपादित करना और क्लोन करना आसान बनाता है, जिससे आपके प्रस्तुति स्वचालन को बेहतर बनाया जाता है।"
+description: "Aspose.Slides for C++ का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट बॉक्स बनाना, पहचानना, फॉर्मेट करना और अपडेट करना।"
 ---
 ## **परिचय**
 
-स्लाइड्स पर पाठ आमतौर पर टेक्स्ट बॉक्स या आकार में मौजूद होते हैं। इसलिए, स्लाइड में टेक्स्ट जोड़ने के लिए आपको एक टेक्स्ट बॉक्स जोड़ना पड़ता है और फिर उस टेक्स्ट बॉक्स में कुछ पाठ डालना पड़ता है। Aspose.Slides for C++ [IAutoShape](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_auto_shape) इंटरफ़ेस प्रदान करता है जो आपको कुछ पाठ वाला आकार जोड़ने की अनुमति देता है।
+Aspose.Slides for C++ में स्लाइड टेक्स्ट को टेक्स्ट फ्रेमों में संग्रहीत किया जाता है जो आकारों (shapes) से जुड़े होते हैं। [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) इंटरफ़ेस सबसे सामान्य टेक्स्ट‑धारक आकार को दर्शाता है और इसका टेक्स्ट [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/get_textframe/) मेथड के माध्यम से उपलब्ध कराता है।
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="नोट" %}}
 
-Aspose.Slides भी [IShape](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_shape) इंटरफ़ेस प्रदान करता है जो स्लाइड्स में आकार जोड़ने की सुविधा देता है। हालांकि, `IShape` इंटरफ़ेस के माध्यम से जोड़े गए सभी आकार टेक्स्ट धारण नहीं कर सकते। लेकिन [IAutoShape](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_auto_shape) इंटरफ़ेस के माध्यम से जोड़े गए आकार में टेक्स्ट हो सकता है। 
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-इसलिए, जब आप किसी आकार को टेक्स्ट जोड़ने के लिए प्रयोग करना चाहते हैं, तो आपको यह जांचना और पुष्टि करना चाहिए कि वह `IAutoShape` इंटरफ़ेस के माध्यम से कास्ट किया गया है। तभी आप `IAutoShape` के तहत स्थित [TextFrame](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.text_frame) के साथ काम कर पाएंगे। इस पृष्ठ पर [Update Text](https://docs.aspose.com/slides/hi/cpp/manage-textbox/#update-text) सेक्शन देखें। 
+हर ऑटो शेप [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) को लागू करता है, लेकिन हर आकार ऑटो शेप नहीं होता या सभी में टेक्स्ट फ्रेम नहीं होता। किसी मौजूदा प्रेज़ेंटेशन को प्रोसेस करते समय, उसके टेक्स्ट तक पहुंचने से पहले यह जाँचें कि आकार [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) लागू करता है या नहीं।
 
 {{% /alert %}}
 
 ## **स्लाइड पर टेक्स्ट बॉक्स बनाना**
 
-स्लाइड पर टेक्स्ट बॉक्स बनाने के लिए इन चरणों का पालन करें:
-
-1. एक नई [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास की इंस्टेंस बनाएं। 
-2. नए बनाए गए प्रेजेंटेशन में पहली स्लाइड का रेफ़रेंस प्राप्त करें। 
-3. स्लाइड पर निर्दिष्ट स्थान पर `Rectangle` के रूप में सेट किया गया [ShapeType](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) के साथ एक [IAutoShape](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_auto_shape) ऑब्जेक्ट जोड़ें और नए जोड़े गए `IAutoShape` ऑब्जेक्ट का रेफ़रेंस प्राप्त करें। 
-4. `IAutoShape` ऑब्जेक्ट में एक `TextFrame` प्रॉपर्टी जोड़ें जिसमें टेक्स्ट हो। नीचे के उदाहरण में हमने यह टेक्स्ट जोड़ा: *Aspose TextBox*  
-5. अंत में, `Presentation` ऑब्जेक्ट के माध्यम से PPTX फ़ाइल लिखें। 
-
-यह C++ कोड—उपरोक्त चरणों का कार्यान्वयन—दिखाता है कि स्लाइड में टेक्स्ट कैसे जोड़ा जाए:
+टेक्स्ट बॉक्स बनाने के लिए, स्लाइड में एक ऑटो शेप जोड़ें, उसके टेक्स्ट फ्रेम में टेक्स्ट डालें, और प्रेज़ेंटेशन को सहेजें। निम्न उदाहरण एक आयताकार टेक्स्ट बॉक्स बनाता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// प्रस्तुति का इंस्टेंस बनाता है
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// प्रस्तुति में पहली स्लाइड प्राप्त करता है
-auto sld = pres->get_Slides()->idx_get(0);
-
-// एक ऑटोशेप जोड़ता है जिसका प्रकार Rectangle सेट है
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Rectangle में TextFrame जोड़ता है
-ashp->AddTextFrame(u" ");
-
-// टेक्स्ट फ्रेम तक पहुँचता है
-auto txtFrame = ashp->get_TextFrame();
-
-// टेक्स्ट फ्रेम के लिए पैराग्राफ ऑब्जेक्ट बनाता है
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// पैराग्राफ के लिए पोर्शन ऑब्जेक्ट बनाता है
-auto portion = para->get_Portions()->idx_get(0);
-
-// टेक्स्ट सेट करता है
-portion->set_Text(u"Aspose TextBox");
-
-// प्रस्तुति को डिस्क पर सहेजता है
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
 
-## **टेक्स्ट बॉक्स आकार की जाँच करें**
+[IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/addautoshape/) को पास किए गए निर्देशांक और आयाम पॉइंट्स में मापे जाते हैं। [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/addtextframe/) प्रदान किए गए टेक्स्ट से टेक्स्ट फ्रेम को प्रारंभ करता है।
 
-Aspose.Slides [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) इंटरफ़ेस से [get_IsTextBox](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/get_istextbox/) मेथड प्रदान करता है, जिससे आप आकारों की जांच कर टेक्स्ट बॉक्स पहचान सकते हैं।
+## **टेक्स्ट बॉक्स आकार की जाँच**
 
-![Text box and shape](istextbox.png)
+किसी ऑटो शेप को टेक्स्ट बॉक्स माना जाता है या नहीं, यह निर्धारित करने के लिए [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/get_istextbox/) मेथड का उपयोग करें। यह तब उपयोगी होता है जब प्रेज़ेंटेशन में टेक्स्ट‑धारक और केवल ग्राफ़िकल ऑटो शेप दोनों मौजूद हों।
 
-यह C++ कोड दिखाता है कि किसी आकार को टेक्स्ट बॉक्स के रूप में बनाया गया है या नहीं:
+![एक टेक्स्ट बॉक्स और एक आकार](istextbox.png)
 
-```c++
+निम्न उदाहरण प्रेज़ेंटेशन में प्रत्येक ऑटो शेप की जाँच करता है:
+
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-ध्यान दें कि यदि आप केवल `AddAutoShape` मेथड का उपयोग करके [IShapeCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/) इंटरफ़ेस से एक ऑटोशेप जोड़ते हैं, तो ऑटोशेप की `get_IsTextBox` मेथड `false` लौटाएगी। हालांकि, जब आप `AddTextFrame` मेथड या `set_Text` मेथड से ऑटोशेप में टेक्स्ट जोड़ते हैं, तो `get_IsTextBox` मेथड `true` लौटाएगी।
+नया जोड़ा गया ऑटो शेप तभी टेक्स्ट बॉक्स माना जाता है जब उसमें शून्य‑से‑अधिक टेक्स्ट हो। आप यह टेक्स्ट [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/addtextframe/) या [ITextFrame::set_Text](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/set_text/) के माध्यम से प्रदान कर सकते हैं। खाली स्ट्रिंग असाइन करने या जोड़ने से [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/get_istextbox/) `false` लौटाता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -136,7 +107,9 @@ presentation->Dispose();
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -144,149 +117,152 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() false लौटाता है
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() true लौटाता है
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() false लौटाता है
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() true लौटाता है
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() false लौटाता है
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() false लौटाता है
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() false लौटाता है
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() false लौटाता है
+Console::WriteLine(shape4->get_IsTextBox());
 ```
 
-## **टेक्स्ट फ्रेम का मालिक आकार ढूँढ़ें**
+पहले दो जाँच `true` लौटाती हैं; अंतिम दो `false`।
 
-सामान्य टेक्स्ट‑प्रोसेसिंग कोड में, आप एक [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) प्राप्त कर सकते हैं बिना यह जाने कि कौन सा प्रेजेंटेशन ऑब्जेक्ट उसमें है। मालिक [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) पर नेविगेट करने के लिए [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentshape/) का उपयोग करें।
+## **टेक्स्ट फ्रेम वाले आकार का पता लगाना**
 
-यदि टेक्स्ट फ्रेम किसी [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) या किसी अन्य टेक्स्ट‑धारी आकार का हिस्सा है, तो [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentshape/) मालिक को लौटाता है और [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr` लौटाता है। दोनों मेथड केवल रीड‑ओनली नेविगेशन प्रदान करते हैं, इसलिए उनका कॉल करने से स्वामित्व नहीं बदलता। आकार को एक्सेस करने से पहले हमेशा लौटाए गए मान को `nullptr` के लिए जाँचें।
+सामान्य टेक्स्ट‑प्रोसेसिंग कोड को कभी‑कभी [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) मिल सकता है बिना यह जान पाए कि वह किस प्रेज़ेंटेशन ऑब्जेक्ट में है। उसके स्वामी [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) पर नेविगेट करने के लिए [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentshape/) मेथड का प्रयोग करें।
 
-स्मार्टआर्ट नोड्स सहित आकार और टेबल‑सेल मालिकों की पहचान करने वाले संपूर्ण उदाहरण के लिए देखें: [Search and Replace Text](/slides/hi/cpp/search-and-replace-text/)।
+यदि टेक्स्ट फ्रेम ऑटो शेप या किसी अन्य टेक्स्ट‑धारक आकार का है, तो [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentshape/) मालिक को और [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr` लौटाता है। दोनों मेथड केवल‑पढ़ने योग्य नेविगेशन प्रदान करते हैं। इसे एक्सेस करने से पहले लौटाए गए मान की `nullptr` जाँच करें। आकार और तालिका‑सेल दोनों मालिकों की पहचान करने के लिए, जिसमें SmartArt नोड से जुड़े आकार भी शामिल हैं, देखें [Search and Replace Text](/slides/hi/cpp/search-and-replace-text/)।
 
-## **टेक्स्ट बॉक्स में कॉलम जोड़ें**
+## **टेक्स्ट बॉक्स में कॉलम जोड़ना**
 
-Aspose.Slides [set_ColumnCount](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) और [set_ColumnSpacing](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) मेथड (जो [ITextFrameFormat](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_text_frame_format) इंटरफ़ेस और [TextFrameFormat](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_text_frame_format) क्लास से हैं) प्रदान करता है, जिससे आप टेक्स्टबॉक्स में कॉलम जोड़ सकते हैं। आप टेक्स्ट बॉक्स में कॉलम की संख्या निर्धारित कर सकते हैं और कॉलमों के बीच पॉइंट्स में स्पेसिंग सेट कर सकते हैं। 
+[ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_columncount/) मेथड टेक्स्ट फ्रेम को कॉलमों में विभाजित करता है, जबकि [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_columnspacing/) कॉलमों के बीच का अंतर पॉइंट्स में सेट करता है। दोनों मेथड [ITextFrameFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/) का हिस्सा हैं और मौजूदा टेक्स्ट बॉक्स के टेक्स्ट फ्रेम के माध्यम से बुलाए जा सकते हैं। टेक्स्ट समान आकार के भीतर कॉलमों के बीच पुनः प्रवाहित होता है; यह किसी अन्य आकार में नहीं चलता।
+
+निम्न उदाहरण 10 पॉइंट कॉलम स्पेसिंग के साथ तीन‑कॉलम टेक्स्ट बॉक्स बनाता है, प्रेज़ेंटेशन सहेजता है, और आउटपुट फ़ाइल से सेटिंग्स वापस पढ़ता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// प्रेजेंटेशन में पहली स्लाइड प्राप्त करता है
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// Rectangle प्रकार सेट के साथ एक ऑटोशेप जोड़ता है
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// Rectangle में TextFrame जोड़ता है
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// TextFrame का टेक्स्ट फॉर्मेट प्राप्त करता है
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// TextFrame में कॉलमों की संख्या निर्दिष्ट करता है
-format->set_ColumnCount(3);
-
-// कॉलमों के बीच की स्पेसिंग निर्दिष्ट करता है
-format->set_ColumnSpacing(10);
-
-// प्रेजेंटेशन सहेजता है
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **टेक्स्ट फ्रेम में कॉलम जोड़ें**
+## **व्यक्तिगत कॉलम से टेक्स्ट निकालना**
 
-Aspose.Slides for C++ [set_ColumnCount](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) मेथड (जो [ITextFrameFormat](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_text_frame_format) इंटरफ़ेस से है) प्रदान करता है, जिससे आप टेक्स्ट फ्रेम में कॉलम जोड़ सकते हैं। इस मेथड के द्वारा आप टेक्स्ट फ्रेम में वांछित कॉलम संख्या निर्दिष्ट कर सकते हैं। 
+[ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/splittextbycolumns/) का उपयोग करके आप मौजूदा टेक्स्ट फ्रेम में प्रत्येक दृश्य कॉलम में असाइन किया गया टेक्स्ट प्राप्त कर सकते हैं। यह मेथड प्रत्येक कॉलम के लिए एक स्ट्रिंग लौटाता है, कॉलम‑आधारित पढ़ने के क्रम में। एक‑कॉलम टेक्स्ट फ्रेम एक तत्व वाला ऐरे देता है, और खाली कॉलम एक खाली स्ट्रिंग द्वारा दर्शाया जाता है। स्ट्रिंग्स में केवल सादा टेक्स्ट होता है; भाग‑स्तर फ़ॉर्मेटिंग संरक्षित नहीं रहती।
 
-```cpp
-#include <DOM/AutoShape.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
-#include <system/string.h>
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System;
+यह उपयोगी होता है जब आपको आवश्यकता हो:
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+- कॉलम‑आधारित पढ़ने के क्रम को बरकरार रखते हुए टेक्स्ट निकालना।
+- बहु‑कॉलम स्लाइड्स की सामग्री को इंडेक्स या तुलना करना।
+- प्रत्येक कॉलम को अलग फ़ाइल, डेटाबेस फ़ील्ड या अन्य गंतव्य पर निर्यात करना।
+- कॉलम संख्या को [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_columncount/) या स्पेसिंग को [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframeformat/set_columnspacing/) से बदलने के बाद या फ़ॉन्ट या टेक्स्ट‑फ़्रेम आकार बदलने पर टेक्स्ट के पुनः वितरण का निरीक्षण करना।
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
+यह मेथड वर्तमान [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) में वितरित टेक्स्ट को रिपोर्ट करता है; यह अलग-अलग आकारों या टेक्स्ट बॉक्सों के बीच स्वचालित रूप से टेक्स्ट प्रवाहित नहीं करता। कॉलम वितरण उपलब्ध फ़ॉन्टों और अन्य टेक्स्ट‑लेआउट सेटिंग्स पर निर्भर करता है, इसलिए सुसंगत परिणामों के लिए आवश्यक फ़ॉन्ट उपलब्ध रखें।
 
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
-}
-
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
-}
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
-{
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
-}
-```
-
-## **टेक्स्ट अपडेट करें**
-
-Aspose.Slides आपको टेक्स्ट बॉक्स में या पूरी प्रेजेंटेशन में सभी टेक्स्ट को बदलने या अपडेट करने की अनुमति देता है। 
+निम्न उदाहरण प्रेज़ेंटेशन लोड करता है, पहले स्लाइड पर पहला बहु‑कॉलम ऑटो शेप ढूँढ़ता है जिसमें टेक्स्ट फ्रेम है, उसके कॉन्फ़िगर किए गए कॉलम काउंट को पढ़ता है, और प्रत्येक कॉलम के टेक्स्ट को अलग फ़ाइल में लिखता है। उन आकारों को छोड़ दिया जाता है जिनमें टेक्स्ट फ्रेम नहीं है।
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
+
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
+{
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
+}
+
+if (textBox == nullptr)
+{
+    Console::WriteLine(u"No multi-column text frame was found.");
+}
+else
+{
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
+}
+```
+
+## **टेक्स्ट अपडेट करना**
+
+प्रेज़ेंटेशन में टेक्स्ट को अपडेट करने के लिए, स्लाइड और आकारों पर क्रमिक रूप से पारित हों, ऑटो शेप चुनें, तथा उनके टेक्स्ट भागों को संपादित करें। भाग‑स्तर पर काम करने से आप टेक्स्ट और कैरेक्टर फ़ॉर्मेटिंग दोनों बदल सकते हैं।
+
+निम्न उदाहरण प्रत्येक ऑटो‑शेप टेक्स्ट भाग में `years` को `months` से बदलता है और प्रभावित भाग को बोल्ड करता है:
+
+```cpp
+#include <DOM/IAutoShape.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -296,27 +272,38 @@ Aspose.Slides आपको टेक्स्ट बॉक्स में य�
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //पाठ बदलता है
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //फ़ॉर्मेटिंग बदलता है
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -324,76 +311,52 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//संशोधित प्रस्तुति सहेजता है
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **हाइपरलिंक के साथ टेक्स्ट बॉक्स जोड़ें** 
+यह प्रवाह केवल ऑटो शेप में टेक्स्ट को अपडेट करता है। तालिकाओं, चार्ट्स, SmartArt या समूहित आकारों में संग्रहीत टेक्स्ट को अपडेट करने के लिए उन वस्तुओं के अपने संग्रहों पर पारित होना आवश्यक है।
 
-आप टेक्स्ट बॉक्स के अंदर एक लिंक डाल सकते हैं। जब टेक्स्ट बॉक्स पर क्लिक किया जाता है, तो उपयोगकर्ता लिंक को खोलने के लिए निर्देशित होते हैं। 
+## **हाइपरलिंक के साथ टेक्स्ट बॉक्स जोड़ना**
 
-हाइपरलिंक युक्त टेक्स्ट बॉक्स जोड़ने के लिए इन चरणों का पालन करें:
+हाइपरलिंक किसी विशेष टेक्स्ट भाग को सौंपा जा सकता है, जिससे केवल वही टेक्स्ट क्लिक करने योग्य बनता है। भाग को बाहरी URL से जोड़ने के लिए [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) का उपयोग करें।
 
-1. `Presentation` क्लास की एक इंस्टेंस बनाएं। 
-2. नए बनाए गए प्रेजेंटेशन में पहली स्लाइड का रेफ़रेंस प्राप्त करें। 
-3. स्लाइड पर निर्दिष्ट स्थिति पर `Rectangle` के रूप में सेट किया गया `ShapeType` वाला `AutoShape` ऑब्जेक्ट जोड़ें और नए जोड़े गए AutoShape ऑब्जेक्ट का रेफ़रेंस प्राप्त करें। 
-4. `AutoShape` ऑब्जेक्ट में एक `TextFrame` जोड़ें जिसमें डिफ़ॉल्ट टेक्स्ट *Aspose TextBox* हो। 
-5. `IHyperlinkManager` क्लास का एक इंस्टेंस बनाएं। 
-6. अपनी पसंदीदा `TextFrame` भाग पर लागू `set_HyperlinkClick` मेथड के साथ `IHyperlinkManager` ऑब्जेक्ट असाइन करें। 
-7. अंत में, `Presentation` ऑब्जेक्ट के माध्यम से PPTX फ़ाइल लिखें। 
+निम्न उदाहरण लिंक्ड टेक्स्ट बनाता है और उसे प्रेज़ेंटेशन में सहेजता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// PPTX को दर्शाने वाली Presentation क्लास का इंस्टेंस बनाता है
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// प्रेजेंटेशन में पहली स्लाइड प्राप्त करता है
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// टाइप को Rectangle सेट कर एक AutoShape ऑब्जेक्ट जोड़ता है
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// shape को AutoShape में कास्ट करता है
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// AutoShape से संबंधित ITextFrame प्रॉपर्टी तक पहुँचता है
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// फ़्रेम में कुछ टेक्स्ट जोड़ता है
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// portion टेक्स्ट के लिए हाइपरलिंक सेट करता है
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// PPTX प्रेजेंटेशन को सहेजता है
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मास्टर स्लाइड्स के साथ काम करते समय टेक्स्ट बॉक्स और टेक्स्ट प्लेसहोल्डर में क्या अंतर है?**
+**मास्टर या लेआउट स्लाइड पर टेक्स्ट बॉक्स और टेक्स्ट प्लेसहोल्डर में क्या अंतर है?**
 
-एक [placeholder](/slides/hi/cpp/manage-placeholder/) शैली/स्थिति को [master](https://reference.aspose.com/slides/hi/cpp/aspose.slides/masterslide/) से विरासत में लेता है और इसे [layouts](https://reference.aspose.com/slides/hi/cpp/aspose.slides/layoutslide/) पर ओवरराइड किया जा सकता है, जबकि एक सामान्य टेक्स्ट बॉक्स किसी विशिष्ट स्लाइड पर स्वतंत्र ऑब्जेक्ट होता है और लेआउट बदलने पर नहीं बदलता।
+एक [placeholder](/slides/hi/cpp/manage-placeholder/) अपनी स्थिति और फ़ॉर्मेटिंग को [master slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/masterslide/) या [layout slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/layoutslide/) से विरासत में ले सकता है। एक सामान्य टेक्स्ट बॉक्स वह स्वतंत्र आकार है जो उस स्लाइड पर बना रहता है जहाँ इसे निर्मित किया गया था और लेआउट बदलने पर प्लेसहोल्डर व्यवहार नहीं अपनाता।
 
-**मैं चार्ट्स, टेबल्स और SmartArt के अंदर के टेक्स्ट को छुए बिना पूरी प्रेजेंटेशन में एक साथ टेक्स्ट रिप्लेसमेंट कैसे कर सकता हूँ?**
+**मैं टेक्स्ट को कैसे बदलूं बिना चार्ट्स, टेबल्स या SmartArt के टेक्स्ट को प्रभावित किए?**
 
-इटरेशन को केवल उन ऑटो‑शेप्स तक सीमित रखें जिनमें टेक्स्ट फ्रेम हैं और एम्बेडेड ऑब्जेक्ट्स ([charts](https://reference.aspose.com/slides/hi/cpp/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/hi/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/hi/cpp/aspose.slides.smartart/smartart/)) को उनके कलेक्शन को अलग‑अलग ट्रैवर्स करके या उन ऑब्जेक्ट प्रकारों को स्किप करके बाहर रखें।
+जैसे कि Update Text उदाहरण में दिखाया गया है, केवल उन आकारों को प्रोसेस करें जो [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) को लागू करते हैं। चार्ट्स, टेबल्स और SmartArt अपने स्वयं के ऑब्जेक्ट मॉडल में टेक्स्ट संग्रहीत करते हैं, इसलिए वे उस लूप द्वारा संशोधित नहीं होते।

@@ -1,6 +1,6 @@
 ---
-title: "Mengelola Kotak Teks dalam Presentasi di .NET"
-linktitle: "Kelola Kotak Teks"
+title: Kelola Kotak Teks dalam Presentasi di .NET
+linktitle: Kelola Kotak Teks
 type: docs
 weight: 20
 url: /id/net/manage-textbox/
@@ -18,301 +18,247 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides untuk .NET memudahkan pembuatan, penyuntingan, dan kloning kotak teks dalam file PowerPoint dan OpenDocument, meningkatkan otomasi presentasi Anda."
+description: "Buat, identifikasi, format, dan perbarui kotak teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk .NET."
 ---
 ## **Pendahuluan**
 
-Teks pada slide biasanya berada dalam kotak teks atau bentuk. Oleh karena itu, untuk menambahkan teks ke slide, Anda harus menambahkan kotak teks terlebih dahulu dan kemudian menaruh teks di dalam kotak teks tersebut. 
+Di Aspose.Slides untuk .NET, teks slide disimpan dalam bingkai teks yang menjadi milik bentuk. Antarmuka [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) mewakili bentuk yang paling umum memuat teks dan mengekspos teksnya melalui properti [IAutoShape.TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/textframe/).
 
-Untuk memungkinkan Anda menambahkan bentuk yang dapat menampung teks, Aspose.Slides untuk .NET menyediakan antarmuka [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape). 
-
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides juga menyediakan antarmuka [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape) untuk memungkinkan Anda menambahkan bentuk ke slide. Namun, tidak semua bentuk yang ditambahkan melalui antarmuka `IShape` dapat menampung teks. Bentuk yang ditambahkan melalui antarmuka [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape) biasanya berisi teks. 
-
-Oleh karena itu, ketika menangani bentuk yang sudah ada dan ingin Anda tambahkan teks, Anda mungkin perlu memeriksa dan memastikan bahwa bentuk tersebut telah di‑cast melalui antarmuka `IAutoShape`. Hanya dengan begitu Anda dapat bekerja dengan [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/properties/textframe), yang merupakan properti di bawah `IAutoShape`. Lihat bagian [Perbarui Teks](https://docs.aspose.com/slides/id/net/manage-textbox/#update-text) pada halaman ini. 
-
+{{% alert color="info" title="Note" %}}
+Setiap auto shape mengimplementasikan [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/), tetapi tidak semua shape adalah auto shape atau mendukung bingkai teks. Saat memproses presentasi yang ada, periksa bahwa sebuah shape mengimplementasikan `IAutoShape` sebelum mengakses teksnya.
 {{% /alert %}}
 
 ## **Buat Kotak Teks pada Slide**
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation). 
-2. Dapatkan referensi slide pertama melalui indeksnya. 
-3. Tambahkan objek [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape) dengan [ShapeType](https://reference.aspose.com/slides/id/net/aspose.slides/igeometryshape/properties/shapetype) yang diset sebagai `Rectangle` pada posisi tertentu di slide dan peroleh referensi untuk objek `IAutoShape` yang baru ditambahkan. 
-4. Tambahkan properti `TextFrame` ke objek `IAutoShape` yang akan berisi teks. Pada contoh di bawah, kami menambahkan teks berikut: *Aspose TextBox*
-5. Akhirnya, tulis file PPTX melalui objek `Presentation`. 
+Untuk membuat kotak teks, tambahkan sebuah auto shape ke slide, tambahkan teks ke bingkai teksnya, dan simpan presentasi. Contoh berikut membuat kotak teks berbentuk persegi panjang:
 
-Kode C# ini—implementasi dari langkah‑langkah di atas—menunjukkan cara menambahkan teks ke slide:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Membuat instance PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // Mendapatkan slide pertama dalam presentasi
-    ISlide sld = pres.Slides[0];
-
-    // Menambahkan AutoShape dengan tipe yang diatur sebagai Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Menambahkan TextFrame ke Rectangle
-    ashp.AddTextFrame(" ");
-
-    // Mengakses bingkai teks
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // Membuat objek Paragraph untuk bingkai teks
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Membuat objek Portion untuk paragraf
-    IPortion portion = para.Portions[0];
-
-    // Mengatur teks
-    portion.Text = "Aspose TextBox";
-
-    // Menyimpan presentasi ke disk
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
+
+Koordinat dan dimensi yang diberikan ke [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addautoshape/) diukur dalam poin. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/addtextframe/) menginisialisasi bingkai teks dengan teks yang diberikan.
 
 ## **Periksa Bentuk Kotak Teks**
 
-Aspose.Slides menyediakan properti [IsTextBox](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/istextbox/) dari antarmuka [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) yang memungkinkan Anda memeriksa bentuk dan mengidentifikasi kotak teks.
+Gunakan properti [AutoShape.IsTextBox](https://reference.aspose.com/slides/id/net/aspose.slides/autoshape/istextbox/) untuk menentukan apakah sebuah auto shape diperlakukan sebagai kotak teks. Ini berguna ketika sebuah presentasi berisi baik auto shape yang memuat teks maupun yang hanya grafis.
 
-![Kotak teks dan bentuk](istextbox.png)
+![Kotak teks dan sebuah bentuk](istextbox.png)
 
-Kode C# ini menunjukkan cara memeriksa apakah sebuah bentuk dibuat sebagai kotak teks: 
+Contoh berikut memeriksa setiap auto shape dalam sebuah presentasi:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-Perhatikan bahwa jika Anda hanya menambahkan autoshape menggunakan metode `AddAutoShape` dari antarmuka [IShapeCollection](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/), properti `IsTextBox` pada autoshape akan mengembalikan `false`. Namun, setelah Anda menambahkan teks ke autoshape menggunakan metode `AddTextFrame` atau properti `Text`, properti `IsTextBox` akan mengembalikan `true`.
+Sebuah auto shape yang baru ditambahkan tidak dianggap sebagai kotak teks sampai ia berisi teks yang tidak kosong. Anda dapat memberikan teks tersebut melalui [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/addtextframe/) atau [ITextFrame.Text](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/text/). Menambahkan atau menetapkan string kosong membuat `IsTextBox` tetap `false`:
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox adalah false
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox adalah true
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox adalah false
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox adalah true
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox adalah false
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox adalah false
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox adalah false
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox adalah false
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
+
+Dua pemanggilan pertama mencetak `True`; dua pemanggilan terakhir mencetak `False`.
 
 ## **Temukan Bentuk yang Memiliki Bingkai Teks**
 
-Dalam kode pemrosesan teks umum, Anda mungkin menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) tanpa mengetahui objek presentasi mana yang menampungnya. Gunakan properti [ITextFrame.ParentShape](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentshape/) untuk menavigasi kembali ke [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) pemiliknya.
+Kode pemrosesan teks generik mungkin menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) tanpa mengetahui objek presentasi mana yang memilikinya. Gunakan properti read-only [ITextFrame.ParentShape](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentshape/) untuk menavigasi kembali ke [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) pemiliknya.
 
-Untuk bingkai teks yang merupakan milik sebuah [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/) atau bentuk lain yang berisi teks, [ITextFrame.ParentShape](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentshape/) diatur dan [ITextFrame.ParentCell](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentcell/) bernilai `null`. Kedua properti bersifat read‑only sebagai properti navigasi, sehingga membaca mereka tidak mengubah kepemilikan. Selalu periksa nilai yang dikembalikan untuk `null` sebelum mengakses bentuknya.
-
-Untuk contoh lengkap yang mengidentifikasi pemilik bentuk dan sel tabel, termasuk bentuk yang terkait dengan node SmartArt, lihat [Cari dan Ganti Teks](/slides/id/net/search-and-replace-text/).
+Untuk bingkai teks yang dimiliki oleh auto shape atau bentuk lain yang memuat teks, `ParentShape` berisi pemiliknya dan [ITextFrame.ParentCell](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentcell/) bernilai `null`. Periksa nilai yang dikembalikan sebelum mengaksesnya. Untuk mengidentifikasi pemilik shape dan sel tabel, termasuk shape yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/net/search-and-replace-text/).
 
 ## **Tambahkan Kolom ke Kotak Teks**
 
-Aspose.Slides menyediakan properti [ColumnCount](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/properties/columncount) dan [ColumnSpacing](https://reference.aspose.com/slides/id/net/aspose.slides/textframeformat/properties/columnspacing) (dari antarmuka [ITextFrameFormat](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat) dan kelas [TextFrameFormat](https://reference.aspose.com/slides/id/net/aspose.slides/textframeformat)) yang memungkinkan Anda menambahkan kolom ke kotak teks. Anda dapat menentukan jumlah kolom dalam kotak teks dan kemudian menentukan jarak dalam poin antara kolom. 
+Properti [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/columncount/) membagi bingkai teks menjadi kolom, sementara [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/columnspacing/) mengatur jarak antar kolom dalam poin. Kedua pengaturan tersebut merupakan bagian dari [ITextFrameFormat](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/) dan dapat diubah melalui bingkai teks pada kotak teks yang ada. Teks mengalir kembali di antara kolom dalam shape yang sama; tidak berlanjut ke shape lain.
 
-Kode C# berikut mendemonstrasikan operasi yang dijelaskan: 
+Contoh berikut membuat kotak teks tiga kolom dengan 10 poin antar kolom, menyimpan presentasi, dan membaca kembali pengaturan yang disimpan dari file output:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// Mendapatkan slide pertama dalam presentasi
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// Menambahkan AutoShape dengan tipe yang diatur sebagai Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// Menambahkan TextFrame ke Rectangle
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// Mendapatkan format teks dari TextFrame
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// Menentukan jumlah kolom dalam TextFrame
-	format.ColumnCount = 3;
-
-	// Menentukan jarak antar kolom
-	format.ColumnSpacing = 10;
-
-	// Menyimpan presentasi
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
-## **Tambahkan Kolom ke Bingkai Teks**
-Aspose.Slides untuk .NET menyediakan properti [ColumnCount](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/properties/columncount) (dari antarmuka [ITextFrameFormat](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat)) yang memungkinkan Anda menambahkan kolom dalam bingkai teks. Melalui properti ini, Anda dapat menentukan jumlah kolom yang diinginkan dalam bingkai teks. 
+## **Ekstrak Teks dari Kolom Individu**
 
-Kode C# ini menunjukkan cara menambahkan kolom di dalam bingkai teks:
+Gunakan [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/splittextbycolumns/) untuk mengambil teks yang diberikan ke setiap kolom visual dalam bingkai teks yang ada. Metode ini mengembalikan satu string untuk setiap kolom, dalam urutan baca berbasis kolom. Bingkai teks satu kolom menghasilkan sebuah array dengan satu elemen, dan kolom kosong diwakili oleh string kosong. String-string tersebut hanya berisi teks polos; format tingkat bagian tidak dipertahankan.
 
-```c#
-using System.Diagnostics;
+Ini berguna ketika Anda perlu:
+- Mengekstrak teks sambil mempertahankan urutan baca berbasis kolom.
+- Mengindeks atau membandingkan konten slide multi-kolom.
+- Mengekspor setiap kolom ke file terpisah, bidang basis data, atau tujuan lainnya.
+- Memeriksa bagaimana teks didistribusikan kembali setelah mengubah [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/id/net/aspose.slides/itextframeformat/columnspacing/), font, atau ukuran bingkai teks.
+
+Metode ini melaporkan teks yang didistribusikan dalam [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) saat ini; tidak secara otomatis mengalirkan teks antara shape atau kotak teks terpisah. Distribusi kolom dapat bergantung pada font yang tersedia dan pengaturan tata letak teks lainnya, jadi pastikan font yang diperlukan tersedia ketika hasil yang konsisten penting.
+
+Contoh berikut memuat sebuah presentasi, menemukan auto shape multi-kolom pertama dengan bingkai teks, membaca jumlah kolom yang dikonfigurasikan, dan menulis teks dari setiap kolom ke file terpisah. Shape yang tidak menyediakan bingkai teks akan dilewati.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **Perbarui Teks**
 
-Aspose.Slides memungkinkan Anda mengubah atau memperbarui teks yang terdapat dalam kotak teks atau semua teks yang terdapat dalam sebuah presentasi. 
+Untuk memperbarui teks di seluruh presentasi, iterasi melalui slide dan shape, pilih auto shape, dan kemudian edit bagian teksnya. Bekerja pada level bagian memungkinkan Anda mengubah teks dan format karakter.
 
-Kode C# ini mendemonstrasikan operasi di mana semua teks dalam sebuah presentasi diperbarui atau diubah:
+Contoh berikut mengganti setiap kemunculan `years` dengan `months` dalam teks auto-shape dan membuat setiap bagian yang terpengaruh menjadi tebal:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //Memeriksa apakah shape mendukung bingkai teks (IAutoShape).
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Iterasi melalui paragraf dalam bingkai teks
-               {
-                   foreach (IPortion portion in paragraph.Portions) //Iterasi melalui setiap portion dalam paragraf
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //Mengubah teks
-                       portion.PortionFormat.FontBold = NullableBool.True; //Mengubah pemformatan
-                   }
-               }
-           }
-       }
-   }
-  
-   //Menyimpan presentasi yang telah dimodifikasi
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **Tambahkan Kotak Teks dengan Tautan** 
+Traversing ini memperbarui teks hanya dalam auto shape. Teks yang disimpan dalam tabel, diagram, SmartArt, atau shape yang dikelompokkan memerlukan traversing koleksi objek tersebut.
 
-Anda dapat menyisipkan sebuah tautan di dalam kotak teks. Ketika kotak teks diklik, pengguna akan diarahkan untuk membuka tautan tersebut. 
+## **Tambahkan Kotak Teks dengan Tautan**
 
-1. Buat sebuah instance dari kelas `Presentation`. 
-2. Dapatkan referensi slide pertama melalui indeksnya.  
-3. Tambahkan objek `AutoShape` dengan `ShapeType` yang diset sebagai `Rectangle` pada posisi tertentu di slide dan peroleh referensi objek `AutoShape` yang baru ditambahkan. 
-4. Tambahkan `TextFrame` ke objek `AutoShape` yang berisi *Aspose TextBox* sebagai teks default. 
-5. Instansiasikan kelas `IHyperlinkManager`. 
-6. Tetapkan objek `IHyperlinkManager` ke properti [HyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/shape/properties/hyperlinkclick) yang terkait dengan bagian `TextFrame` yang Anda inginkan. 
-7. Akhirnya, tulis file PPTX melalui objek `Presentation`. 
+Sebuah tautan dapat ditetapkan ke bagian teks tertentu, sehingga hanya teks tersebut berfungsi sebagai tautan yang dapat diklik. Gunakan [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/id/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) untuk mengaitkan bagian tersebut dengan URL eksternal.
 
-Kode C# ini—implementasi dari langkah‑langkah di atas—menunjukkan cara menambahkan kotak teks dengan tautan ke slide:
+Contoh berikut membuat teks terhubung dan menyimpannya ke sebuah presentasi:
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Membuat instance kelas Presentation yang mewakili PPTX
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// Mendapatkan slide pertama dalam presentasi
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// Menambahkan objek AutoShape dengan tipe yang diatur sebagai Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// Mencasting shape menjadi AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// Mengakses properti ITextFrame yang terkait dengan AutoShape
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// Menambahkan teks ke bingkai
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// Mengatur Hyperlink untuk teks portion
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// Menyimpan presentasi PPTX
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Apa perbedaan antara kotak teks dan placeholder teks saat bekerja dengan master slide?**
+**Apa perbedaan antara kotak teks dan placeholder teks pada slide master atau layout?**
 
-Sebuah [placeholder](/slides/id/net/manage-placeholder/) mewarisi gaya/posisi dari [master](https://reference.aspose.com/slides/id/net/aspose.slides/masterslide/) dan dapat ditimpa pada [layout](https://reference.aspose.com/slides/id/net/aspose.slides/layoutslide/), sedangkan kotak teks biasa adalah objek independen pada slide tertentu dan tidak berubah ketika Anda beralih layout.
+Sebuah [placeholder](/slides/id/net/manage-placeholder/) dapat mewarisi posisi dan pemformatannya dari sebuah [master slide](https://reference.aspose.com/slides/id/net/aspose.slides/masterslide/) atau [layout slide](https://reference.aspose.com/slides/id/net/aspose.slides/layoutslide/). Kotak teks biasa adalah shape independen pada slide tempat ia dibuat dan tidak memperoleh perilaku placeholder ketika tata letak berubah.
 
-**Bagaimana cara melakukan penggantian teks secara massal di seluruh presentasi tanpa menyentuh teks di dalam diagram, tabel, dan SmartArt?**
+**Bagaimana saya dapat mengganti teks tanpa mengubah teks dalam diagram, tabel, atau SmartArt?**
 
-Batasi iterasi Anda pada auto‑shape yang memiliki bingkai teks dan kecualikan objek tersemat ([diagram](https://reference.aspose.com/slides/id/net/aspose.slides.charts/chart/), [tabel](https://reference.aspose.com/slides/id/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/id/net/aspose.slides.smartart/smartart/)) dengan menelusuri koleksi mereka secara terpisah atau melewatkan tipe objek tersebut.
+Batasi traversal hanya pada shape yang mengimplementasikan [IAutoShape](https://reference.aspose.com/slides/id/net/aspose.slides/iautoshape/), seperti yang ditunjukkan dalam contoh Perbarui Teks. Diagram, tabel, dan SmartArt menyimpan teks dalam model objek mereka masing-masing, jadi tidak akan diubah oleh loop tersebut.

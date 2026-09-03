@@ -18,84 +18,62 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js를 사용하면 PowerPoint 및 OpenDocument 파일에서 텍스트 상자를 쉽게 만들고, 편집하고, 복제할 수 있어 프레젠테이션 자동화를 향상시킵니다."
+description: "Aspose.Slides for Node.js via Java를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 텍스트 상자를 생성, 식별, 서식 지정 및 업데이트합니다."
 ---
+## **소개**
+
+Aspose.Slides for Node.js via Java에서는 슬라이드 텍스트가 도형에 속하는 텍스트 프레임에 저장됩니다. [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/) 클래스는 가장 일반적인 텍스트를 포함하는 도형을 나타내며, 해당 텍스트를 [AutoShape.getTextFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/#getTextFrame) 메서드를 통해 제공합니다.
+
+{{% alert color="info" title="참고" %}}
+모든 자동 도형은 [Shape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shape/)에서 파생되지만, 모든 도형이 자동 도형이거나 텍스트 프레임을 지원하는 것은 아닙니다. 기존 프레젠테이션을 처리할 때, 텍스트에 접근하기 전에 도형이 [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/)의 인스턴스인지 확인하십시오.
+{{% /alert %}}
+
 ## **슬라이드에 텍스트 상자 만들기**
 
-슬라이드의 텍스트는 일반적으로 텍스트 상자나 도형에 존재합니다. 따라서 슬라이드에 텍스트를 추가하려면 텍스트 상자를 추가하고 그 안에 텍스트를 넣어야 합니다. Aspose.Slides for Node.js via Java는 텍스트를 포함하는 도형을 추가할 수 있는 [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/AutoShape) 클래스를 제공합니다.
-
-{{% alert title="Info" color="info" %}}
-Aspose.Slides는 슬라이드에 도형을 추가할 수 있는 [Shape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Shape) 클래스도 제공합니다. 하지만 `Shape` 클래스를 통해 추가된 모든 도형이 텍스트를 포함할 수 있는 것은 아닙니다. 그러나 [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/AutoShape) 클래스를 통해 추가된 도형은 텍스트를 포함할 수 있습니다.
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-따라서 텍스트를 추가하려는 도형을 다룰 때는 해당 도형이 `AutoShape` 클래스로 캐스팅되었는지 확인해야 할 수 있습니다. 그래야만 `AutoShape` 아래의 속성인 [TextFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/TextFrame)을 사용할 수 있습니다. 이 페이지의 [Update Text](https://docs.aspose.com/slides/ko/nodejs-java/manage-textbox/#update-text) 섹션을 참고하십시오.
-{{% /alert %}}
-
-## **Create Text Box on Slide**
-
-슬라이드에 텍스트 상자를 만들려면 다음 단계로 진행하십시오:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2. 새로 만든 프레젠테이션의 첫 번째 슬라이드에 대한 참조를 얻습니다.
-3. [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/AutoShape) 객체를 추가하고, [ShapeType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-)을 `Rectangle` 로 지정하여 슬라이드의 지정된 위치에 배치한 뒤 새로 추가된 `AutoShape` 객체에 대한 참조를 얻습니다.
-4. `AutoShape` 객체에 텍스트를 포함할 `TextFrame` 속성을 추가합니다. 아래 예제에서는 다음 텍스트를 추가했습니다: *Aspose TextBox*
-5. 마지막으로 `Presentation` 객체를 사용하여 PPTX 파일을 저장합니다. 
-
-다음 JavaScript 코드는 위 단계들을 구현한 것으로, 슬라이드에 텍스트를 추가하는 방법을 보여줍니다:
+텍스트 상자를 만들려면 슬라이드에 자동 도형을 추가하고, 텍스트 프레임에 텍스트를 입력한 다음 프레젠테이션을 저장합니다. 다음 예제는 직사각형 텍스트 상자를 생성합니다:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// 프레젠테이션 인스턴스 생성
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션의 첫 번째 슬라이드 가져오기
-    var sld = pres.getSlides().get_Item(0);
-    // 타입을 Rectangle 로 설정하여 AutoShape 추가
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Rectangle에 TextFrame 추가
-    ashp.addTextFrame(" ");
-    // 텍스트 프레임에 접근
-    var txtFrame = ashp.getTextFrame();
-    // 텍스트 프레임용 Paragraph 객체 생성
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Paragraph용 Portion 객체 생성
-    var portion = para.getPortions().get_Item(0);
-    // 텍스트 설정
-    portion.setText("Aspose TextBox");
-    // 프레젠테이션을 디스크에 저장
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Check for Text Box Shape**
+[ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shapecollection/#addAutoShape) 에 전달되는 좌표와 크기는 포인트 단위입니다. [AutoShape.addTextFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/#addTextFrame) 은 제공된 텍스트로 텍스트 프레임을 초기화합니다.
 
-Aspose.Slides는 [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/) 클래스의 [isTextBox](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/#isTextBox) 메서드를 제공하여 도형을 검사하고 텍스트 상자를 식별할 수 있게 합니다.
+## **텍스트 상자 모양 확인**
 
-![Text box and shape](istextbox.png)
+자동 도형이 텍스트 상자로 취급되는지 확인하려면 [AutoShape.isTextBox](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/#isTextBox) 메서드를 사용합니다. 이 메서드는 프레젠테이션에 텍스트가 포함된 도형과 순수 그래픽 자동 도형이 모두 있을 때 유용합니다.
 
-다음 JavaScript 코드는 도형이 텍스트 상자로 생성되었는지 확인하는 방법을 보여줍니다:
+![텍스트 상자와 모양](istextbox.png)
+
+다음 예제는 프레젠테이션의 모든 자동 도형을 검사합니다:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -104,233 +82,218 @@ try {
 }
 ```
 
-참고로 [ShapeCollection](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shapecollection/) 클래스의 `addAutoShape` 메서드를 사용해 단순히 자동 도형을 추가하면 해당 자동 도형의 `isTextBox` 메서드는 `false`를 반환합니다. 그러나 `addTextFrame` 메서드나 `setText` 메서드를 사용해 자동 도형에 텍스트를 추가하면 `isTextBox` 속성이 `true`를 반환합니다.
+새로 추가된 자동 도형은 비어 있지 않은 텍스트를 포함할 때까지 텍스트 상자로 간주되지 않습니다. 해당 텍스트는 [AutoShape.addTextFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/#addTextFrame) 또는 [TextFrame.setText](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/#setText) 을 통해 제공할 수 있습니다. 빈 문자열을 추가하거나 할당하면 [AutoShape.isTextBox](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/#isTextBox) 은 `false` 를 반환합니다:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox()는 false를 반환합니다
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox()는 true를 반환합니다
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox()는 false를 반환합니다
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox()는 true를 반환합니다
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox()는 false를 반환합니다
-shape3.addTextFrame("");
-// shape3.isTextBox()는 false를 반환합니다
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox()는 false를 반환합니다
-shape4.getTextFrame().setText("");
-// shape4.isTextBox()는 false를 반환합니다
-```
-
-## **Find the Shape That Owns a Text Frame**
-
-일반적인 텍스트 처리 코드에서는 [TextFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/)을 받게 될 수 있지만, 이를 포함하고 있는 프레젠테이션 객체가 어느 것인지 모를 수 있습니다. [TextFrame.getParentShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/#getParentShape--) 메서드를 사용하면 해당 [Shape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shape/)으로 되돌아갈 수 있습니다.
-
-[AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/) 또는 다른 텍스트를 포함하는 도형에 속한 텍스트 프레임의 경우, [TextFrame.getParentShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/#getParentShape--)은 소유자를 반환하고 [TextFrame.getParentCell](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/#getParentCell--)은 `null`을 반환합니다. 두 메서드는 읽기 전용 탐색을 제공하므로 호출해도 소유권이 변경되지 않습니다. 도형에 접근하기 전에 반환값이 `null`인지 항상 확인하십시오.
-
-SmartArt 노드와 연관된 도형을 포함하여 도형 및 테이블 셀 소유자를 식별하는 전체 예제는 [Search and Replace Text](/slides/ko/nodejs-java/search-and-replace-text/)를 참조하십시오.
-
-## **Add Column In Text Box**
-
-Aspose.Slides는 텍스트 상자에 열을 추가할 수 있는 [TextFrameFormat](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/TextFrameFormat) 클래스의 [setColumnCount](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) 및 [setColumnSpacing](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) 메서드를 제공합니다. 이를 통해 텍스트 상자의 열 수를 지정하고 열 사이의 간격을 포인트 단위로 설정할 수 있습니다.
-
-다음 JavaScript 코드는 위에서 설명한 동작을 보여줍니다: 
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션의 첫 번째 슬라이드를 가져옵니다
-    var slide = pres.getSlides().get_Item(0);
-    // 타입을 Rectangle 로 설정하여 AutoShape을 추가합니다
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Rectangle에 TextFrame을 추가합니다
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // TextFrame의 텍스트 형식을 가져옵니다
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // TextFrame의 열 수를 지정합니다
-    format.setColumnCount(3);
-    // 열 사이의 간격을 지정합니다
-    format.setColumnSpacing(10);
-    // 프레젠테이션을 저장합니다
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Add Column In Text Frame**
+첫 번째와 두 번째 호출은 `true` 를 출력하고, 마지막 두 호출은 `false` 를 출력합니다.
 
-Aspose.Slides for Node.js via Java는 텍스트 프레임에 열을 추가할 수 있는 [TextFrameFormat](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/TextFrameFormat) 클래스의 [setColumnCount](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) 메서드를 제공합니다. 이 속성을 사용하면 텍스트 프레임의 원하는 열 수를 지정할 수 있습니다.
+## **텍스트 프레임을 소유하는 도형 찾기**
 
-다음 JavaScript 코드는 텍스트 프레임 안에 열을 추가하는 방법을 보여줍니다:
+일반적인 텍스트 처리 코드는 어떤 프레젠테이션 개체에 포함되어 있는지 모르는 [TextFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/)을 받을 수 있습니다. 읽기 전용 [TextFrame.getParentShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/#getParentShape) 메서드를 사용하여 소유자 [Shape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shape/) 으로 돌아갈 수 있습니다.
+
+자동 도형이나 다른 텍스트를 포함하는 도형이 소유하는 텍스트 프레임의 경우, [TextFrame.getParentShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/#getParentShape) 은 소유자를 반환하고 [TextFrame.getParentCell](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/#getParentCell) 은 `null` 을 반환합니다. 접근하기 전에 반환값을 확인하십시오. 도형과 테이블 셀 소유자를 모두 식별하려면, SmartArt 노드와 연결된 도형을 포함하여 [Search and Replace Text](/slides/ko/nodejs-java/search-and-replace-text/) 를 참조하십시오.
+
+## **텍스트 상자에 열 추가**
+
+[TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframeformat/#setColumnCount) 메서드는 텍스트 프레임을 여러 열로 나누고, [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) 은 열 사이의 간격을 포인트 단위로 설정합니다. 두 설정 모두 [TextFrameFormat](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframeformat/) 에 속하며 기존 텍스트 상자의 텍스트 프레임을 통해 변경할 수 있습니다. 텍스트는 같은 도형 안에서 열 사이에 다시 흐르며, 다른 도형으로 이어지지는 않습니다.
+
+다음 예제는 열 사이에 10포인트 간격을 두고 세 열 텍스트 상자를 만든 뒤 프레젠테이션을 저장하고, 출력 파일에서 저장된 설정을 다시 읽어옵니다:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // 열 간격이 설정되지 않았으므로 NaN으로 보고됩니다.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
-        }
-    }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
-        }
+        savedPresentation.dispose();
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Update Text**
+## **개별 열에서 텍스트 추출**
 
-Aspose.Slides를 사용하면 텍스트 상자에 포함된 텍스트 또는 프레젠테이션에 포함된 모든 텍스트를 변경하거나 업데이트할 수 있습니다.
+[TextFrame.splitTextByColumns](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/#splitTextByColumns) 를 사용하면 기존 텍스트 프레임의 각 시각적 열에 할당된 텍스트를 가져올 수 있습니다. 이 메서드는 열 기반 읽기 순서대로 각 열에 대한 문자열을 반환합니다. 단일 열 텍스트 프레임은 하나의 요소를 가진 배열을 반환하고, 빈 열은 빈 문자열로 표시됩니다. 반환된 문자열은 순수 텍스트만 포함하며, 부분 수준 서식은 보존되지 않습니다.
 
-다음 JavaScript 코드는 프레젠테이션의 모든 텍스트를 업데이트하거나 변경하는 작업을 보여줍니다:
+다음과 같은 경우에 유용합니다:
+- 열 기반 읽기 순서를 유지하면서 텍스트를 추출해야 할 때.
+- 다중 열 슬라이드의 내용을 인덱싱하거나 비교할 때.
+- 각 열을 별도 파일, 데이터베이스 필드 또는 다른 대상에 내보낼 때.
+- [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframeformat/#setColumnCount), [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), 글꼴 또는 텍스트 프레임 크기를 변경한 후 텍스트가 어떻게 재배치되는지 검사할 때.
+
+이 메서드는 현재 [TextFrame](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/textframe/) 내에 배분된 텍스트를 보고할 뿐이며, 별도의 도형이나 텍스트 상자 간에 텍스트를 자동으로 흐르게 하지 않습니다. 열 배분은 사용 가능한 글꼴 및 기타 텍스트 레이아웃 설정에 따라 달라질 수 있으므로, 일관된 결과가 중요한 경우 필요한 글꼴이 확보되어 있는지 확인하십시오.
+
+다음 예제는 프레젠테이션을 로드하고, 텍스트 프레임을 가진 첫 번째 다중 열 자동 도형을 찾아 구성된 열 개수를 읽은 뒤, 각 열의 텍스트를 별도 파일에 기록합니다. 텍스트 프레임을 제공하지 않는 도형은 건너뛰됩니다.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **텍스트 업데이트**
+
+프레젠테이션 전체의 텍스트를 업데이트하려면 슬라이드와 도형을 순회하고 자동 도형을 선택한 뒤 텍스트 부분을 편집합니다. 부분 수준에서 작업하면 텍스트와 문자 서식을 모두 변경할 수 있습니다.
+
+다음 예제는 자동 도형 텍스트에서 `years` 를 `months` 로 모두 교체하고, 영향을 받은 각 부분을 굵게 만듭니다:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // 형상이 텍스트 프레임(IAutoShape)을 지원하는지 확인합니다.
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // 텍스트 프레임의 단락을 반복합니다
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // 단락의 각 구간을 반복합니다
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// 텍스트를 변경합니다
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// 서식을 변경합니다
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // 수정된 프레젠테이션을 저장합니다
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Add Text Box with Hyperlink** 
+이 순회는 자동 도형의 텍스트만 업데이트합니다. 테이블, 차트, SmartArt 또는 그룹화된 도형에 저장된 텍스트는 해당 개체의 컬렉션을 순회해야 변경됩니다.
 
-텍스트 상자 안에 링크를 삽입할 수 있습니다. 텍스트 상자를 클릭하면 사용자가 해당 링크를 열게 됩니다.
+## **하이퍼링크가 있는 텍스트 상자 추가**
 
-링크가 포함된 텍스트 상자를 추가하려면 다음 단계로 진행하십시오:
+하이퍼링크는 특정 텍스트 부분에 할당할 수 있으므로 해당 �스트만 클릭 가능한 링크가 됩니다. [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) 를 사용하여 부분을 외부 URL에 연결하십시오.
 
-1. `Presentation` 클래스의 인스턴스를 생성합니다.
-2. 새로 만든 프레젠테이션의 첫 번째 슬라이드에 대한 참조를 얻습니다.
-3. `ShapeType`이 `Rectangle`인 `AutoShape` 객체를 슬라이드의 지정된 위치에 추가하고 새로 추가된 AutoShape 객체에 대한 참조를 얻습니다.
-4. `AutoShape` 객체에 `TextFrame`을 추가하고 첫 번째 구간의 텍스트를 설정합니다. 아래 예제에서는 다음 텍스트를 사용했습니다: *Aspose.Slides*
-5. `PortionFormat`을 통해 해당 구간의 `HyperlinkManager`를 가져옵니다.
-6. `HyperlinkManager`에서 `setExternalHyperlinkClick`을 호출하여 구간에 링크를 연결합니다.
-7. 마지막으로 `Presentation` 객체를 사용하여 PPTX 파일을 저장합니다. 
-
-다음 JavaScript 코드는 위 단계들을 구현한 것으로, 슬라이드에 하이퍼링크가 포함된 텍스트 상자를 추가하는 방법을 보여줍니다:
+다음 예제는 링크된 텍스트를 만들고 프레젠테이션에 저장합니다:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션의 첫 번째 슬라이드를 가져옵니다
-    var slide = pres.getSlides().get_Item(0);
-    // 타입을 Rectangle 로 설정하여 AutoShape 객체를 추가합니다
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // 도형을 AutoShape으로 캐스팅합니다
-    var pptxAutoShape = shape;
-    // AutoShape에 연결된 ITextFrame 속성에 접근합니다
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // 프레임에 텍스트를 추가합니다
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // 구간 텍스트에 하이퍼링크를 설정합니다
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // PPTX 프레젠테이션을 저장합니다
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**마스터 슬라이드 작업 시 텍스트 상자와 텍스트 플레이스홀더의 차이점은 무엇인가요?**
+**마스터 또는 레이아웃 슬라이드에서 텍스트 상자와 텍스트 자리 표시자의 차이점은 무엇인가요?**
 
-[placeholder](/slides/ko/nodejs-java/manage-placeholder/)는 [master](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/masterslide/)로부터 스타일/위치를 상속받으며 [layouts](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/layoutslide/)에서 재정의될 수 있습니다. 반면 일반 텍스트 상자는 특정 슬라이드에 존재하는 독립적인 객체이며 레이아웃을 전환해도 변경되지 않습니다.
+[placeholder](/slides/ko/nodejs-java/manage-placeholder/) 은 [master slide](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/masterslide/) 또는 [layout slide](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/layoutslide/) 로부터 위치와 서식을 상속받을 수 있습니다. 일반 텍스트 상자는 생성된 슬라이드에 독립적인 도형이며, 레이아웃이 변경될 때 자리 표시자 동작을 획득하지 않습니다.
 
-**차트, 테이블, SmartArt 내부의 텍스트를 건드리지 않고 프레젠테이션 전체에서 대량 텍스트 교체를 수행하려면 어떻게 해야 하나요?**
+**차트, 표 또는 SmartArt의 텍스트를 변경하지 않고 텍스트만 교체하려면 어떻게 해야 하나요?**
 
-텍스트 프레임을 가진 자동 도형만 반복 대상으로 제한하고, 임베디드 객체인 [charts](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/smartart/)는 별도의 컬렉션을 순회하거나 해당 객체 유형을 건너뛰어 제외합니다.
+텍스트 교체 예제와 같이 [AutoShape](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/autoshape/) 인스턴스인 도형만 순회하도록 제한하십시오. 차트, 표, SmartArt 는 자체 객체 모델에 텍스트를 저장하므로 해당 루프에서는 수정되지 않습니다.

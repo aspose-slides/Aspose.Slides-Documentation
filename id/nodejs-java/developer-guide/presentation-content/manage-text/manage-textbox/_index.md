@@ -1,105 +1,79 @@
 ---
-title: Mengelola Kotak Teks dalam Presentasi Menggunakan JavaScript
-linktitle: Mengelola Kotak Teks
+title: Kelola Kotak Teks dalam Presentasi Menggunakan JavaScript
+linktitle: Kelola Kotak Teks
 type: docs
 weight: 20
 url: /id/nodejs-java/manage-textbox/
 keywords:
 - kotak teks
 - bingkai teks
-- menambahkan teks
-- memperbarui teks
-- membuat kotak teks
-- memeriksa kotak teks
-- menambahkan kolom teks
-- menambahkan tautan
+- tambahkan teks
+- perbarui teks
+- buat kotak teks
+- periksa kotak teks
+- tambahkan kolom teks
+- tambahkan tautan hiperteks
 - PowerPoint
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides untuk Node.js memudahkan pembuatan, penyuntingan, dan penggandaan kotak teks dalam file PowerPoint dan OpenDocument, meningkatkan otomatisasi presentasi Anda."
+description: "Buat, identifikasi, format, dan perbarui kotak teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Node.js via Java."
 ---
 ## **Pendahuluan**
 
-Teks pada slide biasanya berada dalam kotak teks atau bentuk. Oleh karena itu, untuk menambahkan teks ke slide, Anda harus menambahkan kotak teks dan kemudian menaruh beberapa teks di dalam kotak teks tersebut. Aspose.Slides untuk Node.js via Java menyediakan kelas [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/AutoShape) yang memungkinkan Anda menambahkan bentuk yang berisi teks.
+Dalam Aspose.Slides untuk Node.js via Java, teks slide disimpan dalam bingkai teks yang merupakan bagian dari shape. Kelas [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) mewakili shape paling umum yang berisi teks dan menampilkan teksnya melalui metode [AutoShape.getTextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides juga menyediakan kelas [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Shape) yang memungkinkan Anda menambahkan bentuk ke slide. Namun, tidak semua bentuk yang ditambahkan melalui kelas `Shape` dapat menampung teks. Namun, bentuk yang ditambahkan melalui kelas [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/AutoShape) dapat berisi teks.
-
+{{% alert color="info" title="Catatan" %}}
+Setiap auto shape diturunkan dari [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/), tetapi tidak semua shape adalah auto shape atau mendukung bingkai teks. Saat memproses presentasi yang ada, periksa bahwa sebuah shape merupakan instance dari [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) sebelum mengakses teksnya.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
+## **Buat Kotak Teks pada Slide**
 
-Oleh karena itu, saat menangani sebuah bentuk yang ingin Anda tambahkan teks, Anda mungkin perlu memeriksa dan memastikan bahwa ia di‑cast melalui kelas `AutoShape`. Hanya dengan begitu Anda dapat bekerja dengan [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/TextFrame), yang merupakan properti di bawah `AutoShape`. Lihat bagian [Update Text](https://docs.aspose.com/slides/id/nodejs-java/manage-textbox/#update-text) pada halaman ini.
-
-{{% /alert %}}
-
-## **Buat Kotak Teks di Slide**
-
-Untuk membuat kotak teks pada slide, ikuti langkah‑langkah berikut:
-
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-2. Dapatkan referensi untuk slide pertama dalam presentasi yang baru dibuat. 
-3. Tambahkan objek [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/AutoShape) dengan [ShapeType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) yang diatur ke `Rectangle` pada posisi tertentu di slide dan dapatkan referensi untuk objek `AutoShape` yang baru ditambahkan.
-4. Tambahkan properti `TextFrame` ke objek `AutoShape` yang akan berisi teks. Pada contoh di bawah, kami menambahkan teks ini: *Aspose TextBox*
-5. Terakhir, tulis file PPTX melalui objek `Presentation`. 
-
-Kode JavaScript ini—implementasi dari langkah‑langkah di atas—menunjukkan cara menambahkan teks ke slide:
+Untuk membuat kotak teks, tambahkan auto shape ke slide, tambahkan teks ke bingkai teksnya, dan simpan presentasi. Contoh berikut membuat kotak teks berbentuk persegi panjang:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Membuat instance Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mendapatkan slide pertama dalam presentasi
-    var sld = pres.getSlides().get_Item(0);
-    // Menambahkan AutoShape dengan tipe diatur sebagai Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Menambahkan TextFrame ke Rectangle
-    ashp.addTextFrame(" ");
-    // Mengakses text frame
-    var txtFrame = ashp.getTextFrame();
-    // Membuat objek Paragraph untuk text frame
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Membuat objek Portion untuk paragraf
-    var portion = para.getPortions().get_Item(0);
-    // Menetapkan Teks
-    portion.setText("Aspose TextBox");
-    // Menyimpan presentasi ke disk
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Periksa Bentuk Kotak Teks**
+Koordinat dan dimensi yang diberikan ke [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/#addAutoShape) diukur dalam poin. [AutoShape.addTextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/#addTextFrame) menginisialisasi bingkai teks dengan teks yang diberikan.
 
-Aspose.Slides menyediakan metode [isTextBox](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/#isTextBox) dari kelas [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) yang memungkinkan Anda memeriksa bentuk dan mengidentifikasi kotak teks.
+## **Periksa Shape Kotak Teks**
 
-![Text box and shape](istextbox.png)
+Gunakan metode [AutoShape.isTextBox](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/#isTextBox) untuk menentukan apakah sebuah auto shape diperlakukan sebagai kotak teks. Ini berguna ketika sebuah presentasi berisi baik auto shape yang berisi teks maupun yang hanya grafis.
 
-Kode JavaScript ini menunjukkan cara memeriksa apakah sebuah bentuk dibuat sebagai kotak teks:
+![Kotak teks dan sebuah shape](istextbox.png)
+
+Contoh berikut memeriksa setiap auto shape dalam sebuah presentasi:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -108,233 +82,219 @@ try {
 }
 ```
 
-Perhatikan bahwa jika Anda hanya menambahkan sebuah autoshape menggunakan metode `addAutoShape` dari kelas [ShapeCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/), metode `isTextBox` pada autoshape akan mengembalikan `false`. Namun, setelah Anda menambahkan teks ke autoshape menggunakan metode `addTextFrame` atau metode `setText`, properti `isTextBox` akan mengembalikan `true`.
+Auto shape yang baru ditambahkan tidak dianggap sebagai kotak teks sampai mengandung teks yang tidak kosong. Anda dapat menyediakan teks tersebut melalui [AutoShape.addTextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/#addTextFrame) atau [TextFrame.setText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#setText). Menambahkan atau menetapkan string kosong membuat [AutoShape.isTextBox](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/#isTextBox) mengembalikan `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() mengembalikan false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() mengembalikan true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() mengembalikan false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() mengembalikan true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() mengembalikan false
-shape3.addTextFrame("");
-// shape3.isTextBox() mengembalikan false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() mengembalikan false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() mengembalikan false
-```
-
-## **Temukan Bentuk yang Memiliki Text Frame**
-
-Dalam kode pengolahan teks umum, Anda mungkin menerima sebuah [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/) tanpa mengetahui objek presentasi mana yang memilikinya. Gunakan metode [TextFrame.getParentShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentShape--) untuk menavigasi kembali ke [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/) pemiliknya.
-
-Untuk sebuah text frame yang milik sebuah [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/) atau bentuk lain yang berisi teks, [TextFrame.getParentShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentShape--) mengembalikan pemiliknya dan [TextFrame.getParentCell](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentCell--) mengembalikan `null`. Kedua metode menyediakan navigasi read‑only, sehingga memanggilnya tidak mengubah kepemilikan. Selalu periksa nilai yang dikembalikan untuk `null` sebelum mengakses bentuk.
-
-Untuk contoh lengkap yang mengidentifikasi pemilik bentuk dan sel tabel, termasuk bentuk yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/nodejs-java/search-and-replace-text/).
-
-## **Tambahkan Kolom di Kotak Teks**
-
-Aspose.Slides menyediakan metode [setColumnCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) dan [setColumnSpacing](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) dari kelas [TextFrameFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/TextFrameFormat) yang memungkinkan Anda menambahkan kolom ke kotak teks. Anda dapat menentukan jumlah kolom dalam kotak teks dan mengatur jarak antar kolom dalam satuan poin.
-
-Kode ini dalam JavaScript menunjukkan operasi yang dijelaskan: 
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mendapatkan slide pertama dalam presentasi
-    var slide = pres.getSlides().get_Item(0);
-    // Menambahkan AutoShape dengan tipe diatur sebagai Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Menambahkan TextFrame ke Rectangle
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Mendapatkan format teks dari TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Menentukan jumlah kolom dalam TextFrame
-    format.setColumnCount(3);
-    // Menentukan jarak antar kolom
-    format.setColumnSpacing(10);
-    // Menyimpan presentasi
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Tambahkan Kolom di Text Frame**
+Dua panggilan pertama mencetak `true`; dua panggilan terakhir mencetak `false`.
 
-Aspose.Slides untuk Node.js via Java menyediakan metode [setColumnCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) dari kelas [TextFrameFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/TextFrameFormat) yang memungkinkan Anda menambahkan kolom di dalam text frame. Melalui properti ini, Anda dapat menentukan jumlah kolom yang diinginkan dalam sebuah text frame.
+## **Temukan Shape yang Memiliki Bingkai Teks**
 
-Kode JavaScript ini menunjukkan cara menambahkan kolom di dalam text frame:
+Kode pemrosesan teks generik mungkin menerima sebuah [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/) tanpa mengetahui objek presentasi mana yang memilikinya. Gunakan metode read-only [TextFrame.getParentShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentShape) untuk menavigasi kembali ke [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/) pemiliknya.
+
+Untuk bingkai teks yang dimiliki oleh auto shape atau shape lain yang berisi teks, [TextFrame.getParentShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentShape) mengembalikan pemiliknya dan [TextFrame.getParentCell](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentCell) mengembalikan `null`. Periksa nilai yang dikembalikan sebelum mengaksesnya. Untuk mengidentifikasi baik pemilik shape maupun sel tabel, termasuk shape yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/nodejs-java/search-and-replace-text/).
+
+## **Tambah Kolom ke Kotak Teks**
+
+Metode [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setColumnCount) membagi bingkai teks menjadi kolom, sementara [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) mengatur jarak antar kolom dalam poin. Kedua pengaturan tersebut milik [TextFrameFormat](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/) dan dapat diubah melalui bingkai teks dari kotak teks yang ada. Teks akan mengalir ulang antar kolom di dalam shape yang sama; tidak melanjutkan ke shape lain.
+
+Contoh berikut membuat kotak teks dengan tiga kolom dengan jarak 10 poin antar kolom, menyimpan presentasi, dan membaca kembali pengaturan yang disimpan dari file output:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // Jarak kolom tidak pernah disetel, sehingga dilaporkan sebagai NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Ekstrak Teks dari Setiap Kolom**
+
+Gunakan [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#splitTextByColumns) untuk mengambil teks yang ditetapkan ke setiap kolom visual dalam bingkai teks yang ada. Metode ini mengembalikan satu string untuk setiap kolom, dalam urutan baca berdasarkan kolom. Bingkai teks satu kolom menghasilkan array dengan satu elemen, dan kolom kosong direpresentasikan dengan string kosong. String berisi hanya teks polos; pemformatan pada tingkat bagian tidak dipertahankan.
+
+Ini berguna ketika Anda perlu:
+
+- Mengekstrak teks sambil mempertahankan urutan baca berbasis kolom.
+- Mengindeks atau membandingkan konten slide multi-kolom.
+- Mengekspor setiap kolom ke file terpisah, field basis data, atau tujuan lain.
+- Memeriksa bagaimana teks didistribusikan kembali setelah mengubah jumlah kolom dengan [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setColumnCount), jarak dengan [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), font, atau ukuran bingkai teks.
+
+Metode ini melaporkan teks yang didistribusikan dalam [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/) saat ini; tidak otomatis mengalirkan teks antar shape atau kotak teks yang terpisah. Distribusi kolom dapat bergantung pada font yang tersedia dan pengaturan tata letak teks lainnya, jadi pastikan font yang diperlukan tersedia ketika hasil yang konsisten penting.
+
+Contoh berikut memuat sebuah presentasi, menemukan auto shape multi-kolom pertama dengan bingkai teks, membaca jumlah kolom yang dikonfigurasikan, dan menulis teks dari setiap kolom ke file terpisah. Shape yang tidak menyediakan bingkai teks akan dilewati.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Perbarui Teks**
 
-Aspose.Slides memungkinkan Anda mengubah atau memperbarui teks yang terdapat dalam kotak teks atau semua teks yang terdapat dalam sebuah presentasi. 
+Untuk memperbarui teks dalam seluruh presentasi, iterasi melalui slide dan shape, pilih auto shape, lalu edit bagian teksnya. Bekerja pada tingkat bagian memungkinkan Anda mengubah baik teks maupun pemformatan karakter.
 
-Kode JavaScript ini menunjukkan operasi di mana semua teks dalam sebuah presentasi diperbarui atau diubah:
+Contoh berikut mengganti setiap kemunculan `years` dengan `months` dalam teks auto-shape dan membuat setiap bagian yang terpengaruh menjadi tebal:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Memeriksa apakah bentuk mendukung text frame (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Iterasi melalui paragraf dalam text frame
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Iterasi melalui setiap portion dalam paragraf
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Mengubah teks
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Mengubah format
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Menyimpan presentasi yang diubah
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Tambahkan Kotak Teks dengan Tautan** 
+Penelusuran ini memperbarui teks hanya pada auto shape. Teks yang disimpan dalam tabel, diagram, SmartArt, atau shape yang dikelompokkan memerlukan penelusuran pada koleksi objek tersebut masing-masing.
 
-Anda dapat menyisipkan tautan di dalam kotak teks. Ketika kotak teks diklik, pengguna akan diarahkan untuk membuka tautan tersebut. 
+## **Tambah Kotak Teks dengan Tautan Hiper**
 
-Untuk menambahkan kotak teks yang berisi tautan, ikuti langkah‑langkah berikut:
+Tautan hiperteks dapat diberikan kepada bagian teks tertentu, sehingga hanya teks itu yang berfungsi sebagai tautan yang dapat diklik. Gunakan [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) untuk mengaitkan bagian tersebut dengan URL eksternal.
 
-1. Buat sebuah instance dari kelas `Presentation`. 
-2. Dapatkan referensi untuk slide pertama dalam presentasi yang baru dibuat. 
-3. Tambahkan objek `AutoShape` dengan `ShapeType` yang diatur ke `Rectangle` pada posisi tertentu di slide dan dapatkan referensi objek `AutoShape` yang baru ditambahkan.
-4. Tambahkan `TextFrame` ke objek `AutoShape` dan atur teks pada bagian pertama. Pada contoh di bawah, kami menggunakan teks ini: *Aspose.Slides*
-5. Dapatkan `HyperlinkManager` dari bagian tersebut melalui `PortionFormat`‑nya.
-6. Panggil `setExternalHyperlinkClick` pada `HyperlinkManager` untuk menautkan tautan ke bagian tersebut.
-7. Terakhir, tulis file PPTX melalui objek `Presentation`. 
-
-Kode JavaScript ini—implementasi dari langkah‑langkah di atas—menunjukkan cara menambahkan kotak teks dengan tautan ke slide:
+Contoh berikut membuat teks bertautan dan menyimpannya ke sebuah presentasi:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Membuat instance kelas Presentation yang mewakili PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Mendapatkan slide pertama dalam presentasi
-    var slide = pres.getSlides().get_Item(0);
-    // Menambahkan objek AutoShape dengan tipe diatur sebagai Rectangle
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Mengubah shape menjadi AutoShape
-    var pptxAutoShape = shape;
-    // Mengakses properti ITextFrame yang terkait dengan AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Menambahkan teks ke frame
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Mengatur Hyperlink untuk teks portion
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Menyimpan presentasi PPTX
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Apa perbedaan antara kotak teks dan placeholder teks saat bekerja dengan master slide?**
+**Apa perbedaan antara kotak teks dan placeholder teks pada slide master atau layout?**
 
-Sebuah [placeholder](/slides/id/nodejs-java/manage-placeholder/) mewarisi gaya/posisi dari [master](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/) dan dapat di‑override pada [layout](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/), sedangkan kotak teks biasa adalah objek independen pada slide tertentu dan tidak berubah ketika Anda beralih layout.
+Sebuah [placeholder](/slides/id/nodejs-java/manage-placeholder/) dapat mewarisi posisi dan pemformatannya dari sebuah [master slide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslide/) atau [layout slide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslide/). Kotak teks biasa adalah shape independen pada slide tempat ia dibuat dan tidak memperoleh perilaku placeholder ketika tata letak berubah.
 
-**Bagaimana cara melakukan penggantian teks massal di seluruh presentasi tanpa memengaruhi teks di dalam bagan, tabel, dan SmartArt?**
+**Bagaimana saya dapat mengganti teks tanpa mengubah teks pada diagram, tabel, atau SmartArt?**
 
-Batasi iterasi Anda pada auto‑shape yang memiliki text frame dan kecualikan objek terbenam seperti [chart](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chart/), [table](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/table/), dan [SmartArt](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/smartart/) dengan menelusuri koleksi masing‑masing secara terpisah atau melewatkan tipe objek tersebut.
+Batasi penelusuran hanya pada shape yang merupakan instance dari [AutoShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/autoshape/), seperti yang ditunjukkan pada contoh Perbarui Teks. Diagram, tabel, dan SmartArt menyimpan teks dalam model objek mereka masing-masing, sehingga tidak diubah oleh loop tersebut.

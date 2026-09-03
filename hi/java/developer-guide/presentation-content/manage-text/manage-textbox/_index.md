@@ -9,7 +9,7 @@ keywords:
 - टेक्स्ट फ्रेम
 - टेक्स्ट जोड़ें
 - टेक्स्ट अपडेट करें
-- टेक्स्ट बॉक्स बनाएँ
+- टेक्स्ट बॉक्स बनाएं
 - टेक्स्ट बॉक्स जांचें
 - टेक्स्ट कॉलम जोड़ें
 - हाइपरलिंक जोड़ें
@@ -17,320 +17,278 @@ keywords:
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java PowerPoint और OpenDocument फ़ाइलों में टेक्स्ट बॉक्स को आसानी से बनाने, संपादित करने और क्लोन करने की सुविधा देता है, जिससे आपकी प्रस्तुति ऑटोमेशन में सुधार होता है।"
+description: "Aspose.Slides for Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट बॉक्स बनाएं, पहचानें, फ़ॉर्मेट करें और अपडेट करें।"
 ---
 ## **परिचय**
 
-स्लाइड्स पर टेक्स्ट आमतौर पर टेक्स्ट बॉक्स या आकारों में होते हैं। इसलिए, स्लाइड पर टेक्स्ट जोड़ने के लिए आपको एक टेक्स्ट बॉक्स जोड़ना होगा और फिर उस टेक्स्ट बॉक्स के भीतर कुछ टेक्स्ट रखना होगा। Aspose.Slides for Java [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) इंटरफ़ेस प्रदान करता है जो आपको टेक्स्ट युक्त आकार जोड़ने की अनुमति देता है।
+Aspose.Slides for Java में, स्लाइड का पाठ टेक्स्ट फ्रेम में संग्रहीत होता है जो आकारों से जुड़ा होता है। [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) इंटरफ़ेस सबसे आम टेक्स्ट‑धारण करने वाले आकार को दर्शाता है और अपना पाठ [IAutoShape.getTextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/#getTextFrame--) मेथड के माध्यम से प्रस्तुत करता है।
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides ayrıca [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IShape) इंटरफ़ेस प्रदान करता है जो आपको स्लाइड्स में आकार जोड़ने देती है। हालांकि, `IShape` इंटरफ़ेस के माध्यम से जोड़े गए सभी आकार टेक्स्ट रख नहीं सकते। लेकिन [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) इंटरफ़ेस के माध्यम से जोड़े गए आकार में टेक्स्ट हो सकता है। 
+{{% alert color="info" title="नोट" %}}
+हर ऑटो शेप [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) को लागू करता है, लेकिन हर आकार ऑटो शेप नहीं होता या टेक्स्ट फ्रेम का समर्थन नहीं करता। मौजूदा प्रस्तुति को प्रोसेस करते समय, टेक्स्ट तक पहुँचने से पहले जाँचें कि आकार [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) को लागू करता है या नहीं।
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-इसलिए, जब आप किसी आकार पर टेक्स्ट जोड़ना चाहते हैं, तो आपको यह जांचना और पुष्टि करना चाहिए कि वह `IAutoShape` इंटरफ़ेस के माध्यम से कास्ट किया गया है। तभी आप [TextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/TextFrame) के साथ काम कर पाएंगे, जो `IAutoShape` की एक प्रॉपर्टी है। इस पृष्ठ पर स्थित [Update Text](https://docs.aspose.com/slides/hi/java/manage-textbox/#update-text) अनुभाग देखें। 
-{{% /alert %}}
+## **स्लाइड पर टेक्स्ट बॉक्स बनाएं**
 
-## **स्लाइड पर एक टेक्स्ट बॉक्स बनाएं**
-
-स्लाइड पर एक टेक्स्ट बॉक्स बनाने के लिए इन चरणों का पालन करें:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएं।  
-2. नवीन निर्मित प्रस्तुति में पहली स्लाइड का एक रेफ़रेंस प्राप्त करें।  
-3. निर्दिष्ट स्थिति पर `Rectangle` रूप में सेट किए गए [ShapeType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IGeometryShape#setShapeType-int-) के साथ एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/IAutoShape) ऑब्जेक्ट जोड़ें और नए जोड़े गए `IAutoShape` ऑब्जेक्ट का रेफ़रेंस प्राप्त करें।  
-4. `IAutoShape` ऑब्जेक्ट में एक `TextFrame` प्रॉपर्टी जोड़ें जिसमें टेक्स्ट होगा। नीचे दिए गए उदाहरण में हमने यह टेक्स्ट जोड़ा है: *Aspose TextBox*  
-5. अंत में, `Presentation` ऑब्जेक्ट के माध्यम से PPTX फ़ाइल लिखें।  
-
-नीचे दिया गया जावा कोड—ऊपर बताए गए चरणों का कार्यान्वयन—स्लाइड में टेक्स्ट जोड़ने का तरीका दर्शाता है:
-
-```java
-import com.aspose.slides.*;
-
-// प्रस्तुति का इंस्टेंस बनाता है
-Presentation pres = new Presentation();
-try {
-    // प्रस्तुति में पहली स्लाइड प्राप्त करता है
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // प्रकार को Rectangle सेट करके AutoShape जोड़ता है
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Rectangle में TextFrame जोड़ता है
-    ashp.addTextFrame(" ");
-
-    // टेक्स्ट फ्रेम तक पहुंचता है
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // टेक्स्ट फ्रेम के लिए Paragraph ऑब्जेक्ट बनाता है
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // पैराग्राफ के लिए Portion ऑब्जेक्ट बनाता है
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // टेक्स्ट सेट करता है
-    portion.setText("Aspose TextBox");
-
-    // प्रस्तुति को डिस्क पर सहेजता है
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **टेक्स्ट बॉक्स आकार की जाँच करें**
-
-Aspose.Slides [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) इंटरफ़ेस से [isTextBox](https://reference.aspose.com/slides/hi/java/com.aspose.slides/autoshape/#isTextBox--) मेथड प्रदान करता है, जिससे आप आकारों की जाँच कर सकते हैं और टेक्स्ट बॉक्स की पहचान कर सकते हैं।
-
-![टेक्स्ट बॉक्स और आकार](istextbox.png)
-
-यह जावा कोड आपको दिखाता है कि कैसे यह जाँचें कि कोई आकार टेक्स्ट बॉक्स के रूप में बनाया गया था या नहीं:
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-ध्यान दें कि यदि आप केवल [IShapeCollection](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishapecollection/) इंटरफ़ेस की `addAutoShape` मेथड का उपयोग करके एक ऑटोशेप जोड़ते हैं, तो उस ऑटोशेप की `isTextBox` मेथड `false` लौटाएगी। हालांकि, जब आप ऑटोशेप में `addTextFrame` मेथड या `setText` मेथड का उपयोग करके टेक्स्ट जोड़ते हैं, तो `isTextBox` प्रॉपर्टी `true` लौटाती है।
+एक टेक्स्ट बॉक्स बनाने के लिए, स्लाइड पर एक ऑटो शेप जोड़ें, उसके टेक्स्ट फ्रेम में पाठ डालें, और प्रस्तुति को सहेजें। निम्न उदाहरण आयताकार टेक्स्ट बॉक्स बनाता है:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() false वापस देता है
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() true वापस देता है
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() false वापस देता है
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() true वापस देता है
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() false वापस देता है
-shape3.addTextFrame("");
-// shape3.isTextBox() false वापस देता है
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() false वापस देता है
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() false वापस देता है
-```
-
-## **टेक्स्ट फ्रेम वाला आकार खोजें**
-
-सामान्य टेक्स्ट‑प्रोसेसिंग कोड में, आप कभी‑कभी कोई [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) प्राप्त कर सकते हैं बिना यह जाने कि वह किस प्रस्तुति ऑब्जेक्ट में स्थित है। मालिकाना [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) पर वापस नेविगेट करने के लिए [ITextFrame.getParentShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentShape--) मेथड का उपयोग करें।
-
-यदि टेक्स्ट फ्रेम किसी [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) या अन्य टेक्स्ट‑धारक आकार से संबंधित है, तो [ITextFrame.getParentShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentShape--) मालिक को लौटाता है और [ITextFrame.getParentCell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentCell--) `null` लौटाता है। दोनों मेथड केवल रीड‑ओनली नेविगेशन प्रदान करते हैं, इसलिए उनका उपयोग करने से स्वामित्व नहीं बदलता। किसी भी आकार तक पहुँचने से पहले हमेशा लौटाए गए मान को `null` के लिये जाँचें।
-
-शेप और टेबल‑सेल मालिकों की पहचान करने वाले पूर्ण उदाहरण के लिए, जिसमें SmartArt नोड्स से जुड़े शैप्स भी शामिल हैं, देखें [Search and Replace Text](/slides/hi/java/search-and-replace-text/)।
-
-## **टेक्स्ट बॉक्स में कॉलम जोड़ें**
-
-Aspose.Slides [ColumnCount](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) और [ColumnSpacing](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) प्रॉपर्टी (जो [ITextFrameFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextFrameFormat) इंटरफ़ेस और [TextFrameFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/TextFrameFormat) क्लास से आती हैं) प्रदान करता है, जिससे आप टेक्स्ट बॉक्स में कॉलम जोड़ सकते हैं। आप टेक्स्ट बॉक्स में कॉलमों की संख्या निर्दिष्ट कर सकते हैं और कॉलमों के बीच बिंदु में स्पेसिंग सेट कर सकते हैं। 
-
-यह जावा कोड इस कार्य को दर्शाता है:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // प्रस्तुति में पहली स्लाइड प्राप्त करता है
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // प्रकार को Rectangle सेट करके एक AutoShape जोड़ता है
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // Rectangle में TextFrame जोड़ता है
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // TextFrame का टेक्स्ट फॉर्मेट प्राप्त करता है
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // TextFrame में कॉलमों की संख्या निर्दिष्ट करता है
-    format.setColumnCount(3);
-
-    // कॉलमों के बीच की स्पेसिंग निर्दिष्ट करता है
-    format.setColumnSpacing(10);
-
-    // प्रस्तुति को सहेजता है
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **टेक्स्ट फ्रेम में कॉलम जोड़ें**
+[IShapeCollection.addAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) को पास किए गए निर्देशांक और आयाम बिंदुओं (points) में मापे जाते हैं। [IAutoShape.addTextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) प्रदान किए गए पाठ के साथ टेक्स्ट फ्रेम को प्रारंभ करता है।
 
-Aspose.Slides for Java [ColumnCount](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) प्रॉपर्टी (जो [ITextFrameFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ITextFrameFormat) इंटरफ़ेस से आती है) प्रदान करता है, जिससे आप टेक्स्ट फ्रेम में कॉलम जोड़ सकते हैं। इस प्रॉपर्टी के माध्यम से आप टेक्स्ट फ्रेम में अपनी मनचाही कॉलम संख्या निर्धारित कर सकते हैं। 
+## **टेक्स्ट बॉक्स आकार की जांच करें**
 
-यह जावा कोड आपको दिखाता है कि कैसे टेक्स्ट फ्रेम के भीतर एक कॉलम जोड़ें:
+यह निर्धारित करने के लिए कि कोई ऑटो शेप टेक्स्ट बॉक्स के रूप में माना जाता है या नहीं, [IAutoShape.isTextBox](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/#isTextBox--) मेथड का उपयोग करें। यह उपयोगी है जब प्रस्तुति में टेक्स्ट‑धारण करने वाले और केवल ग्राफ़िक ऑटो शेप दोनों होते हैं।
+
+![एक टेक्स्ट बॉक्स और एक आकार](istextbox.png)
+
+निम्न उदाहरण प्रस्तुति में प्रत्येक ऑटो शेप का निरीक्षण करता है:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    ITextFrameFormat format = shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+एक नया जोड़ा गया ऑटो शेप तब तक टेक्स्ट बॉक्स नहीं माना जाता जब तक उसमें गैर‑खाली टेक्स्ट न हो। आप वह टेक्स्ट [IAutoShape.addTextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) या [ITextFrame.setText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#setText-java.lang.String-) के माध्यम से प्रदान कर सकते हैं। खाली स्ट्रिंग जोड़ने या असाइन करने पर [IAutoShape.isTextBox](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/#isTextBox--) `false` लौटाता है:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+पहले दो कॉल `true` प्रिंट करते हैं; अंतिम दो `false` प्रिंट करते हैं।
+
+## **टेक्स्ट फ्रेम के मालिक आकार को खोजें**
+
+सामान्य टेक्स्ट‑प्रोसेसिंग कोड को कभी‑कभी एक [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) मिल सकता है बिना यह जाने कि वह कौन से प्रस्तुति वस्तु में स्थित है। उसकी मालिक [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) तक वापस नेविगेट करने के लिए पढ़‑के‑सिर्फ [ITextFrame.getParentShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentShape--) मेथड का उपयोग करें।
+
+ऑटो शेप या किसी अन्य टेक्स्ट‑धारण करने वाले आकार द्वारा स्वामित्व वाला टेक्स्ट फ्रेम होने पर, [ITextFrame.getParentShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentShape--) मालिक लौटाता है और [ITextFrame.getParentCell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentCell--) `null` लौटाता है। उपयोग से पहले लौटाई गई मान की जांच करें। आकार और टेबल‑सेल दोनों मालिकों की पहचान करने के लिए, जिसमें SmartArt नोड्स से जुड़े आकार भी शामिल हैं, देखें [Search and Replace Text](/slides/hi/java/search-and-replace-text/)।
+
+## **टेक्स्ट बॉक्स में कॉलम जोड़ें**
+
+[ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/#setColumnCount-int-) मेथड टेक्स्ट फ्रेम को कॉलम में विभाजित करता है, जबकि [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) कॉलमों के बीच का अंतराल बिंदुओं (points) में निर्धारित करता है। दोनों सेटिंग्स [ITextFrameFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframeformat/) का हिस्सा हैं और मौजूदा टेक्स्ट बॉक्स के टेक्स्ट फ्रेम के माध्यम से बदली जा सकती हैं। टेक्स्ट उसी आकार के भीतर कॉलमों के बीच रिफ्लो होता है; यह अन्य आकार में जारी नहीं रहता।
+
+निम्न उदाहरण 10 बिंदु अंतराल वाले तीन‑कॉलम टेक्स्ट बॉक्स बनाता है, प्रस्तुति को सहेजता है, और आउटपुट फ़ाइल से संग्रहीत सेटिंग वापस पढ़ता है:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **व्यक्तिगत कॉलम से टेक्स्ट निकालें**
+
+[ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#splitTextByColumns--) का उपयोग करके मौजूदा टेक्स्ट फ्रेम में प्रत्येक दृश्यात्मक कॉलम को सौंपा गया टेक्स्ट प्राप्त किया जा सकता है। मेथड प्रत्येक कॉलम के लिए एक स्ट्रिंग लौटाता है, कॉलम‑आधारित पढ़ने के क्रम में। एक‑कॉलम टेक्स्ट फ्रेम एक तत्व वाला एरे देता है, और खाली कॉलम एक खाली स्ट्रिंग द्वारा दर्शाया जाता है। स्ट्रिंग्स में केवल साधा टेक्स्ट होता है; भाग‑स्तर का फॉर्मेटिंग संरक्षित नहीं रहता।
+
+यह उपयोगी है जब आपको आवश्यकता हो:
+
+- कॉलम‑आधारित पढ़ने के क्रम को बनाए रखते हुए टेक्स्ट निकालना।
+- मल्टी‑कॉलम स्लाइड की सामग्री को अनुक्रमित या तुलना करना।
+- प्रत्येक कॉलम को अलग फ़ाइल, डेटाबेस फ़ील्ड या अन्य गंतव्य में निर्यात करना।
+- कॉलम संख्या को बदलकर, स्पेसिंग को बदलकर, फ़ॉन्ट या टेक्स्ट‑फ्रेम आकार को बदलकर टेक्स्ट के पुनर्वितरण का निरीक्षण करना।
+
+मेथड वर्तमान [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) के भीतर वितरित टेक्स्ट की रिपोर्ट करता है; यह अलग-अलग आकारों या टेक्स्ट बॉक्सों के बीच स्वतः प्रवाहित नहीं करता। कॉलम वितरण उपलब्ध फ़ॉन्ट और अन्य टेक्स्ट‑लेआउट सेटिंग्स पर निर्भर हो सकता है, इसलिए संगत परिणामों के लिए आवश्यक फ़ॉन्ट उपलब्ध हों यह सुनिश्चित करें।
+
+निम्न उदाहरण एक प्रस्तुति लोड करता है, टेक्स्ट फ्रेम वाला पहला मल्टी‑कॉलम ऑटो शेप खोजता है, उसकी कॉन्फ़िगर की गई कॉलम संख्या पढ़ता है, और प्रत्येक कॉलम का टेक्स्ट अलग‑अलग फ़ाइल में लिखता है। जिन आकारों में टेक्स्ट फ्रेम नहीं है उन्हें छोड़ दिया जाता है।
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            Path outputPath = Paths.get("Column-" + columnNumber + ".txt");
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try {
+                Files.write(outputPath, textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **टेक्स्ट अपडेट करें**
 
-Aspose.Slides आपको टेक्स्ट बॉक्स में या पूरी प्रस्तुति में मौजूद सभी टेक्स्ट को बदलने या अपडेट करने की अनुमति देता है। 
+पूरी प्रस्तुति में टेक्स्ट अपडेट करने के लिए, स्लाइड और आकारों के माध्यम से क्रमबद्ध रूप से चलें, ऑटो शेप चुनें, और फिर उनके टेक्स्ट भागों को संपादित करें। भाग‑स्तर पर कार्य करने से आप टेक्स्ट और अक्षर फॉर्मेटिंग दोनों बदल सकते हैं।
 
-नीचे दिया गया जावा कोड एक ऐसी प्रक्रिया दर्शाता है जहाँ प्रस्तुति में सभी टेक्स्ट अपडेट या बदल दिए जाते हैं:
+निम्न उदाहरण ऑटो‑शेप टेक्स्ट में प्रत्येक `years` को `months` से बदलता है और प्रभावित प्रत्येक भाग को बोल्ड बनाता है:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //जाँचता है कि आकार टेक्स्ट फ्रेम (IAutoShape) का समर्थन करता है।
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //टेक्स्ट फ्रेम में पैराग्राफ़ों पर पुनरावृति करता है
-                {
-                    for (IPortion portion : paragraph.getPortions()) //पैराग्राफ में प्रत्येक पोर्शन पर पुनरावृति करता है
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //टेक्स्ट बदलता है
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //फ़ॉर्मेटिंग बदलता है
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //संशोधित प्रस्तुति सहेजता है
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **हाइपरलिंक के साथ एक टेक्स्ट बॉक्स जोड़ें**
+यह ट्रैवर्सल केवल ऑटो शेप में टेक्स्ट को अपडेट करता है। तालिकाओं, चार्ट्स, SmartArt या समूहित आकारों में संग्रहीत टेक्स्ट को अपडेट करने के लिए उन वस्तुओं के अपने संग्रहों की भी ट्रैवर्सल की आवश्यकता होती है।
 
-आप टेक्स्ट बॉक्स के भीतर एक लिंक डाल सकते हैं। जब टेक्स्ट बॉक्स पर क्लिक किया जाता है, तो उपयोगकर्ता लिंक खोलने के लिए निर्देशित होते हैं। 
+## **हाइपरलिंक के साथ टेक्स्ट बॉक्स जोड़ें**
 
-हाइपरलिंक वाला टेक्स्ट बॉक्स जोड़ने के लिए इन चरणों का पालन करें:
+हाइपरलिंक को किसी विशेष टेक्स्ट भाग से जोड़ा जा सकता है, ताकि केवल वही टेक्स्ट क्लिक‑योग्य लिंक बन जाए। [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) का उपयोग करके भाग को बाहरी URL से संबद्ध करें।
 
-1. `Presentation` क्लास का एक इंस्टेंस बनाएं।  
-2. नवीन निर्मित प्रस्तुति में पहली स्लाइड का रेफ़रेंस प्राप्त करें।  
-3. निर्दिष्ट स्थिति पर `Rectangle` रूप में सेट किए गए `ShapeType` के साथ एक `AutoShape` ऑब्जेक्ट जोड़ें और नए जोड़े गए AutoShape ऑब्जेक्ट का रेफ़रेंस प्राप्त करें।  
-4. `AutoShape` ऑब्जेक्ट में एक `TextFrame` जोड़ें जिसमें डिफ़ॉल्ट टेक्स्ट *Aspose TextBox* होगा।  
-5. `IHyperlinkManager` क्लास का एक इंस्टेंस बनाएं।  
-6. अपने इच्छित `TextFrame` हिस्से से जुड़े [HyperlinkClick](https://reference.aspose.com/slides/hi/java/com.aspose.slides/Shape#getHyperlinkClick--) प्रॉपर्टी को `IHyperlinkManager` ऑब्जेक्ट असाइन करें।  
-7. अंत में, `Presentation` ऑब्जेक्ट के माध्यम से PPTX फ़ाइल लिखें। 
-
-यह जावा कोड—ऊपर बताए गए चरणों का कार्यान्वयन—स्लाइड में हाइपरलिंक वाले टेक्स्ट बॉक्स को जोड़ने का तरीका दिखाता है:
+निम्न उदाहरण लिंक्ड टेक्स्ट बनाता है और उसे प्रस्तुति में सहेजता है:
 
 ```java
 import com.aspose.slides.*;
 
-// PPTX का प्रतिनिधित्व करने वाले Presentation क्लास का एक इंस्टेंस बनाता है
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // प्रस्तुति में पहली स्लाइड प्राप्त करता है
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // Rectangle सेट प्रकार के साथ AutoShape ऑब्जेक्ट जोड़ता है
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // shape को AutoShape में कास्ट करता है
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // AutoShape से जुड़े ITextFrame प्रॉपर्टी तक पहुंचता है
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // फ़्रेम में कुछ टेक्स्ट जोड़ता है
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // पोर्शन टेक्स्ट के लिए हाइपरलिंक सेट करता है
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // PPTX प्रस्तुति सहेजता है
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**मास्टर स्लाइड्स के साथ काम करते समय टेक्स्ट बॉक्स और टेक्स्ट प्लेसहोल्डर में क्या अंतर है?**
+**एक मास्टर या लेआउट स्लाइड पर टेक्स्ट बॉक्स और टेक्स्ट प्लेसहोल्डर में क्या अंतर है?**
 
-एक [प्लेसहोल्डर](/slides/hi/java/manage-placeholder/) शैली/स्थिति को [मास्टर](https://reference.aspose.com/slides/hi/java/com.aspose.slides/masterslide/) से विरासत में लेता है और इसे [लेआउट्स](https://reference.aspose.com/slides/hi/java/com.aspose.slides/layoutslide/) पर ओवरराइड किया जा सकता है, जबकि एक नियमित टेक्स्ट बॉक्स एक स्वतंत्र ऑब्जेक्ट है जो विशिष्ट स्लाइड पर स्थित होता है और लेआउट बदलने पर नहीं बदलता।
+एक [प्लेसहोल्डर](/slides/hi/java/manage-placeholder/) अपनी स्थिति और फ़ॉर्मेटिंग को एक [मास्टर स्लाइड](https://reference.aspose.com/slides/hi/java/com.aspose.slides/masterslide/) या [लेआउट स्लाइड](https://reference.aspose.com/slides/hi/java/com.aspose.slides/layoutslide/) से विरासत में ले सकता है। एक सामान्य टेक्स्ट बॉक्स वह स्वतंत्र आकार है जो उस स्लाइड पर बना होता है जहाँ इसे जोड़ा गया था और लेआउट बदलने पर प्लेसहोल्डर व्यवहार नहीं अपनाता।
 
-**मैं प्रस्तुति में सभी टेक्स्ट को चार्ट, टेबल और SmartArt में मौजूद टेक्स्ट को बदले बिना बड़े पैमाने पर कैसे बदल सकता हूँ?**
+**मैं चार्ट, टेबल या SmartArt में टेक्स्ट बदले बिना टेक्स्ट कैसे बदल सकता हूँ?**
 
-इटरेशन को केवल उन ऑटो‑शेप्स तक सीमित रखें जिनके पास टेक्स्ट फ्रेम हैं और एम्बेडेड ऑब्जेक्ट्स ([चार्ट्स](https://reference.aspose.com/slides/hi/java/com.aspose.slides/chart/), [टेबल्स](https://reference.aspose.com/slides/hi/java/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/hi/java/com.aspose.slides/smartart/)) को उनके कलेक्शन को अलग‑अलग ट्रैवर्स करके या उन ऑब्जेक्ट प्रकारों को स्किप करके बाहर रखें।
+ट्रैवर्सल को केवल उन आकारों तक सीमित रखें जो [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) को लागू करते हैं, जैसा कि टेक्स्ट अपडेट उदाहरण में दिखाया गया है। चार्ट, टेबल और SmartArt अपना टेक्स्ट अपने स्वयं के ऑब्जेक्ट मॉडल में संग्रहीत करते हैं, इसलिए वे उस लूप द्वारा संशोधित नहीं होते।

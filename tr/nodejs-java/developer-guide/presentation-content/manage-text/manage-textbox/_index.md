@@ -1,5 +1,5 @@
 ---
-title: JavaScript Kullanarak Sunumlarda Metin Kutularını Yönetme
+title: Sunumlarda JavaScript Kullanarak Metin Kutularını Yönetme
 linktitle: Metin Kutusunu Yönet
 type: docs
 weight: 20
@@ -12,90 +12,70 @@ keywords:
 - metin kutusu oluştur
 - metin kutusunu kontrol et
 - metin sütunu ekle
-- hiperlink ekle
+- köprü ekle
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js, PowerPoint ve OpenDocument dosyalarında metin kutularını oluşturmayı, düzenlemeyi ve kopyalamayı kolaylaştırarak sunum otomasyonunuzu geliştirir."
+description: "Aspose.Slides for Node.js via Java kullanarak PowerPoint ve OpenDocument sunumlarında metin kutularını oluşturma, tanımlama, biçimlendirme ve güncelleme."
 ---
 ## **Giriş**
 
-Slaytlardaki metinler tipik olarak metin kutularında veya şekillerde bulunur. Bu nedenle bir slayta metin eklemek için bir metin kutusu eklemeniz ve ardından metni metin kutusunun içine yerleştirmeniz gerekir. Aspose.Slides for Node.js via Java, bazı metin içeren bir şekil eklemenizi sağlayan [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AutoShape) sınıfını sunar.
+Aspose.Slides for Node.js via Java'da slayt metni, şekillere ait metin çerçevelerinde depolanır. [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) sınıfı en yaygın metin taşıyan şekli temsil eder ve metnini [AutoShape.getTextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/#getTextFrame) yöntemi aracılığıyla açığa çıkar.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides ayrıca slaytlara şekil eklemenizi sağlayan [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Shape) sınıfını da sunar. Ancak, `Shape` sınıfı aracılığıyla eklenen tüm şekiller metin tutamaz. Fakat [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AutoShape) sınıfı aracılığıyla eklenen şekiller metin içerebilir.
+{{% alert color="info" title="Not" %}}
+
+Her otomatik şekil [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) sınıfından türetilir, ancak her şekil bir otomatik şekil değildir ve bir metin çerçevesi desteklemez. Mevcut bir sunumu işlerken, metnine erişmeden önce şeklin [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) örneği olup olmadığını kontrol edin.
+
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-Bu nedenle, metin eklemek istediğiniz bir şekille çalışırken, onun `AutoShape` sınıfı aracılığıyla oluşturulduğunu kontrol edip doğrulamak isteyebilirsiniz. Ancak o zaman `AutoShape` altında bir özellik olan [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/TextFrame) ile çalışabilirsiniz. Bu sayfadaki [Update Text](https://docs.aspose.com/slides/tr/nodejs-java/manage-textbox/#update-text) bölümüne bakın.
-{{% /alert %}}
+## **Bir Slayta Metin Kutusu Oluşturma**
 
-## **Slayta Metin Kutusu Oluşturma**
-
-Bir slayta metin kutusu oluşturmak için şu adımları izleyin:
-
-1. Yeni bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının örneğini oluşturun.  
-2. Yeni oluşturulan sunumdaki ilk slayt için bir referans alın.  
-3. Slayt üzerinde belirtilen bir konuma `Rectangle` olarak ayarlanmış [ShapeType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) ile bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AutoShape) nesnesi ekleyin ve yeni eklenen `AutoShape` nesnesi için referansı alın.  
-4. `AutoShape` nesnesine metin içerecek bir `TextFrame` özelliği ekleyin. Aşağıdaki örnekte şu metni ekledik: *Aspose TextBox*  
-5. Son olarak, PPTX dosyasını `Presentation` nesnesi aracılığıyla yazın.  
-
-Bu JavaScript kodu—yukarıdaki adımların bir uygulaması—size bir slayta metin eklemenin nasıl yapılacağını gösterir:
+Bir metin kutusu oluşturmak için bir slayta otomatik şekil ekleyin, metin çerçevesine metin ekleyin ve sunumu kaydedin. Aşağıdaki örnek dikdörtgen bir metin kutusu oluşturur:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Presentation nesnesini oluşturur
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Sunumdaki ilk slaytı alır
-    var sld = pres.getSlides().get_Item(0);
-    // Türü Rectangle olarak ayarlanmış bir AutoShape ekler
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Rectangle'a TextFrame ekler
-    ashp.addTextFrame(" ");
-    // Metin çerçevesine erişir
-    var txtFrame = ashp.getTextFrame();
-    // Metin çerçevesi için Paragraph nesnesini oluşturur
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Paragraf için Portion nesnesi oluşturur
-    var portion = para.getPortions().get_Item(0);
-    // Metni ayarlar
-    portion.setText("Aspose TextBox");
-    // Sunumu diske kaydeder
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+[ShapeCollection.addAutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addAutoShape) yöntemine geçirilen koordinat ve boyutlar nokta biriminde ölçülür. [AutoShape.addTextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/#addTextFrame) verilen metinle metin çerçevesini başlatır.
+
 ## **Metin Kutusu Şekli Kontrolü**
 
-Aspose.Slides, şekilleri incelemenize ve metin kutularını tanımlamanıza olanak tanıyan [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) sınıfının [isTextBox](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/#isTextBox) metodunu sunar.
+Bir otomatik şeklin metin kutusu olarak ele alınıp alınmadığını belirlemek için [AutoShape.isTextBox](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/#isTextBox) yöntemini kullanın. Bu, bir sunum hem metin taşıyan hem de yalnızca grafiksel otomatik şekiller içerdiğinde yararlıdır.
 
-![Metin kutusu ve şekil](istextbox.png)
+![Bir metin kutusu ve bir şekil](istextbox.png)
 
-Bu JavaScript kodu, bir şeklin metin kutusu olarak oluşturulup oluşturulmadığını nasıl kontrol edeceğinizi gösterir:
+Aşağıdaki örnek bir sunumdaki her otomatik şekli inceler:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -104,233 +84,219 @@ try {
 }
 ```
 
-Şunu unutmayın: eğer bir autoshape'i yalnızca [ShapeCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/) sınıfının `addAutoShape` metodu ile eklerseniz, autoshape'in `isTextBox` metodu `false` dönecektir. Ancak, autoshape'e `addTextFrame` metodu veya `setText` metodu ile metin ekledikten sonra, `isTextBox` özelliği `true` döner.
+Yeni eklenen bir otomatik şekil, içinde boş olmayan metin olduğu sürece metin kutusu olarak kabul edilmez. Bu metni [AutoShape.addTextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/#addTextFrame) veya [TextFrame.setText](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#setText) yöntemiyle sağlayabilirsiniz. Boş bir dize eklemek veya atamak, [AutoShape.isTextBox](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/#isTextBox) yönteminin `false` döndürmesine neden olur:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() false döner
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() true döner
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() false döner
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() true döner
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() false döner
-shape3.addTextFrame("");
-// shape3.isTextBox() false döner
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() false döner
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() false döner
-```
-
-## **Bir Metin Çerçevesine Sahip Şekli Bulma**
-
-Genel metin işleme kodunda, içinde bulunduğu sunum nesnesini bilmeksizin bir [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) alabilirsiniz. Sahibi olan [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) nesnesine geri dönmek için [TextFrame.getParentShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentShape--) metodunu kullanın.
-
-[AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) veya başka bir metin içeren şekle ait bir metin çerçevesi için, [TextFrame.getParentShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentShape--) sahibi döndürür ve [TextFrame.getParentCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentCell--) `null` döndürür. Her iki yöntem de yalnızca okuma amaçlı gezinme sağlar; bu yüzden çağrılmaları sahipliği değiştirmez. Şekle erişmeden önce dönen değerin `null` olup olmadığını her zaman kontrol edin.
-
-Şekil ve tablo hücresi sahiplerini, SmartArt düğümleriyle ilişkili şekilleri de tanımlayan eksiksiz bir örnek için, [Search and Replace Text](/slides/tr/nodejs-java/search-and-replace-text/) bölümüne bakın.
-
-## **Metin Kutusuna Sütun Ekleme**
-
-Aspose.Slides, metin kutularına sütun eklemenizi sağlayan [TextFrameFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/TextFrameFormat) sınıfının [setColumnCount](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) ve [setColumnSpacing](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) metodlarını sunar. Metin kutusundaki sütun sayısını belirleyebilir ve sütunlar arasındaki boşluğu puan cinsinden ayarlayabilirsiniz.
-
-Bu JavaScript kodu açıklanan işlemi gösterir: 
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Sunumdaki ilk slaytı alır
-    var slide = pres.getSlides().get_Item(0);
-    // Türü Rectangle olarak ayarlanmış bir AutoShape ekler
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Rectangle'a TextFrame ekler
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!"));
-    // TextFrame'in metin biçimini alır
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // TextFrame içindeki sütun sayısını belirler
-    format.setColumnCount(3);
-    // Sütunlar arasındaki boşluğu belirler
-    format.setColumnSpacing(10);
-    // Sunumu kaydeder
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Metin Çerçevesine Sütun Ekleme**
+İlk iki çağrı `true`; son iki çağrı `false` yazdırır.
 
-Aspose.Slides for Node.js via Java, metin çerçevelerine sütun eklemenizi sağlayan [TextFrameFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/TextFrameFormat) sınıfının [setColumnCount](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) metodunu sunar. Bu özellik sayesinde bir metin çerçevesinde istediğiniz sütun sayısını belirtebilirsiniz.
+## **Metin Çerçevesine Sahip Şekli Bulma**
 
-Bu JavaScript kodu, bir metin çerçevesine nasıl sütun ekleyeceğinizi gösterir:
+Genel metin işleme kodu, hangi sunum nesnesinin içinde bulunduğunu bilmeden bir [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) alabilir. Sahibi olan [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) nesnesine geri dönmek için yalnızca okuma izni olan [TextFrame.getParentShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentShape) yöntemini kullanın.
+
+Bir otomatik şekil veya başka bir metin taşıyan şekil tarafından sahip olunan bir metin çerçevesi için [TextFrame.getParentShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentShape) sahibi döndürür ve [TextFrame.getParentCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#getParentCell) `null` döndürür. Erişmeden önce dönen değeri kontrol edin. Şekil ve tablo hücresi sahiplerini, SmartArt düğümleriyle ilişkili şekilleri de içerecek şekilde tanımlamak için [Metin Ara ve Değiştir](/slides/tr/nodejs-java/search-and-replace-text/) konusuna bakın.
+
+## **Metin Kutusuna Sütunlar Ekleme**
+
+[TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/#setColumnCount) yöntemi metin çerçevesini sütunlara böler, [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) ise sütunlar arasındaki boşluğu nokta biriminde ayarlar. Her iki ayar da [TextFrameFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/) sınıfına aittir ve mevcut bir metin kutusunun metin çerçevesi üzerinden değiştirilebilir. Metin aynı şekil içinde sütunlar arasında akışır; başka bir şekle geçmez.
+
+Aşağıdaki örnek, sütun başına 10 nokta boşlukla üç sütunlu bir metin kutusu oluşturur, sunumu kaydeder ve çıkış dosyasından kaydedilen ayarları geri okur:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // Sütun boşluğu hiç ayarlanmamıştı, bu yüzden NaN olarak raporlanıyor.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Tekil Sütunlardan Metni Çıkarma**
+
+Mevcut bir metin çerçevesindeki her görsel sütuna atanmış metni almak için [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/#splitTextByColumns) yöntemini kullanın. Yöntem, sütun tabanlı okuma sırasına göre her sütun için bir dize döndürür. Tek sütunlu bir metin çerçevesi bir elemanlı bir dizi üretir ve boş bir sütun boş bir dize ile temsil edilir. Dize yalnızca düz metin içerir; bölüm‑düzeyi biçimlendirme korunmaz.
+
+Bu yöntem aşağıdaki durumlarda faydalıdır:
+
+- Metni sütun‑tabanlı okuma sırasını koruyarak çıkarmak.
+- Çok‑sütunlu slaytların içeriğini indekslemek veya karşılaştırmak.
+- Her sütunu ayrı bir dosya, veritabanı alanı veya başka bir hedefe aktarmak.
+- [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/#setColumnCount), [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), yazı tipi veya metin‑çerçevesi boyutu gibi ayarları değiştirdikten sonra metnin nasıl yeniden dağıtıldığını incelemek.
+
+Yöntem, mevcut [TextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textframe/) içinde dağıtılmış metni rapor eder; ayrı şekiller veya metin kutuları arasında otomatik akış sağlamaz. Sütun dağılımı mevcut yazı tiplerine ve diğer metin‑dizilim ayarlarına bağlıdır; tutarlı sonuçların önemli olduğu durumlarda gerekli yazı tiplerinin mevcut olduğundan emin olun.
+
+Aşağıdaki örnek bir sunum yükler, metin çerçevesi olan ilk çok‑sütunlu otomatik şekli bulur, yapılandırılmış sütun sayısını okur ve her sütunun metnini ayrı bir dosyaya yazar. Metin çerçevesi sağlamayan şekiller atlanır.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Metni Güncelleme**
 
-Aspose.Slides, bir metin kutusundaki ya da bir sunumdaki tüm metinleri değiştirmenize veya güncellemenize olanak tanır. 
+Bir sunumda metni güncellemek için slaytları ve şekilleri döngüye alın, otomatik şekilleri seçin ve ardından metin bölümlerini düzenleyin. Bölüm seviyesinde çalışmak, metni ve karakter biçimlendirmesini değiştirmenize olanak tanır.
 
-Bu JavaScript kodu, bir sunumdaki tüm metinlerin nasıl güncellendiğini veya değiştirildiğini gösterir:
+Aşağıdaki örnek, otomatik‑şekil metnindeki tüm `years` ifadelerini `months` ile değiştirir ve etkilenen her bölümü kalın yapar:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Şeklin metin çerçevesini (IAutoShape) destekleyip desteklemediğini kontrol eder.
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Metin çerçevesindeki paragraflar üzerinde döner
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Paragraftaki her bölümü iterasyonla dolaşır
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Metni değiştirir
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Biçimlendirmeyi değiştirir
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Değiştirilmiş sunumu kaydeder
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Bağlantılı Metin Kutusu Ekleme** 
+Bu gezinti yalnızca otomatik şekillerdeki metni günceller. Tablolar, grafikler, SmartArt veya gruplandırılmış şekillerde saklanan metin, ilgili nesnelerin kendi koleksiyonlarının gezilmesini gerektirir.
 
-Bir metin kutusunun içine bir bağlantı ekleyebilirsiniz. Metin kutusuna tıklandığında, kullanıcılar bağlantıyı açmaya yönlendirilir. 
+## **Köprülü Bir Metin Kutusu Ekleme**
 
-Bağlantı içeren bir metin kutusu eklemek için şu adımları izleyin:
+Bir köprü belirli bir metin bölümüne atanabilir; böylece yalnızca o metin tıklanabilir bağlantı olur. Bölümü harici bir URL ile ilişkilendirmek için [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) yöntemini kullanın.
 
-1. `Presentation` sınıfının bir örneğini oluşturun.  
-2. Yeni oluşturulan sunumdaki ilk slayt için bir referans alın.  
-3. Slayt üzerinde belirtilen bir konuma `Rectangle` olarak ayarlanmış `ShapeType` ile bir `AutoShape` nesnesi ekleyin ve yeni eklenen AutoShape nesnesi için referans alın.  
-4. `AutoShape` nesnesine bir `TextFrame` ekleyin ve ilk bölümünün metnini ayarlayın. Aşağıdaki örnekte şu metni kullandık: *Aspose.Slides*  
-5. Bu bölümün `PortionFormat`ı aracılığıyla `HyperlinkManager`'ını alın.  
-6. `HyperlinkManager` üzerinde `setExternalHyperlinkClick` metodunu çağırarak bağlantıyı bölüme ekleyin.  
-7. Son olarak, PPTX dosyasını `Presentation` nesnesi aracılığıyla yazın.  
-
-Bu JavaScript kodu—yukarıdaki adımların bir uygulaması—size bir slayta bağlantılı bir metin kutusu eklemenin nasıl yapılacağını gösterir:
+Aşağıdaki örnek bağlantılı metin oluşturur ve bir sunuma kaydeder:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// PPTX'i temsil eden bir Presentation sınıfı örneği oluşturur
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Sunumdaki ilk slaytı alır
-    var slide = pres.getSlides().get_Item(0);
-    // Türü Rectangle olarak ayarlanmış bir AutoShape nesnesi ekler
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Şekli AutoShape tipine dönüştürür
-    var pptxAutoShape = shape;
-    // AutoShape ile ilişkili ITextFrame özelliğine erişir
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Çerçeveye bazı metinler ekler
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Bölüm metni için Hipervizyonu ayarlar
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // PPTX Sunumunu kaydeder
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **SSS**
 
-**Bir master slaytla çalışırken bir metin kutusu ile bir metin yer tutucu arasındaki fark nedir?**
+**Bir ana slayt veya düzen slaytındaki metin kutusu ile metin yer tutucusu arasındaki fark nedir?**
 
-Bir [placeholder](/slides/tr/nodejs-java/manage-placeholder/) stil/konumu [master](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslide/) dan devralır ve [layouts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/) üzerinde geçersiz kılınabilir, oysa normal bir metin kutusu belirli bir slaytta bağımsız bir nesnedir ve düzenleri değiştirdiğinizde değişmez.
+Bir [placeholder](/slides/tr/nodejs-java/manage-placeholder/) konum ve biçimini bir [master slide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslide/) veya [layout slide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/) üzerinden devralabilir. Normal bir metin kutusu, oluşturulduğu slaytta bağımsız bir şekildir ve düzen değiştiğinde yer tutucu davranışı kazanmaz.
 
-**Sunumdaki metinleri, grafikler, tablolar ve SmartArt içindeki metinlere dokunmadan toplu olarak nasıl değiştirebilirim?**
+**Grafik, tablo veya SmartArt'taki metni değiştirmeden metni nasıl değiştirebilirim?**
 
-İterasyonunuzu sadece metin çerçevelerine sahip otomatik şekillerle sınırlayın ve gömülü nesneleri ([charts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/smartart/)) ayrı ayrı koleksiyonlarını dolaşarak veya bu nesne türlerini atlayarak dışarıda bırakın.
+Gezintiyi, [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) örnekleriyle sınırlayın; bu, Metni Güncelleme örneğinde gösterildiği gibidir. Grafikler, tablolar ve SmartArt kendi nesne modellerinde metni depolar, bu yüzden bu döngü tarafından değiştirilmezler.

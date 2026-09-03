@@ -1,5 +1,5 @@
 ---
-title: Διαχείριση πλαισίων κειμένου σε παρουσιάσεις με JavaScript
+title: Διαχείριση πλαισίων κειμένου σε παρουσιάσεις χρησιμοποιώντας JavaScript
 linktitle: Διαχείριση πλαισίου κειμένου
 type: docs
 weight: 20
@@ -12,94 +12,70 @@ keywords:
 - δημιουργία πλαισίου κειμένου
 - έλεγχος πλαισίου κειμένου
 - προσθήκη στήλης κειμένου
-- προσθήκη υπερσυνδέσμου
+- προσθήκη υπερσύνδεσης
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Το Aspose.Slides for Node.js καθιστά εύκολη τη δημιουργία, επεξεργασία και κλωνοποίηση πλαισίων κειμένου σε αρχεία PowerPoint και OpenDocument, ενισχύοντας την αυτοματοποίηση των παρουσιάσεών σας."
+description: "Δημιουργία, αναγνώριση, μορφοποίηση και ενημέρωση πλαισίων κειμένου σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας Aspose.Slides για Node.js μέσω Java."
 ---
 ## **Εισαγωγή**
 
-Τα κείμενα στις διαφάνειες συνήθως βρίσκονται σε πλαίσια κειμένου ή σχήματα. Συνεπώς, για να προσθέσετε κείμενο σε μια διαφάνεια, πρέπει να προσθέσετε ένα πλαίσιο κειμένου και στη συνέχεια να τοποθετήσετε κάποιο κείμενο μέσα στο πλαίσιο. Το Aspose.Slides for Node.js via Java παρέχει την κλάση [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/AutoShape) που σας επιτρέπει να προσθέσετε ένα σχήμα που περιέχει κάποιο κείμενο.
+Στο Aspose.Slides για Node.js μέσω Java, το κείμενο των διαφανειών αποθηκεύεται σε πλαίσια κειμένου που ανήκουν σε σχήματα. Η κλάση [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) αντιπροσωπεύει το πιο συνηθισμένο σχήμα που περιέχει κείμενο και εκθέτει το κείμενό του μέσω της μεθόδου [AutoShape.getTextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-Το Aspose.Slides παρέχει επίσης την κλάση [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape) που σας επιτρέπει να προσθέσετε σχήματα σε διαφάνειες. Ωστόσο, δεν μπορούν όλα τα σχήματα που προστίθενται μέσω της κλάσης `Shape` να περιέχουν κείμενο. Αλλά τα σχήματα που προστίθενται μέσω της κλάσης [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/AutoShape) μπορούν να περιέχουν κείμενο.
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-Συνεπώς, όταν εργάζεστε με ένα σχήμα στο οποίο θέλετε να προσθέσετε κείμενο, ίσως θελήσετε να ελέγξετε και να επιβεβαιώσετε ότι έχει μετατραπεί μέσω της κλάσης `AutoShape`. Μόνο τότε θα μπορείτε να εργαστείτε με το [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/TextFrame), το οποίο είναι μια ιδιότητα του `AutoShape`. Δείτε την ενότητα [Update Text](https://docs.aspose.com/slides/el/nodejs-java/manage-textbox/#update-text) σε αυτή τη σελίδα.
+Κάθε αυτόματο σχήμα προέρχεται από το [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/), αλλά δεν είναι κάθε σχήμα αυτόματο σχήμα ή υποστηρίζει πλαίσιο κειμένου. Κατά την επεξεργασία μιας υπάρχουσας παρουσίασης, ελέγξτε ότι ένα σχήμα είναι μια παρουσία του [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) πριν αποκτήσετε πρόσβαση στο κείμενό του.
 
 {{% /alert %}}
 
 ## **Δημιουργία πλαισίου κειμένου σε διαφάνεια**
 
-Για να δημιουργήσετε ένα πλαίσιο κειμένου σε μια διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).
-2. Αποκτήστε μια αναφορά για την πρώτη διαφάνεια στην πρόσφατα δημιουργημένη παρουσία. 
-3. Προσθέστε ένα αντικείμενο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/AutoShape) με [ShapeType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) ορισμένο ως `Rectangle` σε καθορισμένη θέση στη διαφάνεια και αποκτήστε την αναφορά για το νεοπροστέθηκε αντικείμενο `AutoShape`.
-4. Προσθέστε την ιδιότητα `TextFrame` στο αντικείμενο `AutoShape` που θα περιέχει κείμενο. Στο παρακάτω παράδειγμα, προσθέσαμε αυτό το κείμενο: *Aspose TextBox*
-5. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`. 
-
-Αυτός ο κώδικας JavaScript—μια υλοποίηση των παραπάνω βημάτων—σας δείχνει πώς να προσθέσετε κείμενο σε μια διαφάνεια:
+Για να δημιουργήσετε ένα πλαίσιο κειμένου, προσθέστε ένα αυτόματο σχήμα σε μια διαφάνεια, προσθέστε κείμενο στο πλαίσιο κειμένου του και αποθηκεύστε την παρουσίαση. Το παρακάτω παράδειγμα δημιουργεί ένα ορθογώνιο πλαίσιο κειμένου:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Δημιουργεί αντικείμενο Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Αποκτά την πρώτη διαφάνεια της παρουσίασης
-    var sld = pres.getSlides().get_Item(0);
-    // Προσθέτει AutoShape με τύπο Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Προσθέτει TextFrame στο Rectangle
-    ashp.addTextFrame(" ");
-    // Προσπελαύνει το πλαίσιο κειμένου
-    var txtFrame = ashp.getTextFrame();
-    // Δημιουργεί το αντικείμενο Paragraph για το πλαίσιο κειμένου
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Δημιουργεί ένα αντικείμενο Portion για την παράγραφο
-    var portion = para.getPortions().get_Item(0);
-    // Ορίζει κείμενο
-    portion.setText("Aspose TextBox");
-    // Αποθηκεύει την παρουσίαση στο δίσκο
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Οι συντεταγμένες και οι διαστάσεις που περνιούνται στο [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/#addAutoShape) μετρώνται σε σημεία. Η [AutoShape.addTextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/#addTextFrame) αρχικοποιεί το πλαίσιο κειμένου με το παρεχόμενο κείμενο.
+
 ## **Έλεγχος για σχήμα πλαισίου κειμένου**
 
-Το Aspose.Slides παρέχει τη μέθοδο [isTextBox](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/#isTextBox) από την κλάση [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) , επιτρέποντάς σας να εξετάζετε σχήματα και να αναγνωρίζετε πλαίσια κειμένου.
+Χρησιμοποιήστε τη μέθοδο [AutoShape.isTextBox](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/#isTextBox) για να προσδιορίσετε εάν ένα αυτόματο σχήμα θεωρείται πλαίσιο κειμένου. Αυτό είναι χρήσιμο όταν μια παρουσίαση περιέχει τόσο σχήματα με κείμενο όσο και καθαρά γραφικά αυτόματα σχήματα.
 
-![Text box and shape](istextbox.png)
+![Ένα πλαίσιο κειμένου και ένα σχήμα](istextbox.png)
 
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να ελέγξετε αν ένα σχήμα δημιουργήθηκε ως πλαίσιο κειμένου:
+Το παρακάτω παράδειγμα ελέγχει κάθε αυτόματο σχήμα σε μια παρουσίαση:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -108,233 +84,219 @@ try {
 }
 ```
 
-Σημειώστε ότι εάν απλώς προσθέσετε ένα autoshape χρησιμοποιώντας τη μέθοδο `addAutoShape` από την κλάση [ShapeCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/) , η μέθοδος `isTextBox` του autoshape θα επιστρέψει `false`. Ωστόσο, μετά την προσθήκη κειμένου στο autoshape χρησιμοποιώντας τη μέθοδο `addTextFrame` ή τη μέθοδο `setText`, η ιδιότητα `isTextBox` επιστρέφει `true`.
+Ένα πρόσφατα προστιθέμενο αυτόματο σχήμα δεν θεωρείται πλαίσιο κειμένου μέχρι να περιέχει μη κενό κείμενο. Μπορείτε να παρέχετε αυτό το κείμενο μέσω της [AutoShape.addTextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/#addTextFrame) ή της [TextFrame.setText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#setText). Η προσθήκη ή η ανάθεση ενός κενής συμβολοσειράς αφήνει τη [AutoShape.isTextBox](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/#isTextBox) να επιστρέφει `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() επιστρέφει false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() επιστρέφει true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() επιστρέφει false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() επιστρέφει true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() επιστρέφει false
-shape3.addTextFrame("");
-// shape3.isTextBox() επιστρέφει false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() επιστρέφει false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() επιστρέφει false
-```
-
-## **Εύρεση του σχήματος που κατέχει ένα πλαίσιο κειμένου**
-
-Σε γενικό κώδικα επεξεργασίας κειμένου, μπορεί να λάβετε ένα [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) χωρίς να γνωρίζετε ήδη ποιο αντικείμενο παρουσία το περιέχει. Χρησιμοποιήστε τη μέθοδο [TextFrame.getParentShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentShape--) για να επιστρέψετε στο ιδιοκτητικό [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/).
-
-Για ένα πλαίσιο κειμένου που ανήκει σε ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) ή σε ένα άλλο σχήμα που περιέχει κείμενο, η [TextFrame.getParentShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentShape--) επιστρέφει τον ιδιοκτήτη και η [TextFrame.getParentCell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentCell--) επιστρέφει `null`. Και οι δύο μέθοδοι παρέχουν πλοήγηση μόνο για ανάγνωση, έτσι η κλήση τους δεν αλλάζει την κυριότητα. Πάντα ελέγχετε την επιστρεφόμενη τιμή για `null` πριν προσπελάσετε το σχήμα.
-
-Για ένα πλήρες παράδειγμα που εντοπίζει ιδιοκτήτες σχήματος και κελιού πίνακα, συμπεριλαμβανομένων σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/nodejs-java/search-and-replace-text/).
-
-## **Προσθήκη στήλης σε πλαίσιο κειμένου**
-
-Το Aspose.Slides παρέχει τις μεθόδους [setColumnCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) και [setColumnSpacing](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) από την κλάση [TextFrameFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/TextFrameFormat) που σας επιτρέπουν να προσθέσετε στήλες σε πλαίσια κειμένου. Μπορείτε να καθορίσετε τον αριθμό των στηλών σε ένα πλαίσιο κειμένου και να ορίσετε το διάστημα σε σημεία μεταξύ των στηλών.
-
-Αυτός ο κώδικας σε JavaScript δείχνει τη περιγραφείσα λειτουργία: 
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Αποκτά την πρώτη διαφάνεια της παρουσίασης
-    var slide = pres.getSlides().get_Item(0);
-    // Προσθέτει AutoShape με τύπο Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Προσθέτει TextFrame στο Rectangle
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Αποκτά τη μορφή κειμένου του TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Ορίζει τον αριθμό των στηλών στο TextFrame
-    format.setColumnCount(3);
-    // Ορίζει το διάστημα μεταξύ των στηλών
-    format.setColumnSpacing(10);
-    // Αποθηκεύει την παρουσίαση
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Προσθήκη στήλης σε πλαίσιο κειμένου**
+Οι δύο πρώτες κλήσεις εκτυπώνουν `true`; οι δύο τελευταίες εκτυπώνουν `false`.
 
-Το Aspose.Slides for Node.js via Java παρέχει τη μέθοδο [setColumnCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) από την κλάση [TextFrameFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/TextFrameFormat) που σας επιτρέπει να προσθέσετε στήλες σε πλαίσια κειμένου. Μέσω αυτής της ιδιότητας, μπορείτε να καθορίσετε τον επιθυμητό αριθμό στηλών σε ένα πλαίσιο κειμένου.
+## **Εύρεση του σχήματος που κατέχει ένα πλαίσιο κειμένου**
 
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να προσθέσετε μια στήλη μέσα σε ένα πλαίσιο κειμένου:
+Γενικός κώδικας επεξεργασίας κειμένου μπορεί να λάβει ένα [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) χωρίς να γνωρίζει ποιο αντικείμενο παρουσίασης το περιέχει. Χρησιμοποιήστε τη μέθοδο μόνο για ανάγνωση [TextFrame.getParentShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentShape) για να επιστρέψετε στο ιδιοκτήτη του [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/).
+
+Για ένα πλαίσιο κειμένου που ανήκει σε ένα αυτόματο σχήμα ή σε άλλο σχήμα που φέρει κείμενο, η [TextFrame.getParentShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentShape) επιστρέφει τον ιδιοκτήτη και η [TextFrame.getParentCell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentCell) επιστρέφει `null`. Ελέγξτε την επιστρεφόμενη τιμή πριν την προσπελάσετε. Για να εντοπίσετε τόσο ιδιοκτήτες σχήματος όσο και κελιού πίνακα, συμπεριλαμβανομένων σ shapes που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/nodejs-java/search-and-replace-text/).
+
+## **Προσθήκη στηλών σε πλαίσιο κειμένου**
+
+Η μέθοδος [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#setColumnCount) διαιρεί το πλαίσιο κειμένου σε στήλες, ενώ η [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) ορίζει το κενό μεταξύ των στηλών σε σημεία. Και οι δύο ρυθμίσεις ανήκουν στο [TextFrameFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/) και μπορούν να αλλάξουν μέσω του πλαισίου κειμένου ενός υπάρχοντος πλαισίου κειμένου. Το κείμενο επαναδιανέμεται μεταξύ των στηλών εντός του ίδιου σχήματος· δεν συνεχίζεται σε άλλο σχήμα.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα πλαίσιο κειμένου τριών στηλών με 10 σημεία μεταξύ των στηλών, αποθηκεύει την παρουσίαση και διαβάζει τις αποθηκευμένες ρυθμίσεις από το αρχείο εξόδου:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // Το διάστημα μεταξύ των στηλών δεν ορίστηκε ποτέ, γι' αυτό εμφανίζεται ως NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Εξαγωγή κειμένου από επιμέρους στήλες**
+
+Χρησιμοποιήστε το [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#splitTextByColumns) για να ανακτήσετε το κείμενο που έχει εκχωρηθεί σε κάθε οπτική στήλη σε ένα υπάρχον πλαίσιο κειμένου. Η μέθοδος επιστρέφει μια συμβολοσειρά για κάθε στήλη, με βάση τη σειρά ανάγνωσης στήλης. Ένα πλαίσιο κειμένου μίας στήλης παράγει έναν πίνακα με ένα στοιχείο, και μια κενή στήλη αντιπροσωπεύεται από κενή συμβολοσειρά. Οι συμβολοσειρές περιέχουν μόνο απλό κείμενο· η μορφοποίηση επιπέδου τμήματος δεν διατηρείται.
+
+Αυτό είναι χρήσιμο όταν χρειάζεται να:
+
+- Εξάγετε κείμενο διατηρώντας τη σειρά ανάγνωσης βάσει στηλών.
+- Ευρετήσετε ή συγκρίνετε το περιεχόμενο διαφανειών πολλαπλών στηλών.
+- Εξάγετε κάθε στήλη σε ξεχωριστό αρχείο, πεδίο βάσης δεδομένων ή άλλο προορισμό.
+- Εξετάσετε πώς το κείμενο αναδιανέμεται μετά την αλλαγή του αριθμού στηλών με [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#setColumnCount), του διαστήματος με [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), της γραμματοσειράς ή του μεγέθους του πλαισίου κειμένου.
+
+Η μέθοδος αναφέρει το κείμενο που διανέμεται εντός του τρέχοντος [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/); δεν ρέει αυτόματα κείμενο μεταξύ ξεχωριστών σχημάτων ή πλαισίων κειμένου. Η κατανομή στηλών μπορεί να εξαρτάται από τις διαθέσιμες γραμματοσειρές και άλλες ρυθμίσεις διάταξης κειμένου, γι' αυτό βεβαιωθείτε ότι οι απαιτούμενες γραμματοσειρές είναι διαθέσιμες όταν τα συνεπή αποτελέσματα είναι σημαντικά.
+
+Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση, βρίσκει το πρώτο αυτόματο σχήμα πολλαπλών στηλών με πλαίσιο κειμένου, διαβάζει τον ρυθμισμένο αριθμό στηλών και γράφει το κείμενο από κάθε στήλη σε ξεχωριστό αρχείο. Σχήματα που δεν παρέχουν πλαίσιο κειμένου παραλείπονται.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Ενημέρωση κειμένου**
 
-Το Aspose.Slides σας επιτρέπει να αλλάξετε ή να ενημερώσετε το κείμενο που περιέχεται σε ένα πλαίσιο κειμένου ή όλο το κείμενο που περιέχεται σε μια παρουσία.
+Για να ενημερώσετε το κείμενο σε όλη την παρουσίαση, επαναλάβετε τις διαφάνειες και τα σχήματα, επιλέξτε αυτόματα σχήματα και, στη συνέχεια, επεξεργαστείτε τα τμήματα κειμένου τους. Η εργασία σε επίπεδο τμήματος σας επιτρέπει να αλλάξετε τόσο το κείμενο όσο και τη μορφοποίηση χαρακτήρων.
 
-Αυτός ο κώδικας JavaScript επιδεικνύει μια λειτουργία όπου όλο το κείμενο σε μια παρουσία ενημερώνεται ή αλλάζει:
+Το παρακάτω παράδειγμα αντικαθιστά κάθε εμφάνιση του `years` με το `months` σε κείμενο αυτόματου σχήματος και κάνει κάθε επηρεασμένο τμήμα έντονο:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Ελέγχει αν το σχήμα υποστηρίζει πλαίσιο κειμένου (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Επανάληψη στις παραγράφους του πλαισίου κειμένου
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Επανάληψη σε κάθε τμήμα της παραγράφου
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Αλλάζει το κείμενο
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Αλλάζει τη μορφοποίηση
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Αποθηκεύει την τροποποιημένη παρουσίαση
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Προσθήκη πλαισίου κειμένου με υπερσύνδεσμο** 
+Αυτή η διέλευση ενημερώνει το κείμενο μόνο σε αυτόματα σχήματα. Το κείμενο που αποθηκεύεται σε πίνακες, διαγράμματα, SmartArt ή ομαδοποιημένα σχήματα απαιτεί διέλευση των δικών τους συλλογών.
 
-Μπορείτε να εισάγετε έναν σύνδεσμο μέσα σε ένα πλαίσιο κειμένου. Όταν κάνετε κλικ στο πλαίσιο κειμένου, οι χρήστες οδηγούνται να ανοίξουν τον σύνδεσμο. 
+## **Προσθήκη πλαισίου κειμένου με υπερσύνδεση**
 
-Για να προσθέσετε ένα πλαίσιο κειμένου που περιέχει σύνδεσμο, ακολουθήστε τα παρακάτω βήματα:
+Μια υπερσύνδεση μπορεί να εκχωρηθεί σε ένα συγκεκριμένο τμήμα κειμένου, ώστε μόνο αυτό το κείμενο να λειτουργεί ως κλικστέ σύνδεσμος. Χρησιμοποιήστε το [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) για να συσχετίσετε το τμήμα με ένα εξωτερικό URL.
 
-1. Δημιουργήστε μια παρουσία της κλάσης `Presentation`. 
-2. Αποκτήστε μια αναφορά για την πρώτη διαφάνεια στη νεοδημιουργημένη παρουσία. 
-3. Προσθέστε ένα αντικείμενο `AutoShape` με `ShapeType` ορισμένο ως `Rectangle` σε καθορισμένη θέση στη διαφάνεια και αποκτήστε μια αναφορά του νεοπροστεθειμένου αντικειμένου AutoShape.
-4. Προσθέστε ένα `TextFrame` στο αντικείμενο `AutoShape` και ορίστε το κείμενο του πρώτου τμήματός του. Στο παρακάτω παράδειγμα, χρησιμοποιήσαμε αυτό το κείμενο: *Aspose.Slides*
-5. Αποκτήστε το `HyperlinkManager` εκείνου του τμήματος μέσω του `PortionFormat` του.
-6. Καλέστε τη μέθοδο `setExternalHyperlinkClick` στο `HyperlinkManager` για να προσαρτήσετε τον σύνδεσμο στο τμήμα.
-7. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`. 
-
-Αυτός ο κώδικας JavaScript—μια υλοποίηση των παραπάνω βημάτων—σας δείχνει πώς να προσθέσετε ένα πλαίσιο κειμένου με υπερσύνδεσμο σε μια διαφάνεια:
+Το παρακάτω παράδειγμα δημιουργεί συνδεδεμένο κείμενο και το αποθηκεύει σε μια παρουσίαση:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Δημιουργεί μια παρουσία της κλάσης Presentation που αντιπροσωπεύει ένα PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Αποκτά την πρώτη διαφάνεια της παρουσίασης
-    var slide = pres.getSlides().get_Item(0);
-    // Προσθέτει αντικείμενο AutoShape με τύπο Rectangle
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Μετατρέπει το σ shape σε AutoShape
-    var pptxAutoShape = shape;
-    // Προσπελαύνει την ιδιότητα ITextFrame που σχετίζεται με το AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Προσθέτει κάποιο κείμενο στο πλαίσιο
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Ορίζει το Hyperlink για το κείμενο του τμήματος
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Αποθηκεύει την παρουσίαση PPTX
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Ποια είναι η διαφορά μεταξύ πλαίσίου κειμένου και σύμβολο κράτησης κειμένου όταν εργάζεστε με κύριες διαφάνειες;**
+**Ποια είναι η διαφορά μεταξύ ενός πλαισίου κειμένου και ενός κράτησης θέσης κειμένου σε κύρια ή διάταξη διαφάνειας;**
 
-Ένα [placeholder](/slides/el/nodejs-java/manage-placeholder/) κληρονομεί το στυλ/θέση από το [master](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterslide/) και μπορεί να αντικατασταθεί σε [layouts](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/), ενώ ένα κανονικό πλαίσιο κειμένου είναι ένα ανεξάρτητο αντικείμενο σε μια συγκεκριμένη διαφάνεια και δεν αλλάζει όταν αλλάζετε layouts.
+Ένα [placeholder](/slides/el/nodejs-java/manage-placeholder/) μπορεί να κληρονομήσει τη θέση και τη μορφοποίηση του από μια [master slide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/masterslide/) ή μια [layout slide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/layoutslide/). Ένα κανονικό πλαίσιο κειμένου είναι ένα ανεξάρτητο σχήμα στη διαφάνεια όπου δημιουργήθηκε και δεν αποκτά συμπεριφορά κράτησης θέσης όταν η διάταξη αλλάζει.
 
-**Πώς μπορώ να εκτελέσω μαζική αντικατάσταση κειμένου σε όλη την παρουσία χωρίς να επηρεάσω το κείμενο εντός γραφημάτων, πινάκων και SmartArt;**
+**Πώς μπορώ να αντικαταστήσω κείμενο χωρίς να αλλάξω το κείμενο σε διαγράμματα, πίνακες ή SmartArt;**
 
-Περιορίστε την επανάληψή σας σε auto‑shapes που έχουν πλαίσια κειμένου και εξαιρέστε ενσωματωμένα αντικείμενα ([charts](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/smartart/)) διασχίζοντας τις συλλογές τους ξεχωριστά ή παραλείποντας αυτούς τους τύπους αντικειμένων.
+Περιορίστε τη διέλευση σε σχήματα που είναι παρουσίες του [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/), όπως φαίνεται στο παράδειγμα Ενημέρωση Κειμένου. Τα διαγράμματα, οι πίνακες και το SmartArt αποθηκεύουν το κείμενο στα δικά τους μοντέλα αντικειμένων, επομένως δεν τροποποιούνται από αυτόν τον βρόχο.

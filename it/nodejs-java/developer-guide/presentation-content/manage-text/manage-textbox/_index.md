@@ -1,12 +1,12 @@
 ---
-title: "Gestire le caselle di testo nelle presentazioni usando JavaScript"
-linktitle: "Gestire la casella di testo"
+title: Gestire le caselle di testo nelle presentazioni usando JavaScript
+linktitle: Gestire la casella di testo
 type: docs
 weight: 20
 url: /it/nodejs-java/manage-textbox/
 keywords:
 - casella di testo
-- frame di testo
+- riquadro di testo
 - aggiungere testo
 - aggiornare testo
 - creare casella di testo
@@ -18,88 +18,64 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides per Node.js semplifica la creazione, modifica e clonazione delle caselle di testo nei file PowerPoint e OpenDocument, migliorando l'automazione delle tue presentazioni."
+description: "Crea, identifica, formatta e aggiorna le caselle di testo in presentazioni PowerPoint e OpenDocument usando Aspose.Slides per Node.js via Java."
 ---
 ## **Introduzione**
 
-I testi nelle diapositive solitamente si trovano in caselle di testo o forme. Pertanto, per aggiungere un testo a una diapositiva, è necessario aggiungere una casella di testo e poi inserire del testo all'interno della casella. Aspose.Slides for Node.js via Java fornisce la classe [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/AutoShape) che consente di aggiungere una forma contenente del testo.
+In Aspose.Slides for Node.js via Java, il testo delle diapositive è memorizzato nei riquadri di testo che appartengono alle forme. La classe [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) rappresenta la forma più comune contenente testo ed espone il suo testo tramite il metodo [AutoShape.getTextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides fornisce anche la classe [Shape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape) che consente di aggiungere forme alle diapositive. Tuttavia, non tutte le forme aggiunte tramite la classe `Shape` possono contenere testo. Le forme aggiunte tramite la classe [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/AutoShape) invece possono contenere testo.
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-Pertanto, quando si lavora con una forma a cui si desidera aggiungere testo, è consigliabile verificare e confermare che sia stata convertita tramite la classe `AutoShape`. Solo in questo modo sarà possibile lavorare con [TextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/TextFrame), che è una proprietà di `AutoShape`. Vedi la sezione [Aggiorna testo](https://docs.aspose.com/slides/it/nodejs-java/manage-textbox/#update-text) di questa pagina.
+Ogni forma automatica deriva da [Shape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/), ma non tutte le forme sono forme automatiche o supportano un riquadro di testo. Quando si elabora una presentazione esistente, verificare che una forma sia un'istanza di [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) prima di accedere al suo testo.
 
 {{% /alert %}}
 
-## **Crea casella di testo sulla diapositiva**
+## **Creare una casella di testo su una diapositiva**
 
-Per creare una casella di testo su una diapositiva, segui questi passaggi:
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-2. Ottieni un riferimento alla prima diapositiva nella presentazione appena creata. 
-3. Aggiungi un oggetto [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/AutoShape) con [ShapeType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) impostato su `Rectangle` in una posizione specificata sulla diapositiva e ottieni il riferimento all'oggetto `AutoShape` appena aggiunto.
-4. Aggiungi la proprietà `TextFrame` all'oggetto `AutoShape` che conterrà del testo. Nell'esempio seguente, abbiamo aggiunto questo testo: *Aspose TextBox*
-5. Infine, scrivi il file PPTX tramite l'oggetto `Presentation`. 
-
-Questo codice JavaScript—un'implementazione dei passaggi sopra—mostra come aggiungere testo a una diapositiva:
+Per creare una casella di testo, aggiungere una forma automatica a una diapositiva, aggiungere testo al suo riquadro di testo e salvare la presentazione. L'esempio seguente crea una casella di testo rettangolare:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Istanzia la Presentazione
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Ottiene la prima diapositiva nella presentazione
-    var sld = pres.getSlides().get_Item(0);
-    // Aggiunge un AutoShape con tipo impostato a Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Aggiunge TextFrame al rettangolo
-    ashp.addTextFrame(" ");
-    // Accede al frame di testo
-    var txtFrame = ashp.getTextFrame();
-    // Crea l'oggetto Paragraph per il frame di testo
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Crea un oggetto Portion per il paragrafo
-    var portion = para.getPortions().get_Item(0);
-    // Imposta il testo
-    portion.setText("Aspose TextBox");
-    // Salva la presentazione su disco
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Verifica la forma casella di testo**
+Le coordinate e le dimensioni passate a [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/#addAutoShape) sono misurate in punti. [AutoShape.addTextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/#addTextFrame) inizializza il riquadro di testo con il testo fornito.
 
-Aspose.Slides fornisce il metodo [isTextBox](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/#isTextBox) della classe [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) che consente di esaminare le forme e identificare le caselle di testo.
+## **Verificare la presenza di una forma casella di testo**
 
-![Casella di testo e forma](istextbox.png)
+Utilizzare il metodo [AutoShape.isTextBox](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/#isTextBox) per determinare se una forma automatica è trattata come una casella di testo. Questo è utile quando una presentazione contiene sia forme automatiche con testo sia forme puramente grafiche.
 
-Questo codice JavaScript mostra come verificare se una forma è stata creata come casella di testo:
+![Una casella di testo e una forma](istextbox.png)
+
+L'esempio seguente esamina ogni forma automatica in una presentazione:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -108,233 +84,219 @@ try {
 }
 ```
 
-Nota che se si aggiunge semplicemente un'autoshape usando il metodo `addAutoShape` della classe [ShapeCollection](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/), il metodo `isTextBox` dell'autoshape restituirà `false`. Tuttavia, dopo aver aggiunto testo all'autoshape usando il metodo `addTextFrame` o il metodo `setText`, la proprietà `isTextBox` restituisce `true`.
+Una forma automatica appena aggiunta non è considerata una casella di testo finché non contiene testo non vuoto. È possibile fornire quel testo tramite [AutoShape.addTextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/#addTextFrame) o [TextFrame.setText](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/#setText). Aggiungere o assegnare una stringa vuota fa sì che [AutoShape.isTextBox](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/#isTextBox) restituisca `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() restituisce false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() restituisce true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() restituisce false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() restituisce true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() restituisce false
-shape3.addTextFrame("");
-// shape3.isTextBox() restituisce false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() restituisce false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() restituisce false
-```
-
-## **Trova la forma che possiede un TextFrame**
-
-In codice generico di elaborazione del testo, potresti ricevere un [TextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/) senza sapere già quale oggetto di presentazione lo contiene. Usa il metodo [TextFrame.getParentShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/#getParentShape--) per tornare alla [Shape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/) proprietaria.
-
-Per un TextFrame che appartiene a una [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/) o a un'altra forma contenente testo, [TextFrame.getParentShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/#getParentShape--) restituisce il proprietario e [TextFrame.getParentCell](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/#getParentCell--) restituisce `null`. Entrambi i metodi forniscono una navigazione di sola lettura, quindi la loro chiamata non modifica la proprietà. Verifica sempre che il valore restituito non sia `null` prima di accedere alla forma.
-
-Per un esempio completo che identifica i proprietari di forma e di cella tabella, incluse le forme associate a nodi SmartArt, vedi [Cerca e sostituisci testo](/slides/it/nodejs-java/search-and-replace-text/).
-
-## **Aggiungi colonna in casella di testo**
-
-Aspose.Slides fornisce i metodi [setColumnCount](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) e [setColumnSpacing](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) della classe [TextFrameFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/TextFrameFormat) che consentono di aggiungere colonne alle caselle di testo. Puoi specificare il numero di colonne in una casella di testo e impostare la spaziatura, in punti, tra le colonne.
-
-Questo codice JavaScript dimostra l'operazione descritta:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Ottiene la prima diapositiva nella presentazione
-    var slide = pres.getSlides().get_Item(0);
-    // Aggiunge un AutoShape con tipo impostato a Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Aggiunge TextFrame al rettangolo
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Ottiene il formato del testo del TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Specifica il numero di colonne nel TextFrame
-    format.setColumnCount(3);
-    // Specifica la spaziatura tra le colonne
-    format.setColumnSpacing(10);
-    // Salva la presentazione
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Aggiungi colonna in TextFrame**
+Le prime due chiamate stampano `true`; le ultime due stampano `false`.
 
-Aspose.Slides for Node.js via Java fornisce il metodo [setColumnCount](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) della classe [TextFrameFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/TextFrameFormat) che consente di aggiungere colonne nei TextFrame. Attraverso questa proprietà, puoi specificare il numero di colonne desiderato in un TextFrame.
+## **Trovare la forma che possiede un riquadro di testo**
 
-Questo codice JavaScript mostra come aggiungere una colonna all'interno di un TextFrame:
+Il codice generico di elaborazione del testo può ricevere un [TextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/) senza conoscere quale oggetto della presentazione lo contiene. Utilizzare il metodo di sola lettura [TextFrame.getParentShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/#getParentShape) per tornare alla sua forma proprietaria [Shape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shape/).
+
+Per un riquadro di testo posseduto da una forma automatica o da un'altra forma con testo, [TextFrame.getParentShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/#getParentShape) restituisce il proprietario e [TextFrame.getParentCell](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/#getParentCell) restituisce `null`. Controllare il valore restituito prima di accedervi. Per identificare sia i proprietari di forma sia quelli di cella di tabella, comprese le forme associate a nodi SmartArt, vedere [Cerca e sostituisci testo](/slides/it/nodejs-java/search-and-replace-text/).
+
+## **Aggiungere colonne a una casella di testo**
+
+Il metodo [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setColumnCount) divide il riquadro di testo in colonne, mentre [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) imposta lo spazio tra le colonne in punti. Entrambe le impostazioni appartengono a [TextFrameFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/) e possono essere modificate tramite il riquadro di testo di una casella di testo esistente. Il testo si ridistribuisce tra le colonne all'interno della stessa forma; non continua in un'altra forma.
+
+L'esempio seguente crea una casella di testo a tre colonne con 10 punti tra le colonne, salva la presentazione e legge le impostazioni memorizzate dal file di output:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // La spaziatura della colonna non è mai stata impostata, quindi viene riportata come NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
-        }
-    }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
-        }
+        savedPresentation.dispose();
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Aggiorna testo**
+## **Estrarre il testo dalle singole colonne**
 
-Aspose.Slides consente di modificare o aggiornare il testo contenuto in una casella di testo o tutti i testi contenuti in una presentazione. 
+Utilizzare [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/#splitTextByColumns) per recuperare il testo assegnato a ciascuna colonna visiva in un riquadro di testo esistente. Il metodo restituisce una stringa per ogni colonna, nell'ordine di lettura basato sulle colonne. Un riquadro di testo a singola colonna produce un array con un elemento, e una colonna vuota è rappresentata da una stringa vuota. Le stringhe contengono solo testo semplice; la formattazione a livello di porzione non è conservata.
 
-Questo codice JavaScript dimostra un'operazione in cui tutti i testi di una presentazione vengono aggiornati o modificati:
+Ciò è utile quando è necessario:
+
+- Estrarre il testo preservando l'ordine di lettura basato sulle colonne.
+- Indicizzare o confrontare il contenuto di diapositive a più colonne.
+- Esportare ogni colonna in un file separato, campo di database o altra destinazione.
+- Esaminare come il testo viene ridistribuito dopo aver modificato il conteggio delle colonne con [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setColumnCount), la spaziatura con [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), il carattere o le dimensioni del riquadro di testo.
+
+Il metodo segnala il testo distribuito all'interno del corrente [TextFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/textframe/); non fluisce automaticamente il testo tra forme o caselle di testo separate. La distribuzione delle colonne può dipendere dai caratteri disponibili e da altre impostazioni di layout del testo, quindi assicurarsi che i caratteri richiesti siano disponibili quando è importante ottenere risultati coerenti.
+
+L'esempio seguente carica una presentazione, trova la prima forma automatica a più colonne con un riquadro di testo, legge il conteggio di colonne configurato e scrive il testo di ogni colonna in un file separato. Le forme che non forniscono un riquadro di testo vengono ignorate.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Aggiornare il testo**
+
+Per aggiornare il testo in tutta la presentazione, iterare diapositive e forme, selezionare le forme automatiche e quindi modificare le loro porzioni di testo. Lavorare a livello di porzione consente di modificare sia il testo sia la formattazione dei caratteri.
+
+L'esempio seguente sostituisce ogni occorrenza di `years` con `months` nel testo delle forme automatiche e rende ogni porzione interessata in grassetto:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Verifica se la forma supporta il frame di testo (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Itera attraverso i paragrafi nel frame di testo
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Itera attraverso ogni porzione nel paragrafo
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Modifica il testo
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Modifica la formattazione
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Salva la presentazione modificata
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Aggiungi casella di testo con collegamento ipertestuale** 
+Questo percorso aggiorna il testo solo nelle forme automatiche. Il testo memorizzato in tabelle, grafici, SmartArt o forme raggruppate richiede l'iterazione delle collezioni di quegli oggetti.
 
-Puoi inserire un collegamento all'interno di una casella di testo. Quando la casella di testo viene cliccata, gli utenti vengono indirizzati all'apertura del collegamento. 
+## **Aggiungere una casella di testo con un collegamento ipertestuale**
 
- Per aggiungere una casella di testo contenente un collegamento, segui questi passaggi:
+È possibile assegnare un collegamento ipertestuale a una specifica porzione di testo, in modo che solo quel testo agisca da link cliccabile. Utilizzare [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) per associare la porzione a un URL esterno.
 
-1. Crea un'istanza della classe `Presentation`. 
-2. Ottieni un riferimento alla prima diapositiva nella presentazione appena creata. 
-3. Aggiungi un oggetto `AutoShape` con `ShapeType` impostato su `Rectangle` in una posizione specificata sulla diapositiva e ottieni il riferimento all'oggetto AutoShape appena aggiunto.
-4. Aggiungi un `TextFrame` all'oggetto `AutoShape` e imposta il testo della sua prima porzione. Nell'esempio sotto, abbiamo usato questo testo: *Aspose.Slides*
-5. Ottieni il `HyperlinkManager` di quella porzione tramite il suo `PortionFormat`.
-6. Chiama `setExternalHyperlinkClick` sul `HyperlinkManager` per collegare il collegamento alla porzione.
-7. Infine, scrivi il file PPTX tramite l'oggetto `Presentation`. 
-
-Questo codice JavaScript—un'implementazione dei passaggi sopra—mostra come aggiungere una casella di testo con collegamento ipertestuale a una diapositiva:
+L'esempio seguente crea del testo collegato e lo salva in una presentazione:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Istanzia una classe Presentation che rappresenta un PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Ottiene la prima diapositiva nella presentazione
-    var slide = pres.getSlides().get_Item(0);
-    // Aggiunge un oggetto AutoShape con tipo impostato a Rectangle
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Converte la forma in AutoShape
-    var pptxAutoShape = shape;
-    // Accede alla proprietà ITextFrame associata all'AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Aggiunge del testo al frame
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Imposta il collegamento ipertestuale per il testo della porzione
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Salva la presentazione PPTX
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Qual è la differenza tra una casella di testo e un segnaposto di testo quando si lavora con le diapositive master?**
+**Qual è la differenza tra una casella di testo e un segnaposto di testo su una diapositiva master o layout?**
 
-Un [placeholder](/slides/it/nodejs-java/manage-placeholder/) eredita stile/posizione dal [master](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslide/) e può essere sovrascritto nei [layout](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/layoutslide/), mentre una casella di testo normale è un oggetto indipendente su una specifica diapositiva e non cambia quando si passa a un altro layout.
+Un [placeholder](/slides/it/nodejs-java/manage-placeholder/) può ereditare la sua posizione e formattazione da una [master slide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/masterslide/) o da una [layout slide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/layoutslide/). Una normale casella di testo è una forma indipendente sulla diapositiva in cui è stata creata e non acquisisce il comportamento di segnaposto quando il layout cambia.
 
-**Come posso eseguire una sostituzione di testo massiva su tutta la presentazione senza modificare il testo all'interno di grafici, tabelle e SmartArt?**
+**Come posso sostituire il testo senza modificare quello all'interno di grafici, tabelle o SmartArt?**
 
-Limita l'iterazione alle auto‑forme che possiedono TextFrame ed escludi gli oggetti incorporati ([charts](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/smartart/)) attraversando le loro collezioni separatamente o ignorando quei tipi di oggetto.
+Limitare l'iterazione alle forme che sono istanze di [AutoShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/autoshape/), come mostrato nell'esempio Aggiorna testo. Grafici, tabelle e SmartArt memorizzano il testo nei propri modelli di oggetto, quindi non vengono modificati da quel ciclo.

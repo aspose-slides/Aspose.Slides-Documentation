@@ -1,16 +1,16 @@
 ---
-title: إدارة مربعات النص في العروض التقديمية باستخدام JavaScript
-linktitle: إدارة مربع النص
+title: إدارة صناديق النص في العروض التقديمية باستخدام JavaScript
+linktitle: إدارة صندوق النص
 type: docs
 weight: 20
 url: /ar/nodejs-java/manage-textbox/
 keywords:
-- مربع نص
+- صندوق نص
 - إطار نص
 - إضافة نص
 - تحديث نص
-- إنشاء مربع نص
-- التحقق من مربع النص
+- إنشاء صندوق نص
+- تحقق من صندوق النص
 - إضافة عمود نص
 - إضافة ارتباط تشعبي
 - PowerPoint
@@ -18,82 +18,62 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تسهّل Aspose.Slides for Node.js إنشاء وتحرير واستنساخ مربعات النص في ملفات PowerPoint وOpenDocument، مما يعزز أتمتة العروض التقديمية الخاصة بك."
+description: "إنشاء، تحديد، تنسيق، وتحديث صناديق النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ Node.js عبر Java."
 ---
 ## **المقدمة**
 
-عادةً ما تكون النصوص على الشرائح موجودة في مربعات النص أو الأشكال. لذلك، لإضافة نص إلى شريحة، عليك إضافة مربع نص ثم وضع بعض النص داخل مربع النص. توفر Aspose.Slides for Node.js via Java فئة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/AutoShape) التي تتيح لك إضافة شكل يحتوي على نص.
+في Aspose.Slides لـ Node.js عبر Java، يتم تخزين نص الشريحة في إطارات النص التي تنتمي إلى الأشكال. تمثل فئة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) الشكل الأكثر شيوعًا الذي يحمل نصًا وتوفر نصه عبر طريقة [AutoShape.getTextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
-توفر Aspose.Slides أيضًا فئة [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Shape) التي تتيح لك إضافة أشكال إلى الشرائح. ومع ذلك، لا يمكن لجميع الأشكال المضافة عبر فئة `Shape` احتواء نص. ولكن الأشكال المضافة عبر فئة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/AutoShape) قد تحتوي على نص.
+{{% alert color="info" title="ملاحظة" %}}
+كل شكل تلقائي يشتق من [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/)، لكن ليس كل شكل هو شكل تلقائي أو يدعم إطار نص. عند معالجة عرض تقديمي موجود، تحقق من أن الشكل هو نسخة من [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) قبل الوصول إلى نصه.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-لذلك، عند التعامل مع شكل تريد إضافة نص إليه، قد ترغب في التحقق والتأكد أنه تم تحويله عبر فئة `AutoShape`. فقط عندئذٍ ستكون قادرًا على العمل مع [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/TextFrame)، وهو خاصية تحت `AutoShape`. راجع قسم [تحديث النص](https://docs.aspose.com/slides/ar/nodejs-java/manage-textbox/#update-text) في هذه الصفحة.
-{{% /alert %}}
+## **إنشاء مربع نص على شريحة**
 
-## **إنشاء مربع نص على الشريحة**
-
-لإنشاء مربع نص على شريحة، اتبع الخطوات التالية:
-
-1. إنشاء نسخة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Presentation).
-2. الحصول على مرجع للشفرة الأولى في العرض التقديمي الذي تم إنشاؤه حديثًا.
-3. إضافة كائن من نوع [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/AutoShape) مع [ShapeType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) محددًا كـ `Rectangle` في موضع محدد على الشريحة واحصل على مرجع لكائن `AutoShape` المضاف حديثًا.
-4. إضافة خاصية `TextFrame` إلى كائن `AutoShape` الذي سيحتوي على نص. في المثال أدناه، أضفنا هذا النص: *Aspose TextBox*
-5. أخيرًا، احفظ ملف PPTX عبر كائن `Presentation`.
+لإنشاء مربع نص، أضف شكلاً تلقائيًا إلى شريحة، وأضف نصًا إلى إطار النص الخاص به، ثم احفظ العرض التقديمي. المثال التالي ينشئ مربع نص مستطيل:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// إنشاء عرض تقديمي
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // الحصول على الشريحة الأولى في العرض التقديمي
-    var sld = pres.getSlides().get_Item(0);
-    // إضافة AutoShape مع تعيين النوع كـ Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // إضافة TextFrame إلى المستطيل
-    ashp.addTextFrame(" ");
-    // الوصول إلى إطار النص
-    var txtFrame = ashp.getTextFrame();
-    // إنشاء كائن Paragraph لإطار النص
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // إنشاء كائن Portion للفقرة
-    var portion = para.getPortions().get_Item(0);
-    // تعيين النص
-    portion.setText("Aspose TextBox");
-    // حفظ العرض التقديمي إلى القرص
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+الإحداثيات والأبعاد التي تُمرَّر إلى [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/#addAutoShape) تُقاس بالنقاط. تقوم طريقة [AutoShape.addTextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/#addTextFrame) بتهيئة إطار النص بالنص المزوَّد.
+
 ## **التحقق من شكل مربع النص**
 
-يوفر Aspose.Slides الطريقة [isTextBox](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/#isTextBox) من فئة [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) ، مما يتيح لك فحص الأشكال وتحديد مربعات النص.
+استخدم طريقة [AutoShape.isTextBox](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/#isTextBox) لتحديد ما إذا كان الشكل التلقائي يُعامل كمربع نص. هذا مفيد عندما يحتوي العرض التقديمي على كل من الأشكال التي تحمل نصًا والأشكال الرسومية البحتة.
 
-![Text box and shape](istextbox.png)
+![مربع نص وشكل](istextbox.png)
 
-هذا الكود JavaScript يوضح لك كيفية التحقق مما إذا تم إنشاء الشكل كمربع نص:
+المثال التالي يفحص كل شكل تلقائي في العرض التقديمي:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -102,225 +82,219 @@ try {
 }
 ```
 
-لاحظ أنه إذا قمت ببساطة بإضافة شكل تلقائي باستخدام الطريقة `addAutoShape` من فئة [ShapeCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapecollection/)، فإن طريقة `isTextBox` لهذا الشكل ستعيد `false`. ومع ذلك، بعد إضافة نص إلى الشكل باستخدام الطريقة `addTextFrame` أو الطريقة `setText`، ستعيد الخاصية `isTextBox` القيمة `true`.
+لا يُعد الشكل التلقائي المضاف حديثًا مربع نص حتى يحتوي على نص غير فارغ. يمكنك تزويد هذا النص عبر [AutoShape.addTextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/#addTextFrame) أو [TextFrame.setText](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#setText). إضافة أو تعيين سلسلة فارغة يجعل طريقة [AutoShape.isTextBox](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/#isTextBox) تُعيد `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() يرجع false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() يرجع true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() يرجع false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() يرجع true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() يرجع false
-shape3.addTextFrame("");
-// shape3.isTextBox() يرجع false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() يرجع false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() يرجع false
-```
-
-## **العثور على الشكل الذي يمتلك TextFrame**
-
-في كود معالجة النصوص العام، قد تتلقى كائنًا من نوع [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) دون معرفة أي كائن عرض تقديمي يحتويه مسبقًا. استخدم الطريقة [TextFrame.getParentShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#getParentShape--) للعودة إلى الشكل المالك [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/).
-
-بالنسبة لإطار نص ينتمي إلى [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/) أو شكل آخر يحتوي على نص، تُعيد الطريقة [TextFrame.getParentShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#getParentShape--) المالك وتُعيد الطريقة [TextFrame.getParentCell](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#getParentCell--) القيمة `null`. كلا الطريقتين توفران تنقلًا للقراءة فقط، لذا فإن استدعائهما لا يغيّر الملكية. تحقق دائمًا من أن القيمة المرتجعة ليست `null` قبل الوصول إلى الشكل.
-
-للحصول على مثال كامل يحدد أصحاب الأشكال وخلايا الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، انظر [البحث واستبدال النص](/slides/ar/nodejs-java/search-and-replace-text/).
-
-## **إضافة عمود في مربع النص**
-
-توفر Aspose.Slides الفئات [setColumnCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) و [setColumnSpacing](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) من فئة [TextFrameFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/TextFrameFormat) التي تتيح لك إضافة أعمدة إلى مربعات النص. يمكنك تحديد عدد الأعمدة في مربع النص وتعيين المسافة بين الأعمدة بالنقاط.
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // الحصول على الشريحة الأولى في العرض التقديمي
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة AutoShape مع تعيين النوع كـ Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // إضافة TextFrame إلى المستطيل
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // الحصول على تنسيق TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // تحديد عدد الأعمدة في TextFrame
-    format.setColumnCount(3);
-    // تحديد المسافة بين الأعمدة
-    format.setColumnSpacing(10);
-    // حفظ العرض التقديمي
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **إضافة عمود في TextFrame**
+النداؤان الأولان يطبعان `true`؛ والنداؤان الأخيران يطبعان `false`.
 
-توفر Aspose.Slides for Node.js via Java الطريقة [setColumnCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) من فئة [TextFrameFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/TextFrameFormat) التي تسمح لك بإضافة أعمدة في إطارات النص. من خلال هذه الخاصية، يمكنك تحديد عدد الأعمدة المفضل لديك في إطار النص.
+## **العثور على الشكل الذي يمتلك إطار النص**
+
+قد تتلقى شفرة معالجة نص عامة كائنًا من نوع [TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) دون معرفة أي عرض تقديمي يحتويه. استخدم طريقة القراءة فقط [TextFrame.getParentShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#getParentShape) للعودة إلى الـ[Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) المالك.
+
+لإطار نص مملوك من قبل شكل تلقائي أو شكل آخر يحمل نصًا، تُعيد طريقة [TextFrame.getParentShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#getParentShape) المالك وتُعيد طريقة [TextFrame.getParentCell](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#getParentCell) القيمة `null`. تحقق من القيمة المرجعة قبل الوصول إليها. لتحديد كل من مالكي الأشكال وخلايا الجداول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/nodejs-java/search-and-replace-text/).
+
+## **إضافة أعمدة إلى مربع النص**
+
+تقسّم طريقة [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setColumnCount) إطار النص إلى أعمدة، بينما تحدد طريقة [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) الفجوة بين الأعمدة بالنقاط. كلا الإعدادين ينتميان إلى [TextFrameFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/) ويمكن تغييره عبر إطار النص لمربع نص موجود. يُعاد تدفق النص بين الأعمدة داخل الشكل نفسه؛ ولا يمتد إلى شكل آخر.
+
+المثال التالي ينشئ مربع نص ثلاثي الأعمدة مع مسافة 10 نقاط بين الأعمدة، يحفظ العرض التقديمي، ثم يقرأ الإعدادات المخزنة من ملف الإخراج:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // لم يتم تحديد مسافة العمود أبدًا، لذلك يتم الإبلاغ عنها كقيمة NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **استخراج النص من الأعمدة الفردية**
+
+استخدم طريقة [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/#splitTextByColumns) لاسترجاع النص المخصص لكل عمود بصري في إطار نص موجود. تُعيد الطريقة سلسلة واحدة لكل عمود، بترتيب القراءة القائم على الأعمدة. ينتج إطار نص أحادي العمود مصفوفة عنصر واحد، ويُمثَّل العمود الفارغ بسلسلة فارغة. تحتوي السلاسل على نص عادي فقط؛ ولا يتم الحفاظ على تنسيق المستوى الجزئي.
+
+هذا مفيد عندما تحتاج إلى:
+
+- استخراج النص مع الحفاظ على ترتيب القراءة القائم على الأعمدة.
+- فهرسة أو مقارنة محتوى الشرائح متعددة الأعمدة.
+- تصدير كل عمود إلى ملف منفصل أو حقل قاعدة بيانات أو وجهة أخرى.
+- فحص كيفية إعادة توزيع النص بعد تغيير عدد الأعمدة باستخدام [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setColumnCount)، أو الفجوة باستخدام [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing)، أو الخط، أو حجم إطار النص.
+
+تُبلغ الطريقة عن النص الموزَّع داخل الـ[TextFrame](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/textframe/) الحالي؛ ولا تُجري تدفقًا تلقائيًا بين أشكال أو مربعات نص منفصلة. يمكن أن تعتمد توزيع الأعمدة على الخطوط المتاحة وإعدادات تخطيط النص الأخرى، لذا تأكد من توفر الخطوط المطلوبة عندما تكون النتائج المتسقة مهمة.
+
+المثال التالي يحمل عرض تقديمي، يجد أول شكل تلقائي متعدد الأعمدة يحتوي على إطار نص، يقرأ عدد الأعمدة المكوَّن، ويكتب النص من كل عمود إلى ملف منفصل. تُتجاوز الأشكال التي لا توفر إطار نص.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **تحديث النص**
 
-تمكنك Aspose.Slides من تغيير أو تحديث النص الموجود في مربع نص أو جميع النصوص الموجودة في عرض تقديمي.
+لتحديث النص في جميع أنحاء العرض التقديمي، كرّر عبر الشرائح والأشكال، اختر الأشكال التلقائية، ثم حرّر أقسام النص الخاصة بها. يتيح العمل على مستوى الجزء تغيير كل من النص وتنسيق الأحرف.
+
+المثال التالي يستبدل كل ظهور لـ `years` بـ `months` في نص الشكل التلقائي ويجعل كل جزء متأثر بالاستبدال **غامق**:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // يتحقق مما إذا كان الشكل يدعم إطار النص (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // يتنقل عبر الفقرات في إطار النص
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // يتنقل عبر كل جزء في الفقرة
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// يغيّر النص
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// يغيّر التنسيق
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // يحفظ العرض التقديمي المعدل
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **إضافة مربع نص مع ارتباط تشعبي** 
+هذا التجوال يُحدّث النص فقط في الأشكال التلقائية. النص المخزَّن في الجداول أو المخططات أو SmartArt أو الأشكال المجمعة يتطلب تجوال مجموعات تلك الكائنات الخاصة.
 
-يمكنك إدراج رابط داخل مربع نص. عند النقر على مربع النص، يُوجه المستخدمون لفتح الرابط.
+## **إضافة مربع نص مع ارتباط تشعبي**
 
-لإضافة مربع نص يحتوي على رابط، اتبع الخطوات التالية:
+يمكن تعيين ارتباط تشعبي إلى جزء نصي محدد، بحيث يكون ذلك الجزء فقط هو القابل للنقر. استخدم [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) لربط الجزء بعنوان URL خارجي.
 
-1. إنشاء نسخة من فئة `Presentation`.
-2. الحصول على مرجع للشفرة الأولى في العرض التقديمي الذي تم إنشاؤه حديثًا.
-3. إضافة كائن `AutoShape` مع `ShapeType` محددًا كـ `Rectangle` في موضع محدد على الشريحة واحصل على مرجع لكائن AutoShape المضاف حديثًا.
-4. إضافة `TextFrame` إلى كائن `AutoShape` وتعيين نص الجزئية الأولى. في المثال أدناه، استخدمنا هذا النص: *Aspose.Slides*
-5. الحصول على `HyperlinkManager` لتلك الجزئية عبر `PortionFormat` الخاصة بها.
-6. استدعاء `setExternalHyperlinkClick` على `HyperlinkManager` لإرفاق الرابط بالجزئية.
-7. أخيرًا، احفظ ملف PPTX عبر كائن `Presentation`.
+المثال التالي ينشئ نصًا مرتبطًا ويحفظه إلى عرض تقديمي:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// إنشاء كائن من فئة Presentation التي تمثل ملف PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // الحصول على الشريحة الأولى في العرض التقديمي
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة كائن AutoShape مع تعيين النوع كـ Rectangle
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // تحويل الشكل إلى AutoShape
-    var pptxAutoShape = shape;
-    // الوصول إلى خاصية ITextFrame المرتبطة بـ AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // إضافة بعض النص إلى الإطار
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // تعيين الارتباط التشعبي لنص الجزء
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // حفظ العرض التقديمي بصيغة PPTX
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما الفرق بين مربع النص وعلامة النص النائبة عند العمل مع الشرائح الرئيسة؟**
+**ما هو الفرق بين مربع النص وعنصر النائب للنص على شريحة رئيسية أو شريحة تخطيط؟**
 
-[placeholder](/slides/ar/nodejs-java/manage-placeholder/) يرث النمط/الموقع من [master](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/) ويمكن تجاوزه في [layouts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/)، بينما مربع النص العادي هو كائن مستقل على شريحة محددة ولا يتغير عندما تقوم بتبديل التخطيطات.
+يمكن لـ [placeholder](/slides/ar/nodejs-java/manage-placeholder/) أن يرث موضعه وتنسيقه من [master slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/) أو [layout slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/). مربع النص العادي هو شكل مستقل على الشريحة التي تم إنشاؤه فيها ولا يكتسب سلوك العنصر النائب عندما تتغير التخطيط.
 
-**كيف يمكنني إجراء استبدال نصي جماعي عبر العرض التقديمي دون التأثير على النص داخل المخططات والجداول وSmartArt؟**
+**كيف يمكنني استبدال النص دون تغيير النص في المخططات أو الجداول أو SmartArt؟**
 
-قصر التكرار على الأشكال التلقائية التي تحتوي على إطارات نص واستبعاد الكائنات المضمنة ([charts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chart/)، [tables](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/table/)، [SmartArt](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/smartart/)) عن طريق استعراض مجموعاتها بشكل منفصل أو تخطي تلك الأنواع من الكائنات.
+حدِّد التجوال على الأشكال التي هي نسخ من [AutoShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/autoshape/)، كما هو موضح في مثال تحديث النص. المخططات والجداول وSmartArt تخزن النص في نماذج الأشياء الخاصة بها، لذا لا يتم تعديلها بهذه الحلقة.

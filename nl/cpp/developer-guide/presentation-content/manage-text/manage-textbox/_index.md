@@ -1,6 +1,6 @@
 ---
-title: "Beheer tekstvakken in presentaties met C++"
-linktitle: "Beheer tekstvak"
+title: Beheer tekstvakken in presentaties met C++
+linktitle: Beheer tekstvak
 type: docs
 weight: 20
 url: /nl/cpp/manage-textbox/
@@ -9,7 +9,7 @@ keywords:
 - tekstframe
 - tekst toevoegen
 - tekst bijwerken
-- tekstvak maken
+- tekstvak aanmaken
 - tekstvak controleren
 - tekstkolom toevoegen
 - hyperlink toevoegen
@@ -17,113 +17,88 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ maakt het eenvoudig om tekstvakken te maken, bewerken en te klonen in PowerPoint- en OpenDocument‑bestanden, waardoor je presentatiesautomatisering wordt verbeterd."
+description: "Maak, identificeer, formatteer en werk tekstvakken bij in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor C++."
 ---
 ## **Inleiding**
 
-Teksten op dia's bestaan doorgaans in tekstvakken of vormen. Daarom moet je, om tekst aan een dia toe te voegen, een tekstvak toevoegen en vervolgens wat tekst in het tekstvak plaatsen. Aspose.Slides for C++ biedt de [IAutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_auto_shape) interface die je in staat stelt een vorm met tekst toe te voegen.
+In Aspose.Slides voor C++ wordt de tekst van dia's opgeslagen in tekstframes die bij vormen horen. De [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) interface vertegenwoordigt de meest voorkomende vorm die tekst bevat en geeft de tekst weer via de [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/get_textframe/) methode.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides biedt ook de [IShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_shape) interface die je in staat stelt vormen aan dia's toe te voegen. Echter, niet alle vormen die via de `IShape` interface worden toegevoegd, kunnen tekst bevatten. Maar vormen die via de [IAutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_auto_shape) interface worden toegevoegd, kunnen tekst bevatten.
-{{% /alert %}}
+{{% alert color="info" title="Opmerking" %}}
 
-{{% alert title="Opmerking" color="warning" %}} 
-Daarom, wanneer je met een vorm werkt waaraan je tekst wilt toevoegen, wil je mogelijk controleren en bevestigen dat deze via de `IAutoShape` interface is gecast. Alleen dan kun je werken met [TextFrame](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.text_frame), welke een eigenschap is van `IAutoShape`. Zie de sectie [Update Text](https://docs.aspose.com/slides/nl/cpp/manage-textbox/#update-text) op deze pagina. 
+Elke auto‑vorm implementeert [IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/), maar niet elke vorm is een auto‑vorm of ondersteunt een tekstframe. Controleer bij het verwerken van een bestaande presentatie of een vorm [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) implementeert voordat u de tekst benadert.
+
 {{% /alert %}}
 
 ## **Maak een tekstvak op een dia**
 
-Om een tekstvak op een dia te maken, volg je de volgende stappen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.presentation) klasse. 
-2. Verkrijg een referentie naar de eerste dia in de nieuw aangemaakte presentatie. 
-3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_auto_shape) object toe met [ShapeType](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c) ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg de referentie naar het nieuw toegevoegde `IAutoShape` object. 
-4. Voeg een `TextFrame` eigenschap toe aan het `IAutoShape` object die tekst zal bevatten. In het onderstaande voorbeeld voegden we deze tekst toe: *Aspose TextBox*
-5. Schrijf tenslotte het PPTX‑bestand via het `Presentation` object. 
-
-Deze C++‑code—een implementatie van de bovenstaande stappen—toont hoe je tekst aan een dia kunt toevoegen:
+Om een tekstvak te maken, voegt u een auto‑vorm toe aan een dia, voegt u tekst toe aan het tekstframe en slaat u de presentatie op. Het volgende voorbeeld maakt een rechthoekig tekstvak:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Instantieert een presentatie
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// Haalt de eerste dia op in de presentatie
-auto sld = pres->get_Slides()->idx_get(0);
-
-// Voegt een AutoShape toe met type ingesteld op Rectangle
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Voegt een TextFrame toe aan de Rectangle
-ashp->AddTextFrame(u" ");
-
-// Benadert het tekstframe
-auto txtFrame = ashp->get_TextFrame();
-
-// Maakt het Paragraph‑object voor het tekstframe
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Maakt een Portion‑object voor de alinea
-auto portion = para->get_Portions()->idx_get(0);
-
-// Stelt tekst in
-portion->set_Text(u"Aspose TextBox");
-
-// Slaat de presentatie op schijf
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
 
-## **Controleer op een tekstvak‑vorm**
+De coördinaten en afmetingen die aan [IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addautoshape/) worden doorgegeven, worden gemeten in points. [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/addtextframe/) initialiseert het tekstframe met de opgegeven tekst.
 
-Aspose.Slides biedt de [get_IsTextBox](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/get_istextbox/) methode van de [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) interface, waarmee je vormen kunt onderzoeken en tekstvakken kunt identificeren.
+## **Controleren op een tekstvakvorm**
 
-![Text box and shape](istextbox.png)
+Gebruik de [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/get_istextbox/) methode om te bepalen of een auto‑vorm wordt behandeld als een tekstvak. Dit is handig wanneer een presentatie zowel tekstdragende als puur grafische auto‑vormen bevat.
 
-Deze C++‑code laat zien hoe je kunt controleren of een vorm als tekstvak is gemaakt: 
+![Een tekstvak en een vorm](istextbox.png)
 
-```c++
+Het volgende voorbeeld inspecteert elke auto‑vorm in een presentatie:
+
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-Let op dat als je eenvoudig een autovorm toevoegt met behulp van de `AddAutoShape` methode van de [IShapeCollection](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/) interface, de `get_IsTextBox` methode van de autovorm `false` zal retourneren. Echter, nadat je tekst aan de autovorm hebt toegevoegd met de `AddTextFrame` methode of de `set_Text` methode, retourneert de `get_IsTextBox` methode `true`.
+Een nieuw toegevoegde auto‑vorm wordt pas als tekstvak beschouwd wanneer deze niet‑lege tekst bevat. U kunt die tekst leveren via [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/addtextframe/) of [ITextFrame::set_Text](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/set_text/). Het toevoegen of toewijzen van een lege string zorgt ervoor dat [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/get_istextbox/) `false` retourneert:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -132,7 +107,9 @@ Let op dat als je eenvoudig een autovorm toevoegt met behulp van de `AddAutoShap
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -140,155 +117,152 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox() geeft false terug
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox() geeft true terug
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox() geeft false terug
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox() geeft true terug
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox() geeft false terug
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox() geeft false terug
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox() geeft false terug
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox() geeft false terug
+Console::WriteLine(shape4->get_IsTextBox());
 ```
+
+De eerste twee controles retourneren `true`; de laatste twee retourneren `false`.
 
 ## **Vind de vorm die een tekstframe bezit**
 
-In generieke tekstverwerkingscode kun je een [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) ontvangen zonder te weten welk presentatie‑object het bevat. Gebruik [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentshape/) om terug te navigeren naar de eigende [IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/).
+Generieke tekstverwerkingscode kan een [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) ontvangen zonder te weten welk presentatie‑object het bevat. Gebruik de [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentshape/) methode om terug te navigeren naar de eigenaar‑[IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/).
 
-Voor een tekstframe dat behoort tot een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) of een andere vorm met tekst, retourneert [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentshape/) de eigenaar en retourneert [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr`. Beide methoden bieden alleen‑lezen navigatie, dus het aanroepen ervan verandert de eigendom niet. Controleer altijd de geretourneerde waarde op `nullptr` voordat je de vorm benadert.
-
-Voor een volledig voorbeeld dat vorm‑ en tabelcel‑eigenaars identificeert, inclusief vormen die gekoppeld zijn aan SmartArt‑knopen, zie [Zoeken en vervangen van tekst](/slides/nl/cpp/search-and-replace-text/).
+Voor een tekstframe dat eigendom is van een auto‑vorm of een andere tekstdragende vorm, retourneert [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentshape/) de eigenaar en retourneert [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr`. Beide methoden bieden alleen‑lezen navigatie. Controleer de geretourneerde waarde op `nullptr` voordat u er toegang toe krijgt. Zie voor het identificeren van zowel vorm‑ als tabelcel‑eigenaars, inclusief vormen die gekoppeld zijn aan SmartArt‑knopen, [Search and Replace Text](/slides/nl/cpp/search-and-replace-text/).
 
 ## **Kolommen toevoegen aan een tekstvak**
 
-Aspose.Slides biedt de [set_ColumnCount](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) en [set_ColumnSpacing](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) methoden (van de [ITextFrameFormat](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_text_frame_format) interface en de [TextFrameFormat](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_text_frame_format) klasse) die je in staat stellen kolommen toe te voegen aan tekstvakken. Je kunt het aantal kolommen in een tekstvak opgeven en de tussenruimte in punten tussen de kolommen instellen.
+De [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformat/set_columncount/) methode verdeelt het tekstframe in kolommen, terwijl [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformat/set_columnspacing/) de ruimte tussen kolommen in points instelt. Beide methoden behoren tot [ITextFrameFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformat/) en kunnen worden aangeroepen via het tekstframe van een bestaand tekstvak. Tekst stroomt tussen kolommen binnen dezelfde vorm; het gaat niet door naar een andere vorm.
 
-Deze C++‑code demonstreert de beschreven bewerking: 
+Het volgende voorbeeld maakt een drie‑kolom tekstvak met 10 points tussen de kolommen, slaat de presentatie op en leest de opgeslagen instellingen terug uit het uitvoerbestand:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// Haalt de eerste dia op in de presentatie
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// Voegt een AutoShape toe met als type Rectangle
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// Voegt een TextFrame toe aan de Rectangle
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// Haalt het tekstformaat van het TextFrame op
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// Specificeert het aantal kolommen in het TextFrame
-format->set_ColumnCount(3);
-
-// Specificeert de ruimte tussen kolommen
-format->set_ColumnSpacing(10);
-
-// Slaat de presentatie op
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **Kolommen toevoegen aan een tekstframe**
+## **Tekst extraheren uit afzonderlijke kolommen**
 
-Aspose.Slides for C++ biedt de [set_ColumnCount](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) methode (van de [ITextFrameFormat](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_text_frame_format) interface) die je in staat stelt kolommen toe te voegen in tekstframes. Met deze methode kun je het gewenste aantal kolommen in een tekstframe opgeven.
+Gebruik [ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/splittextbycolumns/) om de tekst op te halen die aan elke visuele kolom in een bestaand tekstframe is toegewezen. De methode retourneert één string per kolom, in kolom‑gebaseerde leesvolgorde. Een enkel‑kolom tekstframe levert een array met één element op, en een lege kolom wordt weergegeven door een lege string. De strings bevatten alleen platte tekst; formattering op segmentniveau wordt niet behouden.
 
-Deze C++‑code laat zien hoe je een kolom binnen een tekstframe kunt toevoegen:
+Dit is nuttig wanneer u moet:
+
+- Tekst extraheren terwijl de kolom‑gebaseerde leesvolgorde behouden blijft.
+- De inhoud van dia’s met meerdere kolommen indexeren of vergelijken.
+- Elke kolom exporteren naar een afzonderlijk bestand, databaseveld of andere bestemming.
+- Inspecteren hoe tekst wordt herverdeeld na het instellen van het kolomaantal met [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformat/set_columncount/) of de spatiëring met [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframeformat/set_columnspacing/), of bij het wijzigen van het lettertype of de grootte van het tekstframe.
+
+De methode rapporteert de tekst die verdeeld is binnen het huidige [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/); hij laat niet automatisch tekst vloeien tussen afzonderlijke vormen of tekstvakken. Kolomverdeling kan afhangen van beschikbare lettertypen en andere tekst‑layoutinstellingen, dus zorg ervoor dat de vereiste lettertypen beschikbaar zijn wanneer consistente resultaten belangrijk zijn.
+
+Het volgende voorbeeld laadt een presentatie, vindt de eerste auto‑vorm met meerdere kolommen en een tekstframe op de eerste dia, leest het geconfigureerde kolomaantal, en schrijft de tekst van elke kolom naar een afzonderlijk bestand. Vormen die geen tekstframe bieden, worden overgeslagen.
 
 ```cpp
-#include <DOM/AutoShape.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::IO;
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
 }
 
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+if (textBox == nullptr)
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
+    Console::WriteLine(u"No multi-column text frame was found.");
 }
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+else
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
 }
 ```
 
 ## **Tekst bijwerken**
 
-Aspose.Slides stelt je in staat de tekst in een tekstvak of alle teksten in een presentatie te wijzigen of bij te werken.
+Om tekst door de hele presentatie heen bij te werken, doorloopt u de dia’s en vormen, selecteert u auto‑vormen en bewerkt u vervolgens hun tekstsegmenten. Werken op segmentniveau stelt u in staat zowel tekst als teken‑formattering te wijzigen.
 
-Deze C++‑code demonstreert een bewerking waarbij alle teksten in een presentatie worden bijgewerkt of gewijzigd:
+Het volgende voorbeeld vervangt elke instantie van `years` door `months` binnen individuele auto‑vormtekstsegmenten en maakt elk getroffen segment vet:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -298,27 +272,38 @@ Deze C++‑code demonstreert een bewerking waarbij alle teksten in een presentat
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //Wijzigt tekst
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //Wijzigt opmaak
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -326,78 +311,52 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//Slaat gewijzigde presentatie op
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **Een tekstvak met hyperlink toevoegen**
+Deze doorloop werkt alleen tekst bij in auto‑vormen. Tekst die is opgeslagen in tabellen, grafieken, SmartArt of gegroepeerde vormen vereist een doorloop van de collecties van die objecten.
 
-Je kunt een link in een tekstvak invoegen. Wanneer op het tekstvak wordt geklikt, worden gebruikers doorgestuurd naar de link. 
+## **Een tekstvak met een hyperlink toevoegen**
 
-Om een tekstvak met een link toe te voegen, doorloop je de volgende stappen:
+Een hyperlink kan worden toegewezen aan een specifiek tekstsegment, zodat alleen die tekst als klikbare link fungeert. Gebruik [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) om het segment te koppelen aan een externe URL.
 
-1. Maak een instantie van de `Presentation` klasse. 
-2. Verkrijg een referentie naar de eerste dia in de nieuw aangemaakte presentatie. 
-3. Voeg een `AutoShape` object toe met `ShapeType` ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg een referentie naar het nieuw toegevoegde AutoShape object.
-4. Voeg een `TextFrame` toe aan het `AutoShape` object dat *Aspose TextBox* als standaardtekst bevat. 
-5. Instantieser de `IHyperlinkManager` klasse. 
-6. Wijs het `IHyperlinkManager` object toe aan de [set_HyperlinkClick](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) methode die gekoppeld is aan het gewenste gedeelte van de `TextFrame`. 
-7. Schrijf tenslotte het PPTX‑bestand via het `Presentation` object. 
-
-Deze C++‑code—een implementatie van de bovenstaande stappen—laat zien hoe je een tekstvak met een hyperlink aan een dia kunt toevoegen:
+Het volgende voorbeeld maakt gelinkte tekst en slaat deze op in een presentatie:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Instantieert een Presentation‑klasse die een PPTX vertegenwoordigt
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// Haalt de eerste dia op in de presentatie
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// Voegt een AutoShape‑object toe met type ingesteld op Rectangle
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// Converteert de vorm naar AutoShape
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// Benadert de ITextFrame‑eigenschap die bij de AutoShape hoort
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// Voegt wat tekst toe aan het frame
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// Stelt de hyperlink in voor de portion‑tekst
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// Slaat de PPTX‑presentatie op
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**Wat is het verschil tussen een tekstvak en een tekst‑placeholder wanneer je werkt met masterslides?**
+**Wat is het verschil tussen een tekstvak en een placeholder op een master- of layoutdia?**
 
-Een [placeholder](/slides/nl/cpp/manage-placeholder/) erft stijl/positie van de [master](https://reference.aspose.com/slides/nl/cpp/aspose.slides/masterslide/) en kan worden overschreven op [layouts](https://reference.aspose.com/slides/nl/cpp/aspose.slides/layoutslide/), terwijl een regulier tekstvak een onafhankelijk object is op een specifieke dia en niet verandert wanneer je van layout wisselt.
+Een [placeholder](/slides/nl/cpp/manage-placeholder/) kan zijn positie en opmaak erven van een [master‑slide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/masterslide/) of een [layout‑slide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/layoutslide/). Een regulier tekstvak is een onafhankelijke vorm op de dia waarop het is aangemaakt en krijgt geen placeholder‑gedrag wanneer de layout verandert.
 
-**Hoe kan ik een bulk-tekstvervanging uitvoeren in de hele presentatie zonder de tekst in grafieken, tabellen en SmartArt aan te raken?**
+**Hoe kan ik tekst vervangen zonder tekst in grafieken, tabellen of SmartArt te wijzigen?**
 
-Beperk je iteratie tot auto‑vormen die tekstframes bevatten en sluit ingesloten objecten ([charts](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/nl/cpp/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/nl/cpp/aspose.slides.smartart/smartart/)) uit door hun collecties afzonderlijk te doorlopen of die objecttypen over te slaan.
+Beperk de doorloop tot vormen die [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) implementeren, zoals getoond in het voorbeeld Tekst bijwerken. Grafieken, tabellen en SmartArt slaan tekst op in hun eigen objectmodellen, waardoor ze niet worden aangepast door die lus.

@@ -1,5 +1,5 @@
 ---
-title: C++을 사용한 프레젠테이션 텍스트 상자 관리
+title: C++를 사용하여 프레젠테이션에서 텍스트 상자 관리
 linktitle: 텍스트 상자 관리
 type: docs
 weight: 20
@@ -17,113 +17,88 @@ keywords:
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하면 PowerPoint 및 OpenDocument 파일에서 텍스트 상자를 쉽게 생성, 편집 및 복제할 수 있어 프레젠테이션 자동화를 향상시킵니다."
+description: "Aspose.Slides for C++를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 텍스트 상자를 만들고, 식별하고, 서식 지정하고, 업데이트합니다."
 ---
 ## **소개**
 
-슬라이드의 텍스트는 일반적으로 텍스트 상자나 도형에 존재합니다. 따라서 슬라이드에 텍스트를 추가하려면 텍스트 상자를 추가한 다음 텍스트 상자 안에 텍스트를 넣어야 합니다. Aspose.Slides for C++는 텍스트를 포함하는 도형을 추가할 수 있는 [IAutoShape](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_auto_shape) 인터페이스를 제공합니다.
+Aspose.Slides for C++에서 슬라이드 텍스트는 도형에 속하는 텍스트 프레임에 저장됩니다. [IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/) 인터페이스는 가장 일반적인 텍스트가 포함된 도형을 나타내며, 해당 텍스트를 [IAutoShape::get_TextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/get_textframe/) 메서드를 통해 노출합니다.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides는 슬라이드에 도형을 추가할 수 있는 [IShape](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_shape) 인터페이스도 제공합니다. 그러나 `IShape` 인터페이스를 통해 추가된 모든 도형이 텍스트를 포함할 수 있는 것은 아닙니다. 하지만 [IAutoShape](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_auto_shape) 인터페이스를 통해 추가된 도형은 텍스트를 포함할 수 있습니다. 
-{{% /alert %}}
+{{% alert color="info" title="Note" %}}
 
-{{% alert title="Note" color="warning" %}} 
-따라서 텍스트를 추가하려는 도형을 다룰 때는 해당 도형이 `IAutoShape` 인터페이스를 통해 캐스팅되었는지 확인하고 확인하는 것이 좋습니다. 이렇게 해야만 `IAutoShape` 아래의 속성인 [TextFrame](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.text_frame)를 사용할 수 있습니다. 이 페이지의 [Update Text](https://docs.aspose.com/slides/ko/cpp/manage-textbox/#update-text) 섹션을 참조하십시오. 
+모든 자동 도형은 [IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/)을 구현하지만, 모든 도형이 자동 도형이거나 텍스트 프레임을 지원하는 것은 아닙니다. 기존 프레젠테이션을 처리할 때, 텍스트에 접근하기 전에 도형이 [IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/)을 구현하는지 확인하십시오.
+
 {{% /alert %}}
 
 ## **슬라이드에 텍스트 상자 만들기**
 
-텍스트 상자를 슬라이드에 만들려면 다음 단계를 수행합니다:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.presentation) 클래스의 인스턴스를 생성합니다. 
-2. 새로 만든 프레젠테이션의 첫 번째 슬라이드에 대한 참조를 가져옵니다. 
-3. 슬라이드의 지정된 위치에 `Rectangle`으로 설정된 [ShapeType](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_geometry_shape#ad941a828a2d9dd58ae1417b5c00c9a5c)을 가진 [IAutoShape](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_auto_shape) 객체를 추가하고 새로 추가된 `IAutoShape` 객체에 대한 참조를 가져옵니다. 
-4. `IAutoShape` 객체에 텍스트를 포함할 `TextFrame` 속성을 추가합니다. 아래 예제에서는 이 텍스트를 추가했습니다: *Aspose TextBox* 
-5. 마지막으로 `Presentation` 객체를 통해 PPTX 파일을 저장합니다. 
-
-이 C++ 코드—위 단계의 구현—는 슬라이드에 텍스트를 추가하는 방법을 보여줍니다:
+텍스트 상자를 만들려면 슬라이드에 자동 도형을 추가하고, 해당 도형의 텍스트 프레임에 텍스트를 추가한 다음 프레젠테이션을 저장합니다. 다음 예제는 직사각형 텍스트 상자를 생성합니다:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// 프레젠테이션 인스턴스 생성
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+textBox->AddTextFrame(u"Aspose TextBox");
 
-// 프레젠테이션의 첫 번째 슬라이드 가져오기
-auto sld = pres->get_Slides()->idx_get(0);
-
-// 형식을 Rectangle로 설정하여 AutoShape 추가
-auto ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 75.0f, 150.0f, 50.0f);
-
-// Rectangle에 TextFrame 추가
-ashp->AddTextFrame(u" ");
-
-// 텍스트 프레임에 접근
-auto txtFrame = ashp->get_TextFrame();
-
-// 텍스트 프레임용 Paragraph 객체 생성
-auto para = txtFrame->get_Paragraphs()->idx_get(0);
-
-// Paragraph용 Portion 객체 생성
-auto portion = para->get_Portions()->idx_get(0);
-
-// 텍스트 설정
-portion->set_Text(u"Aspose TextBox");
-
-// 프레젠테이션을 디스크에 저장
-pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextBox.pptx", SaveFormat::Pptx);
 ```
+
+[IShapeCollection::AddAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishapecollection/addautoshape/)에 전달되는 좌표와 크기는 포인트 단위로 측정됩니다. [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/addtextframe/)은 제공된 텍스트로 텍스트 프레임을 초기화합니다.
 
 ## **텍스트 상자 도형 확인**
 
-Aspose.Slides는 [IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/) 인터페이스의 [get_IsTextBox](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/get_istextbox/) 메서드를 제공하여 도형을 검사하고 텍스트 상자를 식별할 수 있게 합니다.
+[IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/get_istextbox/) 메서드를 사용하여 자동 도형이 텍스트 상자로 처리되는지 판단합니다. 프레젠테이션에 텍스트가 포함된 도형과 순수 그래픽 자동 도형이 모두 포함된 경우에 유용합니다.
 
-![Text box and shape](istextbox.png)
+![텍스트 상자와 도형](istextbox.png)
 
-이 C++ 코드에서는 도형이 텍스트 상자로 생성되었는지 확인하는 방법을 보여줍니다:
+다음 예제는 프레젠테이션의 모든 자동 도형을 검사합니다:
 
-```c++
+```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/Presentation.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
 #include <system/console.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-for (auto&& slide : System::IterateOver(presentation->get_Slides()))
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+textBox->AddTextFrame(u"Text box");
+slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
+
+for (const auto& currentSlide : IterateOver(presentation->get_Slides()))
 {
-    for (auto&& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(currentSlide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape != nullptr)
         {
-            auto autoShape = ExplicitCast<IAutoShape>(shape);
-            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"The shape is a text box." : u"The shape is not a text box.");
         }
     }
 }
-
-presentation->Dispose();
 ```
 
-`AddAutoShape` 메서드를 사용해 [IShapeCollection](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishapecollection/) 인터페이스에서 자동 도형을 추가하면 해당 자동 도형의 `get_IsTextBox` 메서드는 `false`를 반환합니다. 그러나 `AddTextFrame` 메서드 또는 `set_Text` 메서드를 사용해 자동 도형에 텍스트를 추가하면 `get_IsTextBox` 메서드는 `true`를 반환합니다.
+새로 추가된 자동 도형은 비어 있지 않은 텍스트를 포함하기 전까지 텍스트 상자로 간주되지 않습니다. 해당 텍스트는 [IAutoShape::AddTextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/addtextframe/) 또는 [ITextFrame::set_Text](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/set_text/)를 통해 제공할 수 있습니다. 빈 문자열을 추가하거나 할당하면 [IAutoShape::get_IsTextBox](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/get_istextbox/)가 `false`를 반환합니다:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -132,7 +107,9 @@ presentation->Dispose();
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace System;
 
@@ -140,155 +117,152 @@ auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->get_IsTextBox()는 false를 반환합니다
-shape1->AddTextFrame(u"shape 1");
-// shape1->get_IsTextBox()는 true를 반환합니다
+shape1->AddTextFrame(u"Shape 1");
+Console::WriteLine(shape1->get_IsTextBox());
 
-auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->get_IsTextBox()는 false를 반환합니다
-shape2->get_TextFrame()->set_Text(u"shape 2");
-// shape2->get_IsTextBox()는 true를 반환합니다
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+shape2->get_TextFrame()->set_Text(u"Shape 2");
+Console::WriteLine(shape2->get_IsTextBox());
 
-auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->get_IsTextBox()는 false를 반환합니다
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
 shape3->AddTextFrame(u"");
-// shape3->get_IsTextBox()는 false를 반환합니다
+Console::WriteLine(shape3->get_IsTextBox());
 
-auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->get_IsTextBox()는 false를 반환합니다
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
 shape4->get_TextFrame()->set_Text(u"");
-// shape4->get_IsTextBox()는 false를 반환합니다
+Console::WriteLine(shape4->get_IsTextBox());
 ```
+
+첫 번째와 두 번째 검사는 `true`를 반환하고, 마지막 두 검사는 `false`를 반환합니다.
 
 ## **텍스트 프레임을 소유하는 도형 찾기**
 
-일반 텍스트 처리 코드에서는 어느 프레젠테이션 객체에 포함되어 있는지 모른 채 [ITextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/)를 받을 수 있습니다. [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentshape/)을 사용해 소유자 [IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/)로 돌아갈 수 있습니다.
+일반 텍스트 처리 코드는 어느 프레젠테이션 객체에 포함되어 있는지 모르는 [ITextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/)을 받을 수 있습니다. [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentshape/) 메서드를 사용하여 소유 도형인 [IShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/)으로 돌아갈 수 있습니다.
 
-[IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/) 또는 다른 텍스트를 포함하는 도형에 속한 텍스트 프레임의 경우, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentshape/)은 소유자를 반환하고 [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentcell/)은 `nullptr`를 반환합니다. 두 메서드는 읽기 전용 탐색을 제공하므로 호출해도 소유권이 변경되지 않습니다. 도형에 접근하기 전에 항상 반환값이 `nullptr`인지 확인하세요.
-
-스마트아트 노드와 연결된 도형을 포함하여 도형 및 테이블 셀 소유자를 식별하는 전체 예제는 [Search and Replace Text](/slides/ko/cpp/search-and-replace-text/)를 참고하십시오.
+자동 도형이나 다른 텍스트가 포함된 도형이 소유하는 텍스트 프레임의 경우, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentshape/)은 소유자를 반환하고 [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/get_parentcell/)은 `nullptr`를 반환합니다. 두 메서드 모두 읽기 전용 탐색을 제공하므로, 접근하기 전에 반환값이 `nullptr`인지 확인하십시오. SmartArt 노드와 연결된 도형을 포함한 도형 및 표 셀 소유자를 식별하려면 [Search and Replace Text](/slides/ko/cpp/search-and-replace-text/)를 참조하십시오.
 
 ## **텍스트 상자에 열 추가**
 
-Aspose.Slides는 [ITextFrameFormat](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_text_frame_format) 인터페이스와 [TextFrameFormat](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_text_frame_format) 클래스의 [set_ColumnCount](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) 및 [set_ColumnSpacing](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_text_frame_format#a5254ce6acdc2cd90f4db1c861a94716a) 메서드를 제공하여 텍스트 상자에 열을 추가할 수 있습니다. 텍스트 상자에 열 수를 지정하고 열 사이의 간격을 포인트 단위로 설정할 수 있습니다. 
+[ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframeformat/set_columncount/) 메서드는 텍스트 프레임을 열로 나누고, [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframeformat/set_columnspacing/) 메서드는 열 사이의 간격을 포인트 단위로 설정합니다. 두 메서드는 [ITextFrameFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframeformat/)에 속하며 기존 텍스트 상자의 텍스트 프레임을 통해 호출할 수 있습니다. 텍스트는 동일한 도형 내에서 열 사이에 재배치되며 다른 도형으로 흐르지는 않습니다.
 
-다음 C++ 코드가 설명된 작업을 보여줍니다:
+다음 예제는 열 간격 10포인트인 3열 텍스트 상자를 생성하고 프레젠테이션을 저장한 뒤 출력 파일에서 저장된 설정을 다시 읽어옵니다:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto presentation = System::MakeObject<Presentation>();
-// 프레젠테이션에서 첫 번째 슬라이드를 가져옵니다
-auto slide = presentation->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+textBox->AddTextFrame(u"This text is distributed automatically across all columns in the text box.");
 
-// 사각형으로 설정된 AutoShape 추가
-auto aShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
+auto textFrameFormat = textBox->get_TextFrame()->get_TextFrameFormat();
+textFrameFormat->set_ColumnCount(3);
+textFrameFormat->set_ColumnSpacing(10);
 
-// 사각형에 TextFrame 추가
-aShape->AddTextFrame(String(u"All these columns are limited to be within a single text container -- ") 
-    + u"you can add or delete text and the new or remaining text automatically adjusts " 
-    + u"itself to flow within the container. You cannot have text flow from one container " 
-    + u"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation->Save(u"TextBoxColumns.pptx", SaveFormat::Pptx);
 
-// TextFrame의 텍스트 형식 가져오기
-auto format = aShape->get_TextFrame()->get_TextFrameFormat();
-
-// TextFrame의 열 수 지정
-format->set_ColumnCount(3);
-
-// 열 사이 간격 지정
-format->set_ColumnSpacing(10);
-
-// 프레젠테이션 저장
-presentation->Save(u"ColumnCount.pptx", SaveFormat::Pptx);
+auto savedPresentation = MakeObject<Presentation>(u"TextBoxColumns.pptx");
+auto savedTextBox = ExplicitCast<IAutoShape>(savedPresentation->get_Slide(0)->get_Shape(0));
+auto savedFormat = savedTextBox->get_TextFrame()->get_TextFrameFormat();
+Console::WriteLine(u"Columns: {0}; spacing: {1} points", savedFormat->get_ColumnCount(), savedFormat->get_ColumnSpacing());
 ```
 
-## **텍스트 프레임에 열 추가**
+## **개별 열에서 텍스트 추출**
 
-Aspose.Slides for C++는 [ITextFrameFormat](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_text_frame_format) 인터페이스의 [set_ColumnCount](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.i_text_frame_format#a969f998a2573e1540250855ce67df620) 메서드를 제공하여 텍스트 프레임에 열을 추가할 수 있습니다. 이 메서드를 통해 텍스트 프레임에 원하는 열 수를 지정할 수 있습니다. 
+[ITextFrame::SplitTextByColumns](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/splittextbycolumns/)를 사용하여 기존 텍스트 프레임에서 각 시각적 열에 할당된 텍스트를 가져올 수 있습니다. 이 메서드는 열 기반 읽기 순서에 따라 각 열마다 하나의 문자열을 반환합니다. 단일 열 텍스트 프레임은 요소가 하나인 배열을 반환하고, 빈 열은 빈 문자열로 표시됩니다. 반환되는 문자열에는 순수 텍스트만 포함되며, 부분 수준 서식은 보존되지 않습니다.
 
-다음 C++ 코드가 텍스트 프레임에 열을 추가하는 방법을 보여줍니다:
+다음과 같은 경우에 유용합니다:
+
+- 열 기반 읽기 순서를 유지하면서 텍스트를 추출해야 할 때.
+- 다중 열 슬라이드의 내용을 인덱싱하거나 비교할 때.
+- 각 열을 별도의 파일, 데이터베이스 필드 또는 다른 대상으로 내보낼 때.
+- [ITextFrameFormat::set_ColumnCount](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframeformat/set_columncount/) 또는 [ITextFrameFormat::set_ColumnSpacing](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframeformat/set_columnspacing/)으로 열 개수 또는 간격을 설정하거나 글꼴이나 텍스트 프레임 크기를 변경한 후 텍스트가 어떻게 재배치되는지 검사할 때.
+
+이 메서드는 현재 [ITextFrame](https://reference.aspose.com/slides/ko/cpp/aspose.slides/itextframe/)에 배포된 텍스트를 보고할 뿐이며, 별도의 도형이나 텍스트 상자 간에 자동으로 텍스트가 흐르지는 않습니다. 열 배포는 사용 가능한 글꼴 및 기타 텍스트 레이아웃 설정에 따라 달라질 수 있으므로, 일관된 결과가 중요할 때는 필요한 글꼴이 확보되어 있는지 확인하십시오.
+
+다음 예제는 프레젠테이션을 로드하고, 첫 번째 슬라이드에서 텍스트 프레임을 가진 첫 번째 다중 열 자동 도형을 찾아 구성된 열 개수를 읽은 뒤 각 열의 텍스트를 별도의 파일에 기록합니다. 텍스트 프레임을 제공하지 않는 도형은 건너뜁니다.
 
 ```cpp
-#include <DOM/AutoShape.h>
+#include <DOM/IAutoShape.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/TextFrameFormat.h>
-#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 #include <system/string.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::IO;
 
-String outPptxFileName = u"ColumnsTest.pptx";
-    
-auto pres = System::MakeObject<Presentation>();
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 300.0f);
-auto format = System::ExplicitCast<TextFrameFormat>(shape->get_TextFrame()->get_TextFrameFormat());
+auto presentation = MakeObject<Presentation>(u"MultiColumnText.pptx");
 
-format->set_ColumnCount(2);
-shape->get_TextFrame()->set_Text(String(u"All these columns are forced to stay within a single text container -- ") 
-    + u"you can add or delete text - and the new or remaining text automatically adjusts " 
-    + u"itself to stay within the container. You cannot have text spill over from one container " 
-    + u"to other, though -- because PowerPoint's column options for text are limited!");
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+SharedPtr<IAutoShape> textBox = nullptr;
+for (const auto& shape : IterateOver(presentation->get_Slide(0)->get_Shapes()))
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format1 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format1->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(std::numeric_limits<double>::quiet_NaN() == format1->get_ColumnSpacing());
+    auto autoShape = AsCast<IAutoShape>(shape);
+    if (autoShape != nullptr && autoShape->get_TextFrame() != nullptr)
+    {
+        auto columnCount = autoShape->get_TextFrame()->get_TextFrameFormat()->get_ColumnCount();
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
+    }
 }
 
-format->set_ColumnSpacing(20);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+if (textBox == nullptr)
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format2 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(2 == format2->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(20 == format2->get_ColumnSpacing());
+    Console::WriteLine(u"No multi-column text frame was found.");
 }
-
-format->set_ColumnCount(3);
-format->set_ColumnSpacing(15);
-pres->Save(outPptxFileName, SaveFormat::Pptx);
-
+else
 {
-    auto test = System::MakeObject<Presentation>(outPptxFileName);
-    auto format3 = System::ExplicitCast<AutoShape>(test->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0))->get_TextFrame()->get_TextFrameFormat();
-    CODEPORTING_DEBUG_ASSERT1(3 == format3->get_ColumnCount());
-    CODEPORTING_DEBUG_ASSERT1(15 == format3->get_ColumnSpacing());
+    auto textFrame = textBox->get_TextFrame();
+    auto configuredColumnCount = textFrame->get_TextFrameFormat()->get_ColumnCount();
+    auto columnTexts = textFrame->SplitTextByColumns();
+
+    Console::WriteLine(u"Configured columns: {0}", configuredColumnCount);
+
+    for (auto columnIndex = 0; columnIndex < columnTexts->get_Length(); columnIndex++)
+    {
+        auto columnNumber = columnIndex + 1;
+        auto columnText = columnTexts->idx_get(columnIndex);
+        Console::WriteLine(u"Column {0}: {1}", columnNumber, columnText);
+        auto fileName = String::Format(u"Column-{0}.txt", columnNumber);
+        File::WriteAllText(fileName, columnText);
+    }
 }
 ```
 
 ## **텍스트 업데이트**
 
-Aspose.Slides를 사용하면 텍스트 상자에 포함된 텍스트 또는 프레젠테이션에 포함된 모든 텍스트를 변경하거나 업데이트할 수 있습니다. 
+프레젠테이션 전체의 텍스트를 업데이트하려면 슬라이드와 도형을 순회하면서 자동 도형을 선택하고 해당 도형의 텍스트 부분을 편집합니다. 부분 수준에서 작업하면 텍스트와 문자 서식을 동시에 변경할 수 있습니다.
 
-다음 C++ 코드는 프레젠테이션의 모든 텍스트를 업데이트하거나 변경하는 작업을 보여줍니다:
+다음 예제는 각 자동 도형 텍스트 부분에서 `years`를 `months`로 교체하고, 영향을 받은 모든 부분을 굵게 만듭니다:
 
 ```cpp
 #include <DOM/IAutoShape.h>
-#include <DOM/NullableBool.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
 #include <DOM/IParagraph.h>
 #include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
@@ -298,27 +272,38 @@ Aspose.Slides를 사용하면 텍스트 상자에 포함된 텍스트 또는 프
 #include <DOM/ISlide.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 #include <system/enumerator_adapter.h>
 #include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto pres = System::MakeObject<Presentation>(u"text.pptx");
-for (const auto& slide : System::IterateOver(pres->get_Slides()))
+auto presentation = MakeObject<Presentation>(u"Text.pptx");
+
+for (const auto& slide : IterateOver(presentation->get_Slides()))
 {
-    for (const auto& shape : System::IterateOver(slide->get_Shapes()))
+    for (const auto& shape : IterateOver(slide->get_Shapes()))
     {
-        if (ObjectExt::Is<IAutoShape>(shape))
+        auto autoShape = AsCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
         {
-            auto autoShape = System::AsCast<IAutoShape>(shape);
-            for (const auto& paragraph : System::IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+            continue;
+        }
+
+        for (const auto& paragraph : IterateOver(autoShape->get_TextFrame()->get_Paragraphs()))
+        {
+            for (const auto& portion : IterateOver(paragraph->get_Portions()))
             {
-                for (const auto& portion : System::IterateOver(paragraph->get_Portions()))
+                auto text = portion->get_Text();
+                if (!String::IsNullOrEmpty(text) && text.Contains(u"years"))
                 {
-                    //텍스트를 변경합니다
-                    portion->set_Text(portion->get_Text().Replace(u"years", u"months"));
-                    //형식을 변경합니다
+                    portion->set_Text(text.Replace(u"years", u"months"));
                     portion->get_PortionFormat()->set_FontBold(NullableBool::True);
                 }
             }
@@ -326,78 +311,52 @@ for (const auto& slide : System::IterateOver(pres->get_Slides()))
     }
 }
 
-//수정된 프레젠테이션을 저장합니다
-pres->Save(u"text-changed.pptx", SaveFormat::Pptx);
+presentation->Save(u"TextChanged.pptx", SaveFormat::Pptx);
 ```
 
-## **하이퍼링크가 포함된 텍스트 상자 추가** 
+이 순회는 자동 도형의 텍스트만 업데이트합니다. 표, 차트, SmartArt 또는 그룹화된 도형에 저장된 텍스트는 해당 객체의 컬렉션을 별도로 순회해야 수정됩니다.
 
-텍스트 상자 안에 링크를 삽입할 수 있습니다. 텍스트 상자를 클릭하면 사용자는 해당 링크를 열도록 안내됩니다. 
+## **하이퍼링크가 있는 텍스트 상자 추가**
 
- 하이퍼링크가 포함된 텍스트 상자를 추가하려면 다음 단계를 수행합니다:
+하이퍼링크는 특정 텍스트 부분에 할당할 수 있으므로 해당 텍스트만 클릭 가능한 링크로 동작합니다. [IHyperlinkManager::SetExternalHyperlinkClick](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)를 사용하여 해당 부분을 외부 URL에 연결합니다.
 
-1. `Presentation` 클래스의 인스턴스를 생성합니다. 
-2. 새로 만든 프레젠테이션의 첫 번째 슬라이드에 대한 참조를 가져옵니다. 
-3. 슬라이드의 지정된 위치에 `Rectangle`으로 설정된 `ShapeType`을 가진 `AutoShape` 객체를 추가하고 새로 추가된 AutoShape 객체에 대한 참조를 가져옵니다. 
-4. `AutoShape` 객체에 기본 텍스트 *Aspose TextBox*를 포함하는 `TextFrame`을 추가합니다. 
-5. `IHyperlinkManager` 클래스를 인스턴스화합니다. 
-6. 원하는 `TextFrame` 부분에 연결된 [set_HyperlinkClick](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.shape#a617f857c862b71ac2093ed7866677a5c) 메서드에 `IHyperlinkManager` 객체를 할당합니다. 
-7. 마지막으로 `Presentation` 객체를 통해 PPTX 파일을 저장합니다. 
-
-이 C++ 코드—위 단계의 구현—는 슬라이드에 하이퍼링크가 포함된 텍스트 상자를 추가하는 방법을 보여줍니다:
+다음 예제는 하이퍼링크가 포함된 텍스트를 생성하고 프레젠테이션에 저장합니다:
 
 ```cpp
 #include <DOM/IAutoShape.h>
 #include <DOM/IHyperlinkManager.h>
 #include <DOM/IParagraph.h>
-#include <DOM/IParagraphCollection.h>
 #include <DOM/IPortion.h>
-#include <DOM/IPortionCollection.h>
 #include <DOM/IPortionFormat.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ITextFrame.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 
-// PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+textBox->AddTextFrame(u"Aspose.Slides");
 
-// 프레젠테이션에서 첫 번째 슬라이드를 가져옵니다
-auto slide = presentation->get_Slides()->idx_get(0);
+auto textPortion = textBox->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+textPortion->get_PortionFormat()->get_HyperlinkManager()->SetExternalHyperlinkClick(u"https://www.aspose.com/");
 
-// 형식을 Rectangle로 설정한 AutoShape 객체를 추가합니다
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150.0f, 150.0f, 150.0f, 50.0f);
-
-// 도형을 AutoShape로 캐스팅합니다
-auto autoShape = System::ExplicitCast<IAutoShape>(shape);
-
-// AutoShape와 연결된 ITextFrame 속성에 접근합니다
-autoShape->AddTextFrame(u"");
-
-auto textFrame = autoShape->get_TextFrame();
-
-// 프레임에 텍스트를 추가합니다
-textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->set_Text(u"Aspose.Slides");
-
-// 포션 텍스트에 하이퍼링크를 설정합니다
-auto linkManager = textFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0)->get_PortionFormat()->get_HyperlinkManager();
-linkManager->SetExternalHyperlinkClick(u"http://www.aspose.com");
-
-// PPTX 프레젠테이션을 저장합니다
-presentation->Save(u"hLinkPPTX_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"Hyperlink.pptx", SaveFormat::Pptx);
 ```
 
 ## **FAQ**
 
-**마스터 슬라이드 작업 시 텍스트 상자와 텍스트 플레이스홀더의 차이점은 무엇인가요?**
+**텍스트 상자와 마스터 혹은 레이아웃 슬라이드의 텍스트 자리표시자 사이의 차이점은 무엇인가요?**
 
-플레이스홀더([placeholder](/slides/ko/cpp/manage-placeholder/))는 [마스터](https://reference.aspose.com/slides/ko/cpp/aspose.slides/masterslide/)에서 스타일/위치를 상속받으며 [레이아웃](https://reference.aspose.com/slides/ko/cpp/aspose.slides/layoutslide/)에서 재정의될 수 있지만, 일반 텍스트 상자는 특정 슬라이드에 존재하는 독립 객체이며 레이아웃을 전환해도 변경되지 않습니다.
+[placeholder](/slides/ko/cpp/manage-placeholder/)는 [master slide](https://reference.aspose.com/slides/ko/cpp/aspose.slides/masterslide/) 또는 [layout slide](https://reference.aspose.com/slides/ko/cpp/aspose.slides/layoutslide/)에서 위치와 서식을 상속받을 수 있습니다. 일반 텍스트 상자는 생성된 슬라이드에 독립적인 도형이며 레이아웃이 변경되어도 자리표시자 동작을 획득하지 않습니다.
 
-**차트, 표 및 SmartArt 내부의 텍스트를 건드리지 않고 프레젠테이션 전체에서 대량 텍스트 교체를 수행하려면 어떻게 해야 하나요?**
+**차트, 표 또는 SmartArt의 텍스트를 변경하지 않고 텍스트만 교체하려면 어떻게 해야 하나요?**
 
-텍스트 프레임이 있는 자동 도형만 반복하고, 포함된 객체(차트[charts](https://reference.aspose.com/slides/ko/cpp/aspose.slides.charts/chart/), 표[tables](https://reference.aspose.com/slides/ko/cpp/aspose.slides/table/), SmartArt[smartart](https://reference.aspose.com/slides/ko/cpp/aspose.slides.smartart/smartart/))는 별도의 컬렉션을 순회하거나 해당 객체 유형을 건너뛰어 제외합니다.
+Update Text 예제와 같이 [IAutoShape](https://reference.aspose.com/slides/ko/cpp/aspose.slides/iautoshape/)을 구현하는 도형만 순회하도록 제한하십시오. 차트, 표 및 SmartArt는 자체 객체 모델에 텍스트를 저장하므로 해당 루프에서는 수정되지 않습니다.

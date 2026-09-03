@@ -17,292 +17,290 @@ keywords:
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP facilita a criação, edição e clonagem de caixas de texto em arquivos PowerPoint e OpenDocument, aprimorando a automação da sua apresentação."
+description: "Criar, identificar, formatar e atualizar caixas de texto em apresentações PowerPoint e OpenDocument usando Aspose.Slides para PHP via Java."
 ---
 ## **Introdução**
 
-Os textos em slides geralmente existem em caixas de texto ou formas. Portanto, para adicionar um texto a um slide, você deve adicionar uma caixa de texto e então inserir algum texto dentro da caixa de texto. O Aspose.Slides for PHP via Java fornece a classe [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) que permite adicionar uma forma contendo algum texto.
+Em Aspose.Slides para PHP via Java, o texto dos slides é armazenado em quadros de texto que pertencem a formas. A classe [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) representa a forma mais comum que contém texto e expõe seu texto através do método [AutoShape::getTextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
-O Aspose.Slides também fornece a classe [Shape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shape/) que permite adicionar formas aos slides. Entretanto, nem todas as formas adicionadas através da classe `Shape` podem conter texto. Mas as formas adicionadas através da classe [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) podem conter texto.
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-Portanto, ao lidar com uma forma à qual você deseja adicionar texto, pode ser necessário verificar e confirmar que ela foi convertida através da classe `AutoShape`. Só então você poderá trabalhar com [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/), que é uma propriedade da `AutoShape`. Consulte a seção [Update Text](/slides/pt/php-java/manage-textbox/#update-text) nesta página.
+{{% alert color="info" title="Nota" %}}
+Todo auto shape deriva de [Shape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shape/), mas nem toda forma é um auto shape ou oferece suporte a um quadro de texto. Ao processar uma apresentação existente, use `java_instanceof` para verificar se uma forma é um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) antes de acessar seu texto.
 {{% /alert %}}
 
 ## **Criar uma Caixa de Texto em um Slide**
 
-Para criar uma caixa de texto em um slide, siga estas etapas:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
-2. Obtenha uma referência para o primeiro slide na apresentação recém‑criada. 
-3. Adicione um objeto [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) com o tipo de forma definido como [Rectangle](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapetype/#Rectangle) em uma posição especificada no slide e obtenha a referência para o objeto `AutoShape` recém‑adicionado.
-4. Adicione um `TextFrame` ao objeto `AutoShape` que conterá um texto. No exemplo abaixo, adicionamos este texto: *Aspose TextBox*
-5. Por fim, grave o arquivo PPTX através do objeto `Presentation`. 
-
-Este código PHP — uma implementação das etapas acima — mostra como adicionar texto a um slide:
+Para criar uma caixa de texto, adicione um auto shape a um slide, adicione texto ao seu quadro de texto e salve a apresentação. O exemplo a seguir cria uma caixa de texto retangular:
 
 ```php
-  # Instancia a Apresentação
-  $pres = new Presentation();
-  try {
-    # Obtém o primeiro slide da apresentação
-    $sld = $pres->getSlides()->get_Item(0);
-    # Adiciona um AutoShape com o tipo definido como Retângulo
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # Adiciona um TextFrame ao Retângulo
-    $ashp->addTextFrame(" ");
-    # Acessa o quadro de texto
-    $txtFrame = $ashp->getTextFrame();
-    # Cria o objeto Paragraph para o quadro de texto
-    $para = $txtFrame->getParagraphs()->get_Item(0);
-    # Cria um objeto Portion para o parágrafo
-    $portion = $para->getPortions()->get_Item(0);
-    # Define o texto
-    $portion->setText("Aspose TextBox");
-    # Salva a apresentação no disco
-    $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-## **Verificar se é uma Forma de Caixa de Texto**
-
-O Aspose.Slides fornece o método [isTextBox](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/istextbox/) da classe [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/), permitindo examinar formas e identificar caixas de texto.
-
-![Text box and shape](istextbox.png)
-
-Este código PHP mostra como verificar se uma forma foi criada como caixa de texto:
-
-```php
-class ShapeCallback {
-    function invoke($shape, $slide, $index) {
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-            $autoShape = $shape;
-            echo(java_is_true($autoShape->isTextBox()) ? "shape is a text box" : "shape is not a text box");
-        }
-    }
-}
-
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
-    ForEach_::shape($presentation, $forEachShapeCallback);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 300, 50);
+    $textBox->addTextFrame("Aspose TextBox");
+
+    $presentation->save("TextBox.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Observe que se você simplesmente adicionar uma auto‑forma usando o método `addAutoShape` da classe [ShapeCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/), o método `isTextBox` da auto‑forma retornará `false`. Entretanto, após adicionar texto à auto‑forma usando o método `addTextFrame` ou o método `setText`, a propriedade `isTextBox` retornará `true`.
+As coordenadas e dimensões passadas para [ShapeCollection::addAutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/#addAutoShape) são medidas em pontos. [AutoShape::addTextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/#addTextFrame) inicializa o quadro de texto com o texto fornecido.
+
+## **Verificar se é uma Forma de Caixa de Texto**
+
+Use o método [AutoShape::isTextBox](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/#isTextBox) para determinar se um auto shape é tratado como uma caixa de texto. Isso é útil quando uma apresentação contém tanto auto shapes que carregam texto quanto auto shapes puramente gráficas.
+
+![Uma caixa de texto e uma forma](istextbox.png)
+
+O exemplo a seguir inspeciona cada auto shape em uma apresentação:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
-$slide = $presentation->getSlides()->get_Item(0);
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 120, 40);
+    $textBox->addTextFrame("Text box");
+    $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 150, 10, 40, 40);
 
-$shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
-// shape1->isTextBox() retorna false
-$shape1->addTextFrame("shape 1");
-// shape1->isTextBox() retorna true
-
-$shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
-// shape2->isTextBox() retorna false
-$shape2->getTextFrame()->setText("shape 2");
-// shape2->isTextBox() retorna true
-
-$shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
-// shape3->isTextBox() retorna false
-$shape3->addTextFrame("");
-// shape3->isTextBox() retorna false
-
-$shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
-// shape4->isTextBox() retorna false
-$shape4->getTextFrame()->setText("");
-// shape4->isTextBox() retorna false
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $currentSlide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($currentSlide->getShapes()->size()); $shapeIndex++) {
+            $shape = $currentSlide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $autoShapeClass)) {
+                echo (java_is_true($shape->isTextBox()) ? "The shape is a text box." : "The shape is not a text box.") . PHP_EOL;
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Um auto shape recém‑adicionado não é considerado uma caixa de texto até que contenha texto não vazio. Você pode fornecer esse texto através de [AutoShape::addTextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/#addTextFrame) ou [TextFrame::setText](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#setText). Definir ou atribuir uma string vazia faz com que [AutoShape::isTextBox](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/#isTextBox) retorne `false`:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+    $shape1->addTextFrame("Shape 1");
+    echo (java_is_true($shape1->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 100, 40);
+    $shape2->getTextFrame()->setText("Shape 2");
+    echo (java_is_true($shape2->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 100, 40);
+    $shape3->addTextFrame("");
+    echo (java_is_true($shape3->isTextBox()) ? "true" : "false") . PHP_EOL;
+
+    $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 100, 40);
+    $shape4->getTextFrame()->setText("");
+    echo (java_is_true($shape4->isTextBox()) ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+As duas primeiras chamadas imprimem `true`; as duas últimas imprimem `false`.
 
 ## **Encontrar a Forma que Possui um Quadro de Texto**
 
-Em código genérico de processamento de texto, você pode receber um [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) sem saber previamente qual objeto de apresentação o contém. Use o método [TextFrame::getParentShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#getParentShape) para navegar de volta ao [Shape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shape/) proprietário.
+Código genérico de processamento de texto pode receber um [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) sem saber a qual objeto de apresentação ele pertence. Use o método somente‑leitura [TextFrame::getParentShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#getParentShape) para voltar à sua [Shape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shape/) proprietária.
 
-Para um quadro de texto que pertence a um [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) ou outra forma que contenha texto, [TextFrame::getParentShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#getParentShape) retorna o proprietário e [TextFrame::getParentCell](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#getParentCell) retorna `null`. Ambos os métodos fornecem navegação somente‑leitura, de modo que chamá‑los não altera a propriedade. Sempre verifique o valor retornado com `java_is_null` antes de acessar a forma.
-
-Para um exemplo completo que identifica proprietários de formas e de células de tabela, incluindo formas associadas a nós de SmartArt, consulte [Search and Replace Text](/slides/pt/php-java/search-and-replace-text/).
+Para um quadro de texto pertencente a um auto shape ou outra forma que contém texto, [TextFrame::getParentShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#getParentShape) devolve o proprietário e [TextFrame::getParentCell](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#getParentCell) devolve `null`. Verifique o valor retornado com `java_is_null` antes de acessá‑lo. Para identificar tanto proprietários de forma quanto de célula de tabela, incluindo formas associadas a nós de SmartArt, consulte [Search and Replace Text](/slides/pt/php-java/search-and-replace-text/).
 
 ## **Adicionar Colunas a uma Caixa de Texto**
 
-O Aspose.Slides fornece os métodos [setColumnCount](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/setcolumncount/) e [setColumnSpacing](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/setcolumnspacing/) da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/) que permitem adicionar colunas a caixas de texto. Você pode especificar o número de colunas em uma caixa de texto e definir o espaçamento em pontos entre as colunas.
+O método [TextFrameFormat::setColumnCount](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/#setColumnCount) divide o quadro de texto em colunas, enquanto [TextFrameFormat::setColumnSpacing](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/#setColumnSpacing) define o espaço entre colunas em pontos. Ambas as configurações pertencem a [TextFrameFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/) e podem ser alteradas por meio do quadro de texto de uma caixa de texto existente. O texto é redistribuído entre colunas dentro da mesma forma; não continua em outra forma.
 
-Este código demonstra a operação descrita:
+O exemplo a seguir cria uma caixa de texto com três colunas e 10 pontos de espaçamento entre elas, salva a apresentação e lê as configurações armazenadas do arquivo de saída:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Obtém o primeiro slide da apresentação
-    $slide = $pres->getSlides()->get_Item(0);
-    # Adiciona um AutoShape com o tipo definido como Retângulo
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # Adiciona um TextFrame ao Retângulo
-    $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
-    # Obtém o formato de texto do TextFrame
-    $format = $aShape->getTextFrame()->getTextFrameFormat();
-    # Especifica o número de colunas no TextFrame
-    $format->setColumnCount(3);
-    # Especifica o espaçamento entre colunas
-    $format->setColumnSpacing(10);
-    # Salva a apresentação
-    $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 200);
+    $textBox->addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    $textFrameFormat = $textBox->getTextFrame()->getTextFrameFormat();
+    $textFrameFormat->setColumnCount(3);
+    $textFrameFormat->setColumnSpacing(10);
+
+    $presentation->save("TextBoxColumns.pptx", SaveFormat::Pptx);
+
+    $savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        $savedTextBox = $savedPresentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+        $savedFormat = $savedTextBox->getTextFrame()->getTextFrameFormat();
+        echo "Columns: " . java_values($savedFormat->getColumnCount()) . "; spacing: " . java_values($savedFormat->getColumnSpacing()) . " points" . PHP_EOL;
+    } finally {
+        $savedPresentation->dispose();
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Adicionar Colunas a um Quadro de Texto**
-O Aspose.Slides for PHP via Java fornece o método [setColumnCount](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/setcolumncount/) da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/) que permite adicionar colunas em quadros de texto. Por meio desta propriedade, você pode especificar o número desejado de colunas em um quadro de texto.
+## **Extrair Texto de Colunas Individuais**
 
-Este código PHP mostra como adicionar uma coluna dentro de um quadro de texto:
+Use [TextFrame::splitTextByColumns](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/#splitTextByColumns) para obter o texto atribuído a cada coluna visual em um quadro de texto existente. O método devolve uma string para cada coluna, na ordem de leitura baseada em colunas. Um quadro de texto de coluna única produz um array com um elemento, e uma coluna vazia é representada por uma string vazia. As strings contêm apenas texto puro; a formatação em nível de porção não é preservada.
+
+Isso é útil quando você precisa:
+
+- Extrair texto preservando a ordem de leitura baseada em colunas.
+- Indexar ou comparar o conteúdo de slides com múltiplas colunas.
+- Exportar cada coluna para um arquivo separado, campo de banco de dados ou outro destino.
+- Inspecionar como o texto é redistribuído após alterar a contagem de colunas com [TextFrameFormat::setColumnCount](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/#setColumnCount), o espaçamento com [TextFrameFormat::setColumnSpacing](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframeformat/#setColumnSpacing), a fonte ou o tamanho do quadro de texto.
+
+O método reporta o texto distribuído dentro do [TextFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/textframe/) atual; não envia automaticamente o texto entre formas ou caixas de texto separadas. A distribuição em colunas pode depender das fontes disponíveis e de outras configurações de layout de texto, portanto certifique‑se de que as fontes necessárias estejam presentes quando resultados consistentes forem importantes.
+
+O exemplo a seguir carrega uma apresentação, encontra o primeiro auto shape multi‑coluna com um quadro de texto, lê a contagem de colunas configurada e grava o texto de cada coluna em um arquivo separado. Formas que não fornecem um quadro de texto são ignoradas.
 
 ```php
-  $outPptxFileName = "ColumnsTest.pptx";
-  $pres = new Presentation();
-  try {
-    $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    $format = $shape1->getTextFrame()->getTextFrameFormat();
-    $format->setColumnCount(2);
-    $shape1->getTextFrame()->setText("All these columns are forced to stay within a single text container -- " . "you can add or delete text - and the new or remaining text automatically adjusts " . "itself to stay within the container. You cannot have text spill over from one container " . "to other, though -- because PowerPoint's column options for text are limited!");
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(Double->NaN == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test)) {
-        $test->dispose();
-      }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("MultiColumnText.pptx");
+try {
+    $textBox = null;
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapes = $presentation->getSlides()->get_Item(0)->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($shape, $autoShapeClass)) {
+            $textFrame = $shape->getTextFrame();
+            if (!java_is_null($textFrame)) {
+                $columnCount = java_values($textFrame->getTextFrameFormat()->getColumnCount());
+                if ($columnCount > 1) {
+                    $textBox = $shape;
+                    break;
+                }
+            }
+        }
     }
-    $format->setColumnSpacing(20);
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test1 = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test1->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(2 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(20 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test1)) {
-        $test1->dispose();
-      }
+
+    if ($textBox === null) {
+        echo "No multi-column text frame was found." . PHP_EOL;
+    } else {
+        $textFrame = $textBox->getTextFrame();
+        $configuredColumnCount = java_values($textFrame->getTextFrameFormat()->getColumnCount());
+        $columnTexts = java_values($textFrame->splitTextByColumns());
+
+        echo "Configured columns: " . $configuredColumnCount . PHP_EOL;
+
+        foreach ($columnTexts as $columnIndex => $columnText) {
+            $columnNumber = $columnIndex + 1;
+            echo "Column " . $columnNumber . ": " . $columnText . PHP_EOL;
+            $outputPath = "Column-" . $columnNumber . ".txt";
+            $bytesWritten = file_put_contents($outputPath, $columnText);
+            if ($bytesWritten === false) {
+                echo "Could not write column " . $columnNumber . " to " . $outputPath . PHP_EOL;
+            }
+        }
     }
-    $format->setColumnCount(3);
-    $format->setColumnSpacing(15);
-    $pres->save($outPptxFileName, SaveFormat::Pptx);
-    $test2 = new Presentation($outPptxFileName);
-    try {
-      $autoShape = $test2->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-      Assert->assertTrue(3 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnCount());
-      Assert->assertTrue(15 == $autoShape->getTextFrame()->getTextFrameFormat()->getColumnSpacing());
-    } finally {
-      if (!java_is_null($test2)) {
-        $test2->dispose();
-      }
-    }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Atualizar Texto**
 
-O Aspose.Slides permite mudar ou atualizar o texto contido em uma caixa de texto ou todos os textos contidos em uma apresentação. 
+Para atualizar texto em toda a apresentação, itere pelos slides e pelas formas, selecione auto shapes e então edite suas porções de texto. Trabalhar no nível de porção permite alterar tanto o texto quanto a formatação de caracteres.
 
-Este código PHP demonstra uma operação onde todos os textos de uma apresentação são atualizados ou alterados:
+O exemplo a seguir substitui cada ocorrência de `years` por `months` em textos de auto shapes e torna cada porção afetada em negrito:
 
 ```php
-  $pres = new Presentation("text.pptx");
-  try {
-    foreach($pres->getSlides() as $slide) {
-      foreach($slide->getShapes() as $shape) {
-        # Verifica se a forma suporta quadro de texto (IAutoShape).
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-          $autoShape = $shape;
-          # Itera pelos parágrafos no quadro de texto
-          foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # Itera por cada porção no parágrafo
-            foreach($paragraph->getPortions() as $portion) {
-              $portion->setText($portion->getText()->replace("years", "months"));// Altera o texto
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-              $portion->getPortionFormat()->setFontBold(NullableBool::True);// Altera a formatação
-
+$presentation = new Presentation("Text.pptx");
+try {
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($slide->getShapes()->size()); $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, $autoShapeClass)) {
+                continue;
             }
-          }
+
+            $textFrame = $shape->getTextFrame();
+            if (java_is_null($textFrame)) {
+                continue;
+            }
+
+            for ($paragraphIndex = 0; $paragraphIndex < java_values($textFrame->getParagraphs()->getCount()); $paragraphIndex++) {
+                $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+                for ($portionIndex = 0; $portionIndex < java_values($paragraph->getPortions()->getCount()); $portionIndex++) {
+                    $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                    $text = java_values($portion->getText());
+                    if ($text !== null && strpos($text, "years") !== false) {
+                        $updatedText = str_replace("years", "months", $text);
+                        $portion->setText($updatedText);
+                        $portion->getPortionFormat()->setFontBold(NullableBool::True);
+                    }
+                }
+            }
         }
-      }
     }
-    # Salva a apresentação modificada
-    $pres->save("text-changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("TextChanged.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Adicionar uma Caixa de Texto com um Hipervínculo** 
+Essa travessia atualiza texto apenas em auto shapes. Texto armazenado em tabelas, gráficos, SmartArt ou formas agrupadas requer a travessia das coleções próprias desses objetos.
 
-Você pode inserir um link dentro de uma caixa de texto. Quando a caixa de texto for clicada, os usuários serão direcionados para abrir o link. 
+## **Adicionar uma Caixa de Texto com Hiperlink**
 
-Para adicionar uma caixa de texto contendo um link, siga estas etapas:
+Um hiperlink pode ser atribuído a uma porção de texto específica, de modo que somente esse texto funcione como link clicável. Use [HyperlinkManager::setExternalHyperlinkClick](https://reference.aspose.com/slides/pt/php-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) para associar a porção a uma URL externa.
 
-1. Crie uma instância da classe `Presentation`. 
-2. Obtenha uma referência para o primeiro slide na apresentação recém‑criada. 
-3. Adicione um objeto `AutoShape` com `ShapeType` definido como `Rectangle` em uma posição especificada no slide e obtenha a referência do objeto `AutoShape` recém‑adicionado.
-4. Adicione um `TextFrame` ao objeto `AutoShape` que contém *Aspose TextBox* como texto padrão. 
-5. Instancie a classe `HyperlinkManager`. 
-6. Atribua um hipervínculo usando o método [setExternalHyperlinkClick](https://reference.aspose.com/slides/pt/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) associado à parte desejada do `TextFrame`.
-7. Por fim, grave o arquivo PPTX através do objeto `Presentation`. 
-
-Este código PHP — uma implementação das etapas acima — mostra como adicionar uma caixa de texto com um hipervínculo a um slide:
+O exemplo a seguir cria texto vinculado e o salva em uma apresentação:
 
 ```php
-  # Instancia uma classe Presentation que representa um PPTX
-  $pres = new Presentation();
-  try {
-    # Obtém o primeiro slide da apresentação
-    $slide = $pres->getSlides()->get_Item(0);
-    # Adiciona um objeto AutoShape com o tipo definido como Retângulo
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # Converte a forma para AutoShape
-    $pptxAutoShape = $shape;
-    # Acessa a propriedade ITextFrame associada ao AutoShape
-    $pptxAutoShape->addTextFrame("");
-    $textFrame = $pptxAutoShape->getTextFrame();
-    # Adiciona algum texto ao quadro
-    $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # Define o hiperlink para o texto da porção
-    $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
-    $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
-    # Salva a apresentação PPTX
-    $pres->save("hLink_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 200, 50);
+    $textBox->addTextFrame("Aspose.Slides");
+
+    $textPortion = $textBox->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $textPortion->getPortionFormat()->getHyperlinkManager()->setExternalHyperlinkClick("https://www.aspose.com/");
+
+    $presentation->save("Hyperlink.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Qual a diferença entre uma caixa de texto e um placeholder de texto ao trabalhar com slides mestres?**
+**Qual a diferença entre uma caixa de texto e um espaço reservado de texto em um slide mestre ou de layout?**
 
-Um [placeholder](/slides/pt/php-java/manage-placeholder/) herda estilo/posição do [master](https://reference.aspose.com/slides/pt/php-java/aspose.slides/masterslide/) e pode ser sobrescrito em [layouts](https://reference.aspose.com/slides/pt/php-java/aspose.slides/layoutslide/), enquanto uma caixa de texto regular é um objeto independente em um slide específico e não muda quando você alterna layouts.
+Um [placeholder](/slides/pt/php-java/manage-placeholder/) pode herdar sua posição e formatação de um [master slide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/masterslide/) ou [layout slide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/layoutslide/). Uma caixa de texto regular é uma forma independente no slide onde foi criada e não adquire o comportamento de placeholder quando o layout muda.
 
-**Como posso realizar uma substituição em massa de texto em toda a apresentação sem alterar texto dentro de gráficos, tabelas e SmartArt?**
+**Como posso substituir texto sem alterar o texto em gráficos, tabelas ou SmartArt?**
 
-Limite sua iteração a auto‑formas que possuam quadros de texto e exclua objetos incorporados ([charts](https://reference.aspose.com/slides/pt/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/pt/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/pt/php-java/aspose.slides/smartart/)) percorrendo suas coleções separadamente ou ignorando esses tipos de objetos.
+Limite a travessia aos objetos [AutoShape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/autoshape/) conforme demonstrado no exemplo Atualizar Texto. Gráficos, tabelas e SmartArt armazenam texto em seus próprios modelos de objeto, portanto não são modificados por esse loop.

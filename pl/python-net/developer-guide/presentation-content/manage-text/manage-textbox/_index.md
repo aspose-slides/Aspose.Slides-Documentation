@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie polami tekstowymi w prezentacjach przy użyciu Pythona
+title: Zarządzaj polami tekstowymi w prezentacjach przy użyciu Pythona
 linktitle: Zarządzaj polem tekstowym
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - pole tekstowe
 - ramka tekstowa
 - dodaj tekst
-- aktualizuj tekst
+- zaktualizuj tekst
 - utwórz pole tekstowe
 - sprawdź pole tekstowe
 - dodaj kolumnę tekstu
@@ -17,210 +17,210 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ułatwia tworzenie, edytowanie i klonowanie pól tekstowych w plikach PowerPoint i OpenDocument, zwiększając automatyzację Twoich prezentacji."
+description: "Twórz, identyfikuj, formatuj i aktualizuj pola tekstowe w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona w technologii .NET."
 ---
 ## **Wprowadzenie**
 
-Teksty na slajdach zazwyczaj znajdują się w polach tekstowych lub kształtach. Dlatego, aby dodać tekst do slajdu, musisz dodać pole tekstowe, a następnie umieścić w nim tekst. Aspose.Slides for Python udostępnia klasę [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) , która pozwala dodać kształt zawierający tekst.
+W Aspose.Slides for Python via .NET tekst slajdu jest przechowywany w ramkach tekstowych należących do kształtów. Klasa [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) reprezentuje najczęstszy kształt zawierający tekst i udostępnia jego tekst poprzez właściwość [AutoShape.text_frame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/text_frame/).
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides udostępnia także klasę [Shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/) , jednak nie wszystkie kształty mogą zawierać tekst.
+{{% alert color="info" title="Note" %}}
+
+Każdy kształt automatyczny dziedziczy po [Shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/), ale nie każdy kształt jest kształtem automatycznym ani nie obsługuje ramki tekstowej. Podczas przetwarzania istniejącej prezentacji użyj `isinstance(shape, slides.AutoShape)`, aby sprawdzić typ kształtu przed dostępem do jego tekstu.
+
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-Dlatego przy pracy z kształtem, do którego chcesz dodać tekst, możesz chcieć sprawdzić i potwierdzić, że został on rzutowany przez klasę [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) . Dopiero wtedy będziesz mógł pracować z [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) , które jest właściwością klasy [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) . Zobacz sekcję [Aktualizuj tekst](/slides/pl/python-net/manage-textbox/#update-text) na tej stronie.
-{{% /alert %}}
+## **Utworzenie pola tekstowego na slajdzie**
 
-## **Utwórz pola tekstowe na slajdach**
-
-Aby utworzyć pole tekstowe na slajdzie:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) .
-2. Pobierz odwołanie do pierwszego slajdu.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) z `ShapeType.RECTANGLE` w żądanej pozycji na slajdzie.
-4. Ustaw tekst w [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) kształtu.
-5. Zapisz prezentację jako plik PPTX.
-
-Poniższy przykład w Pythonie implementuje te kroki:
-
-```py
-import aspose.slides as slides
-
-# Utwórz instancję klasy Presentation.
-with slides.Presentation() as presentation:
-
-    # Pobierz pierwszy slajd w prezentacji.
-    slide = presentation.slides[0]
-
-    # Dodaj AutoShape typu RECTANGLE.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    shape.text_frame.text = "Aspose TextBox"
-
-    # Zapisz prezentację na dysku.
-    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Sprawdź, czy kształt jest polem tekstowym**
-
-Aspose.Slides udostępnia właściwość [is_text_box](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/is_text_box/) na klasie [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) , która pozwala określić, czy kształt jest polem tekstowym.
-
-![Pole tekstowe i kształt](istextbox.png)
-
-Ten przykład w Pythonie pokazuje, jak sprawdzić, czy kształt został utworzony jako pole tekstowe:
+Aby utworzyć pole tekstowe, dodaj kształt automatyczny do slajdu, dodaj do jego ramki tekstowej tekst i zapisz prezentację. Poniższy przykład tworzy prostokątne pole tekstowe:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
-    for slide in presentation.slides:
-        for shape in slide.shapes:
-            if isinstance(shape, slides.AutoShape):
-                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 300, 50)
+    text_box.add_text_frame("Aspose TextBox")
+
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Zauważ, że jeśli dodasz [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) przy użyciu klasy [ShapeCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/) , właściwość `is_text_box` zwraca `False`. Jednak po dodaniu tekstu — przy użyciu metody `add_text_frame` lub ustawiając właściwość `text` — `is_text_box` zwraca `True`.
+Współrzędne i wymiary przekazywane do [ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shapecollection/add_auto_shape/) są mierzone w punktach. [AutoShape.add_text_frame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/add_text_frame/) inicjalizuje ramkę tekstową podanym tekstem.
 
-```py
+## **Sprawdzenie, czy kształt jest polem tekstowym**
+
+Użyj właściwości [AutoShape.is_text_box](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/is_text_box/), aby określić, czy kształt automatyczny jest traktowany jako pole tekstowe. Jest to przydatne, gdy prezentacja zawiera zarówno kształty z tekstem, jak i czysto graficzne kształty automatyczne.
+
+![Pole tekstowe i kształt](istextbox.png)
+
+Poniższy przykład sprawdza każdy kształt automatyczny w prezentacji:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 120, 40)
+    text_box.add_text_frame("Text box")
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 10, 40, 40)
+
+    for current_slide in presentation.slides:
+        for shape in current_slide.shapes:
+            if isinstance(shape, slides.AutoShape):
+                print("The shape is a text box." if shape.is_text_box else "The shape is not a text box.")
+```
+
+Nowo dodany kształt automatyczny nie jest uznawany za pole tekstowe, dopóki nie zawiera niepustego tekstu. Możesz dostarczyć ten tekst przy pomocy [AutoShape.add_text_frame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/add_text_frame/) lub [TextFrame.text](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/text/). Dodanie lub przypisanie pustego ciągu ustawia [is_text_box](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/is_text_box/) na `False`:
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
-    # shape1.is_text_box jest fałsz
-    shape1.add_text_frame("shape 1")
-    # shape1.is_text_box jest prawda
+    shape1.add_text_frame("Shape 1")
+    print(shape1.is_text_box)
 
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
-    # shape2.is_text_box jest fałsz
-    shape2.text_frame.text = "shape 2"
-    # shape2.is_text_box jest prawda
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 100, 40)
+    shape2.text_frame.text = "Shape 2"
+    print(shape2.is_text_box)
 
-    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
-    # shape3.is_text_box jest fałsz
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 100, 40)
     shape3.add_text_frame("")
-    # shape3.is_text_box jest fałsz
+    print(shape3.is_text_box)
 
-    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
-    # shape4.is_text_box jest fałsz
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 100, 40)
     shape4.text_frame.text = ""
-    # shape4.is_text_box jest fałsz
+    print(shape4.is_text_box)
 ```
+
+Pierwsze dwa wywołania wypisują `True`; ostatnie dwa wypisują `False`.
 
 ## **Znajdź kształt będący właścicielem ramki tekstowej**
 
-W ogólnym kodzie przetwarzania tekstu możesz otrzymać obiekt [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) nie wiedząc, który obiekt prezentacji go zawiera. Użyj właściwości [TextFrame.parent_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/parent_shape/) , aby przejść z powrotem do właściciela, czyli [Shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/) .
+Ogólny kod przetwarzający tekst może otrzymać obiekt [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) nie wiedząc, który obiekt prezentacji go zawiera. Użyj właściwości tylko do odczytu [TextFrame.parent_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/parent_shape/), aby wrócić do jego właściciela – obiektu [Shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/shape/).
 
-Dla ramki tekstowej należącej do [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) lub innego kształtu zawierającego tekst, właściwość [TextFrame.parent_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/parent_shape/) jest ustawiona, a [TextFrame.parent_cell](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/parent_cell/) ma wartość `None`. Obie właściwości są tylko do odczytu, więc ich odczyt nie zmienia własności. Zawsze sprawdzaj zwróconą wartość pod kątem `None` przed dostępem do kształtu.
+Dla ramki tekstowej należącej do kształtu automatycznego lub innego kształtu zawierającego tekst, [parent_shape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/parent_shape/) zawiera właściciela, a [TextFrame.parent_cell](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/parent_cell/) ma wartość `None`. Sprawdź zwróconą wartość przed dostępem do niej. Aby zidentyfikować zarówno właścicieli kształtów, jak i komórek tabel, w tym kształty powiązane z węzłami SmartArt, zobacz [Search and Replace Text](/slides/pl/python-net/search-and-replace-text/).
 
-Pełny przykład identyfikujący właścicieli kształtów i komórek tabel, w tym kształty powiązane z węzłami SmartArt, znajdziesz w sekcji [Wyszukaj i zamień tekst](/slides/pl/python-net/search-and-replace-text/) .
+## **Dodaj kolumny do pola tekstowego**
 
-## **Dodaj kolumny do pól tekstowych**
+Właściwość [TextFrameFormat.column_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/column_count/) dzieli ramkę tekstową na kolumny, natomiast [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/column_spacing/) ustawia przerwę między kolumnami w punktach. Oba ustawienia należą do [TextFrameFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/) i mogą być zmieniane poprzez ramkę tekstową istniejącego pola tekstowego. Tekst przepływa pomiędzy kolumnami w obrębie tego samego kształtu; nie kontynuuje się w innym kształcie.
 
-Aspose.Slides udostępnia właściwości [column_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/column_count/) oraz [column_spacing](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/column_spacing/) na klasie [TextFrameFormat](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/) , aby dodać kolumny do pól tekstowych. Możesz określić liczbę kolumn oraz ustawić odstęp (w punktach) między kolumnami.
+Poniższy przykład tworzy pole tekstowe z trzema kolumnami, oddzielonymi odstępem 10 punktów, zapisuje prezentację i odczytuje zapisane ustawienia z pliku wyjściowego:
 
-Poniższy kod w Pythonie demonstruje tę operację:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 200)
+    text_box.add_text_frame("This text is distributed automatically across all columns in the text box.")
 
-	# Pobierz pierwszy slajd w prezentacji.
-	slide = presentation.slides[0]
+    text_frame_format = text_box.text_frame.text_frame_format
+    text_frame_format.column_count = 3
+    text_frame_format.column_spacing = 10
 
-	# Dodaj AutoShape typu RECTANGLE.
-	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    presentation.save("TextBoxColumns.pptx", slides.export.SaveFormat.PPTX)
 
-	# Dodaj TextFrame do prostokąta.
-	shape.add_text_frame("All of these columns are confined to a single text container—" +
-	"you can add or delete text, and any new or remaining text automatically reflows " +
-	"within the container. You cannot have text flow from one container to another, " +
-	"though—PowerPoint’s column options for text are limited!")
-
-	# Pobierz format tekstu TextFrame.
-	format = shape.text_frame.text_frame_format
-
-	# Określ liczbę kolumn w TextFrame.
-	format.column_count = 3
-
-	# Określ odstęp między kolumnami.
-	format.column_spacing = 10
-
-	# Zapisz prezentację.
-	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("TextBoxColumns.pptx") as saved_presentation:
+    saved_text_box = saved_presentation.slides[0].shapes[0]
+    if isinstance(saved_text_box, slides.AutoShape):
+        saved_format = saved_text_box.text_frame.text_frame_format
+        print(f"Columns: {saved_format.column_count}; spacing: {saved_format.column_spacing} points")
 ```
 
-## **Zaktualizuj tekst**
+## **Wyodrębnianie tekstu z poszczególnych kolumn**
 
-Aspose.Slides umożliwia aktualizację tekstu w pojedynczym polu tekstowym lub w całej prezentacji.
+Użyj [TextFrame.split_text_by_columns](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/split_text_by_columns/), aby pobrać tekst przypisany do każdej widocznej kolumny w istniejącej ramce tekstowej. Metoda zwraca jeden ciąg znaków dla każdej kolumny, w kolejności czytania kolumnowej. Ramka tekstowa z jedną kolumną zwraca listę z jednym elementem, a pusta kolumna jest reprezentowana pustym ciągiem. Ciągi zawierają wyłącznie tekst zwykły; formatowanie na poziomie fragmentu nie jest zachowywane.
 
-Poniższy przykład w Pythonie pokazuje, jak zaktualizować cały tekst w prezentacji:
+Jest to przydatne, gdy potrzebujesz:
 
-```py
+- Wyodrębnić tekst zachowując kolejność czytania opartą na kolumnach.
+- Indeksować lub porównać zawartość slajdów wielokolumnowych.
+- Wyeksportować każdą kolumnę do osobnego pliku, pola bazy danych lub innego miejsca docelowego.
+- Zbadać, jak tekst jest rozdzielany po zmianie [TextFrameFormat.column_count](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/column_count/), [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframeformat/column_spacing/), czcionki lub rozmiaru ramki tekstowej.
+
+Metoda raportuje tekst rozmieszczony w bieżącym [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/); nie przepływa automatycznie tekstu pomiędzy oddzielnymi kształtami lub polami tekstowymi. Rozkład kolumn może zależeć od dostępnych czcionek i innych ustawień układu tekstu, dlatego upewnij się, że wymagane czcionki są dostępne, gdy ważne są spójne wyniki.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
+with slides.Presentation("MultiColumnText.pptx") as presentation:
+    text_box = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+            column_count = shape.text_frame.text_frame_format.column_count
+            if column_count > 1:
+                text_box = shape
+                break
+
+    if text_box is None:
+        print("No multi-column text frame was found.")
+    else:
+        text_frame = text_box.text_frame
+        configured_column_count = text_frame.text_frame_format.column_count
+        column_texts = text_frame.split_text_by_columns()
+
+        print(f"Configured columns: {configured_column_count}")
+
+        for column_number, column_text in enumerate(column_texts, start=1):
+            print(f"Column {column_number}: {column_text}")
+            with open(f"Column-{column_number}.txt", "w", encoding="utf-8") as column_file:
+                column_file.write(column_text)
+```
+
+## **Aktualizacja tekstu**
+
+Aby zaktualizować tekst w całej prezentacji, iteruj po slajdach i kształtach, wybieraj kształty automatyczne, a następnie edytuj ich fragmenty tekstu. Praca na poziomie fragmentu pozwala zmienić zarówno tekst, jak i formatowanie znaków.
+
+Poniższy przykład zastępuje każde wystąpienie `years` przez `months` w tekście kształtów automatycznych i sprawia, że każdy zmieniony fragment jest pogrubiony:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Text.pptx") as presentation:
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                for paragraph in shape.text_frame.paragraphs:
-                    for portion in paragraph.portions:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if "years" in portion.text:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = slides.NullableBool.TRUE
-  
-    # Zapisz zmodyfikowaną prezentację.
+
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Dodaj pola tekstowe z hiperłączami**
+Ten przebieg aktualizuje tekst tylko w kształtach automatycznych. Tekst przechowywany w tabelach, wykresach, SmartArt lub grupowanych kształtach wymaga przeglądu ich własnych kolekcji.
 
-Możesz wstawić odnośnik w polu tekstowym. Po kliknięciu pola tekstowego odnośnik się otwiera.
+## **Dodaj pole tekstowe z hiperłączem**
 
-Aby dodać pole tekstowe zawierające hiperłącze, wykonaj następujące kroki:
+Hiperłącze może być przypisane do konkretnego fragmentu tekstu, dzięki czemu tylko ten fragment działa jako klikalny odnośnik. Użyj [HyperlinkManager.set_external_hyperlink_click](https://reference.aspose.com/slides/pl/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), aby połączyć fragment z zewnętrznym adresem URL.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) .
-2. Pobierz odwołanie do pierwszego slajdu.
-3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/) z `ShapeType.RECTANGLE` w żądanej pozycji na slajdzie.
-4. Ustaw tekst w [TextFrame](https://reference.aspose.com/slides/pl/python-net/aspose.slides/textframe/) kształtu.
-5. Pobierz odwołanie do [HyperlinkManager](https://reference.aspose.com/slides/pl/python-net/aspose.slides/hyperlinkmanager/) .
-6. Użyj właściwości `hyperlink_manager`, aby ustawić zewnętrzne hiperłącze kliknięcia.
-7. Zapisz prezentację jako plik PPTX.
+Poniższy przykład tworzy tekst z linkiem i zapisuje go w prezentacji:
 
-Ten przykład w Pythonie pokazuje, jak dodać pole tekstowe z hiperłączem do slajdu:
-
-```py
+```python
 import aspose.slides as slides
 
-# Utwórz instancję klasy Presentation.
 with slides.Presentation() as presentation:
-
-    # Pobierz pierwszy slajd w prezentacji.
     slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 200, 50)
+    text_box.add_text_frame("Aspose.Slides")
 
-    # Dodaj AutoShape typu RECTANGLE.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    text_portion = text_box.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_manager.set_external_hyperlink_click("https://www.aspose.com/")
 
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    # Dodaj tekst do ramki.
-    text_portion.text = "Aspose.Slides"
-
-    # Ustaw hiperłącze dla tekstu fragmentu.
-    hyperlink_manager = text_portion.portion_format.hyperlink_manager
-    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
-
-    # Zapisz prezentację jako plik PPTX.
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**Jaka jest różnica między polem tekstowym a placeholderem tekstu przy pracy z głównymi slajdami?**
+**Jaka jest różnica między polem tekstowym a tekstowym zastępnikiem na slajdzie głównym lub układu?**
 
-Symbol zastępczy [placeholder](/slides/pl/python-net/manage-placeholder/) dziedziczy styl/pozycję z [master](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/) i może być nadpisany na [layouts](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/) , podczas gdy zwykłe pole tekstowe jest niezależnym obiektem na konkretnym slajdzie i nie zmienia się przy przełączaniu układów.
+[placeholder](/slides/pl/python-net/manage-placeholder/) może dziedziczyć pozycję i formatowanie z [master slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/) lub [layout slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/). Zwykłe pole tekstowe jest niezależnym kształtem na slajdzie, na którym zostało utworzone i nie przyjmuje zachowania zastępnika po zmianie układu.
 
-**Jak mogę przeprowadzić masową zamianę tekstu w całej prezentacji, nie modyfikując tekstu wewnątrz wykresów, tabel i SmartArt?**
+**Jak mogę zastąpić tekst bez zmiany tekstu w wykresach, tabelach lub SmartArt?**
 
-Ogranicz iterację do auto‑kształtów posiadających ramki tekstowe i wyklucz osadzone obiekty ([charts](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chart/) , [tables](https://reference.aspose.com/slides/pl/python-net/aspose.slides/table/) , [SmartArt](https://reference.aspose.com/slides/pl/python-net/aspose.slides.smartart/smartart/) ) poprzez osobne przeglądanie ich kolekcji lub pomijanie tych typów obiektów.
+Ogranicz przeglądanie do instancji [AutoShape](https://reference.aspose.com/slides/pl/python-net/aspose.slides/autoshape/), jak pokazano w przykładzie Aktualizacja tekstu. Wykresy, tabele i SmartArt przechowują tekst w własnych modelach obiektowych, więc nie są modyfikowane przez tę pętlę.

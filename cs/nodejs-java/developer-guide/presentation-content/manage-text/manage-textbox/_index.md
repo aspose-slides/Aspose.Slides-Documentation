@@ -1,6 +1,6 @@
 ---
 title: Správa textových polí v prezentacích pomocí JavaScriptu
-linktitle: Správa textového pole
+linktitle: Spravovat textové pole
 type: docs
 weight: 20
 url: /cs/nodejs-java/manage-textbox/
@@ -11,95 +11,69 @@ keywords:
 - aktualizovat text
 - vytvořit textové pole
 - zkontrolovat textové pole
-- přidat sloupec textu
-- přidat hyperodkaz
+- přidat textový sloupec
+- přidat hypertextový odkaz
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides pro Node.js usnadňuje vytváření, úpravu a klonování textových polí v souborech PowerPoint a OpenDocument, což zvyšuje automatizaci vašich prezentací."
+description: Vytvářejte, identifikujte, formátujte a aktualizujte textová pole v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Node.js přes Java.
 ---
 ## **Úvod**
 
-Texty na snímcích jsou obvykle obsaženy v textových polích nebo tvarech. Proto pro přidání textu na snímek musíte přidat textové pole a poté vložit text do tohoto pole. Aspose.Slides pro Node.js prostřednictvím Javy poskytuje třídu [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/AutoShape) která umožňuje přidat tvar obsahující text.
+V Aspose.Slides pro Node.js přes Java je text snímku uložen v textových rámcích, které patří k tvarům. Třída [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) představuje nejběžnější tvar nesoucí text a zpřístupňuje svůj text prostřednictvím metody [AutoShape.getTextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides také poskytuje třídu [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Shape) která umožňuje přidávat tvary na snímky. Nicméně ne všechny tvary přidané pomocí třídy `Shape` mohou obsahovat text. Tvary přidané pomocí třídy [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/AutoShape) však mohou text obsahovat.
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-Proto, když pracujete s tvarem, ke kterému chcete přidat text, můžete chtít zkontrolovat a potvrdit, že byl převeden pomocí třídy `AutoShape`. Teprve pak budete moci pracovat s [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/TextFrame), což je vlastnost pod `AutoShape`. Viz sekce [Update Text](https://docs.aspose.com/slides/cs/nodejs-java/manage-textbox/#update-text) na této stránce.
-
+{{% alert color="info" title="Note" %}}
+Každý automatický tvar je odvozen od [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/), ale ne každý tvar je automatický tvar nebo podporuje textový rámec. Při zpracování existující prezentace zkontrolujte, že tvar je instancí [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) před tím, než k jeho textu přistoupíte.
 {{% /alert %}}
 
 ## **Vytvoření textového pole na snímku**
 
-Pro vytvoření textového pole na snímku postupujte podle následujících kroků:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Presentation).
-2. Získejte odkaz na první snímek v nově vytvořené prezentaci. 
-3. Přidejte objekt [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/AutoShape) s [ShapeType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) nastaveným na `Rectangle` na určené pozici na snímku a získejte odkaz na nově přidaný objekt `AutoShape`.
-4. Přidejte k objektu `AutoShape` vlastnost `TextFrame`, která bude obsahovat text. V níže uvedeném příkladu jsme přidali tento text: *Aspose TextBox*
-5. Nakonec zapište soubor PPTX pomocí objektu `Presentation`. 
-
-Tento JavaScriptový kód — implementace výše uvedených kroků — ukazuje, jak přidat text na snímek:
+Pro vytvoření textového pole přidejte automatický tvar na snímek, přidejte text do jeho textového rámce a uložte prezentaci. Následující příklad vytváří obdélníkové textové pole:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Vytvoří instanci Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Získá první snímek v prezentaci
-    var sld = pres.getSlides().get_Item(0);
-    // Přidá AutoShape s typem nastaveným na Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Přidá TextFrame k obdélníku
-    ashp.addTextFrame(" ");
-    // Přistoupí k textovému rámci
-    var txtFrame = ashp.getTextFrame();
-    // Vytvoří objekt Paragraph pro textový rámec
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Vytvoří objekt Portion pro odstavec
-    var portion = para.getPortions().get_Item(0);
-    // Nastaví text
-    portion.setText("Aspose TextBox");
-    // Uloží prezentaci na disk
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Kontrola tvaru textového pole**
+Souřadnice a rozměry předávané metodě [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/#addAutoShape) jsou měřeny v bodech. [AutoShape.addTextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/#addTextFrame) inicializuje textový rámec dodaným textem.
 
-Aspose.Slides poskytuje metodu [isTextBox](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/#isTextBox) ze třídy [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) která vám umožní prozkoumat tvary a identifikovat textová pole.
+## **Kontrola, zda je tvar textovým polem**
 
-![Text box and shape](istextbox.png)
+Použijte metodu [AutoShape.isTextBox](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/#isTextBox) k určení, zda je automatický tvar považován za textové pole. To je užitečné, když prezentace obsahuje jak textové, tak čistě grafické automatické tvary.
 
-Tento JavaScriptový kód ukazuje, jak zkontrolovat, zda byl tvar vytvořen jako textové pole:
+![Textové pole a tvar](istextbox.png)
+
+Následující příklad kontroluje každý automatický tvar v prezentaci:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -108,233 +82,219 @@ try {
 }
 ```
 
-Všimněte si, že pokud jednoduše přidáte autoshape pomocí metody `addAutoShape` ze třídy [ShapeCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapecollection/), metoda `isTextBox` tohoto autoshape vrátí `false`. Po přidání textu do autoshape pomocí metody `addTextFrame` nebo `setText` však vlastnost `isTextBox` vrátí `true`.
+Nově přidaný automatický tvar není považován za textové pole, dokud neobsahuje ne‑prázdný text. Text můžete dodat pomocí [AutoShape.addTextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/#addTextFrame) nebo [TextFrame.setText](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#setText). Přidání nebo přiřazení prázdného řetězce způsobí, že [AutoShape.isTextBox](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/#isTextBox) vrátí `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() vrací false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() vrací true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() vrací false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() vrací true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() vrací false
-shape3.addTextFrame("");
-// shape3.isTextBox() vrací false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() vrací false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() vrací false
-```
-
-## **Nalezení tvaru, který vlastní TextFrame**
-
-V obecném kódu pro zpracování textu můžete získat [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/) aniž byste věděli, který objekt prezentace jej obsahuje. Použijte metodu [TextFrame.getParentShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#getParentShape--) , abyste se vrátili k vlastnímu [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/).
-
-Pro textový rámec, který patří k [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/) nebo jinému tvaru obsahujícímu text, [TextFrame.getParentShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#getParentShape--) vrací vlastníka a [TextFrame.getParentCell](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#getParentCell--) vrací `null`. Obě metody poskytují pouze čtecí navigaci, takže jejich volání nemění vlastnictví. Vždy před přístupem k tvaru zkontrolujte, zda vrácená hodnota není `null`.
-
-Pro kompletní příklad, který identifikuje vlastníky tvarů a buněk tabulky, včetně tvarů spojených s uzly SmartArt, viz [Search and Replace Text](/slides/cs/nodejs-java/search-and-replace-text/).
-
-## **Přidání sloupce do textového pole**
-
-Aspose.Slides poskytuje metody [setColumnCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) a [setColumnSpacing](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) ze třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/TextFrameFormat) , které umožňují přidávat sloupce do textových polí. Můžete určit počet sloupců v textovém poli a nastavit mezeru mezi sloupci v bodech.
-
-Tento kód v JavaScriptu demonstruje popsanou operaci: 
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Získá první snímek v prezentaci
-    var slide = pres.getSlides().get_Item(0);
-    // Přidá AutoShape s typem nastaveným na Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Přidá TextFrame k obdélníku
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Získá formát textu TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Určuje počet sloupců v TextFrame
-    format.setColumnCount(3);
-    // Určuje mezery mezi sloupci
-    format.setColumnSpacing(10);
-    // Uloží prezentaci
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Přidání sloupce do TextFrame**
+První dvě volání vypíšou `true`; poslední dvě vypíšou `false`.
 
-Aspose.Slides pro Node.js prostřednictvím Javy poskytuje metodu [setColumnCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) ze třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/TextFrameFormat) , která umožňuje přidávat sloupce v textových rámcích. Pomocí této vlastnosti můžete určit požadovaný počet sloupců v textovém rámci.
+## **Nalezení tvaru, který vlastní textový rámec**
 
-Tento JavaScriptový kód ukazuje, jak přidat sloupec do textového rámce:
+Obecný kód pro zpracování textu může získat objekt [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/) aniž by věděl, který objekt prezentace jej obsahuje. Použijte jen‑čtenou metodu [TextFrame.getParentShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#getParentShape) k navigaci zpět na vlastnící [Shape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shape/).
+
+Pro textový rámec vlastněný automatickým tvarem nebo jiným tvarem nesoucím text vrací [TextFrame.getParentShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#getParentShape) vlastníka a [TextFrame.getParentCell](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#getParentCell) vrací `null`. Před přístupem zkontrolujte vrácenou hodnotu. Pro identifikaci jak vlastníků tvarů, tak buněk tabulky, včetně tvarů spojených s uzly SmartArt, viz [Search and Replace Text](/slides/cs/nodejs-java/search-and-replace-text/).
+
+## **Přidání sloupců do textového pole**
+
+Metoda [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setColumnCount) rozdělí textový rámec do sloupců, zatímco [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) nastaví mezery mezi sloupci v bodech. Obě nastavení patří do [TextFrameFormat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/) a lze je změnit přes textový rámec existujícího textového pole. Text se přetéká mezi sloupci uvnitř stejného tvaru; nepřechází do jiného tvaru.
+
+Následující příklad vytváří trojsloupcové textové pole s 10 body mezi sloupci, uloží prezentaci a načte zpět uložená nastavení z výstupního souboru:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // Mezera mezi sloupci nebyla nikdy nastavena, takže je hlášena jako NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Extrahování textu z jednotlivých sloupců**
+
+Použijte [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/#splitTextByColumns) k získání textu přiřazeného každému vizuálnímu sloupci v existujícím textovém rámci. Metoda vrací jeden řetězec pro každý sloupec ve sloupcově orientovaném pořadí čtení. Jednosloupcový textový rámec vytvoří pole s jedním prvkem a prázdný sloupec je reprezentován prázdným řetězcem. Řetězce obsahují pouze prostý text; formátování na úrovni částí není zachováno.
+
+Toto je užitečné, když potřebujete:
+
+- Extrahovat text při zachování jeho sloupcově orientovaného pořadí čtení.
+- Indexovat nebo porovnat obsah snímků s více sloupci.
+- Exportovat každý sloupec do samostatného souboru, databázového pole nebo jiného cíle.
+- Zkontrolovat, jak je text přeuspořádán po změně počtu sloupců pomocí [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setColumnCount), mezery pomocí [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), fontu nebo velikosti textového rámce.
+
+Metoda hlásí text rozdělený v aktuálním [TextFrame](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/textframe/); automaticky nepřetéká mezi samostatnými tvary nebo textovými poli. Distribuce sloupců může záviset na dostupných fontech a dalších nastaveních rozvržení textu, proto se ujistěte, že požadované fonty jsou k dispozici, když jsou důsledné výsledky důležité.
+
+Následující příklad načte prezentaci, najde první auto‑tvar s více sloupci a textovým rámcem, přečte jeho nastavený počet sloupců a zapíše text z každého sloupce do samostatného souboru. Tvary, které neposkytují textový rámec, jsou přeskočeny.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Aktualizace textu**
 
-Aspose.Slides vám umožňuje změnit nebo aktualizovat text obsažený v textovém poli nebo veškerý text v prezentaci. 
+Pro aktualizaci textu v celé prezentaci iterujte přes snímky a tvary, vybírejte automatické tvary a poté upravujte jejich textové části. Práce na úrovni částí vám umožní měnit jak text, tak formátování znaků.
 
-Tento JavaScriptový kód demonstruje operaci, při které je aktualizován nebo změněn veškerý text v prezentaci:
+Následující příklad nahrazuje každé výskyt `years` s `months` v textu automatických tvarů a každou ovlivněnou část zvýrazní tučně:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Kontroluje, zda tvar podporuje textový rámec (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Prochází odstavce v textovém rámci
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Prochází každou část v odstavci
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Mění text
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Mění formátování
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Uloží upravenou prezentaci
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Přidání textového pole s hyperodkazem** 
+Toto procházení aktualizuje text jen v automatických tvarech. Text uložený v tabulkách, diagramech, SmartArt nebo seskupených tvarech vyžaduje procházení jejich vlastních kolekcí.
 
-Můžete vložit odkaz do textového pole. Když je textové pole kliknuto, uživatelé jsou přesměrováni na otevření odkazu. 
+## **Přidání textového pole s hyperlinkem**
 
-Pro přidání textového pole obsahujícího odkaz postupujte podle následujících kroků:
+Hyperlink lze přiřadit konkrétní textové části, takže pouze tento text funguje jako klikací odkaz. Použijte [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) k přiřazení části k externí URL.
 
-1. Vytvořte instanci třídy `Presentation`. 
-2. Získejte odkaz na první snímek v nově vytvořené prezentaci. 
-3. Přidejte objekt `AutoShape` s `ShapeType` nastaveným na `Rectangle` na určené pozici na snímku a získejte odkaz na nově přidaný objekt AutoShape.
-4. Přidejte `TextFrame` k objektu `AutoShape` a nastavte text jeho první části. V níže uvedeném příkladu jsme použili tento text: *Aspose.Slides*
-5. Získejte `HyperlinkManager` této části prostřednictvím jejího `PortionFormat`.
-6. Zavolejte `setExternalHyperlinkClick` na `HyperlinkManager`, abyste připojili odkaz k části.
-7. Nakonec zapište soubor PPTX pomocí objektu `Presentation`. 
-
-Tento JavaScriptový kód — implementace výše uvedených kroků — ukazuje, jak přidat textové pole s hyperodkazem na snímek:
+Následující příklad vytvoří propojený text a uloží jej do prezentace:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Vytvoří instanci třídy Presentation, která představuje PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Získá první snímek v prezentaci
-    var slide = pres.getSlides().get_Item(0);
-    // Přidá objekt AutoShape s typem nastaveným na Rectangle
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Přetypuje tvar na AutoShape
-    var pptxAutoShape = shape;
-    // Přistoupí k vlastnosti ITextFrame spojené s AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Přidá nějaký text do rámce
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Nastaví hyperodkaz pro text části
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Uloží PPTX prezentaci
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jaký je rozdíl mezi textovým polem a textovým zástupcem při práci s hlavními snímky?**
+**Jaký je rozdíl mezi textovým polem a textovým zástupcem na hlavním nebo rozložení snímku?**
 
-Zástupce ([placeholder](/slides/cs/nodejs-java/manage-placeholder/)) dědí styl/pozici z [masteru](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) a lze jej přepsat v [rozvrzích](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/), zatímco běžné textové pole je nezávislý objekt na konkrétním snímku a při změně rozvržení se nemění.
+[Placeholder](/slides/cs/nodejs-java/manage-placeholder/) může zdědit svou pozici a formátování z [master slide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) nebo [layout slide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/). Běžné textové pole je samostatný tvar na snímku, kde bylo vytvořeno, a nezískává chování zástupce při změně rozložení.
 
-**Jak mohu provést hromadnou náhradu textu v celé prezentaci, aniž bych měnil text uvnitř grafů, tabulek a SmartArt?**
+**Jak mohu nahradit text, aniž bych změnil text v diagramech, tabulkách nebo SmartArt?**
 
-Omezte iteraci na auto-tvary, které mají textové rámce, a vyloučte vložené objekty ([grafy](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chart/), [tabulky](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/smartart/)) tím, že budete procházet jejich kolekce samostatně nebo tyto typy objektů přeskočíte.
+Omezte procházení na tvary, které jsou instancemi [AutoShape](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/autoshape/), jak je ukázáno v příkladu Aktualizace textu. Diagramy, tabulky a SmartArt ukládají text ve svých vlastních modelových strukturách, takže nejsou tímto cyklem upraveny.

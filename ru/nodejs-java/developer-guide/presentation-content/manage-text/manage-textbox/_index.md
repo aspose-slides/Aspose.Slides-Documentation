@@ -1,105 +1,81 @@
 ---
-title: Управление текстовыми полями в презентациях с помощью JavaScript
-linktitle: Управление текстовым полем
+title: Управление текстовыми блоками в презентациях с использованием JavaScript
+linktitle: Управление текстовым блоком
 type: docs
 weight: 20
 url: /ru/nodejs-java/manage-textbox/
 keywords:
-- текстовое поле
-- текстовый фрейм
-- добавить текст
-- обновить текст
-- создать текстовое поле
-- проверить текстовое поле
-- добавить колонку текста
-- добавить гиперссылку
-- PowerPoint
-- презентация
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Aspose.Slides для Node.js упрощает создание, редактирование и клонирование текстовых полей в файлах PowerPoint и OpenDocument, улучшая автоматизацию ваших презентаций."
+  - текстовый блок
+  - текстовый кадр
+  - добавить текст
+  - обновить текст
+  - создать текстовый блок
+  - проверить текстовый блок
+  - добавить текстовую колонку
+  - добавить гиперссылку
+  - PowerPoint
+  - презентация
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Создавайте, определяйте, форматируйте и обновляйте текстовые блоки в презентациях PowerPoint и OpenDocument с использованием Aspose.Slides для Node.js через Java."
 ---
 ## **Введение**
 
-Текст на слайдах обычно находится в текстовых полях или фигурах. Поэтому, чтобы добавить текст на слайд, необходимо добавить текстовое поле, а затем поместить в него текст. Aspose.Slides for Node.js via Java предоставляет класс [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/AutoShape), который позволяет добавить фигуру, содержащую текст.
+В Aspose.Slides for Node.js via Java текст слайдов хранится в текстовых кадрах, которые принадлежат фигурам. Класс [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) представляет наиболее распространённую фигуру, содержащую текст, и предоставляет доступ к её тексту через метод [AutoShape.getTextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Note" %}}
 
-Aspose.Slides также предоставляет класс [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Shape), который позволяет добавлять фигуры на слайды. Однако не все фигуры, добавленные через класс `Shape`, могут содержать текст. Фигуры, добавленные через класс [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/AutoShape), могут содержать текст.
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-Поэтому, работая с фигурой, к которой вы хотите добавить текст, рекомендуется проверить, что она была создана через класс `AutoShape`. Только в этом случае вы сможете работать с [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/TextFrame), который является свойством `AutoShape`. См. раздел [Update Text](https://docs.aspose.com/slides/ru/nodejs-java/manage-textbox/#update-text) на этой странице.
+Каждая автофигура наследуется от [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/), но не каждая фигура является автофигурой или поддерживает текстовый кадр. При обработке существующей презентации проверяйте, является ли фигура экземпляром [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) перед доступом к её тексту.
 
 {{% /alert %}}
 
-## **Создание текстового поля на слайде**
+## **Создание текстового блока на слайде**
 
-Чтобы создать текстовое поле на слайде, выполните следующие шаги:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).  
-2. Получите ссылку на первый слайд в только что созданной презентации.  
-3. Добавьте объект [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/AutoShape) с типом `ShapeType` — `Rectangle` в указанное положение на слайде и получите ссылку на добавленный объект `AutoShape`.  
-4. Добавьте свойство `TextFrame` к объекту `AutoShape`, которое будет содержать текст. В примере ниже мы добавили такой текст: *Aspose TextBox*  
-5. Наконец, запишите файл PPTX через объект `Presentation`.  
-
-Этот JavaScript‑код — реализация описанных шагов — показывает, как добавить текст на слайд:
+Для создания текстового блока добавьте автофигуру на слайд, добавьте текст в её текстовый кадр и сохраните презентацию. Следующий пример создаёт прямоугольный текстовый блок:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Создает экземпляр Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Получает первый слайд в презентации
-    var sld = pres.getSlides().get_Item(0);
-    // Добавляет AutoShape с типом Rectangle
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // Добавляет TextFrame к Rectangle
-    ashp.addTextFrame(" ");
-    // Получает доступ к TextFrame
-    var txtFrame = ashp.getTextFrame();
-    // Создает объект Paragraph для TextFrame
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // Создает объект Portion для параграфа
-    var portion = para.getPortions().get_Item(0);
-    // Устанавливает текст
-    portion.setText("Aspose TextBox");
-    // Сохраняет презентацию на диск
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Проверка, является ли фигура текстовым полем**
+Координаты и размеры, передаваемые в [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/#addAutoShape), измеряются в пунктах. [AutoShape.addTextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/#addTextFrame) инициализирует текстовый кадр переданным текстом.
 
-Aspose.Slides предоставляет метод [isTextBox](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/#isTextBox) класса [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/), позволяющий определить, является ли фигура текстовым полем.
+## **Проверка, является ли фигура текстовым блоком**
 
-![Text box and shape](istextbox.png)
+Используйте метод [AutoShape.isTextBox](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/#isTextBox), чтобы определить, рассматривается ли автофигура как текстовый блок. Это полезно, когда презентация содержит как текстовые, так и чисто графические автофигуры.
 
-Этот JavaScript‑код показывает, как проверить, было ли создано фигуру как текстовое поле:
+![Текстовый блок и фигура](istextbox.png)
+
+Следующий пример проверяет каждую автофигуру в презентации:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -108,233 +84,219 @@ try {
 }
 ```
 
-Обратите внимание, что если вы просто добавите автофигуру с помощью метода `addAutoShape` класса [ShapeCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/), метод `isTextBox` у автофигуры вернёт `false`. Однако после того, как вы добавите текст в автофигуру с помощью метода `addTextFrame` или `setText`, свойство `isTextBox` вернёт `true`.
+Новоя добавленная автофигура не считается текстовым блоком, пока в ней нет непустого текста. Вы можете задать этот текст через [AutoShape.addTextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/#addTextFrame) или [TextFrame.setText](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#setText). Добавление или присвоение пустой строки оставляет метод [AutoShape.isTextBox](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/#isTextBox) возвращающим `false`:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() возвращает false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() возвращает true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() возвращает false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() возвращает true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() возвращает false
-shape3.addTextFrame("");
-// shape3.isTextBox() возвращает false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() возвращает false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() возвращает false
-```
-
-## **Нахождение фигуры, владеющей TextFrame**
-
-В общем коде обработки текста вы можете получить объект [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/) без предварительного знания, к какой презентации он принадлежит. Используйте метод [TextFrame.getParentShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentShape--) для перехода к владеющей [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/).
-
-Для текстового фрейма, принадлежащего [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) или другой фигуре, содержащей текст, метод [TextFrame.getParentShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentShape--) возвращает владельца, а метод [TextFrame.getParentCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentCell--) возвращает `null`. Оба метода предоставляют только чтение, поэтому их вызов не меняет владения. Всегда проверяйте возвращаемое значение на `null` перед доступом к фигуре.
-
-Для полного примера, показывающего определение владельцев фигур и ячеек таблиц, включая фигуры, связанные с узлами SmartArt, см. [Search and Replace Text](/slides/ru/nodejs-java/search-and-replace-text/).
-
-## **Добавление колонок в текстовое поле**
-
-Aspose.Slides предоставляет методы [setColumnCount](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) и [setColumnSpacing](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) класса [TextFrameFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/TextFrameFormat), которые позволяют добавлять колонки в текстовые поля. Вы можете задать количество колонок и установить расстояние между ними в пунктах.
-
-Этот JavaScript‑код демонстрирует описанную операцию:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Получает первый слайд в презентации
-    var slide = pres.getSlides().get_Item(0);
-    // Добавляет AutoShape с типом Rectangle
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // Добавляет TextFrame к Rectangle
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!"));
-    // Получает формат текста TextFrame
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // Указывает количество колонок в TextFrame
-    format.setColumnCount(3);
-    // Указывает расстояние между колонками
-    format.setColumnSpacing(10);
-    // Сохраняет презентацию
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Добавление колонок в TextFrame**
+Первые два вызова выводят `true`; последние два — `false`.
 
-Aspose.Slides for Node.js via Java предоставляет метод [setColumnCount](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) класса [TextFrameFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/TextFrameFormat), который позволяет добавлять колонки в текстовые фреймы. С помощью этого свойства вы можете указать желаемое количество колонок в TextFrame.
+## **Найти фигуру, владеющую текстовым кадром**
 
-Этот JavaScript‑код показывает, как добавить колонку внутри TextFrame:
+Общий код обработки текста может получать объект [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/) без информации, какой объект презентации его содержит. Используйте только для чтения метод [TextFrame.getParentShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentShape), чтобы перейти к владеющей [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/).
+
+Для текстового кадра, принадлежащего автофигуре или другой фигуре, содержащей текст, [TextFrame.getParentShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentShape) возвращает владельца, а [TextFrame.getParentCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#getParentCell) возвращает `null`. Проверьте возвращаемое значение перед доступом к нему. Чтобы определить как фигуру‑владельца, так и владельца ячейки таблицы, включая фигуры, связанные с узлами SmartArt, смотрите [Search and Replace Text](/slides/ru/nodejs-java/search-and-replace-text/).
+
+## **Добавление столбцов в текстовый блок**
+
+Метод [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/#setColumnCount) делит текстовый кадр на столбцы, а [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) задаёт расстояние между столбцами в пунктах. Оба параметра относятся к [TextFrameFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/) и могут быть изменены через текстовый кадр существующего текстового блока. Текст перенесётся между столбцами внутри одной фигуры; он не будет продолжаться в другой фигуре.
+
+Следующий пример создаёт трёхколоночный текстовый блок с расстоянием 10 пунктов между столбцами, сохраняет презентацию и считывает сохранённые настройки из выходного файла:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // Расстояние между колонками никогда не устанавливалось, поэтому возвращается NaN.
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Извлечение текста из отдельных столбцов**
+
+Используйте [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/#splitTextByColumns), чтобы получить текст, назначенный каждому визуальному столбцу в существующем текстовом кадре. Метод возвращает одну строку для каждого столбца в порядке чтения по столбцам. Текстовый кадр с одним столбцом возвращает массив из одного элемента, а пустой столбец представляется пустой строкой. Строки содержат только обычный текст; форматирование на уровне частей не сохраняется.
+
+Это полезно, когда требуется:
+
+- Извлекать текст, сохраняя его порядок чтения по столбцам.  
+- Индексировать или сравнивать содержание слайдов с несколькими столбцами.  
+- Экспортировать каждый столбец в отдельный файл, поле базы данных или другое место.  
+- Проверять, как текст перераспределяется после изменения количества столбцов с помощью [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/#setColumnCount), расстояния между столбцами с помощью [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing), шрифта или размера текстового кадра.
+
+Метод сообщает о тексте, распределённом внутри текущего [TextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/textframe/); он не перенесёт текст автоматически между отдельными фигурами или текстовыми блоками. Распределение по столбцам может зависеть от доступных шрифтов и других настроек разметки текста, поэтому убедитесь, что необходимые шрифты доступны, когда важна согласованность результатов.
+
+Следующий пример загружает презентацию, находит первую автофигуру с несколькими столбцами и текстовым кадром, считывает её настроенное количество столбцов и записывает текст из каждого столбца в отдельный файл. Фигуры без текстового кадра пропускаются.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Обновление текста**
 
-Aspose.Slides позволяет изменить или обновить текст, содержащийся в текстовом поле, либо все тексты в презентации.
+Чтобы обновить текст во всей презентации, пройдитесь по слайдам и фигурам, выберите автофигуры и отредактируйте их текстовые части. Работа на уровне частей позволяет изменять как текст, так и форматирование символов.
 
-Этот JavaScript‑код демонстрирует операцию, при которой обновляются (или изменяются) все тексты в презентации:
+Следующий пример заменяет каждое вхождение `years` на `months` в тексте автофигур и делает каждую затронутую часть полужирной:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // Проверяет, поддерживает ли фигура текстовый фрейм (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // Перебирает абзацы в текстовом фрейме
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // Перебирает каждую часть в абзаце
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// Изменяет текст
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Изменяет форматирование
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // Сохраняет изменённую презентацию
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Добавление текстового поля с гиперссылкой** 
+Этот обход обновляет текст только в автофигурах. Текст, хранящийся в таблицах, диаграммах, SmartArt или сгруппированных фигурах, требует обхода соответствующих коллекций этих объектов.
 
-Вы можете вставить ссылку внутрь текстового поля. При щелчке по полю пользователи будут перенаправлены по этой ссылке.
+## **Добавление текстового блока с гиперссылкой**
 
-Чтобы добавить текстовое поле, содержащее ссылку, выполните следующие шаги:
+Гиперссылка может быть привязана к конкретной части текста, поэтому только эта часть будет вести себя как кликабельная ссылка. Используйте [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), чтобы связать часть с внешним URL.
 
-1. Создайте экземпляр класса `Presentation`.  
-2. Получите ссылку на первый слайд в только что созданной презентации.  
-3. Добавьте объект `AutoShape` с типом `ShapeType` — `Rectangle` в указанное положение на слайде и получите ссылку на добавленный объект AutoShape.  
-4. Добавьте `TextFrame` к объекту `AutoShape` и задайте текст первой части. В примере ниже использован такой текст: *Aspose.Slides*  
-5. Получите `HyperlinkManager` этой части через её `PortionFormat`.  
-6. Вызовите `setExternalHyperlinkClick` у `HyperlinkManager`, чтобы прикрепить ссылку к части.  
-7. Наконец, запишите файл PPTX через объект `Presentation`.  
-
-Этот JavaScript‑код — реализация описанных шагов — показывает, как добавить текстовое поле с гиперссылкой на слайд:
+Следующий пример создаёт связанный текст и сохраняет его в презентацию:
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// Создает экземпляр класса Presentation, представляющего PPTX
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // Получает первый слайд в презентации
-    var slide = pres.getSlides().get_Item(0);
-    // Добавляет объект AutoShape с типом Rectangle
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // Приводит форму к типу AutoShape
-    var pptxAutoShape = shape;
-    // Получает доступ к свойству ITextFrame, связанному с AutoShape
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // Добавляет некоторый текст в фрейм
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // Устанавливает гиперссылку для текста части
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // Сохраняет презентацию PPTX
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**В чём разница между текстовым полем и заполнителем текста при работе с мастер‑слайдами?**
+**В чём разница между текстовым блоком и текстовым заполнителем на главном или макетном слайде?**
 
-[Заполнитель](/slides/ru/nodejs-java/manage-placeholder/) наследует стиль/положение от [мастера](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) и может быть переопределён на [раскладах](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/), тогда как обычное текстовое поле является независимым объектом на конкретном слайде и не меняется при переключении раскладок.
+[placeholder](/slides/ru/nodejs-java/manage-placeholder/) может наследовать своё положение и форматирование от [master slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) или [layout slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/). Обычный текстовый блок — это независимая фигура на том слайде, где он был создан, и не приобретает поведение заполнителя при изменении макета.
 
-**Как выполнить массовую замену текста во всей презентации, не затрагивая текст в диаграммах, таблицах и SmartArt?**
+**Как заменить текст, не меняя текст в диаграммах, таблицах или SmartArt?**
 
-Ограничьте итерацию автофигурами, имеющими TextFrame, и исключите встроенные объекты ([диаграммы](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chart/), [таблицы](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/smartart/)), обходя их коллекции отдельно или пропуская такие типы объектов.
+Ограничьте обход фигурами, являющимися экземплярами [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/), как показано в примере «Обновление текста». Диаграммы, таблицы и SmartArt хранят текст в своих собственных модели объектов, поэтому они не изменяются этим циклом.

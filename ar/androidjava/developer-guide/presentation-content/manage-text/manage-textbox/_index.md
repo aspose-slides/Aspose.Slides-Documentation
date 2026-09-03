@@ -1,16 +1,16 @@
 ---
-title: إدارة صناديق النص في العروض التقديمية على Android
-linktitle: إدارة صندوق النص
+title: إدارة مربعات النص في العروض التقديمية على Android
+linktitle: إدارة مربع النص
 type: docs
 weight: 20
 url: /ar/androidjava/manage-textbox/
 keywords:
-- صندوق نص
+- مربع نص
 - إطار نص
 - إضافة نص
 - تحديث نص
-- إنشاء صندوق نص
-- التحقق من صندوق النص
+- إنشاء مربع نص
+- التحقق من مربع النص
 - إضافة عمود نص
 - إضافة رابط تشعبي
 - PowerPoint
@@ -18,320 +18,276 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android عبر Java يجعل من السهل إنشاء وتحرير واستنساخ صناديق النص في ملفات PowerPoint و OpenDocument، مما يعزز أتمتة العروض التقديمية الخاصة بك."
+description: "إنشاء، تحديد، تنسيق، وتحديث مربعات النص في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لنظام Android عبر Java."
 ---
 ## **المقدمة**
 
-النصوص في الشرائح عادةً ما تكون داخل صناديق النص أو الأشكال. لذلك، لإضافة نص إلى شريحة، تحتاج إلى إضافة صندوق نص ثم وضع بعض النص داخل صندوق النص. يوفّر Aspose.Slides for Android عبر Java الواجهة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IAutoShape) التي تتيح لك إضافة شكل يحتوي على نص.
+في Aspose.Slides لنظام Android عبر Java، يُخزن نص الشريحة في إطارات نصية تنتمي إلى الأشكال. تمثل الواجهة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) الشكل الأكثر شيوعًا الذي يحمل نصًا وتُظهر نصه من خلال الطريقة [IAutoShape.getTextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) .
 
-{{% alert title="معلومات" color="info" %}}
-Aspose.Slides يوفّر أيضاً الواجهة [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IShape) التي تتيح لك إضافة أشكال إلى الشرائح. ومع ذلك، ليس كل الأشكال التي تُضاف عبر واجهة `IShape` يمكنها حمل نص. ولكن الأشكال التي تُضاف عبر الواجهة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IAutoShape) قد تحتوي على نص.
+{{% alert color="info" title="Note" %}}
+كل شكل تلقائي يطبق [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/)، لكن ليس كل شكل هو شكل تلقائي أو يدعم إطار نص. عند معالجة عرض تقديمي موجود، تحقق من أن الشكل يطبق [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) قبل الوصول إلى نصه.
 {{% /alert %}}
 
-{{% alert title="ملاحظة" color="warning" %}} 
-لذلك، عند التعامل مع شكل ترغب في إضافة نص إليه، قد ترغب في التحقق والتأكد من أنه تم تحويله عبر واجهة `IAutoShape`. فقط بعدها سيمكنك العمل مع [TextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/TextFrame)، التي هي خاصية تحت `IAutoShape`. راجع قسم [Update Text](https://docs.aspose.com/slides/ar/androidjava/manage-textbox/#update-text) في هذه الصفحة.
-{{% /alert %}}
+## **إنشاء مربع نص على شريحة**
 
-## **إنشاء صندوق نص في شريحة**
-
-لإنشاء صندوق نص في شريحة، اتبع الخطوات التالية:
-
-1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/Presentation).
-2. احصل على إشارة إلى الشريحة الأولى في العرض التقديمي الذي تم إنشاؤه حديثًا. 
-3. أضف كائنًا من النوع [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IAutoShape) مع [ShapeType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) مُعينًا إلى `Rectangle` في موضع محدد على الشريحة واحصل على الإشارة إلى كائن `IAutoShape` المضاف حديثًا.
-4. أضف خاصية `TextFrame` إلى كائن `IAutoShape` الذي سيحتوي على نص. في المثال أدناه، أضفنا هذا النص: *Aspose TextBox*
-5. أخيرًا، احفظ ملف PPTX عبر كائن `Presentation`. 
-
-يعرض لك كود Java التالي—تنفيذ للخطوات أعلاه—كيفية إضافة نص إلى شريحة:
-
-```java
-import com.aspose.slides.*;
-
-// إنشاء نسخة من Presentation
-Presentation pres = new Presentation();
-try {
-    // يحصل على الشريحة الأولى في العرض التقديمي
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // يضيف AutoShape مع تعيين النوع كـ Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // يضيف TextFrame إلى المستطيل
-    ashp.addTextFrame(" ");
-
-    // الوصول إلى إطار النص
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // إنشاء كائن الفقرة لإطار النص
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // إنشاء كائن Portion للفقرة
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // تعيين النص
-    portion.setText("Aspose TextBox");
-
-    // حفظ العرض التقديمي إلى القرص
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **التحقق من شكل صندوق النص**
-
-توفر Aspose.Slides الطريقة [isTextBox](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/#isTextBox--) من الواجهة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) ، مما يتيح لك فحص الأشكال وتحديد صناديق النص.
-
-![صندوق النص والشكل](istextbox.png)
-
-يعرض لك كود Java التالي كيفية التحقق مما إذا كان الشكل قد تم إنشاؤه كصندوق نص: 
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-لاحظ أنه إذا قمت ببساطة بإضافة شكل تلقائي باستخدام طريقة `addAutoShape` من الواجهة [IShapeCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/) ، فإن طريقة `isTextBox` للشكل التلقائي ستعيد `false`. ومع ذلك، بعد أن تضيف نصًا إلى الشكل التلقائي باستخدام طريقة `addTextFrame` أو طريقة `setText`، ستعيد خاصية `isTextBox` القيمة `true`.
+لإنشاء مربع نص، أضف شكلاً تلقائيًا إلى شريحة، أضف نصًا إلى إطار نصه، واحفظ العرض التقديمي. المثال التالي ينشئ مربع نص مستطيل:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() يرجع false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() يرجع true
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() يرجع false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() يرجع true
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() يرجع false
-shape3.addTextFrame("");
-// shape3.isTextBox() يرجع false
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() يرجع false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() يرجع false
-```
-
-## **العثور على الشكل المالك لإطار النص**
-
-في كود معالجة النصوص العام، قد تستقبل كائنًا من النوع [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) دون معرفة مسبقة أي عنصر عرض تقديمي يحتويه. استخدم طريقة [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentShape--) للعودة إلى الـ[IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) المالك.
-
-بالنسبة لإطار نص ينتمي إلى [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) أو شكل آخر يحتوي على نص، تُعيد طريقة [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentShape--) المالك وتُعيد طريقة [ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentCell--) القيمة `null`. كلا الطريقتين توفران تنقلًا للقراءة فقط، لذا فإن استدعائهما لا يغيّر الملكية. تأكد دائمًا من فحص القيمة المرجعة للتأكد من أنها ليست `null` قبل الوصول إلى الشكل.
-
-للحصول على مثال كامل يحدد مالكي الشكل وخلايا الجدول، بما في ذلك الأشكال المرتبطة بعُقَد SmartArt، راجع [Search and Replace Text](/slides/ar/androidjava/search-and-replace-text/).
-
-## **إضافة أعمدة إلى صندوق النص**
-
-توفر Aspose.Slides الخصائص [ColumnCount](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) و[ColumnSpacing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (من الواجهة [ITextFrameFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat) والفئة [TextFrameFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/TextFrameFormat)) التي تتيح لك إضافة أعمدة إلى صناديق النص. يمكنك تحديد عدد الأعمدة في صندوق النص وتعيين المسافة بين الأعمدة بالنقاط.
-
-يعرض لك الكود التالي بلغة Java العملية الموصوفة:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // يحصل على الشريحة الأولى في العرض التقديمي
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // إضافة AutoShape مع تعيين النوع كـ Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // إضافة TextFrame إلى المستطيل
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // يحصل على تنسيق النص لإطار النص
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // تحديد عدد الأعمدة في إطار النص
-    format.setColumnCount(3);
-
-    // تحديد المسافة بين الأعمدة
-    format.setColumnSpacing(10);
-
-    // حفظ العرض التقديمي
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **إضافة أعمدة إلى إطار النص**
+المقاييس والأبعاد التي تُمرَّر إلى الطريقة [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) تُقاس بالنقاط. تقوم الطريقة [IAutoShape.addTextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) بتهيئة إطار النص بالنص المزوَّد.
 
-توفر Aspose.Slides for Android عبر Java الخاصية [ColumnCount](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (من الواجهة [ITextFrameFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ITextFrameFormat)) التي تسمح لك بإضافة أعمدة في إطارات النص. من خلال هذه الخاصية، يمكنك تحديد عدد الأعمدة المفضّل في إطار النص.
+## **التحقق من وجود شكل مربع نص**
 
-يعرض لك كود Java التالي كيفية إضافة عمود داخل إطار نص:
+استخدم الطريقة [IAutoShape.isTextBox](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/#isTextBox--) لتحديد ما إذا كان الشكل التلقائي يُعامل كمربع نص. هذا مفيد عندما يحتوي العرض التقديمي على أشكال تلقائية تحمل نصًا وأخرى رسومية بحتة.
+
+![مربع نص وشكل](istextbox.png)
+
+المثال التالي يفحص كل شكل تلقائي في العرض التقديمي:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+الشكل التلقائي المضاف حديثًا لا يُعتبر مربع نص إلا إذا احتوى على نص غير فارغ. يمكنك توفير ذلك النص عبر [IAutoShape.addTextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) أو [ITextFrame.setText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-). إضافة أو تعيين سلسلة فارغة يجعل [IAutoShape.isTextBox](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/#isTextBox--) تُعيد `false`:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+المكالمتان الأوليان يطبعان `true`؛ الأخيرتان يطبعان `false`.
+
+## **إيجاد الشكل الذي يملك إطار نص**
+
+قد يتلقى كود معالجة النص العامة كائنًا من نوع [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) دون معرفة أي كائن عرض تقديمي يحتويه. استخدم الطريقة القارئة فقط [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentShape--) للعودة إلى [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) المالك.
+
+لإطار نص يملكه شكل تلقائي أو شكل آخر يحمل نصًا، تُعيد [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentShape--) المالك وتُعيد [ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentCell--) القيمة `null`. تحقق من القيمة المرجعة قبل الوصول إليها. لتحديد كل من مالكي الشكل وخلية الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع القسم [Search and Replace Text](/slides/ar/androidjava/search-and-replace-text/) .
+
+## **إضافة أعمدة إلى مربع نص**
+
+تقسّم الطريقة [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-) إطار النص إلى أعمدة، بينما تُحدد الطريقة [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) الفجوة بين الأعمدة بالنقاط. كلا الإعدادين ينتميان إلى [ITextFrameFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/) ويمكن تغييره عبر إطار نص مربع نص موجود. يعيد النص التدفق بين الأعمدة داخل نفس الشكل؛ ولا يستمر في شكل آخر.
+
+المثال التالي يُنشئ مربع نص بثلاثة أعمدة مع 10 نقاط بين الأعمدة، يحفظ العرض التقديمي، ثم يقرأ الإعدادات المخزنة من ملف الإخراج:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **استخراج النص من الأعمدة الفردية**
+
+استخدم الطريقة [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#splitTextByColumns--) لاسترجاع النص المخصص لكل عمود بصري في إطار نص موجود. تُعيد الطريقة سلسلة واحدة لكل عمود وفق ترتيب القراءة القائم على الأعمدة. يُنتج إطار نص بعمود واحد مصفوفة ذات عنصر واحد، ويمثل العمود الفارغ سلسلة فارغة. تحتوي السلاسل على نص عادي فقط؛ ولا يُحفظ التنسيق على مستوى الجزء.
+
+هذا مفيد عندما تحتاج إلى:
+
+- استخراج النص مع الحفاظ على ترتيب القراءة القائم على الأعمدة.
+- فهرسة أو مقارنة محتوى الشرائح متعددة الأعمدة.
+- تصدير كل عمود إلى ملف منفصل أو حقل قاعدة بيانات أو مقصد آخر.
+- فحص كيفية إعادة توزيع النص بعد تغيير عدد الأعمدة باستخدام [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-)، أو الفجوة باستخدام [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-)، أو الخط، أو حجم إطار النص.
+
+تُبلغ الطريقة عن النص الموزَّع داخل [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) الحالي؛ ولا تُجري تلقائيًا تدفق النص بين أشكال أو مربعات نص منفصلة. قد يعتمد توزيع الأعمدة على الخطوط المتوفرة وإعدادات تخطيط النص الأخرى، لذا تأكد من توفر الخطوط المطلوبة عندما تكون النتائج المتسقة مهمة.
+
+المثال التالي يحمل عرضًا تقديميًا، يجد أول شكل تلقائي متعدد الأعمدة يحتوي على إطار نص، يقرأ عدد الأعمدة المكوَّن، ويكتب النص من كل عمود إلى ملف منفصل. تُهمل الأشكال التي لا توفر إطار نص.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            String outputPath = "Column-" + columnNumber + ".txt";
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try (FileOutputStream outputStream = new FileOutputStream(outputPath)) {
+                outputStream.write(textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **تحديث النص**
 
-تتيح لك Aspose.Slides تغيير أو تحديث النص الموجود في صندوق النص أو جميع النصوص الموجودة في عرض تقديمي.
+لتحديث النص عبر العرض التقديمي، كرر عبر الشرائح والأشكال، اختر الأشكال التلقائية، ثم حرّر أجزاء نصها. يتيح العمل على مستوى الجزء تغيير كل من النص وتنسيق الأحرف.
 
-يعرض لك كود Java التالي عملية تحديث أو تغيير جميع النصوص في عرض تقديمي:
+المثال التالي يستبدل كل ظهور لكلمة `years` بـ `months` في نص الأشكال التلقائية ويجعل كل جزء متأثر غامقًا:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //يتحقق مما إذا كان الشكل يدعم إطار النص (IAutoShape). 
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //يتنقل عبر الفقرات في إطار النص
-                {
-                    for (IPortion portion : paragraph.getPortions()) //يتنقل عبر كل جزء في الفقرة
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //يغيّر النص
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //يغيّر التنسيق
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //يحفظ العرض التقديمي المعدل
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **إضافة صندوق نص مع رابط تشعبي** 
+هذا التجوال يُحدّث النص فقط في الأشكال التلقائية. يتطلب النص المخزن في الجداول أو المخططات أو SmartArt أو الأشكال المجمعة تجوالًا في مجموعات تلك الكائنات نفسها.
 
-يمكنك إدراج رابط داخل صندوق نص. عندما يتم النقر على صندوق النص، سيتم توجيه المستخدمين لفتح الرابط. 
+## **إضافة مربع نص به رابط تشعبي**
 
-لإضافة صندوق نص يحتوي على رابط، اتبع الخطوات التالية:
+يمكن ربط رابط تشعبي بجزء نص محدد، بحيث يكون ذلك الجزء فقط هو القابل للنقر. استخدم الطريقة [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) لربط الجزء بعنوان URL خارجي.
 
-1. إنشاء مثال من الفئة `Presentation`. 
-2. احصل على إشارة إلى الشريحة الأولى في العرض التقديمي الذي تم إنشاؤه حديثًا. 
-3. أضف كائنًا من النوع `AutoShape` مع `ShapeType` مُعينًا إلى `Rectangle` في موضع محدد على الشريحة واحصل على إشارة إلى كائن الـAutoShape المضاف حديثًا.
-4. أضف `TextFrame` إلى كائن `AutoShape` وقم بتعيين نص الجزء الأول منه. في المثال أدناه، استخدمنا هذا النص: *Aspose.Slides*
-5. احصل على كائن [IHyperlinkManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ihyperlinkmanager/) من `PortionFormat` للجزء المفضّل لديك في `TextFrame`.
-6. استدعِ طريقة [setExternalHyperlinkClick](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) على ذلك الكائن لتعيين الرابط الذي يفتح عند النقر على النص.
-7. أخيرًا، احفظ ملف PPTX عبر كائن `Presentation`. 
-
-يعرض لك كود Java التالي—تنفيذ للخطوات أعلاه—كيفية إضافة صندوق نص مع رابط تشعبي إلى شريحة:
+المثال التالي يُنشئ نصًا مرتبطًا ويحفظه في عرض تقديمي:
 
 ```java
 import com.aspose.slides.*;
 
-// ينشئ كائنًا من فئة Presentation يمثل ملف PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // يحصل على الشريحة الأولى في العرض التقديمي
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // يضيف كائن AutoShape مع تعيين النوع كـ Rectangle
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // يحوّل الشكل إلى AutoShape
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // الوصول إلى خاصية ITextFrame المرتبطة بـ AutoShape
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // يضيف بعض النص إلى الإطار
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // يعيّن الارتباط التشعبي لنص الجزء
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // يحفظ عرض PPTX
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما الفرق بين صندوق النص وعنصر نائبة النص عند العمل مع الشرائح الرئيسية؟**
+**ما الفرق بين مربع النص وعنصر النائب النصي في الشريحة الرئيسية أو تخطيط الشريحة؟**
 
-يُورث [placeholder](/slides/ar/androidjava/manage-placeholder/) النمط/الموضع من الـ[master](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/masterslide/) ويمكن تجاوزه في الـ[layouts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/layoutslide/)، بينما صندوق النص العادي هو كائن مستقل على شريحة محددة ولا يتغيّر عند تبديل التخطيطات.
+يمكن لـ [placeholder](/slides/ar/androidjava/manage-placeholder/) أن يرث موقعه وتنسيقه من [master slide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/masterslide/) أو [layout slide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/layoutslide/). مربع النص العادي هو شكل مستقل على الشريحة التي تم إنشاؤه عليها ولا يكتسب سلوك العنصر النائب عندما يتغير التخطيط.
 
-**كيف يمكنني تنفيذ استبدال نص جماعي عبر العرض التقديمي دون تعديل النص داخل المخططات أو الجداول أو SmartArt؟**
+**كيف يمكنني استبدال النص دون تعديل النص في المخططات أو الجداول أو SmartArt؟**
 
-قصر التكرار على الأشكال التلقائية التي تحتوي على إطارات نص واستبعاد الكائنات المدمجة ([charts](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/chart/)، [tables](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/table/)، [SmartArt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/smartart/)) عن طريق استعراض مجموعاتهم بشكل منفصل أو تخطي تلك الأنواع من الكائنات.
+قصر التجوال على الأشكال التي تطبق [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) كما هو موضح في مثال تحديث النص. تخزن المخططات والجداول وSmartArt النص في نماذج كائناتها الخاصة، لذا لا تُعدَّل بهذه الحلقة.

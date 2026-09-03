@@ -1,226 +1,226 @@
 ---
-title: "Python के साथ प्रस्तुतियों में टेक्स्ट बॉक्स प्रबंधित करें"
+title: "Python के साथ प्रस्तुति में टेक्स्ट बॉक्स प्रबंधित करें"
 linktitle: "टेक्स्ट बॉक्स प्रबंधित करें"
 type: docs
 weight: 20
 url: /hi/python-net/manage-textbox/
 keywords:
-- "टेक्स्ट बॉक्स"
-- "टेक्स्ट फ्रेम"
-- "टेक्स्ट जोड़ें"
-- "टेक्स्ट अपडेट करें"
-- "टेक्स्ट बॉक्स बनाएं"
-- "टेक्स्ट बॉक्स जांचें"
-- "टेक्स्ट कॉलम जोड़ें"
-- "हाइपरलिंक जोड़ें"
-- "PowerPoint"
-- "प्रेजेंटेशन"
-- "Python"
-- "Aspose.Slides"
-description: "Aspose.Slides for Python via .NET PowerPoint और OpenDocument फ़ाइलों में टेक्स्ट बॉक्स बनाने, संपादित करने और क्लोन करने को आसान बनाता है, जिससे आपके प्रेजेंटेशन ऑटोमेशन में सुधार होता है।"
+- टेक्स्ट बॉक्स
+- टेक्स्ट फ्रेम
+- टेक्स्ट जोड़ें
+- टेक्स्ट अपडेट करें
+- टेक्स्ट बॉक्स बनाएं
+- टेक्स्ट बॉक्स जांचें
+- टेक्स्ट कॉलम जोड़ें
+- हाइपरलिंक जोड़ें
+- PowerPoint
+- प्रस्तुति
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट बॉक्स बनाएं, पहचानें, स्वरूपित करें और अपडेट करें।"
 ---
 ## **परिचय**
 
-स्लाइड में टेक्स्ट आमतौर पर टेक्स्ट बॉक्स या शैप में मौजूद होते हैं। इसलिए, स्लाइड में टेक्स्ट जोड़ने के लिए आपको पहले एक टेक्स्ट बॉक्स बनाना होगा और फिर उस बॉक्स में टेक्स्ट डालना होगा। Aspose.Slides for Python [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) क्लास प्रदान करता है जो आपको टेक्स्ट वाला शैप जोड़ने की अनुमति देता है।
+Aspose.Slides for Python via .NET में, स्लाइड का टेक्स्ट उन टेक्स्ट फ्रेम में संग्रहीत होता है जो आकारों (शेप्स) से संबंधित होते हैं। [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) क्लास सबसे सामान्य टेक्स्ट‑धारी आकार का प्रतिनिधित्व करता है और अपना टेक्स्ट [AutoShape.text_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/text_frame/) प्रॉपर्टी के माध्यम से उजागर करता है।
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides additionally [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) क्लास भी प्रदान करता है। हालांकि, सभी शैप्स टेक्स्ट रख नहीं सकते।
+{{% alert color="info" title="Note" %}}
+हर ऑटो शैप [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) से विरासत में प्राप्त करता है, लेकिन हर शैप ऑटो शैप नहीं होता या टेक्स्ट फ्रेम का समर्थन नहीं करता। मौजूदा प्रस्तुति को प्रोसेस करते समय, टेक्स्ट तक पहुँचने से पहले शैप प्रकार की जाँच के लिए `isinstance(shape, slides.AutoShape)` का उपयोग करें।
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-इसलिए, जब आप किसी शैप के साथ काम कर रहे हों जिसमें आप टेक्स्ट जोड़ना चाहते हैं, तो आपको यह सत्यापित करना चाहिए कि वह शैप [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) क्लास के माध्यम से कास्ट किया गया है। तभी आप [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) के साथ काम कर पाएँगे, जो कि [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) की एक प्रॉपर्टी है। इस पेज के [Update Text](/slides/hi/python-net/manage-textbox/#update-text) सेक्शन को देखें।
-{{% /alert %}}
+## **स्लाइड पर एक टेक्स्ट बॉक्स बनाएं**
 
-## **स्लाइड पर टेक्स्ट बॉक्स बनाना**
-
-स्लाइड पर टेक्स्ट बॉक्स बनाने के चरण:
-
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास की इंस्टेंस बनाएँ।
-2. पहली स्लाइड का रेफरेंस प्राप्त करें।
-3. इच्छित位置 पर `ShapeType.RECTANGLE` के साथ एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें।
-4. शैप के [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) में टेक्स्ट सेट करें।
-5. प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
-
-निम्नलिखित Python उदाहरण इन चरणों को लागू करता है:
-
-```py
-import aspose.slides as slides
-
-# Presentation class का इंस्टेंस बनाएं।
-with slides.Presentation() as presentation:
-
-    # प्रेजेंटेशन में पहली स्लाइड प्राप्त करें।
-    slide = presentation.slides[0]
-
-    # RECTANGLE प्रकार का AutoShape जोड़ें।
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
-
-    shape.text_frame.text = "Aspose TextBox"
-
-    # प्रेजेंटेशन को डिस्क पर सहेजें।
-    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **जांचें कि शैप टेक्स्ट बॉक्स है या नहीं**
-
-Aspose.Slides [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) क्लास पर [is_text_box](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/is_text_box/) प्रॉपर्टी प्रदान करता है, जिससे आप यह निर्धारित कर सकते हैं कि शैप टेक्स्ट बॉक्स है या नहीं।
-
-![Text box and shape](istextbox.png)
-
-यह Python उदाहरण दिखाता है कि शैप को टेक्स्ट बॉक्स के रूप में कैसे जाँचें:
+एक टेक्स्ट बॉक्स बनाने के लिए, स्लाइड पर एक ऑटो शैप जोड़ें, उसके टेक्स्ट फ्रेम में टेक्स्ट जोड़ें, और प्रस्तुति को सहेजें। निम्न उदाहरण आयताकार टेक्स्ट बॉक्स बनाता है:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
-    for slide in presentation.slides:
-        for shape in slide.shapes:
-            if isinstance(shape, slides.AutoShape):
-                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 300, 50)
+    text_box.add_text_frame("Aspose TextBox")
+
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ध्यान दें कि यदि आप [ShapeCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/) क्लास का उपयोग करके एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ते हैं, तो शैप की `is_text_box` प्रॉपर्टी `False` लौटाती है। लेकिन जब आप टेक्स्ट जोड़ते हैं—या तो `add_text_frame` मेथड से या `text` प्रॉपर्टी सेट करके—`is_text_box` `True` लौटाता है।
+[ShapeCollection.add_auto_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_auto_shape/) को पास किए गए निर्देशांक और आकार पॉइंट में मापे जाते हैं। [AutoShape.add_text_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/add_text_frame/) प्रदान किए गए टेक्स्ट से टेक्स्ट फ्रेम को प्रारंभिक करता है।
 
-```py
+## **टेक्स्ट बॉक्स आकार की जाँच करें**
+
+यह निर्धारित करने के लिए कि कोई ऑटो शैप टेक्स्ट बॉक्स के रूप में माना जाता है या नहीं, [AutoShape.is_text_box](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/is_text_box/) प्रॉपर्टी का उपयोग करें। यह तब उपयोगी होता है जब प्रस्तुति में टेक्स्ट‑धारी और केवल ग्राफिकल ऑटो शैप दोनों हों।
+
+![एक टेक्स्ट बॉक्स और एक आकार](istextbox.png)
+
+निम्न उदाहरण प्रस्तुति में प्रत्येक ऑटो शैप की जांच करता है:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 120, 40)
+    text_box.add_text_frame("Text box")
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 10, 40, 40)
+
+    for current_slide in presentation.slides:
+        for shape in current_slide.shapes:
+            if isinstance(shape, slides.AutoShape):
+                print("The shape is a text box." if shape.is_text_box else "The shape is not a text box.")
+```
+
+एक नया जोड़ा गया ऑटो शैप तब तक टेक्स्ट बॉक्स नहीं माना जाता जब तक उसमें खाली नहीं‑खाली टेक्स्ट न हो। आप वह टेक्स्ट [AutoShape.add_text_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/add_text_frame/) या [TextFrame.text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/text/) के माध्यम से प्रदान कर सकते हैं। खाली स्ट्रिंग जोड़ने या असाइन करने से [is_text_box](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/is_text_box/) `False` पर सेट रहता है:
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
-    # shape1.is_text_box false है
-    shape1.add_text_frame("shape 1")
-    # shape1.is_text_box true है
+    shape1.add_text_frame("Shape 1")
+    print(shape1.is_text_box)
 
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
-    # shape2.is_text_box false है
-    shape2.text_frame.text = "shape 2"
-    # shape2.is_text_box true है
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 100, 40)
+    shape2.text_frame.text = "Shape 2"
+    print(shape2.is_text_box)
 
-    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
-    # shape3.is_text_box false है
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 100, 40)
     shape3.add_text_frame("")
-    # shape3.is_text_box false है
+    print(shape3.is_text_box)
 
-    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
-    # shape4.is_text_box false है
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 100, 40)
     shape4.text_frame.text = ""
-    # shape4.is_text_box false है
+    print(shape4.is_text_box)
 ```
 
-## **उस शैप को खोजें जो टेक्स्ट फ्रेम का मालिक है**
+पहली दो कॉल `True` प्रिंट करती हैं; अंतिम दो कॉल `False` प्रिंट करती हैं।
 
-सामान्य टेक्स्ट‑प्रॉसेसिंग कोड में आपको एक [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) मिल सकता है, लेकिन यह नहीं पता होता कि कौन सा प्रेजेंटेशन ऑब्जेक्ट इसे धारण करता है। मालिक शैप पर जाने के लिए आप [TextFrame.parent_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_shape/) प्रॉपर्टी का उपयोग करें।
+## **टेक्स्ट फ्रेम का मालिक आकार खोजें**
 
-यदि टेक्स्ट फ्रेम कोई [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) या अन्य टेक्स्ट‑धारक शैप से संबंधित है, तो [TextFrame.parent_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_shape/) सेट होता है और [TextFrame.parent_cell](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_cell/) `None` रहता है। दोनों प्रॉपर्टी केवल‑पढ़ने योग्य नेविगेशन प्रॉपर्टी हैं, इसलिए उनका उपयोग करने से स्वामित्व नहीं बदलता। हमेशा शैप एक्सेस करने से पहले `None` के लिए जाँचें।
+जनरिक टेक्स्ट‑प्रोसेसिंग कोड एक [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) प्राप्त कर सकता है बिना यह जाने कि वह कौनसी प्रस्तुति वस्तु में है। उसके मालिक [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) तक वापस जाने के लिए रीड‑ओनली [TextFrame.parent_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_shape/) प्रॉपर्टी का उपयोग करें।
 
-शैप और टेबल‑सेल मालिकों की पहचान करने वाले पूर्ण उदाहरण, जिसमें SmartArt नोड्स से जुड़े शैप्स भी शामिल हैं, के लिए देखें [Search and Replace Text](/slides/hi/python-net/search-and-replace-text/)।
+ऑटो शैप या अन्य टेक्स्ट‑धारी शैप द्वारा स्वामित्व वाले टेक्स्ट फ्रेम के लिए, [parent_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_shape/) में मालिक रहता है और [TextFrame.parent_cell](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_cell/) `None` होता है। उपयोग करने से पहले लौटाए गए मान की जाँच करें। शैप और टेबल‑सेल दोनों मालिकों की पहचान करने के लिए, जिसमें SmartArt नोड्स से जुड़े शैप शामिल हैं, देखें [टेक्स्ट खोजें और बदलें](/slides/hi/python-net/search-and-replace-text/)।
 
-## **टेक्स्ट बॉक्स में कॉलम जोड़ना**
+## **टेक्स्ट बॉक्स में कॉलम जोड़ें**
 
-Aspose.Slides [TextFrameFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/) क्लास पर [column_count](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/column_count/) और [column_spacing](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/column_spacing/) प्रॉपर्टी प्रदान करता है, जिससे आप टेक्स्ट बॉक्स में कॉलम जोड़ सकते हैं। आप कॉलमों की संख्या और कॉलमों के बीच की दूरी (पॉइंट्स में) निर्धारित कर सकते हैं।
+[TextFrameFormat.column_count](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/column_count/) प्रॉपर्टी टेक्स्ट फ्रेम को कॉलम में विभाजित करती है, जबकि [TextFrameFormat.column_spacing](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/column_spacing/) कॉलम के बीच का अंतराल पॉइंट में सेट करती है। दोनों सेटिंग्स [TextFrameFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/) से संबंधित हैं और मौजूदा टेक्स्ट बॉक्स के टेक्स्ट फ्रेम के माध्यम से बदली जा सकती हैं। टेक्स्ट समान शैप के भीतर कॉलम के बीच पुनः‑फ़्लो होता है; यह किसी अन्य शैप में नहीं जारी रहता।
 
-निम्नलिखित Python कोड इस ऑपरेशन को दर्शाता है:
+निम्न उदाहरण तीन‑कॉलम टेक्स्ट बॉक्स बनाता है जिसमें कॉलम के बीच 10 पॉइंट का अंतराल है, प्रस्तुति को सहेजता है, और आउटपुट फ़ाइल से सहेजे गए सेटिंग्स को वापस पढ़ता है:
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 200)
+    text_box.add_text_frame("This text is distributed automatically across all columns in the text box.")
 
-	# प्रेजेंटेशन में पहली स्लाइड प्राप्त करें।
-	slide = presentation.slides[0]
+    text_frame_format = text_box.text_frame.text_frame_format
+    text_frame_format.column_count = 3
+    text_frame_format.column_spacing = 10
 
-	# RECTANGLE प्रकार का AutoShape जोड़ें।
-	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    presentation.save("TextBoxColumns.pptx", slides.export.SaveFormat.PPTX)
 
-	# आयत में एक TextFrame जोड़ें।
-	shape.add_text_frame("All of these columns are confined to a single text container—" +
-	"you can add or delete text, and any new or remaining text automatically reflows " +
-	"within the container. You cannot have text flow from one container to another, " +
-	"though—PowerPoint’s column options for text are limited!")
-
-	# TextFrame का टेक्स्ट फ़ॉर्मेट प्राप्त करें।
-	format = shape.text_frame.text_frame_format
-
-	# TextFrame में कॉलमों की संख्या निर्धारित करें।
-	format.column_count = 3
-
-	# कॉलमों के बीच की दूरी निर्धारित करें।
-	format.column_spacing = 10
-
-	# प्रेजेंटेशन को सहेजें।
-	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("TextBoxColumns.pptx") as saved_presentation:
+    saved_text_box = saved_presentation.slides[0].shapes[0]
+    if isinstance(saved_text_box, slides.AutoShape):
+        saved_format = saved_text_box.text_frame.text_frame_format
+        print(f"Columns: {saved_format.column_count}; spacing: {saved_format.column_spacing} points")
 ```
 
-## **टेक्स्ट अपडेट करना**
+## **व्यक्तिगत कॉलम से टेक्स्ट निकालें**
 
-Aspose.Slides आपको एकल टेक्स्ट बॉक्स या पूरी प्रेजेंटेशन में टेक्स्ट अपडेट करने की अनुमति देता है।
+[TextFrame.split_text_by_columns](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/split_text_by_columns/) का उपयोग करके मौजूदा टेक्स्ट फ्रेम में प्रत्येक दृश्य कॉलम को सौंपा गया टेक्स्ट प्राप्त करें। यह मेथड प्रत्येक कॉलम के लिए एक स्ट्रिंग लौटाता है, कॉलम‑आधारित पढ़ने के क्रम में। एक‑कॉलम टेक्स्ट फ्रेम एक एलिमेंट वाली सूची बनाता है, और खाली कॉलम को खाली स्ट्रिंग द्वारा दर्शाया जाता है। स्ट्रिंग्स में केवल सादा टेक्स्ट होता है; भाग‑स्तर का फ़ॉर्मेटिंग बरकरार नहीं रहता।
 
-निम्नलिखित Python उदाहरण दिखाता है कि प्रेजेंटेशन में सभी टेक्स्ट को कैसे अपडेट करें:
+यह उपयोगी है जब आपको आवश्यकता हो:
 
-```py
+- कॉलम‑आधारित पढ़ने के क्रम को बनाए रखते हुए टेक्स्ट निकालने की।
+- बहु‑कॉलम स्लाइड्स की सामग्री को अनुक्रमित या तुलना करने की।
+- प्रत्येक कॉलम को अलग फ़ाइल, डेटाबेस फ़ील्ड या अन्य गंतव्य में निर्यात करने की।
+- फ़ॉन्ट, या टेक्स्ट‑फ़्रेम आकार, या [TextFrameFormat.column_count], [TextFrameFormat.column_spacing] बदलने के बाद टेक्स्ट कैसे पुनः वितरित होता है, इसका निरीक्षण करने की।
+
+यह मेथड वर्तमान [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) के भीतर वितरित टेक्स्ट की रिपोर्ट करता है; यह अलग-अलग शैप या टेक्स्ट बॉक्स के बीच स्वचालित रूप से टेक्स्ट प्रवाहित नहीं करता। कॉलम वितरण उपलब्ध फ़ॉन्ट और अन्य टेक्स्ट‑लेआउट सेटिंग्स पर निर्भर कर सकता है, इसलिए जब सुसंगत परिणाम महत्वपूर्ण हों तो सुनिश्चित करें कि आवश्यक फ़ॉन्ट उपलब्ध हों।
+
+निम्न उदाहरण एक प्रस्तुति लोड करता है, टेक्स्ट फ्रेम वाले पहले बहु‑कॉलम ऑटो शैप को खोजता है, उसकी कॉन्फ़िगर की गई कॉलम संख्या पढ़ता है, और प्रत्येक कॉलम का टेक्स्ट अलग फ़ाइल में लिखता है। वे शैप जो टेक्स्ट फ्रेम प्रदान नहीं करते उन्हें छोड़ दिया जाता है।
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("Sample.pptx") as presentation:
+with slides.Presentation("MultiColumnText.pptx") as presentation:
+    text_box = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+            column_count = shape.text_frame.text_frame_format.column_count
+            if column_count > 1:
+                text_box = shape
+                break
+
+    if text_box is None:
+        print("No multi-column text frame was found.")
+    else:
+        text_frame = text_box.text_frame
+        configured_column_count = text_frame.text_frame_format.column_count
+        column_texts = text_frame.split_text_by_columns()
+
+        print(f"Configured columns: {configured_column_count}")
+
+        for column_number, column_text in enumerate(column_texts, start=1):
+            print(f"Column {column_number}: {column_text}")
+            with open(f"Column-{column_number}.txt", "w", encoding="utf-8") as column_file:
+                column_file.write(column_text)
+```
+
+## **टेक्स्ट अपडेट करें**
+
+पूरी प्रस्तुति में टेक्स्ट अपडेट करने के लिए, स्लाइड और शैप पर इटररेट करें, ऑटो शैप चुनें, और फिर उनके टेक्स्ट भागों को संपादित करें। भाग‑स्तर पर काम करने से आप टेक्स्ट और कैरेक्टर फ़ॉर्मेटिंग दोनों बदल सकते हैं।
+
+निम्न उदाहरण ऑटो‑शैप टेक्स्ट में प्रत्येक `years` को `months` से बदलता है और प्रभावित प्रत्येक भाग को बोल्ड करता है:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Text.pptx") as presentation:
     for slide in presentation.slides:
         for shape in slide.shapes:
-            if type(shape) is slides.AutoShape:
-                for paragraph in shape.text_frame.paragraphs:
-                    for portion in paragraph.portions:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if "years" in portion.text:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = slides.NullableBool.TRUE
-  
-    # संशोधित प्रेजेंटेशन को सहेजें।
+
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **हाइपरलिंक के साथ टेक्स्ट बॉक्स जोड़ना**
+यह ट्रैवर्सल केवल ऑटो शैप में टेक्स्ट को अपडेट करता है। टेबल, चार्ट, SmartArt या ग्रुप किए गए शैप में संग्रहीत टेक्स्ट को उन ऑब्जेक्ट्स के अपने संग्रहों की ट्रैवर्सल की आवश्यकता होती है।
 
-आप टेक्स्ट बॉक्स में लिंक सम्मिलित कर सकते हैं। जब टेक्स्ट बॉक्स पर क्लिक किया जाता है, तो लिंक खुल जाता है।
+## **हाइपरलिंक के साथ एक टेक्स्ट बॉक्स जोड़ें**
 
-हाइपरलिंक वाला टेक्स्ट बॉक्स जोड़ने के चरण:
+हाइपरलिंक को किसी विशिष्ट टेक्स्ट भाग को असाइन किया जा सकता है, ताकि केवल वही टेक्स्ट क्लिक करने योग्य लिंक के रूप में कार्य करे। विशिष्ट भाग को बाहरी URL से जोड़ने के लिए [HyperlinkManager.set_external_hyperlink_click](https://reference.aspose.com/slides/hi/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/) का उपयोग करें।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास की इंस्टेंस बनाएँ।
-2. पहली स्लाइड का रेफरेंस प्राप्त करें।
-3. इच्छित位置 पर `ShapeType.RECTANGLE` के साथ एक [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) जोड़ें।
-4. शैप के [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) में टेक्स्ट सेट करें।
-5. [HyperlinkManager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/hyperlinkmanager/) का रेफरेंस प्राप्त करें।
-6. `hyperlink_manager` प्रॉपर्टी का उपयोग करके बाह्य क्लिक हाइपरलिंक सेट करें।
-7. प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+निम्न उदाहरण लिंक्ड टेक्स्ट बनाता है और उसे एक प्रस्तुति में सहेजता है:
 
-यह Python उदाहरण दिखाता है कि स्लाइड में हाइपरलिंक के साथ टेक्स्ट बॉक्स कैसे जोड़ें:
-
-```py
+```python
 import aspose.slides as slides
 
-# Presentation क्लास का इंस्टेंस बनाएं।
 with slides.Presentation() as presentation:
-
-    # प्रेजेंटेशन में पहली स्लाइड प्राप्त करें।
     slide = presentation.slides[0]
+    text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 200, 50)
+    text_box.add_text_frame("Aspose.Slides")
 
-    # RECTANGLE प्रकार का AutoShape जोड़ें।
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    text_portion = text_box.text_frame.paragraphs[0].portions[0]
+    text_portion.portion_format.hyperlink_manager.set_external_hyperlink_click("https://www.aspose.com/")
 
-    text_portion = shape.text_frame.paragraphs[0].portions[0]
-
-    # फ़्रेम में टेक्स्ट जोड़ें।
-    text_portion.text = "Aspose.Slides"
-
-    # भाग टेक्स्ट के लिए हाइपरलिंक सेट करें।
-    hyperlink_manager = text_portion.portion_format.hyperlink_manager
-    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
-
-    # प्रेजेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मास्टर स्लाइड्स के साथ काम करते समय टेक्स्ट बॉक्स और टेक्स्ट प्लेसहोल्डर में क्या अंतर है?**
+**एक टेक्स्ट बॉक्स और मास्टर या लेआउट स्लाइड पर टेक्स्ट प्लेसहोल्डर में क्या अंतर है?**
 
-एक [placeholder](/slides/hi/python-net/manage-placeholder/) अपनी शैली/स्थिति को [master](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslide/) से विरासत में लेता है और इसे [layouts](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/) पर ओवरराइड किया जा सकता है, जबकि सामान्य टेक्स्ट बॉक्स एक स्वतंत्र ऑब्जेक्ट है जो किसी विशिष्ट स्लाइड पर रहता है और लेआउट बदलने पर नहीं बदलता।
+एक [placeholder](/slides/hi/python-net/manage-placeholder/) अपनी स्थिति और फ़ॉर्मेटिंग को [master slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslide/) या [layout slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/) से विरासत में ले सकता है। एक सामान्य टेक्स्ट बॉक्स वह स्वतंत्र शैप है जो उस स्लाइड पर बना जहाँ यह बनाया गया और लेआउट बदलने पर प्लेसहोल्डर व्यवहार नहीं प्राप्त करता।
 
-**मैं प्रेजेंटेशन में टेक्स्ट को बड़े पैमाने पर बदलना चाहता हूँ, लेकिन चार्ट, टेबल और SmartArt के अंदर के टेक्स्ट को नहीं छूना चाहता, तो कैसे करूँ?**
+**मैं चार्ट, टेबल या SmartArt में टेक्स्ट बदले बिना टेक्स्ट कैसे बदल सकता हूँ?**
 
-ऑटो‑शैप्स को फ़िल्टर करें जिनमें टेक्स्ट फ्रेम हों और एम्बेडेड ऑब्जेक्ट्स ([charts](https://reference.aspose.com/slides/hi/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/hi/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/hi/python-net/aspose.slides.smartart/smartart/)) को उनके कलेक्शन्स को अलग‑अलग ट्रैवर्स करके या उन प्रकारों को स्किप करके छोड़ दें।
+Update Text उदाहरण में दिखाए अनुसार ट्रैवर्सल को केवल [AutoShape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/autoshape/) इंस्टेंस तक सीमित रखें। चार्ट, टेबल और SmartArt अपना टेक्स्ट अपने स्वयं के ऑब्जेक्ट मॉडल में संग्रहीत करते हैं, इसलिए वह लूप द्वारा संशोधित नहीं होते।

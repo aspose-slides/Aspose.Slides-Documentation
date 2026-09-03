@@ -1,5 +1,5 @@
 ---
-title: Android에서 프레젠테이션 텍스트 상자 관리
+title: Android에서 프레젠테이션의 텍스트 상자 관리
 linktitle: 텍스트 상자 관리
 type: docs
 weight: 20
@@ -18,320 +18,276 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java를 사용하면 PowerPoint 및 OpenDocument 파일에서 텍스트 상자를 쉽고 편리하게 만들고, 편집하고, 복제할 수 있어 프레젠테이션 자동화를 향상시킵니다."
+description: "Aspose.Slides for Android via Java를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 텍스트 상자를 생성, 식별, 서식 지정 및 업데이트합니다."
 ---
 ## **소개**
 
-슬라이드의 텍스트는 일반적으로 텍스트 상자나 도형에 존재합니다. 따라서 슬라이드에 텍스트를 추가하려면 텍스트 상자를 추가하고 그 텍스트 상자 안에 텍스트를 넣어야 합니다. Aspose.Slides for Android via Java는 텍스트를 포함하는 도형을 추가할 수 있는 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IAutoShape) 인터페이스를 제공합니다.
+Aspose.Slides for Android via Java에서는 슬라이드 텍스트가 도형에 속한 텍스트 프레임에 저장됩니다. [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 인터페이스는 가장 일반적인 텍스트를 포함하는 도형을 나타내며, 텍스트는 [IAutoShape.getTextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) 메서드를 통해 노출됩니다.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides는 슬라이드에 도형을 추가할 수 있는 [IShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IShape) 인터페이스도 제공합니다. 그러나 `IShape` 인터페이스를 통해 추가된 모든 도형이 텍스트를 보유할 수 있는 것은 아닙니다. 그러나 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IAutoShape) 인터페이스를 통해 추가된 도형은 텍스트를 포함할 수 있습니다.
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-따라서 텍스트를 추가하려는 도형을 다룰 때는 해당 도형이 `IAutoShape` 인터페이스로 캐스팅되었는지 확인하고 확인하는 것이 좋습니다. 그래야만 `IAutoShape` 아래 속성인 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/TextFrame)을 사용할 수 있습니다. 이 페이지의 [Update Text](https://docs.aspose.com/slides/ko/androidjava/manage-textbox/#update-text) 섹션을 참조하세요.
+{{% alert color="info" title="Note" %}}
+모든 자동 도형은 [IShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ishape/)을 구현하지만, 모든 도형이 자동 도형이거나 텍스트 프레임을 지원하는 것은 아닙니다. 기존 프레젠테이션을 처리할 때 텍스트에 접근하기 전에 도형이 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 구현하는지 확인하십시오.
 {{% /alert %}}
 
 ## **슬라이드에 텍스트 상자 만들기**
 
-텍스트 상자를 슬라이드에 만들려면 다음 단계를 수행합니다:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.  
-2. 새로 만든 프레젠테이션에서 첫 번째 슬라이드에 대한 참조를 가져옵니다.  
-3. 슬라이드의 지정된 위치에 `Rectangle`으로 설정된 [ShapeType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-)을 가진 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/IAutoShape) 객체를 추가하고, 새로 추가된 `IAutoShape` 객체에 대한 참조를 얻습니다.  
-4. 텍스트를 포함할 `TextFrame` 속성을 `IAutoShape` 객체에 추가합니다. 아래 예제에서는 *Aspose TextBox* 라는 텍스트를 추가했습니다.  
-5. 마지막으로 `Presentation` 객체를 통해 PPTX 파일을 저장합니다.  
-
-다음 Java 코드(위 단계 구현)는 슬라이드에 텍스트를 추가하는 방법을 보여줍니다:
-
-```java
-import com.aspose.slides.*;
-
-// 프레젠테이션 인스턴스 생성
-Presentation pres = new Presentation();
-try {
-    // 프레젠테이션의 첫 번째 슬라이드를 가져옵니다
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 타입을 Rectangle로 설정하여 AutoShape를 추가합니다
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Rectangle에 TextFrame을 추가합니다
-    ashp.addTextFrame(" ");
-
-    // 텍스트 프레임에 접근합니다
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // 텍스트 프레임용 Paragraph 객체를 생성합니다
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Paragraph용 Portion 객체를 생성합니다
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // 텍스트를 설정합니다
-    portion.setText("Aspose TextBox");
-
-    // 프레젠테이션을 디스크에 저장합니다
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **텍스트 상자 도형 확인**
-
-Aspose.Slides는 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 인터페이스의 [isTextBox](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/#isTextBox--) 메서드를 제공하여 도형을 검사하고 텍스트 상자를 식별할 수 있게 합니다.
-
-![Text box and shape](istextbox.png)
-
-다음 Java 코드는 도형이 텍스트 상자로 만들어졌는지 확인하는 방법을 보여줍니다:
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-`addAutoShape` 메서드를 사용해 [IShapeCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ishapecollection/) 인터페이스에서 자동 도형을 단순히 추가하면 해당 자동 도형의 `isTextBox` 메서드는 `false`를 반환합니다. 그러나 `addTextFrame` 메서드나 `setText` 메서드를 사용해 자동 도형에 텍스트를 추가하면 `isTextBox` 속성은 `true`를 반환합니다.
+텍스트 상자를 만들려면 슬라이드에 자동 도형을 추가하고, 해당 텍스트 프레임에 텍스트를 삽입한 뒤 프레젠테이션을 저장합니다. 다음 예제는 사각형 텍스트 상자를 생성합니다:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox()는 false를 반환합니다
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox()는 true를 반환합니다
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox()는 false를 반환합니다
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox()는 true를 반환합니다
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox()는 false를 반환합니다
-shape3.addTextFrame("");
-// shape3.isTextBox()는 false를 반환합니다
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox()는 false를 반환합니다
-shape4.getTextFrame().setText("");
-// shape4.isTextBox()는 false를 반환합니다
-```
-
-## **텍스트 프레임을 소유한 도형 찾기**
-
-일반적인 텍스트 처리 코드에서 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)을 받을 때, 해당 프레임을 포함하고 있는 프레젠테이션 객체를 아직 모를 수 있습니다. [ITextFrame.getParentShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/#getParentShape--) 메서드를 사용해 소유자 [IShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ishape/)로 다시 이동하십시오.
-
-[IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 또는 다른 텍스트 포함 도형에 속한 텍스트 프레임의 경우, `ITextFrame.getParentShape`는 소유자를 반환하고 `ITextFrame.getParentCell`은 `null`을 반환합니다. 두 메서드는 읽기 전용 탐색을 제공하므로 호출해도 소유권이 변경되지 않습니다. 항상 반환값이 `null`인지 확인한 후 도형에 접근하십시오.
-
-도형 및 표 셀 소유자를 식별하는 전체 예제(스마트아트 노드와 연결된 도형 포함)는 [Search and Replace Text](/slides/ko/androidjava/search-and-replace-text/)를 참조하세요.
-
-## **텍스트 상자에 열 추가**
-
-Aspose.Slides는 [ITextFrameFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ITextFrameFormat) 인터페이스와 [TextFrameFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/TextFrameFormat) 클래스에서 제공하는 [ColumnCount](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) 및 [ColumnSpacing](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) 속성을 사용하여 텍스트 상자에 열을 추가할 수 있습니다. 텍스트 상자의 열 수와 열 사이의 간격(포인트)을 지정할 수 있습니다.
-
-다음 Java 코드는 해당 작업을 시연합니다:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // 프레젠테이션의 첫 번째 슬라이드를 가져옵니다
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // 타입을 Rectangle로 설정하여 AutoShape를 추가합니다
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // Rectangle에 TextFrame을 추가합니다
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // TextFrame의 텍스트 형식을 가져옵니다
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // TextFrame의 열 수를 지정합니다
-    format.setColumnCount(3);
-
-    // 열 사이의 간격을 지정합니다
-    format.setColumnSpacing(10);
-
-    // 프레젠테이션을 저장합니다
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **텍스트 프레임에 열 추가**
+[IShapeCollection.addAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-)에 전달되는 좌표와 크기는 포인트 단위로 측정됩니다. [IAutoShape.addTextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-)는 제공된 텍스트로 텍스트 프레임을 초기화합니다.
 
-Aspose.Slides for Android via Java는 [ITextFrameFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ITextFrameFormat) 인터페이스에서 제공하는 [ColumnCount](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) 속성을 통해 텍스트 프레임에 열을 추가할 수 있게 합니다. 이 속성을 사용해 텍스트 프레임에 원하는 열 수를 지정할 수 있습니다.
+## **텍스트 상자 도형 확인**
 
-다음 Java 코드는 텍스트 프레임에 열을 추가하는 방법을 보여줍니다:
+[IAutoShape.isTextBox](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/#isTextBox--) 메서드를 사용하여 자동 도형이 텍스트 상자로 취급되는지 확인할 수 있습니다. 이는 프레젠테이션에 텍스트를 포함하는 자동 도형과 순수 그래픽 자동 도형이 모두 포함된 경우 유용합니다.
+
+![텍스트 상자와 도형](istextbox.png)
+
+다음 예제는 프레젠테이션의 모든 자동 도형을 검사합니다:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+새로 추가된 자동 도형은 비어 있지 않은 텍스트를 포함하기 전까지 텍스트 상자로 간주되지 않습니다. 해당 텍스트는 [IAutoShape.addTextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) 또는 [ITextFrame.setText](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-)을 통해 제공할 수 있습니다. 빈 문자열을 추가하거나 할당하면 [IAutoShape.isTextBox](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/#isTextBox--)이 `false`를 반환합니다:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+첫 번째와 두 번째 호출은 `true`를 출력하고, 마지막 두 호출은 `false`를 출력합니다.
+
+## **텍스트 프레임을 소유한 도형 찾기**
+
+일반 텍스트 처리 코드는 어떤 프레젠테이션 객체에 포함되어 있는지 모르는 상태로 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)을 받을 수 있습니다. 읽기 전용 [ITextFrame.getParentShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/#getParentShape--) 메서드를 사용하여 해당 도형으로 돌아갈 수 있습니다.
+
+자동 도형 또는 다른 텍스트를 포함하는 도형이 소유하는 텍스트 프레임의 경우, [ITextFrame.getParentShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/#getParentShape--)은 소유자를 반환하고 [ITextFrame.getParentCell](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/#getParentCell--)은 `null`을 반환합니다. 반환값에 접근하기 전에 확인하십시오. 도형과 표 셀 소유자를 모두 식별하려면 SmartArt 노드와 연결된 도형을 포함하여 [Search and Replace Text](/slides/ko/androidjava/search-and-replace-text/)를 참조하십시오.
+
+## **텍스트 상자에 열 추가**
+
+[ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-) 메서드는 텍스트 프레임을 열로 나누고, [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) 메서드는 열 사이의 간격을 포인트 단위로 설정합니다. 두 설정은 [ITextFrameFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframeformat/)에 속하며 기존 텍스트 상자의 텍스트 프레임을 통해 변경할 수 있습니다. 텍스트는 동일한 도형 내에서 열 사이에 흐르며, 다른 도형으로 이어지지는 않습니다.
+
+다음 예제는 열 사이에 10포인트 간격을 두고 3열 텍스트 상자를 만든 뒤 프레젠테이션을 저장하고, 출력 파일에서 저장된 설정을 다시 읽어옵니다:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **개별 열에서 텍스트 추출**
+
+[ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/#splitTextByColumns--) 메서드를 사용하면 기존 텍스트 프레임에서 각 시각적 열에 할당된 텍스트를 가져올 수 있습니다. 이 메서드는 열 기반 읽기 순서대로 각 열에 대해 하나의 문자열을 반환합니다. 단일 열 텍스트 프레임은 하나의 요소를 가진 배열을 반환하고, 빈 열은 빈 문자열로 표시됩니다. 반환된 문자열에는 순수 텍스트만 포함되며, 부분 수준 서식은 유지되지 않습니다.
+
+이 기능은 다음과 같은 경우에 유용합니다:
+
+- 열 기반 읽기 순서를 유지하면서 텍스트를 추출해야 할 때.
+- 다중 열 슬라이드의 내용을 색인화하거나 비교해야 할 때.
+- 각 열을 별도의 파일, 데이터베이스 필드 또는 다른 대상에 내보낼 때.
+- [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-), [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-), 글꼴 또는 텍스트 프레임 크기를 변경한 후 텍스트가 어떻게 재배치되는지 확인하고 싶을 때.
+
+이 메서드는 현재 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)에 배분된 텍스트만 보고하며, 별도의 도형이나 텍스트 상자 간에 자동으로 텍스트가 흐르지는 않습니다. 열 배분은 사용 가능한 글꼴 및 기타 텍스트 레이아웃 설정에 따라 달라질 수 있으므로, 일관된 결과가 중요한 경우 필요한 글꼴이 확보되어 있는지 확인하십시오.
+
+다음 예제는 프레젠테이션을 로드하고, 텍스트 프레임이 있는 첫 번째 다중 열 자동 도형을 찾아 구성된 열 수를 읽은 뒤, 각 열의 텍스트를 별도의 파일에 씁니다. 텍스트 프레임을 제공하지 않는 도형은 건너뜁니다:
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            String outputPath = "Column-" + columnNumber + ".txt";
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try (FileOutputStream outputStream = new FileOutputStream(outputPath)) {
+                outputStream.write(textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **텍스트 업데이트**
 
-Aspose.Slides를 사용하면 텍스트 상자에 포함된 텍스트 또는 프레젠테이션 전체에 포함된 모든 텍스트를 변경하거나 업데이트할 수 있습니다.
+프레젠테이션 전체의 텍스트를 업데이트하려면 슬라이드와 도형을 순회하면서 자동 도형을 선택한 뒤 텍스트 부분을 편집합니다. 부분 수준에서 작업하면 텍스트와 문자 서식을 동시에 변경할 수 있습니다.
 
-다음 Java 코드는 프레젠테이션의 모든 텍스트를 업데이트하거나 변경하는 작업을 시연합니다:
+다음 예제는 자동 도형 텍스트에서 `years`를 `months`로 모두 바꾸고, 영향을 받은 부분을 굵게 설정합니다:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) // shape이 텍스트 프레임(IAutoShape)을 지원하는지 확인합니다.
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) // 텍스트 프레임의 단락들을 반복합니다
-                {
-                    for (IPortion portion : paragraph.getPortions()) // 단락 내 각 부분을 반복합니다
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); // 텍스트를 변경합니다
-                        portion.getPortionFormat().setFontBold(NullableBool.True); // 서식을 변경합니다
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //수정된 프레젠테이션을 저장합니다
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **하이퍼링크가 있는 텍스트 상자 추가**
+이 순회는 자동 도형의 텍스트만 업데이트합니다. 표, 차트, SmartArt 또는 그룹화된 도형에 저장된 텍스트는 해당 객체의 컬렉션을 별도로 순회해야 변경됩니다.
 
-텍스트 상자 안에 링크를 삽입할 수 있습니다. 텍스트 상자를 클릭하면 사용자가 링크를 열게 됩니다.
+## **하이퍼링크가 포함된 텍스트 상자 추가**
 
-하이퍼링크가 포함된 텍스트 상자를 추가하려면 다음 단계를 수행합니다:
+하이퍼링크는 특정 텍스트 부분에만 할당할 수 있으므로 해당 텍스트만 클릭 가능한 링크가 됩니다. [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)을 사용하여 해당 부분을 외부 URL과 연결하십시오.
 
-1. `Presentation` 클래스의 인스턴스를 생성합니다.  
-2. 새로 만든 프레젠테이션에서 첫 번째 슬라이드에 대한 참조를 가져옵니다.  
-3. 슬라이드의 지정된 위치에 `Rectangle`으로 설정된 `ShapeType`을 가진 `AutoShape` 객체를 추가하고, 새로 추가된 AutoShape 객체에 대한 참조를 얻습니다.  
-4. `AutoShape` 객체에 `TextFrame`을 추가하고 첫 번째 부분의 텍스트를 설정합니다. 아래 예제에서는 *Aspose.Slides* 라는 텍스트를 사용했습니다.  
-5. 원하는 `TextFrame` 부분의 `PortionFormat`에서 [IHyperlinkManager](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ihyperlinkmanager/) 객체를 가져옵니다.  
-6. 해당 객체에 대해 [setExternalHyperlinkClick](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) 를 호출하여 텍스트 클릭 시 열릴 링크를 설정합니다.  
-7. 마지막으로 `Presentation` 객체를 통해 PPTX 파일을 저장합니다.  
-
-다음 Java 코드는 위 단계 구현을 통해 슬라이드에 하이퍼링크가 포함된 텍스트 상자를 추가하는 방법을 보여줍니다:
+다음 예제는 링크된 텍스트를 만든 뒤 프레젠테이션에 저장합니다:
 
 ```java
 import com.aspose.slides.*;
 
-// PPTX를 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 프레젠테이션의 첫 번째 슬라이드를 가져옵니다
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // 타입을 Rectangle로 설정한 AutoShape 객체를 추가합니다
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // shape을 AutoShape으로 캐스팅합니다
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // AutoShape에 연결된 ITextFrame 속성에 접근합니다
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // 프레임에 텍스트를 추가합니다
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // 부분 텍스트에 하이퍼링크를 설정합니다
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // PPTX 프레젠테이션을 저장합니다
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**마스터 슬라이드 작업 시 텍스트 상자와 텍스트 자리표시자(플레이스홀더)의 차이점은 무엇인가요?**
+**텍스트 상자와 마스터 혹은 레이아웃 슬라이드의 텍스트 자리표시자(플레이스홀더)의 차이점은 무엇인가요?**
 
-[플레이스홀더](/slides/ko/androidjava/manage-placeholder/)는 [마스터](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/masterslide/)의 스타일/위치를 상속받으며 [레이아웃](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/layoutslide/)에서 재정의될 수 있습니다. 반면 일반 텍스트 상자는 특정 슬라이드에 독립적인 객체로 존재하며 레이아웃을 변경해도 영향을 받지 않습니다.
+[placeholder](/slides/ko/androidjava/manage-placeholder/)은 [master slide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/masterslide/) 또는 [layout slide](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/layoutslide/)으로부터 위치와 서식을 상속받을 수 있습니다. 일반 텍스트 상자는 생성된 슬라이드에 독립적인 도형으로 존재하며, 레이아웃이 변경되어도 플레이스홀더 동작을 취득하지 않습니다.
 
-**차트, 표, SmartArt 내부의 텍스트는 제외하고 프레젠테이션 전체에서 텍스트를 일괄 교체하려면 어떻게 해야 하나요?**
+**차트, 표 또는 SmartArt의 텍스트는 변경하지 않고 텍스트만 교체하려면 어떻게 해야 하나요?**
 
-텍스트 프레임이 있는 자동 도형만 반복 대상으로 제한하고, 임베디드 객체([차트](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/chart/), [표](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/smartart/))는 별도로 컬렉션을 탐색하거나 해당 유형을 건너뛰어 처리하십시오.
+Update Text 예제에서와 같이 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 구현하는 도형만 순회하도록 제한하십시오. 차트, 표 및 SmartArt는 자체 객체 모델에 텍스트를 저장하므로 해당 루프에 의해 수정되지 않습니다.

@@ -1,5 +1,5 @@
 ---
-title: 使用 JavaScript 在演示文稿中管理文本框
+title: 在演示文稿中使用 JavaScript 管理文本框
 linktitle: 管理文本框
 type: docs
 weight: 20
@@ -18,84 +18,62 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js 使在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框变得轻松，提升您的演示文稿自动化。"
+description: "使用 Aspose.Slides for Node.js via Java 在 PowerPoint 和 OpenDocument 演示文稿中创建、识别、格式化和更新文本框。"
 ---
-## **介绍**
+## **简介**
 
-幻灯片上的文本通常存在于文本框或形状中。因此，要向幻灯片添加文本，必须先添加一个文本框，然后在文本框中放入一些文本。Aspose.Slides for Node.js via Java 提供了允许您添加包含文本的形状的 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/AutoShape) 类。
+在 Aspose.Slides for Node.js via Java 中，幻灯片文本存储在属于形状的文本框中。The [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) class represents the most common text-bearing shape and exposes its text through the [AutoShape.getTextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/#getTextFrame) method.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides 还提供了 [Shape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/Shape) 类，允许您向幻灯片添加形状。但并非所有通过 `Shape` 类添加的形状都能容纳文本。而通过 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/AutoShape) 类添加的形状可能包含文本。
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-因此，在处理想要添加文本的形状时，您可能需要检查并确认它是通过 `AutoShape` 类转换的。只有这样，您才能使用 `AutoShape` 下的属性 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/TextFrame)。请参阅本页的 [Update Text](https://docs.aspose.com/slides/zh/nodejs-java/manage-textbox/#update-text) 部分。
+{{% alert color="info" title="Note" %}}
+每个自动形状都派生自 [Shape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/)，但并非所有形状都是自动形状或支持文本框。在处理现有演示文稿时，访问其文本前请检查该形状是否为 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) 的实例。
 {{% /alert %}}
 
 ## **在幻灯片上创建文本框**
 
-要在幻灯片上创建文本框，请按照以下步骤操作：
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/Presentation) 类的实例。
-2. 获取新创建的演示文稿中第一张幻灯片的引用。 
-3. 在幻灯片的指定位置添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/AutoShape) 对象，`ShapeType` 设置为 `Rectangle`，并获取新添加的 `AutoShape` 对象的引用。
-4. 向 `AutoShape` 对象添加 `TextFrame` 属性，以容纳文本。在下面的示例中，我们添加了以下文本：*Aspose TextBox*。
-5. 最后，通过 `Presentation` 对象写入 PPTX 文件。 
-
-以下 JavaScript 代码实现了上述步骤，演示了如何向幻灯片添加文本：
+要创建文本框，向幻灯片添加自动形状，为其文本框添加文本，然后保存演示文稿。以下示例创建了一个矩形文本框：
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// 实例化 Presentation
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 获取演示文稿中的第一张幻灯片
-    var sld = pres.getSlides().get_Item(0);
-    // 添加类型为 Rectangle 的 AutoShape
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // 向矩形添加 TextFrame
-    ashp.addTextFrame(" ");
-    // 访问文本框架
-    var txtFrame = ashp.getTextFrame();
-    // 为文本框架创建 Paragraph 对象
-    var para = txtFrame.getParagraphs().get_Item(0);
-    // 为段落创建 Portion 对象
-    var portion = para.getPortions().get_Item(0);
-    // 设置文本
-    portion.setText("Aspose TextBox");
-    // 将演示文稿保存到磁盘
-    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
+
+    presentation.save("TextBox.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+传递给 [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shapecollection/#addAutoShape) 的坐标和尺寸以点为单位。[AutoShape.addTextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/#addTextFrame) 使用提供的文本初始化文本框。
+
 ## **检查文本框形状**
 
-Aspose.Slides 提供了 [isTextBox](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/#isTextBox) 方法（来自 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) 类），可帮助您检查形状并识别文本框。
+使用 [AutoShape.isTextBox](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/#isTextBox) 方法确定自动形状是否被视为文本框。当演示文稿同时包含承载文本的自动形状和纯图形自动形状时，此方法很有用。
 
 ![文本框和形状](istextbox.png)
 
-以下 JavaScript 代码演示了如何检查形状是否被创建为文本框：
+以下示例检查演示文稿中的每个自动形状：
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
-        var slide = presentation.getSlides().get_Item(slideIndex);
-        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
-            var shape = slide.getShapes().get_Item(shapeIndex);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const currentSlide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < currentSlide.getShapes().size(); shapeIndex++) {
+            const shape = currentSlide.getShapes().get_Item(shapeIndex);
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+                console.log(shape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
             }
         }
     }
@@ -104,233 +82,219 @@ try {
 }
 ```
 
-请注意，如果仅使用 [ShapeCollection](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shapecollection/) 类的 `addAutoShape` 方法添加 AutoShape，则该 AutoShape 的 `isTextBox` 方法将返回 `false`。但是，在使用 `addTextFrame` 方法或 `setText` 方法向该 AutoShape 添加文本后，`isTextBox` 属性将返回 `true`。
+新添加的自动形状在包含非空文本之前不被视为文本框。您可以通过 [AutoShape.addTextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/#addTextFrame) 或 [TextFrame.setText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/#setText) 提供该文本。添加或分配空字符串会导致 [AutoShape.isTextBox](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/#isTextBox) 返回 `false`：
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var presentation = new aspose.slides.Presentation();
-var slide = presentation.getSlides().get_Item(0);
-
-var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() 返回 false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() 返回 true
-
-var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() 返回 false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() 返回 true
-
-var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() 返回 false
-shape3.addTextFrame("");
-// shape3.isTextBox() 返回 false
-
-var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() 返回 false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() 返回 false
-```
-
-## **查找拥有 TextFrame 的形状**
-
-在通用文本处理代码中，您可能会收到一个 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) ，但尚未知道它属于哪个演示文稿对象。使用 [TextFrame.getParentShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/#getParentShape--) 方法可以返回其所属的 [Shape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/)。
-
-对于属于 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) 或其他包含文本的形状的 TextFrame，`TextFrame.getParentShape` 返回所有者，而 `TextFrame.getParentCell` 返回 `null`。这两种方法均提供只读导航，调用它们不会更改所有权。访问形状前，请始终检查返回值是否为 `null`。
-
-有关完整示例（包括识别形状和表格单元格所有者以及与 SmartArt 节点关联的形状），请参阅 [Search and Replace Text](/slides/zh/nodejs-java/search-and-replace-text/)。
-
-## **在文本框中添加列**
-
-Aspose.Slides 提供了 [setColumnCount](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) 和 [setColumnSpacing](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) 方法（来自 [TextFrameFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/TextFrameFormat) 类），可以在文本框中添加列。您可以指定文本框的列数并设置列之间的点距。
-
-以下 JavaScript 代码演示了上述操作：
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 获取演示文稿中的第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加类型为 Rectangle 的 AutoShape
-    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // 向矩形添加 TextFrame
-    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!"));
-    // 获取 TextFrame 的文本格式
-    var format = aShape.getTextFrame().getTextFrameFormat();
-    // 指定 TextFrame 中的列数
-    format.setColumnCount(3);
-    // 指定列之间的间距
-    format.setColumnSpacing(10);
-    // 保存演示文稿
-    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    console.log(shape1.isTextBox());
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    console.log(shape2.isTextBox());
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    console.log(shape3.isTextBox());
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    console.log(shape4.isTextBox());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **在 TextFrame 中添加列**
+前两次调用输出 `true`；后两次输出 `false`。
 
-Aspose.Slides for Node.js via Java 提供了来自 [TextFrameFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/TextFrameFormat) 类的 [setColumnCount](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) 方法，允许您在 TextFrame 中添加列。通过此属性，您可以指定 TextFrame 中所需的列数。
+## **查找拥有文本框的形状**
 
-以下 JavaScript 代码展示了如何在 TextFrame 中添加列：
+通用的文本处理代码可能会收到一个 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)，却不知道它所属的演示文稿对象。使用只读的 [TextFrame.getParentShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/#getParentShape) 方法返回其所属的 [Shape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/)。
+
+如果文本框属于自动形状或其他承载文本的形状，[TextFrame.getParentShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/#getParentShape) 返回所有者，而 [TextFrame.getParentCell](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/#getParentCell) 返回 `null`。在访问之前请检查返回值。要识别形状和表格单元格所有者（包括与 SmartArt 节点关联的形状），请参阅 [搜索和替换文本](/slides/zh/nodejs-java/search-and-replace-text/)。
+
+## **向文本框添加列**
+
+[TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setColumnCount) 方法将文本框划分为多列，而 [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) 设置列间距（单位为点）。这两个设置属于 [TextFrameFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/)，可以通过现有文本框的文本框进行更改。文本在同一形状内部的列之间重新流动；不会继续进入其他形状。
+
+下面的示例创建了一个三列文本框，列间距为 10 点，保存演示文稿，并从输出文件读取已存储的设置：
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-const assert = require("assert");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-var outPptxFileName = "ColumnsTest.pptx";
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    var format = shape1.getTextFrame().getTextFrameFormat();
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test = new aspose.slides.Presentation(outPptxFileName);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    const textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", aspose.slides.SaveFormat.Pptx);
+
+    const savedPresentation = new aspose.slides.Presentation("TextBoxColumns.pptx");
     try {
-        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        // 列间距从未设置，因此显示为 NaN。
-        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
+        const savedTextBox = savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        const savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        console.log("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
     } finally {
-        if (test != null) {
-            test.dispose();
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **从各列提取文本**
+
+使用 [TextFrame.splitTextByColumns](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/#splitTextByColumns) 检索现有文本框中每个可视列分配的文本。该方法按列的阅读顺序为每列返回一个字符串。单列文本框返回仅包含一个元素的数组，空列则表现为空字符串。返回的字符串仅包含纯文本；不保留段落级别的格式。
+
+在需要以下操作时此功能很有用：
+
+- 在保持列阅读顺序的同时提取文本。
+- 对多列幻灯片的内容进行索引或比较。
+- 将每列导出到单独的文件、数据库字段或其他目的地。
+- 检查在使用 [TextFrameFormat.setColumnCount](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setColumnCount) 更改列数、使用 [TextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/#setColumnSpacing) 调整间距、修改字体或文本框大小后，文本如何重新分配。
+
+该方法报告当前 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 内分布的文本；不会自动在不同形状或文本框之间流动。列的分布可能受可用字体和其他文本布局设置的影响，因此在结果需要一致时请确保所需字体已可用。
+
+下面的示例加载演示文稿，找到第一个具有多列文本框的自动形状，读取其配置的列数，并将每列的文本写入单独的文件。未提供文本框的形状将被跳过。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation("MultiColumnText.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    let textBox = null;
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            const textFrame = shape.getTextFrame();
+            if (textFrame != null) {
+                const columnCount = textFrame.getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = shape;
+                    break;
+                }
+            }
         }
     }
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test1 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
-    } finally {
-        if (test1 != null) {
-            test1.dispose();
-        }
-    }
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-    var test2 = new aspose.slides.Presentation(outPptxFileName);
-    try {
-        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
-        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
-    } finally {
-        if (test2 != null) {
-            test2.dispose();
+
+    if (textBox == null) {
+        console.log("No multi-column text frame was found.");
+    } else {
+        const textFrame = textBox.getTextFrame();
+        const configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        const columnTexts = textFrame.splitTextByColumns();
+
+        console.log("Configured columns: " + configuredColumnCount);
+
+        for (let columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            const columnNumber = columnIndex + 1;
+            const columnText = columnTexts[columnIndex];
+            console.log("Column " + columnNumber + ": " + columnText);
+            const outputPath = "Column-" + columnNumber + ".txt";
+            try {
+                fs.writeFileSync(outputPath, columnText, "utf8");
+            } catch (error) {
+                console.log("Could not write column " + columnNumber + ": " + error.message);
+            }
         }
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **更新文本**
 
-Aspose.Slides 允许您更改或更新文本框中的文本，或更新演示文稿中所有文本。
+要在整个演示文稿中更新文本，遍历幻灯片和形状，选择自动形状，然后编辑其文本段落。在段落级别工作可同时更改文本和字符格式。
 
-以下 JavaScript 代码演示了将演示文稿中所有文本更新或更改的操作：
+下面的示例将自动形状文本中所有出现的 `years` 替换为 `months`，并将受影响的段落加粗：
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-var pres = new aspose.slides.Presentation("text.pptx");
+const fontBold = java.newByte(aspose.slides.NullableBool.True);
+const presentation = new aspose.slides.Presentation("Text.pptx");
 try {
-    for (let s = 0; s < pres.getSlides().size(); s++) {
-        let slide = pres.getSlides().get_Item(s);
-        for (let i = 0; i < slide.getShapes().size(); i++) {
-            let shape = slide.getShapes().get_Item(i);
-            // 检查形状是否支持文本框架 (IAutoShape)。
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                // 遍历文本框中的段落
-                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
-                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // 遍历段落中的每个部分
-                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
-                        let portion = paragraph.getPortions().get_Item(k);
-                        portion.setText(portion.getText().replace("years", "months"));// 更改文本
-                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// 更改格式
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            if (!java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                continue;
+            }
+
+            const textFrame = shape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (let paragraphIndex = 0; paragraphIndex < textFrame.getParagraphs().getCount(); paragraphIndex++) {
+                const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+                for (let portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
+                    const portion = paragraph.getPortions().get_Item(portionIndex);
+                    const text = portion.getText();
+                    if (text != null && text.includes("years")) {
+                        portion.setText(text.replace(/years/g, "months"));
+                        portion.getPortionFormat().setFontBold(fontBold);
                     }
                 }
             }
         }
     }
-    // 保存修改后的演示文稿
-    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("TextChanged.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **添加带超链接的文本框** 
+此遍历仅更新自动形状中的文本。存储在表格、图表、SmartArt 或组合形状中的文本需要遍历这些对象各自的集合。
 
-您可以在文本框内插入链接。单击文本框时，用户将被引导打开该链接。
+## **添加带超链接的文本框**
 
-要添加包含链接的文本框，请按照以下步骤操作：
+可以为特定文本段落分配超链接，这样只有该段落的文字可点击。使用 [HyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick) 将段落与外部 URL 关联。
 
-1. 创建 `Presentation` 类的实例。 
-2. 获取新创建的演示文稿中第一张幻灯片的引用。 
-3. 在幻灯片的指定位置添加一个 `AutoShape` 对象，`ShapeType` 设置为 `Rectangle`，并获取新添加的 AutoShape 对象的引用。
-4. 向 `AutoShape` 对象添加 `TextFrame`，并设置其第一段的文本。下面的示例使用了以下文本：*Aspose.Slides*。
-5. 通过该段落的 `PortionFormat` 获取 `HyperlinkManager`。 
-6. 调用 `setExternalHyperlinkClick` 将链接附加到该段落。 
-7. 最后，通过 `Presentation` 对象写入 PPTX 文件。 
-
-以下 JavaScript 代码实现了上述步骤，演示了如何在幻灯片中添加带超链接的文本框：
+下面的示例创建了带链接的文本并将其保存到演示文稿：
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const aspose = { slides: require("aspose.slides.via.java") };
 
-// 实例化一个表示 PPTX 的 Presentation 类
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    // 获取演示文稿中的第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加类型为 Rectangle 的 AutoShape 对象
-    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-    // 将形状转换为 AutoShape
-    var pptxAutoShape = shape;
-    // 访问与 AutoShape 关联的 ITextFrame 属性
-    pptxAutoShape.addTextFrame("");
-    var textFrame = pptxAutoShape.getTextFrame();
-    // 向框中添加一些文本
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // 为该段落文本设置超链接
-    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-    // 保存 PPTX 演示文稿
-    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
+
+    const textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
+
+    presentation.save("Hyperlink.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **常见问题**
 
-**在使用母版幻灯片时，文本框和文本占位符有什么区别？**
+**文本框和母版或布局幻灯片上的文本占位符有什么区别？**
 
-[占位符](/slides/zh/nodejs-java/manage-placeholder/) 继承自 [母版](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/masterslide/) 的样式/位置，并且可以在 [布局](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/layoutslide/) 上被覆盖，而普通文本框是特定幻灯片上的独立对象，切换布局时不会改变。
+[占位符](/slides/zh/nodejs-java/manage-placeholder/) 可以从 [母版幻灯片](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/masterslide/) 或 [布局幻灯片](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/layoutslide/) 继承位置和格式。普通文本框是创建所在幻灯片上的独立形状，布局更改时不会获得占位符行为。
 
-**如何在整个演示文稿中批量替换文本，而不影响图表、表格和 SmartArt 中的文本？**
+**如何在不更改图表、表格或 SmartArt 中的文本的情况下替换文本？**
 
-遍历仅包含文本框的自动形状（auto‑shapes），排除嵌入对象（[图表](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/chart/)、[表格](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/smartart/)），可以通过单独遍历它们的集合或跳过这些对象类型来实现。
+如在“更新文本”示例中所示，将遍历限制为 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) 实例。图表、表格和 SmartArt 将文本存储在各自的对象模型中，因此不会被该循环修改。

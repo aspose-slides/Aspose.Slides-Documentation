@@ -1,6 +1,6 @@
 ---
-title: "จัดการกล่องข้อความในงานนำเสนอบน Android"
-linktitle: "จัดการกล่องข้อความ"
+title: จัดการกล่องข้อความในงานนำเสนอบน Android
+linktitle: จัดการกล่องข้อความ
 type: docs
 weight: 20
 url: /th/androidjava/manage-textbox/
@@ -18,324 +18,274 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java ทำให้การสร้าง แก้ไข และคัดลอกกล่องข้อความในไฟล์ PowerPoint และ OpenDocument เป็นเรื่องง่าย เพิ่มประสิทธิภาพการทำงานอัตโนมัติของงานนำเสนอของคุณ."
+description: "สร้าง, ระบุ, จัดรูปแบบ, และอัปเดตกล่องข้อความในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **บทนำ**
 
-ข้อความบนสไลด์โดยทั่วไปอยู่ในกล่องข้อความหรือรูปร่าง ดังนั้นเพื่อเพิ่มข้อความลงในสไลด์ คุณต้องเพิ่มกล่องข้อความแล้วใส่ข้อความลงในกล่องข้อความนั้น Aspose.Slides for Android via Java มีอินเตอร์เฟส [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IAutoShape) ที่อนุญาตให้คุณเพิ่มรูปร่างที่มีข้อความ
+ใน Aspose.Slides for Android via Java, ข้อความบนสไลด์จะถูกจัดเก็บไว้ในกรอบข้อความซึ่งเป็นส่วนหนึ่งของรูปร่าง อินเตอร์เฟซ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) แสดงถึงรูปร่างที่มีข้อความทั่วไปที่สุดและเปิดเผยข้อความของมันผ่านเมธอด [IAutoShape.getTextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) 
 
-{{% alert title="Info" color="info" %}}
-
-Aspose.Slides ยังมีอินเตอร์เฟส [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IShape) ซึ่งอนุญาตให้คุณเพิ่มรูปร่างลงในสไลด์ อย่างไรก็ตามไม่ใช่ทุกรูปร่างที่เพิ่มผ่านอินเตอร์เฟส `IShape` จะสามารถเก็บข้อความได้ แต่รูปร่างที่เพิ่มผ่านอินเตอร์เฟส [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IAutoShape) อาจมีข้อความได้
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-ดังนั้นเมื่อทำงานกับรูปร่างที่คุณต้องการเพิ่มข้อความ คุณอาจต้องตรวจสอบและยืนยันว่ารูปร่างนั้นถูกแคสท์ผ่านอินเตอร์เฟส `IAutoShape` เท่านั้นจึงจะสามารถทำงานกับ [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/TextFrame) ซึ่งเป็นคุณสมบัติกลายภายใต้ `IAutoShape` ได้ ดูส่วน [อัปเดตข้อความ](https://docs.aspose.com/slides/th/androidjava/manage-textbox/#update-text) ในหน้านี้
-
+{{% alert color="info" title="Note" %}}
+รูปร่างอัตโนมัติทุกตัวจะ implement [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/), แต่ไม่ใช่ทุกรูปร่างเป็นรูปร่างอัตโนมัติหรือสนับสนุนกรอบข้อความ เมื่อต้องประมวลผลงานนำเสนอที่มีอยู่ ให้ตรวจสอบว่ารูปร่างนั้น implement [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ก่อนเข้าถึงข้อความของมัน
 {{% /alert %}}
 
 ## **สร้างกล่องข้อความบนสไลด์**
 
-เพื่อสร้างกล่องข้อความบนสไลด์ ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation)  
-2. รับอ้างอิงของสไลด์แรกในงานนำเสนอที่สร้างใหม่  
-3. เพิ่มอ็อบเจกต์ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IAutoShape) โดยตั้งค่า [ShapeType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) เป็น `Rectangle` ที่ตำแหน่งที่กำหนดบนสไลด์และรับอ้างอิงของอ็อบเจกต์ `IAutoShape` ที่เพิ่มใหม่  
-4. เพิ่มคุณสมบัติ `TextFrame` ให้กับอ็อบเจกต์ `IAutoShape` ที่จะบรรจุตัวอักษร ในตัวอย่างด้านล่าง เราเพิ่มข้อความนี้: *Aspose TextBox*  
-5. สุดท้าย เขียนไฟล์ PPTX ผ่านอ็อบเจกต์ `Presentation`  
-
-โค้ด Java นี้—การดำเนินการตามขั้นตอนข้างต้น—แสดงวิธีการเพิ่มข้อความลงในสไลด์:
-
-```java
-import com.aspose.slides.*;
-
-// สร้างอินสแตนซ์ของ Presentation
-Presentation pres = new Presentation();
-try {
-    // ดึงสไลด์แรกในงานนำเสนอ
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // เพิ่ม AutoShape โดยตั้งประเภทเป็น Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // เพิ่ม TextFrame ไปยัง Rectangle
-    ashp.addTextFrame(" ");
-
-    // เข้าถึง TextFrame
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // สร้างอ็อบเจกต์ Paragraph สำหรับ TextFrame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // สร้างอ็อบเจกต์ Portion สำหรับ Paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // ตั้งค่าข้อความ
-    portion.setText("Aspose TextBox");
-
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **ตรวจสอบรูปร่างกล่องข้อความ**
-
-Aspose.Slides มีเมธอด [isTextBox](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/#isTextBox--) จากอินเตอร์เฟส [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ที่ช่วยให้คุณตรวจสอบรูปร่างและระบุว่ามันเป็นกล่องข้อความหรือไม่
-
-![กล่องข้อความและรูปร่าง](istextbox.png)
-
-โค้ด Java นี้แสดงวิธีการตรวจสอบว่ารูปร่างถูกสร้างเป็นกล่องข้อความหรือไม่:
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-ควรทราบว่าหากคุณเพิ่มออโต้ชเปโดยใช้เมธอด `addAutoShape` จากอินเตอร์เฟส [IShapeCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/) เมธอด `isTextBox` ของออโต้ชเปจะคืนค่า `false` อย่างไรก็ตาม หลังจากคุณเพิ่มข้อความให้กับออโต้ชเปด้วยเมธอด `addTextFrame` หรือเมธอด `setText` คุณสมบัติ `isTextBox` จะคืนค่า `true`
+เพื่อสร้างกล่องข้อความ ให้เพิ่มรูปร่างอัตโนมัติลงในสไลด์, เพิ่มข้อความลงในกรอบข้อความของมัน, แล้วบันทึกงานนำเสนอ ตัวอย่างต่อไปนี้สร้างกล่องข้อความสี่เหลี่ยม:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
-
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() คืนค่า false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() คืนค่า true
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() คืนค่า false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() คืนค่า true
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() คืนค่า false
-shape3.addTextFrame("");
-// shape3.isTextBox() คืนค่า false
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() คืนค่า false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() คืนค่า false
-```
-
-## **ค้นหารูปร่างที่เป็นเจ้าของ Text Frame**
-
-ในโค้ดการประมวลผลข้อความทั่วไป คุณอาจได้รับอ็อบเจกต์ [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) โดยยังไม่รู้ว่าอยู่ในงานนำเสนอไหน ใช้เมธอด [ITextFrame.getParentShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#getParentShape--) เพื่อกลับไปยังเจ้าของ [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/)
-
-สำหรับ Text Frame ที่เป็นของ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) หรือรูปร่างอื่นที่มีข้อความ [ITextFrame.getParentShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#getParentShape--) จะคืนค่าเจ้าของและ [ITextFrame.getParentCell](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#getParentCell--) จะคืนค่า `null` ทั้งสองเมธอดเป็นการนำทางแบบอ่านอย่างเดียวจึงไม่เปลี่ยนแปลงความเป็นเจ้าของ ตรวจสอบค่า `null` ก่อนเข้าถึงรูปร่างเสมอ
-
-สำหรับตัวอย่างเต็มที่ระบุเจ้าของรูปร่างและเซลล์ตาราง รวมถึงรูปร่างที่เชื่อมกับโหนด SmartArt ดูที่ [Search and Replace Text](/slides/th/androidjava/search-and-replace-text/)
-
-## **เพิ่มคอลัมน์ให้กับกล่องข้อความ**
-
-Aspose.Slides มีคุณสมบัติ [ColumnCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) และ [ColumnSpacing](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (จากอินเตอร์เฟส [ITextFrameFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ITextFrameFormat) และคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/TextFrameFormat)) ที่อนุญาตให้คุณเพิ่มคอลัมน์ให้กับกล่องข้อความ คุณสามารถระบุจำนวนคอลัมน์และกำหนดระยะห่างเป็นจุดระหว่างคอลัมน์ได้
-
-โค้ด Java นี้แสดงการดำเนินการตามที่อธิบาย:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
 try {
-    // รับสไลด์แรกในงานนำเสนอ
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-    // เพิ่ม AutoShape โดยตั้งประเภทเป็น Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-
-    // เพิ่ม TextFrame ไปยัง Rectangle
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
-
-    // รับรูปแบบข้อความของ TextFrame
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // ระบุจำนวนคอลัมน์ใน TextFrame
-    format.setColumnCount(3);
-
-    // ระบุระยะห่างระหว่างคอลัมน์
-    format.setColumnSpacing(10);
-
-    // บันทึกงานนำเสนอ
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **เพิ่มคอลัมน์ให้กับ Text Frame**
+พิกัดและขนาดที่ส่งไปยัง [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) วัดเป็นจุด [IAutoShape.addTextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) จะเริ่มต้นกรอบข้อความด้วยข้อความที่ระบุ
 
-Aspose.Slides for Android via Java มีคุณสมบัติ [ColumnCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (จากอินเตอร์เฟส [ITextFrameFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ITextFrameFormat)) ที่ช่วยให้คุณเพิ่มคอลัมน์ใน Text Frame โดยคุณสามารถระบุจำนวนคอลัมน์ที่ต้องการได้
+## **ตรวจสอบรูปทรงกล่องข้อความ**
 
-โค้ด Java นี้แสดงวิธีการเพิ่มคอลัมน์ภายใน Text Frame:
+ใช้เมธอด [IAutoShape.isTextBox](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/#isTextBox--) เพื่อตรวจสอบว่ารูปร่างอัตโนมัติได้รับการพิจารณาเป็นกล่องข้อความหรือไม่ สิ่งนี้มีประโยชน์เมื่องานนำเสนอมีทั้งรูปร่างที่มีข้อความและรูปร่างกราฟิกเพียว ๆ
+
+![กล่องข้อความและรูปร่าง](istextbox.png)
+
+ตัวอย่างต่อไปนี้ตรวจสอบรูปร่างอัตโนมัติทุกตัวในงานนำเสนอ:
 
 ```java
 import com.aspose.slides.*;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.getTextFrame().getTextFrameFormat();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
 
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
-    }
-
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
-
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+รูปร่างอัตโนมัติที่เพิ่มใหม่จะไม่ถูกพิจารณาว่าเป็นกล่องข้อความจนกว่าจะมีข้อความที่ไม่ว่างเปล่า คุณสามารถใส่ข้อความนั้นผ่าน [IAutoShape.addTextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) หรือ [ITextFrame.setText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#setText-java.lang.String-) การเพิ่มหรือกำหนดสตริงว่างทำให้ [IAutoShape.isTextBox](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/#isTextBox--) คืนค่า `false`:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+การเรียกครั้งแรกสองครั้งพิมพ์ `true`; สองครั้งสุดท้ายพิมพ์ `false`.
+
+## **ค้นหารูปร่างที่เป็นเจ้าของกรอบข้อความ**
+
+โค้ดการประมวลผลข้อความทั่วไปอาจได้รับ [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) โดยไม่ทราบว่าวัตถุงานนำเสนอใดเป็นเจ้าของ ใช้เมธอดอ่านอย่างเดียว [ITextFrame.getParentShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#getParentShape--) เพื่อย้อนกลับไปยัง [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) ที่เป็นเจ้าของ
+
+สำหรับกรอบข้อความที่เป็นของรูปร่างอัตโนมัติหรือรูปร่างที่มีข้อความอื่น ๆ, [ITextFrame.getParentShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#getParentShape--) คืนค่าเจ้าของและ [ITextFrame.getParentCell](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#getParentCell--) คืนค่า `null` ตรวจสอบค่าที่คืนมาก่อนเข้าถึง เพื่อระบุทั้งเจ้าของรูปร่างและเซลล์ตาราง รวมถึงรูปร่างที่เชื่อมโยงกับโหนด SmartArt ดูที่ [Search and Replace Text](/slides/th/androidjava/search-and-replace-text/)
+
+## **เพิ่มคอลัมน์ในกล่องข้อความ**
+
+เมธอด [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-) แบ่งกรอบข้อความเป็นคอลัมน์ ส่วน [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) ตั้งช่องว่างระหว่างคอลัมน์เป็นจุด ทั้งสองการตั้งค่าเป็นของ [ITextFrameFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/) และสามารถเปลี่ยนแปลงได้ผ่านกรอบข้อความของกล่องข้อความที่มีอยู่ ข้อความจะไหลใหม่ระหว่างคอลัมน์ภายในรูปร่างเดียวกัน; จะไม่ต่อเนื่องไปยังรูปร่างอื่น
+
+ตัวอย่างต่อไปนี้สร้างกล่องข้อความสามคอลัมน์โดยมีช่องว่าง 10 จุดระหว่างคอลัมน์, บันทึกงานนำเสนอ, และอ่านการตั้งค่าที่เก็บไว้จากไฟล์ผลลัพธ์:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
+
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
+
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
+
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **สกัดข้อความจากแต่ละคอลัมน์**
+
+ใช้ [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#splitTextByColumns--) เพื่อดึงข้อความที่กำหนดให้แต่ละคอลัมน์ที่มองเห็นได้ในกรอบข้อความที่มีอยู่ เมธอดจะคืนสตริงหนึ่งค่าให้แต่ละคอลัมน์ตามลำดับการอ่านแบบคอลัมน์ กรอบข้อความที่มีเพียงคอลัมน์เดียวจะสร้างอาเรย์ที่มีหนึ่งสมาชิก และคอลัมน์ว่างจะเป็นสตริงว่าง สตริงเหล่านี้มีเฉพาะข้อความธรรมดา; การจัดรูปแบบระดับส่วนจะไม่ถูกเก็บรักษา
+
+สิ่งนี้มีประโยชน์เมื่อคุณต้อง:
+
+- สกัดข้อความพร้อมคงลำดับการอ่านตามคอลัมน์
+- ทำดัชนีหรือเปรียบเทียบเนื้อหาของสไลด์หลายคอลัมน์
+- ส่งออกแต่ละคอลัมน์ไปยังไฟล์, ฟิลด์ฐานข้อมูล หรือปลายทางอื่นแยกกัน
+- ตรวจสอบวิธีที่ข้อความถูกจัดสรรใหม่หลังจากเปลี่ยนจำนวนคอลัมน์ด้วย [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setColumnCount-int-), ช่องว่างด้วย [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setColumnSpacing-double-), ฟอนต์, หรือขนาดกรอบข้อความ
+
+เมธอดนี้รายงานข้อความที่กระจายอยู่ภายใน [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ปัจจุบัน; มันจะไม่ไหลอัตโนมัติระหว่างรูปร่างหรือกล่องข้อความแยกต่างหาก การกระจายคอลัมน์อาจขึ้นกับฟอนต์ที่มีและการตั้งค่าเลย์เอาต์ข้อความอื่น ๆ ดังนั้นให้แน่ใจว่าฟอนต์ที่ต้องการพร้อมใช้งานเมื่อผลลัพธ์ที่สอดคล้องกันสำคัญ
+
+ตัวอย่างต่อไปนี้โหลดงานนำเสนอ, ค้นหารูปร่างอัตโนมัติหลายคอลัมน์แรกที่มีกรอบข้อความ, อ่านจำนวนคอลัมน์ที่กำหนดไว้, และเขียนข้อความจากทุกคอลัมน์ไปยังไฟล์แยกกัน รูปร่างที่ไม่มีกรอบข้อความจะถูกข้าม
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+Presentation presentation = new Presentation("MultiColumnText.pptx");
+try {
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
+
+        System.out.println("Configured columns: " + configuredColumnCount);
+
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            String outputPath = "Column-" + columnNumber + ".txt";
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try (FileOutputStream outputStream = new FileOutputStream(outputPath)) {
+                outputStream.write(textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **อัปเดตข้อความ**
 
-Aspose.Slides อนุญาตให้คุณเปลี่ยนหรืออัปเดตข้อความที่อยู่ในกล่องข้อความหรือข้อความทั้งหมดในงานนำเสนอ
+เพื่ออัปเดตข้อความทั่วทั้งงานนำเสนอ, ให้วนลูปผ่านสไลด์และรูปร่าง, เลือกรูปร่างอัตโนมัติ, แล้วแก้ไขส่วนข้อความของมัน การทำงานที่ระดับส่วนทำให้คุณเปลี่ยนทั้งข้อความและการจัดรูปแบบอักขระได้
 
-โค้ด Java นี้แสดงการดำเนินการที่อัปเดตหรือเปลี่ยนข้อความทั้งหมดในงานนำเสนอ:
+ตัวอย่างต่อไปนี้แทนที่ทุกตำแหน่งของ `years` ด้วย `months` ในข้อความของรูปร่างอัตโนมัติและทำให้ส่วนที่ได้รับผลกระทบแต่ละส่วนเป็นตัวหนา:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //ตรวจสอบว่ารูปร่างรองรับ text frame (IAutoShape) หรือไม่. 
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //วนซ้ำผ่านย่อหน้าใน text frame
-                {
-                    for (IPortion portion : paragraph.getPortions()) //วนซ้ำผ่านแต่ละ portion ในย่อหน้า
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //เปลี่ยนข้อความ
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //เปลี่ยนการจัดรูปแบบ
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //บันทึกงานนำเสนอที่แก้ไขแล้ว
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **เพิ่มกล่องข้อความพร้อมไฮเปอร์ลิงก์**
+การวนลูปนี้จะอัปเดตข้อความเฉพาะในรูปร่างอัตโนมัติ เท่านั้น ข้อความที่เก็บอยู่ในตาราง, แผนภูมิ, SmartArt หรือรูปร่างที่กลุ่มไว้ต้องวนลูปผ่านคอลเลคชันของอ็อบเจ็กต์เหล่านั้น
 
-คุณสามารถแทรกลิงก์ภายในกล่องข้อความ เมื่อคลิกที่กล่องข้อความ ผู้ใช้จะถูกพาไปเปิดลิงก์นั้น
+## **เพิ่มกล่องข้อความพร้อมลิงก์**
 
-ขั้นตอนการเพิ่มกล่องข้อความที่มีลิงก์:
+ลิงก์สามารถกำหนดให้กับส่วนข้อความเฉพาะได้ ดังนั้นข้อความส่วนนั้นเท่านั้นจะทำหน้าที่เป็นลิงก์คลิกได้ ใช้ [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) เพื่อเชื่อมโยงส่วนนั้นกับ URL ภายนอก
 
-1. สร้างอินสแตนซ์ของคลาส `Presentation`  
-2. รับอ้างอิงของสไลด์แรกในงานนำเสนอที่สร้างใหม่  
-3. เพิ่มอ็อบเจกต์ `AutoShape` โดยตั้งค่า `ShapeType` เป็น `Rectangle` ที่ตำแหน่งที่กำหนดบนสไลด์และรับอ้างอิงของอ็อบเจกต์ AutoShape ที่เพิ่มใหม่  
-4. เพิ่ม `TextFrame` ให้กับอ็อบเจกต์ `AutoShape` และตั้งข้อความของส่วนแรก ในตัวอย่างด้านล่างเราใช้ข้อความนี้: *Aspose.Slides*  
-5. รับอ็อบเจกต์ [IHyperlinkManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/) จาก `PortionFormat` ของส่วนที่ต้องการใน `TextFrame`  
-6. เรียกเมธอด [setExternalHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) เพื่อกำหนดลิงก์ที่เปิดเมื่อข้อความถูกคลิก  
-7. สุดท้าย เขียนไฟล์ PPTX ผ่านอ็อบเจกต์ `Presentation`  
-
-โค้ด Java นี้—การดำเนินการตามขั้นตอนข้างต้น—แสดงวิธีการเพิ่มกล่องข้อความพร้อมไฮเปอร์ลิงก์ลงบนสไลด์:
+ตัวอย่างต่อไปนี้สร้างข้อความที่ลิงก์และบันทึกลงในงานนำเสนอ:
 
 ```java
 import com.aspose.slides.*;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของไฟล์ PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรกในงานนำเสนอ
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // เพิ่มอ็อบเจกต์ AutoShape โดยตั้งประเภทเป็น Rectangle
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // แปลงรูปร่างเป็น AutoShape
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // เข้าถึงคุณสมบัติ ITextFrame ที่เชื่อมโยงกับ AutoShape
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // เพิ่มข้อความบางส่วนลงในเฟรม
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // ตั้งค่า Hyperlink สำหรับข้อความ portion
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // บันทึกงานนำเสนอ PPTX
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ความแตกต่างระหว่างกล่องข้อความและตัวเก็บตำแหน่งข้อความเมื่อทำงานกับสไลด์แม่คืออะไร?**
+**What is the difference between a text box and a text placeholder on a master or layout slide?**  
+[placeholder](/slides/th/androidjava/manage-placeholder/) สามารถสืบทอดตำแหน่งและการจัดรูปแบบจาก [master slide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/masterslide/) หรือ [layout slide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/layoutslide/) กล่องข้อความทั่วไปเป็นรูปร่างอิสระบนสไลด์ที่สร้างขึ้นและจะไม่รับพฤติกรรมของ placeholder เมื่อเลย์เอาต์เปลี่ยนแปลง
 
-[placeholder](/slides/th/androidjava/manage-placeholder/) สืบทอดสไตล์/ตำแหน่งจาก [master](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/masterslide/) และสามารถถูกเขียนทับบน [layouts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/layoutslide/) ส่วนกล่องข้อความทั่วไปเป็นอ็อบเจกต์อิสระบนสไลด์เฉพาะและจะไม่เปลี่ยนแปลงเมื่อสลับเลย์เอาต์
-
-**ฉันจะทำการแทนที่ข้อความเป็นจำนวนมากทั่วงานนำเสนอโดยไม่กระทบถึงข้อความในแผนภูมิ ตาราง และ SmartArt อย่างไร?**
-
-จำกัดการวนรอบเฉพาะออโต้ชเปที่มี Text Frame และแยกออกจากอ็อบเจกต์ที่ฝังอยู่ ([charts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/smartart/)) โดยการท่องคอลเลกชันของพวกมันแยกกันหรือข้ามประเภทอ็อบเจกต์เหล่านั้น.
+**How can I replace text without changing text in charts, tables, or SmartArt?**  
+จำกัดการวนลูปเฉพาะรูปร่างที่ implement [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ตามที่แสดงในตัวอย่าง Update Text แผนภูมิ, ตาราง, และ SmartArt เก็บข้อความในโมเดลอ็อบเจ็กต์ของตนเอง จึงไม่ถูกแก้ไขโดยลูปนั้น

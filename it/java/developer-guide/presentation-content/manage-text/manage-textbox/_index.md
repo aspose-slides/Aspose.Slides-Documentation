@@ -7,333 +7,290 @@ url: /it/java/manage-textbox/
 keywords:
 - casella di testo
 - frame di testo
-- aggiungi testo
-- aggiorna testo
-- crea casella di testo
-- verifica casella di testo
-- aggiungi colonna di testo
-- aggiungi collegamento ipertestuale
+- aggiungere testo
+- aggiornare testo
+- creare casella di testo
+- verificare casella di testo
+- aggiungere colonna di testo
+- aggiungere collegamento ipertestuale
 - PowerPoint
 - presentazione
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java facilita la creazione, modifica e clonazione di caselle di testo in file PowerPoint e OpenDocument, migliorando l'automazione delle tue presentazioni."
+description: "Crea, individua, formatta e aggiorna le caselle di testo in presentazioni PowerPoint e OpenDocument usando Aspose.Slides per Java."
 ---
 ## **Introduzione**
 
-I testi nelle diapositive si trovano tipicamente in caselle di testo o forme. Pertanto, per aggiungere un testo a una diapositiva, devi aggiungere una casella di testo e poi inserire del testo all'interno della casella. Aspose.Slides for Java fornisce l'interfaccia [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) che consente di aggiungere una forma contenente del testo.
+In Aspose.Slides per Java, il testo delle diapositive è memorizzato nei frame di testo che appartengono alle forme. L’interfaccia [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) rappresenta la forma più comune contenente testo e espone il suo testo tramite il metodo [IAutoShape.getTextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/#getTextFrame--) .
 
-{{% alert title="Info" color="info" %}}
+{{% alert color="info" title="Nota" %}}
 
-Aspose.Slides fornisce anche l'interfaccia [IShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShape) che consente di aggiungere forme alle diapositive. Tuttavia, non tutte le forme aggiunte tramite l'interfaccia `IShape` possono contenere testo. Le forme aggiunte tramite l'interfaccia [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) invece possono contenere testo. 
-
-{{% /alert %}}
-
-{{% alert title="Note" color="warning" %}} 
-
-Pertanto, quando si lavora con una forma a cui si desidera aggiungere testo, è opportuno verificare e confermare che sia stata convertita tramite l'interfaccia `IAutoShape`. Solo allora sarà possibile lavorare con [TextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/TextFrame), che è una proprietà di `IAutoShape`. Vedi la sezione [Update Text](https://docs.aspose.com/slides/it/java/manage-textbox/#update-text) in questa pagina. 
+Ogni auto forma implementa [IShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/), ma non tutte le forme sono auto forme o supportano un frame di testo. Quando si elabora una presentazione esistente, verificare che una forma implementi [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) prima di accedere al suo testo.
 
 {{% /alert %}}
 
 ## **Crea una casella di testo su una diapositiva**
 
-Per creare una casella di testo su una diapositiva, segui questi passaggi:
-
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/Presentation). 
-2. Ottieni un riferimento alla prima diapositiva nella presentazione appena creata. 
-3. Aggiungi un oggetto [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) con [ShapeType](https://reference.aspose.com/slides/it/java/com.aspose.slides/IGeometryShape#setShapeType-int-) impostato su `Rectangle` in una posizione specificata sulla diapositiva e ottieni il riferimento al nuovo oggetto `IAutoShape`. 
-4. Aggiungi una proprietà `TextFrame` all'oggetto `IAutoShape` che conterrà del testo. Nell'esempio sottostante, abbiamo aggiunto questo testo: *Aspose TextBox*
-5. Infine, scrivi il file PPTX tramite l'oggetto `Presentation`. 
-
-Questo codice Java—un'implementazione dei passaggi sopra—mostra come aggiungere testo a una diapositiva:
-
-```java
-import com.aspose.slides.*;
-
-// Istanzia la presentazione
-Presentation pres = new Presentation();
-try {
-    // Ottiene la prima diapositiva nella presentazione
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Aggiunge un AutoShape con tipo impostato a Rectangle
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Aggiunge TextFrame al rettangolo
-    ashp.addTextFrame(" ");
-
-    // Accede al TextFrame
-    ITextFrame txtFrame = ashp.getTextFrame();
-
-    // Crea l'oggetto Paragraph per il TextFrame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Crea un oggetto Portion per il paragrafo
-    IPortion portion = para.getPortions().get_Item(0);
-
-    // Imposta il testo
-    portion.setText("Aspose TextBox");
-
-    // Salva la presentazione su disco
-    pres.save("TextBox_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Verifica una forma casella di testo**
-
-Aspose.Slides fornisce il metodo [isTextBox](https://reference.aspose.com/slides/it/java/com.aspose.slides/autoshape/#isTextBox--) dell'interfaccia [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) che consente di esaminare le forme e identificare le caselle di testo.
-
-![Casella di testo e forma](istextbox.png)
-
-Questo codice Java mostra come verificare se una forma è stata creata come casella di testo: 
-
-```java
-import com.aspose.slides.*;
-
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ForEach.shape(presentation, (shape, slide, index) -> {
-        if (shape instanceof IAutoShape) {
-            IAutoShape autoShape = (IAutoShape) shape;
-            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
-        }
-    });
-} finally {
-    presentation.dispose();
-}
-```
-
-Nota che se si aggiunge semplicemente un autoshape usando il metodo `addAutoShape` dell'interfaccia [IShapeCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/), il metodo `isTextBox` dell'autoshape restituirà `false`. Tuttavia, dopo aver aggiunto del testo all'autoshape usando il metodo `addTextFrame` o il metodo `setText`, la proprietà `isTextBox` restituisce `true`.
+Per creare una casella di testo, aggiungere un’auto forma a una diapositiva, aggiungere testo al suo frame di testo e salvare la presentazione. L’esempio seguente crea una casella di testo rettangolare:
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
-ISlide slide = presentation.getSlides().get_Item(0);
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+    textBox.addTextFrame("Aspose TextBox");
 
-IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-// shape1.isTextBox() restituisce false
-shape1.addTextFrame("shape 1");
-// shape1.isTextBox() restituisce true
-
-IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-// shape2.isTextBox() restituisce false
-shape2.getTextFrame().setText("shape 2");
-// shape2.isTextBox() restituisce true
-
-IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-// shape3.isTextBox() restituisce false
-shape3.addTextFrame("");
-// shape3.isTextBox() restituisce false
-
-IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-// shape4.isTextBox() restituisce false
-shape4.getTextFrame().setText("");
-// shape4.isTextBox() restituisce false
+    presentation.save("TextBox.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-## **Trova la forma che possiede un TextFrame**
+Le coordinate e le dimensioni passate a [IShapeCollection.addAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/#addAutoShape-int-float-float-float-float-) sono misurate in punti. [IAutoShape.addTextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) inizializza il frame di testo con il testo fornito.
 
-In un codice generico di elaborazione del testo, potresti ricevere un oggetto [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) senza sapere già quale oggetto di presentazione lo contiene. Usa il metodo [ITextFrame.getParentShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#getParentShape--) per tornare alla [IShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/) proprietaria.
+## **Verifica la presenza di una forma casella di testo**
 
-Per un TextFrame che appartiene a un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) o a un'altra forma che contiene testo, [ITextFrame.getParentShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#getParentShape--) restituisce il proprietario e [ITextFrame.getParentCell](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#getParentCell--) restituisce `null`. Entrambi i metodi forniscono una navigazione in sola lettura, quindi la loro chiamata non modifica la proprietà. Verifica sempre che il valore restituito non sia `null` prima di accedere alla forma.
+Utilizzare il metodo [IAutoShape.isTextBox](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/#isTextBox--) per determinare se un’auto forma è trattata come una casella di testo. Questo è utile quando una presentazione contiene sia auto forme con testo sia auto forme puramente grafiche.
 
-Per un esempio completo che identifica i proprietari di forme e celle di tabella, incluse le forme associate a nodi SmartArt, vedi [Cerca e sostituisci testo](/slides/it/java/search-and-replace-text/).
+![Una casella di testo e una forma](istextbox.png)
+
+L’esempio seguente esamina ogni auto forma in una presentazione:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+    textBox.addTextFrame("Text box");
+    slide.getShapes().addAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+    for (ISlide currentSlide : presentation.getSlides()) {
+        for (IShape shape : currentSlide.getShapes()) {
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                System.out.println(autoShape.isTextBox() ? "The shape is a text box." : "The shape is not a text box.");
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Una auto forma appena aggiunta non è considerata una casella di testo finché non contiene testo non vuoto. È possibile fornire quel testo tramite [IAutoShape.addTextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) o [ITextFrame.setText](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#setText-java.lang.String-). Aggiungere o assegnare una stringa vuota fa sì che [IAutoShape.isTextBox](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/#isTextBox--) restituisca `false`:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    shape1.addTextFrame("Shape 1");
+    System.out.println(shape1.isTextBox());
+
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+    shape2.getTextFrame().setText("Shape 2");
+    System.out.println(shape2.isTextBox());
+
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+    shape3.addTextFrame("");
+    System.out.println(shape3.isTextBox());
+
+    IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+    shape4.getTextFrame().setText("");
+    System.out.println(shape4.isTextBox());
+} finally {
+    presentation.dispose();
+}
+```
+
+Le prime due chiamate stampano `true`; le ultime due stampano `false`.
+
+## **Trova la forma che possiede un frame di testo**
+
+Il codice generico di elaborazione testo può ricevere un [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/) senza sapere quale oggetto della presentazione lo contiene. Utilizzare il metodo di sola lettura [ITextFrame.getParentShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#getParentShape--) per tornare alla sua forma proprietaria [IShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/).
+
+Per un frame di testo posseduto da un’auto forma o da un’altra forma con testo, [ITextFrame.getParentShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#getParentShape--) restituisce il proprietario e [ITextFrame.getParentCell](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#getParentCell--) restituisce `null`. Verificare il valore restituito prima di accedervi. Per identificare sia i proprietari di forma sia quelli di cella di tabella, incluse le forme associate a nodi SmartArt, vedere [Search and Replace Text](/slides/it/java/search-and-replace-text/).
 
 ## **Aggiungi colonne a una casella di testo**
 
-Aspose.Slides fornisce le proprietà [ColumnCount](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) e [ColumnSpacing](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (dall'interfaccia [ITextFrameFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextFrameFormat) e dalla classe [TextFrameFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/TextFrameFormat)) che consentono di aggiungere colonne alle caselle di testo. È possibile specificare il numero di colonne in una casella di testo e impostare la spaziatura in punti tra le colonne. 
+Il metodo [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setColumnCount-int-) divide il frame di testo in colonne, mentre [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-) imposta lo spazio tra le colonne in punti. Entrambe le impostazioni appartengono a [ITextFrameFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/) e possono essere modificate tramite il frame di testo di una casella di testo esistente. Il testo viene ridistribuito tra le colonne all’interno della stessa forma; non continua in un’altra forma.
 
-Questo codice Java dimostra l'operazione descritta: 
+L’esempio seguente crea una casella di testo a tre colonne con 10 punti tra le colonne, salva la presentazione e legge le impostazioni memorizzate dal file di output:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Ottiene la prima diapositiva nella presentazione
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+    textBox.addTextFrame("This text is distributed automatically across all columns in the text box.");
 
-    // Aggiunge un AutoShape con tipo impostato a Rectangle
-    IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+    ITextFrameFormat textFrameFormat = textBox.getTextFrame().getTextFrameFormat();
+    textFrameFormat.setColumnCount(3);
+    textFrameFormat.setColumnSpacing(10);
 
-    // Aggiunge TextFrame al rettangolo
-    aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
-            "you can add or delete text and the new or remaining text automatically adjusts " +
-            "itself to flow within the container. You cannot have text flow from one container " +
-            "to other though -- we told you PowerPoint's column options for text are limited!");
+    presentation.save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-    // Ottiene il formato del testo del TextFrame
-    ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
-
-    // Specifica il numero di colonne nel TextFrame
-    format.setColumnCount(3);
-
-    // Specifica la spaziatura tra le colonne
-    format.setColumnSpacing(10);
-
-    // Salva la presentazione
-    pres.save("ColumnCount.pptx", SaveFormat.Pptx);
+    Presentation savedPresentation = new Presentation("TextBoxColumns.pptx");
+    try {
+        IAutoShape savedTextBox = (IAutoShape) savedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        ITextFrameFormat savedFormat = savedTextBox.getTextFrame().getTextFrameFormat();
+        System.out.println("Columns: " + savedFormat.getColumnCount() + "; spacing: " + savedFormat.getColumnSpacing() + " points");
+    } finally {
+        savedPresentation.dispose();
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Aggiungi colonne a un TextFrame**
-Aspose.Slides for Java fornisce la proprietà [ColumnCount](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (dall'interfaccia [ITextFrameFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextFrameFormat)) che consente di aggiungere colonne nei TextFrame. Attraverso questa proprietà, è possibile specificare il numero desiderato di colonne in un TextFrame. 
+## **Estrai il testo da colonne individuali**
 
-Questo codice Java mostra come aggiungere una colonna all'interno di un TextFrame:
+Usare [ITextFrame.splitTextByColumns](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/#splitTextByColumns--) per recuperare il testo assegnato a ciascuna colonna visiva in un frame di testo esistente. Il metodo restituisce una stringa per ogni colonna, nell’ordine di lettura basato sulle colonne. Un frame di testo a colonna singola produce un array con un elemento, e una colonna vuota è rappresentata da una stringa vuota. Le stringhe contengono solo testo semplice; la formattazione a livello di porzione non è preservata.
+
+Questo è utile quando è necessario:
+
+- Estrarre il testo preservando il suo ordine di lettura basato sulle colonne.
+- Indicizzare o confrontare il contenuto delle diapositive a più colonne.
+- Esportare ogni colonna in un file separato, campo di database o altra destinazione.
+- Ispezionare come il testo viene ridistribuito dopo aver modificato il numero di colonne con [ITextFrameFormat.setColumnCount](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setColumnCount-int-), la spaziatura con [ITextFrameFormat.setColumnSpacing](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#setColumnSpacing-double-), il carattere o la dimensione del frame di testo.
+
+Il metodo riporta il testo distribuito all’interno dell’attuale [ITextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframe/); non fa scorrere automaticamente il testo tra forme o caselle di testo separate. La distribuzione delle colonne può dipendere dai caratteri disponibili e da altre impostazioni di layout del testo, quindi assicurarsi che i caratteri richiesti siano disponibili quando è importante ottenere risultati coerenti.
+
+L’esempio seguente carica una presentazione, trova la prima auto forma a più colonne con un frame di testo, legge il conteggio di colonne configurato e scrive il testo di ogni colonna in un file separato. Le forme che non forniscono un frame di testo vengono ignorate.
 
 ```java
 import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-String outPptxFileName = "ColumnsTest.pptx";
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("MultiColumnText.pptx");
 try {
-    IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    ITextFrameFormat format = shape1.getTextFrame().getTextFrameFormat();
-
-    format.setColumnCount(2);
-    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " +
-            "you can add or delete text - and the new or remaining text automatically adjusts " +
-            "itself to stay within the container. You cannot have text spill over from one container " +
-            "to other, though -- because PowerPoint's column options for text are limited!");
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test != null) test.dispose();
+    IAutoShape textBox = null;
+    for (IShape shape : presentation.getSlides().get_Item(0).getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            if (autoShape.getTextFrame() != null) {
+                int columnCount = autoShape.getTextFrame().getTextFrameFormat().getColumnCount();
+                if (columnCount > 1) {
+                    textBox = autoShape;
+                    break;
+                }
+            }
+        }
     }
 
-    format.setColumnSpacing(20);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
+    if (textBox == null) {
+        System.out.println("No multi-column text frame was found.");
+    } else {
+        ITextFrame textFrame = textBox.getTextFrame();
+        int configuredColumnCount = textFrame.getTextFrameFormat().getColumnCount();
+        String[] columnTexts = textFrame.splitTextByColumns();
 
-    Presentation test1 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test1 != null) test1.dispose();
-    }
+        System.out.println("Configured columns: " + configuredColumnCount);
 
-    format.setColumnCount(3);
-    format.setColumnSpacing(15);
-    pres.save(outPptxFileName, SaveFormat.Pptx);
-
-    Presentation test2 = new Presentation(outPptxFileName);
-    try {
-        IAutoShape autoShape = (IAutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-    } finally {
-        if (test2 != null) test2.dispose();
+        for (int columnIndex = 0; columnIndex < columnTexts.length; columnIndex++) {
+            int columnNumber = columnIndex + 1;
+            String columnText = columnTexts[columnIndex];
+            System.out.println("Column " + columnNumber + ": " + columnText);
+            Path outputPath = Paths.get("Column-" + columnNumber + ".txt");
+            byte[] textBytes = columnText.getBytes(StandardCharsets.UTF_8);
+            try {
+                Files.write(outputPath, textBytes);
+            } catch (IOException exception) {
+                System.out.println("Could not write column " + columnNumber + ": " + exception.getMessage());
+            }
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Aggiorna testo**
+## **Aggiorna il testo**
 
-Aspose.Slides consente di modificare o aggiornare il testo contenuto in una casella di testo o tutti i testi contenuti in una presentazione. 
+Per aggiornare il testo in tutta la presentazione, iterare le diapositive e le forme, selezionare le auto forme e quindi modificare le loro porzioni di testo. Lavorare a livello di porzione permette di modificare sia il testo sia la formattazione dei caratteri.
 
-Questo codice Java dimostra un'operazione in cui tutti i testi di una presentazione vengono aggiornati o modificati:
+L’esempio seguente sostituisce ogni occorrenza di `years` con `months` nel testo delle auto forme e rende grassetto ogni porzione interessata:
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation("text.pptx");
+Presentation presentation = new Presentation("Text.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof IAutoShape) //Verifica se la forma supporta un frame di testo (IAutoShape). 
-            {
-                IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Itera attraverso i paragrafi nel frame di testo
-                {
-                    for (IPortion portion : paragraph.getPortions()) //Itera attraverso ogni porzione nel paragrafo
-                    {
-                        portion.setText(portion.getText().replace("years", "months")); //Modifica il testo
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //Modifica la formattazione
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (!(shape instanceof IAutoShape)) {
+                continue;
+            }
+
+            IAutoShape autoShape = (IAutoShape) shape;
+            ITextFrame textFrame = autoShape.getTextFrame();
+            if (textFrame == null) {
+                continue;
+            }
+
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    String text = portion.getText();
+                    if (text != null && text.contains("years")) {
+                        portion.setText(text.replace("years", "months"));
+                        portion.getPortionFormat().setFontBold(NullableBool.True);
                     }
                 }
             }
         }
     }
 
-    //Salva la presentazione modificata
-    pres.save("text-changed.pptx", SaveFormat.Pptx);
+    presentation.save("TextChanged.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Aggiungi una casella di testo con un collegamento ipertestuale** 
+Questo attraversamento aggiorna il testo solo nelle auto forme. Il testo memorizzato in tabelle, grafici, SmartArt o forme raggruppate richiede l’attraversamento delle collezioni proprie di quegli oggetti.
 
-È possibile inserire un collegamento all'interno di una casella di testo. Quando la casella di testo viene cliccata, gli utenti vengono indirizzati al collegamento. 
+## **Aggiungi una casella di testo con un collegamento ipertestuale**
 
-Per aggiungere una casella di testo contenente un collegamento, segui questi passaggi:
+Un collegamento ipertestuale può essere assegnato a una specifica porzione di testo, così solo quel testo funge da collegamento cliccabile. Utilizzare [IHyperlinkManager.setExternalHyperlinkClick](https://reference.aspose.com/slides/it/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) per associare la porzione a un URL esterno.
 
-1. Crea un'istanza della classe `Presentation`. 
-2. Ottieni un riferimento alla prima diapositiva nella presentazione appena creata. 
-3. Aggiungi un oggetto `AutoShape` con `ShapeType` impostato su `Rectangle` in una posizione specificata sulla diapositiva e ottieni il riferimento al nuovo oggetto AutoShape.
-4. Aggiungi un `TextFrame` all'oggetto `AutoShape` che contiene *Aspose TextBox* come testo predefinito. 
-5. Istanzia la classe `IHyperlinkManager`. 
-6. Assegna l'oggetto `IHyperlinkManager` alla proprietà [HyperlinkClick](https://reference.aspose.com/slides/it/java/com.aspose.slides/Shape#getHyperlinkClick--) associata alla porzione desiderata del `TextFrame`. 
-7. Infine, scrivi il file PPTX tramite l'oggetto `Presentation`. 
-
-Questo codice Java—un'implementazione dei passaggi sopra—mostra come aggiungere una casella di testo con un collegamento ipertestuale a una diapositiva:
+L’esempio seguente crea testo collegato e lo salva in una presentazione:
 
 ```java
 import com.aspose.slides.*;
 
-// Istanzia una classe Presentation che rappresenta un PPTX
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Ottiene la prima diapositiva nella presentazione
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+    textBox.addTextFrame("Aspose.Slides");
 
-    // Aggiunge un oggetto AutoShape con tipo impostato a Rectangle
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
+    IPortion textPortion = textBox.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    textPortion.getPortionFormat().getHyperlinkManager().setExternalHyperlinkClick("https://www.aspose.com/");
 
-    // Converte la forma in AutoShape
-    IAutoShape pptxAutoShape = (IAutoShape)shape;
-
-    // Accede alla proprietà ITextFrame associata all'AutoShape
-    pptxAutoShape.addTextFrame("");
-
-    ITextFrame textFrame = pptxAutoShape.getTextFrame();
-
-    // Aggiunge del testo al frame
-    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-
-    // Imposta l'Hyperlink per il testo della porzione
-    IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
-            getPortionFormat().getHyperlinkManager();
-    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-
-    // Salva la presentazione PPTX
-    pres.save("hLink_out.pptx", SaveFormat.Pptx);
+    presentation.save("Hyperlink.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Qual è la differenza tra una casella di testo e un segnaposto testuale quando si lavora con le diapositive master?**
+**Qual è la differenza tra una casella di testo e un segnaposto di testo su una diapositiva master o layout?**
 
-Un [placeholder](/slides/it/java/manage-placeholder/) eredita stile/posizione dal [master](https://reference.aspose.com/slides/it/java/com.aspose.slides/masterslide/) e può essere sovrascritto su [layout](https://reference.aspose.com/slides/it/java/com.aspose.slides/layoutslide/), mentre una normale casella di testo è un oggetto indipendente su una diapositiva specifica e non cambia quando si cambia layout.
+Un [placeholder](/slides/it/java/manage-placeholder/) può ereditare posizione e formattazione da una [master slide](https://reference.aspose.com/slides/it/java/com.aspose.slides/masterslide/) o da una [layout slide](https://reference.aspose.com/slides/it/java/com.aspose.slides/layoutslide/). Una casella di testo normale è una forma indipendente sulla diapositiva in cui è stata creata e non acquisisce il comportamento di segnaposto quando il layout cambia.
 
-**Come posso eseguire una sostituzione di testo massiva su tutta la presentazione senza intervenire sul testo all'interno di grafici, tabelle e SmartArt?**
+**Come posso sostituire il testo senza modificare il testo in diagrammi, tabelle o SmartArt?**
 
-Limita l'iterazione alle auto-shape che hanno TextFrame ed escludi gli oggetti incorporati ([grafici](https://reference.aspose.com/slides/it/java/com.aspose.slides/chart/), [tabelle](https://reference.aspose.com/slides/it/java/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/it/java/com.aspose.slides/smartart/)) attraversando le loro collezioni separatamente o saltando quei tipi di oggetto.
+Limitare l’attraversamento alle forme che implementano [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/), come mostrato nell’esempio Aggiorna il testo. Diagrammi, tabelle e SmartArt memorizzano il testo nei loro modelli di oggetti, quindi non vengono modificati da quel ciclo.
