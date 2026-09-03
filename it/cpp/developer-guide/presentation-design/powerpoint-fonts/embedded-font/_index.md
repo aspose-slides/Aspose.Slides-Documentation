@@ -1,140 +1,314 @@
 ---
-title: Includi font nelle presentazioni usando С++
-linktitle: Incorporamento font
+title: Incorporare i font nelle presentazioni in C++
+linktitle: Font incorporati
 type: docs
 weight: 40
 url: /it/cpp/embedded-font/
 keywords:
-- aggiungi font
-- incorpora font
-- incorporamento di font
-- ottieni font incorporato
-- aggiungi font incorporato
-- rimuovi font incorporato
-- comprime font incorporato
+- aggiungere font
+- incorporare font
+- incorporamento dei font
+- recuperare font incorporato
+- aggiungere font incorporato
+- rimuovere font incorporato
+- comprimere font incorporato
 - PowerPoint
-- OpenDocument
 - presentazione
-- С++
+- C++
 - Aspose.Slides
-description: "Incorpora font TrueType nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per С++, garantendo un rendering accurato su tutte le piattaforme."
+description: "Gestisci i font incorporati in PowerPoint con Aspose.Slides per C++. Aggiungi, recupera, rimuovi e comprimi i font per preservare l'aspetto del testo e ridurre le dimensioni del file."
 ---
 ## **Introduzione**
 
-**I font incorporati in PowerPoint** aiutano a garantire che la presentazione mantenga l'aspetto previsto quando viene aperta su qualsiasi sistema o dispositivo. Questo è particolarmente importante quando si utilizzano font personalizzati, di terze parti o non standard per il branding o scopi creativi. Senza font incorporati, il testo può essere sostituito, i layout possono rompersi e i caratteri potrebbero apparire come simboli illeggibili o rettangoli, compromettendo il design complessivo.
+L'incorporamento dei caratteri memorizza i dati dei font all'interno di una presentazione PowerPoint. Quando un visualizzatore supporta i font incorporati, può visualizzare il testo con quei caratteri anche se non sono installati sul sistema di destinazione. Questo aiuta a preservare le interruzioni di riga, la spaziatura del testo e il layout delle diapositive.
 
-Aspose.Slides per C++ fornisce un set di potenti API per gestire i font incorporati programmaticamente. È possibile utilizzare le classi [FontsManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/) e [FontData](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontdata/) per esaminare, aggiungere o rimuovere i font incorporati nei file di presentazione. Inoltre, la classe [Compress](https://reference.aspose.com/slides/it/cpp/aspose.slides.lowcode/compress/) consente di ottimizzare le dimensioni del file comprimendo i dati dei font senza influire sulla qualità o sull'aspetto.
+Aspose.Slides per C++ consente di recuperare, aggiungere e rimuovere i font incorporati tramite il metodo [Presentation::get_FontsManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_fontsmanager/) di una [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/). È inoltre possibile ridurre le dimensioni dei dati dei font incorporati rimuovendo i caratteri che la presentazione non utilizza.
 
-Questi strumenti ti offrono il controllo totale sull'incorporamento dei font, aiutandoti a mantenere una tipografia coerente su tutte le piattaforme riducendo le dimensioni del file quando necessario.
+Gli esempi seguenti funzionano con file PPTX. Prima di incorporare un font, assicurarsi che i dati del font siano disponibili per Aspose.Slides e che la licenza consenta l'incorporamento.
 
-## **Ottieni font incorporati da una presentazione**
+## **Recupero e rimozione dei font incorporati**
 
-Aspose.Slides per C++ fornisce il metodo `GetEmbeddedFonts` tramite la classe [FontsManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/), che consente di recuperare un elenco di font incorporati in una presentazione PowerPoint. Questo può essere utile per verificare l'uso dei font, garantire la conformità alle linee guida del brand o accertarsi che tutti i font necessari siano correttamente inclusi prima di condividere il file.
+Utilizzare [IFontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getembeddedfonts/) per elencare i font memorizzati in una presentazione. Per rimuoverne uno, passare un font da quell'elenco a [IFontsManager::RemoveEmbeddedFont](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/removeembeddedfont/), quindi salvare la presentazione.
 
-Il seguente codice C++ mostra come ottenere i font incorporati da un file di presentazione:
+L'esempio seguente elenca i font incorporati in `EmbeddedFonts.pptx` e rimuove Calibri se presente:
 
 ```cpp
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparison.h>
 
-// Ottieni tutti i font incorporati.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Stampa i nomi dei font incorporati.
-for (auto&& fontData : embeddedFonts)
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+SharedPtr<IFontData> fontToRemove;
+
+for (auto&& font : embeddedFonts)
 {
-    Console::WriteLine(fontData->get_FontName());
+    Console::WriteLine(font->get_FontName());
+
+    if (String::Equals(font->get_FontName(), u"Calibri", StringComparison::OrdinalIgnoreCase))
+    {
+        fontToRemove = font;
+    }
+}
+
+if (fontToRemove != nullptr)
+{
+    fontsManager->RemoveEmbeddedFont(fontToRemove);
+    presentation->Save(u"WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Calibri is not embedded. No output file was created.");
 }
 
 presentation->Dispose();
 ```
 
-## **Aggiungi font incorporati a una presentazione**
+Rimuovere un font incorporato elimina i dati del font memorizzati; non cambia il font assegnato al testo. Se il font è installato sul sistema di destinazione, il testo può comunque usarlo. Altrimenti, il rendering potrebbe richiedere la [font substitution](/slides/it/cpp/font-substitution/), il che può influire sul layout.
 
-Aspose.Slides per C++ consente di incorporare font in una presentazione PowerPoint usando il metodo [AddEmbeddedFont](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/addembeddedfont/), che offre due overload per un utilizzo flessibile. È possibile controllare quanta parte del font viene incorporata utilizzando l'enumerazione [EmbedFontCharacters](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/embedfontcharacters/), ad esempio scegliendo di incorporare solo i caratteri effettivamente utilizzati o l'intero set di font. Questa funzionalità è particolarmente utile quando si prepara una presentazione per la condivisione o distribuzione, assicurando che i font personalizzati o non standard appaiano correttamente su tutti i sistemi, anche se non installati.
+## **Ispezione dei dati dei font e dei permessi di incorporamento**
 
-Il seguente codice C++ controlla tutti i font utilizzati in una presentazione e incorpora quelli che non sono già incorporati.
+Utilizzare l'interfaccia [IFontsManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/) per ispezionare i font prima di incorporarli. Chiamare [IFontsManager::GetFonts](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getfonts/) per recuperare i font utilizzati nella presentazione. Per ciascun font, passare un oggetto [IFontData](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontdata/) e il valore richiesto di [FontStyleType](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontstyletype/) a [IFontsManager::GetFontBytes](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getfontbytes/). Il metodo restituisce i dati binari per quella variante di stile, oppure `nullptr` quando il font o lo stile richiesto non è disponibile. Non passare un risultato `nullptr` a [IFontsManager::GetFontEmbeddingLevel](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getfontembeddinglevel/), poiché tale metodo richiede un array di byte.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/it/cpp/aspose.slides/embeddinglevel/) è un'enumerazione a flag che segnala le restrizioni di incorporamento memorizzate nel font:
+
+- `Installable` consente l'incorporamento e l'installazione permanente su un altro sistema, soggetto alla licenza del font.
+- `Restricted` proibisce l'incorporamento a meno che non venga ottenuta l'autorizzazione dal proprietario legale del font quando è l'unico flag di permesso d'uso.
+- `PreviewPrint` consente l'uso temporaneo per visualizzazione e stampa; un documento contenente il font deve essere di sola lettura.
+- `Editable` consente l'uso temporaneo e permette al documento di essere modificato e salvato.
+- `NoSubsetting` è una restrizione aggiuntiva che proibisce l'incorporamento di una sola sottoinsieme di glifi. Incorporare tutti i caratteri quando questo flag è presente.
+- `BitmapOnly` è una restrizione aggiuntiva che consente di incorporare solo le versioni bitmap, non i dati di contorno. Se il font non dispone di versioni bitmap, non può essere incorporato.
+
+I primi quattro valori descrivono il permesso di utilizzo, mentre `NoSubsetting` e `BitmapOnly` possono essere combinati con essi. Verificare i modificatori con operazioni bitwise. Poiché `Installable` è zero, mascherare i bit di permesso d'uso e confrontare il risultato con `Installable`. I font attuali dovrebbero impostare al massimo un bit di permesso d'uso. Per compatibilità con i font più vecchi che impostano più di uno, l'aiutante sottostante seleziona il permesso meno restrittivo: `Editable`, poi `PreviewPrint`, poi `Restricted`.
+
+L'esempio seguente verifica i dati regolari, grassetto, corsivo e grassetto‑corsivo disponibili per ogni font restituito da `GetFonts`. Ignora gli stili non disponibili, i font restritti, i font solo bitmap, i font limitati a anteprima e stampa perché l'output rimane modificabile, e i font già incorporati. Se un qualsiasi stile disponibile presenta `NoSubsetting`, incorpora tutti i caratteri per quella famiglia di font.
 
 ```cpp
-// Carica un file di presentazione.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/EmbeddingLevel.h>
+#include <DOM/FontStyleType.h>
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/collections/list.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
 
-auto usedFonts = presentation->get_FontsManager()->GetFonts();
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 
-for (auto&& fontData : usedFonts)
+auto getUsagePermission = [](EmbeddingLevel level)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+    const auto permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    auto permissions = level & permissionMask;
+
+    if ((permissions & EmbeddingLevel::Editable) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Editable;
+    }
+
+    if ((permissions & EmbeddingLevel::PreviewPrint) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if ((permissions & EmbeddingLevel::Restricted) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+};
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto fontStyles = MakeArray<FontStyleType>({
+    FontStyleType::Regular,
+    FontStyleType::Bold,
+    FontStyleType::Italic,
+    FontStyleType::Bold | FontStyleType::Italic
+});
+auto fontStyleNames = MakeArray<String>({u"regular", u"bold", u"italic", u"bold-italic"});
+
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+for (auto&& embeddedFont : fontsManager->GetEmbeddedFonts())
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+auto fontsToEmbedAll = MakeObject<List<SharedPtr<IFontData>>>();
+auto fontsToEmbedUsedOnly = MakeObject<List<SharedPtr<IFontData>>>();
+for (auto&& font : fontsManager->GetFonts())
+{
+    if (embeddedFontNames->Contains(font->get_FontName()))
+    {
+        Console::WriteLine(u"{0}: already embedded.", font->get_FontName());
+        continue;
+    }
+
+    auto hasAvailableData = false;
+    auto allAvailableStylesCanBeEmbedded = true;
+    auto previewPrintOnly = false;
+    auto requiresFullFont = false;
+
+    for (auto styleIndex = 0; styleIndex < fontStyles->get_Length(); styleIndex++)
+    {
+        auto fontStyle = fontStyles[styleIndex];
+        auto fontBytes = fontsManager->GetFontBytes(font, fontStyle);
+        if (fontBytes == nullptr)
         {
-            return data == fontData;
-        };
+            Console::WriteLine(u"{0} ({1}): font data is unavailable.", font->get_FontName(), fontStyleNames[styleIndex]);
+            continue;
+        }
 
-    // Verifica se il font è già incorporato.
-    bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
-    if (!isEmbeddedFont)
-    {
-        // Incorpora il font nella presentazione.
-        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+        hasAvailableData = true;
+        auto embeddingLevel = fontsManager->GetFontEmbeddingLevel(fontBytes, font->get_FontName());
+        auto usagePermission = getUsagePermission(embeddingLevel);
+        auto noSubsetting = (embeddingLevel & EmbeddingLevel::NoSubsetting) != EmbeddingLevel::Installable;
+        auto bitmapOnly = (embeddingLevel & EmbeddingLevel::BitmapOnly) != EmbeddingLevel::Installable;
+
+        requiresFullFont |= noSubsetting;
+        previewPrintOnly |= usagePermission == EmbeddingLevel::PreviewPrint;
+        allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel::Restricted && !bitmapOnly;
+
+        Console::WriteLine(u"{0} ({1}): embedding level {2}.", font->get_FontName(), fontStyleNames[styleIndex], static_cast<uint16_t>(embeddingLevel));
     }
 
+    if (!hasAvailableData)
+    {
+        Console::WriteLine(u"{0}: skipped because no requested style is available.", font->get_FontName());
+    }
+    else if (!allAvailableStylesCanBeEmbedded)
+    {
+        Console::WriteLine(u"{0}: skipped because at least one available style does not permit outline embedding.", font->get_FontName());
+    }
+    else if (previewPrintOnly)
+    {
+        Console::WriteLine(u"{0}: skipped because this example produces an editable presentation.", font->get_FontName());
+    }
+    else if (requiresFullFont)
+    {
+        fontsToEmbedAll->Add(font);
+    }
+    else
+    {
+        fontsToEmbedUsedOnly->Add(font);
+    }
 }
 
-// Salva la presentazione su disco.
-presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Rimuovi font incorporati da una presentazione**
-
-Aspose.Slides per C++ fornisce il metodo `RemoveEmbeddedFont` tramite la classe [FontsManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/), che permette di rimuovere font specifici incorporati in una presentazione PowerPoint. Questo può contribuire a ridurre le dimensioni complessive del file, soprattutto se i font incorporati non sono più utilizzati o necessari. La rimozione dei font non usati può anche migliorare le prestazioni e garantire che la presentazione includa solo le risorse essenziali.
-
-Il seguente codice C++ dimostra come rimuovere un font incorporato da una presentazione:
-
-```cpp
-auto fontName = u"Calibri";
-
-// Istanzia la classe Presentation che rappresenta un file di presentazione.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
-
-// Ottieni tutti i font incorporati.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
-
-for (auto&& fontData : embeddedFonts)
+for (auto&& font : fontsToEmbedAll)
 {
-    if (fontData->get_FontName().Equals(fontName))
-    {
-        // Rimuovi il font incorporato.
-        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+}
 
-        break;
+for (auto&& font : fontsToEmbedUsedOnly)
+{
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::OnlyUsed);
+}
+
+presentation->Save(u"WithAuditedFonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Questa ispezione segnala le restrizioni codificate in ciascun file di font. Non concede una licenza, non dimostra che il font sia stato ottenuto legalmente, né sostituisce il controllo dell'accordo di licenza del font prima di distribuire una copia incorporata.
+
+## **Aggiunta di font incorporati**
+
+Utilizzare [IFontsManager::AddEmbeddedFont](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/addembeddedfont/) per incorporare un font. Le sue overload accettano sia un oggetto [IFontData](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontdata/) sia un array di byte contenente i dati del font. L'enumerazione [EmbedFontCharacters](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/embedfontcharacters/) controlla quali caratteri vengono inclusi:
+
+- [All](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/embedfontcharacters/) incorpora tutti i caratteri nel font. Utilizzare questa opzione quando i destinatari devono modificare la presentazione e inserire nuovo testo.
+- [OnlyUsed](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/embedfontcharacters/) incorpora solo i caratteri usati nella presentazione per ridurre la dimensione del file. Scegliere questa opzione per una presentazione finale destinata principalmente alla visualizzazione.
+
+L'esempio seguente utilizza [IFontsManager::GetFonts](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getfonts/) per recuperare i font usati in `Fonts.pptx` e incorpora quelli non già incorporati. I font da aggiungere devono essere disponibili sulla macchina che esegue il codice. I font già incorporati mantengono i set di caratteri attuali.
+
+```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/collections/sorted_set.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto allFonts = fontsManager->GetFonts();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+for (auto&& embeddedFont : embeddedFonts)
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+for (auto&& font : allFonts)
+{
+    if (!embeddedFontNames->Contains(font->get_FontName()))
+    {
+        fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        embeddedFontNames->Add(font->get_FontName());
     }
 }
 
-presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Save(u"WithEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Comprimi font incorporati**
+## **Compressione dei font incorporati**
 
-Aspose.Slides per C++ fornisce il metodo `CompressEmbeddedFonts` tramite la classe [Compress](https://reference.aspose.com/slides/it/cpp/aspose.slides.lowcode/compress/), consentendo di ridurre le dimensioni complessive di una presentazione ottimizzando i dati dei font incorporati. Questo è particolarmente utile quando la presentazione contiene font di grandi dimensioni o multipli e si desidera mantenere il file leggero per la condivisione, l'archiviazione o l'uso online, senza compromettere la fedeltà visiva del contenuto.
+[Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/it/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) riduce i dati dei font incorporati rimuovendo i caratteri inutilizzati. Funziona sui font già incorporati, quindi la riduzione delle dimensioni dipende da quante informazioni di font inutilizzate contiene la presentazione.
 
-Il seguente codice C++ mostra come comprimere i font incorporati in una presentazione PowerPoint:
+L'esempio seguente comprime i font in `EmbeddedFonts.pptx` e salva il risultato in un file separato:
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/shared_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
 Compress::CompressEmbeddedFonts(presentation);
-
-presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Save(u"CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+Conservare il file originale se i destinatari potrebbero aver bisogno di aggiungere testo in seguito. I caratteri rimossi durante la compressione non sono più disponibili dal font incorporato, anche se in origine era stato incorporato l'intero set di caratteri.
 
 ## **FAQ**
 
-**Come posso capire se un font specifico nella presentazione verrà comunque sostituito durante il rendering nonostante l'incorporamento?**
+**Come posso verificare se un font incorporato verrà comunque sostituito durante il rendering?**
 
-Controlla le [informazioni di sostituzione](/slides/it/cpp/font-substitution/) nel gestore dei font e le [regole di fallback/sostituzione](/slides/it/cpp/fallback-font/): se il font non è disponibile o è limitato, verrà usato un fallback.
+Chiamare [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getsubstitutions/) nell'ambiente in cui si rende la presentazione per vedere quali font Aspose.Slides sostituirà. Controllare anche le impostazioni di [font substitution](/slides/it/cpp/font-substitution/) e le regole di [font fallback](/slides/it/cpp/fallback-font/). Il fallback gestisce i caratteri mancanti, quindi incorporare un font non risolve i caratteri che il font stesso non contiene.
 
-**Vale la pena incorporare i font "di sistema" come Arial/Calibri?**
+**Devo incorporare font comuni come Arial e Calibri?**
 
-Di solito no—sono quasi sempre disponibili. Ma per la piena portabilità in ambienti "leggeri" (Docker, un server Linux senza font preinstallati), incorporare i font di sistema può eliminare il rischio di sostituzioni inattese.
+Basare la decisione sull'ambiente di destinazione. Se i font richiesti sono disponibili su ogni macchina che apre o rende la presentazione, incorporarli potrebbe aumentare inutilmente la dimensione del file. Se i destinatari o i server potrebbero non avere quei font, incorporarli può aiutare a preservare l'aspetto previsto, a condizione che le licenze lo consentano.

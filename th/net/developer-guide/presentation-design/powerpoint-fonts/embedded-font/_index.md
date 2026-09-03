@@ -1,6 +1,6 @@
 ---
-title: ฝังแบบอักษรในงานนำเสนอด้วย .NET
-linktitle: การฝังแบบอักษร
+title: ฝังแบบอักษรในงานนำเสนอใน .NET
+linktitle: แบบอักษรที่ฝังไว้
 type: docs
 weight: 40
 url: /th/net/embedded-font/
@@ -8,109 +8,243 @@ keywords:
 - เพิ่มแบบอักษร
 - ฝังแบบอักษร
 - การฝังแบบอักษร
-- ดึงแบบอักษรที่ฝังไว้
+- รับแบบอักษรที่ฝังไว้
 - เพิ่มแบบอักษรที่ฝังไว้
 - ลบแบบอักษรที่ฝังไว้
 - บีบอัดแบบอักษรที่ฝังไว้
 - PowerPoint
-- OpenDocument
 - งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ฝังแบบอักษร TrueType ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET เพื่อให้การเรนเดอร์ที่แม่นยำบนทุกแพลตฟอร์ม"
+description: "จัดการแบบอักษรที่ฝังไว้ใน PowerPoint ด้วย Aspose.Slides for .NET ใช้ C# เพื่อเพิ่ม ดึงออก ลบและบีบอัดแบบอักษร เพื่อรักษาลักษณะของข้อความและลดขนาดไฟล์"
 ---
 ## **บทนำ**
 
-**Embedding fonts in PowerPoint** ทำให้การนำเสนอของคุณคงรูปลักษณ์ตามที่ตั้งใจไว้บนระบบต่าง ๆ ไม่ว่าจะใช้แบบอักษรพิเศษเพื่อความสร้างสรรค์หรือแบบอักษรมาตรฐาน การฝังแบบอักษรจะช่วยป้องกันการบิดเบือนของข้อความและการจัดหน้า
+การฝังแบบอักษรจะเก็บข้อมูลแบบอักษรไว้ภายในงานนำเสนอ PowerPoint เมื่อโปรแกรมแสดงผลรองรับแบบอักษรที่ฝังไว้ มันสามารถแสดงข้อความโดยใช้แบบอักษรเหล่านั้นแม้ว่าจะไม่ได้ติดตั้งบนระบบเป้าหมาย การทำเช่นนี้ช่วยรักษาการขึ้นบรรทัด การเว้นวรรคของข้อความ และการจัดรูปแบบสไลด์
 
-หากคุณใช้แบบอักษรจากบุคคลที่สามหรือแบบอักษรที่ไม่เป็นมาตรฐานเพราะต้องการความสร้างสรรค์กับงานของคุณ คุณจะมีเหตุผลมากขึ้นในการฝังแบบอักษรของคุณ มิฉะนั้น (หากไม่มีการฝังแบบอักษร) ข้อความหรือจำนวนบนสไลด์ การจัดหน้า การจัดรูปแบบ ฯลฯ อาจเปลี่ยนแปลงหรือกลายเป็นสี่เหลี่ยมที่ทำให้สับสน
+Aspose.Slides for .NET ให้คุณเรียกคืน เพิ่ม และลบแบบอักษรที่ฝังอยู่ผ่านคุณสมบัติ [FontsManager](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/fontsmanager/) ของ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) คุณยังสามารถลดขนาดข้อมูลแบบอักษรที่ฝังได้โดยลบอักขระที่งานนำเสนอไม่ใช้
 
-ใช้คลาส **FontsManager**, **FontData**, และ **Compress** เพื่อจัดการแบบอักษรที่ฝังไว้
+## **รับและลบแบบอักษรที่ฝังอยู่**
 
-## **ดึงและลบแบบอักษรที่ฝังไว้**
+ใช้ [GetEmbeddedFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/getembeddedfonts/) เพื่อแสดงรายการแบบอักษรที่เก็บไว้ในงานนำเสนอ เพื่อทำการลบให้ส่งแบบอักษรจากรายการนั้นให้กับ [RemoveEmbeddedFont](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/removeembeddedfont/) แล้วบันทึกงานนำเสนอ
 
-เรียกคืนหรือเอาแบบอักษรที่ฝังไว้จากการนำเสนอได้อย่างง่ายดายด้วยเมธอด **GetEmbeddedFonts** และ **RemoveEmbeddedFont**  
+ตัวอย่างต่อไปนี้จะแสดงรายการแบบอักษรที่ฝังอยู่ใน `EmbeddedFonts.pptx` และลบ Calibri หากพบ:
 
-โค้ด C# นี้แสดงวิธีดึงและลบแบบอักษรที่ฝังไว้จากการนำเสนอ:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
+using var presentation = new Presentation("EmbeddedFonts.pptx");
+var fontsManager = presentation.FontsManager;
+var embeddedFonts = fontsManager.GetEmbeddedFonts();
+
+foreach (var font in embeddedFonts)
 {
-    ISlide slide = presentation.Slides[0];
+    Console.WriteLine(font.FontName);
+}
 
-    // แสดงสไลด์ที่มีกรอบข้อความซึ่งใช้ "FunSized" ที่ฝังไว้
-    using (IImage image = slide.GetImage(new Size(960, 720)))
-    {
-        image.Save("picture1_out.png", ImageFormat.Png);
-    }
-
-    IFontsManager fontsManager = presentation.FontsManager;
-
-    IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
-
-    // ค้นหาแบบอักษร "Calibri"
-    IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate (IFontData data)
-    {
-        return data.FontName == "Calibri";
-    });
-
-    // ลบแบบอักษร "Calibri"
-    fontsManager.RemoveEmbeddedFont(funSizedEmbeddedFont);
-
-    // แสดงการนำเสนอ; แบบอักษร "Calibri" จะถูกแทนที่ด้วยแบบที่มีอยู่แล้ว
-    using (IImage image = slide.GetImage(new Size(960, 720)))
-    {
-        image.Save("picture2_out.png", ImageFormat.Png);
-    }
-
-    // บันทึกการนำเสนอโดยไม่มีแบบอักษร "Calibri" ที่ฝังไว้ลงดิสก์
-    presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+var fontToRemove = Array.Find(embeddedFonts, font => string.Equals(font.FontName, "Calibri", StringComparison.OrdinalIgnoreCase));
+if (fontToRemove != null)
+{
+    fontsManager.RemoveEmbeddedFont(fontToRemove);
+    presentation.Save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Calibri is not embedded. No output file was created.");
 }
 ```
 
-## **เพิ่มแบบอักษรที่ฝังไว้**
+การลบแบบอักษรที่ฝังอยู่จะลบข้อมูลแบบอักษรที่เก็บไว้; ไม่ได้เปลี่ยนแบบอักษรที่กำหนดให้กับข้อความ หากแบบอักษรติดตั้งบนระบบเป้าหมาย ข้อความยังคงใช้ได้ มิฉะนั้น การเรนเดอร์อาจต้องอาศัย [font substitution](/slides/th/net/font-substitution/) ซึ่งอาจส่งผลต่อการจัดรูปแบบ
 
-โดยใช้ enum **EmbedFontCharacters** และการโอเวอร์โหลดสองรูปแบบของเมธอด **AddEmbeddedFont** คุณสามารถเลือกกฎการฝังที่ต้องการเพื่อฝังแบบอักษรในงานนำเสนอได้ โค้ด C# นี้แสดงวิธีฝังและเพิ่มแบบอักษรในงานนำเสนอ:
+## **ตรวจสอบข้อมูลแบบอักษรและสิทธิการฝัง**
 
-```c#
-// โหลดการนำเสนอ
-Presentation presentation = new Presentation("Fonts.pptx");
+ใช้อินเตอร์เฟส [IFontsManager](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/) เพื่อตรวจสอบแบบอักษรก่อนการฝัง เรียก [IFontsManager.GetFonts](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/getfonts/) เพื่อรับแบบอักษรที่ใช้ในงานนำเสนอ สำหรับแต่ละแบบอักษร ให้ส่งอ็อบเจ็กต์ [IFontData](https://reference.aspose.com/slides/th/net/aspose.slides/ifontdata/) และค่าที่ต้องการของ [FontStyleType](https://reference.aspose.com/slides/th/net/aspose.slides/fontstyletype/) ไปยัง [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/getfontbytes/) เมธอดจะคืนข้อมูลไบต์ของสไตล์แบบอักษรนั้น หรือ `null` หากแบบอักษรหรือสไตล์ที่ร้องขอไม่พร้อมใช้งาน อย่าส่งผลลัพธ์ `null` ไปยัง [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/th/net/aspose.slides/ifontsmanager/getfontembeddinglevel/) เพราะเมธอดนั้นต้องการอาร์เรย์ไบต์
 
-IFontData[] allFonts = presentation.FontsManager.GetFonts();
-IFontData[] embeddedFonts = presentation.FontsManager.GetEmbeddedFonts();
-foreach (IFontData font in allFonts)
+[EmbeddingLevel](https://reference.aspose.com/slides/th/net/aspose.slides/embeddinglevel/) เป็น enumeration แบบ flags ที่รายงานข้อจำกัดการฝังที่เก็บไว้ในแบบอักษร:
+
+- `Installable` อนุญาตให้ฝังและติดตั้งถาวรบนระบบอื่น ภายใต้เงื่อนไขของสัญญาอนุญาตแบบอักษร
+- `Restricted` ห้ามฝังเว้นแต่จะได้รับอนุญาตจากเจ้าของลิขสิทธิ์ของแบบอักษรเมื่อเป็น flag การใช้สิทธิ์เดียว
+- `PreviewPrint` อนุญาตให้ใช้ชั่วคราวเพื่อดูและพิมพ์; เอกสารที่มีแบบอักษรนี้ต้องเป็นแบบอ่านอย่างเดียว
+- `Editable` อนุญาตให้ใช้ชั่วคราวและให้เอกสารสามารถแก้ไขและบันทึกได้
+- `NoSubsetting` เป็นข้อจำกัดเพิ่มเติมที่ห้ามฝังเพียงส่วนย่อยของ glyphs. ให้ฝังอักขระทั้งหมดเมื่อมี flag นี้
+- `BitmapOnly` เป็นข้อจำกัดเพิ่มเติมที่อนุญาตให้ฝังเฉพาะ bitmap strikes เท่านั้น ไม่ใช่ข้อมูล outline หากแบบอักษรไม่มี bitmap strikes จะไม่สามารถฝังได้
+
+ค่าสี่ค่าแรกอธิบายสิทธิ์การใช้งาน ส่วน `NoSubsetting` และ `BitmapOnly` สามารถรวมกับพวกมันได้ ตรวจสอบ modifiers ด้วยการดำเนินการบิต หาก `Installable` มีค่าเป็นศูนย์ อย่าใช้ `HasFlag` เพื่อตรวจจับ; ให้ทำการ mask บิตสิทธิ์การใช้งานและเปรียบเทียบผลกับ `Installable` แบบอักษรปัจจุบันควรตั้งบิตสิทธิ์การใช้งานไม่เกินหนึ่งบิต สำหรับความเข้ากันได้กับแบบอักษรเก่าที่ตั้งมากกว่าหนึ่งบิต ตัวช่วยด้านล่างจะเลือกสิทธิ์ที่ผ่อนผันที่สุด: `Editable` แล้วตามด้วย `PreviewPrint` แล้ว `Restricted`
+
+ตัวอย่างต่อไปนี้ตรวจสอบข้อมูลแบบอักษรปกติ หนา ตัวเอียง และหนาตัวเอียงสำหรับทุกแบบอักษรที่ `GetFonts` คืนค่า จะข้ามสไตล์ที่ไม่พร้อมใช้งาน แบบอักษรที่ถูกจำกัด bitmap‑only แบบอักษรที่จำกัดการพรีวิวและพิมพ์เนื่องจากผลลัพธ์ยังคงแก้ไขได้ และแบบอักษรที่ฝังอยู่แล้ว หากสไตล์ใดมี `NoSubsetting` จะฝังอักขระทั้งหมดของตระกูลแบบอักษรนั้น
+
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+static EmbeddingLevel GetUsagePermission(EmbeddingLevel level)
 {
-    if (!embeddedFonts.Contains(font))
+    const EmbeddingLevel permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+    var permissions = level & permissionMask;
+
+    if ((permissions & EmbeddingLevel.Editable) != 0)
     {
-        presentation.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
+        return EmbeddingLevel.Editable;
+    }
+
+    if ((permissions & EmbeddingLevel.PreviewPrint) != 0)
+    {
+        return EmbeddingLevel.PreviewPrint;
+    }
+
+    if ((permissions & EmbeddingLevel.Restricted) != 0)
+    {
+        return EmbeddingLevel.Restricted;
+    }
+
+    return EmbeddingLevel.Installable;
+}
+
+using var presentation = new Presentation("Fonts.pptx");
+var fontsManager = presentation.FontsManager;
+var fontStyles = new[]
+{
+    FontStyleType.Regular,
+    FontStyleType.Bold,
+    FontStyleType.Italic,
+    FontStyleType.Bold | FontStyleType.Italic
+};
+
+var embeddedFontNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+foreach (var embeddedFont in fontsManager.GetEmbeddedFonts())
+{
+    embeddedFontNames.Add(embeddedFont.FontName);
+}
+
+var embeddingPlan = new List<(IFontData Font, EmbedFontCharacters Rule)>();
+foreach (var font in fontsManager.GetFonts())
+{
+    if (embeddedFontNames.Contains(font.FontName))
+    {
+        Console.WriteLine($"{font.FontName}: already embedded.");
+        continue;
+    }
+
+    var hasAvailableData = false;
+    var allAvailableStylesCanBeEmbedded = true;
+    var previewPrintOnly = false;
+    var requiresFullFont = false;
+
+    foreach (var fontStyle in fontStyles)
+    {
+        var fontBytes = fontsManager.GetFontBytes(font, fontStyle);
+        if (fontBytes == null)
+        {
+            Console.WriteLine($"{font.FontName} ({fontStyle}): font data is unavailable.");
+            continue;
+        }
+
+        hasAvailableData = true;
+        var embeddingLevel = fontsManager.GetFontEmbeddingLevel(fontBytes, font.FontName);
+        var usagePermission = GetUsagePermission(embeddingLevel);
+        var noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+        var bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+        requiresFullFont |= noSubsetting;
+        previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+        allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+        Console.WriteLine($"{font.FontName} ({fontStyle}): {embeddingLevel}.");
+    }
+
+    if (!hasAvailableData)
+    {
+        Console.WriteLine($"{font.FontName}: skipped because no requested style is available.");
+    }
+    else if (!allAvailableStylesCanBeEmbedded)
+    {
+        Console.WriteLine($"{font.FontName}: skipped because at least one available style does not permit outline embedding.");
+    }
+    else if (previewPrintOnly)
+    {
+        Console.WriteLine($"{font.FontName}: skipped because this example produces an editable presentation.");
+    }
+    else
+    {
+        var rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+        embeddingPlan.Add((font, rule));
     }
 }
 
-// บันทึกการนำเสนอลงดิสก์
-presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
-```
-
-## **บีบอัดแบบอักษรที่ฝังไว้**
-
-เพิ่มประสิทธิภาพขนาดไฟล์โดยบีบอัดแบบอักษรที่ฝังไว้ด้วย **CompressEmbeddedFonts**  
-
-ตัวอย่างโค้ดสำหรับการบีบอัด:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+foreach (var item in embeddingPlan)
 {
-    Aspose.Slides.LowCode.Compress.CompressEmbeddedFonts(pres);
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+    fontsManager.AddEmbeddedFont(item.Font, item.Rule);
 }
+
+presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
+
+การตรวจสอบนี้รายงานข้อจำกัดที่เข้ารหัสในแต่ละไฟล์แบบอักษร ไม่ได้ให้สิทธิ์ ใบอนุญาต หรือพิสูจน์ว่าคุณได้แบบอักษรมาจากแหล่งที่ถูกต้อง รวมถึงไม่ทดแทนการตรวจสอบสัญญาอนุญาตของแบบอักษรก่อนแจกจ่ายสำเนาที่ฝัง
+
+## **เพิ่มแบบอักษรที่ฝังอยู่**
+
+ใช้ [AddEmbeddedFont](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/addembeddedfont/) เพื่อฝังแบบอักษร การ overload ของมันรับอ็อบเจ็กต์ [IFontData](https://reference.aspose.com/slides/th/net/aspose.slides/ifontdata/) หรืออาร์เรย์ไบต์ที่มีข้อมูลแบบอักษร enumeration [EmbedFontCharacters](https://reference.aspose.com/slides/th/net/aspose.slides.export/embedfontcharacters/) ควบคุมว่าอักขระใดจะถูกรวม:
+
+- [All](https://reference.aspose.com/slides/th/net/aspose.slides.export/embedfontcharacters/) ฝังอักขระทั้งหมดในแบบอักษร ใช้ตัวเลือกนี้เมื่อผู้รับต้องการแก้ไขงานนำเสนอและใส่ข้อความใหม่
+- [OnlyUsed](https://reference.aspose.com/slides/th/net/aspose.slides.export/embedfontcharacters/) ฝังเฉพาะอักขระที่ใช้ในงานนำเสนอเพื่อให้ไฟล์มีขนาดเล็กลง เลือกตัวเลือกนี้สำหรับงานนำเสนอที่เสร็จสมบูรณ์และมีเป้าหมายหลักคือการดูเท่านั้น
+
+ตัวอย่างต่อไปนี้ใช้ [GetFonts](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/getfonts/) เพื่อดึงแบบอักษรที่ใช้ใน `Fonts.pptx` แล้วฝังแบบอักษรที่ยังไม่ได้ฝังอยู่ แบบอักษรที่ต้องเพิ่มต้องพร้อมใช้งานบนเครื่องที่รันโค้ด แบบอักษรที่ฝังอยู่เดิมจะคงชุดอักขระปัจจุบันไว้
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("Fonts.pptx");
+var fontsManager = presentation.FontsManager;
+var allFonts = fontsManager.GetFonts();
+var embeddedFonts = fontsManager.GetEmbeddedFonts();
+var embeddedFontNames = embeddedFonts.Select(font => font.FontName);
+var embeddedNames = new HashSet<string>(embeddedFontNames, StringComparer.OrdinalIgnoreCase);
+
+foreach (var font in allFonts)
+{
+    if (!embeddedNames.Contains(font.FontName))
+    {
+        fontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
+        embeddedNames.Add(font.FontName);
+    }
+}
+
+presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
+```
+
+## **บีบอัดแบบอักษรที่ฝังอยู่**
+
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/compressembeddedfonts/) ลดข้อมูลแบบอักษรที่ฝังโดยการลบอักขระที่ไม่ได้ใช้ มันทำงานกับแบบอักษรที่ฝังแล้ว ดังนั้นการลดขนาดจึงขึ้นอยู่กับข้อมูลแบบอักษรที่ไม่ได้ใช้ในงานนำเสนอเท่าใด
+
+ตัวอย่างต่อไปนี้บีบอัดแบบอักษรใน `EmbeddedFonts.pptx` แล้วบันทึกผลลัพธ์เป็นไฟล์แยก
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("EmbeddedFonts.pptx");
+Compress.CompressEmbeddedFonts(presentation);
+presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
+```
+
+ควรรักษาไฟล์ต้นฉบับไว้หากผู้รับอาจต้องเพิ่มข้อความในภายหลัง อักขระที่ลบระหว่างการบีบอัดจะไม่สามารถใช้จากแบบอักษรที่ฝังได้ แม้ว่าคุณจะฝังอักขระทั้งหมดไว้ตั้งแต่แรกก็ตาม
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะรู้ได้อย่างไรว่าฟอนต์เฉพาะในงานนำเสนอจะยังคงถูกแทนที่ระหว่างการเรนเดอร์แม้จะฝังไว้แล้ว?**  
+**ฉันจะตรวจสอบได้อย่างไรว่าแบบอักษรที่ฝังอยู่จะยังถูกทดแทนระหว่างการเรนเดอร์หรือไม่?**
 
-ตรวจสอบ [ข้อมูลการแทนที่](/slides/th/net/font-substitution/) ในตัวจัดการฟอนต์และ [กฎการสำรอง/การแทนที่](/slides/th/net/fallback-font/): หากฟอนต์ไม่พร้อมใช้หรือถูกจำกัด จะใช้ฟอนต์สำรองแทน
+ให้เรียก [GetSubstitutions](https://reference.aspose.com/slides/th/net/aspose.slides/fontsmanager/getsubstitutions/) ในสภาพแวดล้อมที่คุณเรนเดอร์งานนำเสนอเพื่อดูว่า Aspose.Slides จะเปลี่ยนแบบอักษรใดบ้าง นอกจากนี้ตรวจสอบการตั้งค่า [font substitution](/slides/th/net/font-substitution/) และกฎ [font fallback](/slides/th/net/fallback-font/) ด้วย Fallback จัดการอักขระที่ขาดหายไป ดังนั้นการฝังแบบอักษรไม่ได้แก้ปัญหาอักขระที่แบบอักษรนั้นไม่มีอยู่
 
-**คุ้มค่าที่จะฝังฟอนต์ “ระบบ” เช่น Arial/Calibri หรือไม่?**  
+**ผมควรฝังแบบอักษรทั่วไปเช่น Arial และ Calibri หรือไม่?**
 
-โดยทั่วไปไม่—ฟอนต์เหล่านี้มักพร้อมใช้งานอยู่แล้ว แต่ในสภาพแวดล้อม “บาง” เช่น Docker หรือเซิร์ฟเวอร์ Linux ที่ไม่มีฟอนต์ติดตั้งล่วงหน้า การฝังฟอนต์ระบบสามารถกำจัดความเสี่ยงของการแทนที่โดยไม่ได้คาดคิดได้อย่างเต็มที่
+ให้พิจารณาตามสภาพแวดล้อมเป้าหมาย หากแบบอักษรที่ต้องการมีอยู่บนทุกเครื่องที่เปิดหรือเรนเดอร์งานนำเสนอ การฝังอาจเพิ่มขนาดไฟล์โดยไม่จำเป็น หากผู้รับหรือเซิร์ฟเวอร์อาจไม่มีแบบอักษรเหล่านั้น การฝังจะช่วยรักษาลักษณะที่ต้องการไว้ได้ อย่างไรก็ตามต้องตรวจสอบว่าลิขสิทธิ์ของแบบอักษรอนุญาตให้ฝังหรือไม่.

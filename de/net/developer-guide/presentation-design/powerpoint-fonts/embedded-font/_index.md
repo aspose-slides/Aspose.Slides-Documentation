@@ -1,115 +1,248 @@
 ---
-title: "Schriftarten in Präsentationen in .NET einbetten"
-linktitle: "Schriftart einbetten"
+title: "Einbetten von Schriftarten in Präsentationen in .NET"
+linktitle: "Eingebettete Schriftarten"
 type: docs
 weight: 40
 url: /de/net/embedded-font/
 keywords:
-- "Schriftart hinzufügen"
-- "Schriftart einbetten"
-- "Schriftarteinbettung"
-- "Eingebettete Schriftart abrufen"
-- "Eingebettete Schriftart hinzufügen"
-- "Eingebettete Schriftart entfernen"
-- "Eingebettete Schriftart komprimieren"
-- "PowerPoint"
-- "OpenDocument"
-- "Präsentation"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "TrueType-Schriftarten in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für .NET einbetten, um ein genaues Rendering auf allen Plattformen zu gewährleisten."
+- Schriftart hinzufügen
+- Schriftart einbetten
+- Schriftarteinbettung
+- eingebettete Schriftart abrufen
+- eingebettete Schriftart hinzufügen
+- eingebettete Schriftart entfernen
+- eingebettete Schriftart komprimieren
+- PowerPoint
+- Präsentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Verwalten Sie eingebettete Schriftarten in PowerPoint mit Aspose.Slides für .NET. Verwenden Sie C#, um Schriftarten hinzuzufügen, abzurufen, zu entfernen und zu komprimieren, um das Erscheinungsbild des Textes beizubehalten und die Dateigröße zu reduzieren."
 ---
+## **Einführung**
 
-**Einbetten von Schriftarten in PowerPoint** stellt sicher, dass Ihre Präsentation ihr beabsichtigtes Erscheinungsbild auf verschiedenen Systemen beibehält. Egal, ob Sie einzigartige Schriftarten für Kreativität oder Standard‑Schriftarten verwenden, das Einbetten von Schriftarten verhindert Text‑ und Layoutstörungen.
+Das Einbetten von Schriftarten speichert Schriftartdaten innerhalb einer PowerPoint‑Präsentation. Wenn ein Betrachter eingebettete Schriftarten unterstützt, kann er Text mit diesen Schriftarten anzeigen, selbst wenn sie nicht auf dem Zielsystem installiert sind. Dies hilft, Zeilenumbrüche, Textabstände und das Folienlayout beizubehalten.
 
-Wenn Sie eine Drittanbieter‑ oder nicht‑standardisierte Schriftart verwendet haben, weil Sie kreativ waren, haben Sie noch mehr Gründe, Ihre Schriftart einzubetten. Andernfalls (ohne eingebettete Schriftarten) können Texte oder Zahlen in Ihren Folien, das Layout, das Styling usw. sich ändern oder in verwirrende Rechtecke verwandeln.
+Aspose.Slides für .NET ermöglicht das Abrufen, Hinzufügen und Entfernen eingebetteter Schriftarten über die [FontsManager](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/fontsmanager/)‑Eigenschaft einer [Presentation](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/). Sie können die Größe der eingebetteten Schriftartdaten auch reduzieren, indem Sie Zeichen entfernen, die die Präsentation nicht verwendet.
 
-Verwenden Sie die Klassen [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/), [FontData](https://reference.aspose.com/slides/net/aspose.slides/fontdata/) und [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) zur Verwaltung eingebetteter Schriftarten.
+Die nachstehenden Beispiele arbeiten mit PPTX‑Dateien. Stellen Sie vor dem Einbetten einer Schriftart sicher, dass deren Schriftartdaten für Aspose.Slides verfügbar sind und die Lizenz das Einbetten zulässt.
 
 ## **Abrufen und Entfernen eingebetteter Schriftarten**
 
-Rufen Sie eingebettete Schriftarten aus einer Präsentation ab oder entfernen Sie sie mühelos mit den Methoden [GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts) und [RemoveEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/removeembeddedfont).
+Verwenden Sie [GetEmbeddedFonts](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/getembeddedfonts/), um die in einer Präsentation gespeicherten Schriftarten aufzulisten. Um eine zu entfernen, übergeben Sie eine Schriftart aus dieser Liste an [RemoveEmbeddedFont](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/removeembeddedfont/), und speichern Sie anschließend die Präsentation.
 
-Dieser C#‑Code zeigt, wie Sie eingebettete Schriftarten aus einer Präsentation abrufen und entfernen:
-```c#
-using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
+Das folgende Beispiel listet die eingebetteten Schriftarten in `EmbeddedFonts.pptx` auf und entfernt Calibri, falls sie vorhanden ist:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("EmbeddedFonts.pptx");
+var fontsManager = presentation.FontsManager;
+var embeddedFonts = fontsManager.GetEmbeddedFonts();
+
+foreach (var font in embeddedFonts)
 {
-    ISlide slide = presentation.Slides[0];
+    Console.WriteLine(font.FontName);
+}
 
-    // Rendert eine Folie mit einem Textrahmen, der die eingebettete "FunSized"-Schrift verwendet
-    using (IImage image = slide.GetImage(new Size(960, 720)))
-    {
-        image.Save("picture1_out.png", ImageFormat.Png);
-    }
-
-    IFontsManager fontsManager = presentation.FontsManager;
-
-    IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
-
-    // Findet die Schriftart "Calibri"
-    IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate (IFontData data)
-    {
-        return data.FontName == "Calibri";
-    });
-
-    // Entfernt die Schriftart "Calibri"
-    fontsManager.RemoveEmbeddedFont(funSizedEmbeddedFont);
-
-    // Rendert die Präsentation; die Schriftart "Calibri" wird durch eine vorhandene ersetzt
-    using (IImage image = slide.GetImage(new Size(960, 720)))
-    {
-        image.Save("picture2_out.png", ImageFormat.Png);
-    }
-
-    // Speichert die Präsentation ohne die eingebettete Schriftart "Calibri" auf die Festplatte
-    presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+var fontToRemove = Array.Find(embeddedFonts, font => string.Equals(font.FontName, "Calibri", StringComparison.OrdinalIgnoreCase));
+if (fontToRemove != null)
+{
+    fontsManager.RemoveEmbeddedFont(fontToRemove);
+    presentation.Save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("Calibri is not embedded. No output file was created.");
 }
 ```
 
+Das Entfernen einer eingebetteten Schriftart löscht deren gespeicherte Schriftartdaten; sie ändert nicht die dem Text zugewiesene Schriftart. Ist die Schriftart auf dem Zielsystem installiert, kann der Text sie weiterhin verwenden. Andernfalls kann beim Rendern eine [Schriftart-Substitution](/slides/de/net/font-substitution/) erforderlich sein, was das Layout beeinflussen kann.
 
-## **Einbetten von Schriftarten**
+## **Untersuchen von Schriftartdaten und Einbettungsrechten**
 
-Mit dem Aufzählungstyp [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.slides.export/embedfontcharacters/) und zwei Überladungen der Methode [AddEmbeddedFont](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/addembeddedfont/) können Sie Ihre bevorzugte (Einbettungs‑)Regel auswählen, um die Schriftarten in einer Präsentation einzubetten. Dieser C#‑Code zeigt, wie Sie Schriftarten einbetten und einer Präsentation hinzufügen:
-```c#
-// Lädt die Präsentation
-Presentation presentation = new Presentation("Fonts.pptx");
+Verwenden Sie das [IFontsManager](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/)‑Interface, um Schriftarten vor dem Einbetten zu untersuchen. Rufen Sie [IFontsManager.GetFonts](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getfonts/) auf, um die in der Präsentation verwendeten Schriftarten abzurufen. Für jede Schriftart übergeben Sie ein [IFontData](https://reference.aspose.com/slides/de/net/aspose.slides/ifontdata/)-Objekt und den erforderlichen [FontStyleType](https://reference.aspose.com/slides/de/net/aspose.slides/fontstyletype/)-Wert an [IFontsManager.GetFontBytes](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getfontbytes/). Die Methode gibt die Binärdaten für diesen Schriftstil zurück oder `null`, wenn die angeforderte Schriftart oder der Stil nicht verfügbar ist. Übergeben Sie kein `null`‑Ergebnis an [IFontsManager.GetFontEmbeddingLevel](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getfontembeddinglevel/), da diese Methode ein Byte‑Array erwartet.
 
-IFontData[] allFonts = presentation.FontsManager.GetFonts();
-IFontData[] embeddedFonts = presentation.FontsManager.GetEmbeddedFonts();
-foreach (IFontData font in allFonts)
+[EmbeddingLevel](https://reference.aspose.com/slides/de/net/aspose.slides/embeddinglevel/) ist eine Flag‑Aufzählung, die die im Font gespeicherten Einbettungsbeschränkungen meldet:
+
+- `Installable` erlaubt das Einbetten und die dauerhafte Installation auf einem anderen System, vorbehaltlich der Font‑Lizenz.
+- `Restricted` verbietet das Einbetten, es sei denn, es wird eine Erlaubnis vom rechtlichen Eigentümer der Schriftart eingeholt, wenn es das einzige Nutzungs‑Erlaubnis‑Flag ist.
+- `PreviewPrint` erlaubt die temporäre Nutzung zum Anzeigen und Drucken; ein Dokument, das die Schriftart enthält, muss schreibgeschützt sein.
+- `Editable` erlaubt die temporäre Nutzung und gestattet das Bearbeiten und Speichern des Dokuments.
+- `NoSubsetting` ist eine zusätzliche Beschränkung, die das Einbetten nur eines Teilbereichs der Glyphen untersagt. Betten Sie alle Zeichen ein, wenn dieses Flag gesetzt ist.
+- `BitmapOnly` ist eine zusätzliche Beschränkung, die nur das Einbetten von Bitmap‑Strichen erlaubt, nicht von Konturdaten. Hat die Schriftart keine Bitmap‑Striche, kann sie nicht eingebettet werden.
+
+Die ersten vier Werte beschreiben die Nutzungsberechtigung, während `NoSubsetting` und `BitmapOnly` mit ihnen kombiniert werden können. Prüfen Sie die Modifikatoren mit bitweisen Operationen. Da `Installable` null ist, verwenden Sie `HasFlag` nicht, um es zu erkennen; maskieren Sie die Bits der Nutzungsberechtigung und vergleichen Sie das Ergebnis mit `Installable`. Aktuelle Schriftarten sollten höchstens ein Nutzungs‑Berechtigungs‑Bit setzen. Zur Kompatibilität mit älteren Schriftarten, die mehr als eines setzen, wählt die untenstehende Hilfsfunktion die am wenigsten restriktive Berechtigung: `Editable`, dann `PreviewPrint`, dann `Restricted`.
+
+Das folgende Beispiel prüft die regulären, fett, kursiv und fett‑kursiv Daten, die für jede durch `GetFonts` zurückgegebene Schriftart verfügbar sind. Es überspringt nicht verfügbare Stile, eingeschränkte Schriftarten, ausschließlich Bitmap‑Schriftarten, Schriftarten, die nur für Vorschau und Druck gedacht sind, da die Ausgabe editierbar bleibt, und bereits eingebettete Schriftarten. Wenn ein verfügbarer Stil `NoSubsetting` aufweist, bettet es alle Zeichen für diese Schriftfamilie ein.
+```csharp
+using System;
+using System.Collections.Generic;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+static EmbeddingLevel GetUsagePermission(EmbeddingLevel level)
 {
-    if (!embeddedFonts.Contains(font))
+    const EmbeddingLevel permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+    var permissions = level & permissionMask;
+
+    if ((permissions & EmbeddingLevel.Editable) != 0)
     {
-        presentation.FontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
+        return EmbeddingLevel.Editable;
+    }
+
+    if ((permissions & EmbeddingLevel.PreviewPrint) != 0)
+    {
+        return EmbeddingLevel.PreviewPrint;
+    }
+
+    if ((permissions & EmbeddingLevel.Restricted) != 0)
+    {
+        return EmbeddingLevel.Restricted;
+    }
+
+    return EmbeddingLevel.Installable;
+}
+
+using var presentation = new Presentation("Fonts.pptx");
+var fontsManager = presentation.FontsManager;
+var fontStyles = new[]
+{
+    FontStyleType.Regular,
+    FontStyleType.Bold,
+    FontStyleType.Italic,
+    FontStyleType.Bold | FontStyleType.Italic
+};
+
+var embeddedFontNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+foreach (var embeddedFont in fontsManager.GetEmbeddedFonts())
+{
+    embeddedFontNames.Add(embeddedFont.FontName);
+}
+
+var embeddingPlan = new List<(IFontData Font, EmbedFontCharacters Rule)>();
+foreach (var font in fontsManager.GetFonts())
+{
+    if (embeddedFontNames.Contains(font.FontName))
+    {
+        Console.WriteLine($"{font.FontName}: already embedded.");
+        continue;
+    }
+
+    var hasAvailableData = false;
+    var allAvailableStylesCanBeEmbedded = true;
+    var previewPrintOnly = false;
+    var requiresFullFont = false;
+
+    foreach (var fontStyle in fontStyles)
+    {
+        var fontBytes = fontsManager.GetFontBytes(font, fontStyle);
+        if (fontBytes == null)
+        {
+            Console.WriteLine($"{font.FontName} ({fontStyle}): font data is unavailable.");
+            continue;
+        }
+
+        hasAvailableData = true;
+        var embeddingLevel = fontsManager.GetFontEmbeddingLevel(fontBytes, font.FontName);
+        var usagePermission = GetUsagePermission(embeddingLevel);
+        var noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+        var bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+        requiresFullFont |= noSubsetting;
+        previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+        allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+        Console.WriteLine($"{font.FontName} ({fontStyle}): {embeddingLevel}.");
+    }
+
+    if (!hasAvailableData)
+    {
+        Console.WriteLine($"{font.FontName}: skipped because no requested style is available.");
+    }
+    else if (!allAvailableStylesCanBeEmbedded)
+    {
+        Console.WriteLine($"{font.FontName}: skipped because at least one available style does not permit outline embedding.");
+    }
+    else if (previewPrintOnly)
+    {
+        Console.WriteLine($"{font.FontName}: skipped because this example produces an editable presentation.");
+    }
+    else
+    {
+        var rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+        embeddingPlan.Add((font, rule));
     }
 }
 
-// Speichert die Präsentation auf die Festplatte
-presentation.Save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+foreach (var item in embeddingPlan)
+{
+    fontsManager.AddEmbeddedFont(item.Font, item.Rule);
+}
+
+presentation.Save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 ```
 
+Diese Untersuchung meldet die in jeder Schriftdatei kodierten Beschränkungen. Sie gewährt keine Lizenz, beweist nicht, dass Sie die Schriftart legal erworben haben, und ersetzt nicht die Prüfung der Lizenzvereinbarung der Schriftart, bevor Sie eine eingebettete Kopie verbreiten.
+
+## **Hinzufügen eingebetteter Schriftarten**
+
+Verwenden Sie [AddEmbeddedFont](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/addembeddedfont/), um eine Schriftart einzubetten. Die Überladungen akzeptieren entweder ein [IFontData](https://reference.aspose.com/slides/de/net/aspose.slides/ifontdata/)‑Objekt oder ein Byte‑Array, das die Schriftartdaten enthält. Die Aufzählung [EmbedFontCharacters](https://reference.aspose.com/slides/de/net/aspose.slides.export/embedfontcharacters/) bestimmt, welche Zeichen eingeschlossen werden:
+
+- `All` bettet alle Zeichen der Schriftart ein. Verwenden Sie diese Option, wenn Empfänger die Präsentation bearbeiten und neuen Text eingeben sollen.
+- `OnlyUsed` bettet nur die in der Präsentation verwendeten Zeichen ein, um die Dateigröße zu reduzieren. Wählen Sie diese Option für eine fertige Präsentation, die hauptsächlich zum Anzeigen bestimmt ist.
+
+Das folgende Beispiel verwendet [GetFonts](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/getfonts/), um die in `Fonts.pptx` verwendeten Schriftarten abzurufen und bettet jene ein, die noch nicht eingebettet sind. Die hinzuzufügenden Schriftarten müssen auf dem ausführenden Rechner verfügbar sein. Vorhandene eingebettete Schriftarten behalten ihre aktuellen Zeichensätze bei.
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("Fonts.pptx");
+var fontsManager = presentation.FontsManager;
+var allFonts = fontsManager.GetFonts();
+var embeddedFonts = fontsManager.GetEmbeddedFonts();
+var embeddedFontNames = embeddedFonts.Select(font => font.FontName);
+var embeddedNames = new HashSet<string>(embeddedFontNames, StringComparer.OrdinalIgnoreCase);
+
+foreach (var font in allFonts)
+{
+    if (!embeddedNames.Contains(font.FontName))
+    {
+        fontsManager.AddEmbeddedFont(font, EmbedFontCharacters.All);
+        embeddedNames.Add(font.FontName);
+    }
+}
+
+presentation.Save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
+```
 
 ## **Komprimieren eingebetteter Schriftarten**
 
-Optimieren Sie die Dateigröße, indem Sie eingebettete Schriftarten mit [CompressEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/compressembeddedfonts/) komprimieren.
+[CompressEmbeddedFonts](https://reference.aspose.com/slides/de/net/aspose.slides.lowcode/compress/compressembeddedfonts/) reduziert die eingebetteten Schriftartdaten, indem nicht verwendete Zeichen entfernt werden. Es wirkt auf bereits eingebettete Schriftarten, sodass die Größenreduktion vom Umfang der nicht genutzten Schriftartdaten in der Präsentation abhängt.
 
-Beispielcode für die Komprimierung:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.CompressEmbeddedFonts(pres);
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
-}
+Das folgende Beispiel komprimiert die Schriftarten in `EmbeddedFonts.pptx` und speichert das Ergebnis als separate Datei:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
+
+using var presentation = new Presentation("EmbeddedFonts.pptx");
+Compress.CompressEmbeddedFonts(presentation);
+presentation.Save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 ```
 
+Bewahren Sie die Originaldatei auf, falls Empfänger später Text hinzufügen müssen. Während der Komprimierung entfernte Zeichen stehen aus der eingebetteten Schriftart nicht mehr zur Verfügung, selbst wenn Sie ursprünglich alle Zeichen eingebettet hatten.
 
 ## **FAQ**
 
-**Wie kann ich feststellen, dass eine bestimmte Schriftart in der Präsentation trotz Einbetten noch beim Rendern ersetzt wird?**
+**Wie kann ich prüfen, ob eine eingebettete Schriftart beim Rendern noch substituiert wird?**
 
-Prüfen Sie die [Substitutionsinformationen](/slides/de/net/font-substitution/) im Font‑Manager und die [Fallback‑/Substitutionsregeln](/slides/de/net/fallback-font/): Wenn die Schriftart nicht verfügbar oder eingeschränkt ist, wird ein Fallback verwendet.
+Rufen Sie [GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/getsubstitutions/) in der Umgebung auf, in der Sie die Präsentation rendern, um zu sehen, welche Schriftarten Aspose.Slides ersetzen wird. Prüfen Sie außerdem die Einstellungen zur [Schriftart-Substitution](/slides/de/net/font-substitution/) und die Regeln zum [Schriftfallback](/slides/de/net/fallback-font/). Fallback behandelt fehlende Zeichen, sodass das Einbetten einer Schriftart nicht die Zeichen löst, die die Schriftart selbst nicht enthält.
 
-**Lohnt es sich, „System‑“Schriftarten wie Arial/Calibri einzubetten?**
+**Sollte ich gängige Schriftarten wie Arial und Calibri einbetten?**
 
-In der Regel nicht – sie sind fast immer verfügbar. Aber für volle Portabilität in „dünnen“ Umgebungen (Docker, ein Linux‑Server ohne vorinstallierte Schriftarten) kann das Einbetten von System‑Schriftarten das Risiko unerwarteter Substitutionen eliminieren.
+Treffen Sie die Entscheidung basierend auf der Zielumgebung. Sind die benötigten Schriftarten auf jedem Computer, der die Präsentation öffnet oder rendert, verfügbar, kann das Einbetten zu unnötiger Dateigröße führen. Fehlen die Schriftarten bei Empfängern oder Servern, kann das Einbetten helfen, das gewünschte Erscheinungsbild zu erhalten, vorausgesetzt, die Lizenzen erlauben es.

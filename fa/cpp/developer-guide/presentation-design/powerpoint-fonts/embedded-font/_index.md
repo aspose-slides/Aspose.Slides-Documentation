@@ -1,140 +1,314 @@
 ---
-title: قراردادن فونت‌ها در ارائه‌ها با استفاده از C++
-linktitle: توکارسازی فونت
+title: جاسازی قلم‌ها در ارائه‌ها با C++
+linktitle: قلم‌های جاسازی‌شده
 type: docs
 weight: 40
 url: /fa/cpp/embedded-font/
 keywords:
-- افزودن فونت
-- توکارسازی فونت
-- توکارسازی فونت
-- دریافت فونت توکار
-- افزودن فونت توکار
-- حذف فونت توکار
-- فشرده‌سازی فونت توکار
+- افزودن قلم
+- جاسازی قلم
+- جاسازی قلم
+- دریافت قلم جاسازی‌شده
+- افزودن قلم جاسازی‌شده
+- حذف قلم جاسازی‌شده
+- فشرده‌سازی قلم جاسازی‌شده
 - PowerPoint
-- OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "فونت‌های TrueType را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای C++ توکار کنید تا رندر دقیق در تمام پلتفرم‌ها تضمین شود."
+description: "قلم‌های جاسازی‌شده در PowerPoint را با Aspose.Slides برای C++ مدیریت کنید. قلم‌ها را اضافه، بازیابی، حذف و فشرده‌سازی کنید تا ظاهر متن حفظ شود و حجم فایل کاهش یابد."
 ---
-## **معرفی**
+## **مقدمه**
 
-**Embedded fonts in PowerPoint** به شما کمک می‌کند تا ظاهر مطلوب ارائه‌تان هنگام باز شدن در هر سیستم یا دستگاهی حفظ شود. این موضوع به‌ویژه هنگام استفاده از فونت‌های سفارشی، شخص ثالث یا غیر استاندارد برای برندینگ یا مقاصد خلاقانه اهمیت دارد. بدون فونت‌های توکار، ممکن است متن جایگزین شود، طرح‌بندی‌ها خراب شوند و حروف به‌صورت نمادهای غیرقابل خواندن یا مستطیل‌ها نمایش داده شوند و طراحی کلی زیر سؤال برود.
+جاسازی قلم‌ها داده‌های قلم را داخل یک ارائهٔ PowerPoint ذخیره می‌کند. وقتی یک نمایشگر از قلم‌های جاسازی‌شده پشتیبانی کند، می‌تواند متن را با آن قلم‌ها نمایش دهد حتی اگر قلم‌ها بر روی سیستم هدف نصب نشده باشند. این کار به حفظ شکست خطوط، فاصله‌های متنی و چیدمان اسلاید کمک می‌کند.
 
-Aspose.Slides for C++ مجموعه‌ای قدرتمند از APIها را برای مدیریت برنامه‌نویسی فونت‌های توکار ارائه می‌دهد. می‌توانید از کلاس‌های [FontsManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontsmanager/) و [FontData](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontdata/) برای بررسی، افزودن یا حذف فونت‌های توکار در فایل‌های ارائه خود استفاده کنید. علاوه بر این، کلاس [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/) به شما امکان بهینه‌سازی اندازه فایل را با فشرده‌سازی داده‌های فونت بدون تأثیر بر کیفیت یا ظاهر می‌دهد.
+Aspose.Slides for C++ به شما امکان می‌دهد قلم‌های جاسازی‌شده را از طریق متد [Presentation::get_FontsManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_fontsmanager/) یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) دریافت، اضافه و حذف کنید. همچنین می‌توانید با حذف کاراکترهایی که ارائه از آن‌ها استفاده نمی‌کند، حجم داده‌های قلم‌های جاسازی‌شده را کاهش دهید.
 
-این ابزارها کنترل کامل بر توکارسازی فونت‌ها را در اختیار شما می‌گذارند و به حفظ تایپوگرافی یک‌دست در سرتاسر پلتفرم‌ها کمک می‌کنند، در حالی که در صورت نیاز اندازه فایل را کاهش می‌دهند.
+مثال‌های زیر با فایل‌های PPTX کار می‌کنند. پیش از جاسازی یک قلم، مطمئن شوید داده‌های قلم برای Aspose.Slides در دسترس است و مجوز آن اجازهٔ جاسازی را می‌دهد.
 
-## **دریافت فونت‌های توکار از یک ارائه**
+## **دریافت و حذف قلم‌های جاسازی‌شده**
 
-Aspose.Slides for C++ متد `GetEmbeddedFonts` را از طریق کلاس [FontsManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontsmanager/) فراهم می‌کند که به شما امکان دریافت فهرستی از فونت‌های توکار در یک ارائه PowerPoint را می‌دهد. این می‌تواند برای بررسی استفاده از فونت، اطمینان از تطابق با راهنمایی‌های برند یا تأیید اینکه تمام فونت‌های لازم به‌درستی گنجانده شده‌اند پیش از اشتراک‌گذاری فایل مفید باشد.
+از [IFontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/getembeddedfonts/) برای فهرست‌کردن قلم‌های ذخیره‌شده در یک ارائه استفاده کنید. برای حذف یکی از آن‌ها، قلم مورد نظر را از آن فهرست به [IFontsManager::RemoveEmbeddedFont](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/removeembeddedfont/) پاس داده و سپس ارائه را ذخیره کنید.
 
-کد C++ زیر نحوه دریافت فونت‌های توکار از یک فایل ارائه را نشان می‌دهد:
+مثال زیر قلم‌های جاسازی‌شده در `EmbeddedFonts.pptx` را فهرست می‌کند و در صورتی که قلم Calibri موجود باشد آن را حذف می‌کند:
 
 ```cpp
-// یک شیء از کلاس Presentation که نمایانگر یک فایل ارائه است، ایجاد کنید.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparison.h>
 
-// دریافت همه فونت‌های توکار.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// نام فونت‌های توكار را چاپ کنید.
-for (auto&& fontData : embeddedFonts)
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+SharedPtr<IFontData> fontToRemove;
+
+for (auto&& font : embeddedFonts)
 {
-    Console::WriteLine(fontData->get_FontName());
+    Console::WriteLine(font->get_FontName());
+
+    if (String::Equals(font->get_FontName(), u"Calibri", StringComparison::OrdinalIgnoreCase))
+    {
+        fontToRemove = font;
+    }
+}
+
+if (fontToRemove != nullptr)
+{
+    fontsManager->RemoveEmbeddedFont(fontToRemove);
+    presentation->Save(u"WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Calibri is not embedded. No output file was created.");
 }
 
 presentation->Dispose();
 ```
 
-## **افزودن فونت‌های توکار به یک ارائه**
+حذف یک قلم جاسازی‌شده داده‌های ذخیره شدهٔ آن قلم را حذف می‌کند؛ این کار قلم اختصاص‌یافته به متن را تغییر نمی‌دهد. اگر قلم بر روی سیستم هدف نصب شده باشد، متن همچنان می‌تواند از آن استفاده کند. در غیر این صورت، ممکن است رندرینگ نیاز به [font substitution](/slides/fa/cpp/font-substitution/) داشته باشد که می‌تواند بر چیدمان تأثیر بگذارد.
 
-Aspose.Slides for C++ به شما امکان توکارسازی فونت‌ها در یک ارائه PowerPoint را با استفاده از متد [AddEmbeddedFont](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontsmanager/addembeddedfont/) می‌دهد که دو overload برای استفاده منعطف دارد. می‌توانید با استفاده از شمارش‌گر [EmbedFontCharacters](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/embedfontcharacters/) میزان توکارسازی فونت را کنترل کنید—به‌عنوان مثال، فقط حروف استفاده‌شده یا تمام مجموعه فونت را توکار کنید. این ویژگی هنگام آماده‌سازی ارائه برای اشتراک یا توزیع بسیار مفید است، زیرا اطمینان می‌دهد فونت‌های سفارشی یا غیراستاندارد بر روی تمام سیستم‌ها به‌درستی نمایش داده شوند حتی اگر بر روی آنها نصب نشده باشند.
+## **بازرسی داده‌های قلم و مجوزهای جاسازی**
 
-کد C++ زیر تمام فونت‌های استفاده‌شده در یک ارائه را بررسی می‌کند و هر فونتی که هنوز توکار نشده باشد، اضافه می‌نماید:
+از رابط [IFontsManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/) برای بازرسی قلم‌ها پیش از جاسازی استفاده کنید. برای دریافت قلم‌های استفاده‌شده در ارائه، متد [IFontsManager::GetFonts](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/getfonts/) را صدا بزنید. برای هر قلم، یک شیء [IFontData](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontdata/) و مقدار مورد نیاز [FontStyleType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontstyletype/) را به [IFontsManager::GetFontBytes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/getfontbytes/) پاس دهید. این متد داده‌های باینری آن سبک قلم را برمی‌گرداند یا `nullptr` زمانی که قلم یا سبک درخواست‌شده موجود نباشد. نتیجهٔ `nullptr` را به [IFontsManager::GetFontEmbeddingLevel](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/getfontembeddinglevel/) پاس ندهید، زیرا این متد به یک آرایهٔ بایت نیاز دارد.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/fa/cpp/aspose.slides/embeddinglevel/) یک شمارش پرچم‌دار است که محدودیت‌های جاسازی ذخیره‌شده در قلم را گزارش می‌دهد:
+
+- `Installable` اجازهٔ جاسازی و نصب دائمی بر روی سیستم دیگر را می‌دهد، مشروط بر مجوز قلم.
+- `Restricted` مگر اینکه اجازهٔ قانونی مالک قلم دریافت شود، جاسازی را ممنوع می‌کند هنگامی که این پرچم تنها پرچم مجوز استفاده باشد.
+- `PreviewPrint` استفاده موقت برای مشاهده و چاپ را مجاز می‌کند؛ سندی که حاوی این قلم باشد باید به‌صورت فقط‑خواندنی باشد.
+- `Editable` استفاده موقت را مجاز می‌سازد و اجازه می‌دهد سند ویرایش و ذخیره شود.
+- `NoSubsetting` محدودیتی اضافی است که تنها اجازهٔ جاسازی زیرمجموعه‌ای از گلیف‌ها را نمی‌دهد. وقتی این پرچم وجود داشته باشد، باید همهٔ کاراکترها جاسازی شوند.
+- `BitmapOnly` محدودیتی اضافه است که فقط ضربات بیتی (bitmap) را اجازهٔ جاسازی می‌دهد، نه داده‌های خطی. اگر قلم هیچ ضربهٔ بیتی نداشته باشد، نمی‌تواند جاسازی شود.
+
+چهار مقدار اول مجوز استفاده را توصیف می‌کنند، در حالی که `NoSubsetting` و `BitmapOnly` می‌توانند با آن‌ها ترکیب شوند. با عملیات بیتی این اصلاح‌کننده‌ها را بررسی کنید. چون `Installable` مقدار صفر است، بیت‌های مجوز استفاده را ماسک کرده و نتیجه را با `Installable` مقایسه کنید. قلم‌های فعلی باید حداکثر یک بیت مجوز استفاده داشته باشند. برای سازگاری با قلم‌های قدیمی که بیش از یک بیت تنظیم کرده‌اند، کمکی که در زیر آورده شده است کم‌محدودیت‌ترین مجوز را انتخاب می‌کند: ابتدا `Editable`، سپس `PreviewPrint`، سپس `Restricted`.
+
+مثال زیر داده‌های معمول، بولد، ایتالیک و بولد‑ایتالیک هر قلم بازگردانده‌شده توسط `GetFonts` را بازبینی می‌کند. سبک‌های ناموجود، قلم‌های محدود‌شده، قلم‌های فقط‑بیتی، قلم‌هایی که فقط برای پیش‌نمایش و چاپ محدود شده‌اند (چون خروجی همچنان قابل ویرایش است) و قلم‌های از پیش جاسازی‌شده را حذف می‌کند. اگر هر سبک موجود دارای `NoSubsetting` باشد، تمام کاراکترهای آن خانوادهٔ قلم جاسازی می‌شوند.
 
 ```cpp
-// فایل ارائه را بارگذاری کنید.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/EmbeddingLevel.h>
+#include <DOM/FontStyleType.h>
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/collections/list.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
 
-auto usedFonts = presentation->get_FontsManager()->GetFonts();
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 
-for (auto&& fontData : usedFonts)
+auto getUsagePermission = [](EmbeddingLevel level)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+    const auto permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    auto permissions = level & permissionMask;
+
+    if ((permissions & EmbeddingLevel::Editable) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Editable;
+    }
+
+    if ((permissions & EmbeddingLevel::PreviewPrint) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if ((permissions & EmbeddingLevel::Restricted) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+};
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto fontStyles = MakeArray<FontStyleType>({
+    FontStyleType::Regular,
+    FontStyleType::Bold,
+    FontStyleType::Italic,
+    FontStyleType::Bold | FontStyleType::Italic
+});
+auto fontStyleNames = MakeArray<String>({u"regular", u"bold", u"italic", u"bold-italic"});
+
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+for (auto&& embeddedFont : fontsManager->GetEmbeddedFonts())
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+auto fontsToEmbedAll = MakeObject<List<SharedPtr<IFontData>>>();
+auto fontsToEmbedUsedOnly = MakeObject<List<SharedPtr<IFontData>>>();
+for (auto&& font : fontsManager->GetFonts())
+{
+    if (embeddedFontNames->Contains(font->get_FontName()))
+    {
+        Console::WriteLine(u"{0}: already embedded.", font->get_FontName());
+        continue;
+    }
+
+    auto hasAvailableData = false;
+    auto allAvailableStylesCanBeEmbedded = true;
+    auto previewPrintOnly = false;
+    auto requiresFullFont = false;
+
+    for (auto styleIndex = 0; styleIndex < fontStyles->get_Length(); styleIndex++)
+    {
+        auto fontStyle = fontStyles[styleIndex];
+        auto fontBytes = fontsManager->GetFontBytes(font, fontStyle);
+        if (fontBytes == nullptr)
         {
-            return data == fontData;
-        };
+            Console::WriteLine(u"{0} ({1}): font data is unavailable.", font->get_FontName(), fontStyleNames[styleIndex]);
+            continue;
+        }
 
-    // بررسی کنید آیا فونت قبلاً توکار شده است.
-    bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
-    if (!isEmbeddedFont)
-    {
-        // فونت را در ارائه توکار کنید.
-        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+        hasAvailableData = true;
+        auto embeddingLevel = fontsManager->GetFontEmbeddingLevel(fontBytes, font->get_FontName());
+        auto usagePermission = getUsagePermission(embeddingLevel);
+        auto noSubsetting = (embeddingLevel & EmbeddingLevel::NoSubsetting) != EmbeddingLevel::Installable;
+        auto bitmapOnly = (embeddingLevel & EmbeddingLevel::BitmapOnly) != EmbeddingLevel::Installable;
+
+        requiresFullFont |= noSubsetting;
+        previewPrintOnly |= usagePermission == EmbeddingLevel::PreviewPrint;
+        allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel::Restricted && !bitmapOnly;
+
+        Console::WriteLine(u"{0} ({1}): embedding level {2}.", font->get_FontName(), fontStyleNames[styleIndex], static_cast<uint16_t>(embeddingLevel));
     }
 
+    if (!hasAvailableData)
+    {
+        Console::WriteLine(u"{0}: skipped because no requested style is available.", font->get_FontName());
+    }
+    else if (!allAvailableStylesCanBeEmbedded)
+    {
+        Console::WriteLine(u"{0}: skipped because at least one available style does not permit outline embedding.", font->get_FontName());
+    }
+    else if (previewPrintOnly)
+    {
+        Console::WriteLine(u"{0}: skipped because this example produces an editable presentation.", font->get_FontName());
+    }
+    else if (requiresFullFont)
+    {
+        fontsToEmbedAll->Add(font);
+    }
+    else
+    {
+        fontsToEmbedUsedOnly->Add(font);
+    }
 }
 
-// ارائه را روی دیسک ذخیره کنید.
-presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **حذف فونت‌های توکار از یک ارائه**
-
-Aspose.Slides for C++ متد `RemoveEmbeddedFont` را از طریق کلاس [FontsManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/fontsmanager/) ارائه می‌دهد که به شما امکان حذف فونت‌های خاص توکار شده در یک ارائه PowerPoint را می‌دهد. این می‌تواند به کاهش اندازه کلی فایل کمک کند، به‌ویژه اگر فونت‌های توکار دیگر استفاده نشوند یا نیازی به آنها نباشد. حذف فونت‌های استفاده‌نشده می‌تواند عملکرد را بهبود بخشد و اطمینان دهد که ارائه شما فقط شامل منابع ضروری است.
-
-کد C++ زیر نحوه حذف یک فونت توکار از یک ارائه را نشان می‌دهد:
-
-```cpp
-auto fontName = u"Calibri";
-
-// یک شیء از کلاس Presentation که نمایانگر یک فایل ارائه است، ایجاد کنید.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
-
-// دریافت تمام فونت‌های توکار.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
-
-for (auto&& fontData : embeddedFonts)
+for (auto&& font : fontsToEmbedAll)
 {
-    if (fontData->get_FontName().Equals(fontName))
-    {
-        // حذف فونت توکار.
-        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+}
 
-        break;
+for (auto&& font : fontsToEmbedUsedOnly)
+{
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::OnlyUsed);
+}
+
+presentation->Save(u"WithAuditedFonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+این بازبینی محدودیت‌های کدگذاری‌شده در هر فایل قلم را گزارش می‌کند. این کار مجوزی اعطا نمی‌کند، اثبات نمی‌کند که قلم را به‌طور قانونی دریافت کرده‌اید و جایگزین بررسی توافق‌نامهٔ مجوز قلم قبل از توزیع یک نسخهٔ جاسازی‌شده نمی‌شود.
+
+## **افزودن قلم‌های جاسازی‌شده**
+
+از [IFontsManager::AddEmbeddedFont](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/addembeddedfont/) برای جاسازی یک قلم استفاده کنید. این متد بارگذاری‌های مختلفی دارد که یا یک شیء [IFontData](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontdata/) یا یک آرایهٔ بایت حاوی داده‌های قلم را می‌پذیرند. شمارش [EmbedFontCharacters](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/embedfontcharacters/) تعیین می‌کند کدام کاراکترها گنجانده شوند:
+
+- [All](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/embedfontcharacters/) تمام کاراکترهای قلم را جاسازی می‌کند. از این گزینه زمانی استفاده کنید که گیرندگان نیاز به ویرایش ارائه و وارد کردن متن جدید داشته باشند.
+- [OnlyUsed](https://reference.aspose.com/slides/fa/cpp/aspose.slides.export/embedfontcharacters/) فقط کاراکترهای استفاده‌شده در ارائه را جاسازی می‌کند تا حجم فایل کاهش یابد. این گزینه را برای یک ارائهٔ نهایی که عمدتاً برای نمایش است، انتخاب کنید.
+
+مثال زیر از [IFontsManager::GetFonts](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/getfonts/) برای دریافت قلم‌های استفاده‌شده در `Fonts.pptx` استفاده می‌کند و آن‌هایی را که هنوز جاسازی نشده‌اند، اضافه می‌کند. قلم‌های مورد نیاز باید بر روی ماشینی که کد اجرا می‌شود در دسترس باشند. قلم‌های جاسازی‌شدهٔ موجود مجموعهٔ کاراکتر فعلی خود را حفظ می‌کنند.
+
+```cpp
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/collections/sorted_set.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto allFonts = fontsManager->GetFonts();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+for (auto&& embeddedFont : embeddedFonts)
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+for (auto&& font : allFonts)
+{
+    if (!embeddedFontNames->Contains(font->get_FontName()))
+    {
+        fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        embeddedFontNames->Add(font->get_FontName());
     }
 }
 
-presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Save(u"WithEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **فشرده‌سازی فونت‌های توکار**
+## **فشرده‌سازی قلم‌های جاسازی‌شده**
 
-Aspose.Slides for C++ متد `CompressEmbeddedFonts` را از طریق کلاس [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/) فراهم می‌کند که به شما امکان کاهش اندازه کلی فایل ارائه با بهینه‌سازی داده‌های فونت توکار را می‌دهد. این برای مواقعی که ارائه شما شامل فونت‌های بزرگ یا متعدد است و می‌خواهید فایل را برای اشتراک‌گذاری، ذخیره‌سازی یا استفاده آنلاین سبک نگه دارید—بدون کاهش وفاداری بصری محتوا—بسیار مفید است.
+متد [Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) داده‌های قلم‌های جاسازی‌شده را با حذف کاراکترهای استفاده‌نشده کاهش می‌دهد. این عملیات بر روی قلم‌هایی که قبلاً جاسازی شده‌اند اعمال می‌شود، بنابراین میزان کاهش حجم به مقدار داده‌های قلم استفاده‌نشدهٔ موجود در ارائه بستگی دارد.
 
-کد C++ زیر نحوه فشرده‌سازی فونت‌های توکار در یک ارائه PowerPoint را نشان می‌دهد:
+مثال زیر قلم‌های موجود در `EmbeddedFonts.pptx` را فشرده می‌کند و نتیجه را به‌صورت یک فایل جداگانه ذخیره می‌نماید:
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/shared_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
 Compress::CompressEmbeddedFonts(presentation);
-
-presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Save(u"CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **سوالات متداول**
+اگر ممکن است گیرندگان بعداً نیاز به افزودن متن داشته باشند، فایل اصلی را نگه دارید. کاراکترهای حذف‌شده هنگام فشرده‌سازی دیگر از قلم جاسازی‌شده در دسترس نیستند، حتی اگر در ابتدا همهٔ کاراکترها را جاسازی کرده باشید.
 
-**چگونه می‌توانم تشخیص دهم که یک فونت خاص در ارائه علیرغم توکارسازی، هنگام رندر جایگزین می‌شود؟**
+## **سؤالات متداول**
 
-اطلاعات [substitution information](/slides/fa/cpp/font-substitution/) را در مدیر فونت و [fallback/substitution rules](/slides/fa/cpp/fallback-font/) را بررسی کنید: اگر فونت در دسترس نباشد یا محدود شود، یک فونت پیش‌فرض استفاده خواهد شد.
+**چگونه می‌توانم بررسی کنم که آیا یک قلم جاسازی‌شده در هنگام رندرینگ همچنان جایگزین می‌شود یا نه؟**
 
-**آیا توکارسازی فونت‌های «سیستمی» مانند Arial/Calibri ارزش دارد؟**
+در محیطی که ارائه را رندر می‌کنید، متد [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifontsmanager/getsubstitutions/) را فراخوانی کنید تا ببینید Aspose.Slides چه قلم‌هایی را جایگزین می‌کند. همچنین تنظیمات [font substitution](/slides/fa/cpp/font-substitution/) و قواعد [font fallback](/slides/fa/cpp/fallback-font/) را بررسی کنید. fallback کاراکترهای گمشده را پوشش می‌دهد، بنابراین جاسازی یک قلم مشکلات کاراکترهایی را که آن قلم خودشان دارد حل نمی‌کند.
 
-معمولاً نه—این فونت‌ها تقریباً همیشه موجود هستند. اما برای قابلیت حمل کامل در محیط‌های «نازک» (Docker، سرور لینکس بدون فونت‌های پیش‌نصب‌شده) توکارسازی فونت‌های سیستمی می‌تواند خطر جایگزینی‌های غیرمنتظره را از بین ببرد.
+**آیا باید قلم‌های رایج مانند Arial و Calibri را جاسازی کنم؟**
+
+تصمیم‌گیری را بر پایهٔ محیط هدف انجام دهید. اگر قلم‌های مورد نیاز روی هر ماشینی که ارائه را باز یا رندر می‌کند موجود باشد، جاسازی آن‌ها ممکن است حجم فایل را بی‌مورد افزایش دهد. اگر گیرندگان یا سرورهایی ممکن است این قلم‌ها را نداشته باشند، جاسازی آن‌ها می‌تواند به حفظ ظاهر مورد نظر کمک کند، به‌شرط آنکه مجوزهای آن‌ها اجازهٔ این کار را بدهد.

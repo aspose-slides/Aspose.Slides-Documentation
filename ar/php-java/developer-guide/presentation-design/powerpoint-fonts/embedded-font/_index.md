@@ -1,141 +1,259 @@
 ---
-title: دمج الخطوط في العروض التقديمية باستخدام PHP
-linktitle: دمج الخط
+title: تضمين الخطوط في العروض التقديمية باستخدام PHP
+linktitle: الخطوط المضمّنة
 type: docs
 weight: 40
 url: /ar/php-java/embedded-font/
 keywords:
 - إضافة خط
-- دمج خط
-- دمج الخط
-- الحصول على الخط المدمج
-- إضافة خط مدمج
-- إزالة الخط المدمج
-- ضغط الخط المدمج
+- تضمين خط
+- تضمين الخطوط
+- الحصول على خط مضمّن
+- إضافة خط مضمّن
+- إزالة خط مضمّن
+- ضغط خط مضمّن
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "دمج خطوط TrueType في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java، مع ضمان عرض دقيق على جميع المنصات."
+description: "إدارة الخطوط المضمّنة في PowerPoint باستخدام Aspose.Slides لـ PHP عبر Java. إضافة، استرجاع، إزالة، وضغط الخطوط للحفاظ على مظهر النص وتقليل حجم الملف."
 ---
+## **المقدمة**
 
-**الخطوط المدمجة في PowerPoint** مفيدة عندما تريد أن تظهر عرضك التقديمي بشكل صحيح عند فتحه على أي نظام أو جهاز. إذا كنت قد استخدمت خطًا من طرف ثالث أو غير قياسي لأنك أبدعت في عملك، فستكون لديك أسباب إضافية لدمج الخط. وإلا (دون الخطوط المدمجة)، قد تتغير النصوص أو الأرقام في الشرائح، وتُغيّر التخطيطات والتنسيقات، أو تتحول إلى مستطيلات مربكة. 
+تضمين الخطوط يخزن بيانات الخط داخل عرض تقديمي PowerPoint. عندما يدعم المشاهد الخطوط المضمّنة، يمكنه عرض النص باستخدام تلك الخطوط حتى إذا لم تكن مثبتة على النظام المستهدف. يساعد ذلك في الحفاظ على فواصل الأسطر وتباعد النص وتنسيق الشريحة.
 
-فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)، فئة [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) وفئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) تحتوي على معظم الطرق التي تحتاجها للعمل مع الخطوط المدمجة في عروض PowerPoint.
+تتيح لك Aspose.Slides for PHP عبر Java استرداد الخطوط المضمّنة وإضافتها وإزالتها من خلال فئة [FontsManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/) التي تُرجعها الدالة [Presentation::getFontsManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getFontsManager). يمكنك أيضًا تقليل حجم بيانات الخط المضمّن عن طريق إزالة الأحرف التي لا يستخدمها العرض التقديمي.
 
-## **الحصول على الخطوط المدمجة وإزالتها**
+الأمثلة أدناه تعمل مع ملفات PPTX. قبل تضمين أي خط، تأكد من أن بيانات الخط متاحة لـ Aspose.Slides وأن رخصته تسمح بالتضمين.
 
-توفر Aspose.Slides الطريقة [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) (المعروضة بواسطة فئة [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)) لتمكينك من الحصول (أو معرفة) الخطوط المدمجة في عرض تقديمي. لإزالة الخطوط، تُستخدم الطريقة [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont) (المعروضة بواسطة نفس الفئة).
+## **الحصول على الخطوط المضمّنة وإزالتها**
 
-يعرض هذا الشيفرة PHP كيفية الحصول على الخطوط المدمجة وإزالتها من عرض تقديمي:
+استخدم [FontsManager::getEmbeddedFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts) لسرد الخطوط المخزنة في عرض تقديمي. لإزالة أحدها، مرّر خطًا من تلك القائمة إلى [FontsManager::removeEmbeddedFont](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont)، ثم احفظ العرض التقديمي.
+
+المثال التالي يسرد الخطوط المضمّنة في الملف `EmbeddedFonts.pptx` ويزيل خط Calibri إذا كان موجودًا:
+
 ```php
-  # يقوم بإنشاء كائن Presentation يمثل ملف عرض تقديمي
-  $pres = new Presentation("EmbeddedFonts.pptx");
-  try {
-    # يعرض شريحة تحتوي على إطار نصي يستخدم الخط المدمج "FunSized"
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # يحفظ الصورة على القرص بصيغة JPEG
-    try {
-      $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-    $fontsManager = $pres->getFontsManager();
-    # يحصل على جميع الخطوط المدمجة
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
     $embeddedFonts = $fontsManager->getEmbeddedFonts();
-    # يبحث عن خط "Calibri"
-    $calibriEmbeddedFont = null;
-    $Array = new java_class("java.lang.reflect.Array");
-    for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
-      echo("" . $embeddedFonts[$i]->getFontName());
-      if ("Calibri"->equals($embeddedFonts[$i]->getFontName())) {
-        $calibriEmbeddedFont = $embeddedFonts[$i];
-        break;
-      }
+
+    foreach ($embeddedFonts as $font) {
+        echo java_values($font->getFontName()) . PHP_EOL;
     }
-    # يزيل خط "Calibri"
-    $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
-    # يعرض العرض التقديمي؛ يتم استبدال خط "Calibri" بخط متوفر
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    # يحفظ الصورة على القرص بصيغة JPEG
-    try {
-      $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
-    } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
-    }
-    # يحفظ العرض التقديمي دون خط "Calibri" المدمج على القرص
-    $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
-
-
-## **إضافة خطوط مدمجة**
-
-باستخدام الفئة [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) واثنين من التحميلات الزائدة للطريقة [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont)، يمكنك اختيار القاعدة (الدمج) المفضلة لدمج الخطوط في عرض تقديمي. يعرض هذا الشيفرة PHP كيفية دمج وإضافة خطوط إلى عرض تقديمي:
-```php
-  # تحميل العرض التقديمي
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    $allFonts = $pres->getFontsManager()->getFonts();
-    $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
-    $Array = new java_class("java.lang.reflect.Array");
-    foreach($allFonts as $font) {
-      $embeddedFontsContainsFont = false;
-      for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
-        if ($embeddedFonts[$i]->equals($font)) {
-          $embeddedFontsContainsFont = true;
-          break;
+    $fontToRemove = null;
+    foreach ($embeddedFonts as $font) {
+        $fontName = java_values($font->getFontName());
+        if (strcasecmp($fontName, "Calibri") === 0) {
+            $fontToRemove = $font;
+            break;
         }
-      }
-      if (!$embeddedFontsContainsFont) {
-        $pres->getFontsManager()->addEmbeddedFont($font, EmbedFontCharacters->All);
-        $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
-      }
     }
-    # حفظ العرض التقديمي على القرص
-    $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+
+    if ($fontToRemove !== null) {
+        $fontsManager->removeEmbeddedFont($fontToRemove);
+        $presentation->save("WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+    } else {
+        echo "Calibri is not embedded. No output file was created." . PHP_EOL;
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+إزالة خط مضمّن يزيل بيانات الخط المخزنة؛ لا يغيّر الخط المعين للنص. إذا كان الخط مثبتًا على النظام المستهدف، لا يزال بإمكان النص استخدامه. وإلا، قد يتطلب العرض [استبدال الخط](/slides/ar/php-java/font-substitution/)، مما قد يؤثر على التخطيط.
 
-## **ضغط الخطوط المدمجة**
+## **فحص بيانات الخط وأذونات التضمين**
 
-لتمكينك من ضغط الخطوط المدمجة في عرض تقديمي وتقليل حجمه، توفر Aspose.Slides الطريقة [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts) (المعروضة بواسطة فئة [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/)).
+استخدم فئة [FontsManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/) لفحص الخطوط قبل تضمينها. استدعِ [FontsManager::getFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getFonts) لاسترداد الخطوط المستخدمة في العرض التقديمي. لكل خط، مرّر كائن [FontData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontdata/) والقيمة المطلوبة من [FontStyleType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontstyletype/) إلى [FontsManager::getFontBytes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getFontBytes). تُرجع الطريقة البيانات الثنائية لذلك النمط من الخط، أو `null` عندما يكون الخط أو النمط المطلوب غير متوفر. لا تمرّر نتيجة `null` إلى [FontsManager::getFontEmbeddingLevel](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getFontEmbeddingLevel)، لأن هذه الطريقة تتطلب مصفوفة بايت.
 
-يعرض هذا الشيفرة PHP كيفية ضغط خطوط PowerPoint المدمجة:
+[EmbeddingLevel](https://reference.aspose.com/slides/ar/php-java/aspose.slides/embeddinglevel/) هو تعداد للعلامات يُظهر قيود التضمين المخزنة في الخط:
+
+- `Installable` يتيح التضمين والتثبيت الدائم على نظام آخر، وفقًا لرخصة الخط.
+- `Restricted` يحظر التضمين ما لم يحصل المستخدم على إذن من صاحب الخط القانوني عندما يكون هذا هو علم الإذن الوحيد.
+- `PreviewPrint` يتيح الاستخدام المؤقت للعرض والطباعة؛ يجب أن يكون المستند الذي يحتوي على الخط للقراءة فقط.
+- `Editable` يتيح الاستخدام المؤقت ويسمح بتحرير المستند وحفظه.
+- `NoSubsetting` هو قيد إضافي يمنع تضمين جزء فقط من الأحرف. يجب تضمين جميع الأحرف عندما يكون هذا العلم موجودًا.
+- `BitmapOnly` هو قيد إضافي يتيح تضمين ضربات البت ماب فقط، وليس بيانات المخطط. إذا لم يحتوي الخط على ضربات بت ماب، لا يمكن تضمينه.
+
+القيم الأربعة الأولى تصف إذن الاستخدام، بينما يمكن دمج `NoSubsetting` و `BitmapOnly` معه. تحقق من المعدلات باستخدام عمليات البيتية. لأن قيمة `Installable` هي صفر، قم بتمييز بتات إذن الاستخدام وقارن النتيجة بـ `Installable` بدلًا من التحقق منها كعلامة. يجب أن تحدد الخطوط الحالية بتًا واحدًا على الأكثر لإذن الاستخدام. لضمان التوافق مع الخطوط القديمة التي قد تحدد أكثر من بت واحد، يختار المساعد أدناه أقل إذن تقييدي: `Editable`، ثم `PreviewPrint`، ثم `Restricted`.
+
+المثال التالي يراجع بيانات الخط العادي، الغامق، المائل، والغامق المائل المتاحة لكل خط تُرجعه الدالة `FontsManager::getFonts`. يتخطى الأنماط غير المتوفرة، الخطوط المقيدة، الخطوط التي تدعم البت ماب فقط، الخطوط المحدودة للعرض والطباعة لأن المخرجات تظل قابلة للتحرير، والخطوط التي تم تضمينها بالفعل. إذا كان لأي نمط متاح علم `NoSubsetting`، يتم تضمين جميع الأحرف لتلك العائلة من الخطوط.
+
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    Compress->compressEmbeddedFonts($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\EmbedFontCharacters;
+use aspose\slides\EmbeddingLevel;
+use aspose\slides\FontStyleType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+function getUsagePermission($level) {
+    $permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    $permissions = $level & $permissionMask;
+
+    if (($permissions & EmbeddingLevel::Editable) !== 0) {
+        return EmbeddingLevel::Editable;
     }
-  }
+
+    if (($permissions & EmbeddingLevel::PreviewPrint) !== 0) {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if (($permissions & EmbeddingLevel::Restricted) !== 0) {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+}
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
+    $fontStyles = [
+        FontStyleType::Regular,
+        FontStyleType::Bold,
+        FontStyleType::Italic,
+        FontStyleType::Bold | FontStyleType::Italic
+    ];
+
+    $embeddedFontNames = [];
+    foreach ($fontsManager->getEmbeddedFonts() as $embeddedFont) {
+        $fontName = java_values($embeddedFont->getFontName());
+        $embeddedFontNames[strtolower($fontName)] = true;
+    }
+
+    $fontsToEmbed = [];
+    $embeddingRules = [];
+    foreach ($fontsManager->getFonts() as $font) {
+        $fontName = java_values($font->getFontName());
+        if (isset($embeddedFontNames[strtolower($fontName)])) {
+            echo $fontName . ": already embedded." . PHP_EOL;
+            continue;
+        }
+
+        $hasAvailableData = false;
+        $allAvailableStylesCanBeEmbedded = true;
+        $previewPrintOnly = false;
+        $requiresFullFont = false;
+
+        foreach ($fontStyles as $fontStyle) {
+            $fontBytes = $fontsManager->getFontBytes($font, $fontStyle);
+            if (java_is_null($fontBytes)) {
+                echo $fontName . " (" . $fontStyle . "): font data is unavailable." . PHP_EOL;
+                continue;
+            }
+
+            $hasAvailableData = true;
+            $embeddingLevel = java_values($fontsManager->getFontEmbeddingLevel($fontBytes, $fontName));
+            $usagePermission = getUsagePermission($embeddingLevel);
+            $noSubsetting = ($embeddingLevel & EmbeddingLevel::NoSubsetting) !== 0;
+            $bitmapOnly = ($embeddingLevel & EmbeddingLevel::BitmapOnly) !== 0;
+
+            $requiresFullFont = $requiresFullFont || $noSubsetting;
+            $previewPrintOnly = $previewPrintOnly || $usagePermission === EmbeddingLevel::PreviewPrint;
+            $allAvailableStylesCanBeEmbedded = $allAvailableStylesCanBeEmbedded && $usagePermission !== EmbeddingLevel::Restricted && !$bitmapOnly;
+
+            echo $fontName . " (" . $fontStyle . "): " . $embeddingLevel . "." . PHP_EOL;
+        }
+
+        if (!$hasAvailableData) {
+            echo $fontName . ": skipped because no requested style is available." . PHP_EOL;
+        } elseif (!$allAvailableStylesCanBeEmbedded) {
+            echo $fontName . ": skipped because at least one available style does not permit outline embedding." . PHP_EOL;
+        } elseif ($previewPrintOnly) {
+            echo $fontName . ": skipped because this example produces an editable presentation." . PHP_EOL;
+        } else {
+            $rule = $requiresFullFont ? EmbedFontCharacters::All : EmbedFontCharacters::OnlyUsed;
+            $fontsToEmbed[] = $font;
+            $embeddingRules[] = $rule;
+        }
+    }
+
+    for ($i = 0; $i < count($fontsToEmbed); $i++) {
+        $fontsManager->addEmbeddedFont($fontsToEmbed[$i], $embeddingRules[$i]);
+    }
+
+    $presentation->save("WithAuditedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+هذا الفحص يُبلغ عن القيود المشفرة في كل ملف خط. لا يمنحك رخصة، ولا يثبت أنك حصلت على الخط بشكل قانوني، ولا يُستبدل بفحص اتفاقية ترخيص الخط قبل توزيع نسخة مضمّنة.
 
-## **الأسئلة المتداولة**
+## **إضافة خطوط مضمّنة**
 
-**كيف يمكنني معرفة أن خطًا معينًا في العرض سيستمر في الاستبدال أثناء العرض بالرغم من دمجه؟**
+استخدم [FontsManager::addEmbeddedFont](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#addEmbeddedFont) لتضمين خط. تتقبل التحميلات المتعددة إما كائن [FontData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontdata/) أو مصفوفة بايت تحتوي على بيانات الخط. يتحكم تعداد [EmbedFontCharacters](https://reference.aspose.com/slides/ar/php-java/aspose.slides/embedfontcharacters/) في الأحرف التي سيتم تضمينها:
 
-تحقق من [معلومات الاستبدال](/slides/ar/php-java/font-substitution/) في مدير الخطوط و[قواعد الاحتياطي/الاستبدال](/slides/ar/php-java/fallback-font/): إذا كان الخط غير متاح أو مقيد، سيتم استخدام احتياطي.
+- [All](https://reference.aspose.com/slides/ar/php-java/aspose.slides/embedfontcharacters/) يضمّن جميع الأحرف في الخط. استخدم هذا الخيار عندما يحتاج المستقبلون إلى تحرير العرض التقديمي وإدخال نص جديد.
+- [OnlyUsed](https://reference.aspose.com/slides/ar/php-java/aspose.slides/embedfontcharacters/) يضمّن فقط الأحرف المستخدمة في العرض لتقليل حجم الملف. اختر هذا الخيار لعرض تقديمي نهائي يهدف أساسًا إلى العرض.
 
-**هل من المجدي دمج خطوط "النظام" مثل Arial/Calibri؟**
+المثال التالي يستخدم [FontsManager::getFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getFonts) لاسترداد الخطوط المستخدمة في الملف `Fonts.pptx` ويضمّن تلك التي لم تُضمّن بعد. يجب أن تكون الخطوط المراد إضافتها متاحة على الجهاز الذي يشغل الكود. تحتفظ الخطوط المضمّنة الحالية بمجموعة الأحرف الحالية.
 
-عادة لا—فهي متوفرة تقريبًا دائمًا. لكن لضمان قابلية النقل الكاملة في بيئات "نحيفة" (Docker، خادم Linux بدون خطوط مثبتة مسبقًا)، قد يزيل دمج خطوط النظام خطر الاستبدالات غير المتوقعة.
+```php
+use aspose\slides\EmbedFontCharacters;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $fontsManager = $presentation->getFontsManager();
+    $allFonts = $fontsManager->getFonts();
+    $embeddedFonts = $fontsManager->getEmbeddedFonts();
+    $embeddedFontNames = [];
+
+    foreach ($embeddedFonts as $embeddedFont) {
+        $fontName = java_values($embeddedFont->getFontName());
+        $embeddedFontNames[strtolower($fontName)] = true;
+    }
+
+    foreach ($allFonts as $font) {
+        $fontName = java_values($font->getFontName());
+        $normalizedFontName = strtolower($fontName);
+        if (!isset($embeddedFontNames[$normalizedFontName])) {
+            $fontsManager->addEmbeddedFont($font, EmbedFontCharacters::All);
+            $embeddedFontNames[$normalizedFontName] = true;
+        }
+    }
+
+    $presentation->save("WithEmbeddedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **ضغط الخطوط المضمّنة**
+
+[Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/compress/#compressEmbeddedFonts) يقلل من بيانات الخط المضمّن بإزالة الأحرف غير المستخدمة. يعمل على الخطوط التي تم تضمينها بالفعل، لذا يعتمد تقليل الحجم على مقدار البيانات غير المستخدمة في الخط داخل العرض التقديمي.
+
+المثال التالي يضغط الخطوط في الملف `EmbeddedFonts.pptx` ويحفظ النتيجة كملف منفصل:
+
+```php
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("EmbeddedFonts.pptx");
+try {
+    Compress::compressEmbeddedFonts($presentation);
+    $presentation->save("CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+احتفظ بالملف الأصلي إذا كان المستقبلون قد يحتاجون لإضافة نص لاحقًا. الأحرف التي أزيلت أثناء الضغط لن تكون متاحة بعد الآن من الخط المضمّن، حتى لو كنت قد ضمّنت جميع الأحرف في البداية.
+
+## **الأسئلة المتكررة**
+
+**كيف يمكنني التحقق مما إذا كان الخط المضمّن سيظل يُستبدَل أثناء العرض؟**
+
+استدعِ [FontsManager::getSubstitutions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontsmanager/#getSubstitutions) في البيئة التي تُعرض فيها العرض التقديمي لمعرفة الخطوط التي سيستبدلها Aspose.Slides. تحقق أيضًا من إعدادات [استبدال الخط](/slides/ar/php-java/font-substitution/) وقواعد [الخط البديل](/slides/ar/php-java/fallback-font/). يتعامل الـ fallback مع الأحرف المفقودة، لذا فإن تضمين خط لا يحل الأحرف التي لا يحتويها الخط نفسه.
+
+**هل يجب عليّ تضمين الخطوط الشائعة مثل Arial و Calibri؟**
+
+استند إلى بيئة الهدف عند اتخاذ القرار. إذا كانت الخطوط المطلوبة متوفرة على كل جهاز يفتح أو يعرض العرض التقديمي، قد يؤدي تضمينها إلى زيادة حجم الملف دون فائدة. إذا كان من المحتمل أن يفتقر المستقبلون أو الخوادم إلى تلك الخطوط، فإن تضمينها يمكن أن يساعد في الحفاظ على المظهر المقصود، شريطة أن تسمح رخصها بذلك.

@@ -1,140 +1,314 @@
 ---
-title: Bädda in teckensnitt i presentationer med C++
-linktitle: Inbäddning av teckensnitt
+title: Inbädda teckensnitt i presentationer i C++
+linktitle: Inbädda teckensnitt
 type: docs
 weight: 40
 url: /sv/cpp/embedded-font/
 keywords:
 - lägg till teckensnitt
 - bädda in teckensnitt
-- teckensnitts-inbäddning
+- inbäddning av teckensnitt
 - hämta inbäddat teckensnitt
 - lägga till inbäddat teckensnitt
 - ta bort inbäddat teckensnitt
 - komprimera inbäddat teckensnitt
 - PowerPoint
-- OpenDocument
 - presentation
-- С++
+- C++
 - Aspose.Slides
-description: "Bädda in TrueType-teckensnitt i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för C++, så att rendering blir exakt på alla plattformar."
+description: "Hantera inbäddade teckensnitt i PowerPoint med Aspose.Slides för C++. Lägg till, hämta, ta bort och komprimera teckensnitt för att bevara textens utseende och minska filstorleken."
 ---
 ## **Introduktion**
 
-**Inbäddade teckensnitt i PowerPoint** hjälper till att säkerställa att din presentation behåller sitt avsedda utseende när den öppnas på vilken system eller enhet som helst. Detta är särskilt viktigt när du använder anpassade, tredjeparts‑ eller icke‑standardiserade teckensnitt för varumärkes‑ eller kreativa ändamål. Utan inbäddade teckensnitt kan text ersättas, layouter gå sönder och tecken visas som oläsliga symboler eller rektanglar, vilket äventyrar den övergripande designen.
+Embedding fonts stores font data inside a PowerPoint presentation. When a viewer supports embedded fonts, it can display text using those fonts even if they are not installed on the target system. This helps preserve line breaks, text spacing, and slide layout.
 
-Aspose.Slides for C++ tillhandahåller en uppsättning kraftfulla API:er för att hantera inbäddade teckensnitt programmässigt. Du kan använda [FontsManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fontsmanager/) och [FontData](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fontdata/)‑klasserna för att inspektera, lägga till eller ta bort inbäddade teckensnitt i dina presentationsfiler. Dessutom gör [Compress](https://reference.aspose.com/slides/sv/cpp/aspose.slides.lowcode/compress/)‑klassen det möjligt att optimera filstorleken genom att komprimera teckensnittsdatan utan att påverka kvalitet eller utseende.
+Aspose.Slides för C++ låter dig hämta, lägga till och ta bort inbäddade teckensnitt via metoden [Presentation::get_FontsManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_fontsmanager/) på ett [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/). Du kan också minska storleken på inbäddade teckensnittsdata genom att ta bort tecken som presentationen inte använder.
 
-Dessa verktyg ger dig full kontroll över teckensnitts‑inbäddning och hjälper dig att upprätthålla enhetlig typografi över plattformar samtidigt som du minskar filstorleken vid behov.
+Exemplen nedan fungerar med PPTX-filer. Innan du bäddar in ett teckensnitt, se till att dess teckensnittsdata är tillgänglig för Aspose.Slides och att licensen tillåter inbäddning.
 
-## **Hämta inbäddade teckensnitt från en presentation**
+## **Hämta och ta bort inbäddade teckensnitt**
 
-Aspose.Slides for C++ tillhandahåller metoden `GetEmbeddedFonts` via [FontsManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fontsmanager/)‑klassen, som låter dig hämta en lista över teckensnitt som är inbäddade i en PowerPoint‑presentation. Detta kan vara användbart för att granska teckensnittsbruk, säkerställa efterlevnad av varumärkesriktlinjer eller verifiera att alla nödvändiga teckensnitt är korrekt inkluderade innan filen delas.
+Använd [IFontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/getembeddedfonts/) för att lista teckensnitten som lagras i en presentation. För att ta bort ett, skicka ett teckensnitt från den listan till [IFontsManager::RemoveEmbeddedFont](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/removeembeddedfont/), och spara sedan presentationen.
 
-Följande C++‑kod demonstrerar hur du hämtar inbäddade teckensnitt från en presentationsfil:
+Följande exempel listar de inbäddade teckensnitten i `EmbeddedFonts.pptx` och tar bort Calibri om det finns:
 
 ```cpp
-// Skapa ett Presentation-objekt som representerar en presentationsfil.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparison.h>
 
-// Hämta alla inbäddade teckensnitt.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-// Skriv ut namnen på de inbäddade teckensnitten.
-for (auto&& fontData : embeddedFonts)
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+SharedPtr<IFontData> fontToRemove;
+
+for (auto&& font : embeddedFonts)
 {
-    Console::WriteLine(fontData->get_FontName());
+    Console::WriteLine(font->get_FontName());
+
+    if (String::Equals(font->get_FontName(), u"Calibri", StringComparison::OrdinalIgnoreCase))
+    {
+        fontToRemove = font;
+    }
+}
+
+if (fontToRemove != nullptr)
+{
+    fontsManager->RemoveEmbeddedFont(fontToRemove);
+    presentation->Save(u"WithoutEmbeddedCalibri.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"Calibri is not embedded. No output file was created.");
 }
 
 presentation->Dispose();
 ```
 
-## **Lägg till inbäddade teckensnitt i en presentation**
+Att ta bort ett inbäddat teckensnitt tar bort dess lagrade teckensnittsdata; det ändrar inte det teckensnitt som är tilldelat texten. Om teckensnittet är installerat på målsystemet kan texten fortfarande använda det. Annars kan rendering kräva [font substitution](/slides/sv/cpp/font-substitution/), vilket kan påverka layouten.
 
-Aspose.Slides for C++ låter dig bädda in teckensnitt i en PowerPoint‑presentation med hjälp av metoden [AddEmbeddedFont](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fontsmanager/addembeddedfont/), som har två överlagringar för flexibel användning. Du kan styra hur mycket av teckensnittet som inbäddas genom att använda uppräkningen [EmbedFontCharacters](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/embedfontcharacters/) — till exempel genom att bara bädda in använda tecken eller hela teckensnittssamlingen. Denna funktion är särskilt användbar när du förbereder en presentation för delning eller distribution, så att anpassade eller icke‑standardiserade teckensnitt visas korrekt på alla system, även om teckensnitten inte är installerade.
+## **Inspektera teckensnittsdata och inbäddningsbehörigheter**
 
-Följande C++‑kod kontrollerar alla teckensnitt som används i en presentation och bäddar in de teckensnitt som ännu inte är inbäddade.
+Använd gränssnittet [IFontsManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/) för att inspektera teckensnitt innan de bäddas in. Anropa [IFontsManager::GetFonts](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/getfonts/) för att hämta teckensnitten som används i presentationen. För varje teckensnitt, skicka ett [IFontData](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontdata/)‑objekt och det erforderliga [FontStyleType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fontstyletype/)-värdet till [IFontsManager::GetFontBytes](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/getfontbytes/). Metoden returnerar de binära data för den teckensnittsstilen, eller `nullptr` när det begärda teckensnittet eller stilen inte är tillgänglig. Skicka inte ett `nullptr`‑resultat till [IFontsManager::GetFontEmbeddingLevel](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/getfontembeddinglevel/), eftersom den metoden kräver en byte‑array.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/sv/cpp/aspose.slides/embeddinglevel/) är en flagg‑enumeration som rapporterar inbäddningsrestriktionerna som lagras i teckensnittet:
+
+- `Installable` tillåter inbäddning och permanent installation på ett annat system, under förutsättning att teckensnittets licens tillåter det.
+- `Restricted` förbjuder inbäddning om inte tillstånd erhålls från teckensnittets juridiska ägare när det är den enda användnings‑tillståndsflaggan.
+- `PreviewPrint` tillåter tillfällig användning för visning och utskrift; ett dokument som innehåller teckensnittet måste vara skrivskyddat.
+- `Editable` tillåter tillfällig användning och gör att dokumentet kan redigeras och sparas.
+- `NoSubsetting` är en extra restriktion som förbjuder inbäddning av endast en delmängd av tecknen. Bädda in alla tecken när denna flagga är närvarande.
+- `BitmapOnly` är en extra restriktion som endast tillåter inbäddning av bitmap‑slag, inte konturdata. Om teckensnittet saknar bitmap‑slag kan det inte bäddas in.
+
+De första fyra värdena beskriver användningstillstånd, medan `NoSubsetting` och `BitmapOnly` kan kombineras med dem. Kontrollera modifierarna med bitvisa operationer. Eftersom `Installable` är noll maskeras användningstillståndsbitarna och resultatet jämförs med `Installable`. Aktuella teckensnitt bör sätta högst en användningstillståndsbit. För kompatibilitet med äldre teckensnitt som sätter fler än en, väljer hjälpfunktionen nedan den minst restriktiva tillståndet: `Editable`, sedan `PreviewPrint`, sedan `Restricted`.
+
+Följande exempel granskar de vanliga, fetstilta, kursiva och fet‑kursiva data som finns för varje teckensnitt som returneras av `GetFonts`. Det hoppar över otillgängliga stilar, restriktiva teckensnitt, enbart bitmap‑teckensnitt, teckensnitt begränsade till förhandsgranskning och utskrift eftersom utdata förblir redigerbar, och teckensnitt som redan är inbäddade. Om någon tillgänglig stil har `NoSubsetting` bäddas alla tecken in för den teckensnittsfamiljen.
 
 ```cpp
-// Läs in en presentationsfil.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/EmbeddingLevel.h>
+#include <DOM/FontStyleType.h>
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/collections/list.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
 
-auto usedFonts = presentation->get_FontsManager()->GetFonts();
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 
-for (auto&& fontData : usedFonts)
+auto getUsagePermission = [](EmbeddingLevel level)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+    const auto permissionMask = EmbeddingLevel::Restricted | EmbeddingLevel::PreviewPrint | EmbeddingLevel::Editable;
+    auto permissions = level & permissionMask;
+
+    if ((permissions & EmbeddingLevel::Editable) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Editable;
+    }
+
+    if ((permissions & EmbeddingLevel::PreviewPrint) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::PreviewPrint;
+    }
+
+    if ((permissions & EmbeddingLevel::Restricted) != EmbeddingLevel::Installable)
+    {
+        return EmbeddingLevel::Restricted;
+    }
+
+    return EmbeddingLevel::Installable;
+};
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto fontStyles = MakeArray<FontStyleType>({
+    FontStyleType::Regular,
+    FontStyleType::Bold,
+    FontStyleType::Italic,
+    FontStyleType::Bold | FontStyleType::Italic
+});
+auto fontStyleNames = MakeArray<String>({u"regular", u"bold", u"italic", u"bold-italic"});
+
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+for (auto&& embeddedFont : fontsManager->GetEmbeddedFonts())
+{
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
+
+auto fontsToEmbedAll = MakeObject<List<SharedPtr<IFontData>>>();
+auto fontsToEmbedUsedOnly = MakeObject<List<SharedPtr<IFontData>>>();
+for (auto&& font : fontsManager->GetFonts())
+{
+    if (embeddedFontNames->Contains(font->get_FontName()))
+    {
+        Console::WriteLine(u"{0}: already embedded.", font->get_FontName());
+        continue;
+    }
+
+    auto hasAvailableData = false;
+    auto allAvailableStylesCanBeEmbedded = true;
+    auto previewPrintOnly = false;
+    auto requiresFullFont = false;
+
+    for (auto styleIndex = 0; styleIndex < fontStyles->get_Length(); styleIndex++)
+    {
+        auto fontStyle = fontStyles[styleIndex];
+        auto fontBytes = fontsManager->GetFontBytes(font, fontStyle);
+        if (fontBytes == nullptr)
         {
-            return data == fontData;
-        };
+            Console::WriteLine(u"{0} ({1}): font data is unavailable.", font->get_FontName(), fontStyleNames[styleIndex]);
+            continue;
+        }
 
-    // Kontrollera om teckensnittet redan är inbäddat.
-    bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
-    if (!isEmbeddedFont)
-    {
-        // Bädda in teckensnittet i presentationen.
-        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+        hasAvailableData = true;
+        auto embeddingLevel = fontsManager->GetFontEmbeddingLevel(fontBytes, font->get_FontName());
+        auto usagePermission = getUsagePermission(embeddingLevel);
+        auto noSubsetting = (embeddingLevel & EmbeddingLevel::NoSubsetting) != EmbeddingLevel::Installable;
+        auto bitmapOnly = (embeddingLevel & EmbeddingLevel::BitmapOnly) != EmbeddingLevel::Installable;
+
+        requiresFullFont |= noSubsetting;
+        previewPrintOnly |= usagePermission == EmbeddingLevel::PreviewPrint;
+        allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel::Restricted && !bitmapOnly;
+
+        Console::WriteLine(u"{0} ({1}): embedding level {2}.", font->get_FontName(), fontStyleNames[styleIndex], static_cast<uint16_t>(embeddingLevel));
     }
 
+    if (!hasAvailableData)
+    {
+        Console::WriteLine(u"{0}: skipped because no requested style is available.", font->get_FontName());
+    }
+    else if (!allAvailableStylesCanBeEmbedded)
+    {
+        Console::WriteLine(u"{0}: skipped because at least one available style does not permit outline embedding.", font->get_FontName());
+    }
+    else if (previewPrintOnly)
+    {
+        Console::WriteLine(u"{0}: skipped because this example produces an editable presentation.", font->get_FontName());
+    }
+    else if (requiresFullFont)
+    {
+        fontsToEmbedAll->Add(font);
+    }
+    else
+    {
+        fontsToEmbedUsedOnly->Add(font);
+    }
 }
 
-// Spara presentationen till disk.
-presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
+for (auto&& font : fontsToEmbedAll)
+{
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+}
+
+for (auto&& font : fontsToEmbedUsedOnly)
+{
+    fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::OnlyUsed);
+}
+
+presentation->Save(u"WithAuditedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ta bort inbäddade teckensnitt från en presentation**
+Denna inspektion rapporterar de restriktioner som kodas i varje teckensnittsfil. Den ger inte någon licens, bevisar att du har skaffat teckensnittet lagligt, eller ersätter kontrollen av teckensnittets licensavtal innan en inbäddad kopia distribueras.
 
-Aspose.Slides for C++ tillhandahåller metoden `RemoveEmbeddedFont` via [FontsManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fontsmanager/)‑klassen, som gör det möjligt att ta bort specifika teckensnitt som är inbäddade i en PowerPoint‑presentation. Detta kan hjälpa till att minska den totala filstorleken, särskilt om de inbäddade teckensnitten inte längre används eller behövs. Att ta bort oanvända teckensnitt kan också förbättra prestanda och säkerställa att presentationen endast innehåller nödvändiga resurser.
+## **Lägg till inbäddade teckensnitt**
 
-Följande C++‑kod demonstrerar hur du tar bort ett inbäddat teckensnitt från en presentation:
+Använd [IFontsManager::AddEmbeddedFont](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/addembeddedfont/) för att bädda in ett teckensnitt. Dess överlagringar accepterar antingen ett [IFontData](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontdata/)‑objekt eller en byte‑array som innehåller teckensnittsdata. Enumerationen [EmbedFontCharacters](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/embedfontcharacters/) styr vilka tecken som inkluderas:
+
+- [All](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/embedfontcharacters/) bäddar in alla tecken i teckensnittet. Använd detta alternativ när mottagarna behöver redigera presentationen och skriva in ny text.
+- [OnlyUsed](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/embedfontcharacters/) bäddar endast in de tecken som används i presentationen för att minska filstorleken. Välj detta alternativ för en färdig presentation som främst är avsedd för visning.
+
+Följande exempel använder [IFontsManager::GetFonts](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/getfonts/) för att hämta teckensnitten som används i `Fonts.pptx` och bäddar in de som ännu inte är inbäddade. Teckensnitten som ska läggas till måste finnas på maskinen som kör koden. Existerande inbäddade teckensnitt behåller sina nuvarande teckenset.
 
 ```cpp
-auto fontName = u"Calibri";
+#include <DOM/IFontData.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <Export/EmbedFontCharacters.h>
+#include <Export/SaveFormat.h>
+#include <system/collections/sorted_set.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
 
-// Instansiera Presentation-klassen som representerar en presentationsfil.
-auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 
-// Hämta alla inbäddade teckensnitt.
-auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+auto fontsManager = presentation->get_FontsManager();
+auto allFonts = fontsManager->GetFonts();
+auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+auto embeddedFontNames = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
 
-for (auto&& fontData : embeddedFonts)
+for (auto&& embeddedFont : embeddedFonts)
 {
-    if (fontData->get_FontName().Equals(fontName))
-    {
-        // Ta bort det inbäddade teckensnittet.
-        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+    embeddedFontNames->Add(embeddedFont->get_FontName());
+}
 
-        break;
+for (auto&& font : allFonts)
+{
+    if (!embeddedFontNames->Contains(font->get_FontName()))
+    {
+        fontsManager->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        embeddedFontNames->Add(font->get_FontName());
     }
 }
 
-presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Save(u"WithEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ## **Komprimera inbäddade teckensnitt**
 
-Aspose.Slides for C++ tillhandahåller metoden `CompressEmbeddedFonts` via [Compress](https://reference.aspose.com/slides/sv/cpp/aspose.slides.lowcode/compress/)‑klassen, vilket låter dig minska den totala filstorleken på en presentation genom att optimera den inbäddade teckensnittsdatan. Detta är särskilt användbart när presentationen innehåller stora eller flera teckensnitt och du vill hålla filen lätt för delning, lagring eller online‑användning — utan att kompromissa med den visuella noggrannheten i innehållet.
+[Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/sv/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) minskar de inbäddade teckensnittsdata genom att ta bort oanvända tecken. Den arbetar på teckensnitt som redan är inbäddade, så storleksreduktionen beror på hur mycket oanvänd teckensnittsdata presentationen innehåller.
 
-Följande C++‑kod demonstrerar hur du komprimerar inbäddade teckensnitt i en PowerPoint‑presentation:
+Följande exempel komprimerar teckensnitten i `EmbeddedFonts.pptx` och sparar resultatet som en separat fil:
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/shared_ptr.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"EmbeddedFonts.pptx");
 Compress::CompressEmbeddedFonts(presentation);
-
-presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Save(u"CompressedEmbeddedFonts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Behåll originalfilen om mottagarna kan behöva lägga till text senare. Tecken som tas bort under komprimeringen är inte längre tillgängliga från det inbäddade teckensnittet, även om du ursprungligen bäddade in alla tecken.
+
 ## **FAQ**
 
-**Hur kan jag se att ett specifikt teckensnitt i presentationen fortfarande kommer att ersättas vid rendering trots inbäddning?**
+**Hur kan jag kontrollera om ett inbäddat teckensnitt fortfarande kommer att ersättas vid rendering?**
 
-Kontrollera [information om ersättning](/slides/sv/cpp/font-substitution/) i teckensnittshanteraren och [fallback‑/ersättningsregler](/slides/sv/cpp/fallback-font/): om teckensnittet är otillgängligt eller begränsat, kommer en reserv att användas.
+Anropa [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ifontsmanager/getsubstitutions/) i den miljö där du renderar presentationen för att se vilka teckensnitt Aspose.Slides kommer att ersätta. Kontrollera även inställningarna för [font substitution](/slides/sv/cpp/font-substitution/) och reglerna för [font fallback](/slides/sv/cpp/fallback-font/). Fallback hanterar saknade tecken, så inbäddning av ett teckensnitt löser inte tecken som själva teckensnittet inte innehåller.
 
-**Är det värt att bädda in "system"-teckensnitt som Arial/Calibri?**
+**Bör jag bädda in vanliga teckensnitt såsom Arial och Calibri?**
 
-Vanligtvis nej—de är nästan alltid tillgängliga. Men för full portabilitet i "tunna" miljöer (Docker, en Linux‑server utan förinstallerade teckensnitt) kan inbäddning av systemteckensnitt eliminera risken för oväntade ersättningar.
+Basera beslutet på målmiljön. Om de nödvändiga teckensnitten finns på varje maskin som öppnar eller renderar presentationen kan inbäddning av dem öka filstorleken i onödan. Om mottagare eller servrar kan sakna dessa teckensnitt kan inbäddning hjälpa till att bevara det avsedda utseendet, förutsatt att deras licenser tillåter det.

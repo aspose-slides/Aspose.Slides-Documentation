@@ -1,6 +1,6 @@
 ---
-title: Osadzanie czcionek w prezentacjach na Androidzie
-linktitle: Osadzanie czcionki
+title: Osadzanie czcionek w prezentacjach na Android
+linktitle: Osadzone czcionki
 type: docs
 weight: 40
 url: /pl/androidjava/embedded-font/
@@ -11,135 +11,258 @@ keywords:
 - pobierz osadzoną czcionkę
 - dodaj osadzoną czcionkę
 - usuń osadzoną czcionkę
-- skomprymuj osadzoną czcionkę
+- skompresuj osadzoną czcionkę
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Osadź czcionki TrueType w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Androida w języku Java, zapewniając dokładne renderowanie na wszystkich platformach."
+description: "Zarządzaj osadzonymi czcionkami w PowerPoint przy użyciu Aspose.Slides dla Androida w Javie. Dodawaj, pobieraj, usuwaj i kompresuj czcionki, aby zachować wygląd tekstu i zmniejszyć rozmiar pliku."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-**Czcionki osadzone w PowerPoint** są przydatne, gdy chcesz, aby Twoja prezentacja wyświetlała się poprawnie na każdym systemie lub urządzeniu. Jeśli użyłeś czcionki firm trzecich lub niestandardowej, ponieważ kreatywnie podszedłeś do swojej pracy, masz jeszcze więcej powodów, aby osadzić czcionkę. W przeciwnym razie (bez osadzonych czcionek) teksty lub liczby na slajdach, układ, stylizacja itp. mogą się zmienić lub przekształcić w mylące prostokąty. 
+Osadzanie czcionek przechowuje dane czcionki wewnątrz prezentacji PowerPoint. Gdy przeglądarka obsługuje osadzone czcionki, może wyświetlać tekst przy użyciu tych czcionek, nawet jeśli nie są zainstalowane w systemie docelowym. Pomaga to zachować podziały wierszy, odstępy tekstu i układ slajdu.
 
-Klasa [FontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontsManager), klasa [FontData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontdata/), klasa [Compress](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/) oraz ich interfejsy zawierają większość właściwości i metod, których potrzebujesz do pracy z osadzonymi czcionkami w prezentacjach PowerPoint.
+Aspose.Slides for Android via Java umożliwia pobieranie, dodawanie i usuwanie osadzonych czcionek za pośrednictwem interfejsu [IFontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/) zwracanego przez [Presentation.getFontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getFontsManager--). Można również zmniejszyć rozmiar danych osadzonych czcionek, usuwając znaki, których prezentacja nie używa.
+
+Poniższe przykłady działają na plikach PPTX. Przed osadzeniem czcionki upewnij się, że jej dane są dostępne dla Aspose.Slides i że licencja zezwala na osadzanie.
 
 ## **Pobieranie i usuwanie osadzonych czcionek**
 
-Aspose.Slides udostępnia metodę [getEmbeddedFonts](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) (udostępnioną przez klasę [FontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/FontsManager)), aby umożliwić pobranie (lub sprawdzenie) czcionek osadzonych w prezentacji. Aby usunąć czcionki, używana jest metoda [removeEmbeddedFont](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) (udostępniona przez tę samą klasę).
+Użyj [getEmbeddedFonts](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) aby wyświetlić listę czcionek przechowywanych w prezentacji. Aby usunąć jedną, przekaż czcionkę z tej listy do [removeEmbeddedFont](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-), a następnie zapisz prezentację.
 
-Ten kod w Javie pokazuje, jak pobrać i usunąć osadzone czcionki z prezentacji:
-
+Poniższy przykład wyświetla osadzone czcionki w `EmbeddedFonts.pptx` i usuwa Calibri, jeśli jest obecna:
 ```java
-// Tworzy obiekt Presentation, który reprezentuje plik prezentacji
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    // Renderuje slajd zawierający ramkę tekstową używającą osadzonej czcionki "FunSized"
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    //Zapisuje obraz na dysku w formacie JPEG
-    try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
-    // Pobiera wszystkie osadzone czcionki
+    IFontsManager fontsManager = presentation.getFontsManager();
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // Wyszukuje czcionkę "Calibri"
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
+    for (IFontData font : embeddedFonts) {
+        System.out.println(font.getFontName());
+    }
+
+    IFontData fontToRemove = null;
+    for (IFontData font : embeddedFonts) {
+        if ("Calibri".equalsIgnoreCase(font.getFontName())) {
+            fontToRemove = font;
             break;
         }
     }
 
-    // Usuwa czcionkę "Calibri"
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
-    // Renderuje prezentację; "Calibri" font is replaced with an existing one
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     //Zapisuje obraz na dysku w formacie JPEG
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
-    // Zapisuje prezentację bez osadzonej "Calibri" font to disk
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+    if (fontToRemove != null) {
+        fontsManager.removeEmbeddedFont(fontToRemove);
+        presentation.save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Calibri is not embedded. No output file was created.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Dodawanie osadzonych czcionek**
+Usunięcie osadzonej czcionki usuwa jej przechowywane dane; nie zmienia to czcionki przypisanej do tekstu. Jeśli czcionka jest zainstalowana w systemie docelowym, tekst może nadal jej używać. W przeciwnym razie renderowanie może wymagać [font substitution](/slides/pl/androidjava/font-substitution/), co może wpłynąć na układ.
 
-Korzystając z wyliczenia [EmbedFontCharacters](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/embedfontcharacters/) oraz dwóch przeciążeń metody [addEmbeddedFont](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-), możesz wybrać preferowaną zasadę (osadzania) do osadzenia czcionek w prezentacji. Ten kod w Javie pokazuje, jak osadzić i dodać czcionki do prezentacji:
+## **Inspekcja danych czcionki i uprawnień do osadzania**
 
+Użyj interfejsu [IFontsManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/) aby sprawdzić czcionki przed ich osadzeniem. Wywołaj [IFontsManager.getFonts](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) aby pobrać czcionki użyte w prezentacji. Dla każdej czcionki przekaż obiekt [IFontData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontdata/) oraz wymaganą wartość [FontStyleType](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontstyletype/) do [IFontsManager.getFontBytes](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getFontBytes-com.aspose.slides.IFontData-int-). Metoda zwraca bajtowe dane dla tego stylu czcionki lub `null`, gdy żądana czcionka lub styl jest niedostępny. Nie przekazuj wyniku `null` do [IFontsManager.getFontEmbeddingLevel](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getFontEmbeddingLevel-byte---java.lang.String-), ponieważ metoda wymaga tablicy bajtów.
+
+[EmbeddingLevel](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/embeddinglevel/) jest wyliczeniem flagowym, które raportuje ograniczenia osadzania przechowywane w czcionce:
+
+- `Installable` zezwala na osadzanie i stałą instalację w innym systemie, zgodnie z licencją czcionki.
+- `Restricted` zakazuje osadzania, chyba że uzyskano pozwolenie od prawnego właściciela czcionki, gdy jest to jedyna flaga zezwalająca na użycie.
+- `PreviewPrint` zezwala na tymczasowe użycie do podglądu i drukowania; dokument zawierający czcionkę musi być tylko do odczytu.
+- `Editable` zezwala na tymczasowe użycie i pozwala na edycję oraz zapis dokumentu.
+- `NoSubsetting` jest dodatkowym ograniczeniem, które zakazuje osadzania tylko podzbioru glifów. Gdy ta flaga jest obecna, osadź wszystkie znaki.
+- `BitmapOnly` jest dodatkowym ograniczeniem, które zezwala na osadzanie jedynie bitmapowych wariantów czcionki, a nie danych konturu. Jeśli czcionka nie ma bitmapowych wariantów, nie może być osadzona.
+
+Pierwsze cztery wartości opisują uprawnienia do użycia, natomiast `NoSubsetting` i `BitmapOnly` mogą być z nimi łączone. Sprawdzaj modyfikatory przy użyciu operacji bitowych. Ponieważ `Installable` ma wartość zero, maskuj bity uprawnień do użycia i porównuj wynik z `Installable` zamiast sprawdzać go jako flagę. Aktualne czcionki powinny ustawiać najwyżej jeden bit uprawnienia do użycia. Dla kompatybilności ze starszymi czcionkami, które ustawiają więcej niż jeden, poniższy pomocnik wybiera najmniej restrykcyjne uprawnienie: `Editable`, potem `PreviewPrint`, potem `Restricted`.
+
+Poniższy przykład sprawdza dane regular, pogrubione, kursywa i pogrubiona‑italiczna dostępne dla każdej czcionki zwróconej przez `getFonts`. Pomija niedostępne style, czcionki ograniczone, czcionki tylko bitmapowe, czcionki ograniczone do podglądu i drukowania, ponieważ wynik pozostaje edytowalny, oraz czcionki już osadzone. Jeśli którykolwiek dostępny styl ma `NoSubsetting`, osadza wszystkie znaki dla tej rodziny czcionek.
 ```java
-// Ładuje prezentację
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.EmbeddingLevel;
+import com.aspose.slides.FontStyleType;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
-            }
+class EmbeddingPermission {
+    int getUsagePermission(int level) {
+        int permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+        int permissions = level & permissionMask;
+
+        if ((permissions & EmbeddingLevel.Editable) != 0) {
+            return EmbeddingLevel.Editable;
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        if ((permissions & EmbeddingLevel.PreviewPrint) != 0) {
+            return EmbeddingLevel.PreviewPrint;
+        }
+
+        if ((permissions & EmbeddingLevel.Restricted) != 0) {
+            return EmbeddingLevel.Restricted;
+        }
+
+        return EmbeddingLevel.Installable;
+    }
+}
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    int[] fontStyles = {
+        FontStyleType.Regular,
+        FontStyleType.Bold,
+        FontStyleType.Italic,
+        FontStyleType.Bold | FontStyleType.Italic
+    };
+
+    Set<String> embeddedFontNames = new HashSet<String>();
+    for (IFontData embeddedFont : fontsManager.getEmbeddedFonts()) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    EmbeddingPermission permissionHelper = new EmbeddingPermission();
+    List<IFontData> fontsToEmbed = new ArrayList<IFontData>();
+    List<Integer> embeddingRules = new ArrayList<Integer>();
+    for (IFontData font : fontsManager.getFonts()) {
+        if (embeddedFontNames.contains(font.getFontName().toLowerCase(Locale.ROOT))) {
+            System.out.println(font.getFontName() + ": already embedded.");
+            continue;
+        }
+
+        boolean hasAvailableData = false;
+        boolean allAvailableStylesCanBeEmbedded = true;
+        boolean previewPrintOnly = false;
+        boolean requiresFullFont = false;
+
+        for (int fontStyle : fontStyles) {
+            byte[] fontBytes = fontsManager.getFontBytes(font, fontStyle);
+            if (fontBytes == null) {
+                System.out.println(font.getFontName() + " (" + fontStyle + "): font data is unavailable.");
+                continue;
+            }
+
+            hasAvailableData = true;
+            int embeddingLevel = fontsManager.getFontEmbeddingLevel(fontBytes, font.getFontName());
+            int usagePermission = permissionHelper.getUsagePermission(embeddingLevel);
+            boolean noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+            boolean bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+            requiresFullFont |= noSubsetting;
+            previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+            allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+            System.out.println(font.getFontName() + " (" + fontStyle + "): " + embeddingLevel + ".");
+        }
+
+        if (!hasAvailableData) {
+            System.out.println(font.getFontName() + ": skipped because no requested style is available.");
+        } else if (!allAvailableStylesCanBeEmbedded) {
+            System.out.println(font.getFontName() + ": skipped because at least one available style does not permit outline embedding.");
+        } else if (previewPrintOnly) {
+            System.out.println(font.getFontName() + ": skipped because this example produces an editable presentation.");
+        } else {
+            int rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+            fontsToEmbed.add(font);
+            embeddingRules.add(rule);
         }
     }
 
-    // Zapisuje prezentację na dysku
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < fontsToEmbed.size(); i++) {
+        fontsManager.addEmbeddedFont(fontsToEmbed.get(i), embeddingRules.get(i));
+    }
+
+    presentation.save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
+}
+```
+
+Ta inspekcja raportuje ograniczenia zakodowane w każdym pliku czcionki. Nie przyznaje licencji, nie dowodzi, że uzyskałeś czcionkę legalnie, ani nie zastępuje sprawdzenia umowy licencyjnej czcionki przed dystrybucją osadzonej kopii.
+
+## **Dodawanie osadzonych czcionek**
+
+Użyj [addEmbeddedFont](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) aby osadzić czcionkę. Przeciążenia akceptują albo obiekt [IFontData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontdata/), albo tablicę bajtów zawierającą dane czcionki. Wyliczenie [EmbedFontCharacters](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/embedfontcharacters/) kontroluje, które znaki są włączane:
+
+- [All](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/embedfontcharacters/) osadza wszystkie znaki w czcionce. Użyj tej opcji, gdy odbiorcy muszą edytować prezentację i wprowadzać nowy tekst.
+- [OnlyUsed](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/embedfontcharacters/) osadza tylko znaki użyte w prezentacji, aby zmniejszyć rozmiar pliku. Wybierz tę opcję dla gotowej prezentacji przeznaczonej głównie do podglądu.
+
+Poniższy przykład używa [getFonts](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) aby pobrać czcionki użyte w `Fonts.pptx` i osadza te, które nie są jeszcze osadzone. Czcionki do dodania muszą być dostępne na urządzeniu z Androidem lub zarejestrowane w Aspose.Slides. Istniejące osadzone czcionki zachowują swoje bieżące zestawy znaków.
+```java
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    IFontData[] allFonts = fontsManager.getFonts();
+    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
+    Set<String> embeddedFontNames = new HashSet<String>();
+
+    for (IFontData embeddedFont : embeddedFonts) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    for (IFontData font : allFonts) {
+        String fontName = font.getFontName().toLowerCase(Locale.ROOT);
+        if (!embeddedFontNames.contains(fontName)) {
+            fontsManager.addEmbeddedFont(font, EmbedFontCharacters.All);
+            embeddedFontNames.add(fontName);
+        }
+    }
+
+    presentation.save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Kompresja osadzonych czcionek**
 
-Aby umożliwić kompresję czcionek osadzonych w prezentacji i zmniejszyć rozmiar pliku, Aspose.Slides udostępnia metodę [compressEmbeddedFonts](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) (udostępnioną przez klasę [Compress](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/)).
+[Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) zmniejsza dane osadzonych czcionek poprzez usunięcie nieużywanych znaków. Działa na czcionkach już osadzonych, więc redukcja rozmiaru zależy od tego, ile nieużywanych danych czcionki zawiera prezentacja.
 
-Ten kod w Javie pokazuje, jak skompresować osadzone czcionki PowerPoint:
-
+Poniższy przykład kompresuje czcionki w `EmbeddedFonts.pptx` i zapisuje wynik jako osobny plik:
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.Compress;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    Compress.compressEmbeddedFonts(presentation);
+    presentation.save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Zachowaj oryginalny plik, jeśli odbiorcy mogą potrzebować później dodać tekst. Znaki usunięte podczas kompresji nie są już dostępne w osadzonej czcionce, nawet jeśli początkowo osadziłeś wszystkie znaki.
+
 ## **FAQ**
 
-**How can I tell that a specific font in the presentation will still be substituted during rendering despite embedding?**
+**Jak mogę sprawdzić, czy osadzona czcionka będzie nadal podstawiana podczas renderowania?**
 
-Sprawdź [substitution information](/slides/pl/androidjava/font-substitution/) w menedżerze czcionek oraz [fallback/substitution rules](/slides/pl/androidjava/fallback-font/): jeśli czcionka jest niedostępna lub ograniczona, zostanie użyta czcionka zastępcza.
+Wywołaj [getSubstitutions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) w środowisku, w którym renderujesz prezentację, aby zobaczyć, które czcionki Aspose.Slides zamieni. Sprawdź także ustawienia [font substitution](/slides/pl/androidjava/font-substitution/) oraz reguły [font fallback](/slides/pl/androidjava/fallback-font/). Fallback obsługuje brakujące znaki, więc osadzanie czcionki nie rozwiązuje znaków, których czcionka sama nie zawiera.
 
-**Is it worth embedding "system" fonts like Arial/Calibri?**
+**Czy powinienem osadzać powszechne czcionki, takie jak Arial i Calibri?**
 
-Zazwyczaj nie — są prawie zawsze dostępne. Jednak w celu pełnej przenośności w „cienkich” środowiskach (Docker, serwer Linux bez wstępnie zainstalowanych czcionek) osadzanie czcionek systemowych może wyeliminować ryzyko nieoczekiwanych podstawień.
+Decyzję opieraj na środowisku docelowym. Jeśli wymagane czcionki są dostępne na każdym urządzeniu, które otwiera lub renderuje prezentację, ich osadzanie może niepotrzebnie zwiększyć rozmiar pliku. Jeśli odbiorcy lub serwery mogą ich nie mieć, osadzenie może pomóc zachować zamierzony wygląd, o ile licencje na te czcionki na to pozwalają.

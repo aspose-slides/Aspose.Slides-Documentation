@@ -13,132 +13,256 @@ keywords:
 - 移除嵌入字体
 - 压缩嵌入字体
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Android
 - Java
 - Aspose.Slides
-description: "通过 Java 使用适用于 Android 的 Aspose.Slides 将 TrueType 字体嵌入 PowerPoint 和 OpenDocument 演示文稿，确保在所有平台上精准渲染。"
+description: "使用 Aspose.Slides for Android via Java 管理 PowerPoint 中的嵌入字体。添加、检索、删除和压缩字体，以保持文本外观并降低文件大小。"
 ---
+## **介绍**
 
-**PowerPoint 中的嵌入字体** 在您希望演示文稿在任何系统或设备上打开时都能正确显示时非常有用。如果您因创意使用了第三方或非标准字体，则更有理由嵌入字体。否则（未嵌入字体），幻灯片上的文本或数字、布局、样式等可能会改变或变成混乱的方框。
+嵌入字体会将字体数据存储在 PowerPoint 演示文稿中。当查看器支持嵌入字体时，即使目标系统未安装这些字体，也能使用这些字体显示文本。这有助于保留换行、文本间距和幻灯片布局。
 
-[FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) 类、[FontData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontdata/) 类、[Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) 类及其接口包含了在 PowerPoint 演示文稿中使用嵌入字体所需的大多数属性和方法。
+Aspose.Slides for Android via Java 允许您通过由 [Presentation.getFontsManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/#getFontsManager--) 返回的 [IFontsManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/) 接口检索、添加和删除嵌入字体。您还可以通过删除演示文稿未使用的字符来减小嵌入字体数据的大小。
 
-## **获取和移除嵌入字体**
+下面的示例使用 PPTX 文件。在嵌入字体之前，请确保该字体的数据可供 Aspose.Slides 使用且其许可证允许嵌入。
 
-Aspose.Slides 提供了 [getEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) 方法（由 [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) 类公开），帮助您获取（或查找）演示文稿中嵌入的字体。要移除字体，可使用同一类的 [removeEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) 方法。
+## **获取和删除嵌入字体**
 
-下面的 Java 代码演示如何获取和移除演示文稿中的嵌入字体：
+使用 [getEmbeddedFonts](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/#getEmbeddedFonts--) 列出演示文稿中存储的字体。要删除某个字体，请将列表中的字体传递给 [removeEmbeddedFont](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-)，然后保存演示文稿。
+
+下面的示例列出 `EmbeddedFonts.pptx` 中的嵌入字体，并在存在时移除 Calibri：
 ```java
-// 实例化一个表示演示文稿文件的 Presentation 对象
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    // 渲染包含使用嵌入的 "FunSized" 字体的文本框的幻灯片
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    // 将图像以 JPEG 格式保存到磁盘
-    try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
-    // 获取所有嵌入的字体
+    IFontsManager fontsManager = presentation.getFontsManager();
     IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
 
-    // 查找 "Calibri" 字体
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
+    for (IFontData font : embeddedFonts) {
+        System.out.println(font.getFontName());
+    }
+
+    IFontData fontToRemove = null;
+    for (IFontData font : embeddedFonts) {
+        if ("Calibri".equalsIgnoreCase(font.getFontName())) {
+            fontToRemove = font;
             break;
         }
     }
 
-    // 移除 "Calibri" 字体
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
-    // 渲染演示文稿；"Calibri" 字体被现有字体替换
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     // 将图像以 JPEG 格式保存到磁盘
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
-    // 将演示文稿（未嵌入 "Calibri" 字体）保存到磁盘
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
+    if (fontToRemove != null) {
+        fontsManager.removeEmbeddedFont(fontToRemove);
+        presentation.save("WithoutEmbeddedCalibri.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("Calibri is not embedded. No output file was created.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+删除嵌入字体会删除其存储的字体数据；但不会更改文本所使用的字体。如果目标系统已安装该字体，文本仍然可以使用它。否则，渲染可能需要[font substitution](/slides/zh/androidjava/font-substitution/)，这会影响布局。
 
-## **添加嵌入字体**
+## **检查字体数据和嵌入权限**
 
-使用 [EmbedFontCharacters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/embedfontcharacters/) 枚举以及 [addEmbeddedFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) 方法的两个重载，您可以选择首选的（嵌入）规则将字体嵌入到演示文稿中。下面的 Java 代码演示如何嵌入并添加字体到演示文稿：
+在嵌入字体之前，使用 [IFontsManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/) 接口检查字体。调用 [IFontsManager.getFonts](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) 可检索演示文稿中使用的字体。对于每个字体，将一个 [IFontData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontdata/) 对象和所需的 [FontStyleType](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/fontstyletype/) 值传递给 [IFontsManager.getFontBytes](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/#getFontBytes-com.aspose.slides.IFontData-int-)。该方法返回该字体样式的二进制数据；如果请求的字体或样式不可用，则返回 `null`。不要将 `null` 结果传递给 [IFontsManager.getFontEmbeddingLevel](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/#getFontEmbeddingLevel-byte---java.lang.String-)，因为该方法需要字节数组。
+
+[EmbeddingLevel](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/embeddinglevel/) 是一个标志枚举，用于报告存储在字体中的嵌入限制：
+
+- `Installable` 允许嵌入并在另一系统上永久安装，前提是符合字体许可证。
+- `Restricted` 禁止嵌入，除非在它是唯一使用许可标志时从字体合法所有者处获得许可。
+- `PreviewPrint` 允许临时用于查看和打印；包含该字体的文档必须为只读。
+- `Editable` 允许临时使用并且文档可以被编辑和保存。
+- `NoSubsetting` 是一种附加限制，禁止仅嵌入字形子集。出现此标志时必须嵌入所有字符。
+- `BitmapOnly` 是一种附加限制，只允许嵌入位图字形，而不是轮廓数据。如果字体没有位图字形，则无法嵌入。
+
+前四个值描述使用许可，而 `NoSubsetting` 和 `BitmapOnly` 可以与它们组合。使用按位运算检查这些修饰符。由于 `Installable` 为零，请对使用许可位进行掩码并将结果与 `Installable` 比较，而不是将其视为标志检查。当前字体应最多设置一个使用许可位。为兼容设置了多个位的旧字体，下面的辅助函数会选择最宽松的许可：先 `Editable`，再 `PreviewPrint`，最后 `Restricted`。
+
+下面的示例审计 `getFonts` 返回的每个字体的常规、粗体、斜体和粗斜体数据。它会跳过不可用的样式、受限字体、仅位图字体、因输出仍可编辑而限制为预览和打印的字体，以及已经嵌入的字体。如果任何可用样式带有 `NoSubsetting`，则为该字体系列嵌入所有字符。
 ```java
-// 加载演示文稿
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.EmbeddingLevel;
+import com.aspose.slides.FontStyleType;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
-            }
+class EmbeddingPermission {
+    int getUsagePermission(int level) {
+        int permissionMask = EmbeddingLevel.Restricted | EmbeddingLevel.PreviewPrint | EmbeddingLevel.Editable;
+        int permissions = level & permissionMask;
+
+        if ((permissions & EmbeddingLevel.Editable) != 0) {
+            return EmbeddingLevel.Editable;
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
 
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        if ((permissions & EmbeddingLevel.PreviewPrint) != 0) {
+            return EmbeddingLevel.PreviewPrint;
+        }
+
+        if ((permissions & EmbeddingLevel.Restricted) != 0) {
+            return EmbeddingLevel.Restricted;
+        }
+
+        return EmbeddingLevel.Installable;
+    }
+}
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    int[] fontStyles = {
+        FontStyleType.Regular,
+        FontStyleType.Bold,
+        FontStyleType.Italic,
+        FontStyleType.Bold | FontStyleType.Italic
+    };
+
+    Set<String> embeddedFontNames = new HashSet<String>();
+    for (IFontData embeddedFont : fontsManager.getEmbeddedFonts()) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    EmbeddingPermission permissionHelper = new EmbeddingPermission();
+    List<IFontData> fontsToEmbed = new ArrayList<IFontData>();
+    List<Integer> embeddingRules = new ArrayList<Integer>();
+    for (IFontData font : fontsManager.getFonts()) {
+        if (embeddedFontNames.contains(font.getFontName().toLowerCase(Locale.ROOT))) {
+            System.out.println(font.getFontName() + ": already embedded.");
+            continue;
+        }
+
+        boolean hasAvailableData = false;
+        boolean allAvailableStylesCanBeEmbedded = true;
+        boolean previewPrintOnly = false;
+        boolean requiresFullFont = false;
+
+        for (int fontStyle : fontStyles) {
+            byte[] fontBytes = fontsManager.getFontBytes(font, fontStyle);
+            if (fontBytes == null) {
+                System.out.println(font.getFontName() + " (" + fontStyle + "): font data is unavailable.");
+                continue;
+            }
+
+            hasAvailableData = true;
+            int embeddingLevel = fontsManager.getFontEmbeddingLevel(fontBytes, font.getFontName());
+            int usagePermission = permissionHelper.getUsagePermission(embeddingLevel);
+            boolean noSubsetting = (embeddingLevel & EmbeddingLevel.NoSubsetting) != 0;
+            boolean bitmapOnly = (embeddingLevel & EmbeddingLevel.BitmapOnly) != 0;
+
+            requiresFullFont |= noSubsetting;
+            previewPrintOnly |= usagePermission == EmbeddingLevel.PreviewPrint;
+            allAvailableStylesCanBeEmbedded &= usagePermission != EmbeddingLevel.Restricted && !bitmapOnly;
+
+            System.out.println(font.getFontName() + " (" + fontStyle + "): " + embeddingLevel + ".");
+        }
+
+        if (!hasAvailableData) {
+            System.out.println(font.getFontName() + ": skipped because no requested style is available.");
+        } else if (!allAvailableStylesCanBeEmbedded) {
+            System.out.println(font.getFontName() + ": skipped because at least one available style does not permit outline embedding.");
+        } else if (previewPrintOnly) {
+            System.out.println(font.getFontName() + ": skipped because this example produces an editable presentation.");
+        } else {
+            int rule = requiresFullFont ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed;
+            fontsToEmbed.add(font);
+            embeddingRules.add(rule);
         }
     }
 
-    // 将演示文稿保存到磁盘
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
+    for (int i = 0; i < fontsToEmbed.size(); i++) {
+        fontsManager.addEmbeddedFont(fontsToEmbed.get(i), embeddingRules.get(i));
+    }
+
+    presentation.save("WithAuditedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+此检查报告每个字体文件中编码的限制。它不提供许可证，也不证明您合法获取了该字体，且不能替代在分发嵌入副本之前检查字体许可协议的步骤。
+
+## **添加嵌入字体**
+
+使用 [addEmbeddedFont](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) 可嵌入字体。其重载接受 [IFontData](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontdata/) 对象或包含字体数据的字节数组。[EmbedFontCharacters](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/embedfontcharacters/) 枚举控制包含哪些字符：
+
+- `[All]` 嵌入字体中的所有字符。收件人需要编辑演示文稿并输入新文本时使用此选项。
+- `[OnlyUsed]` 仅嵌入演示文稿中使用的字符，以减小文件大小。对主要用于查看的已完成演示文稿请选择此选项。
+
+下面的示例使用 [getFonts](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/#getFonts--) 检索 `Fonts.pptx` 中使用的字体，并嵌入尚未嵌入的字体。要添加的字体必须在 Android 设备上可用或已在 Aspose.Slides 中注册。已有的嵌入字体会保留其当前字符集。
+```java
+import com.aspose.slides.EmbedFontCharacters;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontsManager;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontsManager fontsManager = presentation.getFontsManager();
+    IFontData[] allFonts = fontsManager.getFonts();
+    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
+    Set<String> embeddedFontNames = new HashSet<String>();
+
+    for (IFontData embeddedFont : embeddedFonts) {
+        embeddedFontNames.add(embeddedFont.getFontName().toLowerCase(Locale.ROOT));
+    }
+
+    for (IFontData font : allFonts) {
+        String fontName = font.getFontName().toLowerCase(Locale.ROOT);
+        if (!embeddedFontNames.contains(fontName)) {
+            fontsManager.addEmbeddedFont(font, EmbedFontCharacters.All);
+            embeddedFontNames.add(fontName);
+        }
+    }
+
+    presentation.save("WithEmbeddedFonts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **压缩嵌入字体**
 
-为了让您压缩演示文稿中嵌入的字体并减小文件大小，Aspose.Slides 提供了由 [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) 类公开的 [compressEmbeddedFonts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) 方法。
+[Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) 通过删除未使用的字符来减小嵌入字体数据。它作用于已经嵌入的字体，因此大小缩减取决于演示文稿中未使用的字体数据量。
 
-下面的 Java 代码演示如何压缩嵌入的 PowerPoint 字体：
+下面的示例压缩 `EmbeddedFonts.pptx` 中的字体并将结果保存为单独的文件：
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.Compress;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("EmbeddedFonts.pptx");
 try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
+    Compress.compressEmbeddedFonts(presentation);
+    presentation.save("CompressedEmbeddedFonts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+如果收件人以后可能需要添加文本，请保留原始文件。压缩过程中删除的字符将不再可从嵌入字体中获取，即使您最初嵌入了所有字符。
 
 ## **常见问题**
 
-**如何判断演示文稿中的特定字体在渲染时即使已嵌入仍会被替换？**
+**如何检查嵌入字体在渲染时是否仍会被替代？**
 
-检查字体管理器中的 [substitution information](/slides/zh/androidjava/font-substitution/) 以及 [fallback/substitution rules](/slides/zh/androidjava/fallback-font/)：如果字体不可用或受限，将使用回退字体。
+在渲染演示文稿的环境中调用 [getSubstitutions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--)，即可查看 Aspose.Slides 将替换哪些字体。同时检查[font substitution](/slides/zh/androidjava/font-substitution/)设置和[font fallback](/slides/zh/androidjava/fallback-font/)规则。Fallback 处理缺失字符，因此嵌入字体并不能解决该字体本身不包含的字符。
 
-**嵌入像 Arial/Calibri 这样的“系统”字体值得吗？**
+**我应该嵌入诸如 Arial 和 Calibri 等常用字体吗？**
 
-通常不需要——这些字体几乎总是可用。但在“精简”环境（Docker、未预装字体的 Linux 服务器）中，为了实现完全可移植，嵌入系统字体可以消除意外替换的风险。
+应根据目标环境来决定。如果所需字体在每台打开或渲染演示文稿的设备上都可用，则嵌入它们可能会增加不必要的文件大小。如果收件人或服务器可能缺少这些字体，嵌入它们可以帮助保持预期的外观，前提是其许可证允许。
