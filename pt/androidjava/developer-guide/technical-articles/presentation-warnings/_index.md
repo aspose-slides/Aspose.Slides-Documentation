@@ -1,0 +1,307 @@
+---
+title: Manipular avisos de apresentação no Android
+type: docs
+weight: 90
+url: /pt/androidjava/presentation-warnings/
+aliases:
+- /androidjava/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+keywords:
+- callback de aviso
+- política de aviso
+- perda de dados
+- corrupção de origem
+- problema de compatibilidade
+- substituição de fonte
+- assinatura digital
+- carregamento de apresentação
+- renderização de apresentação
+- conversão de apresentação
+- salvamento de apresentação
+- PowerPoint
+- OpenDocument
+- Android
+- Java
+- Aspose.Slides
+description: "Aprenda como coletar, classificar e agir sobre avisos ao carregar, renderizar, converter e salvar apresentações com Aspose.Slides para Android via Java."
+---
+## **Visão geral**
+
+Aspose.Slides pode relatar problemas recuperáveis enquanto carrega, renderiza, converte ou salva uma apresentação. Exemplos incluem registros de origem danificados, conteúdo que não pode ser preservado, substituição de fontes e limitações de um formato de destino. Um callback de aviso permite que uma aplicação registre essas condições e decida se a operação atual pode continuar.
+
+Implemente a interface [IWarningCallback](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iwarningcallback/) e examine os valores de [getWarningType](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iwarninginfo/#getWarningType--) e [getDescription](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iwarninginfo/#getDescription--) fornecidos por meio de [IWarningInfo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iwarninginfo/). Retorne [ReturnAction.Continue](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/returnaction/#Continue) para aceitar o aviso ou [ReturnAction.Abort](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/returnaction/#Abort) para interromper a operação.
+
+Use [LoadOptions.setWarningCallback](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/loadoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-) para avisos gerados ao abrir uma apresentação. As classes de opções de renderização e exportação herdam [SaveOptions.setWarningCallback](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/saveoptions/#setWarningCallback-com.aspose.slides.IWarningCallback-), que recebem avisos da renderização de slides, conversão e gravação. Como o aviso em si não identifica a operação da aplicação, associe cada instância de callback a uma fase da operação ao construir um relatório combinado.
+
+## **Avisos e Exceções**
+
+Um aviso descreve uma condição da qual o Aspose.Slides pode se recuperar se o callback retornar `ReturnAction.Continue`. Uma exceção significa que a operação solicitada não pode ser concluída normalmente; exceções não são convertidas em avisos e não podem ser tratadas por uma política de avisos.
+
+Retornar `ReturnAction.Abort` solicita ao despachante de avisos que termine a operação atual lançando uma exceção. A exceção pública depende da operação e do formato da apresentação. Por exemplo, o carregamento pode gerar um [PptxReadException](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/pptxreadexception/) ou [PptReadException](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/pptreadexception/), enquanto a gravação ou exportação pode gerar um [PptxException](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/pptxexception/). Manipule a exceção na fronteira da operação e use o relatório de avisos para determinar se a política da aplicação causou a interrupção, em vez de depender de um subtipo ou mensagem de exceção específica. O callback registra o aviso antes de retornar `ReturnAction.Abort`, garantindo que a razão permaneça disponível para a aplicação.
+
+## **Categorias de Avisos**
+
+A classe [WarningType](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/warningtype/) fornece constantes inteiras para as seguintes categorias:
+
+| Tipo de aviso | Significado | Política típica |
+| --- | --- | --- |
+| [SourceFileCorruption](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/warningtype/#SourceFileCorruption) | A apresentação de origem contém corrupção que pode tornar um documento salvo em seu formato original inutilizável. | Abort. |
+| [DataLoss](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/warningtype/#DataLoss) | Texto, gráficos, imagens ou outros dados podem estar ausentes após o carregamento ou a gravação. | Abort. |
+| [MajorFormattingLoss](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/warningtype/#MajorFormattingLoss) | A apresentação pode perder formatação importante. | Abort em modo de validação estrita; caso contrário, registre e continue. |
+| [MinorFormattingLoss](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/warningtype/#MinorFormattingLoss) | Pode ocorrer uma diferença limitada de formatação. | Registrar para diagnóstico e continuar. |
+| [CompatibilityIssue](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/warningtype/#CompatibilityIssue) | O resultado pode não abrir ou se comportar corretamente em algumas aplicações ou versões antigas. | Registrar e continuar, a menos que a compatibilidade seja obrigatória. |
+| [UnexpectedContent](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/warningtype/#UnexpectedContent) | A origem contém conteúdo não suportado ou não reconhecido cujo efeito pode ainda ser desconhecido. | Registrar e continuar, ou tratar como erro em política estrita. |
+
+A categoria deve orientar a decisão de política. Armazene o valor retornado por [getDescription](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iwarninginfo/#getDescription--) para diagnóstico, mas não dependa de sua redação para lógica da aplicação, pois o texto da mensagem pode variar entre cenários de aviso e versões do produto.
+
+## **Coletar e Classificar Avisos**
+
+O exemplo a seguir usa um relatório de nível de aplicação para todo o pipeline de processamento. Uma instância de callback separada rotula avisos de carregamento, renderização, conversão para PDF e gravação de PPTX. A política aborta em caso de corrupção da origem ou perda de dados, opcionalmente aborta em perda de formatação maior e continua para os demais avisos.
+
+Coloque `input.pptx` em um diretório gravável da aplicação e passe esse diretório para `PresentationWarningExample.run`. O exemplo salva suas saídas no mesmo diretório. Execute o processamento da apresentação em uma thread em segundo plano para manter a interface do usuário Android responsiva.
+
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.IWarningCallback;
+import com.aspose.slides.IWarningInfo;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.PdfOptions;
+import com.aspose.slides.PptxOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
+import com.aspose.slides.ReturnAction;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.WarningType;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class PresentationWarningExample {
+    public static void run(File dataDirectory) {
+        WarningReport report = new WarningReport();
+        WarningPolicy policy = new WarningPolicy(true);
+        File inputFile = new File(dataDirectory, "input.pptx");
+        boolean completed = processPresentation(inputFile.getAbsolutePath(), dataDirectory, report, policy);
+
+        System.out.println(completed ? "Processing completed." : "Processing stopped.");
+
+        for (WarningEntry entry : report.getEntries()) {
+            String typeName = warningTypeName(entry.type);
+            System.out.println("[" + entry.stage + "] " + typeName + ": " + entry.description);
+        }
+    }
+
+    private static boolean processPresentation(String inputPath, File dataDirectory, WarningReport report, WarningPolicy policy) {
+        try {
+            LoadOptions loadOptions = new LoadOptions();
+            ReportingWarningCallback callback = new ReportingWarningCallback(OperationStage.Loading, report, policy);
+            loadOptions.setWarningCallback(callback);
+
+            Presentation presentation = new Presentation(inputPath, loadOptions);
+            try {
+                if (!renderFirstSlide(presentation, dataDirectory, report, policy)) {
+                    return false;
+                }
+
+                if (!convertToPdf(presentation, dataDirectory, report, policy)) {
+                    return false;
+                }
+
+                return saveValidatedCopy(presentation, dataDirectory, report, policy);
+            }
+            finally {
+                presentation.dispose();
+            }
+        }
+        catch (Exception exception) {
+            System.err.println("Loading stopped: " + exception.getMessage());
+            return false;
+        }
+    }
+
+    private static boolean renderFirstSlide(Presentation presentation, File dataDirectory, WarningReport report, WarningPolicy policy) {
+        if (presentation.getSlides().size() == 0) {
+            System.err.println("Rendering stopped: the presentation has no slides.");
+            return false;
+        }
+
+        try {
+            RenderingOptions options = new RenderingOptions();
+            ReportingWarningCallback callback = new ReportingWarningCallback(OperationStage.Rendering, report, policy);
+            options.setWarningCallback(callback);
+
+            IImage image = presentation.getSlides().get_Item(0).getImage(options);
+            try {
+                File outputFile = new File(dataDirectory, "slide-1.png");
+                image.save(outputFile.getAbsolutePath(), ImageFormat.Png);
+                return true;
+            }
+            finally {
+                image.dispose();
+            }
+        }
+        catch (Exception exception) {
+            System.err.println("Rendering stopped: " + exception.getMessage());
+            return false;
+        }
+    }
+
+    private static boolean convertToPdf(Presentation presentation, File dataDirectory, WarningReport report, WarningPolicy policy) {
+        try {
+            PdfOptions options = new PdfOptions();
+            ReportingWarningCallback callback = new ReportingWarningCallback(OperationStage.Conversion, report, policy);
+            options.setWarningCallback(callback);
+
+            File outputFile = new File(dataDirectory, "converted.pdf");
+            presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pdf, options);
+            return true;
+        }
+        catch (Exception exception) {
+            System.err.println("Conversion stopped: " + exception.getMessage());
+            return false;
+        }
+    }
+
+    private static boolean saveValidatedCopy(Presentation presentation, File dataDirectory, WarningReport report, WarningPolicy policy) {
+        try {
+            PptxOptions options = new PptxOptions();
+            ReportingWarningCallback callback = new ReportingWarningCallback(OperationStage.Saving, report, policy);
+            options.setWarningCallback(callback);
+
+            File outputFile = new File(dataDirectory, "validated-output.pptx");
+            presentation.save(outputFile.getAbsolutePath(), SaveFormat.Pptx, options);
+            return true;
+        }
+        catch (Exception exception) {
+            System.err.println("Saving stopped: " + exception.getMessage());
+            return false;
+        }
+    }
+
+    private static String warningTypeName(int warningType) {
+        switch (warningType) {
+            case WarningType.SourceFileCorruption:
+                return "SourceFileCorruption";
+            case WarningType.DataLoss:
+                return "DataLoss";
+            case WarningType.MajorFormattingLoss:
+                return "MajorFormattingLoss";
+            case WarningType.MinorFormattingLoss:
+                return "MinorFormattingLoss";
+            case WarningType.CompatibilityIssue:
+                return "CompatibilityIssue";
+            case WarningType.UnexpectedContent:
+                return "UnexpectedContent";
+            default:
+                return "Unknown (" + warningType + ")";
+        }
+    }
+
+    private enum OperationStage {
+        Loading,
+        Rendering,
+        Conversion,
+        Saving
+    }
+
+    private static final class WarningEntry {
+        final OperationStage stage;
+        final int type;
+        final String description;
+
+        WarningEntry(OperationStage stage, int type, String description) {
+            this.stage = stage;
+            this.type = type;
+            this.description = description;
+        }
+    }
+
+    private static final class WarningReport {
+        private final List<WarningEntry> entries = new ArrayList<WarningEntry>();
+
+        List<WarningEntry> getEntries() {
+            return Collections.unmodifiableList(entries);
+        }
+
+        void add(OperationStage stage, IWarningInfo warning) {
+            WarningEntry entry = new WarningEntry(stage, warning.getWarningType(), warning.getDescription());
+            entries.add(entry);
+        }
+    }
+
+    private static final class WarningPolicy {
+        private final boolean abortOnMajorFormattingLoss;
+
+        WarningPolicy(boolean abortOnMajorFormattingLoss) {
+            this.abortOnMajorFormattingLoss = abortOnMajorFormattingLoss;
+        }
+
+        int getAction(int warningType) {
+            if (warningType == WarningType.SourceFileCorruption || warningType == WarningType.DataLoss) {
+                return ReturnAction.Abort;
+            }
+
+            if (warningType == WarningType.MajorFormattingLoss && abortOnMajorFormattingLoss) {
+                return ReturnAction.Abort;
+            }
+
+            return ReturnAction.Continue;
+        }
+    }
+
+    private static final class ReportingWarningCallback implements IWarningCallback {
+        private final OperationStage stage;
+        private final WarningReport report;
+        private final WarningPolicy policy;
+
+        ReportingWarningCallback(OperationStage stage, WarningReport report, WarningPolicy policy) {
+            this.stage = stage;
+            this.report = report;
+            this.policy = policy;
+        }
+
+        @Override
+        public int warning(IWarningInfo warning) {
+            report.add(stage, warning);
+            return policy.getAction(warning.getWarningType());
+        }
+    }
+}
+```
+
+Passe `false` para `abortOnMajorFormattingLoss` ao construir `WarningPolicy` se diferenças de formatação maior forem aceitáveis. Problemas de compatibilidade, perda de formatação menor e conteúdo inesperado ainda são mantidos no relatório mesmo quando a operação continua. Estenda `WarningPolicy.getAction` se a aplicação precisar rejeitar quaisquer dessas categorias.
+
+## **Cenários Comuns de Aviso**
+
+Os avisos podem aparecer em diferentes estágios de um fluxo de trabalho:
+
+- **Assinaturas digitais:** Uma apresentação assinada pode gerar um aviso durante o carregamento de que sua assinatura será perdida durante o processamento. Aspose.Slides relata essa condição `DataLoss` por meio de [IPresentationSignedWarningInfo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ipresentationsignedwarninginfo/). Um callback na fase de carregamento permite que a aplicação rejeite o arquivo ou aceite explicitamente a perda relatada.
+- **Substituição de fonte:** Uma fonte indisponível pode ser substituída enquanto um slide é renderizado ou exportado. Avisos de substituição de fonte são relatados como `DataLoss`, portanto a política estrita acima aborta mesmo que a aplicação considere uma substituição visualmente aceitável. Para observar esse comportamento, use uma apresentação de entrada contendo texto em uma fonte não disponível em tempo de execução. A descrição do aviso identifica a substituição; configure as fontes necessárias ou [font substitution rules](/slides/pt/androidjava/font-substitution/) antes de tentar novamente.
+- **Conteúdo não suportado ou inesperado:** Um carregador pode encontrar registros ou recursos da apresentação que não reconhece. Esses avisos podem usar `UnexpectedContent` ou uma categoria mais severa quando dados ou formatação são afetados.
+- **Compatibilidade de formato:** Salvar em outro formato de apresentação pode omitir recursos ou produzir um resultado que se comporte de forma diferente em algumas aplicações. Por exemplo, salvar uma apresentação com mais de oito guias de desenho horizontais ou verticais em um PPT legado gera um `CompatibilityIssue`. O callback na fase de gravação pode registrar a perda e continuar, ou rejeitar se for necessário preservar todas as guias.
+- **Comportamento de carregamento:** Opções de carregamento e comportamentos legados também podem gerar avisos. Por exemplo, [IObsoletePresLockingBehaviorWarningInfo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iobsoletepreslockingbehaviorwarninginfo/) identifica o uso de um comportamento antigo de bloqueio de apresentação como um `CompatibilityIssue`.
+
+Os avisos dependem do documento de origem, do formato de destino, da operação e da versão do Aspose.Slides. Não presuma que todo arquivo gerará um aviso ou que um cenário sempre se enquadra em apenas uma categoria.
+
+## **Manipular Operações Abortadas com Segurança**
+
+Quando um callback retorna `ReturnAction.Abort`, não use um objeto que falhou ao carregar e não presuma que uma saída de renderização ou gravação está completa. A operação pode terminar após criar um arquivo de saída, mas antes de finalizá‑lo.
+
+Salve os resultados validados em um caminho separado, como `validated-output.pptx`. Substitua uma apresentação existente somente depois que a operação terminar com sucesso, o relatório de avisos atender à política da aplicação e a saída puder ser aberta e verificada. Isso evita sobrescrever um arquivo de origem válido com um resultado parcial ou rejeitado.
+
+Um relatório de avisos vazio não garante que todos os recursos de origem tenham sido preservados. Aplique quaisquer verificações adicionais de conteúdo e visual exigidas pela aplicação. Consulte também [Open Presentations](/slides/pt/androidjava/open-presentation/) e [Save Presentations](/slides/pt/androidjava/save-presentation/).
+
+## **FAQ**
+
+**Um callback de aviso pode tratar todos os erros do Aspose.Slides?**
+
+Não. Ele trata apenas condições recuperáveis relatadas como avisos. Exceções que ocorrem independentemente do callback devem ser tratadas pela aplicação ao redor da chamada de carregamento, renderização, conversão ou gravação.
+
+**Retornar `ReturnAction.Continue` garante saída idêntica?**
+
+Não. Ele apenas permite que o processamento continue. A condição relatada ainda pode causar diferenças de dados, formatação ou compatibilidade, portanto revise os tipos e descrições de avisos coletados.
+
+**Como a aplicação pode identificar a operação que gerou um aviso?**
+
+Crie uma instância de callback para cada operação e armazene uma fase definida pela aplicação junto com os valores retornados por [getWarningType](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iwarninginfo/#getWarningType--) e [getDescription](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/iwarninginfo/#getDescription--), conforme demonstrado no exemplo.
