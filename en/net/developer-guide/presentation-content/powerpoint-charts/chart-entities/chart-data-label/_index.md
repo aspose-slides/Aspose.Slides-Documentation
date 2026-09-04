@@ -221,6 +221,20 @@ using (Presentation pres = new Presentation())
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
 
+## Troubleshoot Chart Rendering Issues
+
+If a chart is missing, its formatting is degraded, or data labels are not rendered correctly after converting a PPTX to PDF, the issue can be caused by a missing font required by the chart layout engine. Install the **Knockout 49 Liteweight** font on the system performing the conversion, or load the font at runtime before saving the PDF.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Load external fonts from a folder that contains Knockout 49 Liteweight
+FontsLoader.LoadExternalFonts(["path_to_folder_with_the_font"]);
+```
+
+After loading the font, proceed with the usual PPTX-to-PDF conversion. This resolves rendering problems related to near-zero data label coordinates that can otherwise cause charts to disappear or display incorrectly.
+
 ## **FAQ**
 
 ### How can I prevent data labels from overlapping on dense charts?
