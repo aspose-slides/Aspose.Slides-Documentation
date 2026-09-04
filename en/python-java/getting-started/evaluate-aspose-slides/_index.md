@@ -3,18 +3,25 @@ title: Evaluate Aspose.Slides
 type: docs
 weight: 120
 url: /python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- evaluation version
+- trial limitations
+- evaluation watermark
+- temporary license
+description: "Evaluate Aspose.Slides for Python via Java, learn about trial limitations, and request a 30-day temporary license to test the full functionality."
 ---
 
+You can download Aspose.Slides for Python via Java to evaluate its features. The evaluation package is identical to the licensed package. To use it without evaluation limitations, add a few lines of code to apply a license.
 
-You can easily download Aspose.Slides for evaluation. The evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to apply the license. 
+The evaluation version of Aspose.Slides (used without a license) provides full product functionality, but it inserts an evaluation watermark at the top of the document when you open or save it. Text extraction is limited to one slide per presentation.
 
-The evaluation version of Aspose.Slides (without a license specified) provides full product functionality, but it inserts an evaluation watermark at the top of the document on open and save. You are also limited to one slide when extracting texts from presentation slides.
+![Aspose.Slides evaluation watermark on a presentation slide](evaluate-aspose-slides_1.png)
 
+{{% alert color="info" title="Note" %}}
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="info" %}} 
-
-If you want to test Aspose.Slides without evaluation version limitations, you can request a **30 Day Temporary License**. Please refer to [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) for more information.
+To test Aspose.Slides without evaluation limitations, you can request a **30-day temporary license**. See [Get a Temporary License](https://purchase.aspose.com/temporary-license) for more information.
 
 {{% /alert %}}

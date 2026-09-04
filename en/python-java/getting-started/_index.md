@@ -1,18 +1,53 @@
 ---
 title: Getting Started
 type: docs
-description: "Use this introduction to Aspose.Slides for Python via Java fundamentals to start realizing the value of Aspose.Slides for your business."
 weight: 10
 url: /python-java/getting-started/
+keywords:
+- getting started
+- installation
+- system requirements
+- licensing
+- PowerPoint
+- presentation
+- Python
+- Java
+- Aspose.Slides
+description: "Get started with Aspose.Slides for Python via Java: review requirements, install the library, explore supported formats and features, and apply a license."
 ---
 
-This **Getting Started** page introduces you to Aspose.Slides fundamentals. If you are using Aspose.Slides for the first time, you can review the product's basic requirements and its capabilities quickly from this page.
+## **Overview**
 
-- [**Product Overview**](/slides/python-java/product-overview/) – provides general information about the Aspose.Slides for Python via Java library
-- [**Supported File Formats**](/slides/python-java/supported-file-formats/) – provides information on supported formats
-- [**Features Overview**](/slides/python-java/features-overview/) – provides information on features that are supported when a document is loaded or saved in a given format
-- [**System Requirements**](/slides/python-java/system-requirements/) – provides information on system and development environment requirements
-- [**Limitations and API Differences**](/slides/python-java/limitations-and-api-differences/) – provides information on the product limitations and API differences
-- [**Licensing and Subscription**](/slides/python-java/licensing) – provides information on applying a license and using multiple Aspose products
-- [**Installation**](/slides/python-java/installation/) – provides information on installing Aspose.Slides.
+This section helps you prepare your environment and start using Aspose.Slides for Python via Java. Follow the setup steps below, then explore the library's capabilities and the guidance relevant to your project.
 
+## **Set Up the Library**
+
+1. Review the [System Requirements](/slides/python-java/system-requirements/) to check the operating system, Python, Java, and JPype requirements.
+2. Follow the [Installation](/slides/python-java/installation/) guide to install the required packages and verify the setup with an example.
+3. Read [Evaluate Aspose.Slides](/slides/python-java/evaluate-aspose-slides/) to understand evaluation limitations and temporary license options.
+4. Follow the [Licensing](/slides/python-java/licensing/) guide to apply your license.
+
+## **Explore Features and Compatibility**
+
+- [Product Overview](/slides/python-java/product-overview/) introduces the library and its presentation processing capabilities.
+- [Supported File Formats](/slides/python-java/supported-file-formats/) lists the formats available for loading, importing, saving, and exporting presentations.
+- [Features Overview](/slides/python-java/features-overview/) summarizes conversion, rendering, editing, and formatting features.
+- [Limitations and API Differences](/slides/python-java/limitations-and-api-differences/) explains limitations and differences to consider when using the Java API from Python.
+
+## **Get Help**
+
+See [Product Support](/slides/python-java/product-support/) for troubleshooting guidance, issue reporting instructions, and links to additional resources.
+
+## **FAQ**
+
+**Where should I start if I have never used Aspose.Slides for Python via Java?**
+
+Start with the System Requirements and Installation guides linked above. The installation guide includes an example you can run to verify your environment.
+
+**Where can I check whether the library supports my presentation format?**
+
+Use Supported File Formats to check input and output formats, then consult Features Overview for the operations available for your task.
+
+**What should I read before adapting Java examples for Python?**
+
+Read Limitations and API Differences for guidance on imports, resource cleanup, and file handling in Python via Java.
