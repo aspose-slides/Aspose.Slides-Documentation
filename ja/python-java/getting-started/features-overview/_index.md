@@ -3,69 +3,79 @@ title: 機能概要
 type: docs
 weight: 20
 url: /ja/python-java/features-overview/
+keywords:
+- Aspose.Slides for Python via Java
+- PowerPoint の機能
+- プレゼンテーション変換
+- スライドレンダリング
+- プレゼンテーション編集
+- テキスト書式設定
+- シェイプとチャート
+- PPT
+- PPTX
+- Python
+description: "Aspose.Slides for Python via Java の機能を探索し、PowerPoint プレゼンテーションの変換、レンダリング、編集（スライド、テキスト、シェイプ、チャートを含む）を行います。"
 ---
-## **サポートされているプラットフォーム**
-Aspose.Slides for Python via Java はプラットフォームに依存しない API です。Python 3.7 以上がインストールされている任意のプラットフォーム (Windows、Linux、MacOS など) で使用できます。JDK 8 以上も必要です。
+この記事では、Aspose.Slides for Python via Java のプレゼンテーション処理機能について説明します。サポートされているオペレーティングシステムと依存関係については、[System Requirements](/slides/ja/python-java/system-requirements/) を参照してください。
 
 ## **ファイル形式と変換**
-Aspose.Slides for Python via Java はほとんどの PowerPoint 文書形式をサポートします。また、組織が使用・共有する一般的なファイル形式へエクスポートすることもできます。以下をご覧ください。
 
-|**機能**|**説明**|
-| :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Python via Java はこのプレゼンテーション文書形式に対して最速の処理を提供します。|
-|PPT to PPTX conversion|Aspose.Slides for Python via Java は PPT から PPTX への変換をサポートします。|
-|Portable Document Format (PDF)|サポートされているすべてのファイル形式を、単一のメソッドで Adobe Portable Document Format (PDF) ドキュメントにエクスポートできます。|
-|XML Parser Specification (XPS)|サポートされているすべてのファイル形式を、単一のメソッドで XML Parser Specification (XPS) ドキュメントにエクスポートできます。|
-|Tagged Image File Format (TIFF)|サポートされているプレゼンテーションファイル形式を Tagged Image File Format (TIFF) にエクスポートできます。|
-|PPTX To HTML Conversion|Aspose.Slides for Python via Java は PresentationEx を HTML 形式に変換することをサポートします。|
+Aspose.Slides for Python via Java を使用すると、プレゼンテーション形式間の変換や、プレゼンテーションを文書やウェブ形式にエクスポートできます。完全な形式表およびプレゼンテーションの読み込み、コンテンツのインポート、出力のエクスポートの違いについては、[Supported File Formats](/slides/ja/python-java/supported-file-formats/) を参照してください。
 
 ## **プレゼンテーションのレンダリング**
-Aspose.Slides for Python via Java はプレゼンテーションのスライドを高忠実度でさまざまなグラフィック形式にレンダリングします。以下をご覧ください。
 
-|**機能**|**説明**|
-| :- | :- |
-|Java Supported Image Formats|Aspose.Slides for Python via Java を使用すると、プレゼンテーションのスライドやスライド上の画像を、TIFF、PNG、BMP、JPEG、GIF など Java がサポートするすべてのグラフィック形式でレンダリングできます。|
-|SVG Format|Aspose.Slides for Python via Java は、プレゼンテーションスライドを Scalable Vector Graphics (SVG) 形式にエクスポートする組み込みメソッドも提供します。|
+Aspose.Slides for Python via Java は、プレビューやその他の視覚出力のために、ラスタ画像またはベクタ画像として高忠実度のスライドレンダリングを提供します。また、スライド上に画像をレンダリングすることもできます。利用可能な画像形式とエクスポートに関する注意事項については、[Supported File Formats](/slides/ja/python-java/supported-file-formats/#supported-file-formats) を参照してください。
 
 ## **コンテンツ機能**
-Aspose.Slides for Python via Java はプレゼンテーション文書のほぼすべての項目やコンテンツにアクセス、変更、作成できます。以下をご覧ください。
+
+Aspose.Slides for Python via Java は、ほぼすべての種類のプレゼンテーションコンテンツにアクセス、変更、作成できるようにします。以下に示す通りです。
 
 |**機能**|**説明**|
 | :- | :- |
-|Master Slides|マスタースライドは通常のスライドのレイアウトを定義します。Aspose.Slides for Python via Java を使用すると、プレゼンテーション文書のマスタースライドにアクセスし、変更できます。|
-|Normal Slides|Aspose.Slides for Python via Java を使用すると、さまざまなタイプの新しいスライドを作成でき、プレゼンテーション内の既存スライドにもアクセスして変更できます。|
-|Cloning / Copying Slides|Aspose.Slides for Python via Java が提供する組み込みメソッドにより、プレゼンテーション内の既存スライドをクローンまたはコピーできます。クローンやコピーしたスライドを別のプレゼンテーションで使用することも可能です。スライドはマスタースライドからレイアウトを継承するため、組み込みのクローンメソッドは自動的にマスターもコピーします。|
-|Managing Slides sections|プレゼンテーション内でスライドを異なるセクションに整理するためのメソッド|
-|Place Holders and Text Holders|スライド内のプレースホルダーとテキストホルダーにアクセスできます。また、適切なメソッドを使用してテキストホルダーを持つスライドをゼロから作成できます。|
-|Header and Footers|Aspose.Slides for Python via Java はスライドのヘッダー/フッターの処理を容易にします。|
-|Notes in Slides|Aspose.Slides for Python via Java を使用すると、スライドに関連付けられたノートにアクセスし、変更でき、さらに新しいノートを追加できます。|
-|Finding a Shape|シェイプに関連付けられた代替テキストを使用して、スライドから特定のシェイプを検索できます。|
-|Backgrounds|Aspose.Slides for Python via Java は、プレゼンテーションのマスターまたは通常スライドに関連付けられた背景を操作できます。|
-|Text Boxes|テキストボックスはゼロから作成でき、既存のテキストボックスにアクセスできます。また、元のテキスト形式を保持したままテキストを変更できます。|
-|Rectangle Shapes|Aspose.Slides for Python via Java を使用して、長方形シェイプを作成または変更できます。|
-|Poly Line Shapes|ポリラインシェイプを作成または変更できます。|
-|Ellipse Shapes|楕円シェイプを作成または変更できます。|
-|Group Shapes|Aspose.Slides for Python via Java はグループシェイプをサポートします。|
-|Auto Shapes|自動シェイプをサポートします。|
-|SmartArt|MS PowerPoint の SmartArt シェイプをサポートします。|
-|Charts|PowerPoint の MSO チャートをサポートします。|
-|Shapes Serialization|Aspose.Slides for Python via Java は多数のシェイプをサポートします。サポートされていないシェイプがある場合、シリアライズ方法を使用して既存スライドからそのシェイプをシリアライズできます。この方法により、要件に応じてシェイプを再利用できます。|
-|Picture Frames|Picture Frames 内の画像を管理できます。|
-|Audio Frames|スライド上の Audio Frames に音声ファイルをリンクまたは埋め込みできます。|
-|Video Frames|Video Frames のビデオファイルを操作できます。また、リンク済みおよび埋め込みビデオをサポートします。|
-|OLE Frame|OLE Frame 内の OLE オブジェクトを管理できます。|
-|Tables|スライド内のテーブルをサポートします。|
-|ActiveX Controls|ActiveX コントロールをサポートします。|
-|VBA Macros|プレゼンテーション内の VBA マクロの管理をサポートします。|
-|Text Frame|任意のシェイプに関連付けられたテキストフレームを通じてテキストにアクセスできます。|
-|Text Scanning|組み込みのスキャンメソッドを使用して、プレゼンテーション全体またはスライド単位でテキストをスキャンできます。|
-|Animations|シェイプにアニメーションを適用できます。|
-|Slide Shows|スライドショーとスライドトランジションをサポートします。|
+|プレゼンテーション|プレゼンテーションをゼロから作成したり、既存のファイルを開くことができます。|
+|ドキュメントプロパティ|ドキュメントプロパティを読み取り、変更できます。|
+|プレゼンテーション保護|パスワード保護を適用し、プレゼンテーション保護設定を管理できます。|
+|マスタースライド|マスタースライドは標準スライドのレイアウトを定義します。Aspose.Slides for Python via Java を使用すると、プレゼンテーション内のマスタースライドにアクセスし、変更できます。|
+|標準スライド|プレゼンテーション内のスライドを追加、アクセス、編集、並び替え、削除できます。|
+|スライドレイアウト|スライドレイアウトを操作できます。|
+|スライドのクローン作成とコピー|組み込みメソッドを使用して、プレゼンテーション内またはプレゼンテーション間でスライドをクローンまたはコピーできます。これらのメソッドは、スライドをクローンする際に関連するマスタースライドを自動的にコピーします。|
+|スライドセクション|プレゼンテーション内でスライドをセクションに整理できます。|
+|プレースホルダーとテキストホルダー|スライド上のプレースホルダーとテキストホルダーにアクセスでき、ゼロからテキストホルダー付きのスライドを作成できます。|
+|ヘッダーとフッター|Aspose.Slides for Python via Java でヘッダーとフッターを管理できます。|
+|スライドノート|スライドノートにアクセス、追加、変更でき、PDF や TIFF へエクスポートする際に含めることができます。|
+|シェイプの検索|代替テキストを使用して、スライド上の特定のシェイプを見つけることができます。|
+|代替テキスト|シェイプの代替テキストを読み取り、更新できます。|
+|ハイパーリンク|シェイプ上のハイパーリンクを読み取り、更新し、テキストにハイパーリンクを追加できます。|
+|背景|プレゼンテーションのマスタースライドと標準スライドの背景を操作できます。|
+|テキストボックス|ゼロからテキストボックスを作成し、既存のテキストボックスにアクセスし、元の書式を保持しながらテキストを変更できます。|
+|矩形シェイプ|矩形シェイプを作成および変更できます。|
+|線シェイプ|線シェイプを作成および変更できます。|
+|ポリラインシェイプ|ポリラインシェイプを作成および変更できます。|
+|楕円シェイプ|楕円シェイプを作成および変更できます。|
+|グループシェイプ|Aspose.Slides for Python via Java はグループシェイプをサポートします。|
+|オートシェイプ|Aspose.Slides for Python via Java はオートシェイプをサポートします。|
+|SmartArt|プレゼンテーション内で SmartArt シェイプを作成および編集できます。|
+|チャート|PowerPoint プレゼンテーション内で Microsoft Office のチャートを作成および編集できます。|
+|シェイプのシリアライズ|Aspose.Slides for Python via Java は多くのシェイプタイプをサポートしています。サポートされていないシェイプについては、シリアライズを使用して既存スライドのシェイプを保持し、再利用できます。|
+|シェイプロック|編集操作を制限するためにシェイプロックを適用できます。|
+|画像フレーム|画像フレーム内の画像を管理できます。|
+|オーディオフレーム|スライド上のオーディオフレームに音声ファイルをリンクまたは埋め込むことができます。|
+|ビデオフレーム|ビデオフレーム内のリンク動画と埋め込み動画を管理できます。|
+|OLE フレーム|OLE フレーム内の OLE オブジェクトを管理できます。|
+|テーブル|テーブルを作成、移動、サイズ変更でき、行や列の追加、削除、サイズ変更、セルの内容、罫線、塗りつぶし、テキスト書式設定の読み取りと変更が可能です。|
+|ActiveX コントロール|Aspose.Slides for Python via Java は ActiveX コントロールをサポートします。|
+|VBA マクロ|プレゼンテーション内の VBA マクロを管理できます。|
+|テキストフレーム|シェイプに関連付けられたテキストフレームを通じてテキストにアクセスし、テキストフレームの余白や折り返しを調整できます。|
+|フォント|プレゼンテーションで使用されるフォントを管理できます。|
+|テキストスキャン|組み込みメソッドを使用して、プレゼンテーション全体または個々のスライドのテキストをスキャンできます。|
+|アニメーション|シェイプにアニメーション効果を追加および変更できます。|
+|スライドショー|Aspose.Slides for Python via Java はスライドショーとスライド遷移をサポートし、Morph 遷移も含みます。|
 
 ## **書式設定機能**
-Aspose.Slides for Python via Java を使用すると、プレゼンテーションのスライド上のテキストやシェイプの書式設定が可能です。以下をご覧ください。
+
+Aspose.Slides for Python via Java は、プレゼンテーションスライド上のテキストとシェイプの書式設定を可能にします。以下に示す通りです。
 
 |**機能**|**説明**|
 | :- | :- |
-|Text Formatting|<p>Aspose.Slides for Python via Java では、シェイプに関連付けられたテキストフレームを通じてテキストを管理できます。そのため、テキストフレームに関連付けられた段落や部分を使用してテキストの書式設定が可能です。これらのテキスト要素は Aspose.Slides for Python via Java で書式設定できます。</p><p>- フォントタイプ</p><p>- フォントサイズ</p><p>- フォントカラー</p><p>- フォントの濃淡</p><p>- 段落の配置</p><p>- 段落の箇条書き</p><p>- 段落の向き</p>|
-|Shape Formatting|<p>Aspose.Slides for Python via Java では、スライドの基本要素はシェイプです。これらのシェイプ要素は Aspose.Slides for Python via Java を使用して書式設定できます。</p><p>- 位置</p><p>- サイズ</p><p>- 線</p><p>- 塗りつぶし（パターン、グラデーション、単色を含む）</p><p>- テキスト</p><p>- 画像</p>|
+|テキスト書式設定|<p>シェイプに関連付けられたテキストフレームを通じてテキストを管理し、個々の段落やテキスト部分の書式設定ができます。利用可能な書式設定オプションは以下のとおりです：</p><p>- フォントタイプ</p><p>- フォントサイズ</p><p>- フォントカラー</p><p>- フォントのシェーディング</p><p>- 段落の配置</p><p>- 段落のインデントとタブ</p><p>- 段落の箇条書き</p><p>- 段落の方向</p>|
+|シェイプ書式設定|<p>シェイプはスライドの基本要素です。以下のシェイププロパティを調整できます：</p><p>- 位置</p><p>- サイズ</p><p>- 回転</p><p>- 線スタイル</p><p>- 塗りつぶし（単色、グラデーション、パターン、テクスチャ、画像塗りつぶしを含む）</p><p>- テキスト</p><p>- 画像</p>|

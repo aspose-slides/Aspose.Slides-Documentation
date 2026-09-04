@@ -3,12 +3,17 @@ title: مرجع API
 type: docs
 weight: 50
 url: /ar/python-java/api-reference/
+keywords:
+- مرجع API
+- Aspose.Slides لبايثون عبر جافا
+- واجهة برمجة تطبيقات PowerPoint للبايثون
+- واجهة برمجة تطبيقات العروض التقديمية
+- بايثون
+- جافا
+- Aspose.Slides
+description: "استكشف مرجع API الخاص بـ Aspose.Slides لبايثون عبر جافا لإنشاء وتحرير وتصدير العروض التقديمية دون الحاجة إلى Microsoft PowerPoint."
 ---
-
-{{% alert color="primary" %}} 
-
-Aspose.Slides لـ Python عبر Java هي مكتبة صفوف تمكن تطبيقات Python من قراءة وكتابة مستندات العرض التقديمي بدون استخدام Microsoft PowerPoint® أو غيره. تتيح Aspose.Slides لـ Python عبر Java إدارة النصوص والأشكال والجداول والرسوم المتحركة، إضافة الصوت والفيديو إلى الشرائح، معاينة الشرائح، تصدير الشرائح إلى تنسيق SVG و PDF، والقيام بالعديد من الأمور الأخرى.
-
-تستخدم Aspose.Slides لـ Python عبر Java [نفس مرجع API مثل Aspose.Slides لـ Java](https://reference.aspose.com/slides/python-java/). 
-
+{{% alert color="info" title="ملاحظة" %}}
+Aspose.Slides for Python via Java هو مكتبة فئة تمكّن تطبيقات Python من قراءة وكتابة العروض التقديمية دون الحاجة إلى Microsoft PowerPoint®. يتيح لك إدارة النصوص والأشكال والجداول والرسوم المتحركة؛ إضافة الصوت والفيديو إلى الشرائح؛ معاينة الشرائح؛ وتصدير الشرائح إلى SVG و PDF وصيغ أخرى.
+للتفاصيل، راجع [Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/ar/python-java/).
 {{% /alert %}}

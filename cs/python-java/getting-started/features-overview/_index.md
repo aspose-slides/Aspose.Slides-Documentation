@@ -3,69 +3,79 @@ title: Přehled funkcí
 type: docs
 weight: 20
 url: /cs/python-java/features-overview/
+keywords:
+- Aspose.Slides for Python via Java
+- Funkce PowerPointu
+- převod prezentací
+- renderování snímků
+- úprava prezentací
+- formátování textu
+- tvary a grafy
+- PPT
+- PPTX
+- Python
+description: "Prozkoumejte funkce Aspose.Slides for Python via Java pro převod, renderování a úpravu PowerPoint prezentací, včetně snímků, textu, tvarů a grafů."
 ---
-## **Podporované platformy**
-Aspose.Slides for Python via Java je platformně nezávislé API. Lze jej použít na libovolné platformě (Windows, Linux, macOS atd.), kde je nainstalován Python 3.7 nebo vyšší. JDK 8 nebo vyšší je dalším požadavkem.
+Tento článek popisuje schopnosti zpracování prezentací v Aspose.Slides for Python via Java. Pro podporované operační systémy a závislosti viz [Požadavky na systém](/slides/cs/python-java/system-requirements/).
 
 ## **Formáty souborů a konverze**
-Aspose.Slides for Python via Java podporuje většinu formátů dokumentů PowerPoint. Umožňuje je také exportovat do populárních formátů souborů, které organizace používají a sdílejí mezi sebou. Projděte si tyto podrobnosti:
 
-|**Funkce**|**Popis**|
-| :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Python via Java poskytuje nejrychlejší zpracování tohoto formátu prezentačního dokumentu.|
-|PPT na PPTX konverze|Aspose.Slides for Python via Java podporuje konverzi PPT na PPTX|
-|Portable Document Format (PDF)|Můžete exportovat všechny podporované formáty souborů do dokumentů Adobe Portable Document Format (PDF) jednou metodou.|
-|XML Parser Specification (XPS)|Můžete exportovat všechny podporované formáty souborů do dokumentů XML Parser Specification (XPS) jednou metodou.|
-|Tagged Image File Format (TIFF)|Můžete exportovat všechny podporované formáty souborů prezentací do Tagged Image File Format (TIFF).|
-|PPTX na HTML konverze|Aspose.Slides for Python via Java podporuje konverzi PresentationEx do formátu HTML.|
+Aspose.Slides for Python via Java vám umožňuje převádět mezi formáty prezentací a exportovat prezentace do dokumentových a webových formátů. Viz [Podporované formáty souborů](/slides/cs/python-java/supported-file-formats/) pro úplnou tabulku formátů a rozlišení mezi načítáním prezentací, importem obsahu a exportem výstupu.
 
 ## **Renderování prezentací**
-Aspose.Slides for Python via Java podporuje vysoce kvalitní renderování snímků v prezentaci do různých grafických formátů. Projděte si tyto podrobnosti:
 
-|**Funkce**|**Popis**|
-| :- | :- |
-|Java podporované formáty obrázků|Pomocí Aspose.Slides for Python via Java můžete renderovat snímky prezentace a obrázky na snímcích do všech grafických formátů podporovaných Javou, jako jsou TIFF, PNG, BMP, JPEG, GIF.|
-|Formát SVG|Aspose.Slides for Python via Java také poskytuje vestavěné metody, které umožňují exportovat snímky prezentace do formátů Scalable Vector Graphics (SVG).|
+Aspose.Slides for Python via Java poskytuje vysoce věrné renderování snímků jako rastrových nebo vektorových obrázků pro náhledy a další vizuální výstupy. Také vám umožňuje renderovat obrázky na snímcích. Pro dostupné formáty obrázků a poznámky k exportu viz [Podporované formáty souborů](/slides/cs/python-java/supported-file-formats/#supported-file-formats).
 
 ## **Funkce obsahu**
-Aspose.Slides for Python via Java vám umožňuje přistupovat k téměř všem položkám nebo obsahu prezentačních dokumentů, modifikovat je nebo je vytvářet. Projděte si tyto podrobnosti:
+
+Aspose.Slides for Python via Java vám umožňuje přistupovat, upravovat a vytvářet téměř všechny typy obsahu prezentace, jak je uvedeno níže:
 
 |**Funkce**|**Popis**|
 | :- | :- |
-|Master snímky|Master snímky definují rozvržení normálních snímků. Aspose.Slides for Python via Java umožňuje přístup k Master snímkům prezentačních dokumentů a jejich úpravu.|
-|Normální snímky|S Aspose.Slides for Python via Java můžete vytvářet nové snímky různých typů; také můžete přistupovat k existujícím snímkům v prezentacích a upravovat je.|
-|Klonování / Kopírování snímků|Existují vestavěné metody poskytované Aspose.Slides for Python via Java, které umožňují klonovat nebo kopírovat existující snímky v rámci prezentace. Můžete také použít zkopírované a klonované snímky z jedné prezentace do druhé. Jelikož snímek dědí rozvržení z master snímku, vestavěné metody klonování automaticky zkopírují master při klonování.|
-|Správa sekcí snímků|Metody pro organizaci snímků v různých sekcích uvnitř prezentace|
-|Zástupci místa a textové zástupce|Můžete přistupovat k zástupcům místa a textovým zástupcům na snímku. Navíc můžete vytvořit snímek s textovými zástupci od nuly pomocí příslušné metody.|
-|Záhlaví a zápatí|Aspose.Slides for Python via Java usnadňuje práci se záhlavími/zápatími na snímcích.|
-|Poznámky na snímcích|S Aspose.Slides for Python via Java můžete přistupovat k poznámkám spojeným se snímkem, upravovat je a také přidávat nové poznámky.|
-|Vyhledání tvaru|Můžete také najít konkrétní tvar na snímku pomocí alternativního textu přiřazeného tvaru.|
-|Pozadí|Aspose.Slides for Python via Java vám umožňuje pracovat s pozadími přiřazenými k master nebo normálnímu snímku v prezentaci.|
-|Textová pole|Textová pole lze vytvořit od nuly. Můžete přistupovat k existujícím textovým polím. Také můžete upravovat jejich texty, aniž byste ztratili původní formátování textu.|
-|Obdélníkové tvary|Můžete vytvářet nebo upravovat obdélníkové tvary pomocí Aspose.Slides for Python via Java.|
-|Poly Line tvary|Můžete vytvářet nebo upravovat polyline tvary pomocí Aspose.Slides for Python via Java.|
-|Elipsové tvary|Můžete vytvářet nebo upravovat elipsové tvary pomocí Aspose.Slides for Python via Java.|
-|Skupinové tvary|Aspose.Slides for Python via Java podporuje skupinové tvary|
-|Auto tvary|Aspose.Slides for Python via Java podporuje auto tvary|
-|SmartArt|Aspose.Slides for Python via Java poskytuje podporu pro SmartArt tvary v MS PowerPoint|
-|Charts|Aspose.Slides for Python via Java poskytuje podporu pro MSO diagramy v PowerPoint|
-|Serializace tvarů|Aspose.Slides for Python via Java podporuje velké množství tvarů. Když Aspose.Slides for Python via Java postrádá podporu pro určitý tvar, můžete použít metodu serializace, pomocí které ten tvar serializujete z existujícího snímku. Tímto způsobem můžete tvar dále využít podle svých požadavků.|
-|Rámce obrázků|Můžete spravovat obrázky v rámech obrázků pomocí Aspose.Slides for Python via Java.|
-|Audio rámy|Můžete propojit nebo vložit audio soubory do audio rámů na snímcích pomocí Aspose.Slides for Python via Java.|
-|Video rámy|Můžete pracovat se soubory videa ve video rámech. Aspose.Slides for Python via Java také poskytuje podporu pro propojená a vložená videa.|
-|OLE rám|Můžete spravovat OLE objekty v OLE rámcích pomocí Aspose.Slides for Python via Java.|
-|Tabulky|Aspose.Slides for Python via Java podporuje tabulky na snímcích.|
-|ActiveX ovládací prvky|Podpora pro ActiveX ovládací prvky|
-|VBA makra|Podpora pro správu VBA makr v prezentacích.|
-|Textový rám|Můžete získat přístup k textu libovolného tvaru prostřednictvím textového rámce spojeného s tímto tvarem.|
-|Skenování textu|Můžete skenovat text v prezentaci na úrovni celé prezentace nebo snímku pomocí vestavěných metod skenování.|
-|Animace|Můžete aplikovat animace na tvary.|
-|Promítání|Aspose.Slides for Python via Java podporuje promítání snímků a přechody mezi snímky.|
+|Presentations|Můžete vytvářet prezentace od nuly nebo otevírat existující soubory.|
+|Document Properties|Můžete číst a upravovat vlastnosti dokumentu.|
+|Presentation Protection|Můžete použít ochranu heslem a spravovat nastavení ochrany prezentace.|
+|Master Slides|Master snímky určují rozložení běžných snímků. Aspose.Slides for Python via Java umožňuje přístup a úpravu master snímků v prezentacích.|
+|Normal Slides|Můžete přidávat, přistupovat, upravovat, přeskupovat a mazat snímky v prezentacích.|
+|Slide Layouts|Můžete pracovat s rozvrženími snímků.|
+|Cloning and Copying Slides|Vestavěné metody umožňují klonovat nebo kopírovat snímky v rámci jedné prezentace nebo mezi prezentacemi. Tyto metody automaticky kopírují související master snímek při klonování snímku.|
+|Slide Sections|Můžete organizovat snímky do sekcí v rámci prezentace.|
+|Placeholders and Text Holders|Můžete přistupovat k místům určeným pro obsah a textovým držitelům na snímku a také vytvářet snímky s textovými držiteli od nuly.|
+|Headers and Footers|Aspose.Slides for Python via Java vám umožňuje spravovat záhlaví a zápatí.|
+|Slide Notes|Můžete přistupovat, přidávat a upravovat poznámky ke snímkům a zahrnout je při exportu do PDF nebo TIFF.|
+|Finding a Shape|Můžete najít konkrétní tvar na snímku pomocí jeho alternativního textu.|
+|Alternative Text|Můžete číst a aktualizovat alternativní text pro tvary.|
+|Hyperlinks|Můžete číst a aktualizovat hypertextové odkazy na tvarech a přidávat odkazy do textu.|
+|Backgrounds|Můžete pracovat s pozadími master snímků a běžných snímků v prezentaci.|
+|Text Boxes|Můžete vytvářet textová pole od nuly, přistupovat k existujícím textovým polím a upravovat jejich text při zachování původního formátování.|
+|Rectangle Shapes|Můžete vytvářet a upravovat obdélníkové tvary.|
+|Line Shapes|Můžete vytvářet a upravovat čárové tvary.|
+|Polyline Shapes|Můžete vytvářet a upravovat víceúsečné tvary.|
+|Ellipse Shapes|Můžete vytvářet a upravovat eliptické tvary.|
+|Group Shapes|Aspose.Slides for Python via Java podporuje skupinové tvary.|
+|AutoShapes|Aspose.Slides for Python via Java podporuje AutoShapes.|
+|SmartArt|Můžete vytvářet a upravovat SmartArt tvary v prezentacích.|
+|Charts|Můžete vytvářet a upravovat grafy Microsoft Office v prezentacích PowerPoint.|
+|Shape Serialization|Aspose.Slides for Python via Java podporuje mnoho typů tvarů. Pro nepodporované tvary můžete použít serializaci k zachování tvaru z existujícího snímku pro opětovné použití.|
+|Shape Locks|Můžete použít zamykání tvarů k omezení editačních akcí.|
+|Picture Frames|Můžete spravovat obrázky v rámech obrázků.|
+|Audio Frames|Můžete připojit nebo vložit zvukové soubory v audio rámech na snímcích.|
+|Video Frames|Můžete spravovat propojená a vložená videa ve video rámech.|
+|OLE Frames|Můžete spravovat OLE objekty v OLE rámcích.|
+|Tables|Můžete vytvářet, přesouvat a měnit velikost tabulek; přidávat, mazat a měnit velikost řádků a sloupců; a číst a upravovat obsah buněk, okraje, výplně a formátování textu.|
+|ActiveX Controls|Aspose.Slides for Python via Java podporuje ActiveX ovládací prvky.|
+|VBA Macros|Můžete spravovat VBA makra v prezentacích.|
+|Text Frames|Můžete přistupovat k textu tvaru prostřednictvím jeho souvisejícího textového rámce a upravovat okraje textového rámce a zalamování textu.|
+|Fonts|Můžete spravovat písma použité v prezentacích.|
+|Text Scanning|Vestavěné metody vám umožňují skenovat text v celé prezentaci nebo na jednotlivých snímcích.|
+|Animations|Můžete přidávat a upravovat animační efekty na tvarech.|
+|Slide Shows|Aspose.Slides for Python via Java podporuje prezentace a přechody mezi snímky, včetně Morph přechodů.|
 
 ## **Formátovací funkce**
-S Aspose.Slides for Python via Java můžete formátovat texty a tvary na snímcích v prezentacích. Projděte si tyto podrobnosti:
+
+Aspose.Slides for Python via Java vám umožňuje formátovat text a tvary na snímcích prezentace, jak je uvedeno níže:
 
 |**Funkce**|**Popis**|
 | :- | :- |
-|Formátování textu|<p>V Aspose.Slides for Python via Java můžete spravovat texty prostřednictvím textových rámců spojených s tvary. Tím můžete formátovat texty pomocí odstavců a částí spojených s textovými rámci. Tyto textové prvky lze formátovat pomocí Aspose.Slides for Python via Java.</p><p>- Typ písma</p><p>- Velikost písma</p><p>- Barva písma</p><p>- Stíny písma</p><p>- Zarovnání odstavce</p><p>- Odrážky odstavce</p><p>- Orientace odstavce</p>|
-|Formátování tvaru|<p>V Aspose.Slides for Python via Java je základním prvkem snímku tvar. Můžete formátovat tyto tvary pomocí Aspose.Slides for Python via Java:</p><p>- Pozice</p><p>- Velikost</p><p>- Čára</p><p>- Výplň (včetně vzoru, gradientu, jednobarevné)</p><p>- Text</p><p>- Obrázek</p>|
+|Text Formatting|<p>Můžete spravovat text pomocí textových rámců spojených s tvary a formátovat jednotlivé odstavce a úseky textu. K dispozici jsou následující možnosti formátování:</p><p>- Typ písma</p><p>- Velikost písma</p><p>- Barva písma</p><p>- Stínování písma</p><p>- Zarovnání odstavce</p><p>- Odsazení odstavce a tabulátory</p><p>- Odstavcové odrážky</p><p>- Orientace odstavce</p>|
+|Shape Formatting|<p>Tvary jsou základními prvky snímku. Můžete upravit následující vlastnosti tvaru:</p><p>- Pozice</p><p>- Velikost</p><p>- Rotace</p><p>- Styly čar</p><p>- Výplň (včetně plné, přechodové, vzorové, texturované a výplně obrázkem)</p><p>- Text</p><p>- Obrázek</p>|

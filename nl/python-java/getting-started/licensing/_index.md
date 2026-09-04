@@ -1,159 +1,151 @@
 ---
-title: Licenties
-description: "Aspose.Slides voor Python via Java biedt verschillende aankoopplannen of een gratis proefversie en een 30-daagse Tijdelijke Licentie voor evaluatie, gebruikmakend van licentie- en abonnementbeleid."
+title: Licensering
 type: docs
 weight: 80
 url: /nl/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- licentiebestand
+- tijdelijke licentie
+- metered licensering
+- evaluatiebeperkingen
+description: "Pas een licentie toe vanuit een bestand, bytes of metered licentie in Aspose.Slides voor Python via Java en verwijder evaluatiebeperkingen uit je applicaties."
 ---
-Soms is voor de beste evaluatieresultaten een praktische aanpak nodig. Om die reden biedt Aspose.Slides verschillende aankoopplannen en ook een Gratis Proefversie en een 30‑daagse Tijdelijke Licentie voor evaluatie aan.
+## **Overzicht**
 
-{{% alert color="primary" %}}
-Houd er rekening mee dat er een aantal algemene beleidsregels en praktijken zijn die je begeleiden bij het evalueren, correct licentiëren en aankopen van onze producten. Je kunt ze vinden in de [Aankoopbeleid en FAQ](https://purchase.aspose.com/policies) sectie.
-{{% /alert %}}
+Aspose.Slides for Python via Java kan in evaluatiemodus of met een licentie uitgevoerd worden. Dit artikel legt uit hoe je een licentie toepast vanaf een bestand of bytes en hoe je metered licensering configureert.
 
-## **Aspose.Slides evalueren**
-Je kunt Aspose.Slides eenvoudig downloaden voor evaluatie. Het evaluatie‑pakket is hetzelfde als het gekochte pakket. De evaluatieversie wordt simpelweg gelicenseerd nadat je enkele regels code hebt toegevoegd om de licentie toe te passen.
+Voor aankoopopties, zie [Prijsinformatie](https://purchase.aspose.com/pricing/slides/nl/family). Voor algemene licentie‑ en aankoopvragen, zie [Aankoopbeleid en FAQ](https://purchase.aspose.com/policies).
 
-## **Beperking van de evaluatieversie**
-De evaluatieversie van Aspose.Slides (zonder opgegeven licentie) biedt de volledige functionaliteit van het product, maar voegt een evaluatiewatermerk toe aan de bovenkant van het document bij openen en opslaan. Je bent bovendien beperkt tot één dia bij het extraheren van tekst uit presentatiedia's.
-
-{{% alert color="primary" %}} 
-Als je Aspose.Slides wilt testen zonder de beperkingen van de evaluatieversie, kun je een **30‑daagse Tijdelijke Licentie** aanvragen. Raadpleeg [Hoe verkrijg ik een tijdelijke licentie?](https://purchase.aspose.com/temporary-license) voor meer informatie.
-{{% /alert %}} 
+Voor beperkingen tijdens evaluatie en hoe je een tijdelijke licentie kunt aanvragen, zie [Evalueer Aspose.Slides](/slides/nl/python-java/evaluate-aspose-slides/). Pas een tijdelijke licentie toe op dezelfde manier als een aangeschafte licentiebestand.
 
 ## **Over de licentie**
-Je kunt eenvoudig een evaluatieversie van Aspose.Slides voor Python via Java downloaden vanaf de [downloadpagina](https://releases.aspose.com/slides/nl/python-java/). De evaluatieversie biedt absoluut **dezelfde mogelijkheden** als de gelicentieerde versie van Aspose.Slides. Bovendien wordt de evaluatieversie simpelweg gelicenseerd nadat je een licentie hebt aangeschaft en een paar regels code hebt toegevoegd om de licentie toe te passen.
 
-De licentie is een eenvoudige XML‑tekstfile die details bevat zoals de productnaam, het aantal ontwikkelaars waarvoor het gelicentieerd is, de vervaldatum van het abonnement, enzovoort. Het bestand is digitaal ondertekend, dus verander het bestand niet. Zelfs een onbedoelde extra regel in de inhoud van het bestand maakt het ongeldig.
+Een licentiebestand bevat informatie zoals de productnaam, het aantal gelicentieerde ontwikkelaars en de vervaldatum van het abonnement. Het bestand is een digitaal ondertekende XML.
 
-Om de beperkingen van de evaluatieversie te vermijden, moet je een licentie instellen voordat je **Aspose.Slides** gebruikt. Je hoeft een licentie slechts één keer per toepassing of proces in te stellen.
-
-## Aangeschafte licentie
-
-Na aankoop moet je het licentiebestand of de stream toepassen.
-
-{{% alert color="primary" %}}
-U moet de licentie instellen:
-* slechts één keer per toepassingsdomein
-* vóór het gebruik van andere Aspose.Slides‑klassen
+{{% alert color="warning" title="Warning" %}}
+Bewerk het licentiebestand niet. Zelfs een extra regeleinde kan de digitale handtekening ongeldig maken.
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Je kunt prijsinformatie vinden op de [Prijsinformatie](https://purchase.aspose.com/pricing/slides/nl/family) pagina.
-{{% /alert %}}
+Pas de licentie één keer per applicatie of proces toe, vóór het aanmaken van presentaties of het uitvoeren van andere Aspose.Slides‑bewerkingen. Voor een licentiebestand gebruik je de klasse [License](https://reference.aspose.com/slides/nl/python-java/aspose.slides/license/). Metered licensering gebruikt een publiek‑ en privé‑sleutelpaar in plaats van een licentiebestand.
 
-### **Een licentie instellen in Aspose.Slides voor Python via Java**
+## **Licentie toepassen**
 
-Licenties kunnen vanaf de volgende locaties worden toegepast:
+De volgende voorbeelden gaan ervan uit dat Aspose.Slides for Python via Java en de vereiste componenten geïnstalleerd zijn. Elk voorbeeld is een zelfstandig script dat de JVM start, de API importeert en een licentie toepast. Voer in je applicatie je presentatie‑activiteiten uit nadat de licentie is toegepast en sluit de JVM pas af wanneer al het Aspose.Slides‑werk voltooid is.
 
-* Expliciet pad
-* Stream
-* Als een Metered‑licentie – een nieuw licentiemechanisme
+### **Licentie toepassen vanuit een bestand**
 
-{{% alert color="primary" %}}
-Gebruik de **setLicense**‑methode om een component te licentiëren.
-
-Hoewel meerdere oproepen naar **setLicense** geen schade veroorzaken, verspillen ze wel processorbronnen.
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Nieuwe licenties kunnen Aspose.Slides alleen activeren met versie 21.4 of later. Oudere versies gebruiken een ander licentiesysteem en zullen deze licenties niet herkennen.
-{{% /alert %}}
-
-#### **Een licentie toepassen met een bestand**
-
-Deze code‑snippet wordt gebruikt om een licentiebestand in te stellen:
-
-**Python**
+Geef het pad naar het licentiebestand door aan [License.setLicense](https://reference.aspose.com/slides/nl/python-java/aspose.slides/license/#setLicense). Vervang `Aspose.Slides.lic` door het pad naar je licentiebestand.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # Voer hier presentatiewerkzaamheden uit, voordat de JVM wordt afgesloten.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-Bij het aanroepen van de setLicense‑methode moet de licentienaam gelijk zijn aan die van je licentiebestand. Bijvoorbeeld, je kunt de licentiebestandsnaam wijzigen naar "Aspose.Slides.lic.xml". Vervolgens moet je in je code de nieuwe licentienaam (Aspose.Slides.lic.xml) doorgeven aan de setLicense‑methode.
+Gebruik de exacte bestandsnaam, inclusief extensie. Bijvoorbeeld, als het bestand `Aspose.Slides.lic.xml` heet, voeg dan `.xml` toe aan het pad. Een absoluut pad voorkomt onduidelijkheid over de werkmap van de applicatie.
 
-#### **Een licentie toepassen vanuit bytes**
+Het voorbeeld gebruikt [License.isLicensed](https://reference.aspose.com/slides/nl/python-java/aspose.slides/license/#isLicensed) om te controleren of de licentie is toegepast.
 
-Deze code‑snippet wordt gebruikt om een licentie toe te passen vanuit bytes:
+### **Licentie toepassen vanuit bytes**
 
-**Python**
+Gebruik [License.setLicenseFromBytes](https://reference.aspose.com/slides/nl/python-java/aspose.slides/license/#setLicenseFromBytes) wanneer de licentie beschikbaar is als Python‑bytes. Het volgende voorbeeld leest het bestand in binaire modus en sluit het voordat de licentie wordt toegepast.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # Voer hier presentatiewerkzaamheden uit, voordat de JVM wordt afgesloten.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### Metered‑licentie toepassen
+Bewaar de originele bytes ongewijzigd. Decodeer, herformatteer of wijzig de licentie‑inhoud op geen enkele manier voordat je deze toepast.
 
-Aspose.Slides stelt ontwikkelaars in staat een metered‑sleutel toe te passen. Dit is een nieuw licentiemechanisme.
+## **Metered‑licentie toepassen**
 
-Het nieuwe licentiemechanisme wordt gebruikt naast de bestaande licentiemethode. Klanten die op basis van het gebruik van API‑functies gefactureerd willen worden, kunnen de Metered‑licentie gebruiken.
+Metered licensering factureert je op basis van API‑gebruik. Nadat je een metered licentie hebt verkregen, pas je de publieke en private sleutels toe met [Metered.setMeteredKey](https://reference.aspose.com/slides/nl/python-java/aspose.slides/metered/#setMeteredKey). Initialiseert je een [Metered](https://reference.aspose.com/slides/nl/python-java/aspose.slides/metered/) object en pas je de sleutels één keer toe bij het opstarten van de applicatie.
 
-Na het doorlopen van alle benodigde stappen om dit type licentie te verkrijgen, ontvang je de sleutels, niet het licentiebestand. Deze metered‑sleutel kan worden toegepast met de speciaal hiervoor geïntroduceerde **Metered**‑klasse.
-
-De volgende code‑voorbeeld laat zien hoe je publieke en private metered‑sleutels instelt:
+Het volgende voorbeeld leest de sleutels uit de omgevingsvariabelen `ASPOSE_METERED_PUBLIC_KEY` en `ASPOSE_METERED_PRIVATE_KEY`. Stel beide variabelen in voordat je het script uitvoert.
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# Maak een instantie van de CAD Metered‑klasse aan
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# Toegang tot de set_metered_key‑eigenschap en geef de publieke en private sleutels als parameters door
-metered.setMeteredKey("*****", "*****");
-
-# Haal de hoeveelheid verbruikte meterdata op vóór het aanroepen van de API
-amountbefore = Metered.getConsumptionQuantity()
-
-# Toon informatie
-print("Amount Consumed Before: \" + amountbefore + \"" )
-
-# Laad het document vanaf de schijf.
-pres = Presentation();
-
-# Haal het aantal pagina's van het document op
-print("Amount Consumed After: \" +  pres.getSlides().size()) + \"" )
-
-# opslaan als PDF
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# Haal de hoeveelheid verbruikte meterdata op na het aanroepen van de API
-amountafter = Metered.getConsumptionQuantity()
-
-# Toon informatie
-print("Amount Consumed After: \" + amountafter + \"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # Voer hier presentatiewerkzaamheden uit, voordat de JVM wordt afgesloten.
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-Let op: je moet een stabiele internetverbinding hebben voor het correct gebruiken van de Metered‑licentie, aangezien het Metered‑mechanisme constante interactie met onze diensten vereist voor juiste berekeningen. Voor meer details, raadpleeg de [Metered licentie FAQ](https://purchase.aspose.com/faqs/licensing/metered) sectie.
+{{% alert color="info" title="Note" %}}
+Metered licensering vereist een internetverbinding om de sleutels te valideren en het gebruik te rapporteren. Houd de private sleutel buiten de broncode en logs. Zie de [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) voor details over verbinding en facturering.
 {{% /alert %}}
+
+## **Veelgestelde vragen**
+
+**Moet ik na het aanschaffen van een licentie een ander pakket installeren?**
+
+Nee. Pas de licentie toe op hetzelfde pakket dat je tijdens de evaluatie hebt gebruikt.
+
+**Moet ik voor elke presentatie een licentie toepassen?**
+
+Nee. Pas deze één keer toe tijdens de opstart van de applicatie, vóór het maken of laden van presentaties.
+
+**Kan ik het licentiebestand hernoemen?**
+
+Ja. Gebruik de exacte nieuwe bestandsnaam in je code en laat de bestandsinhoud ongewijzigd.
+
+**Kan ik een tijdelijke licentie gebruiken met het voorbeeld gebaseerd op bytes?**
+
+Ja. Lees het tijdelijke licentiebestand in als bytes en pas het toe op dezelfde manier als een aangeschafte licentie.

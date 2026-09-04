@@ -1,43 +1,55 @@
 ---
-title: Aspose.Slides pro Python přes Java
-second_title: "Aspose.Slides pro Python Dokumentace"
-description: Aspose.Slides pro Python přes Java poskytuje mnoho klíčových funkcí, jako je správa textu, tvarů, tabulek a animací, přidávání zvuku a videa do snímků, náhled snímků, export snímků do formátů SVG, PDF a další.
+title: Aspose.Slides pro Python prostřednictvím Java
+second_title: Aspose.Slides pro Python
 type: docs
 weight: 47
 url: /cs/python-java/
 is_root: true
+keywords:
+- Aspose.Slides pro Python prostřednictvím Java
+- Knihovna PowerPoint pro Python
+- spravovat PowerPoint prezentace v Pythonu
+- číst a zapisovat PowerPoint v Pythonu
+- upravovat PowerPoint snímky v Pythonu
+- exportovat PowerPoint do PDF v Pythonu
+- exportovat PowerPoint do SVG v Pythonu
+- náhled snímků v Pythonu
+- přidávat audio a video do snímků v Pythonu
+- PowerPoint bez Microsoft Office
+- Python
+- Java
+- Aspose.Slides
+description: "Aspose.Slides pro Python prostřednictvím Java vám umožňuje spravovat text, tvary, tabulky a animace, přidávat audio a video, prohlížet snímky a exportovat prezentace do SVG, PDF a dalších formátů."
 ---
-{{% alert color="primary" %}}
+{{% alert color="info" title="Poznámka" %}}
 
-**Vítejte v Aspose.Slides pro Python přes Java**
+**Vítejte v Aspose.Slides pro Python prostřednictvím Java**
 
-![Logo produktu Aspose.Slides pro Python přes Java](aspose_slides-for-python-via-java.png)
+![Logo produktu Aspose.Slides pro Python prostřednictvím Java](aspose_slides-for-python-via-java.png)
 
-Aspose.Slides pro Python přes Java je knihovna tříd, která umožňuje vašim aplikacím číst a zapisovat dokumenty PowerPoint® bez použití Microsoft PowerPoint®.
+Aspose.Slides for Python via Java je knihovna tříd, která umožňuje vašim aplikacím v Pythonu číst a zapisovat prezentace PowerPoint® bez potřeby Microsoft PowerPoint®.
 
-Aspose.Slides pro Python přes Java je první a jediná součást, která poskytuje funkce pro správu dokumentů PowerPoint®.
-
-Aspose.Slides pro Python přes Java poskytuje mnoho klíčových funkcí, jako je správa textu, tvarů, tabulek a animací, přidávání zvuku a videa do snímků, náhled snímků, export snímků do formátů SVG, PDF a další.
+Mezi její hlavní funkce patří správa textu, tvarů, tabulek a animací; přidávání audia a videa do snímků; náhled snímků; a export snímků do SVG, PDF a dalších formátů.
 
 {{% /alert %}}
 
-## Zdroje pro Aspose.Slides pro Python přes Java
+## **Zdroje Aspose.Slides pro Python prostřednictvím Java**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="Poznámka" %}}
 
-Aspose.Slides pro Python přes Java je portováno z Aspose.Slides pro Java, takže můžete použít dokumentaci a referenci API pro tento produkt.
+Aspose.Slides for Python prostřednictvím Java je portována z Aspose.Slides pro Java, takže můžete také použít dokumentaci a referenci API pro Aspose.Slides pro Java.
 
 {{% /alert %}}
 
-Jedná se o odkazy na užitečné zdroje:
+Explore the following resources:
 
-- [Online dokumentace Aspose.Slides pro Python přes Java](/slides/cs/java/developer-guide/)
-- [Funkce Aspose.Slides pro Python přes Java](/slides/cs/python-java/features-overview/)
-- [Omezení a rozdíly v API Aspose.Slides pro Python přes Java](/slides/cs/python-java/limitations-and-api-differences/)
-- [Poznámky k vydání Aspose.Slides pro Python přes Java](https://releases.aspose.com/slides/cs/python-java/release-notes/)
-- [Produktová stránka Aspose.Slides pro Python přes Java](https://products.aspose.com/slides/cs/python-java/)
-- [Stáhněte balíček Aspose.Slides pro Python přes Java](https://releases.aspose.com/slides/cs/python-java/)
-- [Instalace Aspose.Slides pro Python přes Java](/slides/cs/python-java/installation/)
-- [Referenční příručka API Aspose.Slides pro Python přes Java](https://reference.aspose.com/slides/cs/python-java/)
-- [Bezplatné fórum podpory Aspose.Slides pro Python přes Java](https://forum.aspose.com/c/slides/cs/11)
-- [Placené podpůrné technické centrum Aspose.Slides pro Python přes Java](https://helpdesk.aspose.com/)
+- [Online dokumentace Aspose.Slides pro Python prostřednictvím Java](/slides/cs/java/developer-guide/)
+- [Funkce Aspose.Slides pro Python prostřednictvím Java](/slides/cs/python-java/features-overview/)
+- [Omezení a rozdíly v API Aspose.Slides pro Python prostřednictvím Java](/slides/cs/python-java/limitations-and-api-differences/)
+- [Poznámky k vydání Aspose.Slides pro Python prostřednictvím Java](https://releases.aspose.com/slides/cs/python-java/release-notes/)
+- [Stránka produktu Aspose.Slides pro Python prostřednictvím Java](https://products.aspose.com/slides/cs/python-java/)
+- [Stáhnout balík Aspose.Slides pro Python prostřednictvím Java](https://releases.aspose.com/slides/cs/python-java/)
+- [Instalovat Aspose.Slides pro Python prostřednictvím Java](/slides/cs/python-java/installation/)
+- [Reference API Aspose.Slides pro Python prostřednictvím Java](https://reference.aspose.com/slides/cs/python-java/)
+- [Bezplatné fórum podpory Aspose.Slides pro Python prostřednictvím Java](https://forum.aspose.com/c/slides/cs/11)
+- [Placená podpora Helpdesk Aspose.Slides pro Python prostřednictvím Java](https://helpdesk.aspose.com/)

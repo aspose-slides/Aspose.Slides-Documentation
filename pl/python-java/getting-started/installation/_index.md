@@ -1,5 +1,5 @@
 ---
-title: Instalcja
+title: Instalacja
 type: docs
 weight: 70
 url: /pl/python-java/installation/
@@ -7,146 +7,125 @@ keywords:
 - pobierz Aspose.Slides
 - zainstaluj Aspose.Slides
 - instalacja Aspose.Slides
+- Python
+- Java
+- JPype
 - Windows
 - macOS
 - Linux
-- Python
-description: "Zainstaluj Aspose.Slides for Python via Java w systemie Windows, Linux lub macOS"
+description: "Zainstaluj Aspose.Slides for Python via Java w systemie Windows, Linux lub macOS, skonfiguruj Javę i JPype oraz zweryfikuj konfigurację przy użyciu działającego przykładu."
 ---
-Aspose.Slides for Python via Java jest platformowo niezależnym API i może być używany na dowolnej platformie (Windows, Linux i macOS), na której zainstalowano most `Python`, `Java` oraz `jpype1`.
+Aspose.Slides for Python via Java działa na systemach Windows, Linux i macOS. Używa JPype do dostępu do biblioteki Java z Pythona. Microsoft PowerPoint nie jest wymagany.
 
-## **Wymagania dotyczące programów i wersji**
+## **Wymagania wstępne**
 
-Aby zapewnić prawidłowe działanie Aspose.Slides for Python via Java, należy zainstalować następujące programy i pakiety:
+Przed instalacją pakietów Pythona zainstaluj Pythona i JDK, które spełniają [System Requirements](/slides/pl/python-java/system-requirements/). Ta strona zawiera listę kompatybilnych wersji, wymagań architektury oraz wszelkich zależności potrzebnych do budowy JPype ze źródeł.
 
-- Wersja JRE >=8 (JPype1 był testowany na wersjach Java od 1.8 do 11).
-- Wersja Pythona >=3.7,<=3.12.
-- Wersja pakietu JPype1: >=1.5.0.
+Ustaw `JAVA_HOME` na katalog instalacyjny JDK, a nie na jego podkatalog `bin`, oraz dodaj katalog `bin` JDK do zmiennej `PATH`. Otwórz nowy terminal po zmianie zmiennych środowiskowych.
 
-## **Instalacja z pip**
+## **Instalacja z PyPI**
 
-Możesz łatwo zainstalować Aspose.Slides for Python via Java z [pip](https://pypi.org/), o ile masz zainstalowane wszystkie wymagane programy (Java, Python).
-
-Utwórz nowy folder projektu.
-
-[Zainstaluj JPype1](https://jpype.readthedocs.io/en/latest/install.html) używając następującego polecenia:
-```
-$ pip install JPype1
-```
-
-Zainstaluj Aspose.Slides for Python via Java używając następującego polecenia:
-```
-$ pip install aspose-slides-java
-```
-
-## **Instalacja z archiwum ZIP**
-
-Aby zainstalować i używać Aspose.Slides for Python via Java z archiwum ZIP, postępuj zgodnie z następującymi instrukcjami:
+Uruchom poniższe polecenia w terminalu, a nie w interaktywnym wierszu Pythona. Utwórz katalog projektu i wirtualne środowisko, aby pakiety były odizolowane od innych projektów.
 
 ### **Windows**
 
-1. Zainstaluj JDK8 i skonfiguruj zmienną środowiskową `JAVA_HOME`.
-2. [Zainstaluj Python](https://www.python.org/downloads/) w wersji >=3.7 i dodaj python.exe do `PATH`.
-3. [Zainstaluj Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
-4. [Zainstaluj JPype1](https://jpype.readthedocs.io/en/latest/install.html). Możesz uruchomić poniższe polecenia w terminalu Pythona:
+Przy wybranym interpreterze Pythona dostępnym jako `python` w `PATH`, uruchom poniższe polecenia w wierszu poleceń:
+
+```bat
+mkdir slides-example
+cd slides-example
+python -m venv .venv
+.venv\Scripts\activate.bat
 ```
-$ pip install --upgrade pip
-$ pip install JPype1
+
+### **Linux i macOS**
+
+Przy wybranej wersji Pythona dostępnej jako `python3`, uruchom poniższe polecenia w Bash lub zsh:
+
+```bash
+mkdir slides-example
+cd slides-example
+python3 -m venv .venv
+source .venv/bin/activate
 ```
-5. [Pobierz Aspose.Slides for Python via Java](https://releases.aspose.com/slides/pl/python-java/) i rozpakuj go do `aspose-slides-java`.
-6. Utwórz plik o nazwie `example.py` w folderze `aspose-slides-java` używając poniższego przykładowego kodu:
+
+W systemach Debian lub Ubuntu, jeśli tworzenie środowiska nie powiedzie się z powodu braku `ensurepip`, zainstaluj pakiet `python3-venv` poleceniem `sudo apt-get install python3-venv`, a następnie powtórz polecenie tworzenia środowiska. Osobno zainstalowana wersja Pythona może wymagać odpowiadającego jej pakietu `venv` specyficznego dla wersji.
+
+### **Instalacja pakietów**
+
+Przy włączonym wirtualnym środowisku, zainstaluj JPype i Aspose.Slides:
+
+```sh
+python -m pip install --upgrade pip
+python -m pip install JPype1 aspose-slides-java
+```
+
+Użycie `python -m pip` zapewnia, że pakiety są instalowane dla interpretera używanego do uruchomienia aplikacji.
+
+Aby zaktualizować istniejącą instalację Aspose.Slides, uruchom `python -m pip install --upgrade aspose-slides-java` w tym samym środowisku.
+
+## **Instalacja z archiwum ZIP**
+
+Możesz również używać biblioteki z [strony pobierania Aspose.Slides](https://releases.aspose.com/slides/pl/python-java/):
+
+1. Zainstaluj Pythona i Javę zgodnie z opisem w [Wymagania wstępne](#prerequisites).
+2. Utwórz i aktywuj wirtualne środowisko, korzystając z powyższych instrukcji.
+3. Zainstaluj JPype poleceniem `python -m pip install JPype1`.
+4. Pobierz i rozpakuj archiwum ZIP Aspose.Slides for Python via Java.
+5. Zlokalizuj rozpakowany katalog pakietu `asposeslides`. Zachowaj jego zawartość, w tym katalog `lib` i plik JAR, razem.
+6. Umieść `example.py` z kolejnej sekcji obok katalogu `asposeslides`, aby Python mógł zaimportować pakiet.
+
+## **Weryfikacja instalacji**
+
+Zapisz poniższy kod jako `example.py`. Tworzy on prezentację z polem tekstowym i zapisuje ją jako `out.pptx` w bieżącym katalogu roboczym.
+
 ```python
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+try:
+    from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
-
-jpype.shutdownJVM()
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 500, 80)
+        shape.getTextFrame().setText("Aspose.Slides is ready!")
+        presentation.save("out.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    jpype.shutdownJVM()
 ```
-7. Teraz uruchom `py example.py` w wierszu poleceń, aby go wykonać.
 
-### **Linux**
+Przy włączonym wirtualnym środowisku, uruchom przykład z katalogu zawierającego `example.py`:
 
-1. Zainstaluj JDK8 dla Linuxa i skonfiguruj zmienną środowiskową `JAVA_HOME`.
-2. [Zainstaluj Python](https://www.python.org/downloads/) w wersji >=3.7
-3. Zainstaluj ``g++`` i ``python-dev``. 
-
-- Dla Debian/Ubuntu:
-    ```
-    sudo apt-get install g++ python3-dev
-    ```
-- Dla systemów opartych na RedHat:
-    ```
-    dnf install redhat-rpm-config gcc-c++ python3-devel unixODBC-devel
-    ```
-
-4. [Zainstaluj JPype1](https://jpype.readthedocs.io/en/latest/install.html). Możesz uruchomić poniższe polecenia w terminalu Pythona:
+```sh
+python example.py
 ```
-$ pip install --upgrade pip
-$ pip install JPype1
-```
-5. [Pobierz Aspose.Slides for Python via Java](https://releases.aspose.com/slides/pl/python-java/) i rozpakuj go do `aspose-slides-java`.
-6. Utwórz plik testowy o nazwie `example.py` używając tego przykładowego kodu w folderze `aspose-slides-java`:
-```python
-import jpype
-import asposeslides
 
-jpype.startJVM()
+Import `asposeslides` rejestruje dołączoną bibliotekę Java przed uruchomieniem JVM. Zaimportuj `asposeslides.api` po uruchomieniu JVM i zwolnij zasoby prezentacji przed jej zamknięciem.
 
-from asposeslides.api import Presentation, SaveFormat
+{{% alert color="info" title="Uwaga" %}}
+Bez licencji wynik zawiera znak wodny oceny. Zobacz [Ocena Aspose.Slides](/slides/pl/python-java/evaluate-aspose-slides/) w celu poznania ograniczeń wersji próbnej i informacji o tymczasowej licencji.
+{{% /alert %}}
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
+## **FAQ**
 
-jpype.shutdownJVM()
-```
-7. Teraz uruchom `py example.py` w wierszu poleceń, aby go wykonać.
+**Dlaczego Python zgłasza, że nie można znaleźć lub załadować JVM?**
 
-### **Mac**
+Sprawdź, czy `JAVA_HOME` wskazuje na JDK zgodny z Twoją instalacją Pythona i JPype, zgodnie z opisem w [System Requirements](/slides/pl/python-java/system-requirements/). Zobacz [poradnik rozwiązywania problemów instalacji JPype](https://jpype.readthedocs.io/en/latest/install.html) po dodatkowe wskazówki.
 
-1. Zainstaluj JDK8 dla Mac i skonfiguruj zmienną środowiskową `JAVA_HOME`.
-2. Zmodyfikuj sekcję JVMCapabilities w `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist` z uprawnieniami administratora. `jdk1.8.x_xxx.jdk` zależy od wersji twojego JDK. Powinno to wyglądać tak:
-```xml
-<key>JavaVM</key>
-    <dict>
-        <key>JVMCapabilities</key>
-        <array>
-                <string>JNI</string>
-                <string>BundledApp</string>
-                <string>CommandLine</string>
-        </array>
-```
-3. [Zainstaluj Python](https://www.python.org/downloads/) w wersji >=3.7.
-4. Zainstaluj kompilatory GCC lub Clang w zależności od wersji Pythona i platformy.
-5. [Zainstaluj JPype1](https://jpype.readthedocs.io/en/latest/install.html). Możesz uruchomić poniższe polecenia w terminalu Pythona:
-```
-$ pip install --upgrade pip
-$ pip install JPype1
-```
-6. [Pobierz Aspose.Slides for Python via Java](https://releases.aspose.com/slides/pl/python-java/) i rozpakuj go do `aspose-slides-java`.
-7. Utwórz plik testowy o nazwie `example.py` używając tego przykładowego kodu w folderze `aspose-slides-java`:
-```python
-import jpype
-import asposeslides
+**Dlaczego Python zgłasza, że brak `asposeslides` po instalacji?**
 
-jpype.startJVM()
+Pakiet mógł zostać zainstalowany dla innego interpretera Pythona. Aktywuj wirtualne środowisko użyte przy instalacji i uruchom `python -m pip show aspose-slides-java`. W przypadku instalacji z ZIP, upewnij się, że katalog `asposeslides` znajduje się obok Twojego skryptu lub jest dostępny w ścieżce wyszukiwania modułów Pythona.
 
-from asposeslides.api import Presentation, SaveFormat
+**Czy mogę uruchamiać przykład wielokrotnie w notebooku?**
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
+Przykład jest przeznaczony do uruchomienia w samodzielnym procesie Pythona. Przed dostosowaniem go do wielokrotnego uruchamiania w notebooku, zapoznaj się z [Ograniczenia i różnice w API](/slides/pl/python-java/limitations-and-api-differences/#import-the-library) w kwestii cyklu życia JVM i wskazówek dotyczących notebooków.
 
-jpype.shutdownJVM()
-```
-9. Teraz uruchom `python example.py` w wierszu poleceń, aby go wykonać.
+**Dlaczego pip kończy się niepowodzeniem z błędem `CERTIFICATE_VERIFY_FAILED`?**
+
+Jeśli Twoja sieć używa proxy do inspekcji HTTPS, pip musi zaufać jego urzędowi certyfikacji. Skonfiguruj zaufany pakiet certyfikatów przy użyciu opcji `--cert` pip lub zmiennej środowiskowej `PIP_CERT`, zgodnie z [instrukcjami dotyczącymi certyfikatów HTTPS w pip](https://pip.pypa.io/en/stable/topics/https-certificates/). Wymagana konfiguracja zależy od Twojej sieci i wersji pip.

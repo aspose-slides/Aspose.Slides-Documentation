@@ -1,18 +1,24 @@
 ---
-title: Aspose.Slidesの評価
+title: Aspose.Slides の評価
 type: docs
 weight: 120
 url: /ja/python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- 評価版
+- 試用制限
+- 評価透かし
+- 一時ライセンス
+description: "Java 経由で Python 用 Aspose.Slides を評価し、試用制限について学び、フル機能をテストするための 30 日間の一時ライセンスをリクエストできます。"
 ---
+Aspose.Slides for Python via Java をダウンロードして機能を評価できます。評価パッケージはライセンスパッケージと同一です。評価制限なしで使用するには、ライセンスを適用するための数行のコードを追加してください。
 
-Aspose.Slidesを簡単に評価用にダウンロードできます。評価パッケージは購入したパッケージと同じです。評価版は、ライセンスを適用するために数行のコードを追加するとライセンス付きになります。
+ライセンスなしで使用する Aspose.Slides の評価版は、製品の全機能を提供しますが、開いたり保存したりしたときにドキュメントの上部に評価用の透かしが挿入されます。テキスト抽出はプレゼンテーションごとに1スライドに制限されます。
 
-ライセンスが指定されていないAspose.Slidesの評価版は、完全な製品機能を提供しますが、ドキュメントを開いた際と保存した際に評価用の透かしを挿入します。また、プレゼンテーションスライドからテキストを抽出する際に1スライドに制限されています。
+![プレゼンテーション スライド上の Aspose.Slides 評価用透かし](evaluate-aspose-slides_1.png)
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-評価版の制限なしでAspose.Slidesを試したい場合は、**30日間の一時ライセンス**をリクエストできます。詳細については、[一時ライセンスの取得方法](https://purchase.aspose.com/temporary-license)を参照してください。
-
+{{% alert color="info" title="注" %}}
+評価制限なしで Aspose.Slides をテストするには、**30 日間の一時ライセンス**をリクエストできます。詳しくは [一時ライセンスの取得](https://purchase.aspose.com/temporary-license) をご覧ください。
 {{% /alert %}}

@@ -1,299 +1,344 @@
 ---
-title: API Moderne
+title: Améliorer le traitement d'images avec l'API Moderne en Python
+linktitle: API Moderne
 type: docs
 weight: 237
 url: /fr/python-java/modern-api/
-keywords: "API Moderne Multi-plateforme"
-description: "API Moderne"
+keywords:
+- API moderne
+- dessin
+- vignette de diapositive
+- diapositive en image
+- vignette de forme
+- forme en image
+- vignette de présentation
+- présentation en images
+- ajouter image
+- ajouter image
+- Python
+- Java
+- Aspose.Slides
+description: "Moderniser le traitement d'images en Python via Java : rendre des diapositives et des formes, ajouter des images, et migrer les appels d'imagerie obsolètes vers l'API Moderne d'Aspose.Slides."
 ---
+## **Introduction**
 
-## Introduction
+Aspose.Slides for Python via Java accède à la bibliothèque Java via JPype. Son API de traitement d'images hérité utilisait [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) et [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) de `java.awt`.
 
-Historiquement, Aspose Slides a une dépendance à java.awt et possède dans l'API publique les classes suivantes de là-bas :
-- [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
-- [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
+La bibliothèque Java a déprécié ces API d'imagerie à partir de la version 24.4. L'API Moderne utilise [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/) pour charger, rendre et enregistrer les images. Utilisez‑la pour le nouveau code Python et lors de la migration des flux de travail de traitement d'images existants.
 
-Depuis la version 24.4, cette API publique est déclarée obsolète.
+{{% alert color="info" title="Note" %}}
+Les anciens noms de méthodes ci‑dessous sont des références de migration. Ils ne sont plus disponibles dans les versions actuelles. Les exemples exécutables utilisent l'API Moderne.
+{{% /alert %}}
 
-Afin de se débarrasser des dépendances à ces classes, nous avons ajouté ce que l'on appelle "l'API Moderne" - c'est-à-dire l'API qui doit être utilisée à la place de l'obsolète, dont les signatures contiennent des dépendances sur BufferedImage. Graphics2D est déclaré obsolète et son support est supprimé de l'API publique de Slides.
+## **API Moderne**
 
-La suppression de l'API publique obsolète avec des dépendances sur System.Drawing sera effectuée dans la version 24.8.
+Les principaux types de traitement d'images sont :
 
-## API Moderne
+- [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/) — représente une image matricielle ou vectorielle.
+- [ImageFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/imageformat/) — fournit des constantes de formats de fichiers d'image.
+- [Images](https://reference.aspose.com/slides/fr/python-java/aspose.slides/images/) — crée des images, par exemple avec [Images.fromFile](https://reference.aspose.com/slides/fr/python-java/aspose.slides/images/#fromFile).
 
-Les classes et énums suivantes ont été ajoutées à l'API publique :
+Utilisez [Slide.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) ou [Shape.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getImage) pour rendre une diapositive ou une forme. Utilisez [Presentation.getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) avec des options de rendu pour rendre plusieurs diapositives. La surcharge sans arguments renvoie la collection d'images de la présentation à la place.
 
-- IImage - représente l'image matricielle ou vectorielle.
-- ImageFormat - représente le format de fichier de l'image.
-- Images - méthodes pour instancier et travailler avec l'interface IImage.
+Chargez une image avec [Images.fromFile](https://reference.aspose.com/slides/fr/python-java/aspose.slides/images/#fromFile), ajoutez‑la avec [ImageCollection.addImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/imagecollection/#addImage), ou mettez à jour une image de présentation existante avec [PPImage.replaceImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/ppimage/#replaceImage). Les deux opérations de collection d'images acceptent [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/).
 
-Veuillez noter que IImage est jetable (il implémente l'interface IDisposable et son utilisation doit être entourée d'un using ou être libérée d'une autre manière pratique).
+Libérez chaque image que vous chargez ou rendez en appelant sa méthode `dispose` dans un bloc `finally`. Libérez la présentation avec [Presentation.dispose](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#dispose).
 
-Un scénario typique d'utilisation de la nouvelle API peut ressembler à ceci :
+### **Préparer l’environnement Python**
 
-``` python
-from asposeslides.api import Presentation, SaveFormat, Images, ShapeType, ImageFormat
-from javax.imageio import ImageIO
-from java.io import File
+Installez les packages comme décrit dans [Installation](/slides/fr/python-java/installation/). Chaque exemple importe `asposeslides` avant de démarrer la JVM, puis importe l'API après le démarrage de la JVM. Les exemples laissent la JVM en cours d'exécution afin qu'elle puisse être réutilisée. Consultez [Limitations and API Differences](/slides/fr/python-java/limitations-and-api-differences/#import-the-library) pour des conseils sur le notebook et le cycle de vie de la JVM.
+
+Les exemples qui ouvrent `pres.pptx` nécessitent une présentation dans le répertoire de travail. Les exemples qui chargent `image.png` nécessitent un fichier image existant.
+
+### **Charger une image et rendre une diapositive**
+
+Cet exemple ajoute une image à la première diapositive et enregistre la diapositive au format JPEG. [IImage.save](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/#save) écrit l'image rendue dans le format spécifié.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Images, Presentation, ShapeType
 from java.awt import Dimension
 
-pres = Presentation();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
 
-# instancier une instance jetable de IImage à partir du fichier sur le disque.
-image = Images.fromFile("image.png");
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
-# créer une image PowerPoint en ajoutant une instance de IImage aux images de la présentation.
-ppImage = pres.getImages().addImage(image);
-image.dispose();
-
-# ajouter une forme d'image sur la diapositive #1
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
-
-# obtenir une instance de IImage représentant la diapositive #1.
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-
-# sauvegarder l'image sur le disque.
-slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
-slideImage.dispose();
-
-pres.dispose();
+    image_size = Dimension(1920, 1080)
+    slide_image = slide.getImage(image_size)
+    try:
+        slide_image.save("slide1.jpeg", ImageFormat.Jpeg)
+    finally:
+        slide_image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-## Remplacer l'ancien code par l'API Moderne
+## **Remplacer l’ancien code par l’API Moderne**
 
-En général, vous devrez remplacer l'appel à l'ancienne méthode utilisant ImageIO par la nouvelle.
+Remplacez les appels de vignettes hérités par des méthodes qui retournent [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/), puis enregistrez le résultat avec [IImage.save](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/#save). Cela supprime la nécessité de transmettre les images rendues à [ImageIO.write](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.File-).
 
-Ancien :
-``` python
-image_format = "PNG"
-buffImage = pres.getSlides().get_Item(0).getThumbnail(Dimension(1920, 1080))
-ImageIO.write(buffImage, image_format, File("image.png"))
-```
-Nouveau :
-``` python
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-slideImage.save("image.png", ImageFormat.Png);
-```
+### **Rendre une diapositive à une taille spécifiée**
 
-### Obtenir une miniature de diapositive
+Remplacez l’appel hérité `slide.getThumbnail(image_size)` par [Slide.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) en utilisant la même taille d'image.
 
-Code utilisant une API obsolète :
+```python
+import jpype
+import asposeslides
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-slideImage = pres.getSlides().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(slideImage, image_format, File("slide1.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        image_size = Dimension(1920, 1080)
+        slide_image = presentation.getSlides().get_Item(0).getImage(image_size)
+        try:
+            slide_image.save("image.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-API Moderne :
+### **Obtention d’une vignette de diapositive**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Remplacez l’appel hérité `slide.getThumbnail()` par [Slide.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) sans arguments.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-slideImage = pres.getSlides().get_Item(0).getImage();
-slideImage.save("slide1.png", ImageFormat.Png);
-slideImage.dispose();
+from asposeslides.api import ImageFormat, Presentation
 
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide_image = presentation.getSlides().get_Item(0).getImage()
+        try:
+            slide_image.save("slide1.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-### Obtenir une miniature de forme
+### **Obtention d’une vignette de forme**
 
-Code utilisant une API obsolète :
+Remplacez l’appel hérité `shape.getThumbnail()` par [Shape.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getImage). Vérifiez que la diapositive contient une forme avant d’y accéder.
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
+
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide = presentation.getSlides().get_Item(0)
+        if slide.getShapes().size() > 0:
+            shape_image = slide.getShapes().get_Item(0).getImage()
+            try:
+                shape_image.save("shape.png", ImageFormat.Png)
+            finally:
+                shape_image.dispose()
+        else:
+            print("The first slide contains no shapes.")
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
+```
+
+### **Obtention d’une vignette de présentation**
+
+Remplacez l’appel hérité `presentation.getThumbnails(options, image_size)` par [Presentation.getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages). Utilisez [RenderingOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/renderingoptions/) pour configurer le rendu.
+
+Itérez directement sur le tableau retourné avec `enumerate` de Python. Libérez chaque image retournée dans un bloc `finally` afin qu’un échec d’enregistrement ne laisse pas les images restantes non libérées.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation, RenderingOptions
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(shapeImage, image_format, File("shape.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    rendering_options = RenderingOptions()
+    image_size = Dimension(1920, 1080)
+    images = presentation.getImages(rendering_options, image_size)
+    try:
+        for index, image in enumerate(images, start=1):
+            image.save(f"slide{index}.png", ImageFormat.Png)
+    finally:
+        for image in images:
+            image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-API Moderne :
+### **Ajouter une image à une présentation**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Remplacez le chargement via [ImageIO.read](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.io.File-) par [Images.fromFile](https://reference.aspose.com/slides/fr/python-java/aspose.slides/images/#fromFile), puis passez l’image résultante à [ImageCollection.addImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/imagecollection/#addImage). Ajoutez l’image à la diapositive et enregistrez la présentation.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-shapeImage.save("shape.png", ImageFormat.Png);
-shapeImage.dispose();
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
 
-pres.dispose();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
+
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
+    presentation.save("picture.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-### Obtenir une miniature de présentation
+## **Méthodes obsolètes et leur remplacement dans l’API Moderne**
 
-Code utilisant une API obsolète :
+Les tableaux utilisent la notation d’appel Python. Les noms dans la colonne legacy identifient les API supprimées ; utilisez les méthodes de remplacement liées. Les méthodes modernes de rendu d’image retournent des objets [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/) au lieu d’images tampon Java.
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions
-from javax.imageio import ImageIO
-from java.io import File
-from java.awt import Dimension
+### **Présentation**
 
+[Presentation.getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) renvoie un tableau d’images rendues lorsqu’il est appelé avec des options de rendu.
 
-pres = Presentation("pres.pptx");
+| Appel legacy | Remplacement moderne |
+| --- | --- |
+| `presentation.getThumbnails(options)` | [getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) avec `options` |
+| `presentation.getThumbnails(options, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) avec `options, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides)` | [getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) avec `options, slides` |
+| `presentation.getThumbnails(options, slides, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) avec `options, slides, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides, image_size)` | [getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) avec `options, slides, image_size` |
+| `presentation.getThumbnails(options, image_size)` | [getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) avec `options, image_size` |
 
-image_format = "PNG"
-rendering_options = RenderingOptions();
-bitmaps = pres.getThumbnails(rendering_options, Dimension(1980, 1028));
+Ici, `slides` est un `int[]` Java de numéros de diapositives indexés à 1 ; créez‑le avec `jpype.JArray(jpype.JInt)([1, 3])` pour sélectionner les diapositives 1 et 3. `image_size` est un [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html).
 
-for index in range(bitmaps.length):
-    thumbnail = bitmaps[index];
-    ImageIO.write(thumbnail, "PNG", File("slide" + str(index) + ".png"));
-    
-pres.dispose();
-```
+### **Forme**
 
-API Moderne :
+| Appel legacy | Remplacement moderne |
+| --- | --- |
+| `shape.getThumbnail()` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getImage) sans arguments |
+| `shape.getThumbnail(bounds, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getImage) avec `bounds, scale_x, scale_y` |
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions, ImageFormat
-from java.awt import Dimension
+### **Diapositive**
 
+| Appel legacy | Remplacement moderne |
+| --- | --- |
+| `slide.getThumbnail()` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) sans arguments |
+| `slide.getThumbnail(scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) avec `scale_x, scale_y` |
+| `slide.getThumbnail(options)` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) avec `options` |
+| `slide.getThumbnail(options, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) avec `options, scale_x, scale_y` |
+| `slide.getThumbnail(options, image_size)` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) avec `options, image_size` |
+| `slide.getThumbnail(tiff_options)` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) avec `tiff_options` |
+| `slide.getThumbnail(image_size)` | [getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) avec `image_size` |
+| `slide.renderToGraphics(options, graphics)` | Aucun remplacement direct ; rendre vers une image à la place |
+| `slide.renderToGraphics(options, graphics, scale_x, scale_y)` | Aucun remplacement direct ; rendre vers une image à la place |
+| `slide.renderToGraphics(options, graphics, image_size)` | Aucun remplacement direct ; rendre vers une image à la place |
 
-pres = Presentation("pres.pptx");
+Ici, `options` est [RenderingOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/renderingoptions/), et `tiff_options` est [TiffOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/).
 
-rendering_options = RenderingOptions();
-images = pres.getImages(rendering_options, Dimension(1980, 1028));
+### **Sortie**
 
-for index in range(images.length):
-    thumbnail = images[index];
-    thumbnail.save("slide" + str(index) + ".png", ImageFormat.Png);
-    thumbnail.dispose();
+| Appel legacy | Remplacement moderne |
+| --- | --- |
+| `output.add(path, buffered_image)` | [Output.add](https://reference.aspose.com/slides/fr/python-java/aspose.slides/output/#add) avec `path, image`, où `image` est [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/) |
 
-pres.dispose();
-```
+### **ImageCollection**
 
-### Ajouter une image à une présentation
+| Appel legacy | Remplacement moderne |
+| --- | --- |
+| `collection.addImage(buffered_image)` | [ImageCollection.addImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/imagecollection/#addImage) avec un [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/) |
 
-Code utilisant une API obsolète :
+### **PPImage**
 
-``` python
-from asposeslides.api import Presentation, ShapeType
-from javax.imageio import ImageIO
-from java.io import File
+| Appel legacy | Remplacement moderne |
+| --- | --- |
+| `picture.getSystemImage()` | [PPImage.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/ppimage/#getImage) |
 
+Pour remplacer le contenu d’une image de présentation existante, utilisez [PPImage.replaceImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/ppimage/#replaceImage) avec un [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/).
 
-pres = Presentation();
+### **PatternFormat**
 
-bufferedImages = ImageIO.read(File("image.png"));
-ppImage = pres.getImages().addImage(bufferedImages);
+| Appel legacy | Remplacement moderne |
+| --- | --- |
+| `pattern.getTileImage(style_color)` | [PatternFormat.getTile](https://reference.aspose.com/slides/fr/python-java/aspose.slides/patternformat/#getTile) avec `style_color` |
+| `pattern.getTileImage(background, foreground)` | [PatternFormat.getTile](https://reference.aspose.com/slides/fr/python-java/aspose.slides/patternformat/#getTile) avec `background, foreground` |
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+Les arguments de couleur restent des objets Java [Color](https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html).
 
-pres.dispose();
-```
+### **PatternFormatEffectiveData**
 
-API Moderne :
+Pour les données de motif effectives renvoyées par l’API Java via JPype, la méthode de remplacement conserve le nom `getTileIImage`.
 
-``` python
-from asposeslides.api import Presentation, ShapeType, Images
-from java.awt import Dimension
+| Appel legacy | Remplacement moderne |
+| --- | --- |
+| `effective_pattern.getTileImage(background, foreground)` | `effective_pattern.getTileIImage(background, foreground)`, retournant [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/) |
 
+## **Support de l’API pour Graphics2D**
 
-pres = Presentation();
+Les surcharges héritées `renderToGraphics` dessinaient dans un contexte [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) fourni par l’appelant. L’API Moderne n’a aucun remplacement direct qui dessine dans ce contexte.
 
-image = Images.fromFile("image.png");
-ppImage = pres.getImages().addImage(image);
-image.dispose();
+Utilisez [Slide.getImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/slide/#getImage) pour rendre une diapositive ou [Presentation.getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) pour rendre plusieurs diapositives, puis enregistrez les images retournées avec [IImage.save](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/#save). Les applications qui combinaient le rendu de diapositives avec un dessin Java personnalisé doivent adapter leur étape de composition.
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+## **FAQ**
 
-pres.dispose();
-```
+**Pourquoi l’ancienne API d’imagerie Java a‑t‑elle été remplacée ?**
 
-## Méthodes à supprimer et leur remplacement dans l'API Moderne
+L’API Moderne déplace le chargement, le rendu et l’enregistrement d’image vers [IImage](https://reference.aspose.com/slides/fr/python-java/aspose.slides/iimage/). Cela fournit une abstraction d’image commune au lieu d’exposer des images tampon Java ou un contexte graphique Java.
 
-### Présentation
-| Signature de méthode                               | Signature de méthode de remplacement                             |
-|---------------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options)                   |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY)   |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
+**Dois‑je toujours utiliser Java et JPype ?**
 
-### Forme
-| Signature de méthode                                                      | Signature de méthode de remplacement                                       |
-|--------------------------------------------------------------------------|-------------------------------------------------------------------|
-| public final BufferedImage getThumbnail()                                        | public final IImage getImage()                                                           |
-| public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
+Oui. Aspose.Slides for Python via Java s’exécute toujours sur la JVM. L’API Moderne ne change que les appels de traitement d’image, pas les exigences d’exécution. Voir [System Requirements](/slides/fr/python-java/system-requirements/).
 
-### Diapositive
-| Signature de méthode                                                      | Signature de méthode de remplacement                                           |
-|--------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
-| public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
-| public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Sera complètement supprimé  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Sera complètement supprimé  |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Sera complètement supprimé  |
+**Comment libérer les images en Python ?**
 
-### Sortie
-| Signature de méthode                                                | Signature de méthode de remplacement                                |
-|--------------------------------------------------------------------|-------------------------------------------------------------|
-| public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
+Appelez `dispose` sur chaque image que vous chargez ou rendez dans un bloc `finally`. Si vous rendez plusieurs diapositives, libérez chaque image du tableau retourné. Libérez la présentation séparément avec [Presentation.dispose](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#dispose).
 
-### ImageCollection
-| Signature de méthode                          | Signature de méthode de remplacement               |
-|-----------------------------------------------|--------------------------------------------|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+**Le passage à l’API Moderne garantit‑il une génération de vignettes plus rapide ?**
 
-### PPImage
-| Signature de méthode                     | Signature de méthode de remplacement   |
-|------------------------------------------|-----------------------------------------|
-| public final BufferedImage getSystemImage() | public final IImage getImage() |
+Aucune amélioration de performance n’est garantie. Les remplacements prennent en charge les options de rendu, le redimensionnement et les tailles d’image ; mesurez les performances avec vos présentations et paramètres de sortie.
 
-### PatternFormat
-| Signature de méthode                                          | Signature de méthode de remplacement                        |
-|---------------------------------------------------------------|-----------------------------------------------------|
-| public final BufferedImage getTileImage(Color styleColor)   | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) |public final IImage getTile(Color background, Color foreground) |
+**Pourquoi le getter d’image renvoie‑il parfois une collection ?**
 
-### PatternFormatEffectiveData
-| Signature de méthode                                          | Signature de méthode de remplacement                        |
-|---------------------------------------------------------------|-----------------------------------------------------|
-| public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
-
-
-## Le support de l'API pour Graphics2D sera supprimé
-
-Les méthodes avec [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) sont déclarées obsolètes et leur support sera supprimé de l'API publique.
-
-La partie de l'API qui l'utilise sera supprimée :
-
-[Diapositive](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
-
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+[Presentation.getImages](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getImages) sans arguments renvoie les images intégrées de la présentation. Ses surcharges avec des options de rendu renvoient des images de diapositives rendues.

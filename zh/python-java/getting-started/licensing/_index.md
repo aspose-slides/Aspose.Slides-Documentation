@@ -1,168 +1,151 @@
 ---
-title: 许可
-description: "Aspose.Slides for Python via Java 提供不同的购买计划，或者提供免费试用和 30 天临时许可证以供使用许可和订阅政策进行评估。"
+title: 授权
 type: docs
 weight: 80
 url: /zh/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- 许可证文件
+- 临时许可证
+- 计量授权
+- 评估限制
+description: "在 Aspose.Slides for Python via Java 中应用文件、基于字节或计量许可证，并消除您应用程序中的评估限制。"
 ---
+## **概述**
 
-有时，为了获得最佳的评估结果，可能需要一种实践的方法。因此，Aspose.Slides 提供不同的购买计划，同时也提供免费试用和 30 天临时许可证进行评估。
+Aspose.Slides for Python via Java 可以在评估模式或已授权模式下运行。本文说明如何从文件或字节数组应用许可证以及如何配置计量授权。
 
-{{% alert color="primary" %}}
+有关购买选项，请参阅[定价信息](https://purchase.aspose.com/pricing/slides/zh/family)。有关通用授权与购买问题，请参阅[购买政策和常见问题](https://purchase.aspose.com/policies)。
 
-请注意，有一些一般政策和实践指导您如何评估、正确授权和购买我们的产品。您可以在 ["购买政策和常见问题"](https://purchase.aspose.com/policies) 部分找到它们。
-
-{{% /alert %}}
-
-## **评估 Aspose.Slides**
-您可以轻松下载 Aspose.Slides 进行评估。评估包与购买的包是相同的。评估版本仅在您添加几行代码以应用许可证后变为授权版本。
-
-## **评估版本限制**
-不指定许可证的 Aspose.Slides 评估版本提供完整的产品功能，但在打开和保存文档时会插入评估水印。在从演示幻灯片提取文本时，您也仅限使用一张幻灯片。
-
-{{% alert color="primary" %}} 
-
-如果您想在没有评估版本限制的情况下测试 Aspose.Slides，您可以申请 **30 天临时许可证**。有关更多信息，请参阅 [如何获取临时许可证？](https://purchase.aspose.com/temporary-license)。
-
-{{% /alert %}} 
+有关评估限制以及如何请求临时许可证，请参阅[评估 Aspose.Slides](/slides/zh/python-java/evaluate-aspose-slides/)。临时许可证的应用方式与已购买许可证文件相同。
 
 ## **关于许可证**
-您可以轻松从 Aspose.Slides for Python via Java 的 [下载页面](https://releases.aspose.com/slides/python-java/) 下载评估版本。评估版本提供与 Aspose.Slides 的授权版本完全 **相同的功能**。此外，评估版本在您购买许可证并添加几行代码以应用许可证后仅需变为授权版本。
 
-许可证是一个纯文本的 XML 文件，其中包含诸如产品名称、授权开发人员数量、订阅到期日期等详细信息。该文件经过数字签名，因此请勿修改该文件。即使是不小心在文件内容中添加额外的换行符也会使其无效。
+许可证文件包含产品名称、授权开发人员数量以及订阅到期日期等信息。该文件是经过数字签名的 XML。
 
-为了避免与评估版本相关的限制，您需要在使用 **Aspose.Slides** 之前设置许可证。您只需在每个应用程序或进程中设置一次许可证。
-
-## 购买许可证
-
-购买后，您需要应用许可证文件或流。
-
-{{% alert color="primary" %}}
-
-您需要设置许可证：
-* 仅在每个应用程序域中设置一次
-* 在使用任何其他 Aspose.Slides 类之前
-
+{{% alert color="warning" title="警告" %}}
+请勿编辑许可证文件。即使是多余的换行也会使其数字签名失效。
 {{% /alert %}}
 
-{{% alert color="primary" %}}
+在创建演示文稿或执行其他 Aspose.Slides 操作之前，请在每个应用程序或进程中仅应用一次许可证。对于许可证文件，请使用[License](https://reference.aspose.com/slides/zh/python-java/aspose.slides/license/)类。计量授权使用公钥和私钥对，而不是许可证文件。
 
-您可以在 [“定价信息”](https://purchase.aspose.com/pricing/slides/family) 页面找到定价信息。
+## **应用许可证**
 
-{{% /alert %}}
+以下示例假设已安装 Aspose.Slides for Python via Java 及其前置条件。每个示例都是独立脚本，启动 JVM、导入 API 并应用许可证。在您的应用程序中，请在应用许可证后执行演示文稿操作，并仅在所有 Aspose.Slides 工作完成后关闭 JVM。
 
-### **在 Aspose.Slides for Python via Java 中设置许可证**
+### **从文件应用许可证**
 
-许可证可以从以下位置应用：
-
-* 显式路径
-* 流
-* 作为计量许可证 – 一种新的许可机制
-
-{{% alert color="primary" %}}
-
-使用 **setLicense** 方法为组件授权。
-
-尽管多次调用 **setLicense** 并无害，但这会浪费资源（处理器）。
-
-{{% /alert %}}
-
-#### **使用文件应用许可证**
-
-此代码片段用于设置许可证文件：
-
-**Python**
+将许可证文件路径传递给[License.setLicense](https://reference.aspose.com/slides/zh/python-java/aspose.slides/license/#setLicense)。将 `Aspose.Slides.lic` 替换为您的许可证文件路径。
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # 在此执行演示文稿操作，在关闭 JVM 之前。
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-调用 setLicense 方法时，许可证名称应与您的许可证文件相同。例如，您可以将许可证文件名称更改为 "Aspose.Slides.lic.xml"。然后，在代码中，您需要将新的许可证名称（Aspose.Slides.lic.xml）传递给 setLicense 方法。
+使用完整的文件名，包括扩展名。例如，如果文件名为 `Aspose.Slides.lic.xml`，请在路径中包含 `.xml`。使用绝对路径可以避免对应用程序工作目录产生歧义。
 
-#### **从字节应用许可证**
+示例使用[License.isLicensed](https://reference.aspose.com/slides/zh/python-java/aspose.slides/license/#isLicensed)检查许可证是否已应用。
 
-此代码片段用于从字节应用许可证：
+### **从字节数组应用许可证**
 
-**Python**
+当许可证以 Python 字节形式可用时，使用[License.setLicenseFromBytes](https://reference.aspose.com/slides/zh/python-java/aspose.slides/license/#setLicenseFromBytes)。以下示例以二进制方式读取文件并在应用许可证前关闭文件。
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # 在此执行演示文稿操作，在关闭 JVM 之前。
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### 应用计量许可证
+保持原始字节不变。不要在应用之前对许可证内容进行解码、重新格式化或其他修改。
 
-Aspose.Slides 允许开发人员应用计量密钥。这是一种新的许可证机制。
+## **应用计量许可证**
 
-新的许可证机制将与现有的许可证方法一起使用。希望根据 API 功能使用情况进行计费的客户可以使用计量许可。
+计量授权根据 API 使用情况计费。获取计量许可证后，请使用[Metered.setMeteredKey](https://reference.aspose.com/slides/zh/python-java/aspose.slides/metered/#setMeteredKey)应用其公钥和私钥。在应用程序启动时初始化[Metered](https://reference.aspose.com/slides/zh/python-java/aspose.slides/metered/)对象并一次性应用密钥。
 
-完成获取此类型许可证的所有必要步骤后，您将收到密钥，而不是许可证文件。此计量密钥可以使用为此专门引入的 **Metered** 类应用。
-
-以下代码示例显示如何设置计量的公钥和私钥：
+以下示例从 `ASPOSE_METERED_PUBLIC_KEY` 和 `ASPOSE_METERED_PRIVATE_KEY` 环境变量读取密钥。运行脚本前请设置这两个变量。
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# 创建 CAD Metered 类的实例
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# 访问 set_metered_key 属性并将公钥和私钥作为参数传递
-metered.setMeteredKey("*****", "*****");
-
-# 在调用 API 之前获取计量数据量
-amountbefore = Metered.getConsumptionQuantity()
-
-# 显示信息
-print("使用量之前: \"" + amountbefore + "\"" )
-
-# 从磁盘加载文档。
-pres = Presentation();
-
-# 获取文档的页数
-print("使用量之后: \"" + str(pres.getSlides().size()) + "\"" )
-
-# 保存为 PDF
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# 在调用 API 之后获取计量数据量
-amountafter = Metered.getConsumptionQuantity()
-
-# 显示信息
-print("使用量之后: \"" + amountafter + "\"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # 在此执行演示文稿操作，在关闭 JVM 之前。
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-
-请注意，您必须保持稳定的互联网连接，以正确使用计量许可证，因为计量机制要求与我们的服务进行持续交互以进行准确计算。有关更多详细信息，请参阅 [“计量许可常见问题”](https://purchase.aspose.com/faqs/licensing/metered) 部分。
-
+{{% alert color="info" title="注意" %}}
+计量授权需要互联网连接以验证密钥并报告使用情况。请将私钥保存在源代码和日志之外。有关连接和计费细节，请参阅[计量授权 FAQ](https://purchase.aspose.com/faqs/licensing/metered)。
 {{% /alert %}}
+
+## **常见问题**
+
+**购买许可证后需要安装不同的包吗？**
+
+不需要。对与评估时使用的相同包应用许可证即可。
+
+**是否需要为每个演示文稿都应用许可证？**
+
+不需要。在应用程序启动时一次性应用，在创建或加载演示文稿之前完成即可。
+
+**可以重命名许可证文件吗？**
+
+可以。请在代码中使用新的完整文件名，并保持文件内容不变。
+
+**可以在基于字节的示例中使用临时许可证吗？**
+
+可以。将临时许可证文件以字节形式读取，并以与已购买许可证相同的方式应用。

@@ -3,11 +3,20 @@ title: API संदर्भ
 type: docs
 weight: 50
 url: /hi/python-java/api-reference/
+keywords:
+- API संदर्भ
+- Aspose.Slides for Python via Java
+- Python PowerPoint API
+- प्रस्तुति API
+- Python
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Python via Java API संदर्भ की खोज करें ताकि Microsoft PowerPoint के बिना प्रस्तुतियों को बनाएं, संपादित करें और निर्यात करें।"
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="नोट" %}}
 
-Aspose.Slides for Python via Java एक क्लास लाइब्रेरी है जो Python एप्लिकेशन को Microsoft PowerPoint® या अन्य साधनों का उपयोग किए बिना प्रेजेंटेशन दस्तावेज़ पढ़ने और लिखने में सक्षम बनाती है। Aspose.Slides for Python via Java आपको टेक्स्ट, शेप्स, टेबल्स और एनीमेशन को प्रबंधित करने, स्लाइड में ऑडियो और वीडियो जोड़ने, स्लाइड का प्रीव्यू देखने, स्लाइड को SVG, PDF फ़ॉर्मेट में निर्यात करने और बहुत कुछ करने की अनुमति देती है।
+Aspose.Slides for Python via Java एक क्लास लाइब्रेरी है जो Python अनुप्रयोगों को Microsoft PowerPoint® की आवश्यकता के बिना प्रस्तुतीकरण पढ़ने और लिखने की सुविधा देती है। यह पाठ, आकार, तालिकाएँ और एनीमेशन का प्रबंधन करने, स्लाइड में ऑडियो और वीडियो जोड़ने, स्लाइड का प्रीव्यू करने और स्लाइड को SVG, PDF और अन्य स्वरूपों में निर्यात करने की अनुमति देता है।
 
-Aspose.Slides for Python via Java उपयोग करता है [Aspose.Slides for Java के समान API रेफ़रेंस](https://reference.aspose.com/slides/hi/python-java/)।
+विवरण के लिए देखें [Aspose.Slides for Python via Java API संदर्भ](https://reference.aspose.com/slides/hi/python-java/)।
 
 {{% /alert %}}

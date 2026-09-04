@@ -1,297 +1,344 @@
 ---
-title: API Modern
+title: Tingkatkan Pemrosesan Gambar dengan API Modern di Python
+linktitle: API Modern
 type: docs
 weight: 237
 url: /id/python-java/modern-api/
-keywords: "API Modern Lintas Platform"
-description: "API Modern"
+keywords:
+- API modern
+- menggambar
+- thumbnail slide
+- slide ke gambar
+- thumbnail bentuk
+- bentuk ke gambar
+- thumbnail presentasi
+- presentasi ke gambar
+- tambahkan gambar
+- tambahkan foto
+- Python
+- Java
+- Aspose.Slides
+description: "Modernisasi pemrosesan gambar di Python melalui Java: render slide dan shape, tambahkan gambar, serta migrasikan panggilan imaging yang sudah usang ke API Modern Aspose.Slides."
 ---
-## Pengantar
+## **Pendahuluan**
 
-Secara historis, Aspose Slides memiliki ketergantungan pada java.awt dan dalam API publik memiliki kelas berikut dari sana:
-- [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
-- [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
+Aspose.Slides untuk Python via Java mengakses pustaka Java melalui JPype. API pemrosesan gambar warisan menggunakan [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) dan [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) dari `java.awt`.
 
-Mulai versi 24.4, API publik ini dinyatakan usang.
+Pustaka Java menurunkan (deprecate) API imaging ini mulai versi 24.4. API Modern menggunakan [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/) untuk memuat, merender, dan menyimpan gambar. Gunakan API ini untuk kode Python baru dan saat memigrasikan alur kerja pemrosesan gambar yang ada.
 
-Untuk menghilangkan ketergantungan pada kelas‑kelas ini, kami menambahkan apa yang disebut “Modern API” – yaitu API yang harus digunakan menggantikan yang usang, yang tanda tangan metodenya mengandung ketergantungan pada BufferedImage. Graphics2D dinyatakan usang dan dukungannya dihapus dari API Slides publik.
+{{% alert color="info" title="Note" %}}
+Nama metode lama di bawah ini hanya sebagai referensi migrasi. Metode tersebut tidak lagi tersedia pada rilis terkini. Contoh yang dapat dijalankan menggunakan API Modern.
+{{% /alert %}}
 
-Penghapusan API publik yang usang dengan ketergantungan pada System.Drawing akan terjadi pada rilis 24.8.
+## **API Modern**
 
-## Modern API
+Tipe utama pemrosesan gambar adalah:
 
-Menambahkan kelas dan enum berikut ke API publik:
+- [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/) — mewakili gambar raster atau vektor.  
+- [ImageFormat](https://reference.aspose.com/slides/id/python-java/aspose.slides/imageformat/) — menyediakan konstanta format file gambar.  
+- [Images](https://reference.aspose.com/slides/id/python-java/aspose.slides/images/) — membuat gambar, misalnya dengan [Images.fromFile](https://reference.aspose.com/slides/id/python-java/aspose.slides/images/#fromFile).
 
-- IImage - mewakili gambar raster atau vektor.
-- ImageFormat - mewakili format file gambar.
-- Images - metode untuk membuat instansi dan bekerja dengan antarmuka IImage.
+Gunakan [Slide.getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) atau [Shape.getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/#getImage) untuk merender satu slide atau shape. Gunakan [Presentation.getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) dengan opsi rendering untuk merender beberapa slide. Overload tanpa argumen mengembalikan koleksi gambar presentasi.
 
-Harap dicatat bahwa IImage bersifat disposable (menerapkan antarmuka IDisposable dan penggunaannya harus dibungkus dengan using atau dibuang dengan cara yang lain yang nyaman).
+Muat gambar dengan [Images.fromFile](https://reference.aspose.com/slides/id/python-java/aspose.slides/images/#fromFile), tambahkan dengan [ImageCollection.addImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/imagecollection/#addImage), atau perbarui gambar presentasi yang ada dengan [PPImage.replaceImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/#replaceImage). Kedua operasi koleksi gambar menerima [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/).
 
-Skenario tipikal penggunaan API baru dapat terlihat sebagai berikut:
+Lepaskan setiap gambar yang Anda muat atau render dengan memanggil metode `dispose`‑nya di dalam blok `finally`. Lepaskan presentasi dengan [Presentation.dispose](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#dispose).
 
-``` python
-from asposeslides.api import Presentation, SaveFormat, Images, ShapeType, ImageFormat
-from javax.imageio import ImageIO
-from java.io import File
+### **Menyiapkan Lingkungan Python**
+
+Pasang paket-paket sebagaimana dijelaskan pada [Installation](/slides/id/python-java/installation/). Setiap contoh mengimpor `asposeslides` sebelum memulai JVM, kemudian mengimpor API setelah JVM berjalan. Contoh‑contoh membiarkan JVM tetap berjalan agar dapat digunakan kembali. Lihat [Limitations and API Differences](/slides/id/python-java/limitations-and-api-differences/#import-the-library) untuk panduan siklus hidup notebook dan JVM.
+
+Contoh yang membuka `pres.pptx` memerlukan presentasi di direktori kerja. Contoh yang memuat `image.png` memerlukan berkas gambar yang sudah ada.
+
+### **Muat Gambar dan Render Slide**
+
+Contoh ini menambahkan gambar ke slide pertama dan menyimpan slide sebagai gambar JPEG. [IImage.save](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/#save) menuliskan gambar yang dirender dalam format yang ditentukan.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Images, Presentation, ShapeType
 from java.awt import Dimension
 
-pres = Presentation();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
 
-# buat instance IImage yang dapat dibuang dari file di disk.
-image = Images.fromFile("image.png");
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
-# buat gambar PowerPoint dengan menambahkan instance IImage ke gambar presentasi.
-ppImage = pres.getImages().addImage(image);
-image.dispose();
-
-# tambahkan shape gambar pada slide #1
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
-
-# dapatkan sebuah instance IImage yang mewakili slide #1.
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-
-# simpan gambar ke disk.
-slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
-slideImage.dispose();
-
-pres.dispose();
+    image_size = Dimension(1920, 1080)
+    slide_image = slide.getImage(image_size)
+    try:
+        slide_image.save("slide1.jpeg", ImageFormat.Jpeg)
+    finally:
+        slide_image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-## Mengganti kode lama dengan Modern API
+## **Mengganti Kode Lama dengan API Modern**
 
-Secara umum, Anda perlu mengganti panggilan ke metode lama yang menggunakan ImageIO dengan yang baru.
+Gantikan panggilan thumbnail warisan dengan metode yang mengembalikan [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/), lalu simpan hasilnya dengan [IImage.save](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/#save). Ini menghilangkan kebutuhan untuk meneruskan gambar yang dirender ke [ImageIO.write](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.File-).
 
-Old:
-``` python
-image_format = "PNG"
-buffImage = pres.getSlides().get_Item(0).getThumbnail(Dimension(1920, 1080))
-ImageIO.write(buffImage, image_format, File("image.png"))
-```
-New:
-``` python
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-slideImage.save("image.png", ImageFormat.Png);
-```
+### **Render Slide pada Ukuran Tertentu**
 
-### Mendapatkan thumbnail slide
+Gantikan panggilan warisan `slide.getThumbnail(image_size)` dengan [Slide.getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) menggunakan ukuran gambar yang sama.
 
-Kode yang menggunakan API usang:
+```python
+import jpype
+import asposeslides
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-slideImage = pres.getSlides().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(slideImage, image_format, File("slide1.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        image_size = Dimension(1920, 1080)
+        slide_image = presentation.getSlides().get_Item(0).getImage(image_size)
+        try:
+            slide_image.save("image.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-Modern API:
+### **Mendapatkan Thumbnail Slide**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Gantikan panggilan warisan `slide.getThumbnail()` dengan [Slide.getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) tanpa argumen.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-slideImage = pres.getSlides().get_Item(0).getImage();
-slideImage.save("slide1.png", ImageFormat.Png);
-slideImage.dispose();
+from asposeslides.api import ImageFormat, Presentation
 
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide_image = presentation.getSlides().get_Item(0).getImage()
+        try:
+            slide_image.save("slide1.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-### Mendapatkan thumbnail shape
+### **Mendapatkan Thumbnail Shape**
 
-Kode yang menggunakan API usang:
+Gantikan panggilan warisan `shape.getThumbnail()` dengan [Shape.getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/#getImage). Pastikan slide berisi shape sebelum mengaksesnya.
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
+
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide = presentation.getSlides().get_Item(0)
+        if slide.getShapes().size() > 0:
+            shape_image = slide.getShapes().get_Item(0).getImage()
+            try:
+                shape_image.save("shape.png", ImageFormat.Png)
+            finally:
+                shape_image.dispose()
+        else:
+            print("The first slide contains no shapes.")
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
+```
+
+### **Mendapatkan Thumbnail Presentasi**
+
+Gantikan panggilan warisan `presentation.getThumbnails(options, image_size)` dengan [Presentation.getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages). Gunakan [RenderingOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/renderingoptions/) untuk mengonfigurasi rendering.
+
+Iterasi langsung atas array yang dikembalikan dengan `enumerate` Python. Lepaskan setiap gambar yang dikembalikan dalam blok `finally` agar kegagalan penyimpanan tidak meninggalkan gambar yang belum dilepaskan.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation, RenderingOptions
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(shapeImage, image_format, File("shape.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    rendering_options = RenderingOptions()
+    image_size = Dimension(1920, 1080)
+    images = presentation.getImages(rendering_options, image_size)
+    try:
+        for index, image in enumerate(images, start=1):
+            image.save(f"slide{index}.png", ImageFormat.Png)
+    finally:
+        for image in images:
+            image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-Modern API:
+### **Menambahkan Gambar ke Presentasi**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Gantikan pemuatan melalui [ImageIO.read](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.io.File-) dengan [Images.fromFile](https://reference.aspose.com/slides/id/python-java/aspose.slides/images/#fromFile), lalu berikan gambar yang dihasilkan ke [ImageCollection.addImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/imagecollection/#addImage). Tambahkan gambar ke slide dan simpan presentasi.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-shapeImage.save("shape.png", ImageFormat.Png);
-shapeImage.dispose();
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
 
-pres.dispose();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
+
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
+    presentation.save("picture.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-### Mendapatkan thumbnail presentasi
+## **Metode yang Tidak Lagi Dipakai dan Penggantinya dalam API Modern**
 
-Kode yang menggunakan API usang:
+Tabel-tabel menggunakan notasi pemanggilan Python. Nama pada kolom warisan mengidentifikasi API yang dihapus; gunakan metode pengganti yang ditautkan. Metode modern untuk merender gambar mengembalikan objek [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/) alih-alih gambar buffered Java.
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions
-from javax.imageio import ImageIO
-from java.io import File
-from java.awt import Dimension
+### **Presentation**
 
+[Presentation.getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) mengembalikan array gambar yang dirender ketika dipanggil dengan opsi rendering.
 
-pres = Presentation("pres.pptx");
+| Panggilan Legacy | Pengganti Modern |
+| --- | --- |
+| `presentation.getThumbnails(options)` | [getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) dengan `options` |
+| `presentation.getThumbnails(options, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) dengan `options, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides)` | [getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) dengan `options, slides` |
+| `presentation.getThumbnails(options, slides, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) dengan `options, slides, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides, image_size)` | [getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) dengan `options, slides, image_size` |
+| `presentation.getThumbnails(options, image_size)` | [getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) dengan `options, image_size` |
 
-image_format = "PNG"
-rendering_options = RenderingOptions();
-bitmaps = pres.getThumbnails(rendering_options, Dimension(1980, 1028));
+Di sini, `slides` adalah `int[]` Java berisi nomor slide berbasis satu; buat dengan `jpype.JArray(jpype.JInt)([1, 3])` untuk memilih slide 1 dan 3. `image_size` adalah [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html).
 
-for index in range(bitmaps.length):
-    thumbnail = bitmaps[index];
-    ImageIO.write(thumbnail, "PNG", File("slide" + str(index) + ".png"));
-    
-pres.dispose();
-```
+### **Shape**
 
-Modern API:
+| Panggilan Legacy | Pengganti Modern |
+| --- | --- |
+| `shape.getThumbnail()` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/#getImage) tanpa argumen |
+| `shape.getThumbnail(bounds, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/#getImage) dengan `bounds, scale_x, scale_y` |
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions, ImageFormat
-from java.awt import Dimension
+### **Slide**
 
+| Panggilan Legacy | Pengganti Modern |
+| --- | --- |
+| `slide.getThumbnail()` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) tanpa argumen |
+| `slide.getThumbnail(scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) dengan `scale_x, scale_y` |
+| `slide.getThumbnail(options)` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) dengan `options` |
+| `slide.getThumbnail(options, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) dengan `options, scale_x, scale_y` |
+| `slide.getThumbnail(options, image_size)` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) dengan `options, image_size` |
+| `slide.getThumbnail(tiff_options)` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) dengan `tiff_options` |
+| `slide.getThumbnail(image_size)` | [getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) dengan `image_size` |
+| `slide.renderToGraphics(options, graphics)` | Tidak ada pengganti langsung; render ke gambar sebagai gantinya |
+| `slide.renderToGraphics(options, graphics, scale_x, scale_y)` | Tidak ada pengganti langsung; render ke gambar sebagai gantinya |
+| `slide.renderToGraphics(options, graphics, image_size)` | Tidak ada pengganti langsung; render ke gambar sebagai gantinya |
 
-pres = Presentation("pres.pptx");
+Di sini, `options` adalah [RenderingOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/renderingoptions/), dan `tiff_options` adalah [TiffOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/tiffoptions/).
 
-rendering_options = RenderingOptions();
-images = pres.getImages(rendering_options, Dimension(1980, 1028));
+### **Output**
 
-for index in range(images.length):
-    thumbnail = images[index];
-    thumbnail.save("slide" + str(index) + ".png", ImageFormat.Png);
-    thumbnail.dispose();
+| Panggilan Legacy | Pengganti Modern |
+| --- | --- |
+| `output.add(path, buffered_image)` | [Output.add](https://reference.aspose.com/slides/id/python-java/aspose.slides/output/#add) dengan `path, image`, di mana `image` adalah [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/) |
 
-pres.dispose();
-```
+### **ImageCollection**
 
-### Menambahkan gambar ke presentasi
+| Panggilan Legacy | Pengganti Modern |
+| --- | --- |
+| `collection.addImage(buffered_image)` | [ImageCollection.addImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/imagecollection/#addImage) dengan [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/) |
 
-Kode yang menggunakan API usang:
+### **PPImage**
 
-``` python
-from asposeslides.api import Presentation, ShapeType
-from javax.imageio import ImageIO
-from java.io import File
+| Panggilan Legacy | Pengganti Modern |
+| --- | --- |
+| `picture.getSystemImage()` | [PPImage.getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/#getImage) |
 
+Untuk mengganti isi gambar presentasi yang ada, gunakan [PPImage.replaceImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/ppimage/#replaceImage) dengan sebuah [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/).
 
-pres = Presentation();
+### **PatternFormat**
 
-bufferedImages = ImageIO.read(File("image.png"));
-ppImage = pres.getImages().addImage(bufferedImages);
+| Panggilan Legacy | Pengganti Modern |
+| --- | --- |
+| `pattern.getTileImage(style_color)` | [PatternFormat.getTile](https://reference.aspose.com/slides/id/python-java/aspose.slides/patternformat/#getTile) dengan `style_color` |
+| `pattern.getTileImage(background, foreground)` | [PatternFormat.getTile](https://reference.aspose.com/slides/id/python-java/aspose.slides/patternformat/#getTile) dengan `background, foreground` |
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+Argumen warna tetap berupa objek Java [Color](https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html).
 
-pres.dispose();
-```
+### **PatternFormatEffectiveData**
 
-Modern API:
+Untuk data pola efektif yang dikembalikan oleh API Java melalui JPype, metode pengganti mempertahankan nama `getTileIImage`.
 
-``` python
-from asposeslides.api import Presentation, ShapeType, Images
-from java.awt import Dimension
+| Panggilan Legacy | Pengganti Modern |
+| --- | --- |
+| `effective_pattern.getTileImage(background, foreground)` | `effective_pattern.getTileIImage(background, foreground)`, mengembalikan [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/) |
 
+## **Dukungan API untuk Graphics2D**
 
-pres = Presentation();
+Overload legacy `renderToGraphics` menggambar ke konteks [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) yang disediakan pemanggil. API Modern tidak memiliki pengganti langsung yang menggambar ke konteks tersebut.
 
-image = Images.fromFile("image.png");
-ppImage = pres.getImages().addImage(image);
-image.dispose();
+Gunakan [Slide.getImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getImage) untuk merender slide atau [Presentation.getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) untuk merender beberapa slide, kemudian simpan gambar yang dikembalikan dengan [IImage.save](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/#save). Aplikasi yang menggabungkan rendering slide dengan gambar Java kustom harus menyesuaikan langkah komposit mereka.
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+## **FAQ**
 
-pres.dispose();
-```
+**Mengapa API imaging Java lama digantikan?**
 
-## Metode yang akan dihapus dan penggantiannya dalam Modern API
+API Modern memindahkan pemuatan, rendering, dan penyimpanan gambar ke [IImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/iimage/). Ini memberikan alur kerja abstraksi gambar yang umum alih-alih mengekspos gambar buffered Java atau konteks grafis Java.
 
-### Presentation
-| Tanda Tangan Metode | Tanda Tangan Metode Pengganti |
-|---|---|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
+**Apakah saya masih membutuhkan Java dan JPype?**
 
-### Shape
-| Tanda Tangan Metode | Tanda Tangan Metode Pengganti |
-|---|---|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
+Ya. Aspose.Slides untuk Python via Java tetap dijalankan di atas JVM. API Modern mengubah panggilan pemrosesan gambar, bukan persyaratan runtime. Lihat [System Requirements](/slides/id/python-java/system-requirements/).
 
-### Slide
-| Tanda Tangan Metode | Tanda Tangan Metode Pengganti |
-|---|---|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
-| public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
-| public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Akan dihapus sepenuhnya |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Akan dihapus sepenuhnya |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Akan dihapus sepenuhnya |
+**Bagaimana cara melepaskan gambar di Python?**
 
-### Output
-| Tanda Tangan Metode | Tanda Tangan Metode Pengganti |
-|---|---|
-| public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
+Panggil `dispose` pada setiap gambar yang Anda muat atau render di dalam blok `finally`. Jika Anda merender beberapa slide, lepaskan setiap gambar dalam array yang dikembalikan. Lepaskan presentasi secara terpisah dengan [Presentation.dispose](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#dispose).
 
-### ImageCollection
-| Tanda Tangan Metode | Tanda Tangan Metode Pengganti |
-|---|---|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+**Apakah beralih ke API Modern menjamin pembuatan thumbnail lebih cepat?**
 
-### PPImage
-| Tanda Tangan Metode | Tanda Tangan Metode Pengganti |
-|---|---|
-| public final BufferedImage getSystemImage() | public final IImage getImage() |
+Tidak ada jaminan peningkatan performa. Pengganti mendukung opsi rendering, skala, dan ukuran gambar; ukur performa dengan presentasi dan pengaturan output Anda.
 
-### PatternFormat
-| Tanda Tangan Metode | Tanda Tangan Metode Pengganti |
-|---|---|
-| public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
+**Mengapa pengambil gambar kadang‑kadang mengembalikan koleksi?**
 
-### PatternFormatEffectiveData
-| Tanda Tangan Metode | Tanda Tangan Metode Pengganti |
-|---|---|
-| public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
-
-## Dukungan API untuk Graphics2D akan dihentikan
-
-Metode dengan [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) dinyatakan usang dan dukungannya akan dihapus dari API publik.
-
-Bagian API yang menggunakannya akan dihapus:
-
-[Slide](https://reference.aspose.com/slides/id/java/com.aspose.slides/slide/)
-
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/id/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/id/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/id/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+[Presentation.getImages](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getImages) tanpa argumen mengembalikan gambar‑gambar yang tertanam dalam presentasi. Overload‑nya dengan opsi rendering mengembalikan gambar slide yang dirender.

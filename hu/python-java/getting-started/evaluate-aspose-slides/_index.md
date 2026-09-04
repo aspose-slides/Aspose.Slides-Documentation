@@ -1,15 +1,24 @@
 ---
-title: Aspose.Slides értékelése
+title: Értékelje az Aspose.Slides
 type: docs
 weight: 120
 url: /hu/python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- értékelő verzió
+- próba korlátozások
+- értékelő vízjel
+- ideiglenes licenc
+description: "Értékelje az Aspose.Slides-et Python via Java segítségével, ismerje meg a próba korlátozásokat, és kérjen 30 napos ideiglenes licencet a teljes funkcionalitás teszteléséhez."
 ---
-Az Aspose.Slides egyszerűen letölthető értékeléshez. Az értékelési csomag megegyezik a megvásárolt csomaggal. Az értékelő verzió egyszerűen licensszé válik, miután néhány kódsort hozzáad a licenc alkalmazásához.
+Az Aspose.Slides for Python via Java letölthető, hogy kiértékelje a funkciókat. Az értékelő csomag megegyezik a licencelt csomaggal. Az értékelési korlátozások nélküli használathoz adjon hozzá néhány kódsort a licenc alkalmazásához.
 
-Az Aspose.Slides értékelő verziója (licenc megadása nélkül) teljes termékfunkcionalitást biztosít, de egy értékelési vízjelet helyez el a dokumentum tetején megnyitáskor és mentéskor. Az előadásdiák szövegének kinyerésekor egy diára vagy korlátozva.
+Az Aspose.Slides értékelő verziója (licenc nélkül használva) teljes termékfunkcionalitást biztosít, de a dokumentum tetejére értékelő vízjelet helyez el, amikor megnyitja vagy menti. A szövegkinyerés egy prezentációnként egy diára korlátozódik.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Aspose.Slides értékelő vízjel egy prezentációs dián](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-Ha az Aspose.Slides-t az értékelő verzió korlátozásai nélkül szeretné tesztelni, kérhet **30 napos ideiglenes licencet**. További információkért tekintse meg a [Hogyan szerezhet ideiglenes licencet?](https://purchase.aspose.com/temporary-license) oldalt.
+{{% alert color="info" title="Megjegyzés" %}}
+Az Aspose.Slides értékelési korlátozások nélküli teszteléséhez kérhet **30 napos ideiglenes licencet**. További információkért tekintse meg a [Ideiglenes licenc beszerzése](https://purchase.aspose.com/temporary-license) oldalt.
 {{% /alert %}}

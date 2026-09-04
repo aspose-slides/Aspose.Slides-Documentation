@@ -3,69 +3,77 @@ title: Funktionsübersicht
 type: docs
 weight: 20
 url: /de/python-java/features-overview/
+keywords:
+- Aspose.Slides for Python via Java
+- PowerPoint-Funktionen
+- Präsentationskonvertierung
+- Folienrendering
+- Präsentationsbearbeitung
+- Textformatierung
+- Formen und Diagramme
+- PPT
+- PPTX
+- Python
+description: "Entdecken Sie die Funktionen von Aspose.Slides for Python via Java zum Konvertieren, Rendern und Bearbeiten von PowerPoint‑Präsentationen, einschließlich Folien, Text, Formen und Diagrammen."
 ---
-## **Unterstützte Plattformen**
-Aspose.Slides for Python via Java ist eine plattformunabhängige API. Sie kann auf jeder Plattform (Windows, Linux, macOS usw.) verwendet werden, auf der Python 3.7 oder höher installiert ist. JDK 8 oder höher ist eine weitere Voraussetzung.
+Dieser Artikel beschreibt die Präsentationsverarbeitungsfunktionen von Aspose.Slides for Python via Java. Unterstützte Betriebssysteme und Abhängigkeiten finden Sie unter [Systemanforderungen](/slides/de/python-java/system-requirements/).
 
 ## **Dateiformate und Konvertierungen**
-Aspose.Slides for Python via Java unterstützt die meisten PowerPoint‑Dokumentformate. Es ermöglicht auch den Export in die gängigen Dateiformate, die Organisationen verwenden und untereinander teilen. Lesen Sie die Details:
 
-|**Funktion**|**Beschreibung**|
-| :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Python via Java bietet die schnellste Verarbeitung für dieses Präsentationsdokumentformat.|
-|PPT to PPTX conversion|Aspose.Slides for Python via Java unterstützt die Konvertierung von PPT zu PPTX.|
-|Portable Document Format (PDF)|Sie können alle unterstützten Dateiformate mit einer einzigen Methode in Adobe Portable Document Format (PDF)-Dokumente exportieren.|
-|XML Parser Specification (XPS)|Sie können alle unterstützten Dateiformate mit einer einzigen Methode in XML Parser Specification (XPS)-Dokumente exportieren.|
-|Tagged Image File Format (TIFF)|Sie können alle unterstützten Präsentationsdateiformate in Tagged Image File Format (TIFF) exportieren.|
-|PPTX To HTML Conversion|Aspose.Slides for Python via Java unterstützt die Konvertierung von PresentationEx in das HTML-Format.|
+Aspose.Slides for Python via Java ermöglicht das Konvertieren zwischen Präsentationsformaten und das Exportieren von Präsentationen in Dokument- und Webformate. Siehe [Unterstützte Dateiformate](/slides/de/python-java/supported-file-formats/) für die vollständige Formatübersicht und den Unterschied zwischen dem Laden von Präsentationen, dem Importieren von Inhalten und dem Exportieren von Ausgaben.
 
 ## **Präsentationsdarstellung**
-Aspose.Slides for Python via Java unterstützt die hochqualitative Darstellung von Folien einer Präsentation in verschiedene Grafikformate. Lesen Sie die Details:
 
-|**Funktion**|**Beschreibung**|
-| :- | :- |
-|Java Supported Image Formats|Mit Aspose.Slides for Python via Java können Sie Präsentationsfolien und Bilder auf Folien in alle von Java unterstützten Grafikformate wie TIFF, PNG, BMP, JPEG und GIF rendern.|
-|SVG Format|Aspose.Slides for Python via Java bietet zudem eingebaute Methoden, mit denen Sie Präsentationsfolien in Scalable Vector Graphics (SVG)-Formate exportieren können.|
+Aspose.Slides for Python via Java bietet hochqualitative Folienrenderings als Raster- oder Vektorbilder für Vorschaubilder und andere visuelle Ausgaben. Sie können außerdem Bilder auf Folien rendern. Verfügbare Bildformate und Exporthinweise finden Sie unter [Unterstützte Dateiformate](/slides/de/python-java/supported-file-formats/#supported-file-formats).
 
 ## **Inhaltsfunktionen**
-Aspose.Slides for Python via Java ermöglicht den Zugriff, die Bearbeitung oder Erstellung fast aller Elemente oder Inhalte von Präsentationsdokumenten. Lesen Sie die Details:
 
 |**Funktion**|**Beschreibung**|
 | :- | :- |
-|Master Slides|Die Masterfolien definieren das Layout der normalen Folien. Aspose.Slides for Python via Java ermöglicht den Zugriff auf und die Bearbeitung der Masterfolien von Präsentationsdokumenten.|
-|Normal Slides|Mit Aspose.Slides for Python via Java können Sie neue Folien verschiedener Typen erstellen; Sie erhalten außerdem Zugriff auf und können vorhandene Folien in den Präsentationen bearbeiten.|
-|Cloning / Copying Slides|Aspose.Slides for Python via Java stellt eingebaute Methoden bereit, mit denen Sie vorhandene Folien innerhalb einer Präsentation klonen oder kopieren können. Sie können kopierte und geklonte Folien von einer Präsentation in eine andere übernehmen. Da eine Folie ihr Layout vom Master übernimmt, kopieren die integrierten Klonmethoden den Master beim Klonen automatisch.|
-|Managing Slides sections|Methoden zum Organisieren von Folien in verschiedene Abschnitte innerhalb einer Präsentation.|
-|Place Holders and Text Holders|Sie können die Platzhalter und Texthalter in einer Folie abrufen. Außerdem können Sie mit der entsprechenden Methode eine Folie mit Texthaltern von Grund auf erstellen.|
-|Header and Footers|Aspose.Slides for Python via Java erleichtert die Handhabung von Kopf‑ und Fußzeilen in Folien.|
-|Notes in Slides|Mit Aspose.Slides for Python via Java können Sie Notizen, die einer Folie zugeordnet sind, abrufen und bearbeiten sowie neue Notizen hinzufügen.|
-|Finding a Shape|Sie können auch eine bestimmte Form in einer Folie anhand des alternativen Textes, der der Form zugeordnet ist, finden.|
-|Backgrounds|Aspose.Slides for Python via Java ermöglicht die Arbeit mit Hintergründen, die einem Master‑ oder Normalfolie in einer Präsentation zugeordnet sind.|
-|Text Boxes|Textfelder können von Grund auf erstellt werden. Sie können vorhandene Textfelder abrufen. Außerdem können Sie deren Texte ändern, ohne das ursprüngliche Textformat zu verlieren.|
-|Rectangle Shapes|Sie können Rechteckformen mit Aspose.Slides for Python via Java erstellen oder bearbeiten.|
-|Poly Line Shapes|Sie können Polylinienformen mit Aspose.Slides for Python via Java erstellen oder bearbeiten.|
-|Ellipse Shapes|Sie können Ellipsenformen mit Aspose.Slides for Python via Java erstellen oder bearbeiten.|
-|Group Shapes|Aspose.Slides for Python via Java unterstützt Gruppenformen.|
-|Auto Shapes|Aspose.Slides for Python via Java unterstützt Autoformen.|
-|SmartArt|Aspose.Slides for Python via Java bietet Unterstützung für SmartArt‑Formen in MS PowerPoint.|
-|Charts|Aspose.Slides for Python via Java bietet Unterstützung für MSO‑Diagramme in PowerPoint.|
-|Shapes Serialization|Aspose.Slides for Python via Java unterstützt eine große Anzahl von Formen. Wenn Aspose.Slides for Python via Java keine Unterstützung für eine Form bietet, können Sie ein Serialisierungsmethode nutzen, mit der Sie diese Form von einer vorhandenen Folie serialisieren können. Auf diese Weise können Sie die Form weiterverwenden, wie es Ihren Anforderungen entspricht.|
-|Picture Frames|Sie können Bilder in Bildrahmen mit Aspose.Slides for Python via Java verwalten.|
-|Audio Frames|Sie können Audio‑Dateien in Audio‑Frames auf Folien mit Aspose.Slides for Python via Java verknüpfen oder einbetten.|
-|Video Frames|Sie können Videodateien in Video‑Frames verwalten. Aspose.Slides for Python via Java bietet zudem Unterstützung für verknüpfte und eingebettete Videos.|
-|OLE Frame|Sie können OLE‑Objekte in OLE‑Frames mit Aspose.Slides for Python via Java verwalten.|
-|Tables|Aspose.Slides for Python via Java unterstützt Tabellen in Folien.|
-|ActiveX Controls|Unterstützung für ActiveX‑Steuerelemente.|
-|VBA Macros|Unterstützung für die Verwaltung von VBA‑Makros in Präsentationen.|
-|Text Frame|Sie können über den Text‑Frame, der mit einer Form verknüpft ist, auf den Text jeder Form zugreifen.|
-|Text Scanning|Sie können Text in einer Präsentation auf Präsentations‑ oder Foliensatzebene mithilfe eingebauter Scan‑Methoden durchsuchen.|
-|Animations|Sie können Animationen auf Formen anwenden.|
-|Slide Shows|Aspose.Slides for Python via Java unterstützt Diashows und Folienübergänge.|
+|Präsentationen|Sie können Präsentationen von Grund auf neu erstellen oder vorhandene Dateien öffnen.|
+|Dokumenteigenschaften|Sie können Dokumenteigenschaften lesen und ändern.|
+|Präsentationsschutz|Sie können Kennwortschutz anwenden und die Einstellungen zum Präsentationsschutz verwalten.|
+|Masterfolien|Masterfolien definieren das Layout normaler Folien. Aspose.Slides for Python via Java ermöglicht den Zugriff auf Masterfolien in Präsentationen und deren Änderung.|
+|Normale Folien|Sie können Folien in Präsentationen hinzufügen, darauf zugreifen, bearbeiten, neu anordnen und löschen.|
+|Folienlayouts|Sie können mit Folienlayouts arbeiten.|
+|Klonen und Kopieren von Folien|Integrierte Methoden erlauben das Klonen oder Kopieren von Folien innerhalb einer Präsentation oder zwischen Präsentationen. Beim Klonen einer Folie wird automatisch die zugehörige Masterfolie kopiert.|
+|Folienabschnitte|Sie können Folien innerhalb einer Präsentation in Abschnitte organisieren.|
+|Platzhalter und Texthalter|Sie können Platzhalter und Texthalter auf einer Folie zugreifen sowie Folien von Grund auf neu mit Texthaltern erstellen.|
+|Kopf‑ und Fußzeilen|Aspose.Slides for Python via Java ermöglicht die Verwaltung von Kopf‑ und Fußzeilen.|
+|Foliennotizen|Sie können Foliennotizen zugreifen, hinzufügen und ändern und sie beim Exportieren nach PDF oder TIFF einbeziehen.|
+|Suchen einer Form|Sie können eine bestimmte Form auf einer Folie mittels ihres Alternativtexts finden.|
+|Alternativtext|Sie können den Alternativtext von Formen lesen und aktualisieren.|
+|Hyperlinks|Sie können Hyperlinks auf Formen lesen und aktualisieren sowie Hyperlinks zu Text hinzufügen.|
+|Hintergründe|Sie können mit den Hintergründen von Masterfolien und normalen Folien in einer Präsentation arbeiten.|
+|Textfelder|Sie können Textfelder von Grund auf neu erstellen, vorhandene Textfelder zugreifen und deren Text ändern, wobei die ursprüngliche Formatierung erhalten bleibt.|
+|Rechteckformen|Sie können Rechteckformen erstellen und bearbeiten.|
+|Linienformen|Sie können Linienformen erstellen und bearbeiten.|
+|Polylinienformen|Sie können Polylinienformen erstellen und bearbeiten.|
+|Ellipse‑Formen|Sie können Ellipsenformen erstellen und bearbeiten.|
+|Gruppenformen|Aspose.Slides for Python via Java unterstützt Gruppenformen.|
+|AutoFormen|Aspose.Slides for Python via Java unterstützt AutoFormen.|
+|SmartArt|Sie können SmartArt‑Formen in Präsentationen erstellen und bearbeiten.|
+|Diagramme|Sie können Microsoft‑Office‑Diagramme in PowerPoint‑Präsentationen erstellen und bearbeiten.|
+|Form‑Serialisierung|Aspose.Slides for Python via Java unterstützt viele Formtypen. Für nicht unterstützte Formen können Sie die Serialisierung nutzen, um eine Form von einer vorhandenen Folie zu erhalten und wiederzuverwenden.|
+|Form‑Sperren|Sie können Form‑Sperren anwenden, um Bearbeitungsaktionen einzuschränken.|
+|Bildrahmen|Sie können Bilder in Bildrahmen verwalten.|
+|Audio‑Frames|Sie können Audiodateien in Audio‑Frames auf Folien verlinken oder einbetten.|
+|Video‑Frames|Sie können verknüpfte und eingebettete Videos in Video‑Frames verwalten.|
+|OLE‑Frames|Sie können OLE‑Objekte in OLE‑Frames verwalten.|
+|Tabellen|Sie können Tabellen erstellen, verschieben und die Größe ändern; Zeilen und Spalten hinzufügen, löschen und die Größe anpassen; sowie Zelleninhalt, Rahmen, Füllungen und Textformatierung lesen und ändern.|
+|ActiveX‑Steuerelemente|Aspose.Slides for Python via Java unterstützt ActiveX‑Steuerelemente.|
+|VBA‑Makros|Sie können VBA‑Makros in Präsentationen verwalten.|
+|Text‑Frames|Sie können über den zugehörigen Text‑Frame auf den Text einer Form zugreifen und Ränder sowie Textumbruch des Text‑Frames anpassen.|
+|Schriften|Sie können die in Präsentationen verwendeten Schriften verwalten.|
+|Text‑Scanning|Integrierte Methoden ermöglichen das Scannen von Text über die gesamte Präsentation hinweg oder auf einzelnen Folien.|
+|Animationen|Sie können Animations‑Effekte zu Formen hinzufügen und ändern.|
+|Bildschirmpräsentationen|Aspose.Slides for Python via Java unterstützt Bildschirmpräsentationen und Folienübergänge, einschließlich Morph‑Übergängen.|
 
 ## **Formatierungsfunktionen**
-Mit Aspose.Slides for Python via Java können Sie Texte und Formen auf Folien in Präsentationen formatieren. Lesen Sie die Details:
+
+Aspose.Slides for Python via Java ermöglicht das Formatieren von Text und Formen auf Präsentationsfolien, wie unten beschrieben:
 
 |**Funktion**|**Beschreibung**|
 | :- | :- |
-|Text Formatting|<p>In Aspose.Slides for Python via Java können Sie Texte über die Text‑Frames, die den Formen zugeordnet sind, verwalten. Somit können Sie Texte mithilfe der Paragraphen und Abschnitte, die den Text‑Frames zugeordnet sind, formatieren. Diese Textelemente können über Aspose.Slides for Python via Java formatiert werden.</p><p>- Schriftart</p><p>- Schriftgröße</p><p>- Schriftfarbe</p><p>- Schrift‑Schattierungen</p><p>- Absatzausrichtung</p><p>- Absatz‑Aufzählungszeichen</p><p>- Absatzorientierung</p>|
-|Shape Formatting|<p>In Aspose.Slides for Python via Java ist das Basiselement einer Folie eine Form. Sie können diese Formelemente mit Aspose.Slides for Python via Java formatieren:</p><p>- Position</p><p>- Größe</p><p>- Linie</p><p>- Füllung (einschließlich Muster, Verlauf, einfarbig)</p><p>- Text</p><p>- Bild</p>|
+|Textformatierung|<p>Sie können Text über die Text‑Frames, die mit Formen verbunden sind, verwalten und einzelne Absätze sowie Textabschnitte formatieren. Die folgenden Formatierungsoptionen stehen zur Verfügung:</p><p>- Schriftart</p><p>- Schriftgröße</p><p>- Schriftfarbe</p><p>- Schriftschattierung</p><p>- Absatzausrichtung</p><p>- Absatzeinzüge und Tabulatoren</p><p>- Aufzählungszeichen</p><p>- Absatzorientierung</p>|
+|Formformatierung|<p>Formen sind die Basiselemente einer Folie. Sie können die folgenden Formeigenschaften anpassen:</p><p>- Position</p><p>- Größe</p><p>- Drehung</p><p>- Linienstile</p><p>- Füllung (einschließlich einfarbiger, Farbverlauf-, Muster-, Textur‑ und Bildfüllungen)</p><p>- Text</p><p>- Bild</p>|

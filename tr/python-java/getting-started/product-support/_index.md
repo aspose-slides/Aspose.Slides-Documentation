@@ -3,41 +3,71 @@ title: Ürün Desteği
 type: docs
 weight: 100
 url: /tr/python-java/product-support/
+keywords:
+- teknik destek
+- ürün desteği
+- bir sorun bildir
+- destek forumu
+- Python
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Python via Java için destek alın, yeniden üretilebilir bir sorun raporu hazırlayın ve belgelere, indirmelere ve sürüm notlarına ulaşın."
 ---
+## **Genel Bakış**
+
+Aspose.Slides destek forumunu kullanarak soru sorabilir, sorun bildirebilir ve Aspose.Slides for Python via Java için özellik isteyebilirsiniz. Bu makale, bir konu açmadan önce ne kontrol etmeniz gerektiğini ve destek ekibinin bir sorunu yeniden oluşturmasına yardımcı olacak bilgileri açıklar.
+
 ## **Teknik Destek**
-{{% alert color="primary" %}}
 
-Aspose tüm ürünleri için sınırsız ücretsiz teknik destek sağlar. Destek, değerlendirme paketleri dahil tüm kullanıcılara açıktır.
+{{% alert color="info" title="Not" %}}
+Aspose, ürünü değerlendirenler dahil tüm kullanıcılara ücretsiz teknik destek sağlar. Ayrıntılar için [ücretsiz destek politikalarını](https://forum.aspose.com/t/free-support-policies/162313) inceleyin.
+{{% /alert %}}
 
-{{% /alert %}} 
+Teknik soruları [Aspose.Slides destek forumunda](https://forum.aspose.com/c/slides/tr/11) gönderin. Raporunuzda **Aspose.Slides for Python via Java** belirterek ekibin doğru ürün ve ortamı tanımlamasını sağlayın.
 
-Aspose.Slides for Python via Java hakkında yardım gerektiğinde aşağıdakileri değerlendirin:
+Öncelikli yardım için [ücretli destek yardım masasını](https://helpdesk.aspose.com/) inceleyin. Ücretli destek ayrı bir abonelik gerektirir ve ürün lisansı ile birlikte sunulmaz.
 
-- Destek için ana kanal [Aspose.Forums](https://forum.aspose.com/c/slides/tr/11) adresidir. Sorunuzu Aspose.Slides forumunda paylaşın—kaç saat içinde yanıt alacaksınız. Aspose.Slides destek ekibi, forumda yayınlanan sorulara doğrudan yanıt verir.
-- Aspose’un telefonla teknik destek vermediğini unutmayın. Telefon desteği yalnızca satış ve satın alma soruları için mevcuttur.
-- Forumlarda yanıt beklerken sabırlı olun ve saat dilimi farklarını göz önünde bulundurun.
+## **Sorun Bildirmeden Önce**
 
+1. Sorunu çözebilecek daha yeni bir sürüm olup olmadığını görmek için [indirmeleri](https://releases.aspose.com/slides/tr/python-java/) ve [sürüm notlarını](https://releases.aspose.com/slides/tr/python-java/release-notes/) kontrol edin. Mümkünse, en son sürümü test ortamında deneyerek sorunu yeniden oluşturun.
+2. Destek forumunda, [belgelendirme](/slides/tr/python-java/) ve [API referansında](https://reference.aspose.com/slides/tr/python-java/) mevcut bir yanıtı arayın.
+3. Kurulum veya JVM başlatma sorunları için [kurulum kılavuzunu](/slides/tr/python-java/installation/) gözden geçirin ve Python ile Java’nın aynı mimariyi kullandığından emin olun.
+4. Sorunu, hâlâ yeniden üretilen en küçük örnek ve giriş sunumuna indirgemeye çalışın.
 
-Aspose.Slides for Python via Java’da bir sorun yaşadığınızda, en verimli şekilde çözmek için şu yönergeleri izleyin:
+## **Sorun Raporu Hazırlama**
 
-- Sorunu bildirmeden önce, en yeni Aspose.Slides for Python via Java sürümünü kullandığınızdan emin olun. Belki de yaşadığınız sorun bir güncelleme ile zaten çözülmüş olabilir. 
+Forum konunuzda aşağıdaki bilgileri ekleyin:
 
-  En yeni sürüm bilgisi için [Aspose.Slides download](https://releases.aspose.com/slides/tr/python-java/) sayfasına bakın.
+- **Ortam:** Aspose.Slides for Python via Java sürümü, Python sürümü, Java sürümü ve sağlayıcı, JPype sürümü, işletim sistemi ve mimari.
+- **Adımlar ve kod:** İçe aktarmaları ve JVM başlatmasını içeren minimal çalıştırılabilir Python örneği ve sorunu yeniden oluşturmak için gereken adımlar.
+- **Girdi dosyaları:** Sunumu ve örnek için gerekli olan ilgili dosyalar. Birden fazla dosyayı ZIP arşivinde birleştirin.
+- **Beklenen ve gerçekleşen sonuçlar:** Farkı açıklayın ve gerektiğinde oluşturulan çıktıyı veya ekran görüntülerini ekleyin. Render sorunları için etkilenen slaytları ve yazı tiplerini belirtin.
+- **Hata detayları:** Bir istisna oluşursa tam hata mesajı ve yığın izini ekleyin.
 
-- Sorunu bildirmeden önce forumlarımıza, bu belgelere ve API Referansına göz atabilirsiniz. Sorunuzun cevabı zaten sağlanmış olabilir. 
-
-- Sorunu bildirirken, orijinal belgeyi ve (mümkünse) sorunla ilgili kod parçacığını ekleyin. Birden fazla dosya eklemeniz gerekiyorsa, bunları bir ZIP paketi içinde gönderin. Belgelerinizi Aspose.Forums’da güvenle ekleyebilirsiniz; çünkü **yalnızca** siz ve Aspose geliştiricileri bu dosyalara erişebilir.
-
-- Belirli bir sorun için tek bir konu oluşturun ve kullanın. Başka bir sorun yaşarsanız, ayrı bir konu açarak bildirmeniz gerekir. 
+Her sorun için bir konu kullanın. Aynı sorunla ilgili ek bilgileri mevcut konuya ekleyerek destek ekibinin araştırmayı sürdürmesini sağlayın.
 
 ## **Kaynaklar**
 
-Bu tablo, Aspose.Slides for Python via Java için yararlı teknik kaynakları listeler.
-
-|**Kaynak**|**Açıklama**|
+| **Kaynak** | **Açıklama** |
 | :- | :- |
-|[Aspose.Slides for Python via Java ana sayfası](https://products.aspose.com/slides/tr/python-java/)|Ürün ana sayfası.|
-|[Aspose.Slides blogu](https://blog.aspose.com/category/slides/tr/)|Yeni sürümler ve faydalı ipuçları hakkında bilgi almak için bu bölümü düzenli olarak kontrol edin.|
-|[Aspose.Slides for Python via Java indirme](https://releases.aspose.com/slides/tr/python-java/)|Bu sayfadan Aspose.Slides’in en yeni sürümünü indirin. Sık sık yeni sürümler yayınlanır.|
-|[Aspose.Slides destek forumu](https://forum.aspose.com/c/slides/tr/11)|Sorularınızı ve sorunlarınızı buraya gönderin, hızlı bir çözüm alın.|
-|[Aspose.Slides for Python via Java ürün belgeleri](/slides/tr/python-java/)|Bu belgeyi ve Aspose.Slides API Referansını içeren tam çevrimiçi dokümantasyon.|
+| [Product page](https://products.aspose.com/slides/tr/python-java/) | Aspose.Slides for Python via Java hakkında genel bakış. |
+| [Documentation](/slides/tr/python-java/) | Kurulum talimatları ve geliştirme kılavuzlarına bağlantılar. |
+| [API reference](https://reference.aspose.com/slides/tr/python-java/) | Kütüphane için referans dokümantasyonu. |
+| [Downloads](https://releases.aspose.com/slides/tr/python-java/) | Mevcut sürümler ve kurulum paketleri. |
+| [Release notes](https://releases.aspose.com/slides/tr/python-java/release-notes/) | Yayınlanan değişiklikler ve düzeltmeler. |
+| [Free support forum](https://forum.aspose.com/c/slides/tr/11) | Teknik sorular, sorun raporları ve özellik istekleri. |
+| [Paid support helpdesk](https://helpdesk.aspose.com/) | Ücretli destek aboneleri için öncelikli destek. |
+
+## **SSS**
+
+**Aspose.Slides for Python via Java'ı değerlendirirken yardım alabilir miyim?**
+
+Evet. Değerlendirme sürecinde ve satın alım sonrası ücretsiz teknik destek, Aspose.Slides destek forumu aracılığıyla mevcuttur.
+
+**JVM başlatılamadığında ne eklemeliyim?**
+
+Python, Java ve JPype sürümlerinizi, işletim sisteminizi, Python ve Java mimarilerini, JVM başlatma kodunuzu ve tam hata mesajını sağlayın. Bu ayrıntılar, destek ekibinin ortamınızı yeniden oluşturmasına yardımcı olur.
+
+**Yükseltmeden sonra ortaya çıkan bir sorunu nasıl raporlamalıyım?**
+
+Çalışan son sürümü, sorunun ortaya çıktığı ilk sürümü ve giriş dosyalarını içeren minimal bir örneği ekleyin. Yükseltme sırasında yapılan diğer ortam değişikliklerini de açıklayın.

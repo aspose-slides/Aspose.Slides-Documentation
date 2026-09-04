@@ -1,44 +1,55 @@
 ---
-title: Aspose.Slides لـ Python عبر Java
-second_title: Aspose.Slides for Python
-description: توفر Aspose.Slides لـ Python عبر Java العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى تنسيق SVG و PDF والمزيد.
+title: Aspose.Slides للبايثون عبر جافا
+second_title: Aspose.Slides للبايثون
 type: docs
 weight: 47
 url: /ar/python-java/
 is_root: true
+keywords:
+- Aspose.Slides للبايثون عبر جافا
+- مكتبة PowerPoint لبايثون
+- إدارة عروض PowerPoint في بايثون
+- قراءة وكتابة PowerPoint في بايثون
+- تحرير شرائح PowerPoint في بايثون
+- تصدير PowerPoint إلى PDF في بايثون
+- تصدير PowerPoint إلى SVG في بايثون
+- معاينة الشرائح في بايثون
+- إضافة صوت وفيديو إلى الشرائح في بايثون
+- PowerPoint بدون Microsoft Office
+- بايثون
+- جافا
+- Aspose.Slides
+description: "تمكنك Aspose.Slides للبايثون عبر جافا من إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو، ومعاينة الشرائح، وتصدير العروض إلى SVG وPDF وغير ذلك."
 ---
+{{% alert color="info" title="ملاحظة" %}}
 
-{{% alert color="primary" %}}
+**مرحبًا بكم في Aspose.Slides for Python عبر Java**
 
-**مرحبًا بكم في Aspose.Slides لـ Python عبر Java**
+![شعار منتج Aspose.Slides for Python عبر Java](aspose_slides-for-python-via-java.png)
 
-![شعار منتج Aspose.Slides لـ Python عبر Java](aspose_slides-for-python-via-java.png)
+Aspose.Slides for Python عبر Java هي مكتبة فئات تمكّن تطبيقات Python الخاصة بك من قراءة وكتابة عروض PowerPoint® دون الحاجة إلى Microsoft PowerPoint®.
 
-تعد Aspose.Slides لـ Python عبر Java مكتبة فئة تمكن تطبيقاتك من قراءة وكتابة مستندات PowerPoint® دون استخدام Microsoft PowerPoint®.
-
-تعتبر Aspose.Slides لـ Python عبر Java هي المكون الأول والوحيد الذي يوفر الوظائف لإدارة مستندات PowerPoint®.
-
-توفر Aspose.Slides لـ Python عبر Java العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى تنسيق SVG و PDF والمزيد.
+تشمل ميزاتها الرئيسة إدارة النصوص والأشكال والجداول والرسوم المتحركة؛ إضافة الصوت والفيديو إلى الشرائح؛ معاينة الشرائح؛ وتصدير الشرائح إلى SVG وPDF وصيقات أخرى.
 
 {{% /alert %}}
 
-## موارد Aspose.Slides لـ Python عبر Java
+## **موارد Aspose.Slides for Python عبر Java**
 
-{{% alert color="primary" %}}
+{{% alert color="info" title="ملاحظة" %}}
 
-تم نقل Aspose.Slides لـ Python عبر Java من Aspose.Slides لـ Java، لذا يمكنك استخدام وثائق ومرجع API للأخيرة.
+Aspose.Slides for Python عبر Java مُحوّلة من Aspose.Slides for Java، لذا يمكنك أيضًا الاستفادة من التوثيق ومرجع API الخاص بـ Aspose.Slides for Java.
 
 {{% /alert %}}
 
-هذه روابط لموارد مفيدة:
+استكشف الموارد التالية:
 
-- [وثائق Aspose.Slides لـ Python عبر Java على الإنترنت](/slides/ar/java/developer-guide/)
-- [ميزات Aspose.Slides لـ Python عبر Java](/slides/ar/python-java/features-overview/)
-- [قيود واختلافات API في Aspose.Slides لـ Python عبر Java](/slides/ar/python-java/limitations-and-api-differences/)
-- [ملاحظات إصدار Aspose.Slides لـ Python عبر Java](https://releases.aspose.com/slides/python-java/release-notes/)
-- [صفحة منتج Aspose.Slides لـ Python عبر Java](https://products.aspose.com/slides/python-java/)
-- [تنزيل حزمة Aspose.Slides لـ Python عبر Java](https://releases.aspose.com/slides/python-java/)
-- [تثبيت Aspose.Slides لـ Python عبر Java](/slides/ar/python-java/installation/)
-- [مرجع API لـ Aspose.Slides لـ Python عبر Java](https://reference.aspose.com/slides/python-java/)
-- [منتدى الدعم المجاني لـ Aspose.Slides لـ Python عبر Java](https://forum.aspose.com/c/slides/11)
-- [مكتب دعم مدفوع لـ Aspose.Slides لـ Python عبر Java](https://helpdesk.aspose.com/)
+- [توثيق Aspose.Slides for Python عبر Java على الإنترنت](/slides/ar/java/developer-guide/)
+- [ميزات Aspose.Slides for Python عبر Java](/slides/ar/python-java/features-overview/)
+- [قيود Aspose.Slides for Python عبر Java واختلافات API](/slides/ar/python-java/limitations-and-api-differences/)
+- [ملاحظات إصدار Aspose.Slides for Python عبر Java](https://releases.aspose.com/slides/ar/python-java/release-notes/)
+- [صفحة منتج Aspose.Slides for Python عبر Java](https://products.aspose.com/slides/ar/python-java/)
+- [تنزيل حزمة Aspose.Slides for Python عبر Java](https://releases.aspose.com/slides/ar/python-java/)
+- [تثبيت Aspose.Slides for Python عبر Java](/slides/ar/python-java/installation/)
+- [مرجع API لـ Aspose.Slides for Python عبر Java](https://reference.aspose.com/slides/ar/python-java/)
+- [منتدى الدعم المجاني لـ Aspose.Slides for Python عبر Java](https://forum.aspose.com/c/slides/ar/11)
+- [مكتب المساعدة للدعم المدفوع لـ Aspose.Slides for Python عبر Java](https://helpdesk.aspose.com/)

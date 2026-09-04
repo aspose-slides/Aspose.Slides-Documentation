@@ -1,158 +1,151 @@
 ---
 title: Cấp phép
-description: "Aspose.Slides cho Python qua Java cung cấp các gói mua khác nhau hoặc cung cấp Dùng thử Miễn phí và Giấy phép Tạm thời 30 ngày để đánh giá dựa trên các chính sách Cấp phép và Đăng ký."
 type: docs
 weight: 80
 url: /vi/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- tệp giấy phép
+- giấy phép tạm thời
+- giấy phép tính theo mức
+- hạn chế khi đánh giá
+description: "Áp dụng giấy phép từ tệp, dựa trên byte hoặc tính theo mức trong Aspose.Slides cho Python qua Java và loại bỏ các hạn chế khi đánh giá khỏi ứng dụng của bạn."
 ---
-Đôi khi, để đạt được kết quả đánh giá tốt nhất, có thể cần một cách tiếp cận thực tế. Vì lý do này, Aspose.Slides cung cấp các gói mua khác nhau và cũng cung cấp Dùng thử Miễn phí và Giấy phép Tạm thời 30 ngày để đánh giá.
+## **Tổng quan**
 
-{{% alert color="primary" %}}
-Lưu ý rằng có một số chính sách và thực tiễn chung hướng dẫn bạn cách đánh giá, cấp phép đúng cách, và mua sản phẩm của chúng tôi. Bạn có thể tìm chúng trong phần [Chính sách Mua và Câu hỏi thường gặp](https://purchase.aspose.com/policies).
+Aspose.Slides for Python via Java có thể chạy ở chế độ đánh giá hoặc có giấy phép. Bài viết này giải thích cách áp dụng giấy phép từ tệp hoặc từ byte và cách cấu hình giấy phép tính theo mức.
+
+Đối với các tùy chọn mua, xem [Thông tin giá](https://purchase.aspose.com/pricing/slides/vi/family). Đối với các câu hỏi chung về giấy phép và mua hàng, xem [Chính sách mua hàng và FAQ](https://purchase.aspose.com/policies).
+
+Đối với các hạn chế khi đánh giá và cách yêu cầu giấy phép tạm thời, xem [Đánh giá Aspose.Slides](/slides/vi/python-java/evaluate-aspose-slides/). Áp dụng giấy phép tạm thời theo cùng cách như một tệp giấy phép đã mua.
+
+## **Về giấy phép**
+
+Một tệp giấy phép chứa thông tin như tên sản phẩm, số lượng nhà phát triển được cấp phép và ngày hết hạn đăng ký. Tệp này là XML được ký số.
+
+{{% alert color="warning" title="Warning" %}}
+Không chỉnh sửa tệp giấy phép. Ngay cả một ký tự xuống dòng thừa cũng có thể làm mất hiệu lực chữ ký số của nó.
 {{% /alert %}}
 
-## **Đánh giá Aspose.Slides**
-Bạn có thể dễ dàng tải xuống Aspose.Slides để đánh giá. Gói đánh giá giống hệt gói đã mua. Phiên bản đánh giá sẽ trở thành có giấy phép sau khi bạn thêm một vài dòng mã để áp dụng giấy phép. 
+Áp dụng giấy phép một lần cho mỗi ứng dụng hoặc quy trình, trước khi tạo bản trình bày hoặc thực hiện các thao tác Aspose.Slides khác. Đối với tệp giấy phép, sử dụng lớp [License](https://reference.aspose.com/slides/vi/python-java/aspose.slides/license/). Giấy phép tính theo mức sử dụng cặp khóa công khai và riêng tư thay cho tệp giấy phép.
 
-## **Giới hạn Phiên bản Đánh giá**
-Phiên bản đánh giá của Aspose.Slides (không chỉ định giấy phép) cung cấp đầy đủ chức năng của sản phẩm, nhưng nó chèn dấu mực đánh giá ở đầu tài liệu khi mở và lưu. Bạn cũng bị giới hạn chỉ một slide khi trích xuất văn bản từ các slide trình chiếu.
+## **Áp dụng giấy phép**
 
-{{% alert color="primary" %}} 
-Nếu bạn muốn thử Aspose.Slides mà không có các giới hạn của phiên bản đánh giá, bạn có thể yêu cầu **Giấy phép Tạm thời 30 Ngày**. Vui lòng tham khảo [Cách nhận Giấy phép Tạm thời?](https://purchase.aspose.com/temporary-license) để biết thêm thông tin.
-{{% /alert %}} 
+Các ví dụ sau giả định rằng Aspose.Slides for Python via Java và các yêu cầu tiền đề đã được cài đặt. Mỗi ví dụ là một script độc lập khởi động JVM, nhập API và áp dụng giấy phép. Trong ứng dụng của bạn, thực hiện các thao tác trình chiếu sau khi đã áp dụng giấy phép và tắt JVM chỉ sau khi tất cả công việc Aspose.Slides hoàn tất.
 
-## **Về Giấy phép**
-Bạn có thể dễ dàng tải xuống phiên bản đánh giá của Aspose.Slides cho Python via Java từ [trang tải xuống](https://releases.aspose.com/slides/vi/python-java/). Phiên bản đánh giá cung cấp **các khả năng giống hệt** như phiên bản có giấy phép của Aspose.Slides. Hơn nữa, phiên bản đánh giá sẽ trở thành có giấy phép ngay sau khi bạn mua giấy phép và thêm một vài dòng mã để áp dụng giấy phép.
+### **Áp dụng giấy phép từ tệp**
 
-Giấy phép là một tệp XML dạng văn bản thuần chứa các chi tiết như tên sản phẩm, số lượng nhà phát triển được cấp phép, ngày hết hạn thuê bao, v.v. Tệp được ký số, vì vậy không được chỉnh sửa tệp. Ngay cả việc vô tình thêm một dòng mới vào nội dung tệp cũng sẽ làm cho nó không hợp lệ.
-
-Để tránh các giới hạn liên quan đến phiên bản đánh giá, bạn cần thiết lập giấy phép trước khi sử dụng **Aspose.Slides**. Bạn chỉ cần thiết lập giấy phép một lần cho mỗi ứng dụng hoặc quy trình.
-
-## Giấy phép đã mua
-
-Sau khi mua, bạn cần áp dụng tệp hoặc luồng giấy phép. 
-
-{{% alert color="primary" %}}
-Bạn cần thiết lập giấy phép:
-* chỉ một lần cho mỗi miền ứng dụng
-* trước khi sử dụng bất kỳ lớp Aspose.Slides nào khác
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-Bạn có thể tìm thông tin giá trên trang [“Thông tin Giá cả”](https://purchase.aspose.com/pricing/slides/vi/family).
-{{% /alert %}}
-
-### **Cài đặt Giấy phép trong Aspose.Slides cho Python via Java**
-
-Giấy phép có thể được áp dụng từ các vị trí sau:
-
-* Đường dẫn cụ thể
-* Luồng
-* Như một Giấy phép Đo lường – cơ chế cấp phép mới
-
-{{% alert color="primary" %}}
-Sử dụng phương thức **setLicense** để cấp phép cho một thành phần.
-Mặc dù việc gọi **setLicense** nhiều lần không gây hại, nhưng chúng là sự lãng phí tài nguyên (bộ xử lý).
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Giấy phép mới chỉ có thể kích hoạt Aspose.Slides với phiên bản 21.4 trở lên. Các phiên bản cũ hơn sử dụng hệ thống cấp phép khác và sẽ không nhận ra các giấy phép này.
-{{% /alert %}}
-
-#### **Áp dụng Giấy phép bằng Tệp**
-
-Đoạn mã này được sử dụng để thiết lập tệp giấy phép:
-
-**Python**
+Gửi đường dẫn tệp giấy phép tới [License.setLicense](https://reference.aspose.com/slides/vi/python-java/aspose.slides/license/#setLicense). Thay `Aspose.Slides.lic` bằng đường dẫn tới tệp giấy phép của bạn.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # Thực hiện các thao tác trình chiếu ở đây, trước khi tắt JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-Khi gọi phương thức setLicense, tên giấy phép nên giống với tên tệp giấy phép của bạn. Ví dụ, bạn có thể đổi tên tệp giấy phép thành "Aspose.Slides.lic.xml". Sau đó, trong mã của bạn, bạn phải truyền tên giấy phép mới (Aspose.Slides.lic.xml) vào phương thức setLicense.
+Sử dụng đúng tên tệp, bao gồm cả phần mở rộng. Ví dụ, nếu tệp có tên `Aspose.Slides.lic.xml`, bao gồm `.xml` trong đường dẫn. Đường dẫn tuyệt đối tránh sự không chắc chắn về thư mục làm việc của ứng dụng.
 
-#### **Áp dụng Giấy phép từ Dòng Byte**
+Ví dụ sử dụng [License.isLicensed](https://reference.aspose.com/slides/vi/python-java/aspose.slides/license/#isLicensed) để kiểm tra xem giấy phép đã được áp dụng chưa.
 
-Đoạn mã này được sử dụng để áp dụng giấy phép từ dòng byte:
+### **Áp dụng giấy phép từ byte**
 
-**Python**
+Sử dụng [License.setLicenseFromBytes](https://reference.aspose.com/slides/vi/python-java/aspose.slides/license/#setLicenseFromBytes) khi giấy phép có sẵn dưới dạng byte Python. Ví dụ sau đọc tệp ở chế độ nhị phân và đóng nó trước khi áp dụng giấy phép.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # Thực hiện các thao tác trình chiếu ở đây, trước khi tắt JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### Áp dụng Giấy phép Đo lường
+Giữ nguyên byte gốc không thay đổi. Không giải mã, định dạng lại hoặc thay đổi nội dung giấy phép trước khi áp dụng.
 
-Aspose.Slides cho phép các nhà phát triển áp dụng khóa đo lường. Đây là một cơ chế cấp phép mới.
+## **Áp dụng giấy phép Metered**
 
-Cơ chế cấp phép mới sẽ được sử dụng cùng với phương pháp cấp phép hiện có. Những khách hàng muốn bị tính phí dựa trên việc sử dụng các tính năng API có thể sử dụng Giấy phép Đo lường.
+Giấy phép Metered tính phí dựa trên việc sử dụng API. Sau khi có giấy phép Metered, áp dụng khóa công khai và khóa riêng tư bằng [Metered.setMeteredKey](https://reference.aspose.com/slides/vi/python-java/aspose.slides/metered/#setMeteredKey). Khởi tạo đối tượng [Metered](https://reference.aspose.com/slides/vi/python-java/aspose.slides/metered/) và áp dụng các khóa một lần khi khởi động ứng dụng.
 
-Sau khi hoàn thành tất cả các bước cần thiết để nhận loại giấy phép này, bạn sẽ nhận được các khóa, không phải tệp giấy phép. Khóa đo lường này có thể được áp dụng bằng lớp **Metered** được giới thiệu đặc biệt cho mục đích này.
-
-Ví dụ mã sau cho thấy cách thiết lập các khóa công khai và riêng tư của giấy phép đo lường:
+Ví dụ dưới đây đọc các khóa từ các biến môi trường `ASPOSE_METERED_PUBLIC_KEY` và `ASPOSE_METERED_PRIVATE_KEY`. Đặt cả hai biến trước khi chạy script.
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# Tạo một thể hiện của lớp CAD Metered
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# Truy cập thuộc tính set_metered_key và truyền các khóa công khai và riêng tư làm tham số
-metered.setMeteredKey("*****", "*****");
-
-# Lấy lượng dữ liệu đo lường trước khi gọi API
-amountbefore = Metered.getConsumptionQuantity()
-
-# Hiển thị thông tin
-print("Amount Consumed Before: \" + amountbefore + "\"" )
-
-# Tải tài liệu từ đĩa.
-pres = Presentation();
-
-# Lấy số lượng trang của tài liệu
-print("Amount Consumed After: \" +  pres.getSlides().size()) + \"" )
-
-# Lưu dưới dạng PDF
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# Lấy lượng dữ liệu đo lường sau khi gọi API
-amountafter = Metered.getConsumptionQuantity()
-
-# Hiển thị thông tin
-print("Amount Consumed After: \" + amountafter + "\"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # Thực hiện các thao tác trình chiếu ở đây, trước khi tắt JVM.
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-Vui lòng lưu ý rằng bạn phải có kết nối Internet ổn định để sử dụng giấy phép Đo lường một cách chính xác, vì cơ chế Đo lường yêu cầu tương tác liên tục với dịch vụ của chúng tôi để thực hiện các phép tính đúng đắn. Để biết thêm chi tiết, xem mục [“Câu hỏi thường gặp về Giấy phép Đo lường”](https://purchase.aspose.com/faqs/licensing/metered).
+{{% alert color="info" title="Note" %}}
+Giấy phép Metered yêu cầu kết nối Internet để xác thực các khóa và báo cáo việc sử dụng. Giữ khóa riêng tư ra khỏi mã nguồn và nhật ký. Xem [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) để biết chi tiết kết nối và thanh toán.
 {{% /alert %}}
+
+## **Câu hỏi thường gặp**
+
+**Tôi có cần cài đặt gói khác sau khi mua giấy phép không?**
+
+Không. Áp dụng giấy phép cho cùng một gói mà bạn đã dùng để đánh giá.
+
+**Tôi có phải áp dụng giấy phép cho mỗi bản trình bày không?**
+
+Không. Áp dụng một lần khi khởi động ứng dụng, trước khi tạo hoặc tải bản trình bày.
+
+**Tôi có thể đổi tên tệp giấy phép không?**
+
+Có. Sử dụng đúng tên tệp mới trong mã và giữ nguyên nội dung tệp.
+
+**Tôi có thể sử dụng giấy phép tạm thời với ví dụ dựa trên byte không?**
+
+Có. Đọc tệp giấy phép tạm thời dưới dạng byte và áp dụng nó theo cùng cách như giấy phép đã mua.

@@ -1,94 +1,153 @@
 ---
-title: Ограничения и различия в API
+title: Ограничения и различия API
 type: docs
 weight: 100
 url: /ru/python-java/limitations-and-api-differences/
-keywords: "узел, powerpoint, ограничение, api, различия"
-description: "Ограничения и различия в API Aspose.Slides для Python через Java."
+keywords:
+- Aspose.Slides для Python через Java
+- Различия API
+- Python
+- Java
+- JPype
+- Ограничения JVM
+- PowerPoint
+description: "Узнайте об ограничениях JVM и различиях API между Aspose.Slides for Java и Python via Java, включая импорт, очистку ресурсов и работу с файлами."
 ---
-## **Известные ошибки/ограничения**
-Java-классы вне пакета (в `default`) не могут быть импортированы.
-Из-за отсутствия поддержки JVM вы не можете завершить работу JVM и затем перезапустить её. Также вы не можете запустить более одной копии JVM.
-Смешение 64-битного Python с 32-битной Java и наоборот вызывает сбой при импорте модуля jpype.
+## **Обзор**
 
-## **Различия в публичном API**
-Следующий список (с примерами кода) показывает некоторые различия между Aspose.Slides для Java и Aspose.Slides для Python через Java API.
+Aspose.Slides for Python via Java использует JPype для доступа к библиотеке Java из Python. Приведённые ниже примеры сравнивают импорт пакетов, создание презентаций и работу с файлами в двух API.
 
-### **Импорт библиотеки (Сравнение пакетов)**
+## **Известные ограничения**
 
-**Aspose.Slides для Java**
+- **JVM lifecycle:** JPype поддерживает одну JVM на процесс Python. После её завершения вы не можете перезапустить её в том же процессе. Запустите её один раз и переиспользуйте для последующих операций с презентациями.
+- **Architecture compatibility:** Python и Java должны иметь одинаковую архитектуру. См. [Системные требования](/slides/ru/python-java/system-requirements/#python-java-and-jpype-requirements) для деталей.
+
+См. [Руководство пользователя JPype](https://jpype.readthedocs.io/en/latest/userguide.html) для подробностей об этих ограничениях и взаимодействии с Java.
+
+## **Различия публичного API**
+
+Сравните приведённые ниже примеры Java и Python. Для подробностей о членах Python via Java см. [Справочник API](/slides/ru/python-java/api-reference/).
+
+### **Импорт библиотеки**
+
+Java импортирует классы из `com.aspose.slides`. В Python импортируйте `asposeslides` до запуска JVM, затем импортируйте классы из `asposeslides.api`, когда JVM уже запущена. Используйте [jpype.isJVMStarted](https://jpype.readthedocs.io/en/latest/api.html#jpype.isJVMStarted), чтобы не запускать уже работающую JVM.
+
+**Aspose.Slides for Java**
 
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 ```
 
-**Aspose.Slides для Python через Java**
+**Aspose.Slides for Python via Java**
 
 ```python
 import jpype
 import asposeslides
 
-jpype.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+```
+
+{{% alert color="info" title="Note" %}}
+Примеры Python оставляют JVM запущенной до завершения процесса Python. В ноутбуке переиспользуйте активную JVM между ячейками. Если JVM уже была завершена, перезапустите ядро ноутбука перед повторным использованием Java‑объектов.
+{{% /alert %}}
+
+### **Создание презентации**
+
+Java использует ключевое слово `new`; в Python вызывается класс [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) напрямую. Освобождайте ресурсы презентации с помощью [Presentation.dispose](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#dispose) в блоке `finally`.
+
+Оба примера сохраняют пустую презентацию, используя [Presentation.save](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#save) и [SaveFormat.Pptx](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveformat/#pptx).
+
+**Aspose.Slides for Java**
+
+```java
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.save("new-presentation.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+**Aspose.Slides for Python via Java**
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
-jpype.shutdownJVM()
-
+presentation = Presentation()
+try:
+    presentation.save("new-presentation.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-### **Создание новой Презентации**
+### **Чтение файлов и использование констант формата**
 
-**Aspose.Slides для Java**
+Java может загрузить презентацию из Java‑потока ввода. В Python файл читается как бинарные данные, а полученные байты передаются в [Presentation.createPresentationFromBytes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#createpresentationfrombytes). Объект файла Python не является Java‑потоком ввода.
+
+Примеры ниже требуют наличия `presentation.pptx` в рабочем каталоге и сохраняют копию как `result.pptx`. Оба закрывают входной файл и освобождают ресурсы презентации. Пример Python читает весь входной файл в память.
+
+**Aspose.Slides for Java**
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+try (InputStream inputStream = new FileInputStream("presentation.pptx")) {
+    Presentation presentation = new Presentation(inputStream);
+    try {
+        presentation.save("result.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+}
 ```
 
-**Aspose.Slides для Python через Java**
+**Aspose.Slides for Python via Java**
 
 ```python
 import jpype
 import asposeslides
 
-jpype.startJVM()
-
-from asposeslides.api import Presentation
-
-pres = Presentation();
-
-jpype.shutdownJVM()
-```
-
-### **Потоковые файлы и константы**
-
-**Aspose.Slides для Java**
-
-```java
-InputStream inputstream = new FileInputStream("Pres1.pptx");
-Presentation pres = new Presentation(inputstream);
-pres.save("result.pptx", SaveFormat.Pptx);
-```
-
-**Aspose.Slides для Python через Java**
-
-```python
-import jpype
-import asposeslides
-
-jpype.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
-input = open("presentation.pptx", mode="rb")
-data = input.read()
-pres = Presentation.createPresentationFromBytes(data)
-pres.save("result.pptx", SaveFormat.Pptx)
+with open("presentation.pptx", "rb") as input_file:
+    data = input_file.read()
 
-jpype.shutdownJVM()
+presentation = Presentation.createPresentationFromBytes(data)
+try:
+    presentation.save("result.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-### **Другие ограничения Aspose.Slides для Python через Java API по сравнению с Aspose.Slides для Java API**
+## **FAQ**
 
-Для получения дополнительной информации об остальных ограничениях, пожалуйста, обратитесь к документации jpype:
-- https://jpype.readthedocs.io/en/latest/
+**Нужно ли перезапускать JVM для каждой презентации?**
 
+Нет. Оставляйте JVM запущенной и создавайте и освобождайте объекты презентаций по мере необходимости. Остановка JVM препятствует дальнейшим операциям Java в том же процессе Python.
+
+**Можно ли открыть презентацию напрямую из пути к файлу?**
+
+Да. Конструктор [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) принимает путь к файлу. Используйте вспомогательный метод на основе байтов, когда данные презентации уже доступны как байты Python.
+
+**Нужно ли изменять имена констант формата при переводе примеров Java в Python?**
+
+Нет. Например, [SaveFormat.Pptx](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveformat/#pptx) использует одинаковое написание и регистр в обоих API.

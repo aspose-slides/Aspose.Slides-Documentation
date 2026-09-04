@@ -1,297 +1,348 @@
 ---
-title: Σύγχρονο API
+title: "Βελτιώστε την Επεξεργασία Εικόνας με το Μοντέρνο API στην Python"
+linktitle: "Μοντέρνο API"
 type: docs
 weight: 237
 url: /el/python-java/modern-api/
-keywords: "Διαπλατφόρμα Σύγχρονο API"
-description: "Σύγχρονο API"
+keywords:
+- μοντέρνο API
+- σχεδίαση
+- μικρογραφία διαφάνειας
+- διαφάνεια σε εικόνα
+- μικρογραφία σχήματος
+- σχήμα σε εικόνα
+- μικρογραφία παρουσίασης
+- παρουσίαση σε εικόνες
+- προσθήκη εικόνας
+- προσθήκη φωτογραφίας
+- Python
+- Java
+- Aspose.Slides
+description: "Μοντερνίστε την επεξεργασία εικόνας στην Python μέσω Java: αποδώστε διαφάνειες και σχήματα, προσθέστε φωτογραφίες και μεταφέρετε τις παρωχημένες κλήσεις επεξεργασίας εικόνας στο Μοντέρνο API του Aspose.Slides."
 ---
-## Εισαγωγή
+## **Εισαγωγή**
 
-Ιστορικά, το Aspose Slides εξαρτάται από το java.awt και περιέχει στο δημόσιο API τις ακόλουθες κλάσεις από εκεί:
-- [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
-- [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
+Aspose.Slides for Python via Java προσπελαύνει τη βιβλιοθήκη Java μέσω JPype. Το κληρονομημένο API επεξεργασίας εικόνας χρησιμοποιούσε το [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) και το [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) από `java.awt`.
 
-Από την έκδοση 24.4, αυτό το δημόσιο API δηλώνεται ως παρωχημένο.
+Η βιβλιοθήκη Java απαίσια (deprecated) αυτές τις API εικόνας ξεκινώντας από την έκδοση 24.4. Το Μοντέρνο API χρησιμοποιεί το [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/) για φόρτωση, απόδοση και αποθήκευση εικόνων. Χρησιμοποιήστε το για νέο κώδικα Python και κατά τη μετάβαση των υπαρχόντων ροών εργασίας επεξεργασίας εικόνας.
 
-Για να απαλλαγούμε από τις εξαρτήσεις σε αυτές τις κλάσεις, προσθέσαμε το λεγόμενο «Σύγχρονο API» – δηλαδή το API που πρέπει να χρησιμοποιείται αντί του παρωχημένου, του οποίου οι υπογραφές περιέχουν εξαρτήσεις στο BufferedImage. Το Graphics2D δηλώνεται ως παρωχημένο και η υποστήριξή του αφαιρείται από το δημόσιο API του Slides.
+{{% alert color="info" title="Σημείωση" %}}
 
-Η αφαίρεση του παρωχημένου δημόσιου API με εξαρτήσεις στο System.Drawing θα γίνει στην έκδοση 24.8.
+Τα παλιά ονόματα μεθόδων παρακάτω είναι αναφορές μετάβασης. Δεν διατίθενται πλέον στις τρέχουσες εκδόσεις. Τα εκτελέσιμα παραδείγματα χρησιμοποιούν το Μοντέρνο API.
 
-## Σύγχρονο API
+Αυτή η αλλαγή δεν εξαλείφει κάθε τύπο `java.awt`: οι υπερφορτώσεις μέγεθος‑εικόνας και χρώμα‑πατρόν εξακολουθούν να δέχονται το [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) και το [Color](https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html).
 
-Προστέθηκαν οι παρακάτω κλάσεις και πεδία enum στο δημόσιο API:
+{{% /alert %}}
 
-- IImage – αντιπροσωπεύει την εικόνα raster ή vector.
-- ImageFormat – αντιπροσωπεύει τη μορφή αρχείου της εικόνας.
-- Images – μέθοδοι για δημιουργία και εργασία με το interface IImage.
+## **Μοντέρνο API**
 
-Παρακαλώ σημειώστε ότι το IImage είναι disposable (εφαρμόζει το interface IDisposable και η χρήση του πρέπει να τυλίγεται σε using ή να αποδεσμεύεται με άλλο κατάλληλο τρόπο).
+Οι κύριοι τύποι επεξεργασίας εικόνας είναι:
 
-Ένα τυπικό σενάριο χρήσης του νέου API μπορεί να μοιάζει ως εξής:
+- [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/) — αντιπροσωπεύει μια ραστική ή διανυσματική εικόνα.
+- [ImageFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/imageformat/) — παρέχει σταθερές μορφής αρχείου εικόνας.
+- [Images](https://reference.aspose.com/slides/el/python-java/aspose.slides/images/) — δημιουργεί εικόνες, π.χ. με το [Images.fromFile](https://reference.aspose.com/slides/el/python-java/aspose.slides/images/#fromFile).
 
-``` python
-from asposeslides.api import Presentation, SaveFormat, Images, ShapeType, ImageFormat
-from javax.imageio import ImageIO
-from java.io import File
+Χρησιμοποιήστε το [Slide.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) ή το [Shape.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getImage) για απόδοση μιας διαφάνειας ή σχήματος. Χρησιμοποιήστε το [Presentation.getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) με επιλογές απόδοσης για απόδοση πολλαπλών διαφανειών. Η υπερφόρτωση χωρίς επιχειρήματα επιστρέφει τη συλλογή εικόνων της παρουσίασης.
+
+Φορτώστε μια εικόνα με το [Images.fromFile](https://reference.aspose.com/slides/el/python-java/aspose.slides/images/#fromFile), προσθέστε τη με το [ImageCollection.addImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagecollection/#addImage), ή ενημερώστε μια υπάρχουσα εικόνα παρουσίασης με το [PPImage.replaceImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/ppimage/#replaceImage). Και οι δύο λειτουργίες συλλογής εικόνας δέχονται το [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/).
+
+Απελευθερώστε κάθε εικόνα που φορτώνετε ή αποδίδετε καλώντας τη μέθοδο `dispose` της μέσα σε ένα μπλοκ `finally`. Απελευθερώστε την παρουσίαση με το [Presentation.dispose](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#dispose).
+
+### **Προετοιμασία του Περιβάλλοντος Python**
+
+Εγκαταστήστε τα πακέτα όπως περιγράφεται στην [Installation](/slides/el/python-java/installation/). Κάθε παράδειγμα εισάγει το `asposeslides` πριν ξεκινήσει το JVM, έπειτα εισάγει το API αφού το JVM εκτελείται. Τα παραδείγματα αφήνουν το JVM σε λειτουργία ώστε να μπορεί να επαναχρησιμοποιηθεί. Δείτε τις [Limitations and API Differences](/slides/el/python-java/limitations-and-api-differences/#import-the-library) για οδηγίες σχετικά με το notebook και τον κύκλο ζωής του JVM.
+
+Τα παραδείγματα που ανοίγουν το `pres.pptx` απαιτούν μια παρουσίαση στον τρέχοντα φάκελο εργασίας. Τα παραδείγματα που φορτώνουν το `image.png` απαιτούν ένα υπάρχον αρχείο εικόνας.
+
+### **Φόρτωση Εικόνας και Απόδοση Διαφάνειας**
+
+Αυτό το παράδειγμα προσθέτει μια εικόνα στην πρώτη διαφάνεια και αποθηκεύει τη διαφάνεια ως εικόνα JPEG. Το [IImage.save](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/#save) γράφει την αποδοθείσα εικόνα στη καθορισμένη μορφή.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Images, Presentation, ShapeType
 from java.awt import Dimension
 
-pres = Presentation();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
 
-# δημιουργεί μια αποδεσμεύσιμη παρουσία του IImage από το αρχείο στο δίσκο.
-image = Images.fromFile("image.png");
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
-# δημιουργεί μια εικόνα PowerPoint προσθέτοντας μια παρουσία του IImage στις εικόνες της παρουσίασης.
-ppImage = pres.getImages().addImage(image);
-image.dispose();
-
-# προσθέτει ένα σχήμα εικόνας στη διαφάνεια #1
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
-
-# λαμβάνει μια παρουσία του IImage που αντιπροσωπεύει τη διαφάνεια #1.
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-
-# αποθηκεύει την εικόνα στο δίσκο.
-slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
-slideImage.dispose();
-
-pres.dispose();
+    image_size = Dimension(1920, 1080)
+    slide_image = slide.getImage(image_size)
+    try:
+        slide_image.save("slide1.jpeg", ImageFormat.Jpeg)
+    finally:
+        slide_image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-## Αντικατάσταση του παλιού κώδικα με το Σύγχρονο API
+## **Αντικατάσταση Παλαιού Κώδικα με Μοντέρνο API**
 
-Γενικά, θα πρέπει να αντικαταστήσετε την κλήση στην παλιά μέθοδο που χρησιμοποιεί ImageIO με τη νέα.
+Αντικαταστήστε τις παλαιές κλήσεις μικρογραφιών με μεθόδους που επιστρέφουν [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/), στη συνέχεια αποθηκεύστε το αποτέλεσμα με το [IImage.save](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/#save). Αυτό αφαιρεί την ανάγκη να περάσετε τις αποδοθείσες εικόνες στο [ImageIO.write](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.File-).
 
-Παλιά:
-``` python
-image_format = "PNG"
-buffImage = pres.getSlides().get_Item(0).getThumbnail(Dimension(1920, 1080))
-ImageIO.write(buffImage, image_format, File("image.png"))
-```
-Νέα:
-``` python
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-slideImage.save("image.png", ImageFormat.Png);
-```
+### **Απόδοση Διαφάνειας σε Καθορισμένο Μέγεθος**
 
-### Λήψη μικρογραφίας διαφάνειας
+Αντικαταστήστε την κλήση `slide.getThumbnail(image_size)` με το [Slide.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) χρησιμοποιώντας το ίδιο μέγεθος εικόνας.
 
-Κώδικας που χρησιμοποιεί παρωχημένο API:
+```python
+import jpype
+import asposeslides
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-slideImage = pres.getSlides().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(slideImage, image_format, File("slide1.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        image_size = Dimension(1920, 1080)
+        slide_image = presentation.getSlides().get_Item(0).getImage(image_size)
+        try:
+            slide_image.save("image.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-Σύγχρονο API:
+### **Λήψη Μικρογραφίας Διαφάνειας**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Αντικαταστήστε την κλήση `slide.getThumbnail()` με το [Slide.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) χωρίς επιχειρήματα.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-slideImage = pres.getSlides().get_Item(0).getImage();
-slideImage.save("slide1.png", ImageFormat.Png);
-slideImage.dispose();
+from asposeslides.api import ImageFormat, Presentation
 
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide_image = presentation.getSlides().get_Item(0).getImage()
+        try:
+            slide_image.save("slide1.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-### Λήψη μικρογραφίας σχήματος
+### **Λήψη Μικρογραφίας Σχήματος**
 
-Κώδικας που χρησιμοποιεί παρωχημένο API:
+Αντικαταστήστε την κλήση `shape.getThumbnail()` με το [Shape.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getImage). Ελέγξτε ότι η διαφάνεια περιέχει σχήμα πριν το προσπελάσετε.
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
+
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide = presentation.getSlides().get_Item(0)
+        if slide.getShapes().size() > 0:
+            shape_image = slide.getShapes().get_Item(0).getImage()
+            try:
+                shape_image.save("shape.png", ImageFormat.Png)
+            finally:
+                shape_image.dispose()
+        else:
+            print("The first slide contains no shapes.")
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
+```
+
+### **Λήψη Μικρογραφίας Παρουσίασης**
+
+Αντικαταστήστε την κλήση `presentation.getThumbnails(options, image_size)` με το [Presentation.getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages). Χρησιμοποιήστε το [RenderingOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/renderingoptions/) για ρύθμιση απόδοσης.
+
+Επανάλαβε τον επιστρεφόμενο πίνακα άμεσα με το `enumerate` της Python. Απορρίψτε κάθε εικόνα που επιστρέφεται σε ένα μπλοκ `finally` ώστε μια αποτυχία αποθήκευσης να μην αφήνει υπόλειμμα εικόνων μη αποδεσμευμένων.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation, RenderingOptions
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(shapeImage, image_format, File("shape.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    rendering_options = RenderingOptions()
+    image_size = Dimension(1920, 1080)
+    images = presentation.getImages(rendering_options, image_size)
+    try:
+        for index, image in enumerate(images, start=1):
+            image.save(f"slide{index}.png", ImageFormat.Png)
+    finally:
+        for image in images:
+            image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-Σύγχρονο API:
+### **Προσθήκη Εικόνας σε Παρουσίαση**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Αντικαταστήστε τη φόρτωση μέσω του [ImageIO.read](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.io.File-) με το [Images.fromFile](https://reference.aspose.com/slides/el/python-java/aspose.slides/images/#fromFile), στη συνέχεια περάστε τη δημιουργημένη εικόνα στο [ImageCollection.addImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagecollection/#addImage). Προσθέστε την εικόνα στη διαφάνεια και αποθηκεύστε την παρουσίαση.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-shapeImage.save("shape.png", ImageFormat.Png);
-shapeImage.dispose();
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
 
-pres.dispose();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
+
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
+    presentation.save("picture.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-### Λήψη μικρογραφίας παρουσίασης
+## **Μέθοδοι που Έχουν Παρακμηθεί και Η Αντικατάστασή τους στο Μοντέρνο API**
 
-Κώδικας που χρησιμοποιεί παρωχημένο API:
+Οι πίνακες χρησιμοποιούν σύνταξη κλήσης Python. Τα ονόματα στη στήλη «Legacy» ταυτοποιούν αφαιρεμένα API· χρησιμοποιήστε τις συνδεδεμένες μεθόδους αντικατάστασης. Οι μοντέρνες μέθοδοι απόδοσης εικόνας επιστρέφουν αντικείμενα [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/) αντί για Java buffered images.
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions
-from javax.imageio import ImageIO
-from java.io import File
-from java.awt import Dimension
+### **Presentation**
 
+[Presentation.getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) επιστρέφει έναν πίνακα αποδομένων εικόνων όταν κληθεί με επιλογές απόδοσης.
 
-pres = Presentation("pres.pptx");
+| Κλήση legacy | Μοντέρνη αντικατάσταση |
+| --- | --- |
+| `presentation.getThumbnails(options)` | [getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) με `options` |
+| `presentation.getThumbnails(options, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) με `options, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides)` | [getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) με `options, slides` |
+| `presentation.getThumbnails(options, slides, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) με `options, slides, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides, image_size)` | [getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) με `options, slides, image_size` |
+| `presentation.getThumbnails(options, image_size)` | [getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) με `options, image_size` |
 
-image_format = "PNG"
-rendering_options = RenderingOptions();
-bitmaps = pres.getThumbnails(rendering_options, Dimension(1980, 1028));
+Εδώ, `slides` είναι ένας Java `int[]` μονοειδών αριθμών διαφανειών· δημιουργήστε τον με `jpype.JArray(jpype.JInt)([1, 3])` για επιλογή των διαφανειών 1 και 3. Το `image_size` είναι ένα [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html).
 
-for index in range(bitmaps.length):
-    thumbnail = bitmaps[index];
-    ImageIO.write(thumbnail, "PNG", File("slide" + str(index) + ".png"));
-    
-pres.dispose();
-```
+### **Shape**
 
-Σύγχρονο API:
+| Κλήση legacy | Μοντέρνη αντικατάσταση |
+| --- | --- |
+| `shape.getThumbnail()` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getImage) χωρίς επιχειρήματα |
+| `shape.getThumbnail(bounds, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getImage) με `bounds, scale_x, scale_y` |
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions, ImageFormat
-from java.awt import Dimension
+### **Slide**
 
+| Κλήση legacy | Μοντέρνη αντικατάσταση |
+| --- | --- |
+| `slide.getThumbnail()` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) χωρίς επιχειρήματα |
+| `slide.getThumbnail(scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) με `scale_x, scale_y` |
+| `slide.getThumbnail(options)` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) με `options` |
+| `slide.getThumbnail(options, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) με `options, scale_x, scale_y` |
+| `slide.getThumbnail(options, image_size)` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) με `options, image_size` |
+| `slide.getThumbnail(tiff_options)` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) με `tiff_options` |
+| `slide.getThumbnail(image_size)` | [getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) με `image_size` |
+| `slide.renderToGraphics(options, graphics)` | Καμία άμεση αντικατάσταση· αποδώστε σε εικόνα αντί για γραφικό |
+| `slide.renderToGraphics(options, graphics, scale_x, scale_y)` | Καμία άμεση αντικατάσταση· αποδώστε σε εικόνα αντί για γραφικό |
+| `slide.renderToGraphics(options, graphics, image_size)` | Καμία άμεση αντικατάσταση· αποδώστε σε εικόνα αντί για γραφικό |
 
-pres = Presentation("pres.pptx");
+Εδώ, `options` είναι [RenderingOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/renderingoptions/), και `tiff_options` είναι [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/).
 
-rendering_options = RenderingOptions();
-images = pres.getImages(rendering_options, Dimension(1980, 1028));
+### **Output**
 
-for index in range(images.length):
-    thumbnail = images[index];
-    thumbnail.save("slide" + str(index) + ".png", ImageFormat.Png);
-    thumbnail.dispose();
+| Κλήση legacy | Μοντέρνη αντικατάσταση |
+| --- | --- |
+| `output.add(path, buffered_image)` | [Output.add](https://reference.aspose.com/slides/el/python-java/aspose.slides/output/#add) με `path, image`, όπου `image` είναι [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/) |
 
-pres.dispose();
-```
+### **ImageCollection**
 
-### Προσθήκη εικόνας σε παρουσίαση
+| Κλήση legacy | Μοντέρνη αντικατάσταση |
+| --- | --- |
+| `collection.addImage(buffered_image)` | [ImageCollection.addImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/imagecollection/#addImage) με ένα [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/) |
 
-Κώδικας που χρησιμοποιεί παρωχημένο API:
+### **PPImage**
 
-``` python
-from asposeslides.api import Presentation, ShapeType
-from javax.imageio import ImageIO
-from java.io import File
+| Κλήση legacy | Μοντέρνη αντικατάσταση |
+| --- | --- |
+| `picture.getSystemImage()` | [PPImage.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/ppimage/#getImage) |
 
+Για αντικατάσταση του περιεχομένου μιας υπάρχουσας εικόνας παρουσίασης, χρησιμοποιήστε το [PPImage.replaceImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/ppimage/#replaceImage) με ένα [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/).
 
-pres = Presentation();
+### **PatternFormat**
 
-bufferedImages = ImageIO.read(File("image.png"));
-ppImage = pres.getImages().addImage(bufferedImages);
+| Κλήση legacy | Μοντέρνη αντικατάσταση |
+| --- | --- |
+| `pattern.getTileImage(style_color)` | [PatternFormat.getTile](https://reference.aspose.com/slides/el/python-java/aspose.slides/patternformat/#getTile) με `style_color` |
+| `pattern.getTileImage(background, foreground)` | [PatternFormat.getTile](https://reference.aspose.com/slides/el/python-java/aspose.slides/patternformat/#getTile) με `background, foreground` |
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+Τα επιχειρήματα χρώματος παραμένουν αντικείμενα Java [Color](https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html).
 
-pres.dispose();
-```
+### **PatternFormatEffectiveData**
 
-Σύγχρονο API:
+Για τα αποτελεσματικά δεδομένα πατρόν που επιστρέφει το Java API μέσω JPype, η αντικατάσταση διατηρεί το όνομα `getTileIImage`.
 
-``` python
-from asposeslides.api import Presentation, ShapeType, Images
-from java.awt import Dimension
+| Κλήση legacy | Μοντέρνη αντικατάσταση |
+| --- | --- |
+| `effective_pattern.getTileImage(background, foreground)` | `effective_pattern.getTileIImage(background, foreground)`, επιστρέφει [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/) |
 
+## **Υποστήριξη API για Graphics2D**
 
-pres = Presentation();
+Οι παλαιές υπερφορτώσεις `renderToGraphics` σχεδίαζαν σε παρεχόμενο από τον κλήστη πλαίσιο [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html). Το Μοντέρνο API δεν έχει άμεση αντικατάσταση που σχεδιάζει σε αυτό το πλαίσιο.
 
-image = Images.fromFile("image.png");
-ppImage = pres.getImages().addImage(image);
-image.dispose();
+Χρησιμοποιήστε το [Slide.getImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/slide/#getImage) για απόδοση διαφάνειας ή το [Presentation.getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) για απόδοση πολλαπλών διαφανειών, στη συνέχεια αποθηκεύστε τις επιστρεφόμενες εικόνες με το [IImage.save](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/#save). Οι εφαρμογές που συνδύαζαν την απόδοση διαφανειών με προσαρμοσμένη σχεδίαση Java χρειάζεται να προσαρμόσουν το βήμα σύνθεσης.
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+## **Συχνές Ερωτήσεις**
 
-pres.dispose();
-```
+**Γιατί αντικαταστάθηκε το παλιό API επεξεργασίας εικόνας Java;**
 
-## Μέθοδοι που θα αφαιρεθούν και η αντικατάστασή τους στο Σύγχρονο API
+Το Μοντέρνο API μεταφέρει τη φόρτωση, απόδοση και αποθήκευση εικόνας στο [IImage](https://reference.aspose.com/slides/el/python-java/aspose.slides/iimage/). Αυτό παρέχει μια κοινή αφαιρετική εικόνας αντί για την έκθεση Java buffered images ή ενός Java γραφικού πλαισίου.
 
-### Presentation
-| Υπογραφή Μεθόδου | Αντικαταστάτης Υπογραφή Μεθόδου |
-|-------------------|---------------------------------|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
+**Χρειάζομαι ακόμα Java και JPype;**
 
-### Shape
-| Υπογραφή Μεθόδου | Αντικαταστάτης Υπογραφή Μεθόδου |
-|-------------------|---------------------------------|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
+Ναι. Το Aspose.Slides for Python via Java εξακολουθεί να τρέχει στην JVM. Το Μοντέρνο API αλλάζει μόνο τις κλήσεις επεξεργασίας εικόνας, όχι τις απαιτήσεις χρόνου εκτέλεσης. Δείτε τις [System Requirements](/slides/el/python-java/system-requirements/).
 
-### Slide
-| Υπογραφή Μεθόδου | Αντικαταστάτης Υπογραφή Μεθόδου |
-|-------------------|---------------------------------|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
-| public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
-| public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely |
+**Πώς απελευθερώνω εικόνες στην Python;**
 
-### Output
-| Υπογραφή Μεθόδου | Αντικαταστάτης Υπογραφή Μεθόδου |
-|-------------------|---------------------------------|
-| public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
+Καλέστε τη μέθοδο `dispose` σε κάθε εικόνα που φορτώνετε ή αποδίδετε μέσα σε ένα μπλοκ `finally`. Εάν αποδίδετε πολλές διαφάνειες, απελευθερώστε κάθε εικόνα στον επιστρεφόμενο πίνακα. Απελευθερώστε την παρουσίαση ξεχωριστά με το [Presentation.dispose](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#dispose).
 
-### ImageCollection
-| Υπογραφή Μεθόδου | Αντικαταστάτης Υπογραφή Μεθόδου |
-|-------------------|---------------------------------|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+**Η μετάβαση στο Μοντέρνο API εγγυάται ταχύτερη δημιουργία μικρογραφιών;**
 
-### PPImage
-| Υπογραφή Μεθόδου | Αντικαταστάτης Υπογραφή Μεθόδου |
-|-------------------|---------------------------------|
-| public final BufferedImage getSystemImage() | public final IImage getImage() |
+Δεν εγγυάται βελτίωση απόδοσης. Οι αντικαταστάσεις υποστηρίζουν επιλογές απόδοσης, κλίμακα και μεγέθη εικόνας· μετρήστε την απόδοση με τις δικές σας παρουσιάσεις και ρυθμίσεις εξόδου.
 
-### PatternFormat
-| Υπογραφή Μεθόδου | Αντικαταστάτης Υπογραφή Μεθόδου |
-|-------------------|---------------------------------|
-| public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
+**Γιατί ο αποδέκτης εικόνας μερικές φορές επιστρέφει συλλογή;**
 
-### PatternFormatEffectiveData
-| Υπογραφή Μεθόδου | Αντικαταστάτης Υπογραφή Μεθόδου |
-|-------------------|---------------------------------|
-| public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
-
-## Η υποστήριξη του API για Graphics2D θα διακοπεί
-
-Οι μέθοδοι με [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) δηλώνονται ως παρωχημένες και η υποστήριξή τους θα αφαιρεθεί από το δημόσιο API.
-
-Το τμήμα του API που το χρησιμοποιεί θα αφαιρεθεί:
-
-[Slide](https://reference.aspose.com/slides/el/java/com.aspose.slides/slide/)
-
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/el/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/el/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/el/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+Το [Presentation.getImages](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getImages) χωρίς επιχειρήματα επιστρέφει ενσωματωμένες εικόνες της παρουσίασης. Οι υπερφορτώσεις του με επιλογές απόδοσης επιστρέφουν αποδοθείσες εικόνες διαφανειών.

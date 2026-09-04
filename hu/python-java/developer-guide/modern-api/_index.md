@@ -1,297 +1,344 @@
 ---
-title: Modern API
+title: Modern API-val a képfeldolgozás fejlesztése Pythonban
+linktitle: Modern API
 type: docs
 weight: 237
 url: /hu/python-java/modern-api/
-keywords: "Keresztplatform Modern API"
-description: "Modern API"
+keywords:
+- modern API
+- rajzolás
+- dia bélyegkép
+- dia képpé konvertálás
+- alakzat bélyegkép
+- alakzat képpé konvertálás
+- bemutató bélyegkép
+- bemutató képekhez
+- kép hozzáadása
+- kép beillesztése
+- Python
+- Java
+- Aspose.Slides
+description: "Modernizálja a képfeldolgozást Pythonon keresztül Java segítségével: rendereljen diákat és alakzatokat, adjon hozzá képeket, és migrálja a elavult képfeldolgozó hívásokat az Aspose.Slides Modern API-ra."
 ---
-## Bevezetés
+## **Bevezetés**
 
-Történelmileg az Aspose Slides a java.awt‑tól függ, és a nyilvános API‑ban a következő osztályokat tartalmazza:
-- [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
-- [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
+Az Aspose.Slides for Python via Java a Java könyvtárat JPype-en keresztül érheti el. A régi képfeldolgozó API-ja a [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) és a [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) osztályokat a `java.awt`-ból használta.
 
-A 24.4‑es verziótól ez a nyilvános API elavultként van jelölve.
+A Java könyvtár a 24.4-es verziótól kezdve elavulttá tette ezeket a képfeldolgozó API-kat. A Modern API a [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) használatát írja elő képek betöltésére, renderelésére és mentésére. Új Python kód esetén, valamint a meglévő képfeldolgozó munkafolyamatok átigazításakor használja.
 
-Az osztályoktól való függőség megszüntetése érdekében bevezettük a „Modern API”-t – vagyis azt az API‑t, amelyet a deprecated változat helyett kell használni, és amelynek aláírásaiban már nem szerepel a BufferedImage. A Graphics2D elavult, és támogatása eltávolításra került a Slides nyilvános API‑ból.
+{{% alert color="info" title="Note" %}}
+Az alábbi régi metódusnevek migrációs hivatkozások. Jelen verziókban már nem érhetők el. A futtatható példák a Modern API-t használják.
+{{% /alert %}}
 
-A System.Drawing‑ra hivatkozó, elavult nyilvános API eltávolítása a 24.8‑as kiadásban fog megtörténni.
+## **Modern API**
 
-## Modern API
+A fő képfeldolgozó típusok:
 
-Új osztályok és felsorolások kerültek a nyilvános API‑ba:
+- [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) — egy raszteres vagy vektoros képet képvisel.
+- [ImageFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imageformat/) — képfájl-formátum állandókat biztosít.
+- [Images](https://reference.aspose.com/slides/hu/python-java/aspose.slides/images/) — képek létrehozása, például a [Images.fromFile](https://reference.aspose.com/slides/hu/python-java/aspose.slides/images/#fromFile) segítségével.
 
-- IImage – raszteres vagy vektorgrafikus képet képviseli.
-- ImageFormat – a kép fájlformátumát jelöli.
-- Images – módszerek az IImage interfész példányosításához és kezeléséhez.
+Használja a [Slide.getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) vagy a [Shape.getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getImage) metódust egy dia vagy alakzat rendereléséhez. A [Presentation.getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) renderelési beállításokkal több dia renderelésére szolgál. A paraméterek nélküli túlterhelés a bemutató képgyűjteményét adja vissza.
 
-Felhívjuk a figyelmet, hogy az IImage diszponálható (megvalósítja az IDisposable interfészt, ezért a használatát using blokkba vagy más megfelelő módon kell becsomagolni).
+Képet betölthet a [Images.fromFile](https://reference.aspose.com/slides/hu/python-java/aspose.slides/images/#fromFile) segítségével, hozzáadhatja a [ImageCollection.addImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagecollection/#addImage) metódussal, vagy egy meglévő bemutató képet frissíthet a [PPImage.replaceImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/ppimage/#replaceImage) segítségével. Mindkét képgyűjtemény-művelet az [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) típusú objektumokat fogadja.
 
-Egy tipikus használati példa a új API‑ra a következő lehet:
+Minden betöltött vagy renderelt képet a `dispose` metódus meghívásával szabadítson fel egy `finally` blokkban. A bemutatót a [Presentation.dispose](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#dispose) metódussal adja le.
 
-``` python
-from asposeslides.api import Presentation, SaveFormat, Images, ShapeType, ImageFormat
-from javax.imageio import ImageIO
-from java.io import File
+### **Készítsd elő a Python környezetet**
+
+Telepítse a csomagokat a [Installation](/slides/hu/python-java/installation/) leírása szerint. Minden példa a `asposeslides` importálása előtt indítja el a JVM-et, majd a JVM futása közben importálja az API-t. A példák a JVM-et futtatva hagyják, hogy később újra felhasználható legyen. Lásd a [Limitations and API Differences](/slides/hu/python-java/limitations-and-api-differences/#import-the-library) részt a notebook és a JVM életciklus útmutatóért.
+
+Azok a példák, amelyek a `pres.pptx`-t nyitják, egy bemutatót igényelnek a munkakönyvtárban. Azok a példák, amelyek a `image.png`-t töltik be, egy meglévő képfájlt igényelnek.
+
+### **Kép betöltése és dia renderelése**
+
+Ez a példa képet ad az első diára, majd a diát JPEG képként menti. Az [IImage.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/#save) a renderelt képet a megadott formátumban írja ki.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Images, Presentation, ShapeType
 from java.awt import Dimension
 
-pres = Presentation();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
 
-# példányosít egy eldobható IImage példányt a lemezen lévő fájlból.
-image = Images.fromFile("image.png");
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
-# létrehoz egy PowerPoint képet úgy, hogy egy IImage példányt hozzáad a prezentáció képeihez.
-ppImage = pres.getImages().addImage(image);
-image.dispose();
-
-# hozzáad egy kép alakzatot az 1. diára
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
-
-# lekéri az 1. diát ábrázoló IImage példányt.
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-
-# menti a képet a lemezen.
-slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
-slideImage.dispose();
-
-pres.dispose();
+    image_size = Dimension(1920, 1080)
+    slide_image = slide.getImage(image_size)
+    try:
+        slide_image.save("slide1.jpeg", ImageFormat.Jpeg)
+    finally:
+        slide_image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-## Régi kód cseréje a Modern API‑ra
+## **Régi kód cseréje a Modern API-val**
 
-Általában a ImageIO‑val használt régi metódus hívását kell helyettesíteni az újval.
+Cserélje le a régi bélyegkép‑hívásokat olyan metódusokra, amelyek [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) objektumot adnak vissza, majd mentse az eredményt az [IImage.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/#save) segítségével. Így már nem szükséges a renderelt képet a [ImageIO.write](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.File-) metódusnak átadni.
 
-Régi:
-``` python
-image_format = "PNG"
-buffImage = pres.getSlides().get_Item(0).getThumbnail(Dimension(1920, 1080))
-ImageIO.write(buffImage, image_format, File("image.png"))
-```
-Új:
-``` python
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-slideImage.save("image.png", ImageFormat.Png);
-```
+### **Dia renderelése megadott méretben**
 
-### Diakép (slide thumbnail) lekérése
+Cserélje le a régi `slide.getThumbnail(image_size)` hívást a [Slide.getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) használatára ugyanazzal a képmérettel.
 
-Elavult API‑t használó kód:
+```python
+import jpype
+import asposeslides
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-slideImage = pres.getSlides().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(slideImage, image_format, File("slide1.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        image_size = Dimension(1920, 1080)
+        slide_image = presentation.getSlides().get_Item(0).getImage(image_size)
+        try:
+            slide_image.save("image.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-Modern API:
+### **Dia bélyegkép lekérése**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Cserélje le a régi `slide.getThumbnail()` hívást a [Slide.getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) paraméterek nélküli változatára.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-slideImage = pres.getSlides().get_Item(0).getImage();
-slideImage.save("slide1.png", ImageFormat.Png);
-slideImage.dispose();
+from asposeslides.api import ImageFormat, Presentation
 
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide_image = presentation.getSlides().get_Item(0).getImage()
+        try:
+            slide_image.save("slide1.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-### Alakzat képének (shape thumbnail) lekérése
+### **Alakzat bélyegkép lekérése**
 
-Elavult API‑t használó kód:
+Cserélje le a régi `shape.getThumbnail()` hívást a [Shape.getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getImage) hívásra. Ellenőrizze, hogy a dia tartalmaz-e alakzatot, mielőtt hozzáférne.
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
+
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide = presentation.getSlides().get_Item(0)
+        if slide.getShapes().size() > 0:
+            shape_image = slide.getShapes().get_Item(0).getImage()
+            try:
+                shape_image.save("shape.png", ImageFormat.Png)
+            finally:
+                shape_image.dispose()
+        else:
+            print("The first slide contains no shapes.")
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
+```
+
+### **Bemutató bélyegkép lekérése**
+
+Cserélje le a régi `presentation.getThumbnails(options, image_size)` hívást a [Presentation.getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) használatára. A renderelés beállításához használja a [RenderingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/renderingoptions/) osztályt.
+
+Iteráljon közvetlenül a visszaadott tömbön a Python `enumerate` függvényével. Minden visszakapott képet egy `finally` blokkban szabadítson fel, hogy mentési hiba esetén sem maradjon felszabadítatlan kép.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation, RenderingOptions
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(shapeImage, image_format, File("shape.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    rendering_options = RenderingOptions()
+    image_size = Dimension(1920, 1080)
+    images = presentation.getImages(rendering_options, image_size)
+    try:
+        for index, image in enumerate(images, start=1):
+            image.save(f"slide{index}.png", ImageFormat.Png)
+    finally:
+        for image in images:
+            image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-Modern API:
+### **Kép hozzáadása egy bemutatóhoz**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Cserélje le a [ImageIO.read](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.io.File-) használatát a [Images.fromFile](https://reference.aspose.com/slides/hu/python-java/aspose.slides/images/#fromFile) függvényre, majd adja át a kapott képet a [ImageCollection.addImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagecollection/#addImage) metódusnak. Adja hozzá a képet a diához, majd mentse a bemutatót.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-shapeImage.save("shape.png", ImageFormat.Png);
-shapeImage.dispose();
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
 
-pres.dispose();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
+
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
+    presentation.save("picture.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-### Prezentációkép (presentation thumbnail) lekérése
+## **Elavult metódusok és helyettesítésük a Modern API-ban**
 
-Elavult API‑t használó kód:
+A táblázatok Python hívásnotációt használnak. Az elavult oszlopban szereplő nevek a már eltávolított API-kat azonosítják; használja a hivatkozott helyettesítő metódusokat. A modern kép‑renderelő metódusok [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) objektumot adnak vissza a Java buffered image helyett.
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions
-from javax.imageio import ImageIO
-from java.io import File
-from java.awt import Dimension
+### **Prezentáció**
 
+[Presentation.getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) akkor ad vissza renderelt képek tömbjét, ha renderelési beállításokkal hívják meg.
 
-pres = Presentation("pres.pptx");
+| Elavult hívás | Modern helyettesítés |
+| --- | --- |
+| `presentation.getThumbnails(options)` | [getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) with `options` |
+| `presentation.getThumbnails(options, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) with `options, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides)` | [getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) with `options, slides` |
+| `presentation.getThumbnails(options, slides, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) with `options, slides, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides, image_size)` | [getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) with `options, slides, image_size` |
+| `presentation.getThumbnails(options, image_size)` | [getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) with `options, image_size` |
 
-image_format = "PNG"
-rendering_options = RenderingOptions();
-bitmaps = pres.getThumbnails(rendering_options, Dimension(1980, 1028));
+Itt a `slides` egy Java `int[]` tömb, amely egy‑alapú diaszámokat tartalmaz; a `jpype.JArray(jpype.JInt)([1, 3])` kifejezéssel hozható létre a 1‑ és 3‑as diák kiválasztásához. Az `image_size` egy [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) objektum.
 
-for index in range(bitmaps.length):
-    thumbnail = bitmaps[index];
-    ImageIO.write(thumbnail, "PNG", File("slide" + str(index) + ".png"));
-    
-pres.dispose();
-```
+### **Alakzat**
 
-Modern API:
+| Elavult hívás | Modern helyettesítés |
+| --- | --- |
+| `shape.getThumbnail()` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getImage) with no arguments |
+| `shape.getThumbnail(bounds, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getImage) with `bounds, scale_x, scale_y` |
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions, ImageFormat
-from java.awt import Dimension
+### **Dia**
 
+| Elavult hívás | Modern helyettesítés |
+| --- | --- |
+| `slide.getThumbnail()` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) with no arguments |
+| `slide.getThumbnail(scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) with `scale_x, scale_y` |
+| `slide.getThumbnail(options)` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) with `options` |
+| `slide.getThumbnail(options, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) with `options, scale_x, scale_y` |
+| `slide.getThumbnail(options, image_size)` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) with `options, image_size` |
+| `slide.getThumbnail(tiff_options)` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) with `tiff_options` |
+| `slide.getThumbnail(image_size)` | [getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) with `image_size` |
+| `slide.renderToGraphics(options, graphics)` | No direct replacement; render to an image instead |
+| `slide.renderToGraphics(options, graphics, scale_x, scale_y)` | No direct replacement; render to an image instead |
+| `slide.renderToGraphics(options, graphics, image_size)` | No direct replacement; render to an image instead |
 
-pres = Presentation("pres.pptx");
+Itt az `options` egy [RenderingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/renderingoptions/) objektum, a `tiff_options` pedig egy [TiffOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/tiffoptions/) objektum.
 
-rendering_options = RenderingOptions();
-images = pres.getImages(rendering_options, Dimension(1980, 1028));
+### **Kimenet**
 
-for index in range(images.length):
-    thumbnail = images[index];
-    thumbnail.save("slide" + str(index) + ".png", ImageFormat.Png);
-    thumbnail.dispose();
+| Elavult hívás | Modern helyettesítés |
+| --- | --- |
+| `output.add(path, buffered_image)` | [Output.add](https://reference.aspose.com/slides/hu/python-java/aspose.slides/output/#add) with `path, image`, where `image` is [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) |
 
-pres.dispose();
-```
+### **ImageCollection**
 
-### Kép hozzáadása a prezentációhoz
+| Elavult hívás | Modern helyettesítés |
+| --- | --- |
+| `collection.addImage(buffered_image)` | [ImageCollection.addImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/imagecollection/#addImage) with an [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) |
 
-Elavult API‑t használó kód:
+### **PPImage**
 
-``` python
-from asposeslides.api import Presentation, ShapeType
-from javax.imageio import ImageIO
-from java.io import File
+| Elavult hívás | Modern helyettesítés |
+| --- | --- |
+| `picture.getSystemImage()` | [PPImage.getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/ppimage/#getImage) |
 
+Egy meglévő bemutató képet a [PPImage.replaceImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/ppimage/#replaceImage) metódussal, egy [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) objektummal helyettesíthet.
 
-pres = Presentation();
+### **PatternFormat**
 
-bufferedImages = ImageIO.read(File("image.png"));
-ppImage = pres.getImages().addImage(bufferedImages);
+| Elavult hívás | Modern helyettesítés |
+| --- | --- |
+| `pattern.getTileImage(style_color)` | [PatternFormat.getTile](https://reference.aspose.com/slides/hu/python-java/aspose.slides/patternformat/#getTile) with `style_color` |
+| `pattern.getTileImage(background, foreground)` | [PatternFormat.getTile](https://reference.aspose.com/slides/hu/python-java/aspose.slides/patternformat/#getTile) with `background, foreground` |
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+A színargumentumok továbbra is Java [Color](https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html) objektumok maradnak.
 
-pres.dispose();
-```
+### **PatternFormatEffectiveData**
 
-Modern API:
+A Java API‑n keresztül JPype‑el visszaadott effektív mintázati adatok helyettesítő metódusa a `getTileIImage` nevet őrzi.
 
-``` python
-from asposeslides.api import Presentation, ShapeType, Images
-from java.awt import Dimension
+| Elavult hívás | Modern helyettesítés |
+| --- | --- |
+| `effective_pattern.getTileImage(background, foreground)` | `effective_pattern.getTileIImage(background, foreground)`, returning [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) |
 
+## **API támogatás a Graphics2D-hez**
 
-pres = Presentation();
+Az elavult `renderToGraphics` túlterhelések a hívó által biztosított [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) kontextusba rajzoltak. A Modern API-nak nincs közvetlen helyettesítője, amely ebbe a kontextusba rajzolna.
 
-image = Images.fromFile("image.png");
-ppImage = pres.getImages().addImage(image);
-image.dispose();
+Használja a [Slide.getImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getImage) metódust egy dia rendereléséhez vagy a [Presentation.getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) metódust több dia rendereléséhez, majd mentse a visszakapott képeket az [IImage.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/#save) segítségével. Azok az alkalmazások, amelyek a dia renderelést egyedi Java rajzolással kombinálták, át kell alakítaniuk a kompozíciós lépést.
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+## **GYIK**
 
-pres.dispose();
-```
+**Miért lett a régi Java képalkotó API helyettesítve?**
 
-## Eltávolításra kerülő metódusok és azok helyettesítése a Modern API‑ban
+A Modern API a képek betöltését, renderelését és mentését az [IImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/iimage/) használatára helyezi. Ez egy közös kép‑absztrakciót biztosít a munkafolyamatoknak, a Java buffered image vagy a Java graphics context helyett.
 
-### Presentation
-| Metódus aláírás | Helyettesítő metódus aláírás |
-|---|---|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
+**Szükségem van még Java‑ra és JPype‑re?**
 
-### Shape
-| Metódus aláírás | Helyettesítő metódus aláírás |
-|---|---|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
+Igen. Az Aspose.Slides for Python via Java továbbra is a JVM-en fut. A Modern API csak a képfeldolgozó hívásokat módosítja, a futtatási követelményeket nem.
 
-### Slide
-| Metódus aláírás | Helyettesítő metódus aláírás |
-|---|---|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
-| public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
-| public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Teljesen törlésre kerül |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Teljesen törlésre kerül |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Teljesen törlésre kerül |
+**Hogyan szabadítsam fel a képeket Pythonban?**
 
-### Output
-| Metódus aláírás | Helyettesítő metódus aláírás |
-|---|---|
-| public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
+Hívja meg a `dispose` metódust minden betöltött vagy renderelt képen egy `finally` blokkban. Ha több diát renderel, szabadítsa fel minden képet a visszaadott tömbből. A bemutatót külön szabadítsa fel a [Presentation.dispose](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#dispose) metódussal.
 
-### ImageCollection
-| Metódus aláírás | Helyettesítő metódus aláírás |
-|---|---|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+**Garantálja a Modern API-ra való átállás a gyorsabb bélyegkép‑generálást?**
 
-### PPImage
-| Metódus aláírás | Helyettesítő metódus aláírás |
-|---|---|
-| public final BufferedImage getSystemImage() | public final IImage getImage() |
+Nem garantált teljesítményjavulás. A helyettesítők támogatják a renderelési beállításokat, a skálázást és a képméreteket; a teljesítményt a saját bemutatóival és kimeneti beállításaival kell mérni.
 
-### PatternFormat
-| Metódus aláírás | Helyettesítő metódus aláírás |
-|---|---|
-| public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
+**Miért ad vissza a kép‑lekérő néha gyűjteményt?**
 
-### PatternFormatEffectiveData
-| Metódus aláírás | Helyettesítő metódus aláírás |
-|---|---|
-| public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
-
-## A Graphics2D támogatás megszüntetése az API‑ban
-
-A [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) használatával ellátott metódusok elavultként vannak jelölve, és támogatásuk eltávolításra kerül a nyilvános API‑ból.
-
-Az érintett API‑részlet eltávolításra kerül:
-
-[Slide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slide/)
-
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/hu/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+A [Presentation.getImages](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getImages) paraméterek nélkül a beágyazott bemutatóképeket adja vissza. A renderelési beállításokkal rendelkező túlterhelések a renderelt diaképeket adják vissza.

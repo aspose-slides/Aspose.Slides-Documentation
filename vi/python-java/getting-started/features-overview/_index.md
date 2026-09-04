@@ -3,69 +3,79 @@ title: Tổng quan tính năng
 type: docs
 weight: 20
 url: /vi/python-java/features-overview/
+keywords:
+- Aspose.Slides for Python via Java
+- Các tính năng của PowerPoint
+- Chuyển đổi bản trình chiếu
+- Kết xuất slide
+- Chỉnh sửa bản trình chiếu
+- Định dạng văn bản
+- Hình và biểu đồ
+- PPT
+- PPTX
+- Python
+description: "Khám phá các tính năng của Aspose.Slides cho Python qua Java cho việc chuyển đổi, kết xuất và chỉnh sửa bản trình chiếu PowerPoint, bao gồm các slide, văn bản, hình và biểu đồ."
 ---
-## **Nền tảng được hỗ trợ**
-Aspose.Slides for Python via Java là API độc lập nền tảng. Nó có thể được sử dụng trên bất kỳ nền tảng nào (Windows, Linux, macOS, v.v.) có Python 3.7 trở lên được cài đặt. JDK 8 hoặc cao hơn là yêu cầu khác.
+Bài viết này mô tả các khả năng xử lý bản trình chiếu của Aspose.Slides cho Python qua Java. Đối với hệ điều hành và các phụ thuộc được hỗ trợ, xem [Yêu cầu Hệ thống](/slides/vi/python-java/system-requirements/).
 
 ## **Định dạng tệp và chuyển đổi**
-Aspose.Slides for Python via Java hỗ trợ hầu hết các định dạng tài liệu PowerPoint. Nó cũng cho phép bạn xuất chúng sang các định dạng tệp phổ biến mà các tổ chức sử dụng và chia sẻ với nhau. Xem chi tiết dưới đây:
 
-|**Tính năng**|**Mô tả**|
-| :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Python via Java cung cấp tốc độ xử lý nhanh nhất cho định dạng tài liệu trình chiếu này.|
-|PPT to PPTX conversion|Aspose.Slides for Python via Java hỗ trợ chuyển đổi PPT sang PPTX|
-|Portable Document Format (PDF)|Bạn có thể xuất tất cả các định dạng tệp được hỗ trợ sang tài liệu Adobe Portable Document Format (PDF) bằng một phương pháp duy nhất.|
-|XML Parser Specification (XPS)|Bạn có thể xuất tất cả các định dạng tệp được hỗ trợ sang tài liệu XML Parser Specification (XPS) bằng một phương pháp duy nhất.|
-|Tagged Image File Format (TIFF)|Bạn có thể xuất tất cả các định dạng tệp trình chiếu được hỗ trợ sang Tagged Image File Format (TIFF).|
-|PPTX To HTML Conversion|Aspose.Slides for Python via Java hỗ trợ chuyển đổi PresentationEx sang định dạng HTML.|
+Aspose.Slides cho Python qua Java cho phép bạn chuyển đổi giữa các định dạng bản trình chiếu và xuất bản trình chiếu sang các định dạng tài liệu và web. Xem [Supported File Formats](/slides/vi/python-java/supported-file-formats/) để biết bảng định dạng đầy đủ và sự khác biệt giữa tải bản trình chiếu, nhập nội dung và xuất kết quả.
 
-## **Kết xuất trình chiếu**
-Aspose.Slides for Python via Java hỗ trợ kết xuất chất lượng cao của các slide trong trình chiếu sang các định dạng đồ họa khác nhau. Xem chi tiết dưới đây:
+## **Kết xuất bản trình chiếu**
 
-|**Tính năng**|**Mô tả**|
-| :- | :- |
-|Java Supported Image Formats|Sử dụng Aspose.Slides for Python via Java, bạn có thể kết xuất các slide và hình ảnh trên slide sang tất cả các định dạng đồ họa được Java hỗ trợ như TIFF, PNG, BMP, JPEG, GIF.|
-|SVG Format|Aspose.Slides for Python via Java cũng cung cấp các phương pháp tích hợp cho phép bạn xuất các slide trình chiếu sang định dạng Scalable Vector Graphics (SVG).|
+Aspose.Slides cho Python qua Java cung cấp khả năng kết xuất slide chất lượng cao dưới dạng ảnh raster hoặc vector cho các bản xem trước và các đầu ra hình ảnh khác. Nó cũng cho phép bạn kết xuất ảnh trên các slide. Để biết các định dạng ảnh khả dụng và ghi chú xuất, xem [Supported File Formats](/slides/vi/python-java/supported-file-formats/#supported-file-formats).
 
 ## **Các tính năng nội dung**
-Aspose.Slides for Python via Java cho phép bạn truy cập, sửa đổi hoặc tạo gần như tất cả các mục hoặc nội dung của tài liệu trình chiếu. Xem chi tiết dưới đây:
+
+Aspose.Slides cho Python qua Java cho phép bạn truy cập, sửa đổi và tạo hầu hết mọi loại nội dung bản trình chiếu, như mô tả dưới đây:
 
 |**Tính năng**|**Mô tả**|
 | :- | :- |
-|Master Slides|Master Slides xác định bố cục của các slide bình thường. Aspose.Slides for Python via Java cho phép bạn truy cập và sửa đổi Master Slides của tài liệu trình chiếu|
-|Normal Slides|Với Aspose.Slides for Python via Java, bạn có thể tạo các slide mới thuộc các loại khác nhau; bạn cũng có thể truy cập và sửa đổi các slide hiện có trong trình chiếu|
-|Cloning / Copying Slides|Có các phương pháp tích hợp do Aspose.Slides for Python via Java cung cấp cho phép bạn sao chép hoặc nhân bản các slide hiện có trong một trình chiếu. Bạn cũng có thể sử dụng các slide đã sao chép và nhân bản từ một trình chiếu sang trình chiếu khác. Vì một slide kế thừa bố cục từ master slide, các phương pháp nhân bản tích hợp sẽ tự động sao chép master khi nhân bản|
-|Managing Slides sections|Các phương pháp để tổ chức các slide trong các phần khác nhau bên trong một trình chiếu|
-|Place Holders and Text Holders|Bạn có thể truy cập các placeholder và text holder trong một slide. Hơn nữa, bạn có thể tạo một slide với text holder từ đầu bằng phương pháp thích hợp|
-|Header and Footers|Aspose.Slides for Python via Java hỗ trợ xử lý header/footer trong các slide|
-|Notes in Slides|Với Aspose.Slides for Python via Java, bạn có thể truy cập và sửa đổi ghi chú liên kết với một slide và cũng có thể thêm ghi chú mới|
-|Finding a Shape|Bạn cũng có thể tìm một hình cụ thể trong một slide bằng cách sử dụng văn bản thay thế liên kết với hình đó|
-|Backgrounds|Aspose.Slides for Python via Java cho phép bạn làm việc với nền liên quan đến master hoặc slide bình thường trong một trình chiếu|
-|Text Boxes|Các hộp văn bản có thể được tạo từ đầu. Bạn có thể truy cập các hộp văn bản hiện có. Bạn cũng có thể sửa đổi nội dung của chúng mà không làm mất định dạng văn bản gốc|
-|Rectangle Shapes|Bạn có thể tạo hoặc sửa đổi các hình chữ nhật với Aspose.Slides for Python via Java|
-|Poly Line Shapes|Bạn có thể tạo hoặc sửa đổi các hình poly line với Aspose.Slides for Python via Java|
-|Ellipse Shapes|Bạn có thể tạo hoặc sửa đổi các hình ellipse với Aspose.Slides for Python via Java|
-|Group Shapes|Aspose.Slides for Python via Java hỗ trợ nhóm hình|
-|Auto Shapes|Aspose.Slides for Python via Java hỗ trợ auto shapes|
-|SmartArt|Aspose.Slides for Python via Java cung cấp hỗ trợ cho các hình SmartArt trong MS PowerPoint|
-|Charts|Aspose.Slides for Python via Java cung cấp hỗ trợ cho các biểu đồ MSO trong PowerPoint|
-|Shapes Serialization|Aspose.Slides for Python via Java hỗ trợ một số lượng lớn các hình. Khi Aspose.Slides for Python via Java thiếu hỗ trợ cho một hình, bạn có thể sử dụng phương pháp serialization để bạn có thể serialize hình đó từ một slide hiện có. Bằng cách này, bạn có thể sử dụng lại hình theo yêu cầu của mình|
-|Picture Frames|Bạn có thể quản lý hình ảnh trong picture frames với Aspose.Slides for Python via Java|
-|Audio Frames|Bạn có thể liên kết hoặc nhúng tệp âm thanh trong audio frames trên slide với Aspose.Slides for Python via Java|
-|Video Frames|Bạn có thể xử lý tệp video trong video frames. Aspose.Slides for Python via Java cũng cung cấp hỗ trợ cho video liên kết và nhúng|
-|OLE Frame|Bạn có thể quản lý OLE Objects trong OLE frames với Aspose.Slides for Python via Java|
-|Tables|Aspose.Slides for Python via Java hỗ trợ bảng trong các slide|
-|ActiveX Controls|Hỗ trợ cho các điều khiển ActiveX|
-|VBA Macros|Hỗ trợ quản lý VBA macros trong các trình chiếu.|
-|Text Frame|Bạn có thể truy cập văn bản trong bất kỳ hình nào thông qua text frame liên kết với hình đó|
-|Text Scanning|Bạn có thể quét văn bản trong một trình chiếu ở mức trình chiếu hoặc slide thông qua các phương pháp quét tích hợp.|
-|Animations|Bạn có thể áp dụng animation cho các hình|
-|Slide Shows|Aspose.Slides for Python via Java hỗ trợ slide shows và chuyển đổi slide|
+|Presentations|Bạn có thể tạo bản trình chiếu từ đầu hoặc mở các tệp hiện có.|
+|Document Properties|Bạn có thể đọc và sửa đổi các thuộc tính tài liệu.|
+|Presentation Protection|Bạn có thể áp dụng bảo vệ bằng mật khẩu và quản lý cài đặt bảo vệ bản trình chiếu.|
+|Master Slides|Slide mẫu xác định bố cục của các slide thường. Aspose.Slides cho Python qua Java cho phép bạn truy cập và sửa đổi slide mẫu trong bản trình chiếu.|
+|Normal Slides|Bạn có thể thêm, truy cập, chỉnh sửa, sắp xếp lại và Xóa slide trong bản trình chiếu.|
+|Slide Layouts|Bạn có thể làm việc với bố cục slide.|
+|Cloning and Copying Slides|Các phương pháp tích hợp cho phép bạn nhân bản hoặc sao chép slide trong cùng một bản trình chiếu hoặc giữa các bản trình chiếu. Các phương pháp này tự động sao chép slide mẫu liên quan khi nhân bản một slide.|
+|Slide Sections|Bạn có thể tổ chức slide thành các phần trong một bản trình chiếu.|
+|Placeholders and Text Holders|Bạn có thể truy cập trình giữ chỗ và trình giữ văn bản trên một slide, cũng như tạo slide với trình giữ văn bản từ đầu.| 
+|Headers and Footers|Aspose.Slides cho Python qua Java cho phép bạn quản lý đầu trang và chân trang.|
+|Slide Notes|Bạn có thể truy cập, thêm và chỉnh sửa ghi chú slide, và bao gồm chúng khi xuất ra PDF hoặc TIFF.|
+|Finding a Shape|Bạn có thể tìm một hình cụ thể trên slide bằng cách sử dụng văn bản thay thế của nó.|
+|Alternative Text|Bạn có thể đọc và cập nhật văn bản thay thế cho các hình.|
+|Hyperlinks|Bạn có thể đọc và cập nhật liên kết siêu văn bản trên các hình và thêm liên kết siêu văn bản vào văn bản.|
+|Backgrounds|Bạn có thể làm việc với nền của slide mẫu và slide thường trong một bản trình chiếu.|
+|Text Boxes|Bạn có thể tạo hộp văn bản từ đầu, truy cập các hộp văn bản hiện có và chỉnh sửa văn bản của chúng trong khi giữ nguyên định dạng gốc.|
+|Rectangle Shapes|Bạn có thể tạo và chỉnh sửa các hình chữ nhật.|
+|Line Shapes|Bạn có thể tạo và chỉnh sửa các hình đường.|
+|Polyline Shapes|Bạn có thể tạo và chỉnh sửa các hình đa đoạn.|
+|Ellipse Shapes|Bạn có thể tạo và chỉnh sửa các hình ellipse.|
+|Group Shapes|Aspose.Slides cho Python qua Java hỗ trợ nhóm hình.|
+|AutoShapes|Aspose.Slides cho Python qua Java hỗ trợ AutoShapes.|
+|SmartArt|Bạn có thể tạo và chỉnh sửa các hình SmartArt trong bản trình chiếu.|
+|Charts|Bạn có thể tạo và chỉnh sửa các biểu đồ Microsoft Office trong bản trình chiếu PowerPoint.|
+|Shape Serialization|Aspose.Slides cho Python qua Java hỗ trợ nhiều loại hình. Đối với các hình không được hỗ trợ, bạn có thể sử dụng tuần tự hoá để lưu giữ một hình từ slide hiện có để tái sử dụng.|
+|Shape Locks|Bạn có thể áp dụng khóa hình để hạn chế các hành động chỉnh sửa.|
+|Picture Frames|Bạn có thể quản lý hình ảnh trong khung hình.|
+|Audio Frames|Bạn có thể liên kết hoặc nhúng các tệp âm thanh trong khung âm thanh trên slide.|
+|Video Frames|Bạn có thể quản lý video liên kết và nhúng trong khung video.|
+|OLE Frames|Bạn có thể quản lý các đối tượng OLE trong khung OLE.|
+|Tables|Bạn có thể tạo, di chuyển và thay đổi kích thước bảng; thêm, xóa và thay đổi kích thước hàng và cột; và đọc và chỉnh sửa nội dung ô, viền, nền và định dạng văn bản.|
+|ActiveX Controls|Aspose.Slides cho Python qua Java hỗ trợ điều khiển ActiveX.|
+|VBA Macros|Bạn có thể quản lý macro VBA trong bản trình chiếu.|
+|Text Frames|Bạn có thể truy cập văn bản của một hình thông qua khung văn bản liên kết và điều chỉnh lề khung văn bản và ngắt dòng văn bản.|
+|Fonts|Bạn có thể quản lý phông chữ được sử dụng trong bản trình chiếu.|
+|Text Scanning|Các phương pháp tích hợp cho phép bạn quét văn bản qua toàn bộ bản trình chiếu hoặc trên từng slide riêng lẻ.|
+|Animations|Bạn có thể thêm và chỉnh sửa hiệu ứng hoạt ảnh trên các hình.|
+|Slide Shows|Aspose.Slides cho Python qua Java hỗ trợ chiếu slide và chuyển tiếp slide, bao gồm chuyển tiếp Morph.|
 
 ## **Các tính năng định dạng**
-Với Aspose.Slides for Python via Java, bạn có thể định dạng văn bản và hình trên các slide trong trình chiếu. Xem chi tiết dưới đây:
+
+Aspose.Slides cho Python qua Java cho phép bạn định dạng văn bản và hình trên các slide bản trình chiếu, như mô tả dưới đây:
 
 |**Tính năng**|**Mô tả**|
 | :- | :- |
-|Text Formatting|<p>Trong Aspose.Slides for Python via Java, bạn có thể quản lý văn bản thông qua các text frame liên kết với các hình. Do đó, bạn có thể định dạng văn bản bằng các đoạn văn và phần (portion) liên kết với các text frame. Các thành phần văn bản này có thể được định dạng thông qua Aspose.Slides for Python via Java.</p><p>- Kiểu phông chữ</p><p>- Cỡ phông chữ</p><p>- Màu phông chữ</p><p>- Tông màu phông chữ</p><p>- Căn đoạn văn</p><p>- Đánh dấu đầu dòng đoạn văn</p><p>- Hướng đoạn văn</p>|
-|Shape Formatting|<p>Trong Aspose.Slides for Python via Java, yếu tố cơ bản của một slide là một shape. Bạn có thể định dạng các yếu tố shape này với Aspose.Slides for Python via Java:</p><p>- Vị trí</p><p>- Kích thước</p><p>- Đường viền</p><p>- Đổ màu (bao gồm Pattern, Gradient, Solid)</p><p>- Văn bản</p><p>- Hình ảnh</p>|
+|Text Formatting|<p>Bạn có thể quản lý văn bản thông qua các khung văn bản liên kết với hình và định dạng các đoạn và phần văn bản riêng lẻ. Các tùy chọn định dạng sau có sẵn:</p><p>- Kiểu phông chữ</p><p>- Cỡ phông chữ</p><p>- Màu phông chữ</p><p>- Đổ bóng phông chữ</p><p>- Căn chỉnh đoạn</p><p>- Thụt lề và tab đoạn</p><p>- Đánh dấu đoạn</p><p>- Hướng đoạn</p>|
+|Shape Formatting|<p>Hình là các thành phần cơ bản của một slide. Bạn có thể điều chỉnh các thuộc tính hình sau:</p><p>- Vị trí</p><p>- Kích thước</p><p>- Xoay</p><p>- Kiểu đường</p><p>- Đổ màu (bao gồm đổ màu đặc, gradient, mẫu, kết cấu và hình ảnh)</p><p>- Văn bản</p><p>- Hình ảnh</p>|

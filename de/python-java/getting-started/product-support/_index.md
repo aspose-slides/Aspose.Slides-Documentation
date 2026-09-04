@@ -1,43 +1,75 @@
 ---
-title: Produktsupport
+title: Produktunterstützung
 type: docs
 weight: 100
 url: /de/python-java/product-support/
+keywords:
+- technischer Support
+- Produktunterstützung
+- Problem melden
+- Support-Forum
+- Python
+- Java
+- Aspose.Slides
+description: "Erhalten Sie Support für Aspose.Slides für Python via Java, erstellen Sie einen reproduzierbaren Fehlerbericht und finden Sie Dokumentation, Downloads und Versionshinweise."
 ---
+## **Übersicht**
+
+Verwenden Sie das Aspose.Slides‑Support‑Forum, um Fragen zu stellen, Probleme zu melden und Funktionsanfragen für Aspose.Slides für Python via Java zu stellen. Dieser Artikel erklärt, was vor dem Öffnen eines Themas zu prüfen ist und welche Informationen dem Support‑Team helfen, ein Problem zu reproduzieren.
 
 ## **Technischer Support**
-{{% alert color="primary" %}}
 
-Aspose bietet unbegrenzten kostenlosen technischen Support für alle seine Produkte. Der Support ist für alle Benutzer verfügbar (einschließlich Benutzer mit Evaluierungspaketen).
+{{% alert color="info" title="Hinweis" %}}
 
-{{% /alert %}} 
+Aspose bietet allen Benutzern, einschließlich derjenigen, die das Produkt evaluieren, kostenlosen technischen Support. Weitere Details finden Sie in den [Richtlinien für kostenlosen Support](https://forum.aspose.com/t/free-support-policies/162313).
 
-Wenn Sie Hilfe mit Aspose.Slides für Python über Java benötigen, beachten Sie Folgendes:
+{{% /alert %}}
 
-- Der Hauptweg für Support ist das [Aspose.Forums](https://forum.aspose.com/c/slides/11). Stellen Sie Ihre Frage im Aspose.Slides-Forum – und sie wird innerhalb weniger Stunden beantwortet. Das Support-Team von Aspose.Slides beantwortet direkt die im Forum gestellten Fragen.
-- Bitte beachten Sie, dass Aspose keinen technischen Support über das Telefon bereitstellt. Telefonischer Support ist nur für Verkaufs- und Kaufanfragen verfügbar.
-- Wenn Sie auf eine Antwort im Forum warten, seien Sie bitte geduldig und berücksichtigen Sie die Zeitdifferenzen.
+Stellen Sie technische Fragen im [Aspose.Slides‑Support‑Forum](https://forum.aspose.com/c/slides/de/11). Geben Sie **Aspose.Slides für Python via Java** in Ihrem Bericht an, damit das Team das richtige Produkt und die passende Umgebung identifizieren kann.
 
-Wenn Sie ein Problem mit Aspose.Slides für Python über Java haben, folgen Sie diesen Richtlinien, um es auf die effizienteste Weise zu lösen:
+Für prioritäre Unterstützung siehe den [kostenpflichtigen Support‑Helpdesk](https://helpdesk.aspose.com/). Kostenpflichtiger Support erfordert ein separates Abonnement und ist nicht in einer Produktlizenz enthalten.
 
-- Überprüfen und bestätigen Sie, dass Sie die neueste Version von Aspose.Slides für Python über Java verwenden, bevor Sie das Problem melden. Möglicherweise wurde das Problem, das Sie erlebt haben, bereits in einem Update behoben.
+## **Vor dem Melden eines Problems**
 
-  Siehe [Aspose.Slides Download](https://releases.aspose.com/slides/python-java/), um Informationen über die neueste Version zu erhalten.
+1. Prüfen Sie die [Downloads](https://releases.aspose.com/slides/de/python-java/) und die [Release‑Notes](https://releases.aspose.com/slides/de/python-java/release-notes/) auf eine neuere Version, die das Problem möglicherweise bereits behebt. Reproduzieren Sie das Problem nach Möglichkeit mit der neuesten Version in einer Testumgebung.
+2. Durchsuchen Sie das Support‑Forum, die [Dokumentation](/slides/de/python-java/) und die [API‑Referenz](https://reference.aspose.com/slides/de/python-java/) nach einer vorhandenen Lösung.
+3. Bei Installations‑ oder JVM‑Startproblemen lesen Sie den [Installationsleitfaden](/slides/de/python-java/installation/) und vergewissern Sie sich, dass Python und Java dieselbe Architektur verwenden.
+4. Reduzieren Sie das Problem auf das kleinste Beispiel und die kleinste Eingabedatei, die das Problem noch reproduzieren.
 
-- Bevor Sie ein Problem melden, sollten Sie unsere Foren, diese Dokumentation und die API-Referenz durchsehen. Vielleicht wurde die Antwort auf Ihre Frage bereits bereitgestellt.
+## **Problembericht vorbereiten**
 
-- Wenn Sie ein Problem melden, fügen Sie das Originaldokument und (wenn möglich) einen Ausschnitt Ihres Codes hinzu, der das Problem betrifft. Wenn Sie mehrere Dateien anhängen müssen, packen Sie sie in ein ZIP-Paket. Sie können Ihre Dokumente im Aspose.Forums sicher anhängen, da **nur** Sie und die Aspose-Entwickler Zugriff auf die angehängten Dateien haben.
+Fügen Sie in Ihrem Forum‑Thema folgende Informationen hinzu:
 
-- Erstellen und verwenden Sie einen Thread für ein spezifisches Problem. Wenn Sie ein weiteres Problem haben, müssen Sie einen weiteren Thread erstellen, um es zu melden.
+- **Umgebung:** Aspose.Slides für Python via Java‑Version, Python‑Version, Java‑Version und -Hersteller, JPype‑Version, Betriebssystem und Architektur.
+- **Schritte und Code:** Ein minimal ausführbares Python‑Beispiel, einschließlich Imports und JVM‑Initialisierung, sowie die Schritte zur Reproduktion des Problems.
+- **Eingabedateien:** Die Präsentation und alle zugehörigen Dateien, die das Beispiel benötigt. Packen Sie mehrere Dateien in ein ZIP‑Archiv.
+- **Erwartete und tatsächliche Ergebnisse:** Beschreiben Sie die Abweichungen und fügen Sie bei Bedarf die erzeugte Ausgabe oder Screenshots bei. Bei Rendering‑Problemen geben Sie die betroffenen Folien und Schriftarten an.
+- **Fehlerdetails:** Die vollständige Fehlermeldung und den Stack‑Trace, falls eine Ausnahme auftritt.
+
+Verwenden Sie ein Thema pro Problem. Ergänzen Sie Folgeinformationen zum selben Problem im bestehenden Thema, damit das Support‑Team die Untersuchung nachverfolgen kann.
 
 ## **Ressourcen**
 
-Diese Tabelle listet nützliche technische Ressourcen für Aspose.Slides für Python über Java auf.
-
-|**Ressource**|**Beschreibung**|
+| **Ressource** | **Beschreibung** |
 | :- | :- |
-|[Aspose.Slides für Python über Java Startseite](https://products.aspose.com/slides/python-java/)|Produktstartseite.|
-|[Aspose.Slides Blog](https://blog.aspose.com/category/slides/)|Überprüfen Sie diesen Abschnitt regelmäßig für Informationen zu neuen Versionen und nützlichen Tipps zu Aspose.Slides.|
-|[Aspose.Slides für Python über Java Download](https://releases.aspose.com/slides/python-java/)|Laden Sie die neueste Version von Aspose.Slides von dieser Seite herunter. Wir veröffentlichen häufig neue Versionen.|
-|[Aspose.Slides Support-Forum](https://forum.aspose.com/c/slides/11)|Stellen Sie hier Ihre Fragen und Probleme für eine schnelle Lösung.|
-|[Aspose.Slides für Python über Java Produktdokumentation](/slides/de/python-java/)|Vollständige Online-Dokumentation, die dieses Dokument und die Aspose.Slides API-Referenz enthält.|
+| [Produktseite](https://products.aspose.com/slides/de/python-java/) | Übersicht über Aspose.Slides für Python via Java. |
+| [Dokumentation](/slides/de/python-java/) | Installationsanweisungen und Links zu Entwicklungshandbüchern. |
+| [API‑Referenz](https://reference.aspose.com/slides/de/python-java/) | Referenzdokumentation für die Bibliothek. |
+| [Downloads](https://releases.aspose.com/slides/de/python-java/) | Verfügbare Releases und Installationspakete. |
+| [Release‑Notes](https://releases.aspose.com/slides/de/python-java/release-notes/) | Veröffentliche Änderungen und Fehlerbehebungen. |
+| [Kostenloses Support‑Forum](https://forum.aspose.com/c/slides/de/11) | Technische Fragen, Problemberichte und Funktionswünsche. |
+| [Kostenpflichtiger Support‑Helpdesk](https://helpdesk.aspose.com/) | Priorisierter Support für kostenpflichtige Support‑Abonnenten. |
+
+## **FAQ**
+
+**Kann ich während der Evaluierung von Aspose.Slides für Python via Java Hilfe erhalten?**
+
+Ja. Kostenfreier technischer Support ist über das Aspose.Slides‑Support‑Forum sowohl während der Evaluierung als auch nach dem Kauf verfügbar.
+
+**Welche Informationen muss ich angeben, wenn die JVM nicht startet?**
+
+Geben Sie Ihre Python‑, Java‑ und JPype‑Versionen, das Betriebssystem, die Architekturen von Python und Java, den JVM‑Initialisierungscode und die vollständige Fehlermeldung an. Diese Details helfen dem Support‑Team, Ihre Umgebung zu reproduzieren.
+
+**Wie melde ich ein Problem, das nach einem Upgrade aufgetreten ist?**
+
+Nennen Sie die zuletzt funktionierende Version, die erste Version, in der das Problem auftrat, und ein minimales Beispiel mit Eingabedateien. Beschreiben Sie außerdem alle weiteren Änderungen an der Umgebung, die während des Upgrades vorgenommen wurden.

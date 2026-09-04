@@ -3,35 +3,71 @@ title: 產品支援
 type: docs
 weight: 100
 url: /zh-hant/python-java/product-support/
+keywords:
+- 技術支援
+- 產品支援
+- 回報問題
+- 支援論壇
+- Python
+- Java
+- Aspose.Slides
+description: "取得 Aspose.Slides for Python via Java 的支援，準備可重現的問題回報，並找尋文件、下載和發行說明。"
 ---
+## **概述**
+
+使用 Aspose.Slides 支援論壇提出問題、回報問題與請求功能，適用於 Aspose.Slides for Python via Java。本文件說明在開啟主題前需要檢查的事項，以及哪些資訊能幫助支援團隊重現問題。
+
 ## **技術支援**
-{{% alert color="primary" %}}
 
-Aspose 為其所有產品提供無限制的免費技術支援。支援對所有使用者均開放（包括使用評估套件的使用者）。
+{{% alert color="info" title="Note" %}}
+Aspose 為所有使用者（包含評估產品的使用者）提供免費技術支援。請參閱[免費支援政策](https://forum.aspose.com/t/free-support-policies/162313)以取得詳細資訊。
+{{% /alert %}}
 
-{{% /alert %}} 
+在[Aspose.Slides 支援論壇](https://forum.aspose.com/c/slides/zh-hant/11)發表技術問題。於回報中指定 **Aspose.Slides for Python via Java**，讓團隊能辨識正確的產品及環境。
 
-當您需要 Aspose.Slides for Python via Java 的協助時，請考慮以下事項：
+如需優先協助，請參閱[付費支援服務台](https://helpdesk.aspose.com/)。付費支援需另行訂閱，並未隨產品授權一併提供。
 
-- 支援的主要管道是 [Aspose 論壇](https://forum.aspose.com/c/slides/zh-hant/11)。在 Aspose.Slides 論壇發表問題——幾小時內即可得到回覆。Aspose.Slides 支援團隊會直接回覆論壇上發布的問題。
-- 請注意，Aspose 不提供電話技術支援。電話支援僅限於銷售與購買相關問題。
-- 在論壇等待回覆時，請保持耐心，並考慮時區差異。
+## **回報問題前**
 
-當您在使用 Aspose.Slides for Python via Java 時遇到問題，請依照以下指引以最有效的方式解決：
+1. 檢查[下載](https://releases.aspose.com/slides/zh-hant/python-java/)與[發行說明](https://releases.aspose.com/slides/zh-hant/python-java/release-notes/)，是否有能解決此問題的較新版本。若可能，請在測試環境中使用最新發行版重現問題。
+2. 在支援論壇、[文件](/slides/zh-hant/python-java/)與[API 參考文件](https://reference.aspose.com/slides/zh-hant/python-java/)中搜尋是否已有現有答案。
+3. 若為安裝或 JVM 啟動問題，請參閱[安裝指南](/slides/zh-hant/python-java/installation/)，並確認 Python 與 Java 使用相同的架構。
+4. 將問題縮減至最小的示例與輸入簡報，仍能重現該問題。
 
-- 在回報問題之前，請檢查並確認您使用的是最新的 Aspose.Slides for Python via Java 版本。也許您遇到的問題已在更新中解決。請參閱 [Aspose.Slides 下載](https://releases.aspose.com/slides/zh-hant/python-java/) 取得最新版本資訊。
-- 在回報問題前，您可以先瀏覽我們的論壇、此文件與 API 參考文件。也許您的問題答案已在其中提供。
-- 回報問題時，請附上原始文件以及（如果可能）與問題相關的程式碼片段。若需附加多個檔案，請將它們壓縮成 ZIP 包。您可以安全地在 Aspose.Forums 中上傳文件，因為 **only** 您與 Aspose 開發人員能存取這些附件。
-- 為特定問題建立並使用單一討論串。若您遇到其他問題，必須另開討論串進行回報。
+## **準備問題回報**
+
+在論壇主題中包含以下資訊：
+
+- **Environment:** Aspose.Slides for Python via Java 版本、Python 版本、Java 版本與供應商、JPype 版本、作業系統與架構。
+- **Steps and code:** 能執行的最小 Python 範例，包含匯入與 JVM 初始化，以及重現問題所需的步驟。
+- **Input files:** 簡報檔以及範例所需的任何相關檔案。請將多個檔案合併為 ZIP 壓縮檔。
+- **Expected and actual results:** 說明預期與實際結果之差異，必要時附上產生的輸出或螢幕截圖。若為渲染問題，請指出受影響的投影片與字型。
+- **Error details:** 完整的錯誤訊息與堆疊追蹤（若發生例外）。
+
+每個問題使用一個主題。對同一問題的後續資訊請加入既有主題，以便支援團隊持續追蹤調查。
 
 ## **資源**
 
-此表列出 Aspose.Slides for Python via Java 的實用技術資源。
-
-|**資源**|**說明**|
+| **資源** | **說明** |
 | :- | :- |
-|[Aspose.Slides for Python via Java 產品主頁](https://products.aspose.com/slides/zh-hant/python-java/)|產品主頁。|
-|[Aspose.Slides 部落格](https://blog.aspose.com/category/slides/zh-hant/)|定期檢視本區，以取得新版本資訊與 Aspose.Slides 使用小技巧。|
-|[Aspose.Slides for Python via Java 下載](https://releases.aspose.com/slides/zh-hant/python-java/)|從此頁面下載最新版本的 Aspose.Slides。我們會持續釋出新版本。|
-|[Aspose.Slides 支援論壇](https://forum.aspose.com/c/slides/zh-hant/11)|在此發表問題與議題，以快速取得解決方案。|
-|[Aspose.Slides for Python via Java 產品文件](/slides/zh-hant/python-java/)|完整線上文件，包含本文件與 Aspose.Slides API 參考。|
+| [產品頁面](https://products.aspose.com/slides/zh-hant/python-java/) | Aspose.Slides for Python via Java 的概述。 |
+| [文件](/slides/zh-hant/python-java/) | 設定說明與開發指南連結。 |
+| [API 參考](https://reference.aspose.com/slides/zh-hant/python-java/) | 函式庫的參考文件。 |
+| [下載](https://releases.aspose.com/slides/zh-hant/python-java/) | 可用的發行版與安裝套件。 |
+| [發行說明](https://releases.aspose.com/slides/zh-hant/python-java/release-notes/) | 已發布的變更與修正。 |
+| [免費支援論壇](https://forum.aspose.com/c/slides/zh-hant/11) | 技術問題、問題回報與功能請求。 |
+| [付費支援服務台](https://helpdesk.aspose.com/) | 付費支援訂閱者的優先支援。 |
+
+## **常見問題**
+
+**在評估 Aspose.Slides for Python via Java 時，我可以獲得協助嗎？**
+
+是。於評估期間以及購買後，都可透過 Aspose.Slides 支援論壇取得免費技術支援。
+
+**JVM 無法啟動時應包含哪些資訊？**
+
+請提供您的 Python、Java 與 JPype 版本、作業系統、Python 與 Java 的架構、JVM 初始化程式碼，以及完整的錯誤訊息。這些資訊有助於支援團隊重現您的環境。
+
+**升級後出現問題時，我該如何回報？**
+
+請說明最後一個正常工作的版本、首次出現問題的版本，並提供含有輸入檔案的最小範例。描述升級期間所做的其他環境變更。
