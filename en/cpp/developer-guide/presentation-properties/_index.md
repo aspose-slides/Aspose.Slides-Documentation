@@ -29,7 +29,7 @@ description: "Master presentation properties in Aspose.Slides for C++ and stream
 
 Aspose.Slides supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides API.
 
-Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_document_properties) interface. An instance of this interface is returned by the [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_documentproperties/) method. The following examples show how to read, modify, and manage these properties.
+Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). The following examples show how to read, modify, and manage these properties.
 
 {{% alert color="info" title="Note" %}}
 
@@ -45,6 +45,109 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 - User Defined (Custom) Properties
 
 **Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for C++, developers can access and modify the values of built-in properties as well as custom properties. Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007. After you select **Advanced Properties** menu item, a dialog would appear allowing you to manage the document properties of the PowerPoint file. In the **Properties Dialog**, you can see that there are many tab pages like **General, Summary, Statistics, Contents and Custom**. All these tab pages allow configuring different kinds of information related to the PowerPoint files. **Custom** tab is used to manage custom properties of the PowerPoint files.
+
+## **Read Public Properties from an Encrypted Presentation**
+
+An opening password normally protects both presentation content and document properties. When a presentation is encrypted by passing `false` to [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), its document properties remain public. An application can then pass `true` to [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) and read the public metadata without supplying the opening password.
+
+`set_OnlyLoadDocumentProperties` controls what Aspose.Slides loads; it does not decrypt anything. If the properties were included in encryption, loading them without the password fails. If the presentation is not encrypted, the option is ignored and the complete presentation is loaded.
+
+The following example verifies the loading mode through [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) and then reads built-in properties through [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto presentation = MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
+
+if (presentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
+{
+    auto properties = presentation->get_DocumentProperties();
+
+    Console::WriteLine(u"Author: " + properties->get_Author());
+    Console::WriteLine(u"Title: " + properties->get_Title());
+    Console::WriteLine(u"Keywords: " + properties->get_Keywords());
+}
+else
+{
+    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+}
+
+presentation->Dispose();
+```
+
+In this mode, slide content is not loaded. Slides, masters, layouts, shapes, media, and other presentation objects are unavailable. Applications should always check `get_IsOnlyDocumentPropertiesLoaded` before performing an operation that requires the complete presentation object model.
+
+{{% alert color="warning" title="Warning" %}}
+Public metadata may expose author names, titles, subjects, keywords, company information, comments, and custom values. Encrypt sensitive properties together with the presentation. Leave them public only when indexing, classification, search, or document-management systems have a specific requirement to access them without a password.
+{{% /alert %}}
+
+## **Update Properties of an Encrypted Presentation**
+
+For an encrypted PPTX file, a presentation loaded after calling `set_OnlyLoadDocumentProperties(true)` is intended for reading public metadata. Aspose.Slides cannot save changed properties from that metadata-only object because the public properties must remain consistent with the corresponding data inside the encrypted presentation. Updating them therefore requires the correct opening password and a complete load.
+
+The following example opens the presentation with [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/), updates public built-in properties, and saves the result. It then uses [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) to verify that encryption is preserved and reopens the public metadata without a password to verify the new values:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+const String inputPath = u"public-properties-encrypted.pptx";
+const String outputPath = u"updated-public-properties-encrypted.pptx";
+
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(u"open_password");
+
+    auto presentation = MakeObject<Presentation>(inputPath, loadOptions);
+    presentation->get_DocumentProperties()->set_Title(u"Updated Product Roadmap");
+    presentation->get_DocumentProperties()->set_Keywords(u"roadmap, planning, indexed");
+    presentation->Save(outputPath, SaveFormat::Pptx);
+    presentation->Dispose();
+}
+
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(outputPath);
+Console::WriteLine(presentationInfo->get_IsEncrypted() ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
+
+auto metadataLoadOptions = MakeObject<LoadOptions>();
+metadataLoadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto metadataPresentation = MakeObject<Presentation>(outputPath, metadataLoadOptions);
+
+if (metadataPresentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
+{
+    Console::WriteLine(u"Title: " + metadataPresentation->get_DocumentProperties()->get_Title());
+    Console::WriteLine(u"Keywords: " + metadataPresentation->get_DocumentProperties()->get_Keywords());
+}
+else
+{
+    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+}
+
+metadataPresentation->Dispose();
+```
+
+If an application is not allowed to decrypt or load the presentation content, it must treat public properties of an encrypted PPTX file as read-only.
 
 ## **Access Built-in Properties**
 
@@ -191,3 +294,11 @@ If you add a custom property that already exists, its existing value will be ove
 **Can I access presentation properties without fully loading the presentation?**
 
 Yes. Use [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) and then [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/cpp/examine-presentation/) for a complete reporting example and format-specific limitations.
+
+**Can I read public properties of an encrypted presentation without its opening password?**
+
+Yes. The presentation must have been encrypted by passing `false` to `set_EncryptDocumentProperties`, and it must be loaded by passing `true` to `set_OnlyLoadDocumentProperties`.
+
+**Can I update an encrypted PPTX file in document-properties-only mode?**
+
+No. Public and encrypted property data must remain consistent, so updating an encrypted PPTX file requires loading the complete presentation with the correct opening password.

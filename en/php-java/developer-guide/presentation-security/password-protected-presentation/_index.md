@@ -49,6 +49,34 @@ try {
 }
 ```
 
+## **Keep Document Properties Public**
+
+By default, Aspose.Slides includes document properties in presentation encryption. The [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) method controls this behavior independently of slide-content encryption. Pass `false` before calling [ProtectionManager::encrypt](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#encrypt) when an indexing, classification, search, or document-management system must read metadata without the opening password.
+
+The following example creates an encrypted PPTX presentation while leaving its built-in document properties public:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $properties = $presentation->getDocumentProperties();
+    $properties->setAuthor("Contoso Knowledge Management");
+    $properties->setTitle("Quarterly Product Roadmap");
+    $properties->setKeywords("roadmap, planning, internal");
+
+    $presentation->getSlides()->get_Item(0)->setName("Encrypted presentation content");
+    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("public-properties-encrypted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Passing `false` to [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) does not make slides, masters, layouts, shapes, media, or other presentation content public. It affects only document properties. To read those properties without loading the encrypted content, see [Manage Presentation Properties](/slides/php-java/presentation-properties/).
+
 ## **Load an Encrypted Presentation**
 
 Set [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword) to the opening password and pass the options to [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) when loading the file. Loading fails when an opening password is required but the supplied password is missing or incorrect.
@@ -196,6 +224,8 @@ try {
 
 {{% alert color="warning" title="Security" %}}
 Do not log opening passwords or include them in diagnostic messages. Avoid unnecessary repeated validation attempts, keep passwords in memory only as long as needed, and reuse a successful validation result when immediately loading the presentation.
+
+Public document properties may disclose author names, titles, subjects, keywords, company information, comments, and custom values even though the presentation content is encrypted. Encrypt sensitive metadata together with the presentation. Leaving properties public should be an explicit decision made only when systems must index, classify, search, or manage the file without an opening password.
 {{% /alert %}}
 
 ## **Password-Protect a Presentation Online**
@@ -220,6 +250,10 @@ An opening password encrypts the presentation and is required to load its conten
 **Can I validate an opening password without loading all slides?**
 
 Yes. Obtain presentation information, check whether opening-password protection is present, and validate the password before creating a complete presentation instance.
+
+**Can an application read metadata without the opening password?**
+
+Yes, but only when the presentation was encrypted with document-property encryption disabled. The application must then use the document-properties-only loading mode described in [Manage Presentation Properties](/slides/php-java/presentation-properties/).
 
 **Do the password-checking workflows support both PPT and PPTX?**
 
