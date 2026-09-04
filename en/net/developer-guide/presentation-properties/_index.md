@@ -30,7 +30,7 @@ description: "Master presentation properties in Aspose.Slides for .NET and strea
 
 Aspose.Slides for .NET supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides for .NET API.
 
-Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by the [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/documentproperties/) property. The following examples show how to read, modify, and manage these properties.
+Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). The following examples show how to read, modify, and manage these properties.
 
 {{% alert color="info" title="Note" %}}
 
@@ -55,6 +55,83 @@ Microsoft PowerPoint allows users to manage document properties by clicking the 
 
 In the **Properties** dialog, there are several tabs, such as **General**, **Summary**, **Statistics**, **Contents**, and **Custom**.
 Each tab provides options for configuring specific types of information related to the PowerPoint file. The **Custom** tab is used to manage user-defined properties.
+
+## **Read Public Properties from an Encrypted Presentation**
+
+An opening password normally protects both presentation content and document properties. When a presentation is encrypted with [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) set to `false`, its document properties remain public. An application can then set [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) to `true` and read the public metadata without supplying the opening password.
+
+`OnlyLoadDocumentProperties` controls what Aspose.Slides loads; it does not decrypt anything. If the properties were included in encryption, loading them without the password fails. If the presentation is not encrypted, the option is ignored and the complete presentation is loaded.
+
+The following example verifies the loading mode through [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) and then reads built-in properties through [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { OnlyLoadDocumentProperties = true };
+using var presentation = new Presentation("public-properties-encrypted.pptx", loadOptions);
+
+if (presentation.ProtectionManager.IsOnlyDocumentPropertiesLoaded)
+{
+    var properties = presentation.DocumentProperties;
+
+    Console.WriteLine("Author: " + properties.Author);
+    Console.WriteLine("Title: " + properties.Title);
+    Console.WriteLine("Keywords: " + properties.Keywords);
+}
+else
+{
+    Console.WriteLine("The presentation was not loaded in document-properties-only mode.");
+}
+```
+
+In this mode, slide content is not loaded. Slides, masters, layouts, shapes, media, and other presentation objects are unavailable. Applications should always check `IsOnlyDocumentPropertiesLoaded` before performing an operation that requires the complete presentation object model.
+
+{{% alert color="warning" title="Security" %}}
+Public metadata may expose author names, titles, subjects, keywords, company information, comments, and custom values. Encrypt sensitive properties together with the presentation. Leave them public only when indexing, classification, search, or document-management systems have a specific requirement to access them without a password.
+{{% /alert %}}
+
+## **Update Properties of an Encrypted Presentation**
+
+For an encrypted PPTX file, a presentation loaded with `OnlyLoadDocumentProperties` is intended for reading public metadata. Aspose.Slides cannot save changed properties from that metadata-only object because the public properties must remain consistent with the corresponding data inside the encrypted presentation. Updating them therefore requires the correct opening password and a complete load.
+
+The following example opens the presentation with [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), updates public built-in properties, and saves the result. It then uses [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) to verify that encryption is preserved and reopens the public metadata without a password to verify the new values:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string inputPath = "public-properties-encrypted.pptx";
+const string outputPath = "updated-public-properties-encrypted.pptx";
+
+{
+    var loadOptions = new LoadOptions { Password = "open_password" };
+    using var presentation = new Presentation(inputPath, loadOptions);
+
+    presentation.DocumentProperties.Title = "Updated Product Roadmap";
+    presentation.DocumentProperties.Keywords = "roadmap, planning, indexed";
+    presentation.Save(outputPath, SaveFormat.Pptx);
+}
+
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(outputPath);
+Console.WriteLine("The presentation is encrypted: " + presentationInfo.IsEncrypted);
+
+var metadataLoadOptions = new LoadOptions { OnlyLoadDocumentProperties = true };
+using var metadataPresentation = new Presentation(outputPath, metadataLoadOptions);
+
+if (metadataPresentation.ProtectionManager.IsOnlyDocumentPropertiesLoaded)
+{
+    Console.WriteLine("Title: " + metadataPresentation.DocumentProperties.Title);
+    Console.WriteLine("Keywords: " + metadataPresentation.DocumentProperties.Keywords);
+}
+else
+{
+    Console.WriteLine("The presentation was not loaded in document-properties-only mode.");
+}
+```
+
+If an application is not allowed to decrypt or load the presentation content, it must treat public properties of an encrypted PPTX file as read-only.
 
 ## **Access Built-in Properties**
 
@@ -185,3 +262,11 @@ If you add a custom property that already exists, its existing value will be ove
 **Can I access presentation properties without fully loading the presentation?**
 
 Yes. Use [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) and then [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/net/examine-presentation/) for a complete reporting example and format-specific limitations.
+
+**Can I read public properties of an encrypted presentation without its opening password?**
+
+Yes. The presentation must have been encrypted with `EncryptDocumentProperties` set to `false`, and it must be loaded with `OnlyLoadDocumentProperties` set to `true`.
+
+**Can I update an encrypted PPTX file in document-properties-only mode?**
+
+No. Public and encrypted property data must remain consistent, so updating an encrypted PPTX file requires loading the complete presentation with the correct opening password.

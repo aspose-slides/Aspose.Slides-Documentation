@@ -67,6 +67,87 @@ As we have described earlier that Aspose.Slides for Node.js via Java supports tw
 
 Developers can use **DocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
+## **Read Public Properties from an Encrypted Presentation**
+
+An opening password normally protects both presentation content and document properties. When a presentation is encrypted by passing `false` to [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties), its document properties remain public. An application can then pass `true` to [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) and read the public metadata without supplying the opening password.
+
+The document-properties-only option controls what Aspose.Slides loads; it does not decrypt anything. If the properties were included in encryption, loading them without the password fails. If the presentation is not encrypted, the option is ignored and the complete presentation is loaded.
+
+The following example verifies the loading mode through [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) and then reads built-in properties through [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDocumentProperties):
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+const presentation = new slides.Presentation("public-properties-encrypted.pptx", loadOptions);
+try {
+    if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        const properties = presentation.getDocumentProperties();
+
+        console.log("Author: " + properties.getAuthor());
+        console.log("Title: " + properties.getTitle());
+        console.log("Keywords: " + properties.getKeywords());
+    } else {
+        console.log("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+In this mode, slide content is not loaded. Slides, masters, layouts, shapes, media, and other presentation objects are unavailable. Applications should always check [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) before performing an operation that requires the complete presentation object model.
+
+{{% alert color="warning" title="Warning" %}}
+Public metadata may expose author names, titles, subjects, keywords, company information, comments, and custom values. Encrypt sensitive properties together with the presentation. Leave them public only when indexing, classification, search, or document-management systems have a specific requirement to access them without a password.
+{{% /alert %}}
+
+## **Update Properties of an Encrypted Presentation**
+
+For an encrypted PPTX file, a presentation loaded in document-properties-only mode is intended for reading public metadata. Aspose.Slides cannot save changed properties from that metadata-only object because the public properties must remain consistent with the corresponding data inside the encrypted presentation. Updating them therefore requires the correct opening password and a complete load.
+
+The following example opens the presentation with [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setPassword), updates public built-in properties, and saves the result. It then uses [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/#isEncrypted) to verify that encryption is preserved and reopens the public metadata without a password to verify the new values:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const inputPath = "public-properties-encrypted.pptx";
+const outputPath = "updated-public-properties-encrypted.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation(inputPath, loadOptions);
+try {
+    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
+    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    presentation.save(outputPath, slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const presentationInfo = slides.PresentationFactory.getInstance().getPresentationInfo(outputPath);
+console.log("The presentation is encrypted: " + presentationInfo.isEncrypted());
+
+const metadataLoadOptions = new slides.LoadOptions();
+metadataLoadOptions.setOnlyLoadDocumentProperties(true);
+
+const metadataPresentation = new slides.Presentation(outputPath, metadataLoadOptions);
+try {
+    if (metadataPresentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        console.log("Title: " + metadataPresentation.getDocumentProperties().getTitle());
+        console.log("Keywords: " + metadataPresentation.getDocumentProperties().getKeywords());
+    } else {
+        console.log("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    metadataPresentation.dispose();
+}
+```
+
+If an application is not allowed to decrypt or load the presentation content, it must treat public properties of an encrypted PPTX file as read-only.
+
 ## **Access Built-in Properties**
 
 These properties as exposed by [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
@@ -387,3 +468,11 @@ If you add a custom property that already exists, its existing value will be ove
 **Can I access presentation properties without fully loading the presentation?**
 
 Yes. Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) and then [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/nodejs-java/examine-presentation/) for a complete reporting example and format-specific limitations.
+
+**Can I read public properties of an encrypted presentation without its opening password?**
+
+Yes. Document-property encryption must have been disabled before the presentation was encrypted, and the presentation must be loaded in document-properties-only mode.
+
+**Can I update an encrypted PPTX file in document-properties-only mode?**
+
+No. Public and encrypted property data must remain consistent, so updating an encrypted PPTX file requires loading the complete presentation with the correct opening password.

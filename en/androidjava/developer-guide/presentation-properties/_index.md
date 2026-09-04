@@ -30,7 +30,7 @@ description: "Master presentation properties in Aspose.Slides for Android via Ja
 
 Aspose.Slides supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides API.
 
-Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by the [Presentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) method. The following examples show how to read, modify, and manage these properties.
+Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties/) interface. An instance of this interface is returned by [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--). The following examples show how to read, modify, and manage these properties.
 
 {{% alert color="info" title="Note" %}}
 
@@ -59,6 +59,93 @@ Working with Document Properties Using Aspose.Slides for Android via Java
 As we have described earlier that Aspose.Slides for Android via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Android via Java API. Aspose.Slides for Android via Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
 
 Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) object to access the document properties of the presentation files as described below:
+
+## **Read Public Properties from an Encrypted Presentation**
+
+An opening password normally protects both presentation content and document properties. When a presentation is encrypted by passing `false` to [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-), its document properties remain public. An application can then pass `true` to [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) and read the public metadata without supplying the opening password.
+
+The document-properties-only option controls what Aspose.Slides loads; it does not decrypt anything. If the properties were included in encryption, loading them without the password fails. If the presentation is not encrypted, the option is ignored and the complete presentation is loaded.
+
+The following example verifies the loading mode through [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) and then reads built-in properties through [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--):
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+Presentation presentation = new Presentation("public-properties-encrypted.pptx", loadOptions);
+try {
+    if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        IDocumentProperties properties = presentation.getDocumentProperties();
+
+        System.out.println("Author: " + properties.getAuthor());
+        System.out.println("Title: " + properties.getTitle());
+        System.out.println("Keywords: " + properties.getKeywords());
+    } else {
+        System.out.println("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+In this mode, slide content is not loaded. Slides, masters, layouts, shapes, media, and other presentation objects are unavailable. Applications should always check [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) before performing an operation that requires the complete presentation object model.
+
+{{% alert color="warning" title="Warning" %}}
+Public metadata may expose author names, titles, subjects, keywords, company information, comments, and custom values. Encrypt sensitive properties together with the presentation. Leave them public only when indexing, classification, search, or document-management systems have a specific requirement to access them without a password.
+{{% /alert %}}
+
+## **Update Properties of an Encrypted Presentation**
+
+For an encrypted PPTX file, a presentation loaded in document-properties-only mode is intended for reading public metadata. Aspose.Slides cannot save changed properties from that metadata-only object because the public properties must remain consistent with the corresponding data inside the encrypted presentation. Updating them therefore requires the correct opening password and a complete load.
+
+The following example opens the presentation with [LoadOptions.setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), updates public built-in properties, and saves the result. It then uses [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#isEncrypted--) to verify that encryption is preserved and reopens the public metadata without a password to verify the new values:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import com.aspose.slides.SaveFormat;
+
+final String inputPath = "public-properties-encrypted.pptx";
+final String outputPath = "updated-public-properties-encrypted.pptx";
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation(inputPath, loadOptions);
+try {
+    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
+    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    presentation.save(outputPath, SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(outputPath);
+System.out.println("The presentation is encrypted: " + presentationInfo.isEncrypted());
+
+LoadOptions metadataLoadOptions = new LoadOptions();
+metadataLoadOptions.setOnlyLoadDocumentProperties(true);
+
+Presentation metadataPresentation = new Presentation(outputPath, metadataLoadOptions);
+try {
+    if (metadataPresentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        System.out.println("Title: " + metadataPresentation.getDocumentProperties().getTitle());
+        System.out.println("Keywords: " + metadataPresentation.getDocumentProperties().getKeywords());
+    } else {
+        System.out.println("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    metadataPresentation.dispose();
+}
+```
+
+If an application is not allowed to decrypt or load the presentation content, it must treat public properties of an encrypted PPTX file as read-only.
 
 ## **Access Built-in Properties**
 
@@ -361,3 +448,11 @@ If you add a custom property that already exists, its existing value will be ove
 **Can I access presentation properties without fully loading the presentation?**
 
 Yes. Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) and then [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/androidjava/examine-presentation/) for a complete reporting example and format-specific limitations.
+
+**Can I read public properties of an encrypted presentation without its opening password?**
+
+Yes. Document-property encryption must have been disabled before the presentation was encrypted, and the presentation must be loaded in document-properties-only mode.
+
+**Can I update an encrypted PPTX file in document-properties-only mode?**
+
+No. Public and encrypted property data must remain consistent, so updating an encrypted PPTX file requires loading the complete presentation with the correct opening password.

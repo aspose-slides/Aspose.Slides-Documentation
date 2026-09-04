@@ -45,6 +45,74 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 - User Defined (Custom) Properties
 
 **Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Python via .NET, developers can access and modify the values of built-in properties as well as custom properties. Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007. After you select **Advanced Properties** menu item, a dialog would appear allowing you to manage the document properties of the PowerPoint file. In the **Properties Dialog**, you can see that there are many tab pages like **General, Summary, Statistics, Contents and Custom**. All these tab pages allow configuring different kinds of information related to the PowerPoint files. **Custom** tab is used to manage the custom properties of the PowerPoint files.
+
+## **Read Public Properties from an Encrypted Presentation**
+
+An opening password normally protects both presentation content and document properties. When a presentation is encrypted with [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) set to `False`, its document properties remain public. An application can then set [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) to `True` and read the public metadata without supplying the opening password.
+
+`only_load_document_properties` controls what Aspose.Slides loads; it does not decrypt anything. If the properties were included in encryption, loading them without the password fails. If the presentation is not encrypted, the option is ignored and the complete presentation is loaded.
+
+The following example verifies the loading mode through [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) and then reads built-in properties through [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.only_load_document_properties = True
+
+with slides.Presentation("public-properties-encrypted.pptx", load_options) as presentation:
+    if presentation.protection_manager.is_only_document_properties_loaded:
+        properties = presentation.document_properties
+
+        print("Author: " + properties.author)
+        print("Title: " + properties.title)
+        print("Keywords: " + properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+In this mode, slide content is not loaded. Slides, masters, layouts, shapes, media, and other presentation objects are unavailable. Applications should always check `is_only_document_properties_loaded` before performing an operation that requires the complete presentation object model.
+
+{{% alert color="warning" title="Security" %}}
+Public metadata may expose author names, titles, subjects, keywords, company information, comments, and custom values. Encrypt sensitive properties together with the presentation. Leave them public only when indexing, classification, search, or document-management systems have a specific requirement to access them without a password.
+{{% /alert %}}
+
+## **Update Properties of an Encrypted Presentation**
+
+For an encrypted PPTX file, a presentation loaded with `only_load_document_properties` is intended for reading public metadata. Aspose.Slides cannot save changed properties from that metadata-only object because the public properties must remain consistent with the corresponding data inside the encrypted presentation. Updating them therefore requires the correct opening password and a complete load.
+
+The following example opens the presentation with [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), updates public built-in properties, and saves the result. It then uses [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) to verify that encryption is preserved and reopens the public metadata without a password to verify the new values:
+
+```python
+import aspose.slides as slides
+
+input_path = "public-properties-encrypted.pptx"
+output_path = "updated-public-properties-encrypted.pptx"
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation(input_path, load_options) as presentation:
+    presentation.document_properties.title = "Updated Product Roadmap"
+    presentation.document_properties.keywords = "roadmap, planning, indexed"
+    presentation.save(output_path, slides.export.SaveFormat.PPTX)
+
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(output_path)
+print("The presentation is encrypted: " + str(presentation_info.is_encrypted))
+
+metadata_load_options = slides.LoadOptions()
+metadata_load_options.only_load_document_properties = True
+
+with slides.Presentation(output_path, metadata_load_options) as metadata_presentation:
+    if metadata_presentation.protection_manager.is_only_document_properties_loaded:
+        print("Title: " + metadata_presentation.document_properties.title)
+        print("Keywords: " + metadata_presentation.document_properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+If an application is not allowed to decrypt or load the presentation content, it must treat public properties of an encrypted PPTX file as read-only.
+
 ## **Access Built-in Properties**
 These properties as exposed by **IDocumentProperties** object include: **Creator(Author)**, **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 ```py
@@ -217,3 +285,11 @@ If you add a custom property that already exists, its existing value will be ove
 **Can I access presentation properties without fully loading the presentation?**
 
 Yes. Use [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) and then [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/python-net/examine-presentation/) for a complete reporting example and format-specific limitations.
+
+**Can I read public properties of an encrypted presentation without its opening password?**
+
+Yes. The presentation must have been encrypted with `encrypt_document_properties` set to `False`, and it must be loaded with `only_load_document_properties` set to `True`.
+
+**Can I update an encrypted PPTX file in document-properties-only mode?**
+
+No. Public and encrypted property data must remain consistent, so updating an encrypted PPTX file requires loading the complete presentation with the correct opening password.
