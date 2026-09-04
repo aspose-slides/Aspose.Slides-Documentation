@@ -3,71 +3,80 @@ title: Features Overview
 type: docs
 weight: 20
 url: /python-java/features-overview/
+keywords:
+- Aspose.Slides for Python via Java
+- PowerPoint features
+- presentation conversion
+- slide rendering
+- presentation editing
+- text formatting
+- shapes and charts
+- PPT
+- PPTX
+- Python
+description: "Explore Aspose.Slides for Python via Java features for converting, rendering, and editing PowerPoint presentations, including slides, text, shapes, and charts."
 ---
 
-## **Supported Platforms**
-Aspose.Slides for Python via Java is a platform independent API. It can be used on any platform (Windows, Linux, MacOS, etc.) where Python 3.7 or higher is installed. JDK 8 or higher is another requirement.
+This article describes the presentation processing capabilities of Aspose.Slides for Python via Java. For supported operating systems and dependencies, see [System Requirements](/slides/python-java/system-requirements/).
 
 ## **File Formats and Conversions**
-Aspose.Slides for Python via Java supports most PowerPoint document formats. It also lets you export them to the popular file formats organizations use and share among themselves. Go through these details:
 
-|**Feature**|**Description**|
-| :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Python via Java provides the fastest processing for this presentation document format.|
-|PPT to PPTX conversion|Aspose.Slides for Python via Java supports PPT to PPTX conversion|
-|Portable Document Format (PDF)|You can export all supported file formats to Adobe Portable Document Format (PDF) documents with a single method.|
-|XML Parser Specification (XPS)|You can export all supported file formats to XML Parser Specification (XPS) documents with a single method.|
-|Tagged Image File Format (TIFF)|You can export all supported presentation file formats to Tagged Image File Format (TIFF).|
-|PPTX To HTML Conversion|Aspose.Slides for Python via Java supports the conversion of PresentationEx to HTML format.|
+Aspose.Slides for Python via Java lets you convert between presentation formats and export presentations to document and web formats. See [Supported File Formats](/slides/python-java/supported-file-formats/) for the complete format table and the distinction between loading presentations, importing content, and exporting output.
 
 ## **Presentation Rendering**
-Aspose.Slides for Python via Java supports high fidelity rendering of slides in presentation to different graphics formats. Go through these details:
 
-|**Feature**|**Description**|
-| :- | :- |
-|Java Supported Image Formats|Using Aspose.Slides for Python via Java, you get to render presentation slides and images on slides to all the Java supported graphics formats such as TIFF, PNG, BMP, JPEG, GIF.|
-|SVG Format|Aspose.Slides for Python via Java also provides built-in methods that allow you to export presentation slides to Scalable Vector Graphics (SVG) formats.|
+Aspose.Slides for Python via Java provides high-fidelity slide rendering as raster or vector images for previews and other visual output. It also lets you render images on slides. For available image formats and export notes, see [Supported File Formats](/slides/python-java/supported-file-formats/#supported-file-formats).
 
 ## **Content Features**
-Aspose.Slides for Python via Java allows you to access, modify, or create almost all the items or contents of presentation documents. Go through these details:
+
+Aspose.Slides for Python via Java allows you to access, modify, and create almost all types of presentation content, as described below:
 
 |**Feature**|**Description**|
 | :- | :- |
-|Master Slides|The master Slides define the layout of the normal slides. Aspose.Slides for Python via Java allows you to access and modify the Master Slides of presentation documents|
-|Normal Slides|With Aspose.Slides for Python via Java, you can create new slides of different types; you also get to access and modify existing slides in the presentations|
-|Cloning / Copying Slides|There are built-in methods provided by Aspose.Slides for Python via Java that allow you to clone or copy existing slides within a presentation. You also get to use copied and cloned slides from one presentation to another. Since a slide inherits its layout from the master slide, the built-in cloning methods automatically copy the master on cloning|
-|Managing Slides sections|Methods to organize slides in different sections inside a presentation|
-|Place Holders and Text Holders|You can access the place holders and text holders in a slide. Moreover, you can create a slide with text holders from scratch using the appropriate method|
-|Header and Footers|Aspose.Slides for Python via Java facilitates the handling of headers/footers in slides|
-|Notes in Slides|With Aspose.Slides for Python via Java, you can access and modify notes associated with a slide and also add new notes|
-|Finding a Shape|You can also find a particular shape from a slide using the alternative text associated with the shape|
-|Backgrounds|Aspose.Slides for Python via Java allows you to work with backgrounds associated with a master or normal slide in a presentation|
-|Text Boxes|Text boxes can be created from scratch. You can access existing text boxes. You also get to modify their texts without losing the original text format|
-|Rectangle Shapes|You can create or modify rectangle shapes with Aspose.Slides for Python via Java|
-|Poly Line Shapes|You can create or modify poly line shapes with Aspose.Slides for Python via Java|
-|Ellipse Shapes|You can create or modify Ellipse shapes with Aspose.Slides for Python via Java|
-|Group Shapes| Aspose.Slides for Python via Java supports group shapes                 |
-|Auto Shapes|Aspose.Slides for Python via Java supports auto shapes|
-|SmartArt|Aspose.Slides for Python via Java provides support for SmartArt shapes in MS PowerPoint|
-|Charts|Aspose.Slides for Python via Java provides support for MSO Charts in PowerPoint|
-|Shapes Serialization| Aspose.Slides for Python via Java supports a large number of shapes. When Aspose.Slides for Python via Java lacks support for a shape, you can use a serialization method through which you get to serialize that shape from an existing slide. This way, you get to use the shape further as per your requirements |
-|Picture Frames|You can manage pictures in picture frames with Aspose.Slides for Python via Java|
-|Audio Frames|You can link or embed audio files in audio frames on slides with Aspose.Slides for Python via Java|
-|Video Frames| You get to handle video files in video frames. Aspose.Slides for Python via Java also provides support for linked and embedded videos |
-|OLE Frame|You get to manage OLE Objects in OLE frames with Aspose.Slides for Python via Java|
-|Tables|Aspose.Slides for Python via Java supports tables in slides|
-|ActiveX Controls|Support for ActiveX controls|
-|VBA Macros|Support for managing VBA macros inside presentations.|
-|Text Frame|You get to access the text with any shape through the text frame associated with that shape|
-|Text Scanning|You get to scan text in a presentation at the presentation or slide level through built-in scanning methods.|
-|Animations|You get to apply animations on shapes|
-|Slide Shows|Aspose.Slides for Python via Java supports slide shows and slide transitions|
+|Presentations|You can create presentations from scratch or open existing files.|
+|Document Properties|You can read and modify document properties.|
+|Presentation Protection|You can apply password protection and manage presentation protection settings.|
+|Master Slides|Master slides define the layout of normal slides. Aspose.Slides for Python via Java allows you to access and modify master slides in presentations.|
+|Normal Slides|You can add, access, edit, reorder, and delete slides in presentations.|
+|Slide Layouts|You can work with slide layouts.|
+|Cloning and Copying Slides|Built-in methods allow you to clone or copy slides within a presentation or between presentations. These methods automatically copy the associated master slide when cloning a slide.|
+|Slide Sections|You can organize slides into sections within a presentation.|
+|Placeholders and Text Holders|You can access placeholders and text holders on a slide, as well as create slides with text holders from scratch.|
+|Headers and Footers|Aspose.Slides for Python via Java lets you manage headers and footers.|
+|Slide Notes|You can access, add, and modify slide notes, and include them when exporting to PDF or TIFF.|
+|Finding a Shape|You can find a particular shape on a slide using its alternative text.|
+|Alternative Text|You can read and update alternative text for shapes.|
+|Hyperlinks|You can read and update hyperlinks on shapes and add hyperlinks to text.|
+|Backgrounds|You can work with the backgrounds of master slides and normal slides in a presentation.|
+|Text Boxes|You can create text boxes from scratch, access existing text boxes, and modify their text while preserving the original formatting.|
+|Rectangle Shapes|You can create and modify rectangle shapes.|
+|Line Shapes|You can create and modify line shapes.|
+|Polyline Shapes|You can create and modify polyline shapes.|
+|Ellipse Shapes|You can create and modify ellipse shapes.|
+|Group Shapes|Aspose.Slides for Python via Java supports group shapes.|
+|AutoShapes|Aspose.Slides for Python via Java supports AutoShapes.|
+|SmartArt|You can create and edit SmartArt shapes in presentations.|
+|Charts|You can create and edit Microsoft Office charts in PowerPoint presentations.|
+|Shape Serialization|Aspose.Slides for Python via Java supports many shape types. For unsupported shapes, you can use serialization to preserve a shape from an existing slide for reuse.|
+|Shape Locks|You can apply shape locks to restrict editing actions.|
+|Picture Frames|You can manage pictures in picture frames.|
+|Audio Frames|You can link or embed audio files in audio frames on slides.|
+|Video Frames|You can manage linked and embedded videos in video frames.|
+|OLE Frames|You can manage OLE objects in OLE frames.|
+|Tables|You can create, move, and resize tables; add, delete, and resize rows and columns; and read and modify cell content, borders, fills, and text formatting.|
+|ActiveX Controls|Aspose.Slides for Python via Java supports ActiveX controls.|
+|VBA Macros|You can manage VBA macros in presentations.|
+|Text Frames|You can access a shape's text through its associated text frame and adjust text frame margins and text wrapping.|
+|Fonts|You can manage fonts used in presentations.|
+|Text Scanning|Built-in methods allow you to scan text across an entire presentation or on individual slides.|
+|Animations|You can add and modify animation effects on shapes.|
+|Slide Shows|Aspose.Slides for Python via Java supports slide shows and slide transitions, including Morph transitions.|
 
 ## **Formatting Features**
-With Aspose.Slides for Python via Java, you can format texts and shapes on slides in presentations. Go through these details:
+
+Aspose.Slides for Python via Java lets you format text and shapes on presentation slides, as described below:
 
 |**Feature**|**Description**|
 | :- | :- |
-|Text Formatting|<p>In Aspose.Slides for Python via Java, you can manage texts through the text frames associated with the shapes. Hence, you get to format texts using the paragraphs and portions associated with the text frames. These text elements can be formatted through Aspose.Slides for Python via Java.</p><p>- Font Type</p><p>- Font Size</p><p>- Font Color</p><p>- Font Shades</p><p>- Paragraph Alignment</p><p>- Paragraph Bulleting</p><p>- Paragraph Orientation</p>|
-|Shape Formatting|<p>In Aspose.Slides for Python via Java, the basic element of a slide is a shape. You can format these shape elements with Aspose.Slides for Python via Java:</p><p>- Position</p><p>- Size</p><p>- Line</p><p>- Fill (including Pattern, Gradient, Solid)</p><p>- Text</p><p>- Image</p>|
-
+|Text Formatting|<p>You can manage text through the text frames associated with shapes and format individual paragraphs and text portions. The following formatting options are available:</p><p>- Font type</p><p>- Font size</p><p>- Font color</p><p>- Font shading</p><p>- Paragraph alignment</p><p>- Paragraph indentation and tabs</p><p>- Paragraph bullets</p><p>- Paragraph orientation</p>|
+|Shape Formatting|<p>Shapes are the basic elements of a slide. You can adjust the following shape properties:</p><p>- Position</p><p>- Size</p><p>- Rotation</p><p>- Line styles</p><p>- Fill (including solid, gradient, pattern, texture, and picture fills)</p><p>- Text</p><p>- Image</p>|
