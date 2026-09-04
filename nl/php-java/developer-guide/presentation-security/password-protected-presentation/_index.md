@@ -1,6 +1,6 @@
 ---
 title: Presentaties beveiligen met wachtwoord in PHP
-linktitle: Wachtwoordbeveiliging
+linktitle: Wachtwoordbescherming
 type: docs
 weight: 20
 url: /nl/php-java/password-protected-presentation/
@@ -8,7 +8,7 @@ keywords:
 - wachtwoordbeveiligde presentatie
 - openingswachtwoord
 - PowerPoint versleutelen
-- PowerPoint ontcijferen
+- PowerPoint ontsleutelen
 - presentatiewachtwoord valideren
 - presentatiewachtwoord controleren
 - versleutelde presentatie openen
@@ -19,17 +19,17 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Versleutel, detecteer, valideer, open en ontcijfer wachtwoordbeveiligde PowerPoint PPT- en PPTX-presentaties in PHP met Aspose.Slides."
+description: "Versleutel, detecteer, valideer, open en ontsleutel wachtwoordbeveiligde PowerPoint PPT- en PPTX‑presentaties in PHP met Aspose.Slides."
 ---
 ## **Overzicht**
 
-Een openingswachtwoord versleutelt een presentatie. Het juiste wachtwoord is vereist om de inhoud van de presentatie te laden en weer te geven, zodat deze bescherming vertrouwelijkheid biedt.
+Een openingswachtwoord versleutelt een presentatie. Het correcte wachtwoord is vereist om de presentatie‑inhoud te laden en weer te geven, waardoor deze bescherming vertrouwelijkheid biedt.
 
-Een openingswachtwoord verschilt van een schrijfbeveiligingswachtwoord. Schrijfbeveiliging beperkt wijzigingen, maar versleutelt de inhoud niet en voorkomt niet dat de presentatie wordt geladen. Zie [Write-Protect Presentations](/slides/nl/php-java/write-protected-presentation/) om wachtwoorden voor het wijzigen van presentaties te beheren.
+Een openingswachtwoord verschilt van een schrijfbeveiligingswachtwoord. Schrijfbeveiliging beperkt bewerking maar versleutelt de inhoud niet en voorkomt niet dat de presentatie wordt geladen. Om wachtwoorden voor het wijzigen van presentaties te beheren, zie [Write-Protect Presentations](/slides/nl/php-java/write-protected-presentation/).
 
-De onderstaande werkstromen zijn van toepassing op zowel PPT- als PPTX‑presentaties. De voorbeelden gebruiken beide formaten wanneer hun bestand‑gebaseerde en stream‑gebaseerde gedrag belangrijk is.
+De onderstaande werkstromen zijn van toepassing op zowel PPT‑ als PPTX‑presentaties. De voorbeelden gebruiken beide formaten waar hun bestandsgebaseerde en streamgebaseerde gedrag belangrijk is.
 
-## **Een presentatie versleutelen met een openingswachtwoord**
+## **Versleutel een presentatie met een openingswachtwoord**
 
 Gebruik [ProtectionManager::encrypt](https://reference.aspose.com/slides/nl/php-java/aspose.slides/protectionmanager/#encrypt) om een openingswachtwoord toe te wijzen. Gebruik vervolgens [Presentation::save](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#save) om de versleutelde presentatie op te slaan.
 
@@ -47,6 +47,34 @@ try {
     $presentation->dispose();
 }
 ```
+
+## **Documenteigenschappen openbaar houden**
+
+Standaard neemt Aspose.Slides documenteigenschappen op in de versleuteling van de presentatie. De methode [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/nl/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) regelt dit gedrag onafhankelijk van de versleuteling van de dia‑inhoud. Geef `false` door vóór het aanroepen van [ProtectionManager::encrypt](https://reference.aspose.com/slides/nl/php-java/aspose.slides/protectionmanager/#encrypt) wanneer een indexerings‑, classificerings‑, zoek‑ of documentbeheersysteem metadata moet lezen zonder het openingswachtwoord.
+
+Het volgende voorbeeld maakt een versleutelde PPTX‑presentatie terwijl de ingebouwde documenteigenschappen openbaar blijven:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $properties = $presentation->getDocumentProperties();
+    $properties->setAuthor("Contoso Knowledge Management");
+    $properties->setTitle("Quarterly Product Roadmap");
+    $properties->setKeywords("roadmap, planning, internal");
+
+    $presentation->getSlides()->get_Item(0)->setName("Encrypted presentation content");
+    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("public-properties-encrypted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Het doorgeven van `false` aan [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/nl/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) maakt de dia's, masters, layouts, vormen, media of andere presentatiewaarde niet openbaar. Het beïnvloedt alleen documenteigenschappen. Om die eigenschappen te lezen zonder de versleutelde inhoud te laden, zie [Manage Presentation Properties](/slides/nl/php-java/presentation-properties/).
 
 ## **Een versleutelde presentatie laden**
 
@@ -69,7 +97,7 @@ try {
 
 ## **Versleuteling uit een presentatie verwijderen**
 
-Laad de presentatie met het bijbehorende openingswachtwoord, roep [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/nl/php-java/aspose.slides/protectionmanager/#removeEncryption) aan en sla het resultaat op. De opgeslagen presentatie kan vervolgens zonder wachtwoord worden geladen.
+Laad de presentatie met zijn openingswachtwoord, roep [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/nl/php-java/aspose.slides/protectionmanager/#removeEncryption) aan en sla het resultaat op. De opgeslagen presentatie kan vervolgens zonder wachtwoord worden geladen.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -88,11 +116,11 @@ try {
 }
 ```
 
-## **Een openingswachtwoord valideren voordat het wordt geladen**
+## **Een openingswachtwoord valideren vóór het laden**
 
-Gebruik [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationfactory/#getPresentationInfo) om [PresentationInfo](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/) te verkrijgen zonder een volledige presentatie‑instance te maken. Controleer [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/#isPasswordProtected) voordat u een wachtwoord opvraagt of valideert. Als bescherming aanwezig is, valideer dan de opgegeven waarde met [PresentationInfo::checkPassword](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/#checkPassword).
+Gebruik [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationfactory/#getPresentationInfo) om [PresentationInfo](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/) te verkrijgen zonder een volledige presentatiestructuur aan te maken. Controleer [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/#isPasswordProtected) voordat u om een wachtwoord vraagt of het valideert. Wanneer bescherming aanwezig is, valideer dan de opgegeven waarde met [PresentationInfo::checkPassword](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/#checkPassword).
 
-### **Bestandspad‑workflow**
+### **Bestandspad-werkstroom**
 
 Het volgende voorbeeld valideert een openingswachtwoord voor een PPTX‑bestand, geeft de gevalideerde waarde door aan [LoadOptions::setPassword](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/#setPassword) en laadt vervolgens de volledige presentatie:
 
@@ -122,9 +150,9 @@ if (!$presentationInfo->isPasswordProtected()) {
 }
 ```
 
-### **Stream‑workflow**
+### **Stream-werkstroom**
 
-De stream‑overload van [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationfactory/#getPresentationInfo) biedt dezelfde workflow. Reset de positie van een doorzoekbare stream voordat u de volledige presentatie vanuit die stream laadt.
+De stream‑overload van [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationfactory/#getPresentationInfo) biedt dezelfde werkstroom. Reset de positie van een doorzoekbare stream voordat de volledige presentatie uit die stream wordt geladen.
 
 Het volgende voorbeeld gebruikt een PPT‑bestand:
 
@@ -161,7 +189,7 @@ try {
 }
 ```
 
-### **Return‑waarden van checkPassword**
+### **Teruggeefwaarden van checkPassword**
 
 [PresentationInfo::checkPassword](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/#checkPassword) retourneert `true` alleen wanneer de presentatie een openingswachtwoord heeft en het opgegeven wachtwoord correct is. Het retourneert `false` in elk van de volgende gevallen:
 
@@ -169,11 +197,11 @@ try {
 - De presentatie heeft geen openingswachtwoord.
 - Het opgegeven wachtwoord is `null` of leeg.
 
-Het gedrag is gelijk voor PPT- en PPTX‑presentaties.
+Het gedrag is hetzelfde voor PPT‑ en PPTX‑presentaties.
 
 ## **Controleren of een geladen presentatie versleuteld is**
 
-Na het laden van een presentatie met het juiste wachtwoord, inspecteer [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/nl/php-java/aspose.slides/protectionmanager/#isEncrypted) om te bevestigen dat de oorspronkelijke presentatie versleuteld was. Om een openingswachtwoord‑bescherming te detecteren voordat u laadt, gebruik [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/#isPasswordProtected) zoals hierboven getoond.
+Nadat een presentatie is geladen met het juiste wachtwoord, inspecteer [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/nl/php-java/aspose.slides/protectionmanager/#isEncrypted) om te bevestigen dat de bronpresentatie versleuteld was. Om openingswachtwoordbescherming vóór het laden te detecteren, gebruik [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationinfo/#isPasswordProtected) zoals hierboven getoond.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -193,33 +221,39 @@ try {
 
 ## **Beveiligingsaanbevelingen**
 
-{{% alert color="warning" title="Security" %}}
-Log geen openingswachtwoorden en voeg ze niet op in diagnostische berichten. Vermijd onnodige herhaalde validatie‑pogingen, bewaar wachtwoorden in het geheugen alleen zolang als nodig is, en hergebruik een succesvolle validatieresultaat bij het direct laden van de presentatie.
+{{% alert color="warning" title="Beveiliging" %}}
+Log geen openingswachtwoorden en neem ze niet op in diagnostische berichten. Vermijd onnodige herhaalde validatiepogingen, bewaar wachtwoorden in het geheugen alleen zolang als nodig is, en hergebruik een succesvolle validatieresultaat bij het direct laden van de presentatie.
+
+Openbare documenteigenschappen kunnen de namen van auteurs, titels, onderwerpe, trefwoorden, bedrijfsinformatie, opmerkingen en aangepaste waarden onthullen, zelfs als de presentatie‑inhoud versleuteld is. Versleutel gevoelige metadata samen met de presentatie. Het openbaar houden van eigenschappen moet een expliciete beslissing zijn die alleen wordt genomen wanneer systemen de file moeten indexeren, classificeren, zoeken of beheren zonder een openingswachtwoord.
 {{% /alert %}}
 
-## **Een presentatie online met wachtwoord beveiligen**
+## **Een presentatie online met een wachtwoord beveiligen**
 
-1. Open de applicatie [Aspose.Slides Lock](https://products.aspose.app/slides/nl/lock).
-2. Selecteer of upload de presentatie.
-3. Voer een wachtwoord in voor weergave‑bescherming.
-4. Voer optioneel een apart wachtwoord in voor bewerkings‑bescherming.
-5. Pas de bescherming toe en download het resulterende bestand.
+1. Open de toepassing [Aspose.Slides Lock](https://products.aspose.app/slides/nl/lock).
+1. Selecteer of upload de presentatie.
+1. Voer een wachtwoord in voor weergavebeveiliging.
+1. Voer eventueel een apart wachtwoord in voor bewerkingsbeveiliging.
+1. Pas de beveiliging toe en download het resulterende bestand.
 
-{{% alert color="info" title="See also" %}}
+{{% alert color="info" title="Zie ook" %}}
 - [Write-Protect Presentations](/slides/nl/php-java/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/nl/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Wat is het verschil tussen een openingswachtwoord en een schrijfbeveiligingswachtwoord?**
+**Wat is het verschil tussen een openingswachtwoord en een schrijfbeschermingswachtwoord?**
 
-Een openingswachtwoord versleutelt de presentatie en is vereist om de inhoud te laden. Een schrijfbeveiligingswachtwoord beperkt wijzigingen zonder de inhoud te versleutelen.
+Een openingswachtwoord versleutelt de presentatie en is vereist om de inhoud te laden. Een schrijfbeschermingswachtwoord beperkt bewerking zonder de inhoud te versleutelen.
 
 **Kan ik een openingswachtwoord valideren zonder alle dia's te laden?**
 
-Ja. Verkrijg presentatiedetails, controleer of er een openingswachtwoord‑bescherming aanwezig is, en valideer het wachtwoord voordat u een volledige presentatie‑instance maakt.
+Ja. Verkrijg presentatiesinformatie, controleer of er een openingswachtwoordbeveiliging aanwezig is, en valideer het wachtwoord voordat een volledige presentatie‑instantie wordt aangemaakt.
 
-**Ondersteunen de workflow‑procedures voor wachtwoordcontrole zowel PPT als PPTX?**
+**Kan een toepassing metadata lezen zonder het openingswachtwoord?**
 
-Ja. Bestandspad‑ en stream‑gebaseerde wachtwoorddetectie en -validatie werken op dezelfde manier voor PPT- en PPTX‑presentaties.
+Ja, maar alleen wanneer de presentatie is versleuteld met uitgeschakelde encryptie van documenteigenschappen. De toepassing moet dan de alleen‑documenteigenschappen‑laadmodus gebruiken die wordt beschreven in [Manage Presentation Properties](/slides/nl/php-java/presentation-properties/).
+
+**Ondersteunen de wachtwoord‑validatiewerkstromen zowel PPT als PPTX?**
+
+Ja. Bestands‑ en stream‑gebaseerde wachtwoorddetectie en -validatie gedragen zich gelijk voor PPT‑ en PPTX‑presentaties.

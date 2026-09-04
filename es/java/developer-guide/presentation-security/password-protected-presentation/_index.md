@@ -9,29 +9,29 @@ keywords:
 - contraseña de apertura
 - cifrar PowerPoint
 - descifrar PowerPoint
-- validar contraseña de presentación
-- comprobar contraseña de presentación
+- validar la contraseña de la presentación
+- comprobar la contraseña de la presentación
 - abrir presentación cifrada
-- eliminar cifrado
+- eliminar el cifrado
 - PowerPoint
 - PPT
 - PPTX
 - presentación
 - Java
 - Aspose.Slides
-description: "Cifre, detecte, valide, abra y descifre presentaciones de PowerPoint PPT y PPTX protegidas con contraseña en Java con Aspose.Slides."
+description: "Cifrar, detectar, validar, abrir y descifrar presentaciones de PowerPoint PPT y PPTX protegidas con contraseña en Java con Aspose.Slides."
 ---
 ## **Visión general**
 
-Una contraseña de apertura cifra una presentación. La contraseña correcta es necesaria para cargar y ver el contenido de la presentación, por lo que esta protección brinda confidencialidad.
+Una contraseña de apertura cifra una presentación. Se requiere la contraseña correcta para cargar y ver el contenido de la presentación, por lo que esta protección brinda confidencialidad.
 
-Una contraseña de apertura es distinta de una contraseña de protección contra escritura. La protección contra escritura restringe la modificación pero no cifra el contenido ni impide que la presentación se cargue. Para gestionar contraseñas para modificar presentaciones, consulte [Write-Protect Presentations](/slides/es/java/write-protected-presentation/).
+Una contraseña de apertura es distinta de una contraseña de protección de escritura. La protección de escritura restringe la modificación pero no cifra el contenido ni impide que la presentación se cargue. Para administrar contraseñas para modificar presentaciones, consulte [Presentaciones con protección de escritura](/slides/es/java/write-protected-presentation/).
 
 Los flujos de trabajo a continuación se aplican tanto a presentaciones PPT como PPTX. Los ejemplos utilizan ambos formatos cuando su comportamiento basado en archivos y en flujos es importante.
 
 ## **Cifrar una presentación con una contraseña de apertura**
 
-Utilice [IProtectionManager.encrypt](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) para asignar una contraseña de apertura. Luego utilice [IPresentation.save](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) para guardar la presentación cifrada.
+Utilice [IProtectionManager.encrypt](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) para asignar una contraseña de apertura. Después, use [IPresentation.save](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentation/#save-java.lang.String-int-) para persistir la presentación cifrada.
 
 El siguiente ejemplo cifra una presentación PPTX:
 
@@ -48,9 +48,38 @@ try {
 }
 ```
 
+## **Mantener las propiedades del documento públicas**
+
+De manera predeterminada, Aspose.Slides incluye las propiedades del documento en el cifrado de la presentación. El método [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) controla este comportamiento de forma independiente al cifrado del contenido de las diapositivas. Pase `false` antes de llamar a [IProtectionManager.encrypt](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) cuando un sistema de indexación, clasificación, búsqueda o gestión documental deba leer los metadatos sin la contraseña de apertura.
+
+El siguiente ejemplo crea una presentación PPTX cifrada dejando sus propiedades de documento integradas públicas:
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation();
+try {
+    IDocumentProperties properties = presentation.getDocumentProperties();
+    properties.setAuthor("Contoso Knowledge Management");
+    properties.setTitle("Quarterly Product Roadmap");
+    properties.setKeywords("roadmap, planning, internal");
+
+    presentation.getSlides().get_Item(0).setName("Encrypted presentation content");
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("public-properties-encrypted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pasar `false` a [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) no hace públicas las diapositivas, maestros, diseños, formas, medios u otro contenido de la presentación. Afecta únicamente a las propiedades del documento. Para leer esas propiedades sin cargar el contenido cifrado, consulte [Administrar propiedades de la presentación](/slides/es/java/presentation-properties/).
+
 ## **Cargar una presentación cifrada**
 
-Establezca [ILoadOptions.setPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) con la contraseña de apertura y pase las opciones a [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) al cargar el archivo. La carga falla cuando se requiere una contraseña de apertura pero la contraseña proporcionada falta o es incorrecta.
+Establezca [ILoadOptions.setPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) con la contraseña de apertura y pase las opciones a [Presentation](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/) al cargar el archivo. La carga falla cuando se requiere una contraseña de apertura pero la contraseña suministrada falta o es incorrecta.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -69,7 +98,7 @@ try {
 
 ## **Eliminar el cifrado de una presentación**
 
-Cargue la presentación con su contraseña de apertura, llame a [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#removeEncryption--) y guarde el resultado. La presentación guardada entonces podrá cargarse sin contraseña.
+Cargue la presentación con su contraseña de apertura, llame a [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#removeEncryption--) y guarde el resultado. La presentación guardada podrá cargarse posteriormente sin contraseña.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -90,11 +119,11 @@ try {
 
 ## **Validar una contraseña de apertura antes de cargar**
 
-Utilice [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) para obtener [IPresentationInfo](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationinfo/) sin crear una instancia completa de la presentación. Verifique [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) antes de solicitar o validar una contraseña. Cuando exista protección, valide el valor proporcionado con [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
+Utilice [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) para obtener [IPresentationInfo](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationinfo/) sin crear una instancia completa de la presentación. Verifique [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) antes de solicitar o validar una contraseña. Cuando la protección está presente, valide el valor suministrado con [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
 
 ### **Flujo de trabajo con ruta de archivo**
 
-El siguiente ejemplo valida una contraseña de apertura para un archivo PPTX, pasa el valor validado a [ILoadOptions.setPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-), y luego carga la presentación completa:
+El siguiente ejemplo valida una contraseña de apertura para un archivo PPTX, pasa el valor validado a [ILoadOptions.setPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) y luego carga la presentación completa:
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -127,7 +156,7 @@ if (!presentationInfo.isPasswordProtected()) {
 
 La sobrecarga de flujo de [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) proporciona el mismo flujo de trabajo. Restablezca la posición de un flujo buscable antes de cargar la presentación completa desde ese flujo.
 
-El siguiente ejemplo utiliza un archivo PPT:
+El siguiente ejemplo usa un archivo PPT:
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -166,7 +195,7 @@ try {
 
 ### **Valores de retorno de checkPassword**
 
-[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) devuelve `true` solo cuando la presentación tiene una contraseña de apertura y la contraseña suministrada es correcta. Devuelve `false` en cada uno de los siguientes casos:
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/es/java/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) devuelve `true` solo cuando la presentación tiene una contraseña de apertura y la contraseña suministrada es correcta. Devuelve `false` en cada uno de estos casos:
 
 - La contraseña es incorrecta.
 - La presentación no tiene una contraseña de apertura.
@@ -176,7 +205,7 @@ El comportamiento es el mismo para presentaciones PPT y PPTX.
 
 ## **Comprobar si una presentación cargada está cifrada**
 
-Después de cargar una presentación con la contraseña correcta, inspeccione [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) para confirmar que la presentación fuente estaba cifrada. Para detectar la protección con contraseña de apertura antes de cargar, use `IPresentationInfo.isPasswordProtected` como se mostró arriba.
+Después de cargar una presentación con la contraseña correcta, inspeccione [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/es/java/com.aspose.slides/iprotectionmanager/#isEncrypted--) para confirmar que la presentación origen estaba cifrada. Para detectar la protección por contraseña de apertura antes de cargar, use `IPresentationInfo.isPasswordProtected` como se mostró anteriormente.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -197,7 +226,9 @@ try {
 ## **Recomendaciones de seguridad**
 
 {{% alert color="warning" title="Seguridad" %}}
-No registre contraseñas de apertura ni las incluya en mensajes de diagnóstico. Evite intentos de validación repetidos e innecesarios, conserve las contraseñas en memoria solo el tiempo necesario y reutilice un resultado de validación exitoso al cargar inmediatamente la presentación.
+No registre las contraseñas de apertura ni las incluya en mensajes de diagnóstico. Evite intentos de validación repetidos innecesarios, mantenga las contraseñas en memoria solo el tiempo necesario y reutilice un resultado de validación exitoso cuando se cargue la presentación inmediatamente.
+
+Las propiedades públicas del documento pueden revelar nombres de autor, títulos, asuntos, palabras clave, información de la empresa, comentarios y valores personalizados aunque el contenido de la presentación esté cifrado. Cifre los metadatos sensibles junto con la presentación. Dejar las propiedades públicas debe ser una decisión explícita tomada solo cuando los sistemas deben indexar, clasificar, buscar o gestionar el archivo sin una contraseña de apertura.
 {{% /alert %}}
 
 ## **Proteger una presentación con contraseña en línea**
@@ -209,20 +240,24 @@ No registre contraseñas de apertura ni las incluya en mensajes de diagnóstico.
 1. Aplique la protección y descargue el archivo resultante.
 
 {{% alert color="info" title="Ver también" %}}
-- [Write-Protect Presentations](/slides/es/java/write-protected-presentation/)
-- [Digital Signature in PowerPoint](/slides/es/java/digital-signature-in-powerpoint/)
+- [Presentaciones con protección de escritura](/slides/es/java/write-protected-presentation/)
+- [Firma digital en PowerPoint](/slides/es/java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Cuál es la diferencia entre una contraseña de apertura y una contraseña de protección contra escritura?**
+**¿Cuál es la diferencia entre una contraseña de apertura y una contraseña de protección de escritura?**
 
-Una contraseña de apertura cifra la presentación y es necesaria para cargar su contenido. Una contraseña de protección contra escritura restringe la modificación sin cifrar el contenido.
+Una contraseña de apertura cifra la presentación y es necesaria para cargar su contenido. Una contraseña de protección de escritura restringe la modificación sin cifrar el contenido.
 
 **¿Puedo validar una contraseña de apertura sin cargar todas las diapositivas?**
 
-Sí. Obtenga la información de la presentación, compruebe si existe protección con contraseña de apertura y valide la contraseña antes de crear una instancia completa de la presentación.
+Sí. Obtenga la información de la presentación, compruebe si la protección por contraseña de apertura está presente y valide la contraseña antes de crear una instancia completa de la presentación.
 
-**¿Los flujos de trabajo de comprobación de contraseñas son compatibles tanto con PPT como con PPTX?**
+**¿Puede una aplicación leer los metadatos sin la contraseña de apertura?**
 
-Sí. La detección y validación de contraseñas basadas en ruta de archivo y en flujo se comportan de la misma manera para presentaciones PPT y PPTX.
+Sí, pero solo cuando la presentación se cifró con el cifrado de propiedades del documento desactivado. La aplicación debe entonces usar el modo de carga solo de propiedades del documento descrito en [Administrar propiedades de la presentación](/slides/es/java/presentation-properties/).
+
+**¿Los flujos de trabajo de comprobación de contraseñas admiten tanto PPT como PPTX?**
+
+Sí. La detección y validación de contraseñas basadas en ruta de archivo y en flujo se comportan de la misma forma para presentaciones PPT y PPTX.

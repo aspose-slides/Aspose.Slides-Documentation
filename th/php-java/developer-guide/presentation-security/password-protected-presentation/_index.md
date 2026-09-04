@@ -1,5 +1,5 @@
 ---
-title: การป้องกันการนำเสนอด้วยรหัสผ่านใน PHP
+title: ป้องกันการนำเสนอด้วยรหัสผ่านใน PHP
 linktitle: การป้องกันรหัสผ่าน
 type: docs
 weight: 20
@@ -19,21 +19,21 @@ keywords:
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เข้ารหัส, ตรวจจับ, ตรวจสอบความถูกต้อง, เปิด และถอดรหัสการนำเสนอ PowerPoint PPT และ PPTX ที่ป้องกันด้วยรหัสผ่านใน PHP ด้วย Aspose.Slides."
+description: "เข้ารหัส, ตรวจจับ, ตรวจสอบความถูกต้อง, เปิดและถอดรหัสการนำเสนอ PowerPoint PPT และ PPTX ที่ป้องกันด้วยรหัสผ่านใน PHP ด้วย Aspose.Slides."
 ---
 ## **ภาพรวม**
 
-รหัสผ่านเปิดจะเข้ารหัสการนำเสนอ จำเป็นต้องมีรหัสผ่านที่ถูกต้องเพื่อโหลดและดูเนื้อหาการนำเสนอ ดังนั้นการป้องกันนี้จึงให้ความเป็นส่วนตัว
+รหัสผ่านเปิดจะทำการเข้ารหัสการนำเสนอ จำเป็นต้องใช้รหัสผ่านที่ถูกต้องเพื่อโหลดและดูเนื้อหาของการนำเสนอ ดังนั้นการป้องกันนี้จึงให้ความลับ
 
-รหัสผ่านเปิดแตกต่างจากรหัสผ่านการป้องกันการเขียน การป้องกันการเขียนจะจำกัดการแก้ไขแต่ไม่ได้เข้ารหัสเนื้อหาหรือป้องกันการโหลดการนำเสนอ หากต้องการจัดการรหัสผ่านสำหรับการแก้ไขการนำเสนอ ดูที่ [Write-Protect Presentations](/slides/th/php-java/write-protected-presentation/)
+รหัสผ่านเปิดแตกต่างจากรหัสผ่านการป้องกันการเขียน การป้องกันการเขียนจำกัดการแก้ไขแต่ไม่ได้เข้ารหัสเนื้อหา หรือป้องกันไม่ให้การนำเสนอถูกโหลด เพื่อจัดการรหัสผ่านสำหรับการแก้ไขการนำเสนอ ให้ดูที่ [Write-Protect Presentations](/slides/th/php-java/write-protected-presentation/).
 
-เวิร์กโฟลว์ด้านล่างใช้ได้กับการนำเสนอทั้งรูปแบบ PPT และ PPTX ตัวอย่างใช้รูปแบบทั้งสองเมื่อพฤติกรรมแบบไฟล์และสตรีมเป็นสิ่งสำคัญ
+ขั้นตอนการทำงานด้านล่างใช้ได้กับการนำเสนอทั้งประเภท PPT และ PPTX ตัวอย่างใช้ทั้งสองรูปแบบเมื่อพฤติกรรมตามไฟล์และสตรีมมีความสำคัญ
 
 ## **เข้ารหัสการนำเสนอด้วยรหัสผ่านเปิด**
 
-ใช้ [ProtectionManager::encrypt](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#encrypt) เพื่อตั้งค่ารหัสผ่านเปิด แล้วใช้ [Presentation::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save) เพื่อบันทึกการนำเสนอที่เข้ารหัส
+ใช้ [ProtectionManager::encrypt](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#encrypt) เพื่อตั้งรหัสผ่านเปิด แล้วใช้ [Presentation::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#save) เพื่อบันทึกการนำเสนอที่ถูกเข้ารหัส
 
-ตัวอย่างต่อไปนี้จะแสดงการเข้ารหัสการนำเสนอ PPTX:
+ตัวอย่างต่อไปนี้ทำการเข้ารหัสการนำเสนอ PPTX:
 
 ```php
 use aspose\slides\Presentation;
@@ -48,9 +48,37 @@ try {
 }
 ```
 
+## **ทำให้คุณสมบัติเอกสารเป็นสาธารณะ**
+
+ตามค่าเริ่มต้น Aspose.Slides จะรวมคุณสมบัติเอกสารในการเข้ารหัสการนำเสนอ วิธีการ [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) ควบคุมพฤติกรรมนี้แยกจากการเข้ารหัสเนื้อหาในสไลด์ ให้ส่งค่า `false` ก่อนเรียก [ProtectionManager::encrypt](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#encrypt) เมื่อระบบดัชนี การจัดประเภท การค้นหา หรือการจัดการเอกสารต้องอ่านเมตาดาต้าโดยไม่ต้องใช้รหัสผ่านเปิด
+
+ตัวอย่างต่อไปนี้สร้างการนำเสนอ PPTX ที่ถูกเข้ารหัสโดยที่คุณสมบัติเอกสารในตัวยังคงเป็นสาธารณะ:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $properties = $presentation->getDocumentProperties();
+    $properties->setAuthor("Contoso Knowledge Management");
+    $properties->setTitle("Quarterly Product Roadmap");
+    $properties->setKeywords("roadmap, planning, internal");
+
+    $presentation->getSlides()->get_Item(0)->setName("Encrypted presentation content");
+    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("public-properties-encrypted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+การส่งค่า `false` ไปยัง [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) จะไม่ทำให้สไลด์, มาสเตอร์, เลเอาต์, รูปร่าง, สื่อ หรือเนื้อหาอื่นของการนำเสนอเป็นสาธารณะ มันส่งผลต่อคุณสมบัติเอกสารเท่านั้น หากต้องการอ่านคุณสมบัติเหล่านั้นโดยไม่ต้องโหลดเนื้อหาที่เข้ารหัส ให้ดูที่ [Manage Presentation Properties](/slides/th/php-java/presentation-properties/).
+
 ## **โหลดการนำเสนอที่เข้ารหัส**
 
-ตั้งค่า [LoadOptions::setPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setPassword) ให้เป็นรหัสผ่านเปิดและส่งตัวเลือกเหล่านั้นไปยัง [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ขณะโหลดไฟล์ การโหลดจะล้มเหลือเมื่อต้องการรหัสผ่านเปิดแต่ไม่มีรหัสผ่านที่ให้หรือรหัสผ่านไม่ถูกต้อง
+กำหนด [LoadOptions::setPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setPassword) ให้เป็นรหัสผ่านเปิดและส่งตัวเลือกนี้ไปยัง [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ขณะโหลดไฟล์ การโหลดจะล้มเหลือหากต้องการรหัสผ่านเปิดแต่ไม่ได้ระบุหรือระบุรหัสผ่านไม่ถูกต้อง
 
 ```php
 use aspose\slides\LoadOptions;
@@ -67,9 +95,9 @@ try {
 }
 ```
 
-## **ลบการเข้ารหัสออกจากการนำเสนอ**
+## **ลบการเข้ารหัสจากการนำเสนอ**
 
-โหลดการนำเสนอพร้อมรหัสผ่านเปิดของมัน เรียก [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#removeEncryption) แล้วบันทึกผลลัพธ์ การนำเสนอที่บันทึกแล้วจึงสามารถโหลดได้โดยไม่ต้องใช้รหัสผ่าน
+โหลดการนำเสนอพร้อมรหัสผ่านเปิด, เรียก [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#removeEncryption) แล้วบันทึกผลลัพธ์ การนำเสนอที่บันทึกไว้สามารถโหลดได้โดยไม่ต้องใช้รหัสผ่าน
 
 ```php
 use aspose\slides\LoadOptions;
@@ -88,9 +116,9 @@ try {
 }
 ```
 
-## **ตรวจสอบรหัสผ่านเปิดก่อนโหลด**
+## **ตรวจสอบรหัสผ่านเปิดก่อนการโหลด**
 
-ใช้ [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/#getPresentationInfo) เพื่อรับ [PresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/) โดยไม่ต้องสร้างอินสแตนซ์การนำเสนอเต็มรูป ตรวจสอบ [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#isPasswordProtected) ก่อนขอหรือทำการตรวจสอบรหัสผ่าน เมื่อมีการป้องกัน ให้ตรวจสอบค่าที่ให้ด้วย [PresentationInfo::checkPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#checkPassword)
+ใช้ [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/#getPresentationInfo) เพื่อดึงข้อมูล [PresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/) โดยไม่ต้องสร้างอินสแตนซ์ของการนำเสนอเต็มรูปแบบ ตรวจสอบ [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#isPasswordProtected) ก่อนขอหรือยืนยันรหัสผ่าน หากมีการป้องกัน ให้ตรวจสอบค่าที่ให้มาด้วย [PresentationInfo::checkPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#checkPassword)
 
 ### **กระบวนการทำงานแบบไฟล์พาธ**
 
@@ -124,7 +152,7 @@ if (!$presentationInfo->isPasswordProtected()) {
 
 ### **กระบวนการทำงานแบบสตรีม**
 
-การ overload แบบสตรีมของ [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/#getPresentationInfo) ให้กระบวนการทำงานเดียวกัน รีเซ็ตตำแหน่งของสตรีมที่สามารถเลื่อนได้ก่อนโหลดการนำเสนอเต็มรูปจากสตรีมนั้น
+การโอเวอร์โหลดแบบสตรีมของ [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/#getPresentationInfo) ให้กระบวนการทำงานเดียวกัน รีเซ็ตตำแหน่งของสตรีมที่สามารถเลื่อนได้ก่อนโหลดการนำเสนอเต็มรูปแบบจากสตรีมนั้น
 
 ตัวอย่างต่อไปนี้ใช้ไฟล์ PPT:
 
@@ -161,18 +189,19 @@ try {
 }
 ```
 
-### **ค่า Return ของ checkPassword**
+### **ค่าที่ส่งกลับของ checkPassword**
 
-[PresentationInfo::checkPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#checkPassword) จะคืนค่า `true` ก็ต่อเมื่อการนำเสนอมีรหัสผ่านเปิดและรหัสผ่านที่ให้ถูกต้อง จะคืนค่า `false` ในกรณีต่อไปนี้:
-- รหัสผ่านไม่ถูกต้อง.
-- การนำเสนอไม่มีรหัสผ่านเปิด.
-- รหัสผ่านที่ให้เป็น `null` หรือเป็นค่าว่าง.
+[PresentationInfo::checkPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#checkPassword) จะคืนค่า `true` ก็ต่อเมื่อการนำเสนอมีรหัสผ่านเปิดและรหัสผ่านที่ให้มาถูกต้อง จะคืนค่า `false` ในแต่ละกรณีดังต่อไปนี้:
 
-พฤติกรรมนี้เหมือนกันสำหรับการนำเสนอรูปแบบ PPT และ PPTX
+- รหัสผ่านไม่ถูกต้อง
+- การนำเสนอไม่มีรหัสผ่านเปิด
+- รหัสผ่านที่ให้มาคือ `null` หรือว่างเปล่า
+
+พฤติกรรมนี้เหมือนกันสำหรับการนำเสนอ PPT และ PPTX
 
 ## **ตรวจสอบว่าการนำเสนอที่โหลดแล้วถูกเข้ารหัสหรือไม่**
 
-หลังจากโหลดการนำเสนอด้วยรหัสผ่านที่ถูกต้อง ตรวจสอบ [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#isEncrypted) เพื่อยืนยันว่าการนำเสนอเดิมถูกเข้ารหัส หากต้องการตรวจจับการป้องกันด้วยรหัสผ่านเปิดก่อนโหลด ให้ใช้ [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#isPasswordProtected) ตามที่แสดงข้างต้น
+หลังจากโหลดการนำเสนอด้วยรหัสผ่านที่ถูกต้อง ให้ตรวจสอบ [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#isEncrypted) เพื่อยืนยันว่าการนำเสนอแหล่งที่มาถูกเข้ารหัส หากต้องการตรวจจับการป้องกันด้วยรหัสผ่านก่อนการโหลด ให้ใช้ [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#isPasswordProtected) ตามที่แสดงข้างต้น
 
 ```php
 use aspose\slides\LoadOptions;
@@ -192,33 +221,39 @@ try {
 
 ## **คำแนะนำด้านความปลอดภัย**
 
-{{% alert color="warning" title="ความปลอดภัย" %}}
-ห้ามบันทึกรหัสผ่านเปิดหรือใส่ลงในข้อความวินิจฉัย หลีกเลี่ยงการตรวจสอบซ้ำโดยไม่จำเป็น เก็บรหัสผ่านในหน่วยความจำเฉพาะช่วงที่ต้องการเท่านั้น และใช้ผลการตรวจสอบที่สำเร็จซ้ำเมื่อโหลดการนำเสนอโดยทันที
+{{% alert color="warning" title="Security" %}}
+ห้ามบันทึกรหัสผ่านเปิดในล็อกหรือรวมไว้ในข้อความวินิจฉัย หลีกเลี่ยงการพยายามตรวจสอบหลายครั้งโดยไม่จำเป็น เก็บรหัสผ่านในหน่วยความจำเฉพาะเวลาที่จำเป็นเท่านั้น และใช้ผลการตรวจสอบที่สำเร็จซ้ำเมื่อทำการโหลดการนำเสนอทันที
+
+คุณสมบัติเอกสารที่เป็นสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, เรื่อง, คำสำคัญ, ข้อมูลบริษัท, ความคิดเห็น, และค่าที่กำหนดเอง แม้ว่าข้อมูลการนำเสนอจะถูกเข้ารหัสก็ตาม ควรเข้ารหัสเมตาดาต้าที่สำคัญร่วมกับการนำเสนอ การทำให้คุณสมบัติเป็นสาธารณะควรเป็นการตัดสินใจอย่างชัดเจนและทำเฉพาะเมื่อระบบต้องทำการทำดัชนี การจัดประเภท การค้นหา หรือการจัดการไฟล์โดยไม่มีรหัสผ่านเปิด
 {{% /alert %}}
 
 ## **ป้องกันการนำเสนอด้วยรหัสผ่านออนไลน์**
 
 1. เปิดแอปพลิเคชัน [Aspose.Slides Lock](https://products.aspose.app/slides/th/lock)
 1. เลือกหรืออัปโหลดการนำเสนอ
-1. ใส่รหัสผ่านเพื่อป้องกันการดู
-1. หากต้องการสามารถใส่รหัสผ่านแยกต่างหากเพื่อป้องกันการแก้ไข
+1. ใส่รหัสผ่านสำหรับการป้องกันการดู
+1. หากต้องการ สามารถใส่รหัสผ่านแยกสำหรับการป้องกันการแก้ไข
 1. ใช้การป้องกันและดาวน์โหลดไฟล์ที่ได้
 
-{{% alert color="info" title="ดูเพิ่มเติม" %}}
-- [ป้องกันการเขียนของการนำเสนอ](/slides/th/php-java/write-protected-presentation/)
-- [ลายเซ็นดิจิทัลใน PowerPoint](/slides/th/php-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/th/php-java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/th/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**รหัสผ่านเปิดต่างจากรหัสผ่านการป้องกันการเขียนอย่างไร?**
+**รหัสผ่านเปิดกับรหัสผ่านการป้องกันการเขียนต่างกันอย่างไร?**
 
-รหัสผ่านเปิดจะเข้ารหัสการนำเสนอและจำเป็นต้องใช้เพื่อโหลดเนื้อหา การป้องกันการเขียนจะจำกัดการแก้ไขโดยไม่ทำการเข้ารหัสเนื้อหา
+รหัสผ่านเปิดจะเข้ารหัสการนำเสนอและจำเป็นต้องใช้เพื่อโหลดเนื้อหา รหัสผ่านการป้องกันการเขียนจะจำกัดการแก้ไขโดยไม่ทำการเข้ารหัสเนื้อหา
 
 **ฉันสามารถตรวจสอบรหัสผ่านเปิดโดยไม่ต้องโหลดสไลด์ทั้งหมดได้หรือไม่?**
 
-ได้ สามารถรับข้อมูลการนำเสนอ ตรวจสอบว่ามีการป้องกันด้วยรหัสผ่านเปิดหรือไม่ และตรวจสอบรหัสผ่านก่อนสร้างอินสแตนซ์การนำเสนอเต็มรูปแบบ
+ได้ การดึงข้อมูลการนำเสนอ ตรวจสอบว่ามีการป้องกันด้วยรหัสผ่านเปิดหรือไม่ และตรวจสอบรหัสผ่านก่อนสร้างอินสแตนซ์การนำเสนอเต็มรูปแบบ
 
-**ขั้นตอนการตรวจสอบรหัสผ่านรองรับการทำงานกับ PPT และ PPTX หรือไม่?**
+**แอปพลิเคชันสามารถอ่านเมตาดาต้าโดยไม่ต้องใช้รหัสผ่านเปิดได้หรือไม่?**
 
-รองรับ ทั้งการตรวจจับและตรวจสอบรหัสผ่านแบบไฟล์พาธและแบบสตรีมทำงานเหมือนกันสำหรับการนำเสนอรูปแบบ PPT และ PPTX
+ได้ แต่เฉพาะเมื่อการนำเสนอถูกเข้ารหัสโดยปิดการเข้ารหัสคุณสมบัติเอกสารเท่านั้น แอปพลิเคชันต้องใช้โหมดการโหลดที่อ่านเฉพาะคุณสมบัติเอกสารตามที่อธิบายใน [Manage Presentation Properties](/slides/th/php-java/presentation-properties/).
+
+**กระบวนการตรวจสอบรหัสผ่านสนับสนุนทั้ง PPT และ PPTX หรือไม่?**
+
+ได้ กระบวนการตรวจจับและตรวจสอบรหัสผ่านตามไฟล์พาธและสตรีมทำงานเช่นเดียวกันสำหรับการนำเสนอ PPT และ PPTX

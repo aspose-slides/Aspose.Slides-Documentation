@@ -1,11 +1,11 @@
 ---
-title: Proteksi Kata Sandi pada Presentasi di .NET
-linktitle: Proteksi Kata Sandi
+title: "Lindungi Presentasi dengan Kata Sandi di .NET"
+linktitle: "Perlindungan Kata Sandi"
 type: docs
 weight: 20
 url: /id/net/password-protected-presentation/
 keywords:
-- presentasi yang dilindungi kata sandi
+- presentasi dilindungi kata sandi
 - kata sandi pembuka
 - enkripsi PowerPoint
 - dekripsi PowerPoint
@@ -24,15 +24,15 @@ description: "Enkripsi, deteksi, validasi, buka, dan dekripsi presentasi PowerPo
 ---
 ## **Gambaran Umum**
 
-Kata sandi pembuka mengenkripsi presentasi. Kata sandi yang tepat diperlukan untuk memuat dan melihat konten presentasi, sehingga perlindungan ini memberikan kerahasiaan.
+Kata sandi pembuka mengenkripsi presentasi. Kata sandi yang benar diperlukan untuk memuat dan melihat konten presentasi, sehingga perlindungan ini memberikan kerahasiaan.
 
-Kata sandi pembuka berbeda dari kata sandi proteksi penulisan. Proteksi penulisan membatasi modifikasi tetapi tidak mengenkripsi konten atau mencegah presentasi dimuat. Untuk mengelola kata sandi untuk memodifikasi presentasi, lihat [Write-Protect Presentations](/slides/id/net/write-protected-presentation/).
+Kata sandi pembuka berbeda dari kata sandi perlindungan penulisan. Perlindungan penulisan membatasi modifikasi tetapi tidak mengenkripsi konten atau mencegah presentasi dimuat. Untuk mengelola kata sandi yang digunakan untuk memodifikasi presentasi, lihat [Lindungi Presentasi dengan Proteksi Penulisan](/slides/id/net/write-protected-presentation/).
 
-Alur kerja di bawah ini berlaku untuk presentasi PPT dan PPTX. Contoh-contoh menggunakan kedua format tersebut ketika perilaku berbasis file dan berbasis aliran penting.
+Alur kerja di bawah ini berlaku untuk presentasi PPT dan PPTX. Contoh menggunakan kedua format ketika perilaku berbasis berkas dan berbasis aliran penting.
 
 ## **Enkripsi Presentasi dengan Kata Sandi Pembuka**
 
-Gunakan [IProtectionManager.Encrypt](https://reference.aspose.com/slides/id/net/aspose.slides/iprotectionmanager/encrypt/) untuk menetapkan kata sandi pembuka. Kemudian gunakan [IPresentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/save/) untuk menyimpan presentasi yang terenkripsi.
+Gunakan [IProtectionManager.Encrypt](https://reference.aspose.com/slides/id/net/aspose.slides/iprotectionmanager/encrypt/) untuk menetapkan kata sandi pembuka. Kemudian gunakan [IPresentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/save/) untuk menyimpan presentasi yang telah dienkripsi.
 
 Contoh berikut mengenkripsi presentasi PPTX:
 
@@ -46,9 +46,34 @@ presentation.ProtectionManager.Encrypt("open_password");
 presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
+## **Biarkan Properti Dokumen Publik**
+
+Secara default, Aspose.Slides menyertakan properti dokumen dalam enkripsi presentasi. Properti [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/id/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) mengendalikan perilaku ini secara terpisah dari enkripsi konten slide. Atur menjadi `false` sebelum memanggil [IProtectionManager.Encrypt](https://reference.aspose.com/slides/id/net/aspose.slides/iprotectionmanager/encrypt/) ketika sistem pengindeksan, klasifikasi, pencarian, atau manajemen dokumen harus membaca metadata tanpa kata sandi pembuka.
+
+Contoh berikut membuat presentasi PPTX terenkripsi sambil membiarkan properti dokumen bawaan tetap publik:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var properties = presentation.DocumentProperties;
+properties.Author = "Contoso Knowledge Management";
+properties.Title = "Quarterly Product Roadmap";
+properties.Keywords = "roadmap, planning, internal";
+
+presentation.Slides[0].Name = "Encrypted presentation content";
+presentation.ProtectionManager.EncryptDocumentProperties = false;
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("public-properties-encrypted.pptx", SaveFormat.Pptx);
+```
+
+Mengatur `EncryptDocumentProperties` ke `false` tidak membuat slide, master, tata letak, bentuk, media, atau konten presentasi lainnya menjadi publik. Itu hanya memengaruhi properti dokumen. Untuk membaca properti tersebut tanpa memuat konten terenkripsi, lihat [Kelola Properti Presentasi](/slides/id/net/presentation-properties/).
+
 ## **Muat Presentasi yang Terenkripsi**
 
-Atur [LoadOptions.Password](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/password/) ke kata sandi pembuka dan berikan opsi tersebut ke [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) saat memuat berkas. Pemuatan gagal ketika kata sandi pembuka diperlukan tetapi kata sandi yang diberikan tidak ada atau salah.
+Tetapkan [LoadOptions.Password](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/password/) ke kata sandi pembuka dan serahkan opsi tersebut ke [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) saat memuat berkas. Memuat akan gagal ketika kata sandi pembuka diperlukan tetapi kata sandi yang diberikan tidak ada atau salah.
 
 ```csharp
 using Aspose.Slides;
@@ -56,7 +81,7 @@ using Aspose.Slides;
 var loadOptions = new LoadOptions { Password = "open_password" };
 using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-// Kerjakan presentasi yang sudah didekripsi.
+// Bekerja dengan presentasi yang didekripsi.
 ```
 
 ## **Hapus Enkripsi dari Presentasi**
@@ -76,11 +101,11 @@ presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
 
 ## **Validasi Kata Sandi Pembuka Sebelum Memuat**
 
-Gunakan [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationfactory/getpresentationinfo/) untuk memperoleh [IPresentationInfo](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationinfo/) tanpa membuat sebuah instance presentasi lengkap. Periksa [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationinfo/ispasswordprotected/) sebelum meminta atau memvalidasi kata sandi. Ketika perlindungan ada, validasi nilai yang diberikan dengan [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationinfo/checkpassword/).
+Gunakan [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationfactory/getpresentationinfo/) untuk memperoleh [IPresentationInfo](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationinfo/) tanpa membuat instansi presentasi lengkap. Periksa [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationinfo/ispasswordprotected/) sebelum meminta atau memvalidasi kata sandi. Jika perlindungan ada, validasi nilai yang diberikan dengan [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationinfo/checkpassword/).
 
 ### **Alur Kerja Jalur Berkas**
 
-Contoh berikut memvalidasi kata sandi pembuka untuk berkas PPTX, meneruskan nilai yang telah divalidasi ke [LoadOptions.Password](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/password/), dan kemudian memuat presentasi lengkap:
+Contoh berikut memvalidasi kata sandi pembuka untuk berkas PPTX, meneruskan nilai yang tervalidasi ke [LoadOptions.Password](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/password/), dan kemudian memuat presentasi lengkap:
 
 ```csharp
 using System;
@@ -107,9 +132,9 @@ else
 }
 ```
 
-### **Alur Kerja Aliran**
+### **Alur Kerja Stream**
 
-Versi overload aliran dari [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationfactory/getpresentationinfo/) menyediakan alur kerja yang sama. Atur ulang posisi aliran yang dapat dicari sebelum memuat presentasi lengkap dari aliran tersebut.
+Beban berlebih stream dari [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationfactory/getpresentationinfo/) menyediakan alur kerja yang sama. Reset posisi stream yang dapat di‑seek sebelum memuat presentasi lengkap dari stream tersebut.
 
 Contoh berikut menggunakan berkas PPT:
 
@@ -141,19 +166,19 @@ else
 }
 ```
 
-### **Nilai Kembalian CheckPassword**
+### **Nilai Kembali CheckPassword**
 
-[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationinfo/checkpassword/) mengembalikan `true` hanya ketika presentasi memiliki kata sandi pembuka dan kata sandi yang diberikan benar. Ia mengembalikan `false` pada masing‑masing kasus berikut:
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentationinfo/checkpassword/) mengembalikan `true` hanya ketika presentasi memiliki kata sandi pembuka dan kata sandi yang diberikan benar. Ia mengembalikan `false` dalam setiap kasus berikut:
 
-- Kata sandi tidak benar.
+- Kata sandi salah.
 - Presentasi tidak memiliki kata sandi pembuka.
-- Kata sandi yang diberikan bernilai `null` atau kosong.
+- Kata sandi yang diberikan `null` atau kosong.
 
 Perilaku ini sama untuk presentasi PPT dan PPTX.
 
 ## **Periksa Apakah Presentasi yang Dimuat Terenkripsi**
 
-Setelah memuat sebuah presentasi dengan kata sandi yang benar, periksa [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/id/net/aspose.slides/iprotectionmanager/isencrypted/) untuk memastikan bahwa presentasi sumber terenkripsi. Untuk mendeteksi perlindungan kata sandi pembuka sebelum memuat, gunakan `IPresentationInfo.IsPasswordProtected` seperti yang ditunjukkan di atas.
+Setelah memuat presentasi dengan kata sandi yang benar, periksa [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/id/net/aspose.slides/iprotectionmanager/isencrypted/) untuk memastikan bahwa sumber presentasi memang terenkripsi. Untuk mendeteksi perlindungan kata sandi pembuka sebelum memuat, gunakan `IPresentationInfo.IsPasswordProtected` seperti yang ditunjukkan di atas.
 
 ```csharp
 using System;
@@ -169,32 +194,38 @@ Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ## **Rekomendasi Keamanan**
 
 {{% alert color="warning" title="Keamanan" %}}
-Jangan mencatat kata sandi pembuka atau menyertakannya dalam pesan diagnostik. Hindari upaya validasi berulang yang tidak diperlukan, simpan kata sandi dalam memori hanya selama diperlukan, dan gunakan kembali hasil validasi yang berhasil saat langsung memuat presentasi.
+Jangan mencatat kata sandi pembuka atau menyertakannya dalam pesan diagnostik. Hindari upaya validasi berulang yang tidak diperlukan, simpan kata sandi di memori hanya selama diperlukan, dan gunakan kembali hasil validasi yang berhasil ketika langsung memuat presentasi.
+
+Properti dokumen publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai khusus meskipun konten presentasi telah dienkripsi. Enkripsi metadata sensitif bersama dengan presentasi. Membiarkan properti publik harus menjadi keputusan eksplisit yang dibuat hanya ketika sistem harus mengindeks, mengklasifikasi, mencari, atau mengelola berkas tanpa kata sandi pembuka.
 {{% /alert %}}
 
 ## **Lindungi Presentasi dengan Kata Sandi Secara Online**
 
 1. Buka aplikasi [Aspose.Slides Lock](https://products.aspose.app/slides/id/lock).
-2. Pilih atau unggah presentasi.
-3. Masukkan kata sandi untuk perlindungan tampilan.
-4. Opsional, masukkan kata sandi terpisah untuk perlindungan penyuntingan.
-5. Terapkan perlindungan dan unduh berkas hasilnya.
+1. Pilih atau unggah presentasi.
+1. Masukkan kata sandi untuk perlindungan tampilan.
+1. Secara opsional masukkan kata sandi terpisah untuk perlindungan penyuntingan.
+1. Terapkan perlindungan dan unduh berkas hasilnya.
 
-{{% alert color="info" title="Lihat Juga" %}}
-- [Write-Protect Presentations](/slides/id/net/write-protected-presentation/)
-- [Digital Signature in PowerPoint](/slides/id/net/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Lihat juga" %}}
+- [Lindungi Presentasi dengan Proteksi Penulisan](/slides/id/net/write-protected-presentation/)
+- [Tanda Tangan Digital di PowerPoint](/slides/id/net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apa perbedaan antara kata sandi pembuka dan kata sandi proteksi penulisan?**
+**Apa perbedaan antara kata sandi pembuka dan kata sandi perlindungan penulisan?**
 
-Kata sandi pembuka mengenkripsi presentasi dan diperlukan untuk memuat kontennya. Kata sandi proteksi penulisan membatasi modifikasi tanpa mengenkripsi konten.
+Kata sandi pembuka mengenkripsi presentasi dan diperlukan untuk memuat kontennya. Kata sandi perlindungan penulisan membatasi modifikasi tanpa mengenkripsi konten.
 
 **Bisakah saya memvalidasi kata sandi pembuka tanpa memuat semua slide?**
 
-Ya. Dapatkan informasi presentasi, periksa apakah perlindungan kata sandi pembuka ada, dan validasi kata sandi sebelum membuat instance presentasi lengkap.
+Ya. Dapatkan informasi presentasi, periksa apakah perlindungan kata sandi pembuka ada, dan validasi kata sandi sebelum membuat instansi presentasi lengkap.
+
+**Apakah aplikasi dapat membaca metadata tanpa kata sandi pembuka?**
+
+Ya, tetapi hanya ketika presentasi dienkripsi dengan `EncryptDocumentProperties` disetel ke `false`. Aplikasi harus menggunakan mode pemuatan hanya properti dokumen yang dijelaskan di [Kelola Properti Presentasi](/slides/id/net/presentation-properties/).
 
 **Apakah alur kerja pemeriksaan kata sandi mendukung PPT dan PPTX?**
 
-Ya. Deteksi dan validasi kata sandi berbasis jalur berkas maupun aliran berperilaku sama untuk presentasi PPT dan PPTX.
+Ya. Deteksi dan validasi kata sandi berbasis jalur berkas maupun stream berperilaku sama untuk presentasi PPT dan PPTX.

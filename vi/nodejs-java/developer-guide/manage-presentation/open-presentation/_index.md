@@ -1,161 +1,162 @@
 ---
-title: Mở bản trình chiếu trong JavaScript
-linktitle: Mở Bản Trình Chiếu
+title: Mở Bản Trình Bày trong JavaScript
+linktitle: Mở Bản Trình Bày
 type: docs
 weight: 20
 url: /vi/nodejs-java/open-presentation/
 keywords:
 - mở PowerPoint
-- mở OpenDocument
-- mở bản trình chiếu
+- mở bản trình bày
 - mở PPTX
 - mở PPT
 - mở ODP
-- tải bản trình chiếu
+- tải bản trình bày
 - tải PPTX
 - tải PPT
 - tải ODP
-- bản trình chiếu được bảo vệ
-- bản trình chiếu lớn
+- bản trình bày được bảo vệ
+- bản trình bày lớn
 - tài nguyên bên ngoài
 - đối tượng nhị phân
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Mở các bản trình chiếu PowerPoint (.pptx, .ppt) và OpenDocument (.odp) một cách dễ dàng với Aspose.Slides cho Node.js qua Java - nhanh, đáng tin cậy, đầy đủ tính năng."
+description: "Tìm hiểu cách mở các bản trình bày PowerPoint và OpenDocument bằng JavaScript, cung cấp mật khẩu mở, kiểm soát việc tải tài nguyên và giảm việc sử dụng bộ nhớ với Aspose.Slides cho Node.js qua Java."
 ---
 ## **Giới thiệu**
 
-Ngoài việc tạo các bản trình chiếu PowerPoint từ đầu, Aspose.Slides còn cho phép bạn mở các bản trình chiếu đã tồn tại. Sau khi tải một bản trình chiếu, bạn có thể truy xuất thông tin về nó, chỉnh sửa nội dung slide, thêm slide mới, xóa các slide hiện có, và hơn thế nữa.
+[Aspose.Slides cho Node.js qua Java](https://products.aspose.com/slides/vi/nodejs-java/) có thể tải các bản trình bày PowerPoint và OpenDocument từ tệp và luồng. Sau khi bản trình bày được tải, bạn có thể kiểm tra cấu trúc của nó, chỉnh sửa các slide, quản lý tài nguyên và lưu lại ở định dạng gốc hoặc định dạng hỗ trợ khác.
 
-## **Mở bản trình chiếu**
+Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/) . Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn ngoài bộ nhớ Node.js, kiểm soát tài nguyên bên ngoài, hoặc bỏ qua dữ liệu nhị phân được nhúng.
 
-Để mở một bản trình chiếu đã tồn tại, khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) và truyền đường dẫn tệp vào hàm tạo của nó.
+## **Mở bản trình bày**
 
-Ví dụ JavaScript sau cho thấy cách mở một bản trình chiếu và lấy số lượng slide của nó:
+Để mở một bản trình bày hiện có, truyền đường dẫn tệp của nó vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) . Giải phóng (dispose) bản trình bày sau khi sử dụng để các trình xử lý tệp, dữ liệu tạm và các tài nguyên khác được giải phóng kịp thời.
 
-```js
-// Khởi tạo lớp Presentation và truyền đường dẫn tệp vào hàm tạo của nó.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+Ví dụ JavaScript sau đây cho thấy cách mở một bản trình bày và lấy số lượng slide:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("sample.pptx");
 try {
-    // In ra tổng số slide trong bản trình chiếu.
-    console.log(presentation.getSlides().size());
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Mở bản trình chiếu có mật khẩu**
+## **Mở bản trình bày có bảo vệ bằng mật khẩu**
 
-Khi bạn cần mở một bản trình chiếu được bảo vệ bằng mật khẩu, hãy truyền mật khẩu qua phương thức [setPassword](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setPassword) của lớp [LoadOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/) để giải mã và tải nó. Đoạn mã JavaScript sau minh họa thao tác này:
+Mật khẩu mở mã hoá nội dung bản trình bày. Để tải toàn bộ bản trình bày, truyền mật khẩu đúng vào [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setPassword) và cung cấp các tùy chọn cho hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) . Việc tải sẽ thất bại nếu mật khẩu bị thiếu hoặc không đúng.
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // Thực hiện các thao tác trên bản trình chiếu đã giải mã.
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Mở bản trình chiếu lớn**
+Để biết cách phát hiện mật khẩu, xác thực và quy trình mã hoá, xem [Password-Protect Presentations](/slides/vi/nodejs-java/password-protected-presentation/). Nếu một bản trình bày được mã hoá nhưng được lưu có các thuộc tính tài liệu công khai, các thuộc tính đó có thể được đọc mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/nodejs-java/presentation-properties/).
 
-Aspose.Slides cung cấp các tùy chọn — đặc biệt là phương thức [getBlobManagementOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) trong lớp [LoadOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/) — để giúp bạn tải các bản trình chiếu lớn.
+## **Mở bản trình bày lớn**
 
-Đoạn mã JavaScript sau minh họa việc tải một bản trình chiếu lớn (ví dụ, 2 GB):
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) trả về các tùy chọn kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tệp tạm thời và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
 
-```js
-const filePath = "LargePresentation.pptx";
+Đoạn mã JavaScript sau đây minh họa việc tải một bản trình bày lớn (ví dụ, 2 GB):
 
-let loadOptions = new aspose.slides.LoadOptions();
-// Choose the KeepLocked behavior—the presentation file will remain locked for the lifetime of
-// the Presentation instance, but it does not need to be loaded into memory or copied to a temporary file.
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "large-presentation.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
-let presentation = new aspose.slides.Presentation(filePath, loadOptions);
+const presentation = new slides.Presentation(filePath, loadOptions);
 try {
-    // Bản trình chiếu lớn đã được tải và có thể sử dụng, trong khi mức tiêu thụ bộ nhớ vẫn thấp.
-    
-    // Thực hiện các thay đổi cho bản trình chiếu.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // Lưu bản trình chiếu vào một tệp khác. Mức tiêu thụ bộ nhớ vẫn thấp trong quá trình này.
-    presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
-
-    // Đừng làm điều này! Một ngoại lệ I/O sẽ được ném vì tệp bị khóa cho đến khi đối tượng presentation được giải phóng.
-    //fs.unlinkSync(filePath);
+    presentation.save("large-presentation-copy.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// Có thể thực hiện ở đây. Tệp nguồn không còn bị khóa bởi đối tượng presentation.
-fs.unlinkSync(filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-Để khắc phục một số hạn chế khi làm việc với stream, Aspose.Slides có thể sao chép nội dung của stream. Tải một bản trình chiếu lớn từ stream sẽ gây sao chép bản trình chiếu và làm chậm quá trình tải. Do đó, khi bạn cần tải một bản trình chiếu lớn, chúng tôi mạnh mẽ khuyên bạn nên sử dụng đường dẫn tệp bản trình chiếu thay vì stream.
+{{% alert color="info" title="Note" %}}
+Với [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked), tệp nguồn sẽ vẫn bị khóa cho tới khi đối tượng Presentation được giải phóng. Không di chuyển, ghi đè hoặc xóa tệp nguồn trong khi đối tượng còn tồn tại.
 
-Khi tạo một bản trình chiếu chứa các đối tượng lớn (video, audio, hình ảnh độ phân giải cao, v.v.), bạn có thể sử dụng [BLOB management](/slides/vi/nodejs-java/manage-blob/) để giảm tiêu thụ bộ nhớ.
-{{%/alert %}}
+Aspose.Slides có thể sao chép nội dung của một luồng đầu vào trong quá trình tải. Đối với các bản trình bày lớn, đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Manage BLOBs](/slides/vi/nodejs-java/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
+{{% /alert %}}
 
 ## **Kiểm soát tài nguyên bên ngoài**
 
-Aspose.Slides cung cấp giao diện [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iresourceloadingcallback/) cho phép bạn quản lý các tài nguyên bên ngoài. Đoạn mã JavaScript sau cho thấy cách sử dụng giao diện `IResourceLoadingCallback`:
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) chấp nhận một triển khai của [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iresourceloadingcallback/) . Callback có thể cung cấp dữ liệu thay thế, chuyển hướng tài nguyên, sử dụng bộ tải mặc định, hoặc bỏ qua tài nguyên. Điều này hữu ích khi bản trình bày chứa hình ảnh bên ngoài cần được giải quyết theo các quy tắc bảo mật hoặc lưu trữ đặc thù của ứng dụng.
 
-```js
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Tải một hình ảnh thay thế.
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Đặt URL thay thế.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
+```javascript
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const imageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
+    resourceLoading: function(args) {
+        const isJpeg = args.getOriginalUri().toLowerCase().endsWith(".jpg");
+        const approvedImagePath = "approved-image.jpg";
+        if (!isJpeg || !fs.existsSync(approvedImagePath)) {
+            return slides.ResourceLoadingAction.Skip;
         }
-        // Bỏ qua tất cả các hình ảnh khác.
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
+
+        try {
+            const imageData = fs.readFileSync(approvedImagePath);
+            args.setData(imageData);
+            return slides.ResourceLoadingAction.UserProvided;
+        } catch (error) {
+            console.error("The approved replacement image could not be read.");
+            return slides.ResourceLoadingAction.Skip;
+        }
+    }
 });
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setResourceLoadingCallback(imageLoadingHandler);
+
+const presentation = new slides.Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    console.log("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
+}
 ```
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
+## **Tải bản trình bày mà không có các đối tượng nhị phân nhúng**
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
-```
+Một bản trình bày có thể chứa dữ liệu nhị phân được nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Ví dụ bao gồm:
 
-## **Tải bản trình chiếu mà không có đối tượng nhị phân nhúng**
+- Dự án VBA, có sẵn qua [Presentation.getVbaProject](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getVbaProject);
+- Dữ liệu OLE nhúng, có sẵn qua [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- Dữ liệu điều khiển ActiveX, có sẵn qua [Control.getActiveXControlBinary](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
 
-Một bản trình chiếu PowerPoint có thể chứa các loại đối tượng nhị phân nhúng sau:
+Đặt [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) thành `true` để loại bỏ dữ liệu nhị phân này trong quá trình tải. Lưu bản trình bày đã tải để lưu kết quả đã được làm sạch.
 
-- Dự án VBA (có thể truy cập qua [Presentation.getVbaProject](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getVbaProject));
-- Dữ liệu nhúng OLE object (có thể truy cập qua [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- Dữ liệu nhị phân của điều khiển ActiveX (có thể truy cập qua [Control.getActiveXControlBinary](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/control/#getActiveXControlBinary)).
+Tùy chọn này giảm thiểu nguy cơ tiếp xúc với các payload nhúng không mong muốn, nhưng không phải là một hệ thống phát hiện phần mềm độc hại hoặc làm sạch nội dung đầy đủ.
 
-Bằng cách sử dụng phương thức [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects), bạn có thể tải một bản trình chiếu mà không có bất kỳ đối tượng nhị phân nhúng nào.
+```javascript
+const slides = require("aspose.slides.via.java");
 
-Phương thức này hữu ích để loại bỏ nội dung nhị phân có khả năng gây hại. Đoạn mã JavaScript sau minh họa cách tải một bản trình chiếu mà không có bất kỳ nội dung nhị phân nhúng nào:
-
-```js
-let loadOptions = new aspose.slides.LoadOptions();
+const loadOptions = new slides.LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-let presentation = new aspose.slides.Presentation("malware.ppt", loadOptions);
+const presentation = new slides.Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // Thực hiện các thao tác trên bản trình chiếu.
+    presentation.save("presentation-without-embedded-data.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -163,14 +164,14 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào tôi có thể nhận biết rằng một tệp bị hỏng và không thể mở được?**
+**Làm sao tôi biết một tệp bị hỏng và không thể mở được?**
 
-Bạn sẽ nhận được ngoại lệ xác thực/phân tích cú pháp khi tải. Các lỗi này thường đề cập đến cấu trúc ZIP không hợp lệ hoặc các bản ghi PowerPoint bị hỏng.
+Aspose.Slides ném ra một ngoại lệ phân tích hoặc định dạng trong quá trình tải. Xử lý lỗi này riêng biệt với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
 
-**Điều gì xảy ra nếu các phông chữ cần thiết bị thiếu khi mở?**
+**Điều gì xảy ra nếu các phông chữ yêu cầu bị thiếu?**
 
-Tệp sẽ mở được, nhưng sau đó [rendering/export](/slides/vi/nodejs-java/convert-presentation/) có thể thay thế phông chữ. [Configure font substitutions](/slides/vi/nodejs-java/font-substitution/) hoặc [add the required fonts](/slides/vi/nodejs-java/custom-font/) vào môi trường chạy.
+Bản trình bày vẫn có thể được tải, nhưng quá trình render và xuất có thể thay thế phông chữ. Bạn có thể [configure font substitution](/slides/vi/nodejs-java/font-substitution/) hoặc [provide custom fonts](/slides/vi/nodejs-java/custom-font/) để làm cho kết quả đầu ra dự đoán được hơn.
 
-**Còn về media nhúng (video/audio) khi mở thì sao?**
+**Việc tải một bản trình bày có đồng thời tải các phương tiện nhúng không?**
 
-Chúng sẽ trở thành tài nguyên của bản trình chiếu. Nếu media được tham chiếu qua các đường dẫn bên ngoài, hãy đảm bảo các đường dẫn đó có thể truy cập trong môi trường của bạn; nếu không, [rendering/export](/slides/vi/nodejs-java/convert-presentation/) có thể bỏ qua media.
+Âm thanh và video nhúng sẽ khả dụng thông qua mô hình đối tượng của bản trình bày. Các tài nguyên bên ngoài được giải quyết theo hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập vị trí của chúng.

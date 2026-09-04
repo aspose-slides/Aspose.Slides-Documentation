@@ -1,5 +1,5 @@
 ---
-title: Prezentacje zabezpieczone hasłem w Pythonie
+title: Zabezpieczanie prezentacji hasłem w Pythonie
 linktitle: Ochrona hasłem
 type: docs
 weight: 20
@@ -10,31 +10,30 @@ keywords:
 - szyfrowanie PowerPoint
 - odszyfrowywanie PowerPoint
 - walidacja hasła prezentacji
-- sprawdzenie hasła prezentacji
-- otwarcie zaszyfrowanej prezentacji
-- usunięcie szyfrowania
+- sprawdzanie hasła prezentacji
+- otwieranie zaszyfrowanej prezentacji
+- usuwanie szyfrowania
 - PowerPoint
 - PPT
 - PPTX
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Szyfruj, wykrywaj, waliduj, otwieraj i odszyfrowuj prezentacje PowerPoint PPT i PPTX zabezpieczone hasłem w Pythonie przy użyciu Aspose.Slides."
+description: "Szyfruj, wykrywaj, waliduj, otwieraj i odszyfrowuj prezentacje PowerPoint PPT i PPTX zabezpieczone hasłem w języku Python przy użyciu Aspose.Slides."
 ---
 ## **Przegląd**
 
-Hasło otwierające szyfruje prezentację. Poprawne hasło jest wymagane do załadowania i wyświetlenia zawartości prezentacji, dzięki czemu ochrona zapewnia poufność.
+Hasło otwierające szyfruje prezentację. Poprawne hasło jest wymagane do załadowania i wyświetlenia zawartości prezentacji, dlatego ta ochrona zapewnia poufność.
 
-Hasło otwierające różni się od hasła zabezpieczającego przed zapisem. Zabezpieczenie przed zapisem ogranicza modyfikację, ale nie szyfruje zawartości ani nie uniemożliwia załadowania prezentacji. Aby zarządzać hasłami do modyfikacji prezentacji, zobacz [Write-Protect Presentations](/slides/pl/python-net/write-protected-presentation/).
+Hasło otwierające różni się od hasła ochrony przed zapisem. Ochrona przed zapisem ogranicza możliwość modyfikacji, ale nie szyfruje zawartości ani nie uniemożliwia załadowania prezentacji. Aby zarządzać hasłami służącymi do modyfikacji prezentacji, zobacz [Write-Protect Presentations](/slides/pl/python-net/write-protected-presentation/).
 
-Poniższe scenariusze dotyczą zarówno prezentacji PPT, jak i PPTX. Przykłady używają obu formatów, gdy istotne jest ich zachowanie w trybie plikowym i strumieniowym.
+Poniższe przepływy pracy mają zastosowanie zarówno do prezentacji PPT, jak i PPTX. Przykłady używają obu formatów, gdy istotne jest ich zachowanie w trybie opartym na pliku i strumieniu.
 
-## **Zaszyfruj prezentację hasłem otwierającym**
+## **Zaszyfruj prezentację przy użyciu hasła otwierającego**
 
-Użyj [ProtectionManager.encrypt](https://reference.aspose.com/slides/pl/python-net/aspose.slides/protectionmanager/encrypt/) aby przypisać hasło otwierające. Następnie użyj [Presentation.save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/save/) aby zapisać zaszyfrowaną prezentację.
+Użyj [ProtectionManager.encrypt](https://reference.aspose.com/slides/pl/python-net/aspose.slides/protectionmanager/encrypt/), aby przypisać hasło otwierające. Następnie użyj [Presentation.save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/save/), aby zapisać zaszyfrowaną prezentację.
 
-Przykład poniżej szyfruje prezentację PPTX:
-
+Poniższy przykład szyfruje prezentację PPTX:
 ```python
 import aspose.slides as slides
 
@@ -43,10 +42,31 @@ with slides.Presentation("pres.pptx") as presentation:
     presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Utrzymaj właściwości dokumentu jako publiczne**
+
+Domyślnie Aspose.Slides włącza właściwości dokumentu do szyfrowania prezentacji. Właściwość [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) kontroluje to zachowanie niezależnie od szyfrowania zawartości slajdów. Ustaw ją na `False` przed wywołaniem [ProtectionManager.encrypt](https://reference.aspose.com/slides/pl/python-net/aspose.slides/protectionmanager/encrypt/), gdy system indeksowania, klasyfikacji, wyszukiwania lub zarządzania dokumentami musi odczytywać metadane bez hasła otwierającego.
+
+Poniższy przykład tworzy zaszyfrowaną prezentację PPTX, pozostawiając jej wbudowane właściwości dokumentu jako publiczne:
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    properties = presentation.document_properties
+    properties.author = "Contoso Knowledge Management"
+    properties.title = "Quarterly Product Roadmap"
+    properties.keywords = "roadmap, planning, internal"
+
+    presentation.slides[0].name = "Encrypted presentation content"
+    presentation.protection_manager.encrypt_document_properties = False
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("public-properties-encrypted.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Ustawienie `encrypt_document_properties` na `False` nie powoduje, że slajdy, wzorce, układy, kształty, multimedia ani inna zawartość prezentacji stają się publiczne. Dotyczy to wyłącznie właściwości dokumentu. Aby odczytać te właściwości bez ładowania zaszyfrowanej zawartości, zobacz [Manage Presentation Properties](/slides/pl/python-net/presentation-properties/).
+
 ## **Załaduj zaszyfrowaną prezentację**
 
-Ustaw [LoadOptions.password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/password/) na hasło otwierające i przekaż opcje do [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) przy ładowaniu pliku. Ładowanie nie powiedzie się, gdy wymagane jest hasło otwierające, a podane hasło jest brakujące lub nieprawidłowe.
-
+Ustaw [LoadOptions.password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/password/) na hasło otwierające i przekaż te opcje do [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) podczas ładowania pliku. Ładowanie nie powiedzie się, gdy wymagane jest hasło otwierające, ale podane hasło jest brakujące lub nieprawidłowe.
 ```python
 import aspose.slides as slides
 
@@ -60,8 +80,7 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
 
 ## **Usuń szyfrowanie z prezentacji**
 
-Załaduj prezentację przy użyciu jej hasła otwierającego, wywołaj [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/pl/python-net/aspose.slides/protectionmanager/remove_encryption/), a następnie zapisz wynik. Zapisana prezentacja może być później ładowana bez hasła.
-
+Załaduj prezentację przy użyciu hasła otwierającego, wywołaj [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/pl/python-net/aspose.slides/protectionmanager/remove_encryption/) i zapisz wynik. Zapisana prezentacja może być następnie ładowana bez hasła.
 ```python
 import aspose.slides as slides
 
@@ -73,12 +92,13 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
     presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Waliduj hasło otwierające przed załadowaniem**
+## **Zweryfikuj hasło otwierające przed ładowaniem**
 
-Użyj [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationfactory/get_presentation_info/) , aby uzyskać [PresentationInfo](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationinfo/) bez tworzenia pełnej instancji prezentacji. Sprawdź [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationinfo/is_password_protected/) przed żądaniem lub walidacją hasła. Gdy ochrona jest obecna, zweryfikuj podaną wartość za pomocą [PresentationInfo.check_password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationinfo/check_password/).
+Użyj [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationfactory/get_presentation_info/), aby uzyskać [PresentationInfo](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationinfo/) bez tworzenia pełnej instancji prezentacji. Sprawdź [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationinfo/is_password_protected/) przed żądaniem lub weryfikacją hasła. Gdy ochrona jest obecna, zweryfikuj podaną wartość za pomocą [PresentationInfo.check_password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationinfo/check_password/).
 
-Poniższy przykład waliduje hasło otwierające dla pliku PPTX, przekazuje zweryfikowaną wartość do [LoadOptions.password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/password/), a następnie ładuje pełną prezentację:
+### **Workflow przy ścieżce pliku**
 
+Poniższy przykład weryfikuje hasło otwierające dla pliku PPTX, przekazuje zweryfikowaną wartość do [LoadOptions.password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/password/), a następnie ładuje pełną prezentację:
 ```python
 import aspose.slides as slides
 
@@ -98,12 +118,11 @@ else:
         print("The presentation was validated and loaded successfully.")
 ```
 
-### **Workflow z ścieżką pliku**
+### **Workflow strumieniowy**
 
-Przeciążenie strumieniowe [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationfactory/get_presentation_info/) zapewnia ten sam przepływ pracy. Zresetuj pozycję strumienia, który można przewijać, przed załadowaniem pełnej prezentacji z tego strumienia.
+Przeciążenie strumieniowe [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationfactory/get_presentation_info/) zapewnia ten sam przepływ pracy. Zresetuj pozycję strumienia umożliwiającego przeszukiwanie przed załadowaniem pełnej prezentacji z tego strumienia.
 
 Poniższy przykład używa pliku PPT:
-
 ```python
 import aspose.slides as slides
 
@@ -127,8 +146,7 @@ with open("protected-presentation.ppt", "rb") as presentation_stream:
 
 ### **Wartości zwracane przez CheckPassword**
 
-[PresentationInfo.check_password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationinfo/check_password/) zwraca `True` tylko wtedy, gdy prezentacja posiada hasło otwierające i podane hasło jest poprawne. Zwraca `False` w każdym z następujących przypadków:
-
+[PresentationInfo.check_password](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentationinfo/check_password/) zwraca `True` tylko wtedy, gdy prezentacja posiada hasło otwierające i podane hasło jest prawidłowe. Zwraca `False` w każdym z następujących przypadków:
 - Hasło jest nieprawidłowe.
 - Prezentacja nie posiada hasła otwierającego.
 - Podane hasło jest `None` lub puste.
@@ -137,8 +155,7 @@ Zachowanie jest takie samo dla prezentacji PPT i PPTX.
 
 ## **Sprawdź, czy załadowana prezentacja jest zaszyfrowana**
 
-Po załadowaniu prezentacji przy użyciu poprawnego hasła sprawdź [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/pl/python-net/aspose.slides/protectionmanager/is_encrypted/) , aby potwierdzić, że źródłowa prezentacja została zaszyfrowana. Aby wykryć zabezpieczenie hasłem otwierającym przed ładowaniem, użyj `PresentationInfo.is_password_protected`, jak pokazano powyżej.
-
+Po załadowaniu prezentacji przy użyciu poprawnego hasła, sprawdź [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/pl/python-net/aspose.slides/protectionmanager/is_encrypted/), aby potwierdzić, że źródłowa prezentacja była zaszyfrowana. Aby wykryć ochronę hasłem otwierającym przed ładowaniem, użyj `PresentationInfo.is_password_protected` jak pokazano powyżej.
 ```python
 import aspose.slides as slides
 
@@ -150,35 +167,41 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
     print("The presentation is encrypted: " + str(is_encrypted))
 ```
 
-## **Zalecenia bezpieczeństwa**
+## **Zalecenia dotyczące bezpieczeństwa**
 
 {{% alert color="warning" title="Security" %}}
-Nie loguj haseł otwierających ani nie umieszczaj ich w komunikatach diagnostycznych. Unikaj niepotrzebnych, powtarzających się prób weryfikacji, przechowuj hasła w pamięci tylko tak długo, jak jest to konieczne, i ponownie użyj udanego wyniku walidacji przy natychmiastowym ładowaniu prezentacji.
+Nie rejestruj haseł otwierających ani nie umieszczaj ich w komunikatach diagnostycznych. Unikaj niepotrzebnych, powtarzających się prób weryfikacji, przechowuj hasła w pamięci tylko tak długo, jak jest to potrzebne, oraz ponownie użyj wyniku pomyślnej weryfikacji przy natychmiastowym ładowaniu prezentacji.
+
+Publiczne właściwości dokumentu mogą ujawniać nazwiska autorów, tytuły, tematy, słowa kluczowe, informacje o firmie, komentarze i wartości niestandardowe, nawet jeśli zawartość prezentacji jest zaszyfrowana. Szyfruj wrażliwe metadane razem z prezentacją. Pozostawienie właściwości publicznych powinno być świadomą decyzją podjętą wyłącznie wtedy, gdy systemy muszą indeksować, klasyfikować, wyszukiwać lub zarządzać plikiem bez hasła otwierającego.
 {{% /alert %}}
 
 ## **Zabezpiecz prezentację hasłem online**
 
 1. Otwórz aplikację [Aspose.Slides Lock](https://products.aspose.app/slides/pl/lock).
-1. Wybierz lub prześlij prezentację.
-1. Wprowadź hasło zabezpieczające podgląd.
-1. Opcjonalnie wprowadź oddzielne hasło zabezpieczające edycję.
-1. Zastosuj ochronę i pobierz wygenerowany plik.
+2. Wybierz lub prześlij prezentację.
+3. Wprowadź hasło chroniące widok.
+4. Opcjonalnie wprowadź oddzielne hasło chroniące edycję.
+5. Zastosuj ochronę i pobierz wynikowy plik.
 
-{{% alert color="info" title="See also" %}}
+{{% alert color="info" title="Zobacz też" %}}
 - [Write-Protect Presentations](/slides/pl/python-net/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/pl/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Jaka jest różnica między hasłem otwierającym a hasłem zabezpieczającym przed zapisem?**
+**Jaka jest różnica między hasłem otwierającym a hasłem ochrony przed zapisem?**
 
-Hasło otwierające szyfruje prezentację i jest wymagane do załadowania jej zawartości. Hasło zabezpieczające przed zapisem ogranicza modyfikację bez szyfrowania zawartości.
+Hasło otwierające szyfruje prezentację i jest wymagane do załadowania jej zawartości. Hasło ochrony przed zapisem ogranicza możliwość modyfikacji bez szyfrowania zawartości.
 
 **Czy mogę zweryfikować hasło otwierające bez ładowania wszystkich slajdów?**
 
-Tak. Pobierz informacje o prezentacji, sprawdź, czy istnieje ochrona hasłem otwierającym, i zweryfikuj hasło przed utworzeniem pełnej instancji prezentacji.
+Tak. Uzyskaj informacje o prezentacji, sprawdź, czy istnieje ochrona hasłem otwierającym, i zweryfikuj hasło przed utworzeniem pełnej instancji prezentacji.
 
-**Czy scenariusze sprawdzania hasła obsługują zarówno PPT, jak i PPTX?**
+**Czy aplikacja może odczytać metadane bez hasła otwierającego?**
 
-Tak. Wykrywanie i walidacja hasła zarówno w trybie plikowym, jak i strumieniowym działa tak samo dla prezentacji PPT i PPTX.
+Tak, ale tylko wtedy, gdy prezentacja została zaszyfrowana z ustawieniem `encrypt_document_properties` równym `False`. Aplikacja musi wtedy użyć trybu ładowania wyłącznie właściwości dokumentu opisanego w [Manage Presentation Properties](/slides/pl/python-net/presentation-properties/).
+
+**Czy przepływy weryfikacji haseł obsługują zarówno PPT, jak i PPTX?**
+
+Tak. Wykrywanie i weryfikacja haseł oparte na ścieżce pliku oraz na strumieniu zachowują się tak samo dla prezentacji PPT i PPTX.

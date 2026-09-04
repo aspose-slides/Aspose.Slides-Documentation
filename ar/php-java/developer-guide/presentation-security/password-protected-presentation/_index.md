@@ -1,11 +1,11 @@
 ---
-title: حماية عروض تقديمية بكلمة مرور في PHP
-linktitle: حماية كلمة المرور
+title: "حماية العروض بكلمة مرور في PHP"
+linktitle: "حماية كلمة المرور"
 type: docs
 weight: 20
 url: /ar/php-java/password-protected-presentation/
 keywords:
-- عرض تقديمي محمي بكلمة مرور
+- عرض محمي بكلمة مرور
 - كلمة مرور الفتح
 - تشفير PowerPoint
 - فك تشفير PowerPoint
@@ -16,24 +16,25 @@ keywords:
 - PowerPoint
 - PPT
 - PPTX
-- عرض تقديمي
+- عرض
 - PHP
 - Aspose.Slides
-description: "تشفير، اكتشاف، التحقق، فتح، وفك تشفير عروض PowerPoint PPT و PPTX المحمية بكلمة مرور في PHP باستخدام Aspose.Slides."
+description: "تشفير، اكتشاف، التحقق، فتح، وفك تشفير العروض المحمية بكلمة مرور PowerPoint بصيغ PPT و PPTX في PHP باستخدام Aspose.Slides."
 ---
 ## **نظرة عامة**
 
-كلمة مرور الفتح تقوم بتشفير العرض التقديمي. يلزم كلمة المرور الصحيحة لتحميل وعرض محتوى العرض التقديمي، وبالتالي توفر هذه الحماية السرية.
+كلمة مرور الفتح تقوم بتشفير العرض. يجب توفير كلمة المرور الصحيحة لتحميل وعرض محتوى العرض، لذا توفر هذه الحماية السرية.
 
-كلمة مرور الفتح تختلف عن كلمة مرور الحماية من الكتابة. الحماية من الكتابة تقيد التعديل لكنها لا تقوم بتشفير المحتوى ولا تمنع تحميل العرض التقديمي. لإدارة كلمات المرور لتعديل العروض التقديمية، راجع [Write-Protect Presentations](/slides/ar/php-java/write-protected-presentation/).
+كلمة مرور الفتح تختلف عن كلمة مرور الحماية من الكتابة. حماية الكتابة تقيد التعديل لكنها لا تقوم بتشفير المحتوى أو منع تحميل العرض. لإدارة كلمات المرور لتعديل العروض، راجع [Write-Protect Presentations](/slides/ar/php-java/write-protected-presentation/).
 
-تطبق سير العمل أدناه على كل من عروض PPT و PPTX. تستخدم الأمثلة كلا الشكلين حيث يكون سلوكهما القائم على الملفات أو التدفقات مهمًا.
+تطبق سير العمل أدناه على كلا من عروض PPT و PPTX. تستخدم الأمثلة كلا الصيغ عندما يكون سلوكهما القائم على الملف أو التدفق مهمًا.
 
-## **تشفير عرض تقديمي بكلمة مرور فتح**
+## **تشفير عرض باستخدام كلمة مرور الفتح**
 
 استخدم [ProtectionManager::encrypt](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#encrypt) لتعيين كلمة مرور الفتح. ثم استخدم [Presentation::save](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#save) لحفظ العرض المشفر.
 
-المثال التالي يشفر عرض PPTX:
+المثال التالي يقوم بتشفير عرض PPTX:
+
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -47,9 +48,38 @@ try {
 }
 ```
 
+## **اجعل خصائص المستند عامة**
+
+بشكل افتراضي، تقوم Aspose.Slides بتضمين خصائص المستند في تشفير العرض. تتحكم طريقة [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) في هذا السلوك بشكل مستقل عن تشفير محتوى الشرائح. مرّر `false` قبل استدعاء [ProtectionManager::encrypt](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#encrypt) عندما يتعين على نظام الفهرسة أو التصنيف أو البحث أو إدارة المستندات قراءة البيانات الوصفية دون كلمة مرور الفتح.
+
+المثال التالي ينشئ عرض PPTX مشفر مع ترك خصائص المستند المدمجة عامة:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $properties = $presentation->getDocumentProperties();
+    $properties->setAuthor("Contoso Knowledge Management");
+    $properties->setTitle("Quarterly Product Roadmap");
+    $properties->setKeywords("roadmap, planning, internal");
+
+    $presentation->getSlides()->get_Item(0)->setName("Encrypted presentation content");
+    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("public-properties-encrypted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+مرّر `false` إلى [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) لا يجعل الشرائح أو القوالب أو التخطيطات أو الأشكال أو الوسائط أو أي محتوى آخر للعرض عامًا. إنه يؤثر فقط على خصائص المستند. لقراءة تلك الخصائص دون تحميل المحتوى المشفر، راجع [Manage Presentation Properties](/slides/ar/php-java/presentation-properties/).
+
 ## **تحميل عرض مشفر**
 
-قم بضبط [LoadOptions::setPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setPassword) إلى كلمة مرور الفتح ومرّر الخيارات إلى [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) عند تحميل الملف. يفشل التحميل عندما تكون كلمة مرور الفتح مطلوبة ولكن كلمة المرور المقدمة مفقودة أو غير صحيحة.
+قم بتعيين [LoadOptions::setPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setPassword) إلى كلمة مرور الفتح ومرّر الخيارات إلى [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) عند تحميل الملف. سيفشل التحميل عندما تكون كلمة مرور الفتح مطلوبة لكن كلمة المرور المقدمة مفقودة أو غير صحيحة.
+
 ```php
 use aspose\slides\LoadOptions;
 use aspose\slides\Presentation;
@@ -59,15 +89,16 @@ $loadOptions->setPassword("open_password");
 
 $presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
 try {
-    # العمل مع العرض المفكوك.
+    # العمل مع العرض المفكك تشفيره.
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **إزالة التشفير من عرض تقديمي**
+## **إزالة التشفير من عرض**
 
-حمّل العرض باستخدام كلمة مرور الفتح، استدعِ [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#removeEncryption)، واحفظ النتيجة. يمكن بعد ذلك تحميل العرض المحفوظ دون كلمة مرور.
+حمّل العرض باستخدام كلمة مرور الفتح الخاصة به، استدعِ [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#removeEncryption)، واحفظ النتيجة. يمكن بعد ذلك تحميل العرض المحفوظ دون كلمة مرور.
+
 ```php
 use aspose\slides\LoadOptions;
 use aspose\slides\Presentation;
@@ -85,13 +116,14 @@ try {
 }
 ```
 
-## **التحقق من صحة كلمة مرور الفتح قبل التحميل**
+## **التحقق من كلمة مرور الفتح قبل التحميل**
 
-استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/#getPresentationInfo) للحصول على [PresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/) دون إنشاء نسخة كاملة من العرض. افحص [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#isPasswordProtected) قبل طلب أو التحقق من كلمة مرور. عندما تكون الحماية موجودة، تحقق من صحة القيمة المقدمة باستخدام [PresentationInfo::checkPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#checkPassword).
+استخدم [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/#getPresentationInfo) للحصول على [PresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/) دون إنشاء نسخة كاملة من العرض. تحقق من [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#isPasswordProtected) قبل طلب أو التحقق من كلمة مرور. عندما تكون الحماية موجودة، تحقق من صحة القيمة المقدمة باستخدام [PresentationInfo::checkPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#checkPassword).
 
-### **سير العمل باستخدام مسار الملف**
+### **سير عمل مسار الملف**
 
 المثال التالي يتحقق من صحة كلمة مرور الفتح لملف PPTX، يمرّر القيمة التي تم التحقق منها إلى [LoadOptions::setPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setPassword)، ثم يحمل العرض الكامل:
+
 ```php
 use aspose\slides\LoadOptions;
 use aspose\slides\Presentation;
@@ -118,11 +150,12 @@ if (!$presentationInfo->isPasswordProtected()) {
 }
 ```
 
-### **سير العمل باستخدام التدفق**
+### **سير عمل الدفق**
 
-الإصدار المتعدد التدفقات من [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/#getPresentationInfo) يوفر نفس سير العمل. أعد ضبط موضع تدفق قابل للبحث قبل تحميل العرض الكامل من ذلك التدفق.
+الإصدار المتعدد الدفق من [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationfactory/#getPresentationInfo) يوفر نفس سير العمل. أعد ضبط موضع الدفق القابل للبحث قبل تحميل العرض الكامل من ذلك الدفق.
 
 المثال التالي يستخدم ملف PPT:
+
 ```php
 use aspose\slides\LoadOptions;
 use aspose\slides\Presentation;
@@ -156,18 +189,20 @@ try {
 }
 ```
 
-### **قيم الإرجاع للدالة checkPassword**
+### **قيم إرجاع checkPassword**
 
-[PresentationInfo::checkPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#checkPassword) ترجع `true` فقط عندما يكون للعرض كلمة مرور فتح وتكون كلمة المرور المقدمة صحيحة. ترجع `false` في كل من الحالات التالية:
+تُعيد [PresentationInfo::checkPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#checkPassword) القيمة `true` فقط عندما يكون للعرض كلمة مرور فتح وتكون كلمة المرور المقدمة صحيحة. تُعيد `false` في كل من الحالات التالية:
+
 - كلمة المرور غير صحيحة.
 - العرض لا يحتوي على كلمة مرور فتح.
 - كلمة المرور المقدمة هي `null` أو فارغة.
 
-السلوك نفسه للعرضين PPT و PPTX.
+السلوك نفسه ينطبق على عروض PPT و PPTX.
 
 ## **التحقق مما إذا كان العرض المحمل مشفرًا**
 
-بعد تحميل عرض باستخدام كلمة المرور الصحيحة، فحص [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#isEncrypted) لتأكيد أن العرض الأصلي كان مشفرًا. لاكتشاف حماية كلمة مرور الفتح قبل التحميل، استخدم [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#isPasswordProtected) كما هو موضح أعلاه.
+بعد تحميل عرض باستخدام كلمة المرور الصحيحة، افحص [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/ar/php-java/aspose.slides/protectionmanager/#isEncrypted) لتأكيد أن العرض الأصلي كان مشفرًا. للكشف عن حماية كلمة مرور الفتح قبل التحميل، استخدم [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationinfo/#isPasswordProtected) كما هو موضح أعلاه.
+
 ```php
 use aspose\slides\LoadOptions;
 use aspose\slides\Presentation;
@@ -186,33 +221,39 @@ try {
 
 ## **توصيات الأمان**
 
-{{% alert color="warning" title="Security" %}}
-لا تقم بتسجيل كلمات مرور الفتح أو تضمينها في رسائل التشخيص. تجنّب محاولات التحقق المتكررة غير الضرورية، واحتفظ بكلمات المرور في الذاكرة فقط للمدة المطلوبة، وأعد استخدام نتيجة التحقق الناجحة عند تحميل العرض مباشرةً.
+{{% alert color="warning" title="الأمان" %}}
+لا تقم بتسجيل كلمات مرور الفتح أو تضمينها في رسائل التشخيص. تجنب محاولات التحقق المتكررة غير الضرورية، احتفظ بكلمات المرور في الذاكرة فقط للمدة المطلوبة، وأعد استخدام نتيجة تحقق ناجحة عند تحميل العرض مباشرةً.
+
+قد تكشف خصائص المستند العامة عن أسماء المؤلفين، العناوين، المواضيع، الكلمات المفتاحية، معلومات الشركة، التعليقات، والقيم المخصصة حتى وإن كان محتوى العرض مشفرًا. قم بتشفير البيانات الوصفية الحساسة مع العرض. يجب أن يكون ترك الخصائص عامة قرارًا صريحًا يُتخذ فقط عندما يتعين على الأنظمة فهرسة أو تصنيف أو بحث أو إدارة الملف دون كلمة مرور الفتح.
 {{% /alert %}}
 
-## **حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
+## **حماية عرض بكلمة مرور عبر الإنترنت**
 
 1. افتح تطبيق [Aspose.Slides Lock](https://products.aspose.app/slides/ar/lock).
-1. اختر أو قم بتحميل العرض التقديمي.
-1. أدخل كلمة مرور لحماية العرض.
-1. اختيارياً أدخل كلمة مرور منفصلة لحماية التعديل.
-1. طبق الحماية وحمّل الملف الناتج.
+2. اختر أو حمّل العرض.
+3. أدخل كلمة مرور لحماية العرض.
+4. اختياريًا أدخل كلمة مرور منفصلة لحماية التحرير.
+5. طبق الحماية وحمّل الملف الناتج.
 
-{{% alert color="info" title="See also" %}}
-- [Write-Protect Presentations](/slides/ar/php-java/write-protected-presentation/)
-- [Digital Signature in PowerPoint](/slides/ar/php-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="انظر أيضًا" %}}
+- [حماية العروض من الكتابة](/slides/ar/php-java/write-protected-presentation/)
+- [التوقيع الرقمي في PowerPoint](/slides/ar/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **الأسئلة الشائعة**
 
-**ما هو الفرق بين كلمة مرور الفتح وكلمة مرور الحماية من الكتابة؟**
+**ما الفرق بين كلمة مرور الفتح وكلمة مرور الحماية من الكتابة؟**
 
-كلمة مرور الفتح تشفر العرض التقديمي وتكون مطلوبة لتحميل محتواه. كلمة مرور الحماية من الكتابة تقيد التعديل دون تشفير المحتوى.
+كلمة مرور الفتح تقوم بتشفير العرض وتكون مطلوبة لتحميل محتواه. كلمة مرور الحماية من الكتابة تقيد التعديل دون تشفير المحتوى.
 
-**هل يمكنني التحقق من صحة كلمة مرور الفتح دون تحميل جميع الشرائح؟**
+**هل يمكنني التحقق من كلمة مرور الفتح دون تحميل جميع الشرائح؟**
 
-نعم. احصل على معلومات العرض، وتحقق مما إذا كانت حماية كلمة مرور الفتح موجودة، وحقق من صحة كلمة المرور قبل إنشاء نسخة كاملة من العرض.
+نعم. احصل على معلومات العرض، وتحقق مما إذا كانت حماية كلمة مرور الفتح موجودة، وصحّح كلمة المرور قبل إنشاء نسخة كاملة من العرض.
 
-**هل تدعم سير العمل للتحقق من كلمة المرور كلاً من PPT و PPTX؟**
+**هل يمكن للتطبيق قراءة البيانات الوصفية دون كلمة مرور الفتح؟**
 
-نعم. اكتشاف كلمة المرور والتحقق منها عبر مسار الملف أو عبر التدفق يعمل بنفس الطريقة لكل من عروض PPT و PPTX.
+نعم، ولكن فقط عندما يكون العرض مشفرًا مع تعطيل تشفير خصائص المستند. يجب على التطبيق حينئذٍ استخدام وضع التحميل الخاص بخصائص المستند فقط كما هو موضح في [Manage Presentation Properties](/slides/ar/php-java/presentation-properties/).
+
+**هل تدعم سير عمل التحقق من كلمة المرور كلًا من PPT و PPTX؟**
+
+نعم. اكتشاف كلمة المرور والتحقق منها بناءً على مسار الملف أو الدفق يعمل بنفس الطريقة على عروض PPT و PPTX.

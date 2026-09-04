@@ -21,161 +21,155 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Apri presentazioni PowerPoint (.pptx, .ppt) e OpenDocument (.odp) in modo semplice con Aspose.Slides per .NET—veloce, affidabile, completa."
+description: "Scopri come aprire presentazioni PowerPoint e OpenDocument in C#, fornire password di apertura, controllare il caricamento delle risorse e ridurre l'uso della memoria con Aspose.Slides per .NET."
 ---
 ## **Introduzione**
 
-Oltre a creare presentazioni PowerPoint da zero, Aspose.Slides consente anche di aprire presentazioni esistenti. Dopo aver caricato una presentazione, è possibile recuperare informazioni al riguardo, modificare il contenuto delle diapositive, aggiungere nuove diapositive, rimuovere quelle esistenti e molto altro.
+[Aspose.Slides for .NET](https://products.aspose.com/slides/it/net/) può caricare presentazioni PowerPoint e OpenDocument da file e flussi. Dopo che una presentazione è stata caricata, è possibile ispezionarne la struttura, modificare le diapositive, gestire le risorse e salvarla nel formato originale o in un altro formato supportato.
 
-## **Aprire presentazioni**
+Il comportamento di caricamento può essere personalizzato tramite la classe [LoadOptions](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/). Ad esempio, è possibile fornire una password di apertura, mantenere i grandi oggetti binari fuori dalla memoria gestita, controllare le risorse esterne o omettere i dati binari incorporati.
 
-Per aprire una presentazione esistente, istanzia la classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/) e passa il percorso del file al suo costruttore.
+## **Aprire le presentazioni**
+
+Per aprire una presentazione esistente, passi il percorso del file al costruttore [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/). Disponi della presentazione dopo l'uso affinché i handle dei file, i dati temporanei e le altre risorse vengano rilasciati tempestivamente.
 
 Il seguente esempio C# mostra come aprire una presentazione e ottenere il numero di diapositive:
 
-```cs
-// Istanzia la classe Presentation e passa un percorso di file al suo costruttore.
-using (Presentation presentation = new Presentation("Sample.pptx"))
-{
-    // Stampa il numero totale di diapositive nella presentazione.
-    System.Console.WriteLine(presentation.Slides.Count);
-}
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+
+Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
 ## **Aprire presentazioni protette da password**
 
-Quando è necessario aprire una presentazione protetta da password, passa la password tramite la proprietà [Password](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/password/) della classe [LoadOptions](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/) per decrittarla e caricarla. Il seguente codice C# dimostra questa operazione:
+Una password di apertura cripta il contenuto della presentazione. Per caricare l'intera presentazione, assegna la password corretta a [LoadOptions.Password](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/password/) e passa le opzioni al costruttore [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/). Il caricamento fallisce quando la password è assente o errata.
 
-```cs
-LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
-using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
-{
-    // Esegui operazioni sulla presentazione decrittata.
-}
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
+
+Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
+
+Per la rilevazione, la validazione e i flussi di lavoro di crittografia delle password, vedi [Password-Protect Presentations](/slides/it/net/password-protected-presentation/). Se una presentazione crittata è stata salvata deliberatamente con proprietà di documento pubbliche, tali proprietà possono essere lette senza password; vedi [Manage Presentation Properties](/slides/it/net/presentation-properties/).
 
 ## **Aprire presentazioni di grandi dimensioni**
 
-Aspose.Slides fornisce opzioni—in particolare la proprietà [BlobManagementOptions](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/blobmanagementoptions/) nella classe [LoadOptions](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/)—per aiutarti a caricare presentazioni di grandi dimensioni.
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/blobmanagementoptions/) controlla come Aspose.Slides gestisce oggetti binari di grandi dimensioni come immagini, audio e video. Puoi mantenere il file sorgente bloccato, consentire file temporanei e limitare la quantità di dati BLOB trattenuti in memoria.
 
-Il seguente codice C# dimostra come caricare una presentazione di grandi dimensioni (ad esempio, 2 GB):
+Il seguente codice C# dimostra il caricamento di una presentazione di grandi dimensioni (ad esempio, 2 GB):
 
-```cs
-const string filePath = "LargePresentation.pptx";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-LoadOptions loadOptions = new LoadOptions
+const string filePath = "large-presentation.pptx";
+
+var loadOptions = new LoadOptions
 {
-    BlobManagementOptions = 
+    BlobManagementOptions =
     {
-        // Scegli il comportamento KeepLocked—il file della presentazione resterà bloccato per tutta la durata di 
-        // l'istanza Presentation, ma non è necessario caricarlo in memoria né copiarlo in un file temporaneo.
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
         IsTemporaryFilesAllowed = true,
-        MaxBlobsBytesInMemory = 10 * 1024 * 1024 // 10 MB
+        MaxBlobsBytesInMemory = 10 * 1024 * 1024
     }
 };
 
-using (Presentation presentation = new Presentation(filePath, loadOptions))
-{
-    // La presentazione di grandi dimensioni è stata caricata e può essere usata, mentre il consumo di memoria rimane basso.
+using var presentation = new Presentation(filePath, loadOptions);
 
-    // Apporta modifiche alla presentazione.
-    presentation.Slides[0].Name = "Large presentation";
-
-    // Salva la presentazione in un altro file. Il consumo di memoria rimane basso durante questa operazione.
-    presentation.Save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // Non farlo! Verrà sollevata un'eccezione I/O perché il file è bloccato fino a quando l'oggetto Presentation non viene eliminato.
-    File.Delete(filePath);
-}
-
-// È corretto farlo qui. Il file sorgente non è più bloccato dall'oggetto Presentation.
-File.Delete(filePath);
+presentation.Slides[0].Name = "Large presentation";
+presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="info" title="Info" %}}
-Per aggirare alcune limitazioni quando si lavora con i flussi, Aspose.Slides potrebbe copiare il contenuto di un flusso. Caricare una presentazione di grandi dimensioni da un flusso comporta la copia della presentazione e può rallentare il caricamento. Pertanto, quando è necessario caricare una presentazione di grandi dimensioni, consigliamo vivamente di utilizzare il percorso del file della presentazione anziché un flusso.
+{{% alert color="info" title="Nota" %}}
+Con `PresentationLockingBehavior.KeepLocked`, il file sorgente rimane bloccato fino a quando l'oggetto `Presentation` non viene eliminato. Non spostare, sovrascrivere o eliminare il file sorgente mentre quell'oggetto è attivo.
 
-Quando si crea una presentazione che contiene oggetti di grandi dimensioni (video, audio, immagini ad alta risoluzione, ecc.), è possibile utilizzare la [gestione BLOB](/slides/it/net/manage-blob/) per ridurre il consumo di memoria.
-{{%/alert %}}
+Aspose.Slides può copiare i contenuti di un flusso di input durante il caricamento. Per presentazioni di grandi dimensioni, un percorso di file è quindi generalmente più efficiente di un flusso. Consulta [Manage BLOBs](/slides/it/net/manage-blob/) per ulteriori opzioni di archiviazione e gestione della memoria.
+{{% /alert %}}
 
 ## **Controllare le risorse esterne**
 
-Aspose.Slides fornisce l'interfaccia [IResourceLoadingCallback](https://reference.aspose.com/slides/it/net/aspose.slides/iresourceloadingcallback/) che consente di gestire le risorse esterne. Il seguente codice C# mostra come utilizzare l'interfaccia `IResourceLoadingCallback`:
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/resourceloadingcallback/) accetta un'implementazione di [IResourceLoadingCallback](https://reference.aspose.com/slides/it/net/aspose.slides/iresourceloadingcallback/). Il callback può fornire dati sostitutivi, reindirizzare una risorsa, utilizzare il loader predefinito o saltare la risorsa. Questo è utile quando le presentazioni contengono immagini esterne che devono essere risolte secondo regole di sicurezza o archiviazione specifiche dell'applicazione.
 
-```cs
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
-
-```cs
-public class ImageLoadingHandler : IResourceLoadingCallback
+internal static class OpenPresentationExample
 {
-    public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+    private static void Main()
     {
-        if (args.OriginalUri.EndsWith(".jpg"))
+        var loadOptions = new LoadOptions
         {
-            try
-            {
-                // Carica un'immagine sostitutiva.
-                byte[] imageData = File.ReadAllBytes("aspose-logo.jpg");
-                args.SetData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            }
-            catch (Exception)
+            ResourceLoadingCallback = new ImageLoadingHandler()
+        };
+
+        using var presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+        Console.WriteLine("Slide count: " + presentation.Slides.Count);
+    }
+
+    private sealed class ImageLoadingHandler : IResourceLoadingCallback
+    {
+        public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+        {
+            var isJpeg = args.OriginalUri.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase);
+            if (!isJpeg || !File.Exists("approved-image.jpg"))
             {
                 return ResourceLoadingAction.Skip;
             }
-        }
-        else if (args.OriginalUri.EndsWith(".png"))
-        {
-            // Imposta un URL sostitutivo.
-            args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
-            return ResourceLoadingAction.Default;
-        }
 
-        // Salta tutte le altre immagini.
-        return ResourceLoadingAction.Skip;
+            var imageData = File.ReadAllBytes("approved-image.jpg");
+            args.SetData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        }
     }
 }
 ```
 
 ## **Caricare presentazioni senza oggetti binari incorporati**
 
-Una presentazione PowerPoint può contenere i seguenti tipi di oggetti binari incorporati:
+Una presentazione può contenere dati binari incorporati che un'applicazione non necessita o non desidera mantenere. Esempi includono:
 
-- Progetto VBA (accessibile tramite [IPresentation.VbaProject](https://reference.aspose.com/slides/it/net/aspose.slides/ipresentation/vbaproject/));
-- Dati incorporati di oggetti OLE (accessibili tramite [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/it/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
-- Dati binari di controlli ActiveX (accessibili tramite [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/it/net/aspose.slides/icontrol/activexcontrolbinary/)).
+- progetti VBA, disponibili tramite [IPresentation.VbaProject](https://reference.aspose.com/slides/it/net/aspose.slides/ipresentation/vbaproject/);
+- dati OLE incorporati, disponibili tramite [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/it/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
+- dati di controlli ActiveX, disponibili tramite [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/it/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-Utilizzando la proprietà [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/it/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/), è possibile caricare una presentazione senza alcun oggetto binario incorporato.
+Imposta [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) su `true` per rimuovere questi dati binari durante il caricamento. Salva la presentazione caricata per conservare il risultato sanificato.
 
-Questa proprietà è utile per rimuovere contenuti binari potenzialmente dannosi. Il seguente codice C# dimostra come caricare una presentazione senza alcun contenuto binario incorporato:
+Questa opzione riduce l'esposizione a payload incorporati indesiderati, ma non è un sistema completo di rilevamento malware o di sanificazione dei contenuti.
 
-```cs
-LoadOptions loadOptions = new LoadOptions()
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions
 {
     DeleteEmbeddedBinaryObjects = true
-}
+};
 
-using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
-{
-    // Esegui operazioni sulla presentazione.
-}
+using var presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
+
+presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Come posso capire se un file è danneggiato e non può essere aperto?**
+**Come posso capire se un file è corrotto e non può essere aperto?**
 
-Durante il caricamento verrà generata un'eccezione di validazione/parsing del formato. Questi errori spesso indicano una struttura ZIP non valida o record PowerPoint danneggiati.
+Aspose.Slides genera un'eccezione di parsing o di formato durante il caricamento. Gestisci quel tipo di errore separatamente da quello di password errata in modo che l'applicazione possa segnalare la causa con precisione.
 
-**Cosa succede se i font richiesti mancano durante l'apertura?**
+**Cosa succede se mancano i font richiesti?**
 
-Il file si aprirà, ma successivamente la [renderizzazione/esportazione](/slides/it/net/convert-presentation/) potrebbe sostituire i font. [Configura le sostituzioni dei font](/slides/it/net/font-substitution/) o [aggiungi i font richiesti](/slides/it/net/custom-font/) all'ambiente di runtime.
+La presentazione può comunque essere caricata, ma il rendering e l'esportazione potrebbero sostituire i font. Puoi [configurare la sostituzione dei font](/slides/it/net/font-substitution/) o [fornire font personalizzati](/slides/it/net/custom-font/) per rendere l'output più prevedibile.
 
-**Cosa succede ai media incorporati (video/audio) durante l'apertura?**
+**Il caricamento di una presentazione carica anche i media incorporati?**
 
-Diventano disponibili come risorse della presentazione. Se i media sono referenziati tramite percorsi esterni, assicurati che tali percorsi siano accessibili nel tuo ambiente; altrimenti la [renderizzazione/esportazione](/slides/it/net/convert-presentation/) potrebbe omettere i media.
+Audio e video incorporati diventano disponibili tramite il modello a oggetti della presentazione. Le risorse esterne vengono risolte secondo il comportamento configurato per il caricamento delle risorse e potrebbero non essere disponibili se le loro posizioni non sono accessibili.

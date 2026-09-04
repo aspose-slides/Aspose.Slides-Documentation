@@ -1,16 +1,16 @@
 ---
-title: Jelszóval védett prezentációk .NET-ben
+title: .NET-ben a prezentációk jelszóval való védelme
 linktitle: Jelszóvédelem
 type: docs
 weight: 20
 url: /hu/net/password-protected-presentation/
 keywords:
 - jelszóval védett prezentáció
-- nyitó jelszó
+- megnyitási jelszó
 - PowerPoint titkosítása
 - PowerPoint visszafejtése
-- prezentáció jelszó validálása
 - prezentáció jelszó ellenőrzése
+- prezentáció jelszó vizsgálata
 - titkosított prezentáció megnyitása
 - titkosítás eltávolítása
 - PowerPoint
@@ -20,19 +20,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Titkosítsa, detektálja, validálja, nyissa meg, és visszafejti a jelszóval védett PowerPoint PPT és PPTX prezentációkat C#-ban az Aspose.Slides for .NET segítségével."
+description: "Titkosítsa, észlelje, ellenőrizze, nyissa meg és dekódolja a jelszóval védett PowerPoint PPT és PPTX prezentációkat C#-ban az Aspose.Slides for .NET segítségével."
 ---
 ## **Áttekintés**
 
-A nyitó jelszó titkosítja a prezentációt. A helyes jelszó szükséges a prezentáció tartalmának betöltéséhez és megtekintéséhez, így ez a védelem bizalmasságot biztosít.
+A megnyitási jelszó titkosít egy prezentációt. A helyes jelszó szükséges a prezentáció tartalmának betöltéséhez és megtekintéséhez, ezért ez a védelem bizalmasságot biztosít.
 
-A nyitó jelszó eltér a írásvédelem jelszavától. Az írásvédelem korlátozza a módosítást, de nem titkosítja a tartalmat, és nem akadályozza meg a prezentáció betöltését. A prezentációk módosításához használt jelszavak kezeléséhez tekintse meg az [Írásvédelem a prezentációkhoz](/slides/hu/net/write-protected-presentation/).
+A megnyitási jelszó eltér a írásvédelem jelszavától. Az írásvédelem korlátozza a módosítást, de nem titkosítja a tartalmat, és nem akadályozza a prezentáció betöltését. A prezentációk módosításához használt jelszavak kezeléséről lásd a [Write-Protect Presentations](/slides/hu/net/write-protected-presentation/).
 
-Az alábbi munkafolyamatok PPT és PPTX prezentációkra egyaránt vonatkoznak. A példák mindkét formátumot használják, ahol a fájl‑alapú és az adatfolyam‑alapú viselkedés fontos.
+Az alábbi munkafolyamatok mind PPT, mind PPTX prezentációkra vonatkoznak. A példák mindkét formátumot használják, ahol a fájl‑alapú és az adatfolyam‑alapú viselkedés fontos.
 
-## **Titkosítsa a prezentációt nyitó jelszóval**
+## **Prezentáció titkosítása megnyitási jelszóval**
 
-Használja az IProtectionManager.Encrypt metódust nyitó jelszó hozzárendeléséhez. Ezután használja az IPresentation.Save metódust a titkosított prezentáció mentéséhez.
+Az [IProtectionManager.Encrypt](https://reference.aspose.com/slides/hu/net/aspose.slides/iprotectionmanager/encrypt/) használatával állíthat be megnyitási jelszót. Ezután az [IPresentation.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentation/save/) segítségével mentse a titkosított prezentációt.
 
 A következő példa egy PPTX prezentációt titkosít:
 
@@ -46,9 +46,34 @@ presentation.ProtectionManager.Encrypt("open_password");
 presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
+## **Dokumentumtulajdonságok nyilvánosak tartása**
+
+Alapértelmezés szerint az Aspose.Slides a dokumentumtulajdonságokat is belefoglalja a prezentáció titkosításába. Az [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/hu/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) tulajdonság önállóan vezérli ezt a viselkedést a diatartalom titkosításától függetlenül. Állítsa `false`‑ra, mielőtt meghívná az [IProtectionManager.Encrypt](https://reference.aspose.com/slides/hu/net/aspose.slides/iprotectionmanager/encrypt/) metódust, ha egy indexelő, osztályozó, kereső vagy dokumentumkezelő rendszernek a metaadatokat megnyitási jelszó nélkül kell olvasnia.
+
+A következő példa egy titkosított PPTX prezentációt hoz létre, miközben a beépített dokumentumtulajdonságok nyilvánosak maradnak:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var properties = presentation.DocumentProperties;
+properties.Author = "Contoso Knowledge Management";
+properties.Title = "Quarterly Product Roadmap";
+properties.Keywords = "roadmap, planning, internal";
+
+presentation.Slides[0].Name = "Encrypted presentation content";
+presentation.ProtectionManager.EncryptDocumentProperties = false;
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("public-properties-encrypted.pptx", SaveFormat.Pptx);
+```
+
+Az `EncryptDocumentProperties` `false`‑ra állítása nem teszi a diák, a mester‑diák, elrendezések, alakzatok, média vagy egyéb prezentációs tartalmak nyilvánossá. Csak a dokumentumtulajdonságokra van hatással. A titkosított tartalom betöltése nélkül ezeknek a tulajdonságoknak az olvasásához lásd a [Manage Presentation Properties](/slides/hu/net/presentation-properties/) oldalt.
+
 ## **Titkosított prezentáció betöltése**
 
-Állítsa be a LoadOptions.Password értékét a nyitó jelszóra, és adja át az opciókat a Presentation‑nek a fájl betöltésekor. A betöltés sikertelen, ha nyitó jelszó szükséges, de a megadott jelszó hiányzik vagy helytelen.
+Állítsa a [LoadOptions.Password](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/password/) értékét a megnyitási jelszóra, és adja át az opciókat a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztálynak a fájl betöltésekor. A betöltés sikertelen, ha megnyitási jelszó szükséges, de a megadott jelszó hiányzik vagy helytelen.
 
 ```csharp
 using Aspose.Slides;
@@ -61,7 +86,7 @@ using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
 ## **Titkosítás eltávolítása egy prezentációból**
 
-Betöltse a prezentációt a nyitó jelszavával, hívja meg az IProtectionManager.RemoveEncryption metódust, majd mentse az eredményt. A mentett prezentáció ezután jelszó nélkül is betölthető.
+Töltse be a prezentációt a megnyitási jelszóval, hívja meg az [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/hu/net/aspose.slides/iprotectionmanager/removeencryption/) metódust, majd mentse az eredményt. A mentett prezentáció ezután jelszó nélkül is betölthető.
 
 ```csharp
 using Aspose.Slides;
@@ -74,13 +99,13 @@ presentation.ProtectionManager.RemoveEncryption();
 presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
 ```
 
-## **Nyitó jelszó ellenőrzése betöltés előtt**
+## **Megnyitási jelszó ellenőrzése betöltés előtt**
 
-Használja az IPresentationFactory.GetPresentationInfo metódust az IPresentationInfo megszerzéséhez anélkül, hogy teljes prezentációs példányt hozna létre. Ellenőrizze az IPresentationInfo.IsPasswordProtected értéket, mielőtt jelszó kérést vagy ellenőrzést végezne. Ha védelem van, validálja a megadott értéket az IPresentationInfo.CheckPassword metódussal.
+Az [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentationfactory/getpresentationinfo/) használatával szerezzen [IPresentationInfo](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentationinfo/) objektumot anélkül, hogy teljes prezentációs példányt hozna létre. Ellenőrizze az [IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentationinfo/ispasswordprotected/) értékét, mielőtt jelszót kérne vagy ellenőrizne. Ha védelem van, a megadott értéket az [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentationinfo/checkpassword/) metódussal ellenőrizze.
 
-### **Fájlelérési út Munkafolyamat**
+### **Fájlelérési munkafolyamat**
 
-Az alábbi példa egy PPTX fájl nyitó jelszavát ellenőrzi, átadja a validált értéket a LoadOptions.Password‑nek, majd betölti a teljes prezentációt:
+A következő példa egy PPTX fájl megnyitási jelszavát ellenőrzi, átadja az ellenőrzött értéket a [LoadOptions.Password](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/password/) paraméternek, majd betölti a teljes prezentációt:
 
 ```csharp
 using System;
@@ -107,11 +132,11 @@ else
 }
 ```
 
-### **Adatfolyam Munkafolyamat**
+### **Adatfolyam munkafolyamat**
 
-Az IPresentationFactory.GetPresentationInfo adatfolyam‑túlterhelése ugyanazt a munkafolyamatot biztosítja. Állítsa vissza egy kereshető adatfolyam pozícióját, mielőtt betöltené a teljes prezentációt abból az adatfolyamból.
+Az [IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentationfactory/getpresentationinfo/) adatfolyam‑túlterhelése ugyanazt a munkafolyamatot biztosítja. Állítsa vissza egy kereshető adatfolyam pozícióját, mielőtt betöltené a teljes prezentációt az adatfolyamból.
 
-Az alábbi példa egy PPT fájlt használ:
+A következő példa egy PPT fájlt használ:
 
 ```csharp
 using System;
@@ -143,17 +168,17 @@ else
 
 ### **CheckPassword visszatérési értékek**
 
-Az IPresentationInfo.CheckPassword csak akkor ad vissza `true` értéket, ha a prezentáció nyitó jelszóval védett és a megadott jelszó helyes. Minden egyes alábbi esetben `false` értéket ad vissza:
+Az [IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/hu/net/aspose.slides/ipresentationinfo/checkpassword/) akkor ad vissza `true`‑t, ha a prezentáció rendelkezik megnyitási jelszóval, és a megadott jelszó helyes. `false`‑t ad a következő esetekben:
 
 - A jelszó helytelen.
-- A prezentációnak nincs nyitó jelszója.
+- A prezentáció nem rendelkezik megnyitási jelszóval.
 - A megadott jelszó `null` vagy üres.
 
-A viselkedés PPT és PPTX prezentációknál egyforma.
+A viselkedés PPT és PPTX prezentációk esetén is ugyanaz.
 
 ## **Ellenőrizze, hogy a betöltött prezentáció titkosított-e**
 
-Miután egy prezentációt helyes jelszóval betöltött, ellenőrizze az IProtectionManager.IsEncrypted értékét, hogy megerősítse a forrásprezentáció titkosítását. A nyitó jelszó védelem betöltés előtti felismeréséhez használja az IPresentationInfo.IsPasswordProtected értéket, ahogyan fentebb bemutattuk.
+A prezentáció helyes jelszóval történő betöltése után vizsgálja meg az [IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/hu/net/aspose.slides/iprotectionmanager/isencrypted/) értékét, hogy megerősítse, a forrás prezentáció titkosított volt-e. A megnyitási jelszavas védelem betöltés előtti észleléséhez használja a `IPresentationInfo.IsPasswordProtected` értéket, ahogyan fent bemutattuk.
 
 ```csharp
 using System;
@@ -168,33 +193,39 @@ Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 
 ## **Biztonsági ajánlások**
 
-{{% alert color="warning" title="Biztonság" %}}
-Ne naplózza a nyitó jelszavakat, és ne tartalmazza őket diagnosztikai üzenetekben. Kerülje a felesleges ismételt ellenőrzési kísérleteket, a jelszavakat csak a szükséges időtartamra tartsa memóriában, és használja újra a sikeres ellenőrzés eredményét, ha azonnal betölti a prezentációt.
+{{% alert color="warning" title="Security" %}}
+Ne naplózza a megnyitási jelszavakat, és ne tüntesse fel őket diagnosztikai üzenetekben. Kerülje a szükségtelen, ismételt ellenőrzési kísérleteket, a jelszavakat csak annyi ideig tartsa memóriában, amennyi szükséges, és használja újra a sikeres ellenőrzés eredményét, ha azonnal betölti a prezentációt.
+
+A nyilvános dokumentumtulajdonságok felfedhetik a szerző nevét, címeket, tárgyakat, kulcsszavakat, céginformációkat, megjegyzéseket és egyedi értékeket, még ha a prezentáció tartalma titkosított is. Titkosítsa az érzékeny metaadatokat a prezentációval együtt. A tulajdonságok nyilvánosan hagyása csak akkor legyen kifejezett döntés, amikor a rendszereknek indexelni, osztályozni, keresni vagy kezelni kell a fájlt megnyitási jelszó nélkül.
 {{% /alert %}}
 
-## **Prezentáció jelszóval védése online**
+## **Prezentáció jelszóvédelem online**
 
-1. Nyissa meg az Aspose.Slides Lock alkalmazást.
+1. Nyissa meg az [Aspose.Slides Lock](https://products.aspose.app/slides/hu/lock) alkalmazást.
 1. Válassza ki vagy töltse fel a prezentációt.
-1. Adjon meg egy jelszót a megtekintési védelemhez.
-1. Opcionálisan adjon meg egy külön jelszót a szerkesztési védelemhez.
-1. Alkalmazza a védelmet, majd töltse le a keletkezett fájlt.
+1. Adjon meg egy jelszót a megtekintés védelméhez.
+1. Opcionálisan adjon meg külön jelszót a szerkesztés védelméhez.
+1. Alkalmazza a védelmet, és töltse le a kapott fájlt.
 
-{{% alert color="info" title="Lásd még" %}}
-- [Írásvédelem a prezentációkhoz](/slides/hu/net/write-protected-presentation/)
-- [Digitális aláírás PowerPointban](/slides/hu/net/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/hu/net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/hu/net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **GYIK**
 
-**Mi a különbség a nyitó jelszó és az írásvédelmi jelszó között?**
+**Mi a különbség a megnyitási jelszó és az írásvédelmi jelszó között?**
 
-A nyitó jelszó titkosítja a prezentációt, és a tartalom betöltéséhez szükséges. Az írásvédelmi jelszó a módosítást korlátozza anélkül, hogy a tartalmat titkosítaná.
+A megnyitási jelszó titkosítja a prezentációt, és szükséges a tartalom betöltéséhez. Az írásvédelmi jelszó a módosítást korlátozza anélkül, hogy a tartalmat titkosítaná.
 
-**Ellenőrizhetem a nyitó jelszót anélkül, hogy az összes diát betölteném?**
+**Ellenőrizhetem a megnyitási jelszót anélkül, hogy az összes diát betölteném?**
 
-Igen. Szerezze meg a prezentáció információit, ellenőrizze, hogy van‑e nyitó jelszó védelem, majd validálja a jelszót a teljes prezentáció létrehozása előtt.
+Igen. Szerezze meg a prezentáció információit, ellenőrizze, hogy van‑e megnyitási jelszavas védelem, és ellenőrizze a jelszót, mielőtt teljes prezentációs példányt hozna létre.
 
-**A jelszó‑ellenőrző munkafolyamatok támogatják mind a PPT, mind a PPTX formátumot?**
+**Olvashat-e egy alkalmazás metaadatokat a megnyitási jelszó nélkül?**
 
-Igen. A fájl‑alapú és az adatfolyam‑alapú jelszó‑detektálás és validálás ugyanúgy működik PPT és PPTX prezentációknál.
+Igen, de csak akkor, ha a prezentáció titkosítása során az `EncryptDocumentProperties` `false`‑ra van állítva. Ilyenkor az alkalmazásnak a [Manage Presentation Properties](/slides/hu/net/presentation-properties/) leírásában szereplő csak dokumentumtulajdonságok betöltését kell használnia.
+
+**Támogatja a jelszó‑ellenőrzési munkafolyamat a PPT és PPTX formátumokat is?**
+
+Igen. A fájl‑elérési és adatfolyam‑alapú jelszó‑felderítés és ellenőrzés ugyanúgy működik PPT és PPTX prezentációk esetén.

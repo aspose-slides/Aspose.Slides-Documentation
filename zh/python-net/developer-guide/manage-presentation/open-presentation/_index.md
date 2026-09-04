@@ -20,112 +20,101 @@ keywords:
 - 二进制对象
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 轻松打开 PowerPoint（.pptx、.ppt）和 OpenDocument（.odp）演示文稿——快速、可靠、功能齐全。"
+description: "了解如何在 Python 中打开 PowerPoint 和 OpenDocument 演示文稿，提供打开密码，并使用 Aspose.Slides for Python via .NET 减少内存使用。"
 ---
 ## **简介**
 
-除了从头创建 PowerPoint 演示文稿外，Aspose.Slides 还可以打开已有的演示文稿。加载演示文稿后，您可以获取其信息，编辑幻灯片内容，添加新幻灯片，删除已有幻灯片等。
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/zh/python-net/) 可从文件和流加载 PowerPoint 和 OpenDocument 演示文稿。加载演示文稿后，您可以检查其结构、编辑幻灯片、管理资源，并以原始格式或其他受支持的格式保存。
+
+可以通过 [LoadOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/) 类自定义加载行为。例如，您可以提供打开密码、将大型二进制对象保留在内存之外，或省略嵌入的二进制数据。
 
 ## **打开演示文稿**
 
-要打开现有演示文稿，请实例化[Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/)类并将文件路径传递给其构造函数。
+要打开现有演示文稿，请将其文件路径传递给 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 构造函数。使用 `with` 语句可以及时释放文件句柄、临时数据和其他资源。
 
-以下 Python 示例展示了如何打开演示文稿并获取幻灯片计数：
+以下 Python 示例演示如何打开演示文稿并获取幻灯片计数：
 
 ```python
 import aspose.slides as slides
 
-# 实例化 Presentation 类并将文件路径传递给其构造函数。
 with slides.Presentation("sample.pptx") as presentation:
-    # 打印演示文稿中的幻灯片总数。
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
 ## **打开受密码保护的演示文稿**
 
-当需要打开受密码保护的演示文稿时，请通过[LoadOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/)类的[password](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/password/)属性传入密码，以解密并加载演示文稿。以下 Python 代码演示了此操作：
+打开密码会加密演示文稿内容。要加载完整的演示文稿，请将正确的密码分配给 [LoadOptions.password](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/password/) 并将该选项传递给 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 构造函数。如果密码缺失或不正确，加载将失败。
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # 在解密的演示文稿上执行操作。
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
-## **打开大文件演示文稿**
+有关密码检测、验证和加密工作流，请参阅 [Password-Protect Presentations](/slides/zh/python-net/password-protected-presentation/)。如果加密的演示文稿刻意以公共文档属性保存，则可以在不提供密码的情况下读取这些属性；请参阅 [Manage Presentation Properties](/slides/zh/python-net/presentation-properties/)。
 
-Aspose.Slides 提供选项——尤其是[LoadOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/)类中的[blob_management_options](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/blob_management_options/)属性——帮助您加载大型演示文稿。
+## **打开大型演示文稿**
 
-以下 Python 代码演示了加载大型演示文稿（例如 2 GB）：
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/blob_management_options/) 控制 Aspose.Slides 如何处理二进制大对象（如图像、音频和视频）。您可以保持源文件锁定、允许临时文件，并限制内存中保留的 BLOB 数据量。
+
+以下 Python 代码演示如何加载大型演示文稿（例如 2 GB）：
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# 选择 KeepLocked 行为——演示文稿文件将在整个生命周期保持锁定
-# Presentation 实例，但不需要加载到内存或复制到临时文件。
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # 已加载大型演示文稿并可使用，内存消耗保持低水平。
-
-    # 对演示文稿进行修改。
     presentation.slides[0].name = "Large presentation"
-
-    # 将演示文稿保存到另一个文件。此操作期间内存消耗保持低。
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # 不要这样做！文件被锁定直到演示稿对象释放，会抛出 I/O 异常。
-    os.remove(file_path)
-
-# 在此处执行是可以的。源文件已不再被演示稿对象锁定。
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Info" %}}
-为了解决在使用流时的某些限制，Aspose.Slides 可能会复制流的内容。从流加载大型演示文稿会导致演示文稿被复制，从而减慢加载速度。因此，当需要加载大型演示文稿时，我们强烈建议使用演示文稿文件路径而不是流。
+{{% alert color="info" title="注意" %}}
+使用 `PresentationLockingBehavior.KEEP_LOCKED` 时，源文件会保持锁定状态，直至 `Presentation` 对象被释放。在该对象存活期间，请勿移动、覆盖或删除源文件。
 
-在创建包含大型对象（视频、音频、高分辨率图像等）的演示文稿时，您可以使用[BLOB management](/slides/zh/python-net/manage-blob/)来降低内存消耗。
-{{%/alert %}}
+Aspose.Slides 在加载时可能会复制输入流的内容。对于大型演示文稿，文件路径通常比流更高效。请参阅 [Manage BLOBs](/slides/zh/python-net/manage-blob/) 了解更多存储和内存管理选项。
+{{% /alert %}}
 
-## **加载演示文稿时不包含嵌入的二进制对象**
+## **加载不含嵌入二进制对象的演示文稿**
 
-PowerPoint 演示文稿可能包含以下类型的嵌入二进制对象：
+演示文稿可能包含应用程序不需要或不想保留的嵌入二进制数据。例如包括：
 
-- VBA 项目（可通过[Presentation.vba_project](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/vba_project/)访问）；
-- OLE 对象嵌入数据（可通过[OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/)访问）；
-- ActiveX 控件二进制数据（可通过[Control.active_x_control_binary](https://reference.aspose.com/slides/zh/python-net/aspose.slides/control/active_x_control_binary/)访问）。
+- VBA 项目，可通过 [Presentation.vba_project](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/vba_project/) 获取；
+- 嵌入的 OLE 数据，可通过 [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) 获取；
+- ActiveX 控件数据，可通过 [Control.active_x_control_binary](https://reference.aspose.com/slides/zh/python-net/aspose.slides/control/active_x_control_binary/) 获取。
 
-使用[LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/)属性，您可以在加载演示文稿时不包含任何嵌入的二进制对象。
+将 [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) 设置为 `True`，即可在加载时删除这些二进制数据。保存加载后的演示文稿以保留已清理的结果。
 
-此属性有助于移除潜在的恶意二进制内容。以下 Python 代码演示了如何在不包含任何嵌入二进制内容的情况下加载演示文稿：
+此选项可降低不需要的嵌入负载的风险，但它并非完整的恶意软件检测或内容清理系统。
 
-```py
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # 对演示文稿执行操作。
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **常见问题**
 
 **如何判断文件已损坏且无法打开？**
 
-在加载时会抛出解析/格式验证异常。此类错误通常会提及 ZIP 结构无效或 PowerPoint 记录损坏。
+Aspose.Slides 在加载期间会抛出解析或格式异常。请将此类失败与密码错误的异常分开处理，以便应用程序能够准确报告原因。
 
-**打开时缺少必需的字体会怎样？**
+**如果缺少必需的字体会怎样？**
 
-文件仍会打开，但后续[渲染/导出](/slides/zh/python-net/convert-presentation/)可能会替代字体。请[配置字体替代](/slides/zh/python-net/font-substitution/)或[添加所需字体](/slides/zh/python-net/custom-font/)到运行时环境。
+演示文稿仍可加载，但在渲染和导出时可能会使用替代字体。您可以 [configure font substitution](/slides/zh/python-net/font-substitution/) 或 [provide custom fonts](/slides/zh/python-net/custom-font/) 来使输出更可预测。
 
-**打开时嵌入的
+**加载演示文稿是否也会加载其嵌入的媒体？**
+
+嵌入的音频和视频可通过演示文稿对象模型访问。外部资源将按默认的资源加载行为解析，如果无法访问其位置，则可能不可用。

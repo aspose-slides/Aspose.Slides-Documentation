@@ -1,5 +1,5 @@
 ---
-title: Protéger les présentations par mot de passe en PHP
+title: Protection par mot de passe des présentations en PHP
 linktitle: Protection par mot de passe
 type: docs
 weight: 20
@@ -25,15 +25,15 @@ description: "Chiffrer, détecter, valider, ouvrir et déchiffrer des présentat
 
 Un mot de passe d'ouverture chiffre une présentation. Le mot de passe correct est requis pour charger et afficher le contenu de la présentation, ce qui assure la confidentialité.
 
-Un mot de passe d'ouverture est différent d'un mot de passe de protection en écriture. La protection en écriture limite la modification mais ne chiffre pas le contenu et n'empêche pas le chargement de la présentation. Pour gérer les mots de passe de modification des présentations, voir [Write-Protect Presentations](/slides/fr/php-java/write-protected-presentation/).
+Un mot de passe d'ouverture est différent d’un mot de passe de protection en écriture. La protection en écriture restreint la modification mais ne chiffre pas le contenu et ne bloque pas le chargement de la présentation. Pour gérer les mots de passe de modification des présentations, voir [Protéger les présentations en écriture](/slides/fr/php-java/write-protected-presentation/).
 
-Les flux de travail ci-dessous s'appliquent aux présentations PPT et PPTX. Les exemples utilisent les deux formats lorsque leur comportement basé sur les fichiers ou les flux est important.
+Les flux de travail ci‑dessous s’appliquent aux présentations PPT et PPTX. Les exemples utilisent les deux formats lorsque le comportement basé sur le fichier ou le flux est important.
 
 ## **Chiffrer une présentation avec un mot de passe d'ouverture**
 
-Utilisez [ProtectionManager::encrypt](https://reference.aspose.com/slides/fr/php-java/aspose.slides/protectionmanager/#encrypt) pour attribuer un mot de passe d'ouverture. Puis utilisez [Presentation::save](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/#save) pour enregistrer la présentation chiffrée.
+Utilisez [ProtectionManager::encrypt](https://reference.aspose.com/slides/fr/php-java/aspose.slides/protectionmanager/#encrypt) pour affecter un mot de passe d'ouverture. Puis utilisez [Presentation::save](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/#save) pour enregistrer la présentation chiffrée.
 
-L'exemple suivant chiffre une présentation PPTX :
+L’exemple suivant chiffre une présentation PPTX :
 
 ```php
 use aspose\slides\Presentation;
@@ -48,9 +48,37 @@ try {
 }
 ```
 
+## **Laisser les propriétés du document publiques**
+
+Par défaut, Aspose.Slides inclut les propriétés du document dans le chiffrement de la présentation. La méthode [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) contrôle ce comportement indépendamment du chiffrement du contenu des diapositives. Passez `false` avant d’appeler [ProtectionManager::encrypt](https://reference.aspose.com/slides/fr/php-java/aspose.slides/protectionmanager/#encrypt) lorsqu’un système d’indexation, de classification, de recherche ou de gestion documentaire doit lire les métadonnées sans le mot de passe d'ouverture.
+
+L’exemple suivant crée une présentation PPTX chiffrée tout en laissant ses propriétés intégrées publiques :
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $properties = $presentation->getDocumentProperties();
+    $properties->setAuthor("Contoso Knowledge Management");
+    $properties->setTitle("Quarterly Product Roadmap");
+    $properties->setKeywords("roadmap, planning, internal");
+
+    $presentation->getSlides()->get_Item(0)->setName("Encrypted presentation content");
+    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("public-properties-encrypted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Passer `false` à [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/fr/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) ne rend pas publiques les diapositives, les maîtres, les dispositions, les formes, les médias ou tout autre contenu de la présentation. Cela n’affecte que les propriétés du document. Pour lire ces propriétés sans charger le contenu chiffré, voir [Gérer les propriétés de la présentation](/slides/fr/php-java/presentation-properties/).
+
 ## **Charger une présentation chiffrée**
 
-Définissez [LoadOptions::setPassword](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/#setPassword) avec le mot de passe d'ouverture et transmettez les options à [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) lors du chargement du fichier. Le chargement échoue lorsqu'un mot de passe d'ouverture est requis mais que le mot de passe fourni est absent ou incorrect.
+Définissez [LoadOptions::setPassword](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/#setPassword) avec le mot de passe d'ouverture et transmettez les options à [Presentation](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/) lors du chargement du fichier. Le chargement échoue lorsqu’un mot de passe d'ouverture est requis mais que le mot de passe fourni est absent ou incorrect.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -61,7 +89,7 @@ $loadOptions->setPassword("open_password");
 
 $presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
 try {
-    # Travaillez avec la présentation déchiffrée.
+    # Travailler avec la présentation déchiffrée.
 } finally {
     $presentation->dispose();
 }
@@ -90,11 +118,11 @@ try {
 
 ## **Valider un mot de passe d'ouverture avant le chargement**
 
-Utilisez [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationfactory/#getPresentationInfo) pour obtenir [PresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/) sans créer une instance complète de présentation. Vérifiez [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#isPasswordProtected) avant de demander ou de valider un mot de passe. Lorsque la protection est présente, validez la valeur fournie avec [PresentationInfo::checkPassword](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#checkPassword).
+Utilisez [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationfactory/#getPresentationInfo) pour obtenir [PresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/) sans créer d’instance complète de présentation. Vérifiez [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#isPasswordProtected) avant de demander ou de valider un mot de passe. Lorsqu’une protection est présente, validez la valeur fournie avec [PresentationInfo::checkPassword](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#checkPassword).
 
-### **Flux de travail avec un chemin de fichier**
+### **Flux de travail avec chemin de fichier**
 
-L'exemple suivant valide un mot de passe d'ouverture pour un fichier PPTX, transmet la valeur validée à [LoadOptions::setPassword](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/#setPassword), puis charge la présentation complète :
+L’exemple suivant valide un mot de passe d'ouverture pour un fichier PPTX, transmet la valeur validée à [LoadOptions::setPassword](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/#setPassword) puis charge la présentation complète :
 
 ```php
 use aspose\slides\LoadOptions;
@@ -122,11 +150,11 @@ if (!$presentationInfo->isPasswordProtected()) {
 }
 ```
 
-### **Flux de travail avec un flux**
+### **Flux de travail avec flux**
 
-La surcharge de flux de [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationfactory/#getPresentationInfo) fournit le même flux de travail. Réinitialisez la position d'un flux réinscriptible avant de charger la présentation complète à partir de ce flux.
+La surcharge flux de [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationfactory/#getPresentationInfo) fournit le même flux de travail. Réinitialisez la position d’un flux recherchable avant de charger la présentation complète depuis ce flux.
 
-L'exemple suivant utilise un fichier PPT :
+L’exemple suivant utilise un fichier PPT :
 
 ```php
 use aspose\slides\LoadOptions;
@@ -163,7 +191,7 @@ try {
 
 ### **Valeurs de retour de checkPassword**
 
-[PresentationInfo::checkPassword](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#checkPassword) renvoie `true` uniquement lorsque la présentation possède un mot de passe d'ouverture et que le mot de passe fourni est correct. Elle renvoie `false` dans chacun de ces cas :
+[PresentationInfo::checkPassword](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentationinfo/#checkPassword) renvoie `true` uniquement lorsque la présentation possède un mot de passe d'ouverture et que le mot de passe fourni est correct. Il renvoie `false` dans chacun de ces cas :
 
 - Le mot de passe est incorrect.
 - La présentation ne possède pas de mot de passe d'ouverture.
@@ -193,33 +221,39 @@ try {
 
 ## **Recommandations de sécurité**
 
-{{% alert color="warning" title="Security" %}}
-Ne consignez pas les mots de passe d'ouverture et ne les incluez pas dans les messages de diagnostic. Évitez les tentatives de validation répétées inutiles, ne conservez les mots de passe en mémoire que le temps nécessaire, et réutilisez un résultat de validation réussi lors du chargement immédiat de la présentation.
+{{% alert color="warning" title="Sécurité" %}}
+N’enregistrez pas les mots de passe d'ouverture dans les journaux ni ne les incluez dans les messages de diagnostic. Évitez les tentatives de validation répétées inutiles, conservez les mots de passe en mémoire uniquement le temps nécessaire et réutilisez un résultat de validation réussi lors du chargement immédiat de la présentation.
+
+Les propriétés publiques du document peuvent divulguer les noms d’auteur, titres, sujets, mots‑clé, informations d’entreprise, commentaires et valeurs personnalisées même si le contenu de la présentation est chiffré. Chiffrez les métadonnées sensibles avec la présentation. Laisser les propriétés publiques doit être une décision explicite prise uniquement lorsque les systèmes doivent indexer, classifier, rechercher ou gérer le fichier sans un mot de passe d'ouverture.
 {{% /alert %}}
 
 ## **Protéger une présentation par mot de passe en ligne**
 
-1. Ouvrez l'application [Aspose.Slides Lock](https://products.aspose.app/slides/fr/lock).
-2. Sélectionnez ou téléchargez la présentation.
-3. Saisissez un mot de passe pour la protection de visualisation.
-4. Optionnellement, saisissez un mot de passe distinct pour la protection en écriture.
-5. Appliquez la protection et téléchargez le fichier résultant.
+1. Ouvrez l’application [Aspose.Slides Lock](https://products.aspose.app/slides/fr/lock).
+1. Sélectionnez ou téléversez la présentation.
+1. Saisissez un mot de passe pour la protection de la visualisation.
+1. Saisissez éventuellement un mot de passe distinct pour la protection de la modification.
+1. Appliquez la protection et téléchargez le fichier résultant.
 
-{{% alert color="info" title="See also" %}}
-- [Write-Protect Presentations](/slides/fr/php-java/write-protected-presentation/)
-- [Digital Signature in PowerPoint](/slides/fr/php-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Voir aussi" %}}
+- [Protéger les présentations en écriture](/slides/fr/php-java/write-protected-presentation/)
+- [Signature numérique dans PowerPoint](/slides/fr/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
 **Quelle est la différence entre un mot de passe d'ouverture et un mot de passe de protection en écriture ?**
 
-Un mot de passe d'ouverture chiffre la présentation et est requis pour charger son contenu. Un mot de passe de protection en écriture limite la modification sans chiffrer le contenu.
+Un mot de passe d'ouverture chiffre la présentation et est requis pour charger son contenu. Un mot de passe de protection en écriture restreint la modification sans chiffrer le contenu.
 
-**Puis-je valider un mot de passe d'ouverture sans charger toutes les diapositives ?**
+**Puis‑je valider un mot de passe d'ouverture sans charger toutes les diapositives ?**
 
-Oui. Obtenez les informations de la présentation, vérifiez si une protection par mot de passe d'ouverture est présente, et validez le mot de passe avant de créer une instance complète de présentation.
+Oui. Obtenez les informations de la présentation, vérifiez la présence d’une protection par mot de passe d'ouverture et validez le mot de passe avant de créer une instance complète de présentation.
 
-**Les flux de travail de vérification des mots de passe prennent‑ils en charge à la fois PPT et PPTX ?**
+**Une application peut‑elle lire les métadonnées sans le mot de passe d'ouverture ?**
 
-Oui. La détection et la validation des mots de passe basées sur le chemin de fichier ou le flux se comportent de la même manière pour les présentations PPT et PPTX.
+Oui, mais uniquement lorsque la présentation a été chiffrée avec le chiffrement des propriétés du document désactivé. L’application doit alors utiliser le mode de chargement « document‑properties‑only » décrit dans [Gérer les propriétés de la présentation](/slides/fr/php-java/presentation-properties/).
+
+**Les flux de travail de vérification du mot de passe prennent‑ils en charge à la fois PPT et PPTX ?**
+
+Oui. La détection et la validation du mot de passe basées sur le chemin de fichier ou le flux se comportent de la même manière pour les présentations PPT et PPTX.

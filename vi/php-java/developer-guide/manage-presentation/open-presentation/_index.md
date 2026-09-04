@@ -1,128 +1,132 @@
 ---
-title: Mở bài thuyết trình trong PHP
-linktitle: Mở bài thuyết trình
+title: Mở Bản Trình Bày trong PHP
+linktitle: Mở Bản Trình Bày
 type: docs
 weight: 20
 url: /vi/php-java/open-presentation/
 keywords:
 - mở PowerPoint
-- mở OpenDocument
-- mở bài thuyết trình
+- mở bản trình bày
 - mở PPTX
 - mở PPT
 - mở ODP
-- tải bài thuyết trình
+- tải bản trình bày
 - tải PPTX
 - tải PPT
 - tải ODP
-- bài thuyết trình được bảo vệ
-- bài thuyết trình lớn
+- bản trình bày được bảo vệ
+- bản trình bày lớn
 - tài nguyên bên ngoài
 - đối tượng nhị phân
 - PHP
 - Aspose.Slides
-description: "Mở các bài thuyết trình PowerPoint (.pptx, .ppt) và OpenDocument (.odp) một cách dễ dàng với Aspose.Slides cho PHP qua Java — nhanh, đáng tin cậy, đầy đủ tính năng."
+description: "Tìm hiểu cách mở các bản trình bày PowerPoint và OpenDocument trong PHP, cung cấp mật khẩu mở, kiểm soát việc tải tài nguyên và giảm sử dụng bộ nhớ với Aspose.Slides cho PHP qua Java."
 ---
 ## **Giới thiệu**
 
-Ngoài việc tạo bài thuyết trình PowerPoint từ đầu, Aspose.Slides còn cho phép bạn mở các bài thuyết trình đã tồn tại. Sau khi tải một bài thuyết trình, bạn có thể truy xuất thông tin về nó, chỉnh sửa nội dung slide, thêm slide mới, xóa các slide hiện có và nhiều hơn nữa.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/vi/php-java/) có thể tải các bản trình bày PowerPoint và OpenDocument từ tệp và luồng. Sau khi tải một bản trình bày, bạn có thể kiểm tra cấu trúc của nó, chỉnh sửa các slide, quản lý tài nguyên và lưu nó ở định dạng gốc hoặc định dạng hỗ trợ khác.
 
-## **Mở Bài Thuyết Trình**
+Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn bên ngoài bộ nhớ heap của Java, kiểm soát tài nguyên ngoài, hoặc bỏ qua dữ liệu nhị phân được nhúng.
 
-Để mở một bài thuyết trình đã tồn tại, khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) và truyền đường dẫn tệp vào hàm tạo của nó.
+## **Mở Bản Trình Bày**
 
-Ví dụ PHP sau cho thấy cách mở một bài thuyết trình và lấy số slide của nó:
+Để mở một bản trình bày hiện có, truyền đường dẫn tệp của nó vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/). Giải phóng (dispose) bản trình bày sau khi sử dụng để các tay cầm tệp, dữ liệu tạm thời và các tài nguyên khác được giải phóng kịp thời.
+
+Ví dụ PHP sau cho thấy cách mở một bản trình bày và lấy số lượng slide của nó:
 
 ```php
-// Khởi tạo lớp Presentation và truyền đường dẫn tệp vào hàm tạo của nó.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
-    // In ra tổng số slide trong bài thuyết trình.
-    echo($presentation->getSlides()->size());
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Mở Bài Thuyết Trình Được Bảo Vệ Bằng Mật Khẩu**
+## **Mở Bản Trình Bày Được Bảo Vệ Bằng Mật Khẩu**
 
-Khi cần mở một bài thuyết trình được bảo vệ bằng mật khẩu, truyền mật khẩu qua phương thức [setPassword](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#setPassword) của lớp [LoadOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/) để giải mã và tải nó. Đoạn mã PHP dưới đây minh họa thao tác này:
+Mật khẩu mở mã hoá nội dung của bản trình bày. Để tải đầy đủ bản trình bày, truyền mật khẩu đúng vào [LoadOptions::setPassword](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#setPassword) và cung cấp các tùy chọn cho hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/). Quá trình tải sẽ thất bại nếu mật khẩu bị thiếu hoặc không chính xác.
 
 ```php
-$loadOptions = new LoadOptions();
-$loadOptions->setPassword("YOUR_PASSWORD");
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-presentation.pptx", $loadOptions);
 try {
-    // Thực hiện các thao tác trên bài thuyết trình đã giải mã.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Mở Bài Thuyết Trình Lớn**
+Để biết cách phát hiện mật khẩu, xác thực và quy trình mã hoá, xem [Password-Protect Presentations](/slides/vi/php-java/password-protected-presentation/). Nếu một bản trình bày đã được mã hoá nhưng được lưu có các thuộc tính tài liệu công khai, các thuộc tính đó có thể được đọc mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/php-java/presentation-properties/).
 
-Aspose.Slides cung cấp các tùy chọn — đặc biệt là phương thức [getBlobManagementOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) trong lớp [LoadOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/) — để giúp bạn tải các bài thuyết trình lớn.
+## **Mở Bản Trình Bày Lớn**
 
-Đoạn mã PHP dưới đây minh họa việc tải một bài thuyết trình lớn (ví dụ, 2 GB):
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) trả về các tùy chọn kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn (BLOB) như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tệp tạm thời và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
+
+Mã PHP sau minh hoạ cách tải một bản trình bày lớn (ví dụ, 2 GB):
 
 ```php
-$filePath = "LargePresentation.pptx";
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationLockingBehavior;
+use aspose\slides\SaveFormat;
+
+$filePath = "large-presentation.pptx";
 
 $loadOptions = new LoadOptions();
-// Choose the KeepLocked behavior—the presentation file will remain locked for the lifetime of
-// the Presentation instance, but it does not need to be loaded into memory or copied to a temporary file.
 $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 $presentation = new Presentation($filePath, $loadOptions);
 try {
-    // Bài thuyết trình lớn đã được tải và có thể sử dụng, trong khi mức tiêu thụ bộ nhớ vẫn thấp.
-
-    // Thực hiện các thay đổi cho bài thuyết trình.
-    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
-
-    // Lưu bài thuyết trình thành tệp khác. Mức tiêu thụ bộ nhớ vẫn thấp trong quá trình này.
-    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
-	
-	// Đừng làm điều này! Một ngoại lệ I/O sẽ được ném vì tệp vẫn bị khóa cho đến khi đối tượng Presentation được giải phóng.
-	//unlink($filePath);
+    $presentation->getSlides()->get_Item(0)->setName("Large presentation");
+    $presentation->save("large-presentation-copy.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
-// Có thể thực hiện ở đây. Tệp nguồn không còn bị khóa bởi đối tượng Presentation.
-unlink($filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
+{{% alert color="info" title="Note" %}}
+Với [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked), tệp nguồn sẽ vẫn bị khóa cho đến khi đối tượng Presentation được giải phóng. Không được di chuyển, ghi đè hoặc xóa tệp nguồn trong khi đối tượng còn tồn tại.
 
-Để khắc phục một số hạn chế khi làm việc với stream, Aspose.Slides có thể sao chép nội dung của stream. Tải một bài thuyết trình lớn từ stream sẽ khiến bài thuyết trình bị sao chép và có thể làm chậm quá trình tải. Vì vậy, khi cần tải một bài thuyết trình lớn, chúng tôi mạnh mẽ khuyến nghị sử dụng đường dẫn tệp thay vì stream.
-
-Khi tạo một bài thuyết trình chứa các đối tượng lớn (video, audio, hình ảnh độ phân giải cao, v.v.), bạn có thể sử dụng [BLOB management](/slides/vi/php-java/manage-blob/) để giảm tiêu thụ bộ nhớ.
-
-{{%/alert %}}
+Aspose.Slides có thể sao chép nội dung của một luồng đầu vào trong quá trình tải. Đối với các bản trình bày lớn, đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Manage BLOBs](/slides/vi/php-java/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
+{{% /alert %}}
 
 ## **Kiểm Soát Tài Nguyên Bên Ngoài**
 
-Aspose.Slides cung cấp giao diện [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iresourceloadingcallback/) cho phép bạn quản lý tài nguyên bên ngoài. Đoạn mã PHP dưới đây cho thấy cách sử dụng giao diện `IResourceLoadingCallback`:
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) chấp nhận một triển khai của giao diện Java [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iresourceloadingcallback/) thông qua PHP/Java Bridge. Callback có thể cung cấp dữ liệu thay thế, chuyển hướng tài nguyên, sử dụng bộ tải mặc định, hoặc bỏ qua tài nguyên. Điều này hữu ích khi bản trình bày chứa các hình ảnh bên ngoài cần được giải quyết theo các quy tắc bảo mật hoặc lưu trữ của ứng dụng.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ResourceLoadingAction;
+
 class ImageLoadingHandler {
     function resourceLoading($args) {
-        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-            // Tải một hình ảnh thay thế.
-			$bytes = file_get_contents("aspose-logo.jpg");
-			$javaByteArray = java_values($bytes);
-            $args->setData($javaByteArray);
-            return ResourceLoadingAction::UserProvided;
-        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-            // Đặt URL thay thế.
-            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+        $originalUri = strtolower(java_values($args->getOriginalUri()));
+        $approvedImagePath = "approved-image.jpg";
+        $isJpeg = substr($originalUri, -4) === ".jpg";
+
+        if (!$isJpeg || !file_exists($approvedImagePath)) {
+            return ResourceLoadingAction::Skip;
         }
-        // Bỏ qua tất cả các hình ảnh khác.
-        return ResourceLoadingAction::Skip;
+
+        $imageData = file_get_contents($approvedImagePath);
+        if ($imageData === false) {
+            echo("The approved replacement image could not be read.\n");
+            return ResourceLoadingAction::Skip;
+        }
+
+        $args->setData(java_values($imageData));
+        return ResourceLoadingAction::UserProvided;
     }
 }
 
@@ -131,28 +135,37 @@ $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose
 $loadOptions = new LoadOptions();
 $loadOptions->setResourceLoadingCallback($loadingHandler);
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$presentation = new Presentation("presentation-with-external-images.pptx", $loadOptions);
+try {
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Tải Bài Thuyết Trình Không Có Đối Tượng Nhị Phân Nhúng**
+## **Tải Bản Trình Bày Không Có Đối Tượng Nhị Phân Nhúng**
 
-Một bài thuyết trình PowerPoint có thể chứa các loại đối tượng nhị phân nhúng sau:
+Một bản trình bày có thể chứa dữ liệu nhị phân nhúng mà một ứng dụng không cần hoặc không muốn giữ lại. Các ví dụ bao gồm:
 
-- Dự án VBA (có thể truy cập qua [Presentation.getVbaProject](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getVbaProject));
-- Dữ liệu OLE nhúng (có thể truy cập qua [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- Dữ liệu nhị phân điều khiển ActiveX (có thể truy cập qua [Control.getActiveXControlBinary](https://reference.aspose.com/slides/vi/php-java/aspose.slides/control/#getActiveXControlBinary)).
+- Dự án VBA, có sẵn qua [Presentation::getVbaProject](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getVbaProject);
+- dữ liệu OLE nhúng, có sẵn qua [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- dữ liệu điều khiển ActiveX, có sẵn qua [Control::getActiveXControlBinary](https://reference.aspose.com/slides/vi/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-Bằng cách sử dụng phương thức [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects), bạn có thể tải một bài thuyết trình mà không có bất kỳ đối tượng nhị phân nhúng nào.
+Thiết lập [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) thành `true` để loại bỏ dữ liệu nhị phân này khi tải. Lưu bản trình bày đã tải để lưu lại kết quả đã được làm sạch.
 
-Phương thức này hữu ích để loại bỏ nội dung nhị phân có khả năng độc hại. Đoạn mã PHP dưới đây minh họa cách tải một bài thuyết trình mà không có bất kỳ nội dung nhị phân nhúng nào:
+Tùy chọn này giảm thiểu nguy cơ tiếp xúc với các payload nhúng không mong muốn, nhưng nó không phải là một hệ thống phát hiện phần mềm độc hại hoặc làm sạch nội dung hoàn chỉnh.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $loadOptions = new LoadOptions();
 $loadOptions->setDeleteEmbeddedBinaryObjects(true);
 
-$presentation = new Presentation("malware.ppt", $loadOptions);
+$presentation = new Presentation("presentation-with-embedded-data.pptx", $loadOptions);
 try {
-    // Thực hiện các thao tác trên bài thuyết trình.
+    $presentation->save("presentation-without-embedded-data.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -160,14 +173,14 @@ try {
 
 ## **Câu Hỏi Thường Gặp**
 
-**Làm sao tôi biết một tệp bị hỏng và không thể mở được?**
+**Làm thế nào tôi biết một tệp bị hỏng và không thể mở được?**
 
-Bạn sẽ nhận được ngoại lệ xác thực/định dạng khi tải. Các lỗi này thường đề cập đến cấu trúc ZIP không hợp lệ hoặc các bản ghi PowerPoint bị hỏng.
+Aspose.Slides ném ra một ngoại lệ phân tích hoặc định dạng trong quá trình tải. Xử lý lỗi này riêng biệt so với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
 
-**Điều gì sẽ xảy ra nếu thiếu phông chữ bắt buộc khi mở?**
+**Điều gì xảy ra nếu các phông chữ cần thiết bị thiếu?**
 
-Tệp sẽ mở được, nhưng sau này khi [rendering/export](/slides/vi/php-java/convert-presentation/) có thể thay thế phông chữ. Hãy [cấu hình thay thế phông chữ](/slides/vi/php-java/font-substitution/) hoặc [thêm các phông chữ cần thiết](/slides/vi/php-java/custom-font/) vào môi trường chạy.
+Bản trình bày vẫn có thể được tải, nhưng việc hiển thị và xuất có thể thay thế phông chữ. Bạn có thể [configure font substitution](/slides/vi/php-java/font-substitution/) hoặc [provide custom fonts](/slides/vi/php-java/custom-font/) để làm cho đầu ra dự đoán được hơn.
 
-**Còn về media nhúng (video/audio) khi mở thì sao?**
+**Việc tải một bản trình bày có đồng thời tải các phương tiện nhúng không?**
 
-Chúng sẽ được cung cấp như tài nguyên của bài thuyết trình. Nếu media được tham chiếu qua đường dẫn bên ngoài, hãy đảm bảo các đường dẫn đó có thể truy cập trong môi trường của bạn; nếu không, [rendering/export](/slides/vi/php-java/convert-presentation/) có thể bỏ qua media.
+Âm thanh và video nhúng trở nên khả dụng thông qua mô hình đối tượng của bản trình bày. Các tài nguyên bên ngoài được giải quyết theo hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập vị trí của chúng.

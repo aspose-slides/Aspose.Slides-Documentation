@@ -20,114 +20,103 @@ keywords:
 - δυαδικό αντικείμενο
 - Python
 - Aspose.Slides
-description: "Ανοίξτε παρουσιάσεις PowerPoint (.pptx, .ppt) και OpenDocument (.odp) με άνεση χρησιμοποιώντας το Aspose.Slides για Python μέσω .NET—γρήγορο, αξιόπιστο, πλήρως εξοπλισμένο."
+description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε Python, να παρέχετε κωδικούς πρόσβασης ανοίγματος και να μειώσετε τη χρήση μνήμης με το Aspose.Slides για Python μέσω .NET."
 ---
 ## **Εισαγωγή**
 
-Πέρα από τη δημιουργία παρουσιάσεων PowerPoint από το μηδέν, το Aspose.Slides σας επιτρέπει επίσης να ανοίξετε υπάρχουσες παρουσιάσεις. Αφού φορτώσετε μια παρουσίαση, μπορείτε να ανακτήσετε πληροφορίες για αυτήν, να επεξεργαστείτε το περιεχόμενο των διαφανειών, να προσθέσετε νέες διαφάνειες, να αφαιρέσετε υπάρχουσες και πολλά άλλα.
+[Aspose.Slides για Python μέσω .NET](https://products.aspose.com/slides/el/python-net/) μπορεί να φορτώσει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Αφού φορτωθεί μια παρουσίαση, μπορείτε να εξετάσετε τη δομή της, να επεξεργαστείτε διαφάνειες, να διαχειριστείτε πόρους και να την αποθηκεύσετε στην αρχική ή σε άλλη υποστηριζόμενη μορφή.
+
+Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να παρέχετε κωδικό πρόσβασης ανοίγματος, να διατηρήσετε μεγάλα δυαδικά αντικείμενα εκτός μνήμης ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
 
 ## **Άνοιγμα Παρουσιάσεων**
 
-Για να ανοίξετε μια υπάρχουσα παρουσίαση, δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/) και περάστε τη διαδρομή του αρχείου στον κατασκευαστή της.
+Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/)`. Χρησιμοποιήστε μια δήλωση `with` ώστε τα χειριστήρια αρχείων, τα προσωρινά δεδομένα και άλλοι πόροι να απελευθερώνονται αμέσως.
 
 Το παρακάτω παράδειγμα Python δείχνει πώς να ανοίξετε μια παρουσίαση και να λάβετε τον αριθμό των διαφανειών της:
 
 ```python
 import aspose.slides as slides
 
-# Δημιουργήστε ένα αντικείμενο της κλάσης Presentation και περάστε μια διαδρομή αρχείου στον κατασκευαστή του.
 with slides.Presentation("sample.pptx") as presentation:
-    # Εκτυπώστε το συνολικό αριθμό διαφανειών στην παρουσίαση.
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
 ## **Άνοιγμα Παρουσιάσεων με Κωδικό Πρόσβασης**
 
-Όταν χρειάζεται να ανοίξετε μια παρουσίαση που είναι προστατευμένη με κωδικό, περάστε τον κωδικό μέσω της ιδιότητας [password](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/password/) της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/) για να την αποκρυπτογραφήσετε και να τη φορτώσετε. Το παρακάτω κώδικας Python επιδεικνύει αυτή τη λειτουργία:
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε ολόκληρη την παρουσίαση, ορίστε τον σωστό κωδικό στην ιδιότητα [LoadOptions.password](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/password/) και περάστε τις επιλογές στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/). Η φόρτωση αποτυγχάνει όταν ο κωδικός λείπει ή είναι λανθασμένος.
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # Πραγματοποιήστε λειτουργίες στην αποκρυπτογραφημένη παρουσίαση.
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
+
+Για ανίχνευση κωδικών, επικύρωση και ροές εργασίας κρυπτογράφησης, δείτε [Password-Protect Presentations](/slides/el/python-net/password-protected-presentation/). Εάν μια κρυπτογραφημένη παρουσίαση αποθηκεύτηκε εκ προθέσεως με δημόσια ιδιότητα εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό· δείτε [Manage Presentation Properties](/slides/el/python-net/presentation-properties/).
 
 ## **Άνοιγμα Μεγάλων Παρουσιάσεων**
 
-Το Aspose.Slides παρέχει επιλογές—ιδιαίτερα την ιδιότητα [blob_management_options](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/blob_management_options/) στην κλάση [LoadOptions](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/)—για να σας βοηθήσει να φορτώσετε μεγάλες παρουσιάσεις.
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/blob_management_options/) ελέγχει πώς το Aspose.Slides διαχειρίζεται μεγάλα δυαδικά αντικείμενα όπως εικόνες, ήχο και βίντεο. Μπορείτε να διατηρήσετε το αρχείο προέλευσης κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε την ποσότητα δεδομένων BLOB που διατηρούνται στη μνήμη.
 
-Αυτός ο κώδικας Python επιδεικνύει τη φόρτωση μιας μεγάλης παρουσίασης (για παράδειγμα, 2 GB):
+Αυτός ο κώδικας Python δείχνει τη φόρτωση μιας μεγάλης παρουσίασης (π.χ. 2 GB):
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# Επιλέξτε τη συμπεριφορά KeepLocked—το αρχείο παρουσίασης θα παραμείνει κλειδωμένο για τη διάρκεια της 
-# της παρουσίας Presentation, αλλά δεν χρειάζεται να φορτωθεί στη μνήμη ή να αντιγραφεί σε προσωρινό αρχείο.
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # Η μεγάλη παρουσίαση έχει φορτωθεί και μπορεί να χρησιμοποιηθεί, ενώ η κατανάλωση μνήμης παραμένει χαμηλή.
-
-    # Κάντε αλλαγές στην παρουσίαση.
     presentation.slides[0].name = "Large presentation"
-
-    # Αποθηκεύστε την παρουσίαση σε άλλο αρχείο. Η κατανάλωση μνήμης παραμένει χαμηλή κατά τη διάρκεια αυτής της λειτουργίας.
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # Μην το κάνετε αυτό! Θα προκληθεί εξαίρεση I/O επειδή το αρχείο είναι κλειδωμένο μέχρι να διαγραφεί το αντικείμενο παρουσίασης.
-    os.remove(file_path)
-
-# Εντάξει να το κάνετε εδώ. Το αρχείο προέλευσης δεν είναι πλέον κλειδωμένο από το αντικείμενο παρουσίασης.
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Info" %}}
-Για να παρακαμφθούν ορισμένοι περιορισμοί κατά την εργασία με ροές, το Aspose.Slides ενδέχεται να αντιγράψει τα περιεχόμενα μιας ροής. Η φόρτωση μιας μεγάλης παρουσίασης από ροή προκαλεί αντιγραφή της παρουσίασης και μπορεί να επιβραδύνει τη διαδικασία. Συνεπώς, όταν χρειάζεται να φορτώσετε μια μεγάλη παρουσίαση, συνιστούμε ανεπιφύλακτα τη χρήση της διαδρομής αρχείου της παρουσίασης αντί για ροή.
+{{% alert color="info" title="Σημείωση" %}}
 
-Κατά τη δημιουργία μιας παρουσίασης που περιέχει μεγάλα αντικείμενα (βίντεο, ήχο, εικόνες υψηλής ανάλυσης κ.λπ.), μπορείτε να χρησιμοποιήσετε τη [BLOB management](/slides/el/python-net/manage-blob/) για μείωση της κατανάλωσης μνήμης.
-{{%/alert %}}
+Με την τιμή `PresentationLockingBehavior.KEEP_LOCKED`, το αρχείο προέλευσης παραμένει κλειδωμένο μέχρι το αντικείμενο `Presentation` να απελευθερωθεί. Μην μετακινείτε, αντικαθιστάτε ή διαγράφετε το αρχείο προέλευσης ενώ το αντικείμενο είναι ενεργό.
 
-## **Φόρτωση Παρουσιάσεων Χωρίς Ενσωματωμένα Δυαδικά Αντικείμενα**
+Το Aspose.Slides ενδέχεται να αντιγράψει τα περιεχόμενα μιας ροής εισόδου κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, μια διαδρομή αρχείου είναι γενικά πιο αποδοτική από μια ροή. Δείτε το [Manage BLOBs](/slides/el/python-net/manage-blob/) για πρόσθετες επιλογές αποθήκευσης και διαχείρισης μνήμης.
 
-Μια παρουσίαση PowerPoint μπορεί να περιέχει τους εξής τύπους ενσωματωμένων δυαδικών αντικειμένων:
+{{% /alert %}}
 
-- VBA project (προσβάσιμο μέσω [Presentation.vba_project](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/vba_project/));
-- OLE object embedded data (προσβάσιμο μέσω [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/el/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
-- ActiveX control binary data (προσβάσιμο μέσω [Control.active_x_control_binary](https://reference.aspose.com/slides/el/python-net/aspose.slides/control/active_x_control_binary/)).
+## **Φόρτωση Παρουσιάσεων χωρίς Ενσωματωμένα Δυαδικά Αντικείμενα**
 
-Χρησιμοποιώντας την ιδιότητα [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/), μπορείτε να φορτώσετε μια παρουσίαση χωρίς κανένα ενσωματωμένο δυαδικό αντικείμενο.
+Μια παρουσίαση μπορεί να περιέχει ενσωματωμένα δυαδικά δεδομένα που μια εφαρμογή δεν χρειάζεται ή δεν θέλει να διατηρήσει. Παραδείγματα περιλαμβάνουν:
 
-Αυτή η ιδιότητα είναι χρήσιμη για την αφαίρεση ενδεχομένως κακόβουλου δυαδικού περιεχομένου. Το παρακάτω κώδικας Python δείχνει πώς να φορτώσετε μια παρουσίαση χωρίς ενσωματωμένο δυαδικό περιεχόμενο:
+- έργα VBA, διαθέσιμα μέσω [Presentation.vba_project](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/vba_project/);
+- ενσωματωμένα δεδομένα OLE, διαθέσιμα μέσω [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/el/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/);
+- δεδομένα ελέγχου ActiveX, διαθέσιμα μέσω [Control.active_x_control_binary](https://reference.aspose.com/slides/el/python-net/aspose.slides/control/active_x_control_binary/).
 
-```py
+Ορίστε [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/el/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) σε `True` για να αφαιρέσετε αυτά τα δυαδικά δεδομένα κατά τη φόρτωση. Αποθηκεύστε την φορτωμένη παρουσίαση για να διατηρήσετε το καθαρισμένο αποτέλεσμα.
+
+Αυτή η επιλογή μειώνει την έκθεση σε ανεπιθύμητα ενσωματωμένα φορτία, αλλά δεν αποτελεί πλήρες σύστημα ανίχνευσης κακόβουλου λογισμικού ή καθαρισμού περιεχομένου.
+
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # Εκτελέστε λειτουργίες στην παρουσίαση.
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να καταλάβω ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανο открывается?**
+**Πώς μπορώ να διαπιστώ ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοιχθεί;**
 
-Θα λάβετε εξαίρεση επαλήθευσης σύνταξης/μορφής κατά τη φόρτωση. Τέτοια σφάλματα συχνά αναφέρουν μη έγκυρη δομή ZIP ή χαλασμένες εγγραφές PowerPoint.
+Το Aspose.Slides εγείρει εξαίρεση παρα/parsing ή μορφοποίησης κατά τη φόρτωση. Διαχειριστείτε αυτήν την αποτυχία ξεχωριστά από σφάλμα λανθασμένου κωδικού πρόσβασης ώστε η εφαρμογή να μπορεί να αναφέρει ακριβώς το αίτιο.
 
-**Τι συμβαίνει αν λείπουν τα απαιτούμενα γραμματοσειρά όταν ανοίγουμε το αρχείο;**
+**Τι συμβαίνει αν λείπουν απαιτούμενες γραμματοσειρές;**
 
-Το αρχείο θα ανοίξει, αλλά αργότερα η [απόδοση/εξαγωγή](/slides/el/python-net/convert-presentation/) ενδέχεται να αντικαταστήσει τις γραμματοσειρές. [Διαμορφώστε τις υποκαταστάσεις γραμματοσειρών](/slides/el/python-net/font-substitution/) ή [προσθέστε τις απαιτούμενες γραμματοσειρές](/slides/el/python-net/custom-font/) στο περιβάλλον εκτέλεσης.
+Η παρουσίαση μπορεί ακόμα να φορτωθεί, αλλά η απόδοση και η εξαγωγή μπορεί να αντικαταστήσουν τις γραμματοσειρές. Μπορείτε να [configure font substitution](/slides/el/python-net/font-substitution/) ή να [provide custom fonts](/slides/el/python-net/custom-font/) για να κάνετε το αποτέλεσμα πιο προβλέψιμο.
 
-**Τι γίνεται με τα ενσωματωμένα μέσα (βίντεο/ήχος) κατά το άνοιγμα;**
+**Φορτώνει η παρουσίαση επίσης τα ενσωματωμένα μέσα της;**
 
-Γίνονται διαθέσιμα ως πόροι της παρουσίασης. Εάν τα μέσα αναφέρονται μέσω εξωτερικών διαδρομών, βεβαιωθείτε ότι αυτές οι διαδρομές είναι προσβάσιμες στο περιβάλλον σας· διαφορετικά η [απόδοση/εξαγωγή](/slides/el/python-net/convert-presentation/) ενδέχεται να παραλείψει τα μέσα.
+Τα ενσωματωμένα ηχητικά και βίντεο γίνονται διαθέσιμα μέσω του μοντέλου αντικειμένων παρουσίασης. Οι εξωτερικοί πόροι επιλύονται σύμφωνα με τη προεπιλεγμένη συμπεριφορά φόρτωσης πόρων και μπορεί να μην είναι διαθέσιμοι εάν δεν είναι προσπελάσιμοι οι προορισμοί τους.

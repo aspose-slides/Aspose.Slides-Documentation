@@ -1,12 +1,11 @@
 ---
-title: Άνοιγμα παρουσιάσεων σε Java
-linktitle: Άνοιγμα παρουσίασης
+title: Άνοιγμα Παρουσιάσεων σε Java
+linktitle: Άνοιγμα Παρουσίασης
 type: docs
 weight: 20
 url: /el/java/open-presentation/
 keywords:
 - άνοιγμα PowerPoint
-- άνοιγμα OpenDocument
 - άνοιγμα παρουσίασης
 - άνοιγμα PPTX
 - άνοιγμα PPT
@@ -21,157 +20,166 @@ keywords:
 - δυαδικό αντικείμενο
 - Java
 - Aspose.Slides
-description: "Άνοιγμα παρουσιάσεων PowerPoint (.pptx, .ppt) και OpenDocument (.odp) χωρίς δυσκολίες με το Aspose.Slides για Java—γρήγορο, αξιόπιστο, πλήρως εξοπλισμένο."
+description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε Java, να παρέχετε κωδικούς πρόσβασης ανοίγματος, να ελέγχετε τη φόρτωση πόρων και να μειώνετε τη χρήση μνήμης με το Aspose.Slides για Java."
 ---
 ## **Εισαγωγή**
 
-Πέρα από τη δημιουργία παρουσιάσεων PowerPoint από το μηδέν, το Aspose.Slides σας επιτρέπει επίσης να ανοίξετε υπάρχουσες παρουσιάσεις. Αφού φορτώσετε μια παρουσίαση, μπορείτε να ανακτήσετε πληροφορίες γι' αυτήν, να επεξεργαστείτε το περιεχόμενο των διαφανειών, να προσθέσετε νέες διαφάνειες, να αφαιρέσετε υπάρχουσες και πολλά άλλα.
+[Aspose.Slides for Java](https://products.aspose.com/slides/el/java/) μπορεί να φορτώσει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Μετά τη φόρτωση μιας παρουσίασης, μπορείτε να εξετάσετε τη δομή της, να επεξεργαστείτε τις διαφάνειες, να διαχειριστείτε πόρους και να την αποθηκεύσετε στο αρχικό ή σε άλλο υποστηριζόμενο μορφότυπο.
+
+Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να καθορίσετε έναν κωδικό πρόσβασης ανοίγματος, να διατηρήσετε μεγάλα δυαδικά αντικείμενα εκτός μνήμης Java heap, να ελέγχετε εξωτερικούς πόρους ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
 
 ## **Άνοιγμα Παρουσιάσεων**
 
-Για να ανοίξετε μια υπάρχουσα παρουσίαση, δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/) και περάστε τη διαδρομή του αρχείου στον κατασκευαστή της.
-
-Το παρακάτω παράδειγμα Java δείχνει πώς να ανοίξετε μια παρουσίαση και να λάβετε τον αριθμό των διαφανειών της:
+Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στην κατασκευάστρια μέθοδο [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/). Αποδεσμεύστε την παρουσίαση μετά τη χρήση ώστε να απελευθερωθούν άμεσα τα χειριστήρια αρχείων, τα προσωρινά δεδομένα και άλλοι πόροι.
 
 ```java
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation και περάστε μια διαδρομή αρχείου στον κατασκευαστή της.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Εκτυπώστε το συνολικό αριθμό διαφανειών στην παρουσίαση.
-    System.out.println(presentation.getSlides().size());
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Άνοιγμα Παρουσιάσεων με Προστασία Κωδικού**
+## **Άνοιγμα Παρουσιάσεων με Κωδικό Πρόσβασης**
 
-Όταν χρειάζεται να ανοίξετε μια παρουσίαση προστατευμένη με κωδικό, περάστε τον κωδικό μέσω της μεθόδου [setPassword](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/) για να την αποκρυπτογραφήσετε και να τη φορτώσετε. Το παρακάτω κώδικα Java δείχνει αυτήν τη λειτουργία:
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε ολόκληρη την παρουσίαση, περάστε τον σωστό κωδικό στην μέθοδο [LoadOptions.setPassword](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) και παραχωρήστε τις επιλογές στην κατασκευάστρια μέθοδο [Presentation](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentation/). Η φόρτωση αποτυγχάνει όταν λείπει ή είναι λανθασμένος ο κωδικός.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+loadOptions.setPassword("open_password");
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
+Presentation presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // Εκτελέστε ενέργειες στην αποκρυπτογραφημένη παρουσίαση.
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
+
+Για ανίχνευση κωδικού, επικύρωση και ροές κρυπτογράφησης, δείτε [Password-Protect Presentations](/slides/el/java/password-protected-presentation/). Εάν μια κρυπτογραφημένη παρουσίαση έχει αποθηκευτεί εκούσια με δημόσια ιδιότητα εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό· δείτε [Manage Presentation Properties](/slides/el/java/presentation-properties/).
 
 ## **Άνοιγμα Μεγάλων Παρουσιάσεων**
 
-Το Aspose.Slides παρέχει επιλογές — ειδικότερα τη μέθοδο [getBlobManagementOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) στην κλάση [LoadOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/) — για να σας βοηθήσει να φορτώσετε μεγάλες παρουσιάσεις.
-
-Το παρακάτω κώδικα Java δείχνει πώς να φορτώσετε μια μεγάλη παρουσίαση (για παράδειγμα, 2 GB):
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) επιστρέφει επιλογές που ελέγχουν πώς το Aspose.Slides διαχειρίζεται μεγάλα δυαδικά αντικείμενα όπως εικόνες, ήχο και βίντεο. Μπορείτε να κρατήσετε το πηγαίο αρχείο κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε την ποσότητα των δεδομένων BLOB που διατηρούνται στη μνήμη.
 
 ```java
-final String filePath = "LargePresentation.pptx";
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationLockingBehavior;
+import com.aspose.slides.SaveFormat;
+
+final String filePath = "large-presentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// Επιλέξτε τη συμπεριφορά KeepLocked — το αρχείο παρουσίασης θα παραμείνει κλειδωμένο για τη διάρκεια της
-// του αντικειμένου Presentation, αλλά δεν χρειάζεται να φορτωθεί στη μνήμη ή να αντιγραφεί σε προσωρινό αρχείο.
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 Presentation presentation = new Presentation(filePath, loadOptions);
 try {
-    // Η μεγάλη παρουσίαση έχει φορτωθεί και μπορεί να χρησιμοποιηθεί, ενώ η κατανάλωση μνήμης παραμένει χαμηλή.
-
-    // Κάντε αλλαγές στην παρουσίαση.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // Αποθηκεύστε την παρουσίαση σε άλλο αρχείο. Η κατανάλωση μνήμης παραμένει χαμηλή κατά τη διάρκεια αυτής της λειτουργίας.
-    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // Μην το κάνετε! Θα προκληθεί εξαίρεση I/O επειδή το αρχείο είναι κλειδωμένο μέχρι να διαγραφεί το αντικείμενο παρουσίασης.
-    //Files.delete(Paths.get(filePath));
+    presentation.save("large-presentation-copy.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// Μπορεί να γίνει εδώ. Το αρχείο προέλευσης δεν είναι πλέον κλειδωμένο από το αντικείμενο παρουσίασης.
-Files.delete(Paths.get(filePath));
 ```
 
-{{% alert color="info" title="Info" %}}
-Για να προσαρμοστείτε σε ορισμένους περιορισμούς κατά τη χρήση ροών, το Aspose.Slides ενδέχεται να αντιγράψει τα περιεχόμενα μιας ροής. Η φόρτωση μιας μεγάλης παρουσίασης από ροή προκαλεί το αντίγραφο της παρουσίασης και μπορεί να επιβραδύνει τη φόρτωση. Συνεπώς, όταν χρειάζεται να φορτώσετε μια μεγάλη παρουσίαση, συνιστούμε ανεπιφύλακτα τη χρήση της διαδρομής του αρχείου παρουσίασης αντί για ροή.
+{{% alert color="info" title="Σημείωση" %}}
+Με την επιλογή [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/el/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked), το πηγαίο αρχείο παραμένει κλειδωμένο μέχρι να αποδεσμευθεί η παρουσίαση. Μην μετακινείτε, αντικαθιστάτε ή διαγράφετε το πηγαίο αρχείο ενώ αυτό το αντικείμενο είναι ενεργό.
 
-Κατά τη δημιουργία παρουσίασης που περιέχει μεγάλα αντικείμενα (βίντεο, ήχο, εικόνες υψηλής ανάλυσης κ.λπ.), μπορείτε να χρησιμοποιήσετε τη [BLOB management](/slides/el/java/manage-blob/) για να μειώσετε την κατανάλωση μνήμης.
-{{%/alert %}}
+Το Aspose.Slides ενδέχεται να αντιγράψει τα περιεχόμενα μιας εισαγόμενης ροής κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, μια διαδρομή αρχείου είναι γενικά πιο αποδοτική από μια ροή. Δείτε [Manage BLOBs](/slides/el/java/manage-blob/) για πρόσθετες επιλογές αποθήκευσης και διαχείρισης μνήμης.
+{{% /alert %}}
 
 ## **Έλεγχος Εξωτερικών Πόρων**
 
-Το Aspose.Slides παρέχει το interface [IResourceLoadingCallback](https://reference.aspose.com/slides/el/java/com.aspose.slides/iresourceloadingcallback/) που σας επιτρέπει να διαχειρίζεστε εξωτερικούς πόρους. Το παρακάτω κώδικα Java δείχνει πώς να χρησιμοποιήσετε το interface `IResourceLoadingCallback`:
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) δέχεται μια υλοποίηση του [IResourceLoadingCallback](https://reference.aspose.com/slides/el/java/com.aspose.slides/iresourceloadingcallback/). Η κλήση μπορεί να παρέχει αντικαταστατικά δεδομένα, να ανακατευθύνει έναν πόρο, να χρησιμοποιήσει τον προεπιλεγμένο φορτωτή ή να παραλείψει τον πόρο. Αυτό είναι χρήσιμο όταν οι παρουσιάσεις περιέχουν εξωτερικές εικόνες που πρέπει να λυθούν σύμφωνα με τους κανόνες ασφαλείας ή αποθήκευσης της εφαρμογής.
 
 ```java
+import com.aspose.slides.IResourceLoadingArgs;
+import com.aspose.slides.IResourceLoadingCallback;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.ResourceLoadingAction;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        boolean isJpeg = args.getOriginalUri().toLowerCase(Locale.ROOT).endsWith(".jpg");
+        Path approvedImagePath = Paths.get("approved-image.jpg");
+        if (!isJpeg || !Files.exists(approvedImagePath)) {
+            return ResourceLoadingAction.Skip;
+        }
+
+        try {
+            byte[] imageData = Files.readAllBytes(approvedImagePath);
+            args.setData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        } catch (IOException exception) {
+            System.err.println("The approved replacement image could not be read.");
+            return ResourceLoadingAction.Skip;
+        }
+    }
+}
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
-
-```java
-class ImageLoadingHandler implements IResourceLoadingCallback {
-    public int resourceLoading(IResourceLoadingArgs args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Φορτώστε μια εναλλακτική εικόνα.
-                byte[] imageData = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            } catch (RuntimeException ex) {
-                return ResourceLoadingAction.Skip;
-            }  catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Ορίστε μια εναλλακτική URL.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction.Default;
-        }
-        // Παράβλεψη όλων των άλλων εικόνων.
-        return ResourceLoadingAction.Skip;
-    }
+Presentation presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    System.out.println("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **Φόρτωση Παρουσιάσεων χωρίς Ενσωματωμένα Δυαδικά Αντικείμενα**
 
-Μια παρουσίαση PowerPoint μπορεί να περιέχει τους παρακάτω τύπους ενσωματωμένων δυαδικών αντικειμένων:
+Μια παρουσίαση μπορεί να περιέχει ενσωματωμένα δυαδικά δεδομένα που μια εφαρμογή δεν χρειάζεται ή δεν επιθυμεί να διατηρήσει. Παραδείγματα περιλαμβάνουν:
 
-- VBA project (πρόσβαση μέσω [IPresentation.getVbaProject](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentation/#getVbaProject--));
-- OLE object embedded data (πρόσβαση μέσω [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/el/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- ActiveX control binary data (πρόσβαση μέσω [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
+- Έργα VBA, διαθέσιμα μέσω [IPresentation.getVbaProject](https://reference.aspose.com/slides/el/java/com.aspose.slides/ipresentation/#getVbaProject--);
+- ενσωματωμένα δεδομένα OLE, διαθέσιμα μέσω [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/el/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- δεδομένα ελέγχου ActiveX, διαθέσιμα μέσω [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/el/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Χρησιμοποιώντας τη μέθοδο [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) μπορείτε να φορτώσετε μια παρουσίαση χωρίς κανένα ενσωματωμένο δυαδικό αντικείμενο.
+Ορίστε [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) σε `true` για να αφαιρέσετε αυτά τα δυαδικά δεδομένα κατά τη φόρτωση. Αποθηκεύστε την φορτωμένη παρουσίαση για να διατηρήσετε το καθαρισμένο αποτέλεσμα.
 
-Αυτή η μέθοδος είναι χρήσιμη για την αφαίρεση ενδεχομένως κακόβουλου δυαδικού περιεχομένου. Το παρακάτω κώδικα Java δείχνει πώς να φορτώσετε μια παρουσίαση χωρίς κανένα ενσωματωμένο δυαδικό περιεχόμενο:
+Αυτή η επιλογή μειώνει την έκθεση σε ανεπιθύμητες ενσωματωμένες επιθέσεις, αλλά δεν αποτελεί πλήρες σύστημα ανίχνευσης κακόβουλου λογισμικού ή εξάλειψης περιεχομένου.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation presentation = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // Εκτελέστε ενέργειες στην παρουσίαση.
+    presentation.save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να καταλάβω ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοιχθεί;**
 
-Θα λάβετε εξαίρεση επαλήθευσης ανάλυσης/μορφής κατά τη φόρτωση. Τέτοια σφάλματα συχνά αναφέρουν μη έγκυρη δομή ZIP ή κατεστραμμένα αρχεία PowerPoint.
+Το Aspose.Slides εγείρει εξαίρεση ανάλυσης ή μορφοποίησης κατά τη φόρτωση. Χειριστείτε αυτήν την αποτυχία ξεχωριστά από σφάλμα λανθασμένου κωδικού πρόσβασης ώστε η εφαρμογή να μπορεί να αναφέρει ακριβώς την αιτία.
 
-**Τι συμβαίνει αν λείπουν τα απαιτούμενα γραμματοσειρές κατά το άνοιγμα;**
+**Τι συμβαίνει εάν λείπουν οι απαιτούμενες γραμματοσειρές;**
 
-Το αρχείο θα ανοίξει, αλλά αργότερα το [rendering/export](/slides/el/java/convert-presentation/) μπορεί να αντικαταστήσει τις γραμματοσειρές. [Configure font substitutions](/slides/el/java/font-substitution/) ή [add the required fonts](/slides/el/java/custom-font/) στο περιβάλλον εκτέλεσης.
+Η παρουσίαση μπορεί ακόμη να φορτωθεί, αλλά η απόδοση και η εξαγωγή ενδέχεται να αντικαταστήσουν τις γραμματοσειρές. Μπορείτε να [configure font substitution](/slides/el/java/font-substitution/) ή να [provide custom fonts](/slides/el/java/custom-font/) για πιο προβλέψιμη έξοδο.
 
-**Τι γίνεται με τα ενσωματωμένα μέσα (βίντεο/ήχος) κατά το άνοιγμα;**
+**Φορτώνεται επίσης το ενσωματωμένο πολυμέσο μιας παρουσίασης κατά τη φόρτωση;**
 
-Γίνονται διαθέσιμα ως πόροι της παρουσίασης. Εάν τα μέσα αναφέρονται μέσω εξωτερικών διαδρομών, βεβαιωθείτε ότι αυτές οι διαδρομές είναι προσβάσιμες στο περιβάλλον σας· διαφορετικά το [rendering/export](/slides/el/java/convert-presentation/) μπορεί να παραλείψει τα μέσα.
+Τα ενσωματωμένα ήχο και βίντεο γίνονται διαθέσιμα μέσω του αντικειμενικού μοντέλου της παρουσίασης. Οι εξωτερικοί πόροι λογοδοτούνται σύμφωνα με τη ρυθμισμένη συμπεριφορά φόρτωσης πόρων και ενδέχεται να μην είναι διαθέσιμοι εάν οι τοποθεσίες τους δεν είναι προσβάσιμες.

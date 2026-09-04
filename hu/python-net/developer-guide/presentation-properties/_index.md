@@ -1,13 +1,13 @@
 ---
-title: Prezentációs tulajdonságok kezelése Pythonban
-linktitle: Prezentációs tulajdonságok
+title: Prezentáció tulajdonságok kezelése Pythonban
+linktitle: Prezentáció tulajdonságok
 type: docs
 weight: 70
 url: /hu/python-net/presentation-properties/
 keywords:
 - PowerPoint tulajdonságok
-- prezentációs tulajdonságok
-- dokumentumtulajdonságok
+- prezentáció tulajdonságok
+- dokumentum tulajdonságok
 - beépített tulajdonságok
 - egyéni tulajdonságok
 - haladó tulajdonságok
@@ -22,35 +22,104 @@ keywords:
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Mesterműként kezelje a prezentációs tulajdonságokat az Aspose.Slides for Python via .NET segítségével, és egyszerűsítse a keresést, a márkaépítést és a munkafolyamatot PowerPoint fájljaiban."
+description: "Kezelje hatékonyan a prezentáció tulajdonságait az Aspose.Slides for Python via .NET segítségével, és egyszerűsítse a keresést, a márkázást és a munkafolyamatot PowerPoint fájljaiban."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides két típusú dokumentumtulajdonságot támogat: **Beépített** és **Egyéni**. Mindkét tulajdonságtípust könnyedén elérheti és kezelheti az Aspose.Slides API segítségével.
+Az Aspose.Slides két típusú dokumentumtulajdonságot támogat: **Beépített** és **Egyéni**. Mindkét tulajdonságtípust egyszerűen el lehet érni és kezelni az Aspose.Slides API segítségével.
 
-Az Aspose.Slides lehetővé teszi, hogy a prezentáció dokumentumtulajdonságokkal a [DocumentProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/) osztályon keresztül dolgozzon. Ennek az osztálynak egy példánya a [Presentation.document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/document_properties/) tulajdonságon keresztül érhető el. A következő példák bemutatják, hogyan olvashatja, módosíthatja és kezelheti ezeket a tulajdonságokat.
+Az Aspose.Slides lehetővé teszi, hogy a prezentáció dokumentumtulajdonságokkal a [DocumentProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/documentproperties/) osztályon keresztül dolgozzon. Ennek az osztálynak egy példánya a [Presentation.document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/document_properties/) tulajdonságon keresztül érhető el. A következő példák bemutatják, hogyan kell olvasni, módosítani és kezelni ezeket a tulajdonságokat.
 
-{{% alert color="info" title="Megjegyzés" %}}
-Kérjük, vegye figyelembe, hogy a **Application** és **Producer** mezők értékét nem állíthatja be, mivel az Aspose Ltd. és az Aspose.Slides for Python via .NET x.x.x megjelenik ezekben a mezőkben.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Kérjük, vegye figyelembe, hogy nem állíthat be értékeket a **Application** és **Producer** mezőkben, mivel az Aspose Ltd. és az Aspose.Slides for Python via .NET x.x.x jelenik meg ezekben a mezőkben.
+{{% /alert %}}
 
-## **Prezentáció Tulajdonságok Kezelése**
+## **Prezentáció tulajdonságok kezelése**
 
-A Microsoft PowerPoint lehetővé teszi, hogy néhány tulajdonságot hozzáadjon a prezentáció fájlokhoz. Ezek a dokumentumtulajdonságok lehetővé teszik, hogy hasznos információkat tároljunk a dokumentumokkal (prezentáció fájlok). Kétféle dokumentumtulajdonság létezik:
+A Microsoft PowerPoint lehetőséget biztosít néhány tulajdonság hozzáadására a prezentáció fájlokhoz. Ezek a dokumentumtulajdonságok hasznos információk tárolását teszik lehetővé a dokumentumok (prezentáció fájlok) mellett. Kétféle dokumentumtulajdonság létezik:
 
-- Rendszer által definiált (Beépített) Tulajdonságok
-- Felhasználó által definiált (Egyéni) Tulajdonságok
+- Rendszer által definiált (Beépített) tulajdonságok
+- Felhasználó által definiált (Egyéni) tulajdonságok
 
-**Beépített** tulajdonságok általános információkat tartalmaznak a dokumentumról, mint például a dokumentum címe, a szerző neve, a dokumentum statisztikái és így tovább. **Egyéni** tulajdonságok azok, amelyeket a felhasználók **Név/Érték** párok formájában definiálnak, ahol mind a név, mind az érték a felhasználó által van megadva. Az Aspose.Slides for Python via .NET segítségével a fejlesztők hozzáférhetnek és módosíthatják a beépített és az egyéni tulajdonságok értékeit. A Microsoft PowerPoint 2007 lehetővé teszi a prezentáció fájlok dokumentumtulajdonságainak kezelését. Ehhez csak a Microsoft PowerPoint 2007 Office ikonra kell kattintani, majd a **Prepare | Properties | Advanced Properties** menüpontot kiválasztani. A **Advanced Properties** menüpont kiválasztása után egy párbeszédablak jelenik meg, amely lehetővé teszi a PowerPoint fájl dokumentumtulajdonságainak kezelését. A **Properties Dialog**‑ban több fülnél is látható, például **General, Summary, Statistics, Contents and Custom**. Ezek a fülek különböző információk konfigurálását teszik lehetővé a PowerPoint fájlokhoz. A **Custom** fül az egyéni tulajdonságok kezelésére szolgál.
+**Beépített** tulajdonságok általános információkat tartalmaznak a dokumentumról, például a dokumentum címét, a szerző nevét, a dokumentum statisztikákat stb. **Egyéni** tulajdonságok azok, amelyeket a felhasználók **Név/Érték** pároként definiálnak, ahol a név és az érték is a felhasználó által kerül meghatározásra. Az Aspose.Slides for Python via .NET használatával a fejlesztők hozzáférhetnek és módosíthatják a beépített és egyéni tulajdonságok értékeit. A Microsoft PowerPoint 2007 lehetővé teszi a prezentáció fájlok dokumentumtulajdonságainak kezelését. Csak kattintson az Office ikonra, majd a **Prepare | Properties | Advanced Properties** menüpontra a Microsoft PowerPoint 2007-ben. Miután kiválasztotta a **Advanced Properties** menüpontot, megjelenik egy párbeszédablak, amely lehetővé teszi a PowerPoint fájl dokumentumtulajdonságainak kezelését. A **Properties Dialog** ablaktáblában számos lapot láthat, például **General, Summary, Statistics, Contents and Custom**. Ezek a lapok különböző típusú információk konfigurálását teszik lehetővé a PowerPoint fájlokkal kapcsolatban. A **Custom** lapot a PowerPoint fájlok egyéni tulajdonságainak kezelésére használják.
 
-## **Beépített Tulajdonságok Elérése**
-Ezeket a tulajdonságokat a **IDocumentProperties** objektum teszi elérhetővé, többek között: **Creator(Author)**, **Description**, **Keywords**, **Created** (Létrehozás dátuma), **Modified** (Módosítás dátuma), **Printed** (Utolsó nyomtatás dátuma), **LastModifiedBy**, **Keywords**, **SharedDoc** (Megosztott különböző készítők között?), **PresentationFormat**, **Subject** és **Title**
+## **Nyilvános tulajdonságok olvasása titkosított prezentációból**
+
+A nyitó jelszó általában védi a prezentáció tartalmát és a dokumentumtulajdonságokat is. Ha egy prezentáció titkosítva van a [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) `False` értékre állítva, a dokumentumtulajdonságai nyilvánosak maradnak. Ebben az esetben az alkalmazás a [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/only_load_document_properties/) értékét `True`-ra állíthatja, és a nyilvános metaadatokat a nyitó jelszó megadása nélkül olvashatja.
+
+`only_load_document_properties` szabályozza, hogy az Aspose.Slides mit tölt be; semmit sem titkosít fel. Ha a tulajdonságok a titkosítás részét képezik, jelszó nélkül a betöltés sikertelen. Ha a prezentáció nincs titkosítva, az opciót figyelmen kívül hagyják, és a teljes prezentáció betöltődik.
+
+A következő példa a [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/hu/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) segítségével ellenőrzi a betöltési módot, majd a [Presentation.document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/document_properties/) segítségével olvassa a beépített tulajdonságokat:
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.only_load_document_properties = True
+
+with slides.Presentation("public-properties-encrypted.pptx", load_options) as presentation:
+    if presentation.protection_manager.is_only_document_properties_loaded:
+        properties = presentation.document_properties
+
+        print("Author: " + properties.author)
+        print("Title: " + properties.title)
+        print("Keywords: " + properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+Ebben a módban a diák tartalma nem kerül betöltésre. A diák, mester diák, elrendezések, alakzatok, média és egyéb prezentációs objektumok nem érhetők el. Az alkalmazásoknak mindig ellenőrizniük kell az `is_only_document_properties_loaded` értéket, mielőtt olyan műveletet végeznek, amely a teljes prezentációs objektummodellt igényli.
+
+{{% alert color="warning" title="Security" %}}
+A nyilvános metaadatok felfedhetik a szerző nevét, címeit, témáit, kulcsszavait, vállalati információkat, megjegyzéseket és egyéni értékeket. Titkosítsa az érzékeny tulajdonságokat a prezentációval együtt. Csak akkor hagyja nyilvánosnak, ha az indexelés, osztályozás, keresés vagy dokumentumkezelő rendszereknek kifejezett igénye van a jelszó nélküli hozzáférésre.
+{{% /alert %}}
+
+## **Titkosított prezentáció tulajdonságainak frissítése**
+
+Titkosított PPTX fájl esetén a `only_load_document_properties`-vel betöltött prezentáció a nyilvános metaadatok olvasására szolgál. Az Aspose.Slides nem tudja menteni a módosított tulajdonságokat ebből a csak metaadatot tartalmazó objektumból, mivel a nyilvános tulajdonságoknak összhangban kell lenniük a titkosított prezentáción belüli megfelelő adatokkal. Ennek frissítése ezért a helyes nyitó jelszót és a teljes betöltést igényli.
+
+A következő példa a [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/) segítségével megnyitja a prezentációt, frissíti a nyilvános beépített tulajdonságokat, majd elmenti az eredményt. Ezután a [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/is_encrypted/) használatával ellenőrzi, hogy a titkosítás megmaradt-e, és jelszó nélkül újra megnyitja a nyilvános metaadatokat az új értékek ellenőrzéséhez:
+
+```python
+import aspose.slides as slides
+
+input_path = "public-properties-encrypted.pptx"
+output_path = "updated-public-properties-encrypted.pptx"
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation(input_path, load_options) as presentation:
+    presentation.document_properties.title = "Updated Product Roadmap"
+    presentation.document_properties.keywords = "roadmap, planning, indexed"
+    presentation.save(output_path, slides.export.SaveFormat.PPTX)
+
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(output_path)
+print("The presentation is encrypted: " + str(presentation_info.is_encrypted))
+
+metadata_load_options = slides.LoadOptions()
+metadata_load_options.only_load_document_properties = True
+
+with slides.Presentation(output_path, metadata_load_options) as metadata_presentation:
+    if metadata_presentation.protection_manager.is_only_document_properties_loaded:
+        print("Title: " + metadata_presentation.document_properties.title)
+        print("Keywords: " + metadata_presentation.document_properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+Ha egy alkalmazásnak nem engedélyezett a prezentáció tartalmának visszafejtése vagy betöltése, a titkosított PPTX fájl nyilvános tulajdonságait csak olvashatóként kell kezelnie.
+
+## **Beépített tulajdonságok elérése**
+
+Ezeket a tulajdonságokat az **IDocumentProperties** objektum biztosítja, beleértve: **Creator(Author)**, **Description**, **Keywords**, **Created** (Létrehozás dátuma), **Modified** (Módosítás dátuma), **Printed** (Utolsó nyomtatás dátuma), **LastModifiedBy**, **Keywords**, **SharedDoc** (Megosztott több gyártó között?), **PresentationFormat**, **Subject** és **Title**.
+
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a prezentációt képviselő Presentation osztályt
+# Példányosítja a Presentation osztályt, amely a prezentációt képviseli
 with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
-    # Hozzon létre egy hivatkozást a Presentation-hez kapcsolódó objektumra
+    # Referencia létrehozása a Presentation-hez kapcsolódó objektumra
     documentProperties = pres.document_properties
 
     # A beépített tulajdonságok megjelenítése
@@ -70,37 +139,39 @@ with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
     print("Title : " + documentProperties.title)
 ```
 
-## **Beépített Tulajdonságok Módosítása**
+## **Beépített tulajdonságok módosítása**
 
-A beépített tulajdonságok módosítása a prezentáció fájlokban olyan egyszerű, mint azok elérése. Egyszerűen hozzárendelhet egy karakterlánc értéket a kívánt tulajdonsághoz, és a tulajdonság értéke módosul. Az alább bemutatott példában azt mutatjuk be, hogyan módosíthatja a prezentáció fájl beépített dokumentumtulajdonságait.
+A prezentáció fájlok beépített tulajdonságainak módosítása olyan egyszerű, mint azok elérése. Egyszerűen hozzárendelhet egy karakterlánc értéket a kívánt tulajdonsághoz, és a tulajdonság értéke módosul. Az alábbi példában bemutattuk, hogyan lehet módosítani a prezentáció fájl beépített dokumentumtulajdonságait.
+
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt, amely a Presentation-t képviseli
+# Példányosítja a Presentation osztályt, amely a prezentációt képviseli
 with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
-    # Hozzon létre egy hivatkozást a Presentation-hez kapcsolódó objektumra
+    # Létrehozza a Presentation-hez kapcsolódó objektumra mutató referenciát
     documentProperties = presentation.document_properties
 
-    # Állítsa be a beépített tulajdonságokat
+    # Beállítja a beépített tulajdonságokat
     documentProperties.author = "Aspose.Slides for .NET"
     documentProperties.title = "Modifying Presentation Properties"
     documentProperties.subject = "Aspose Subject"
     documentProperties.comments = "Aspose Description"
     documentProperties.manager = "Aspose Manager"
 
-    # Mentse el a prezentációt egy fájlba
+    # Mentse a prezentációt egy fájlba
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Egyéni Prezentációs Tulajdonságok Hozzáadása**
+## **Egyéni prezentációs tulajdonságok hozzáadása**
 
-Az Aspose.Slides for Python via .NET lehetővé teszi a fejlesztők számára, hogy egyéni értékeket adjanak hozzá a prezentáció dokumentumtulajdonságokhoz. Az alábbi példa bemutatja, hogyan állítható be egyéni tulajdonság egy prezentációhoz.
+Az Aspose.Slides for Python via .NET lehetővé teszi a fejlesztők számára, hogy egyéni értékeket adjanak a prezentáció dokumentumtulajdonságaihoz. Az alábbi példában bemutatjuk, hogyan kell beállítani a prezentáció egyéni tulajdonságait.
+
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt
+# Példányosítja a Presentation osztályt
 with slides.Presentation() as presentation:
-    # Dokumentumtulajdonságok lekérése
+    # A dokumentumtulajdonságok lekérése
     documentProperties = presentation.document_properties
 
     # Egyéni tulajdonságok hozzáadása
@@ -118,40 +189,42 @@ with slides.Presentation() as presentation:
     presentation.save("CustomDocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Egyéni Tulajdonságok Elérése és Módosítása**
+## **Egyéni tulajdonságok elérése és módosítása**
 
-Az Aspose.Slides for Python via .NET lehetővé teszi a fejlesztők számára, hogy hozzáférjenek az egyéni tulajdonságok értékeihez. Az alábbi példa megmutatja, hogyan érheti el és módosíthatja ezeket az egyéni tulajdonságokat egy prezentációban.
+Az Aspose.Slides for Python via .NET lehetővé teszi a fejlesztők számára, hogy hozzáférjenek az egyéni tulajdonságok értékeihez. Az alábbi példában megmutatjuk, hogyan érheti el és módosíthatja ezeket az egyéni tulajdonságokat egy prezentációban.
+
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a PPTX-et reprezentáló Presentation osztályt
+# Példányosítja a Presentation osztályt, amely a PPTX-et képviseli
 with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
-    # Hozzon létre hivatkozást a Presentation-hez kapcsolódó document_properties objektumra
+    # Létrehozza a Presentation-hez kapcsolódó document_properties objektumra mutató referenciát
     documentProperties = presentation.document_properties
 
     # Egyéni tulajdonságok elérése és módosítása
     for i in range(documentProperties.count_of_custom_properties):
         property_name = documentProperties.get_custom_property_name(i)
 
-        # Egyéni tulajdonságok neveinek és értékeinek megjelenítése
+        # Egyéni tulajdonságok nevének és értékének megjelenítése
         property_value = [""]
         documentProperties.get_custom_property_value(property_name, property_value)
         print("Custom Property Name : " + property_name)
         print("Custom Property Value : " + property_value[0])
 
-        # Egyéni tulajdonságok értékeinek módosítása
+        # Egyéni tulajdonságok értékének módosítása
         documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
-    # Mentse el a prezentációt egy fájlba
+    # prezentáció mentése egy fájlba
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`get_custom_property_value` visszaadja az értéket a második argumentumként átadott egyelemes listán keresztül, és a tárolt érték a listában már meglévő elem típusára lesz átkonvertálva. A fenti példa `[""]`-t használ, így karakterlánc tulajdonságokat olvas; egy számként tárolt tulajdonság olvasásához adjon át numerikus helykitöltőt, például `[0]` — ellenkező esetben `InvalidCastException` kivételt kap.
+`get_custom_property_value` a második argumentumban átadott egyelemű listán keresztül adja vissza az értéket, és a tárolt értéket a listában már meglévő elem típusára alakítja. A fenti példában a `[""]`-t használja, így karakterlánc típusú tulajdonságokat olvas; számként tárolt tulajdonság olvasásához adjon át egy numerikus helyőrzőt, például `[0]` – ellenkező esetben a hívás `InvalidCastException`-t dob.
 
-## **Helyesírási Nyelv Beállítása**
+## **Helyesírási nyelv beállítása**
 
-Az Aspose.Slides biztosítja a `Language_Id` tulajdonságot (amelyet a [PortionFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portionformat/) osztály tesz közzé), hogy beállíthassa a helyesírási nyelvet egy PowerPoint dokumentumhoz. A helyesírási nyelv az a nyelv, amelynek helyesírását és nyelvtanát a PowerPoint ellenőrzi.
+Az Aspose.Slides kínálja a `Language_Id` tulajdonságot (amelyet a [PortionFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides/portionformat/) osztály tesz elérhetővé), hogy beállíthassa a helyesírási nyelvet egy PowerPoint dokumentumhoz. A helyesírási nyelv azt a nyelvet jelenti, amelynek helyesírását és nyelvtanát a PowerPoint ellenőrzi.
 
-Ez a Python‑kód megmutatja, hogyan állítható be a helyesírási nyelv egy PowerPoint‑ban:
+Ez a Python kód megmutatja, hogyan állítható be a helyesírási nyelv egy PowerPoint számára:
+
 ```python
 import aspose.slides as slides
 
@@ -174,9 +247,10 @@ with slides.Presentation("SetProofingLanguage.pptx") as pres:
     paragraph.portions.add(new_portion)
 ```
 
-## **Alapértelmezett Nyelv Beállítása**
+## **Alapértelmezett nyelv beállítása**
 
-Ez a Python‑kód megmutatja, hogyan állítható be az alapértelmezett nyelv egy teljes PowerPoint‑prezentációhoz:
+Ez a Python kód megmutatja, hogyan állítható be az alapértelmezett nyelv egy teljes PowerPoint prezentációhoz:
+
 ```python
 import aspose.slides as slides
 
@@ -191,22 +265,30 @@ with slides.Presentation(load_options) as pres:
     print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
 ```
 
-## **Élő Példa**
+## **Élő példa**
 
-Próbálja ki a [**Aspose.Slides Metadata**](https://products.aspose.app/slides/hu/metadata) online alkalmazást, hogy lássa, hogyan dolgozhat a dokumentumtulajdonságokkal az Aspose.Slides API‑n keresztül:
+Próbálja ki a [**Aspose.Slides Metadata**](https://products.aspose.app/slides/hu/metadata) online alkalmazást, hogy lássa, hogyan lehet a dokumentumtulajdonságokkal dolgozni az Aspose.Slides API‑n keresztül:
 
-[![PowerPoint metaadatok megtekintése és szerkesztése](slides-metadata.png)](https://products.aspose.app/slides/hu/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/hu/metadata)
 
-## **Gyakran Ismételt Kérdések**
+## **GYIK**
 
 **Hogyan távolíthatok el egy beépített tulajdonságot egy prezentációból?**
 
-A beépített tulajdonságok a prezentáció szerves részei, ezért nem távolíthatók el teljesen. Azonban megváltoztathatja az értéküket, vagy (ha az adott tulajdonság engedi) üresre állíthatja őket.
+A beépített tulajdonságok a prezentáció szerves részei, ezért nem távolíthatók el teljesen. Azonban megváltoztathatja értéküket, vagy ha a konkrét tulajdonság megengedi, üresre állíthatja őket.
 
 **Mi történik, ha olyan egyéni tulajdonságot adok hozzá, amely már létezik?**
 
-Ha olyan egyéni tulajdonságot ad hozzá, amely már létezik, a meglévő érték felül lesz írva az újjal. Nem szükséges előre eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti annak értékét.
+Ha olyan egyéni tulajdonságot ad hozzá, amely már létezik, a meglévő érték felülíródik az újjal. Nem szükséges előre eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
 
-**Elérhetem a prezentáció tulajdonságait a prezentáció teljes betöltése nélkül?**
+**Hozzáférhetek a prezentáció tulajdonságaihoz anélkül, hogy teljesen betölteném a prezentációt?**
 
-Igen. Használja a [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationfactory/get_presentation_info/) metódust, majd a [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/read_document_properties/) metódust a tárolt dokumentumadatok olvasásához anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt hozna létre. Lásd a [Build a Lightweight Presentation Inventory](/slides/hu/python-net/examine-presentation/) oldalt egy teljes jelentési példáért és a formátumspecifikus korlátozásokért.
+Igen. Használja a [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationfactory/get_presentation_info/)‑t, majd a [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentationinfo/read_document_properties/) metódust a tárolt dokumentum metaadatok olvasásához anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt hozna létre. Lásd a [Build a Lightweight Presentation Inventory](/slides/hu/python-net/examine-presentation/) oldalt egy teljes jelentési példáért és formátumspecifikus korlátozásokért.
+
+**Olvashatok nyilvános tulajdonságokat egy titkosított prezentációból anélkül, hogy a nyitó jelszót meg kellene adni?**
+
+Igen. A prezentációnak úgy kell titkosítva lennie, hogy a `encrypt_document_properties` `False` értékre legyen állítva, és `only_load_document_properties` `True` értékkel kell betölteni.
+
+**Frissíthetek egy titkosított PPTX fájlt csak dokumentumtulajdonságok módban?**
+
+Nem. A nyilvános és a titkosított tulajdonságadatoknak összhangban kell maradniuk, ezért egy titkosított PPTX fájl frissítéséhez a teljes prezentációt a megfelelő nyitó jelszóval kell betölteni.

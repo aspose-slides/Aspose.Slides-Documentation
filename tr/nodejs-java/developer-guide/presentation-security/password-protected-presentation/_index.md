@@ -1,18 +1,18 @@
 ---
-title: JavaScript'te Sunumları Parola ile Koruma
-linktitle: Parola Koruması
+title: JavaScript'te Sunumları Şifreyle Koruma
+linktitle: Şifre Koruması
 type: docs
 weight: 20
 url: /tr/nodejs-java/password-protected-presentation/
 keywords:
-- parola korumalı sunum
-- açılış parolası
+- şifreli sunum
+- açma şifresi
 - PowerPoint şifreleme
 - PowerPoint şifre çözme
-- sunum parolasını doğrulama
-- sunum parolasını kontrol etme
-- şifreli sunumu açma
-- şifrelemeyi kaldırma
+- sunum şifresi doğrulama
+- sunum şifresini kontrol et
+- şifreli sunumu aç
+- şifrelemeyi kaldır
 - PowerPoint
 - PPT
 - PPTX
@@ -20,19 +20,19 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides ile JavaScript'te parola korumalı PowerPoint PPT ve PPTX sunumlarını şifreleme, tespit etme, doğrulama, açma ve şifre çözme."
+description: "JavaScript'te Aspose.Slides ile şifreli PowerPoint PPT ve PPTX sunumlarını şifreleyin, algılayın, doğrulayın, açın ve şifrelerini çözün."
 ---
 ## **Genel Bakış**
 
-Açılış şifresi bir sunumu şifreler. Doğru şifre, sunum içeriğini yüklemek ve görüntülemek için gereklidir; bu koruma gizlilik sağlar.
+Açma şifresi bir sunumu şifreler. Sunum içeriğini yüklemek ve görüntülemek için doğru şifre gerekir; bu koruma gizliliği sağlar.
 
-Açılış şifresi, yazma koruma şifresinden farklıdır. Yazma koruması değişiklik yapmayı kısıtlar ancak içeriği şifrelemez veya sunumun yüklenmesini engellemez. Sunumları değiştirmek için şifreleri yönetmek amacıyla, [Write-Protect Presentations](/slides/tr/nodejs-java/write-protected-presentation/) bölümüne bakın.
+Açma şifresi, yazma koruma şifresinden farklıdır. Yazma koruması değişikliği kısıtlar ancak içeriği şifrelemez veya sunumun yüklenmesini engellemez. Sunumları değiştirmek için şifreleri yönetmek amacıyla [Sunumları Yazma Koruması](/slides/tr/nodejs-java/write-protected-presentation/) bölümüne bakın.
 
-Aşağıdaki iş akışları hem PPT hem de PPTX sunumlarına uygulanır. Örnekler, dosya tabanlı ve akış tabanlı davranışlarının önemli olduğu her iki formatı da kullanır.
+Aşağıdaki işlem akışları hem PPT hem de PPTX sunumları için geçerlidir. Örneklerde dosya tabanlı ve akış tabanlı davranışların önemli olduğu her iki format da kullanılmıştır.
 
-## **Açılış Şifresi ile Sunumu Şifreleme**
+## **Açma Şifresi ile Sunumu Şifreleme**
 
-[ProtectionManager.encrypt](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#encrypt) metodunu kullanarak bir açılış şifresi atayın. Ardından şifrelenmiş sunumu kaydetmek için [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) metodunu kullanın.
+Açma şifresi atamak için [ProtectionManager.encrypt](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#encrypt) yöntemini kullanın. Ardından şifreli sunumu kaydetmek için [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) yöntemini çağırın.
 
 Aşağıdaki örnek bir PPTX sunumunu şifreler:
 
@@ -48,9 +48,36 @@ try {
 }
 ```
 
+## **Belge Özelliklerini Açık Tutma**
+
+Varsayılan olarak Aspose.Slides, sunum şifrelemesinde belge özelliklerini de içerir. Bu davranışı slayt içeriği şifrelemesinden bağımsız olarak kontrol eden [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) yöntemi vardır. Bir indeksleme, sınıflandırma, arama veya belge yönetim sistemi, açma şifresi olmadan meta verileri okuması gerektiğinde, [ProtectionManager.encrypt](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#encrypt) çağrısından önce `false` geçirin.
+
+Aşağıdaki örnek, yerleşik belge özellikleri açık bırakılarak bir PPTX sunumunu şifreler:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const properties = presentation.getDocumentProperties();
+    properties.setAuthor("Contoso Knowledge Management");
+    properties.setTitle("Quarterly Product Roadmap");
+    properties.setKeywords("roadmap, planning, internal");
+
+    presentation.getSlides().get_Item(0).setName("Encrypted presentation content");
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("public-properties-encrypted.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) yöntemine `false` geçirilmesi, slaytlar, ana slaytlar, düzenler, şekiller, medya veya diğer sunum içeriğini açık yapmaz. Sadece belge özelliklerini etkiler. Şifreli içeriği yüklemeden bu özellikleri okumak için [Sunum Özelliklerini Yönetme](/slides/tr/nodejs-java/presentation-properties/) bölümüne bakın.
+
 ## **Şifreli Sunumu Yükleme**
 
-[LoadOptions.setPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setPassword) metodunu açılış şifresi olarak ayarlayın ve dosyayı yüklerken seçenekleri [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) içine geçirin. Açılış şifresi gerekli olduğunda ancak sağlanan şifre eksik ya da yanlış olduğunda yükleme başarısız olur.
+[LoadOptions.setPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setPassword) özelliğini açma şifresiyle ayarlayın ve dosyayı yüklerken bu seçenekleri [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) yapıcısına geçirin. Açma şifresi gerektiğinde fakat verilen şifre eksik ya da hatalıysa yükleme başarısız olur.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -60,15 +87,15 @@ loadOptions.setPassword("open_password");
 
 const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // Şifrelenmiş sunumla çalış.
+    // Şifre çözülmüş sunumla çalış.
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Sunumdan Şifrelemeyi Kaldırma**
+## **Sunumdan Şifreyi Kaldırma**
 
-Sunumu açılış şifresi ile yükleyin, [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) metodunu çağırın ve sonucu kaydedin. Kaydedilen sunum daha sonra şifre olmadan yüklenebilir.
+Sunumu açma şifresiyle yükleyin, [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) yöntemini çağırın ve sonucu kaydedin. Kaydedilen sunum artık şifre yoluyla yüklenemez.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -85,13 +112,13 @@ try {
 }
 ```
 
-## **Yüklemeden Önce Açılış Şifresini Doğrulama**
+## **Yüklemeden Önce Açma Şifresini Doğrulama**
 
-[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) metodunu kullanarak tam bir sunum örneği oluşturmadan [PresentationInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/) alın. Şifre talep etmeden veya doğrulamadan önce [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) kontrol edin. Koruma mevcut olduğunda, sağlanan değeri [PresentationInfo.checkPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#checkPassword) ile doğrulayın.
+Tam bir sunum örneği oluşturmadan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) yöntemini kullanarak [PresentationInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/) alın. Şifre isteyip istemediğini kontrol etmek için [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) özelliğine bakın. Koruma varsa, sağlanan değeri [PresentationInfo.checkPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#checkPassword) yöntemiyle doğrulayın.
 
 ### **Dosya Yolu İş Akışı**
 
-Aşağıdaki örnek bir PPTX dosyası için açılış şifresini doğrular, doğrulanan değeri [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setPassword) metoduna geçirir ve ardından tam sunumu yükler:
+Aşağıdaki örnek bir PPTX dosyasının açma şifresini doğrular, doğrulanan değeri [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setPassword) metoduna geçirir ve ardından tam sunumu yükler:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -119,9 +146,9 @@ if (!presentationInfo.isPasswordProtected()) {
 
 ### **Akış İş Akışı**
 
-[PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) metodunu kullanarak bir Node.js okunabilir akışı inceleyin. İnceleme akışı tüketildikten sonra, tam sunumu [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#createPresentationFromStream) ile yüklemeden önce yeni bir akış oluşturun.
+[PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) yöntemini kullanarak bir Node.js okunabilir akışını inceleyin. İnceleme akışı tüketildikten sonra, tam sunumu [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#createPresentationFromStream) yöntemiyle yüklemeden önce yeni bir akış oluşturun.
 
-Aşağıdaki örnek bir PPT dosyası kullanır:
+Aşağıdaki örnek bir PPT dosyası için verilmiştir:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -161,17 +188,17 @@ slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, in
 
 ### **checkPassword Dönüş Değerleri**
 
-[PresentationInfo.checkPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#checkPassword) yalnızca sunumun bir açılış şifresi olduğu ve sağlanan şifrenin doğru olduğu durumlarda `true` döndürür. Aşağıdaki durumlarda `false` döner:
+[PresentationInfo.checkPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#checkPassword) yalnızca sunumda bir açma şifresi varsa ve sağlanan şifre doğruysa `true` döndürür. Aşağıdaki durumlarda `false` döner:
 
-- Şifre yanlıştır.
-- Sunumun bir açılış şifresi yoktur.
-- Sağlanan şifre `null` veya boş.
+- Şifre hatalıdır.
+- Sunumda bir açma şifresi yoktur.
+- Sağlanan şifre `null` ya da boş'tur.
 
-Davranış, PPT ve PPTX sunumları için aynıdır.
+Davranış PPT ve PPTX sunumları için aynıdır.
 
 ## **Yüklenen Sunumun Şifreli Olup Olmadığını Kontrol Etme**
 
-Doğru şifre ile bir sunumu yükledikten sonra, kaynak sunumun şifreli olduğunu doğrulamak için [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) kontrol edin. Yüklemeden önce açılış şifresi korumasını tespit etmek için yukarıda gösterildiği gibi [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) metodunu kullanın.
+Doğru şifreyle bir sunumu yükledikten sonra, kaynağın şifreli olduğunu doğrulamak için [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) özelliğini denetleyin. Açma şifresi korumasını yüklemeden önce tespit etmek için yukarıda gösterildiği gibi [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) yöntemini kullanın.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -190,33 +217,39 @@ try {
 
 ## **Güvenlik Önerileri**
 
-{{% alert color="warning" title="Güvenlik" %}}
-Açılış şifrelerini günlüğe kaydetmeyin ve tanı mesajlarına eklemeyin. Gereksiz tekrarlanan doğrulama girişimlerinden kaçının, şifreleri yalnızca gerektiği süre boyunca bellekte tutun ve sunumu hemen yüklerken başarılı bir doğrulama sonucunu yeniden kullanın.
+{{% alert color="warning" title="Security" %}}
+Açma şifrelerini loglamayın ya da tanılayıcı mesajlarda gösterin. Gereksiz tekrar doğrulama denemelerinden kaçının, şifreleri sadece gerektiği süre boyunca bellekte tutun ve sunumu hemen yüklerken başarılı bir doğrulama sonucunu yeniden kullanın.
+
+Açık belge özellikleri, sunum içeriği şifrelenmiş olsa bile yazar adları, başlıklar, konu, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerler gibi bilgileri ifşa edebilir. Hassas meta verileri sunumla birlikte şifreleyin. Özellikleri açık bırakmak, dosyanın indekslenmesi, sınıflandırılması, aranması veya şifre olmadan yönetilmesi gerektiğinde açıkça kararlaştırılmış bir durum olmalıdır.
 {{% /alert %}}
 
-## **Sunumu Çevrimiçi Şifreleme**
+## **Çevrimiçi Sunumu Şifreleme**
 
 1. [Aspose.Slides Lock](https://products.aspose.app/slides/tr/lock) uygulamasını açın.
-2. Sunumu seçin veya yükleyin.
-3. Görünüm koruması için bir şifre girin.
-4. İsteğe bağlı olarak düzenleme koruması için ayrı bir şifre girin.
-5. Koruma uygulayın ve ortaya çıkan dosyayı indirin.
+2. Sunumu seçin ya da yükleyin.
+3. Görüntüleme koruması için bir şifre girin.
+4. İsterseniz düzenleme koruması için ayrı bir şifre girin.
+5. Koruma işlemini uygulayın ve oluşan dosyayı indirin.
 
-{{% alert color="info" title="Ayrıca Bakınız" %}}
+{{% alert color="info" title="See also" %}}
 - [Sunumları Yazma Koruması](/slides/tr/nodejs-java/write-protected-presentation/)
-- [PowerPoint'ta Dijital İmza](/slides/tr/nodejs-java/digital-signature-in-powerpoint/)
+- [PowerPoint’te Dijital İmza](/slides/tr/nodejs-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **SSS**
 
-**Açılış şifresi ile yazma koruma şifresi arasındaki fark nedir?**
+**Açma şifresi ile yazma koruma şifresi arasındaki fark nedir?**
 
-Açılış şifresi sunumu şifreler ve içeriğini yüklemek için gereklidir. Yazma koruma şifresi ise içeriği şifrelemeden değişiklik yapmayı kısıtlar.
+Açma şifresi sunumu şifreler ve içeriğini yüklemek için gerekir. Yazma koruma şifresi, içeriği şifrelemeden değişikliği kısıtlar.
 
-**Tüm slaytları yüklemeden açılış şifresini doğrulayabilir miyim?**
+**Tüm slaytları yüklemeden bir açma şifresini doğrulayabilir miyim?**
 
-Evet. Sunum bilgilerini alın, açılış şifresi korumasının mevcut olup olmadığını kontrol edin ve tam bir sunum örneği oluşturmadan önce şifreyi doğrulayın.
+Evet. Sunum bilgilerini alın, açma şifresi korumasının varlığını kontrol edin ve tam bir sunum örneği oluşturmadan şifreyi doğrulayın.
 
-**Şifre kontrol iş akışları hem PPT hem de PPTX'i destekliyor mu?**
+**Bir uygulama açma şifresi olmadan meta verileri okuyabilir mi?**
+
+Evet, ancak yalnızca belge‑özelliği şifrelemesi devre dışı bırakılmış bir sunumda mümkündür. Bu durumda uygulama, [Sunum Özelliklerini Yönetme](/slides/tr/nodejs-java/presentation-properties/) bölümünde açıklanan sadece belge‑özellikleri yükleme modunu kullanmalıdır.
+
+**Şifre kontrol iş akışları hem PPT hem de PPTX’i destekliyor mu?**
 
 Evet. Dosya yolu ve akış tabanlı şifre tespiti ve doğrulama, PPT ve PPTX sunumları için aynı şekilde çalışır.

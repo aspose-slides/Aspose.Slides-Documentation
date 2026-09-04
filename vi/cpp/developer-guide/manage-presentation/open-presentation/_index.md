@@ -1,192 +1,208 @@
 ---
-title: Mở Bài Trình Chiếu trong C++
-linktitle: Mở Bài Trình Chiếu
+title: Mở các bài thuyết trình trong C++
+linktitle: Mở bài thuyết trình
 type: docs
 weight: 20
 url: /vi/cpp/open-presentation/
 keywords:
 - mở PowerPoint
 - mở OpenDocument
-- mở bài trình chiếu
+- mở bài thuyết trình
 - mở PPTX
 - mở PPT
 - mở ODP
-- tải bài trình chiếu
+- tải bài thuyết trình
 - tải PPTX
 - tải PPT
 - tải ODP
-- bài trình chiếu được bảo vệ
-- bài trình chiếu lớn
+- bài thuyết trình được bảo vệ
+- bài thuyết trình lớn
 - tài nguyên bên ngoài
 - đối tượng nhị phân
 - C++
 - Aspose.Slides
-description: "Mở các bài trình chiếu PowerPoint (.pptx, .ppt) và OpenDocument (.odp) một cách dễ dàng với Aspose.Slides cho C++—nhanh, đáng tin cậy, đầy đủ tính năng."
+description: "Tìm hiểu cách mở các bài thuyết trình PowerPoint và OpenDocument trong C++, cung cấp mật khẩu mở, kiểm soát việc tải tài nguyên và giảm việc sử dụng bộ nhớ với Aspose.Slides cho C++."
 ---
 ## **Giới thiệu**
 
-Ngoài việc tạo bản trình chiếu PowerPoint từ đầu, Aspose.Slides còn cho phép bạn mở các bản trình chiếu đã tồn tại. Sau khi tải một bản trình chiếu, bạn có thể truy xuất thông tin về nó, chỉnh sửa nội dung slide, thêm slide mới, xóa các slide hiện có và nhiều hơn nữa.
+[Aspose.Slides for C++](https://products.aspose.com/slides/vi/cpp/) có thể tải các bài thuyết trình PowerPoint và OpenDocument từ tệp và luồng. Sau khi một bài thuyết trình được tải, bạn có thể kiểm tra cấu trúc, chỉnh sửa các slide, quản lý tài nguyên và lưu nó ở định dạng gốc hoặc định dạng hỗ trợ khác.
 
-## **Mở bản trình chiếu**
+Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn ngoài bộ nhớ, kiểm soát tài nguyên bên ngoài, hoặc bỏ qua dữ liệu nhị phân nhúng.
 
-Để mở một bản trình chiếu đã tồn tại, tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) và truyền đường dẫn tệp vào hàm khởi tạo của nó.
+## **Mở Bài Thuyết Trình**
 
-Ví dụ C++ sau cho thấy cách mở một bản trình chiếu và lấy số lượng slide:
+Để mở một bài thuyết trình đã tồn tại, truyền đường dẫn tệp vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/). Hãy giải phóng tài nguyên của bài thuyết trình sau khi sử dụng để các tay cầm tệp, dữ liệu tạm thời và các tài nguyên khác được giải phóng kịp thời.
+
+Đoạn mã C++ dưới đây minh họa cách mở một bài thuyết trình và lấy số lượng slide:
 
 ```cpp
-// Tạo thể hiện của lớp Presentation và truyền đường dẫn tệp vào hàm khởi tạo.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-// In ra tổng số slide trong bản trình chiếu.
-Console::WriteLine(presentation->get_Slides()->get_Count());
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
-## **Mở bản trình chiếu có mật khẩu**
+## **Mở Bài Thuyết Trình Được Bảo Vệ Bằng Mật Khẩu**
 
-Khi bạn cần mở một bản trình chiếu được bảo vệ bằng mật khẩu, truyền mật khẩu qua phương thức [set_Password](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_password/) của lớp [LoadOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/) để giải mã và tải nó. Đoạn mã C++ sau minh họa thao tác này:
+Mật khẩu mở mã hoá nội dung bài thuyết trình. Để tải toàn bộ bài thuyết trình, truyền mật khẩu đúng vào [LoadOptions::set_Password](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_password/) và truyền các tùy chọn vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/). Việc tải sẽ thất bại nếu mật khẩu bị thiếu hoặc không đúng.
 
 ```cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_Password(u"YOUR_PASSWORD");
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
-    
-// Thực hiện các thao tác trên bản trình chiếu đã giải mã.
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+
+auto presentation = MakeObject<Presentation>(u"encrypted-presentation.pptx", loadOptions);
+
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
-## **Mở bản trình chiếu lớn**
+Đối với việc phát hiện mật khẩu, xác thực và quy trình mã hoá, xem [Password-Protect Presentations](/slides/vi/cpp/password-protected-presentation/). Nếu một bài thuyết trình đã được mã hoá nhưng được lưu có thuộc tính tài liệu công khai, các thuộc tính đó có thể được đọc mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/cpp/presentation-properties/).
 
-Aspose.Slides cung cấp các tùy chọn — đặc biệt là phương thức [get_BlobManagementOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) trong lớp [LoadOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/) — để giúp bạn tải các bản trình chiếu lớn.
+## **Mở Bài Thuyết Trình Lớn**
 
-Đoạn mã C++ sau minh họa việc tải một bản trình chiếu lớn (ví dụ, 2 GB):
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tạo tệp tạm và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
+
+Đoạn mã C++ dưới đây minh họa việc tải một bài thuyết trình lớn (ví dụ, 2 GB):
 
 ```cpp
-auto filePath = u"LargePresentation.pptx";
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IBlobManagementOptions.h>
+#include <PresentationLockingBehavior.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+const String filePath = u"large-presentation.pptx";
 
 auto loadOptions = MakeObject<LoadOptions>();
-// Choose the KeepLocked behavior—the presentation file will remain locked for the lifetime of
-// the Presentation instance, but it does not need to be loaded into memory or copied to a temporary file.
-loadOptions->get_BlobManagementOptions()->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
-loadOptions->get_BlobManagementOptions()->set_IsTemporaryFilesAllowed(true);
-loadOptions->get_BlobManagementOptions()->set_MaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+auto blobOptions = loadOptions->get_BlobManagementOptions();
+blobOptions->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+blobOptions->set_IsTemporaryFilesAllowed(true);
+blobOptions->set_MaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-// The large presentation has been loaded and can be used, while memory consumption remains low.
-// The large presentation has been loaded and can be used, while memory consumption remains low.
- // Actually we translate only original comment:
- // Đúng: We need replace original comment with translation:
- // Actually let's rewrite proper translation:
-
-// Bản trình chiếu lớn đã được tải và có thể sử dụng, trong khi tiêu thụ bộ nhớ vẫn thấp.
-
-// Make changes to the presentation.
- // Thực hiện các thay đổi cho bản trình chiếu.
-
 presentation->get_Slide(0)->set_Name(u"Large presentation");
-
-// Save the presentation to another file. Memory consumption remains low during this operation.
- // Lưu bản trình chiếu vào tệp khác. Tiêu thụ bộ nhớ vẫn thấp trong quá trình này.
-presentation->Save(u"LargePresentation-copy.pptx", SaveFormat::Pptx);
-
-// Don't do this! An I/O exception will be thrown because the file is locked until the presentation object is disposed.
- // Đừng làm điều này! Ngoại lệ I/O sẽ được ném ra vì tệp bị khóa cho đến khi đối tượng Presentation được giải phóng.
-File::Delete(filePath);
+presentation->Save(u"large-presentation-copy.pptx", SaveFormat::Pptx);
 
 presentation->Dispose();
-
-// It is OK to do it here. The source file is no longer locked by the presentation object.
- // Có thể thực hiện ở đây. Tệp nguồn không còn bị khóa bởi đối tượng Presentation.
-File::Delete(filePath);
 ```
 
-{{% alert color="info" title="Thông tin" %}}
-Để khắc phục một số hạn chế khi làm việc với luồng, Aspose.Slides có thể sao chép nội dung của luồng. Tải một bản trình chiếu lớn từ luồng sẽ gây sao chép bản trình chiếu và có thể làm chậm quá trình tải. Vì vậy, khi bạn cần tải một bản trình chiếu lớn, chúng tôi khuyên mạnh mẽ nên sử dụng đường dẫn tệp của bản trình chiếu thay vì một luồng.
+{{% alert color="info" title="Lưu ý" %}}
 
-Khi tạo một bản trình chiếu chứa các đối tượng lớn (video, audio, hình ảnh độ phân giải cao, v.v.), bạn có thể sử dụng [BLOB management](/slides/vi/cpp/manage-blob/) để giảm tiêu thụ bộ nhớ.
-{{%/alert %}}
+Với `PresentationLockingBehavior::KeepLocked`, tệp nguồn sẽ vẫn bị khóa cho đến khi đối tượng `Presentation` được giải phóng. Không di chuyển, ghi đè hoặc xóa tệp nguồn trong khi đối tượng đó còn tồn tại.
 
-## **Kiểm soát tài nguyên bên ngoài**
+Aspose.Slides có thể sao chép nội dung của một luồng đầu vào trong quá trình tải. Đối với các bài thuyết trình lớn, sử dụng đường dẫn tệp thường hiệu quả hơn luồng. Xem [Manage BLOBs](/slides/vi/cpp/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
 
-Aspose.Slides cung cấp giao diện [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iresourceloadingcallback/) cho phép bạn quản lý các tài nguyên bên ngoài. Đoạn mã C++ sau cho thấy cách sử dụng giao diện `IResourceLoadingCallback`:
+{{% /alert %}}
+
+## **Kiểm Soát Tài Nguyên Ngoại Tuyến**
+
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) nhận một triển khai của [IResourceLoadingCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iresourceloadingcallback/). Hàm gọi lại có thể cung cấp dữ liệu thay thế, chuyển hướng tài nguyên, sử dụng bộ tải mặc định hoặc bỏ qua tài nguyên. Điều này hữu ích khi các bài thuyết trình chứa hình ảnh ngoại vi phải được giải quyết theo các quy tắc bảo mật hoặc lưu trữ đặc thù của ứng dụng.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IResourceLoadingArgs.h>
+#include <IResourceLoadingCallback.h>
+#include <ResourceLoadingAction.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 class ImageLoadingHandler : public IResourceLoadingCallback
 {
 public:
     ResourceLoadingAction ResourceLoading(SharedPtr<IResourceLoadingArgs> args) override
     {
-        if (args->get_OriginalUri().EndsWith(u".jpg"))
+        auto isJpeg = args->get_OriginalUri().EndsWith(u".jpg", StringComparison::OrdinalIgnoreCase);
+        if (!isJpeg || !File::Exists(u"approved-image.jpg"))
         {
-            try
-            {
-                // Tải một hình ảnh thay thế.
-                auto imageData = File::ReadAllBytes(u"aspose-logo.jpg");
-                args->SetData(imageData);
-                return ResourceLoadingAction::UserProvided;
-            }
-            catch (Exception&)
-            {
-                return ResourceLoadingAction::Skip;
-            }
-        }
-        else if (args->get_OriginalUri().EndsWith(u".png"))
-        {
-            // Đặt URL thay thế.
-            args->set_Uri(u"http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+            return ResourceLoadingAction::Skip;
         }
 
-        // Bỏ qua tất cả các hình ảnh khác.
-        return ResourceLoadingAction::Skip;
+        auto imageData = File::ReadAllBytes(u"approved-image.jpg");
+        args->SetData(imageData);
+        return ResourceLoadingAction::UserProvided;
     }
 };
-```
 
-```cpp
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
 
-auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
-```
-
-## **Tải bản trình chiếu mà không có các đối tượng nhị phân nhúng**
-
-Một bản trình chiếu PowerPoint có thể chứa các loại đối tượng nhị phân nhúng sau:
-
-- Dự án VBA (có thể truy cập qua [IPresentation::get_VbaProject](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/get_vbaproject/));
-- Dữ liệu nhúng của đối tượng OLE (có thể truy cập qua [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/));
-- Dữ liệu nhị phân của điều khiển ActiveX (có thể truy cập qua [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icontrol/get_activexcontrolbinary/)).
-
-Bằng cách sử dụng phương thức [ILoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iloadoptions/set_deleteembeddedbinaryobjects/), bạn có thể tải một bản trình chiếu mà không có bất kỳ đối tượng nhị phân nhúng nào.
-
-Phương thức này hữu ích để loại bỏ nội dung nhị phân tiềm năng có thể gây hại. Đoạn mã C++ sau minh họa cách tải một bản trình chiếu mà không có bất kỳ nội dung nhị phân nhúng nào:
-
-```cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_DeleteEmbeddedBinaryObjects(true);
-
-auto presentation = MakeObject<Presentation>(u"malware.ppt", loadOptions);
-
-// Thực hiện các thao tác trên bản trình chiếu.
+auto presentation = MakeObject<Presentation>(u"presentation-with-external-images.pptx", loadOptions);
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
-## **Câu hỏi thường gặp**
+## **Tải Bài Thuyết Trình mà Không Có Đối Tượng Nhị Phân Nhúng**
 
-**Làm sao tôi biết một tệp bị hỏng và không thể mở được?**
+Một bài thuyết trình có thể chứa dữ liệu nhị phân nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Các ví dụ bao gồm:
 
-Bạn sẽ nhận được một ngoại lệ khi phân tích/kiểm tra định dạng trong quá trình tải. Các lỗi này thường đề cập đến cấu trúc ZIP không hợp lệ hoặc các bản ghi PowerPoint bị hỏng.
+- Dự án VBA, có sẵn thông qua [IPresentation::get_VbaProject](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/get_vbaproject/);
+- Dữ liệu OLE nhúng, có sẵn thông qua [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
+- Dữ liệu điều khiển ActiveX, có sẵn thông qua [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
 
-**Điều gì xảy ra nếu các phông chữ bắt buộc bị thiếu khi mở?**
+Truyền `true` vào [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) để loại bỏ dữ liệu nhị phân này trong quá trình tải. Lưu bài thuyết trình đã tải để duy trì kết quả đã được làm sạch.
 
-Tệp sẽ được mở, nhưng sau đó quá trình [rendering/export](/slides/vi/cpp/convert-presentation/) có thể thay thế phông chữ. [Configure font substitutions](/slides/vi/cpp/font-substitution/) hoặc [add the required fonts](/slides/vi/cpp/custom-font/) vào môi trường runtime.
+Tùy chọn này giảm nguy cơ tiếp xúc với các payload nhúng không mong muốn, nhưng không phải là một hệ thống phát hiện phần mềm độc hại hay làm sạch nội dung hoàn chỉnh.
 
-**Còn các phương tiện nhúng (video/audio) khi mở thì sao?**
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-Chúng sẽ trở thành tài nguyên của bản trình chiếu. Nếu phương tiện được tham chiếu qua đường dẫn bên ngoài, hãy đảm bảo các đường dẫn đó có thể truy cập trong môi trường của bạn; nếu không, quá trình [rendering/export](/slides/vi/cpp/convert-presentation/) có thể bỏ qua các phương tiện đó.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_DeleteEmbeddedBinaryObjects(true);
+
+auto presentation = MakeObject<Presentation>(u"presentation-with-embedded-data.pptx", loadOptions);
+
+presentation->Save(u"presentation-without-embedded-data.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
+
+## **Câu Hỏi Thường Gặp**
+
+**Làm thế nào để biết một tệp bị hỏng và không thể mở được?**
+
+Aspose.Slides sẽ ném ra ngoại lệ phân tích hoặc định dạng trong quá trình tải. Hãy xử lý lỗi này riêng biệt với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
+
+**Điều gì sẽ xảy ra nếu thiếu các phông chữ bắt buộc?**
+
+Bài thuyết trình vẫn có thể tải, nhưng quá trình hiển thị và xuất có thể thay thế phông chữ. Bạn có thể [configure font substitution](/slides/vi/cpp/font-substitution/) hoặc [provide custom fonts](/slides/vi/cpp/custom-font/) để làm cho đầu ra dự đoán được hơn.
+
+**Việc tải một bài thuyết trình có đồng thời tải các phương tiện nhúng không?**
+
+Âm thanh và video nhúng sẽ khả dụng thông qua mô hình đối tượng của bài thuyết trình. Các tài nguyên ngoại vi được giải quyết theo hành vi tải tài nguyên đã cấu hình và có thể không khả dụng nếu không thể truy cập tới vị trí của chúng.

@@ -6,171 +6,172 @@ weight: 20
 url: /zh/nodejs-java/open-presentation/
 keywords:
 - 打开 PowerPoint
-- 打开演示文稿
+- 打开 演示文稿
 - 打开 PPTX
 - 打开 PPT
 - 打开 ODP
-- 加载演示文稿
+- 加载 演示文稿
 - 加载 PPTX
 - 加载 PPT
 - 加载 ODP
-- 受保护的演示文稿
-- 大型演示文稿
+- 受保护的 演示文稿
+- 大型 演示文稿
 - 外部资源
 - 二进制对象
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js 轻松打开 PowerPoint（.pptx、.ppt）和 OpenDocument（.odp）演示文稿——快速、可靠、功能齐全。"
+description: "了解如何在 JavaScript 中使用 Aspose.Slides for Node.js via Java 打开 PowerPoint 和 OpenDocument 演示文稿、提供打开密码、控制资源加载以及减少内存使用。"
 ---
+## **介绍**
 
-## **概述**
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/zh/nodejs-java/) 可以从文件和流中加载 PowerPoint 和 OpenDocument 演示文稿。加载演示文稿后，您可以检查其结构、编辑幻灯片、管理资源，并以原始格式或其他受支持的格式保存。
 
-除了从头创建 PowerPoint 演示文稿外，Aspose.Slides 还可以打开现有的演示文稿。加载演示文稿后，您可以检索其信息、编辑幻灯片内容、添加新幻灯片、删除现有幻灯片等。
+加载行为可以通过 [LoadOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/) 类进行自定义。例如，您可以提供打开密码、将大型二进制对象保留在 Node.js 内存之外、控制外部资源，或省略嵌入的二进制数据。
 
 ## **打开演示文稿**
 
-要打开现有演示文稿，请实例化[Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)类并将文件路径传递给其构造函数。
+要打开现有演示文稿，请将其文件路径传递给 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 构造函数。使用完毕后请释放演示文稿，以便及时释放文件句柄、临时数据和其他资源。
 
-以下 JavaScript 示例演示了如何打开演示文稿并获取其幻灯片计数：
-```js
-// 实例化 Presentation 类，并将文件路径传递给其构造函数。
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+下面的 JavaScript 示例展示了如何打开演示文稿并获取幻灯片计数：
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("sample.pptx");
 try {
-    // 打印演示文稿中的幻灯片总数。
-    console.log(presentation.getSlides().size());
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **打开受密码保护的演示文稿**
 
-当需要打开受密码保护的演示文稿时，请通过[LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/)类的[setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setPassword)方法传入密码以解密并加载。以下 JavaScript 代码演示了此操作：
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+打开密码会对演示文稿内容进行加密。要加载完整的演示文稿，请将正确的密码传递给 [LoadOptions.setPassword](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#setPassword) 并将选项提供给 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 构造函数。如果密码缺失或不正确，加载将失败。
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // 对已解密的演示文稿执行操作。
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+有关密码检测、验证和加密工作流，请参阅 [Password-Protect Presentations](/slides/zh/nodejs-java/password-protected-presentation/)。如果加密的演示文稿刻意以公开的文档属性保存，则可以在不提供密码的情况下读取这些属性；请参阅 [Manage Presentation Properties](/slides/zh/nodejs-java/presentation-properties/)。
 
 ## **打开大型演示文稿**
 
-Aspose.Slides 提供选项——特别是[LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/)类中的[getBlobManagementOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions)方法——帮助您加载大型演示文稿。
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) 返回用于控制 Aspose.Slides 处理图像、音频和视频等二进制大型对象的选项。您可以保持源文件锁定、允许使用临时文件，并限制保存在内存中的 BLOB 数据量。
 
-以下 JavaScript 代码演示了加载大型演示文稿（例如 2 GB）：
-```js
-const filePath = "LargePresentation.pptx";
+下面的 JavaScript 代码演示了加载大型演示文稿（例如 2 GB）：
 
-let loadOptions = new aspose.slides.LoadOptions();
-// 选择 KeepLocked 行为——演示文稿文件将在整个生命周期内保持锁定
-// Presentation 实例，但不需要加载到内存或复制到临时文件。
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "large-presentation.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
-let presentation = new aspose.slides.Presentation(filePath, loadOptions);
+const presentation = new slides.Presentation(filePath, loadOptions);
 try {
-    // 已加载大型演示文稿并可使用，同时内存占用保持低水平。
-    
-    // 对演示文稿进行更改。
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // 将演示文稿保存到另一个文件。此操作期间内存占用保持低水平。
-    presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
-
-    // 不要这样做！由于文件被锁定，直到释放演示文稿对象前会抛出 I/O 异常。
-    //fs.unlinkSync(filePath);
+    presentation.save("large-presentation-copy.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// 这里这样做是可以的。源文件已不再被演示文稿对象锁定。
-fs.unlinkSync(filePath);
 ```
 
+{{% alert color="info" title="Note" %}}
+使用 [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) 时，源文件会保持锁定状态，直至演示文稿实例被释放。请勿在该实例存活期间移动、覆盖或删除源文件。
 
-{{% alert color="info" title="Info" %}}
-为了解决在使用流时的某些限制，Aspose.Slides 可能会复制流的内容。从流加载大型演示文稿会导致演示文稿被复制，从而减慢加载速度。因此，当需要加载大型演示文稿时，我们强烈建议使用演示文稿文件路径而非流。
-
-在创建包含大型对象（视频、音频、高分辨率图像等）的演示文稿时，您可以使用[BLOB 管理](/slides/zh/nodejs-java/manage-blob/)来降低内存消耗。
-{{%/alert %}}
+Aspose.Slides 可能会在加载时复制输入流的内容。对于大型演示文稿，使用文件路径通常比使用流更高效。有关其他存储和内存管理选项，请参阅 [Manage BLOBs](/slides/zh/nodejs-java/manage-blob/)。
+{{% /alert %}}
 
 ## **控制外部资源**
 
-Aspose.Slides 提供[IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/)接口，让您管理外部资源。以下 JavaScript 代码展示了如何使用 `IResourceLoadingCallback` 接口：
-```js
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // 加载替代图像。
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // 设置替代 URL。
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) 接受一个 [IResourceLoadingCallback](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iresourceloadingcallback/) 实现。回调可以提供替代数据、重定向资源、使用默认加载器，或跳过资源。当演示文稿包含必须根据应用特定安全或存储规则解析的外部图像时，这非常有用。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const imageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
+    resourceLoading: function(args) {
+        const isJpeg = args.getOriginalUri().toLowerCase().endsWith(".jpg");
+        const approvedImagePath = "approved-image.jpg";
+        if (!isJpeg || !fs.existsSync(approvedImagePath)) {
+            return slides.ResourceLoadingAction.Skip;
         }
-        // 跳过所有其他图像。
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
+
+        try {
+            const imageData = fs.readFileSync(approvedImagePath);
+            args.setData(imageData);
+            return slides.ResourceLoadingAction.UserProvided;
+        } catch (error) {
+            console.error("The approved replacement image could not be read.");
+            return slides.ResourceLoadingAction.Skip;
+        }
+    }
 });
-```
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setResourceLoadingCallback(imageLoadingHandler);
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
-```
-
-
-## **加载不含嵌入二进制对象的演示文稿**
-
-PowerPoint 演示文稿可能包含以下类型的嵌入二进制对象：
-
-- VBA 项目（通过[Presentation.getVbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getVbaProject)访问）；
-- OLE 对象嵌入数据（通过[OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData)访问）；
-- ActiveX 控件二进制数据（通过[Control.getActiveXControlBinary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getActiveXControlBinary)访问）。
-
-使用[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects)方法，您可以在不加载任何嵌入二进制对象的情况下打开演示文稿。
-
-此方法可帮助移除可能的恶意二进制内容。以下 JavaScript 代码演示了如何在不加载任何嵌入二进制内容的情况下打开演示文稿：
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setDeleteEmbeddedBinaryObjects(true);
-
-let presentation = new aspose.slides.Presentation("malware.ppt", loadOptions);
+const presentation = new slides.Presentation("presentation-with-external-images.pptx", loadOptions);
 try {
-    // 对演示文稿执行操作。
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+## **加载不含嵌入二进制对象的演示文稿**
+
+演示文稿可能包含应用程序不需要或不想保留的嵌入二进制数据。例如：
+
+- VBA 项目，可通过 [Presentation.getVbaProject](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/#getVbaProject) 访问；
+- 嵌入的 OLE 数据，可通过 [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) 访问；
+- ActiveX 控件数据，可通过 [Control.getActiveXControlBinary](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/control/#getActiveXControlBinary) 访问。
+
+将 [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) 设置为 `true`，即可在加载时删除这些二进制数据。将加载后的演示文稿保存即可保留已清理的结果。
+
+此选项可降低意外嵌入负载的风险，但它并非完整的恶意软件检测或内容消毒系统。
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setDeleteEmbeddedBinaryObjects(true);
+
+const presentation = new slides.Presentation("presentation-with-embedded-data.pptx", loadOptions);
+try {
+    presentation.save("presentation-without-embedded-data.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **常见问题**
 
 **如何判断文件已损坏且无法打开？**
 
-加载时会抛出解析/格式验证异常。此类错误通常提到 ZIP 结构无效或 PowerPoint 记录损坏。
+Aspose.Slides 在加载期间会抛出解析或格式异常。请将此类失败与密码错误区分处理，以便应用程序能够准确报告原因。
 
-**打开时缺少必需的字体会怎样？**
+**如果缺少必需的字体会怎样？**
 
-文件仍会打开，但后续[渲染/导出](/slides/zh/nodejs-java/convert-presentation/)可能会自动替代字体。请[配置字体替代](/slides/zh/nodejs-java/font-substitution/)或[将必需字体添加到运行时环境](/slides/zh/nodejs-java/custom-font/)。
+演示文稿仍可以加载，但渲染和导出时可能会替换字体。您可以 [configure font substitution](/slides/zh/nodejs-java/font-substitution/) 或 [provide custom fonts](/slides/zh/nodejs-java/custom-font/)，以使输出更可预测。
 
-**打开时嵌入的媒体（视频/音频）会怎样？**
+**加载演示文稿时是否也会加载其嵌入的媒体？**
 
-它们会作为演示文稿资源可用。如果媒体通过外部路径引用，请确保这些路径在您的环境中可访问；否则[渲染/导出](/slides/zh/nodejs-java/convert-presentation/)可能会省略这些媒体。
+嵌入的音频和视频可以通过演示文稿对象模型访问。外部资源会依据已配置的资源加载行为进行解析，如果其位置无法访问，则可能不可用。

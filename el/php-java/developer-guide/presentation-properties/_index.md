@@ -10,72 +10,159 @@ keywords:
 - Ιδιότητες εγγράφου
 - Ενσωματωμένες ιδιότητες
 - Προσαρμοσμένες ιδιότητες
-- Προχωρημένες ιδιότητες
+- Προηγμένες ιδιότητες
 - Διαχείριση ιδιοτήτων
 - Τροποποίηση ιδιοτήτων
 - Μεταδεδομένα εγγράφου
 - Επεξεργασία μεταδεδομένων
-- Γλώσσα επιθεώρησης
+- Γλώσσα ελέγχου ορθογραφίας
 - Προεπιλεγμένη γλώσσα
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Κατακτήστε τις ιδιότητες παρουσίασης στο Aspose.Slides for PHP via Java και βελτιστοποιήστε την αναζήτηση, τη διαφήμιση και τη ροή εργασίας στα αρχεία PowerPoint και OpenDocument σας."
+description: "Διαχειριστείτε κύριες ιδιότητες παρουσίασης στο Aspose.Slides για PHP μέσω Java και βελτιστοποιήστε την αναζήτηση, την σήμανση και τη ροή εργασίας στα αρχεία PowerPoint και OpenDocument σας."
 ---
 ## **Εισαγωγή**
 
 Το Aspose.Slides υποστηρίζει δύο τύπους ιδιοτήτων εγγράφου: **Built-in** και **Custom**. Και οι δύο τύποι ιδιοτήτων μπορούν εύκολα να προσπελαστούν και να διαχειριστούν χρησιμοποιώντας το API του Aspose.Slides.
 
-Το Aspose.Slides σας επιτρέπει να εργάζεστε με τις ιδιότητες εγγράφου παρουσίασης μέσω της κλάσης [DocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties/) . Μια παρουσία της κλάσης επιστρέφεται από τη μέθοδο [Presentation::getDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getDocumentProperties) . Τα επόμενα παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
+Το Aspose.Slides σας επιτρέπει να εργάζεστε με τις ιδιότητες εγγράφου της παρουσίασης μέσω της κλάσης [DocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties/) . Μια παρουσία της κλάσης αυτής επιστρέφεται από τη μέθοδο [Presentation::getDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getDocumentProperties) . Τα παρακάτω παραδείγματα δείχνουν πώς να διαβάσετε, να τροποποιήσετε και να διαχειριστείτε αυτές τις ιδιότητες.
 
-{{% alert color="info" title="Σημείωση" %}}
+{{% alert color="info" title="Note" %}}
 
-Παρακαλώ σημειώστε ότι τα πεδία **Application** και **AppVersion** δεν μπορούν να τροποποιηθούν. Το Aspose.Slides τα επανγράφει σε κάθε αποθήκευση, έτσι μια αποθηκευμένη παρουσίαση πάντα αναφέρει «Aspose.Slides for PHP via Java» και την έκδοση της βιβλιοθήκης που την παρήγαγε. Οποιαδήποτε τιμή περαστεί στη μέθοδο `setNameOfApplication` απορρίπτεται όταν η παρουσίαση γράφεται.
+Παρακαλούμε σημειώστε ότι τα πεδία **Application** και **AppVersion** δεν μπορούν να τροποποιηθούν. Το Aspose.Slides τα ξαναγράφει σε κάθε αποθήκευση, έτσι μια αποθηκευμένη παρουσίαση πάντα αναφέρει "Aspose.Slides for PHP via Java" και την έκδοση της βιβλιοθήκης που την παρήγαγε. Οποιαδήποτε τιμή δοθεί στη μέθοδο `setNameOfApplication` απορρίπτεται όταν η παρουσίαση γράφεται.
 
 {{% /alert %}} 
 
 ## **Διαχείριση Ιδιοτήτων Παρουσίασης**
 
-Το Microsoft PowerPoint παρέχει δυνατότητα προσθήκης ιδιοτήτων στα αρχεία παρουσίασης. Αυτές οι ιδιότητες εγγράφου επιτρέπουν την αποθήκευση χρήσιμων πληροφοριών μαζί με τα έγγραφα (αρχεία παρουσίασης). Υπάρχουν δύο είδη ιδιοτήτων εγγράφου ως εξής
+Το Microsoft PowerPoint παρέχει μια δυνατότητα για προσθήκη ορισμένων ιδιοτήτων στα αρχεία παρουσίασης. Αυτές οι ιδιότητες εγγράφου επιτρέπουν την αποθήκευση χρήσιμων πληροφοριών μαζί με τα έγγραφα (αρχεία παρουσίασης). Υπάρχουν δύο είδη ιδιοτήτων εγγράφου ως εξής
 
-- Ιδιότητες ορισμένες από το σύστημα (Built-in)
-- Ιδιότητες ορισμένες από τον χρήστη (Custom)
+- System Defined (Built‑in) Properties  
+- User‑Defined (Custom) Properties  
 
-Οι **Built-in** ιδιότητες περιλαμβάνουν γενικές πληροφορίες για το έγγραφο όπως τίτλος, όνομα συγγραφέα, στατιστικά κλπ. Οι **Custom** ιδιότητες είναι ζεύγη **Όνομα/Τιμή** που ορίζονται από τον χρήστη. Χρησιμοποιώντας το Aspose.Slides for PHP via Java, οι προγραμματιστές μπορούν να προσπελάσουν και να τροποποιήσουν τόσο τις ενσωματωμένες όσο και τις προσαρμοσμένες ιδιότητες.
+Οι **Built-in** ιδιότητες περιέχουν γενικές πληροφορίες για το έγγραφο, όπως ο τίτλος του εγγράφου, το όνομα του δημιουργού, στατιστικά του εγγράφου κ.λπ. Οι **Custom** ιδιότητες είναι αυτές που ορίζονται από τους χρήστες ως ζεύγη **Name/Value**, όπου τόσο το όνομα όσο και η τιμή καθορίζονται από τον χρήστη. Χρησιμοποιώντας το Aspose.Slides for PHP via Java, οι προγραμματιστές μπορούν να προσπελάσουν και να τροποποιήσουν τις τιμές των ενσωματωμένων ιδιοτήτων καθώς και των προσαρμοσμένων ιδιοτήτων.
 
 ## **Ιδιότητες Εγγράφου στο PowerPoint**
 
-Το Microsoft PowerPoint 2007 επιτρέπει τη διαχείριση των ιδιοτήτων εγγράφου των αρχείων παρουσίασης. Το μόνο που χρειάζεται είναι να κάνετε κλικ στο εικονίδιο Office και στη συνέχεια στο στοιχείο μενού **Prepare | Properties | Advanced Properties** του Microsoft PowerPoint 2007 όπως φαίνεται παρακάτω:
+Το Microsoft PowerPoint 2007 επιτρέπει τη διαχείριση των ιδιοτήτων εγγράφου των αρχείων παρουσίασης. Το μόνο που χρειάζεται να κάνετε είναι να κάνετε κλικ στο εικονίδιο Office και στη συνέχεια στην εντολή **Prepare | Properties | Advanced Properties** του Microsoft PowerPoint 2007 όπως φαίνεται παρακάτω:
 
-|**Επιλογή στοιχείου μενού Advanced Properties**|** |
+|**Επιλογή στοιχείου μενού Advanced Properties**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-Αφού επιλέξετε το στοιχείο μενού **Advanced Properties**, εμφανίζεται ένας διάλογος που σας επιτρέπει να διαχειριστείτε τις ιδιότητες εγγράφου του αρχείου PowerPoint όπως φαίνεται παρακάτω:
 
-|**Διάλογος Ιδιοτήτων**|** |
+Αφού επιλέξετε το στοιχείο μενού **Advanced Properties**, εμφανίζεται ένας διάλογος που σας επιτρέπει να διαχειριστείτε τις ιδιότητες εγγράφου του αρχείου PowerPoint, όπως φαίνεται στην παρακάτω εικόνα:
+
+|**Διάλογος Ιδιοτήτων**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-Στον παραπάνω **Διάλογο Ιδιοτήτων**, μπορείτε να δείτε πολλές καρτέλες όπως **General**, **Summary**, **Statistics**, **Contents** και **Custom**. Όλες αυτές οι καρτέλες επιτρέπουν τη διαμόρφωση διαφορετικών τύπων πληροφοριών σχετικά με τα αρχεία PowerPoint. Η καρτέλα **Custom** χρησιμοποιείται για τη διαχείριση των προσαρμοσμένων ιδιοτήτων των αρχείων PowerPoint.
 
-### Εργασία με Ιδιότητες Εγγράφου χρησιμοποιώντας Aspose.Slides for PHP via Java
+Στον παραπάνω **Διάλογο Ιδιοτήτων**, μπορείτε να δείτε ότι υπάρχουν πολλές καρτέλες όπως **General**, **Summary**, **Statistics**, **Contents** και **Custom**. Όλες αυτές οι καρτέλες επιτρέπουν τη ρύθμιση διαφορετικών τύπων πληροφοριών που σχετίζονται με τα αρχεία PowerPoint. Η καρτέλα **Custom** χρησιμοποιείται για τη διαχείριση των προσαρμοσμένων ιδιοτήτων των αρχείων PowerPoint.
 
-Όπως περιγράφηκε νωρίτερα, το Aspose.Slides for PHP via Java υποστηρίζει δύο είδη ιδιοτήτων εγγράφου, οι **Built-in** και **Custom**. Έτσι, οι προγραμματιστές μπορούν να προσπελάσουν και τους δύο τύπους ιδιοτήτων μέσω του API του Aspose.Slides for PHP via Java. Το Aspose.Slides for PHP via Java παρέχει την κλάση [DocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties) που αντιπροσωπεύει τις ιδιότητες εγγράφου που σχετίζονται με ένα αρχείο παρουσίασης μέσω της ιδιότητας **Presentation.DocumentProperties**.
+### Εργασία με Ιδιότητες Εγγράφου Χρησιμοποιώντας Aspose.Slides for PHP via Java
 
-Οι προγραμματιστές μπορούν να χρησιμοποιήσουν την ιδιότητα **DocumentProperties** που εκτίθεται από το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation) για να έχουν πρόσβαση στις ιδιότητες εγγράφου των αρχείων παρουσίασης όπως περιγράφεται παρακάτω:
+Όπως περιγράψαμε νωρίτερα, το Aspose.Slides for PHP via Java υποστηρίζει δύο είδη ιδιοτήτων εγγράφου: **Built-in** και **Custom**. Συνεπώς, οι προγραμματιστές μπορούν να προσπελάσουν και τα δύο είδη ιδιοτήτων με τη χρήση του API του Aspose.Slides for PHP via Java. Το Aspose.Slides for PHP via Java παρέχει την κλάση [DocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties) η οποία αντιπροσωπεύει τις ιδιότητες εγγράφου που σχετίζονται με ένα αρχείο παρουσίασης μέσω της ιδιότητας **Presentation.DocumentProperties**.
 
-## **Πρόσβαση στις ενσωματωμένες (Built-in) Ιδιότητες**
+Οι προγραμματιστές μπορούν να χρησιμοποιήσουν την ιδιότητα **DocumentProperties** που εκτίθεται από το αντικείμενο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation) για να προσπελάσουν τις ιδιότητες εγγράφου των αρχείων παρουσίασης όπως περιγράφεται παρακάτω:
 
-Αυτές οι ιδιότητες που εκτίθενται από το αντικείμενο [DocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties) περιλαμβάνουν: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** και **Title**
+## **Ανάγνωση Δημόσιων Ιδιοτήτων από Κρυπτογραφημένη Παρουσίαση**
+
+Ένας κωδικός ανοίγματος προστατεύει κανονικά τόσο το περιεχόμενο της παρουσίασης όσο και τις ιδιότητες εγγράφου. Όταν μια παρουσίαση κρυπτογραφηθεί με τη μέθοδο `false` στο [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties), οι ιδιότητες εγγράφου παραμένουν δημόσιες. Μία εφαρμογή μπορεί στη συνέχεια να περάσει `true` στο [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) και να διαβάσει τα δημόσια μεταδεδομένα χωρίς να παρέχει τον κωδικό ανοίγματος.
+
+Η επιλογή «μόνο ιδιότητες εγγράφου» ελέγχει τι φορτώνει το Aspose.Slides· δεν αποκρυπτογραφεί τίποτα. Αν οι ιδιότητες περιλαμβάνονταν στην κρυπτογράφηση, η φόρτωσή τους χωρίς κωδικό αποτυγχάνει. Αν η παρουσίαση δεν είναι κρυπτογραφημένη, η επιλογή αγνοείται και φορτώνεται όλη η παρουσίαση.
+
+Το παρακάτω παράδειγμα ελέγχει τη λειτουργία φόρτωσης μέσω του [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/el/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) και στη συνέχεια διαβάζει τις ενσωματωμένες ιδιότητες μέσω του [Presentation::getDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```php
-  # Δημιουργία αντικειμένου της κλάσης Presentation που αντιπροσωπεύει την παρουσίαση
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setOnlyLoadDocumentProperties(true);
+
+$presentation = new Presentation("public-properties-encrypted.pptx", $loadOptions);
+try {
+    if (java_values($presentation->getProtectionManager()->isOnlyDocumentPropertiesLoaded())) {
+        $properties = $presentation->getDocumentProperties();
+
+        echo("Author: " . $properties->getAuthor() . "\n");
+        echo("Title: " . $properties->getTitle() . "\n");
+        echo("Keywords: " . $properties->getKeywords() . "\n");
+    } else {
+        echo("The presentation was not loaded in document-properties-only mode.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Σε αυτή τη λειτουργία, το περιεχόμενο των διαφανειών δεν φορτώνεται. Διαφάνειες, master, layout, σχήματα, πολυμέσα και άλλα αντικείμενα παρουσίασης δεν είναι διαθέσιμα. Οι εφαρμογές πρέπει πάντα να ελέγχουν το [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/el/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) πριν εκτελέσουν λειτουργία που απαιτεί το πλήρες μοντέλο αντικειμένων της παρουσίασης.
+
+{{% alert color="warning" title="Warning" %}}
+Τα δημόσια μεταδεδομένα μπορεί να εκθέτουν ονόματα συγγραφέων, τίτλους, θέματα, λέξεις‑κλειδιά, πληροφορίες εταιρείας, σχόλια και προσαρμοσμένες τιμές. Κρυπτογραφήστε ευαίσθητες ιδιότητες μαζί με την παρουσίαση. Κρατήστε τις δημόσιες μόνο όταν η ανάγκη προέρχεται από συστήματα ευρετηρίασης, ταξινόμησης, αναζήτησης ή διαχείρισης εγγράφων που απαιτούν πρόσβαση χωρίς κωδικό.
+{{% /alert %}}
+
+## **Ενημέρωση Ιδιοτήτων Κρυπτογραφημένης Παρουσίας**
+
+Για ένα κρυπτογραφημένο αρχείο PPTX, μια παρουσίαση που φορτώνεται σε λειτουργία «μόνο ιδιότητες εγγράφου» προορίζεται για ανάγνωση δημόσιων μεταδεδομένων. Το Aspose.Slides δεν μπορεί να αποθηκεύσει αλλαγμένες ιδιότητες από αυτό το αντικείμενο μόνο‑μεταδεδομένων επειδή οι δημόσιες ιδιότητες πρέπει να παραμείνουν συνεπείς με τα αντίστοιχα δεδομένα μέσα στην κρυπτογραφημένη παρουσίαση. Η ενημέρωσή τους απαιτεί επομένως τον σωστό κωδικό ανοίγματος και πλήρη φόρτωση.
+
+Το παρακάτω παράδειγμα ανοίγει την παρουσίαση με [LoadOptions::setPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setPassword), ενημερώνει τις δημόσιες ενσωματωμένες ιδιότητες και αποθηκεύει το αποτέλεσμα. Στη συνέχεια χρησιμοποιεί το [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#isEncrypted) για να επαληθεύσει ότι η κρυπτογράφηση διατηρείται και ξανά ανοίγει τα δημόσια μεταδεδομένα χωρίς κωδικό για να ελέγξει τις νέες τιμές:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+use aspose\slides\SaveFormat;
+
+$inputPath = "public-properties-encrypted.pptx";
+$outputPath = "updated-public-properties-encrypted.pptx";
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation($inputPath, $loadOptions);
+try {
+    $presentation->getDocumentProperties()->setTitle("Updated Product Roadmap");
+    $presentation->getDocumentProperties()->setKeywords("roadmap, planning, indexed");
+    $presentation->save($outputPath, SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($outputPath);
+echo("The presentation is encrypted: " . (java_values($presentationInfo->isEncrypted()) ? "true" : "false") . "\n");
+
+$metadataLoadOptions = new LoadOptions();
+$metadataLoadOptions->setOnlyLoadDocumentProperties(true);
+
+$metadataPresentation = new Presentation($outputPath, $metadataLoadOptions);
+try {
+    if (java_values($metadataPresentation->getProtectionManager()->isOnlyDocumentPropertiesLoaded())) {
+        echo("Title: " . $metadataPresentation->getDocumentProperties()->getTitle() . "\n");
+        echo("Keywords: " . $metadataPresentation->getDocumentProperties()->getKeywords() . "\n");
+    } else {
+        echo("The presentation was not loaded in document-properties-only mode.\n");
+    }
+} finally {
+    $metadataPresentation->dispose();
+}
+```
+
+Αν μια εφαρμογή δεν επιτρέπεται να αποκρυπτογραφήσει ή να φορτώσει το περιεχόμενο της παρουσίασης, πρέπει να αντιμετωπίζει τις δημόσιες ιδιότητες ενός κρυπτογραφημένου αρχείου PPTX ως μόνο‑ανάγνωση.
+
+## **Πρόσβαση σε Ενσωματωμένες Ιδιότητες**
+
+Αυτές οι ιδιότητες που εκτίθενται από το αντικείμενο [DocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties) περιλαμβάνουν: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** και **Title**.
+
+```php
+  # Δημιουργήστε μια παρουσία της κλάσης Presentation που αντιπροσωπεύει την παρουσίαση
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Δημιουργία αναφοράς στο αντικείμενο IDocumentProperties που σχετίζεται με την παρουσίαση
+    # Δημιουργήστε μια αναφορά στο αντικείμενο IDocumentProperties που σχετίζεται με την Presentation
     $dp = $pres->getDocumentProperties();
-    # Εμφάνιση των ενσωματωμένων ιδιοτήτων
+    # Εμφανίστε τις ενσωματωμένες ιδιότητες
     echo("Category : " . $dp->getCategory());
     echo("Current Status : " . $dp->getContentStatus());
     echo("Creation Date : " . $dp->getCreatedTime());
@@ -97,22 +184,22 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
   }
 ```
 
-## **Τροποποίηση ενσωματωμένων ιδιοτήτων**
+## **Τροποποίηση Ενσωματωμένων Ιδιοτήτων**
 
-Η τροποποίηση των ενσωματωμένων ιδιοτήτων των αρχείων παρουσίασης είναι εξίσου απλή με την πρόσβασή τους. Απλώς εκχωρείτε μια συμβολοσειρά σε οποιαδήποτε επιθυμητή ιδιότητα και η τιμή της ιδιότητας θα τροποποιηθεί. Στο παρακάτω παράδειγμα, δείχνουμε πώς μπορούμε να τροποποιήσουμε τις ενσωματωμένες ιδιότητες εγγράφου του αρχείου παρουσίασης χρησιμοποιώντας το Aspose.Slides for PHP via Java.
+Η τροποποίηση των ενσωματωμένων ιδιοτήτων των αρχείων παρουσίασης είναι τόσο απλή όσο η πρόσβαση σε αυτές. Απλώς αντιστοιχίστε μια συμβολοσειρά σε οποιαδήποτε επιθυμητή ιδιότητα και η τιμή της ιδιότητας θα τροποποιηθεί. Στο παρακάτω παράδειγμα δείχνουμε πώς μπορούμε να τροποποιήσουμε τις ενσωματωμένες ιδιότητες εγγράφου της παρουσίασης χρησιμοποιώντας το Aspose.Slides for PHP via Java.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Δημιουργία αναφοράς στο αντικείμενο IDocumentProperties που σχετίζεται με την Παρουσίαση
+    # Δημιουργήστε μια αναφορά στο αντικείμενο IDocumentProperties που σχετίζεται με την Presentation
     $dp = $pres->getDocumentProperties();
-    # Ορισμός των ενσωματωμένων ιδιοτήτων
+    # Ορίστε τις ενσωματωμένες ιδιότητες
     $dp->setAuthor("Aspose.Slides for PHP via Java");
     $dp->setTitle("Modifying Presentation Properties");
     $dp->setSubject("Aspose Subject");
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
-    # Αποθήκευση της παρουσίασής σας σε αρχείο
+    # Αποθηκεύστε την παρουσίασή σας σε αρχείο
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -121,26 +208,26 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
   }
 ```
 
-Το παράδειγμα αυτό τροποποιεί τις ενσωματωμένες ιδιότητες της παρουσίασης όπως φαίνεται παρακάτω:
+Αυτό το παράδειγμα τροποποιεί τις ενσωματωμένες ιδιότητες της παρουσίασης όπως φαίνεται παρακάτω:
 
-|**Ενσωματωμένες ιδιότητες εγγράφου μετά τη τροποποίηση**|** |
+|**Ενσωματωμένες ιδιότητες εγγράφου μετά τη τροποποίηση**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **Προσθήκη προσαρμοσμένων ιδιοτήτων εγγράφου**
+## **Προσθήκη Προσαρμοσμένων Ιδιοτήτων Εγγράφου**
 
-Το Aspose.Slides for PHP via Java επιτρέπει επίσης στους προγραμματιστές να προσθέτουν προσαρμοσμένες τιμές για τις ιδιότητες εγγράφου παρουσίασης. Ένα παράδειγμα παρατίθεται παρακάτω που δείχνει πώς να ορίσετε τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
+Το Aspose.Slides for PHP via Java επιτρέπει επίσης στους προγραμματιστές να προσθέσουν προσαρμοσμένες τιμές για τις ιδιότητες εγγράφου της παρουσίασης. Ένα παράδειγμα παρατίθεται παρακάτω που δείχνει πώς να ορίσετε τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
 
 ```php
   $pres = new Presentation();
   try {
-    # Ανάκτηση ιδιοτήτων εγγράφου
+    # Λήψη ιδιοτήτων εγγράφου
     $dProps = $pres->getDocumentProperties();
     # Προσθήκη προσαρμοσμένων ιδιοτήτων
     $dProps->set_Item("New Custom", 12);
     $dProps->set_Item("My Name", "Mudassir");
     $dProps->set_Item("Custom", 124);
-    # Ανάκτηση ονόματος ιδιότητας σε συγκεκριμένο δείκτη
+    # Λήψη ονόματος ιδιότητας σε συγκεκριμένο δείκτη
     $getPropertyName = $dProps->getCustomPropertyName(2);
     # Αφαίρεση επιλεγμένης ιδιότητας
     $dProps->removeCustomProperty($getPropertyName);
@@ -153,18 +240,18 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
   }
 ```
 
-|**Προσαρμοσμένες Ιδιότητες Εγγράφου Προστέθηκαν**|** |
+|**Προσαρμοσμένες Ιδιότητες Εγγράφου Προστέθηκαν**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Πρόσβαση και τροποποίηση προσαρμοσμένων ιδιοτήτων**
+## **Πρόσβαση και Τροποποίηση Προσαρμοσμένων Ιδιοτήτων**
 
 Το Aspose.Slides for PHP via Java επιτρέπει επίσης στους προγραμματιστές να προσπελάσουν τις τιμές των προσαρμοσμένων ιδιοτήτων. Ένα παράδειγμα παρατίθεται παρακάτω που δείχνει πώς μπορείτε να προσπελάσετε και να τροποποιήσετε όλες αυτές τις προσαρμοσμένες ιδιότητες για μια παρουσίαση.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # Δημιουργία αναφοράς στο αντικείμενο DocumentProperties που σχετίζεται με την Παρουσίαση
+    # Δημιουργήστε μια αναφορά στο αντικείμενο DocumentProperties που σχετίζεται με την Presentation
     $dp = $pres->getDocumentProperties();
     # Πρόσβαση και τροποποίηση προσαρμοσμένων ιδιοτήτων
     for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
@@ -174,7 +261,7 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
       # Τροποποίηση τιμών των προσαρμοσμένων ιδιοτήτων
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
-    # Αποθήκευση της παρουσίασής σας σε αρχείο
+    # Αποθηκεύστε την παρουσίασή σας σε αρχείο
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -183,42 +270,42 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
   }
 ```
 
-Αυτό το παράδειγμα τροποποιεί τις προσαρμοσμένες ιδιότητες του [PPTX](https://docs.fileformat.com/presentation/pptx/)presentation. Τα παρακάτω σχήματα δείχνουν τις προσαρμοσμένες ιδιότητες της παρουσίασης πριν και μετά τη τροποποίηση:
+Αυτό το παράδειγμα τροποποιεί τις προσαρμοσμένες ιδιότητες του [PPTX](https://docs.fileformat.com/presentation/pptx/)presentation. Οι παρακάτω εικόνες δείχνουν τις προσαρμοσμένες ιδιότητες της παρουσίασης πριν και μετά την τροποποίηση:
 
-|**Προσαρμοσμένες Ιδιότητες πριν από τη Τροποποίηση**|** |
+|**Προσαρμοσμένες Ιδιότητες πριν από την Τροποποίηση**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Προσαρμοσμένες Ιδιότητες μετά τη Τροποποίηση**|** |
+|**Προσαρμοσμένες Ιδιότητες μετά την Τροποποίηση**|** **|
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
-## **Προχωρημένες ιδιότητες εγγράφου**
+## **Προηγμένες Ιδιότητες Εγγράφου**
 
-{{% alert color="info" title="Σημείωση" %}}
+{{% alert color="info" title="Note" %}}
 
-Νέες μέθοδοι [readDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) και [writeBindedPresentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) προστέθηκαν στην κλάση [PresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo), η λογική του setter της ιδιότητας [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties/#setLastSavedTime) έχει αλλάξει.
+Νέες μέθοδοι [readDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) και [writeBindedPresentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) προστέθηκαν στο [PresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo). Η λογική του setter της ιδιότητας [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/el/php-java/aspose.slides/documentproperties/#setLastSavedTime) έχει αλλάξει.
 
 {{% /alert %}} 
 
 Οι δύο νέες μέθοδοι [readDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) και [updateDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) προστέθηκαν στην κλάση [PresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/PresentationInfo). Παρέχουν γρήγορη πρόσβαση στις ιδιότητες εγγράφου και επιτρέπουν την αλλαγή και ενημέρωση των ιδιοτήτων χωρίς τη φόρτωση ολόκληρης της παρουσίασης.
 
-Το τυπικό σενάριο φορτώνει τις ιδιότητες, αλλάζει κάποια τιμή και ενημερώνει το έγγραφο με τον ακόλουθο τρόπο:
+Το τυπικό σενάριο φόρτωσης των ιδιοτήτων, αλλαγής κάποιας τιμής και ενημέρωσης του εγγράφου μπορεί να υλοποιηθεί ως εξής:
 
 ```php
-  # διάβασε τις πληροφορίες της παρουσίασης
+  # διαβάστε τις πληροφορίες της παρουσίασης
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
-  # απόκτησε τις τρέχουσες ιδιότητες
+  # αποκτήστε τις τρέχουσες ιδιότητες
   $props = $info->readDocumentProperties();
-  # ορίσε τις νέες τιμές των πεδίων Συγγραφέας και Τίτλος
+  # ορίστε τις νέες τιμές των πεδίων Συγγραφέας και Τίτλος
   $props->setAuthor("New Author");
   $props->setTitle("New Title");
-  # ενημέρωσε την παρουσίαση με νέες τιμές
+  # ενημερώστε την παρουσίαση με νέες τιμές
   $info->updateDocumentProperties($props);
   $info->writeBindedPresentation("presentation.pptx");
 ```
 
-Υπάρχει ένας άλλος τρόπος να χρησιμοποιήσετε τις ιδιότητες μιας συγκεκριμένης παρουσίασης ως πρότυπο για ενημέρωση ιδιοτήτων σε άλλες παρουσιάσεις:
+Υπάρχει ένας άλλος τρόπος χρήσης των ιδιοτήτων μιας συγκεκριμένης παρουσίασης ως πρότυπο για την ενημέρωση ιδιοτήτων σε άλλες παρουσιάσεις:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
@@ -240,7 +327,7 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
 
 ```
 
-Μπορεί να δημιουργηθεί ένα νέο πρότυπο από την αρχή και στη συνέχεια να χρησιμοποιηθεί για ενημέρωση πολλαπλών παρουσιάσεων:
+Ένα νέο πρότυπο μπορεί να δημιουργηθεί από το μηδέν και στη συνέχεια να χρησιμοποιηθεί για την ενημέρωση πολλαπλών παρουσιάσεων:
 
 ```php
   $template = new DocumentProperties();
@@ -257,11 +344,11 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
   updateByTemplate("doc3.ppt", $template);
 ```
 
-## **Ορισμός γλώσσας επιθεώρησης**
+## **Ορισμός Γλώσσας Ελέγχου Ορθογραφίας**
 
-Το Aspose.Slides παρέχει την ιδιότητα LanguageId (εκτεθειμένη από την κλάση PortionFormat) για να ορίσετε τη γλώσσα επιθεώρησης ενός εγγράφου PowerPoint. Η γλώσσα επιθεώρησης είναι η γλώσσα για την οποία ελέγχονται η ορθογραφία και η γραμματική στο PowerPoint.
+Το Aspose.Slides παρέχει την ιδιότητα LanguageId (εκτεθειμένη από την κλάση PortionFormat) για να ορίσετε τη γλώσσα ελέγχου ορθογραφίας σε ένα έγγραφο PowerPoint. Η γλώσσα ελέγχου ορθογραφίας είναι η γλώσσα για την οποία γίνεται έλεγχος ορθογραφίας και γραμματικής στο PowerPoint.
 
-Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε τη γλώσσα επιθεώρησης για ένα PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
+Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε τη γλώσσα ελέγχου ορθογραφίας για ένα PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -275,7 +362,7 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
     $portionFormat->setComplexScriptFont($font);
     $portionFormat->setEastAsianFont($font);
     $portionFormat->setLatinFont($font);
-    $portionFormat->setLanguageId("zh-CN");// ορίστε το Id μιας γλώσσας επιθεώρησης
+    $portionFormat->setLanguageId("zh-CN");// ορίστε το Id μιας γλώσσας ελέγχου
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
@@ -286,7 +373,7 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
   }
 ```
 
-## **Ορισμός προεπιλεγμένης γλώσσας**
+## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
 Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε τη προεπιλεγμένη γλώσσα για ολόκληρη την παρουσίαση PowerPoint:
 
@@ -295,7 +382,7 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
   $loadOptions->setDefaultTextLanguage("en-US");
   $pres = new Presentation($loadOptions);
   try {
-    # Προσθέτει νέο σχήμα ορθογωνίου με κείμενο
+    # Προσθέτει ένα νέο σχήμα ορθογωνίου με κείμενο
     $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 50);
     $shp->getTextFrame()->setText("New Text");
     # Ελέγχει τη γλώσσα του πρώτου τμήματος
@@ -309,20 +396,28 @@ description: "Κατακτήστε τις ιδιότητες παρουσίασ�
 
 ## **Ζωντανό Παράδειγμα**
 
-Δοκιμάστε την online εφαρμογή [**Aspose.Slides Metadata**](https://products.aspose.app/slides/el/metadata) για να δείτε πώς να εργάζεστε με τις ιδιότητες εγγράφου μέσω του Aspose.Slides API:
+Δοκιμάστε την online εφαρμογή [**Aspose.Slides Metadata**](https://products.aspose.app/slides/el/metadata) για να δείτε πώς να εργαστείτε με τις ιδιότητες εγγράφου μέσω του Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/el/metadata)
 
-## **Συχνές ερωτήσεις**
+## **FAQ**
 
 **Πώς μπορώ να αφαιρέσω μια ενσωματωμένη ιδιότητα από μια παρουσίαση;**
 
-Οι ενσωματωμένες ιδιότητες αποτελούν αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν πλήρως. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις ορίσετε σε κενό, εφόσον η συγκεκριμένη ιδιότητα το επιτρέπει.
+Οι ενσωματωμένες ιδιότητες αποτελούν αναπόσπαστο μέρος της παρουσίασης και δεν μπορούν να αφαιρεθούν εντελώς. Ωστόσο, μπορείτε είτε να αλλάξετε τις τιμές τους είτε να τις θέσετε κενές, εφόσον το επιτρέπει η συγκεκριμένη ιδιότητα.
 
 **Τι συμβαίνει αν προσθέσω μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη;**
 
 Αν προσθέσετε μια προσαρμοσμένη ιδιότητα που υπάρχει ήδη, η υπάρχουσα τιμή της θα αντικατασταθεί με τη νέα. Δεν χρειάζεται να αφαιρέσετε ή να ελέγξετε την ιδιότητα εκ των προτέρων, καθώς το Aspose.Slides ενημερώνει αυτόματα την τιμή της ιδιότητας.
 
-**Μπορώ να προσπελάσω τις ιδιότητες παρουσίασης χωρίς να φορτώσω ολόκληρη την παρουσίαση;**
+**Μπορώ να προσπελάσω τις ιδιότητες παρουσίασης χωρίς να φορτώσω πλήρως την παρουσίαση;**
 
-Ναι. Χρησιμοποιήστε [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationfactory/) και στη συνέχεια [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#readDocumentProperties) για να διαβάσετε τα αποθηκευμένα μεταδεδομένα εγγράφου χωρίς να δημιουργήσετε ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) . Δείτε το παράδειγμα **Build a Lightweight Presentation Inventory** (/slides/el/php-java/examine-presentation/) για πλήρη αναφορά και περιορισμούς ανά μορφή.
+Ναι. Χρησιμοποιήστε το [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationfactory/) και έπειτα το [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#readDocumentProperties) για να διαβάσετε τα αποθηκευμένα μεταδεδομένα εγγράφου χωρίς να δημιουργήσετε ένα στιγμιότυπο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) . Δείτε το [Build a Lightweight Presentation Inventory](/slides/el/php-java/examine-presentation/) για ένα πλήρες παράδειγμα αναφοράς και περιορισμών ανά μορφή.
+
+**Μπορώ να διαβάσω δημόσιες ιδιότητες κρυπτογραφημένης παρουσίασης χωρίς τον κωδικό ανοίγματος;**
+
+Ναι. Η κρυπτογράφηση ιδιοτήτων εγγράφου πρέπει να είχε απενεργοποιηθεί πριν κρυπτογραφηθεί η παρουσίαση και η παρουσίαση πρέπει να φορτωθεί σε λειτουργία «μόνο ιδιότητες εγγράφου».
+
+**Μπορώ να ενημερώσω ένα κρυπτογραφημένο αρχείο PPTX σε λειτουργία «μόνο ιδιότητες εγγράφου»;**
+
+Όχι. Τα δημόσια και κρυπτογραφημένα δεδομένα ιδιοτήτων πρέπει να παραμένουν συνεπή, έτσι η ενημέρωση ενός κρυπτογραφημένου αρχείου PPTX απαιτεί τη φόρτωση ολόκληρης της παρουσίασης με τον σωστό κωδικό ανοίγματος.

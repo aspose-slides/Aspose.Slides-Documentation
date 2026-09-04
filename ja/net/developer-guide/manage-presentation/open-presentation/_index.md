@@ -10,173 +10,166 @@ keywords:
 - PPTX を開く
 - PPT を開く
 - ODP を開く
-- プレゼンテーションを読み込む
-- PPTX を読み込む
-- PPT を読み込む
-- ODP を読み込む
+- プレゼンテーションをロードする
+- PPTX をロードする
+- PPT をロードする
+- ODP をロードする
 - 保護されたプレゼンテーション
-- 大容量プレゼンテーション
+- 大きなプレゼンテーション
 - 外部リソース
 - バイナリオブジェクト
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、PowerPoint (.pptx, .ppt) および OpenDocument (.odp) プレゼンテーションを簡単に開くことができます—高速、信頼性が高く、機能が充実しています。"
+description: "C# で PowerPoint および OpenDocument プレゼンテーションを開く方法、開く際のパスワードを指定する方法、リソースの読み込みを制御する方法、そして Aspose.Slides for .NET を使用したメモリ使用量の削減方法を学びます。"
 ---
+## **導入**
 
-## **概要**
+[Aspose.Slides for .NET](https://products.aspose.com/slides/ja/net/) は、ファイルやストリームから PowerPoint および OpenDocument プレゼンテーションをロードできます。プレゼンテーションがロードされた後、その構造を検査したり、スライドを編集したり、リソースを管理したり、元の形式または他のサポートされている形式で保存したりできます。
 
-PowerPointプレゼンテーションをゼロから作成するだけでなく、Aspose.Slidesは既存のプレゼンテーションを開くこともできます。プレゼンテーションをロードした後、その情報を取得したり、スライドの内容を編集したり、新しいスライドを追加したり、既存のスライドを削除したり、その他様々な操作が可能です。
+ロード動作は、[LoadOptions](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/) クラスを使用してカスタマイズできます。たとえば、開く際のパスワードを指定したり、大きなバイナリオブジェクトを管理メモリの外部に保持したり、外部リソースを制御したり、埋め込みバイナリデータを省略したりできます。
 
 ## **プレゼンテーションを開く**
 
-既存のプレゼンテーションを開くには、[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスをインスタンス化し、コンストラクタにファイルパスを渡します。
+既存のプレゼンテーションを開くには、そのファイルパスを [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) コンストラクタに渡します。使用後はプレゼンテーションを破棄して、ファイルハンドルや一時データ、その他のリソースが速やかに解放されるようにします。
 
-以下のC#例は、プレゼンテーションを開きスライド数を取得する方法を示しています。
-```cs
-// Presentation クラスのインスタンスを作成し、コンストラクタにファイルパスを渡します。
-using (Presentation presentation = new Presentation("Sample.pptx"))
-{
-    // プレゼンテーションのスライド総数を出力します。
-    System.Console.WriteLine(presentation.Slides.Count);
-}
+次の C# の例は、プレゼンテーションを開いてスライド数を取得する方法を示しています。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+
+Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
-
 
 ## **パスワードで保護されたプレゼンテーションを開く**
 
-パスワードで保護されたプレゼンテーションを開く必要がある場合は、[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) クラスの [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) プロパティにパスワードを設定して復号し、ロードします。以下のC#コードはこの操作を示しています。
-```cs
-LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
-using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
-{
-    // 復号化されたプレゼンテーションで操作を実行します。
-}
+開く際のパスワードはプレゼンテーションの内容を暗号化します。完全なプレゼンテーションをロードするには、正しいパスワードを [LoadOptions.Password](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/password/) に設定し、オプションを [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) コンストラクタに渡します。パスワードが無い、または正しくない場合、ロードは失敗します。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
+
+Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
+パスワードの検出、検証、暗号化フローについては、[Password-Protect Presentations](/slides/ja/net/password-protected-presentation/) を参照してください。暗号化されたプレゼンテーションが意図的に公開文書プロパティと共に保存されている場合、そのプロパティはパスワードなしで読み取れます；[Manage Presentation Properties](/slides/ja/net/presentation-properties/) を参照してください。
 
-## **大容量プレゼンテーションを開く**
+## **大きなプレゼンテーションを開く**
 
-Aspose.Slidesは、大容量のプレゼンテーションをロードするためのオプションを提供します。特に、[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) クラスの [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) プロパティが役立ちます。
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/blobmanagementoptions/) は、画像、音声、動画などのバイナリラージオブジェクト（BLOB）の Aspose.Slides における処理方法を制御します。ソースファイルをロックしたままにしたり、一時ファイルを許可したり、メモリに保持される BLOB データ量を制限したりできます。
 
-以下のC#コードは、大容量のプレゼンテーション（例：2 GB）をロードする方法を示しています。
-```cs
-const string filePath = "LargePresentation.pptx";
+次の C# コードは、大きなプレゼンテーション（例として 2 GB）をロードする方法を示しています。
 
-LoadOptions loadOptions = new LoadOptions
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string filePath = "large-presentation.pptx";
+
+var loadOptions = new LoadOptions
 {
-    BlobManagementOptions = 
+    BlobManagementOptions =
     {
-        // KeepLocked 動作を選択します—プレゼンテーション ファイルはライフタイム中ロックされたままです
-        // Presentation インスタンスですが、メモリにロードしたり一時ファイルにコピーしたりする必要はありません。
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
         IsTemporaryFilesAllowed = true,
-        MaxBlobsBytesInMemory = 10 * 1024 * 1024 // 10 MB
+        MaxBlobsBytesInMemory = 10 * 1024 * 1024
     }
 };
 
-using (Presentation presentation = new Presentation(filePath, loadOptions))
-{
-    // 大容量プレゼンテーションがロードされ、使用できます。メモリ消費は低く抑えられます。
+using var presentation = new Presentation(filePath, loadOptions);
 
-    // プレゼンテーションを変更します。
-    presentation.Slides[0].Name = "Large presentation";
-
-    // プレゼンテーションを別のファイルに保存します。この操作中もメモリ消費は低く抑えられます。
-    presentation.Save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // これを行わないでください！プレゼンテーション オブジェクトが破棄されるまでファイルがロックされているため、I/O 例外がスローされます。
-    File.Delete(filePath);
-}
-
-// ここで実行しても問題ありません。ソース ファイルはプレゼンテーション オブジェクトによるロックが解除されています。
-File.Delete(filePath);
+presentation.Slides[0].Name = "Large presentation";
+presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
+{{% alert color="info" title="Note" %}}
+`PresentationLockingBehavior.KeepLocked` を使用すると、`Presentation` オブジェクトが破棄されるまでソースファイルはロックされたままになります。オブジェクトが存続している間、ソースファイルを移動、上書き、削除しないでください。
 
-{{% alert color="info" title="Info" %}}
-ストリームを使用する際の特定の制限を回避するために、Aspose.Slidesはストリームの内容をコピーすることがあります。ストリームから大容量のプレゼンテーションをロードすると、プレゼンテーションがコピーされ、ロードが遅くなる可能性があります。したがって、大容量のプレゼンテーションをロードする必要がある場合は、ストリームではなくプレゼンテーションのファイルパスを使用することを強く推奨します。
-
-ビデオ、オーディオ、高解像度画像などの大きなオブジェクトを含むプレゼンテーションを作成する場合は、[BLOB management](/slides/ja/net/manage-blob/) を使用してメモリ使用量を削減できます。
-{{%/alert %}}
+Aspose.Slides はロード時に入力ストリームの内容をコピーすることがあります。大きなプレゼンテーションの場合、ファイルパスの方がストリームより一般的に効率的です。追加のストレージおよびメモリ管理オプションについては、[Manage BLOBs](/slides/ja/net/manage-blob/) を参照してください。
+{{% /alert %}}
 
 ## **外部リソースの制御**
 
-Aspose.Slidesは、外部リソースを管理できる [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) インターフェイスを提供します。以下のC#コードは、`IResourceLoadingCallback` インターフェイスの使用方法を示しています。
-```cs
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/resourceloadingcallback/) は、[IResourceLoadingCallback](https://reference.aspose.com/slides/ja/net/aspose.slides/iresourceloadingcallback/) の実装を受け取ります。このコールバックは置換データを提供したり、リソースをリダイレクトしたり、デフォルトローダーを使用したり、リソースをスキップしたりできます。プレゼンテーションに外部画像が含まれ、アプリケーション固有のセキュリティやストレージルールに従って解決する必要がある場合に便利です。
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```cs
-public class ImageLoadingHandler : IResourceLoadingCallback
+internal static class OpenPresentationExample
 {
-    public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+    private static void Main()
     {
-        if (args.OriginalUri.EndsWith(".jpg"))
+        var loadOptions = new LoadOptions
         {
-            try
-            {
-                // 代替画像を読み込みます。
-                byte[] imageData = File.ReadAllBytes("aspose-logo.jpg");
-                args.SetData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            }
-            catch (Exception)
+            ResourceLoadingCallback = new ImageLoadingHandler()
+        };
+
+        using var presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+        Console.WriteLine("Slide count: " + presentation.Slides.Count);
+    }
+
+    private sealed class ImageLoadingHandler : IResourceLoadingCallback
+    {
+        public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+        {
+            var isJpeg = args.OriginalUri.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase);
+            if (!isJpeg || !File.Exists("approved-image.jpg"))
             {
                 return ResourceLoadingAction.Skip;
             }
-        }
-        else if (args.OriginalUri.EndsWith(".png"))
-        {
-            // 代替 URL を設定します。
-            args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
-            return ResourceLoadingAction.Default;
-        }
 
-        // それ以外のすべての画像をスキップします。
-        return ResourceLoadingAction.Skip;
+            var imageData = File.ReadAllBytes("approved-image.jpg");
+            args.SetData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        }
     }
 }
 ```
 
-
 ## **埋め込みバイナリオブジェクトなしでプレゼンテーションをロードする**
 
-PowerPoint プレゼンテーションは、次の種類の埋め込みバイナリオブジェクトを含むことがあります。
+プレゼンテーションには、アプリケーションが必要としない、または保持したくない埋め込みバイナリデータが含まれていることがあります。例としては以下があります。
 
-- VBA プロジェクト（[IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/) でアクセス可能）;
-- OLE オブジェクトの埋め込みデータ（[IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/) でアクセス可能）;
-- ActiveX コントロールのバイナリデータ（[IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/) でアクセス可能）。
+- VBA プロジェクトは [IPresentation.VbaProject](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentation/vbaproject/) で取得できます；
+- 埋め込み OLE データは [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/ja/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/) で取得できます；
+- ActiveX コントロールデータは [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/ja/net/aspose.slides/icontrol/activexcontrolbinary/) で取得できます。
 
-[ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/) プロパティを使用すると、埋め込みバイナリオブジェクトがまったく含まれないプレゼンテーションをロードできます。
+[LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) を `true` に設定すると、ロード時にこのバイナリデータが削除されます。サニタイズされた結果を保持するために、ロードしたプレゼンテーションを保存してください。
 
-このプロパティは、潜在的に悪意のあるバイナリコンテンツを除去するのに便利です。以下のC#コードは、埋め込みバイナリコンテンツが全くないプレゼンテーションをロードする方法を示しています。
-```cs
-LoadOptions loadOptions = new LoadOptions()
+このオプションは不要な埋め込みペイロードへの曝露を減らしますが、完全なマルウェア検出またはコンテンツサニタイズシステムではありません。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions
 {
-	DeleteEmbeddedBinaryObjects = true
-}
+    DeleteEmbeddedBinaryObjects = true
+};
 
-using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
-{
-    // プレゼンテーションで操作を実行します。
-}
+using var presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
+
+presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 ```
 
-
-## **FAQ**
+## **よくある質問**
 
 **ファイルが破損していて開けないことをどのように判断できますか？**
 
-ロード時に解析/形式検証例外が発生します。このようなエラーは、ZIP 構造が無効であるか、PowerPoint のレコードが壊れていることを示すことが多いです。
+Aspose.Slides はロード時に解析エラーまたは形式エラーの例外をスローします。この失敗をパスワードが正しくないエラーとは別に処理し、アプリケーションが原因を正確に報告できるようにしてください。
 
-**開く際に必要なフォントが欠如している場合はどうなりますか？**
+**必要なフォントが見つからない場合はどうなりますか？**
 
-ファイルは開かれますが、その後の [レンダリング/エクスポート](/slides/ja/net/convert-presentation/) 時にフォントが置き換えられる可能性があります。ランタイム環境に [フォント置換の構成](/slides/ja/net/font-substitution/) を行うか、[必要なフォントを追加](/slides/ja/net/custom-font/)してください。
+プレゼンテーションはロードは可能ですが、レンダリングやエクスポート時にフォントが代替されることがあります。出力をより予測可能にするために、[フォント置換の構成](/slides/ja/net/font-substitution/) や [カスタムフォントの提供](/slides/ja/net/custom-font/) を使用できます。
 
-**開く際の埋め込みメディア（ビデオ/オーディオ）はどう扱われますか？**
+**プレゼンテーションのロード時に埋め込みメディアもロードされますか？**
 
-それらはプレゼンテーションのリソースとして利用可能になります。メディアが外部パスで参照されている場合は、環境内でそのパスにアクセスできることを確認してください。そうでないと、[レンダリング/エクスポート](/slides/ja/net/convert-presentation/) 時にメディアが省略されることがあります。
+埋め込みの音声および動画はプレゼンテーションオブジェクトモデルを通じて利用可能になります。外部リソースは設定されたリソースロード動作に従って解決され、場所にアクセスできない場合は利用できないことがあります。

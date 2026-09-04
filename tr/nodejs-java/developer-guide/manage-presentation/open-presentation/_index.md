@@ -1,20 +1,19 @@
 ---
-title: JavaScript'te Sunumları Açma
-linktitle: Sunumu Aç
+title: JavaScript'te Sunumları Aç
+linktitle: Sunum Aç
 type: docs
 weight: 20
 url: /tr/nodejs-java/open-presentation/
 keywords:
-- PowerPoint Aç
-- OpenDocument Aç
+- PowerPoint aç
 - sunum aç
-- PPTX Aç
-- PPT Aç
-- ODP Aç
-- sunum yükle
-- PPTX Yükle
-- PPT Yükle
-- ODP Yükle
+- PPTX aç
+- PPT aç
+- ODP aç
+- sunumu yükle
+- PPTX yükle
+- PPT yükle
+- ODP yükle
 - korumalı sunum
 - büyük sunum
 - harici kaynak
@@ -22,140 +21,144 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js ile Java üzerinden PowerPoint (.pptx, .ppt) ve OpenDocument (.odp) sunumlarını zahmetsizce açın—hızlı, güvenilir, tam özellikli."
+description: "JavaScript'te PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma şifreleri ekleyeceğinizi, kaynak yüklemeyi kontrol edeceğinizi ve Aspose.Slides for Node.js via Java ile bellek kullanımını nasıl azaltacağınızı öğrenin."
 ---
 ## **Giriş**
 
-Sıfırdan PowerPoint sunumları oluşturmanın ötesinde, Aspose.Slides ayrıca mevcut sunumları açmanıza izin verir. Bir sunumu yükledikten sonra, onunla ilgili bilgileri alabilir, slayt içeriğini düzenleyebilir, yeni slaytlar ekleyebilir, mevcut slaytları kaldırabilir ve daha fazlasını yapabilirsiniz.
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/tr/nodejs-java/) PowerPoint ve OpenDocument sunumlarını dosyalardan ve akışlardan yükleyebilir. Bir sunum yüklendikten sonra yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
 
-## **Sunumları Açma**
+Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma şifresi belirtebilir, büyük ikili nesneleri Node.js belleğinin dışında tutabilir, harici kaynakları kontrol edebilir veya gömülü ikili verileri dışlayabilirsiniz.
 
-Mevcut bir sunumu açmak için, [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfını örnekleyin ve dosya yolunu yapıcıya iletin.
+## **Sunumları Aç**
 
-Aşağıdaki JavaScript örneği bir sunumu nasıl açacağınızı ve slayt sayısını nasıl alacağınızı gösterir:
+Mevcut bir sunumu açmak için dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) yapıcısına geçirin. Dosya tanıtıcıları, geçici veriler ve diğer kaynakların hızlıca serbest bırakılması için sunumu kullandıktan sonra dağıtın.
 
-```js
-// Presentation sınıfını örnekleyin ve dosya yolunu yapıcıya iletin.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+Aşağıdaki JavaScript örneği, bir sunumu nasıl açıp slayt sayısını alacağınızı gösterir:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("sample.pptx");
 try {
-    // Sunumdaki toplam slayt sayısını yazdır.
-    console.log(presentation.getSlides().size());
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Şifre Koruması Olan Sunumları Açma**
+## **Şifre Koruması Olan Sunumları Aç**
 
-Şifre korumalı bir sunumu açmanız gerektiğinde, şifreyi [LoadOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/) sınıfının [setPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setPassword) yöntemiyle geçirerek şifreyi çözüp yükleyebilirsiniz. Aşağıdaki JavaScript kodu bu işlemi gösterir:
+Açma şifresi, sunum içeriğini şifreler. Sunumu tamamen yüklemek için doğru şifreyi [LoadOptions.setPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setPassword) yöntemine verin ve seçenekleri [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) yapıcısına sağlayın. Şifre eksik ya da hatalı olduğunda yükleme başarısız olur.
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // Şifreli sunum üzerinde işlemler gerçekleştir.
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Büyük Sunumları Açma**
+Şifre algılama, doğrulama ve şifreleme akışları için [Password-Protect Presentations](/slides/tr/nodejs-java/password-protected-presentation/) sayfasına bakın. Şifrelenmiş bir sunum, açık belge özellikleriyle kasıtlı olarak kaydedildiyse, bu özellikler şifre olmadan okunabilir; detaylar için [Manage Presentation Properties](/slides/tr/nodejs-java/presentation-properties/) bölümüne bakabilirsiniz.
 
-Aspose.Slides, özellikle [LoadOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/) sınıfındaki [getBlobManagementOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) yöntemi gibi seçenekler sunarak büyük sunumları yüklemenize yardımcı olur.
+## **Büyük Sunumları Aç**
 
-Aşağıdaki JavaScript kodu, büyük bir sunumu (örneğin 2 GB) yüklemeyi gösterir:
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) yöntemi, Aspose.Slides'ın resimler, ses ve video gibi büyük ikili nesneleri nasıl yönettiğini kontrol eden seçenekleri döndürür. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellek içinde tutulan BLOB verisinin miktarını sınırlayabilirsiniz.
 
-```js
-const filePath = "LargePresentation.pptx";
+Aşağıdaki JavaScript kodu, büyük bir sunumun (örneğin 2 GB) nasıl yükleneceğini gösterir:
 
-let loadOptions = new aspose.slides.LoadOptions();
-// KeepLocked davranışını seçin—sunum dosyası, Presentation örneğinin ömrü boyunca kilitli kalacak
-// Presentation örneği, ancak dosyanın belleğe yüklenmesi veya geçici bir dosyaya kopyalanması gerekmez.
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "large-presentation.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
-let presentation = new aspose.slides.Presentation(filePath, loadOptions);
+const presentation = new slides.Presentation(filePath, loadOptions);
 try {
-    // Büyük sunum yüklendi ve düşük bellek tüketimiyle kullanılabilir.
-    
-    // Sunumu değiştirin.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // Sunumu başka bir dosyaya kaydedin. Bu işlem sırasında bellek tüketimi düşük kalır.
-    presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
-
-    // Bunu yapmayın! Sunum nesnesi serbest bırakılana kadar dosya kilitli olduğu için bir I/O istisnası fırlatılacaktır.
-    //fs.unlinkSync(filePath);
+    presentation.save("large-presentation-copy.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// Burada yapmak sorun değil. Kaynak dosya artık sunum nesnesi tarafından kilitli değil.
-fs.unlinkSync(filePath);
 ```
 
-{{% alert color="info" title="Bilgi" %}}
-Akışlarla çalışırken bazı sınırlamaları aşmak için Aspose.Slides, bir akışın içeriğini kopyalayabilir. Bir akıştan büyük bir sunum yüklemek, sunumun kopyalanmasına ve yüklemenin yavaşlamasına neden olur. Bu nedenle, büyük bir sunumu yüklemeniz gerektiğinde, akış yerine sunum dosya yolunu kullanmanızı şiddetle öneririz.
+{{% alert color="info" title="Not" %}}
 
-Büyük nesneler (video, ses, yüksek çözünürlüklü görüntüler vb.) içeren bir sunum oluştururken, bellek tüketimini azaltmak için [BLOB management](/slides/tr/nodejs-java/manage-blob/) kullanabilirsiniz.
-{{%/alert %}}
+[PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) kullanıldığında, kaynak dosya sunum örneği dağıtılana kadar kilitli kalır. Bu örnek hâlâ aktifken dosyayı taşıma, üzerine yazma veya silme yapmayın.
 
-## **Harici Kaynakları Kontrol Etme**
+Aspose.Slides, yükleme sırasında bir giriş akışının içeriğini kopyalayabilir. Büyük sunumlar için dosya yolu, genellikle akışa göre daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/nodejs-java/manage-blob/) sayfasına bakın.
 
-Aspose.Slides, harici kaynakları yönetmenizi sağlayan [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iresourceloadingcallback/) arabirimini sunar. Aşağıdaki JavaScript kodu, `IResourceLoadingCallback` arabirimini nasıl kullanacağınızı gösterir:
+{{% /alert %}}
 
-```js
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Yerine kullanılacak bir görüntü yükle.
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Yerine kullanılacak bir URL ayarla.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
+## **Harici Kaynakları Kontrol Et**
+
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) yöntemi, bir [IResourceLoadingCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iresourceloadingcallback/) uygulaması alır. Geri çağırma, gerektiğinde veri değiştirme, bir kaynağı yönlendirme, varsayılan yükleyiciyi kullanma veya kaynağı atlama imkanı tanır. Bu, sunumların uygulamaya özgü güvenlik ya da depolama kurallarına göre çözülmesi gereken harici görüntüler içerdiği durumlarda faydalıdır.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const imageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
+    resourceLoading: function(args) {
+        const isJpeg = args.getOriginalUri().toLowerCase().endsWith(".jpg");
+        const approvedImagePath = "approved-image.jpg";
+        if (!isJpeg || !fs.existsSync(approvedImagePath)) {
+            return slides.ResourceLoadingAction.Skip;
         }
-        // Diğer tüm görüntüleri atla.
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
+
+        try {
+            const imageData = fs.readFileSync(approvedImagePath);
+            args.setData(imageData);
+            return slides.ResourceLoadingAction.UserProvided;
+        } catch (error) {
+            console.error("The approved replacement image could not be read.");
+            return slides.ResourceLoadingAction.Skip;
+        }
+    }
 });
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setResourceLoadingCallback(imageLoadingHandler);
+
+const presentation = new slides.Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    console.log("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
+}
 ```
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
+## **Gömülü İkili Nesneler Olmadan Sunumları Yükle**
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
-```
+Bir sunum, uygulamanın ihtiyaç duymadığı veya saklamak istemediği gömülü ikili veriler içerebilir. Örnekler:
 
-## **Gömülü İkili Nesneler Olmadan Sunumları Yükleme**
+- VBA projeleri, [Presentation.getVbaProject](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#getVbaProject) aracılığıyla erişilebilir;
+- gömülü OLE verileri, [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) aracılığıyla erişilebilir;
+- ActiveX denetim verileri, [Control.getActiveXControlBinary](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/control/#getActiveXControlBinary) aracılığıyla erişilebilir.
 
-Bir PowerPoint sunumu aşağıdaki türlerde gömülü ikili nesneler içerebilir:
+[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) seçeneğini `true` olarak ayarlayarak bu ikili verileri yükleme sırasında kaldırabilirsiniz. Temizlenmiş sonucu kalıcı hale getirmek için yüklenen sunumu kaydedin.
 
-- VBA projesi (erişmek için [Presentation.getVbaProject](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#getVbaProject) kullanılabilir);
-- OLE nesnesi gömülü verisi (erişmek için [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) kullanılabilir);
-- ActiveX kontrolü ikili verisi (erişmek için [Control.getActiveXControlBinary](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/control/#getActiveXControlBinary) kullanılabilir).
+Bu seçenek, istenmeyen gömülü yükleri azaltır, ancak tam bir kötü amaçlı yazılım tespiti veya içerik temizleme sistemi değildir.
 
-[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) yöntemini kullanarak, gömülü ikili nesne içermeyen bir sunumu yükleyebilirsiniz.
+```javascript
+const slides = require("aspose.slides.via.java");
 
-Bu yöntem, potansiyel olarak kötü niyetli ikili içeriği kaldırmak için yararlıdır. Aşağıdaki JavaScript kodu, gömülü ikili içerik olmadan bir sunumu nasıl yükleyeceğinizi gösterir:
-
-```js
-let loadOptions = new aspose.slides.LoadOptions();
+const loadOptions = new slides.LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-let presentation = new aspose.slides.Presentation("malware.ppt", loadOptions);
+const presentation = new slides.Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // Sunum üzerinde işlemler gerçekleştir.
+    presentation.save("presentation-without-embedded-data.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -163,14 +166,14 @@ try {
 
 ## **SSS**
 
-**Dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
+**Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
 
-Yükleme sırasında bir ayrıştırma/biçim doğrulama istisnası alırsınız. Bu tür hatalar genellikle geçersiz bir ZIP yapısı veya bozuk PowerPoint kayıtlarından bahseder.
+Aspose.Slides, yükleme sırasında bir ayrıştırma ya da format istisnası fırlatır. Yanlış şifre hatasından ayrı olarak bu hatayı yakalayarak uygulamanın nedeni doğru şekilde raporlamasını sağlayın.
 
-**Açılışta gerekli yazı tipleri eksik olursa ne olur?**
+**Gerekli yazı tipleri eksikse ne olur?**
 
-Dosya açılacak, ancak daha sonra [rendering/export](/slides/tr/nodejs-java/convert-presentation/) yazı tiplerini değiştirebilir. Çalışma zamanına [yazı tipi ikamelerini yapılandırın](/slides/tr/nodejs-java/font-substitution/) veya [gerekli yazı tiplerini ekleyin](/slides/tr/nodejs-java/custom-font/).
+Sunum hâlâ yüklenebilir, ancak çizim ve dışa aktarma işlemleri yazı tiplerini değiştirebilir. Çıktının daha öngörülebilir olmasını sağlamak için [font substitution](/slides/tr/nodejs-java/font-substitution/) yapılandırabilir veya [özel yazı tipleri](/slides/tr/nodejs-java/custom-font/) sağlayabilirsiniz.
 
-**Açılışta gömülü medya (video/ses) ile ne olur?**
+**Bir sunumu yüklemek aynı zamanda gömülü medyayı da yükler mi?**
 
-Bunlar sunum kaynakları olarak kullanılabilir hale gelir. Medya dış yollarla referans edilirse, bu yolların ortamınızda erişilebilir olduğundan emin olun; aksi takdirde [rendering/export](/slides/tr/nodejs-java/convert-presentation/) medya atlayabilir.
+Gömülü ses ve video, sunum nesne modeli üzerinden erişilebilir hâle gelir. Harici kaynaklar, yapılandırılmış kaynak‑yükleme davranışına göre çözülür ve konumlarına erişilemiyorsa kullanılamaz olabilir.

@@ -1,39 +1,39 @@
 ---
 title: محافظت از ارائه‌ها با رمز عبور در C++
-linktitle: حفاظت از رمز عبور
+linktitle: محافظت با رمز عبور
 type: docs
 weight: 20
 url: /fa/cpp/password-protected-presentation/
 keywords:
-- ارائه محافظت‌شده با رمز عبور
-- رمز عبور بازشدن
-- رمزگذاری پاورپوینت
-- رمزگشایی پاورپوینت
+- ارائهٔ محافظت‌شده با رمز عبور
+- رمز عبور بازگشایی
+- رمزنگاری PowerPoint
+- رمزگشایی PowerPoint
 - اعتبارسنجی رمز عبور ارائه
 - بررسی رمز عبور ارائه
-- باز کردن ارائهٔ رمزگذاری‌شده
-- حذف رمزگذاری
-- پاورپوینت
+- باز کردن ارائهٔ رمزنگاری‌شده
+- حذف رمزنگاری
+- PowerPoint
 - PPT
 - PPTX
 - ارائه
 - C++
 - Aspose.Slides
-description: "رمزگذاری، شناسایی، اعتبارسنجی، باز کردن و رمزگشایی ارائه‌های پاورپوینت PPT و PPTX محافظت‌شده با رمز عبور در C++ با Aspose.Slides."
+description: "رمزنگاری، شناسایی، اعتبارسنجی، باز کردن و رمزگشایی ارائه‌های PowerPoint PPT و PPTX محافظت‌شده با رمز عبور در C++ با Aspose.Slides."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-یک رمز عبور بازشدن یک ارائه را رمزگذاری می‌کند. برای بارگذاری و مشاهدهٔ محتوای ارائه، رمز عبور صحیح لازم است، بنابراین این حفاظت محرمانگی را فراهم می‌کند.
+یک رمز عبور بازگشایی یک ارائه را رمزنگاری می‌کند. برای بارگذاری و مشاهده محتوای ارائه، رمز عبور صحیح ضروری است، بنابراین این حفاظت محرمانگی را فراهم می‌کند.
 
-رمز عبور بازشدن متفاوت از رمز عبور محافظت نوشتن است. محافظت نوشتن تغییرات را محدود می‌کند اما محتوای ارائه را رمزگذاری نمی‌کند و مانع بارگذاری ارائه نمی‌شود. برای مدیریت رمزهای عبور برای ویرایش ارائه‌ها، به [محافظت نوشتن ارائه‌ها](/slides/fa/cpp/write-protected-presentation/) مراجعه کنید.
+رمز عبور بازگشایی متفاوت از رمز عبور محافظت‌نوشتن است. محافظت‌نوشتن فقط اصلاح را محدود می‌کند ولی محتوا را رمزنگاری نمی‌کند و ارائه را از بارگذاری باز نمی‌دارد. برای مدیریت رمزهای عبور برای اصلاح ارائه‌ها، به [Write‑Protect Presentations](/slides/fa/cpp/write-protected-presentation/) رجوع کنید.
 
-جریان‌های کاری زیر برای ارائه‌های PPT و PPTX اعمال می‌شوند. مثال‌ها از هر دو قالب استفاده می‌کنند که رفتار مبتنی بر فایل و مبتنی بر جریان برای آن‌ها مهم است.
+جریان‌های کاری زیر برای هر دو نوع ارائه PPT و PPTX معتبر هستند. مثال‌ها از هر دو فرمت استفاده می‌کنند هنگامی که رفتار مبتنی بر فایل و جریان مهم باشد.
 
-## **رمزگذاری یک ارائه با رمز عبور بازشدن**
+## **رمزنگاری یک ارائه با رمز عبور بازگشایی**
 
-از [IProtectionManager::Encrypt](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/encrypt/) برای اختصاص یک رمز عبور بازشدن استفاده کنید. سپس از [IPresentation::Save](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/save/) برای ذخیرهٔ ارائهٔ رمزگذاری‌شده استفاده کنید.
+از [IProtectionManager::Encrypt](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/encrypt/) برای اختصاص یک رمز عبور بازگشایی استفاده کنید. سپس از [IPresentation::Save](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/save/) برای ذخیرهٔ ارائهٔ رمزنگاری‌شده استفاده کنید.
 
-مثال زیر یک ارائهٔ PPTX را رمزگذاری می‌کند:
+مثال زیر یک ارائه PPTX را رمزنگاری می‌کند:
 
 ```cpp
 #include <DOM/IProtectionManager.h>
@@ -49,9 +49,43 @@ presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **بارگذاری یک ارائهٔ رمزگذاری‌شده**
+## **حفظ عمومی ویژگی‌های سند**
 
-[LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) را به رمز عبور بازشدن تنظیم کنید و گزینه‌ها را هنگام بارگذاری فایل به [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) پاس بدهید. بارگذاری زمانی که رمز عبور بازشدن لازم است اما رمز ارائه‌شده وجود ندارد یا نادرست است، شکست می‌خورد.
+به‌صورت پیش‌فرض، Aspose.Slides ویژگی‌های سند را در رمزنگاری ارائه گنجانده است. متد [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) این رفتار را به‌صورت مستقل از رمزنگاری محتوای اسلاید کنترل می‌کند. قبل از فراخوانی [IProtectionManager::Encrypt](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/encrypt/) مقدار `false` را به این متد بدهید وقتی سامانهٔ ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت‑سند باید متادیتا را بدون رمز عبور بازگشایی بخواند.
+
+مثال زیر یک ارائه PPTX رمزنگاری شده ایجاد می‌کند در حالی که ویژگی‌های سند داخلی آن عمومی باقی می‌مانند:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto properties = presentation->get_DocumentProperties();
+properties->set_Author(u"Contoso Knowledge Management");
+properties->set_Title(u"Quarterly Product Roadmap");
+properties->set_Keywords(u"roadmap, planning, internal");
+
+presentation->get_Slide(0)->set_Name(u"Encrypted presentation content");
+presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
+presentation->Save(u"public-properties-encrypted.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
+
+دادن مقدار `false` به `set_EncryptDocumentProperties` اسلایدها، مسترها، طرح‌بندی‌ها، اشکال، رسانه یا سایر محتوای ارائه را عمومی نمی‌کند. این فقط بر ویژگی‌های سند اثر می‌گذارد. برای خواندن آن ویژگی‌ها بدون بارگذاری محتوای رمزنگاری‌شده، به [Manage Presentation Properties](/slides/fa/cpp/presentation-properties/) مراجعه کنید.
+
+## **بارگذاری یک ارائه رمزنگاری‌شده**
+
+[LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) را به رمز عبور بازگشایی تنظیم کنید و گزینه‌ها را هنگام بارگذاری فایل به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) پاس دهید. اگر رمز عبور بازگشایی لازم باشد اما رمز ارائه نشده یا اشتباه باشد، بارگذاری شکست می‌خورد.
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -64,12 +98,12 @@ loadOptions->set_Password(u"open_password");
 
 auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
-// با ارائهٔ رمزگشای شده کار کنید.
+// کار با ارائهٔ رمزگشایی‌شده.
 ```
 
-## **حذف رمزگذاری از یک ارائه**
+## **حذف رمزنگاری از یک ارائه**
 
-ارائه را با رمز عبور بازشدن آن بارگذاری کنید، [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/removeencryption/) را فراخوانی کنید و نتیجه را ذخیره کنید. ارائهٔ ذخیره‌شده سپس می‌تواند بدون رمز عبور بارگذاری شود.
+ارائه را همراه با رمز عبور بازگشایی بارگذاری کنید، [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/removeencryption/) را فراخوانی کنید و نتیجه را ذخیره کنید. ارائهٔ ذخیره‌شده سپس می‌تواند بدون رمز عبور بارگذاری شود.
 
 ```cpp
 #include <DOM/IProtectionManager.h>
@@ -89,13 +123,13 @@ presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **اعتبارسنجی یک رمز عبور بازشدن قبل از بارگذاری**
+## **اعتبارسنجی یک رمز عبور بازگشایی قبل از بارگذاری**
 
-از [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) برای دریافت [IPresentationInfo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/) بدون ایجاد یک نمونهٔ کامل از ارائه استفاده کنید. قبل از درخواست یا اعتبارسنجی رمز عبور، [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) را بررسی کنید. هنگامی که حفاظت وجود دارد، مقدار ارائه‌شده را با [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/checkpassword/) اعتبارسنجی کنید.
+از [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) برای به‌دست آوردن [IPresentationInfo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/) بدون ایجاد یک نمونهٔ کامل ارائه استفاده کنید. پیش از درخواست یا اعتبارسنجی رمز عبور، [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) را بررسی کنید. وقتی حفاظت وجود داشته باشد، مقدار ارائه‌شده را با [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/checkpassword/) اعتبارسنجی کنید.
 
 ### **جریان کاری مسیر فایل**
 
-مثال زیر یک رمز عبور بازشدن را برای فایل PPTX اعتبارسنجی می‌کند، مقدار اعتبارسنجی‌شده را به [LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) می‌گذارد و سپس ارائهٔ کامل را بارگذاری می‌کند:
+مثال زیر رمز عبور بازگشایی یک فایل PPTX را اعتبارسنجی می‌کند، مقدار اعتبارسنجی‌شده را به [LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) می‌سپارد و سپس ارائهٔ کامل را بارگذاری می‌کند:
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -132,7 +166,7 @@ else
 
 ### **جریان کاری جریان**
 
-بارگذاری بیشینهٔ [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) همان جریان کاری را فراهم می‌کند. موقعیت یک جریان قابل جستجو را قبل از بارگذاری ارائهٔ کامل از آن جریان بازنشانی کنید.
+بارگذاری بیشینهٔ [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) همان جریان کاری را فراهم می‌کند. قبل از بارگذاری ارائهٔ کامل از آن جریان، موقعیت یک جریان قابل جست‌وجو را بازنشانی کنید.
 
 مثال زیر از یک فایل PPT استفاده می‌کند:
 
@@ -175,17 +209,17 @@ else
 
 ### **مقادیر بازگشتی CheckPassword**
 
-[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/checkpassword/) فقط زمانی `true` برمی‌گرداند که ارائهٔ رمز عبور بازشدن داشته باشد و رمز عبور ارائه‌شده صحیح باشد. در هر یک از موارد زیر `false` برمی‌گرداند:
+[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/checkpassword/) فقط زمانی `true` برمی‌گرداند که ارائه دارای رمز عبور بازگشایی باشد و رمز ارائه‌شده صحیح باشد. در هر یک از موارد زیر `false` برمی‌گرداند:
 
 - رمز عبور نادرست است.
-- ارائه رمز عبور بازشدن ندارد.
-- رمز عبور ارائه‌شده خالی یا null است.
+- ارائه رمز عبور بازگشایی ندارد.
+- رمز عبور ارائه‌شده خالی یا `null` است.
 
 رفتار برای ارائه‌های PPT و PPTX یکسان است.
 
-## **بررسی اینکه آیا یک ارائهٔ بارگذاری‌شده رمزگذاری شده است**
+## **بررسی اینکه آیا یک ارائه بارگذاری‌شده رمزنگاری شده است**
 
-پس از بارگذاری یک ارائه با رمز عبور صحیح، [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) را بررسی کنید تا تأیید کنید که ارائهٔ منبع رمزگذاری شده بود. برای تشخیص حفاظت رمز عبور بازشدن قبل از بارگذاری، همان‌طور که در بالا نشان شد، از `IPresentationInfo::get_IsPasswordProtected` استفاده کنید.
+پس از بارگذاری یک ارائه با رمز عبور صحیح، [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) را بررسی کنید تا تأیید شود که ارائهٔ مبدأ رمزنگاری شده بوده است. برای تشخیص محافظت با رمز عبور بازگشایی قبل از بارگذاری، همان‌طور که در بالا نشان داده شد از `IPresentationInfo::get_IsPasswordProtected` استفاده کنید.
 
 ```cpp
 #include <DOM/IProtectionManager.h>
@@ -206,33 +240,39 @@ Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The prese
 
 ## **توصیه‌های امنیتی**
 
-{{% alert color="warning" title="امنیت" %}}
-رمزهای عبور بازشدن را لاگ نکنید یا در پیام‌های تشخیص خطا وارد نکنید. از تلاش‌های مکرر غیرضروری برای اعتبارسنجی خودداری کنید، رمزها را فقط به اندازهٔ لازم در حافظه نگه دارید و در صورت بارگذاری فوری ارائه، نتیجهٔ موفق اعتبارسنجی را مجدداً استفاده کنید.
+{{% alert color="warning" title="Security" %}}
+رمزهای عبور بازگشایی را در لاگ‌ها یا پیام‌های تشخیصی ثبت نکنید. از تلاش‌های مکرر و غیرضروری برای اعتبارسنجی جلوگیری کنید، رمزها را تنها به‌مقدار نیاز در حافظه نگه دارید و در صورتی که بلافاصله پس از اعتبارسنجی موفق، ارائه را بارگذاری می‌کنید، نتیجه‌ی اعتبارسنجی را دوباره استفاده کنید.
+
+ویژگی‌های عمومی سند ممکن است نام نویسنده، عنوان، موضوع، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را حتی زمانی که محتوای ارائه رمزنگاری شده است، فاش کنند. متادیتای حساس را همراه با ارائه رمزنگاری کنید. گذاشتن ویژگی‌ها به‌صورت عمومی باید تصمیم صریحی باشد که فقط زمانی اتخاذ می‌شود که سیستم‌ها برای ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت فایل بدون رمز عبور بازگشایی نیاز داشته باشند.
 {{% /alert %}}
 
-## **رمزگذاری یک ارائه به صورت آنلاین**
+## **رمزگذاری یک ارائه به‌صورت آنلاین**
 
 1. برنامه [Aspose.Slides Lock](https://products.aspose.app/slides/fa/lock) را باز کنید.
-2. ارائه را انتخاب یا بارگذاری کنید.
-3. رمز عبوری برای محافظت از مشاهده وارد کنید.
-4. در صورت تمایل، رمز عبور جداگانه‌ای برای محافظت از ویرایش وارد کنید.
-5. حفاظت را اعمال کنید و فایل نتیجه را دانلود کنید.
+1. ارائه را انتخاب یا بارگذاری کنید.
+1. برای محافظت از نمایش، یک رمز عبور وارد کنید.
+1. در صورت تمایل، رمز عبور جداگانه‌ای برای محافظت از ویرایش وارد کنید.
+1. محافظت را اعمال کنید و فایل حاصل را دانلود کنید.
 
-{{% alert color="info" title="همچنین ببینید" %}}
-- [محافظت نوشتن ارائه‌ها](/slides/fa/cpp/write-protected-presentation/)
-- [امضا دیجیتال در پاورپوینت](/slides/fa/cpp/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write‑Protect Presentations](/slides/fa/cpp/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/fa/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**تفاوت بین رمز عبور بازشدن و رمز عبور محافظت نوشتن چیست؟**
+**تفاوت بین رمز عبور بازگشایی و رمز عبور محافظت‌نوشتن چیست؟**
 
-رمز عبور بازشدن ارائه را رمزگذاری می‌کند و برای بارگذاری محتوای آن ضروری است. رمز عبور محافظت نوشتن بدون رمزگذاری محتوا، تنها ویرایش را محدود می‌کند.
+رمز عبور بازگشایی ارائه را رمزنگاری می‌کند و برای بارگذاری محتوا ضروری است. رمز عبور محافظت‌نوشتن تنها اصلاح را محدود می‌کند بدون اینکه محتوا را رمزنگاری کند.
 
-**آیا می‌توانم رمز عبور بازشدن را بدون بارگذاری تمام اسلایدها اعتبارسنجی کنم؟**
+**آیا می‌توان رمز عبور بازگشایی را بدون بارگذاری تمام اسلایدها اعتبارسنجی کرد؟**
 
-بله. اطلاعات ارائه را دریافت کنید، بررسی کنید که آیا حفاظتی با رمز عبور بازشدن وجود دارد یا خیر، و قبل از ایجاد یک نمونهٔ کامل از ارائه، رمز عبور را اعتبارسنجی کنید.
+بله. اطلاعات ارائه را به‌دست آورید، بررسی کنید آیا محافظت با رمز عبور بازگشایی وجود دارد یا نه، و قبل از ایجاد یک نمونهٔ کامل ارائه، رمز عبور را اعتبارسنجی کنید.
 
-**آیا جریان‌های کاری بررسی رمز عبور برای هر دو قالب PPT و PPTX پشتیبانی می‌شوند؟**
+**آیا برنامه می‌تواند متادیتا را بدون رمز عبور بازگشایی بخواند؟**
 
-بله. تشخیص و اعتبارسنجی رمز عبور بر پایه مسیر فایل و بر پایه جریان برای ارائه‌های PPT و PPTX به‌یک‌سان رفتار می‌کند.
+بله، اما تنها زمانی که ارائه با `set_EncryptDocumentProperties(false)` رمزنگاری شده باشد. سپس برنامه باید از حالت بارگذاری فقط‑ویژگی‑سند که در [Manage Presentation Properties](/slides/fa/cpp/presentation-properties/) توضیح داده شده استفاده کند.
+
+**آیا جریان‌های کاری بررسی رمز عبور برای هر دو فرمت PPT و PPTX پشتیبانی می‌شود؟**
+
+بله. تشخیص و اعتبارسنجی رمز عبور بر پایهٔ مسیر فایل و مسیر جریان برای هر دو نوع ارائه به‌صورت یکسان عمل می‌کند.

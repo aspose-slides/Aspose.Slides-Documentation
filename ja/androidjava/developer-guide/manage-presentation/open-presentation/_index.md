@@ -6,7 +6,6 @@ weight: 20
 url: /ja/androidjava/open-presentation/
 keywords:
 - PowerPoint を開く
-- OpenDocument を開く
 - プレゼンテーションを開く
 - PPTX を開く
 - PPT を開く
@@ -22,161 +21,172 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を Java で使用して、PowerPoint（.pptx、.ppt）および OpenDocument（.odp）プレゼンテーションを手軽に開くことができます—高速で信頼性が高く、機能が充実しています。"
+description: "Android で PowerPoint および OpenDocument プレゼンテーションを開く方法、開閉パスワードの提供、リソース読み込みの制御、そして Aspose.Slides for Android via Java を使用したメモリ使用量の削減方法を学びます。"
 ---
-
 ## **概要**
 
-PowerPoint プレゼンテーションをゼロから作成するだけでなく、Aspose.Slides は既存のプレゼンテーションを開くことも可能です。プレゼンテーションを読み込んだ後、その情報を取得したり、スライドの内容を編集したり、新しいスライドを追加したり、既存のスライドを削除したり、その他様々な操作ができます。
+[Aspose.Slides for Android (Java)](https://products.aspose.com/slides/ja/androidjava/) は、ファイルやストリームから PowerPoint および OpenDocument プレゼンテーションを読み込むことができます。プレゼンテーションが読み込まれたら、その構造を検査したり、スライドを編集したり、リソースを管理したり、元の形式または別のサポート形式で保存したりできます。
+
+読み込み動作は [LoadOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/loadoptions/) クラスでカスタマイズできます。たとえば、開閉パスワードを指定したり、巨大なバイナリオブジェクトを Java ヒープ外に保持したり、外部リソースを制御したり、埋め込みバイナリデータを省略したりできます。
 
 ## **プレゼンテーションを開く**
 
-既存のプレゼンテーションを開くには、[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) クラスをインスタンス化し、コンストラクタにファイルパスを渡します。
+既存のプレゼンテーションを開くには、そのファイルパスを [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) コンストラクタに渡します。使用後はプレゼンテーションを破棄し、ファイルハンドル、テンポラリ データ、その他のリソースが速やかに解放されるようにしてください。
+
+次の Java の例は、プレゼンテーションを開いてスライド数を取得する方法を示しています。
 
 ```java
-// Presentation クラスのインスタンスを作成し、コンストラクタにファイルパスを渡します。
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // プレゼンテーション内のスライド総数を出力します。
-    System.out.println(presentation.getSlides().size());
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+## **パスワードで保護されたプレゼンテーションを開く**
 
-## **パスワード保護されたプレゼンテーションを開く**
-
-パスワード保護されたプレゼンテーションを開く必要がある場合は、[LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) クラスの [setPassword](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) メソッドにパスワードを渡して復号し、ロードします。以下の Java コードがこの操作を示しています。
+開閉パスワードはプレゼンテーションのコンテンツを暗号化します。完全なプレゼンテーションを読み込むには、正しいパスワードを [LoadOptions.setPassword](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) に渡し、オプションを [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) コンストラクタに提供します。パスワードが不足または誤っている場合、読み込みは失敗します。
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+loadOptions.setPassword("open_password");
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
+Presentation presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // 復号化されたプレゼンテーションで操作を実行します。
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+パスワードの検出、検証、暗号化ワークフローについては、[Password-Protect Presentations](/slides/ja/androidjava/password-protected-presentation/) を参照してください。暗号化されたプレゼンテーションが意図的に公開ドキュメントプロパティと共に保存された場合、パスワードなしでそれらのプロパティを読み取ることができます。詳しくは [Manage Presentation Properties](/slides/ja/androidjava/presentation-properties/) をご覧ください。
 
 ## **大容量プレゼンテーションを開く**
 
-Aspose.Slides は、特に [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) クラスの [getBlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) メソッドなど、大容量のプレゼンテーションを読み込むためのオプションを提供します。
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) は、画像、音声、動画などの大規模バイナリオブジェクト（BLOB）の取り扱い方法を制御するオプションを返します。ソースファイルをロックしたままにしたり、一時ファイルの使用を許可したり、メモリに保持する BLOB データ量を制限したりできます。
 
-以下の Java コードは、大容量プレゼンテーション（例えば 2 GB）を読み込む方法を示しています。
+次の Java コードは、大容量プレゼンテーション（例: 2 GB）を読み込む例です。
 
 ```java
-final String filePath = "LargePresentation.pptx";
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationLockingBehavior;
+import com.aspose.slides.SaveFormat;
+
+final String filePath = "large-presentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// KeepLocked 動作を選択します—プレゼンテーション ファイルは存続期間中ロックされたままです
-// Presentation インスタンスですが、メモリにロードしたり一時ファイルにコピーしたりする必要はありません。
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 Presentation presentation = new Presentation(filePath, loadOptions);
 try {
-    // 大容量プレゼンテーションが読み込まれ、使用可能です。メモリ使用量は低いままです。
-
-    // プレゼンテーションに変更を加えます。
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // プレゼンテーションを別のファイルに保存します。この操作中もメモリ使用量は低く保たれます。
-    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // これを実行しないでください！プレゼンテーションオブジェクトが破棄されるまでファイルがロックされているため、I/O 例外がスローされます。
-    //Files.delete(Paths.get(filePath));
+    presentation.save("large-presentation-copy.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// ここで実行しても問題ありません。ソースファイルはプレゼンテーションオブジェクトによってロックされなくなっています。
-Files.delete(Paths.get(filePath));
 ```
 
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="info" title="Info" %}}
-ストリームを使用する際のいくつかの制限を回避するために、Aspose.Slides はストリームの内容をコピーすることがあります。ストリームから大容量のプレゼンテーションを読み込むと、プレゼンテーションがコピーされ、読み込み速度が低下する可能性があります。したがって、大容量のプレゼンテーションを読み込む必要がある場合は、ストリームではなくプレゼンテーションのファイルパスを使用することを強く推奨します。
+[PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) を使用すると、プレゼンテーションインスタンスが破棄されるまでソースファイルはロックされたままになります。そのインスタンスが存続している間は、ソースファイルを移動、上書き、削除しないでください。
 
-大きなオブジェクト（ビデオ、オーディオ、高解像度画像など）を含むプレゼンテーションを作成する際は、[BLOB management](/slides/ja/androidjava/manage-blob/) を使用してメモリ使用量を削減できます。
-{{%/alert %}}
+Aspose.Slides は読み込み時に入力ストリームの内容をコピーすることがあります。大容量プレゼンテーションの場合、ストリームよりもファイルパスを使用する方が一般的に効率的です。追加のストレージおよびメモリ管理オプションについては、[Manage BLOBs](/slides/ja/androidjava/manage-blob/) を参照してください。
+
+{{% /alert %}}
 
 ## **外部リソースの制御**
 
-Aspose.Slides は、外部リソースを管理できる [IResourceLoadingCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iresourceloadingcallback/) インターフェイスを提供します。以下の Java コードは、`IResourceLoadingCallback` インターフェイスの使用方法を示しています。
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) は [IResourceLoadingCallback](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iresourceloadingcallback/) 実装を受け取ります。このコールバックは置換データの提供、リソースのリダイレクト、デフォルトローダーの使用、またはリソースのスキップを行うことができます。これは、プレゼンテーションに外部画像が含まれ、アプリケーション固有のセキュリティやストレージルールに従って解決する必要がある場合に便利です。
 
 ```java
+import com.aspose.slides.IResourceLoadingArgs;
+import com.aspose.slides.IResourceLoadingCallback;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.ResourceLoadingAction;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        boolean isJpeg = args.getOriginalUri().toLowerCase(Locale.ROOT).endsWith(".jpg");
+        Path approvedImagePath = Paths.get("approved-image.jpg");
+        if (!isJpeg || !Files.exists(approvedImagePath)) {
+            return ResourceLoadingAction.Skip;
+        }
+
+        try {
+            byte[] imageData = Files.readAllBytes(approvedImagePath);
+            args.setData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        } catch (IOException exception) {
+            System.err.println("The approved replacement image could not be read.");
+            return ResourceLoadingAction.Skip;
+        }
+    }
+}
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
-
-```java
-class ImageLoadingHandler implements IResourceLoadingCallback {
-    public int resourceLoading(IResourceLoadingArgs args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // 代替画像をロードします。
-                byte[] imageData = getImageBytes("aspose-logo.jpg"); // 任意の方法でバイトを取得してください
-                args.setData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            } catch (RuntimeException ex) {
-                return ResourceLoadingAction.Skip;
-            }  catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // 代替URLを設定します。
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction.Default;
-        }
-        // 他のすべての画像をスキップします。
-        return ResourceLoadingAction.Skip;
-    }
-}
-```
-
-
-## **埋め込みバイナリオブジェクトなしでプレゼンテーションを読み込む**
-
-PowerPoint プレゼンテーションには、以下の種類の埋め込みバイナリオブジェクトが含まれることがあります。
-
-- VBA プロジェクト（[IPresentation.getVbaProject](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getVbaProject--) でアクセス可能）;
-- OLE オブジェクトの埋め込みデータ（[IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) でアクセス可能）;
-- ActiveX コントロールのバイナリデータ（[IControl.getActiveXControlBinary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--) でアクセス可能）.
-
-[ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) メソッドを使用すると、埋め込みバイナリオブジェクトを含まないプレゼンテーションを読み込むことができます。
-
-このメソッドは、潜在的に悪意のあるバイナリコンテンツを除去するのに有用です。以下の Java コードは、埋め込みバイナリコンテンツを含まないプレゼンテーションの読み込み方法を示しています。
-
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setDeleteEmbeddedBinaryObjects(true);
-
-Presentation presentation = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
 try {
-    // プレゼンテーションに対して操作を行います。
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+## **埋め込みバイナリオブジェクトなしでプレゼンテーションを読み込む**
 
-## **よくある質問**
+プレゼンテーションには、アプリケーションが不要または保持したくない埋め込みバイナリデータが含まれることがあります。例として次が挙げられます。
 
-**ファイルが破損していて開けないことはどのように判断できますか？**
+- VBA プロジェクトは [IPresentation.getVbaProject](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentation/#getVbaProject--) で取得できます。
+- 埋め込み OLE データは [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) で取得できます。
+- ActiveX コントロールデータは [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--) で取得できます。
 
-読み込み時に解析/形式検証例外がスローされます。このようなエラーは、無効な ZIP 構造や破損した PowerPoint レコードに言及することが多いです。
+[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) を `true` に設定すると、読み込み時にこれらのバイナリデータが削除されます。サニタイズされた結果を保持するには、読み込んだプレゼンテーションを保存してください。
 
-**開く際に必要なフォントが欠落している場合はどうなりますか？**
+このオプションは不要な埋め込みペイロードへの曝露を減らしますが、完全なマルウェア検出またはコンテンツサニタイズシステムではありません。
 
-ファイルは開かれますが、後の[レンダリング/エクスポート](/slides/ja/androidjava/convert-presentation/)時にフォントが置き換えられる可能性があります。ランタイム環境に[フォント置き換えを構成](/slides/ja/androidjava/font-substitution/)するか、[必要なフォントを追加](/slides/ja/androidjava/custom-font/)してください。
+```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-**開く際の埋め込みメディア（動画/音声）はどうなりますか？**
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-それらはプレゼンテーションのリソースとして利用可能になります。メディアが外部パスで参照されている場合は、そのパスが環境でアクセス可能であることを確認してください。そうでない場合、[レンダリング/エクスポート](/slides/ja/androidjava/convert-presentation/)でメディアが省略される可能性があります。
+Presentation presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
+try {
+    presentation.save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **FAQ**
+
+**ファイルが破損していて開けないことをどう判断すればよいですか？**
+
+Aspose.Slides は読み込み中にパース例外またはフォーマット例外をスローします。誤ったパスワードエラーとは別にこの失敗をハンドルし、原因を正確に報告できるようにしてください。
+
+**必要なフォントが欠落している場合はどうなりますか？**
+
+プレゼンテーションは引き続き読み込まれますが、レンダリングやエクスポート時にフォントが置換されることがあります。出力を予測可能にするために、[フォント置換の構成](/slides/ja/androidjava/font-substitution/) または [カスタムフォントの提供](/slides/ja/androidjava/custom-font/) を行うことができます。
+
+**プレゼンテーションを読み込むと埋め込みメディアも読み込まれますか？**
+
+埋め込み音声および動画はプレゼンテーションオブジェクトモデルを通じて利用可能になります。外部リソースは設定されたリソース読み込み動作に従って解決され、場所にアクセスできない場合は利用できないことがあります。

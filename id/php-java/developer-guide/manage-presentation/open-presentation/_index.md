@@ -1,12 +1,11 @@
 ---
 title: Membuka Presentasi di PHP
-linktitle: Membuka Presentasi
+linktitle: Buka Presentasi
 type: docs
 weight: 20
 url: /id/php-java/open-presentation/
 keywords:
 - buka PowerPoint
-- buka OpenDocument
 - buka presentasi
 - buka PPTX
 - buka PPT
@@ -21,106 +20,113 @@ keywords:
 - objek biner
 - PHP
 - Aspose.Slides
-description: "Buka presentasi PowerPoint (.pptx, .ppt) dan OpenDocument (.odp) dengan mudah menggunakan Aspose.Slides untuk PHP via Java — cepat, handal, lengkap fiturnya."
+description: "Pelajari cara membuka presentasi PowerPoint dan OpenDocument di PHP, menyediakan kata sandi pembuka, mengendalikan pemuatan sumber daya, dan mengurangi penggunaan memori dengan Aspose.Slides untuk PHP via Java."
 ---
 ## **Pendahuluan**
 
-Selain membuat presentasi PowerPoint dari awal, Aspose.Slides juga memungkinkan Anda membuka presentasi yang sudah ada. Setelah memuat sebuah presentasi, Anda dapat mengambil informasi tentangnya, mengedit konten slide, menambahkan slide baru, menghapus slide yang ada, dan lain-lain.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/id/php-java/) dapat memuat presentasi PowerPoint dan OpenDocument dari file dan aliran. Setelah sebuah presentasi dimuat, Anda dapat memeriksa strukturnya, mengedit slide, mengelola sumber daya, dan menyimpannya dalam format asli atau format lain yang didukung.
 
-## **Buka Presentasi**
+Perilaku pemuatan dapat disesuaikan melalui kelas [LoadOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/). Misalnya, Anda dapat menyediakan kata sandi pembuka, menyimpan objek biner besar di luar memori heap Java, mengendalikan sumber daya eksternal, atau mengabaikan data biner yang disematkan.
 
-Untuk membuka presentasi yang sudah ada, buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) dan berikan jalur file ke konstruktornya.
+## **Membuka Presentasi**
 
-Contoh PHP berikut menunjukkan cara membuka sebuah presentasi dan mendapatkan jumlah slidenya:
+Untuk membuka presentasi yang sudah ada, berikan jalur file-nya ke konstruktor [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Dispose presentasi setelah digunakan sehingga handle file, data sementara, dan sumber daya lainnya segera dibebaskan.
+
+Contoh PHP berikut menunjukkan cara membuka sebuah presentasi dan mendapatkan jumlah slide-nya:
 
 ```php
-// Instansiasi kelas Presentation dan berikan jalur file ke konstruktornya.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
-    // Cetak total jumlah slide dalam presentasi.
-    echo($presentation->getSlides()->size());
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Buka Presentasi yang Dilindungi Kata Sandi**
+## **Membuka Presentasi yang Dilindungi Kata Sandi**
 
-Ketika Anda perlu membuka presentasi yang dilindungi kata sandi, berikan kata sandi melalui metode [setPassword](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setPassword) dari kelas [LoadOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/) untuk mendekripsi dan memuatnya. Kode PHP berikut menunjukkan operasi ini:
+Kata sandi pembuka mengenkripsi konten presentasi. Untuk memuat seluruh presentasi, berikan kata sandi yang benar ke [LoadOptions::setPassword](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setPassword) dan sediakan opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Pemuatan akan gagal jika kata sandi tidak ada atau salah.
 
 ```php
-$loadOptions = new LoadOptions();
-$loadOptions->setPassword("YOUR_PASSWORD");
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-presentation.pptx", $loadOptions);
 try {
-    // Lakukan operasi pada presentasi yang didekripsi.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Buka Presentasi Besar**
+Untuk deteksi kata sandi, validasi, dan alur kerja enkripsi, lihat [Password-Protect Presentations](/slides/id/php-java/password-protected-presentation/). Jika sebuah presentasi yang dienkripsi sengaja disimpan dengan properti dokumen publik, properti tersebut dapat dibaca tanpa kata sandi; lihat [Manage Presentation Properties](/slides/id/php-java/presentation-properties/).
 
-Aspose.Slides menyediakan opsi—khususnya metode [getBlobManagementOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) dalam kelas [LoadOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/)—untuk membantu Anda memuat presentasi berukuran besar.
+## **Membuka Presentasi Besar**
 
-Kode PHP berikut menunjukkan cara memuat presentasi besar (misalnya, 2 GB):
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) mengembalikan opsi yang mengontrol cara Aspose.Slides menangani objek biner besar seperti gambar, audio, dan video. Anda dapat menjaga file sumber tetap terkunci, mengizinkan file sementara, dan membatasi jumlah data BLOB yang disimpan dalam memori.
+
+Kode PHP berikut mendemonstrasikan pemuatan presentasi besar (misalnya, 2 GB):
 
 ```php
-$filePath = "LargePresentation.pptx";
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationLockingBehavior;
+use aspose\slides\SaveFormat;
+
+$filePath = "large-presentation.pptx";
 
 $loadOptions = new LoadOptions();
-// Pilih perilaku KeepLocked—file presentasi akan tetap terkunci selama masa hidup
-// instansi Presentation, tetapi tidak perlu dimuat ke memori atau disalin ke file sementara.
 $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 $presentation = new Presentation($filePath, $loadOptions);
 try {
-    // Presentasi besar telah dimuat dan dapat digunakan, sementara konsumsi memori tetap rendah.
-
-    // Lakukan perubahan pada presentasi.
-    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
-
-    // Simpan presentasi ke file lain. Konsumsi memori tetap rendah selama operasi ini.
-    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
-	
-	// Jangan lakukan ini! Pengecualian I/O akan dilempar karena file terkunci sampai objek presentasi dibuang.
-	//unlink($filePath);
+    $presentation->getSlides()->get_Item(0)->setName("Large presentation");
+    $presentation->save("large-presentation-copy.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
-// Tidak masalah melakukan ini di sini. File sumber tidak lagi terkunci oleh objek presentasi.
-unlink($filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-Untuk mengatasi beberapa keterbatasan saat bekerja dengan aliran, Aspose.Slides dapat menyalin isi aliran tersebut. Memuat presentasi besar dari aliran menyebabkan presentasi disalin dan dapat memperlambat proses pemuatan. Oleh karena itu, ketika Anda perlu memuat presentasi besar, kami sangat menyarankan menggunakan jalur file presentasi bukan aliran.
+{{% alert color="info" title="Note" %}}
+Dengan [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked), file sumber tetap terkunci sampai instance presentasi dibuang. Jangan memindahkan, menimpa, atau menghapus file sumber selama instance tersebut masih aktif.
 
-Saat membuat presentasi yang berisi objek besar (video, audio, gambar resolusi tinggi, dll.), Anda dapat menggunakan [BLOB management](/slides/id/php-java/manage-blob/) untuk mengurangi konsumsi memori.
-{{%/alert %}}
+Aspose.Slides mungkin menyalin konten aliran masukan saat memuatnya. Untuk presentasi besar, jalur file biasanya lebih efisien daripada aliran. Lihat [Manage BLOBs](/slides/id/php-java/manage-blob/) untuk opsi penyimpanan dan manajemen memori tambahan.
+{{% /alert %}}
 
-## **Mengontrol Sumber Daya Eksternal**
+## **Mengendalikan Sumber Daya Eksternal**
 
-Aspose.Slides menyediakan antarmuka [IResourceLoadingCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/iresourceloadingcallback/) yang memungkinkan Anda mengelola sumber daya eksternal. Kode PHP berikut menunjukkan cara menggunakan antarmuka `IResourceLoadingCallback`:
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) menerima implementasi dari antarmuka Java [IResourceLoadingCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/iresourceloadingcallback/) melalui PHP/Java Bridge. Callback dapat menyediakan data pengganti, mengarahkan ulang sebuah sumber daya, menggunakan pemuat default, atau melewatkan sumber daya tersebut. Hal ini berguna ketika presentasi berisi gambar eksternal yang harus diselesaikan sesuai dengan aturan keamanan atau penyimpanan spesifik aplikasi.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ResourceLoadingAction;
+
 class ImageLoadingHandler {
     function resourceLoading($args) {
-        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-            // Muat gambar pengganti.
-			$bytes = file_get_contents("aspose-logo.jpg");
-			$javaByteArray = java_values($bytes);
-            $args->setData($javaByteArray);
-            return ResourceLoadingAction::UserProvided;
-        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-            // Tetapkan URL pengganti.
-            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+        $originalUri = strtolower(java_values($args->getOriginalUri()));
+        $approvedImagePath = "approved-image.jpg";
+        $isJpeg = substr($originalUri, -4) === ".jpg";
+
+        if (!$isJpeg || !file_exists($approvedImagePath)) {
+            return ResourceLoadingAction::Skip;
         }
-        // Lewati semua gambar lain.
-        return ResourceLoadingAction::Skip;
+
+        $imageData = file_get_contents($approvedImagePath);
+        if ($imageData === false) {
+            echo("The approved replacement image could not be read.\n");
+            return ResourceLoadingAction::Skip;
+        }
+
+        $args->setData(java_values($imageData));
+        return ResourceLoadingAction::UserProvided;
     }
 }
 
@@ -129,28 +135,36 @@ $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose
 $loadOptions = new LoadOptions();
 $loadOptions->setResourceLoadingCallback($loadingHandler);
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$presentation = new Presentation("presentation-with-external-images.pptx", $loadOptions);
+try {
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Muat Presentasi tanpa Objek Biner Tersemat**
 
-Sebuah presentasi PowerPoint dapat berisi jenis objek biner tersemat berikut:
+Presentasi dapat berisi data biner tersemat yang tidak diperlukan atau tidak ingin disimpan oleh aplikasi. Contohnya meliputi:
+- Proyek VBA, tersedia melalui [Presentation::getVbaProject](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getVbaProject);
+- data OLE tersemat, tersedia melalui [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/id/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- data kontrol ActiveX, tersedia melalui [Control::getActiveXControlBinary](https://reference.aspose.com/slides/id/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-- Proyek VBA (dapat diakses melalui [Presentation.getVbaProject](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getVbaProject));
-- Data tersemat objek OLE (dapat diakses melalui [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/id/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- Data biner kontrol ActiveX (dapat diakses melalui [Control.getActiveXControlBinary](https://reference.aspose.com/slides/id/php-java/aspose.slides/control/#getActiveXControlBinary)).
+Atur [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) ke `true` untuk menghapus data biner ini saat memuat. Simpan presentasi yang dimuat untuk mempertahankan hasil yang telah disanitasi.
 
-Dengan menggunakan metode [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects), Anda dapat memuat presentasi tanpa objek biner tersemat apapun.
-
-Metode ini berguna untuk menghapus konten biner yang berpotensi berbahaya. Kode PHP berikut menunjukkan cara memuat presentasi tanpa konten biner tersemat apa pun:
+Opsi ini mengurangi paparan terhadap payload tersemat yang tidak diinginkan, namun bukan sistem deteksi malware atau sanitasi konten yang lengkap.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $loadOptions = new LoadOptions();
 $loadOptions->setDeleteEmbeddedBinaryObjects(true);
 
-$presentation = new Presentation("malware.ppt", $loadOptions);
+$presentation = new Presentation("presentation-with-embedded-data.pptx", $loadOptions);
 try {
-    // Lakukan operasi pada presentasi.
+    $presentation->save("presentation-without-embedded-data.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -158,11 +172,14 @@ try {
 
 ## **FAQ**
 
-**Bagaimana saya dapat mengetahui bahwa sebuah file rusak dan tidak dapat dibuka?**  
-Anda akan mendapatkan pengecualian validasi parsing/format saat memuat. Kesalahan semacam itu sering menyebutkan struktur ZIP yang tidak valid atau rekaman PowerPoint yang rusak.
+**Bagaimana saya dapat mengetahui bahwa sebuah file rusak dan tidak dapat dibuka?**
 
-**Apa yang terjadi jika font yang diperlukan tidak ada saat membuka?**  
-File akan terbuka, tetapi kemudian [rendering/export](/slides/id/php-java/convert-presentation/) mungkin akan mengganti font. [Configure font substitutions](/slides/id/php-java/font-substitution/) atau [add the required fonts](/slides/id/php-java/custom-font/) ke lingkungan runtime.
+Aspose.Slides melemparkan pengecualian parsing atau format selama pemuatan. Tangani kegagalan tersebut secara terpisah dari kesalahan kata sandi yang salah sehingga aplikasi dapat melaporkan penyebabnya dengan akurat.
 
-**Bagaimana dengan media tersemat (video/audio) saat membuka?**  
-Mereka akan tersedia sebagai sumber daya presentasi. Jika media direferensikan melalui jalur eksternal, pastikan jalur tersebut dapat diakses di lingkungan Anda; jika tidak, [rendering/export](/slides/id/php-java/convert-presentation/) mungkin akan mengabaikan media tersebut.
+**Apa yang terjadi jika font yang dibutuhkan tidak ada?**
+
+Presentasi masih dapat dimuat, tetapi proses rendering dan ekspor mungkin menggantikan font. Anda dapat [configure font substitution](/slides/id/php-java/font-substitution/) atau [provide custom fonts](/slides/id/php-java/custom-font/) untuk membuat output lebih dapat diprediksi.
+
+**Apakah memuat sebuah presentasi juga memuat media tersematnya?**
+
+Audio dan video tersemat menjadi tersedia melalui model objek presentasi. Sumber daya eksternal diselesaikan sesuai dengan perilaku pemuatan sumber daya yang dikonfigurasi dan mungkin tidak tersedia jika lokasinya tidak dapat diakses.

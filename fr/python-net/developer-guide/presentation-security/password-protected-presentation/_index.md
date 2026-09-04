@@ -19,21 +19,21 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Chiffrer, détecter, valider, ouvrir et déchiffrer des présentations PowerPoint PPT et PPTX protégées par mot de passe en Python avec Aspose.Slides."
+description: "Chiffrer, détecter, valider, ouvrir et déchiffrer les présentations PowerPoint PPT et PPTX protégées par mot de passe en Python avec Aspose.Slides."
 ---
 ## **Vue d'ensemble**
 
-Un mot de passe d'ouverture chiffre une présentation. Le mot de passe correct est nécessaire pour charger et afficher le contenu de la présentation, ce qui assure la confidentialité.
+Un mot de passe d'ouverture chiffre une présentation. Le mot de passe correct est requis pour charger et afficher le contenu de la présentation, de sorte que cette protection assure la confidentialité.
 
-Un mot de passe d'ouverture est différent d'un mot de passe de protection en écriture. La protection en écriture restreint la modification mais ne chiffre pas le contenu et n'empêche pas le chargement de la présentation. Pour gérer les mots de passe de modification des présentations, voir [Write-Protect Presentations](/slides/fr/python-net/write-protected-presentation/).
+Un mot de passe d'ouverture est différent d'un mot de passe de protection en écriture. La protection en écriture restreint la modification mais ne chiffre pas le contenu et n'empêche pas le chargement de la présentation. Pour gérer les mots de passe de modification des présentations, consultez [Write-Protect Presentations](/slides/fr/python-net/write-protected-presentation/).
 
-Les flux de travail ci‑dessous s’appliquent aux présentations PPT et PPTX. Les exemples utilisent les deux formats lorsque leur comportement basé sur des fichiers ou des flux est important.
+Les flux de travail ci‑dessous s'appliquent aux présentations PPT et PPTX. Les exemples utilisent les deux formats lorsque le comportement basé sur les fichiers ou les flux est important.
 
 ## **Chiffrer une présentation avec un mot de passe d'ouverture**
 
-Utilisez [ProtectionManager.encrypt](https://reference.aspose.com/slides/fr/python-net/aspose.slides/protectionmanager/encrypt/) pour attribuer un mot de passe d'ouverture. Puis utilisez [Presentation.save](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/save/) pour enregistrer la présentation chiffrée.
+Utilisez [ProtectionManager.encrypt](https://reference.aspose.com/slides/fr/python-net/aspose.slides/protectionmanager/encrypt/) pour assigner un mot de passe d'ouverture. Puis utilisez [Presentation.save](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/save/) pour enregistrer la présentation chiffrée.
 
-L’exemple suivant chiffre une présentation PPTX :
+L'exemple suivant chiffre une présentation PPTX :
 
 ```python
 import aspose.slides as slides
@@ -43,9 +43,32 @@ with slides.Presentation("pres.pptx") as presentation:
     presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Garder les propriétés du document publiques**
+
+Par défaut, Aspose.Slides inclut les propriétés du document dans le chiffrement de la présentation. La propriété [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) contrôle ce comportement indépendamment du chiffrement du contenu des diapositives. Réglez‑la sur `False` avant d’appeler [ProtectionManager.encrypt](https://reference.aspose.com/slides/fr/python-net/aspose.slides/protectionmanager/encrypt/) lorsqu’un système d’indexation, de classification, de recherche ou de gestion documentaire doit lire les métadonnées sans le mot de passe d'ouverture.
+
+L'exemple suivant crée une présentation PPTX chiffrée tout en laissant ses propriétés de document intégrées publiques :
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    properties = presentation.document_properties
+    properties.author = "Contoso Knowledge Management"
+    properties.title = "Quarterly Product Roadmap"
+    properties.keywords = "roadmap, planning, internal"
+
+    presentation.slides[0].name = "Encrypted presentation content"
+    presentation.protection_manager.encrypt_document_properties = False
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("public-properties-encrypted.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Définir `encrypt_document_properties` sur `False` ne rend pas publiques les diapositives, les maîtres, les dispositions, les formes, les médias ou tout autre contenu de la présentation. Cela n'affecte que les propriétés du document. Pour lire ces propriétés sans charger le contenu chiffré, consultez [Manage Presentation Properties](/slides/fr/python-net/presentation-properties/).
+
 ## **Charger une présentation chiffrée**
 
-Définissez [LoadOptions.password](https://reference.aspose.com/slides/fr/python-net/aspose.slides/loadoptions/password/) sur le mot de passe d'ouverture et transmettez les options à [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) lors du chargement du fichier. Le chargement échoue lorsqu’un mot de passe d'ouverture est requis mais que le mot de passe fourni est absent ou incorrect.
+Définissez [LoadOptions.password](https://reference.aspose.com/slides/fr/python-net/aspose.slides/loadoptions/password/) sur le mot de passe d'ouverture et transmettez les options à [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) lors du chargement du fichier. Le chargement échoue lorsqu'un mot de passe d'ouverture est requis mais que le mot de passe fourni est absent ou incorrect.
 
 ```python
 import aspose.slides as slides
@@ -54,13 +77,13 @@ load_options = slides.LoadOptions()
 load_options.password = "open_password"
 
 with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
-    # Travaillez avec la présentation déchiffrée.
+    # Travailler avec la présentation déchiffrée.
     pass
 ```
 
 ## **Supprimer le chiffrement d'une présentation**
 
-Chargez la présentation avec son mot de passe d'ouverture, appelez [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/fr/python-net/aspose.slides/protectionmanager/remove_encryption/), puis enregistrez le résultat. La présentation enregistrée peut alors être chargée sans mot de passe.
+Chargez la présentation avec son mot de passe d'ouverture, appelez [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/fr/python-net/aspose.slides/protectionmanager/remove_encryption/), puis enregistrez le résultat. La présentation enregistrée pourra alors être chargée sans mot de passe.
 
 ```python
 import aspose.slides as slides
@@ -75,11 +98,11 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
 
 ## **Valider un mot de passe d'ouverture avant le chargement**
 
-Utilisez [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationfactory/get_presentation_info/) pour obtenir un [PresentationInfo](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/) sans créer d’instance complète de présentation. Vérifiez [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/is_password_protected/) avant de demander ou de valider un mot de passe. Lorsque la protection est présente, validez la valeur fournie avec [PresentationInfo.check_password](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/check_password/).
+Utilisez [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationfactory/get_presentation_info/) pour obtenir [PresentationInfo](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/) sans créer d'instance complète de présentation. Vérifiez [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/is_password_protected/) avant de demander ou de valider un mot de passe. Lorsque la protection est présente, validez la valeur fournie avec [PresentationInfo.check_password](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/check_password/).
 
 ### **Flux de travail par chemin de fichier**
 
-L’exemple suivant valide un mot de passe d'ouverture pour un fichier PPTX, transmet la valeur validée à [LoadOptions.password](https://reference.aspose.com/slides/fr/python-net/aspose.slides/loadoptions/password/), puis charge la présentation complète :
+L'exemple suivant valide un mot de passe d'ouverture pour un fichier PPTX, transmet la valeur validée à [LoadOptions.password](https://reference.aspose.com/slides/fr/python-net/aspose.slides/loadoptions/password/), puis charge la présentation complète :
 
 ```python
 import aspose.slides as slides
@@ -102,9 +125,9 @@ else:
 
 ### **Flux de travail par flux**
 
-La surcharge flux de [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationfactory/get_presentation_info/) fournit le même flux de travail. Réinitialisez la position d’un flux recherchable avant de charger la présentation complète depuis ce flux.
+La surcharge flux de [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationfactory/get_presentation_info/) fournit le même flux de travail. Réinitialisez la position d'un flux recherchable avant de charger la présentation complète à partir de ce flux.
 
-L’exemple suivant utilise un fichier PPT :
+L'exemple suivant utilise un fichier PPT :
 
 ```python
 import aspose.slides as slides
@@ -129,10 +152,10 @@ with open("protected-presentation.ppt", "rb") as presentation_stream:
 
 ### **Valeurs de retour de CheckPassword**
 
-[PresentationInfo.check_password](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/check_password/) renvoie `True` uniquement lorsque la présentation possède un mot de passe d'ouverture et que le mot de passe fourni est correct. Il renvoie `False` dans chacun des cas suivants :
+[PresentationInfo.check_password](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentationinfo/check_password/) renvoie `True` uniquement lorsque la présentation possède un mot de passe d'ouverture et que le mot de passe fourni est correct. Elle renvoie `False` dans chacun de ces cas :
 
 - Le mot de passe est incorrect.
-- La présentation ne possède pas de mot de passe d'ouverture.
+- La présentation n'a pas de mot de passe d'ouverture.
 - Le mot de passe fourni est `None` ou vide.
 
 Le comportement est identique pour les présentations PPT et PPTX.
@@ -154,19 +177,21 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
 
 ## **Recommandations de sécurité**
 
-{{% alert color="warning" title="Sécurité" %}}
-Ne consignez pas les mots de passe d'ouverture et ne les incluez pas dans les messages de diagnostic. Évitez les tentatives de validation répétées inutiles, conservez les mots de passe en mémoire uniquement le temps nécessaire, et réutilisez un résultat de validation réussi lors du chargement immédiat de la présentation.
+{{% alert color="warning" title="Security" %}}
+Ne consignez pas les mots de passe d'ouverture et ne les incluez pas dans les messages de diagnostic. Évitez les tentatives de validation répétées inutiles, ne gardez les mots de passe en mémoire que le temps strictement nécessaire et réutilisez un résultat de validation réussi lors du chargement immédiat de la présentation.
+
+Les propriétés publiques du document peuvent divulguer les noms d'auteur, les titres, les sujets, les mots‑clés, les informations d'entreprise, les commentaires et les valeurs personnalisées même si le contenu de la présentation est chiffré. Chiffrez les métadonnées sensibles avec la présentation. Laisser les propriétés publiques doit être une décision explicite prise uniquement lorsque les systèmes doivent indexer, classifier, rechercher ou gérer le fichier sans mot de passe d'ouverture.
 {{% /alert %}}
 
-## **Protéger par mot de passe une présentation en ligne**
+## **Protéger une présentation par mot de passe en ligne**
 
-1. Ouvrez l’application [Aspose.Slides Lock](https://products.aspose.app/slides/fr/lock).
+1. Ouvrez l'application Aspose.Slides Lock.
 1. Sélectionnez ou téléversez la présentation.
 1. Saisissez un mot de passe pour la protection en lecture.
-1. Saisissez éventuellement un mot de passe distinct pour la protection en écriture.
+1. Optionnellement, saisissez un mot de passe distinct pour la protection en écriture.
 1. Appliquez la protection et téléchargez le fichier résultant.
 
-{{% alert color="info" title="À voir aussi" %}}
+{{% alert color="info" title="See also" %}}
 - [Write-Protect Presentations](/slides/fr/python-net/write-protected-presentation/)
 - [Digital Signature in PowerPoint](/slides/fr/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
@@ -179,8 +204,12 @@ Un mot de passe d'ouverture chiffre la présentation et est requis pour charger 
 
 **Puis‑je valider un mot de passe d'ouverture sans charger toutes les diapositives ?**
 
-Oui. Obtenez les informations de la présentation, vérifiez la présence d’une protection par mot de passe d'ouverture, puis validez le mot de passe avant de créer une instance complète de présentation.
+Oui. Obtenez les informations de la présentation, vérifiez si la protection par mot de passe d'ouverture est présente, puis validez le mot de passe avant de créer une instance complète de présentation.
 
-**Les flux de travail de vérification du mot de passe prennent‑ils en charge à la fois PPT et PPTX ?**
+**Une application peut‑elle lire les métadonnées sans le mot de passe d'ouverture ?**
+
+Oui, mais uniquement lorsque la présentation a été chiffrée avec `encrypt_document_properties` réglé sur `False`. L'application doit alors utiliser le mode de chargement uniquement des propriétés du document décrit dans [Manage Presentation Properties](/slides/fr/python-net/presentation-properties/).
+
+**Les flux de travail de vérification du mot de passe prennent‑ils en charge PPT et PPTX ?**
 
 Oui. La détection et la validation du mot de passe basées sur le chemin de fichier ou le flux se comportent de la même manière pour les présentations PPT et PPTX.

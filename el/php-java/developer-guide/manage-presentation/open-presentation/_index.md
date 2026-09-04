@@ -1,12 +1,11 @@
 ---
-title: Άνοιγμα παρουσιάσεων σε PHP
-linktitle: Άνοιγμα παρουσίασης
+title: Άνοιγμα Παρουσιάσεων σε PHP
+linktitle: Άνοιγμα Παρουσίασης
 type: docs
 weight: 20
 url: /el/php-java/open-presentation/
 keywords:
 - άνοιγμα PowerPoint
-- άνοιγμα OpenDocument
 - άνοιγμα παρουσίασης
 - άνοιγμα PPTX
 - άνοιγμα PPT
@@ -21,106 +20,111 @@ keywords:
 - δυαδικό αντικείμενο
 - PHP
 - Aspose.Slides
-description: "Ανοίξτε παρουσιάσεις PowerPoint (.pptx, .ppt) και OpenDocument (.odp) χωρίς κόπο με το Aspose.Slides για PHP μέσω Java — γρήγορο, αξιόπιστο, πλήρως εξοπλισμένο."
+description: "Μάθετε πώς να ανοίγετε παρουσιάσεις PowerPoint και OpenDocument σε PHP, να παρέχετε κωδικούς πρόσβασης ανοίγματος, να ελέγχετε τη φόρτωση πόρων και να μειώνετε τη χρήση μνήμης με το Aspose.Slides για PHP μέσω Java."
 ---
 ## **Εισαγωγή**
 
-Πέρα από τη δημιουργία παρουσιάσεων PowerPoint από το μηδέν, το Aspose.Slides σας επιτρέπει επίσης να ανοίγετε υπάρχουσες παρουσιάσεις. Αφού φορτώσετε μια παρουσίαση, μπορείτε να ανακτήσετε πληροφορίες για αυτήν, να επεξεργαστείτε το περιεχόμενο των διαφανειών, να προσθέσετε νέες διαφάνειες, να αφαιρέσετε υπάρχουσες και πολλά άλλα.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/el/php-java/) μπορεί να φορτώσει παρουσιάσεις PowerPoint και OpenDocument από αρχεία και ροές. Αφού φορτωθεί μια παρουσίαση, μπορείτε να ελέγξετε τη δομή της, να επεξεργαστείτε τις διαφάνειες, να διαχειριστείτε τους πόρους και να την αποθηκεύσετε στην αρχική ή σε άλλη υποστηριζόμενη μορφή.
 
-## **Άνοιγμα παρουσιάσεων**
+Η συμπεριφορά φόρτωσης μπορεί να προσαρμοστεί μέσω της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/). Για παράδειγμα, μπορείτε να παράσχετε έναν κωδικό πρόσβασης ανοίγματος, να διατηρείτε μεγάλα δυαδικά αντικείμενα εκτός της μνήμης heap της Java, να ελέγχετε εξωτερικούς πόρους ή να παραλείψετε ενσωματωμένα δυαδικά δεδομένα.
 
-Για να ανοίξετε μια υπάρχουσα παρουσίαση, δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και περάστε τη διαδρομή του αρχείου στον κατασκευαστή της.
+## **Άνοιγμα Παρουσιάσεων**
+
+Για να ανοίξετε μια υπάρχουσα παρουσίαση, περάστε τη διαδρομή του αρχείου στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/). Απελευθερώστε την παρουσίαση μετά τη χρήση ώστε τα χειριστήρια αρχείων, τα προσωρινά δεδομένα και άλλοι πόροι να απελευθερωθούν άμεσα.
 
 Το παρακάτω παράδειγμα PHP δείχνει πώς να ανοίξετε μια παρουσίαση και να λάβετε τον αριθμό των διαφανειών της:
 
 ```php
-// Δημιουργήστε ένα αντικείμενο της κλάσης Presentation και περάστε μια διαδρομή αρχείου στον κατασκευαστή της.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
-    // Εκτυπώστε το συνολικό αριθμό των διαφανειών στην παρουσίαση.
-    echo($presentation->getSlides()->size());
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Άνοιγμα παρουσιάσεων με κωδικό προστασίας**
+## **Άνοιγμα Παρουσιάσεων με Προστασία Κωδικού**
 
-Όταν χρειάζεται να ανοίξετε μια παρουσίαση που προστατεύεται με κωδικό, περάστε τον κωδικό μέσω της μεθόδου [setPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setPassword) της κλάσης [LoadOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/) για να την αποκρυπτογραφήσετε και να τη φορτώσετε. Το παρακάτω κώδικα PHP δείχνει αυτή τη λειτουργία:
+Ένας κωδικός ανοίγματος κρυπτογραφεί το περιεχόμενο της παρουσίασης. Για να φορτώσετε την πλήρη παρουσίαση, περάστε τον σωστό κωδικό στο [LoadOptions::setPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setPassword) και παρέχετε τις επιλογές στον κατασκευαστή [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/). Η φόρτωση αποτυγχάνει όταν ο κωδικός λείπει ή είναι λανθασμένος.
 
 ```php
-$loadOptions = new LoadOptions();
-$loadOptions->setPassword("YOUR_PASSWORD");
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-presentation.pptx", $loadOptions);
 try {
-    // Πραγματοποιήστε λειτουργίες στην αποκρυπτογραφημένη παρουσίαση.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Άνοιγμα μεγάλων παρουσιάσεων**
+Για ανίχνευση, επαλήθευση και ροές εργασίας κρυπτογράφησης κωδικού, δείτε [Password-Protect Presentations](/slides/el/php-java/password-protected-presentation/). Αν μια κρυπτογραφημένη παρουσίαση αποθηκεύτηκε σκόπιμα με δημόσιες ιδιότητες εγγράφου, αυτές οι ιδιότητες μπορούν να διαβαστούν χωρίς κωδικό· δείτε [Manage Presentation Properties](/slides/el/php-java/presentation-properties/).
 
-Το Aspose.Slides παρέχει επιλογές—ιδιαίτερα τη μέθοδο [getBlobManagementOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) στην κλάση [LoadOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/)—για να σας βοηθήσει να φορτώσετε μεγάλες παρουσιάσεις.
+## **Άνοιγμα Μεγάλων Παρουσιάσεων**
 
-Το παρακάτω κώδικα PHP δείχνει τη φόρτωση μιας μεγάλης παρουσίασης (για παράδειγμα, 2 GB):
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) επιστρέφει επιλογές που ελέγχουν τον τρόπο με τον οποίο το Aspose.Slides διαχειρίζεται μεγάλα δυαδικά αντικείμενα όπως εικόνες, ήχο και βίντεο. Μπορείτε να διατηρήσετε το αρχείο προέλευσης κλειδωμένο, να επιτρέψετε προσωρινά αρχεία και να περιορίσετε την ποσότητα των δεδομένων BLOB που διατηρούνται στη μνήμη.
 
 ```php
-$filePath = "LargePresentation.pptx";
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationLockingBehavior;
+use aspose\slides\SaveFormat;
+
+$filePath = "large-presentation.pptx";
 
 $loadOptions = new LoadOptions();
-// Επιλέξτε τη συμπεριφορά KeepLocked—το αρχείο παρουσίασης θα παραμείνει κλειδωμένο για τη διάρκεια του
-// του αντικειμένου Presentation, αλλά δεν απαιτείται φόρτωση στη μνήμη ή αντιγραφή σε προσωρινό αρχείο.
 $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 $presentation = new Presentation($filePath, $loadOptions);
 try {
-    // Η μεγάλη παρουσίαση έχει φορτωθεί και μπορεί να χρησιμοποιηθεί, ενώ η κατανάλωση μνήμης παραμένει χαμηλή.
-
-    // Κάντε αλλαγές στην παρουσίαση.
-    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
-
-    // Αποθηκεύστε την παρουσίαση σε άλλο αρχείο. Η κατανάλωση μνήμης παραμένει χαμηλή κατά τη διάρκεια αυτής της λειτουργίας.
-    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
-	
-	// Μην το κάνετε αυτό! Θα προκληθεί εξαίρεση I/O επειδή το αρχείο είναι κλειδωμένο μέχρι να αποδεσμευτεί το αντικείμενο παρουσίασης.
-	//unlink($filePath);
+    $presentation->getSlides()->get_Item(0)->setName("Large presentation");
+    $presentation->save("large-presentation-copy.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
-// Είναι εντάξει να γίνει εδώ. Το αρχείο προέλευσης δεν είναι πλέον κλειδωμένο από το αντικείμενο παρουσίασης.
-unlink($filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-Για να παρακάμπνετε ορισμένους περιορισμούς κατά τη χρήση ροών, το Aspose.Slides μπορεί να αντιγράψει το περιεχόμενο μιας ροής. Η φόρτωση μιας μεγάλης παρουσίασης από ροή προκαλεί την αντιγραφή της παρουσίασης και μπορεί να επιβραδύνει τη φόρτωση. Συνεπώς, όταν χρειάζεται να φορτώσετε μια μεγάλη παρουσίαση, συνιστούμε ανεπιφύλακτα τη χρήση της διαδρομής του αρχείου παρουσίασης αντί για ροή.
+{{% alert color="info" title="Note" %}}
+Με την επιλογή [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked), το αρχείο προέλευσης παραμένει κλειδωμένο μέχρι να αποδεσμευθεί η παρουσίαση. Μην μετακινείτε, αντικαθιστάτε ή διαγράφετε το αρχείο προέλευσης ενώ η παρουσίαση είναι ενεργή.
 
-Κατά τη δημιουργία μιας παρουσίασης που περιέχει μεγάλα αντικείμενα (βίντεο, ήχους, εικόνες υψηλής ανάλυσης κ.λπ.), μπορείτε να χρησιμοποιήσετε τη [BLOB management](/slides/el/php-java/manage-blob/) για να μειώσετε την κατανάλωση μνήμης.
-{{%/alert %}}
+Το Aspose.Slides ενδέχεται να αντιγράψει το περιεχόμενο μιας ροής εισόδου κατά τη φόρτωση. Για μεγάλες παρουσιάσεις, μια διαδρομή αρχείου είναι γενικά πιο αποδοτική από μια ροή. Δείτε [Manage BLOBs](/slides/el/php-java/manage-blob/) για πρόσθετες επιλογές αποθήκευσης και διαχείρισης μνήμης.
+{{% /alert %}}
 
-## **Διαχείριση εξωτερικών πόρων**
+## **Έλεγχος Εξωτερικών Πόρων**
 
-Το Aspose.Slides παρέχει το interface [IResourceLoadingCallback](https://reference.aspose.com/slides/el/java/com.aspose.slides/iresourceloadingcallback/) που σας επιτρέπει να διαχειρίζεστε εξωτερικούς πόρους. Το παρακάτω κώδικα PHP δείχνει πώς να χρησιμοποιήσετε το interface `IResourceLoadingCallback`:
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) δέχεται μια υλοποίηση της διεπαφής Java [IResourceLoadingCallback](https://reference.aspose.com/slides/el/java/com.aspose.slides/iresourceloadingcallback/) μέσω του PHP/Java Bridge. Η κλήση επιστροφής μπορεί να παρέχει δεδομένα αντικατάστασης, να ανακατευθύνει έναν πόρο, να χρησιμοποιήσει τον προεπιλεγμένο φορτωτή ή να παραλείψει τον πόρο. Αυτό είναι χρήσιμο όταν οι παρουσιάσεις περιέχουν εξωτερικές εικόνες που πρέπει να επιλυθούν σύμφωνα με ειδικούς κανόνες ασφαλείας ή αποθήκευσης της εφαρμογής.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ResourceLoadingAction;
+
 class ImageLoadingHandler {
     function resourceLoading($args) {
-        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-            // Φορτώστε μια υποκατάστατη εικόνα.
-			$bytes = file_get_contents("aspose-logo.jpg");
-			$javaByteArray = java_values($bytes);
-            $args->setData($javaByteArray);
-            return ResourceLoadingAction::UserProvided;
-        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-            // Ορίστε μια υποκατάστατη URL.
-            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+        $originalUri = strtolower(java_values($args->getOriginalUri()));
+        $approvedImagePath = "approved-image.jpg";
+        $isJpeg = substr($originalUri, -4) === ".jpg";
+
+        if (!$isJpeg || !file_exists($approvedImagePath)) {
+            return ResourceLoadingAction::Skip;
         }
-        // Παραλείψτε όλες τις άλλες εικόνες.
-        return ResourceLoadingAction::Skip;
+
+        $imageData = file_get_contents($approvedImagePath);
+        if ($imageData === false) {
+            echo("The approved replacement image could not be read.\n");
+            return ResourceLoadingAction::Skip;
+        }
+
+        $args->setData(java_values($imageData));
+        return ResourceLoadingAction::UserProvided;
     }
 }
 
@@ -129,43 +133,52 @@ $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose
 $loadOptions = new LoadOptions();
 $loadOptions->setResourceLoadingCallback($loadingHandler);
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
-```
-
-## **Φόρτωση παρουσιάσεων χωρίς ενσωματωμένα δυαδικά αντικείμενα**
-
-Μια παρουσίαση PowerPoint μπορεί να περιέχει τους παρακάτω τύπους ενσωματωμένων δυαδικών αντικειμένων:
-
-- Έργο VBA (προσβάσιμο μέσω του [Presentation.getVbaProject](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getVbaProject));
-- Δεδομένα ενσωματωμένου αντικειμένου OLE (προσβάσιμο μέσω του [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/el/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- Δυαδικά δεδομένα ελέγχου ActiveX (προσβάσιμο μέσω του [Control.getActiveXControlBinary](https://reference.aspose.com/slides/el/php-java/aspose.slides/control/#getActiveXControlBinary)).
-
-Χρησιμοποιώντας τη μέθοδο [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects), μπορείτε να φορτώσετε μια παρουσίαση χωρίς κανένα ενσωματωμένο δυαδικό αντικείμενο.
-
-Αυτή η μέθοδος είναι χρήσιμη για την αφαίρεση πιθανώς κακόβουλου δυαδικού περιεχομένου. Το παρακάτω κώδικα PHP δείχνει πώς να φορτώσετε μια παρουσίαση χωρίς κανένα ενσωματωμένο δυαδικό περιεχόμενο:
-
-```php
-$loadOptions = new LoadOptions();
-$loadOptions->setDeleteEmbeddedBinaryObjects(true);
-
-$presentation = new Presentation("malware.ppt", $loadOptions);
+$presentation = new Presentation("presentation-with-external-images.pptx", $loadOptions);
 try {
-    // Πραγματοποιήστε λειτουργίες στην παρουσίαση.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Συχνές ερωτήσεις**
+## **Φόρτωση Παρουσιάσεων χωρίς Ενσωματωμένα Δυαδικά Αντικείμενα**
 
-**Πώς μπορώ να διακρίνω ότι ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοιχθεί;**
+Μια παρουσίαση μπορεί να περιέχει ενσωματωμένα δυαδικά δεδομένα τα οποία μια εφαρμογή δεν χρειάζεται ή δεν επιθυμεί να διατηρήσει. Παραδείγματα περιλαμβάνουν:
 
-Θα λάβετε μια εξαίρεση επεξεργασίας/επαλήθευσης μορφής κατά τη φόρτωση. Τέτοια σφάλματα συχνά αναφέρουν μη έγκυρη δομή ZIP ή σπασμένα αρχεία PowerPoint.
+- έργα VBA, προσβάσιμα μέσω [Presentation::getVbaProject](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#getVbaProject);
+- ενσωματωμένα δεδομένα OLE, προσβάσιμα μέσω [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/el/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- δεδομένα ελέγχου ActiveX, προσβάσιμα μέσω [Control::getActiveXControlBinary](https://reference.aspose.com/slides/el/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-**Τι συμβαίνει αν λείπουν απαιτούμενες γραμματοσειρές κατά το άνοιγμα;**
+Ορίστε το [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) σε `true` για να αφαιρέσετε αυτά τα δυαδικά δεδομένα κατά τη φόρτωση. Αποθηκεύστε την φορτωμένη παρουσίαση για να διατηρήσετε το καθαρισμένο αποτέλεσμα.
 
-Το αρχείο θα ανοίξει, αλλά αργότερα η [απόδοση/εξαγωγή](/slides/el/php-java/convert-presentation/) μπορεί να αντικαταστήσει τις γραμματοσειρές. [Διαμορφώστε τις αντικαταστάσεις γραμματοσειρών](/slides/el/php-java/font-substitution/) ή [προσθέστε τις απαιτούμενες γραμματοσειρές](/slides/el/php-java/custom-font/) στο περιβάλλον εκτέλεσης.
+Αυτή η επιλογή μειώνει την έκθεση σε ανεπιθύμητα ενσωματωμένα φορτία, αλλά δεν αποτελεί ολοκληρωμένο σύστημα ανίχνευσης κακόβουλου λογισμικού ή καθαρισμού περιεχομένου.
 
-**Τι γίνεται με τα ενσωματωμένα μέσα (βίντεο/ήχος) κατά το άνοιγμα;**
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-Γίνονται διαθέσιμα ως πόροι της παρουσίασης. Εάν τα μέσα αναφέρονται μέσω εξωτερικών διαδρομών, βεβαιωθείτε ότι αυτές οι διαδρομές είναι προσβάσιμες στο περιβάλλον σας· διαφορετικά η [απόδοση/εξαγωγή](/slides/el/php-java/convert-presentation/) μπορεί να παραλείψει τα μέσα.
+$loadOptions = new LoadOptions();
+$loadOptions->setDeleteEmbeddedBinaryObjects(true);
+
+$presentation = new Presentation("presentation-with-embedded-data.pptx", $loadOptions);
+try {
+    $presentation->save("presentation-without-embedded-data.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Συχνές Ερωτήσεις**
+
+**Πώς μπορώ να διακρίνω αν ένα αρχείο είναι κατεστραμμένο και δεν μπορεί να ανοιχτεί;**
+
+Το Aspose.Slides ρίχνει εξαίρεση ανάλυσης ή μορφής κατά τη φόρτωση. Διαχειριστείτε αυτό το σφάλμα ξεχωριστά από σφάλμα λανθασμένου κωδικού για να μπορεί η εφαρμογή να αναφέρει ακριβώς την αιτία.
+
+**Τι συμβαίνει αν λείπουν τα απαιτούμενα γραμματοσειρά;**
+
+Η παρουσίαση μπορεί ακόμα να φορτωθεί, αλλά η απόδοση και η εξαγωγή ενδέχεται να αντικαταστήσουν τις γραμματοσειρές. Μπορείτε να [configure font substitution](/slides/el/php-java/font-substitution/) ή να [provide custom fonts](/slides/el/php-java/custom-font/) για να κάνετε την έξοδο πιο προβλέψιμη.
+
+**Φορτώνεται επίσης το ενσωματωμένο πολυμέσο όταν φορτώνεται μια παρουσίαση;**
+
+Το ενσωματωμένο ήχο και βίντεο γίνονται διαθέσιμα μέσω του μοντέλου αντικειμένων της παρουσίασης. Οι εξωτερικοί πόροι επιλύονται σύμφωνα με τη ρυθμισμένη συμπεριφορά φόρτωσης πόρων και μπορεί να μην είναι προσβάσιμοι εάν οι θέσεις τους δεν είναι προσβάσιμες.

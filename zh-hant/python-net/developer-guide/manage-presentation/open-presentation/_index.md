@@ -20,114 +20,101 @@ keywords:
 - 二進位物件
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 輕鬆開啟 PowerPoint (.pptx, .ppt) 與 OpenDocument (.odp) 簡報——快速、可靠、功能完整。"
+description: "了解如何在 Python 中開啟 PowerPoint 與 OpenDocument 簡報、提供開啟密碼，並使用 Aspose.Slides for Python via .NET 減少記憶體使用量。"
 ---
 ## **簡介**
 
-除了從頭建立 PowerPoint 簡報之外，Aspose.Slides 也允許您開啟現有的簡報。載入簡報後，您可以取得其資訊、編輯投影片內容、添加新投影片、移除現有投影片，以及其他操作。
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/zh-hant/python-net/) 可以從檔案和串流載入 PowerPoint 與 OpenDocument 簡報。載入簡報後，您可以檢查其結構、編輯投影片、管理資源，並以原始或其他支援的格式儲存。
+
+載入行為可透過 [LoadOptions](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/) 類別自訂。例如，您可以提供開啟密碼、將大型二進位物件保留在記憶體之外，或省略嵌入的二進位資料。
 
 ## **開啟簡報**
 
-若要開啟現有簡報，請實例化 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 類別，並將檔案路徑傳遞給其建構函式。
+若要開啟現有簡報，將其檔案路徑傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 建構子。使用 `with` 陳述式，以便即時釋放檔案句柄、暫存資料及其他資源。
 
 以下 Python 範例示範如何開啟簡報並取得投影片數量：
 
 ```python
 import aspose.slides as slides
 
-# 實例化 Presentation 類別並將檔案路徑傳遞給其建構函式。
 with slides.Presentation("sample.pptx") as presentation:
-    # 印出簡報中投影片的總數。
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
 ## **開啟受密碼保護的簡報**
 
-當您需要開啟受密碼保護的簡報時，請透過 [LoadOptions](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/) 類別的 [password](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/password/) 屬性傳入密碼，以進行解密並載入。以下 Python 程式碼示範此操作：
+開啟密碼會加密簡報內容。若要載入完整簡報，請將正確的密碼指定給 [LoadOptions.password](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/password/) 並將選項傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/) 建構子。若未提供密碼或密碼不正確，載入將失敗。
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # 在已解密的簡報上執行操作。
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
+
+有關密碼偵測、驗證與加密工作流程，請參閱 [Password-Protect Presentations](/slides/zh-hant/python-net/password-protected-presentation/)。如果加密的簡報刻意以公開的文件屬性儲存，則可在不提供密碼的情況下讀取這些屬性；請參閱 [Manage Presentation Properties](/slides/zh-hant/python-net/presentation-properties/)。
 
 ## **開啟大型簡報**
 
-Aspose.Slides 提供選項—尤其是位於 [LoadOptions](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/) 類別中的 [blob_management_options](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/blob_management_options/) 屬性——協助您載入大型簡報。
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/blob_management_options/) 控制 Aspose.Slides 處理影像、音訊與視訊等大型二進位物件的方式。您可以保持來源檔案被鎖定、允許使用暫存檔，並限制保留在記憶體中的 BLOB 資料量。
 
 以下 Python 程式碼示範載入大型簡報（例如 2 GB）：
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# 選擇 KeepLocked 行為——簡報檔案在其生命週期內將保持鎖定
-# 簡報實例，但不需要載入至記憶體或複製至暫存檔案。
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # 已載入大型簡報，可供使用，且記憶體使用量仍保持低位。
-
-    # 對簡報進行變更。
     presentation.slides[0].name = "Large presentation"
-
-    # 將簡報儲存至另一個檔案。此操作期間記憶體使用量仍保持低位。
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # 切勿這麼做！會拋出 I/O 例外，因為檔案會被鎖定直到釋放簡報物件。
-    os.remove(file_path)
-
-# 在此處執行即可。來源檔案已不再被簡報物件鎖定。
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Info" %}}
-為了解決使用串流時的某些限制，Aspose.Slides 可能會複製串流的內容。從串流載入大型簡報會導致簡報被複製，進而降低載入速度。因此，當您需要載入大型簡報時，我們強烈建議使用簡報檔案路徑而非串流。
+{{% alert color="info" title="注意" %}}
+使用 `PresentationLockingBehavior.KEEP_LOCKED` 時，來源檔案會保持鎖定，直至 `Presentation` 物件被釋放。在該物件存活期間，請勿移動、覆寫或刪除來源檔案。
 
-在建立包含大型物件（影片、音訊、高解析度影像等）的簡報時，您可以使用 [BLOB management](/slides/zh-hant/python-net/manage-blob/) 以減少記憶體使用量。
-{{%/alert %}}
+Aspose.Slides 在載入時可能會複製輸入串流的內容。對於大型簡報，檔案路徑通常比串流更有效率。請參閱 [Manage BLOBs](/slides/zh-hant/python-net/manage-blob/) 以取得其他儲存與記憶體管理選項。
+{{% /alert %}}
 
-## **在不載入嵌入式二進位物件的情況下載入簡報**
+## **載入不含嵌入二進位物件的簡報**
 
-PowerPoint 簡報可能包含以下類型的嵌入式二進位物件：
+簡報可能包含應用程式不需要或不想保留的嵌入二進位資料。例子包括：
 
-- VBA 專案（可透過 [Presentation.vba_project](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/vba_project/) 存取）；
-- OLE 物件嵌入資料（可透過 [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) 存取）；
-- ActiveX 控制項二進位資料（可透過 [Control.active_x_control_binary](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/control/active_x_control_binary/) 存取）。
+- VBA 專案，可透過 [Presentation.vba_project](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/vba_project/) 取得；
+- 嵌入的 OLE 資料，可透過 [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) 取得；
+- ActiveX 控制項資料，可透過 [Control.active_x_control_binary](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/control/active_x_control_binary/) 取得。
 
-使用 [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) 屬性，您可以載入不含任何嵌入式二進位物件的簡報。
+將 [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) 設為 `True` 即可在載入時移除這些二進位資料。將載入的簡報儲存以保留已淨化的結果。
 
-此屬性對於移除可能具惡意的二進位內容很有用。以下 Python 程式碼示範如何載入不含任何嵌入式二進位內容的簡報：
+此選項可降低不必要的嵌入載荷風險，但它並非完整的惡意程式偵測或內容淨化系統。
 
-```py
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # 對簡報執行操作。
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **常見問題**
 
-**如何判斷檔案已損毀且無法開啟？**
+**如何判斷檔案已損壞且無法開啟？**
 
-載入時會拋出解析／格式驗證例外。此類錯誤通常會提及 ZIP 結構無效或 PowerPoint 記錄損毀。
+Aspose.Slides 於載入時會拋出解析或格式例外。請將此失敗與密碼錯誤的例外分開處理，以使應用程式能正確回報原因。
 
-**開啟時若缺少必要字型會發生什麼？**
+**如果缺少必要的字型會發生什麼情況？**
 
-檔案仍會開啟，但之後的 [rendering/export](/slides/zh-hant/python-net/convert-presentation/) 可能會替換字型。請在執行環境中[設定字型替換](/slides/zh-hant/python-net/font-substitution/)或[加入必要字型](/slides/zh-hant/python-net/custom-font/)。
+簡報仍可載入，但呈現與匯出時可能會替代字型。您可以 [設定字型替代](/slides/zh-hant/python-net/font-substitution/) 或 [提供自訂字型](/slides/zh-hant/python-net/custom-font/) 以讓輸出更可預測。
 
-**開啟時嵌入式媒體（影片/音訊）如何處理？**
+**載入簡報時也會載入其嵌入的媒體嗎？**
 
-它們會作為簡報資源可供使用。若媒體是透過外部路徑引用，請確保該路徑在您的環境中可存取；否則在 [rendering/export](/slides/zh-hant/python-net/convert-presentation/) 時可能會省略媒體。
+嵌入的音訊與視訊可透過簡報物件模型取得。外部資源會依照預設的資源載入行為解析，若無法存取其位置，則可能無法取得。

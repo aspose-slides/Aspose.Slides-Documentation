@@ -6,7 +6,6 @@ weight: 20
 url: /it/nodejs-java/open-presentation/
 keywords:
 - apri PowerPoint
-- apri OpenDocument
 - apri presentazione
 - apri PPTX
 - apri PPT
@@ -22,24 +21,26 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Apri presentazioni PowerPoint (.pptx, .ppt) e OpenDocument (.odp) senza sforzo con Aspose.Slides per Node.js tramite Java—veloce, affidabile, completa."
+description: "Scopri come aprire presentazioni PowerPoint e OpenDocument in JavaScript, fornire password di apertura, controllare il caricamento delle risorse e ridurre l'uso della memoria con Aspose.Slides per Node.js via Java."
 ---
 ## **Introduzione**
 
-Oltre a creare presentazioni PowerPoint da zero, Aspose.Slides consente anche di aprire presentazioni esistenti. Dopo aver caricato una presentazione, è possibile recuperare informazioni al riguardo, modificare il contenuto delle diapositive, aggiungere nuove diapositive, rimuovere quelle esistenti e molto altro.
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/it/nodejs-java/) può caricare presentazioni PowerPoint e OpenDocument da file e flussi. Dopo che una presentazione è stata caricata, è possibile ispezionarne la struttura, modificare le diapositive, gestire le risorse e salvarla nel formato originale o in un altro formato supportato.
+
+Il comportamento di caricamento può essere personalizzato tramite la classe [LoadOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/). Ad esempio, è possibile fornire una password di apertura, mantenere i grandi oggetti binari al di fuori della memoria di Node.js, controllare le risorse esterne o omettere i dati binari incorporati.
 
 ## **Aprire presentazioni**
 
-Per aprire una presentazione esistente, istanzia la classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) e passa il percorso del file al suo costruttore.
+Per aprire una presentazione esistente, passare il suo percorso file al costruttore [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/). Rilasciare la presentazione dopo l'uso in modo che i handle dei file, i dati temporanei e le altre risorse vengano rilasciati prontamente.
 
-Il seguente esempio JavaScript mostra come aprire una presentazione e ottenerne il conteggio delle diapositive:
+Il seguente esempio JavaScript mostra come aprire una presentazione e ottenere il numero di diapositive:
 
-```js
-// Istanziate la classe Presentation e passate un percorso file al suo costruttore.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("sample.pptx");
 try {
-    // Stampa il numero totale di diapositive nella presentazione.
-    console.log(presentation.getSlides().size());
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
@@ -47,115 +48,115 @@ try {
 
 ## **Aprire presentazioni protette da password**
 
-Quando è necessario aprire una presentazione protetta da password, passa la password tramite il metodo [setPassword](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setPassword) della classe [LoadOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/) per decrittare e caricarla. Il seguente codice JavaScript dimostra questa operazione:
+Una password di apertura crittografa il contenuto della presentazione. Per caricare l'intera presentazione, passare la password corretta a [LoadOptions.setPassword](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setPassword) e fornire le opzioni al costruttore [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/). Il caricamento fallisce quando la password è mancante o errata.
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // Esegui operazioni sulla presentazione decrittata.
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
+
+Per il rilevamento, la convalida e i flussi di lavoro di crittografia delle password, vedere [Password-Protect Presentations](/slides/it/nodejs-java/password-protected-presentation/). Se una presentazione crittografata è stata deliberatamente salvata con proprietà di documento pubbliche, tali proprietà possono essere lette senza password; vedere [Manage Presentation Properties](/slides/it/nodejs-java/presentation-properties/).
 
 ## **Aprire presentazioni di grandi dimensioni**
 
-Aspose.Slides fornisce opzioni—in particolare il metodo [getBlobManagementOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) nella classe [LoadOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/)—per aiutarti a caricare presentazioni di grandi dimensioni.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) restituisce opzioni che controllano come Aspose.Slides gestisce gli oggetti binari di grandi dimensioni come immagini, audio e video. È possibile mantenere il file sorgente bloccato, consentire file temporanei e limitare la quantità di dati BLOB trattenuti in memoria.
 
-Il seguente codice JavaScript dimostra come caricare una presentazione di grandi dimensioni (ad esempio, 2 GB):
+Il seguente codice JavaScript dimostra il caricamento di una presentazione di grandi dimensioni (ad esempio, 2 GB):
 
-```js
-const filePath = "LargePresentation.pptx";
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let loadOptions = new aspose.slides.LoadOptions();
-// Scegli il comportamento KeepLocked — il file della presentazione rimarrà bloccato per tutta la durata di
-// l'istanza Presentation, ma non è necessario caricarlo in memoria o copiarlo in un file temporaneo.
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
+const filePath = "large-presentation.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
-let presentation = new aspose.slides.Presentation(filePath, loadOptions);
+const presentation = new slides.Presentation(filePath, loadOptions);
 try {
-    // La grande presentazione è stata caricata e può essere usata, mentre il consumo di memoria rimane basso.
-    
-    // Apporta modifiche alla presentazione.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // Salva la presentazione in un altro file. Il consumo di memoria rimane basso durante questa operazione.
-    presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
-
-    // Non farlo! Verrà sollevata un'eccezione I/O perché il file è bloccato fino a quando l'oggetto presentation non viene eliminato.
-    //fs.unlinkSync(filePath);
+    presentation.save("large-presentation-copy.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// È OK farlo qui. Il file sorgente non è più bloccato dall'oggetto presentation.
-fs.unlinkSync(filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-Per aggirare alcune limitazioni quando si lavora con gli stream, Aspose.Slides può copiare il contenuto di uno stream. Caricare una presentazione di grandi dimensioni da uno stream comporta la copia della presentazione e può rallentare il caricamento. Pertanto, quando è necessario caricare una presentazione di grandi dimensioni, consigliamo vivamente di utilizzare il percorso del file della presentazione anziché uno stream.
+{{% alert color="info" title="Note" %}}
+Con [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked), il file sorgente rimane bloccato fino a quando l'istanza della presentazione non viene rilasciata. Non spostare, sovrascrivere o eliminare il file sorgente mentre quell'istanza è viva.
 
-Quando si crea una presentazione che contiene oggetti di grandi dimensioni (video, audio, immagini ad alta risoluzione, ecc.), è possibile utilizzare la [BLOB management](/slides/it/nodejs-java/manage-blob/) per ridurre il consumo di memoria.
-{{%/alert %}}
+Aspose.Slides può copiare il contenuto di uno stream di input durante il caricamento. Per presentazioni di grandi dimensioni, un percorso file è quindi generalmente più efficiente di uno stream. Vedere [Manage BLOBs](/slides/it/nodejs-java/manage-blob/) per opzioni aggiuntive di archiviazione e gestione della memoria.
+{{% /alert %}}
 
-## **Gestire risorse esterne**
+## **Controllare le risorse esterne**
 
-Aspose.Slides fornisce l'interfaccia [IResourceLoadingCallback](https://reference.aspose.com/slides/it/java/com.aspose.slides/iresourceloadingcallback/) che consente di gestire risorse esterne. Il seguente codice JavaScript mostra come utilizzare l'interfaccia `IResourceLoadingCallback`:
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accetta un'implementazione di [IResourceLoadingCallback](https://reference.aspose.com/slides/it/java/com.aspose.slides/iresourceloadingcallback/). Il callback può fornire dati sostitutivi, reindirizzare una risorsa, utilizzare il loader predefinito o saltare la risorsa. Questo è utile quando le presentazioni contengono immagini esterne che devono essere risolte secondo regole di sicurezza o di archiviazione specifiche dell'applicazione.
 
-```js
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Carica un'immagine sostitutiva.
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Imposta un URL sostitutivo.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
+```javascript
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const imageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
+    resourceLoading: function(args) {
+        const isJpeg = args.getOriginalUri().toLowerCase().endsWith(".jpg");
+        const approvedImagePath = "approved-image.jpg";
+        if (!isJpeg || !fs.existsSync(approvedImagePath)) {
+            return slides.ResourceLoadingAction.Skip;
         }
-        // Ignora tutte le altre immagini.
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
+
+        try {
+            const imageData = fs.readFileSync(approvedImagePath);
+            args.setData(imageData);
+            return slides.ResourceLoadingAction.UserProvided;
+        } catch (error) {
+            console.error("The approved replacement image could not be read.");
+            return slides.ResourceLoadingAction.Skip;
+        }
+    }
 });
-```
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setResourceLoadingCallback(imageLoadingHandler);
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const presentation = new slides.Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    console.log("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **Caricare presentazioni senza oggetti binari incorporati**
 
-Una presentazione PowerPoint può contenere i seguenti tipi di oggetti binari incorporati:
+Una presentazione può contenere dati binari incorporati che un'applicazione non necessita o non vuole mantenere. Esempi includono:
 
-- Progetto VBA (accessibile tramite [Presentation.getVbaProject](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#getVbaProject));
-- Dati incorporati di oggetti OLE (accessibili tramite [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- Dati binari di controlli ActiveX (accessibili tramite [Control.getActiveXControlBinary](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/control/#getActiveXControlBinary)).
+- Progetti VBA, disponibili tramite [Presentation.getVbaProject](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#getVbaProject);
+- dati OLE incorporati, disponibili tramite [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- dati di controllo ActiveX, disponibili tramite [Control.getActiveXControlBinary](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
 
-Utilizzando il metodo [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects), è possibile caricare una presentazione senza alcun oggetto binario incorporato.
+Impostare [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) su `true` per rimuovere questi dati binari durante il caricamento. Salvare la presentazione caricata per preservare il risultato sanificato.
 
-Questo metodo è utile per rimuovere contenuti binari potenzialmente dannosi. Il seguente codice JavaScript dimostra come caricare una presentazione senza alcun contenuto binario incorporato:
+Questa opzione riduce l'esposizione a payload incorporati indesiderati, ma non è un sistema completo di rilevamento malware o di sanificazione del contenuto.
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-let presentation = new aspose.slides.Presentation("malware.ppt", loadOptions);
+const presentation = new slides.Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // Esegui operazioni sulla presentazione.
+    presentation.save("presentation-without-embedded-data.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -163,14 +164,14 @@ try {
 
 ## **FAQ**
 
-**Come posso capire se un file è corrotto e non può essere aperto?**
+**Come posso capire che un file è danneggiato e non può essere aperto?**
 
-Ottieni un'eccezione di parsing/validazione del formato durante il caricamento. Tali errori spesso indicano una struttura ZIP non valida o record PowerPoint corrotti.
+Aspose.Slides lancia un'eccezione di parsing o di formato durante il caricamento. Gestire tale errore separatamente da un errore di password errata, così l'applicazione può segnalare la causa in modo accurato.
 
-**Cosa succede se i font richiesti sono mancanti durante l'apertura?**
+**Cosa succede se i font richiesti sono mancanti?**
 
-Il file verrà aperto, ma in seguito il [rendering/export](/slides/it/nodejs-java/convert-presentation/) potrebbe sostituire i font. [Configure font substitutions](/slides/it/nodejs-java/font-substitution/) o [add the required fonts](/slides/it/nodejs-java/custom-font/) all'ambiente di runtime.
+La presentazione può comunque essere caricata, ma il rendering e l'esportazione potrebbero sostituire i font. È possibile [configure font substitution](/slides/it/nodejs-java/font-substitution/) o [provide custom fonts](/slides/it/nodejs-java/custom-font/) per rendere l'output più prevedibile.
 
-**Cosa succede ai media incorporati (video/audio) durante l'apertura?**
+**Il caricamento di una presentazione carica anche i media incorporati?**
 
-Diventano disponibili come risorse della presentazione. Se i media sono referenziati tramite percorsi esterni, assicurati che tali percorsi siano accessibili nel tuo ambiente; altrimenti il [rendering/export](/slides/it/nodejs-java/convert-presentation/) potrebbe omettere i media.
+L'audio e il video incorporati diventano disponibili tramite il modello a oggetti della presentazione. Le risorse esterne vengono risolte secondo il comportamento di caricamento delle risorse configurato e potrebbero non essere disponibili se le loro posizioni non possono essere raggiunte.

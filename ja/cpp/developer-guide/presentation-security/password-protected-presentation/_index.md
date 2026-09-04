@@ -1,39 +1,39 @@
 ---
-title: C++ でプレゼンテーションをパスワード保護する
+title: C++ でのプレゼンテーションのパスワード保護
 linktitle: パスワード保護
 type: docs
 weight: 20
 url: /ja/cpp/password-protected-presentation/
 keywords:
 - パスワード保護されたプレゼンテーション
-- 開封パスワード
-- PowerPoint の暗号化
-- PowerPoint の復号化
-- プレゼンテーション パスワードの検証
-- プレゼンテーション パスワードの確認
-- 暗号化されたプレゼンテーションの開く
-- 暗号化の解除
+- オープニングパスワード
+- PowerPoint を暗号化
+- PowerPoint を復号化
+- プレゼンテーション パスワードを検証
+- プレゼンテーション パスワードを確認
+- 暗号化されたプレゼンテーションを開く
+- 暗号化を除去
 - PowerPoint
 - PPT
 - PPTX
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides を使用して、C++ でパスワード保護された PowerPoint PPT および PPTX プレゼンテーションを暗号化、検出、検証、開く、復号化します。"
+description: "C++ と Aspose.Slides を使用して、パスワード保護された PowerPoint PPT および PPTX プレゼンテーションを暗号化、検出、検証、開く、復号化します。"
 ---
 ## **概要**
 
-開封パスワードはプレゼンテーションを暗号化します。正しいパスワードが必要となり、プレゼンテーションの内容を読み込み表示できるため、この保護は機密性を提供します。
+開くためのパスワードはプレゼンテーションを暗号化します。正しいパスワードがなければプレゼンテーションのコンテンツを読み込んだり表示したりできないため、この保護は機密性を提供します。
 
-開封パスワードは書き込み保護パスワードとは異なります。書き込み保護は変更を制限しますが、コンテンツを暗号化したり、プレゼンテーションの読み込みを防止したりはしません。プレゼンテーションの変更用パスワードを管理するには、[Write-Protect Presentations](/slides/ja/cpp/write-protected-presentation/) を参照してください。
+開くためのパスワードは書き込み保護パスワードとは異なります。書き込み保護は変更を制限しますが、コンテンツを暗号化したりプレゼンテーションの読み込みを防止したりはしません。プレゼンテーションの変更用パスワードを管理するには、[Write-Protect Presentations](/slides/ja/cpp/write-protected-presentation/)をご参照ください。
 
-以下のワークフローは PPT および PPTX プレゼンテーションの両方に適用されます。例では、ファイルベースとストリームベースの動作が重要になる場合の両形式を使用しています。
+以下のワークフローは PPT と PPTX の両方のプレゼンテーションに適用されます。例では、ファイルベースとストリームベースの振る舞いが重要になる場合の両形式を使用しています。
 
-## **開封パスワードでプレゼンテーションを暗号化する**
+## **開くためのパスワードでプレゼンテーションを暗号化する**
 
-`IProtectionManager::Encrypt` を使用して開封パスワードを設定します。その後、`IPresentation::Save` を使用して暗号化されたプレゼンテーションを保存します。
+[IProtectionManager::Encrypt](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iprotectionmanager/encrypt/) を使用して開くためのパスワードを設定します。その後、[IPresentation::Save](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentation/save/) を使用して暗号化されたプレゼンテーションを保存します。
 
-以下の例は PPTX プレゼンテーションを暗号化します。
+次の例は PPTX プレゼンテーションを暗号化します。
 
 ```cpp
 #include <DOM/IProtectionManager.h>
@@ -49,9 +49,43 @@ presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **暗号化されたプレゼンテーションの読み込み**
+## **ドキュメントプロパティを公開したままにする**
 
-`LoadOptions::set_Password` に開封パスワードを設定し、ファイルの読み込み時にそのオプションを `Presentation` に渡します。開封パスワードが必要なのにパスワードが未指定または誤っている場合、読み込みは失敗します。
+既定では Aspose.Slides はプレゼンテーション暗号化にドキュメントプロパティを含めます。[IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) はスライドコンテンツの暗号化とは独立してこの動作を制御します。インデックス作成、分類、検索、ドキュメント管理システムが開くためのパスワードなしでメタデータを読み取る必要がある場合は、[IProtectionManager::Encrypt](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iprotectionmanager/encrypt/) を呼び出す前にこのメソッドに `false` を渡してください。
+
+次の例は、組み込みドキュメントプロパティを公開したまま暗号化された PPTX プレゼンテーションを作成します。
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto properties = presentation->get_DocumentProperties();
+properties->set_Author(u"Contoso Knowledge Management");
+properties->set_Title(u"Quarterly Product Roadmap");
+properties->set_Keywords(u"roadmap, planning, internal");
+
+presentation->get_Slide(0)->set_Name(u"Encrypted presentation content");
+presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
+presentation->Save(u"public-properties-encrypted.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
+
+`set_EncryptDocumentProperties` に `false` を渡しても、スライド、マスター、レイアウト、シェイプ、メディア、その他のプレゼンテーションコンテンツが公開されるわけではありません。これはドキュメントプロパティのみに影響します。暗号化されたコンテンツを読み込まずにこれらのプロパティを取得する方法については、[Manage Presentation Properties](/slides/ja/cpp/presentation-properties/) を参照してください。
+
+## **暗号化されたプレゼンテーションを読み込む**
+
+[LoadOptions::set_Password](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/set_password/) に開くためのパスワードを設定し、ファイルの読み込み時にそのオプションを [Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) に渡します。開くためのパスワードが必要なのに、パスワードが提供されていないか間違っている場合、読み込みは失敗します。
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -64,12 +98,12 @@ loadOptions->set_Password(u"open_password");
 
 auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
-// 復号化されたプレゼンテーションを操作します。
+// 復号化されたプレゼンテーションで作業します。
 ```
 
-## **プレゼンテーションから暗号化を解除する**
+## **プレゼンテーションから暗号化を除去する**
 
-開封パスワードを使用してプレゼンテーションを読み込み、`IProtectionManager::RemoveEncryption` を呼び出して結果を保存します。保存されたプレゼンテーションはパスワードなしで読み込めるようになります。
+開くためのパスワードでプレゼンテーションを読み込み、[IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iprotectionmanager/removeencryption/) を呼び出してから保存します。保存されたプレゼンテーションはパスワードなしで読み込めるようになります。
 
 ```cpp
 #include <DOM/IProtectionManager.h>
@@ -89,13 +123,13 @@ presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **読み込む前に開封パスワードを検証する**
+## **読み込む前に開くためのパスワードを検証する**
 
-`IPresentationFactory::GetPresentationInfo` を使用して、完全なプレゼンテーション インスタンスを作成せずに `IPresentationInfo` を取得します。パスワードの要求または検証の前に `IPresentationInfo::get_IsPasswordProtected` を確認します。保護が存在する場合は、`IPresentationInfo::CheckPassword` で提供された値を検証します。
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) を使用して、完全なプレゼンテーションインスタンスを作成せずに [IPresentationInfo](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentationinfo/) を取得します。パスワードを要求または検証する前に、[IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) を確認してください。保護が存在する場合は、[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentationinfo/checkpassword/) で提供された値を検証します。
 
-### **ファイルパス ワークフロー**
+### **ファイルパスワークフロー**
 
-以下の例は PPTX ファイルの開封パスワードを検証し、検証された値を `LoadOptions::set_Password` に渡してから完全なプレゼンテーションを読み込みます。
+次の例は PPTX ファイルに対して開くためのパスワードを検証し、検証済みの値を [LoadOptions::set_Password](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/set_password/) に渡してから、完全なプレゼンテーションを読み込みます。
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -130,11 +164,11 @@ else
 }
 ```
 
-### **ストリーム ワークフロー**
+### **ストリームワークフロー**
 
-`IPresentationFactory::GetPresentationInfo` のストリーム オーバーロードでも同様のワークフローが提供されます。ストリームから完全なプレゼンテーションを読み込む前に、シーク可能なストリームの位置をリセットしてください。
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) のストリームオーバーロードも同様のワークフローを提供します。ストリームから完全なプレゼンテーションを読み込む前に、シーク可能なストリームの位置をリセットしてください。
 
-以下の例は PPT ファイルを使用します。
+次の例は PPT ファイルを使用します。
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -175,17 +209,17 @@ else
 
 ### **CheckPassword の戻り値**
 
-`IPresentationInfo::CheckPassword` は、プレゼンテーションに開封パスワードが設定され、かつ提供されたパスワードが正しい場合にのみ `true` を返します。以下の場合はすべて `false` を返します：
+[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipresentationinfo/checkpassword/) は、プレゼンテーションに開くためのパスワードが設定されていて、かつ提供されたパスワードが正しい場合にのみ `true` を返します。次のいずれかの場合は `false` を返します。
 
-- パスワードが正しくありません。
-- プレゼンテーションに開封パスワードが設定されていません。
-- 提供されたパスワードが null または空です。
+- パスワードが間違っている。
+- プレゼンテーションに開くためのパスワードが設定されていない。
+- 提供されたパスワードが null または空文字列である。
 
-この動作は PPT と PPTX のプレゼンテーションで同じです。
+この挙動は PPT と PPTX の両方のプレゼンテーションで同じです。
 
 ## **読み込んだプレゼンテーションが暗号化されているか確認する**
 
-正しいパスワードでプレゼンテーションを読み込んだ後、`IProtectionManager::get_IsEncrypted` を調べて元のプレゼンテーションが暗号化されていることを確認します。読み込み前に開封パスワード保護を検出するには、上記のように `IPresentationInfo::get_IsPasswordProtected` を使用します。
+正しいパスワードでプレゼンテーションを読み込んだ後、[IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) を調べて、元のプレゼンテーションが暗号化されていたかどうかを確認します。読み込み前に開くためのパスワード保護を検出するには、上記と同様に `IPresentationInfo::get_IsPasswordProtected` を使用してください。
 
 ```cpp
 #include <DOM/IProtectionManager.h>
@@ -207,32 +241,37 @@ Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The prese
 ## **セキュリティに関する推奨事項**
 
 {{% alert color="warning" title="Security" %}}
-開封パスワードをログに記録したり診断メッセージに含めたりしないでください。不要な繰り返し検証を避け、パスワードは必要な期間だけメモリに保持し、プレゼンテーションをすぐに読み込む際は成功した検証結果を再利用してください。
+開くためのパスワードをログに記録したり診断メッセージに含めたりしないでください。不要な繰り返し検証は避け、パスワードは必要な時間だけメモリに保持し、プレゼンテーションをすぐに読み込む場合は成功した検証結果を再利用してください。
 {{% /alert %}}
 
-## **プレゼンテーションをオンラインでパスワード保護する**
-
-1. Aspose.Slides Lock アプリケーションを開きます。
-1. プレゼンテーションを選択するかアップロードします。
-1. 閲覧保護用のパスワードを入力します。
-1. 必要に応じて、編集保護用の別のパスワードを入力します。
-1. 保護を適用し、生成されたファイルをダウンロードします。
-
+公開ドキュメントプロパティには、著者名、タイトル、サブジェクト、キーワード、会社情報、コメント、カスタム値が含まれることがあり、プレゼンテーションの内容が暗号化されていても情報が漏洩する可能性があります。機密性の高いメタデータはプレゼンテーションと一緒に暗号化してください。プロパティを公開したままにするのは、システムが開くためのパスワードなしでファイルをインデックス作成、分類、検索、または管理する必要がある場合に限り、明示的な判断として行ってください。
 {{% alert color="info" title="See also" %}}
-- [プレゼンテーションの書き込み保護](/slides/ja/cpp/write-protected-presentation/)
-- [PowerPoint のデジタル署名](/slides/ja/cpp/digital-signature-in-powerpoint/)
+- [Write-Protect Presentations](/slides/ja/cpp/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/ja/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **よくある質問**
+## **オンラインでプレゼンテーションにパスワード保護を適用する**
 
-**開封パスワードと書き込み保護パスワードの違いは何ですか？**
+1. [Aspose.Slides Lock](https://products.aspose.app/slides/ja/lock) アプリケーションを開きます。
+2. プレゼンテーションを選択またはアップロードします。
+3. 表示保護用のパスワードを入力します。
+4. 必要に応じて編集保護用の別のパスワードを入力します。
+5. 保護を適用して、結果のファイルをダウンロードします。
 
-開封パスワードはプレゼンテーションを暗号化し、コンテンツの読み込みに必要です。書き込み保護パスワードは暗号化せずに変更を制限します。
+## **FAQ**
 
-**すべてのスライドを読み込まずに開封パスワードを検証できますか？**
+**開くためのパスワードと書き込み保護パスワードの違いは何ですか？**
 
-はい。プレゼンテーション情報を取得し、開封パスワード保護があるか確認した上で、完全なプレゼンテーション インスタンスを作成する前にパスワードを検証できます。
+開くためのパスワードはプレゼンテーションを暗号化し、コンテンツの読み込みに必要です。書き込み保護パスワードは暗号化せずに変更を制限します。
 
-**パスワード検証のワークフローは PPT と PPTX の両方に対応していますか？**
+**すべてのスライドを読み込まずに開くためのパスワードを検証できますか？**
 
-はい。ファイルパスとストリームベースのパスワード検出および検証は、PPT と PPTX のプレゼンテーションで同じように動作します。
+はい。プレゼンテーション情報を取得し、開くためのパスワード保護が存在するかを確認した上で、完全なプレゼンテーションインスタンスを作成する前にパスワードを検証できます。
+
+**アプリケーションは開くためのパスワードなしでメタデータを読み取れますか？**
+
+はい。ただし、プレゼンテーションが `set_EncryptDocumentProperties(false)` で暗号化された場合に限ります。その場合は、[Manage Presentation Properties](/slides/ja/cpp/presentation-properties/) で説明されているドキュメントプロパティのみのロードモードを使用してください。
+
+**パスワード検証ワークフローは PPT と PPTX の両方に対応していますか？**
+
+はい。ファイルパスおよびストリームベースのパスワード検出と検証は、PPT と PPTX のプレゼンテーションで同じように動作します。

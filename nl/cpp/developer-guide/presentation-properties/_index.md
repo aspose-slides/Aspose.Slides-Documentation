@@ -22,42 +22,145 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Beheer presentatie‑eigenschappen in Aspose.Slides for C++ en stroomlijn zoeken, branding en workflow in uw PowerPoint‑ en OpenDocument‑bestanden."
+description: "Beheer de presentatie‑eigenschappen in Aspose.Slides voor C++ en stroomlijn zoeken, branding en workflow in uw PowerPoint‑ en OpenDocument‑bestanden."
 ---
-## **Inleiding**
+## **Introductie**
 
-Aspose.Slides ondersteunt twee soorten documenteigenschappen: **Built-in** en **Custom**. Beide soorten eigenschappen kunnen eenvoudig worden benaderd en beheerd met de Aspose.Slides API.
+Aspose.Slides ondersteunt twee typen documenteigenschappen: **Ingebouwd** en **Aangepast**. Beide soorten eigenschappen kunnen eenvoudig worden benaderd en beheerd met de Aspose.Slides API.
 
-Aspose.Slides stelt u in staat om met documenteigenschappen van presentaties te werken via de [IDocumentProperties](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_document_properties) interface. Een instantie van deze interface wordt geretourneerd door de [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_documentproperties/) methode. De volgende voorbeelden laten zien hoe deze eigenschappen gelezen, aangepast en beheerd kunnen worden.
+Aspose.Slides stelt u in staat om met presentatiedocumenteigenschappen te werken via de [IDocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/idocumentproperties/) interface. Een instantie van deze interface wordt geretourneerd door [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/get_documentproperties/). De volgende voorbeelden laten zien hoe deze eigenschappen gelezen, gewijzigd en beheerd kunnen worden.
 
-{{% alert color="info" title="Note" %}}
-Houd er rekening mee dat u geen waarden kunt instellen voor de velden **Application** en **Producer**, omdat Aspose Ltd. en Aspose.Slides for C++ x.x.x weergegeven zullen worden in deze velden.
+{{% alert color="info" title="Opmerking" %}}
+Let op dat u geen waarden kunt instellen voor de **Application**- en **Producer**-velden, omdat Aspose Ltd. en Aspose.Slides voor C++ x.x.x in deze velden worden weergegeven.
 {{% /alert %}} 
 
 ## **Beheer presentatie‑eigenschappen**
 
-Microsoft PowerPoint biedt een functie om enkele eigenschappen toe te voegen aan de presentatiebestanden. Deze documenteigenschappen maken het mogelijk om nuttige informatie op te slaan samen met de documenten (presentatiebestanden). Er zijn twee soorten documenteigenschappen, namelijk:
+Microsoft PowerPoint biedt een functie om enkele eigenschappen toe te voegen aan presentatie‑bestanden. Deze documenteigenschappen maken het mogelijk om nuttige informatie op te slaan samen met de documenten (presentatie‑bestanden). Er zijn twee soorten documenteigenschappen:
 
-- Systeemgedefinieerde (Built-in) eigenschappen
-- Gebruikersgedefinieerde (Custom) eigenschappen
+- Systeem‑gedefinieerde (Ingebouwde) eigenschappen  
+- Door gebruiker gedefinieerde (Aangepaste) eigenschappen  
 
-**Built-in** eigenschappen bevatten algemene informatie over het document, zoals de titel van het document, de naam van de auteur, documentstatistieken, enzovoort. **Custom** eigenschappen zijn die welke door de gebruikers worden gedefinieerd als **Name/Value**‑paren, waarbij zowel naam als waarde door de gebruiker worden opgegeven. Met Aspose.Slides for C++ kunnen ontwikkelaars de waarden van zowel ingebouwde als aangepaste eigenschappen benaderen en wijzigen. Microsoft PowerPoint 2007 maakt het mogelijk om de documenteigenschappen van presentatiebestanden te beheren. Het enige wat u hoeft te doen is op het Office‑pictogram klikken en vervolgens het menu‑item **Prepare | Properties | Advanced Properties** van Microsoft PowerPoint 2007 selecteren. Nadat u het menu‑item **Advanced Properties** hebt gekozen, verschijnt er een dialoogvenster waarin u de documenteigenschappen van het PowerPoint‑bestand kunt beheren. In het **Properties Dialog** ziet u verschillende tabbladen, zoals **General, Summary, Statistics, Contents and Custom**. Al deze tabbladen maken het configureren van verschillende soorten informatie gerelateerd aan de PowerPoint‑bestanden mogelijk. Het **Custom**‑tabblad wordt gebruikt om aangepaste eigenschappen van de PowerPoint‑bestanden te beheren.
+**Ingebouwde** eigenschappen bevatten algemene informatie over het document, zoals documenttitel, naam van de auteur, documentstatistieken enzovoort. **Aangepaste** eigenschappen zijn die welke door de gebruikers worden gedefinieerd als **Naam/Waarde**‑paren, waarbij zowel naam als waarde door de gebruiker worden bepaald. Met Aspose.Slides voor C++ kunnen ontwikkelaars de waarden van zowel ingebouwde als aangepaste eigenschappen benaderen en wijzigen. Microsoft PowerPoint 2007 maakt het mogelijk om de documenteigenschappen van presentatie‑bestanden te beheren. Klik simpelweg op het Office‑icoontje en vervolgens op **Voorbereiden | Eigenschappen | Geavanceerde eigenschappen** in Microsoft PowerPoint 2007. Na het kiezen van **Geavanceerde eigenschappen** verschijnt een dialoogvenster waarmee u de documenteigenschappen van het PowerPoint‑bestand kunt beheren. In het **Eigenschappen‑dialoog** ziet u onder andere tabbladen **Algemeen**, **Samenvatting**, **Statistieken**, **Inhoud** en **Aangepast**. Elk tabblad maakt het mogelijk verschillende soorten informatie met betrekking tot de PowerPoint‑bestanden te configureren. Het tabblad **Aangepast** wordt gebruikt om aangepaste eigenschappen van de PowerPoint‑bestanden te beheren.
 
-## **Toegang tot Built-in eigenschappen**
+## **Openbare eigenschappen lezen van een versleutelde presentatie**
 
-Deze eigenschappen, zoals blootgelegd door het object **IDocumentProperties**, omvatten: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Aanmaakdatum), **Modified** (Wijzigingsdatum), **Printed** (Datum laatste afdruk), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is gedeeld tussen verschillende producenten?), **PresentationFormat**, **Subject** en **Title**.
+Een openings­wachtwoord beschermt normaal zowel de inhoud van de presentatie als de documenteigenschappen. Wanneer een presentatie wordt versleuteld door `false` door te geven aan [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), blijven de documenteigenschappen openbaar. Een applicatie kan vervolgens `true` doorgeven aan [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) en de openbare metadata lezen zonder het openings­wachtwoord te verstrekken.
+
+`set_OnlyLoadDocumentProperties` bepaalt wat Aspose.Slides laadt; het ontsleutelt niets. Als de eigenschappen zijn opgenomen in de versleuteling, mislukt het laden zonder wachtwoord. Als de presentatie niet versleuteld is, wordt de optie genegeerd en wordt de volledige presentatie geladen.
+
+Het volgende voorbeeld verifieert de laadmodus via [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) en leest vervolgens ingebouwde eigenschappen via [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/get_documentproperties/):
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto presentation = MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
+
+if (presentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
+{
+    auto properties = presentation->get_DocumentProperties();
+
+    Console::WriteLine(u"Author: " + properties->get_Author());
+    Console::WriteLine(u"Title: " + properties->get_Title());
+    Console::WriteLine(u"Keywords: " + properties->get_Keywords());
+}
+else
+{
+    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+}
+
+presentation->Dispose();
+```
+
+In deze modus wordt de slide‑inhoud niet geladen. Slides, masters, layouts, shapes, media en andere presentatie‑objecten zijn niet beschikbaar. Applicaties moeten altijd `get_IsOnlyDocumentPropertiesLoaded` controleren voordat ze een bewerking uitvoeren die het volledige presentatiemodel vereist.
+
+{{% alert color="warning" title="Waarschuwing" %}}
+Openbare metadata kan auteursnamen, titels, onderwerpen, trefwoorden, bedrijfsinformatie, opmerkingen en aangepaste waarden blootleggen. Versleutel gevoelige eigenschappen samen met de presentatie. Houd ze alleen openbaar wanneer indexerings‑, classificatie‑, zoek‑ of document‑beheersystemen een specifieke eis hebben om ze zonder wachtwoord te benaderen.
+{{% /alert %}}
+
+## **Eigenschappen bijwerken van een versleutelde presentatie**
+
+Voor een versleuteld PPTX‑bestand is een presentatie die na het aanroepen van `set_OnlyLoadDocumentProperties(true)` is geladen, bedoeld om openbare metadata te lezen. Aspose.Slides kan gewijzigde eigenschappen van dat alleen‑metadata‑object niet opslaan, omdat de openbare eigenschappen consistent moeten blijven met de bijbehorende gegevens in de versleutelde presentatie. Het bijwerken hiervan vereist daarom het correcte openings­wachtwoord en een volledige lading.
+
+Het volgende voorbeeld opent de presentatie met [LoadOptions::set_Password](https://reference.aspose.com/slides/nl/cpp/aspose.slides/loadoptions/set_password/), werkt openbare ingebouwde eigenschappen bij en slaat het resultaat op. Vervolgens wordt met [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) gecontroleerd of de versleuteling behouden blijft en wordt de openbare metadata opnieuw geopend zonder wachtwoord om de nieuwe waarden te verifiëren:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+const String inputPath = u"public-properties-encrypted.pptx";
+const String outputPath = u"updated-public-properties-encrypted.pptx";
+
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(u"open_password");
+
+    auto presentation = MakeObject<Presentation>(inputPath, loadOptions);
+    presentation->get_DocumentProperties()->set_Title(u"Updated Product Roadmap");
+    presentation->get_DocumentProperties()->set_Keywords(u"roadmap, planning, indexed");
+    presentation->Save(outputPath, SaveFormat::Pptx);
+    presentation->Dispose();
+}
+
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(outputPath);
+Console::WriteLine(presentationInfo->get_IsEncrypted() ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
+
+auto metadataLoadOptions = MakeObject<LoadOptions>();
+metadataLoadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto metadataPresentation = MakeObject<Presentation>(outputPath, metadataLoadOptions);
+
+if (metadataPresentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
+{
+    Console::WriteLine(u"Title: " + metadataPresentation->get_DocumentProperties()->get_Title());
+    Console::WriteLine(u"Keywords: " + metadataPresentation->get_DocumentProperties()->get_Keywords());
+}
+else
+{
+    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+}
+
+metadataPresentation->Dispose();
+```
+
+Als een applicatie niet is toegestaan om de presentatie‑inhoud te ontsleutelen of te laden, moet zij openbare eigenschappen van een versleuteld PPTX‑bestand als alleen‑lezen behandelen.
+
+## **Toegang tot ingebouwde eigenschappen**
+
+Deze eigenschappen, zoals blootgelegd door het **IDocumentProperties**‑object, omvatten: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** en **Title**.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
 
-## **Wijzigen van Built-in eigenschappen**
+## **Ingebouwde eigenschappen wijzigen**
 
-Het wijzigen van de ingebouwde eigenschappen van presentatiebestanden is net zo eenvoudig als het benaderen ervan. U kunt eenvoudig een tekenreekswaarde toewijzen aan een gewenste eigenschap en de eigenschapswaarde wordt aangepast. In het onderstaande voorbeeld hebben we laten zien hoe we de ingebouwde documenteigenschappen van het presentatiebestand kunnen wijzigen.
+Het wijzigen van de ingebouwde eigenschappen van presentatie‑bestanden is net zo eenvoudig als ze benaderen. U kunt eenvoudig een tekenreeks‑waarde toewijzen aan elke gewenste eigenschap en de eigenschapswaarde wordt aangepast. In het onderstaande voorbeeld laten we zien hoe de ingebouwde documenteigenschappen van het presentatie‑bestand kunnen worden gewijzigd.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
 
-## **Toevoegen van Custom presentatie‑eigenschappen**
+## **Aangepaste presentatie‑eigenschappen toevoegen**
 
-Aspose.Slides for C++ stelt ontwikkelaars ook in staat om aangepaste waarden toe te voegen voor de documenteigenschappen van een presentatie. Hieronder staat een voorbeeld dat laat zien hoe u de aangepaste eigenschappen voor een presentatie kunt instellen.
+Aspose.Slides voor C++ maakt het ook mogelijk voor ontwikkelaars om aangepaste waarden voor presentatiedocumenteigenschappen toe te voegen. Hieronder staat een voorbeeld dat laat zien hoe de aangepaste eigenschappen voor een presentatie worden ingesteld.
 
 ``` cpp
 #include <DOM/IDocumentProperties.h>
@@ -80,7 +183,7 @@ documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
 documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
 documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
 
-// Eigenschapsnaam ophalen op een bepaalde index
+// Eigenschapsnaam ophalen op een specifieke index
 String getPropertyName = documentProperties->GetCustomPropertyName(2);
 
 // Geselecteerde eigenschap verwijderen
@@ -90,17 +193,17 @@ documentProperties->RemoveCustomProperty(getPropertyName);
 presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Toegang tot en wijzigen van Custom eigenschappen**
+## **Aangepaste eigenschappen benaderen en wijzigen**
 
-Aspose.Slides for C++ stelt ontwikkelaars ook in staat om de waarden van aangepaste eigenschappen te benaderen. Hieronder staat een voorbeeld dat laat zien hoe u al deze aangepaste eigenschappen voor een presentatie kunt benaderen en wijzigen.
+Aspose.Slides voor C++ maakt het ook mogelijk voor ontwikkelaars om de waarden van aangepaste eigenschappen te benaderen. Hieronder staat een voorbeeld dat laat zien hoe u alle aangepaste eigenschappen voor een presentatie kunt benaderen en wijzigen.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
 
-## **Instellen van proefleestaal**
+## **Proefleessysteemtaal instellen**
 
-Aspose.Slides levert de eigenschap [LanguageId](https://reference.aspose.com/slides/nl/cpp/aspose.slides/baseportionformat/set_languageid/) (blootgelegd door de klasse [PortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/portionformat/)) om de proefleestaal voor een PowerPoint‑document in te stellen. De proefleestaal is de taal waarvoor spelling en grammatica in PowerPoint worden gecontroleerd.
+Aspose.Slides biedt de [LanguageId](https://reference.aspose.com/slides/nl/cpp/aspose.slides/baseportionformat/set_languageid/)‑eigenschap (blootgelegd door de [PortionFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/portionformat/)‑klasse) om de proefleestaal voor een PowerPoint‑document in te stellen. De proefleestaal is de taal waarvoor spelling en grammatica in PowerPoint worden gecontroleerd.
 
-Deze C++‑code toont hoe u de proefleestaal voor een PowerPoint kunt instellen:
+Deze C++‑code toont hoe u de proefleestaal voor een PowerPoint‑document kunt instellen:
 
 ```c++
 #include <DOM/AutoShape.h>
@@ -131,7 +234,7 @@ portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
 portionFormat->set_LanguageId(u"zh-CN");
-// stel de Id in van een proefleestaal
+// set the Id of a proofing language
 
 newPortion->set_Text(u"1。");
 portions->Add(newPortion);
@@ -160,7 +263,7 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
 
-// Voegt een nieuw rechthoekvorm toe met tekst
+// Voeg een nieuwe rechthoekvorm met tekst toe
 System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
 System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
 textFrame->set_Text(u"New Text");
@@ -171,20 +274,28 @@ System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_Port
 
 ## **Live‑voorbeeld**
 
-Probeer de online‑app [**Aspose.Slides Metadata**](https://products.aspose.app/slides/nl/metadata) om te zien hoe u met documenteigenschappen kunt werken via de Aspose.Slides API:
+Probeer de online app [**Aspose.Slides Metadata**](https://products.aspose.app/slides/nl/metadata) om te zien hoe u met documenteigenschappen kunt werken via de Aspose.Slides API:
 
-[![Bekijk & bewerk PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/nl/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/nl/metadata)
 
-## **Veelgestelde vragen**
+## **FAQ**
 
 **Hoe kan ik een ingebouwde eigenschap uit een presentatie verwijderen?**
 
-Ingebouwde eigenschappen maken een integraal onderdeel van de presentatie en kunnen niet volledig worden verwijderd. U kunt echter hun waarden wijzigen of, indien toegestaan door de betreffende eigenschap, ze leeg maken.
+Ingebouwde eigenschappen maken een integraal deel van de presentatie uit en kunnen niet volledig worden verwijderd. U kunt echter hun waarden wijzigen of ze leeg instellen als de specifieke eigenschap dat toestaat.
 
 **Wat gebeurt er als ik een aangepaste eigenschap toevoeg die al bestaat?**
 
-Als u een aangepaste eigenschap toevoegt die al bestaat, wordt de bestaande waarde overschreven door de nieuwe. U hoeft de eigenschap niet vooraf te verwijderen of te controleren, omdat Aspose.Slides de waarde automatisch bijwerkt.
+Als u een aangepaste eigenschap toevoegt die al bestaat, wordt de bestaande waarde overschreven met de nieuwe. Het is niet nodig de eigenschap vooraf te verwijderen of te controleren, omdat Aspose.Slides de waarde automatisch bijwerkt.
 
 **Kan ik presentatie‑eigenschappen benaderen zonder de volledige presentatie te laden?**
 
-Ja. Gebruik [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) en vervolgens [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) om de opgeslagen documentmetadata te lezen zonder een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑instantie te maken. Zie [Build a Lightweight Presentation Inventory](/slides/nl/cpp/examine-presentation/) voor een volledig rapportage‑voorbeeld en formaat‑specifieke beperkingen.
+Ja. Gebruik [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) en vervolgens [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) om opgeslagen documentmetadata te lezen zonder een [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑instantie te maken. Zie [Build a Lightweight Presentation Inventory](/slides/nl/cpp/examine-presentation/) voor een compleet voorbeeld en format‑specifieke beperkingen.
+
+**Kan ik openbare eigenschappen van een versleutelde presentatie lezen zonder het openings­wachtwoord?**
+
+Ja. De presentatie moet zijn versleuteld door `false` door te geven aan `set_EncryptDocumentProperties`, en moet worden geladen door `true` door te geven aan `set_OnlyLoadDocumentProperties`.
+
+**Kan ik een versleuteld PPTX‑bestand bijwerken in de modus “alleen‑document‑eigenschappen”?**
+
+Nee. Publieke en versleutelde eigenschapsdata moeten consistent blijven, dus het bijwerken van een versleuteld PPTX‑bestand vereist het volledige laden van de presentatie met het correcte openings­wachtwoord.

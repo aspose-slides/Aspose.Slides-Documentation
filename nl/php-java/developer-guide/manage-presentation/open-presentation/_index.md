@@ -1,126 +1,132 @@
 ---
-title: Open Presentaties in PHP
-linktitle: Open Presentatie
+title: Presentaties openen in PHP
+linktitle: Presentatie openen
 type: docs
 weight: 20
 url: /nl/php-java/open-presentation/
 keywords:
-- open PowerPoint
-- open OpenDocument
-- open presentatie
-- open PPTX
-- open PPT
-- open ODP
-- laad presentatie
-- laad PPTX
-- laad PPT
-- laad ODP
+- PowerPoint openen
+- presentatie openen
+- PPTX openen
+- PPT openen
+- ODP openen
+- presentatie laden
+- PPTX laden
+- PPT laden
+- ODP laden
 - beveiligde presentatie
 - grote presentatie
 - externe bron
-- binair object
+- binaire object
 - PHP
 - Aspose.Slides
-description: "Open PowerPoint (.pptx, .ppt) en OpenDocument (.odp) presentaties moeiteloos met Aspose.Slides voor PHP via Java — snel, betrouwbaar, volledig uitgerust."
+description: "Leer hoe u PowerPoint en OpenDocument presentaties in PHP kunt openen, openingswachtwoorden kunt opgeven, het laden van bronnen kunt beheersen en het geheugenverbruik kunt verminderen met Aspose.Slides voor PHP via Java."
 ---
 ## **Inleiding**
 
-Naast het creëren van PowerPoint‑presentaties vanaf nul, stelt Aspose.Slides u ook in staat om bestaande presentaties te openen. Na het laden van een presentatie kunt u informatie erover ophalen, slide‑inhoud bewerken, nieuwe slides toevoegen, bestaande verwijderen, en meer.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/nl/php-java/) kan PowerPoint‑ en OpenDocument‑presentaties laden vanuit bestanden en streams. Nadat een presentatie is geladen, kunt u de structuur inspecteren, dia's bewerken, bronnen beheren en deze opslaan in het originele of een ander ondersteund formaat.
+
+Het laadgedrag kan worden aangepast via de [LoadOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/)‑klasse. U kunt bijvoorbeeld een openingswachtwoord opgeven, grote binaire objecten buiten het Java‑heap‑geheugen houden, externe bronnen controleren of ingebedde binaire gegevens weglaten.
 
 ## **Presentaties openen**
 
-Om een bestaande presentatie te openen, maakt u een exemplaar van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse en geeft u het bestandspad door aan de constructor.
+Om een bestaande presentatie te openen, geeft u het bestandspad door aan de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑constructor. Maak de presentatie na gebruik vrij zodat bestands‑handles, tijdelijke gegevens en andere middelen tijdig worden vrijgegeven.
 
-Het volgende PHP‑voorbeeld laat zien hoe u een presentatie opent en het aantal slides ophaalt:
+De volgende PHP‑voorbeeld toont hoe een presentatie te openen en het aantal dia's op te vragen:
 
 ```php
-// Maak een exemplaar van de Presentation‑klasse en geef een bestandspad door aan de constructor.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
-    // Print het totale aantal slides in de presentatie.
-    echo($presentation->getSlides()->size());
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Wachtwoordbeveiligde presentaties openen**
+## **Wachtwoord‑beveiligde presentaties openen**
 
-Wanneer u een wachtwoordbeveiligde presentatie moet openen, geeft u het wachtwoord door aan de [setPassword](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/#setPassword)‑methode van de [LoadOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/)‑klasse om deze te ontsleutelen en te laden. Het volgende PHP‑codefragment demonstreert deze bewerking:
+Een openingswachtwoord versleutelt de inhoud van de presentatie. Om de volledige presentatie te laden, geeft u het correcte wachtwoord door aan [LoadOptions::setPassword](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/#setPassword) en levert u de opties aan de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑constructor. Het laden mislukt wanneer het wachtwoord ontbreekt of onjuist is.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
 $loadOptions = new LoadOptions();
-$loadOptions->setPassword("YOUR_PASSWORD");
+$loadOptions->setPassword("open_password");
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$presentation = new Presentation("encrypted-presentation.pptx", $loadOptions);
 try {
-    // Voer bewerkingen uit op de ontcijferde presentatie.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
+
+Voor wachtwoorddetectie, validatie en versleutelingsworkflows, zie [Password‑Protect Presentations](/slides/nl/php-java/password-protected-presentation/). Als een versleutelde presentatie bewust is opgeslagen met openbare documenteigenschappen, kunnen die eigenschappen worden gelezen zonder wachtwoord; zie [Manage Presentation Properties](/slides/nl/php-java/presentation-properties/).
 
 ## **Grote presentaties openen**
 
-Aspose.Slides biedt opties—met name de [getBlobManagementOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/#getBlobManagementOptions)‑methode in de [LoadOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/)‑klasse—om u te helpen grote presentaties te laden.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) retourneert opties die bepalen hoe Aspose.Slides grote binaire objecten zoals afbeeldingen, audio en video behandelt. U kunt het bronbestand vergrendeld houden, tijdelijke bestanden toestaan en de hoeveelheid BLOB‑gegevens die in het geheugen worden bewaard beperken.
 
-De volgende PHP‑code demonstreert het laden van een grote presentatie (bijvoorbeeld 2 GB):
+De volgende PHP‑code toont het laden van een grote presentatie (bijvoorbeeld 2 GB):
 
 ```php
-$filePath = "LargePresentation.pptx";
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationLockingBehavior;
+use aspose\slides\SaveFormat;
+
+$filePath = "large-presentation.pptx";
 
 $loadOptions = new LoadOptions();
-// Kies het KeepLocked‑gedrag — het presentiebestand blijft vergrendeld gedurende de levensduur van
-// het Presentation‑object, maar het hoeft niet in het geheugen geladen te worden of gekopieerd naar een tijdelijk bestand.
 $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 $presentation = new Presentation($filePath, $loadOptions);
 try {
-    // De grote presentatie is geladen en kan worden gebruikt, terwijl het geheugenverbruik laag blijft.
-
-    // Breng wijzigingen aan in de presentatie.
-    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
-
-    // Sla de presentatie op naar een ander bestand. Het geheugenverbruik blijft laag tijdens deze bewerking.
-    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
-    
-    // Doe dit niet! Er wordt een I/O‑exception gegooid omdat het bestand vergrendeld blijft tot het Presentation‑object wordt vrijgegeven.
-    //unlink($filePath);
+    $presentation->getSlides()->get_Item(0)->setName("Large presentation");
+    $presentation->save("large-presentation-copy.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
-// Het is hier wel OK om dit te doen. Het bronbestand is niet langer vergrendeld door het Presentation‑object.
-unlink($filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-Om bepaalde beperkingen bij het werken met streams te omzeilen, kan Aspose.Slides de inhoud van een stream kopiëren. Het laden van een grote presentatie vanuit een stream zorgt ervoor dat de presentatie wordt gekopieerd, wat het laden kan vertragen. Daarom raden wij sterk aan om, wanneer u een grote presentatie moet laden, het bestandspad van de presentatie te gebruiken in plaats van een stream.
+{{% alert color="info" title="Opmerking" %}}
+Met [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) blijft het bronbestand vergrendeld totdat de presentatie‑instance wordt vrijgegeven. Verplaats, overschrijf of verwijder het bronbestand niet terwijl die instantie leeft.
 
-Bij het maken van een presentatie met grote objecten (video, audio, afbeeldingen met hoge resolutie, enz.) kunt u [BLOB management](/slides/nl/php-java/manage-blob/) gebruiken om het geheugenverbruik te verminderen.
-{{%/alert %}}
+Aspose.Slides kan de inhoud van een invoerstroom kopiëren tijdens het laden. Voor grote presentaties is een bestandspad doorgaans efficiënter dan een stream. Zie [Manage BLOBs](/slides/nl/php-java/manage-blob/) voor extra opslag‑ en geheugengebruikopties.
+{{% /alert %}}
 
 ## **Externe bronnen beheren**
 
-Aspose.Slides levert de [IResourceLoadingCallback](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iresourceloadingcallback/)‑interface waarmee u externe bronnen kunt beheren. De volgende PHP‑code toont hoe u de `IResourceLoadingCallback`‑interface gebruikt:
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accepteert een implementatie van de Java‑[IResourceLoadingCallback](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iresourceloadingcallback/)‑interface via PHP/Java Bridge. De callback kan vervangende gegevens leveren, een bron omleiden, de standaardloader gebruiken of de bron overslaan. Dit is handig wanneer presentaties externe afbeeldingen bevatten die moeten worden opgelost volgens toepassingsspecifieke beveiligings‑ of opslagregels.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ResourceLoadingAction;
+
 class ImageLoadingHandler {
     function resourceLoading($args) {
-        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-            // Laad een vervangende afbeelding.
-			$bytes = file_get_contents("aspose-logo.jpg");
-			$javaByteArray = java_values($bytes);
-            $args->setData($javaByteArray);
-            return ResourceLoadingAction::UserProvided;
-        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-            // Stel een vervangende URL in.
-            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+        $originalUri = strtolower(java_values($args->getOriginalUri()));
+        $approvedImagePath = "approved-image.jpg";
+        $isJpeg = substr($originalUri, -4) === ".jpg";
+
+        if (!$isJpeg || !file_exists($approvedImagePath)) {
+            return ResourceLoadingAction::Skip;
         }
-        // Sla alle andere afbeeldingen over.
-        return ResourceLoadingAction::Skip;
+
+        $imageData = file_get_contents($approvedImagePath);
+        if ($imageData === false) {
+            echo("The approved replacement image could not be read.\n");
+            return ResourceLoadingAction::Skip;
+        }
+
+        $args->setData(java_values($imageData));
+        return ResourceLoadingAction::UserProvided;
     }
 }
 
@@ -129,43 +135,52 @@ $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose
 $loadOptions = new LoadOptions();
 $loadOptions->setResourceLoadingCallback($loadingHandler);
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
-```
-
-## **Presentaties laden zonder ingebedde binaire objecten**
-
-Een PowerPoint‑presentatie kan de volgende typen ingebedde binaire objecten bevatten:
-
-- VBA‑project (toegankelijk via [Presentation.getVbaProject](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#getVbaProject));
-- OLE‑object ingebedde data (toegankelijk via [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/nl/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- ActiveX‑besturingselement binaire data (toegankelijk via [Control.getActiveXControlBinary](https://reference.aspose.com/slides/nl/php-java/aspose.slides/control/#getActiveXControlBinary)).
-
-Met behulp van de [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects)‑methode kunt u een presentatie laden zonder enige ingebedde binaire objecten.
-
-Deze methode is handig om potentieel kwaadaardige binaire inhoud te verwijderen. De volgende PHP‑code demonstreert hoe u een presentatie laadt zonder enige ingebedde binaire inhoud:
-
-```php
-$loadOptions = new LoadOptions();
-$loadOptions->setDeleteEmbeddedBinaryObjects(true);
-
-$presentation = new Presentation("malware.ppt", $loadOptions);
+$presentation = new Presentation("presentation-with-external-images.pptx", $loadOptions);
 try {
-    // Voer bewerkingen uit op de presentatie.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Veelgestelde vragen**
+## **Presentaties laden zonder ingebedde binaire objecten**
 
-**Hoe kan ik herkennen dat een bestand corrupt is en niet geopend kan worden?**
+Een presentatie kan ingebedde binaire gegevens bevatten die een toepassing niet nodig heeft of niet wil behouden. Voorbeelden zijn:
 
-U krijgt tijdens het laden een parse‑/formaatvalidatie‑exception. Dergelijke fouten wijzen vaak op een ongeldige ZIP‑structuur of beschadigde PowerPoint‑records.
+- VBA‑projecten, toegankelijk via [Presentation::getVbaProject](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#getVbaProject);
+- ingebedde OLE‑gegevens, toegankelijk via [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/nl/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- ActiveX‑controlegegevens, toegankelijk via [Control::getActiveXControlBinary](https://reference.aspose.com/slides/nl/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-**Wat gebeurt er als vereiste lettertypen ontbreken bij het openen?**
+Stel [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) in op `true` om deze binaire gegevens tijdens het laden te verwijderen. Sla de geladen presentatie vervolgens op om het opgeschoonde resultaat te behouden.
 
-Het bestand wordt geopend, maar later kan [rendering/export](/slides/nl/php-java/convert-presentation/) lettertypen vervangen. [Configure font substitutions](/slides/nl/php-java/font-substitution/) of [add the required fonts](/slides/nl/php-java/custom-font/) aan de runtime‑omgeving.
+Deze optie verkleint de blootstelling aan ongewenste ingebedde payloads, maar vormt geen volledige malware‑detectie‑ of content‑sanitiseringsoplossing.
 
-**Hoe zit het met ingebedde media (video/audio) bij het openen?**
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-Ze worden beschikbaar als presentatieresources. Als media via externe paden worden weergegeven, zorg er dan voor dat die paden toegankelijk zijn in uw omgeving; anders kan [rendering/export](/slides/nl/php-java/convert-presentation/) de media weglaten.
+$loadOptions = new LoadOptions();
+$loadOptions->setDeleteEmbeddedBinaryObjects(true);
+
+$presentation = new Presentation("presentation-with-embedded-data.pptx", $loadOptions);
+try {
+    $presentation->save("presentation-without-embedded-data.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **FAQ**
+
+**Hoe kan ik bepalen dat een bestand corrupt is en niet kan worden geopend?**
+
+Aspose.Slides gooit tijdens het laden een parse‑ of formaat‑exceptie. Verwerk deze fout apart van een onjuist‑wachtwoord‑fout zodat de applicatie de oorzaak nauwkeurig kan melden.
+
+**Wat gebeurt er als vereiste lettertypen ontbreken?**
+
+De presentatie kan nog steeds worden geladen, maar weergave en export kunnen lettertypen vervangen. U kunt [lettertype‑substitutie configureren](/slides/nl/php-java/font-substitution/) of [aangepaste lettertypen leveren](/slides/nl/php-java/custom-font/) om de output voorspelbaarder te maken.
+
+**Laadt het laden van een presentatie ook de ingebedde media?**
+
+Ingebedde audio en video worden beschikbaar via het presentatiemodel. Externe bronnen worden opgelost volgens het geconfigureerde resource‑loading‑gedrag en kunnen onbeschikbaar zijn als hun locaties niet toegankelijk zijn.

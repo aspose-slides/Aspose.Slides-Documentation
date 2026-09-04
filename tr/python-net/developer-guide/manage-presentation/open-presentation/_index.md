@@ -1,133 +1,120 @@
 ---
-title: Python'da Sunumları Açma
-linktitle: Sunumları Açma
+title: "Python'da Sunumları Açma"
+linktitle: "Sunum Açma"
 type: docs
 weight: 20
 url: /tr/python-net/open-presentation/
 keywords:
-- PowerPoint aç
-- sunum aç
-- PPTX aç
-- PPT aç
-- ODP aç
-- sunum yükle
-- PPTX yükle
-- PPT yükle
-- ODP yükle
-- korumalı sunum
-- büyük sunum
-- dış kaynak
-- ikili nesne
-- Python
-- Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile PowerPoint (.pptx, .ppt) ve OpenDocument (.odp) sunumlarını zahmetsizce açın—hızlı, güvenilir, tam özellikli."
+- "PowerPoint aç"
+- "sunum aç"
+- "PPTX aç"
+- "PPT aç"
+- "ODP aç"
+- "sunum yükle"
+- "PPTX yükle"
+- "PPT yükle"
+- "ODP yükle"
+- "korumalı sunum"
+- "büyük sunum"
+- "harici kaynak"
+- "ikili nesne"
+- "Python"
+- "Aspose.Slides"
+description: "Python'da PowerPoint ve OpenDocument sunumlarını nasıl açacağınızı, açma şifreleri sağlamayı ve Aspose.Slides for Python via .NET ile bellek kullanımını azaltmayı öğrenin."
 ---
 ## **Giriş**
 
-Sıfırdan PowerPoint sunumları oluşturmanın yanı sıra, Aspose.Slides mevcut sunumları da açmanıza olanak tanır. Bir sunumu yükledikten sonra, onunla ilgili bilgileri alabilir, slayt içeriğini düzenleyebilir, yeni slaytlar ekleyebilir, mevcut olanları kaldırabilir ve daha fazlasını yapabilirsiniz.
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/tr/python-net/) PowerPoint ve OpenDocument sunumlarını dosyalardan ve akarlardan yükleyebilir. Sunum yüklendikten sonra yapısını inceleyebilir, slaytları düzenleyebilir, kaynakları yönetebilir ve orijinal ya da başka bir desteklenen formatta kaydedebilirsiniz.
 
-## **Sunumları Açma**
+Yükleme davranışı, [LoadOptions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/) sınıfı aracılığıyla özelleştirilebilir. Örneğin, bir açma şifresi sağlayabilir, büyük ikili nesneleri belleğin dışında tutabilir veya gömülü ikili verileri atlayabilirsiniz.
 
-Mevcut bir sunumu açmak için, [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve dosya yolunu yapıcıya geçirin.
+## **Sunum Açma**
 
-Aşağıdaki Python örneği, bir sunumu nasıl açıp slayt sayısını alacağınızı gösterir:
+Mevcut bir sunumu açmak için dosya yolunu [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) yapıcısına aktarın. Dosya tutucuları, geçici veriler ve diğer kaynakların hızlıca serbest bırakılması için bir `with` ifadesi kullanın.
+
+Aşağıdaki Python örneği bir sunumu nasıl açıp slayt sayısını alacağınızı gösterir:
 
 ```python
 import aspose.slides as slides
 
-# Presentation sınıfının bir örneğini oluşturun ve dosya yolunu yapıcıya geçirin.
 with slides.Presentation("sample.pptx") as presentation:
-    # Sunumdaki toplam slayt sayısını yazdırın.
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
 ## **Şifre Koruması Olan Sunumları Açma**
 
-Şifre korumalı bir sunumu açmanız gerektiğinde, şifreyi [password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/password/) özelliği aracılığıyla [LoadOptions](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/) sınıfına geçirerek şifreyi çözebilir ve yükleyebilirsiniz. Aşağıdaki Python kodu bu işlemi gösterir:
+Açma şifresi, sunum içeriğini şifreler. Sunumu tamamen yüklemek için doğru şifreyi [LoadOptions.password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/password/) özelliğine atayın ve bu seçenekleri [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) yapıcısına geçirin. Şifre eksik veya hatalı olduğunda yükleme başarısız olur.
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # Şifrelenmiş sunumda işlemler gerçekleştirin.
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
+
+Şifre tespiti, doğrulama ve şifreleme iş akışları için [Password-Protect Presentations](/slides/tr/python-net/password-protected-presentation/) bölümüne bakın. Şifrelenmiş bir sunum, özellikle belge özellikleri genel olarak kaydedildiyse, şifre olmadan da okunabilir; bunun için [Manage Presentation Properties](/slides/tr/python-net/presentation-properties/) bölümüne göz atın.
 
 ## **Büyük Sunumları Açma**
 
-Aspose.Slides, büyük sunumları yüklemenize yardımcı olmak için seçenekler sunar—özellikle [blob_management_options](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/blob_management_options/) özelliği, [LoadOptions] sınıfında.
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/blob_management_options/) Aspose.Slides’ın resim, ses ve video gibi ikili büyük nesneleri nasıl yöneteceğini denetler. Kaynak dosyayı kilitli tutabilir, geçici dosyalara izin verebilir ve bellekte tutulan BLOB verisinin miktarını sınırlayabilirsiniz.
 
-Bu Python kodu, büyük bir sunumu (örneğin 2 GB) yüklemeyi gösterir:
+Bu Python kodu büyük bir sunumu (örneğin 2 GB) yüklemeyi gösterir:
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# KeepLocked davranışını seçin—sunum dosyası, 
-# Presentation örneği süresince kilitli kalır, ancak belleğe yüklenmesine veya geçici bir dosyaya kopyalanmasına gerek yoktur.
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # Büyük sunum yüklendi ve kullanılabilir, bellek tüketimi düşük kalır.
-
-    # Sunumu değiştirin.
     presentation.slides[0].name = "Large presentation"
-
-    # Sunumu başka bir dosyaya kaydedin. Bu işlem sırasında bellek tüketimi düşük kalır.
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # Bunu yapmayın! Dosya sunum nesnesi serbest bırakılana kadar kilitli olduğu için bir I/O istisnası fırlatılacaktır.
-    os.remove(file_path)
-
-# Burada yapmak sorun değil. Kaynak dosya artık sunum nesnesi tarafından kilitlenmemektedir.
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Bilgi" %}}
-Akışlarla çalışırken belirli sınırlamaları aşmak için Aspose.Slides akışın içeriğini kopyalayabilir. Bir akıştan büyük bir sunum yüklemek, sunumun kopyalanmasına ve yükleme süresinin yavaşlamasına neden olur. Bu nedenle, büyük bir sunumu yüklemeniz gerektiğinde, akış yerine sunum dosya yolunu kullanmanızı şiddetle öneririz.
+{{% alert color="info" title="Note" %}}
+`PresentationLockingBehavior.KEEP_LOCKED` ile kaynak dosya, `Presentation` nesnesi serbest bırakılana kadar kilitli kalır. Bu nesne yaşamdayken dosyayı taşımayın, üzerine yazmayın veya silmeyin.
 
-Büyük nesneler (video, ses, yüksek çözünürlüklü görseller vb.) içeren bir sunum oluştururken, bellek tüketimini azaltmak için [BLOB yönetimi](/slides/tr/python-net/manage-blob/) kullanabilirsiniz.
-{{%/alert %}}
+Aspose.Slides, bir giriş akışının içeriğini yüklerken kopyalayabilir. Büyük sunumlar için dosya yolu genellikle bir akıra göre daha verimlidir. Ek depolama ve bellek yönetimi seçenekleri için [Manage BLOBs](/slides/tr/python-net/manage-blob/) bölümüne bakın.
+{{% /alert %}}
 
-## **Gömülü Binary Nesneler Olmadan Sunum Yükleme**
+## **Gömülü İkili Nesneler Olmadan Sunum Yükleme**
 
-Bir PowerPoint sunumu aşağıdaki türde gömülü binary nesneler içerebilir:
+Bir sunum, uygulamanın ihtiyaç duymadığı veya tutmak istemediği gömülü ikili veriler içerebilir. Örnekler:
 
-- VBA projesi (erişim: [Presentation.vba_project](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/vba_project/));
-- OLE nesnesi gömülü veri (erişim: [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
-- ActiveX kontrol binary verisi (erişim: [Control.active_x_control_binary](https://reference.aspose.com/slides/tr/python-net/aspose.slides/control/active_x_control_binary/)).
+- VBA projeleri, [Presentation.vba_project](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/vba_project/) aracılığıyla erişilebilir;
+- gömülü OLE verileri, [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) aracılığıyla erişilebilir;
+- ActiveX kontrol verileri, [Control.active_x_control_binary](https://reference.aspose.com/slides/tr/python-net/aspose.slides/control/active_x_control_binary/) aracılığıyla erişilebilir.
 
-[LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) özelliğini kullanarak, gömülü binary nesneleri olmadan bir sunum yükleyebilirsiniz.
+Yükleme sırasında bu ikili verileri kaldırmak için [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) özelliğini `True` olarak ayarlayın. Temizlenmiş sonucu kalıcı kılmak için yüklenen sunumu kaydedin.
 
-Bu özellik, potansiyel kötü amaçlı binary içeriği kaldırmak için yararlıdır. Aşağıdaki Python kodu, gömülü binary içeriği olmayan bir sunumun nasıl yükleneceğini gösterir:
+Bu seçenek istenmeyen gömülü yükleri azaltır, ancak tam bir kötü amaçlı yazılım tespit veya içerik temizleme sistemi değildir.
 
-```py
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # Sunumda işlemler gerçekleştirin.
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **SSS**
 
 **Bir dosyanın bozuk olduğunu ve açılamadığını nasıl anlayabilirim?**
 
-Yükleme sırasında bir ayrıştırma/form doğrulama istisnası alırsınız. Bu hatalar genellikle geçersiz ZIP yapısı veya bozuk PowerPoint kayıtlarından bahseder.
+Aspose.Slides yükleme sırasında bir ayrıştırma ya da format istisnası oluşturur. Uygulamanın nedeni doğru bir şekilde raporlayabilmesi için bu hatayı, hatalı şifre hatasından ayrı ele alın.
 
-**Açarken gerekli yazı tipleri eksik olursa ne olur?**
+**Gerekli yazı tipleri eksik olursa ne olur?**
 
-Dosya açılacaktır, ancak daha sonra [görselleştirme/ihracat](/slides/tr/python-net/convert-presentation/) yazı tiplerini değiştirebilir. Çalışma zamanına [Yazı tipi yerine koyma yapılandırması](/slides/tr/python-net/font-substitution/) veya [gereken yazı tiplerini ekle](/slides/tr/python-net/custom-font/) ekleyin.
+Sunum yine de yüklenebilir, ancak render ve dışa aktarma sırasında yazı tipleri değiştirilir. Çıktının daha öngörülebilir olması için [yazı tipi ikamesini yapılandırabilir](/slides/tr/python-net/font-substitution/) ya da [özel yazı tipleri sağlayabilirsiniz](/slides/tr/python-net/custom-font/).
 
-**Açarken gömülü medya (video/ses) ne olur?**
+**Bir sunumu yüklemek aynı zamanda gömülü medya dosyalarını da yükler mi?**
 
-Bunlar sunum kaynakları olarak erişilebilir olur. Medya dış yollarla referans verilmişse, bu yolların ortamınızda erişilebilir olduğundan emin olun; aksi takdirde [görselleştirme/ihracat](/slides/tr/python-net/convert-presentation/) medya dışarıda bırakılabilir.
+Gömülü ses ve video, sunum nesne modeli üzerinden erişilebilir hale gelir. Harici kaynaklar, varsayılan kaynak yükleme davranışına göre çözülür ve konumlarına erişilemezse kullanılamaz.

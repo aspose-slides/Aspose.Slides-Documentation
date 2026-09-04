@@ -14,120 +14,107 @@ keywords:
 - โหลด PPTX
 - โหลด PPT
 - โหลด ODP
-- งานนำเสนอที่ได้รับการป้องกัน
+- งานนำเสนอที่ป้องกัน
 - งานนำเสนอขนาดใหญ่
 - ทรัพยากรภายนอก
 - วัตถุไบนารี
 - Python
 - Aspose.Slides
-description: "เปิดงานนำเสนอ PowerPoint (.pptx, .ppt) และ OpenDocument (.odp) อย่างง่ายดายด้วย Aspose.Slides สำหรับ Python ผ่าน .NET—เร็ว, น่าเชื่อถือ, มีฟีเจอร์ครบถ้วน."
+description: "เรียนรู้วิธีเปิดงานนำเสนอ PowerPoint และ OpenDocument ด้วย Python, ระบุรหัสผ่านการเปิด, และลดการใช้หน่วยความจำด้วย Aspose.Slides for Python via .NET."
 ---
-## **คำนำ**
+## **บทนำ**
 
-นอกจากการสร้างงานนำเสนอ PowerPoint ตั้งแต่ต้นแล้ว Aspose.Slides ยังให้คุณเปิดงานนำเสนอที่มีอยู่แล้วได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถดึงข้อมูลเกี่ยวกับงานนำเสนอ แก้ไขเนื้อหาในสไลด์ เพิ่มสไลด์ใหม่ ลบสไลด์ที่มีอยู่ และทำอย่างอื่นได้อีกมากมาย
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/th/python-net/) สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกในรูปแบบเดิมหรือรูปแบบที่รองรับอื่นๆ
+
+พฤติกรรมการโหลดสามารถปรับแต่งได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านสำหรับการเปิดไฟล์ เก็บวัตถุไบนารีขนาดใหญ่ให้อยู่ไน่นอกหน่วยความจำ หรือไม่รวมข้อมูลไบนารีที่ฝังไว้
 
 ## **เปิดงานนำเสนอ**
 
-เพื่อเปิดงานนำเสนอที่มีอยู่แล้ว ให้สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และส่งพาธของไฟล์ไปยังคอนสตรักเตอร์
+เพื่อเปิดงานนำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) ใช้คำสั่ง `with` เพื่อให้จัดการไฟล์ แหล่งข้อมูลชั่วคราว และทรัพยากรอื่นๆ ได้อย่างทันที
 
-ตัวอย่าง Python ด้านล่างแสดงวิธีเปิดงานนำเสนอและรับจำนวนสไลด์:
+ตัวอย่าง Python ด้านล่างแสดงวิธีการเปิดงานนำเสนอและรับจำนวนสไลด์:
 
 ```python
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation และส่งพาธของไฟล์ไปยังคอนสตรักเตอร์ของมัน.
 with slides.Presentation("sample.pptx") as presentation:
-    # พิมพ์จำนวนสไลด์ทั้งหมดในงานนำเสนอ.
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
-## **เปิดงานนำเสนอที่มีรหัสผ่าน**
+## **เปิดงานนำเสนอที่ป้องกันด้วยรหัสผ่าน**
 
-เมื่อคุณต้องการเปิดงานนำเสนอที่มีรหัสผ่าน ให้ส่งรหัสผ่านผ่านคุณสมบัติ [password](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/password/) ของคลาส [LoadOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/) เพื่อถอดรหัสและโหลด งานนำเสนอ ตัวอย่างโค้ด Python ด้านล่างแสดงการทำงานนี้:
+รหัสผ่านสำหรับการเปิดไฟล์จะเข้ารหัสเนื้อหาของงานนำเสนอ เพื่อโหลดงานนำเสนอทั้งหมด ให้กำหนดรหัสผ่านที่ถูกต้องให้กับ [LoadOptions.password](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/password/) แล้วส่งอ็อบเจ็กต์ตัวเลือกไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) การโหลดจะล้มเหลือหากไม่มีรหัสผ่านหรือรหัสผ่านไม่ถูกต้อง
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # ทำการดำเนินการบนงานนำเสนอที่ถอดรหัสแล้ว.
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
+
+สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส ดูที่ [Password-Protect Presentations](/slides/th/python-net/password-protected-presentation/) หากงานนำเสนอที่ถูกเข้ารหัสถูกบันทึกโดยเจตนาพร้อมคุณสมบัติเอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [Manage Presentation Properties](/slides/th/python-net/presentation-properties/)
 
 ## **เปิดงานนำเสนอขนาดใหญ่**
 
-Aspose.Slides มีตัวเลือก—โดยเฉพาะคุณสมบัติ [blob_management_options](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/blob_management_options/) ในคลาส [LoadOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/)—เพื่อช่วยคุณโหลดงานนำเสนอขนาดใหญ่
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/blob_management_options/) ควบคุมวิธีที่ Aspose.Slides จัดการกับวัตถุไบนารีขนาดใหญ่เช่นรูปภาพ, เสียง, และวิดีโอ คุณสามารถทำให้ไฟล์ต้นทางล็อกไว้, อนุญาตไฟล์ชั่วคราว, และจำกัดจำนวนข้อมูล BLOB ที่เก็บไว้ในหน่วยความจำ
 
 โค้ด Python นี้แสดงการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# เลือกพฤติกรรม KeepLocked—ไฟล์งานนำเสนอจะถูกล็อกตลอดอายุของ 
-# อินสแตนซ์ Presentation แต่ไม่จำเป็นต้องโหลดลงหน่วยความจำหรือคัดลอกไปยังไฟล์ชั่วคราว.
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # งานนำเสนอขนาดใหญ่ได้ถูกโหลดแล้วและสามารถใช้งานได้ ในขณะที่การใช้หน่วยความจำยังคงต่ำ.
-
-    # ทำการเปลี่ยนแปลงงานนำเสนอ.
     presentation.slides[0].name = "Large presentation"
-
-    # บันทึกงานนำเสนอลงไฟล์อื่น การใช้หน่วยความจำยังคงต่ำในระหว่างการดำเนินการนี้.
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # อย่าทำอย่างนี้! จะเกิดข้อยกเว้น I/O เนื่องจากไฟล์ถูกล็อกจนกว่าอ็อบเจกต์งานนำเสนอจะถูกทำลาย.
-    os.remove(file_path)
-
-# ทำได้ที่นี่ไฟล์ต้นทางไม่ได้ถูกล็อกโดยอ็อบเจกต์งานนำแล้ว.
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Info" %}}
-เพื่อหลีกเลี่ยงข้อจำกัดบางประการเมือทำงานกับสตรีม Aspose.Slides อาจคัดลอกเนื้อหาของสตรีม การโหลดงานนำเสนอขนาดใหญ่จากสตรีมทำให้ต้องคัดลอกงานนำเสนอและอาจทำให้การโหลดช้าลง ดังนั้นเมื่อคุณต้องการโหลดงานนำเสนอขนาดใหญ่ เราขอแนะนำอย่างยิ่งให้ใช้พาธของไฟล์งานนำเสนอแทนการใช้สตรีม
+{{% alert color="info" title="Note" %}}
+ด้วย `PresentationLockingBehavior.KEEP_LOCKED` ไฟล์ต้นทางจะยังคงถูกล็อกจนกว่าอ็อบเจ็กต์ `Presentation` จะถูกทำลาย อย่าเคลื่อนย้าย, เขียนทับ หรือ ลบไฟล์ต้นทางขณะอ็อบเจ็กต์นั้นยังคงมีอยู่
 
-เมื่อสร้างงานนำเสนอที่มีวัตถุขนาดใหญ่ (วิดีโอ, เสียง, รูปความละเอียดสูง ฯลฯ) คุณสามารถใช้ [BLOB management](/slides/th/python-net/manage-blob/) เพื่อลดการใช้หน่วยความจำ
-{{%/alert %}}
+Aspose.Slides อาจคัดลอกเนื้อหาของสตรีมอินพุตในระหว่างการโหลด สำหรับงานนำเสนอขนาดใหญ่ การใช้พาธไฟล์จึงมักมีประสิทธิภาพดีกว่าการใช้สตรีม ดูที่ [Manage BLOBs](/slides/th/python-net/manage-blob/) สำหรับตัวเลือกการจัดเก็บและการจัดการหน่วยความจำเพิ่มเติม
+{{% /alert %}}
 
-## **โหลดงานนำเสนอโดยไม่มีวัตถุไบนารีฝัง**
+## **โหลดงานนำเสนอโดยไม่มีวัตถุไบนารีฝังอยู่**
 
-งานนำเสนอ PowerPoint สามารถประกอบด้วยวัตถุไบนารีฝังประเภทต่อไปนี้:
+งานนำเสนออาจมีข้อมูลไบนารีฝังอยู่ที่แอปพลิเคชันไม่จำเป็นต้องใช้หรือไม่ต้องการเก็บไว้ ตัวอย่างได้แก่:
 
-- โครงการ VBA (เข้าถึงได้ผ่าน [Presentation.vba_project](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/vba_project/));
-- ข้อมูลที่ฝังอยู่ของวัตถุ OLE (เข้าถึงได้ผ่าน [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/th/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
-- ข้อมูลไบนารีของคอนโทรล ActiveX (เข้าถึงได้ผ่าน [Control.active_x_control_binary](https://reference.aspose.com/slides/th/python-net/aspose.slides/control/active_x_control_binary/)).
+- โครงการ VBA, สามารถเข้าถึงได้ผ่าน [Presentation.vba_project](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/vba_project/);
+- ข้อมูล OLE ฝัง, สามารถเข้าถึงได้ผ่าน [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/th/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/);
+- ข้อมูลควบคุม ActiveX, สามารถเข้าถึงได้ผ่าน [Control.active_x_control_binary](https://reference.aspose.com/slides/th/python-net/aspose.slides/control/active_x_control_binary/).
 
-โดยใช้คุณสมบัติ [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) คุณสามารถโหลดงานนำเสนอโดยไม่มีวัตถุไบนารีฝังใด ๆ
+กำหนดค่า [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) ให้เป็น `True` เพื่อทำการลบข้อมูลไบนารีนี้ขณะโหลด บันทึกงานนำเสนอที่โหลดแล้วเพื่อเก็บผลลัพธ์ที่ทำความสะอาด
 
-คุณสมบัตินี้มีประโยชน์สำหรับการลบเนื้อหาไบนารีที่อาจเป็นอันตราย ตัวอย่างโค้ด Python ด้านล่างแสดงวิธีโหลดงานนำเสนอโดยไม่มีเนื้อหาไบนารีฝังใด ๆ:
+ตัวเลือกนี้ช่วยลดความเสี่ยงจากข้อมูลฝังที่ไม่ต้องการ แต่ไม่ได้เป็นระบบตรวจจับมัลแวร์หรือการทำความสะอาดเนื้อหาแบบเต็มรูปแบบ
 
-```py
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # ทำการดำเนินการบนงานนำเสนอ.
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันจะรู้ได้อย่างไรว่าไฟล์เสียหายและไม่สามารถเปิดได้?**
+**คุณจะทราบได้อย่างไรว่าไฟล์เสียหายและไม่สามารถเปิดได้?**
 
-คุณจะได้รับข้อยกเว้นการตรวจสอบรูปแบบ/การพาร์เซิงระหว่างการโหลด ข้อผิดพลาดเหล่านี้มักจะระบุโครงสร้าง ZIP ที่ไม่ถูกต้องหรือบันทึก PowerPoint ที่เสียหาย
+Aspose.Slides จะโยงข้อยกเว้นการวิเคราะห์หรือรูปแบบระหว่างการโหลด ให้จัดการความล้มเหลือนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้อง เพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
 
-**ถ้าฟอนต์ที่จำเป็นหายไปขณะเปิดจะเกิดอะไรขึ้น?**
+**จะเกิดอะไรขึ้นหากฟอนต์ที่จำเป็นหายไป?**
 
-ไฟล์จะเปิดได้ แต่ภายหลังการ [rendering/export](/slides/th/python-net/convert-presentation/) อาจแทนที่ฟอนต์ด้วยฟอนต์อื่น คุณสามารถ [Configure font substitutions](/slides/th/python-net/font-substitution/) หรือ [add the required fonts](/slides/th/python-net/custom-font/) ไปยังสภาพแวดล้อมการทำงาน
+งานนำเสนอยังสามารถโหลดได้ แต่การเรนเดอร์และการส่งออกอาจใช้ฟอนต์ทดแทน คุณสามารถ [configure font substitution](/slides/th/python-net/font-substitution/) หรือ [provide custom fonts](/slides/th/python-net/custom-font/) เพื่อทำให้ผลลัพธ์คาดการณ์ได้มากขึ้น
 
-**ส่วนสื่อที่ฝังอยู่ (วิดีโอ/เสียง) จะเป็นอย่างไรเมื่อเปิด?**
+**การโหลดงานนำเสนอจะโหลดสื่อที่ฝังอยู่ด้วยหรือไม่?**
 
-สื่อเหล่านั้นจะถูกทำให้เป็นทรัพยากรของงานนำเสนอ หากสื่อถูกอ้างอิงผ่านพาธภายนอก ให้แน่ใจว่าพาธเหล่านั้นเข้าถึงได้ในสภาพแวดล้อมของคุณ ไม่เช่นนั้นการ [rendering/export](/slides/th/python-net/convert-presentation/) อาจละเว้นสื่อนั้น.
+เสียงและวิดีโอที่ฝังอยู่จะเข้าถึงได้ผ่านโมเดลอ็อบเจ็กต์ของงานนำเสนอ แหล่งทรัพยากรภายนอกจะถูกจัดการตามพฤติกรรมการโหลดทรัพยากรเริ่มต้น และอาจไม่พร้อมใช้งานหากไม่สามารถเข้าถึงตำแหน่งของมันได้

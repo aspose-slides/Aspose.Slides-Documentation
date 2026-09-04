@@ -1,33 +1,33 @@
 ---
-title: "Προστασία Παρουσιάσεων με Κωδικό στην PHP"
-linktitle: "Προστασία Κωδικού"
+title: ΠΡΟΣΤΑΣΗ ΠΑΡΟΥΣΙΑΣΕΩΝ ΜΕ ΚΩΔΙΚΟ ΠΡΟΣΒΑΣΗΣ ΣΕ PHP
+linktitle: Προστασία Κωδικού Πρόσβασης
 type: docs
 weight: 20
 url: /el/php-java/password-protected-presentation/
 keywords:
-- "παρουσίαση με προστασία κωδικού"
-- "κωδικός ανοίγματος"
-- "κρυπτογράφηση PowerPoint"
-- "αποκρυπτογράφηση PowerPoint"
-- "επικύρωση κωδικού παρουσίασης"
-- "έλεγχος κωδικού παρουσίασης"
-- "άνοιγμα κρυπτογραφημένης παρουσίασης"
-- "αφαίρεση κρυπτογράφησης"
-- "PowerPoint"
-- "PPT"
-- "PPTX"
-- "παρουσίαση"
-- "PHP"
-- "Aspose.Slides"
-description: "Κρυπτογραφήστε, ανιχνεύστε, επικυρώστε, ανοίξτε και αποκρυπτογραφήστε παρουσιάσεις PowerPoint PPT και PPTX προστατευμένες με κωδικό στην PHP με το Aspose.Slides."
+- παρουσίαση με κωδικό πρόσβασης
+- κωδικός πρόσβασης ανοίγματος
+- κρυπτογράφηση PowerPoint
+- αποκρυπτογράφηση PowerPoint
+- επικύρωση κωδικού παρουσίασης
+- έλεγχος κωδικού παρουσίασης
+- άνοιγμα κρυπτογραφημένης παρουσίασης
+- αφαίρεση κρυπτογράφησης
+- PowerPoint
+- PPT
+- PPTX
+- παρουσίαση
+- PHP
+- Aspose.Slides
+description: "Κρυπτογράφηση, ανίχνευση, επικύρωση, άνοιγμα και αποκρυπτογράφηση παρουσιάσεων PowerPoint PPT και PPTX προστατευμένων με κωδικό πρόσβασης σε PHP με Aspose.Slides."
 ---
 ## **Επισκόπηση**
 
-Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί μια παρουσίαση. Ο σωστός κωδικός απαιτείται για τη φόρτωση και προβολή του περιεχομένου της παρουσίασης, επομένως αυτή η προστασία παρέχει εμπιστευτικότητα.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί μια παρουσίαση. Ο σωστός κωδικός πρόσβασης απαιτείται για τη φόρτωση και προβολή του περιεχομένου της παρουσίασης, επομένως αυτή η προστασία παρέχει εμπιστευτικότητα.
 
-Ο κωδικός πρόσβασης ανοίγματος διαφέρει από τον κωδικό προστασίας εγγραφής. Η προστασία εγγραφής περιορίζει την τροποποίηση αλλά δεν κρυπτογραφεί το περιεχόμενο ούτε αποτρέπει τη φόρτωση της παρουσίασης. Για τη διαχείριση κωδικών πρόσβασης για τροποποίηση παρουσιάσεων, δείτε [Write-Protect Presentations](/slides/el/php-java/write-protected-presentation/).
+Ένας κωδικός πρόσβασης ανοίγματος διαφέρει από έναν κωδικό πρόσβασης προστασίας εγγραφής. Η προστασία εγγραφής περιορίζει την τροποποίηση, αλλά δεν κρυπτογραφεί το περιεχόμενο ή αποτρέπει τη φόρτωση της παρουσίασης. Για τη διαχείριση κωδικών πρόσβασης για την τροποποίηση παρουσιάσεων, δείτε [Προστασία Παρουσιάσεων από Εγγραφή](/slides/el/php-java/write-protected-presentation/).
 
-Οι παρακάτω ροές εργασίας ισχύουν για παρουσιάσεις PPT και PPTX. Τα παραδείγματα χρησιμοποιούν και τις δύο μορφές όπου η συμπεριφορά με βάση το αρχείο και το ρεύμα (stream) είναι σημαντική.
+Οι παρακάτω ροές εργασίας ισχύουν για παρουσιάσεις PPT και PPTX. Τα παραδείγματα χρησιμοποιούν και τις δύο μορφές όταν η συμπεριφορά βάσει αρχείου και βάσει ροής είναι σημαντική.
 
 ## **Κρυπτογράφηση Παρουσίασης με Κωδικό Πρόσβασης Ανοίγματος**
 
@@ -48,9 +48,37 @@ try {
 }
 ```
 
+## **Διατήρηση Δημόσιων Ιδιοτήτων Εγγράφου**
+
+Από προεπιλογή, το Aspose.Slides περιλαμβάνει τις ιδιότητες εγγράφου στην κρυπτογράφηση της παρουσίασης. Η μέθοδος [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) ελέγχει αυτή τη συμπεριφορά ανεξάρτητα από την κρυπτογράφηση του περιεχομένου των διαφανειών. Περνάτε `false` πριν καλέσετε το [ProtectionManager::encrypt](https://reference.aspose.com/slides/el/php-java/aspose.slides/protectionmanager/#encrypt) όταν ένα σύστημα ευρετηρίασης, ταξινόμησης, αναζήτησης ή διαχείρισης εγγράφων πρέπει να διαβάσει τα μεταδεδομένα χωρίς τον κωδικό πρόσβασης ανοίγματος.
+
+Το παρακάτω παράδειγμα δημιουργεί μια κρυπτογραφημένη παρουσίαση PPTX ενώ διατηρεί τις ενσωματωμένες ιδιότητες εγγράφου δημόσιες:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $properties = $presentation->getDocumentProperties();
+    $properties->setAuthor("Contoso Knowledge Management");
+    $properties->setTitle("Quarterly Product Roadmap");
+    $properties->setKeywords("roadmap, planning, internal");
+
+    $presentation->getSlides()->get_Item(0)->setName("Encrypted presentation content");
+    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("public-properties-encrypted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Η περάτωση του `false` στη μέθοδο [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/el/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) δεν καθιστά τις διαφάνειες, τα master, τα layouts, τα σχήματα, τα πολυμέσα ή άλλο περιεχόμενο παρουσίασης δημόσια. Επηρεάζει μόνο τις ιδιότητες εγγράφου. Για να διαβάσετε αυτές τις ιδιότητες χωρίς τη φόρτωση του κρυπτογραφημένου περιεχομένου, δείτε [Διαχείριση Ιδιοτήτων Παρουσίασης](/slides/el/php-java/presentation-properties/).
+
 ## **Φόρτωση Κρυπτογραφημένης Παρουσίασης**
 
-Ορίστε το [LoadOptions::setPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setPassword) στον κωδικό πρόσβασης ανοίγματος και περάστε τις επιλογές στο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) κατά τη φόρτωση του αρχείου. Η φόρτωση αποτυγχάνει όταν απαιτείται κωδικός πρόσβασης ανοίγματος αλλά ο παρεχόμενος κωδικός λείπει ή είναι λανθασμένος.
+Ορίστε το [LoadOptions::setPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/loadoptions/#setPassword) στον κωδικό πρόσβασης ανοίγματος και περάστε τις επιλογές στη [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) κατά τη φόρτωση του αρχείου. Η φόρτωση αποτυγχάνει όταν απαιτείται κωδικός πρόσβασης ανοίγματος αλλά ο παρεχόμενος κωδικός είναι ελλιπής ή λανθασμένος.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -61,7 +89,7 @@ $loadOptions->setPassword("open_password");
 
 $presentation = new Presentation("encrypted-pres.pptx", $loadOptions);
 try {
-    # Εργασία με την αποκρυπτογραφημένη παρουσίαση.
+    # Εργαστείτε με την αποκρυπτογραφημένη παρουσίαση.
 } finally {
     $presentation->dispose();
 }
@@ -90,7 +118,7 @@ try {
 
 ## **Επικύρωση Κωδικού Πρόσβασης Ανοίγματος Πριν τη Φόρτωση**
 
-Χρησιμοποιήστε το [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationfactory/#getPresentationInfo) για να λάβετε το [PresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/) χωρίς να δημιουργήσετε μια πλήρη παρουσίαση. Ελέγξτε το [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#isPasswordProtected) πριν ζητήσετε ή επικυρώσετε κωδικό. Όταν υπάρχει προστασία, επικυρώστε την παρεχόμενη τιμή με το [PresentationInfo::checkPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#checkPassword).
+Χρησιμοποιήστε το [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationfactory/#getPresentationInfo) για να αποκτήσετε το [PresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/) χωρίς τη δημιουργία πλήρους παρουσιαστικού αντικειμένου. Ελέγξτε το [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#isPasswordProtected) πριν ζητήσετε ή επικυρώσετε έναν κωδικό πρόσβασης. Όταν υπάρχει προστασία, επικυρώστε την παρεχόμενη τιμή με το [PresentationInfo::checkPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#checkPassword).
 
 ### **Ροή Εργασίας με Διαδρομή Αρχείου**
 
@@ -122,9 +150,9 @@ if (!$presentationInfo->isPasswordProtected()) {
 }
 ```
 
-### **Ροή Εργασίας με Ρεύμα**
+### **Ροή Εργασίας με Ροή (Stream)**
 
-Η υπερφόρτωση ροής του [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationfactory/#getPresentationInfo) παρέχει την ίδια ροή εργασίας. Επαναρυθμίστε τη θέση ενός αναζητήσιμου ρεύματος πριν φορτώσετε την πλήρη παρουσίαση από αυτό το ρεύμα.
+Η υπερφόρτωση ροής του [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationfactory/#getPresentationInfo) παρέχει την ίδια ροή εργασίας. Επαναρυθμίστε τη θέση μιας ρευσαρίσιμης ροής πριν φορτώσετε την πλήρη παρουσίαση από αυτήν τη ροή.
 
 Το παρακάτω παράδειγμα χρησιμοποιεί αρχείο PPT:
 
@@ -161,19 +189,19 @@ try {
 }
 ```
 
-### **Τιμές Επιστροφής του checkPassword**
+### **Τιμές Επιστροφής checkPassword**
 
-[PresentationInfo::checkPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#checkPassword) επιστρέφει `true` μόνο όταν η παρουσίαση έχει κωδικό πρόσβασης ανοίγματος και ο παρεχόμενος κωδικός είναι σωστός. Επιστρέφει `false` σε κάθε μία από τις παρακάτω περιπτώσεις:
+Το [PresentationInfo::checkPassword](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#checkPassword) επιστρέφει `true` μόνο όταν η παρουσίαση έχει κωδικό πρόσβασης ανοίγματος και ο παρεχόμενος κωδικός είναι σωστός. Επιστρέφει `false` σε καθένα από τις παρακάτω περιπτώσεις:
 
-- Ο κωδικός είναι λανθασμένος.
+- Ο κωδικός πρόσβασης είναι λανθασμένος.
 - Η παρουσίαση δεν έχει κωδικό πρόσβασης ανοίγματος.
-- Ο παρεχόμενος κωδικός είναι `null` ή κενός.
+- Ο παρεχόμενος κωδικός πρόσβασης είναι `null` ή κενός.
 
 Η συμπεριφορά είναι η ίδια για παρουσιάσεις PPT και PPTX.
 
-## **Έλεγχος Εάν Φορτωμένη Παρουσίαση Είναι Κρυπτογραφημένη**
+## **Έλεγχος Εάν Η Φορτωμένη Παρουσίαση Είναι Κρυπτογραφημένη**
 
-Αφού φορτώσετε μια παρουσίαση με τον σωστό κωδικό, ελέγξτε το [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/el/php-java/aspose.slides/protectionmanager/#isEncrypted) για να επιβεβαιώσετε ότι η αρχική παρουσίαση ήταν κρυπτογραφημένη. Για να ανιχνεύσετε προστασία κωδικού ανοίγματος πριν τη φόρτωση, χρησιμοποιήστε το [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#isPasswordProtected) όπως φαίνεται παραπάνω.
+Μετά τη φόρτωση μιας παρουσίασης με τον σωστό κωδικό, εξετάστε το [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/el/php-java/aspose.slides/protectionmanager/#isEncrypted) για να επιβεβαιώσετε ότι η αρχική παρουσίαση ήταν κρυπτογραφημένη. Για να ανιχνεύσετε την προστασία κωδικού πρόσβασης ανοίγματος πριν τη φόρτωση, χρησιμοποιήστε το [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentationinfo/#isPasswordProtected) όπως φαίνεται παραπάνω.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -191,31 +219,41 @@ try {
 }
 ```
 
-## **Συστάσεις Ασφάλειας**
-{{% alert color="warning" title="Security" %}}
-Μην καταγράφετε τους κωδικούς πρόσβασης ανοίγματος ή τους συμπεριλαμβάνετε σε μηνύματα διάγνωσης. Αποφύγετε περιττές επαναλαμβανόμενες προσπάθειες επικύρωσης, διατηρήστε τους κωδικούς στη μνήμη μόνο όσο είναι απαραίτητο, και επαναχρησιμοποιήστε ένα επιτυχές αποτέλεσμα επικύρωσης όταν φορτώνετε αμέσως την παρουσίαση.
+## **Συστάσεις Ασφαλείας**
+
+{{% alert color="warning" title="Ασφάλεια" %}}
+Μην καταγράφετε τους κωδικούς πρόσβασης ανοίγματος ούτε τους συμπεριλαμβάνετε σε διαγνωστικά μηνύματα. Αποφύγετε περιττές επανειλημμένες προσπάθειες επικύρωσης, διατηρήστε τους κωδικούς πρόσβασης στη μνήμη μόνο όσο χρειάζεται, και επαναχρησιμοποιήστε ένα επιτυχημένο αποτέλεσμα επικύρωσης όταν φορτώνετε αμέσως την παρουσίαση.
+
+Οι δημόσιες ιδιότητες εγγράφου μπορεί να αποκαλύψουν ονόματα δημιουργών, τίτλους, θέματα, λέξεις‑κλειδιά, πληροφορίες εταιρείας, σχόλια και προσαρμοσμένες τιμές, ακόμη και αν το περιεχόμενο της παρουσίασης είναι κρυπτογραφημένο. Κρυπτογραφήστε τα ευαίσθητα μεταδεδομένα μαζί με την παρουσίαση. Η διατήρηση των ιδιοτήτων δημόσιων πρέπει να είναι έλεγχή απόφαση που λαμβάνεται μόνο όταν τα συστήματα πρέπει να ευρετηριάσουν, ταξινομήσουν, αναζητήσουν ή διαχειριστούν το αρχείο χωρίς κωδικό πρόσβασης ανοίγματος.
 {{% /alert %}}
 
 ## **Προστασία Παρουσίασης με Κωδικό Πρόσβασης Online**
 
 1. Ανοίξτε την εφαρμογή [Aspose.Slides Lock](https://products.aspose.app/slides/el/lock).
 2. Επιλέξτε ή ανεβάστε την παρουσίαση.
-3. Εισάγετε έναν κωδικό για προστασία προβολής.
-4. Προαιρετικά, εισάγετε ξεχωριστό κωδικό για προστασία επεξεργασίας.
-5. Εφαρμόστε την προστασία και κατεβάστε το παραγόμενο αρχείο.
+3. Εισάγετε έναν κωδικό πρόσβασης για προστασία προβολής.
+4. Προαιρετικά, εισάγετε έναν ξεχωριστό κωδικό πρόσβασης για προστασία επεξεργασίας.
+5. Εφαρμόστε την προστασία και κατεβάστε το δημιουργημένο αρχείο.
 
-{{% alert color="info" title="See also" %}}
-- [Write-Protect Presentations](/slides/el/php-java/write-protected-presentation/)
-- [Digital Signature in PowerPoint](/slides/el/php-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Δείτε επίσης" %}}
+- [Προστασία Παρουσιάσεων από Εγγραφή](/slides/el/php-java/write-protected-presentation/)
+- [Ψηφιακή Υπογραφή στο PowerPoint](/slides/el/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+## **Συχνές Ερωτήσεις**
 
-**What is the difference between an opening password and a write-protection password?**  
-Ο κωδικός πρόσβασης ανοίγματος κρυπτογραφεί την παρουσίαση και απαιτείται για τη φόρτωση του περιεχομένου της. Ο κωδικός προστασίας εγγραφής περιορίζει την τροποποίηση χωρίς να κρυπτογραφεί το περιεχόμενο.
+**Ποια είναι η διαφορά μεταξύ κωδικού πρόσβασης ανοίγματος και κωδικού πρόσβασης προστασίας εγγραφής;**
 
-**Can I validate an opening password without loading all slides?**  
-Ναι. Λάβετε τις πληροφορίες της παρουσίασης, ελέγξτε εάν υπάρχει προστασία κωδικού ανοίγματος και επικυρώστε τον κωδικό πριν δημιουργήσετε μια πλήρη παρουσίαση.
+Ένας κωδικός πρόσβασης ανοίγματος κρυπτογραφεί την παρουσίαση και απαιτείται για τη φόρτωση του περιεχομένου της. Ένας κωδικός πρόσβασης προστασίας εγγραφής περιορίζει την τροποποίηση χωρίς να κρυπτογραφεί το περιεχόμενο.
 
-**Do the password-checking workflows support both PPT and PPTX?**  
-Ναι. Η ανίχνευση και επικύρωση κωδικού με βάση τη διαδρομή αρχείου ή το ρεύμα λειτουργούν με τον ίδιο τρόπο για παρουσιάσεις PPT και PPTX.
+**Μπορώ να επικυρώσω έναν κωδικό πρόσβασης ανοίγματος χωρίς να φορτώσω όλες τις διαφάνειες;**
+
+Ναι. Λάβετε πληροφορίες παρουσίασης, ελέγξτε εάν υπάρχει προστασία κωδικού πρόσβασης ανοίγματος, και επικυρώστε τον κωδικό πριν δημιουργήσετε ένα πλήρες αντικείμενο παρουσίασης.
+
+**Μπορεί μια εφαρμογή να διαβάσει μεταδεδομένα χωρίς τον κωδικό πρόσβασης ανοίγματος;**
+
+Ναι, αλλά μόνο όταν η παρουσίαση κρυπτογραφήθηκε με την κρυπτογράφηση ιδιοτήτων εγγράφου απενεργοποιημένη. Η εφαρμογή πρέπει τότε να χρησιμοποιήσει τη λειτουργία φόρτωσης μόνο ιδιοτήτων εγγράφου που περιγράφεται στο [Διαχείριση Ιδιοτήτων Παρουσίασης](/slides/el/php-java/presentation-properties/).
+
+**Υποστηρίζουν οι ροές ελέγχου κωδικών πρόσβασης και τα δύο, PPT και PPTX;**
+
+Ναι. Η ανίχνευση κωδικών πρόσβασης και η επικύρωση βάσει διαδρομής αρχείου και ροής λειτουργούν με τον ίδιο τρόπο για παρουσιάσεις PPT και PPTX.

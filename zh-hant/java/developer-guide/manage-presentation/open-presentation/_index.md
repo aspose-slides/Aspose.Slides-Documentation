@@ -6,7 +6,6 @@ weight: 20
 url: /zh-hant/java/open-presentation/
 keywords:
 - 開啟 PowerPoint
-- 開啟 OpenDocument
 - 開啟簡報
 - 開啟 PPTX
 - 開啟 PPT
@@ -21,24 +20,26 @@ keywords:
 - 二進位物件
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 輕鬆開啟 PowerPoint（.pptx、.ppt）和 OpenDocument（.odp）簡報——快速、可靠、功能完整。"
+description: "了解如何在 Java 中開啟 PowerPoint 與 OpenDocument 簡報、提供開啟密碼、控制資源載入，並使用 Aspose.Slides for Java 減少記憶體使用。"
 ---
-## **介紹**
+## **簡介**
 
-除了從頭建立 PowerPoint 簡報外，Aspose.Slides 也允許您開啟現有的簡報。載入簡報後，您可以取得其資訊、編輯投影片內容、加入新投影片、刪除既有投影片等等。
+[Aspose.Slides for Java](https://products.aspose.com/slides/zh-hant/java/) 可以從檔案和串流載入 PowerPoint 和 OpenDocument 簡報。載入簡報後，您可以檢查其結構、編輯投影片、管理資源，並以原始或其他支援的格式儲存。
+
+載入行為可以透過 [LoadOptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/) 類別自訂。例如，您可以提供開啟密碼、將大型二進位物件保留在 Java 堆積記憶體之外、控制外部資源，或省略嵌入的二進位資料。
 
 ## **開啟簡報**
 
-要開啟現有的簡報，實例化 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別，並將檔案路徑傳入其建構子。
+若要開啟現有簡報，將其檔案路徑傳遞給 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 建構式。使用完畢後請釋放 (Dispose) 簡報，以便及時釋放檔案代碼、暫存資料與其他資源。
 
 以下 Java 範例示範如何開啟簡報並取得投影片數量：
 
 ```java
-// 實例化 Presentation 類別並將檔案路徑傳入其建構子。
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // 列印簡報中的投影片總數。
-    System.out.println(presentation.getSlides().size());
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
@@ -46,117 +47,128 @@ try {
 
 ## **開啟受密碼保護的簡報**
 
-當您需要開啟受密碼保護的簡報時，請透過 [LoadOptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/) 類別的 [setPassword](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) 方法傳入密碼，以解密並載入簡報。以下 Java 程式碼示範此操作：
+開啟密碼會加密簡報內容。若要載入完整簡報，請將正確的密碼傳遞給 [LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)，並將此選項提供給 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 建構式。若密碼缺失或不正確，載入將失敗。
 
 ```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // 在已解密的簡報上執行操作。
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+有關密碼偵測、驗證與加密工作流程，請參閱 [Password-Protect Presentations](/slides/zh-hant/java/password-protected-presentation/)。如果加密的簡報特意以公開文件屬性儲存，則可在未提供密碼的情況下讀取這些屬性；請參閱 [Manage Presentation Properties](/slides/zh-hant/java/presentation-properties/)。
+
 ## **開啟大型簡報**
 
-Aspose.Slides 提供選項—尤其是 [LoadOptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/) 類別中的 [getBlobManagementOptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) 方法—協助您載入大型簡報。
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) 會回傳控制 Aspose.Slides 處理二進位大型物件（如影像、音訊、視訊）的選項。您可以保持來源檔案鎖定、允許暫存檔案，並限制記憶體中保留的 BLOB 資料量。
 
 以下 Java 程式碼示範載入大型簡報（例如 2 GB）：
 
 ```java
-final String filePath = "LargePresentation.pptx";
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationLockingBehavior;
+import com.aspose.slides.SaveFormat;
+
+final String filePath = "large-presentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// 選擇 KeepLocked 行為——簡報檔案在 Presentation 實例的生命週期內將保持鎖定，
-// 但無需載入到記憶體或複製到暫存檔。
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 Presentation presentation = new Presentation(filePath, loadOptions);
 try {
-    // 已載入大型簡報，現在可以使用，而記憶體使用量仍保持低。
-
-    // 對簡報進行變更。
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // 將簡報另存為檔案。此操作期間記憶體使用量仍保持低。
-    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // 不要這麼做！會拋出 I/O 例外，因為檔案在釋放簡報物件之前仍被鎖定。
-    //Files.delete(Paths.get(filePath));
+    presentation.save("large-presentation-copy.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// 在此處刪除是可以的。來源檔案已不再被簡報物件鎖定。
-Files.delete(Paths.get(filePath));
 ```
 
-{{% alert color="info" title="Info" %}}
-為了繞過在使用串流時的某些限制，Aspose.Slides 可能會複製串流的內容。從串流載入大型簡報會導致簡報被複製，進而降低載入速度。因此，當您需要載入大型簡報時，我們強烈建議使用簡報檔案路徑，而非串流。
+{{% alert color="info" title="注意" %}}
+使用 [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) 時，來源檔案會保持鎖定，直到釋放簡報實例為止。在該實例存活期間，請勿移動、覆寫或刪除來源檔案。
 
-在建立包含大型物件（影片、音訊、高解析度影像等）的簡報時，您可以使用 [BLOB management](/slides/zh-hant/java/manage-blob/) 來減少記憶體使用量。
-{{%/alert %}} 
+Aspose.Slides 可能在載入時複製輸入串流的內容。對於大型簡報，檔案路徑通常比串流更有效率。請參閱 [Manage BLOBs](/slides/zh-hant/java/manage-blob/) 以取得其他儲存與記憶體管理選項。
+{{% /alert %}}
 
 ## **控制外部資源**
 
-Aspose.Slides 提供 [IResourceLoadingCallback](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iresourceloadingcallback/) 介面，讓您管理外部資源。以下 Java 程式碼顯示如何使用 `IResourceLoadingCallback` 介面：
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) 接受一個 [IResourceLoadingCallback](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iresourceloadingcallback/) 的實作。回呼可提供替代資料、重新導向資源、使用預設載入器，或跳過該資源。當簡報包含必須依照特定應用程式安全或儲存規則解決的外部影像時，這非常有用。
 
 ```java
+import com.aspose.slides.IResourceLoadingArgs;
+import com.aspose.slides.IResourceLoadingCallback;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.ResourceLoadingAction;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        boolean isJpeg = args.getOriginalUri().toLowerCase(Locale.ROOT).endsWith(".jpg");
+        Path approvedImagePath = Paths.get("approved-image.jpg");
+        if (!isJpeg || !Files.exists(approvedImagePath)) {
+            return ResourceLoadingAction.Skip;
+        }
+
+        try {
+            byte[] imageData = Files.readAllBytes(approvedImagePath);
+            args.setData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        } catch (IOException exception) {
+            System.err.println("The approved replacement image could not be read.");
+            return ResourceLoadingAction.Skip;
+        }
+    }
+}
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
-
-```java
-class ImageLoadingHandler implements IResourceLoadingCallback {
-    public int resourceLoading(IResourceLoadingArgs args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // 載入替代圖像。
-                byte[] imageData = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            } catch (RuntimeException ex) {
-                return ResourceLoadingAction.Skip;
-            }  catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // 設定替代 URL。
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction.Default;
-        }
-        // 跳過所有其他圖像。
-        return ResourceLoadingAction.Skip;
-    }
+Presentation presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    System.out.println("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **載入不含嵌入式二進位物件的簡報**
+## **載入不含嵌入二進位物件的簡報**
 
-PowerPoint 簡報可能包含以下類型的嵌入式二進位物件：
+簡報可能包含應用程式不需要或不想保留的嵌入二進位資料。例子包括：
 
-- VBA 專案（可透過 [IPresentation.getVbaProject](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentation/#getVbaProject--) 取得）；
-- OLE 物件嵌入資料（可透過 [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) 取得）；
-- ActiveX 控制項二進位資料（可透過 [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icontrol/#getActiveXControlBinary--) 取得）。
+- VBA 專案，可透過 [IPresentation.getVbaProject](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ipresentation/#getVbaProject--) 取得；
+- 嵌入的 OLE 資料，可透過 [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--) 取得；
+- ActiveX 控制項資料，可透過 [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/icontrol/#getActiveXControlBinary--) 取得。
 
-使用 [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) 方法，您可以在載入簡報時移除所有嵌入式二進位物件。
+將 [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) 設為 `true`，即可在載入時移除這些二進位資料。將載入後的簡報儲存，以保留已清理的結果。
 
-此方法可用於移除可能包含惡意程式碼的二進位內容。以下 Java 程式碼示範如何在不載入任何嵌入式二進位內容的情況下載入簡報：
+此選項可減少不必要的嵌入負載風險，但它並非完整的惡意程式偵測或內容清理系統。
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation presentation = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // 在簡報上執行操作。
+    presentation.save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -166,12 +178,12 @@ try {
 
 **如何判斷檔案已損毀且無法開啟？**
 
-載入過程中會拋出解析/格式驗證例外。此類錯誤通常會提及無效的 ZIP 結構或損毀的 PowerPoint 記錄。
+Aspose.Slides 會在載入期間拋出解析或格式例外。請將此失敗與密碼錯誤的例外分開處理，以便應用程式能正確回報原因。
 
-**開啟時缺少必要字型會發生什麼情況？**
+**如果缺少必要的字型會發生什麼情況？**
 
-檔案仍會開啟，但稍後的 [渲染/匯出](/slides/zh-hant/java/convert-presentation/) 可能會替換字型。請在執行環境中 [設定字型替換](/slides/zh-hant/java/font-substitution/) 或 [加入必要字型](/slides/zh-hant/java/custom-font/)。
+簡報仍可載入，但渲染與匯出時可能會替代字型。您可以 [configure font substitution](/slides/zh-hant/java/font-substitution/) 或 [provide custom fonts](/slides/zh-hant/java/custom-font/) 以使輸出更可預測。
 
-**開啟時嵌入的媒體（影片/音訊）會怎樣？**
+**載入簡報時是否同時載入其嵌入的媒體？**
 
-它們會作為簡報資源可供使用。若媒體是以外部路徑參照，請確保這些路徑在您的環境中可存取；否則在 [渲染/匯出](/slides/zh-hant/java/convert-presentation/) 時可能會省略該媒體。
+嵌入的音訊與視訊可透過簡報物件模型取得。外部資源會依設定的資源載入行為解析；若無法存取其位置，則可能無法取得。

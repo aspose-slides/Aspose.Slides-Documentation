@@ -1,6 +1,6 @@
 ---
-title: Abrir Apresentações em C++
-linktitle: Abrir Apresentação
+title: Abrir apresentações em C++
+linktitle: Abrir apresentação
 type: docs
 weight: 20
 url: /pt/cpp/open-presentation/
@@ -21,161 +21,186 @@ keywords:
 - objeto binário
 - C++
 - Aspose.Slides
-description: "Abra apresentações PowerPoint (.pptx, .ppt) e OpenDocument (.odp) sem esforço com Aspose.Slides para C++ — rápido, confiável e com todos os recursos."
+description: "Aprenda a abrir apresentações PowerPoint e OpenDocument em C++, fornecer senhas de abertura, controlar o carregamento de recursos e reduzir o uso de memória com Aspose.Slides para C++."
 ---
 ## **Introdução**
 
-Além de criar apresentações PowerPoint do zero, o Aspose.Slides também permite abrir apresentações existentes. Após carregar uma apresentação, você pode recuperar informações sobre ela, editar o conteúdo dos slides, adicionar novos slides, remover os existentes e muito mais.
+[Aspose.Slides para C++](https://products.aspose.com/slides/pt/cpp/) pode carregar apresentações PowerPoint e OpenDocument a partir de arquivos e fluxos. Após uma apresentação ser carregada, você pode inspecionar sua estrutura, editar slides, gerenciar recursos e salvá‑la no formato original ou em outro formato suportado.
 
-## **Abrir Apresentações**
+O comportamento de carregamento pode ser personalizado através da classe LoadOptions. Por exemplo, você pode fornecer uma senha de abertura, manter objetos binários grandes fora da memória, controlar recursos externos ou omitir dados binários incorporados.
 
-Para abrir uma apresentação existente, instancie a classe [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/) e passe o caminho do arquivo ao seu construtor.
+## **Abrir apresentações**
 
-O exemplo C++ a seguir mostra como abrir uma apresentação e obter sua contagem de slides:
+Para abrir uma apresentação existente, passe seu caminho de arquivo ao construtor Presentation. Libere a apresentação após o uso para que os manipuladores de arquivo, dados temporários e outros recursos sejam liberados prontamente.
+
+O exemplo C++ a seguir mostra como abrir uma apresentação e obter a contagem de slides:
 
 ```cpp
-// Instancie a classe Presentation e passe um caminho de arquivo ao seu construtor.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-// Imprima o número total de slides na apresentação.
-Console::WriteLine(presentation->get_Slides()->get_Count());
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
-## **Abrir Apresentações Protegidas por Senha**
+## **Abrir apresentações protegidas por senha**
 
-Quando for necessário abrir uma apresentação protegida por senha, passe a senha através do método [set_Password](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/set_password/) da classe [LoadOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/) para descriptografá‑la e carregá‑la. O código C++ a seguir demonstra essa operação:
+Uma senha de abertura criptografa o conteúdo da apresentação. Para carregar a apresentação completa, passe a senha correta para LoadOptions::set_Password e passe as opções ao construtor Presentation. O carregamento falha quando a senha está ausente ou incorreta.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
 auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_Password(u"YOUR_PASSWORD");
+loadOptions->set_Password(u"open_password");
 
-auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
-    
-// Execute operações na apresentação descriptografada.
+auto presentation = MakeObject<Presentation>(u"encrypted-presentation.pptx", loadOptions);
+
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
-## **Abrir Apresentações Grandes**
+Para fluxos de detecção, validação e criptografia de senhas, consulte [Proteção de Apresentações por Senha](/slides/pt/cpp/password-protected-presentation/). Se uma apresentação criptografada foi deliberadamente salva com propriedades de documento públicas, essas propriedades podem ser lidas sem senha; consulte [Gerenciar Propriedades da Apresentação](/slides/pt/cpp/presentation-properties/).
 
-O Aspose.Slides oferece opções — particularmente o método [get_BlobManagementOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) na classe [LoadOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/) — para ajudar a carregar apresentações grandes.
+## **Abrir apresentações grandes**
+
+[LoadOptions::get_BlobManagementOptions] controla como o Aspose.Slides lida com objetos binários grandes, como imagens, áudio e vídeo. Você pode manter o arquivo de origem bloqueado, permitir arquivos temporários e limitar a quantidade de dados BLOB mantidos na memória.
 
 O código C++ a seguir demonstra o carregamento de uma apresentação grande (por exemplo, 2 GB):
 
 ```cpp
-auto filePath = u"LargePresentation.pptx";
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IBlobManagementOptions.h>
+#include <PresentationLockingBehavior.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+const String filePath = u"large-presentation.pptx";
 
 auto loadOptions = MakeObject<LoadOptions>();
-// Escolha o comportamento KeepLocked — o arquivo de apresentação permanecerá bloqueado durante a vida útil de
-// a instância Presentation, mas não precisa ser carregado na memória ou copiado para um arquivo temporário.
-loadOptions->get_BlobManagementOptions()->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
-loadOptions->get_BlobManagementOptions()->set_IsTemporaryFilesAllowed(true);
-loadOptions->get_BlobManagementOptions()->set_MaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+auto blobOptions = loadOptions->get_BlobManagementOptions();
+blobOptions->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+blobOptions->set_IsTemporaryFilesAllowed(true);
+blobOptions->set_MaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-// A grande apresentação foi carregada e pode ser usada, enquanto o consumo de memória permanece baixo.
-
-// Faça alterações na apresentação.
 presentation->get_Slide(0)->set_Name(u"Large presentation");
-
-// Salve a apresentação em outro arquivo. O consumo de memória permanece baixo durante esta operação.
-presentation->Save(u"LargePresentation-copy.pptx", SaveFormat::Pptx);
-
-// Não faça isso! Uma exceção de I/O será lançada porque o arquivo está bloqueado até que o objeto Presentation seja descartado.
-File::Delete(filePath);
+presentation->Save(u"large-presentation-copy.pptx", SaveFormat::Pptx);
 
 presentation->Dispose();
-
-// É seguro fazer isso aqui. O arquivo fonte não está mais bloqueado pelo objeto Presentation.
-File::Delete(filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-Para contornar certas limitações ao trabalhar com streams, o Aspose.Slides pode copiar o conteúdo de um stream. Carregar uma apresentação grande a partir de um stream faz com que a apresentação seja copiada e pode tornar o carregamento mais lento. Portanto, quando precisar carregar uma apresentação grande, recomendamos enfaticamente usar o caminho do arquivo da apresentação em vez de um stream.
+{{% alert color="info" title="Nota" %}}
+Com `PresentationLockingBehavior::KeepLocked`, o arquivo de origem permanece bloqueado até que o objeto `Presentation` seja descartado. Não mova, sobrescreva ou exclua o arquivo de origem enquanto esse objeto estiver ativo.
 
-Ao criar uma apresentação que contenha objetos grandes (vídeo, áudio, imagens de alta resolução, etc.), você pode usar o [BLOB management](/slides/pt/cpp/manage-blob/) para reduzir o consumo de memória.
-{{%/alert %}}
+Aspose.Slides pode copiar o conteúdo de um fluxo de entrada durante o carregamento. Para apresentações grandes, um caminho de arquivo costuma ser mais eficiente que um fluxo. Consulte [Gerenciar BLOBs](/slides/pt/cpp/manage-blob/) para opções adicionais de armazenamento e gerenciamento de memória.
+{{% /alert %}}
 
-## **Controlar Recursos Externos**
+## **Controlar recursos externos**
 
-O Aspose.Slides fornece a interface [IResourceLoadingCallback](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iresourceloadingcallback/) que permite gerenciar recursos externos. O código C++ a seguir mostra como usar a interface `IResourceLoadingCallback`:
+[LoadOptions::set_ResourceLoadingCallback] aceita uma implementação de IResourceLoadingCallback. O callback pode fornecer dados de substituição, redirecionar um recurso, usar o carregador padrão ou pular o recurso. Isso é útil quando as apresentações contêm imagens externas que precisam ser resolvidas de acordo com regras de segurança ou armazenamento específicas da aplicação.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IResourceLoadingArgs.h>
+#include <IResourceLoadingCallback.h>
+#include <ResourceLoadingAction.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 class ImageLoadingHandler : public IResourceLoadingCallback
 {
 public:
     ResourceLoadingAction ResourceLoading(SharedPtr<IResourceLoadingArgs> args) override
     {
-        if (args->get_OriginalUri().EndsWith(u".jpg"))
+        auto isJpeg = args->get_OriginalUri().EndsWith(u".jpg", StringComparison::OrdinalIgnoreCase);
+        if (!isJpeg || !File::Exists(u"approved-image.jpg"))
         {
-            try
-            {
-                // Carregue uma imagem substituta.
-                auto imageData = File::ReadAllBytes(u"aspose-logo.jpg");
-                args->SetData(imageData);
-                return ResourceLoadingAction::UserProvided;
-            }
-            catch (Exception&)
-            {
-                return ResourceLoadingAction::Skip;
-            }
-        }
-        else if (args->get_OriginalUri().EndsWith(u".png"))
-        {
-            // Defina um URL substituto.
-            args->set_Uri(u"http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+            return ResourceLoadingAction::Skip;
         }
 
-        // Ignorar todas as outras imagens.
-        return ResourceLoadingAction::Skip;
+        auto imageData = File::ReadAllBytes(u"approved-image.jpg");
+        args->SetData(imageData);
+        return ResourceLoadingAction::UserProvided;
     }
 };
-```
 
-```cpp
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
 
-auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
-```
-
-## **Carregar Apresentações sem Objetos Binários Incorporados**
-
-Uma apresentação PowerPoint pode conter os seguintes tipos de objetos binários incorporados:
-
-- Projeto VBA (acessível via [IPresentation::get_VbaProject](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentation/get_vbaproject/));
-- Dados incorporados de objeto OLE (acessíveis via [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/));
-- Dados binários de controle ActiveX (acessíveis via [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/pt/cpp/aspose.slides/icontrol/get_activexcontrolbinary/)).
-
-Usando o método [ILoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iloadoptions/set_deleteembeddedbinaryobjects/), você pode carregar uma apresentação sem nenhum objeto binário incorporado.
-
-Esse método é útil para remover conteúdo binário potencialmente malicioso. O código C++ a seguir demonstra como carregar uma apresentação sem nenhum conteúdo binário incorporado:
-
-```cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_DeleteEmbeddedBinaryObjects(true);
-
-auto presentation = MakeObject<Presentation>(u"malware.ppt", loadOptions);
-
-// Perform operations on the presentation.
+auto presentation = MakeObject<Presentation>(u"presentation-with-external-images.pptx", loadOptions);
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
-## **Perguntas Frequentes**
+## **Carregar apresentações sem objetos binários incorporados**
+
+Uma apresentação pode conter dados binários incorporados que uma aplicação não precisa ou não deseja manter. Exemplos incluem:
+
+- projetos VBA, disponíveis através de [IPresentation::get_VbaProject](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentation/get_vbaproject/);
+- dados OLE incorporados, disponíveis através de [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
+- dados de controle ActiveX, disponíveis através de [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/pt/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
+
+Passe `true` para [LoadOptions::set_DeleteEmbeddedBinaryObjects] para remover esses dados binários durante o carregamento. Salve a apresentação carregada para manter o resultado sanitizado.
+
+Esta opção reduz a exposição a conteúdos incorporados indesejados, mas não é um sistema completo de detecção de malware ou sanitização de conteúdo.
+
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_DeleteEmbeddedBinaryObjects(true);
+
+auto presentation = MakeObject<Presentation>(u"presentation-with-embedded-data.pptx", loadOptions);
+
+presentation->Save(u"presentation-without-embedded-data.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
+
+## **Perguntas frequentes**
 
 **Como posso saber que um arquivo está corrompido e não pode ser aberto?**
 
-Você receberá uma exceção de validação/análise de formato durante o carregamento. Esses erros geralmente mencionam uma estrutura ZIP inválida ou registros do PowerPoint corrompidos.
+Aspose.Slides lança uma exceção de análise ou de formato durante o carregamento. Trate essa falha separadamente de um erro de senha incorreta, para que a aplicação possa relatar a causa com precisão.
 
-**O que acontece se fontes necessárias estiverem ausentes ao abrir?**
+**O que acontece se as fontes necessárias estiverem ausentes?**
 
-O arquivo será aberto, mas posteriormente a [renderização/exportação](/slides/pt/cpp/convert-presentation/) pode substituir as fontes. [Configure substituições de fontes](/slides/pt/cpp/font-substitution/) ou [adicione as fontes necessárias](/slides/pt/cpp/custom-font/) ao ambiente de tempo de execução.
+A apresentação ainda pode ser carregada, mas a renderização e a exportação podem substituir fontes. Você pode [configurar substituição de fontes](/slides/pt/cpp/font-substitution/) ou [fornecer fontes personalizadas](/slides/pt/cpp/custom-font/) para tornar a saída mais previsível.
 
-**E quanto a mídia incorporada (vídeo/áudio) ao abrir?**
+**O carregamento de uma apresentação também carrega sua mídia incorporada?**
 
-Eles se tornam disponíveis como recursos da apresentação. Se a mídia for referenciada por caminhos externos, certifique‑se de que esses caminhos estejam acessíveis no seu ambiente; caso contrário, a [renderização/exportação](/slides/pt/cpp/convert-presentation/) pode omitir a mídia.
+Áudios e vídeos incorporados ficam disponíveis através do modelo de objetos da apresentação. Recursos externos são resolvidos de acordo com o comportamento de carregamento de recursos configurado e podem estar indisponíveis se seus locais não puderem ser acessados.
