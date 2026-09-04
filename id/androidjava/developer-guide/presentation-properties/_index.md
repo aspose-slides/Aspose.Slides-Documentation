@@ -1,5 +1,5 @@
 ---
-title: Kelola Properti Presentasi di Android
+title: Kelola Properti Presentasi pada Android
 linktitle: Properti Presentasi
 type: docs
 weight: 70
@@ -9,12 +9,12 @@ keywords:
 - Properti presentasi
 - Properti dokumen
 - Properti bawaan
-- Properti kustom
+- Properti khusus
 - Properti lanjutan
 - Kelola properti
 - Modifikasi properti
 - Metadata dokumen
-- Edit metadata
+- Sunting metadata
 - Bahasa pemeriksaan
 - Bahasa default
 - PowerPoint
@@ -23,49 +23,135 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Kuasai properti presentasi di Aspose.Slides untuk Android melalui Java dan permudah pencarian, penjenamaan, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
+description: "Kelola properti presentasi dalam Aspose.Slides untuk Android via Java dan permudah pencarian, branding, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
 ---
 ## **Pendahuluan**
 
 Aspose.Slides mendukung dua jenis properti dokumen: **Built-in** dan **Custom**. Kedua jenis properti ini dapat dengan mudah diakses dan dikelola menggunakan API Aspose.Slides.
 
-Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui antarmuka [IDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/idocumentproperties/) . Sebuah instance antarmuka ini dikembalikan oleh metode [Presentation.getDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getDocumentProperties--) . Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti-properti tersebut.
+Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui antarmuka [IDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/idocumentproperties/) . Sebuah instance dari antarmuka ini dikembalikan oleh [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--). Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti ini.
 
 {{% alert color="info" title="Note" %}}
-Harap perhatikan bahwa bidang **Application** dan **AppVersion** tidak dapat dimodifikasi. Aspose.Slides menulis ulang keduanya pada setiap penyimpanan, sehingga presentasi yang disimpan selalu melaporkan nama produk Aspose.Slides dan versi perpustakaan yang menghasilkan file tersebut. Nilai apa pun yang diberikan ke `setNameOfApplication` akan dibuang saat presentasi ditulis.
+Harap dicatat bahwa bidang **Application** dan **AppVersion** tidak dapat diubah. Aspose.Slides menulis ulang nilai tersebut setiap kali menyimpan, sehingga presentasi yang disimpan selalu melaporkan nama produk Aspose.Slides dan versi perpustakaan yang menghasilkan presentasi tersebut. Setiap nilai yang diberikan ke `setNameOfApplication` akan diabaikan ketika presentasi ditulis.
 {{% /alert %}} 
 
 ## **Properti Dokumen di PowerPoint**
 
-Microsoft PowerPoint 2007 memungkinkan pengelolaan properti dokumen file presentasi. Yang perlu Anda lakukan adalah mengklik ikon Office dan kemudian memilih menu **Prepare | Properties | Advanced Properties** pada Microsoft PowerPoint 2007 seperti yang ditunjukkan di bawah ini:
+Microsoft PowerPoint 2007 memungkinkan pengelolaan properti dokumen file presentasi. Yang harus Anda lakukan hanyalah mengklik ikon Office dan kemudian menu **Prepare | Properties | Advanced Properties** di Microsoft PowerPoint 2007 seperti yang ditunjukkan di bawah ini:
 
-|**Selecting Advanced Properties menu item**| |
+|**Memilih item menu Advanced Properties**| |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-Setelah Anda memilih menu **Advanced Properties**, sebuah dialog akan muncul yang memungkinkan Anda mengelola properti dokumen file PowerPoint seperti yang ditunjukkan pada gambar berikut:
+Setelah Anda memilih menu **Advanced Properties**, sebuah dialog akan muncul yang memungkinkan Anda mengelola properti dokumen file PowerPoint seperti yang ditunjukkan pada gambar di bawah:
 
-|**Properties Dialog**| |
+|**Dialog Properti**| |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-Pada **Properties Dialog** di atas, Anda dapat melihat terdapat banyak tab seperti **General**, **Summary**, **Statistics**, **Contents**, dan **Custom**. Semua tab ini memungkinkan konfigurasi berbagai jenis informasi yang terkait dengan file PowerPoint. Tab **Custom** digunakan untuk mengelola properti kustom file PowerPoint.
 
+Pada **Dialog Properti** di atas, Anda dapat melihat terdapat banyak tab seperti **General**, **Summary**, **Statistics**, **Contents**, dan **Custom**. Semua tab ini memungkinkan konfigurasi berbagai jenis informasi terkait file PowerPoint. Tab **Custom** digunakan untuk mengelola properti khusus file PowerPoint.
 
+### Bekerja dengan Properti Dokumen Menggunakan Aspose.Slides untuk Android via Java
 
-## **Bekerja dengan Properti Dokumen Menggunakan Aspose.Slides untuk Android via Java**
+Seperti yang telah kami jelaskan sebelumnya, Aspose.Slides untuk Android via Java mendukung dua jenis properti dokumen, yaitu properti **Built-in** dan **Custom**. Jadi, pengembang dapat mengakses kedua jenis properti tersebut menggunakan API Aspose.Slides untuk Android via Java. Aspose.Slides untuk Android via Java menyediakan kelas [IDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/idocumentproperties) yang mewakili properti dokumen yang terkait dengan file presentasi melalui properti **Presentation.DocumentProperties**.
 
-Seperti yang telah dijelaskan sebelumnya, Aspose.Slides untuk Android via Java mendukung dua jenis properti dokumen, yaitu properti **Built-in** dan **Custom**. Oleh karena itu, pengembang dapat mengakses kedua jenis properti tersebut dengan menggunakan API Aspose.Slides untuk Android via Java. Aspose.Slides untuk Android via Java menyediakan kelas [IDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/idocumentproperties) yang mewakili properti dokumen yang terkait dengan file presentasi melalui properti **Presentation.DocumentProperties**.
+Pengembang dapat menggunakan properti **IDocumentProperties** yang disediakan oleh objek [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation) untuk mengakses properti dokumen file presentasi seperti dijelaskan di bawah ini:
 
-Pengembang dapat menggunakan properti **IDocumentProperties** yang diekspos oleh objek [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation) untuk mengakses properti dokumen file presentasi seperti yang dijelaskan di bawah ini:
+## **Baca Properti Publik dari Presentasi yang Terenkripsi**
+
+Kata sandi pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi dengan memberikan `false` ke [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-), properti dokumennya tetap bersifat publik. Sebuah aplikasi kemudian dapat memberikan `true` ke [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) dan membaca metadata publik tanpa menyediakan kata sandi pembuka.
+
+Opsi hanya-muat-properti-dokumen mengontrol apa yang dimuat oleh Aspose.Slides; itu tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa kata sandi gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan seluruh presentasi dimuat.
+
+Contoh berikut memverifikasi mode pemuatan melalui [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) dan kemudian membaca properti built-in melalui [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--):
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+Presentation presentation = new Presentation("public-properties-encrypted.pptx", loadOptions);
+try {
+    if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        IDocumentProperties properties = presentation.getDocumentProperties();
+
+        System.out.println("Author: " + properties.getAuthor());
+        System.out.println("Title: " + properties.getTitle());
+        System.out.println("Keywords: " + properties.getKeywords());
+    } else {
+        System.out.println("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Dalam mode ini, konten slide tidak dimuat. Slide, master, layout, shape, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
+
+{{% alert color="warning" title="Warning" %}}
+Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai khusus. Enkripsi properti sensitif bersama dengan presentasi. Biarkan publik hanya ketika sistem pengindeksan, klasifikasi, pencarian, atau manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa kata sandi.
+{{% /alert %}}
+
+## **Perbarui Properti Presentasi yang Terenkripsi**
+
+Untuk file PPTX yang terenkripsi, presentasi yang dimuat dalam mode hanya-properti-dokumen ditujukan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang diubah dari objek hanya-metadata tersebut karena properti publik harus tetap konsisten dengan data yang sesuai di dalam presentasi terenkripsi. Oleh karena itu, memperbarui mereka membutuhkan kata sandi pembuka yang benar dan pemuatan lengkap.
+
+Contoh berikut membuka presentasi dengan [LoadOptions.setPassword](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), memperbarui properti built-in publik, dan menyimpan hasilnya. Kemudian menggunakan [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentationinfo/#isEncrypted--) untuk memverifikasi bahwa enkripsi tetap terjaga dan membuka kembali metadata publik tanpa kata sandi untuk memverifikasi nilai baru:
+
+```java
+import com.aspose.slides.IPresentationInfo;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationFactory;
+import com.aspose.slides.SaveFormat;
+
+final String inputPath = "public-properties-encrypted.pptx";
+final String outputPath = "updated-public-properties-encrypted.pptx";
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation(inputPath, loadOptions);
+try {
+    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
+    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    presentation.save(outputPath, SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo(outputPath);
+System.out.println("The presentation is encrypted: " + presentationInfo.isEncrypted());
+
+LoadOptions metadataLoadOptions = new LoadOptions();
+metadataLoadOptions.setOnlyLoadDocumentProperties(true);
+
+Presentation metadataPresentation = new Presentation(outputPath, metadataLoadOptions);
+try {
+    if (metadataPresentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        System.out.println("Title: " + metadataPresentation.getDocumentProperties().getTitle());
+        System.out.println("Keywords: " + metadataPresentation.getDocumentProperties().getKeywords());
+    } else {
+        System.out.println("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    metadataPresentation.dispose();
+}
+```
+
+Jika sebuah aplikasi tidak diizinkan untuk mendekripsi atau memuat konten presentasi, aplikasi harus memperlakukan properti publik file PPTX yang terenkripsi sebagai read-only.
 
 ## **Akses Properti Built-in**
 
-Properti yang diekspos oleh objek [IDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/idocumentproperties) meliputi: **Creator** (Penulis), **Description**, **Keywords**, **Created** (Tanggal Pembuatan), **Modified** (Tanggal Modifikasi), **Printed** (Tanggal Cetak Terakhir), **LastModifiedBy**, **Keywords**, **SharedDoc** (Apakah dibagikan antara produsen yang berbeda?), **PresentationFormat**, **Subject** dan **Title**.
+Properti-properti yang ditampilkan oleh objek [IDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/idocumentproperties) meliputi: **Creator** (Penulis), **Description**, **Keywords**, **Created** (Tanggal Pembuatan), **Modified** (Tanggal Modifikasi), **Printed** (Tanggal Cetak Terakhir), **LastModifiedBy**, **Keywords**, **SharedDoc** (Apakah dibagikan antar produsen yang berbeda?), **PresentationFormat**, **Subject**, dan **Title**.
 
 ```java
 import com.aspose.slides.*;
 
-// Buat instance kelas Presentation yang mewakili presentasi
+// Instansiasi kelas Presentation yang mewakili presentasi
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Buat referensi ke objek IDocumentProperties yang terkait dengan Presentation
@@ -93,7 +179,7 @@ try {
 
 ## **Modifikasi Properti Built-in**
 
-Memodifikasi properti bawaan file presentasi semudah mengaksesnya. Anda cukup menetapkan nilai string ke properti yang diinginkan dan nilai properti tersebut akan diubah. Pada contoh di bawah ini, kami mendemonstrasikan bagaimana memodifikasi properti dokumen bawaan file presentasi menggunakan Aspose.Slides untuk Android via Java.
+Memodifikasi properti built-in file presentasi semudah mengaksesnya. Anda cukup menetapkan nilai string ke properti yang diinginkan dan nilai properti akan diubah. Pada contoh di bawah ini, kami menunjukkan cara memodifikasi properti dokumen built-in dari file presentasi menggunakan Aspose.Slides untuk Android via Java.
 
 ```java
 import com.aspose.slides.*;
@@ -117,15 +203,15 @@ try {
 }
 ```
 
-Contoh ini memodifikasi properti bawaan presentasi yang dapat dilihat seperti pada gambar di bawah:
+Contoh ini memodifikasi properti built-in presentasi yang dapat dilihat seperti di bawah ini:
 
-|**Built-in document properties after modification**| |
+|**Properti dokumen built-in setelah modifikasi**| |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **Menambahkan Properti Dokumen Kustom**
+## **Tambahkan Properti Dokumen Kustom**
 
-Aspose.Slides untuk Android via Java juga memungkinkan pengembang menambahkan nilai kustom untuk properti dokumen presentasi. Contoh di bawah menambahkan tiga properti kustom, kemudian mencari nama yang disimpan pada indeks 2 dan menghapus properti tersebut, sehingga presentasi yang disimpan tetap memiliki dua properti. Properti kustom diindeks dalam urutan alfabet, bukan dalam urutan penambahannya.
+Aspose.Slides untuk Android via Java juga memungkinkan pengembang menambahkan nilai kustom untuk properti Dokumen presentasi. Contoh di bawah menambahkan tiga properti kustom, kemudian mencari nama yang disimpan pada indeks 2 dan menghapus properti tersebut, sehingga presentasi yang disimpan menyisakan dua properti. Properti kustom diindeks dalam urutan alfabet, bukan urutan penambahannya.
 
 ```java
 import com.aspose.slides.*;
@@ -143,7 +229,7 @@ try {
     // Mendapatkan nama properti pada indeks tertentu
     String getPropertyName = dProps.getCustomPropertyName(2);
     
-    // Menghapus properti yang dipilih
+    // Menghapus properti terpilih
     dProps.removeCustomProperty(getPropertyName);
     
     // Menyimpan presentasi
@@ -153,13 +239,13 @@ try {
 }
 ```
 
-|**Custom Document Properties Added**| |
+|**Properti Dokumen Kustom Ditambahkan**| |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Akses dan Modifikasi Properti Kustom**
 
-Aspose.Slides untuk Android via Java juga memungkinkan pengembang mengakses nilai properti kustom. Contoh di bawah menunjukkan cara mengakses dan memodifikasi semua properti kustom untuk sebuah presentasi.
+Aspose.Slides untuk Android via Java juga memungkinkan pengembang mengakses nilai-nilai properti kustom. Contoh di bawah menunjukkan cara Anda dapat mengakses dan memodifikasi semua properti kustom untuk sebuah presentasi.
 
 ```java
 import com.aspose.slides.*;
@@ -186,14 +272,13 @@ try {
 }
 ```
 
-Contoh ini memodifikasi properti kustom pada [PPTX](https://docs.fileformat.com/presentation/pptx/) presentation. Gambar berikut menampilkan properti kustom presentasi sebelum dan setelah modifikasi:
+Contoh ini memodifikasi properti kustom dari presentasi [PPTX](https://docs.fileformat.com/presentation/pptx/). Gambar berikut menunjukkan properti kustom presentasi sebelum dan sesudah modifikasi:
 
-|**Custom Properties before Modification**| |
+|**Properti Kustom sebelum Modifikasi**| |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-
-|**Custom Properties after Modification**| |
+|**Properti Kustom setelah Modifikasi**| |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
@@ -203,7 +288,7 @@ Contoh ini memodifikasi properti kustom pada [PPTX](https://docs.fileformat.com/
 Metode baru [ReadDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), dan [WriteBindedPresentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) telah ditambahkan ke [IPresentationInfo](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo), logika setter properti [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) telah diubah.
 {{% /alert %}} 
 
-Kedua metode baru [ReadDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) dan [UpdateDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) telah ditambahkan ke antarmuka [IPresentationInfo](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo). Mereka menyediakan akses cepat ke properti dokumen dan memungkinkan mengubah serta memperbarui properti tanpa memuat seluruh presentasi.
+Dua metode baru [ReadDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo#readDocumentProperties--) dan [UpdateDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) telah ditambahkan ke antarmuka [IPresentationInfo](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/IPresentationInfo). Mereka memberikan akses cepat ke properti dokumen dan memungkinkan mengubah serta memperbarui properti tanpa memuat seluruh presentasi.
 
 Skenario umum memuat properti, mengubah beberapa nilai, dan memperbarui dokumen dapat diimplementasikan dengan cara berikut:
 
@@ -225,7 +310,7 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Ada cara lain menggunakan properti presentasi tertentu sebagai template untuk memperbarui properti pada presentasi lain:
+Ada cara lain untuk menggunakan properti sebuah presentasi tertentu sebagai templat untuk memperbarui properti pada presentasi lain:
 
 ```java
 import com.aspose.slides.*;
@@ -258,7 +343,7 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 }
 ```
 
-Template baru dapat dibuat dari awal dan kemudian digunakan untuk memperbarui beberapa presentasi:
+Sebuah templat baru dapat dibuat dari awal dan kemudian digunakan untuk memperbarui beberapa presentasi:
 
 ```java
 import com.aspose.slides.*;
@@ -284,9 +369,9 @@ for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" })
 
 ## **Atur Bahasa Pemeriksaan**
 
-Aspose.Slides menyediakan properti LanguageId (diekspose oleh kelas PortionFormat) yang memungkinkan Anda mengatur bahasa pemeriksaan untuk dokumen PowerPoint. Bahasa pemeriksaan adalah bahasa yang digunakan untuk memeriksa ejaan dan tata bahasa di PowerPoint.
+Aspose.Slides menyediakan properti LanguageId (yang diekspos oleh kelas PortionFormat) untuk memungkinkan Anda mengatur bahasa pemeriksaan untuk dokumen PowerPoint. Bahasa pemeriksaan adalah bahasa yang digunakan untuk memeriksa ejaan dan tata bahasa di PowerPoint.
 
-Kode Java ini menunjukkan cara mengatur bahasa pemeriksaan untuk PowerPoint:
+Kode Java berikut menunjukkan cara mengatur bahasa pemeriksaan untuk PowerPoint:
 
 ```java
 import com.aspose.slides.*;
@@ -317,7 +402,7 @@ try {
 
 ## **Atur Bahasa Default**
 
-Kode Java ini menunjukkan cara mengatur bahasa default untuk seluruh presentasi PowerPoint:
+Kode Java berikut menunjukkan cara mengatur bahasa default untuk seluruh presentasi PowerPoint:
 
 ```java
 import com.aspose.slides.*;
@@ -340,20 +425,28 @@ try {
 
 ## **Contoh Langsung**
 
-Coba aplikasi daring [**Aspose.Slides Metadata**](https://products.aspose.app/slides/id/metadata) untuk melihat cara bekerja dengan properti dokumen melalui API Aspose.Slides:
+Coba aplikasi online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/id/metadata) untuk melihat cara bekerja dengan properti dokumen melalui API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/id/metadata)
+[![Lihat & Edit Metadata PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/id/metadata)
 
 ## **FAQ**
 
-**Bagaimana cara menghapus properti bawaan dari presentasi?**
+**Bagaimana cara menghapus properti built-in dari sebuah presentasi?**
 
-Properti bawaan merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika properti tersebut mengizinkan.
+Properti built-in merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika properti tersebut memperbolehkan.
 
 **Apa yang terjadi jika saya menambahkan properti kustom yang sudah ada?**
 
-Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut terlebih dahulu, karena Aspose.Slides secara otomatis memperbarui nilai properti.
+Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut sebelumnya, karena Aspose.Slides secara otomatis memperbarui nilai properti.
 
 **Apakah saya dapat mengakses properti presentasi tanpa memuat seluruh presentasi?**
 
-Ya. Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) kemudian [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) untuk membaca metadata dokumen yang tersimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Lihat [Build a Lightweight Presentation Inventory](/slides/id/androidjava/examine-presentation/) untuk contoh pelaporan lengkap dan batasan spesifik format.
+Ya. Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) dan kemudian [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation]. Lihat [Build a Lightweight Presentation Inventory](/slides/id/androidjava/examine-presentation/) untuk contoh pelaporan lengkap dan keterbatasan spesifik format.
+
+**Bisakah saya membaca properti publik dari presentasi yang terenkripsi tanpa kata sandi pembukanya?**
+
+Ya. Enkripsi properti dokumen harus dinonaktifkan sebelum presentasi dienkripsi, dan presentasi harus dimuat dalam mode hanya-properti-dokumen.
+
+**Apakah saya dapat memperbarui file PPTX yang terenkripsi dalam mode hanya-properti-dokumen?**
+
+Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX yang terenkripsi memerlukan pemuatan seluruh presentasi dengan kata sandi pembuka yang benar.

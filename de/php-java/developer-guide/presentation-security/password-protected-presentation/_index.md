@@ -5,13 +5,13 @@ type: docs
 weight: 20
 url: /de/php-java/password-protected-presentation/
 keywords:
-- passwortgeschützte Präsentation
-- Öffnungskennwort
+- Passwortgeschützte Präsentation
+- Öffnungspasswort
 - PowerPoint verschlüsseln
 - PowerPoint entschlüsseln
-- Präsentationskennwort validieren
-- Präsentationskennwort prüfen
-- verschlüsselte Präsentation öffnen
+- Präsentationspasswort validieren
+- Präsentationspasswort prüfen
+- Verschlüsselte Präsentation öffnen
 - Verschlüsselung entfernen
 - PowerPoint
 - PPT
@@ -23,15 +23,15 @@ description: "Verschlüsseln, erkennen, validieren, öffnen und entschlüsseln v
 ---
 ## **Übersicht**
 
-Ein Öffnungskennwort verschlüsselt eine Präsentation. Das korrekte Kennwort ist erforderlich, um den Präsentationsinhalt zu laden und anzuzeigen, sodass dieser Schutz Vertraulichkeit gewährleistet.
+Ein Öffnungspasswort verschlüsselt eine Präsentation. Das korrekte Passwort ist erforderlich, um den Präsentationsinhalt zu laden und anzuzeigen, sodass dieser Schutz Vertraulichkeit gewährleistet.
 
-Ein Öffnungskennwort unterscheidet sich von einem Schreibschutzkennwort. Der Schreibschutz schränkt Änderungen ein, verschlüsselt jedoch den Inhalt nicht und verhindert nicht das Laden der Präsentation. Um Kennwörter für die Änderung von Präsentationen zu verwalten, siehe [Präsentationen schreibschützen](/slides/de/php-java/write-protected-presentation/).
+Ein Öffnungspasswort unterscheidet sich von einem Schreibschutz-Passwort. Der Schreibschutz beschränkt Änderungen, verschlüsselt jedoch nicht den Inhalt und verhindert nicht das Laden der Präsentation. Um Passwörter für das Ändern von Präsentationen zu verwalten, siehe [Präsentationen schreibschützen](/slides/de/php-java/write-protected-presentation/).
 
-Die nachstehenden Workflows gelten für sowohl PPT- als auch PPTX-Präsentationen. Die Beispiele verwenden beide Formate, wenn deren Datei- bzw. Stream-basierte Verhalten wichtig ist.
+Die unten stehenden Workflows gelten sowohl für PPT- als auch für PPTX-Präsentationen. Die Beispiele verwenden beide Formate, wenn ihr dateibasiertes bzw. streambasiertes Verhalten wichtig ist.
 
-## **Verschlüsseln einer Präsentation mit einem Öffnungskennwort**
+## **Verschlüsseln einer Präsentation mit einem Öffnungspasswort**
 
-Verwenden Sie [ProtectionManager::encrypt](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#encrypt), um ein Öffnungskennwort zuzuweisen. Verwenden Sie anschließend [Presentation::save](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#save), um die verschlüsselte Präsentation zu speichern.
+Verwenden Sie [ProtectionManager::encrypt](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#encrypt), um ein Öffnungspasswort zuzuweisen. Anschließend verwenden Sie [Presentation::save](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#save), um die verschlüsselte Präsentation zu speichern.
 
 Das folgende Beispiel verschlüsselt eine PPTX‑Präsentation:
 
@@ -48,9 +48,37 @@ try {
 }
 ```
 
+## **Dokumenteigenschaften öffentlich halten**
+
+Standardmäßig schließt Aspose.Slides Dokumenteigenschaften in die Präsentationsverschlüsselung ein. Die Methode [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) steuert dieses Verhalten unabhängig von der Verschlüsselung des Folieninhalts. Übergeben Sie `false` vor dem Aufruf von [ProtectionManager::encrypt](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#encrypt), wenn ein Indexierungs-, Klassifizierungs-, Such- oder Dokumenten‑Management‑System Metadaten ohne das Öffnungspasswort lesen muss.
+
+Das folgende Beispiel erstellt eine verschlüsselte PPTX‑Präsentation, lässt jedoch deren integrierte Dokumenteigenschaften öffentlich:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $properties = $presentation->getDocumentProperties();
+    $properties->setAuthor("Contoso Knowledge Management");
+    $properties->setTitle("Quarterly Product Roadmap");
+    $properties->setKeywords("roadmap, planning, internal");
+
+    $presentation->getSlides()->get_Item(0)->setName("Encrypted presentation content");
+    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("public-properties-encrypted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+`false` an [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) zu übergeben, macht Folien, Masterfolien, Layouts, Formen, Medien oder andere Präsentationsinhalte nicht öffentlich. Es betrifft ausschließlich Dokumenteigenschaften. Um diese Eigenschaften ohne Laden des verschlüsselten Inhalts zu lesen, siehe [Manage Presentation Properties](/slides/de/php-java/presentation-properties/).
+
 ## **Laden einer verschlüsselten Präsentation**
 
-Setzen Sie [LoadOptions::setPassword](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/#setPassword) auf das Öffnungskennwort und übergeben Sie die Optionen an [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/), wenn Sie die Datei laden. Das Laden schlägt fehl, wenn ein Öffnungskennwort erforderlich ist, das übermittelte Kennwort jedoch fehlt oder falsch ist.
+Setzen Sie [LoadOptions::setPassword](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/#setPassword) auf das Öffnungspasswort und übergeben Sie die Optionen beim Laden der Datei an [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/). Das Laden schlägt fehl, wenn ein Öffnungspasswort erforderlich ist, das bereitgestellte Passwort jedoch fehlt oder falsch ist.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -67,9 +95,9 @@ try {
 }
 ```
 
-## **Entfernen der Verschlüsselung aus einer Präsentation**
+## **Verschlüsselung einer Präsentation entfernen**
 
-Laden Sie die Präsentation mit ihrem Öffnungskennwort, rufen Sie [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#removeEncryption) auf und speichern Sie das Ergebnis. Die gespeicherte Präsentation kann anschließend ohne Kennwort geladen werden.
+Laden Sie die Präsentation mit ihrem Öffnungspasswort, rufen Sie [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#removeEncryption) auf und speichern Sie das Ergebnis. Die gespeicherte Präsentation kann anschließend ohne Passwort geladen werden.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -88,13 +116,13 @@ try {
 }
 ```
 
-## **Validieren eines Öffnungskennworts vor dem Laden**
+## **Öffnungspasswort vor dem Laden validieren**
 
-Verwenden Sie [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationfactory/#getPresentationInfo), um [PresentationInfo](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/) zu erhalten, ohne eine vollständige Präsentationsinstanz zu erstellen. Prüfen Sie [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/#isPasswordProtected), bevor Sie ein Kennwort anfordern oder validieren. Ist ein Schutz vorhanden, validieren Sie den übermittelten Wert mit [PresentationInfo::checkPassword](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/#checkPassword).
+Verwenden Sie [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationfactory/#getPresentationInfo), um [PresentationInfo](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/) zu erhalten, ohne eine vollständige Präsentationsinstanz zu erstellen. Prüfen Sie [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/#isPasswordProtected), bevor Sie ein Passwort anfordern oder validieren. Ist ein Schutz vorhanden, validieren Sie den angegebenen Wert mit [PresentationInfo::checkPassword](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/#checkPassword).
 
 ### **Dateipfad-Workflow**
 
-Das folgende Beispiel validiert ein Öffnungskennwort für eine PPTX-Datei, übergibt den validierten Wert an [LoadOptions::setPassword](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/#setPassword) und lädt anschließend die vollständige Präsentation:
+Das folgende Beispiel validiert ein Öffnungspasswort für eine PPTX‑Datei, übergibt den validierten Wert an [LoadOptions::setPassword](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/#setPassword) und lädt anschließend die vollständige Präsentation:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -124,7 +152,7 @@ if (!$presentationInfo->isPasswordProtected()) {
 
 ### **Stream-Workflow**
 
-Die Stream-Überladung von [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationfactory/#getPresentationInfo) bietet denselben Workflow. Setzen Sie die Position eines durchsuchbaren Streams zurück, bevor Sie die vollständige Präsentation aus diesem Stream laden.
+Die Stream-Überladung von [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationfactory/#getPresentationInfo) bietet denselben Workflow. Setzen Sie die Position eines seekfähigen Streams zurück, bevor Sie die vollständige Präsentation aus diesem Stream laden.
 
 Das folgende Beispiel verwendet eine PPT‑Datei:
 
@@ -163,17 +191,17 @@ try {
 
 ### **Rückgabewerte von checkPassword**
 
-[PresentationInfo::checkPassword](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/#checkPassword) gibt `true` nur zurück, wenn die Präsentation ein Öffnungskennwort hat und das übermittelte Kennwort korrekt ist. Es gibt `false` in jedem dieser Fälle zurück:
+[PresentationInfo::checkPassword](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/#checkPassword) gibt nur dann `true` zurück, wenn die Präsentation ein Öffnungspasswort hat und das übergebene Passwort korrekt ist. Es gibt `false` in den folgenden Fällen zurück:
 
-- Das Kennwort ist falsch.
-- Die Präsentation hat kein Öffnungskennwort.
-- Das übermittelte Kennwort ist `null` oder leer.
+- Das Passwort ist falsch.
+- Die Präsentation hat kein Öffnungspasswort.
+- Das übergebene Passwort ist `null` oder leer.
 
-Das Verhalten ist für PPT‑ und PPTX‑Präsentationen gleich.
+Das Verhalten ist für PPT‑ und PPTX‑Präsentationen identisch.
 
-## **Überprüfen, ob eine geladene Präsentation verschlüsselt ist**
+## **Prüfen, ob eine geladene Präsentation verschlüsselt ist**
 
-Nachdem Sie eine Präsentation mit dem richtigen Kennwort geladen haben, prüfen Sie [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#isEncrypted), um zu bestätigen, dass die Quellpräsentation verschlüsselt war. Um den Öffnungskennwortschutz vor dem Laden zu erkennen, verwenden Sie [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/#isPasswordProtected) wie oben gezeigt.
+Nachdem Sie eine Präsentation mit dem korrekten Passwort geladen haben, prüfen Sie [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/de/php-java/aspose.slides/protectionmanager/#isEncrypted), um zu bestätigen, dass die Quellpräsentation verschlüsselt war. Um den Schutz durch Öffnungspasswort vor dem Laden zu erkennen, verwenden Sie [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentationinfo/#isPasswordProtected), wie oben gezeigt.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -191,17 +219,20 @@ try {
 }
 ```
 
-## **Sicherheits-Empfehlungen**
+## **Sicherheits‑Empfehlungen**
+
 {{% alert color="warning" title="Security" %}}
-Protokollieren Sie keine Öffnungskennwörter und geben Sie sie nicht in Diagnosemeldungen aus. Vermeiden Sie unnötige wiederholte Validierungsversuche, halten Sie Kennwörter nur so lange im Speicher, wie sie benötigt werden, und verwenden Sie ein erfolgreiches Validierungsergebnis erneut, wenn die Präsentation sofort geladen wird.
+Protokollieren Sie Öffnungspasswörter nicht und fügen Sie sie nicht in Diagnosemeldungen ein. Vermeiden Sie unnötige wiederholte Validierungsversuche, halten Sie Passwörter nur so lange wie nötig im Speicher und verwenden Sie ein erfolgreiches Validierungsergebnis erneut, wenn Sie die Präsentation sofort laden.
+
+Öffentliche Dokumenteigenschaften können Autorennamen, Titel, Betreff, Schlüsselwörter, Firmeninformationen, Kommentare und benutzerdefinierte Werte preisgeben, obwohl der Präsentationsinhalt verschlüsselt ist. Verschlüsseln Sie sensible Metadaten zusammen mit der Präsentation. Das Offenlassen von Eigenschaften sollte nur dann bewusst entschieden werden, wenn Systeme die Datei ohne Öffnungspasswort indexieren, klassifizieren, durchsuchen oder verwalten müssen.
 {{% /alert %}}
 
 ## **Präsentation online passwortschützen**
 
 1. Öffnen Sie die Anwendung [Aspose.Slides Lock](https://products.aspose.app/slides/de/lock).
 1. Wählen Sie die Präsentation aus oder laden Sie sie hoch.
-1. Geben Sie ein Kennwort für den Ansichtsschutz ein.
-1. Optional geben Sie ein separates Kennwort für den Bearbeitungsschutz ein.
+1. Geben Sie ein Passwort für den Sichtschutz ein.
+1. Optional können Sie ein separates Passwort für den Bearbeitungsschutz eingeben.
 1. Wenden Sie den Schutz an und laden Sie die resultierende Datei herunter.
 
 {{% alert color="info" title="See also" %}}
@@ -211,14 +242,18 @@ Protokollieren Sie keine Öffnungskennwörter und geben Sie sie nicht in Diagnos
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen einem Öffnungskennwort und einem Schreibschutzkennwort?**
+**Was ist der Unterschied zwischen einem Öffnungspasswort und einem Schreibschutz-Passwort?**
 
-Ein Öffnungskennwort verschlüsselt die Präsentation und ist zum Laden ihres Inhalts erforderlich. Ein Schreibschutzkennwort schränkt die Bearbeitung ein, ohne den Inhalt zu verschlüsseln.
+Ein Öffnungspasswort verschlüsselt die Präsentation und ist zum Laden des Inhalts erforderlich. Ein Schreibschutz-Passwort beschränkt Änderungen, ohne den Inhalt zu verschlüsseln.
 
-**Kann ich ein Öffnungskennwort validieren, ohne alle Folien zu laden?**
+**Kann ich ein Öffnungspasswort validieren, ohne alle Folien zu laden?**
 
-Ja. Holen Sie die Präsentationsinformationen, prüfen Sie, ob ein Öffnungskennwortschutz vorhanden ist, und validieren Sie das Kennwort, bevor Sie eine vollständige Präsentationsinstanz erstellen.
+Ja. Holen Sie Präsentationsinformationen ab, prüfen Sie, ob ein Öffnungspasswortschutz vorhanden ist, und validieren Sie das Passwort, bevor Sie eine vollständige Präsentationsinstanz erstellen.
 
-**Unterstützen die Kennwort‑Prüf‑Workflows sowohl PPT als auch PPTX?**
+**Kann eine Anwendung Metadaten ohne das Öffnungspasswort lesen?**
 
-Ja. Die kennwortbasierte Erkennung und Validierung über Dateipfad und Stream verhalten sich bei PPT‑ und PPTX‑Präsentationen gleich.
+Ja, jedoch nur, wenn die Präsentation mit deaktivierter Dokumenteneigenschaftsverschlüsselung verschlüsselt wurde. Die Anwendung muss dann den ausschließlich für Dokumenteigenschaften vorgesehenen Lademodus verwenden, wie in [Manage Presentation Properties](/slides/de/php-java/presentation-properties/) beschrieben.
+
+**Unterstützen die Passwort‑Prüf‑Workflows sowohl PPT als auch PPTX?**
+
+Ja. Die dateipfad- und streambasierten Passwort‑Erkennungs‑ und Validierungs‑Workflows verhalten sich bei PPT‑ und PPTX‑Präsentationen identisch.

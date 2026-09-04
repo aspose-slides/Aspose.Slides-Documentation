@@ -1,18 +1,18 @@
 ---
-title: Presentazioni protette da password in JavaScript
-linktitle: Protezione con password
+title: Proteggi con password le presentazioni in JavaScript
+linktitle: Protezione password
 type: docs
 weight: 20
 url: /it/nodejs-java/password-protected-presentation/
 keywords:
 - presentazione protetta da password
 - password di apertura
-- cifratura PowerPoint
-- decifratura PowerPoint
-- convalida password della presentazione
-- verifica password della presentazione
-- apri presentazione crittografata
-- rimuovi crittografia
+- crittografare PowerPoint
+- decrittografare PowerPoint
+- convalidare password presentazione
+- verificare password presentazione
+- aprire presentazione crittata
+- rimuovere crittografia
 - PowerPoint
 - PPT
 - PPTX
@@ -20,19 +20,19 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Cifra, rileva, convalida, apre e decifra presentazioni PowerPoint PPT e PPTX protette da password in JavaScript con Aspose.Slides."
+description: "Crittografa, rileva, valida, apri e decrittografa presentazioni PowerPoint PPT e PPTX protette da password in JavaScript con Aspose.Slides."
 ---
 ## **Panoramica**
 
 Una password di apertura crittografa una presentazione. La password corretta è necessaria per caricare e visualizzare il contenuto della presentazione, quindi questa protezione fornisce riservatezza.
 
-Una password di apertura è diversa da una password di protezione dalla scrittura. La protezione dalla scrittura limita le modifiche ma non crittografa il contenuto né impedisce il caricamento della presentazione. Per gestire le password per modificare le presentazioni, vedere [Write-Protect Presentations](/slides/it/nodejs-java/write-protected-presentation/).
+Una password di apertura è diversa da una password di protezione della scrittura. La protezione della scrittura limita la modifica ma non crittografa il contenuto né impedisce il caricamento della presentazione. Per gestire le password per la modifica delle presentazioni, vedere [Write-Protect Presentations](/slides/it/nodejs-java/write-protected-presentation/).
 
-I flussi di lavoro seguenti si applicano sia alle presentazioni PPT che PPTX. Gli esempi utilizzano entrambi i formati quando il loro comportamento basato su file e su stream è importante.
+I flussi di lavoro di seguito si applicano sia alle presentazioni PPT che PPTX. Gli esempi utilizzano entrambi i formati quando il loro comportamento basato su file o su stream è importante.
 
-## **Crittografa una presentazione con una password di apertura**
+## **Crittare una presentazione con una password di apertura**
 
-Usa [ProtectionManager.encrypt](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#encrypt) per assegnare una password di apertura. Quindi usa [Presentation.save](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#save) per salvare la presentazione crittografata.
+Utilizzare [ProtectionManager.encrypt](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#encrypt) per assegnare una password di apertura. Quindi utilizzare [Presentation.save](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#save) per salvare la presentazione crittata.
 
 Il seguente esempio crittografa una presentazione PPTX:
 
@@ -48,9 +48,36 @@ try {
 }
 ```
 
-## **Carica una presentazione crittografata**
+## **Mantenere le proprietà del documento pubbliche**
 
-Imposta [LoadOptions.setPassword](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setPassword) alla password di apertura e passa le opzioni a [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) quando carichi il file. Il caricamento fallisce quando è richiesta una password di apertura ma la password fornita è mancante o errata.
+Per impostazione predefinita, Aspose.Slides include le proprietà del documento nella crittografia della presentazione. Il metodo [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) controlla questo comportamento in modo indipendente dalla crittografia del contenuto delle diapositive. Passare `false` prima di chiamare [ProtectionManager.encrypt](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#encrypt) quando un sistema di indicizzazione, classificazione, ricerca o gestione dei documenti deve leggere i metadati senza la password di apertura.
+
+Il seguente esempio crea una presentazione PPTX crittata lasciando pubbliche le sue proprietà di documento incorporate:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const properties = presentation.getDocumentProperties();
+    properties.setAuthor("Contoso Knowledge Management");
+    properties.setTitle("Quarterly Product Roadmap");
+    properties.setKeywords("roadmap, planning, internal");
+
+    presentation.getSlides().get_Item(0).setName("Encrypted presentation content");
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("public-properties-encrypted.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Passare `false` a [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) non rende pubbliche le diapositive, i master, i layout, le forme, i media o altri contenuti della presentazione. Influisce solo sulle proprietà del documento. Per leggere tali proprietà senza caricare il contenuto crittato, vedere [Manage Presentation Properties](/slides/it/nodejs-java/presentation-properties/).
+
+## **Caricare una presentazione crittata**
+
+Impostare [LoadOptions.setPassword](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setPassword) sulla password di apertura e passare le opzioni a [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) durante il caricamento del file. Il caricamento fallisce quando è richiesta una password di apertura ma la password fornita è mancante o errata.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -66,9 +93,9 @@ try {
 }
 ```
 
-## **Rimuovi la crittografia da una presentazione**
+## **Rimuovere la crittografia da una presentazione**
 
-Carica la presentazione con la sua password di apertura, chiama [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) e salva il risultato. La presentazione salvata può quindi essere caricata senza password.
+Caricare la presentazione con la sua password di apertura, chiamare [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) e salvare il risultato. La presentazione salvata può quindi essere caricata senza password.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -85,11 +112,11 @@ try {
 }
 ```
 
-## **Convalida una password di apertura prima del caricamento**
+## **Convalidare una password di apertura prima del caricamento**
 
-Usa [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) per ottenere [PresentationInfo](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/) senza creare un'istanza completa della presentazione. Controlla [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) prima di richiedere o convalidare una password. Quando la protezione è presente, convalida il valore fornito con [PresentationInfo.checkPassword](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/#checkPassword).
+Utilizzare [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) per ottenere [PresentationInfo](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/) senza creare un'istanza completa della presentazione. Verificare [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) prima di richiedere o convalidare una password. Quando è presente la protezione, convalidare il valore fornito con [PresentationInfo.checkPassword](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/#checkPassword).
 
-### **Flusso di lavoro percorso file**
+### **Flusso di lavoro per percorso file**
 
 Il seguente esempio convalida una password di apertura per un file PPTX, passa il valore convalidato a [LoadOptions.setPassword](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/loadoptions/#setPassword) e quindi carica la presentazione completa:
 
@@ -117,9 +144,9 @@ if (!presentationInfo.isPasswordProtected()) {
 }
 ```
 
-### **Flusso di lavoro stream**
+### **Flusso di lavoro basato su stream**
 
-Usa [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) per ispezionare uno stream leggibile di Node.js. Dopo che lo stream di ispezione è stato consumato, crea un nuovo stream prima di caricare la presentazione completa con [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#createPresentationFromStream).
+Utilizzare [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) per ispezionare uno stream leggibile Node.js. Dopo che lo stream di ispezione è stato consumato, creare un nuovo stream prima di caricare la presentazione completa con [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/#createPresentationFromStream).
 
 Il seguente esempio utilizza un file PPT:
 
@@ -159,7 +186,7 @@ slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, in
 });
 ```
 
-### **Valori di ritorno di checkPassword**
+### **Valori restituiti da checkPassword**
 
 [PresentationInfo.checkPassword](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/#checkPassword) restituisce `true` solo quando la presentazione ha una password di apertura e la password fornita è corretta. Restituisce `false` in ciascuno di questi casi:
 
@@ -169,9 +196,9 @@ slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, in
 
 Il comportamento è lo stesso per le presentazioni PPT e PPTX.
 
-## **Verifica se una presentazione caricata è crittografata**
+## **Verificare se una presentazione caricata è crittata**
 
-Dopo aver caricato una presentazione con la password corretta, ispeziona [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) per confermare che la presentazione di origine era crittografata. Per rilevare la protezione con password di apertura prima del caricamento, usa [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) come mostrato sopra.
+Dopo aver caricato una presentazione con la password corretta, ispezionare [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) per confermare che la presentazione di origine fosse crittata. Per rilevare la protezione con password di apertura prima del caricamento, utilizzare [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) come mostrato sopra.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -190,33 +217,39 @@ try {
 
 ## **Raccomandazioni di sicurezza**
 
-{{% alert color="warning" title="Security" %}}
-Do not log opening passwords or include them in diagnostic messages. Avoid unnecessary repeated validation attempts, keep passwords in memory only as long as needed, and reuse a successful validation result when immediately loading the presentation.
+{{% alert color="warning" title="Sicurezza" %}}
+Non registrare le password di apertura né includerle nei messaggi diagnostici. Evitare tentativi di convalida ripetuti non necessari, conservare le password in memoria solo per il tempo necessario e riutilizzare un risultato di convalida riuscito quando si carica immediatamente la presentazione.
+
+Le proprietà pubbliche del documento possono rivelare nomi degli autori, titoli, soggetti, parole chiave, informazioni aziendali, commenti e valori personalizzati anche se il contenuto della presentazione è crittato. Crittografare i metadati sensibili insieme alla presentazione. Lasciare le proprietà pubbliche dovrebbe essere una decisione esplicita presa solo quando i sistemi devono indicizzare, classificare, cercare o gestire il file senza una password di apertura.
 {{% /alert %}}
 
-## **Proteggi con password una presentazione online**
+## **Proteggere con password una presentazione online**
 
-1. Apri l'applicazione [Aspose.Slides Lock](https://products.aspose.app/slides/it/lock).
-1. Seleziona o carica la presentazione.
-1. Inserisci una password per la protezione della visualizzazione.
-1. Facoltativamente inserisci una password separata per la protezione della modifica.
-1. Applica la protezione e scarica il file risultante.
+1. Aprire l'applicazione [Aspose.Slides Lock](https://products.aspose.app/slides/it/lock).
+2. Selezionare o caricare la presentazione.
+3. Inserire una password per la protezione della visualizzazione.
+4. Facoltativamente inserire una password separata per la protezione della modifica.
+5. Applicare la protezione e scaricare il file risultante.
 
-{{% alert color="info" title="See also" %}}
-- [Write-Protect Presentations](/slides/it/nodejs-java/write-protected-presentation/)
-- [Digital Signature in PowerPoint](/slides/it/nodejs-java/digital-signature-in-powerpoint/)
+{{% alert color="info" title="Vedi anche" %}}
+- [Protezione in scrittura delle presentazioni](/slides/it/nodejs-java/write-protected-presentation/)
+- [Firma digitale in PowerPoint](/slides/it/nodejs-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **FAQ**
 
-**Qual è la differenza tra una password di apertura e una password di protezione dalla scrittura?**
+**Qual è la differenza tra una password di apertura e una password di protezione della scrittura?**
 
-Una password di apertura crittografa la presentazione ed è necessaria per caricarne il contenuto. Una password di protezione dalla scrittura limita le modifiche senza crittografare il contenuto.
+Una password di apertura crittografa la presentazione ed è necessaria per caricare il suo contenuto. Una password di protezione della scrittura limita la modifica senza crittografare il contenuto.
 
 **Posso convalidare una password di apertura senza caricare tutte le diapositive?**
 
-Sì. Ottieni le informazioni della presentazione, verifica se è presente la protezione con password di apertura e convalida la password prima di creare un'istanza completa della presentazione.
+Sì. Ottenere le informazioni della presentazione, verificare se è presente la protezione con password di apertura e convalidare la password prima di creare un'istanza completa della presentazione.
 
-**I flussi di lavoro di verifica della password supportano sia PPT che PPTX?**
+**Un'applicazione può leggere i metadati senza la password di apertura?**
 
-Sì. Il rilevamento e la convalida della password basati su percorso file e stream si comportano allo stesso modo per le presentazioni PPT e PPTX.
+Sì, ma solo quando la presentazione è stata crittata con la crittografia delle proprietà del documento disabilitata. L'applicazione deve quindi utilizzare la modalità di caricamento solo delle proprietà del documento descritta in [Manage Presentation Properties](/slides/it/nodejs-java/presentation-properties/).
+
+**I flussi di lavoro per il controllo della password supportano sia PPT che PPTX?**
+
+Sì. Il rilevamento e la convalida della password basati su percorso file e su stream si comportano allo stesso modo per le presentazioni PPT e PPTX.

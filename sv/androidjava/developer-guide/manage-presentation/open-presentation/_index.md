@@ -6,7 +6,6 @@ weight: 20
 url: /sv/androidjava/open-presentation/
 keywords:
 - öppna PowerPoint
-- öppna OpenDocument
 - öppna presentation
 - öppna PPTX
 - öppna PPT
@@ -22,24 +21,26 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Öppna PowerPoint (.pptx, .ppt) och OpenDocument (.odp) presentationer enkelt med Aspose.Slides för Android via Java — snabbt, pålitligt, fullt utrustat."
+description: "Lär dig hur du öppnar PowerPoint- och OpenDocument-presentationer på Android, anger öppningslösenord, styr resurshämtning och minskar minnesanvändningen med Aspose.Slides för Android via Java."
 ---
 ## **Introduktion**
 
-Förutom att skapa PowerPoint-presentationer från grunden låter Aspose.Slides dig också öppna befintliga presentationer. Efter att ha laddat en presentation kan du hämta information om den, redigera bildinnehåll, lägga till nya bilder, ta bort befintliga och mer.
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/sv/androidjava/) kan läsa in PowerPoint‑ och OpenDocument‑presentationer från filer och strömmar. Efter att en presentation har lästs in kan du inspektera dess struktur, redigera bilder, hantera resurser och spara den i det ursprungliga eller ett annat stödformat.
+
+Inläsningsbeteendet kan anpassas via klassen [LoadOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/). Till exempel kan du ange ett öppningslösenord, hålla stora binära objekt utanför Java‑heap‑minnet, styra externa resurser eller utelämna inbäddade binära data.
 
 ## **Öppna presentationer**
 
-För att öppna en befintlig presentation, skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) och skicka filens sökväg till dess konstruktor.
+För att öppna en befintlig presentation, skicka dess filsökväg till [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)-konstruktorn. Disposera presentationen efter användning så att filhandtag, temporära data och andra resurser släpps omedelbart.
 
 Följande Java‑exempel visar hur du öppnar en presentation och får antalet bilder:
 
 ```java
-// Skapa en instans av Presentation-klassen och skicka en filsökväg till dess konstruktor.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Skriv ut det totala antalet bilder i presentationen.
-    System.out.println(presentation.getSlides().size());
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
@@ -47,115 +48,128 @@ try {
 
 ## **Öppna lösenordsskyddade presentationer**
 
-När du behöver öppna en lösenordsskyddad presentation, skicka lösenordet via metoden [setPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) i klassen [LoadOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/) för att dekryptera och ladda den. Följande Java‑kod demonstrerar denna operation:
+Ett öppningslösenord krypterar presentationsinnehållet. För att läsa in hela presentationen, skicka det korrekta lösenordet till [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) och ge alternativen till [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)-konstruktorn. Inläsning misslyckas om lösenordet saknas eller är felaktigt.
 
 ```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // Utför operationer på den dekrypterade presentationen.
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
+
+För lösenordsdetektering, validering och krypteringsarbetsflöden, se [Password-Protect Presentations](/slides/sv/androidjava/password-protected-presentation/). Om en krypterad presentation medvetet sparats med offentliga dokumentegenskaper, kan dessa egenskaper läsas utan lösenord; se [Manage Presentation Properties](/slides/sv/androidjava/presentation-properties/).
 
 ## **Öppna stora presentationer**
 
-Aspose.Slides erbjuder alternativ—speciellt metoden [getBlobManagementOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) i klassen [LoadOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/)—för att hjälpa dig att ladda stora presentationer.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) returnerar alternativ som styr hur Aspose.Slides hanterar binära stora objekt såsom bilder, ljud och video. Du kan hålla källfilen låst, tillåta tillfälliga filer och begränsa mängden BLOB‑data som behålls i minnet.
 
-Följande Java‑kod demonstrerar hur man laddar en stor presentation (till exempel 2 GB):
+Följande Java‑kod demonstrerar inläsning av en stor presentation (t.ex. 2 GB):
 
 ```java
-final String filePath = "LargePresentation.pptx";
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationLockingBehavior;
+import com.aspose.slides.SaveFormat;
+
+final String filePath = "large-presentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// Välj KeepLocked-beteendet—presentationsfilen kommer att förbli låst under
-// Presentation‑instansen, men den behöver inte laddas in i minnet eller kopieras till en temporär fil.
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 Presentation presentation = new Presentation(filePath, loadOptions);
 try {
-    // Den stora presentationen har laddats och kan användas, medan minnesförbrukningen förblir låg.
-
-    // Gör ändringar i presentationen.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // Spara presentationen till en annan fil. Minnesförbrukningen förblir låg under denna operation.
-    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // Gör inte så här! Ett I/O‑undantag kommer att kastas eftersom filen är låst tills presentationsobjektet har frigjorts.
-    //Files.delete(Paths.get(filePath));
+    presentation.save("large-presentation-copy.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// Det är okej att göra det här. Källfilen är inte längre låst av presentationsobjektet.
-Files.delete(Paths.get(filePath));
 ```
 
-{{% alert color="info" title="Info" %}}
-För att kringgå vissa begränsningar när man arbetar med strömmar kan Aspose.Slides kopiera en ströms innehåll. Att ladda en stor presentation från en ström orsakar att presentationen kopieras och kan göra laddningen långsammare. Därför rekommenderar vi starkt att använda presentationsfilens sökväg istället för en ström när du behöver ladda en stor presentation.
+{{% alert color="info" title="Obs" %}}
+Med [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentationlockingbehavior/#KeepLocked) förblir källfilen låst tills presentations‑instansen disponeras. Flytta, skriv över eller radera inte källfilen medan den instansen är levande.
 
-När du skapar en presentation som innehåller stora objekt (video, ljud, högupplösta bilder etc.) kan du använda [BLOB management](/slides/sv/androidjava/manage-blob/) för att minska minnesförbrukningen.
-{{%/alert %}}
+Aspose.Slides kan kopiera innehållet i en inmatningsström under inläsning. För stora presentationer är en filsökväg därför vanligtvis mer effektiv än en ström. Se [Manage BLOBs](/slides/sv/androidjava/manage-blob/) för ytterligare lagrings‑ och minneshanteringsalternativ.
+{{% /alert %}}
 
-## **Hantera externa resurser**
+## **Styr externa resurser**
 
-Aspose.Slides tillhandahåller gränssnittet [IResourceLoadingCallback](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iresourceloadingcallback/) som låter dig hantera externa resurser. Följande Java‑kod visar hur du använder gränssnittet `IResourceLoadingCallback`:
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) accepterar en [IResourceLoadingCallback](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iresourceloadingcallback/)-implementation. Återanropet kan tillhandahålla ersättningsdata, omdirigera en resurs, använda standardläsaren eller hoppa över resursen. Detta är användbart när presentationer innehåller externa bilder som måste lösas enligt applikationsspecifika säkerhets‑ eller lagringsregler.
 
 ```java
+import com.aspose.slides.IResourceLoadingArgs;
+import com.aspose.slides.IResourceLoadingCallback;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.ResourceLoadingAction;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        boolean isJpeg = args.getOriginalUri().toLowerCase(Locale.ROOT).endsWith(".jpg");
+        Path approvedImagePath = Paths.get("approved-image.jpg");
+        if (!isJpeg || !Files.exists(approvedImagePath)) {
+            return ResourceLoadingAction.Skip;
+        }
+
+        try {
+            byte[] imageData = Files.readAllBytes(approvedImagePath);
+            args.setData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        } catch (IOException exception) {
+            System.err.println("The approved replacement image could not be read.");
+            return ResourceLoadingAction.Skip;
+        }
+    }
+}
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
-```java
-class ImageLoadingHandler implements IResourceLoadingCallback {
-    public int resourceLoading(IResourceLoadingArgs args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Läs in en ersättningsbild.
-                byte[] imageData = getImageBytes("aspose-logo.jpg"); // Använd vilken metod som helst för att hämta byte
-                args.setData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            } catch (RuntimeException ex) {
-                return ResourceLoadingAction.Skip;
-            }  catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Ange en ersättnings‑URL.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction.Default;
-        }
-        // Hoppa över alla andra bilder.
-        return ResourceLoadingAction.Skip;
-    }
+Presentation presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    System.out.println("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Ladda presentationer utan inbäddade binära objekt**
+## **Läs in presentationer utan inbäddade binära objekt**
 
-En PowerPoint-presentation kan innehålla följande typer av inbäddade binära objekt:
-- VBA‑projekt (tillgängligt via [IPresentation.getVbaProject](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentation/#getVbaProject--));
-- Inbäddad data för OLE‑objekt (tillgängligt via [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- Binär data för ActiveX‑kontroll (tillgängligt via [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
+En presentation kan innehålla inbäddade binära data som en applikation inte behöver eller vill behålla. Exempel inkluderar:
 
-Genom att använda metoden [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) kan du ladda en presentation utan några inbäddade binära objekt.
+- VBA‑projekt, tillgängliga via [IPresentation.getVbaProject](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentation/#getVbaProject--);
+- inbäddad OLE‑data, tillgänglig via [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- ActiveX‑kontrolldata, tillgänglig via [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Denna metod är användbar för att ta bort potentiellt skadligt binärt innehåll. Följande Java‑kod demonstrerar hur du laddar en presentation utan någon inbäddad binär data:
+Ange [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) till `true` för att ta bort dessa binära data vid inläsning. Spara den inlästa presentationen för att behålla det sanerade resultatet.
+
+Detta alternativ minskar exponeringen för oönskade inbäddade payloads, men det är inte ett komplett malware‑detekterings‑ eller innehålls‑saniteringssystem.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation presentation = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // Utför operationer på presentationen.
+    presentation.save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -163,14 +177,14 @@ try {
 
 ## **FAQ**
 
-**Hur kan jag avgöra att en fil är korrupt och inte kan öppnas?**
+**Hur kan jag avgöra att en fil är skadad och inte kan öppnas?**
 
-Du får ett parsning-/formatvalideringsundantag vid inläsning. Sådana fel nämner ofta en ogiltig ZIP‑struktur eller trasiga PowerPoint‑poster.
+Aspose.Slides kastar ett parsings‑ eller formatfel under inläsning. Hantera detta fel separat från ett felaktigt lösenord så att applikationen kan rapportera orsaken korrekt.
 
-**Vad händer om nödvändiga teckensnitt saknas vid öppning?**
+**Vad händer om nödvändiga teckensnitt saknas?**
 
-Filen öppnas, men senare [rendering/export](/slides/sv/androidjava/convert-presentation/) kan ersätta teckensnitt. [Configure font substitutions](/slides/sv/androidjava/font-substitution/) eller [add the required fonts](/slides/sv/androidjava/custom-font/) till körmiljön.
+Presentationen kan fortfarande läsas in, men rendering och export kan ersätta teckensnitt. Du kan konfigurera teckensnittsersättning eller tillhandahålla anpassade teckensnitt för att göra utskriften mer förutsägbar.
 
-**Vad händer med inbäddade media (video/ljud) vid öppning?**
+**Laddar inläsning av en presentation även dess inbäddade media?**
 
-De blir tillgängliga som presentationsresurser. Om media refereras via externa sökvägar, säkerställ att dessa är åtkomliga i din miljö; annars kan [rendering/export](/slides/sv/androidjava/convert-presentation/) utelämna media.
+Inbäddat ljud och video blir tillgängliga via presentations‑objektmodellen. Externa resurser löses enligt den konfigurerade resurs‑inläsnings‑beteendet och kan vara otillgängliga om deras platser inte kan nås.

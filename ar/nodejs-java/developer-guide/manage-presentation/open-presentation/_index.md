@@ -1,16 +1,16 @@
 ---
-title: فتح عرض تقديمي في JavaScript
-linktitle: فتح العروض
+title: فتح العروض التقديمية في JavaScript
+linktitle: فتح عرض تقديمي
 type: docs
 weight: 20
 url: /ar/nodejs-java/open-presentation/
 keywords:
 - فتح PowerPoint
-- فتح عرض تقديمي
+- فتح العرض التقديمي
 - فتح PPTX
 - فتح PPT
 - فتح ODP
-- تحميل عرض تقديمي
+- تحميل العرض التقديمي
 - تحميل PPTX
 - تحميل PPT
 - تحميل ODP
@@ -21,156 +21,157 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "فتح عروض PowerPoint (.pptx, .ppt) و OpenDocument (.odp) بسهولة باستخدام Aspose.Slides لـ Node.js — سريع، موثوق، ذو ميزات كاملة."
+description: "تعلم كيفية فتح عروض PowerPoint وOpenDocument في JavaScript، وتوفير كلمات مرور الفتح، والتحكم في تحميل الموارد، وتقليل استخدام الذاكرة باستخدام Aspose.Slides لـ Node.js عبر Java."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/ar/nodejs-java/) يمكنه تحميل عروض PowerPoint وOpenDocument من الملفات وتدفقات البيانات. بعد تحميل العرض، يمكنك فحص هيكله، تعديل الشرائح، إدارة الموارد، وحفظه بالصيغ الأصلية أو بأي صيغة مدعومة أخرى.
 
-بالإضافة إلى إنشاء عروض PowerPoint من الصفر، يتيح Aspose.Slides أيضًا فتح العروض الحالية. بعد تحميل عرض تقديمي، يمكنك استرجاع معلومات عنه، تعديل محتوى الشرائح، إضافة شرائح جديدة، حذف الشرائح الموجودة، وغير ذلك.
+يمكن تخصيص سلوك التحميل عبر الفئة [LoadOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/). على سبيل المثال، يمكنك توفير كلمة مرور الفتح، إبقاء الكائنات الثنائية الكبيرة خارج ذاكرة Node.js، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المدمجة.
 
-## **فتح العروض**
+## **فتح العروض التقديمية**
 
-لفتح عرض تقديمي موجود، قم بإنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) ومرّر مسار الملف إلى مُنشئها.
+لفتح عرض تقديمي موجود، مرّر مسار ملفه إلى منشئ [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/). احرص على تحرير العرض بعد الاستخدام حتى يتم تحرير مقبض الملف والبيانات المؤقتة وغيرها من الموارد بسرعة.
 
-النموذج التالي بلغة JavaScript يوضح كيفية فتح عرض تقديمي والحصول على عدد الشرائح:
-```js
-// إنشاء كائن من فئة Presentation وتمرير مسار ملف إلى مُنشئها.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+يعرض المثال التالي بلغة JavaScript كيفية فتح عرض تقديمي والحصول على عدد الشرائح الخاصة به:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("sample.pptx");
 try {
-    // طباعه إجمالي عدد الشرائح في العرض التقديمي.
-    console.log(presentation.getSlides().size());
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+## **فتح العروض التقديمية المحمية بكلمة مرور**
 
-## **فتح العروض المحمية بكلمة مرور**
+كلمة المرور تشفر محتوى العرض التقديمي. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setPassword) وقدم الخيارات إلى منشئ [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
 
-عند الحاجة لفتح عرض محمي بكلمة مرور، مرّر كلمة المرور عبر طريقة [setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setPassword) من فئة [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) لفك التشفير وتحميله. يوضح الكود التالي ذلك:
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // تنفيذ عمليات على العرض التقديمي المفكوك.
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+للاطلاع على اكتشاف كلمة المرور، والتحقق منها، وسير عمل التشفير، راجع [Password-Protect Presentations](/slides/ar/nodejs-java/password-protected-presentation/). إذا تم حفظ عرض مشفر مع خصائص مستند عامة، يمكن قراءة تلك الخصائص بدون كلمة مرور؛ انظر [Manage Presentation Properties](/slides/ar/nodejs-java/presentation-properties/).
 
-## **فتح العروض الكبيرة**
+## **فتح عروض تقديمية ضخمة**
 
-يوفر Aspose.Slides خيارات—خصوصًا طريقة [getBlobManagementOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) في فئة [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/)—لمساعدتك في تحميل العروض الكبيرة.
+تُعيد الدالة [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) خيارات تتحكم في كيفية تعامل Aspose.Slides مع الكائنات الثنائية الكبيرة مثل الصور، الصوت، والفيديو. يمكنك إبقاء ملف المصدر مقفلاً، السماح بالملفات المؤقتة، وتحديد مقدار بيانات BLOB المحتفظ بها في الذاكرة.
 
-الكود التالي بلغة JavaScript يوضح تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت):
-```js
-const filePath = "LargePresentation.pptx";
+يُظهر الكود التالي بلغة JavaScript تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت):
 
-let loadOptions = new aspose.slides.LoadOptions();
-// اختر سلوك KeepLocked — سيبقى ملف العرض مقفولًا طوال مدة
-// كائن Presentation، لكن لا يحتاج إلى تحميله في الذاكرة أو نسخه إلى ملف مؤقت.
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "large-presentation.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 ميجابايت
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
-let presentation = new aspose.slides.Presentation(filePath, loadOptions);
+const presentation = new slides.Presentation(filePath, loadOptions);
 try {
-    // تم تحميل العرض الكبير ويمكن استخدامه، بينما يظل استهلاك الذاكرة منخفضًا.
-    
-    // إجراء تغييرات على العرض.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // حفظ العرض إلى ملف آخر. يظل استهلاك الذاكرة منخفضًا أثناء هذه العملية.
-    presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
-
-    // لا تفعل هذا! سيتم إثارة استثناء إدخال/إخراج لأن الملف مقفول حتى يتم التخلص من كائن العرض.
-    //fs.unlinkSync(filePath);
+    presentation.save("large-presentation-copy.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// يمكن فعل ذلك هنا. الملف المصدر لم يعد مقفولًا بواسطة كائن العرض.
-fs.unlinkSync(filePath);
 ```
 
+{{% alert color="info" title="ملاحظة" %}}
+مع [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفلاً حتى يتم تحرير كائن العرض التقديمي. لا تقم بنقل الملف أو استبداله أو حذفه بينما يكون هذا الكائن نشطًا.
 
-{{% alert color="info" title="Info" %}}
-لتجاوز بعض القيود عند العمل مع التيارات، قد يقوم Aspose.Slides بنسخ محتويات التيار. تحميل عرض تقديمي كبير من تيار يؤدي إلى نسخ العرض وقد يبطئ عملية التحميل. لذلك، عندما تحتاج إلى تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض بدلاً من التيار.
-
-عند إنشاء عرض يحتوي على كائنات كبيرة (فيديو، صوت، صور عالية الدقة، إلخ)، يمكنك استخدام [BLOB management](/slides/ar/nodejs-java/manage-blob/) لتقليل استهلاك الذاكرة.
-{{%/alert %}}
+قد تقوم Aspose.Slides بنسخ محتويات تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، يكون مسار الملف عادةً أكثر كفاءة من التدفق. راجع [Manage BLOBs](/slides/ar/nodejs-java/manage-blob/) للحصول على خيارات إضافية لتخزين البيانات وإدارة الذاكرة.
+{{% /alert %}}
 
 ## **التحكم في الموارد الخارجية**
 
-يوفر Aspose.Slides الواجهة [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) التي تسمح لك بإدارة الموارد الخارجية. يوضح الكود التالي بلغة JavaScript كيفية استخدام الواجهة `IResourceLoadingCallback`:
-```js
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // تحميل صورة بديلة.
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // تعيين عنوان URL بديل.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
+تقبل الدالة [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) تنفيذًا لـ [IResourceLoadingCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iresourceloadingcallback/). يمكن للاستدعاء إمداد بيانات بديلة، إعادة توجيه مورد، استخدام المحمل الافتراضي، أو تخطي المورد. يُستخدم هذا عندما تحتوي العروض على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const imageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
+    resourceLoading: function(args) {
+        const isJpeg = args.getOriginalUri().toLowerCase().endsWith(".jpg");
+        const approvedImagePath = "approved-image.jpg";
+        if (!isJpeg || !fs.existsSync(approvedImagePath)) {
+            return slides.ResourceLoadingAction.Skip;
         }
-        // تخطي جميع الصور الأخرى.
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
+
+        try {
+            const imageData = fs.readFileSync(approvedImagePath);
+            args.setData(imageData);
+            return slides.ResourceLoadingAction.UserProvided;
+        } catch (error) {
+            console.error("The approved replacement image could not be read.");
+            return slides.ResourceLoadingAction.Skip;
+        }
+    }
 });
-```
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setResourceLoadingCallback(imageLoadingHandler);
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
-```
-
-
-## **تحميل العروض دون كائنات ثنائية مضمّنة**
-
-يمكن أن يحتوي عرض PowerPoint على الأنواع التالية من الكائنات الثنائية المضمّنة:
-
-- مشروع VBA (يمكن الوصول إليه عبر [Presentation.getVbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getVbaProject));
-- بيانات كائن OLE المضمّنة (يمكن الوصول إليها عبر [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- بيانات ثنائية لعنصر تحكم ActiveX (يمكن الوصول إليها عبر [Control.getActiveXControlBinary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getActiveXControlBinary)).
-
-باستخدام طريقة [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects)، يمكنك تحميل عرض تقديمي دون أي كائنات ثنائية مضمّنة.
-
-هذه الطريقة مفيدة لإزالة المحتوى الثنائي الذي قد يكون ضارًا. يوضح الكود التالي بلغة JavaScript كيفية تحميل عرض تقديمي دون أي محتوى ثنائي مضمّن:
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setDeleteEmbeddedBinaryObjects(true);
-
-let presentation = new aspose.slides.Presentation("malware.ppt", loadOptions);
+const presentation = new slides.Presentation("presentation-with-external-images.pptx", loadOptions);
 try {
-    // قم بتنفيذ عمليات على العرض التقديمي.
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+## **تحميل العروض التقديمية دون كائنات ثنائية مدمجة**
+
+قد يحتوي العرض التقديمي على بيانات ثنائية مدمجة لا تحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. تشمل الأمثلة:
+
+- مشاريع VBA، متاحة عبر [Presentation.getVbaProject](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#getVbaProject)؛
+- بيانات OLE مدمجة، متاحة عبر [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData)؛
+- بيانات عناصر تحكم ActiveX، متاحة عبر [Control.getActiveXControlBinary](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
+
+قم بتعيين [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) إلى `true` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض الذي تم تحميله لتثبيت النتيجة المنقاة.
+
+يقلل هذا الخيار من التعرض للحمولات المدمجة غير المرغوب فيها، لكنه ليس نظامًا كاملاً لاكتشاف البرمجيات الضارة أو تنقية المحتوى.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setDeleteEmbeddedBinaryObjects(true);
+
+const presentation = new slides.Presentation("presentation-with-embedded-data.pptx", loadOptions);
+try {
+    presentation.save("presentation-without-embedded-data.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **الأسئلة الشائعة**
 
 **كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
-ستحصل على استثناء أثناء التحميل يوضح حدوث خطأ في التحليل/التحقق من الصيغة. غالبًا ما تشير هذه الأخطاء إلى بنية ZIP غير صالحة أو سجلات PowerPoint معطوبة.
+تطرح Aspose.Slides استثناءً متعلقًا بالتحليل أو تنسيق الملف أثناء التحميل. عالج هذا الفشل بشكل منفصل عن خطأ كلمة المرور غير الصحيحة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
 
-**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة عند الفتح؟**
+**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة؟**
 
-سيتم فتح الملف، لكن عملية [التصيير/التصدير](/slides/ar/nodejs-java/convert-presentation/) قد تستبدل الخطوط. يمكنك [تهيئة استبدال الخطوط](/slides/ar/nodejs-java/font-substitution/) أو [إضافة الخطوط المطلوبة](/slides/ar/nodejs-java/custom-font/) إلى بيئة التشغيل.
+يمكن للعرض التقديمي أن يظل يُحمَّل، لكن قد يستبدل المحرك الخطوط أثناء العرض والتصدير. يمكنك [configure font substitution](/slides/ar/nodejs-java/font-substitution/) أو [provide custom fonts](/slides/ar/nodejs-java/custom-font/) لجعل المخرجات أكثر قابلية للتنبؤ.
 
-**ماذا عن الوسائط المضمّنة (فيديو/صوت) عند الفتح؟**
+**هل تحميل العرض يحمِّل أيضًا الوسائط المدمجة؟**
 
-تتحول إلى موارد داخل العرض. إذا كانت الوسائط مُشار إليها عبر مسارات خارجية، تأكد من أن هذه المسارات متاحة في بيئتك؛ وإلا قد تقوم عملية [التصيير/التصدير](/slides/ar/nodejs-java/convert-presentation/) بإغفال الوسائط.
+تصبح ملفات الصوت والفيديو المدمجة متاحة عبر نموذج كائن العرض التقديمي. تُحل الموارد الخارجية وفق سلوك تحميل الموارد المكوَّن وقد تكون غير متاحة إذا تعذّر الوصول إلى مواقعها.

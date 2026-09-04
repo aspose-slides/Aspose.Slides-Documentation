@@ -1,5 +1,5 @@
 ---
-title: Zabezpečení prezentací heslem v Pythonu
+title: Prezentace chráněné heslem v Pythonu
 linktitle: Ochrana heslem
 type: docs
 weight: 20
@@ -10,7 +10,7 @@ keywords:
 - šifrovat PowerPoint
 - dešifrovat PowerPoint
 - ověřit heslo prezentace
-- kontrola hesla prezentace
+- zkontrolovat heslo prezentace
 - otevřít šifrovanou prezentaci
 - odstranit šifrování
 - PowerPoint
@@ -19,21 +19,21 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Šifrování, detekce, ověřování, otevírání a dešifrování PowerPoint PPT a PPTX prezentací chráněných heslem v Pythonu s Aspose.Slides."
+description: "Šifrujte, detekujte, ověřujte, otevírejte a dešifrujte prezentace PowerPoint PPT a PPTX chráněné heslem v Pythonu s Aspose.Slides."
 ---
 ## **Přehled**
 
-Otevírací heslo šifruje prezentaci. Správné heslo je vyžadováno k načtení a zobrazení obsahu prezentace, takže tato ochrana poskytuje důvěrnost.
+Otevírací heslo šifruje prezentaci. Správné heslo je vyžadováno pro načtení a zobrazení obsahu prezentace, takže tato ochrana poskytuje důvěrnost.
 
-Otevírací heslo se liší od hesla pro ochranu proti zápisu. Ochrana proti zápisu omezuje úpravy, ale nešifruje obsah ani nezabraňuje načtení prezentace. Pro správu hesel pro úpravu prezentací viz [Write-Protect Presentations](/slides/cs/python-net/write-protected-presentation/).
+Otevírací heslo se liší od hesla pro ochranu proti zápisu. Ochrana proti zápisu omezuje úpravy, ale nešifruje obsah ani nebrání načtení prezentace. Pro správu hesel pro úpravu prezentací viz [Write-Protect Presentations](/slides/cs/python-net/write-protected-presentation/).
 
-Níže uvedené pracovní postupy platí pro prezentace PPT i PPTX. Příklady používají oba formáty, kde je důležité jejich chování při práci se soubory i se streamy.
+Níže uvedené postupy platí pro prezentace PPT i PPTX. Příklady používají oba formáty, kde je důležité chování na souborech i streamových operacích.
 
 ## **Šifrování prezentace otevíracím heslem**
 
-Pro přiřazení otevíracího hesla použijte [ProtectionManager.encrypt](https://reference.aspose.com/slides/cs/python-net/aspose.slides/protectionmanager/encrypt/). Poté použijte [Presentation.save](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/save/), abyste uložili šifrovanou prezentaci.
+Použijte [ProtectionManager.encrypt](https://reference.aspose.com/slides/cs/python-net/aspose.slides/protectionmanager/encrypt/) k přiřazení otevíracího hesla. Pak použijte [Presentation.save](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/save/) k uložení šifrované prezentace.
 
-Následující příklad šifruje prezentaci PPTX:
+Následující příklad šifruje PPTX prezentaci:
 
 ```python
 import aspose.slides as slides
@@ -43,9 +43,32 @@ with slides.Presentation("pres.pptx") as presentation:
     presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Zveřejnění vlastností dokumentu**
+
+Ve výchozím nastavení zahrnuje Aspose.Slides vlastnosti dokumentu do šifrování prezentace. Vlastnost [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/cs/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) řídí toto chování nezávisle na šifrování obsahu snímků. Nastavte ji na `False` před voláním [ProtectionManager.encrypt](https://reference.aspose.com/slides/cs/python-net/aspose.slides/protectionmanager/encrypt/) v případě, že systém indexování, klasifikace, vyhledávání nebo správy dokumentů potřebuje číst metadata bez otevíracího hesla.
+
+Následující příklad vytvoří šifrovanou PPTX prezentaci a zároveň ponechá vestavěné vlastnosti dokumentu veřejné:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    properties = presentation.document_properties
+    properties.author = "Contoso Knowledge Management"
+    properties.title = "Quarterly Product Roadmap"
+    properties.keywords = "roadmap, planning, internal"
+
+    presentation.slides[0].name = "Encrypted presentation content"
+    presentation.protection_manager.encrypt_document_properties = False
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("public-properties-encrypted.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Nastavení `encrypt_document_properties` na `False` nezpřístupní snímky, mistrovské snímky, rozvržení, tvary, média ani jiný obsah prezentace. Ovlivní pouze vlastnosti dokumentu. Pro čtení těchto vlastností bez načítání šifrovaného obsahu viz [Manage Presentation Properties](/slides/cs/python-net/presentation-properties/).
+
 ## **Načtení šifrované prezentace**
 
-Nastavte [LoadOptions.password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/) na otevírací heslo a při načítání souboru předáte možnosti do [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/). Načítání selže, pokud je vyžadováno otevírací heslo, ale zadané heslo chybí nebo je nesprávné.
+Nastavte [LoadOptions.password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/) na otevírací heslo a předávejte možnosti při volání [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) při načítání souboru. Načtení selže, pokud je požadováno otevírací heslo, ale zadané heslo chybí nebo je nesprávné.
 
 ```python
 import aspose.slides as slides
@@ -54,13 +77,13 @@ load_options = slides.LoadOptions()
 load_options.password = "open_password"
 
 with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
-    # Pracovat s dešifrovanou prezentací.
+    # Pracujte s dešifrovanou prezentací.
     pass
 ```
 
 ## **Odstranění šifrování z prezentace**
 
-Načtěte prezentaci pomocí jejího otevíracího hesla, zavolejte [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/cs/python-net/aspose.slides/protectionmanager/remove_encryption/), a výsledek uložte. Uložená prezentace pak může být načtena bez hesla.
+Načtěte prezentaci s jejím otevíracím heslem, zavolejte [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/cs/python-net/aspose.slides/protectionmanager/remove_encryption/) a výsledek uložte. Uložená prezentace pak může být načtena bez hesla.
 
 ```python
 import aspose.slides as slides
@@ -75,11 +98,11 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
 
 ## **Ověření otevíracího hesla před načtením**
 
-Pro získání [PresentationInfo](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/) aniž byste vytvářeli kompletní instanci prezentace, použijte [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationfactory/get_presentation_info/). Před požádáním o heslo nebo jeho ověřením zkontrolujte [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/is_password_protected/). Pokud je ochrana přítomna, ověřte zadanou hodnotu pomocí [PresentationInfo.check_password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/check_password/).
+Použijte [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationfactory/get_presentation_info/) k získání [PresentationInfo](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/) bez vytváření úplné instance prezentace. Zkontrolujte [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/is_password_protected/) před požádáním o heslo nebo jeho ověřením. Pokud je ochrana přítomna, ověřte zadanou hodnotu pomocí [PresentationInfo.check_password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/check_password/).
 
-### **Pracovní postup s cestou k souboru**
+### **Postup s cestou k souboru**
 
-Následující příklad ověřuje otevírací heslo pro soubor PPTX, předává ověřenou hodnotu do [LoadOptions.password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/), a poté načte kompletní prezentaci:
+Následující příklad ověří otevírací heslo pro PPTX soubor, předá ověřenou hodnotu do [LoadOptions.password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/) a poté načte úplnou prezentaci:
 
 ```python
 import aspose.slides as slides
@@ -100,11 +123,11 @@ else:
         print("The presentation was validated and loaded successfully.")
 ```
 
-### **Pracovní postup se streamem**
+### **Postup se streamem**
 
-Přetížení streamu metody [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationfactory/get_presentation_info/) poskytuje stejný postup. Před načtením kompletní prezentace z tohoto streamu resetujte pozici vyhledávaného streamu.
+Přetížení streamu metody [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationfactory/get_presentation_info/) poskytuje stejný postup. Před načtením úplné prezentace ze streamu nastavte pozici vyhledávaného streamu na začátek.
 
-Následující příklad používá soubor PPT:
+Následující příklad používá PPT soubor:
 
 ```python
 import aspose.slides as slides
@@ -127,18 +150,19 @@ with open("protected-presentation.ppt", "rb") as presentation_stream:
             print("The presentation was validated and loaded successfully.")
 ```
 
-### **Návratové hodnoty metody CheckPassword**
+### **Návratové hodnoty CheckPassword**
 
-[PresentationInfo.check_password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/check_password/) vrací `True` pouze když prezentace má otevírací heslo a zadané heslo je správné. V následujících situacích vrací `False`:
+[PresentationInfo.check_password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentationinfo/check_password/) vrací `True` pouze tehdy, když má prezentace otevírací heslo a zadané heslo je správné. Vrací `False` v následujících případech:
+
 - Heslo je nesprávné.
 - Prezentace nemá otevírací heslo.
 - Zadané heslo je `None` nebo prázdné.
 
-Chování je stejné pro prezentace PPT i PPTX.
+Chování je stejné pro PPT i PPTX prezentace.
 
-## **Kontrola, zda je načtená prezentace šifrovaná**
+## **Kontrola, zda je načtená prezentace šifrována**
 
-Po načtení prezentace se správným heslem zkontrolujte [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/cs/python-net/aspose.slides/protectionmanager/is_encrypted/), abyste potvrdili, že zdrojová prezentace byla šifrována. Pro detekci ochrany otevíracím heslem před načtením použijte `PresentationInfo.is_password_protected`, jak je uvedeno výše.
+Po načtení prezentace se správným heslem zkontrolujte [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/cs/python-net/aspose.slides/protectionmanager/is_encrypted/) k potvrzení, že původní prezentace byla šifrována. Pro detekci ochrany otevíracím heslem před načtením použijte `PresentationInfo.is_password_protected` podle výše uvedeného postupu.
 
 ```python
 import aspose.slides as slides
@@ -154,14 +178,16 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
 ## **Doporučení pro zabezpečení**
 
 {{% alert color="warning" title="Zabezpečení" %}}
-Nezaznamenávejte otevírací hesla do protokolů ani je nezahrnujte do diagnostických zpráv. Vyhněte se zbytečným opakovaným pokusům o ověření, uchovávejte hesla v paměti pouze po nezbytně potřebnou dobu a při okamžitém načtení prezentace použijte výsledek úspěšné validace znovu.
+Nezaznamenávejte otevírací hesla ani je neuvádějte v diagnostických zprávách. Vyhněte se zbytečným opakovaným pokusům o ověření, uchovávejte hesla v paměti jen po dobu nezbytně potřebnou a znovu použijte úspěšný výsledek ověření při okamžitém načtení prezentace.
+
+Veřejné vlastnosti dokumentu mohou odhalit jména autorů, názvy, předměty, klíčová slova, informace o firmě, komentáře a vlastní hodnoty, i když je obsah prezentace šifrován. Šifrujte citlivá metadata společně s prezentací. Zveřejnění vlastností by mělo být explicitním rozhodnutím učiněným jen tehdy, když systémy musí indexovat, klasifikovat, vyhledávat nebo spravovat soubor bez otevíracího hesla.
 {{% /alert %}}
 
-## **Ochrana prezentace heslem online**
+## **Šifrování prezentace online**
 
 1. Otevřete aplikaci [Aspose.Slides Lock](https://products.aspose.app/slides/cs/lock).
 1. Vyberte nebo nahrajte prezentaci.
-1. Zadejte heslo pro ochranu při prohlížení.
+1. Zadejte heslo pro ochranu zobrazení.
 1. Volitelně zadejte samostatné heslo pro ochranu úprav.
 1. Použijte ochranu a stáhněte výsledný soubor.
 
@@ -174,12 +200,16 @@ Nezaznamenávejte otevírací hesla do protokolů ani je nezahrnujte do diagnost
 
 **Jaký je rozdíl mezi otevíracím heslem a heslem pro ochranu proti zápisu?**
 
-Otevírací heslo šifruje prezentaci a je vyžadováno k načtení jejího obsahu. Heslo pro ochranu proti zápisu omezuje úpravy bez šifrování obsahu.
+Otevírací heslo šifruje prezentaci a je vyžadováno pro načtení jejího obsahu. Heslo pro ochranu proti zápisu omezuje úpravy bez šifrování obsahu.
 
-**Mohu ověřit otevírací heslo, aniž bych načítal všechny snímky?**
+**Mohu ověřit otevírací heslo bez načtení všech snímků?**
 
-Ano. Získejte informace o prezentaci, zjistěte, zda je přítomna ochrana otevíracím heslem, a ověřte heslo před vytvořením kompletní instance prezentace.
+Ano. Získejte informace o prezentaci, zkontrolujte, zda je přítomna ochrana otevíracím heslem, a ověřte heslo před vytvořením úplné instance prezentace.
 
-**Podporují workflowy pro kontrolu hesla jak PPT, tak PPTX?**
+**Může aplikace číst metadata bez otevíracího hesla?**
 
-Ano. Detekce a ověření hesla na základě cesty k souboru i streamu se chová stejně pro prezentace PPT i PPTX.
+Ano, ale jen pokud byla prezentace šifrována s nastavením `encrypt_document_properties` na `False`. Aplikace pak musí použít režim načítání jen vlastností dokumentu popsaný v [Manage Presentation Properties](/slides/cs/python-net/presentation-properties/).
+
+**Podporují pracovní postupy kontroly hesla jak PPT, tak PPTX?**
+
+Ano. Detekce a ověření hesla na základě cesty k souboru i streamu se chovají stejným způsobem pro PPT i PPTX prezentace.

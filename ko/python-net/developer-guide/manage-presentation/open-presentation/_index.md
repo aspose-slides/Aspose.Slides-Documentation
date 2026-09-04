@@ -20,119 +20,101 @@ keywords:
 - 바이너리 객체
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET를 사용하여 PowerPoint(.pptx, .ppt) 및 OpenDocument(.odp) 프레젠테이션을 손쉽게 열 수 있습니다—빠르고, 안정적이며, 전체 기능을 제공합니다."
+description: "Python에서 PowerPoint 및 OpenDocument 프레젠테이션을 여는 방법, 개방 비밀번호를 제공하고, Aspose.Slides for Python via .NET를 사용하여 메모리 사용을 줄이는 방법을 배웁니다."
 ---
 ## **소개**
 
-PowerPoint 프레젠테이션을 처음부터 만드는 것뿐만 아니라, Aspose.Slides는 기존 프레젠테이션을 열 수도 있습니다. 프레젠테이션을 로드한 후에는 해당 정보를 가져오고, 슬라이드 내용을 편집하고, 새 슬라이드를 추가하고, 기존 슬라이드를 제거하는 등 다양한 작업을 할 수 있습니다.
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/ko/python-net/)은 파일 및 스트림에서 PowerPoint 및 OpenDocument 프레젠테이션을 로드할 수 있습니다. 프레젠테이션을 로드한 후에는 구조를 검사하고, 슬라이드를 편집하며, 리소스를 관리하고, 원본 형식이나 다른 지원 형식으로 저장할 수 있습니다.
+
+로드 동작은 [LoadOptions](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/) 클래스를 통해 사용자 지정할 수 있습니다. 예를 들어, 개방 비밀번호를 제공하거나, 큰 바이너리 객체를 메모리 외부에 보관하거나, 삽입된 바이너리 데이터를 생략할 수 있습니다.
 
 ## **프레젠테이션 열기**
 
-기존 프레젠테이션을 열려면 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스를 인스턴스화하고 파일 경로를 생성자에 전달합니다.
+기존 프레젠테이션을 열려면 파일 경로를 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 생성자에 전달하십시오. `with` 문을 사용하면 파일 핸들, 임시 데이터 및 기타 리소스가 즉시 해제됩니다.
 
 다음 Python 예제는 프레젠테이션을 열고 슬라이드 수를 가져오는 방법을 보여줍니다:
 
 ```python
 import aspose.slides as slides
 
-# Presentation 클래스를 인스턴스화하고 파일 경로를 생성자에 전달합니다.
 with slides.Presentation("sample.pptx") as presentation:
-    # 프레젠테이션의 슬라이드 총 수를 출력합니다.
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
-## **암호로 보호된 프레젠테이션 열기**
+## **비밀번호로 보호된 프레젠테이션 열기**
 
-암호로 보호된 프레젠테이션을 열어야 할 경우, [LoadOptions](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/) 클래스의 [password](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/password/) 속성을 통해 비밀번호를 전달하여 복호화하고 로드합니다. 다음 Python 코드는 이 작업을 보여줍니다:
+개방 비밀번호는 프레젠테이션 내용을 암호화합니다. 전체 프레젠테이션을 로드하려면 올바른 비밀번호를 [LoadOptions.password](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/password/)에 할당하고 해당 옵션을 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 생성자에 전달하십시오. 비밀번호가 없거나 올바르지 않으면 로드가 실패합니다.
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # 복호화된 프레젠테이션에 대한 작업을 수행합니다.
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
-## **큰 프레젠테이션 열기**
+비밀번호 감지, 검증 및 암호화 워크플로에 대해서는 [Password-Protect Presentations](/slides/ko/python-net/password-protected-presentation/)를 참조하십시오. 암호화된 프레젠테이션이 공개 문서 속성을 포함하도록 저장된 경우 해당 속성은 비밀번호 없이 읽을 수 있습니다; 자세한 내용은 [Manage Presentation Properties](/slides/ko/python-net/presentation-properties/)를 확인하십시오.
 
-Aspose.Slides는 특히 [LoadOptions](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/) 클래스의 [blob_management_options](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/blob_management_options/) 속성과 같은 옵션을 제공하여 큰 프레젠테이션을 로드하는 데 도움을 줍니다.
+## **대용량 프레젠테이션 열기**
 
-다음 Python 코드는 큰 프레젠테이션(예: 2 GB)을 로드하는 방법을 보여줍니다:
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/blob_management_options/)는 이미지, 오디오 및 비디오와 같은 대용량 바이너리 객체를 Aspose.Slides가 처리하는 방식을 제어합니다. 소스 파일을 잠금 상태로 유지하고, 임시 파일을 허용하며, 메모리에 보관되는 BLOB 데이터 양을 제한할 수 있습니다.
+
+다음 Python 코드는 대용량 프레젠테이션(예: 2 GB)을 로드하는 예시를 보여줍니다:
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# KeepLocked 동작을 선택합니다—프레젠테이션 파일은 객체가 존재하는 동안 잠긴 상태를 유지합니다 
-# 프레젠테이션 인스턴스가 잠겨 있지만 메모리에 로드하거나 임시 파일로 복사할 필요가 없습니다.
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # 큰 프레젠테이션이 로드되었으며 메모리 사용량이 낮은 상태로 사용할 수 있습니다.
-
-    # 프레젠테이션을 수정합니다.
     presentation.slides[0].name = "Large presentation"
-
-    # 프레젠테이션을 다른 파일에 저장합니다. 이 작업 중에도 메모리 사용량이 낮게 유지됩니다.
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # 이렇게 하지 마세요! 프레젠테이션 객체가 해제될 때까지 파일이 잠겨 있어 I/O 예외가 발생합니다.
-    os.remove(file_path)
-
-# 여기서 수행해도 괜찮습니다. 소스 파일이 더 이상 프레젠테이션 객체에 의해 잠겨 있지 않습니다.
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Info" %}}
-스트림 작업 시 특정 제한을 우회하기 위해 Aspose.Slides가 스트림 내용을 복사할 수 있습니다. 스트림에서 큰 프레젠테이션을 로드하면 프레젠테이션이 복사되어 로드 속도가 느려질 수 있습니다. 따라서 큰 프레젠테이션을 로드해야 할 때는 스트림 대신 프레젠테이션 파일 경로를 사용하는 것을 강력히 권장합니다.
+{{% alert color="info" title="Note" %}}
+`PresentationLockingBehavior.KEEP_LOCKED`을 사용하면 `Presentation` 객체가 해제될 때까지 소스 파일이 잠긴 상태로 유지됩니다. 해당 객체가 존재하는 동안 소스 파일을 이동, 덮어쓰기 또는 삭제하지 마십시오.
 
-동영상, 오디오, 고해상도 이미지 등 큰 객체를 포함한 프레젠테이션을 만들 때는 [BLOB management](/slides/ko/python-net/manage-blob/)을 사용하여 메모리 사용량을 줄일 수 있습니다.
-{{%/alert %}}
+Aspose.Slides는 로드 중에 입력 스트림의 내용을 복사할 수 있습니다. 대용량 프레젠테이션의 경우 파일 경로가 일반적으로 스트림보다 효율적입니다. 추가 저장소 및 메모리 관리 옵션은 [Manage BLOBs](/slides/ko/python-net/manage-blob/)를 참고하십시오.
+{{% /alert %}}
 
-## **임베디드 바이너리 객체 없이 프레젠테이션 로드하기**
+## **삽입된 바이너리 객체 없이 프레젠테이션 로드**
 
-PowerPoint 프레젠테이션에는 다음 유형의 임베디드 바이너리 객체가 포함될 수 있습니다:
-- VBA 프로젝트 ( [Presentation.vba_project](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/vba_project/) 로 접근 가능);
-- OLE 객체 임베디드 데이터 ( [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/ko/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) 로 접근 가능);
-- ActiveX 컨트롤 바이너리 데이터 ( [Control.active_x_control_binary](https://reference.aspose.com/slides/ko/python-net/aspose.slides/control/active_x_control_binary/) 로 접근 가능).
+프레젠테이션에는 애플리케이션이 필요로 하지 않거나 보관하고 싶지 않은 삽입된 바이너리 데이터가 포함될 수 있습니다. 예시:
 
-[LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) 속성을 사용하면 임베디드 바이너리 객체가 전혀 없는 상태로 프레젠테이션을 로드할 수 있습니다.
+- VBA 프로젝트는 [Presentation.vba_project](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/vba_project/)를 통해 사용할 수 있습니다;
+- 삽입된 OLE 데이터는 [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/ko/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/)를 통해 사용할 수 있습니다;
+- ActiveX 컨트롤 데이터는 [Control.active_x_control_binary](https://reference.aspose.com/slides/ko/python-net/aspose.slides/control/active_x_control_binary/)를 통해 사용할 수 있습니다.
 
-이 속성은 잠재적으로 악성인 바이너리 콘텐츠를 제거하는 데 유용합니다. 다음 Python 코드는 임베디드 바이너리 콘텐츠 없이 프레젠테이션을 로드하는 방법을 보여줍니다:
+로드 중에 이 바이너리 데이터를 제거하려면 [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/ko/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/)를 `True`로 설정하십시오. 정리된 결과를 유지하려면 로드된 프레젠테이션을 저장하십시오.
 
-```py
+이 옵션은 원하지 않는 삽입된 페이로드에 대한 노출을 줄이지만, 완전한 악성코드 탐지 또는 콘텐츠 정화 시스템은 아닙니다.
+
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # 프레젠테이션에 대한 작업을 수행합니다.
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **FAQ**
 
-**How can I tell that a file is corrupted and can’t be opened?**
+**파일이 손상되어 열 수 없다는 것을 어떻게 알 수 있나요?**
 
-파일이 손상되어 열 수 없다는 것을 어떻게 확인할 수 있나요?
+Aspose.Slides는 로드 중에 구문 분석 또는 형식 예외를 발생시킵니다. 이 실패를 비밀번호 오류와 별도로 처리하여 애플리케이션이 원인을 정확히 보고할 수 있도록 하십시오.
 
-로드 중에 구문/형식 검증 예외가 발생합니다. 이러한 오류는 종종 잘못된 ZIP 구조나 손상된 PowerPoint 레코드를 언급합니다.
+**필요한 글꼴이 누락된 경우 어떻게 되나요?**
 
-**What happens if required fonts are missing when opening?**
+프레젠테이션은 여전히 로드될 수 있지만, 렌더링 및 내보내기 시 글꼴이 대체될 수 있습니다. 글꼴 대체를 구성하거나 사용자 지정 글꼴을 제공하여 출력이 더 예측 가능하도록 할 수 있습니다.
 
-열 때 필요한 글꼴이 누락되면 어떻게 되나요?
+**프레젠테이션을 로드하면 삽입된 미디어도 로드되나요?**
 
-파일은 열리지만 이후 [rendering/export](/slides/ko/python-net/convert-presentation/) 에서 글꼴이 대체될 수 있습니다. 런타임 환경에 [Configure font substitutions](/slides/ko/python-net/font-substitution/) 또는 [add the required fonts](/slides/ko/python-net/custom-font/)를 추가하십시오.
-
-**What about embedded media (video/audio) when opening?**
-
-열 때 임베디드 미디어(동영상/오디오)는 어떻게 되나요?
-
-그들은 프레젠테이션 리소스로 제공됩니다. 미디어가 외부 경로로 참조되는 경우 해당 경로가 환경에서 접근 가능하도록 확인하십시오; 그렇지 않으면 [rendering/export](/slides/ko/python-net/convert-presentation/) 에서 미디어가 누락될 수 있습니다.
+삽입된 오디오와 비디오는 프레젠테이션 객체 모델을 통해 사용할 수 있게 됩니다. 외부 리소스는 기본 리소스 로딩 동작에 따라 해결되며, 해당 위치에 접근할 수 없으면 사용할 수 없을 수 있습니다.

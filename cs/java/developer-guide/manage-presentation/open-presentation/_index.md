@@ -1,12 +1,11 @@
 ---
 title: Otevření prezentací v Javě
-linktitle: Otevření prezentace
+linktitle: Otevřít prezentaci
 type: docs
 weight: 20
 url: /cs/java/open-presentation/
 keywords:
 - otevřít PowerPoint
-- otevřít OpenDocument
 - otevřít prezentaci
 - otevřít PPTX
 - otevřít PPT
@@ -21,144 +20,157 @@ keywords:
 - binární objekt
 - Java
 - Aspose.Slides
-description: "Jednoduše otevřete prezentace PowerPoint (.pptx, .ppt) a OpenDocument (.odp) pomocí Aspose.Slides pro Java - rychlé, spolehlivé, plně vybavené."
+description: "Naučte se, jak v Javě otevřít prezentace PowerPoint a OpenDocument, zadat otevírací hesla, řídit načítání zdrojů a snížit využití paměti pomocí Aspose.Slides pro Java."
 ---
 ## **Úvod**
 
-Kromě vytváření prezentací PowerPoint od nuly vám Aspose.Slides také umožňuje otevřít existující prezentace. Po načtení prezentace můžete získat informace o ní, upravit obsah snímků, přidat nové snímky, odebrat stávající a další.
+[Aspose.Slides for Java](https://products.aspose.com/slides/cs/java/) může načítat prezentace PowerPoint a OpenDocument ze souborů a proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
+
+Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, udržet velké binární objekty mimo paměť heap Java, řídit externí zdroje nebo vynechat zabudovaná binární data.
 
 ## **Otevření prezentací**
 
-Chcete-li otevřít existující prezentaci, vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) a předávejte cestu k souboru do jejího konstruktoru.
+Chcete-li otevřít existující prezentaci, předáte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/). Po použití prezentaci uvolněte, aby byly souborové handly, dočasná data a další zdroje rychle uvolněny.
 
-Následující příklad v Javě ukazuje, jak otevřít prezentaci a získat počet snímků:
+Následující ukázka v jazyce Java ukazuje, jak otevřít prezentaci a získat počet snímků:
 
 ```java
-// Vytvořte instanci třídy Presentation a předávejte cestu k souboru do jejího konstruktoru.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Vytiskněte celkový počet snímků v prezentaci.
-    System.out.println(presentation.getSlides().size());
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Otevření chráněných prezentací heslem**
+## **Otevření prezentací chráněných heslem**
 
-Když potřebujete otevřít prezentaci chráněnou heslem, předávejte heslo metodě [setPassword](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) třídy [LoadOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/), aby se dešifrovala a načetla. Následující kód v Javě demonstruje tuto operaci:
+Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace předáte správné heslo metodě [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) a poskytnete možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/). Načítání selže, pokud heslo chybí nebo je nesprávné.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+
 LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+loadOptions.setPassword("open_password");
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
+Presentation presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // Proveďte operace na dešifrované prezentaci.
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
+
+Pro detekci hesla, validaci a šifrovací pracovní postupy viz [Password-Protect Presentations](/slides/cs/java/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti přečíst bez hesla; viz [Manage Presentation Properties](/slides/cs/java/presentation-properties/).
 
 ## **Otevření velkých prezentací**
 
-Aspose.Slides poskytuje možnosti – zejména metodu [getBlobManagementOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) třídy [LoadOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/), které vám pomohou načíst velké prezentace.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) vrací možnosti, které řídí, jak Aspose.Slides zachází s binárními velkými objekty, jako jsou obrázky, audio a video. Můžete udržet zdrojový soubor uzamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
 
-Následující kód v Javě ukazuje načtení velké prezentace (například 2 GB):
+Následující kód v jazyce Java demonstruje načítání velké prezentace (například 2 GB):
 
 ```java
-final String filePath = "LargePresentation.pptx";
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationLockingBehavior;
+import com.aspose.slides.SaveFormat;
+
+final String filePath = "large-presentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// Vyberte chování KeepLocked — soubor prezentace bude uzamčen po celou dobu
-// životnosti instance Presentation, ale není nutné jej načítat do paměti ani kopírovat do dočasného souboru.
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 Presentation presentation = new Presentation(filePath, loadOptions);
 try {
-    // Velká prezentace byla načtena a může být použita, přičemž spotřeba paměti zůstává nízká.
-
-    // Proveďte změny v prezentaci.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // Uložte prezentaci do jiného souboru. Spotřeba paměti zůstává nízká během této operace.
-    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // Nedělejte to! Bude vyhozena výjimka I/O, protože soubor je uzamčen, dokud není objekt prezentace uvolněn.
-    //Files.delete(Paths.get(filePath));
+    presentation.save("large-presentation-copy.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// Je v pořádku provést to zde. Zdrojový soubor již není uzamčen objektem prezentace.
-Files.delete(Paths.get(filePath));
 ```
 
-{{% alert color="info" title="Info" %}}
+{{% alert color="info" title="Note" %}}
 
-Aby se obešly určité omezení při práci se streamy, může Aspose.Slides kopírovat obsah streamu. Načtení velké prezentace ze streamu způsobí, že se prezentace zkopíruje, což může zpomalit načítání. Proto, pokud potřebujete načíst velkou prezentaci, důrazně doporučujeme použít cestu k souboru prezentace místo streamu.
+S [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) zůstává zdrojový soubor uzamčený, dokud není instance prezentace uvolněna. Nepřesouvejte, nepřepisujte ani neodstraňujte zdrojový soubor, dokud je tato instance aktivní.
 
-Při vytváření prezentace, která obsahuje velké objekty (video, audio, obrázky v vysokém rozlišení atd.), můžete použít [BLOB management](/slides/cs/java/manage-blob/), abyste snížili spotřebu paměti.
+Aspose.Slides může při načítání kopírovat obsah vstupního proudu. U velkých prezentací je proto obecně efektivnější použít cestu k souboru než proud. Viz [Manage BLOBs](/slides/cs/java/manage-blob/) pro další možnosti úložiště a správy paměti.
 
-{{%/alert %}}
+{{% /alert %}}
 
 ## **Řízení externích zdrojů**
 
-Aspose.Slides poskytuje rozhraní [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iresourceloadingcallback/), které vám umožňuje spravovat externí zdroje. Následující kód v Javě ukazuje, jak použít rozhraní `IResourceLoadingCallback`:
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) přijímá implementaci [IResourceLoadingCallback](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iresourceloadingcallback/). Callback může poskytnout náhradní data, přesměrovat zdroj, použít výchozí načítání nebo zdroj přeskočit. To je užitečné, když prezentace obsahují externí obrázky, které musí být řešeny podle specifických bezpečnostních nebo úložných pravidel aplikace.
 
 ```java
+import com.aspose.slides.IResourceLoadingArgs;
+import com.aspose.slides.IResourceLoadingCallback;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.ResourceLoadingAction;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        boolean isJpeg = args.getOriginalUri().toLowerCase(Locale.ROOT).endsWith(".jpg");
+        Path approvedImagePath = Paths.get("approved-image.jpg");
+        if (!isJpeg || !Files.exists(approvedImagePath)) {
+            return ResourceLoadingAction.Skip;
+        }
+
+        try {
+            byte[] imageData = Files.readAllBytes(approvedImagePath);
+            args.setData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        } catch (IOException exception) {
+            System.err.println("The approved replacement image could not be read.");
+            return ResourceLoadingAction.Skip;
+        }
+    }
+}
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
-
-```java
-class ImageLoadingHandler implements IResourceLoadingCallback {
-    public int resourceLoading(IResourceLoadingArgs args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Načtěte náhradní obrázek.
-                byte[] imageData = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            } catch (RuntimeException ex) {
-                return ResourceLoadingAction.Skip;
-            }  catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Nastavte náhradní URL.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction.Default;
-        }
-        // Přeskočit všechny ostatní obrázky.
-        return ResourceLoadingAction.Skip;
-    }
+Presentation presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    System.out.println("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Načtení prezentací bez vložených binárních objektů**
+## **Načtení prezentací bez zabudovaných binárních objektů**
 
-Prezentace PowerPoint může obsahovat následující typy vložených binárních objektů:
+Prezentace může obsahovat zabudovaná binární data, která aplikace nepotřebuje nebo nechce zachovat. Příklady zahrnují:
 
-- VBA projekt (přístupný přes [IPresentation.getVbaProject](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentation/#getVbaProject--));
-- Data vloženého OLE objektu (přístupná přes [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- Binární data ovládacího prvku ActiveX (přístupná přes [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
+- projekty VBA, dostupné přes [IPresentation.getVbaProject](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipresentation/#getVbaProject--);
+- zabudovaná data OLE, dostupná přes [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- data ovládacích prvků ActiveX, dostupná přes [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/cs/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-Pomocí metody [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) můžete načíst prezentaci bez jakýchkoli vložených binárních objektů.
+Nastavte [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) na `true`, aby se tato binární data při načítání odstranila. Uložte načtenou prezentaci, aby se výsledek sanitizoval.
 
-Tato metoda je užitečná pro odstranění potenciálně škodlivého binárního obsahu. Následující kód v Javě ukazuje, jak načíst prezentaci bez jakéhokoli vloženého binárního obsahu:
+Tato možnost snižuje riziko nechtěných zabudovaných nákladů, ale nejedná se o kompletní systém detekce malwaru ani o sanitizační systém obsahu.
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation presentation = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // Proveďte operace na prezentaci.
+    presentation.save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -166,14 +178,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Jak zjistit, že je soubor poškozený a nelze jej otevřít?**
+**Jak zjistím, že soubor je poškozený a nelze jej otevřít?**
 
-Během načítání dostanete výjimku při parsování/validaci formátu. Takové chyby často uvádějí neplatnou strukturu ZIP nebo poškozené záznamy PowerPointu.
+Aspose.Slides během načítání vyhodí výjimku parsování nebo formátu. Ošetřete toto selhání odděleně od chyby nesprávného hesla, aby aplikace mohla přesně nahlásit příčinu.
 
-**Co se stane, pokud při otevírání chybí požadovaná písma?**
+**Co se stane, když chybí požadovaná písma?**
 
-Soubor se otevře, ale při následném [renderování/exportu](/slides/cs/java/convert-presentation/) může dojít k náhradě písem. [Konfigurujte náhrady písem](/slides/cs/java/font-substitution/) nebo [přidejte požadovaná písma](/slides/cs/java/custom-font/) do běhového prostředí.
+Prezentace se stále může načíst, ale při vykreslování a exportu mohou být písma nahrazena. Můžete [konfigurovat náhradu písem](/slides/cs/java/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/java/custom-font/), aby byl výstup předvídatelnější.
 
-**Co se děje s vloženými médii (video/audio) při otevírání?**
+**Načítá se při načtení prezentace také její zabudovaná média?**
 
-Stanou se dostupnými jako zdroje prezentace. Pokud jsou média odkazována přes externí cesty, ujistěte se, že jsou v vašem prostředí přístupné; jinak může [renderování/export](/slides/cs/java/convert-presentation/) média vynechat.
+Zabudované audio a video jsou k dispozici prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle nastaveného chování načítání zdrojů a mohou být nedostupné, pokud nelze přistupovat k jejich umístěním.

@@ -22,29 +22,96 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "在 Aspose.Slides for Python via .NET 中精通演示文稿属性，并简化 PowerPoint 文件的搜索、品牌化和工作流。"
+description: "在 Aspose.Slides for Python via .NET 中精通演示文稿属性，并简化 PowerPoint 文件中的搜索、品牌和工作流。"
 ---
-## **简介**
+## **Introduction**
 
 Aspose.Slides 支持两种文档属性类型：**内置**和**自定义**。这两种属性类型都可以通过 Aspose.Slides API 轻松访问和管理。
 
-Aspose.Slides 允许您通过 [DocumentProperties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/documentproperties/) 类来处理演示文稿的文档属性。该类的实例由 [Presentation.document_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/document_properties/) 属性返回。以下示例演示了如何读取、修改和管理这些属性。
+Aspose.Slides 允许您通过 [DocumentProperties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/documentproperties/) 类来处理演示文稿的文档属性。该类的实例由 [Presentation.document_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/document_properties/) 属性返回。以下示例展示了如何读取、修改和管理这些属性。
 
 {{% alert color="info" title="Note" %}}
-请注意，您不能为 **Application** 和 **Producer** 字段设置值，因为这些字段将显示 Aspose Ltd. 和 Aspose.Slides for Python via .NET x.x.x 的信息。
+请注意，您无法对 **Application** 和 **Producer** 字段设置值，因为这些字段将显示 Aspose Ltd. 和 Aspose.Slides for Python via .NET x.x.x 的信息。
 {{% /alert %}} 
 
 ## **管理演示文稿属性**
 
-Microsoft PowerPoint 提供了向演示文稿文件添加属性的功能。这些文档属性可以将一些有用的信息与文档（演示文稿文件）一起存储。文档属性分为以下两类：
+Microsoft PowerPoint 提供了向演示文稿文件添加属性的功能。这些文档属性允许在文档（演示文稿文件）中存储一些有用的信息。文档属性分为以下两类：
 
 - 系统定义（内置）属性
-- 用户自定义（自定义）属性
+- 用户定义（自定义）属性
 
-**内置**属性包含文档的一般信息，例如文档标题、作者姓名、文档统计等。**自定义**属性是用户以 **Name/Value** 键值对定义的属性，名称和值均由用户自行指定。使用 Aspose.Slides for Python via .NET，开发者可以访问和修改内置属性以及自定义属性的值。Microsoft PowerPoint 2007 允许管理演示文稿文件的文档属性。您只需点击 Office 图标，然后选择 **Prepare | Properties | Advanced Properties** 菜单项。选择 **Advanced Properties** 后，会弹出一个对话框，允许您管理 PowerPoint 文件的文档属性。在 **Properties Dialog** 中，您可以看到诸如 **General、Summary、Statistics、Contents 和 Custom** 等多个选项卡。这些选项卡允许配置与 PowerPoint 文件相关的不同信息。**Custom** 选项卡用于管理 PowerPoint 文件的自定义属性。
+**内置**属性包含有关文档的一般信息，例如文档标题、作者姓名、文档统计信息等。**自定义**属性是用户以 **名称/值** 对的形式自行定义的属性，名称和值均由用户指定。使用 Aspose.Slides for Python via .NET，开发人员可以访问和修改内置属性以及自定义属性的值。Microsoft PowerPoint 2007 允许管理演示文稿文件的文档属性。只需单击 Office 图标，然后依次选择 **Prepare | Properties | Advanced Properties** 菜单项。在选择 **Advanced Properties** 后，会出现一个对话框，允许您管理 PowerPoint 文件的文档属性。在 **Properties Dialog** 中，您可以看到多个选项卡，例如 **常规、摘要、统计信息、内容和自定义**。所有这些选项卡都用于配置与 PowerPoint 文件相关的不同信息。**自定义**选项卡用于管理 PowerPoint 文件的自定义属性。
+
+## **读取已加密演示文稿的公共属性**
+
+打开密码通常同时保护演示内容和文档属性。当演示文稿使用 [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) 并将其设置为 `False` 加密时，文档属性保持公开。此时应用程序可以将 [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/only_load_document_properties/) 设置为 `True`，在不提供打开密码的情况下读取公共元数据。
+
+`only_load_document_properties` 控制 Aspose.Slides 加载的内容；它不进行任何解密。如果属性被包含在加密中，则在未提供密码的情况下加载会失败。如果演示文稿未加密，则该选项被忽略，完整的演示文稿将被加载。
+
+以下示例通过 [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/zh/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) 验证加载模式，然后通过 [Presentation.document_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/document_properties/) 读取内置属性：
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.only_load_document_properties = True
+
+with slides.Presentation("public-properties-encrypted.pptx", load_options) as presentation:
+    if presentation.protection_manager.is_only_document_properties_loaded:
+        properties = presentation.document_properties
+
+        print("Author: " + properties.author)
+        print("Title: " + properties.title)
+        print("Keywords: " + properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+在此模式下，幻灯片内容不会被加载。幻灯片、母版、布局、形状、媒体及其他演示对象均不可用。应用程序应始终在执行需要完整演示对象模型的操作之前检查 `is_only_document_properties_loaded`。
+
+{{% alert color="warning" title="Security" %}}
+公共元数据可能会泄露作者姓名、标题、主题、关键字、公司信息、注释以及自定义值。请将敏感属性与演示文稿一起加密。仅在索引、分类、搜索或文档管理系统明确要求在无需密码的情况下访问时才将其设为公开。
+{{% /alert %}}
+
+## **更新已加密演示文稿的属性**
+
+对于已加密的 PPTX 文件，使用 `only_load_document_properties` 加载的演示文稿仅用于读取公共元数据。Aspose.Slides 无法从仅包含元数据的对象保存已更改的属性，因为公共属性必须与加密演示文稿内部的对应数据保持一致。因此，更新这些属性需要正确的打开密码并完整加载演示文稿。
+
+以下示例使用 [LoadOptions.password](https://reference.aspose.com/slides/zh/python-net/aspose.slides/loadoptions/password/) 打开演示文稿，更新公共内置属性并保存结果。随后使用 [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentationinfo/is_encrypted/) 验证加密仍然保留，并在不提供密码的情况下重新打开公共元数据以验证新值：
+
+```python
+import aspose.slides as slides
+
+input_path = "public-properties-encrypted.pptx"
+output_path = "updated-public-properties-encrypted.pptx"
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation(input_path, load_options) as presentation:
+    presentation.document_properties.title = "Updated Product Roadmap"
+    presentation.document_properties.keywords = "roadmap, planning, indexed"
+    presentation.save(output_path, slides.export.SaveFormat.PPTX)
+
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(output_path)
+print("The presentation is encrypted: " + str(presentation_info.is_encrypted))
+
+metadata_load_options = slides.LoadOptions()
+metadata_load_options.only_load_document_properties = True
+
+with slides.Presentation(output_path, metadata_load_options) as metadata_presentation:
+    if metadata_presentation.protection_manager.is_only_document_properties_loaded:
+        print("Title: " + metadata_presentation.document_properties.title)
+        print("Keywords: " + metadata_presentation.document_properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+如果应用程序不被允许解密或加载演示文稿内容，则必须将已加密 PPTX 文件的公共属性视为只读。
 
 ## **访问内置属性**
-这些属性由 **IDocumentProperties** 对象公开，包含：**Creator(Author)**、**Description**、**Keywords**、**Created**（创建日期）、**Modified**（修改日期）、**Printed**（最近打印日期）、**LastModifiedBy**、**Keywords**、**SharedDoc**（是否在不同的制作者之间共享？）、**PresentationFormat**、**Subject** 和 **Title**
+这些通过 **IDocumentProperties** 对象公开的属性包括：**Creator(Author)**、**Description**、**Keywords**、**Created**（创建日期）、**Modified**（修改日期）、**Printed**（最后打印日期）、**LastModifiedBy**、**SharedDoc**（是否在不同制作者之间共享？）、**PresentationFormat**、**Subject** 和 **Title**
 ```py
 import aspose.slides as slides
 
@@ -72,7 +139,7 @@ with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
 
 ## **修改内置属性**
 
-修改演示文稿文件的内置属性和访问它们一样简单。您只需为所需属性分配一个字符串值，即可修改属性值。下面的示例展示了如何修改演示文稿文件的内置文档属性。
+修改演示文稿文件的内置属性与访问它们一样简单。只需为任意想要的属性赋予字符串值，即可修改属性值。下面的示例演示了如何修改演示文稿文件的内置文档属性。
 
 ```py
 import aspose.slides as slides
@@ -95,7 +162,7 @@ with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
 
 ## **添加自定义演示文稿属性**
 
-Aspose.Slides for Python via .NET 还允许开发者为演示文稿的文档属性添加自定义值。下面的示例展示了如何为演示文稿设置自定义属性。
+Aspose.Slides for Python via .NET 还允许开发人员为演示文稿的文档属性添加自定义值。下面的示例展示了如何为演示文稿设置自定义属性。
 
 ```py
 import aspose.slides as slides
@@ -113,7 +180,7 @@ with slides.Presentation() as presentation:
     # 获取特定索引处的属性名称
     getPropertyName = documentProperties.get_custom_property_name(2)
 
-    # 移除选定的属性
+    # 删除选定的属性
     documentProperties.remove_custom_property(getPropertyName)
 
     # 保存演示文稿
@@ -122,14 +189,14 @@ with slides.Presentation() as presentation:
 
 ## **访问并修改自定义属性**
 
-Aspose.Slides for Python via .NET 还允许开发者访问自定义属性的值。下面的示例展示了如何访问并修改演示文稿的所有自定义属性。
+Aspose.Slides for Python via .NET 还允许开发人员访问自定义属性的值。下面的示例展示了如何访问并修改演示文稿的所有自定义属性。
 
 ```py
 import aspose.slides as slides
 
 # 实例化表示 PPTX 的 Presentation 类
 with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
-    # 创建与演示文稿关联的 document_properties 对象引用
+    # 创建与 Presentation 关联的 document_properties 对象引用
     documentProperties = presentation.document_properties
 
     # 访问并修改自定义属性
@@ -148,13 +215,13 @@ with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`get_custom_property_value` 通过其第二个参数传入的单元素列表返回值，并将存储的值转换为该列表中已有元素的类型。上述示例使用 `[""]`，因此读取字符串属性；若要读取存为数字的属性，请传入类似 `[0]` 的数值占位符——否则调用会抛出 `InvalidCastException`。
+`get_custom_property_value` 通过其第二个参数传入的单元素列表返回值，并将存储的值转换为该列表中已有元素的类型。上例使用 `[""]`，因此读取的是字符串属性；若要读取存储为数字的属性，请传入数值占位符，例如 `[0]`——否则调用会抛出 `InvalidCastException`。
 
 ## **设置校对语言**
 
-Aspose.Slides 提供 `Language_Id` 属性（由 [PortionFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portionformat/) 类公开），允许您为 PowerPoint 文档设置校对语言。校对语言是 PowerPoint 检查拼写和语法时使用的语言。
+Aspose.Slides 提供了 `Language_Id` 属性（由 [PortionFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides/portionformat/) 类公开），允许您为 PowerPoint 文档设置校对语言。校对语言是 PowerPoint 检查拼写和语法的语言。
 
-下面的 Python 代码示例演示如何为 PowerPoint 设置校对语言：
+以下 Python 代码展示了如何为 PowerPoint 设置校对语言：
 
 ```python
 import aspose.slides as slides
@@ -180,7 +247,7 @@ with slides.Presentation("SetProofingLanguage.pptx") as pres:
 
 ## **设置默认语言**
 
-下面的 Python 代码示例演示如何为整个 PowerPoint 演示文稿设置默认语言：
+以下 Python 代码展示了如何为整个 PowerPoint 演示文稿设置默认语言：
 
 ```python
 import aspose.slides as slides
@@ -198,20 +265,28 @@ with slides.Presentation(load_options) as pres:
 
 ## **实时示例**
 
-尝试在线应用程序 [**Aspose.Slides Metadata**](https://products.aspose.app/slides/zh/metadata) 了解如何通过 Aspose.Slides API 使用文档属性：
+尝试在线应用程序 **Aspose.Slides Metadata**，了解如何通过 Aspose.Slides API 操作文档属性：
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/zh/metadata)
+[![查看并编辑 PowerPoint 元数据](slides-metadata.png)](https://products.aspose.app/slides/zh/metadata)
 
-## **常见问题**
+## **FAQ**
 
-**如何从演示文稿中删除内置属性？**
+**如何从演示文稿中移除内置属性？**
 
-内置属性是演示文稿的组成部分，无法完全删除。但您可以更改其值，或在该属性允许的情况下将其设为空。
+内置属性是演示文稿的组成部分，不能完全删除。但您可以更改其值，或者在特定属性允许的情况下将其设为空。
 
-**如果添加已存在的自定义属性会怎样？**
+**如果添加的自定义属性已存在，会怎样？**
 
-如果添加已存在的自定义属性，其已有的值会被新值覆盖。无需事先删除或检查属性，Aspose.Slides 会自动更新属性的值。
+如果添加的自定义属性已经存在，其现有值会被新值覆盖。您无需事先删除或检查该属性，Aspose.Slides 会自动更新属性值。
 
-**我能在不完全加载演示文稿的情况下访问演示文稿属性吗？**
+**能否在不完整加载演示文稿的情况下访问演示属性？**
 
-可以。使用 [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentationfactory/get_presentation_info/) 然后调用 [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentationinfo/read_document_properties/) 即可在不创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 实例的情况下读取已存储的文档元数据。请参阅 [Build a Lightweight Presentation Inventory](/slides/zh/python-net/examine-presentation/) 获取完整的报告示例及特定格式的限制。
+可以。使用 [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentationfactory/get_presentation_info/) 然后调用 [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentationinfo/read_document_properties/) 即可在不创建 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 实例的情况下读取存储的文档元数据。参见 [构建轻量级演示文稿清单](/slides/zh/python-net/examine-presentation/) 了解完整报告示例及格式特定限制。
+
+**是否可以在不提供打开密码的情况下读取已加密演示文稿的公共属性？**
+
+可以。前提是演示文稿在加密时 `encrypt_document_properties` 设置为 `False`，并且使用 `only_load_document_properties` 设置为 `True` 加载。
+
+**能否在仅文档属性模式下更新已加密的 PPTX 文件？**
+
+不能。公共属性和加密属性的数据必须保持一致，因此更新已加密的 PPTX 文件必须使用正确的打开密码完整加载演示文稿。

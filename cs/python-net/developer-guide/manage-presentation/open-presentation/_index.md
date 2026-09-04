@@ -1,6 +1,6 @@
 ---
 title: Otevření prezentací v Pythonu
-linktitle: Otevření prezentací
+linktitle: Otevřít prezentace
 type: docs
 weight: 20
 url: /cs/python-net/open-presentation/
@@ -20,114 +20,100 @@ keywords:
 - binární objekt
 - Python
 - Aspose.Slides
-description: "Jednoduše otevřete prezentace PowerPoint (.pptx, .ppt) a OpenDocument (.odp) pomocí Aspose.Slides pro Python přes .NET — rychlé, spolehlivé, plně vybavené."
+description: "Naučte se, jak v Pythonu otevírat prezentace PowerPoint a OpenDocument, zadávat otevírací hesla a snižovat spotřebu paměti pomocí Aspose.Slides pro Python via .NET."
 ---
 ## **Úvod**
 
-Kromě vytváření prezentací PowerPoint od nuly vám Aspose.Slides také umožňuje otevírat existující prezentace. Po načtení prezentace můžete získat o ní informace, upravovat obsah snímků, přidávat nové snímky, odstraňovat existující a další.
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/cs/python-net/) může načíst prezentace PowerPoint a OpenDocument ze souborů a proudů. Po načtení prezentace můžete prozkoumat její strukturu, upravovat snímky, spravovat zdroje a uložit ji v původním nebo jiném podporovaném formátu.
+
+Chování načítání lze přizpůsobit pomocí třídy [LoadOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/). Například můžete zadat otevírací heslo, udržovat velké binární objekty mimo paměť nebo vynechat vložená binární data.
 
 ## **Otevření prezentací**
 
-Chcete-li otevřít existující prezentaci, vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) a do jejího konstruktoru předávejte cestu k souboru.
+Pro otevření existující prezentace předáte její cestu k souboru konstruktoru [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/). Použijte `with` blok, aby byly souborové handlery, dočasná data a další zdroje rychle uvolněny.
 
-Následující příklad v Pythonu ukazuje, jak otevřít prezentaci a získat počet snímků:
+Následující příklad v Pythonu ukazuje, jak otevřít prezentaci a zjistit počet snímků:
 
 ```python
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation a předávejte cestu k souboru do jejího konstruktoru.
 with slides.Presentation("sample.pptx") as presentation:
-    # Vytiskněte celkový počet snímků v prezentaci.
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
-## **Otevření prezentací chráněných heslem**
+## **Otevírání prezentací chráněných heslem**
 
-Když potřebujete otevřít prezentaci chráněnou heslem, předávejte heslo prostřednictvím vlastnosti [password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/) třídy [LoadOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/) pro dešifrování a načtení. Následující kód v Pythonu ukazuje tuto operaci:
+Otevírací heslo šifruje obsah prezentace. Pro načtení celé prezentace přiřaďte správné heslo k [LoadOptions.password](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/password/) a předávejte možnosti konstruktoru [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/). Načtení selže, pokud heslo chybí nebo je nesprávné.
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # Proveďte operace na dešifrované prezentaci.
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
-## **Otevření velkých prezentací**
+Pro detekci hesla, jeho validaci a šifrovací pracovní toky viz [Password-Protect Presentations](/slides/cs/python-net/password-protected-presentation/). Pokud byla šifrovaná prezentace úmyslně uložena s veřejnými vlastnostmi dokumentu, lze tyto vlastnosti číst bez hesla; viz [Manage Presentation Properties](/slides/cs/python-net/presentation-properties/).
 
-Aspose.Slides poskytuje možnosti – zejména vlastnost [blob_management_options](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/blob_management_options/) ve třídě [LoadOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/) – která vám pomůže načíst velké prezentace.
+## **Otevírání velkých prezentací**
 
-Tento kód v Pythonu ukazuje načtení velké prezentace (například 2 GB):
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/blob_management_options/) řídí, jak Aspose.Slides zachází s velkými binárními objekty, jako jsou obrázky, audio a video. Můžete udržet zdrojový soubor uzamčený, povolit dočasné soubory a omezit množství BLOB dat uchovávaných v paměti.
+
+Tento kód v Pythonu demonstruje načtení velké prezentace (například 2 GB):
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# Vyberte chování KeepLocked — soubor prezentace zůstane uzamčen po celou dobu životnosti 
-# instance Presentation, ale není nutné jej načítat do paměti ani kopírovat do dočasného souboru.
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # Velká prezentace byla načtena a může být použita, přičemž spotřeba paměti zůstává nízká.
-
-    # Proveďte změny v prezentaci.
     presentation.slides[0].name = "Large presentation"
-
-    # Uložte prezentaci do jiného souboru. Spotřeba paměti zůstává během této operace nízká.
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # Nedělejte to! Dojde k vyhození výjimky I/O, protože soubor je uzamčen, dokud není objekt prezentace uvolněn.
-    os.remove(file_path)
-
-# Je v pořádku to provést zde. Zdrojový soubor již není uzamčen objektem prezentace.
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Info" %}}
-Aby se obešly některé omezení při práci se streamy, Aspose.Slides může zkopírovat obsah streamu. Načtení velké prezentace ze streamu způsobí kopírování prezentace a může zpomalit načítání. Proto, když potřebujete načíst velkou prezentaci, důrazně doporučujeme používat cestu k souboru prezentace místo streamu.
+{{% alert color="info" title="Poznámka" %}}
+S `PresentationLockingBehavior.KEEP_LOCKED` zůstává zdrojový soubor uzamčený, dokud není uvolněn objekt `Presentation`. Nepřesouvejte, nepřepisujte ani neodstraňujte zdrojový soubor, dokud je tento objekt aktivní.
 
-Při vytváření prezentace, která obsahuje velké objekty (video, audio, vysoce rozlišení obrázky atd.), můžete použít [BLOB management](/slides/cs/python-net/manage-blob/) ke snížení spotřeby paměti.
-{{%/alert %}}
+Aspose.Slides může při načítání kopírovat obsah vstupního proudu. U velkých prezentací je proto cesta k souboru obecně efektivnější než proud. Viz [Manage BLOBs](/slides/cs/python-net/manage-blob/) pro další možnosti úložiště a správy paměti.
+{{% /alert %}}
 
 ## **Načtení prezentací bez vložených binárních objektů**
 
-Prezentace PowerPoint může obsahovat následující typy vložených binárních objektů:
+Prezentace může obsahovat vložená binární data, která aplikace nepotřebuje nebo nechce zachovat. Příklady zahrnují:
+- VBA projekty, dostupné přes [Presentation.vba_project](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/vba_project/);
+- vložená data OLE, dostupná přes [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/);
+- data ovládacích prvků ActiveX, dostupná přes [Control.active_x_control_binary](https://reference.aspose.com/slides/cs/python-net/aspose.slides/control/active_x_control_binary/).
 
-- Projekt VBA (přístupný přes [Presentation.vba_project](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/vba_project/));
-- Data vloženého OLE objektu (přístupná přes [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
-- Binární data ovládacího prvku ActiveX (přístupná přes [Control.active_x_control_binary](https://reference.aspose.com/slides/cs/python-net/aspose.slides/control/active_x_control_binary/)).
+Nastavte [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) na `True`, aby se při načítání odstranila tato binární data. Uložte načtenou prezentaci, aby se výsledek sanitizoval.
 
-Pomocí vlastnosti [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) můžete načíst prezentaci bez jakýchkoli vložených binárních objektů.
+Tato možnost snižuje riziko nechtěných vložených nákladů, ale nejde o kompletní systém pro detekci malwaru nebo sanitaci obsahu.
 
-Tato vlastnost je užitečná pro odstraňování potenciálně škodlivého binárního obsahu. Následující kód v Pythonu ukazuje, jak načíst prezentaci bez jakéhokoli vloženého binárního obsahu:
-
-```py
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # Proveďte operace na prezentaci.
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Často kladené otázky**
 
-**Jak poznám, že je soubor poškozený a nelze jej otevřít?**
+**Jak zjistím, že je soubor poškozený a nelze jej otevřít?**
 
-Během načítání získáte výjimku při parsování/validaci formátu. Takové chyby často uvádějí neplatnou strukturu ZIP nebo poškozené záznamy PowerPoint.
+Aspose.Slides během načítání vyvolá výjimku při parsování nebo formátu. Tento selhání ošetřete odděleně od chyby nesprávného hesla, aby aplikace mohla přesně zpravit příčinu.
 
-**Co se stane, když při otevírání chybí požadované fonty?**
+**Co se stane, pokud chybí požadovaná písma?**
 
-Soubor se otevře, ale později může [rendering/export](/slides/cs/python-net/convert-presentation/) nahradit fonty. [Nastavit náhrady fontů](/slides/cs/python-net/font-substitution/) nebo [přidat požadované fonty](/slides/cs/python-net/custom-font/) do runtime prostředí.
+Prezentace se stále může načíst, ale při vykreslování a exportu mohou být písma nahrazena. Můžete [konfigurovat substituci písem](/slides/cs/python-net/font-substitution/) nebo [poskytnout vlastní písma](/slides/cs/python-net/custom-font/) pro predikovatelnější výstup.
 
-**Co se stane s vloženými médii (video/audio) při otevírání?**
+**Načítá načtení prezentace také její vložená média?**
 
-Stanou se dostupnými jako zdroje prezentace. Pokud jsou média odkazována externími cestami, zajistěte, aby byly tyto cesty ve vašem prostředí přístupné; jinak může [rendering/export](/slides/cs/python-net/convert-presentation/) média vynechat.
+Vložený audio a video jsou dostupné prostřednictvím objektového modelu prezentace. Externí zdroje jsou řešeny podle výchozího chování načítání zdrojů a mohou být nedostupné, pokud nelze získat přístup k jejich umístěním.

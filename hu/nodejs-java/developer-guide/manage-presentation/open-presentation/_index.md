@@ -1,45 +1,46 @@
 ---
-title: "Prezentációk megnyitása JavaScript-ben"
-linktitle: "Prezentáció megnyitása"
+title: Prezentációk megnyitása JavaScriptben
+linktitle: Prezentáció megnyitása
 type: docs
 weight: 20
 url: /hu/nodejs-java/open-presentation/
 keywords:
-- "PowerPoint megnyitása"
-- "OpenDocument megnyitása"
-- "prezentáció megnyitása"
-- "PPTX megnyitása"
-- "PPT megnyitása"
-- "ODP megnyitása"
-- "prezentáció betöltése"
-- "PPTX betöltése"
-- "PPT betöltése"
-- "ODP betöltése"
-- "védett prezentáció"
-- "nagy prezentáció"
-- "külső erőforrás"
-- "bináris objektum"
+- PowerPoint megnyitása
+- prezentáció megnyitása
+- PPTX megnyitása
+- PPT megnyitása
+- ODP megnyitása
+- prezentáció betöltése
+- PPTX betöltése
+- PPT betöltése
+- ODP betöltése
+- védett prezentáció
+- nagy prezentáció
+- külső erőforrás
+- bináris objektum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Nyisson PowerPoint (.pptx, .ppt) és OpenDocument (.odp) prezentációkat könnyedén az Aspose.Slides for Node.js Java segítségével - gyors, megbízható, teljes körű funkciókkal."
+description: "Ismerje meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat JavaScriptben, adhat meg nyitó jelszavakat, szabályozhatja az erőforrások betöltését, és csökkentheti a memóriahasználatot az Aspose.Slides for Node.js via Java segítségével."
 ---
 ## **Bevezetés**
 
-A PowerPoint-prezentációk készítése mellett az Aspose.Slides lehetővé teszi létező prezentációk megnyitását is. A prezentáció betöltése után lekérdezheti a rá vonatkozó információkat, szerkesztheti a dia tartalmát, új diákat adhat hozzá, eltávolíthat meglévőket, és még sok mást tehet.
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/hu/nodejs-java/) képes PowerPoint és OpenDocument prezentációkat betölteni fájlokból és adatfolyamokból. A prezentáció betöltése után ellenőrizheted a felépítését, szerkesztheted a diákat, kezelheted az erőforrásokat, és mentheted az eredeti vagy egy másik támogatott formátumban.
+
+A betöltési viselkedés testreszabható a [LoadOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/) osztály segítségével. Például megadhatsz egy nyitó jelszót, a nagy bináris objektumokat a Node.js memórián kívül tarthatod, szabályozhatod a külső erőforrásokat, vagy elhagyhatod a beágyazott bináris adatokat.
 
 ## **Prezentációk megnyitása**
 
-Egy létező prezentáció megnyitásához hozza létre a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztály egy példányát, és adja meg a fájl elérési útját a konstruktorának.
+Egy meglévő prezentáció megnyitásához add át a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) konstruktorának. A prezentáció használata után használd a Dispose metódust, hogy a fájlkezelők, ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
 
-Az alábbi JavaScript példa bemutatja, hogyan nyithat meg egy prezentációt, és hogyan kérdezheti le a diák számát:
+Az alábbi JavaScript példa bemutatja, hogyan nyithatsz meg egy prezentációt, és hogyan kérheted le a diák számát:
 
-```js
-// Példányosítsa a Presentation osztályt és adjon meg egy fájl elérési utat a konstruktorának.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("sample.pptx");
 try {
-    // Írassa ki a prezentáció összes diája számát.
-    console.log(presentation.getSlides().size());
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
@@ -47,115 +48,115 @@ try {
 
 ## **Jelszóval védett prezentációk megnyitása**
 
-Ha jelszóval védett prezentációt kell megnyitnia, adja meg a jelszót a [LoadOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/) osztály [setPassword](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setPassword) metódusán keresztül a dekódoláshoz és betöltéshez. Az alábbi JavaScript kód mutatja be ezt a műveletet:
+A nyitó jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez add át a helyes jelszót a [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setPassword) metódusnak, és add meg az opciókat a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) konstruktorának. A betöltés sikertelen, ha a jelszó hiányzik vagy helytelen.
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // Műveleteket végez a feloldott prezentáción.
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
+
+A jelszóészlelés, ellenőrzés és titkosítási munkafolyamatokhoz lásd a [Jelszóval védett prezentációk](/slides/hu/nodejs-java/password-protected-presentation/) oldalt. Ha egy titkosított prezentációt szándékosan nyilvános dokumentumtulajdonságokkal mentettek, azok a jelszó nélkül is olvashatók; lásd a [Prezentációtulajdonságok kezelése](/slides/hu/nodejs-java/presentation-properties/) oldalt.
 
 ## **Nagy prezentációk megnyitása**
 
-Aspose.Slides opciókat biztosít – különösen a [LoadOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/) osztályban található [getBlobManagementOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) metódust – hogy segítsen nagy prezentációk betöltésében.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) visszaad opciókat, amelyek szabályozzák, hogyan kezeli az Aspose.Slides a bináris nagy objektumokat, mint például képek, hang és videó. A forrásfájlt lezárhatod, engedélyezheted az ideiglenes fájlokat, és korlátozhatod a memóriában megtartott BLOB adatok mennyiségét.
 
-Az alábbi JavaScript kód demonstrálja egy nagy (például 2 GB) prezentáció betöltését:
+Az alábbi JavaScript kód bemutatja egy nagy prezentáció betöltését (például 2 GB):
 
-```js
-const filePath = "LargePresentation.pptx";
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let loadOptions = new aspose.slides.LoadOptions();
-// Válassza a KeepLocked viselkedést – a prezentáció fájl a Presentation példány élettartama alatt zárolva marad
-// a Presentation példányra, de nem szükséges memóriába betölteni vagy ideiglenes fájlba másolni.
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
+const filePath = "large-presentation.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
-let presentation = new aspose.slides.Presentation(filePath, loadOptions);
+const presentation = new slides.Presentation(filePath, loadOptions);
 try {
-    // A nagy prezentáció betöltődött és használható, miközben a memóriahasználat alacsony marad.
-    
-    // Módosítsa a prezentációt.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // Mentse a prezentációt egy másik fájlba. A memóriahasználat alacsony marad a művelet során.
-    presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
-
-    // Ne tegye ezt! I/O kivétel keletkezik, mert a fájl zárolva van, amíg a presentation objektumot el nem engedi.
-    //fs.unlinkSync(filePath);
+    presentation.save("large-presentation-copy.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// Itt már rendben van ezt megtenni. A forrásfájlt már nem zárolja a presentation objektum.
-fs.unlinkSync(filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-A folyamatos stream-ekkel kapcsolatos bizonyos korlátozások megkerülésére az Aspose.Slides másolhatja a stream tartalmát. Egy nagy prezentáció streamből történő betöltése a prezentáció másolását eredményezi, és lassíthatja a betöltést. Ezért, ha nagy prezentációt kell betölni, erősen ajánljuk, hogy a prezentáció fájl elérési útját használja a stream helyett.
+{{% alert color="info" title="Megjegyzés" %}}
+A [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) használatával a forrásfájl zárolva marad, amíg a prezentáció példányát el nem pusztítják. Ne mozgass, ne írj felül, vagy ne törölj forrásfájlt, amíg az példány él.
 
-Ha nagy objektumokat (videó, hang, nagy felbontású képek stb.) tartalmazó prezentációt hoz létre, a [BLOB management](/slides/hu/nodejs-java/manage-blob/) segítségével csökkentheti a memóriahasználatot.
-{{%/alert %}}
+Az Aspose.Slides a betöltés során másolhatja egy bemeneti adatfolyam tartalmát. Nagy prezentációk esetén a fájl útvonala általában hatékonyabb, mint egy adatfolyam. További tárolási és memória-kezelési lehetőségekért lásd a [BLOB-ok kezelése](/slides/hu/nodejs-java/manage-blob/) oldalt.
+{{% /alert %}}
 
 ## **Külső erőforrások kezelése**
 
-Aspose.Slides biztosítja az [IResourceLoadingCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iresourceloadingcallback/) interfészt, amely lehetővé teszi a külső erőforrások kezelését. Az alábbi JavaScript kód bemutatja, hogyan használja az `IResourceLoadingCallback` interfészt:
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) elfogad egy [IResourceLoadingCallback](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iresourceloadingcallback/) implementációt. A visszahívás biztosíthat helyettesítő adatot, átirányíthat egy erőforrást, használhatja az alapértelmezett betöltőt, vagy kihagyhatja az erőforrást. Ez akkor hasznos, ha a prezentációk külső képeket tartalmaznak, amelyeket az alkalmazás-specifikus biztonsági vagy tárolási szabályok szerint kell feloldani.
 
-```js
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Töltsön be egy helyettesítő képet.
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Állítson be egy helyettesítő URL-t.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
+```javascript
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const imageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
+    resourceLoading: function(args) {
+        const isJpeg = args.getOriginalUri().toLowerCase().endsWith(".jpg");
+        const approvedImagePath = "approved-image.jpg";
+        if (!isJpeg || !fs.existsSync(approvedImagePath)) {
+            return slides.ResourceLoadingAction.Skip;
         }
-        // Hagyja ki az összes többi képet.
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
+
+        try {
+            const imageData = fs.readFileSync(approvedImagePath);
+            args.setData(imageData);
+            return slides.ResourceLoadingAction.UserProvided;
+        } catch (error) {
+            console.error("The approved replacement image could not be read.");
+            return slides.ResourceLoadingAction.Skip;
+        }
+    }
 });
-```
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setResourceLoadingCallback(imageLoadingHandler);
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const presentation = new slides.Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    console.log("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **Prezentációk betöltése beágyazott bináris objektumok nélkül**
 
-Egy PowerPoint-prezentáció a következő típusú beágyazott bináris objektumokat tartalmazhat:
+Egy prezentáció tartalmazhat beágyazott bináris adatot, amelyre egy alkalmazásnak nincs szüksége, vagy nem akarja megtartani. Példák:
 
-- VBA projekt (elérhető a [Presentation.getVbaProject](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getVbaProject) segítségével);
-- OLE objektum beágyazott adatai (elérhető a [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) segítségével);
-- ActiveX vezérlő bináris adatai (elérhető a [Control.getActiveXControlBinary](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/control/#getActiveXControlBinary) segítségével).
+- VBA projektek, a [Presentation.getVbaProject](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getVbaProject) segítségével érhetők el;
+- beágyazott OLE adatok, a [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) segítségével érhetők el;
+- ActiveX vezérlő adatok, a [Control.getActiveXControlBinary](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/control/#getActiveXControlBinary) segítségével érhetők el.
 
-A [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) metódus használatával betölthet egy prezentációt anélkül, hogy bármilyen beágyazott bináris objektumot tartalmazna.
+A [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) beállításával `true` értékre eltávolíthatod ezeket a bináris adatokat a betöltés során. A betöltött prezentáció mentésével a tisztított eredmény megmarad.
 
-Ez a metódus hasznos a potenciálisan rosszindulatú bináris tartalom eltávolításához. Az alábbi JavaScript kód bemutatja, hogyan töltsön be egy prezentációt beágyazott bináris tartalom nélkül:
+Ez az opció csökkenti a nem kívánt beágyazott terhelések kitettségét, de nem tekinthető teljes kártevő-felderítő vagy tartalomszűrő rendszernek.
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-let presentation = new aspose.slides.Presentation("malware.ppt", loadOptions);
+const presentation = new slides.Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // Műveleteket végez a prezentáción.
+    presentation.save("presentation-without-embedded-data.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -163,14 +164,14 @@ try {
 
 ## **GYIK**
 
-**Hogyan tudom megállapítani, hogy egy fájl megsérült és nem nyitható meg?**
+**Hogyan tudom megállapítani, hogy egy fájl sérült és nem nyitható meg?**
 
-Betöltéskor egy elemzési/formátum-ellenőrzési kivételt kap. Az ilyen hibák gyakran egy érvénytelen ZIP struktúrát vagy sérült PowerPoint rekordokat említenek.
+Az Aspose.Slides betöltés közben parsing vagy formátum kivételt dob. Kezeld ezt a hibát külön a helytelen jelszó hibától, hogy az alkalmazás pontosan jelenteni tudja az okot.
 
-**Mi történik, ha a megnyitáskor hiányoznak a szükséges betűtípusok?**
+**Mi történik, ha a szükséges betűtípusok hiányoznak?**
 
-A fájl megnyílik, de később a [rendering/export](/slides/hu/nodejs-java/convert-presentation/) helyettesítheti a betűtípusokat. [Configure font substitutions](/slides/hu/nodejs-java/font-substitution/) vagy [add the required fonts](/slides/hu/nodejs-java/custom-font/) a futási környezethez.
+A prezentáció még betölthető, de a megjelenítés és export betűtípus helyettesítést végezhet. A kimenetet jobban megjósolhatóvá teheted a [betűtípus-helyettesítés konfigurálása](/slides/hu/nodejs-java/font-substitution/) vagy a [egyéni betűtípusok biztosítása](/slides/hu/nodejs-java/custom-font/) segítségével.
 
-**Mi a helyzet a beágyazott média (videó/hang) megnyitásakor?**
+**A prezentáció betöltése betölti-e a benne lévő beágyazott médiát is?**
 
-Elérhetők lesznek a prezentáció erőforrásaként. Ha a médiát külső útvonalakon keresztül hivatkozzák, győződjön meg róla, hogy ezek az útvonalak elérhetők a környezetben; ellenkező esetben a [rendering/export](/slides/hu/nodejs-java/convert-presentation/) kihagyhatja a médiát.
+A beágyazott hang és videó a prezentáció objektummodelljén keresztül elérhetővé válik. A külső erőforrások a beállított erőforrásbetöltési viselkedés szerint kerülnek feloldásra, és előfordulhat, hogy nem érhetők el, ha azok helyei nem hozzáférhetők.

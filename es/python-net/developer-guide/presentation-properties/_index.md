@@ -19,34 +19,99 @@ keywords:
 - Idioma predeterminado
 - PowerPoint
 - OpenDocument
-- presentación
+- Presentación
 - Python
 - Aspose.Slides
-description: "Domine las propiedades de la presentación en Aspose.Slides para Python vía .NET y optimice la búsqueda, la marca y el flujo de trabajo en sus archivos PowerPoint."
+description: "Domina las propiedades de presentación en Aspose.Slides for Python via .NET y optimiza la búsqueda, la marca y el flujo de trabajo en tus archivos PowerPoint."
 ---
 ## **Introducción**
 
 Aspose.Slides admite dos tipos de propiedades de documento: **Integradas** y **Personalizadas**. Ambos tipos de propiedades pueden accederse y gestionarse fácilmente mediante la API de Aspose.Slides.
 
-Aspose.Slides permite trabajar con las propiedades de documento de la presentación a través de la clase [DocumentProperties](https://reference.aspose.com/slides/es/python-net/aspose.slides/documentproperties/) . Una instancia de esta clase se devuelve mediante la propiedad [Presentation.document_properties](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/document_properties/) . Los ejemplos siguientes muestran cómo leer, modificar y gestionar estas propiedades.
+Aspose.Slides le permite trabajar con las propiedades de documento de la presentación mediante la clase [DocumentProperties](https://reference.aspose.com/slides/es/python-net/aspose.slides/documentproperties/) . Una instancia de esta clase se devuelve a través de la propiedad [Presentation.document_properties](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/document_properties/) . Los siguientes ejemplos muestran cómo leer, modificar y gestionar estas propiedades.
 
 {{% alert color="info" title="Note" %}}
-Tenga en cuenta que no puede establecer valores en los campos **Application** y **Producer**, porque Aspose Ltd. y Aspose.Slides for Python via .NET x.x.x se mostrarán en dichos campos.
+Tenga en cuenta que no puede establecer valores en los campos **Application** y **Producer**, ya que Aspose Ltd. y Aspose.Slides for Python via .NET x.x.x se mostrará en estos campos.
 {{% /alert %}} 
 
 ## **Gestionar propiedades de la presentación**
 
-Microsoft PowerPoint ofrece una función para añadir algunas propiedades a los archivos de presentación. Estas propiedades de documento permiten almacenar información útil junto con los documentos (archivos de presentación). Existen dos tipos de propiedades de documento, como se indica a continuación:
+Microsoft PowerPoint proporciona una característica para añadir algunas propiedades a los archivos de presentación. Estas propiedades de documento permiten almacenar información útil junto con los documentos (archivos de presentación). Existen dos tipos de propiedades de documento de la siguiente manera
 
 - Propiedades definidas por el sistema (Integradas)
 - Propiedades definidas por el usuario (Personalizadas)
 
-Las **Integradas** contienen información general del documento, como el título, el nombre del autor, estadísticas del documento, etc. Las **Personalizadas** son aquellas que los usuarios definen como pares **Name/Value**, donde tanto el nombre como el valor son definidos por el usuario. Con Aspose.Slides for Python via .NET, los desarrolladores pueden acceder y modificar los valores de las propiedades integradas así como de las personalizadas. Microsoft PowerPoint 2007 permite gestionar las propiedades de documento de los archivos de presentación. Todo lo que tiene que hacer es hacer clic en el icono de Office y, a continuación, en el elemento de menú **Prepare | Properties | Advanced Properties** de Microsoft PowerPoint 2007. Después de seleccionar el elemento de menú **Advanced Properties**, aparecerá un cuadro de diálogo que permite gestionar las propiedades de documento del archivo PowerPoint. En el **Properties Dialog**, puede ver que hay varias pestañas como **General, Summary, Statistics, Contents and Custom**. Todas estas pestañas permiten configurar diferentes tipos de información relacionada con los archivos PowerPoint. La pestaña **Custom** se utiliza para gestionar las propiedades personalizadas de los archivos PowerPoint.
+Las propiedades **Integradas** contienen información general sobre el documento, como el título del documento, el nombre del autor, estadísticas del documento, etc. Las propiedades **Personalizadas** son aquellas definidas por los usuarios como pares **Nombre/Valor**, donde tanto el nombre como el valor son definidos por el usuario. Con Aspose.Slides for Python via .NET, los desarrolladores pueden acceder y modificar los valores de las propiedades integradas así como de las propiedades personalizadas. Microsoft PowerPoint 2007 permite gestionar las propiedades de documento de los archivos de presentación. Todo lo que debe hacer es hacer clic en el icono de Office y luego en el elemento del menú **Prepare | Properties | Advanced Properties** de Microsoft PowerPoint 2007. Después de seleccionar el elemento del menú **Advanced Properties**, aparecerá un cuadro de diálogo que permite gestionar las propiedades de documento del archivo PowerPoint. En el **Properties Dialog**, puede ver que hay varias pestañas como **General, Summary, Statistics, Contents and Custom**. Todas estas pestañas permiten configurar diferentes tipos de información relacionada con los archivos PowerPoint. La pestaña **Custom** se utiliza para gestionar las propiedades personalizadas de los archivos PowerPoint.
+
+## **Leer propiedades públicas de una presentación cifrada**
+
+Una contraseña de apertura normalmente protege tanto el contenido de la presentación como las propiedades del documento. Cuando una presentación se cifra con [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/es/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) configurado en `False`, sus propiedades de documento permanecen públicas. Entonces una aplicación puede establecer [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/es/python-net/aspose.slides/loadoptions/only_load_document_properties/) en `True` y leer los metadatos públicos sin proporcionar la contraseña de apertura.
+
+`only_load_document_properties` controla lo que Aspose.Slides carga; no descifra nada. Si las propiedades estaban incluidas en el cifrado, cargarlas sin la contraseña falla. Si la presentación no está cifrada, la opción se ignora y se carga la presentación completa.
+
+El siguiente ejemplo verifica el modo de carga mediante [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/es/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) y luego lee las propiedades integradas a través de [Presentation.document_properties](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/document_properties/) :
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.only_load_document_properties = True
+
+with slides.Presentation("public-properties-encrypted.pptx", load_options) as presentation:
+    if presentation.protection_manager.is_only_document_properties_loaded:
+        properties = presentation.document_properties
+
+        print("Author: " + properties.author)
+        print("Title: " + properties.title)
+        print("Keywords: " + properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+En este modo, el contenido de las diapositivas no se carga. Las diapositivas, maestros, diseños, formas, medios y otros objetos de la presentación no están disponibles. Las aplicaciones deben comprobar siempre `is_only_document_properties_loaded` antes de realizar una operación que requiera el modelo de objetos completo de la presentación.
+
+{{% alert color="warning" title="Security" %}}
+Los metadatos públicos pueden revelar nombres de autores, títulos, asuntos, palabras clave, información de la empresa, comentarios y valores personalizados. Encripte las propiedades sensibles junto con la presentación. Déjelas públicas solo cuando los sistemas de indexación, clasificación, búsqueda o gestión de documentos tengan un requisito específico para acceder a ellas sin contraseña.
+{{% /alert %}}
+
+## **Actualizar propiedades de una presentación cifrada**
+
+Para un archivo PPTX cifrado, una presentación cargada con `only_load_document_properties` está destinada a leer los metadatos públicos. Aspose.Slides no puede guardar las propiedades modificadas de ese objeto de solo metadatos porque las propiedades públicas deben permanecer consistentes con los datos correspondientes dentro de la presentación cifrada. Por lo tanto, actualizarlas requiere la contraseña de apertura correcta y una carga completa.
+
+El siguiente ejemplo abre la presentación con [LoadOptions.password](https://reference.aspose.com/slides/es/python-net/aspose.slides/loadoptions/password/), actualiza las propiedades públicas integradas y guarda el resultado. Luego utiliza [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentationinfo/is_encrypted/) para verificar que el cifrado se mantiene y vuelve a abrir los metadatos públicos sin una contraseña para comprobar los nuevos valores:
+
+```python
+import aspose.slides as slides
+
+input_path = "public-properties-encrypted.pptx"
+output_path = "updated-public-properties-encrypted.pptx"
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation(input_path, load_options) as presentation:
+    presentation.document_properties.title = "Updated Product Roadmap"
+    presentation.document_properties.keywords = "roadmap, planning, indexed"
+    presentation.save(output_path, slides.export.SaveFormat.PPTX)
+
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(output_path)
+print("The presentation is encrypted: " + str(presentation_info.is_encrypted))
+
+metadata_load_options = slides.LoadOptions()
+metadata_load_options.only_load_document_properties = True
+
+with slides.Presentation(output_path, metadata_load_options) as metadata_presentation:
+    if metadata_presentation.protection_manager.is_only_document_properties_loaded:
+        print("Title: " + metadata_presentation.document_properties.title)
+        print("Keywords: " + metadata_presentation.document_properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+Si una aplicación no tiene permiso para descifrar o cargar el contenido de la presentación, debe tratar las propiedades públicas de un archivo PPTX cifrado como solo lectura.
 
 ## **Acceder a propiedades integradas**
-
-Estas propiedades, tal como las expone el objeto **IDocumentProperties**, incluyen: **Creator(Author)**, **Description**, **Keywords**, **Created** (Fecha de creación), **Modified** (Fecha de modificación), **Printed** (Fecha del último impresión), **LastModifiedBy**, **Keywords**, **SharedDoc** (¿Se comparte entre diferentes productores?), **PresentationFormat**, **Subject** y **Title**.
-
+Estas propiedades, tal como las expone el objeto **IDocumentProperties**, incluyen: **Creator(Author)**, **Description**, **Keywords**, **Created** (Fecha de creación), **Modified** (Fecha de modificación), **Printed** (Fecha del último imprimado), **LastModifiedBy**, **Keywords**, **SharedDoc** (¿Se comparte entre diferentes productores?), **PresentationFormat**, **Subject** y **Title**
 ```py
 import aspose.slides as slides
 
@@ -74,7 +139,7 @@ with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
 
 ## **Modificar propiedades integradas**
 
-Modificar las propiedades integradas de los archivos de presentación es tan sencillo como acceder a ellas. Simplemente puede asignar un valor de cadena a cualquier propiedad deseada y el valor de la propiedad se modificará. En el ejemplo que se muestra a continuación, hemos demostrado cómo podemos modificar las propiedades de documento integradas del archivo de presentación.
+La modificación de las propiedades integradas de los archivos de presentación es tan sencilla como acceder a ellas. Simplemente puede asignar un valor de cadena a cualquier propiedad deseada y el valor de la propiedad se modificará. En el ejemplo que se muestra a continuación, hemos demostrado cómo podemos modificar las propiedades de documento integradas del archivo de presentación.
 
 ```py
 import aspose.slides as slides
@@ -95,9 +160,9 @@ with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Agregar propiedades personalizadas a la presentación**
+## **Añadir propiedades personalizadas a la presentación**
 
-Aspose.Slides for Python via .NET también permite a los desarrolladores agregar valores personalizados a las propiedades de documento de la presentación. A continuación se muestra un ejemplo que indica cómo establecer las propiedades personalizadas para una presentación.
+Aspose.Slides for Python via .NET también permite a los desarrolladores añadir valores personalizados a las propiedades del documento de la presentación. A continuación se muestra un ejemplo que indica cómo establecer las propiedades personalizadas para una presentación.
 
 ```py
 import aspose.slides as slides
@@ -112,7 +177,7 @@ with slides.Presentation() as presentation:
     documentProperties.set_custom_property_value("My Nam", "Mudassir")
     documentProperties.set_custom_property_value("Custom", 124)
 
-    # Obtener el nombre de la propiedad en un índice concreto
+    # Obtener el nombre de la propiedad en un índice específico
     getPropertyName = documentProperties.get_custom_property_name(2)
 
     # Eliminar la propiedad seleccionada
@@ -150,11 +215,11 @@ with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`get_custom_property_value` devuelve el valor mediante la lista de un elemento que se pasa como segundo argumento, y el valor almacenado se convierte al tipo del elemento ya presente en esa lista. El ejemplo anterior usa `[""]`, por lo que lee propiedades de cadena; para leer una propiedad almacenada como número, pase un marcador numérico como `[0]`; de lo contrario la llamada genera una `InvalidCastException`.
+`get_custom_property_value` devuelve el valor a través de la lista de un elemento que se pasa como segundo argumento, y el valor almacenado se convierte al tipo del elemento ya presente en esa lista. El ejemplo anterior usa `[""]`, por lo que lee propiedades de tipo cadena; para leer una propiedad almacenada como número, pase un marcador numérico como `[0]`; de lo contrario, la llamada genera una `InvalidCastException`.
 
 ## **Establecer idioma de revisión**
 
-Aspose.Slides proporciona la propiedad `Language_Id` (expuesta por la clase [PortionFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/portionformat/)) para permitirle establecer el idioma de revisión para un documento PowerPoint. El idioma de revisión es el idioma para el que se comprueban la ortografía y la gramática en PowerPoint.
+Aspose.Slides proporciona la propiedad `Language_Id` (expuesta por la clase [PortionFormat](https://reference.aspose.com/slides/es/python-net/aspose.slides/portionformat/)) para permitirle establecer el idioma de revisión de un documento PowerPoint. El idioma de revisión es el idioma para el que se comprueban la ortografía y la gramática en PowerPoint.
 
 Este código Python muestra cómo establecer el idioma de revisión para un PowerPoint:
 
@@ -182,7 +247,7 @@ with slides.Presentation("SetProofingLanguage.pptx") as pres:
 
 ## **Establecer idioma predeterminado**
 
-Este código Python muestra cómo establecer el idioma predeterminado para una presentación PowerPoint completa:
+Este código Python muestra cómo establecer el idioma predeterminado para una presentación completa de PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -202,18 +267,26 @@ with slides.Presentation(load_options) as pres:
 
 Pruebe la aplicación en línea [**Aspose.Slides Metadata**](https://products.aspose.app/slides/es/metadata) para ver cómo trabajar con las propiedades de documento mediante la API de Aspose.Slides:
 
-[![Ver y editar metadatos de PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/es/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/es/metadata)
 
 ## **Preguntas frecuentes**
 
 **¿Cómo puedo eliminar una propiedad integrada de una presentación?**
 
-Las propiedades integradas son una parte integral de la presentación y no pueden eliminarse por completo. Sin embargo, puede cambiar sus valores o dejarlos vacíos si la propiedad específica lo permite.
+Las propiedades integradas son una parte integral de la presentación y no pueden eliminarse por completo. Sin embargo, puede cambiar sus valores o establecerlas como vacías si la propiedad específica lo permite.
 
 **¿Qué ocurre si añado una propiedad personalizada que ya existe?**
 
 Si añade una propiedad personalizada que ya existe, su valor actual se sobrescribirá con el nuevo. No es necesario eliminar o comprobar la propiedad previamente, ya que Aspose.Slides actualiza automáticamente el valor de la propiedad.
 
-**¿Puedo acceder a las propiedades de la presentación sin cargarla completamente?**
+**¿Puedo acceder a las propiedades de la presentación sin cargar completamente la presentación?**
 
-Sí. Utilice [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentationfactory/get_presentation_info/) y luego [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentationinfo/read_document_properties/) para leer los metadatos del documento almacenados sin crear una instancia de [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/). Consulte [Build a Lightweight Presentation Inventory](/slides/es/python-net/examine-presentation/) para obtener un ejemplo completo de informe y limitaciones específicas del formato.
+Sí. Use [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentationfactory/get_presentation_info/) y luego [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentationinfo/read_document_properties/) para leer los metadatos del documento almacenados sin crear una instancia de [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) . Consulte [Build a Lightweight Presentation Inventory](/slides/es/python-net/examine-presentation/) para obtener un ejemplo completo de informe y limitaciones específicas de formato.
+
+**¿Puedo leer las propiedades públicas de una presentación cifrada sin su contraseña de apertura?**
+
+Sí. La presentación debe haberse cifrado con `encrypt_document_properties` configurado en `False`, y debe cargarse con `only_load_document_properties` configurado en `True`.
+
+**¿Puedo actualizar un archivo PPTX cifrado en modo solo propiedades de documento?**
+
+No. Los datos de propiedades públicas y cifradas deben permanecer consistentes, por lo que actualizar un archivo PPTX cifrado requiere cargar la presentación completa con la contraseña de apertura correcta.

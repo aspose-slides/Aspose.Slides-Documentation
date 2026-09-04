@@ -23,38 +23,115 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "在 Aspose.Slides for .NET 中掌握演示文稿属性，简化 PowerPoint 和 OpenDocument 文件的搜索、品牌化和工作流。"
+description: "在 Aspose.Slides for .NET 中掌握演示文稿属性，并简化 PowerPoint 和 OpenDocument 文件的搜索、品牌化和工作流。"
 ---
-## **介绍**
+## **简介**
 
 Aspose.Slides for .NET 支持两种文档属性类型：**内置**和**自定义**。这两种属性类型都可以通过 Aspose.Slides for .NET API 轻松访问和管理。
 
-Aspose.Slides 允许您通过 [IDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/idocumentproperties/) 接口处理演示文稿的文档属性。该接口的实例由 [Presentation.DocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/documentproperties/) 属性返回。以下示例展示了如何读取、修改和管理这些属性。
+Aspose.Slides 通过 [IDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/idocumentproperties/) 接口来处理演示文稿的文档属性。该接口的实例由 [IPresentation.DocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentation/documentproperties/) 返回。以下示例展示了如何读取、修改和管理这些属性。
 
 {{% alert color="info" title="Note" %}}
-请注意，**Application** 和 **Producer** 字段无法修改，因为这些字段始终显示 “Aspose Ltd.” 和 “Aspose.Slides for .NET x.x.x”。  
+请注意，**Application** 和 **Producer** 字段无法修改，这两个字段始终显示为 “Aspose Ltd.” 和 “Aspose.Slides for .NET x.x.x”。
 {{% /alert %}} 
 
 ## **管理演示文稿属性**
 
-Microsoft PowerPoint 提供了向演示文稿文件添加属性的功能。这些文档属性允许将有用的信息与文件一起存储。文档属性有两种类型：
+Microsoft PowerPoint 提供了向演示文稿文件添加属性的功能。这些文档属性可以将有用的信息与文件一起存储。文档属性分为两类：
 
-- 系统定义的（内置）属性
-- 用户定义的（自定义）属性
+- 系统定义（内置）属性
+- 用户定义（自定义）属性
 
 **内置**属性包含有关文档的一般信息，例如文档标题、作者姓名、文档统计信息等。
 
-**自定义**属性由用户定义为 **Name/Value** 键值对，其中名称和值均由用户指定。
+**自定义**属性由用户以 **名称/值** 对的形式定义，名称和值均由用户指定。
 
-使用 Aspose.Slides for .NET，开发人员可以访问和修改内置和自定义属性。
+使用 Aspose.Slides for .NET，开发人员可以访问并修改内置属性和自定义属性。
 
-Microsoft PowerPoint 允许用户通过单击 Office 图标，然后选择 **文件 → 信息 → 属性** 来管理文档属性。选择 **高级属性** 后，会出现一个对话框，您可以在其中管理演示文稿文件的所有文档属性。
+Microsoft PowerPoint 允许用户通过单击 Office 图标，然后选择 **文件 → 信息 → 属性** 来管理文档属性。选择 **高级属性** 后，会弹出一个对话框，您可以在其中管理演示文稿文件的所有文档属性。
 
-在 **属性** 对话框中，有多个选项卡，例如 **常规**、**摘要**、**统计**、**内容** 和 **自定义**。每个选项卡提供配置与 PowerPoint 文件相关的特定信息的选项。**自定义** 选项卡用于管理用户定义的属性。
+在 **属性** 对话框中，有多个选项卡，例如 **常规**、**摘要**、**统计**、**内容** 和 **自定义**。每个选项卡提供配置 PowerPoint 文件相关特定信息的选项。**自定义**选项卡用于管理用户定义的属性。
+
+## **读取加密演示文稿的公共属性**
+
+打开密码通常会保护演示文稿内容和文档属性。当演示文稿使用 [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) 并将其设置为 `false` 时，其文档属性保持公开。此时应用程序可以将 [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) 设置为 `true`，在不提供打开密码的情况下读取公共元数据。
+
+`OnlyLoadDocumentProperties` 控制 Aspose.Slides 加载的内容；它不进行解密。如果属性已被加密，在没有密码的情况下加载将失败。如果演示文稿未加密，则该选项会被忽略，完整的演示文稿将被加载。
+
+以下示例通过 [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/zh/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) 验证加载模式，然后通过 [IPresentation.DocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentation/documentproperties/) 读取内置属性：
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { OnlyLoadDocumentProperties = true };
+using var presentation = new Presentation("public-properties-encrypted.pptx", loadOptions);
+
+if (presentation.ProtectionManager.IsOnlyDocumentPropertiesLoaded)
+{
+    var properties = presentation.DocumentProperties;
+
+    Console.WriteLine("Author: " + properties.Author);
+    Console.WriteLine("Title: " + properties.Title);
+    Console.WriteLine("Keywords: " + properties.Keywords);
+}
+else
+{
+    Console.WriteLine("The presentation was not loaded in document-properties-only mode.");
+}
+```
+
+在此模式下，幻灯片内容不会被加载。幻灯片、母版、版式、形状、媒体及其他演示对象均不可用。应用程序应始终在执行需要完整演示对象模型的操作之前检查 `IsOnlyDocumentPropertiesLoaded`。
+
+{{% alert color="warning" title="Security" %}}
+公共元数据可能会泄露作者姓名、标题、主题、关键字、公司信息、注释以及自定义值。请将敏感属性与演示文稿一起加密。仅在索引、分类、搜索或文档管理系统有特定需求必须在不提供密码的情况下访问时，才将其保持公开。
+{{% /alert %}}
+
+## **更新加密演示文稿的属性**
+
+对于加密的 PPTX 文件，使用 `OnlyLoadDocumentProperties` 加载的演示文稿旨在读取公共元数据。Aspose.Slides 无法保存该仅元数据对象中更改的属性，因为公共属性必须与加密演示文稿内部的对应数据保持一致。因此，更新这些属性需要正确的打开密码以及完整加载。
+
+以下示例使用 [LoadOptions.Password](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/password/) 打开演示文稿，更新公共内置属性并保存结果。随后使用 [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationinfo/isencrypted/) 验证加密仍然保留，并在不提供密码的情况下重新打开公共元数据以验证新值：
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string inputPath = "public-properties-encrypted.pptx";
+const string outputPath = "updated-public-properties-encrypted.pptx";
+
+{
+    var loadOptions = new LoadOptions { Password = "open_password" };
+    using var presentation = new Presentation(inputPath, loadOptions);
+
+    presentation.DocumentProperties.Title = "Updated Product Roadmap";
+    presentation.DocumentProperties.Keywords = "roadmap, planning, indexed";
+    presentation.Save(outputPath, SaveFormat.Pptx);
+}
+
+var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(outputPath);
+Console.WriteLine("The presentation is encrypted: " + presentationInfo.IsEncrypted);
+
+var metadataLoadOptions = new LoadOptions { OnlyLoadDocumentProperties = true };
+using var metadataPresentation = new Presentation(outputPath, metadataLoadOptions);
+
+if (metadataPresentation.ProtectionManager.IsOnlyDocumentPropertiesLoaded)
+{
+    Console.WriteLine("Title: " + metadataPresentation.DocumentProperties.Title);
+    Console.WriteLine("Keywords: " + metadataPresentation.DocumentProperties.Keywords);
+}
+else
+{
+    Console.WriteLine("The presentation was not loaded in document-properties-only mode.");
+}
+```
+
+如果应用程序被禁止解密或加载演示文稿内容，则必须将加密 PPTX 文件的公共属性视为只读。
 
 ## **访问内置属性**
 
-这些属性通过 [IDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/idocumentproperties/) 接口公开，包括：**Creator**（作者）、**Description**、**Keywords**、**Created**（创建日期）、**Modified**（修改日期）、**Printed**（最近打印日期）、**LastModifiedBy**、**SharedDoc**（指示文档是否在不同的生成者之间共享）、**PresentationFormat**、**Subject**、**Title** 等。
+这些属性由 [IDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/idocumentproperties/) 接口公开，包括：**Creator**（作者）、**Description**、**Keywords**、**Created**（创建日期）、**Modified**（修改日期）、**Printed**（最近打印日期）、**LastModifiedBy**、**SharedDoc**（指示文档是否在不同制作者之间共享）、**PresentationFormat**、**Subject**、**Title** 等。
 
 ```cs
 using Aspose.Slides;
@@ -84,7 +161,7 @@ Console.WriteLine("Title : " + documentProperties.Title);
 
 ## **修改内置属性**
 
-修改演示文稿文件的内置属性和访问它们一样简单。您只需为任意所需属性分配字符串值，即可更新属性的值。在下面的示例中，我们演示如何修改演示文稿文件的内置文档属性。
+修改演示文稿文件的内置属性和访问它们一样简单。只需将字符串值赋给任意所需属性，即可更新该属性的值。下面的示例演示了如何修改演示文稿文件的内置文档属性。
 
 ```cs
 using Aspose.Slides;
@@ -103,13 +180,13 @@ documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// Save the presentation to a file.
+// 保存演示文稿到文件。
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **添加自定义演示文稿属性**
 
-自定义演示文稿属性使开发人员能够在演示文稿文件中存储额外的元数据或特定信息。Aspose.Slides 让以编程方式创建和管理这些自定义属性变得轻松。以下示例演示如何向演示文稿添加自定义属性。
+自定义演示文稿属性使开发人员能够在演示文稿文件中存储额外的元数据或特定信息。Aspose.Slides 让以编程方式创建和管理这些自定义属性变得轻而易举。以下示例展示了如何向演示文稿添加自定义属性。
 
 ```cs
 using Aspose.Slides;
@@ -126,13 +203,13 @@ documentProperties["Reviewed by"] = "John Smith";
 documentProperties["Confidentiality level"] = "Internal";
 documentProperties["Document version"] = 2;
 
-// 保存演示文稿到文件。
+// 将演示文稿保存到文件。
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **访问和修改自定义属性**
 
-Aspose.Slides 还允许开发人员轻松访问现有的自定义属性并修改其值。此功能有助于维护准确的元数据，并支持基于用户输入或业务逻辑的动态更新。下面的示例说明了如何检索和更新演示文稿中的自定义属性值。
+Aspose.Slides 还允许开发人员访问现有的自定义属性并轻松修改其值。这一功能有助于维护准确的元数据，并支持基于用户输入或业务逻辑的动态更新。下面的示例说明了如何检索和更新演示文稿中的自定义属性值。
 
 ```cs
 using Aspose.Slides;
@@ -164,20 +241,28 @@ presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 
 ## **实时示例**
 
-尝试在线应用程序 [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/zh/metadata)，了解如何使用 Aspose.Slides API 处理文档属性：
+试试在线应用 [**查看并编辑 PowerPoint 元数据**](https://products.aspose.app/slides/zh/metadata)，了解如何使用 Aspose.Slides API 处理文档属性：
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/zh/metadata)
+[![查看并编辑 PowerPoint 元数据](slides-metadata.png)](https://products.aspose.app/slides/zh/metadata)
 
 ## **常见问题**
 
-**如何从演示文稿中删除内置属性？**
+**如何从演示文稿中移除内置属性？**
 
-内置属性是演示文稿的组成部分，无法完全删除。不过，您可以更改其值，或在特定属性允许的情况下将其设为空。
+内置属性是演示文稿的组成部分，不能完全移除。不过，您可以更改其值，或在特定属性允许的情况下将其设为空。
 
-**如果添加已存在的自定义属性会怎样？**
+**如果添加的自定义属性已经存在会怎样？**
 
-如果添加的自定义属性已存在，其现有值将被新值覆盖。您无需事先删除或检查该属性，因为 Aspose.Slides 会自动更新属性的值。
+如果添加的自定义属性已经存在，其现有值将被新值覆盖。无需事先删除或检查属性，Aspose.Slides 会自动更新属性的值。
 
-**是否可以在不完全加载演示文稿的情况下访问演示文稿属性？**
+**是否可以在不完整加载演示文稿的情况下访问演示文稿属性？**
 
-可以。使用 [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/zh/net/aspose.slides/presentationfactory/getpresentationinfo/) 然后调用 [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationinfo/readdocumentproperties/)，即可在不创建 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 实例的情况下读取存储的文档元数据。请参阅 [Build a Lightweight Presentation Inventory](/slides/zh/net/examine-presentation/)，获取完整的报告示例及格式特定的限制。
+可以。使用 [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/zh/net/aspose.slides/presentationfactory/getpresentationinfo/) 然后调用 [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentationinfo/readdocumentproperties/) 即可在不创建 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 实例的情况下读取存储的文档元数据。有关完整报告示例和特定格式限制，请参阅 [构建轻量级演示文稿清单](/slides/zh/net/examine-presentation/)。
+
+**是否可以在没有打开密码的情况下读取加密演示文稿的公共属性？**
+
+可以。前提是演示文稿在加密时将 `EncryptDocumentProperties` 设置为 `false`，并且以 `OnlyLoadDocumentProperties` 为 `true` 加载。
+
+**是否可以在仅文档属性模式下更新加密的 PPTX 文件？**
+
+不可以。公共属性和加密属性的数据必须保持一致，因此更新加密的 PPTX 文件需要使用正确的打开密码完整加载演示文稿。

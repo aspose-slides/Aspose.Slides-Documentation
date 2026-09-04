@@ -6,7 +6,6 @@ weight: 20
 url: /sv/php-java/open-presentation/
 keywords:
 - öppna PowerPoint
-- öppna OpenDocument
 - öppna presentation
 - öppna PPTX
 - öppna PPT
@@ -21,24 +20,26 @@ keywords:
 - binärt objekt
 - PHP
 - Aspose.Slides
-description: "Öppna PowerPoint (.pptx, .ppt) och OpenDocument (.odp) presentationer enkelt med Aspose.Slides för PHP via Java - snabbt, pålitligt, fullt utrustat."
+description: "Lär dig hur du öppnar PowerPoint- och OpenDocument-presentationer i PHP, anger öppningslösenord, styr resursladdning och minskar minnesanvändning med Aspose.Slides för PHP via Java."
 ---
 ## **Introduktion**
 
-Förutom att skapa PowerPoint‑presentationer från grunden låter Aspose.Slides dig även öppna befintliga presentationer. När en presentation har lästs in kan du hämta information om den, redigera bildinnehåll, lägga till nya bilder, ta bort befintliga och mycket mer.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/sv/php-java/) kan läsa in PowerPoint- och OpenDocument-presentationer från filer och strömmar. Efter att en presentation har lästs in kan du undersöka dess struktur, redigera bilder, hantera resurser och spara den i det ursprungliga eller ett annat stödt format.
+
+Inläsningsbeteendet kan anpassas via klassen [LoadOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/). Till exempel kan du ange ett öppningslösenord, hålla stora binära objekt utanför Java-heapminnet, kontrollera externa resurser eller utelämna inbäddade binära data.
 
 ## **Öppna presentationer**
 
-För att öppna en befintlig presentation, skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) och skicka filvägen till dess konstruktor.
+För att öppna en befintlig presentation, skicka dess filsökväg till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/). Avsluta presentationen efter användning så att filhandtag, temporära data och andra resurser frigörs omedelbart.
 
-Följande PHP‑exempel visar hur du öppnar en presentation och får antalet bilder:
+Följande PHP-exempel visar hur du öppnar en presentation och hämtar antalet bilder:
 
 ```php
-// Instansiera Presentation-klassen och skicka en filsökväg till dess konstruktor.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
-    // Skriv ut det totala antalet bilder i presentationen.
-    echo($presentation->getSlides()->size());
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
@@ -46,81 +47,86 @@ try {
 
 ## **Öppna lösenordsskyddade presentationer**
 
-När du behöver öppna en lösenordsskyddad presentation, ange lösenordet via metoden [setPassword](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setPassword) i klassen [LoadOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/) för att dekryptera och läsa in den. Följande PHP‑kod demonstrerar denna operation:
+Ett öppningslösenord krypterar presentationsinnehållet. För att läsa in hela presentationen, skicka det korrekta lösenordet till [LoadOptions::setPassword](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setPassword) och ge alternativen till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/). Inläsning misslyckas när lösenordet saknas eller är felaktigt.
 
 ```php
-$loadOptions = new LoadOptions();
-$loadOptions->setPassword("YOUR_PASSWORD");
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-presentation.pptx", $loadOptions);
 try {
-    // Utför operationer på den dekrypterade presentationen.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
+
+För lösenorddetektering, validering och krypteringsarbetsflöden, se [Password-Protect Presentations](/slides/sv/php-java/password-protected-presentation/). Om en krypterad presentation medvetet sparats med offentliga dokumentegenskaper, kan dessa egenskaper läsas utan lösenord; se [Manage Presentation Properties](/slides/sv/php-java/presentation-properties/).
 
 ## **Öppna stora presentationer**
 
-Aspose.Slides erbjuder alternativ – särskilt metoden [getBlobManagementOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) i klassen [LoadOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/) – för att hjälpa dig läsa in stora presentationer.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) returnerar alternativ som styr hur Aspose.Slides hanterar stora binära objekt såsom bilder, ljud och video. Du kan behålla källfilen låst, tillåta temporära filer och begränsa mängden BLOB-data som behålls i minnet.
 
-Följande PHP‑kod demonstrerar inläsning av en stor presentation (t.ex. 2 GB):
+Följande PHP-kod demonstrerar inläsning av en stor presentation (t.ex. 2 GB):
 
 ```php
-$filePath = "LargePresentation.pptx";
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationLockingBehavior;
+use aspose\slides\SaveFormat;
+
+$filePath = "large-presentation.pptx";
 
 $loadOptions = new LoadOptions();
-// Välj KeepLocked-beteendet - presentationsfilen förblir låst under hela
-// Presentation-instansen, men den behöver inte läsas in i minnet eller kopieras till en temporär fil.
 $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 $presentation = new Presentation($filePath, $loadOptions);
 try {
-    // Den stora presentationen har lästs in och kan användas, medan minnesförbrukningen förblir låg.
-
-    // Gör ändringar i presentationen.
-    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
-
-    // Spara presentationen till en annan fil. Minnesförbrukningen förblir låg under denna operation.
-    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
-	
-	// Gör inte detta! Ett I/O-undantag kommer att kastas eftersom filen är låst tills presentationsobjektet har frigjorts.
-	//unlink($filePath);
+    $presentation->getSlides()->get_Item(0)->setName("Large presentation");
+    $presentation->save("large-presentation-copy.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
-// Det är okej att göra det här. Källfilen är inte längre låst av presentationsobjektet.
-unlink($filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-För att kringgå vissa begränsningar när du arbetar med strömmar kan Aspose.Slides kopiera en strömms innehåll. Att läsa in en stor presentation från en ström innebär att presentationen kopieras, vilket kan sakta ner inläsningen. Därför rekommenderar vi starkt att du använder presentationsfilens sökväg istället för en ström när du behöver läsa in en stor presentation.
+{{% alert color="info" title="Obs" %}}
+Med [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) förblir källfilen låst tills presentation‑instansen avskrivs. Flytta, skriv över eller ta inte bort källfilen medan den instansen är aktiv.
 
-När du skapar en presentation som innehåller stora objekt (video, ljud, högupplösta bilder osv.) kan du använda [BLOB‑hantering](/slides/sv/php-java/manage-blob/) för att minska minnesförbrukningen.
-{{%/alert %}}
+Aspose.Slides kan kopiera innehållet i en inmatningsström under inläsning. För stora presentationer är en filsökväg därför generellt mer effektiv än en ström. Se [Manage BLOBs](/slides/sv/php-java/manage-blob/) för ytterligare lagrings‑ och minneshanteringsalternativ.
+{{% /alert %}}
 
-## **Kontrollera externa resurser**
+## **Styr externa resurser**
 
-Aspose.Slides tillhandahåller gränssnittet [IResourceLoadingCallback](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iresourceloadingcallback/) som låter dig hantera externa resurser. Följande PHP‑kod visar hur du använder gränssnittet `IResourceLoadingCallback`:
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accepterar en implementation av Java‑gränssnittet [IResourceLoadingCallback](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iresourceloadingcallback/) via PHP/Java Bridge. Återanropet kan tillhandahålla ersättningsdata, omdirigera en resurs, använda standardladdaren eller hoppa över resursen. Detta är användbart när presentationer innehåller externa bilder som måste lösas enligt applikationsspecifika säkerhets‑ eller lagringsregler.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ResourceLoadingAction;
+
 class ImageLoadingHandler {
     function resourceLoading($args) {
-        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-            // Läs in en ersättningsbild.
-			$bytes = file_get_contents("aspose-logo.jpg");
-			$javaByteArray = java_values($bytes);
-            $args->setData($javaByteArray);
-            return ResourceLoadingAction::UserProvided;
-        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-            // Ange en ersättnings-URL.
-            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+        $originalUri = strtolower(java_values($args->getOriginalUri()));
+        $approvedImagePath = "approved-image.jpg";
+        $isJpeg = substr($originalUri, -4) === ".jpg";
+
+        if (!$isJpeg || !file_exists($approvedImagePath)) {
+            return ResourceLoadingAction::Skip;
         }
-        // Hoppa över alla andra bilder.
-        return ResourceLoadingAction::Skip;
+
+        $imageData = file_get_contents($approvedImagePath);
+        if ($imageData === false) {
+            echo("The approved replacement image could not be read.\n");
+            return ResourceLoadingAction::Skip;
+        }
+
+        $args->setData(java_values($imageData));
+        return ResourceLoadingAction::UserProvided;
     }
 }
 
@@ -129,43 +135,52 @@ $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose
 $loadOptions = new LoadOptions();
 $loadOptions->setResourceLoadingCallback($loadingHandler);
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
-```
-
-## **Läs in presentationer utan inbäddade binära objekt**
-
-En PowerPoint‑presentation kan innehålla följande typer av inbäddade binära objekt:
-
-- VBA‑projekt (åtkomligt via [Presentation.getVbaProject](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getVbaProject));
-- OLE‑objekt med inbäddade data (åtkomligt via [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/sv/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- ActiveX‑kontroll binär data (åtkomligt via [Control.getActiveXControlBinary](https://reference.aspose.com/slides/sv/php-java/aspose.slides/control/#getActiveXControlBinary)).
-
-Genom att använda metoden [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) kan du läsa in en presentation utan några inbäddade binära objekt.
-
-Denna metod är användbar för att ta bort potentiellt skadligt binärt innehåll. Följande PHP‑kod demonstrerar hur du läser in en presentation utan inbäddat binärt innehåll:
-
-```php
-$loadOptions = new LoadOptions();
-$loadOptions->setDeleteEmbeddedBinaryObjects(true);
-
-$presentation = new Presentation("malware.ppt", $loadOptions);
+$presentation = new Presentation("presentation-with-external-images.pptx", $loadOptions);
 try {
-    // Utför operationer på presentationen.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Vanliga frågor**
+## **Läs in presentationer utan inbäddade binära objekt**
 
-**Hur kan jag avgöra att en fil är korrupt och inte kan öppnas?**
+En presentation kan innehålla inbäddade binära data som en applikation varken behöver eller vill behålla. Exempel inkluderar:
 
-Du får ett undantag för parsning/formatvalidering under inläsning. Sådana fel nämner ofta en ogiltig ZIP‑struktur eller trasiga PowerPoint‑poster.
+- VBA‑projekt, tillgängliga via [Presentation::getVbaProject](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getVbaProject);
+- inbäddade OLE‑data, tillgängliga via [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/sv/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- ActiveX‑kontrolldata, tillgängliga via [Control::getActiveXControlBinary](https://reference.aspose.com/slides/sv/php-java/aspose.slides/control/#getActiveXControlBinary).
 
-**Vad händer om nödvändiga teckensnitt saknas vid öppning?**
+Ställ in [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) till `true` för att ta bort dessa binära data vid inläsning. Spara den inlästa presentationen för att behålla det sanerade resultatet.
 
-Filen öppnas, men senare [rendering/export](/slides/sv/php-java/convert-presentation/) kan ersätta teckensnitten. [Konfigurera teckensnittsersättningar](/slides/sv/php-java/font-substitution/) eller [lägg till de nödvändiga teckensnitten](/slides/sv/php-java/custom-font/) i körmiljön.
+Detta alternativ minskar exponeringen för oönskade inbäddade data, men det är inte ett fullständigt system för malware‑detektering eller innehållssanering.
 
-**Hur hanteras inbäddade medier (video/ljud) vid öppning?**
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-De blir tillgängliga som presentationsresurser. Om medier refereras via externa sökvägar, se till att dessa sökvägar är åtkomliga i din miljö; annars kan [rendering/export](/slides/sv/php-java/convert-presentation/) utelämna dem.
+$loadOptions = new LoadOptions();
+$loadOptions->setDeleteEmbeddedBinaryObjects(true);
+
+$presentation = new Presentation("presentation-with-embedded-data.pptx", $loadOptions);
+try {
+    $presentation->save("presentation-without-embedded-data.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **FAQ**
+
+**Hur kan jag avgöra att en fil är skadad och inte kan öppnas?**
+
+Aspose.Slides kastar ett pars‑ eller formatfel vid inläsning. Hantera detta fel separat från ett felmeddelande om fel lösenord så att applikationen kan rapportera orsaken korrekt.
+
+**Vad händer om nödvändiga teckensnitt saknas?**
+
+Presentationen kan fortfarande läsas in, men rendering och export kan ersätta teckensnitt. Du kan [configure font substitution](/slides/sv/php-java/font-substitution/) eller [provide custom fonts](/slides/sv/php-java/custom-font/) för att göra resultatet mer förutsägbart.
+
+**Laddas en presentation också med dess inbäddade media?**
+
+Inbäddat ljud och video blir tillgängliga via presentationens objektmodell. Externa resurser löses upp enligt den konfigurerade resursladdningsbeteendet och kan vara otillgängliga om deras platser inte kan nås.

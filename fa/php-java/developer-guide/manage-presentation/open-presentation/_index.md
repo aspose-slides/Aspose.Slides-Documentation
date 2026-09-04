@@ -1,124 +1,132 @@
 ---
-title: "باز کردن ارائه‌ها در PHP"
-linktitle: "باز کردن ارائه"
+title: باز کردن ارائه‌ها در PHP
+linktitle: باز کردن ارائه
 type: docs
 weight: 20
 url: /fa/php-java/open-presentation/
 keywords:
-- "باز کردن پاورپوینت"
-- "باز کردن OpenDocument"
-- "باز کردن ارائه"
-- "باز کردن PPTX"
-- "باز کردن PPT"
-- "باز کردن ODP"
-- "بارگیری ارائه"
-- "بارگیری PPTX"
-- "بارگیری PPT"
-- "بارگیری ODP"
-- "ارائه محافظت‌شده"
-- "ارائه بزرگ"
-- "منبع خارجی"
-- "شی باینری"
+- باز کردن پاورپوینت
+- باز کردن ارائه
+- باز کردن PPTX
+- باز کردن PPT
+- باز کردن ODP
+- بارگذاری ارائه
+- بارگذاری PPTX
+- بارگذاری PPT
+- بارگذاری ODP
+- ارائه محافظت‌شده
+- ارائه بزرگ
+- منبع خارجی
+- شی باینری
 - PHP
 - Aspose.Slides
-description: "به‌راحتی ارائه‌های PowerPoint (.pptx، .ppt) و OpenDocument (.odp) را با Aspose.Slides برای PHP از طریق Java باز کنید — سریع، قابل اعتماد، کاملاً دارای ویژگی‌ها."
+description: "یاد بگیرید چگونه ارائه‌های PowerPoint و OpenDocument را در PHP باز کنید، رمزهای عبور باز کردن را ارائه دهید، بارگذاری منابع را کنترل کنید و استفاده از حافظه را با Aspose.Slides برای PHP از طریق Java کاهش دهید."
 ---
-## **مقدمه**
+## **معرفی**
 
-فراتر از ایجاد ارائه‌های پاورپوینت از ابتدا، Aspose.Slides همچنین به شما امکان می‌دهد ارائه‌های موجود را باز کنید. پس از بارگذاری یک ارائه، می‌توانید اطلاعات مربوط به آن را بازیابی کنید، محتویات اسلاید را ویرایش کنید، اسلایدهای جدید اضافه کنید، اسلایدهای موجود را حذف کنید و موارد دیگر.
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/fa/php-java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در فرمت اصلی یا فرمت پشتیبانی‌شده دیگر ذخیره کنید.
+
+رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید یک رمز عبور باز کردن ارائه دهید، اشیاء باینری بزرگ را خارج از حافظه heap جاوا نگه دارید، منابع خارجی را کنترل کنید یا داده‌های باینری جاسازی‌شده را حذف کنید.
 
 ## **باز کردن ارائه‌ها**
 
-برای باز کردن یک ارائه موجود، کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) را نمونه‌سازی کنید و مسیر فایل را به سازنده آن پاس دهید.
+برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) پاس دهید. پس از استفاده، ارائه را آزاد کنید تا دستگیره‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+
+مثال زیر PHP نشان می‌دهد که چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را دریافت کنید:
 
 ```php
-// نمونه‌سازی کلاس Presentation و ارسال مسیر فایل به سازنده آن.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
-    // نمایش تعداد کل اسلایدهای موجود در ارائه.
-    echo($presentation->getSlides()->size());
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **باز کردن ارائه‌های محافظت‌شده با رمزعبور**
+## **باز کردن ارائه‌های دارای رمز عبور**
 
-زمانی که نیاز به باز کردن یک ارائه محافظت‌شده با رمزعبور دارید، رمزعبور را از طریق متد [setPassword](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setPassword) کلاس [LoadOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/) پاس کنید تا رمزگشایی و بارگذاری شود. کد PHP زیر این عملیات را نشان می‌دهد:
+یک رمز عبور باز کردن، محتویات ارائه را رمزنگاری می‌کند. برای بارگذاری کامل ارائه، رمز عبور صحیح را به [LoadOptions::setPassword](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setPassword) پاس دهید و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ارائه کنید. در صورتی که رمز عبور وجود نداشته باشد یا نادرست باشد، بارگذاری ناموفق می‌شود.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
 $loadOptions = new LoadOptions();
-$loadOptions->setPassword("YOUR_PASSWORD");
+$loadOptions->setPassword("open_password");
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$presentation = new Presentation("encrypted-presentation.pptx", $loadOptions);
 try {
-    // عملیات روی ارائه رمزگشایی‌شده را انجام دهید.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
+
+برای کشف، اعتبارسنجی و روندهای رمزنگاری رمز عبور، به [Password-Protect Presentations](/slides/fa/php-java/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزگذاری‌شده عمداً با ویژگی‌های سند عمومی ذخیره شده باشد، می‌توان این ویژگی‌ها را بدون رمز عبور خواند؛ به [Manage Presentation Properties](/slides/fa/php-java/presentation-properties/) نگاه کنید.
 
 ## **باز کردن ارائه‌های بزرگ**
 
-Aspose.Slides گزینه‌هایی ارائه می‌دهد—به‌ویژه متد [getBlobManagementOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) در کلاس [LoadOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/)—تا به شما در بارگذاری ارائه‌های بزرگ کمک کند.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) گزینه‌هایی را برمی‌گرداند که کنترل می‌کند Aspose.Slides چگونه اشیاء بزرگ باینری مانند تصاویر، صدا و ویدیو را مدیریت می‌کند. می‌توانید فایل منبع را قفل نگه دارید، فایل‌های موقت را اجازه دهید و مقدار داده‌های BLOB نگهداری‌شده در حافظه را محدود کنید.
 
-کد PHP زیر بارگذاری یک ارائه بزرگ (به‌عنوان مثال، ۲ گیگابایت) را نشان می‌دهد:
+کد زیر PHP نشان می‌دهد که چگونه یک ارائه بزرگ (به عنوان مثال ۲ گیگابایت) را بارگذاری کنید:
 
 ```php
-$filePath = "LargePresentation.pptx";
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationLockingBehavior;
+use aspose\slides\SaveFormat;
+
+$filePath = "large-presentation.pptx";
 
 $loadOptions = new LoadOptions();
-// رفتار KeepLocked را انتخاب کنید—فایل ارائه برای مدت زمان عمر
-// شی Presentation قفل می‌ماند، اما نیازی به بارگذاری در حافظه یا کپی به فایل موقت نیست.
 $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // ۱۰ مگابایت
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 $presentation = new Presentation($filePath, $loadOptions);
 try {
-    // ارائه بزرگ بارگذاری شده و می‌توان از آن استفاده کرد، در حالی که مصرف حافظه کم باقی می‌ماند.
-
-    // تغییرات مورد نیاز در ارائه اعمال شود.
-    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
-
-    // ارائه را در فایل دیگری ذخیره کنید. در طول این عملیات مصرف حافظه کم می‌ماند.
-    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
-	
-	// این کار را انجام ندهید! یک استثنای I/O ایجاد می‌شود زیرا فایل تا زمان آزاد شدن شی ارائه قفل است.
-	//unlink($filePath);
+    $presentation->getSlides()->get_Item(0)->setName("Large presentation");
+    $presentation->save("large-presentation-copy.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
-// در اینجا انجامش مشکلی ندارد. فایل منبع دیگر توسط شی ارائه قفل نشده است.
-unlink($filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-برای دور زدن برخی محدودیت‌ها هنگام کار با استریم‌ها، Aspose.Slides ممکن است محتوای یک استریم را کپی کند. بارگذاری یک ارائه بزرگ از استریم باعث کپی شدن ارائه می‌شود و می‌تواند سرعت بارگذاری را کم کند. بنابراین، زمانی که نیاز به بارگذاری یک ارائه بزرگ دارید، به‌شدت توصیه می‌کنیم از مسیر فایل ارائه به‌جای استریم استفاده کنید.
+{{% alert color="info" title="نکته" %}}
+با استفاده از [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمان آزاد شدن نمونه ارائه قفل می‌ماند. تا زمانی که آن نمونه زنده است، فایل منبع را جابجا، بازنویسی یا حذف نکنید.
 
-هنگام ایجاد ارائه‌ای که شامل اشیای بزرگ (ویدئو، صدا، تصاویر با وضوح بالا و غیره) باشد، می‌توانید از [مدیریت BLOB](/slides/fa/php-java/manage-blob/) برای کاهش مصرف حافظه استفاده کنید.
-{{%/alert %}}
+Aspose.Slides ممکن است محتوای یک جریان ورودی را هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، مسیر فایل به‌طور کلی کارآمدتر از یک جریان است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه، به [Manage BLOBs](/slides/fa/php-java/manage-blob/) مراجعه کنید.
+{{% /alert %}}
 
 ## **کنترل منابع خارجی**
 
-Aspose.Slides رابط [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iresourceloadingcallback/) را فراهم می‌کند که به شما امکان مدیریت منابع خارجی را می‌دهد. کد PHP زیر نشان می‌دهد چگونه از رابط `IResourceLoadingCallback` استفاده کنید:
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) یک پیاده‌سازی از رابط Java [IResourceLoadingCallback](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iresourceloadingcallback/) را از طریق PHP/Java Bridge می‌پذیرد. این callback می‌تواند داده‌های جایگزین فراهم کند، منبعی را بازگردانی کند، از لودر پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این زمانی مفید است که ارائه‌ها شامل تصاویر خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی مخصوص برنامه حل شوند.
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ResourceLoadingAction;
+
 class ImageLoadingHandler {
     function resourceLoading($args) {
-        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-            // بارگیری تصویر جایگزین.
-			$bytes = file_get_contents("aspose-logo.jpg");
-			$javaByteArray = java_values($bytes);
-            $args->setData($javaByteArray);
-            return ResourceLoadingAction::UserProvided;
-        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-            // تنظیم URL جایگزین.
-            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+        $originalUri = strtolower(java_values($args->getOriginalUri()));
+        $approvedImagePath = "approved-image.jpg";
+        $isJpeg = substr($originalUri, -4) === ".jpg";
+
+        if (!$isJpeg || !file_exists($approvedImagePath)) {
+            return ResourceLoadingAction::Skip;
         }
-        // رد کردن تمام تصاویر دیگر.
-        return ResourceLoadingAction::Skip;
+
+        $imageData = file_get_contents($approvedImagePath);
+        if ($imageData === false) {
+            echo("The approved replacement image could not be read.\n");
+            return ResourceLoadingAction::Skip;
+        }
+
+        $args->setData(java_values($imageData));
+        return ResourceLoadingAction::UserProvided;
     }
 }
 
@@ -127,43 +135,52 @@ $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose
 $loadOptions = new LoadOptions();
 $loadOptions->setResourceLoadingCallback($loadingHandler);
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
-```
-
-## **بارگذاری ارائه‌ها بدون اشیای باینری جاسازی‌شده**
-
-یک ارائه پاورپوینت می‌تواند شامل انواع زیر از اشیای باینری جاسازی‌شده باشد:
-
-- پروژه VBA (قابل دسترسی از طریق [Presentation.getVbaProject](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getVbaProject));
-- داده‌های جاسازی‌شده شی OLE (قابل دسترسی از طریق [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- داده‌های باینری کنترل ActiveX (قابل دسترسی از طریق [Control.getActiveXControlBinary](https://reference.aspose.com/slides/fa/php-java/aspose.slides/control/#getActiveXControlBinary)).
-
-با استفاده از متد [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) می‌توانید یک ارائه را بدون هیچ‌یک از اشیای باینری جاسازی‌شده بارگذاری کنید.
-
-این متد برای حذف محتوای باینری که ممکن است مخرب باشد مفید است. کد PHP زیر نشان می‌دهد چگونه یک ارائه را بدون هیچ محتوای باینری جاسازی‌شده بارگذاری کنید:
-
-```php
-$loadOptions = new LoadOptions();
-$loadOptions->setDeleteEmbeddedBinaryObjects(true);
-
-$presentation = new Presentation("malware.ppt", $loadOptions);
+$presentation = new Presentation("presentation-with-external-images.pptx", $loadOptions);
 try {
-    // انجام عملیات روی ارائه.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **سوالات متداّل**
+## **بارگذاری ارائه‌ها بدون اشیاء باینری جاسازی‌شده**
 
-**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌توان آن را باز کرد؟**
+یک ارائه ممکن است حاوی داده‌های باینری جاسازی‌شده باشد که یک برنامه به آن نیاز ندارد یا نمی‌خواهد آن را نگه دارد. مثال‌ها شامل:
 
-در هنگام بارگذاری، استثنای تجزیه/اعتبارسنجی فرمیت دریافت می‌کنید. چنین خطاهایی معمولاً به ساختار ZIP نامعتبر یا رکوردهای خراب پاورپوینت اشاره می‌کنند.
+- پروژه‌های VBA، که از طریق [Presentation::getVbaProject](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getVbaProject) در دسترس هستند؛
+- داده‌های OLE جاسازی‌شده، که از طریق [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) در دسترس هستند؛
+- داده‌های کنترل ActiveX، که از طریق [Control::getActiveXControlBinary](https://reference.aspose.com/slides/fa/php-java/aspose.slides/control/#getActiveXControlBinary) در دسترس هستند.
 
-**چه واقع می‌شود اگر فونت‌های مورد نیاز هنگام باز کردن موجود نباشند؟**
+برای حذف این داده‌های باینری هنگام بارگذاری، [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) را به `true` تنظیم کنید. ارائه بارگذاری‌شده را ذخیره کنید تا نتیجه تصفیه‌شده حفظ شود.
 
-فایل باز می‌شود، اما بعداً ممکن است در [رندر/خروجی](/slides/fa/php-java/convert-presentation/) فونت‌ها جایگزین شوند. برای جلوگیری از این‌موضوع می‌توانید [پیکربندی جایگزینی فونت‌ها](/slides/fa/php-java/font-substitution/) یا [اضافه کردن فونت‌های مورد نیاز](/slides/fa/php-java/custom-font/) به محیط زمان اجرا را انجام دهید.
+این گزینه خطر مواجهه با بارهای جاسازی‌شده ناخواسته را کاهش می‌دهد، اما یک سیستم کامل شناسایی بدافزار یا تصفیه محتوا نیست.
 
-**در مورد رسانه‌های جاسازی‌شده (ویدئو/صدا) هنگام باز کردن چه اتفاقی می‌افتد؟**
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-آنها به‌عنوان منابع ارائه در دسترس قرار می‌گیرند. اگر رسانه‌ها از طریق مسیرهای خارجی ارجاع داده شوند، اطمینان حاصل کنید این مسیرها در محیط شما قابل دسترسی‌اند؛ در غیر این صورت ممکن است در [رندر/خروجی](/slides/fa/php-java/convert-presentation/) رسانه‌ها حذف شوند.
+$loadOptions = new LoadOptions();
+$loadOptions->setDeleteEmbeddedBinaryObjects(true);
+
+$presentation = new Presentation("presentation-with-embedded-data.pptx", $loadOptions);
+try {
+    $presentation->save("presentation-without-embedded-data.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **سوالات متداول**
+
+**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌تواند باز شود؟**
+
+Aspose.Slides در هنگام بارگذاری یک استثنای تجزیه یا قالب پرتاب می‌کند. این شکست را جدا از خطای رمز عبور نادرست مدیریت کنید تا برنامه بتواند علت را به‌دقت گزارش دهد.
+
+**اگر فونت‌های مورد نیاز موجود نباشند چه می‌شود؟**
+
+ارائه همچنان می‌تواند بارگذاری شود، اما رندر و خروجی ممکن است فونت‌ها را جایگزین کند. می‌توانید [configure font substitution](/slides/fa/php-java/font-substitution/) یا [provide custom fonts](/slides/fa/php-java/custom-font/) را تنظیم کنید تا خروجی پیش‌بینی‌پذیرتر باشد.
+
+**آیا بارگذاری یک ارائه، رسانه‌های جاسازی‌شده آن را نیز بارگذاری می‌کند؟**
+
+صدا و ویدیوهای جاسازی‌شده از طریق مدل شیء ارائه قابل دسترسی می‌شوند. منابع خارجی بر اساس رفتار تنظیم‌شده بارگذاری منابع حل می‌شوند و ممکن است اگر مکان‌های آن‌ها قابل دسترسی نباشد، در دسترس نباشند.

@@ -1,12 +1,11 @@
 ---
-title: PHP में प्रस्तुतियों को खोलें
+title: PHP में प्रस्तुतियाँ खोलें
 linktitle: प्रस्तुति खोलें
 type: docs
 weight: 20
 url: /hi/php-java/open-presentation/
 keywords:
 - PowerPoint खोलें
-- OpenDocument खोलें
 - प्रस्तुति खोलें
 - PPTX खोलें
 - PPT खोलें
@@ -15,110 +14,119 @@ keywords:
 - PPTX लोड करें
 - PPT लोड करें
 - ODP लोड करें
-- संरक्षित प्रस्तुति
+- सुरक्षित प्रस्तुति
 - बड़ी प्रस्तुति
 - बाहरी संसाधन
 - बाइनरी ऑब्जेक्ट
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java के साथ PowerPoint (.pptx, .ppt) और OpenDocument (.odp) प्रस्तुतियों को आसानी से खोलें — तेज़, विश्वसनीय, पूरी तरह से सुविधायुक्त।"
+description: "PHP में PowerPoint और OpenDocument प्रस्तुतियों को खोलना सीखें, खोलने के पासवर्ड प्रदान करें, संसाधन लोडिंग को नियंत्रित करें, और Aspose.Slides for PHP via Java के साथ मेमोरी उपयोग को कम करें।"
 ---
 ## **परिचय**
 
-शुरू से PowerPoint प्रस्तुतियों को बनाने के अलावा, Aspose.Slides आपको मौजूदा प्रस्तुतियों को खोलने की भी सुविधा देता है। एक प्रस्तुति लोड करने के बाद, आप इसके बारे में जानकारी प्राप्त कर सकते हैं, स्लाइड की सामग्री को संपादित कर सकते हैं, नई स्लाइड जोड़ सकते हैं, मौजूदा स्लाइड को हटाया जा सकता है, और अधिक।
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/hi/php-java/) फ़ाइलों और स्ट्रीम्स से PowerPoint और OpenDocument प्रस्तुतियों को लोड कर सकता है। एक प्रस्तुति लोड होने के बाद, आप उसकी संरचना का निरीक्षण कर सकते हैं, स्लाइड्स को संपादित कर सकते हैं, संसाधनों का प्रबंधन कर सकते हैं, और इसे मूल या किसी अन्य समर्थित फ़ॉर्मेट में सहेज सकते हैं।
 
-## **प्रस्तुतियों को खोलें**
+लोडिंग व्यवहार को [LoadOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/) क्लास के माध्यम से अनुकूलित किया जा सकता है। उदाहरण के लिए, आप एक खोलने वाला पासवर्ड प्रदान कर सकते हैं, बड़े बाइनरी ऑब्जेक्ट्स को Java हीप मेमोरी से बाहर रख सकते हैं, बाहरी संसाधनों को नियंत्रित कर सकते हैं, या एम्बेडेड बाइनरी डेटा को छोड़ सकते हैं।
 
-किसी मौजूदा प्रस्तुति को खोलने के लिए, [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) क्लास का एक उदाहरण बनाएँ और फ़ाइल पथ को उसके कंस्ट्रक्टर में पास करें।
+## **प्रस्तुति खोलें**
 
-निम्नलिखित PHP उदाहरण दिखाता है कि कैसे एक प्रस्तुति खोलें और उसकी स्लाइड गिनती प्राप्त करें:
+एक मौजूदा प्रस्तुति खोलने के लिए, उसके फ़ाइल पथ को [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) कंस्ट्रक्टर में पास करें। उपयोग के बाद प्रस्तुति को डिस्पोज़ करें ताकि फ़ाइल हैंडल, अस्थायी डेटा और अन्य संसाधन तुरंत मुक्त हो सकें।
+
+निम्नलिखित PHP उदाहरण दिखाता है कि कैसे प्रस्तुति खोलें और उसकी स्लाइड संख्या प्राप्त करें:
 
 ```php
-// Presentation क्लास को इंस्टैंशिएट करें और कन्स्ट्रक्टर में फ़ाइल पथ पास करें।
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
-    // प्रस्तुति में कुल स्लाइड्स की संख्या प्रिंट करें।
-    echo($presentation->getSlides()->size());
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **पासवर्ड-संरक्षित प्रस्तुतियों को खोलें**
+## **पासवर्ड-संरक्षित प्रस्तुतियों को खोलना**
 
-जब आपको किसी पासवर्ड-संरक्षित प्रस्तुति को खोलने की आवश्यकता हो, तो इसे डिक्रिप्ट करने और लोड करने के लिए [LoadOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/) क्लास के [setPassword](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/#setPassword) मेथड के माध्यम से पासवर्ड पास करें। निम्नलिखित PHP कोड इस कार्य को दर्शाता है:
+एक खोलने वाला पासवर्ड प्रस्तुति सामग्री को एन्क्रिप्ट करता है। पूरी प्रस्तुति को लोड करने के लिए, सही पासवर्ड को [LoadOptions::setPassword](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/#setPassword) में पास करें और विकल्पों को [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) कंस्ट्रक्टर को प्रदान करें। पासवर्ड गायब या गलत होने पर लोडिंग विफल हो जाती है।
 
 ```php
-$loadOptions = new LoadOptions();
-$loadOptions->setPassword("YOUR_PASSWORD");
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-presentation.pptx", $loadOptions);
 try {
-    // डिक्रिप्टेड प्रस्तुति पर संचालन करें।
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **बड़ी प्रस्तुतियों को खोलें**
+पासवर्ड पहचान, सत्यापन और एन्क्रिप्शन वर्कफ़्लो के लिए, देखें [पासवर्ड-रक्षित प्रस्तुतियाँ](/slides/hi/php-java/password-protected-presentation/). यदि एन्क्रिप्टेड प्रस्तुति जानबूझकर सार्वजनिक दस्तावेज़ गुणों के साथ सहेजी गई है, तो उन गुणों को पासवर्ड के बिना पढ़ा जा सकता है; देखें [प्रस्तुति गुणों का प्रबंधन](/slides/hi/php-java/presentation-properties/).
 
-Aspose.Slides विकल्प प्रदान करता है—विशेषकर [LoadOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/) क्लास में [getBlobManagementOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) मेथड—जो आपको बड़ी प्रस्तुतियों को लोड करने में मदद करता है।
+## **बड़ी प्रस्तुतियों को खोलना**
 
-निम्नलिखित PHP कोड बड़ी प्रस्तुति (उदाहरण के लिए, 2 GB) लोड करने को दर्शाता है:
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) विकल्प प्रदान करता है जो नियंत्रित करता है कि Aspose.Slides बाइनरी बड़े ऑब्जेक्ट्स जैसे छवियां, ऑडियो, और वीडियो को कैसे संभालता है। आप स्रोत फ़ाइल को लॉक रख सकते हैं, अस्थायी फ़ाइलों की अनुमति दे सकते हैं, और मेमोरी में रखे गए BLOB डेटा की मात्रा को सीमित कर सकते हैं।
+
+निम्नलिखित PHP कोड बड़े आकार की प्रस्तुति (उदाहरण के लिए, 2 GB) को लोड करने का प्रदर्शन करता है:
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationLockingBehavior;
+use aspose\slides\SaveFormat;
+
+$filePath = "large-presentation.pptx";
+
 $loadOptions = new LoadOptions();
-// KeepLocked व्यवहार चुनें—प्रेज़ेंटेशन फ़ाइल जीवनकाल के दौरान लॉक रहेगी
-// प्रेज़ेंटेशन इंस्टेंस के लिए, लेकिन इसे मेमोरी में लोड करने या अस्थायी फ़ाइल में कॉपी करने की ज़रूरत नहीं है।
 $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 $presentation = new Presentation($filePath, $loadOptions);
 try {
-    // बड़ी प्रस्तुति लोड हो गई है और उपयोग की जा सकती है, जबकि मेमोरी उपयोग कम रहता है।
-
-    // प्रेज़ेंटेशन में बदलाव करें।
-    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
-
-    // प्रेज़ेंटेशन को अन्य फ़ाइल में सहेजें। इस ऑपरेशन के दौरान मेमोरी उपयोग कम रहता है।
-    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
-	
-	// ऐसा न करें! I/O अपवाद फेंका जाएगा क्योंकि फ़ाइल तब तक लॉक रहती है जब तक प्रेज़ेंटेशन ऑब्जेक्ट डिस्पोज़ नहीं हो जाता।
-	//unlink($filePath);
+    $presentation->getSlides()->get_Item(0)->setName("Large presentation");
+    $presentation->save("large-presentation-copy.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
-// यहाँ इसे करना ठीक है। स्रोत फ़ाइल अब प्रेज़ेंटेशन ऑब्जेक्ट द्वारा लॉक नहीं है।
-unlink($filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-स्ट्रीम के साथ काम करते समय कुछ सीमाओं को दूर करने के लिए, Aspose.Slides स्ट्रीम की सामग्री को कॉपी कर सकता है। एक स्ट्रीम से बड़ी प्रस्तुति लोड करने से प्रस्तुति की कॉपी बनती है और लोडिंग धीमी हो सकती है। इसलिए, जब आपको बड़ी प्रस्तुति लोड करनी हो, तो हम दृढ़ता से सुझाव देते हैं कि स्ट्रीम के बजाय प्रस्तुति फ़ाइल पथ का उपयोग करें।
+{{% alert color="info" title="Note" %}}
+यदि आप [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked) का उपयोग करते हैं, तो स्रोत फ़ाइल तब तक लॉक रहती है जब तक प्रस्तुति इंस्टेंस को डिस्पोज़ नहीं किया जाता। उस इंस्टेंस के जीवित रहने के दौरान स्रोत फ़ाइल को न तो स्थानांतरित करें, न ही अधिलेखित करें, और न ही हटाएँ।
 
-जब आप ऐसी प्रस्तुति बना रहे हों जिसमें बड़े ऑब्जेक्ट (वीडियो, ऑडियो, हाई‑रेज़ोल्यूशन इमेज आदि) हों, तो आप मेमोरी खपत को कम करने के लिए [BLOB management](/slides/hi/php-java/manage-blob/) का उपयोग कर सकते हैं।
-{{%/alert %}}
+Aspose.Slides लोडिंग के दौरान इनपुट स्ट्रीम की सामग्री की एक प्रतिलिपि बना सकता है। बड़ी प्रस्तुतियों के लिए, फ़ाइल पथ आमतौर पर स्ट्रीम की तुलना में अधिक कुशल होता है। अतिरिक्त संग्रहण और मेमोरी-प्रबंधन विकल्पों के लिए देखें [BLOBs का प्रबंधन](/slides/hi/php-java/manage-blob/).
+{{% /alert %}}
 
-## **बाहरी संसाधनों को नियंत्रित करें**
+## **बाहरी संसाधनों को नियंत्रित करना**
 
-Aspose.Slides [IResourceLoadingCallback](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iresourceloadingcallback/) इंटरफ़ेस प्रदान करता है जो आपको बाहरी संसाधनों का प्रबंधन करने देता है। निम्नलिखित PHP कोड दर्शाता है कि कैसे `IResourceLoadingCallback` इंटरफ़ेस का उपयोग करें:
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) PHP/Java Bridge के माध्यम से जावा [IResourceLoadingCallback](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iresourceloadingcallback/) इंटरफ़ेस की कार्यान्वयन स्वीकार करता है। कॉलबैक प्रतिस्थापन डेटा प्रदान कर सकता है, किसी संसाधन को पुनर्निर्देशित कर सकता है, डिफ़ॉल्ट लोडर का उपयोग कर सकता है, या संसाधन को छोड़ सकता है। यह तब उपयोगी होता है जब प्रस्तुतियों में बाहरी छवियां होती हैं जिन्हें एप्लिकेशन-विशिष्ट सुरक्षा या संग्रहण नियमों के अनुसार हल करना आवश्यक होता है।
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ResourceLoadingAction;
+
 class ImageLoadingHandler {
     function resourceLoading($args) {
-        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-            // एक वैकल्पिक इमेज लोड करें।
-			$bytes = file_get_contents("aspose-logo.jpg");
-			$javaByteArray = java_values($bytes);
-            $args->setData($javaByteArray);
-            return ResourceLoadingAction::UserProvided;
-        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-            // एक वैकल्पिक URL सेट करें।
-            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+        $originalUri = strtolower(java_values($args->getOriginalUri()));
+        $approvedImagePath = "approved-image.jpg";
+        $isJpeg = substr($originalUri, -4) === ".jpg";
+
+        if (!$isJpeg || !file_exists($approvedImagePath)) {
+            return ResourceLoadingAction::Skip;
         }
-        // अन्य सभी इमेज को छोड़ें।
-        return ResourceLoadingAction::Skip;
+
+        $imageData = file_get_contents($approvedImagePath);
+        if ($imageData === false) {
+            echo("The approved replacement image could not be read.\n");
+            return ResourceLoadingAction::Skip;
+        }
+
+        $args->setData(java_values($imageData));
+        return ResourceLoadingAction::UserProvided;
     }
 }
 
@@ -127,28 +135,37 @@ $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose
 $loadOptions = new LoadOptions();
 $loadOptions->setResourceLoadingCallback($loadingHandler);
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$presentation = new Presentation("presentation-with-external-images.pptx", $loadOptions);
+try {
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **एम्बेडेड बाइनरी ऑब्जेक्ट्स के बिना प्रस्तुतियों को लोड करें**
+## **बिना एम्बेडेड बाइनरी ऑब्जेक्ट्स के प्रस्तुतियों को लोड करना**
 
-PowerPoint प्रस्तुति में निम्नलिखित प्रकार के एम्बेडेड बाइनरी ऑब्जेक्ट हो सकते हैं:
+एक प्रस्तुति में एम्बेडेड बाइनरी डेटा हो सकता है जिसकी एप्लिकेशन को आवश्यकता नहीं है या वह उसे बनाए नहीं रखना चाहती। उदाहरणों में शामिल हैं:
 
-- VBA प्रोजेक्ट (यहाँ पहुँचा जा सकता है: [Presentation.getVbaProject](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#getVbaProject));
-- OLE ऑब्जेक्ट एम्बेडेड डेटा (यहाँ पहुँचा जा सकता है: [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/hi/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- ActiveX कंट्रोल बाइनरी डेटा (यहाँ पहुँचा जा सकता है: [Control.getActiveXControlBinary](https://reference.aspose.com/slides/hi/php-java/aspose.slides/control/#getActiveXControlBinary)).
+- VBA प्रोजेक्ट, उपलब्ध है [Presentation::getVbaProject](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#getVbaProject) द्वारा;
+- एम्बेडेड OLE डेटा, उपलब्ध है [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/hi/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) द्वारा;
+- ActiveX कंट्रोल डेटा, उपलब्ध है [Control::getActiveXControlBinary](https://reference.aspose.com/slides/hi/php-java/aspose.slides/control/#getActiveXControlBinary) द्वारा।
 
-[LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) मेथड का उपयोग करके, आप प्रस्तुति को बिना किसी एम्बेडेड बाइनरी ऑब्जेक्ट के लोड कर सकते हैं।
+[LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hi/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) को `true` पर सेट करें ताकि लोडिंग के दौरान यह बाइनरी डेटा हटाया जा सके। लोड की गई प्रस्तुति को सहेजें ताकि शुद्ध किया गया परिणाम बना रहे।
 
-यह मेथड संभावित दुर्भावनापूर्ण बाइनरी सामग्री को हटाने में उपयोगी है। निम्नलिखित PHP कोड दर्शाता है कि कैसे किसी प्रस्तुति को बिना एम्बेडेड बाइनरी सामग्री के लोड किया जाए:
+यह विकल्प अनचाहे एम्बेडेड पेलोड्स के संपर्क को कम करता है, लेकिन यह पूर्ण मालवेयर-डिटेक्शन या कंटेंट-सैनिटाइज़ेशन सिस्टम नहीं है।
 
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $loadOptions = new LoadOptions();
 $loadOptions->setDeleteEmbeddedBinaryObjects(true);
 
-$presentation = new Presentation("malware.ppt", $loadOptions);
+$presentation = new Presentation("presentation-with-embedded-data.pptx", $loadOptions);
 try {
-    // प्रेज़ेंटेशन पर संचालन करें।
+    $presentation->save("presentation-without-embedded-data.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -156,11 +173,14 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे पहचानूँ कि फ़ाइल दूषित है और नहीं खुल रही है?**  
-लोड करने के दौरान आपको एक पार्सिंग/फ़ॉर्मेट वैधता अपवाद मिलेगा। ऐसे त्रुटियों में अक्सर एक अमान्य ZIP संरचना या टूटे हुए PowerPoint रिकॉर्ड का उल्लेख होता है।
+**मैं कैसे पता कर सकता हूँ कि फ़ाइल भ्रष्ट है और नहीं खुल सकती?**
 
-**यदि खोलते समय आवश्यक फ़ॉन्ट गायब हों तो क्या होता है?**  
-फ़ाइल खुल जाएगी, लेकिन बाद में [rendering/export](/slides/hi/php-java/convert-presentation/) फ़ॉन्ट प्रतिस्थापित कर सकता है। रन‑टाइम वातावरण में [फ़ॉन्ट प्रतिस्थापन को कॉन्फ़िगर](/slides/hi/php-java/font-substitution/) करें या [आवश्यक फ़ॉन्ट जोड़ें](/slides/hi/php-java/custom-font/)।
+Aspose.Slides लोडिंग के दौरान पार्सिंग या फॉर्मेट अपवाद फेंकता है। इस विफलता को गलत पासवर्ड त्रुटि से अलग तरीके से संभालें ताकि एप्लिकेशन कारण को सटीक रूप से रिपोर्ट कर सके।
 
-**खोलते समय एम्बेडेड मीडिया (वीडियो/ऑडियो) के बारे में क्या?**  
-वे प्रस्तुति संसाधनों के रूप में उपलब्ध हो जाते हैं। यदि मीडिया को बाहरी पथों के माध्यम से संदर्भित किया गया है, तो सुनिश्चित करें कि ये पथ आपके वातावरण में सुलभ हों; अन्यथा [rendering/export](/slides/hi/php-java/convert-presentation/) मीडिया को छोड़ सकता है।
+**यदि आवश्यक फ़ॉन्ट्स गायब हों तो क्या होता है?**
+
+प्रस्तुति अभी भी लोड हो सकती है, लेकिन रेंडरिंग और एक्सपोर्ट फ़ॉन्ट्स को प्रतिस्थापित कर सकते हैं। आप आउटपुट को अधिक पूर्वानुमेय बनाने के लिए [फ़ॉन्ट प्रतिस्थापन को कॉन्फ़िगर](/slides/hi/php-java/font-substitution/) कर सकते हैं या [कस्टम फ़ॉन्ट प्रदान](/slides/hi/php-java/custom-font/) कर सकते हैं।
+
+**क्या एक प्रस्तुति लोड करने से उसकी एम्बेडेड मीडिया भी लोड हो जाती है?**
+
+एम्बेडेड ऑडियो और वीडियो प्रस्तुति ऑब्जेक्ट मॉडल के माध्यम से उपलब्ध हो जाते हैं। बाहरी संसाधनों को कॉन्फ़िगर किए गए संसाधन-लोडिंग व्यवहार के अनुसार हल किया जाता है और यदि उनके स्थानों तक पहुँच नहीं हो पाती तो वे उपलब्ध नहीं हो सकते।

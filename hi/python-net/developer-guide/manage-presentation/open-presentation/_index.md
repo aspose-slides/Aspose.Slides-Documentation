@@ -1,5 +1,5 @@
 ---
-title: Python में प्रस्तुतियों को खोलें
+title: Python में प्रस्तुतियों को खोलना
 linktitle: प्रस्तुतियों को खोलें
 type: docs
 weight: 20
@@ -20,114 +20,103 @@ keywords:
 - बाइनरी ऑब्जेक्ट
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python के जरिए .NET पर PowerPoint (.pptx, .ppt) और OpenDocument (.odp) प्रस्तुतियों को सहजता से खोलें—तेज़, विश्वसनीय, पूरी तरह से सुविधाजनक।"
+description: "Python में PowerPoint और OpenDocument प्रस्तुतियों को खोलना, खोलने के पासवर्ड प्रदान करना, और Aspose.Slides for Python via .NET के साथ स्मृति उपयोग को कम करना सीखें।"
 ---
 ## **परिचय**
 
-शुरू से PowerPoint प्रस्तुतियों को बनाने के अलावा, Aspose.Slides आपको मौजूदा प्रस्तुतियों को खोलने की सुविधा भी देता है। प्रस्तुति लोड करने के बाद, आप उसके बारे में जानकारी प्राप्त कर सकते हैं, स्लाइड की सामग्री संपादित कर सकते हैं, नई स्लाइड जोड़ सकते हैं, मौजूदा स्लाइड हटा सकते हैं, और भी बहुत कुछ कर सकते हैं।
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/hi/python-net/) फ़ाइलों और स्ट्रीम्स से PowerPoint और OpenDocument प्रस्तुतियों को लोड कर सकता है। प्रस्तुतिअनलोड होने के बाद, आप उसकी संरचना का निरीक्षण कर सकते हैं, स्लाइड्स को संपादित कर सकते हैं, संसाधनों का प्रबंधन कर सकते हैं, और इसे मूल या किसी अन्य समर्थित प्रारूप में सहेज सकते हैं।
 
-## **प्रेजेंटेशन खोलें**
+लोडिंग व्यवहार को [LoadOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/) वर्ग के माध्यम से कस्टमाइज़ किया जा सकता है। उदाहरण के लिए, आप खोलने का पासवर्ड प्रदान कर सकते हैं, बड़े बाइनरी ऑब्जेक्ट्स को मेमोरी के बाहर रख सकते हैं, या एम्बेडेड बाइनरी डेटा को छोड़ सकते हैं।
 
-मौजूदा प्रस्तुति को खोलने के लिए, [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास को इंस्टैंशिएट करें और उसके कंस्ट्रक्टर में फ़ाइल पाथ पास करें।
+## **प्रस्तुति खोलें**
 
-निम्नलिखित Python उदाहरण दिखाता है कि प्रस्तुति को कैसे खोलें और उसकी स्लाइड गिनती कैसे प्राप्त करें:
+किसी मौजूदा प्रस्तुति को खोलने के लिए, उसका फ़ाइल पथ [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) कन्स्ट्रक्टर को पास करें। फ़ाइल हैंडल, अस्थायी डेटा और अन्य संसाधनों को तुरंत रिलीज़ करने के लिये `with` स्टेटमेंट का उपयोग करें।
+
+निम्नलिखित Python उदाहरण दिखाता है कि कैसे प्रस्तुति को खोलें और उसकी स्लाइड गिनती प्राप्त करें:
 
 ```python
 import aspose.slides as slides
 
-# Presentation क्लास को इंस्टैंशिएट करें और उसके कंस्ट्रक्टर में फ़ाइल पाथ पास करें।
 with slides.Presentation("sample.pptx") as presentation:
-    # प्रस्तुति में कुल स्लाइडों की संख्या प्रिंट करें।
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
 ## **पासवर्ड-संरक्षित प्रस्तुतियों को खोलें**
 
-जब आपको पासवर्ड-संरक्षित प्रस्तुति खोलनी हो, तो पासवर्ड को [password](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/password/) प्रॉपर्टी के माध्यम से [LoadOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/) क्लास में पास करके उसे डिक्रिप्ट और लोड करें। निम्नलिखित Python कोड इस ऑपरेशन को दर्शाता है:
+एक खोलने वाला पासवर्ड प्रस्तुति सामग्री को एन्क्रिप्ट करता है। पूरी प्रस्तुति को लोड करने के लिये, सही पासवर्ड को [LoadOptions.password](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/password/) में असाइन करें और विकल्पों को [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) कन्स्ट्रक्टर में पास करें। पासवर्ड अनुपलब्ध या गलत होने पर लोडिंग विफल हो जाएगी।
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # डिक्रिप्ट की गई प्रस्तुति पर संचालन करें।
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
+
+पासवर्ड डिटेक्शन, वैधता और एन्क्रिप्शन वर्कफ़्लोज़ के लिये, देखें [Password-Protect Presentations](/slides/hi/python-net/password-protected-presentation/)। यदि एन्क्रिप्टेड प्रस्तुति को जानबूझकर सार्वजनिक दस्तावेज़ गुणों के साथ सहेजा गया हो, तो उन गुणों को बिना पासवर्ड के पढ़ा जा सकता है; देखें [Manage Presentation Properties](/slides/hi/python-net/presentation-properties/)।
 
 ## **बड़ी प्रस्तुतियों को खोलें**
 
-Aspose.Slides विकल्प प्रदान करता है—विशेषकर [blob_management_options](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/blob_management_options/) प्रॉपर्टी [LoadOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/) क्लास में—जो आपको बड़ी प्रस्तुतियों को लोड करने में मदद करती है।
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/blob_management_options/) नियंत्रित करता है कि Aspose.Slides छवियों, ऑडियो और वीडियो जैसे बाइनरी बड़े ऑब्जेक्ट्स को कैसे संभालता है। आप स्रोत फ़ाइल को लॉक रख सकते हैं, अस्थायी फ़ाइलों की अनुमति दे सकते हैं, और मेमोरी में रखे जाने वाले BLOB डेटा की मात्रा को सीमित कर सकते हैं।
 
-यह Python कोड बड़ी प्रस्तुति (उदाहरण के लिए, 2 GB) को लोड करने का तरीका दर्शाता है:
+यह Python कोड बड़ी प्रस्तुति (उदाहरण के लिये, 2 GB) को लोड करने का प्रदर्शन करता है:
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# KeepLocked व्यवहार चुनें—प्रेजेंटेशन फ़ाइल लाइफ़टाइम के दौरान लॉक रहती है 
-# प्रेजेंटेशन इंस्टेंस का, लेकिन इसे मेमोरी में लोड करने या अस्थायी फ़ाइल में कॉपी करने की ज़रूरत नहीं है।
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # बड़ी प्रस्तुति लोड हो गई है और उपयोग की जा सकती है, जबकि मेमोरी खपत कम रहती है।
-
-    # प्रस्तुति में बदलाव करें।
     presentation.slides[0].name = "Large presentation"
-
-    # प्रस्तुति को दूसरी फ़ाइल में सहेजें। इस प्रक्रिया में मेमोरी खपत कम रहती है।
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # ऐसा न करें! एक I/O अपवाद फेंका जाएगा क्योंकि फ़ाइल तब तक लॉक रहेगी जब तक प्रेज़ेंटेशन ऑब्जेक्ट डिस्पोज़ नहीं हो जाता।
-    os.remove(file_path)
-
-# यहाँ करने के लिए ठीक है। स्रोत फ़ाइल अब प्रेज़ेंटेशन ऑब्जेक्ट द्वारा लॉक नहीं है।
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="सूचना" %}}
-स्ट्रीम के साथ काम करते समय कुछ सीमाओं को पार करने के लिए, Aspose.Slides एक स्ट्रीम की सामग्री को कॉपी कर सकता है। स्ट्रीम से बड़ी प्रस्तुति लोड करने से प्रस्तुति कॉपी हो जाती है और लोडिंग धीमी हो सकती है। इसलिए, जब आपको बड़ी प्रस्तुति लोड करनी हो, तो हम दृढ़ता से अनुशंसा करते हैं कि आप स्ट्रीम के बजाय प्रस्तुति फ़ाइल पाथ का उपयोग करें।
+{{% alert color="info" title="नोट" %}}
 
-जब आप ऐसी प्रस्तुति बना रहे हों जिसमें बड़े ऑब्जेक्ट (वीडियो, ऑडियो, हाई‑रिज़ोल्यूशन छवियां, आदि) शामिल हों, तो आप [BLOB management](/slides/hi/python-net/manage-blob/) का उपयोग करके मेमोरी खपत को कम कर सकते हैं।
-{{%/alert %}}
+`PresentationLockingBehavior.KEEP_LOCKED` के साथ, स्रोत फ़ाइल तब तक लॉक रहती है जब तक `Presentation` ऑब्जेक्ट नष्ट नहीं हो जाता। उस ऑब्जेक्ट के जीवित रहने के दौरान स्रोत फ़ाइल को न स्थानांतरित करें, न ओवरराइट करें, न हटाएँ।
 
-## **बिना एम्बेडेड बाइनरी ऑब्जेक्ट्स के प्रस्तुतियों को लोड करें**
+Aspose.Slides लोडिंग के दौरान इनपुट स्ट्रीम की सामग्री को कॉपी कर सकता है। बड़ी प्रस्तुतियों के लिये, फ़ाइल पाथ आम तौर पर स्ट्रीम से अधिक कुशल होता है। अतिरिक्त स्टोरेज और मेमोरी‑प्रबंधन विकल्पों के लिये देखें [Manage BLOBs](/slides/hi/python-net/manage-blob/)।
 
-एक PowerPoint प्रस्तुति निम्न प्रकार के एम्बेडेड बाइनरी ऑब्जेक्ट रख सकती है:
+{{% /alert %}}
 
-- VBA प्रोजेक्ट (जिसे [Presentation.vba_project](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/vba_project/) के माध्यम से एक्सेस किया जा सकता है);
-- OLE ऑब्जेक्ट एम्बेडेड डेटा (जिसे [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) के माध्यम से एक्सेस किया जा सकता है);
-- ActiveX कंट्रोल बाइनरी डेटा (जिसे [Control.active_x_control_binary](https://reference.aspose.com/slides/hi/python-net/aspose.slides/control/active_x_control_binary/) के माध्यम से एक्सेस किया जा सकता है)।
+## **एम्बेडेड बाइनरी ऑब्जेक्ट्स के बिना प्रस्तुतियों को लोड करें**
 
-[LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) प्रॉपर्टी का उपयोग करके आप प्रस्तुति को बिना किसी एम्बेडेड बाइनरी ऑब्जेक्ट के लोड कर सकते हैं।
+प्रस्तुति में ऐसे एम्बेडेड बाइनरी डेटा हो सकते हैं जिसकी एप्लिकेशन को आवश्यकता नहीं होती या वह उसे रखना नहीं चाहती। उदाहरण के लिये:
 
-यह प्रॉपर्टी संभावित दुर्भावनापूर्ण बाइनरी सामग्री को हटाने में उपयोगी है। निम्नलिखित Python कोड दर्शाता है कि बाइनरी सामग्री के बिना प्रस्तुति कैसे लोड करें:
+- VBA प्रोजेक्ट्स, जिन्हें आप [Presentation.vba_project](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/vba_project/) से प्राप्त कर सकते हैं;
+- एम्बेडेड OLE डेटा, जिसे आप [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) से प्राप्त कर सकते हैं;
+- ActiveX कंट्रोल डेटा, जिसे आप [Control.active_x_control_binary](https://reference.aspose.com/slides/hi/python-net/aspose.slides/control/active_x_control_binary/) से प्राप्त कर सकते हैं।
 
-```py
+लोड करते समय इस बाइनरी डेटा को हटाने के लिये [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) को `True` पर सेट करें। लोड की गई प्रस्तुति को सहेजें ताकि साफ‑सुथरा परिणाम बना रहे।
+
+यह विकल्प अनचाहे एम्बेडेड पेलोड्स के प्रति एक्सपोजर को कम करता है, लेकिन यह पूर्ण मैलबेयर‑डिटेक्शन या कंटेंट‑सैनिटाइज़ेशन सिस्टम नहीं है।
+
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # प्रस्तुति पर संचालन करें।
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे पता करूं कि फ़ाइल भ्रष्ट है और खोल नहीं सकती?**
+**मैं कैसे पहचानूँ कि फ़ाइल दूषित है और नहीं खोली जा सकती?**
 
-लोड करते समय आपको पार्सिंग/फ़ॉर्मेट वैलिडेशन एक्सेप्शन मिलेगा। ऐसी त्रुटियों में अक्सर अमान्य ZIP संरचना या टूटे हुए PowerPoint रिकॉर्ड का उल्लेख होता है।
+Aspose.Slides लोडिंग के दौरान पार्सिंग या फ़ॉर्मेट एक्ससेप्शन उठाता है। इसे पासवर्ड‑त्रुटि से अलग रूप से हैंडल करें ताकि एप्लिकेशन कारण को सटीक रूप से रिपोर्ट कर सके।
 
-**यदि आवश्यक फ़ॉन्ट खो गए हों तो क्या होगा?**
+**यदि आवश्यक फोंट उपलब्ध नहीं हों तो क्या होता है?**
 
-फ़ाइल खुल जाएगी, लेकिन बाद में [rendering/export](/slides/hi/python-net/convert-presentation/) फ़ॉन्ट को प्रतिस्थापित कर सकता है। रनटाइम वातावरण में फ़ॉन्ट प्रतिस्थापन को कॉन्फ़िगर करने के लिए [Configure font substitutions](/slides/hi/python-net/font-substitution/) या आवश्यक फ़ॉन्ट जोड़ने के लिए [add the required fonts](/slides/hi/python-net/custom-font/) का उपयोग करें।
+प्रस्तुति अभी भी लोड हो सकती है, पर रेंडरिंग और एक्सपोर्ट फ़ॉन्ट प्रतिस्थापन कर सकते हैं। आप [फ़ॉन्ट प्रतिस्थापन को कॉन्फ़िगर](/slides/hi/python-net/font-substitution/) कर सकते हैं या आउटपुट को अधिक पूर्वानुमेय बनाने के लिये [कस्टम फ़ॉन्ट प्रदान](/slides/hi/python-net/custom-font/) कर सकते हैं।
 
-**खोलते समय एम्बेडेड मीडिया (वीडियो/ऑडियो) के बारे में क्या?**
+**क्या प्रस्तुति लोड करने से उसका एम्बेडेड मीडिया भी लोड हो जाता है?**
 
-वे प्रस्तुति संसाधनों के रूप में उपलब्ध हो जाते हैं। यदि मीडिया बाहरी पाथ से संदर्भित है, तो सुनिश्चित करें कि वह पाथ आपके वातावरण में उपलब्ध हो; अन्यथा [rendering/export](/slides/hi/python-net/convert-presentation/) मीडिया को छोड़ सकता है।
+एम्बेडेड ऑडियो और वीडियो प्रस्तुति ऑब्जेक्ट मॉडल के माध्यम से उपलब्ध हो जाते हैं। बाहरी संसाधनों को डिफ़ॉल्ट रिसोर्स‑लोडिंग व्यवहार के अनुसार हल किया जाता है और यदि उनके स्थान तक पहुँच नहीं हो पाती तो उपलब्ध नहीं रह सकते।

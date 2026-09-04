@@ -6,7 +6,6 @@ weight: 20
 url: /th/java/open-presentation/
 keywords:
 - เปิด PowerPoint
-- เปิด OpenDocument
 - เปิดงานนำเสนอ
 - เปิด PPTX
 - เปิด PPT
@@ -18,27 +17,29 @@ keywords:
 - งานนำเสนอที่ป้องกัน
 - งานนำเสนอขนาดใหญ่
 - ทรัพยากรภายนอก
-- อ็อบเจ็กต์ไบนารี
+- วัตถุไบนารี
 - Java
 - Aspose.Slides
-description: "เปิดงานนำเสนอ PowerPoint (.pptx, .ppt) และ OpenDocument (.odp) อย่างง่ายดายด้วย Aspose.Slides สำหรับ Java—เร็ว, เชื่อถือได้, มีคุณสมบัติมือครบครัน."
+description: "เรียนรู้วิธีเปิดงานนำเสนอ PowerPoint และ OpenDocument ใน Java, จัดหารหัสผ่านการเปิด, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides for Java."
 ---
 ## **บทนำ**
 
-นอกเหนือจากการสร้างงานนำเสนอ PowerPoint ตั้งแต่ต้นแล้ว Aspose.Slides ยังช่วยให้คุณเปิดงานนำเสนอที่มีอยู่ได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถดึงข้อมูลเกี่ยวกับงานนำเสนอ แก้ไขเนื้อหาในสไลด์ เพิ่มสไลด์ใหม่ ลบสไลด์ที่มีอยู่ และอื่น ๆ อีกมากมาย
+[Aspose.Slides for Java](https://products.aspose.com/slides/th/java/) สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกในรูปแบบเดิมหรือรูปแบบที่สนับสนุนอื่นได้
+
+พฤติกรรมการโหลดสามารถปรับแต่งได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านสำหรับการเปิด เก็บอ็อบเจ็กต์ไบนารี่ขนาดใหญ่แยกออกจากหน่วยความจำ Java heap ควบคุมทรัพยากรภายนอก หรือละเว้นข้อมูลไบนารีที่ฝังอยู่
 
 ## **เปิดงานนำเสนอ**
 
-เพื่อเปิดงานนำเสนอที่มีอยู่ ให้สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) และส่งพาธของไฟล์ไปยังคอนสตรัคเตอร์ของมัน
+เพื่อเปิดงานนำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังคอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) แล้วทำการ Dispose งานนำเสนอหลังการใช้เพื่อให้แฮนด์เดลไฟล์ ข้อมูลชั่วคราว และทรัพยากรอื่น ๆ ถูกปล่อยออกโดยเร็ว
 
-ตัวอย่าง Java ด้านล่างแสดงวิธีการเปิดงานนำเสนอและรับจำนวนสไลด์ของมัน:
+ตัวอย่าง Java ด้านล่างแสดงวิธีเปิดงานนำเสนอและรับจำนวนสไลด์:
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation และส่งพาธไฟล์ไปยังคอนสตรัคเตอร์ของมัน.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    // พิมพ์จำนวนสไลด์ทั้งหมดในงานนำเสนอ.
-    System.out.println(presentation.getSlides().size());
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
@@ -46,119 +47,128 @@ try {
 
 ## **เปิดงานนำเสนอที่มีการป้องกันด้วยรหัสผ่าน**
 
-เมื่อคุณต้องการเปิดงานนำเสนอที่มีการป้องกันด้วยรหัสผ่าน ให้ส่งรหัสผ่านผ่านเมธอด [setPassword](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) ของคลาส [LoadOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/) เพื่อถอดรหัสและโหลดงานนำเสนอ โค้ด Java ด้านล่างนี้แสดงการทำงานดังกล่าว:
+รหัสผ่านที่ใช้ในการเปิดจะเข้ารหัสเนื้อหาของงานนำเสนอ เพื่อโหลดงานนำเสนอเต็มรูปแบบ ให้ส่งรหัสผ่านที่ถูกต้องไปยัง [LoadOptions.setPassword](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) แล้วให้ตัวเลือกเหล่านั้นแก่คอนสตรัคเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) การโหลดจะล้มเหลือเมื่อรหัสผ่านไม่มีหรือไม่ถูกต้อง
 
 ```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setPassword("open_password");
+
+Presentation presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // ดำเนินการต่าง ๆ บนงานนำเสนอที่ถอดรหัสแล้ว.
+    System.out.println("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
+สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส โปรดดู [Password-Protect Presentations](/slides/th/java/password-protected-presentation/) หากงานนำเสนอที่เข้ารหัสถูกบันทึกโดยเจตนาพร้อมคุณสมบัติเอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดู [Manage Presentation Properties](/slides/th/java/presentation-properties/)
+
 ## **เปิดงานนำเสนอขนาดใหญ่**
 
-Aspose.Slides มีตัวเลือก—โดยเฉพาะเมธอด [getBlobManagementOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) ในคลาส [LoadOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/)—เพื่อช่วยคุณโหลดงานนำเสนอขนาดใหญ่
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) คืนค่าตัวเลือกที่ควบคุมวิธีที่ Aspose.Slides จัดการกับ Binary Large Object เช่น รูปภาพ, เสียง, และวิดีโอ คุณสามารถเก็บไฟล์ต้นทางให้ล็อกไว้ อนุญาตไฟล์ชั่วคราว และจำกัดปริมาณข้อมูล BLOB ที่เก็บในหน่วยความจำ
 
 โค้ด Java ด้านล่างแสดงการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
 
 ```java
-final String filePath = "LargePresentation.pptx";
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.PresentationLockingBehavior;
+import com.aspose.slides.SaveFormat;
+
+final String filePath = "large-presentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions();
-// เลือกพฤติกรรม KeepLocked—ไฟล์งานนำเสนอจะยังคงถูกล็อกตลอดอายุของ
-// อินสแตนซ์ Presentation, แต่ไม่จำเป็นต้องโหลดเข้าเมมโมรีหรือคัดลอกเป็นไฟล์ชั่วคราว.
 loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 Presentation presentation = new Presentation(filePath, loadOptions);
 try {
-    // งานนำเสนอขนาดใหญ่ได้ถูกโหลดและสามารถใช้งานได้ ในขณะที่การใช้หน่วยความจำยังคงต่ำ.
-
-    // แก้ไขงานนำเสนอ.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // บันทึกงานนำเสนอไปยังไฟล์อื่น การใช้หน่วยความจำยังคงต่ำระหว่างการดำเนินการนี้.
-    presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // อย่าทำเช่นนี้! จะเกิดข้อยกเว้น I/O เพราะไฟล์ถูกล็อกจนกว่าออบเจ็กต์ Presentation จะถูกทำลาย.
-    //Files.delete(Paths.get(filePath));
+    presentation.save("large-presentation-copy.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// สามารถทำได้ที่นี่ไฟล์ต้นทางไม่ถูกล็อกโดยออบเจ็กต์ Presentation อีกต่อไป.
-Files.delete(Paths.get(filePath));
 ```
 
-{{% alert color="info" title="Info" %}}
+{{% alert color="info" title="Note" %}}
+ด้วย [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentationlockingbehavior/#KeepLocked) ไฟล์ต้นทางจะคงอยู่ในสถานะล็อกจนกว่าตัวอย่างงานนำเสนอจะถูก Dispose อย่าย้าย เขียนทับ หรือทำลายไฟล์ต้นทางขณะที่ตัวอย่างนั้นยังมีชีวิตอยู่
 
-เพื่อแก้ไขข้อจำกัดบางประการเมื่อทำงานกับสตรีม Aspose.Slides อาจทำสำเนาเนื้อหาของสตรีม การโหลดงานนำเสนอขนาดใหญ่จากสตรีมจะทำให้ต้องคัดลอกงานนำเสนอซึ่งอาจทำให้การโหลดช้าลง ดังนั้นเมื่อคุณต้องการโหลดงานนำเสนอขนาดใหญ่ เราขอแนะนำอย่างยิ่งให้ใช้พาธไฟล์ของงานนำเสนอแทนการใช้สตรีม
-
-เมื่อสร้างงานนำเสนอที่มีวัตถุขนาดใหญ่ (วิดีโอ, เสียง, รูปภาพความละเอียดสูง ฯลฯ) คุณสามารถใช้การจัดการ [BLOB management](/slides/th/java/manage-blob/) เพื่อลดการใช้หน่วยความจำ
-
-{{%/alert %}} 
+Aspose.Slides อาจคัดลอกเนื้อหาของสตรีมอินพุตขณะทำการโหลด สำหรับงานนำเสนอขนาดใหญ่ การใช้พาธไฟล์จึงมักจะมีประสิทธิภาพมากกว่าสตรีม ดูที่ [Manage BLOBs](/slides/th/java/manage-blob/) สำหรับตัวเลือกการจัดเก็บและการจัดการหน่วยความจำเพิ่มเติม
+{{% /alert %}}
 
 ## **ควบคุมทรัพยากรภายนอก**
 
-Aspose.Slides มีอินเทอร์เฟซ [IResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iresourceloadingcallback/) ที่ช่วยให้คุณจัดการทรัพยากรภายนอก โค้ด Java ด้านล่างแสดงวิธีใช้อินเทอร์เฟซ `IResourceLoadingCallback`:
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setResourceLoadingCallback-com.aspose.slides.IResourceLoadingCallback-) ยอมรับการนำไปใช้งานของ [IResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iresourceloadingcallback/) คอลแบ็กสามารถจัดหาข้อมูลทดแทน, เปลี่ยนเส้นทางทรัพยากร, ใช้ตัวโหลดเริ่มต้น, หรือข้ามทรัพยากรได้ สิ่งนี้มีประโยชน์เมื่องานนำเสนอประกอบด้วยรูปภาพภายนอกที่ต้องถูกแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บของแอปพลิเคชัน
 
 ```java
+import com.aspose.slides.IResourceLoadingArgs;
+import com.aspose.slides.IResourceLoadingCallback;
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.ResourceLoadingAction;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+class ImageLoadingHandler implements IResourceLoadingCallback {
+    public int resourceLoading(IResourceLoadingArgs args) {
+        boolean isJpeg = args.getOriginalUri().toLowerCase(Locale.ROOT).endsWith(".jpg");
+        Path approvedImagePath = Paths.get("approved-image.jpg");
+        if (!isJpeg || !Files.exists(approvedImagePath)) {
+            return ResourceLoadingAction.Skip;
+        }
+
+        try {
+            byte[] imageData = Files.readAllBytes(approvedImagePath);
+            args.setData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        } catch (IOException exception) {
+            System.err.println("The approved replacement image could not be read.");
+            return ResourceLoadingAction.Skip;
+        }
+    }
+}
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
-
-```java
-class ImageLoadingHandler implements IResourceLoadingCallback {
-    public int resourceLoading(IResourceLoadingArgs args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // โหลดภาพแทน.
-                byte[] imageData = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            } catch (RuntimeException ex) {
-                return ResourceLoadingAction.Skip;
-            }  catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // ตั้งค่า URL แทน.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction.Default;
-        }
-        // ข้ามภาพอื่นทั้งหมด.
-        return ResourceLoadingAction.Skip;
-    }
+Presentation presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    System.out.println("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **โหลดงานนำเสนอโดยไม่มีออบเจ็กต์ไบนารีฝังอยู่**
+## **โหลดงานนำเสนอโดยไม่รวมอ็อบเจ็กต์ไบนารีฝังอยู่**
 
-งานนำเสนอ PowerPoint สามารถมีออบเจ็กต์ไบนารีฝังอยู่ประเภทต่อไปนี้:
+งานนำเสนออาจมีข้อมูลไบนารีฝังอยู่ที่แอปพลิเคชันไม่ต้องการหรือไม่ต้องการเก็บ ตัวอย่างได้แก่:
 
-- โปรเจกต์ VBA (เข้าถึงได้ผ่าน [IPresentation.getVbaProject](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getVbaProject--));
-- ข้อมูลที่ฝังอยู่ของวัตถุ OLE (เข้าถึงได้ผ่าน [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/th/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
-- ข้อมูลไบนารีของคอนโทรล ActiveX (เข้าถึงได้ผ่าน [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/th/java/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
+- โครงการ VBA ที่สามารถเข้าถึงได้ผ่าน [IPresentation.getVbaProject](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getVbaProject--);
+- ข้อมูล OLE ฝังอยู่ที่สามารถเข้าถึงได้ผ่าน [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/th/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--);
+- ข้อมูลควบคุม ActiveX ที่สามารถเข้าถึงได้ผ่าน [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/th/java/com.aspose.slides/icontrol/#getActiveXControlBinary--).
 
-โดยใช้เมธอด [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) คุณสามารถโหลดงานนำเสนอโดยไม่มีออบเจ็กต์ไบนารีฝังอยู่ใด ๆ
+ตั้งค่า [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/java/com.aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) เป็น `true` เพื่อกำจัดข้อมูลไบนารีนี้ขณะโหลด บันทึกงานนำเสนอที่โหลดแล้วเพื่อคงผลลัพธ์ที่ทำความสะอาดไว้
 
-เมธอดนี้มีประโยชน์ในการลบเนื้อหาไบนารีที่อาจเป็นอันตราย ตัวอย่าง Java ด้านล่างแสดงวิธีโหลดงานนำเสนอโดยไม่มีเนื้อหาไบนารีฝังอยู่ใด ๆ:
+ตัวเลือกนี้ลดความเสี่ยงต่อข้อมูลฝังที่ไม่ต้องการ แต่ไม่ใช่ระบบตรวจจับมัลแวร์หรือการทำความสะอาดเนื้อหาแบบสมบูรณ์
 
 ```java
+import com.aspose.slides.LoadOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-Presentation presentation = new Presentation("malware.ppt", loadOptions);
+Presentation presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // ดำเนินการต่าง ๆ บนงานนำเสนอ.
+    presentation.save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -166,14 +176,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะรู้ได้อย่างไรว่าไฟล์เสียและไม่สามารถเปิดได้?**
+**ฉันจะทราบว่าไฟล์เสียหายและไม่สามารถเปิดได้อย่างไร?**
 
-คุณจะได้รับข้อยกเว้นการตรวจสอบการแยกวิเคราะห์/รูปแบบในระหว่างการโหลด ข้อผิดพลาดเหล่านี้มักระบุโครงสร้าง ZIP ที่ไม่ถูกต้องหรือบันทึก PowerPoint ที่เสีย
+Aspose.Slides จะโยนข้อยกเว้นการพาร์สหรือรูปแบบระหว่างการโหลด ให้จัดการความล้มเหลือนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้อง เพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
 
-**จะเกิดอะไรขึ้นหากฟอนต์ที่ต้องการหายไปเมื่อเปิด?**
+**ถ้าตัวอักษรที่จำเป็นหายไปจะเกิดอะไรขึ้น?**
 
-ไฟล์จะเปิดได้ แต่ในขั้นตอนการเรนเดอร์/ส่งออกต่อมาอาจแทนที่ฟอนต์โดยอัตโนมัติ ให้กำหนดการแทนที่ฟอนต์หรือเพิ่มฟอนต์ที่ต้องการเข้าไปในสภาพแวดล้อมการทำงาน
+งานนำเสนอยังสามารถโหลดได้ แต่การเรนเดอร์และการส่งออกอาจแทนที่ตัวอักษรได้ คุณสามารถ [configure font substitution](/slides/th/java/font-substitution/) หรือ [provide custom fonts](/slides/th/java/custom-font/) เพื่อทำให้ผลลัพธ์คาดเดาได้มากขึ้น
 
-**แล้วสื่อฝังอยู่ (วิดีโอ/เสียง) จะเป็นอย่างไรเมื่อเปิด?**
+**การโหลดงานนำเสนอจะโหลดสื่อที่ฝังอยู่ด้วยหรือไม่?**
 
-สื่อเหล่านี้จะกลายเป็นทรัพยากรของงานนำเสนอ หากสื่อถูกอ้างอิงผ่านพาธภายนอก ให้ตรวจสอบว่าพาธเหล่านั้นเข้าถึงได้ในสภาพแวดล้อมของคุณ มิฉะนั้นการเรนเดอร์/ส่งออกอาจละเว้นสื่อเหล่านั้น
+เสียงและวิดีโอที่ฝังอยู่จะพร้อมใช้งานผ่านโมเดลอ็อบเจ็กต์ของงานนำเสนอ ทรัพยากรภายนอกจะถูกแก้ไขตามพฤติกรรมการโหลดทรัพยากรที่กำหนดค่าไว้และอาจไม่พร้อมใช้งานหากไม่สามารถเข้าถึงตำแหน่งของมันได้

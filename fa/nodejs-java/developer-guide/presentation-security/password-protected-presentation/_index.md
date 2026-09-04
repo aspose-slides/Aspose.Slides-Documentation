@@ -1,40 +1,40 @@
 ---
-title: محافظت با رمز عبور از ارائه‌ها در JavaScript
-linktitle: محافظت با رمز عبور
+title: محافظت با رمز عبور از ارائه‌ها در جاوااسکریپت
+linktitle: حفاظت با رمز عبور
 type: docs
 weight: 20
 url: /fa/nodejs-java/password-protected-presentation/
 keywords:
-- ارائه محافظت‌شده با رمز عبور
+- ارائهٔ محافظت‌شده با رمز عبور
 - رمز عبور باز کردن
-- رمزنگاری PowerPoint
-- رمزگشایی PowerPoint
+- رمزنگاری پاورپوینت
+- رمزگشایی پاورپوینت
 - اعتبارسنجی رمز عبور ارائه
 - بررسی رمز عبور ارائه
-- باز کردن ارائه رمزنگاری‌شده
+- بازکردن ارائهٔ رمزنگاری‌شده
 - حذف رمزنگاری
-- PowerPoint
+- پاورپوینت
 - PPT
 - PPTX
 - ارائه
 - Node.js
-- JavaScript
+- جاوااسکریپت
 - Aspose.Slides
-description: "رمزنگاری، شناسایی، اعتبارسنجی، باز کردن و رمزگشایی ارائه‌های PowerPoint PPT و PPTX محافظت‌شده با رمز عبور را در JavaScript با Aspose.Slides انجام دهید."
+description: "رمزنگاری، شناسایی، اعتبارسنجی، باز کردن و رمزگشایی ارائه‌های پاورپوینت PPT و PPTX محافظت‌شده با رمز عبور در جاوااسکریپت با Aspose.Slides."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-یک رمز عبور باز کردن یک ارائه را رمزنگاری می‌کند. برای بارگذاری و مشاهده محتوای ارائه، رمز عبور صحیح لازم است، بنابراین این حفاظت محرمانگی را فراهم می‌کند.
+یک رمز عبور باز کردن یک ارائه را رمزنگاری می‌کند. برای بارگذاری و مشاهده محتوای ارائه، رمز عبور صحیح لازم است، بنابراین این حفاظت حفظ محرمانگی را فراهم می‌کند.
 
-یک رمز عبور باز کردن با رمز عبور محافظت نوشتاری متفاوت است. محافظت نوشتاری تغییرات را محدود می‌کند اما محتوا را رمزنگاری نمی‌کند و مانع بارگذاری ارائه نمی‌شود. برای مدیریت رمزهای عبور جهت تغییر ارائه‌ها، به [Write-Protect Presentations](/slides/fa/nodejs-java/write-protected-presentation/) مراجعه کنید.
+رمز عبور باز کردن با رمز عبور جلوگیری از نوشتن متفاوت است. جلوگیری از نوشتن فقط اصلاح را محدود می‌کند ولی محتوا را رمزنگاری نمی‌کند و مانع بارگذاری ارائه نمی‌شود. برای مدیریت رمزهای عبور جهت اصلاح ارائه‌ها، به [Write-Protect Presentations](/slides/fa/nodejs-java/write-protected-presentation/) مراجعه کنید.
 
-روال‌های زیر برای هر دو نوع ارائه PPT و PPTX قابل استفاده هستند. مثال‌ها از هر دو قالب استفاده می‌کنند که رفتار مبتنی بر فایل و مبتنی بر جریان برایشان مهم است.
+جریان‌های کاری زیر برای هر دو نوع ارائه PPT و PPTX اعمال می‌شوند. مثال‌ها از هر دو قالب استفاده می‌کنند که رفتار مبتنی بر فایل و جریان برای آنها مهم است.
 
 ## **رمزنگاری یک ارائه با رمز عبور باز کردن**
 
 از [ProtectionManager.encrypt](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#encrypt) برای اختصاص یک رمز عبور باز کردن استفاده کنید. سپس از [Presentation.save](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#save) برای ذخیرهٔ ارائهٔ رمزنگاری‌شده استفاده کنید.
 
-مثال زیر یک ارائه PPTX را رمزنگاری می‌کند:
+مثال زیر یک ارائهٔ PPTX را رمزنگاری می‌کند:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,9 +48,36 @@ try {
 }
 ```
 
+## **خصوصیات سند را عمومی نگه دارید**
+
+به‌صورت پیش‌فرض، Aspose.Slides خصوصیات سند را در رمزنگاری ارائه گنجانده است. متد [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) این رفتار را به‌صورت مستقل از رمزنگاری محتوای اسلایدها کنترل می‌کند. قبل از فراخوانی [ProtectionManager.encrypt](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#encrypt) مقدار `false` را پاس کنید، زمانی که سیستم‌های نمایه‌سازی، طبقه‌بندی، جستجو یا مدیریت سند باید متادیتا را بدون رمز عبور باز کردن بخوانند.
+
+مثال زیر یک ارائهٔ PPTX رمزنگاری‌شده ایجاد می‌کند در حالی که خصوصیات داخلی سند آن به‌صورت عمومی باقی می‌مانند:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const properties = presentation.getDocumentProperties();
+    properties.setAuthor("Contoso Knowledge Management");
+    properties.setTitle("Quarterly Product Roadmap");
+    properties.setKeywords("roadmap, planning, internal");
+
+    presentation.getSlides().get_Item(0).setName("Encrypted presentation content");
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("public-properties-encrypted.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ارسال مقدار `false` به [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) اسلایدها، مسترها، چینش‌ها، شکل‌ها، رسانه‌ها یا سایر محتوای ارائه را عمومی نمی‌کند. این فقط بر خصوصیات سند تأثیر می‌گذارد. برای خواندن آن خصوصیات بدون بارگذاری محتوای رمزنگاری‌شده، به [Manage Presentation Properties](/slides/fa/nodejs-java/presentation-properties/) مراجعه کنید.
+
 ## **بارگذاری یک ارائهٔ رمزنگاری‌شده**
 
-[LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword) را به رمز عبور باز کردن تنظیم کنید و هنگام بارگذاری فایل، گزینه‌ها را به [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) پاس بدهید. در صورتی که رمز عبور باز کردن لازم باشد اما رمز فراهم‌شده غیرفعال یا نادرست باشد، بارگذاری ناموفق می‌شود.
+متد [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword) را بر روی رمز عبور باز کردن تنظیم کنید و گزینه‌ها را هنگام بارگذاری فایل به [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) پاس دهید. اگر رمز عبور باز کردن مورد نیاز باشد اما رمز ارائه شده موجود نباشد یا نادرست باشد، بارگذاری شکست می‌خورد.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -60,7 +87,7 @@ loadOptions.setPassword("open_password");
 
 const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // کار با ارائهٔ رمزگشایی‌شده.
+    // با ارائهٔ رمزگشایی‌شده کار کنید.
 } finally {
     presentation.dispose();
 }
@@ -68,7 +95,7 @@ try {
 
 ## **حذف رمزنگاری از یک ارائه**
 
-ارائه را با رمز عبور باز کردن آن بارگذاری کنید، [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) را فراخوانی کنید و نتیجه را ذخیره کنید. پس از ذخیره، می‌توان ارائه را بدون رمز عبور بارگذاری کرد.
+ارائه را با رمز عبور باز کردن آن بارگذاری کنید، متد [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) را فراخوانی کنید و نتیجه را ذخیره کنید. سپس می‌توان ارائهٔ ذخیره‌شده را بدون نیاز به رمز عبور بارگذاری کرد.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -85,13 +112,13 @@ try {
 }
 ```
 
-## **اعتبارسنجی رمز عبور باز کردن قبل از بارگذاری**
+## **اعتبارسنجی یک رمز عبور باز کردن قبل از بارگذاری**
 
-از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) برای دریافت [PresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/) بدون ساختن یک نمونهٔ کامل از ارائه استفاده کنید. قبل از درخواست یا اعتبارسنجی رمز عبور، [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) را بررسی کنید. هنگامی که حفاظت وجود دارد، مقدار فراهم‌شده را با [PresentationInfo.checkPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#checkPassword) اعتبارسنجی کنید.
+از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) برای دریافت [PresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/) بدون ایجاد یک نمونه کامل از ارائه استفاده کنید. قبل از درخواست یا اعتبارسنجی رمز عبور، [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) را بررسی کنید. وقتی محافظت موجود باشد، مقدار ارائه‌شده را با [PresentationInfo.checkPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#checkPassword) اعتبارسنجی کنید.
 
-### **روال مسیر‑فایل**
+### **جریان کاری مسیر فایل**
 
-مثال زیر یک رمز عبور باز کردن برای فایل PPTX را اعتبارسنجی می‌کند، مقدار اعتبارسنجی‌شده را به [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword) پاس می‌دهد و سپس ارائهٔ کامل را بارگذاری می‌کند:
+مثال زیر رمز عبور باز کردن را برای یک فایل PPTX اعتبارسنجی می‌کند، مقدار اعتبارسنجی‌شده را به [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword) پاس می‌دهد و سپس ارائهٔ کامل را بارگذاری می‌کند:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -117,9 +144,9 @@ if (!presentationInfo.isPasswordProtected()) {
 }
 ```
 
-### **روال جریان**
+### **جریان کاری جریان**
 
-از [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) برای بررسی یک جریان قابل خواندن Node.js استفاده کنید. پس از مصرف شدن جریان بررسی، قبل از بارگذاری ارائهٔ کامل، یک جریان جدید بسازید و با [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#createPresentationFromStream) بارگذاری کنید.
+از [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) برای بررسی یک جریان قابل خواندن Node.js استفاده کنید. پس از مصرف شدن جریان بازرسی، پیش از بارگذاری ارائهٔ کامل با [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#createPresentationFromStream) یک جریان جدید ایجاد کنید.
 
 مثال زیر از یک فایل PPT استفاده می‌کند:
 
@@ -161,17 +188,17 @@ slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, in
 
 ### **مقادیر بازگشتی checkPassword**
 
-[PresentationInfo.checkPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#checkPassword) فقط زمانی که ارائه دارای رمز عبور باز کردن باشد و رمز ارائه‌شده صحیح باشد، `true` برمی‌گرداند. در هر یک از موارد زیر `false` برمی‌گرداند:
+[PresentationInfo.checkPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#checkPassword) فقط زمانی که ارائه دارای رمز عبور باز کردن باشد و رمز ارائه‌شده صحیح باشد مقدار `true` را برمی‌گرداند. در هر یک از موارد زیر مقدار `false` باز می‌گردد:
 
 - رمز عبور نادرست است.
 - ارائه رمز عبور باز کردن ندارد.
-- رمز عبور فراهم‌شده `null` یا خالی است.
+- رمز عبور ارائه‌شده `null` یا خالی است.
 
 رفتار برای ارائه‌های PPT و PPTX یکسان است.
 
-## **بررسی اینکه آیا یک ارائه بارگذاری‌شده رمزنگاری شده است**
+## **بررسی اینکه آیا یک ارائهٔ بارگذاری‌شده رمزنگاری شده است یا نه**
 
-پس از بارگذاری یک ارائه با رمز صحیح، [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) را بررسی کنید تا تأیید شود که ارائهٔ منبع رمزنگاری شده بود. برای شناسایی حفاظت با رمز عبور باز کردن قبل از بارگذاری، همان‌طور که در بالا نشان داده شد، از [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) استفاده کنید.
+پس از بارگذاری یک ارائه با رمز عبور صحیح، [ProtectionManager.isEncrypted](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) را بررسی کنید تا تأیید کنید که ارائهٔ منبع رمزنگاری شده است. برای کشف محافظت با رمز عبور باز کردن قبل از بارگذاری، همان‌طور که در بالا نشان دادیم، از [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) استفاده کنید.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -188,35 +215,41 @@ try {
 }
 ```
 
-## **پیشنهادات امنیتی**
+## **توصیه‌های امنیتی**
 
 {{% alert color="warning" title="Security" %}}
-رمزهای عبور باز کردن را در لاگ‌ها ثبت نکنید و در پیام‌های تشخیصی گنجانده نشوند. از تکرارهای غیرضروری تلاش برای اعتبارسنجی جلوگیری کنید، رمزها را در حافظه فقط به مدت لازم نگه دارید و هنگام بارگذاری فوری ارائه، از نتایج اعتبارسنجی موفق استفاده مجدد کنید.
+رمزهای عبور باز کردن را لاگ نکنید و در پیام‌های تشخیص خطا وارد نکنید. از تلاش‌های تکراری و غیرضروری برای اعتبارسنجی جلوگیری کنید، رمزها را در حافظه فقط تا زمانی که نیاز است نگه دارید، و پس از اعتبارسنجی موفق، نتیجهٔ آن را هنگام بارگذاری فوری ارائه دوباره استفاده کنید.
+
+خصوصیات عمومی سند ممکن است نام مؤلفان، عناوین، موضوعات، کلیدواژه‌ها، اطلاعات شرکت، نظرات و مقادیر سفارشی را حتی با وجود رمزنگاری محتوای ارائه، فاش کند. متادیتای حساس را همراه با ارائه رمزنگاری کنید. نگه داشتن خصوصیات به‌صورت عمومی باید تصمیم صریحی باشد که فقط زمانی اتخاذ می‌شود که سامانه‌ها برای فهرست‌گذاری، طبقه‌بندی، جستجو یا مدیریت فایل بدون نیاز به رمز عبور باز کردن ضرورت داشته باشند.
 {{% /alert %}}
 
-## **محافظت از یک ارائه با رمز عبور به‌صورت آنلاین**
+## **حفاظت با رمز عبور از یک ارائه به‌صورت آنلاین**
 
-1. برنامه [Aspose.Slides Lock](https://products.aspose.app/slides/fa/lock) را باز کنید.
-1. ارائه را انتخاب یا بارگذاری کنید.
-1. رمز عبوری برای حفاظت از مشاهده وارد کنید.
-1. در صورت نیاز رمز عبور جداگانه‌ای برای حفاظت از ویرایش وارد کنید.
-1. حفاظت را اعمال کنید و فایل حاصل را دانلود کنید.
+1. برنامهٔ [Aspose.Slides Lock](https://products.aspose.app/slides/fa/lock) را باز کنید.
+2. ارائه را انتخاب یا بارگذاری کنید.
+3. رمز عبوری برای محافظت از نمایش وارد کنید.
+4. به‌صورت اختیاری رمز عبور جداگانه‌ای برای محافظت از ویرایش وارد کنید.
+5. محافظت را اعمال کنید و فایل حاصل را دانلود کنید.
 
 {{% alert color="info" title="See also" %}}
-- [Write-Protect Presentations](/slides/fa/nodejs-java/write-protected-presentation/)
-- [Digital Signature in PowerPoint](/slides/fa/nodejs-java/digital-signature-in-powerpoint/)
+- [جلوگیری از نوشتن در ارائه‌ها](/slides/fa/nodejs-java/write-protected-presentation/)
+- [امضای دیجیتال در پاورپوینت](/slides/fa/nodejs-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-**تفاوت بین رمز عبور باز کردن و رمز عبور محافظت نوشتاری چیست؟**
+**What is the difference between an opening password and a write-protection password?**
 
-یک رمز عبور باز کردن ارائه را رمزنگاری می‌کند و برای بارگذاری محتوا لازم است. یک رمز عبور محافظت نوشتاری تغییرات را محدود می‌کند بدون اینکه محتوا را رمزنگاری کند.
+یک رمز عبور باز کردن ارائه را رمزنگاری می‌کند و برای بارگذاری محتوای آن لازم است. یک رمز عبور جلوگیری از نوشتن فقط اصلاح را محدود می‌کند بدون اینکه محتوا را رمزنگاری کند.
 
-**آیا می‌توانم رمز عبور باز کردن را بدون بارگذاری تمام اسلایدها اعتبارسنجی کنم؟**
+**Can I validate an opening password without loading all slides?**
 
-بله. اطلاعات ارائه را به‌دست آورید، بررسی کنید که آیا حفاظت با رمز عبور باز کردن وجود دارد یا نه، و قبل از ساختن یک نمونهٔ کامل از ارائه، رمز عبور را اعتبارسنجی کنید.
+بله. اطلاعات ارائه را دریافت کنید، بررسی کنید آیا حفاظت با رمز عبور باز کردن وجود دارد یا نه، و قبل از ایجاد یک نمونه کامل از ارائه، رمز را اعتبارسنجی کنید.
 
-**آیا روال‌های بررسی رمز عبور برای هر دو قالب PPT و PPTX پشتیبانی می‌شوند؟**
+**Can an application read metadata without the opening password?**
 
-بله. تشخیص و اعتبارسنجی رمز عبور بر مبنای مسیر فایل و بر مبنای جریان برای ارائه‌های PPT و PPTX به‌طور یکسان رفتار می‌کند.
+بله، اما فقط زمانی که ارائه با رمزنگاری خصوصیات سند غیرفعال شده باشد. سپس برنامه باید از حالت بارگذاری فقط‑خصوصیات‑سند توصیف شده در [Manage Presentation Properties](/slides/fa/nodejs-java/presentation-properties/) استفاده کند.
+
+**Do the password-checking workflows support both PPT and PPTX?**
+
+بله. شناسایی و اعتبارسنجی رمز عبور به‌صورت مسیر‑فایل و جریان برای هر دو نوع PPT و PPTX به‌یک شکل رفتار می‌کند.

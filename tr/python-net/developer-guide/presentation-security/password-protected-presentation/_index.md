@@ -1,18 +1,18 @@
 ---
-title: Python'da Sunumları Şifreyle Koruma
-linktitle: Şifre Koruma
+title: Python'da Sunumları Şifre ile Koruma
+linktitle: Şifre Koruması
 type: docs
 weight: 20
 url: /tr/python-net/password-protected-presentation/
 keywords:
 - şifre korumalı sunum
-- açılış şifresi
+- açma şifresi
 - PowerPoint şifreleme
 - PowerPoint şifre çözme
 - sunum şifresi doğrulama
 - sunum şifresi kontrolü
 - şifreli sunumu açma
-- şifrelemeyi kaldırma
+- şifreyi kaldırma
 - PowerPoint
 - PPT
 - PPTX
@@ -23,15 +23,15 @@ description: "Aspose.Slides ile Python'da şifre korumalı PowerPoint PPT ve PPT
 ---
 ## **Genel Bakış**
 
-Açılış şifresi bir sunumu şifreler. Sunum içeriğini yüklemek ve görüntülemek için doğru şifre gerekir; bu koruma gizliliği sağlar.
+Bir açma şifresi bir sunumu şifreler. Sunum içeriğini yüklemek ve görüntülemek için doğru şifre gereklidir, bu koruma gizliliği sağlar.
 
-Açılış şifresi, yazma koruma şifresinden farklıdır. Yazma koruması düzenlemeyi kısıtlar ancak içeriği şifrelemez veya sunumun yüklenmesini engellemez. Sunumları düzenlemek için şifreleri yönetmek istiyorsanız, [Yazma Koruma Sunumları](/slides/tr/python-net/write-protected-presentation/) bölümüne bakın.
+Bir açma şifresi, yazma koruma şifresinden farklıdır. Yazma koruması, değişikliği kısıtlar ancak içeriği şifrelemez veya sunumun yüklenmesini engellemez. Sunumları değiştirmek için şifreleri yönetmek için [Write-Protect Presentations](/slides/tr/python-net/write-protected-presentation/) bölümüne bakın.
 
-Aşağıdaki iş akışları PPT ve PPTX sunumları için geçerlidir. Örneklerde, dosya tabanlı ve akış tabanlı davranışların önemli olduğu durumlarda her iki format da kullanılmıştır.
+Aşağıdaki iş akışları hem PPT hem de PPTX sunumlarına uygulanır. Örneklerde, dosya tabanlı ve akış tabanlı davranışın önemli olduğu her iki format da kullanılmıştır.
 
-## **Açılış Şifresi ile Sunumu Şifreleme**
+## **Açma Şifresiyle Sunum Şifreleme**
 
-Açılış şifresi atamak için [ProtectionManager.encrypt](https://reference.aspose.com/slides/tr/python-net/aspose.slides/protectionmanager/encrypt/) yöntemini kullanın. Ardından şifrelenmiş sunumu kalıcı hale getirmek için [Presentation.save](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/save/) yöntemini çağırın.
+[ProtectionManager.encrypt](https://reference.aspose.com/slides/tr/python-net/aspose.slides/protectionmanager/encrypt/) yöntemiyle bir açma şifresi atayın. Ardından şifrelenmiş sunumu kalıcı hale getirmek için [Presentation.save](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/save/) kullanın.
 
 Aşağıdaki örnek bir PPTX sunumunu şifreler:
 
@@ -43,9 +43,32 @@ with slides.Presentation("pres.pptx") as presentation:
     presentation.save("encrypted-pres.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Belge Özelliklerini Genel Tutun**
+
+Varsayılan olarak, Aspose.Slides belge özelliklerini sunum şifrelemesine dahil eder. [ProtectionManager.encrypt_document_properties] özelliği bu davranışı slayt içeriği şifrelemesinden bağımsız olarak kontrol eder. Açma şifresi olmadan indeksleme, sınıflandırma, arama veya belge yönetim sistemi meta verileri okuması gerektiğinde [ProtectionManager.encrypt] çağırmadan önce bu özelliği `False` olarak ayarlayın.
+
+Aşağıdaki örnek, yerleşik belge özelliklerini genel tutarken şifrelenmiş bir PPTX sunumu oluşturur:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    properties = presentation.document_properties
+    properties.author = "Contoso Knowledge Management"
+    properties.title = "Quarterly Product Roadmap"
+    properties.keywords = "roadmap, planning, internal"
+
+    presentation.slides[0].name = "Encrypted presentation content"
+    presentation.protection_manager.encrypt_document_properties = False
+    presentation.protection_manager.encrypt("open_password")
+    presentation.save("public-properties-encrypted.pptx", slides.export.SaveFormat.PPTX)
+```
+
+`encrypt_document_properties` özelliğini `False` olarak ayarlamak slaytları, masterları, düzenleri, şekilleri, medyayı veya diğer sunum içeriğini genel yapmaz. Yalnızca belge özelliklerini etkiler. Şifrelenmiş içeriği yüklemeden bu özellikleri okumak için [Manage Presentation Properties](/slides/tr/python-net/presentation-properties/) bölümüne bakın.
+
 ## **Şifreli Sunumu Yükleme**
 
-Açılış şifresini ayarlamak için [LoadOptions.password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/password/) özelliğini belirleyin ve dosyayı yüklerken bu seçenekleri [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) yapıcısına iletin. Açılış şifresi gerekli olduğunda ancak sağlanan şifre eksik veya hatalıysa yükleme başarısız olur.
+[LoadOptions.password] özelliğini açma şifresine ayarlayın ve dosya yüklenirken bu seçenekleri [Presentation] nesnesine iletin. Açma şifresi gerekli ancak sağlanan şifre eksik ya da yanlış olduğunda yükleme başarısız olur.
 
 ```python
 import aspose.slides as slides
@@ -54,13 +77,13 @@ load_options = slides.LoadOptions()
 load_options.password = "open_password"
 
 with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
-    # Şifre çözülmüş sunumla çalış.
+    # Şifrelenmiş sunumla çalış.
     pass
 ```
 
-## **Sunumdan Şifrelemeyi Kaldırma**
+## **Sunumdan Şifreyi Kaldırma**
 
-Sunumu açılış şifresi ile yükleyin, [ProtectionManager.remove_encryption](https://reference.aspose.com/slides/tr/python-net/aspose.slides/protectionmanager/remove_encryption/) yöntemini çağırın ve sonucu kaydedin. Kaydedilen sunum daha sonra şifre gerektirmeden yüklenebilir.
+Sunumu açma şifresiyle yükleyin, [ProtectionManager.remove_encryption] metodunu çağırın ve sonucu kaydedin. Kaydedilen sunum daha sonra şifre olmadan yüklenebilir.
 
 ```python
 import aspose.slides as slides
@@ -73,13 +96,13 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
     presentation.save("encryption-removed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Yüklemeden Önce Açılış Şifresini Doğrulama**
+## **Yüklemeden Önce Açma Şifresini Doğrulama**
 
-Tam bir sunum örneği oluşturmadan [PresentationInfo](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentationinfo/) elde etmek için [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentationfactory/get_presentation_info/) yöntemini kullanın. Şifre talep edilmeden veya doğrulanmadan önce [PresentationInfo.is_password_protected](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentationinfo/is_password_protected/) özelliğini kontrol edin. Koruma mevcutsa, sağlanan değeri [PresentationInfo.check_password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentationinfo/check_password/) ile doğrulayın.
+[PresentationFactory.get_presentation_info] yöntemini kullanarak tam bir sunum örneği oluşturmadan [PresentationInfo] elde edin. Şifre talep etmeden veya doğrulamadan önce [PresentationInfo.is_password_protected] durumunu kontrol edin. Koruma mevcut ise sağlanan değeri [PresentationInfo.check_password] ile doğrulayın.
 
 ### **Dosya Yolu İş Akışı**
 
-Aşağıdaki örnek bir PPTX dosyası için açılış şifresini doğrular, doğrulanan değeri [LoadOptions.password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/loadoptions/password/) özelliğine geçirir ve ardından tam sunumu yükler:
+Aşağıdaki örnek bir PPTX dosyası için açma şifresini doğrular, doğrulanan değeri [LoadOptions.password] öğesine geçirir ve ardından tam sunumu yükler:
 
 ```python
 import aspose.slides as slides
@@ -102,7 +125,7 @@ else:
 
 ### **Akış İş Akışı**
 
-[PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentationfactory/get_presentation_info/) metodunun akış aşırı yüklemesi aynı iş akışını sağlar. Tam sunumu bu akıştan yüklemeden önce, konumunu yeniden ayarlamayı unutmayın.
+[PresentationFactory.get_presentation_info] yönteminin akış aşırı yüklemesi aynı iş akışını sağlar. O akıştan tam sunumu yüklemeden önce arama yapılabilir bir akışın konumunu sıfırlayın.
 
 Aşağıdaki örnek bir PPT dosyası kullanır:
 
@@ -127,19 +150,19 @@ with open("protected-presentation.ppt", "rb") as presentation_stream:
             print("The presentation was validated and loaded successfully.")
 ```
 
-### **CheckPassword Dönüş Değerleri**
+### **CheckPassword Döndürdüğü Değerler**
 
-[PresentationInfo.check_password](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentationinfo/check_password/) yalnızca sunumda bir açılış şifresi bulunduğunda ve sağlanan şifre doğru olduğunda `True` döndürür. Aşağıdaki durumlarda `False` döner:
+[PresentationInfo.check_password] yalnızca sunumda bir açma şifresi bulunduğunda ve sağlanan şifre doğru olduğunda `True` döndürür. Aşağıdaki durumlarda `False` döner:
 
-- Şifre yanlış.
-- Sunumda açılış şifresi yok.
+- Şifre yanlıştır.
+- Sunumun bir açma şifresi yoktur.
 - Sağlanan şifre `None` ya da boş.
 
 Davranış PPT ve PPTX sunumları için aynı şekildedir.
 
-## **Yüklenen Sunumun Şifreli Olup Olmadığını Kontrol Etme**
+## **Yüklenmiş Sunumun Şifreli Olup Olmadığını Kontrol Etme**
 
-Doğru şifreyle bir sunum yüklendikten sonra, kaynağın şifreli olduğunu doğrulamak için [ProtectionManager.is_encrypted](https://reference.aspose.com/slides/tr/python-net/aspose.slides/protectionmanager/is_encrypted/) özelliğine bakın. Yüklemeden önce açılış‑şifresi korumasını tespit etmek için yukarıda gösterildiği gibi `PresentationInfo.is_password_protected` kullanılabilir.
+Doğru şifreyle bir sunumu yükledikten sonra kaynak sunumun şifrelenip şifrelenmediğini doğrulamak için [ProtectionManager.is_encrypted] özelliğine bakın. Yüklemeden önce açma şifresi korumasını tespit etmek için yukarıda gösterildiği gibi `PresentationInfo.is_password_protected` kullanın.
 
 ```python
 import aspose.slides as slides
@@ -155,32 +178,38 @@ with slides.Presentation("encrypted-pres.pptx", load_options) as presentation:
 ## **Güvenlik Önerileri**
 
 {{% alert color="warning" title="Güvenlik" %}}
-Açılış şifrelerini günlük dosyalarına kaydetmeyin ve tanı mesajlarında göstermeyin. Gereksiz tekrar doğrulama girişimlerinden kaçının, şifreleri yalnızca gerektiği süre boyunca bellekte tutun ve sunumu hemen yüklemeniz gerektiğinde başarılı bir doğrulama sonucunu yeniden kullanın.
+Açma şifrelerini günlüğe kaydetmeyin ve tanı mesajlarına eklemeyin. Gereksiz tekrar doğrulama girişimlerinden kaçının, şifreleri yalnızca gerektiği sürece bellekte tutun ve sunumu hemen yüklerken başarılı bir doğrulama sonucunu yeniden kullanın.
+
+Genel belge özellikleri, sunum içeriği şifreli olsa bile yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ifşa edebilir. Hassas meta verileri sunumla birlikte şifreleyin. Özellikleri genel bırakmak, yalnızca sistemlerin dosyayı açma şifresi olmadan indekslemesi, sınıflandırması, araması veya yönetmesi gerektiğinde alınan açık bir karar olmalıdır.
 {{% /alert %}}
 
 ## **Sunumu Çevrimiçi Şifreleme**
 
-1. [Aspose.Slides Lock](https://products.aspose.app/slides/tr/lock) uygulamasını açın.  
-2. Sunumu seçin veya yükleyin.  
-3. Görüntü koruması için bir şifre girin.  
-4. İsterseniz düzenleme koruması için ayrı bir şifre daha girin.  
-5. Koruma uygulayın ve oluşturulan dosyayı indirin.
+1. [Aspose.Slides Lock] uygulamasını açın.
+2. Sunumu seçin veya yükleyin.
+3. Görünüm koruması için bir şifre girin.
+4. İsterseniz düzenleme koruması için ayrı bir şifre girin.
+5. Koruma uygulayın ve ortaya çıkan dosyayı indirin.
 
 {{% alert color="info" title="Ayrıca Bakınız" %}}
-- [Yazma Koruma Sunumları](/slides/tr/python-net/write-protected-presentation/)  
-- [PowerPoint'te Dijital İmza](/slides/tr/python-net/digital-signature-in-powerpoint/)
+- [Write-Protect Presentations](/slides/tr/python-net/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/tr/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **SSS**
 
-**Açılış şifresi ile yazma koruma şifresi arasındaki fark nedir?**
+**Açma şifresi ile yazma koruma şifresi arasındaki fark nedir?**
 
-Açılış şifresi sunumu şifreler ve içeriğin yüklenmesi için gereklidir. Yazma koruma şifresi ise içeriği şifrelemez, yalnızca düzenlemeyi kısıtlar.
+Bir açma şifresi sunumu şifreler ve içeriğini yüklemek için gereklidir. Yazma koruma şifresi, içeriği şifrelemeden değişikliği kısıtlar.
 
-**Tüm slaytları yüklemeden bir açılış şifresini doğrulayabilir miyim?**
+**Tüm slaytları yüklemeden açma şifresini doğrulayabilir miyim?**
 
-Evet. Sunum bilgilerini alın, açılış‑şifresi korumasının mevcut olup olmadığını kontrol edin ve tam bir sunum örneği oluşturulmadan şifreyi doğrulayın.
+Evet. Sunum bilgilerini edinin, açma şifresi korumasının mevcut olup olmadığını kontrol edin ve tam bir sunum örneği oluşturmadan önce şifreyi doğrulayın.
 
-**Şifre kontrol iş akışları hem PPT hem de PPTX için destekleniyor mu?**
+**Bir uygulama açma şifresi olmadan meta verileri okuyabilir mi?**
 
-Evet. Dosya‑yolu ve akış‑tabanlı şifre algılama ve doğrulama, PPT ve PPTX sunumları için aynı şekilde çalışır.
+Evet, ancak yalnızca sunum `encrypt_document_properties` özelliği `False` olarak ayarlanarak şifrelendiğinde. Uygulama daha sonra [Manage Presentation Properties](/slides/tr/python-net/presentation-properties/) bölümünde açıklanan yalnızca belge özelliklerini yükleme modunu kullanmalıdır.
+
+**Şifre kontrol iş akışları PPT ve PPTX'i destekliyor mu?**
+
+Evet. Dosya yolu ve akış tabanlı şifre tespiti ve doğrulama, PPT ve PPTX sunumları için aynı şekilde çalışır.

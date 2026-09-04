@@ -1,79 +1,164 @@
 ---
-title: จัดการคุณสมบัติการนำเสนอใน PHP
-linktitle: คุณสมบัติการนำเสนอ
+title: จัดการคุณสมบัติงานนำเสนอใน PHP
+linktitle: คุณสมบัติงานนำเสนอ
 type: docs
 weight: 70
 url: /th/php-java/presentation-properties/
 keywords:
 - คุณสมบัติ PowerPoint
-- คุณสมบัติการนำเสนอ
+- คุณสมบัติงานนำเสนอ
 - คุณสมบัติเอกสาร
 - คุณสมบัติในตัว
-- คุณสมบัติแบบกำหนดเอง
+- คุณสมบัติที่กำหนดเอง
 - คุณสมบัติขั้นสูง
 - จัดการคุณสมบัติ
 - แก้ไขคุณสมบัติ
-- เมตาดาทาเอกสาร
-- แก้ไขเมตาดาทา
-- ภาษาการตรวจสอบ
-- ภาษาตั้งค่าเริ่มต้น
+- เมตาเดตาเอกสาร
+- แก้ไขเมตาเดตา
+- ภาษาตรวจสอบคำสะกด
+- ภาษาปริยาย
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ควบคุมคุณสมบัติการนำเสนอใน Aspose.Slides สำหรับ PHP ผ่าน Java และทำให้การค้นหา การสร้างแบรนด์ และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นระเบียบมากขึ้น."
+description: "ควบคุมคุณสมบัติงานนำเสนอใน Aspose.Slides for PHP via Java และทำให้การค้นหา การสร้างแบรนด์ และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นระเบียบและมีประสิทธิภาพ"
 ---
-## **Introduction**
+## **บทนำ**
 
-Aspose.Slides รองรับคุณสมบัติของเอกสารสองประเภท: **Built-in** และ **Custom** ทั้งสองประเภทนี้สามารถเข้าถึงและจัดการได้อย่างง่ายดายโดยใช้ Aspose.Slides API
+Aspose.Slides รองรับคุณสมบัติของเอกสารสองประเภท: **ในตัว** และ **กำหนดเอง**. ทั้งสองประเภทนี้สามารถเข้าถึงและจัดการได้ง่ายโดยใช้ Aspose.Slides API.
 
-Aspose.Slides ให้คุณทำงานกับคุณสมบัติของเอกสารงานนำเสนอผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/) อินสแตนซ์ของคลาสนี้จะถูกส่งคืนโดยเมธอด [Presentation::getDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getDocumentProperties) ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข และจัดการคุณสมบัติเหล่านั้น
+Aspose.Slides ให้คุณทำงานกับคุณสมบัติของเอกสารงานนำเสนอผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/) ตัวอย่างของคลาสนี้จะถูกส่งคืนโดยเมธอด [Presentation::getDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getDocumentProperties) ตัวอย่างต่อไปนี้แสดงวิธีอ่าน, แก้ไขและจัดการคุณสมบัติเหล่านี้.
 
-{{% alert color="info" title="Note" %}}
-โปรดทราบว่าฟิลด์ **Application** และ **AppVersion** ไม่สามารถแก้ไขได้ Aspose.Slides จะเขียนทับค่าเหล่านี้ทุกครั้งที่บันทึก ดังนั้นงานนำเสนอที่บันทึกแล้วจะรายงานเป็น "Aspose.Slides for PHP via Java" พร้อมกับเวอร์ชันของไลบรารีที่ใช้สร้าง หากส่งค่าใด ๆ ไปยัง `setNameOfApplication` ค่านั้นจะถูกละทิ้งเมื่อเขียนงานนำเสนอ
+{{% alert color="info" title="หมายเหตุ" %}}
+โปรดทราบว่า ฟิลด์ **Application** และ **AppVersion** ไม่สามารถแก้ไขได้ Aspose.Slides จะเขียนทับฟิลด์เหล่านี้ทุกครั้งที่บันทึก ดังนั้นงานนำเสนอที่บันทึกแล้วจะรายงานเป็น "Aspose.Slides for PHP via Java" และเวอร์ชันของไลบรารีที่สร้างมัน ค่าใด ๆ ที่ส่งให้ `setNameOfApplication` จะถูกละทิ้งเมื่อเขียนงานนำเสนอ
 {{% /alert %}} 
 
-## **Manage Presentation Properties**
+## **จัดการคุณสมบัติของงานนำเสนอ**
 
-Microsoft PowerPoint มีคุณสมบัติในการเพิ่มคุณสมบัติบางอย่างลงในไฟล์งานนำเสนอ คุณสมบัติของเอกสารเหล่านี้ช่วยให้สามารถเก็บข้อมูลที่เป็นประโยชน์ไปพร้อมกับเอกสาร (ไฟล์งานนำเสนอ) มีสองประเภทของคุณสมบัติเอกสารดังต่อไปนี้
+Microsoft PowerPoint มีคุณลักษณะให้เพิ่มคุณสมบัติบางอย่างลงในไฟล์งานนำเสนอ คุณสมบัติของเอกสารเหล่านี้อนุญาตให้เก็บข้อมูลที่เป็นประโยชน์ไว้พร้อมกับเอกสาร (ไฟล์งานนำเสนอ) มีสองประเภทของคุณสมบัติเบื้องต้นดังต่อไปนี้
 
 - System Defined (Built-in) Properties
 - User-Defined (Custom) Properties
 
-คุณสมบัติ **Built-in** มีข้อมูลทั่วไปเกี่ยวกับเอกสาร เช่น ชื่อเรื่อง, ชื่อผู้เขียน, สถิติของเอกสาร เป็นต้น คุณสมบัติ **Custom** คือคุณสมบัติที่ผู้ใช้กำหนดเป็นคู่ **Name/Value** โดยทั้งชื่อและค่าเป็นที่กำหนดโดยผู้ใช้ โดยใช้ Aspose.Slides for PHP via Java นักพัฒนา สามารถเข้าถึงและแก้ไขค่าของคุณสมบัติ Built-in รวมถึง Custom ได้
+คุณสมบัติ **ในตัว** มีข้อมูลทั่วไปเกี่ยวกับเอกสาร เช่น ชื่อเอกสาร, ชื่อผู้เขียน, สถิติของเอกสาร เป็นต้น คุณสมบัติ **กำหนดเอง** คือคุณสมบัติที่ผู้ใช้กำหนดเป็นคู่ **ชื่อ/ค่า**, โดยทั้งชื่อและค่าถูกกำหนดโดยผู้ใช้ โดยใช้ Aspose.Slides for PHP via Java นักพัฒนาสามารถเข้าถึงและแก้ไขค่าของคุณสมบัติในตัวเช่นเดียวกับคุณสมบัติที่กำหนดเองได้
 
 ## **Document Properties in PowerPoint**
 
-Microsoft PowerPoint 2007 ให้การจัดการคุณสมบัติของไฟล์งานนำเสนอ เพียงคลิกไอคอน Office แล้วเลือกเมนู **Prepare | Properties | Advanced Properties** ของ Microsoft PowerPoint 2007 ตามที่แสดงด้านล่าง:
+Microsoft PowerPoint 2007 ให้คุณจัดการคุณสมบัติของเอกสารงานนำเสนอได้ เพียงคลิกไอคอน Office แล้วเลือกเมนู **Prepare | Properties | Advanced Properties** ของ Microsoft PowerPoint 2007 ตามที่แสดงด้านล่าง:
 
 |**Selecting Advanced Properties menu item**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-หลังจากเลือกเมนู **Advanced Properties** จะปรากฏกล่องโต้ตอบที่ให้คุณจัดการคุณสมบัติของไฟล์ PowerPoint ตามรูปด้านล่าง:
+หลังจากคุณเลือกเมนู **Advanced Properties** จะปรากฏกล่องโต้ตอบที่ให้คุณจัดการคุณสมบัติของไฟล์ PowerPoint ดังที่แสดงในรูปต่อไปนี้:
 
 |**Properties Dialog**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 
-ใน **Properties Dialog** ข้างต้น คุณจะพบแท็บหลายหน้า เช่น **General**, **Summary**, **Statistics**, **Contents** และ **Custom** แท็บเหล่านี้ช่วยกำหนดข้อมูลประเภทต่าง ๆ ที่เกี่ยวข้องกับไฟล์ PowerPoint แท็บ **Custom** ใช้จัดการคุณสมบัติแบบกำหนดเองของไฟล์ PowerPoint
+ใน **Properties Dialog** ข้างบน คุณจะเห็นแท็บหลายหน้า เช่น **General**, **Summary**, **Statistics**, **Contents** และ **Custom**. แท็บเหล่านี้อนุญาตให้กำหนดข้อมูลประเภทต่าง ๆ ที่เกี่ยวกับไฟล์ PowerPoint ได้ แท็บ **Custom** ใช้เพื่อจัดการคุณสมบัติที่กำหนดเองของไฟล์ PowerPoint
 
-### ทำงานกับ Document Properties โดยใช้ Aspose.Slides for PHP via Java
+### ทำงานกับคุณสมบัติของเอกสารโดยใช้ Aspose.Slides for PHP via Java
 
-ตามที่เราได้อธิบายไว้ก่อนหน้า Aspose.Slides for PHP via Java รองรับคุณสมบัติเอกสารสองประเภท คือ **Built-in** และ **Custom** ดังนั้นนักพัฒนาจึงสามารถเข้าถึงคุณสมบัติทั้งสองประเภทโดยใช้ API ของ Aspose.Slides for PHP via Java Aspose.Slides for PHP via Java มีคลาส [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties) ที่แสดงคุณสมบัติเอกสารที่เชื่อมโยงกับไฟล์งานนำเสนอผ่านคุณสมบัติ **Presentation.DocumentProperties**
+ตามที่อธิบายไว้ข้างต้น Aspose.Slides for PHP via Java รองรับคุณสมบัติของเอกสารสองประเภท คือ **ในตัว** และ **กำหนดเอง** ดังนั้นนักพัฒนาจึงสามารถเข้าถึงคุณสมบัติทั้งสองประเภทโดยใช้ Aspose.Slides for PHP via Java API ได้ Aspose.Slides for PHP via Java มีคลาส [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties) ที่เป็นตัวแทนของคุณสมบัติของเอกสารที่เชื่อมโยงกับไฟล์งานนำเสนอผ่านคุณสมบัติ **Presentation.DocumentProperties**.
 
-นักพัฒนาสามารถใช้คุณสมบัติ **DocumentProperties** ที่เปิดเผยโดยอ็อบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation) เพื่อเข้าถึงคุณสมบัติของไฟล์งานนำเสนอได้ตามที่อธิบายด้านล่าง
+นักพัฒนาสามารถใช้คุณสมบัติ **DocumentProperties** ที่เปิดเผยโดยออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation) เพื่อเข้าถึงคุณสมบัติของไฟล์งานนำเสนอได้ตามที่อธิบายด้านล่าง:
 
-## **Access Built-in Properties**
+## **อ่านคุณสมบัติสาธารณะจากงานนำเสนอที่เข้ารหัส**
 
-คุณสมบัติที่เปิดเผยโดยอ็อบเจ็กต์ [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties) มีดังนี้: **Creator** (ผู้เขียน), **Description**, **Keywords**, **Created** (วันที่สร้าง), **Modified** (วันที่แก้ไข), **Printed** (วันที่พิมพ์ล่าสุด), **LastModifiedBy**, **SharedDoc** (แชร์ระหว่างผู้ผลิตหลายคนหรือไม่?), **PresentationFormat**, **Subject** และ **Title**
+รหัสผ่านเปิดไฟล์มักจะปกป้องทั้งเนื้อหาและคุณสมบัติของงานนำเสนอ เมื่อทำการเข้ารหัสงานนำเสนอโดยส่งค่า `false` ไปยังเมธอด [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) คุณสมบัติของเอกสารจะยังคงเป็นสาธารณะ แอปพลิเคชันสามารถส่งค่า `true` ไปยังเมธอด [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) เพื่ออ่านเมตาดาต้าสาธารณะโดยไม่ต้องใส่รหัสผ่านเปิดไฟล์
+
+ตัวเลือก “document‑properties‑only” ควบคุมสิ่งที่ Aspose.Slides โหลด; มันไม่ทำการถอดรหัสใด ๆ หากคุณสมบัติกับการเข้ารหัสรวมอยู่ การโหลดโดยไม่ใส่รหัสผ่านจะล้มเหลว หากงานนำเสนอไม่ได้เข้ารหัส ตัวเลือกจะถูกละเลยและงานนำเสนอทั้งหมดจะถูกโหลด
+
+ตัวอย่างต่อไปตรวจสอบโหมดการโหลดผ่านเมธอด [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) แล้วอ่านคุณสมบัติ **ในตัว** ผ่านเมธอด [Presentation::getDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```php
-  # สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของการนำเสนอ
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setOnlyLoadDocumentProperties(true);
+
+$presentation = new Presentation("public-properties-encrypted.pptx", $loadOptions);
+try {
+    if (java_values($presentation->getProtectionManager()->isOnlyDocumentPropertiesLoaded())) {
+        $properties = $presentation->getDocumentProperties();
+
+        echo("Author: " . $properties->getAuthor() . "\n");
+        echo("Title: " . $properties->getTitle() . "\n");
+        echo("Keywords: " . $properties->getKeywords() . "\n");
+    } else {
+        echo("The presentation was not loaded in document-properties-only mode.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+ในโหมดนี้ เนื้อหาแบบสไลด์จะไม่ถูกโหลด สไลด์, มาสเตอร์, เลย์เอาต์, รูปร่าง, สื่อ และออบเจ็กต์อื่น ๆ ของงานนำเสนอจะไม่พร้อมใช้งาน แอปพลิเคชันควรตรวจสอบ [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/th/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) ก่อนทำการดำเนินการที่ต้องการแบบจำลองออบเจ็กต์ของงานนำเสนอเต็มรูปแบบเสมอ
+
+{{% alert color="warning" title="คำเตือน" %}}
+เมตาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, หัวข้อ, คำสำคัญ, ข้อมูลบริษัท, ความคิดเห็นและค่าที่กำหนดเอง ควรเข้ารหัสคุณสมบัติที่สำคัญพร้อมกับงานนำเสนอ เก็บไว้เป็นสาธารณะเฉพาะเมื่อระบบจัดทำดัชนี, จัดประเภท, ค้นหา หรือระบบจัดการเอกสารต้องการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน
+{{% /alert %}}
+
+## **อัปเดตคุณสมบัติของงานนำเสนอที่เข้ารหัส**
+
+สำหรับไฟล์ PPTX ที่เข้ารหัส งานนำเสนอที่โหลดในโหมด “document‑properties‑only” มีจุดประสงค์เพื่ออ่านเมตาดาต้าสาธารณะ Aspose.Slides ไม่สามารถบันทึกการเปลี่ยนแปลงของคุณสมบัติจากออบเจ็กต์แบบ “metadata‑only” นี้ได้ เพราะคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลในงานนำเสนอที่เข้ารหัส ดังนั้นการอัปเดตจำเป็นต้องมีรหัสผ่านเปิดไฟล์ที่ถูกต้องและการโหลดแบบสมบูรณ์
+
+ตัวอย่างต่อไปเปิดงานนำเสนอด้วยเมธอด [LoadOptions::setPassword](https://reference.aspose.com/slides/th/php-java/aspose.slides/loadoptions/#setPassword) จากนั้นอัปเดตคุณสมบัติ **ในตัว** สาธารณะและบันทึกผลลัพธ์ หลังจากนั้นใช้เมธอด [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#isEncrypted) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิดเมตาดาต้าสาธารณะโดยไม่ใช้รหัสผ่านเพื่อยืนยันค่าที่อัปเดต:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+use aspose\slides\SaveFormat;
+
+$inputPath = "public-properties-encrypted.pptx";
+$outputPath = "updated-public-properties-encrypted.pptx";
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation($inputPath, $loadOptions);
+try {
+    $presentation->getDocumentProperties()->setTitle("Updated Product Roadmap");
+    $presentation->getDocumentProperties()->setKeywords("roadmap, planning, indexed");
+    $presentation->save($outputPath, SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($outputPath);
+echo("The presentation is encrypted: " . (java_values($presentationInfo->isEncrypted()) ? "true" : "false") . "\n");
+
+$metadataLoadOptions = new LoadOptions();
+$metadataLoadOptions->setOnlyLoadDocumentProperties(true);
+
+$metadataPresentation = new Presentation($outputPath, $metadataLoadOptions);
+try {
+    if (java_values($metadataPresentation->getProtectionManager()->isOnlyDocumentPropertiesLoaded())) {
+        echo("Title: " . $metadataPresentation->getDocumentProperties()->getTitle() . "\n");
+        echo("Keywords: " . $metadataPresentation->getDocumentProperties()->getKeywords() . "\n");
+    } else {
+        echo("The presentation was not loaded in document-properties-only mode.\n");
+    }
+} finally {
+    $metadataPresentation->dispose();
+}
+```
+
+หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหาของงานนำเสนอ มันต้องถือคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่าน‑อย่างเดียว
+
+## **เข้าถึงคุณสมบัติในตัว**
+
+คุณสมบัติที่เปิดเผยโดยออบเจ็กต์ [DocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties) มีดังนี้: **Creator** (ผู้เขียน), **Description**, **Keywords**, **Created** (วันที่สร้าง), **Modified** (วันที่แก้ไข), **Printed** (วันที่พิมพ์ครั้งสุดท้าย), **LastModifiedBy**, **SharedDoc** (แชร์ระหว่างผู้ผลิตหลายคน?), **PresentationFormat**, **Subject** และ **Title**
+
+```php
+  # สร้างคลาส Presentation ที่เป็นตัวแทนของงานนำเสนอ
   $pres = new Presentation("Presentation.pptx");
   try {
-    # สร้างอ้างอิงถึงอ็อบเจ็กต์ IDocumentProperties ที่เชื่อมโยงกับ Presentation
+    # สร้างอ้างอิงไปยังออบเจ็กต์ IDocumentProperties ที่เชื่อมโยงกับ Presentation
     $dp = $pres->getDocumentProperties();
     # แสดงคุณสมบัติในตัว
     echo("Category : " . $dp->getCategory());
@@ -97,14 +182,14 @@ Microsoft PowerPoint 2007 ให้การจัดการคุณสมบ
   }
 ```
 
-## **Modify Built-in Properties**
+## **แก้ไขคุณสมบัติในตัว**
 
-การแก้ไขคุณสมบัติ Built-in ของไฟล์งานนำเสนอทำได้ง่ายเช่นเดียวกับการเข้าถึง เพียงกำหนดค่าเป็นสตริงให้กับคุณสมบัติที่ต้องการ ค่านั้นก็จะถูกเปลี่ยนแปลง ตัวอย่างต่อไปนี้แสดงวิธีการแก้ไขคุณสมบัติเอกสาร Built-in ของไฟล์งานนำเสนอโดยใช้ Aspose.Slides for PHP via Java
+การแก้ไขคุณสมบัติในตัวของไฟล์งานนำเสนอทำได้ง่ายเท่ากับการเข้าถึงคุณสมบัติ คุณสามารถกำหนดค่าแบบสตริงให้กับคุณสมบัติใดก็ได้และค่าจะถูกแก้ไข ตัวอย่างด้านล่างแสดงวิธีการแก้ไขคุณสมบัติเอกสารในตัวของไฟล์งานนำเสนอโดยใช้ Aspose.Slides for PHP via Java
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # สร้างอ้างอิงถึงอ็อบเจ็กต์ IDocumentProperties ที่เชื่อมโยงกับ Presentation
+    # สร้างอ้างอิงไปยังออบเจ็กต์ IDocumentProperties ที่เชื่อมโยงกับ Presentation
     $dp = $pres->getDocumentProperties();
     # ตั้งค่าคุณสมบัติในตัว
     $dp->setAuthor("Aspose.Slides for PHP via Java");
@@ -112,7 +197,7 @@ Microsoft PowerPoint 2007 ให้การจัดการคุณสมบ
     $dp->setSubject("Aspose Subject");
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
-    # บันทึกการนำเสนอของคุณลงไฟล์
+    # บันทึกงานนำเสนอของคุณลงไฟล์
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -121,30 +206,30 @@ Microsoft PowerPoint 2007 ให้การจัดการคุณสมบ
   }
 ```
 
-ตัวอย่างนี้แก้ไขคุณสมบัติ Built-in ของงานนำเสนอโดยผลลัพธ์ที่ได้แสดงดังต่อไปนี้:
+ตัวอย่างนี้แก้ไขคุณสมบัติในตัวของงานนำเสนอที่สามารถดูผลลัพธ์ได้ตามรูปด้านล่าง:
 
 |**Built-in document properties after modification**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
-## **Add Custom Document Properties**
+## **เพิ่มคุณสมบัติเอกสารที่กำหนดเอง**
 
-Aspose.Slides for PHP via Java ยังอนุญาตให้นักพัฒนาสร้างค่าคุณสมบัติแบบกำหนดเองสำหรับ Document ของงานนำเสนอ ตัวอย่างต่อไปนี้แสดงวิธีการตั้งค่าคุณสมบัติแบบกำหนดเองสำหรับงานนำเสนอ
+Aspose.Slides for PHP via Java ยังอนุญาตให้นักพัฒนาตั้งค่าคุณสมบัติที่กำหนดเองสำหรับงานนำเสนอ ตัวอย่างด้านล่างแสดงวิธีตั้งค่าคุณสมบัติที่กำหนดเองสำหรับงานนำเสนอ
 
 ```php
   $pres = new Presentation();
   try {
-    # ดึงคุณสมบัติเอกสาร
+    # รับคุณสมบัติเอกสาร
     $dProps = $pres->getDocumentProperties();
-    # เพิ่มคุณสมบัติแบบกำหนดเอง
+    # เพิ่มคุณสมบัติที่กำหนดเอง
     $dProps->set_Item("New Custom", 12);
     $dProps->set_Item("My Name", "Mudassir");
     $dProps->set_Item("Custom", 124);
-    # ดึงชื่อคุณสมบัติที่ตำแหน่งดัชนีเฉพาะ
+    # รับชื่อคุณสมบัติที่ดัชนีที่ระบุ
     $getPropertyName = $dProps->getCustomPropertyName(2);
     # ลบคุณสมบัติที่เลือก
     $dProps->removeCustomProperty($getPropertyName);
-    # บันทึกการนำเสนอ
+    # บันทึกงานนำเสนอ
     $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -157,24 +242,24 @@ Aspose.Slides for PHP via Java ยังอนุญาตให้นักพ�
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Access and Modify Custom Properties**
+## **เข้าถึงและแก้ไขคุณสมบัติที่กำหนดเอง**
 
-Aspose.Slides for PHP via Java ยังอนุญาตให้นักพัฒนาดึงค่าและแก้ไขคุณสมบัติแบบกำหนดเอง ตัวอย่างต่อไปนี้แสดงวิธีการเข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเองทั้งหมดของงานนำเสนอ
+Aspose.Slides for PHP via Java ยังอนุญาตให้นักพัฒนาถึงค่า ของคุณสมบัติที่กำหนดเองได้ ตัวอย่างด้านล่างแสดงวิธีเข้าถึงและแก้ไขคุณสมบัติที่กำหนดเองทั้งหมดของงานนำเสนอ
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    # สร้างอ้างอิงถึงอ็อบเจ็กต์ DocumentProperties ที่เชื่อมโยงกับ Presentation
+    # สร้างอ้างอิงไปยังออบเจ็กต์ DocumentProperties ที่เชื่อมโยงกับ Presentation
     $dp = $pres->getDocumentProperties();
-    # เข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเอง
+    # เข้าถึงและแก้ไขคุณสมบัติที่กำหนดเอง
     for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
-      # แสดงชื่อและค่าของคุณสมบัติแบบกำหนดเอง
+      # แสดงชื่อและค่าของคุณสมบัติที่กำหนดเอง
       echo("Custom Property Name : " . $dp->getCustomPropertyName($i));
       echo("Custom Property Value : " . $dp->get_Item($dp->getCustomPropertyName($i)));
-      # แก้ไขค่าของคุณสมบัติแบบกำหนดเอง
+      # แก้ไขค่าของคุณสมบัติที่กำหนดเอง
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
-    # บันทึกการนำเสนอของคุณลงไฟล์
+    # บันทึกงานนำเสนอของคุณลงไฟล์
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -183,7 +268,7 @@ Aspose.Slides for PHP via Java ยังอนุญาตให้นักพ�
   }
 ```
 
-ตัวอย่างนี้แก้ไขคุณสมบัติแบบกำหนดเองของ [PPTX ](https://docs.fileformat.com/presentation/pptx/) งานนำเสนอ รูปภาพต่อไปนี้แสดงคุณสมบัติแบบกำหนดเองก่อนและหลังการแก้ไข:
+ตัวอย่างนี้แก้ไขคุณสมบัติที่กำหนดเองของ [PPTX](https://docs.fileformat.com/presentation/pptx/) งานนำเสนอ รูปต่อไปนี้แสดงคุณสมบัติก่อนและหลังการแก้ไข:
 
 |**Custom Properties before Modification**|** |
 | :- | :- |
@@ -195,28 +280,28 @@ Aspose.Slides for PHP via Java ยังอนุญาตให้นักพ�
 
 ## **Advanced Document Properties**
 
-{{% alert color="info" title="Note" %}}
-เมธอดใหม่ [readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) และ [writeBindedPresentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) ถูกเพิ่มเข้าไปในคลาส [PresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo) ส่วนตรรกะของตัวเซ็ตเตอร์ [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#setLastSavedTime) ถูกเปลี่ยนแปลง
+{{% alert color="info" title="หมายเหตุ" %}}
+มีการเพิ่มเมธอดใหม่ [readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) และ [writeBindedPresentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) ไปยังคลาส [PresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo) ส่วนการทำงานของเซตเตอร์ [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/th/php-java/aspose.slides/documentproperties/#setLastSavedTime) ถูกเปลี่ยนแปลงเช่นกัน
 {{% /alert %}} 
 
 เมธอดใหม่สองตัว [readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) และ [updateDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) ถูกเพิ่มเข้าไปในคลาส [PresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/PresentationInfo) พวกมันให้การเข้าถึงคุณสมบัติเอกสารอย่างรวดเร็วและอนุญาตให้เปลี่ยนแปลงและอัปเดตคุณสมบัติได้โดยไม่ต้องโหลดงานนำเสนอทั้งหมด
 
-สถานการณ์ทั่วไปคือโหลดคุณสมบัติ, แก้ไขค่าบางอย่างและอัปเดตเอกสาร ซึ่งสามารถทำได้ดังนี้:
+สถานการณ์ทั่วไปคือต้องโหลดคุณสมบัติ, เปลี่ยนค่าและอัปเดตเอกสาร สามารถทำได้ตามตัวอย่างต่อไปนี้:
 
 ```php
   # อ่านข้อมูลของงานนำเสนอ
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
   # รับคุณสมบัติปัจจุบัน
   $props = $info->readDocumentProperties();
-  # ตั้งค่าค่าใหม่ของฟิลด์ Author และ Title
+  # ตั้งค่าข้อมูลใหม่ของฟิลด์ Author และ Title
   $props->setAuthor("New Author");
   $props->setTitle("New Title");
-  # อัปเดตงานนำเสนอด้วยค่าที่ใหม่
+  # อัปเดตงานนำด้วยค่าใหม่
   $info->updateDocumentProperties($props);
   $info->writeBindedPresentation("presentation.pptx");
 ```
 
-อีกวิธีหนึ่งคือใช้คุณสมบัติของงานนำเสนอหนึ่งเป็นแม่แบบเพื่ออัปเดตคุณสมบัติในงานนำเสนออื่น ๆ:
+อีกวิธีหนึ่งคือใช้คุณสมบัติของงานนำเสนอที่เป็นแม่แบบเพื่ออัปเดตคุณสมบัติในงานนำเสนออื่น ๆ:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
@@ -255,11 +340,11 @@ Aspose.Slides for PHP via Java ยังอนุญาตให้นักพ�
   updateByTemplate("doc3.ppt", $template);
 ```
 
-## **Set Proofing Language**
+## **ตั้งค่าภาษาตรวจสอบคำสะกด**
 
-Aspose.Slides มีคุณสมบัติ LanguageId (เปิดเผยโดยคลาส PortionFormat) เพื่อให้คุณตั้งค่าภาษา proofing สำหรับเอกสาร PowerPoint ภาษา proofing คือภาษาที่ใช้ตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
+Aspose.Slides มีคุณสมบัติ LanguageId (เปิดเผยโดยคลาส PortionFormat) เพื่อให้คุณตั้งค่าภาษาตรวจสอบคำสะกดสำหรับเอกสาร PowerPoint ภาษาตรวจสอบคือภาษาที่ใช้ตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าภาษา proofing สำหรับ PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
+โค้ด PHP ตัวอย่างนี้แสดงวิธีตั้งค่าภาษาตรวจสอบคำสะกดสำหรับ PowerPoint: xxx ทำไม LanguageId ถึงไม่มีในคลาส PortionFormat ของ Java?
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -273,7 +358,7 @@ Aspose.Slides มีคุณสมบัติ LanguageId (เปิดเผ�
     $portionFormat->setComplexScriptFont($font);
     $portionFormat->setEastAsianFont($font);
     $portionFormat->setLatinFont($font);
-    $portionFormat->setLanguageId("zh-CN");// ตั้งค่า Id ของภาษาพิสูจน์อักษร
+    $portionFormat->setLanguageId("zh-CN");// ตั้งค่า Id ของภาษาตรวจสอบการสะกด
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
@@ -284,16 +369,16 @@ Aspose.Slides มีคุณสมบัติ LanguageId (เปิดเผ�
   }
 ```
 
-## **Set Default Language**
+## **ตั้งค่าภาษาเริ่มต้น**
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าภาษาเริ่มต้นสำหรับงานนำเสนอ PowerPoint ทั้งหมด:
+โค้ด PHP ตัวอย่างนี้แสดงวิธีตั้งค่าภาษาเริ่มต้นสำหรับงานนำเสนอ PowerPoint ทั้งหมด:
 
 ```php
   $loadOptions = new LoadOptions();
   $loadOptions->setDefaultTextLanguage("en-US");
   $pres = new Presentation($loadOptions);
   try {
-    # เพิ่มรูปทรงสี่เหลี่ยมใหม่พร้อมข้อความ
+    # เพิ่มรูปทรงสี่เหลี่ยมผืนผ้าใหม่พร้อมข้อความ
     $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 50);
     $shp->getTextFrame()->setText("New Text");
     # ตรวจสอบภาษาของส่วนแรก
@@ -307,20 +392,28 @@ Aspose.Slides มีคุณสมบัติ LanguageId (เปิดเผ�
 
 ## **Live Example**
 
-ลองใช้แอปออนไลน์ [**Aspose.Slides Metadata**](https://products.aspose.app/slides/th/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเอกสารผ่าน Aspose.Slides API:
+ลองใช้แอปออนไลน์ [**Aspose.Slides Metadata**](https://products.aspose.app/slides/th/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติของเอกสารผ่าน Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/th/metadata)
 
 ## **FAQ**
 
-**How can I remove a built-in property from a presentation?**
+**ฉันจะลบคุณสมบัติในตัวจากงานนำเสนอได้อย่างไร?**
 
-คุณสมบัติ Built-in เป็นส่วนหนึ่งของงานนำเสนอและไม่สามารถลบออกได้ทั้งหมด อย่างไรก็ตามคุณสามารถเปลี่ยนค่าของมันหรือกำหนดค่าเป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาต
+คุณสมบัติในตัวเป็นส่วนที่สำคัญของงานนำเสนอและไม่สามารถลบออกได้ทั้งหมด อย่างไรก็ตามคุณสามารถเปลี่ยนค่า หรือกำหนดให้เป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาต
 
-**What happens if I add a custom property that already exists?**
+**ถ้าฉันเพิ่มคุณสมบัติที่กำหนดเองที่มีอยู่แล้วจะเกิดอะไรขึ้น?**
 
-หากคุณเพิ่มคุณสมบัติ Custom ที่มีอยู่แล้ว ค่าที่มีอยู่จะถูกเขียนทับด้วยค่าที่ใหม่ คุณไม่จำเป็นต้องลบหรือเช็คคุณสมบัติก่อนหน้า เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ
+หากคุณเพิ่มคุณสมบัติที่กำหนดเองซึ่งมีอยู่แล้ว ค่าเดิมจะถูกเขียนทับด้วยค่าที่ใหม่ คุณไม่จำเป็นต้องลบหรือเช็กคุณสมบัติก่อน เนื่องจาก Aspose.Slides จะอัปเดตค่าอัตโนมัติ
 
-**Can I access presentation properties without fully loading the presentation?**
+**ฉันสามารถเข้าถึงคุณสมบัติของงานนำเสนอโดยไม่ต้องโหลดงานนำเสนอทั้งหมดได้หรือไม่?**
 
-ได้ ใช้ [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/) แล้วตามด้วย [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#readDocumentProperties) เพื่ออ่านเมตาดาทาเอกสารที่จัดเก็บโดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ดูตัวอย่างการสร้างรายงานแบบเบาในบทความ [Build a Lightweight Presentation Inventory](/slides/th/php-java/examine-presentation/) เพื่อรายละเอียดเพิ่มเติมและข้อจำกัดตามรูปแบบไฟล์.
+ทำได้ ใช้เมธอด [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationfactory/) แล้วตามด้วย [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentationinfo/#readDocumentProperties) เพื่ออ่านเมตาดาต้าโดยไม่ต้องสร้างออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ดูตัวอย่างการรายงานแบบ Light‑weight ใน [Build a Lightweight Presentation Inventory](/slides/th/php-java/examine-presentation/) เพื่อดูข้อจำกัดตามรูปแบบไฟล์
+
+**ฉันสามารถอ่านคุณสมบัติสาธารณะของงานนำเสนอที่เข้ารหัสโดยไม่ได้ใช้รหัสผ่านเปิดไฟล์ได้หรือไม่?**
+
+ได้ คุณสมบัติของเอกสารต้องถูกปิดการเข้ารหัสก่อนที่งานนำเสนอจะถูกเข้ารหัส และงานนำเสนอจะต้องถูกโหลดในโหมด “document‑properties‑only”
+
+**ฉันสามารถอัปเดตไฟล์ PPTX ที่เข้ารหัสในโหมด “document‑properties‑only” ได้หรือไม่?**
+
+ไม่ได้ เนื่องจากข้อมูลคุณสมบัติสาธารณะและเข้ารหัสต้องสอดคล้องกัน การอัปเดตไฟล์ PPTX ที่เข้ารหัสจึงจำเป็นต้องโหลดงานนำเสนอแบบเต็มพร้อมรหัสผ่านเปิดไฟล์ที่ถูกต้อง

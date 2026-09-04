@@ -20,21 +20,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kryptera, upptäck, validera, öppna och dekryptera lösenordsskyddade PowerPoint PPT- och PPTX-presentationer i JavaScript med Aspose.Slides."
+description: "Kryptera, upptäcka, validera, öppna och dekryptera lösenordsskyddade PowerPoint PPT- och PPTX-presentationer i JavaScript med Aspose.Slides."
 ---
 ## **Översikt**
 
-Ett öppningslösenord krypterar en presentation. Det korrekta lösenordet krävs för att läsa in och visa presentationens innehåll, så detta skydd ger konfidentialitet.
+Ett öppningslösenord krypterar en presentation. Det korrekta lösenordet krävs för att läsa in och visa presentationsinnehållet, så detta skydd ger konfidentialitet.
 
-Ett öppningslösenord skiljer sig från ett skrivskyddslösenord. Skrivskydd begränsar ändring men krypterar inte innehållet och hindrar inte presentationen från att läsas in. För att hantera lösenord för att ändra presentationer, se [Skrivskydda presentationer](/slides/sv/nodejs-java/write-protected-presentation/).
+Ett öppningslösenord skiljer sig från ett skrivskyddslösenord. Skrivskydd begränsar ändringar men krypterar inte innehållet eller hindrar presentationen från att läsas in. För att hantera lösenord för att ändra presentationer, se [Write-Protect Presentations](/slides/sv/nodejs-java/write-protected-presentation/).
 
-Arbetsflödena nedan gäller både PPT‑ och PPTX‑presentationer. Exemplen använder båda formaten där deras fil‑baserade och strömbaserade beteende är viktigt.
+Arbetsflödena nedan gäller för både PPT- och PPTX-presentationer. Exemplen använder båda formaten när deras filbaserade och strömbaserade beteende är viktigt.
 
 ## **Kryptera en presentation med ett öppningslösenord**
 
 Använd [ProtectionManager.encrypt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#encrypt) för att tilldela ett öppningslösenord. Använd sedan [Presentation.save](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#save) för att spara den krypterade presentationen.
 
-Följande exempel krypterar en PPTX‑presentation:
+Följande exempel krypterar en PPTX-presentation:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -48,9 +48,36 @@ try {
 }
 ```
 
-## **Ladda en krypterad presentation**
+## **Behåll dokumentegenskaper offentliga**
 
-Ange [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword) till öppningslösenordet och skicka alternativet till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) när filen läses in. Inläsning misslyckas när ett öppningslösenord krävs men det angivna lösenordet saknas eller är felaktigt.
+Som standard inkluderar Aspose.Slides dokumentegenskaper i presentationskryptering. Metoden [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) styr detta beteende oberoende av bildinnehållskryptering. Skicka `false` innan du anropar [ProtectionManager.encrypt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#encrypt) när ett indexerings-, klassificerings-, sök- eller dokumenthanteringssystem måste läsa metadata utan öppningslösenordet.
+
+Följande exempel skapar en krypterad PPTX-presentation samtidigt som dess inbyggda dokumentegenskaper förblir offentliga:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const properties = presentation.getDocumentProperties();
+    properties.setAuthor("Contoso Knowledge Management");
+    properties.setTitle("Quarterly Product Roadmap");
+    properties.setKeywords("roadmap, planning, internal");
+
+    presentation.getSlides().get_Item(0).setName("Encrypted presentation content");
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("public-properties-encrypted.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Att skicka `false` till [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) gör inte bilder, masterbilder, layouter, former, media eller annat presentationsinnehåll offentligt. Det påverkar endast dokumentegenskaper. För att läsa dessa egenskaper utan att läsa in det krypterade innehållet, se [Manage Presentation Properties](/slides/sv/nodejs-java/presentation-properties/).
+
+## **Läs in en krypterad presentation**
+
+Ställ in [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword) till öppningslösenordet och skicka alternativen till [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) när filen läses in. Inläsning misslyckas när ett öppningslösenord krävs men det angivna lösenordet saknas eller är felaktigt.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -60,7 +87,7 @@ loadOptions.setPassword("open_password");
 
 const presentation = new slides.Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // Arbeta med den avkrypterade presentationen.
+    // Arbeta med den dekrypterade presentationen.
 } finally {
     presentation.dispose();
 }
@@ -68,7 +95,7 @@ try {
 
 ## **Ta bort kryptering från en presentation**
 
-Läs in presentationen med dess öppningslösenord, anropa [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) och spara resultatet. Den sparade presentationen kan sedan läsas in utan lösenord.
+Läs in presentationen med dess öppningslösenord, anropa [ProtectionManager.removeEncryption](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#removeEncryption), och spara resultatet. Den sparade presentationen kan sedan läsas in utan lösenord.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -87,11 +114,11 @@ try {
 
 ## **Validera ett öppningslösenord innan inläsning**
 
-Använd [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) för att erhålla [PresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/) utan att skapa en komplett presentationsinstans. Kontrollera [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) innan du begär eller validerar ett lösenord. När skydd finns, validera det angivna värdet med [PresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#checkPassword).
+Använd [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) för att hämta [PresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/) utan att skapa en fullständig presentationsinstans. Kontrollera [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) innan du begär eller validerar ett lösenord. När skydd finns, validera det angivna värdet med [PresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#checkPassword).
 
-### **Fil‑sökvägsarbetsflöde**
+### **Filvägsarbetsflöde**
 
-Följande exempel validerar ett öppningslösenord för en PPTX‑fil, skickar det validerade värdet till [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword) och laddar sedan den kompletta presentationen:
+Följande exempel validerar ett öppningslösenord för en PPTX-fil, skickar det validerade värdet till [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword), och läser sedan in den kompletta presentationen:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -117,11 +144,11 @@ if (!presentationInfo.isPasswordProtected()) {
 }
 ```
 
-### **Strömningsarbetsflöde**
+### **Strömarbetsflöde**
 
-Använd [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) för att inspektera en Node.js‑läsbar ström. Efter att inspektionen har konsumerats, skapa en ny ström innan du läser in den kompletta presentationen med [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#createPresentationFromStream).
+Använd [PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) för att inspektera en läsbar Node.js-ström. Efter att inspektionsströmmen har förbrukats, skapa en ny ström innan du läser in den kompletta presentationen med [Presentation.createPresentationFromStream](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#createPresentationFromStream).
 
-Följande exempel använder en PPT‑fil:
+Följande exempel använder en PPT-fil:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -159,15 +186,15 @@ slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, in
 });
 ```
 
-### **checkPassword‑returvärden**
+### **checkPassword returnvärden**
 
-[PresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#checkPassword) returnerar `true` endast när presentationen har ett öppningslösenord och det angivna lösenordet är korrekt. Det returnerar `false` i alla följande fall:
+[PresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#checkPassword) returnerar `true` endast när presentationen har ett öppningslösenord och det angivna lösenordet är korrekt. Det returnerar `false` i varje av följande fall:
 
 - Lösenordet är felaktigt.
 - Presentationen har inget öppningslösenord.
 - Det angivna lösenordet är `null` eller tomt.
 
-Beteendet är detsamma för PPT‑ och PPTX‑presentationer.
+Beteendet är detsamma för PPT- och PPTX-presentationer.
 
 ## **Kontrollera om en inläst presentation är krypterad**
 
@@ -191,32 +218,38 @@ try {
 ## **Säkerhetsrekommendationer**
 
 {{% alert color="warning" title="Security" %}}
-Logga inte öppningslösenord eller inkludera dem i diagnostiska meddelanden. Undvik onödiga upprepade valideringsförsök, behåll lösenord enbart i minnet så länge de behövs, och återanvänd ett lyckat valideringsresultat när du omedelbart laddar in presentationen.
+Logga inte öppningslösenord eller inkludera dem i diagnostiska meddelanden. Undvik onödiga upprepade valideringsförsök, håll lösenord i minnet bara så länge som behövs, och återanvänd ett lyckat valideringsresultat när presentationen laddas omedelbart.
+
+Offentliga dokumentegenskaper kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden även om presentationsinnehållet är krypterat. Kryptera känslig metadata tillsammans med presentationen. Att lämna egenskaper offentliga bör vara ett explicit beslut som endast tas när system måste indexera, klassificera, söka eller hantera filen utan ett öppningslösenord.
 {{% /alert %}}
 
 ## **Lösenordsskydda en presentation online**
 
 1. Öppna applikationen [Aspose.Slides Lock](https://products.aspose.app/slides/sv/lock).
-2. Välj eller ladda upp presentationen.
-3. Ange ett lösenord för visningsskydd.
-4. Ange eventuellt ett separat lösenord för redigeringsskydd.
-5. Verkställ skyddet och ladda ner den resulterande filen.
+1. Välj eller ladda upp presentationen.
+1. Ange ett lösenord för visningsskydd.
+1. Ange eventuellt ett separat lösenord för redigeringsskydd.
+1. Tillåt skyddet och ladda ner den resulterande filen.
 
 {{% alert color="info" title="See also" %}}
-- [Skrivskydda presentationer](/slides/sv/nodejs-java/write-protected-presentation/)
-- [Digital signatur i PowerPoint](/slides/sv/nodejs-java/digital-signature-in-powerpoint/)
+- [Write-Protect Presentations](/slides/sv/nodejs-java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/sv/nodejs-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Vad är skillnaden mellan ett öppningslösenord och ett skrivskyddslösenord?**
 
-Ett öppningslösenord krypterar presentationen och krävs för att läsa in dess innehåll. Ett skrivskyddslösenord begränsar ändring utan att kryptera innehållet.
+Ett öppningslösenord krypterar presentationen och krävs för att läsa in dess innehåll. Ett skrivskyddslösenord begränsar ändringar utan att kryptera innehållet.
 
-**Kan jag validera ett öppningslösenord utan att ladda alla bilder?**
+**Kan jag validera ett öppningslösenord utan att läsa in alla bilder?**
 
-Ja. Hämta presentationsinformation, kontrollera om öppningslösenordsskydd finns, och validera lösenordet innan du skapar en komplett presentationsinstans.
+Ja. Hämta presentationsinformation, kontrollera om öppningslösenordsskydd finns och validera lösenordet innan du skapar en komplett presentationsinstans.
 
-**Stöder arbetsflödena för lösenordsverifiering både PPT och PPTX?**
+**Kan en applikation läsa metadata utan öppningslösenordet?**
 
-Ja. Fil‑sökvägs‑ och strömbaserad lösenorddetektering och validering fungerar likadant för PPT‑ och PPTX‑presentationer.
+Ja, men bara när presentationen krypterades med dokumentegenskapskryptering inaktiverad. Applikationen måste då använda laddningsläget som endast läser dokumentegenskaper, beskrivna i [Manage Presentation Properties](/slides/sv/nodejs-java/presentation-properties/).
+
+**Stöder lösenordskontrollarbetsflöden både PPT och PPTX?**
+
+Ja. Filvägs- och strömbaserad lösenorddetektering och -validering beter sig lika för PPT- och PPTX-presentationer.

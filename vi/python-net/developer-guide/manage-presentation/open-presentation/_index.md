@@ -20,114 +20,101 @@ keywords:
 - đối tượng nhị phân
 - Python
 - Aspose.Slides
-description: "Mở các bài thuyết trình PowerPoint (.pptx, .ppt) và OpenDocument (.odp) một cách dễ dàng với Aspose.Slides cho Python qua .NET—nhanh, đáng tin cậy, đầy đủ tính năng."
+description: "Tìm hiểu cách mở các bài thuyết trình PowerPoint và OpenDocument trong Python, cung cấp mật khẩu mở, và giảm việc sử dụng bộ nhớ với Aspose.Slides for Python via .NET."
 ---
 ## **Giới thiệu**
 
-Ngoài việc tạo bài thuyết trình PowerPoint từ đầu, Aspose.Slides còn cho phép bạn mở các bài thuyết trình đã tồn tại. Sau khi tải một bài thuyết trình, bạn có thể lấy thông tin về nó, chỉnh sửa nội dung slide, thêm slide mới, xóa các slide hiện có, và hơn nữa.
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/vi/python-net/) có thể tải các bài thuyết trình PowerPoint và OpenDocument từ tệp và luồng. Sau khi bài thuyết trình được tải, bạn có thể kiểm tra cấu trúc, chỉnh sửa các slide, quản lý tài nguyên và lưu nó ở định dạng gốc hoặc định dạng hỗ trợ khác.
+
+Hành vi tải có thể được tùy chỉnh thông qua lớp [LoadOptions](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/). Ví dụ, bạn có thể cung cấp mật khẩu mở, giữ các đối tượng nhị phân lớn ngoài bộ nhớ, hoặc bỏ qua dữ liệu nhị phân được nhúng.
 
 ## **Mở Bài Thuyết Trình**
 
-Để mở một bài thuyết trình hiện có, khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) và truyền đường dẫn tệp vào hàm tạo của nó.
+Để mở một bài thuyết trình hiện có, truyền đường dẫn tệp của nó vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/). Sử dụng câu lệnh `with` để các trình xử lý tệp, dữ liệu tạm thời và các tài nguyên khác được giải phóng kịp thời.
 
-Ví dụ Python sau đây cho thấy cách mở một bài thuyết trình và lấy số lượng slide của nó:
+Ví dụ Python sau cho thấy cách mở một bài thuyết trình và lấy số lượng slide:
 
 ```python
 import aspose.slides as slides
 
-# Khởi tạo lớp Presentation và truyền đường dẫn tệp vào hàm tạo của nó.
 with slides.Presentation("sample.pptx") as presentation:
-    # In ra tổng số slide trong bài thuyết trình.
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
 ## **Mở Bài Thuyết Trình Được Bảo Vệ Bằng Mật Khẩu**
 
-Khi bạn cần mở một bài thuyết trình được bảo vệ bằng mật khẩu, hãy truyền mật khẩu qua thuộc tính [password](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/password/) của lớp [LoadOptions](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/) để giải mã và tải nó. Đoạn mã Python sau đây minh họa thao tác này:
+Mật khẩu mở mã hoá nội dung bài thuyết trình. Để tải toàn bộ bài thuyết trình, gán mật khẩu đúng vào [LoadOptions.password](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/password/) và truyền các tùy chọn này vào hàm khởi tạo [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/). Việc tải sẽ thất bại nếu mật khẩu bị thiếu hoặc không đúng.
 
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # Thực hiện các thao tác trên bài thuyết trình đã giải mã.
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
+
+Để tìm hiểu về phát hiện mật khẩu, xác thực và quy trình mã hoá, xem [Password-Protect Presentations](/slides/vi/python-net/password-protected-presentation/). Nếu một bài thuyết trình đã được mã hoá nhưng cố ý lưu kèm các thuộc tính tài liệu công khai, các thuộc tính này có thể được đọc mà không cần mật khẩu; xem [Manage Presentation Properties](/slides/vi/python-net/presentation-properties/).
 
 ## **Mở Bài Thuyết Trình Lớn**
 
-Aspose.Slides cung cấp các tùy chọn—đặc biệt là thuộc tính [blob_management_options](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/blob_management_options/) trong lớp [LoadOptions](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/)—để giúp bạn tải các bài thuyết trình lớn.
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/blob_management_options/) kiểm soát cách Aspose.Slides xử lý các đối tượng nhị phân lớn như hình ảnh, âm thanh và video. Bạn có thể giữ tệp nguồn bị khóa, cho phép tệp tạm thời, và giới hạn lượng dữ liệu BLOB được giữ trong bộ nhớ.
 
-Đoạn mã Python sau đây minh họa việc tải một bài thuyết trình lớn (ví dụ, 2 GB):
+Đoạn mã Python sau minh họa cách tải một bài thuyết trình lớn (ví dụ, 2 GB):
 
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# Chọn hành vi KeepLocked — tệp bài thuyết trình sẽ được khóa trong suốt thời gian tồn tại của 
-# đối tượng Presentation, nhưng không cần phải tải vào bộ nhớ hoặc sao chép vào tệp tạm thời.
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # Bài thuyết trình lớn đã được tải và có thể sử dụng, trong khi tiêu thụ bộ nhớ vẫn ở mức thấp.
-
-    # Thực hiện các thay đổi cho bài thuyết trình.
     presentation.slides[0].name = "Large presentation"
-
-    # Lưu bài thuyết trình ra tệp khác. Tiêu thụ bộ nhớ vẫn ở mức thấp trong quá trình này.
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # Đừng làm điều này! Một ngoại lệ I/O sẽ được ném ra vì tệp bị khóa cho đến khi đối tượng Presentation được giải phóng.
-    os.remove(file_path)
-
-# Ở đây có thể thực hiện được. Tệp nguồn không còn bị khóa bởi đối tượng Presentation.
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="info" title="Info" %}}
-Để khắc phục một số hạn chế nhất định khi làm việc với stream, Aspose.Slides có thể sao chép nội dung của stream. Tải một bài thuyết trình lớn từ stream sẽ gây sao chép bài thuyết trình và có thể làm chậm quá trình tải. Do đó, khi bạn cần tải một bài thuyết trình lớn, chúng tôi mạnh mẽ khuyến cáo sử dụng đường dẫn tệp của bài thuyết trình thay vì stream.
+{{% alert color="info" title="Ghi chú" %}}
+Với `PresentationLockingBehavior.KEEP_LOCKED`, tệp nguồn sẽ vẫn bị khóa cho đến khi đối tượng `Presentation` được giải phóng. Không di chuyển, ghi đè hoặc xóa tệp nguồn trong khi đối tượng này còn tồn tại.
 
-Khi tạo một bài thuyết trình chứa các đối tượng lớn (video, audio, hình ảnh độ phân giải cao, v.v.), bạn có thể sử dụng [BLOB management](/slides/vi/python-net/manage-blob/) để giảm tiêu thụ bộ nhớ.
-{{%/alert %}}
+Aspose.Slides có thể sao chép nội dung của một luồng đầu vào trong quá trình tải. Đối với các bài thuyết trình lớn, việc sử dụng đường dẫn tệp thường hiệu quả hơn so với luồng. Xem [Manage BLOBs](/slides/vi/python-net/manage-blob/) để biết thêm các tùy chọn lưu trữ và quản lý bộ nhớ.
+{{% /alert %}}
 
-## **Tải Bài Thuyết Trình Không Có Đối Tượng Nhị Phân Nhúng**
+## **Tải Bài Thuyết Trình mà Không Có Đối Tượng Nhị Phân Nhúng**
 
-Một bài thuyết trình PowerPoint có thể chứa các loại đối tượng nhị phân nhúng sau:
+Một bài thuyết trình có thể chứa dữ liệu nhị phân được nhúng mà ứng dụng không cần hoặc không muốn giữ lại. Ví dụ bao gồm:
 
-- Dự án VBA (có thể truy cập qua [Presentation.vba_project](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/vba_project/));
-- Dữ liệu nhúng của đối tượng OLE (có thể truy cập qua [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/));
-- Dữ liệu nhị phân của điều khiển ActiveX (có thể truy cập qua [Control.active_x_control_binary](https://reference.aspose.com/slides/vi/python-net/aspose.slides/control/active_x_control_binary/)).
+- Dự án VBA, có sẵn qua [Presentation.vba_project](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/vba_project/);
+- Dữ liệu OLE được nhúng, có sẵn qua [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/);
+- Dữ liệu điều khiển ActiveX, có sẵn qua [Control.active_x_control_binary](https://reference.aspose.com/slides/vi/python-net/aspose.slides/control/active_x_control_binary/).
 
-Bằng cách sử dụng thuộc tính [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/), bạn có thể tải một bài thuyết trình mà không có bất kỳ đối tượng nhị phân nhúng nào.
+Đặt [LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) thành `True` để loại bỏ dữ liệu nhị phân này khi tải. Lưu bài thuyết trình đã tải để duy trì kết quả đã được làm sạch.
 
-Thuộc tính này hữu ích để loại bỏ nội dung nhị phân có thể gây hại. Đoạn mã Python sau đây minh họa cách tải một bài thuyết trình mà không có bất kỳ nội dung nhị phân nhúng nào:
+Tùy chọn này giảm thiểu việc phơi bày các payload nhúng không mong muốn, nhưng không phải là một hệ thống phát hiện phần mềm độc hại hoặc làm sạch nội dung hoàn chỉnh.
 
-```py
+```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # Thực hiện các thao tác trên bài thuyết trình.
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Câu Hỏi Thường Gặp**
 
 **Làm sao tôi biết một tệp bị hỏng và không thể mở được?**
 
-Bạn sẽ nhận được một ngoại lệ xác thực/định dạng khi phân tích trong quá trình tải. Các lỗi này thường đề cập tới cấu trúc ZIP không hợp lệ hoặc các bản ghi PowerPoint bị hỏng.
+Aspose.Slides sẽ ném ra một ngoại lệ phân tích hoặc định dạng trong quá trình tải. Hãy xử lý lỗi này riêng biệt với lỗi mật khẩu không đúng để ứng dụng có thể báo cáo nguyên nhân một cách chính xác.
 
-**Điều gì sẽ xảy ra nếu các phông chữ bắt buộc thiếu khi mở?**
+**Điều gì sẽ xảy ra nếu các phông chữ bắt buộc bị thiếu?**
 
-Tệp sẽ mở được, nhưng sau đó [rendering/export](/slides/vi/python-net/convert-presentation/) có thể thay thế phông chữ. [Configure font substitutions](/slides/vi/python-net/font-substitution/) hoặc [add the required fonts](/slides/vi/python-net/custom-font/) vào môi trường runtime.
+Bài thuyết trình vẫn có thể được tải, nhưng việc hiển thị và xuất ra có thể thay thế phông chữ. Bạn có thể [configure font substitution](/slides/vi/python-net/font-substitution/) hoặc [provide custom fonts](/slides/vi/python-net/custom-font/) để làm cho kết quả đầu ra dự đoán được hơn.
 
-**Còn các phương tiện nhúng (video/audio) khi mở thì sao?**
+**Việc tải một bài thuyết trình có đồng thời tải các phương tiện nhúng không?**
 
-Chúng sẽ trở thành tài nguyên của bài thuyết trình. Nếu các phương tiện được tham chiếu qua đường dẫn bên ngoài, hãy đảm bảo những đường dẫn đó có thể truy cập trong môi trường của bạn; nếu không [rendering/export](/slides/vi/python-net/convert-presentation/) có thể bỏ qua các phương tiện.
+Audio và video được nhúng sẽ khả dụng thông qua mô hình đối tượng của bài thuyết trình. Các tài nguyên bên ngoài được giải quyết theo hành vi tải tài nguyên mặc định và có thể không khả dụng nếu không thể truy cập vị trí của chúng.

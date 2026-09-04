@@ -6,7 +6,6 @@ weight: 20
 url: /th/nodejs-java/open-presentation/
 keywords:
 - เปิด PowerPoint
-- เปิด OpenDocument
 - เปิดงานนำเสนอ
 - เปิด PPTX
 - เปิด PPT
@@ -15,162 +14,164 @@ keywords:
 - โหลด PPTX
 - โหลด PPT
 - โหลด ODP
-- งานนำเสนอที่มีการป้องกัน
+- งานนำเสนอที่ป้องกัน
 - งานนำเสนอขนาดใหญ่
-- ทรัพยากรภายนอก
-- อ็อบเจ็กต์ไบนารี
+- แหล่งข้อมูลภายนอก
+- วัตถุไบนารี
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เปิดงานนำเสนอ PowerPoint (.pptx, .ppt) และ OpenDocument (.odp) อย่างง่ายดายด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java—เร็ว น่าเชื่อถือ มีคุณสมบัติครบถ้วน."
+description: "เรียนรู้วิธีเปิดงานนำเสนอ PowerPoint และ OpenDocument ด้วย JavaScript, ระบุรหัสผ่านเปิดไฟล์, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
-## **บทนำ**
+## **Introduction**
 
-นอกเหนือจากการสร้างงานนำเสนอ PowerPoint ตั้งแต่ต้น Aspose.Slides ยังทำให้คุณเปิดงานนำเสนอที่มีอยู่ได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถดึงข้อมูลเกี่ยวกับมัน แก้ไขเนื้อหาสไลด์ เพิ่มสไลด์ใหม่ ลบสไลด์ที่มีอยู่ และอื่น ๆ อีกมาก
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/th/nodejs-java/) สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกไฟล์ในรูปแบบเดิมหรือรูปแบบที่รองรับอื่นได้
 
-## **เปิดงานนำเสนอ**
+พฤติกรรมการโหลดสามารถปรับแต่งได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถกำหนดรหัสผ่านเปิดไฟล์ เก็บวัตถุไบนารีขนาดใหญ่ให้อยู่ไกลจากหน่วยความจำของ Node.js ควบคุมแหล่งข้อมูลภายนอก หรือละเว้นข้อมูลไบนารีฝังตัว
 
-เพื่อเปิดงานนำเสนอที่มีอยู่ ให้สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) และส่งเส้นทางไฟล์ไปยังคอนสตรัคเตอร์ของมัน
+## **Open Presentations**
 
-ตัวอย่าง JavaScript ด้านล่างแสดงวิธีการเปิดงานนำเสนอและรับจำนวนสไลด์ของมัน:
+เพื่อเปิดงานนำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) หลังจากใช้งานเสร็จควรทำการDisposeงานนำเสนอเพื่อให้การจัดการไฟล์ชั่วคราวและทรัพยากรอื่น ๆ ถูกปล่อยออกอย่างทันท่วงที
 
-```js
-// สร้างอินสแตนซ์ของคลาส Presentation และส่งเส้นทางไฟล์ไปยังคอนสตรัคเตอร์ของมัน.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+ตัวอย่าง JavaScript ด้านล่างแสดงวิธีเปิดงานนำเสนอและรับจำนวนสไลด์:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("sample.pptx");
 try {
-    // แสดงจำนวนสไลด์ทั้งหมดในงานนำเสนอ.
-    console.log(presentation.getSlides().size());
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **เปิดงานนำเสนอที่มีการป้องกันด้วยรหัสผ่าน**
+## **Open Password-Protected Presentations**
 
-เมื่อคุณต้องการเปิดงานนำเสนอที่มีการป้องกันด้วยรหัสผ่าน ให้ส่งรหัสผ่านผ่านเมธอด [setPassword](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setPassword) ของคลาส [LoadOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/) เพื่อถอดรหัสและโหลดงานนำเสนอ ตัวอย่างโค้ด JavaScript ด้านล่างแสดงการดำเนินการนี้:
+รหัสผ่านเปิดไฟล์จะเข้ารหัสเนื้อหาของงานนำเสนอ เพื่อโหลดงานนำเสนอทั้งหมดให้ส่งรหัสผ่านที่ถูกต้องไปที่ [LoadOptions.setPassword](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setPassword) แล้วให้ตัวเลือกนั้นกับคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) หากไม่มีหรือรหัสผ่านไม่ถูกต้องการโหลดจะล้มเหลว
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // ดำเนินการต่าง ๆ บนงานนำเสนอที่ถอดรหัสแล้ว.
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **เปิดงานนำเสนอขนาดใหญ่**
+สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส ดูที่ [Password-Protect Presentations](/slides/th/nodejs-java/password-protected-presentation/) หากงานนำเสนอที่เข้ารหัสถูกบันทึกโดยตั้งค่าคุณสมบัติเอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [Manage Presentation Properties](/slides/th/nodejs-java/presentation-properties/)
 
-Aspose.Slides มีตัวเลือก—โดยเฉพาะเมธอด [getBlobManagementOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) ในคลาส [LoadOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/)—เพื่อช่วยคุณโหลดงานนำเสนอขนาดใหญ่
+## **Open Large Presentations**
 
-โค้ด JavaScript ด้านล่างแสดงการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) คืนค่าตัวเลือกที่ควบคุมวิธีที่ Aspose.Slides จัดการวัตถุไบนารีขนาดใหญ่เช่น รูปภาพ, เสียง และวิดีโอ คุณสามารถบังคับให้ไฟล์แหล่งที่มาถูกล็อก อนุญาตให้สร้างไฟล์ชั่วคราว และจำกัดปริมาณข้อมูล BLOB ที่เก็บในหน่วยความจำ
 
-```js
-const filePath = "LargePresentation.pptx";
+ตัวอย่าง JavaScript ด้านล่างแสดงการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
 
-let loadOptions = new aspose.slides.LoadOptions();
-// เลือกพฤติกรรม KeepLocked — ไฟล์งานนำเสนอจะยังคงถูกล็อกตลอดอายุของ
-// อินสแตนซ์ Presentation, แต่ไม่จำเป็นต้องโหลดเข้าสู่หน่วยความจำหรือคัดลอกไปยังไฟล์ชั่วคราว.
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const filePath = "large-presentation.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
-let presentation = new aspose.slides.Presentation(filePath, loadOptions);
+const presentation = new slides.Presentation(filePath, loadOptions);
 try {
-    // งานนำเสนอขนาดใหญ่ได้ถูกโหลดแล้วและสามารถใช้ได้ ขณะที่การใช้หน่วยความจือน้อย.
-    
-    // ทำการเปลี่ยนแปลงงานนำเสนอ.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // บันทึกงานนำเสนอไปยังไฟล์อื่น การใช้หน่วยความจำยังคงต่ำในระหว่างการดำเนินการนี้.
-    presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
-
-    // อย่าทำเช่นนี้! จะเกิดข้อยกเว้น I/O เนื่องจากไฟล์ถูกล็อกจนกว่าอ็อบเจ็กต์ Presentation จะถูกทำลาย.
-    //fs.unlinkSync(filePath);
+    presentation.save("large-presentation-copy.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// สามารถทำได้ที่นี่ ฟイルต้นทางไม่ถูกล็อกโดยอ็อบเจ็กต์ Presentation อีกต่อไป.
-fs.unlinkSync(filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-เพื่อแก้ไขข้อจำกัดบางประการเมื่อทำงานกับสตรีม Aspose.Slides อาจคัดลอกเนื้อหาของสตรีม การโหลดงานนำเสนอขนาดใหญ่จากสตรีมจะทำให้ต้องคัดลอกงานนำเสนอและอาจทำให้การโหลดช้าลง ดังนั้นเมื่อคุณต้องการโหลดงานนำเสนอขนาดใหญ่ เราแนะนำอย่างยิ่งให้ใช้เส้นทางไฟล์ของงานนำเสนอแทนการใช้สตรีม
+{{% alert color="info" title="หมายเหตุ" %}}
+ด้วย [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked) ไฟล์แหล่งที่มาจะยังคงถูกล็อกจนกว่าตัวอินสแตนซ์ Presentation จะถูกDispose อย่าย้าย เขียนทับ หรือทำลายไฟล์แหล่งที่มาขณะอินสแตนซ์นั้นยังคงอยู่
 
-เมื่อสร้างงานนำเสนอที่มีวัตถุขนาดใหญ่ (วิดีโอ, เสียง, รูปภาพความละเอียดสูง ฯลฯ) คุณสามารถใช้ [BLOB management](/slides/th/nodejs-java/manage-blob/) เพื่อลดการใช้หน่วยความจำ
-{{%/alert %}}
+Aspose.Slides อาจคัดลอกเนื้อหาจากสตรีมอินพุตขณะโหลด สำหรับงานนำเสนอขนาดใหญ่ การใช้พาธไฟล์จึงโดยทั่วไปมีประสิทธิภาพมากกว่าสตรีม ดูที่ [Manage BLOBs](/slides/th/nodejs-java/manage-blob/) สำหรับตัวเลือกการจัดเก็บและการจัดการหน่วยความจำเพิ่มเติม
+{{% /alert %}}
 
-## **ควบคุมแหล่งข้อมูลภายนอก**
+## **Control External Resources**
 
-Aspose.Slides มีอินเทอร์เฟซ [IResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iresourceloadingcallback/) ที่ให้คุณจัดการแหล่งข้อมูลภายนอก โค้ด JavaScript ด้านล่างแสดงวิธีการใช้อินเทอร์เฟซ `IResourceLoadingCallback` :
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) รับการนำไปใช้ของ [IResourceLoadingCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iresourceloadingcallback/) คอลแบ็กสามารถจัดหาข้อมูลทดแทน เปลี่ยนเส้นทางของแหล่งข้อมูล ใช้ตัวโหลดเริ่มต้น หรือข้ามแหล่งข้อมูลได้ ซึ่งเป็นประโยชน์เมื่องานนำเสนอมีรูปภาพภายนอกที่ต้องถูกแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บของแอปพลิเคชัน
 
-```js
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // โหลดภาพทดแทน.
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // ตั้งค่า URL ทดแทน.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
+```javascript
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const imageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
+    resourceLoading: function(args) {
+        const isJpeg = args.getOriginalUri().toLowerCase().endsWith(".jpg");
+        const approvedImagePath = "approved-image.jpg";
+        if (!isJpeg || !fs.existsSync(approvedImagePath)) {
+            return slides.ResourceLoadingAction.Skip;
         }
-        // ข้ามภาพอื่นทั้งหมด.
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
+
+        try {
+            const imageData = fs.readFileSync(approvedImagePath);
+            args.setData(imageData);
+            return slides.ResourceLoadingAction.UserProvided;
+        } catch (error) {
+            console.error("The approved replacement image could not be read.");
+            return slides.ResourceLoadingAction.Skip;
+        }
+    }
 });
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setResourceLoadingCallback(imageLoadingHandler);
+
+const presentation = new slides.Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    console.log("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
+}
 ```
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
+## **Load Presentations without Embedded Binary Objects**
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
-```
+งานนำเสนออาจมีข้อมูลไบนารีฝังตัวที่แอปพลิเคชันไม่ต้องการหรือไม่ต้องการเก็บ ตัวอย่างเช่น
 
-## **โหลดงานนำเสนอโดยไม่มีอ็อบเจ็กต์ไบนารีที่ฝังอยู่**
+- โปรเจกต์ VBA ที่เข้าถึงได้ผ่าน [Presentation.getVbaProject](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getVbaProject);
+- ข้อมูล OLE ฝังตัวที่เข้าถึงได้ผ่าน [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- ข้อมูลคอนโทรล ActiveX ที่เข้าถึงได้ผ่าน [Control.getActiveXControlBinary](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
 
-PowerPoint งานนำเสนออาจมีอ็อบเจ็กต์ไบนารีที่ฝังอยู่ประเภทต่อไปนี้:
+ตั้งค่า [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) เป็น `true` เพื่อทำการลบข้อมูลไบนารีเหล่านี้ขณะโหลด จากนั้นบันทึกงานนำเสนอที่โหลดแล้วเพื่อให้ผลลัพธ์ที่ทำความสะอาดถูกบันทึก
 
-- โครงการ VBA (เข้าถึงได้ผ่าน [Presentation.getVbaProject](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getVbaProject));
-- ข้อมูลที่ฝังอยู่ของวัตถุ OLE (เข้าถึงได้ผ่าน [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- ข้อมูลไบนารีของคอนโทรล ActiveX (เข้าถึงได้ผ่าน [Control.getActiveXControlBinary](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/control/#getActiveXControlBinary)).
+ตัวเลือกนี้ช่วยลดการเปิดเผยต่อข้อมูลฝังตัวที่ไม่พึงประสงค์ แต่ไม่ได้เป็นระบบตรวจหามัลแวร์หรือทำความสะอาดเนื้อหาอย่างสมบูรณ์
 
-โดยใช้เมธอด [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) คุณสามารถโหลดงานนำเสนอโดยไม่มีอ็อบเจ็กต์ไบนารีที่ฝังอยู่ใด ๆ
+```javascript
+const slides = require("aspose.slides.via.java");
 
-เมธอดนี้มีประโยชน์สำหรับการลบเนื้อหาไบนารีที่อาจเป็นอันตราย ตัวอย่างโค้ด JavaScript ด้านล่างแสดงวิธีโหลดงานนำเสนอโดยไม่มีเนื้อหาไบนารีที่ฝังอยู่ใด ๆ:
-
-```js
-let loadOptions = new aspose.slides.LoadOptions();
+const loadOptions = new slides.LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-let presentation = new aspose.slides.Presentation("malware.ppt", loadOptions);
+const presentation = new slides.Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // ดำเนินการต่าง ๆ บนงานนำเสนอ.
+    presentation.save("presentation-without-embedded-data.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะรู้ว่าไฟล์เสียหายและไม่สามารถเปิดได้อย่างไร?**
+**ฉันจะรู้ได้อย่างไรว่าไฟล์เสียหายและไม่สามารถเปิดได้?**
 
-คุณจะได้รับข้อยกเว้นการตรวจสอบการแยกวิเคราะห์/รูปแบบระหว่างการโหลด ข้อผิดพลาดเหล่านี้มักระบุว่าโครงสร้าง ZIP ไม่ถูกต้องหรือบันทึก PowerPoint ผิดพลาด
+Aspose.Slides จะโยนข้อยกเว้นการแปลงหรือรูปแบบขณะโหลด ให้จัดการความล้มเหลวนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้องเพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
 
-**จะเกิดอะไรขึ้นถ้าฟอนต์ที่ต้องการหายไปขณะเปิด?**
+**จะเกิดอะไรขึ้นหากฟอนต์ที่จำเป็นหายไป?**
 
-ไฟล์จะเปิดได้ แต่ภายหลังการ [rendering/export](/slides/th/nodejs-java/convert-presentation/) อาจแทนที่ฟอนต์โดยอัตโนมัติ ให้ [กำหนดการแทนที่ฟอนต์](/slides/th/nodejs-java/font-substitution/) หรือ [เพิ่มฟอนต์ที่จำเป็น](/slides/th/nodejs-java/custom-font/) ในสภาพแวดล้อมการทำงาน
+งานนำเสนอยังคงโหลดได้ แต่การเรนเดอร์และการส่งออกอาจใช้ฟอนต์ทดแทน คุณสามารถ [configure font substitution](/slides/th/nodejs-java/font-substitution/) หรือ [provide custom fonts](/slides/th/nodejs-java/custom-font/) เพื่อทำให้ผลลัพธ์คาดเดาได้มากขึ้น
 
-**แล้วสื่อที่ฝังอยู่ (วิดีโอ/เสียง) จะเป็นอย่างไรเมื่อเปิด?**
+**การโหลดงานนำเสนอจะโหลดสื่อฝังตัวด้วยหรือไม่?**
 
-สื่อเหล่านั้นจะพร้อมใช้งานเป็นทรัพยากรของงานนำเสนอ หากสื่อถูกอ้างอิงผ่านเส้นทางภายนอก ให้ตรวจสอบว่าเส้นทางนั้นเข้าถึงได้ในสภาพแวดล้อมของคุณ มิฉะนั้นการ [rendering/export](/slides/th/nodejs-java/convert-presentation/) อาจละเว้นสื่อเหล่านั้น
+สื่อเสียงและวิดีโอที่ฝังอยู่จะพร้อมใช้งานผ่านโมเดลออบเจกต์ของงานนำเสนอ แหล่งข้อมูลภายนอกจะได้รับการแก้ไขตามพฤติกรรมการโหลดที่กำหนดและอาจไม่สามารถใช้งานได้หากไม่สามารถเข้าถึงตำแหน่งที่ตั้งของพวกมันได้

@@ -21,162 +21,188 @@ keywords:
 - 二进制对象
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 轻松打开 PowerPoint（.pptx、.ppt）和 OpenDocument（.odp）演示文稿——快速、可靠、功能齐全。"
+description: "了解如何在 C++ 中使用 Aspose.Slides for C++ 打开 PowerPoint 和 OpenDocument 演示文稿，提供打开密码，控制资源加载，并减少内存使用。"
 ---
+## **介绍**
 
-## **概述**
+[Aspose.Slides for C++](https://products.aspose.com/slides/zh/cpp/) 可以从文件和流中加载 PowerPoint 和 OpenDocument 演示文稿。加载演示文稿后，您可以检查其结构、编辑幻灯片、管理资源，并以原始格式或其他受支持的格式保存。
 
-除了从头创建 PowerPoint 演示文稿外，Aspose.Slides 还可以打开已有的演示文稿。加载演示文稿后，您可以获取其信息，编辑幻灯片内容，添加新幻灯片，删除已有幻灯片等。
+可以通过 [LoadOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/) 类自定义加载行为。例如，您可以提供打开密码、将大型二进制对象保留在内存之外、控制外部资源或省略嵌入的二进制数据。
 
 ## **打开演示文稿**
 
-要打开已有的演示文稿，实例化 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类并将文件路径传递给其构造函数。
+要打开已有的演示文稿，请将其文件路径传递给 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 构造函数。使用完毕后请释放演示文稿，以便及时关闭文件句柄、释放临时数据和其他资源。
 
-以下 C++ 示例演示如何打开演示文稿并获取幻灯片计数：
+下面的 C++ 示例演示了如何打开演示文稿并获取幻灯片数量：
+
 ```cpp
-// 实例化 Presentation 类并将文件路径传递给其构造函数。
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-// 打印演示文稿中的幻灯片总数。
-Console::WriteLine(presentation->get_Slides()->get_Count());
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
-
 
 ## **打开受密码保护的演示文稿**
 
-当需要打开受密码保护的演示文稿时，通过 [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) 类的 [set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) 方法传入密码，以解密并加载它。以下 C++ 代码演示此操作：
-```cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_Password(u"YOUR_PASSWORD");
+打开密码会对演示文稿内容进行加密。要加载完整的演示文稿，请将正确的密码传递给 [LoadOptions::set_Password](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/set_password/)，并将该选项传递给 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 构造函数。若密码缺失或不正确，加载将失败。
 
-auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
-    
-// 对已解密的演示文稿执行操作。
+```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
+
+auto presentation = MakeObject<Presentation>(u"encrypted-presentation.pptx", loadOptions);
+
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
+有关密码检测、验证和加密工作流，请参阅[密码保护演示文稿](/slides/zh/cpp/password-protected-presentation/)。如果加密的演示文稿在保存时刻意保留了公共文档属性，则这些属性可以在不提供密码的情况下读取；请参阅[管理演示文稿属性](/slides/zh/cpp/presentation-properties/)。
 
 ## **打开大型演示文稿**
 
-Aspose.Slides 提供选项 —— 特别是 [LoadOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/) 类中的 [get_BlobManagementOptions](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) 方法来帮助您加载大型演示文稿。
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) 控制 Aspose.Slides 如何处理图像、音频和视频等二进制大对象。您可以保持源文件锁定、允许使用临时文件，并限制保留在内存中的 BLOB 数据量。
 
-以下 C++ 代码演示加载大型演示文稿（例如 2 GB）：
+下面的 C++ 代码演示了加载大型演示文稿（例如 2 GB）：
+
 ```cpp
-auto filePath = u"LargePresentation.pptx";
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IBlobManagementOptions.h>
+#include <PresentationLockingBehavior.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+const String filePath = u"large-presentation.pptx";
 
 auto loadOptions = MakeObject<LoadOptions>();
-// 选择 KeepLocked 行为——演示文稿文件将在整个生命周期内保持锁定
-// Presentation 实例，但无需将其加载到内存或复制到临时文件。
-loadOptions->get_BlobManagementOptions()->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
-loadOptions->get_BlobManagementOptions()->set_IsTemporaryFilesAllowed(true);
-loadOptions->get_BlobManagementOptions()->set_MaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+auto blobOptions = loadOptions->get_BlobManagementOptions();
+blobOptions->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+blobOptions->set_IsTemporaryFilesAllowed(true);
+blobOptions->set_MaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-// 大型演示文稿已加载，可使用，同时内存消耗保持较低.
-
-// 对演示文稿进行修改。
 presentation->get_Slide(0)->set_Name(u"Large presentation");
-
-// 将演示文稿保存到另一个文件。此操作期间内存消耗保持较低。
-presentation->Save(u"LargePresentation-copy.pptx", SaveFormat::Pptx);
-
-// 不要这么做！因为文件被锁定，直到演示文稿对象被释放之前，会抛出 I/O 异常。
-File::Delete(filePath);
+presentation->Save(u"large-presentation-copy.pptx", SaveFormat::Pptx);
 
 presentation->Dispose();
-
-// 此处可以安全删除。源文件已不再被演示文稿对象锁定。
-File::Delete(filePath);
 ```
 
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="info" title="信息" %}}
-为了解决使用流时的某些限制，Aspose.Slides 可能会复制流的内容。从流加载大型演示文稿会导致演示文稿被复制，从而降低加载速度。因此，在需要加载大型演示文稿时，我们强烈建议使用演示文稿文件路径而不是流。
+使用 `PresentationLockingBehavior::KeepLocked` 时，源文件会保持锁定状态，直至 `Presentation` 对象被释放。对象存活期间，请勿移动、覆盖或删除源文件。
 
-在创建包含大型对象（视频、音频、高分辨率图像等）的演示文稿时，您可以使用 [BLOB 管理](/slides/zh/cpp/manage-blob/) 来降低内存消耗。
-{{%/alert %}}
+Aspose.Slides 可能在加载时复制输入流的内容。对于大型演示文稿，文件路径通常比流更高效。有关更多存储和内存管理选项，请参阅[管理 BLOB](/slides/zh/cpp/manage-blob/)。
+
+{{% /alert %}}
 
 ## **控制外部资源**
 
-Aspose.Slides 提供 [IResourceLoadingCallback](https://reference.aspose.com/slides/cpp/aspose.slides/iresourceloadingcallback/) 接口，允许您管理外部资源。以下 C++ 代码展示如何使用 `IResourceLoadingCallback` 接口：
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) 接受一个 [IResourceLoadingCallback](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iresourceloadingcallback/) 实现。回调可以提供替代数据、重定向资源、使用默认加载器，或跳过该资源。当演示文稿包含必须根据应用程序特定安全或存储规则解析的外部图像时，此功能非常有用。
+
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IResourceLoadingArgs.h>
+#include <IResourceLoadingCallback.h>
+#include <ResourceLoadingAction.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 class ImageLoadingHandler : public IResourceLoadingCallback
 {
 public:
     ResourceLoadingAction ResourceLoading(SharedPtr<IResourceLoadingArgs> args) override
     {
-        if (args->get_OriginalUri().EndsWith(u".jpg"))
+        auto isJpeg = args->get_OriginalUri().EndsWith(u".jpg", StringComparison::OrdinalIgnoreCase);
+        if (!isJpeg || !File::Exists(u"approved-image.jpg"))
         {
-            try
-            {
-                // 加载替代图像。
-                auto imageData = File::ReadAllBytes(u"aspose-logo.jpg");
-                args->SetData(imageData);
-                return ResourceLoadingAction::UserProvided;
-            }
-            catch (Exception&)
-            {
-                return ResourceLoadingAction::Skip;
-            }
-        }
-        else if (args->get_OriginalUri().EndsWith(u".png"))
-        {
-            // 设置替代 URL。
-            args->set_Uri(u"http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+            return ResourceLoadingAction::Skip;
         }
 
-        // 跳过所有其他图像。
-        return ResourceLoadingAction::Skip;
+        auto imageData = File::ReadAllBytes(u"approved-image.jpg");
+        args->SetData(imageData);
+        return ResourceLoadingAction::UserProvided;
     }
 };
-```
 
-```cpp
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
 
-auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
-```
-
-
-## **加载不包含嵌入式二进制对象的演示文稿**
-
-PowerPoint 演示文稿可能包含以下类型的嵌入式二进制对象：
-
-- VBA 项目（可通过 [IPresentation::get_VbaProject](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_vbaproject/) 访问）；
-- OLE 对象嵌入数据（可通过 [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/) 访问）；
-- ActiveX 控件二进制数据（可通过 [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_activexcontrolbinary/) 访问）。
-
-使用 [ILoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cpp/aspose.slides/iloadoptions/set_deleteembeddedbinaryobjects/) 方法，您可以在加载演示文稿时剔除所有嵌入式二进制对象。
-
-此方法有助于移除潜在的恶意二进制内容。以下 C++ 代码演示如何在不加载任何嵌入式二进制内容的情况下加载演示文稿：
-```cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_DeleteEmbeddedBinaryObjects(true);
-
-auto presentation = MakeObject<Presentation>(u"malware.ppt", loadOptions);
-
-// Perform operations on the presentation.
+auto presentation = MakeObject<Presentation>(u"presentation-with-external-images.pptx", loadOptions);
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
+## **加载不带嵌入二进制对象的演示文稿**
+
+演示文稿可能包含应用程序不需要或不想保留的嵌入二进制数据。示例包括：
+
+- VBA 项目，可通过 [IPresentation::get_VbaProject](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipresentation/get_vbaproject/) 获取；
+- 嵌入的 OLE 数据，可通过 [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/) 获取；
+- ActiveX 控件数据，可通过 [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icontrol/get_activexcontrolbinary/) 获取。
+
+将 `true` 传递给 [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) 可在加载时删除这些二进制数据。将加载后的演示文稿保存，以保留已清理的结果。
+
+此选项可降低意外嵌入负载的风险，但它并非完整的恶意软件检测或内容清理系统。
+
+```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_DeleteEmbeddedBinaryObjects(true);
+
+auto presentation = MakeObject<Presentation>(u"presentation-with-embedded-data.pptx", loadOptions);
+
+presentation->Save(u"presentation-without-embedded-data.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
 
 ## **常见问题**
 
 **如何判断文件已损坏且无法打开？**
 
-在加载期间会抛出解析/格式验证异常。此类错误通常提到 ZIP 结构无效或 PowerPoint 记录损坏。
+Aspose.Slides 在加载期间会抛出解析或格式异常。请将此类失败与密码错误的错误分开处理，以便应用程序能够准确报告具体原因。
 
-**打开时缺少必需的字体会怎样？**
+**如果缺少必需的字体会怎样？**
 
-文件仍会打开，但后续的 [渲染/导出](/slides/zh/cpp/convert-presentation/) 可能会替换字体。请在运行时环境中 [配置字体替换](/slides/zh/cpp/font-substitution/) 或 [添加所需字体](/slides/zh/cpp/custom-font/)。
+演示文稿仍可加载，但渲染和导出时可能会替换字体。您可以[配置字体替换](/slides/zh/cpp/font-substitution/)或[提供自定义字体](/slides/zh/cpp/custom-font/)以使输出更可预测。
 
-**打开时嵌入的媒体（视频/音频）会怎样？**
+**加载演示文稿时是否也会加载其嵌入的媒体？**
 
-它们会作为演示文稿资源可用。如果媒体通过外部路径引用，请确保这些路径在您的环境中可访问；否则在 [渲染/导出](/slides/zh/cpp/convert-presentation/) 时可能会省略这些媒体。
+嵌入的音频和视频会通过演示文稿对象模型提供。外部资源会依据已配置的资源加载行为进行解析；如果无法访问其位置，则可能不可用。

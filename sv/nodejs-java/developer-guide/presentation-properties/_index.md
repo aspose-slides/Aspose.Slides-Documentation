@@ -1,12 +1,12 @@
 ---
 title: Hantera presentationsegenskaper i JavaScript
-linktitle: Presentationsegenskaper
+linktitle: Presentations egenskaper
 type: docs
 weight: 70
 url: /sv/nodejs-java/presentation-properties/
 keywords:
-- PowerPoint-egenskaper
-- presentationsegenskaper
+- PowerPoint egenskaper
+- presentations egenskaper
 - dokumentegenskaper
 - inbyggda egenskaper
 - anpassade egenskaper
@@ -27,48 +27,127 @@ description: "Behärska presentationsegenskaper i Aspose.Slides för Node.js via
 ---
 ## **Introduktion**
 
-Aspose.Slides stödjer två typer av dokumentegenskaper: **Inbyggda** och **Anpassade**. Båda dessa egenskapstyper kan enkelt nås och hanteras med hjälp av Aspose.Slides API.
+Aspose.Slides stöder två typer av dokumentegenskaper: **Inbyggda** och **Anpassade**. Båda dessa egendomstyper kan enkelt nås och hanteras med Aspose.Slides API.
 
-Aspose.Slides låter dig arbeta med presentationsdokumentegenskaper via klassen [DocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/documentproperties/) . En instans av denna klass returneras av metoden [Presentation.getDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getDocumentProperties) . Följande exempel visar hur man läser, modifierar och hanterar dessa egenskaper.
+Aspose.Slides låter dig arbeta med presentationsdokumentegenskaper via klassen [DocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/documentproperties/) . En instans av denna klass returneras av metoden [Presentation.getDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getDocumentProperties) . Följande exempel visar hur du läser, ändrar och hanterar dessa egenskaper.
 
 {{% alert color="info" title="Obs" %}}
-Observera att fälten **Application** och **AppVersion** inte kan ändras. Aspose.Slides skriver om dem vid varje sparning, så en sparad presentation alltid rapporterar "Aspose.Slides for Node.js via Java" och versionen av biblioteket som skapade den. Eventuellt värde som skickas till `setNameOfApplication` kastas bort när presentationen skrivs.
+Observera att fälten **Application** och **AppVersion** inte kan ändras. Aspose.Slides skriver om dem vid varje sparning, så en sparad presentation alltid visar "Aspose.Slides for Node.js via Java" och versionen av biblioteket som skapade den. Eventuellt värde som skickas till `setNameOfApplication` kastas bort när presentationen skrivs.
 {{% /alert %}} 
 
 ## **Hantera presentationsegenskaper**
 
-Microsoft PowerPoint erbjuder en funktion för att lägga till egenskaper i presentationsfilerna. Dessa dokumentegenskaper möjliggör lagring av viss användbar information tillsammans med dokumenten (presentationsfiler). Det finns två typer av dokumentegenskaper enligt följande
+Microsoft PowerPoint erbjuder en funktion för att lägga till vissa egenskaper i presentationsfilerna. Dessa dokumentegenskaper möjliggör lagring av viss användbar information tillsammans med dokumenten (presentationsfilerna). Det finns två typer av dokumentegenskaper enligt följande
 
 - Systemdefinierade (Inbyggda) egenskaper
 - Användardefinierade (Anpassade) egenskaper
 
-**Inbyggda** egenskaper innehåller allmän information om dokumentet såsom dokumenttitel, författarens namn, dokumentstatistik osv. **Anpassade** egenskaper är de som definieras av användarna som **Namn/Värde**-par, där både namn och värde definieras av användaren. Med Aspose.Slides för Node.js via Java kan utvecklare komma åt och ändra värdena för både inbyggda och anpassade egenskaper.
+**Inbyggda** egenskaper innehåller allmän information om dokumentet som dokumenttitel, författarens namn, dokumentstatistik osv. **Anpassade** egenskaper är de som definieras av användaren som **Namn/Värde**‑par, där både namn och värde anges av användaren. Med Aspose.Slides for Node.js via Java kan utvecklare komma åt och ändra värdena för både inbyggda och anpassade egenskaper.
 
 ## **Dokumentegenskaper i PowerPoint**
 
-Microsoft PowerPoint 2007 tillåter hantering av dokumentegenskaperna för presentationsfilerna. Allt du behöver göra är att klicka på Office‑ikonen och sedan menyalternativet **Prepare | Properties | Advanced Properties** i Microsoft PowerPoint 2007, som visas nedan:
+Microsoft PowerPoint 2007 möjliggör hantering av dokumentegenskaper för presentationsfilerna. Allt du behöver göra är att klicka på Office‑ikonen och sedan **Prepare | Properties | Advanced Properties**‑menyalternativet i Microsoft PowerPoint 2007 som visas nedan:
 
-|**Välja menyalternativet Avancerade egenskaper**|** |
+|**Välja menyobjektet Avancerade egenskaper**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-
-Efter att du har valt menyalternativet **Advanced Properties** visas en dialogruta som låter dig hantera dokumentegenskaperna för PowerPoint‑filen, som visas i figuren nedan:
+Efter att du har valt menyobjektet **Advanced Properties** visas en dialogruta som låter dig hantera dokumentegenskaperna i PowerPoint‑filen som visas nedan i figuren:
 
 |**Egendomsdialog**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
+I ovanstående **Egendomsdialog** kan du se att det finns flera flikar såsom **General**, **Summary**, **Statistics**, **Contents** och **Custom**. Alla dessa flikar möjliggör konfiguration av olika typer av information relaterad till PowerPoint‑filerna. Fliken **Custom** används för att hantera anpassade egenskaper i PowerPoint‑filerna.
 
-I ovanstående **Egendomsdialog** kan du se att det finns flera flikar som **General**, **Summary**, **Statistics**, **Contents** och **Custom**. Alla dessa flikar möjliggör konfiguration av olika typer av information relaterad till PowerPoint‑filerna. Fliken **Custom** används för att hantera anpassade egenskaper för PowerPoint‑filerna.
+## **Arbeta med dokumentegenskaper med Aspose.Slides för Node.js via Java**
 
-Arbeta med dokumentegenskaper med Aspose.Slides för Node.js via Java
+Som vi beskrivit tidigare stöder Aspose.Slides för Node.js via Java två typer av dokumentegenskaper, **Inbyggda** och **Anpassade**. Således kan utvecklare komma åt båda typerna av egenskaper med hjälp av Aspose.Slides API för Node.js via Java. Aspose.Slides för Node.js via Java tillhandahåller klassen [DocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/documentproperties) som representerar dokumentegenskaperna associerade med en presentationsfil via egenskapen **Presentation.DocumentProperties**.
 
-Som vi beskrev tidigare stödjer Aspose.Slides för Node.js via Java två typer av dokumentegenskaper, nämligen **Inbyggda** och **Anpassade** egenskaper. Således kan utvecklare komma åt båda typerna av egenskaper med hjälp av Aspose.Slides för Node.js via Java API. Aspose.Slides för Node.js via Java tillhandahåller klassen [DocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/documentproperties) som representerar dokumentegenskaperna som är kopplade till en presentationsfil via egenskapen **Presentation.DocumentProperties**.
+Utvecklare kan använda egenskapen **DocumentProperties** som exponeras av [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation)‑objektet för att komma åt dokumentegenskaperna för presentationsfilerna enligt nedan:
 
-Utvecklare kan använda egenskapen **DocumentProperties** som exponeras av objektet [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation) för att komma åt dokumentegenskaperna för presentationsfilerna som beskrivs nedan:
+## **Läs offentliga egenskaper från en krypterad presentation**
+
+Ett öppningslösenord skyddar normalt både presentationsinnehåll och dokumentegenskaper. När en presentation är krypterad genom att skicka `false` till [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties), förblir dess dokumentegenskaper offentliga. En applikation kan då skicka `true` till [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) och läsa de offentliga metadatan utan att ange öppningslösenordet.
+
+Alternativet för enbart dokumentegenskaper styr vad Aspose.Slides laddar; det dekrypterar ingenting. Om egenskaperna inkluderades i krypteringen misslyckas laddningen utan lösenordet. Om presentationen inte är krypterad ignoreras alternativet och hela presentationen laddas.
+
+Följande exempel verifierar laddningsläget via [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) och läser sedan inbyggda egenskaper via [Presentation.getDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getDocumentProperties):
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+const presentation = new slides.Presentation("public-properties-encrypted.pptx", loadOptions);
+try {
+    if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        const properties = presentation.getDocumentProperties();
+
+        console.log("Author: " + properties.getAuthor());
+        console.log("Title: " + properties.getTitle());
+        console.log("Keywords: " + properties.getKeywords());
+    } else {
+        console.log("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+I detta läge laddas inte bildinnehållet. Slides, master slides, layouter, former, media och andra presentationsobjekt är otillgängliga. Applikationer bör alltid kontrollera [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) innan de utför en operation som kräver hela presentationsobjektmodellen.
+
+{{% alert color="warning" title="Varning" %}}
+Offentlig metadata kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden. Kryptera känsliga egenskaper tillsammans med presentationen. Låt dem vara offentliga endast när indexering, klassificering, sökning eller dokumentsystem har ett specifikt krav på att komma åt dem utan lösenord.
+{{% /alert %}}
+
+## **Uppdatera egenskaper för en krypterad presentation**
+
+För en krypterad PPTX‑fil är en presentation som laddas i läge enbart dokumentegenskaper avsedd för att läsa offentlig metadata. Aspose.Slides kan inte spara ändrade egenskaper från det objektet som bara innehåller metadata eftersom de offentliga egenskaperna måste förbli i synk med motsvarande data i den krypterade presentationen. Därför krävs rätt öppningslösenord och en fullständig laddning för att uppdatera dem.
+
+Följande exempel öppnar presentationen med [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/loadoptions/#setPassword), uppdaterar offentliga inbyggda egenskaper och sparar resultatet. Det använder sedan [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/#isEncrypted) för att verifiera att krypteringen bevaras och öppnar den offentliga metadata utan lösenord för att verifiera de nya värdena:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const inputPath = "public-properties-encrypted.pptx";
+const outputPath = "updated-public-properties-encrypted.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation(inputPath, loadOptions);
+try {
+    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
+    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    presentation.save(outputPath, slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const presentationInfo = slides.PresentationFactory.getInstance().getPresentationInfo(outputPath);
+console.log("The presentation is encrypted: " + presentationInfo.isEncrypted());
+
+const metadataLoadOptions = new slides.LoadOptions();
+metadataLoadOptions.setOnlyLoadDocumentProperties(true);
+
+const metadataPresentation = new slides.Presentation(outputPath, metadataLoadOptions);
+try {
+    if (metadataPresentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        console.log("Title: " + metadataPresentation.getDocumentProperties().getTitle());
+        console.log("Keywords: " + metadataPresentation.getDocumentProperties().getKeywords());
+    } else {
+        console.log("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    metadataPresentation.dispose();
+}
+```
+
+Om en applikation inte får dekryptera eller ladda presentationsinnehållet måste den behandla offentliga egenskaper i en krypterad PPTX‑fil som skrivskyddade.
 
 ## **Åtkomst till inbyggda egenskaper**
 
-Dessa egenskaper som exponeras av objektet [DocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/documentproperties) inkluderar: **Creator** (Författare), **Description**, **Keywords**, **Created** (Skapelsedatum), **Modified** (Ändringsdatum), **Printed** (Senaste utskriftsdatum), **LastModifiedBy**, **Keywords**, **SharedDoc** (Delas mellan olika producenter?), **PresentationFormat**, **Subject** och **Title**
+Dessa egenskaper som exponeras av [DocumentProperties]-objektet inkluderar: **Creator** (Författare), **Description**, **Keywords**, **Created** (Skapelsedatum), **Modified** (Ändringsdatum), **Printed** (Senaste utskriftsdatum), **LastModifiedBy**, **Keywords**, **SharedDoc** (Delas mellan olika producenter?), **PresentationFormat**, **Subject** och **Title**
 
 ```javascript
 var aspose = aspose || {};
@@ -103,7 +182,7 @@ try {
 
 ## **Modifiera inbyggda egenskaper**
 
-Att ändra de inbyggda egenskaperna för presentationsfiler är lika enkelt som att komma åt dem. Du kan helt enkelt tilldela ett strängvärde till någon önskad egenskap så ändras egenskapsvärdet. I exemplet nedan har vi demonstrerat hur vi kan ändra de inbyggda dokumentegenskaperna för presentationsfilen med hjälp av Aspose.Slides för Node.js via Java.
+Att ändra de inbyggda egenskaperna i presentationsfiler är lika enkelt som att komma åt dem. Du kan helt enkelt tilldela ett strängvärde till vilken önskad egenskap som helst så ändras egenskapsvärdet. I exemplet nedan har vi demonstrerat hur vi kan modifiera de inbyggda dokumentegenskaperna i presentationsfilen med Aspose.Slides för Node.js via Java.
 
 ```javascript
 var aspose = aspose || {};
@@ -113,7 +192,7 @@ var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // Skapa en referens till IDocumentProperties-objektet som är associerat med Presentation
     var dp = pres.getDocumentProperties();
-    // Ange de inbyggda egenskaperna
+    // Ställ in de inbyggda egenskaperna
     dp.setAuthor("Aspose.Slides for Node.js via Java");
     dp.setTitle("Modifying Presentation Properties");
     dp.setSubject("Aspose Subject");
@@ -128,15 +207,15 @@ try {
 }
 ```
 
-Detta exempel ändrar de inbyggda egenskaperna för presentationen som kan visas nedan:
+Detta exempel modifierar de inbyggda egenskaperna i presentationen som kan visas nedan:
 
-|**Inbyggda dokumentegenskaper efter ändring**|** |
+|**Inbyggda dokumentegenskaper efter modifiering**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Lägg till anpassade dokumentegenskaper**
 
-Aspose.Slides för Node.js via Java låter också utvecklare lägga till anpassade värden för presentationsdokumentegenskaper. Ett exempel visas nedan som visar hur man sätter de anpassade egenskaperna för en presentation.
+Aspose.Slides för Node.js via Java låter även utvecklare lägga till anpassade värden för presentationsdokumentegenskaper. Ett exempel ges nedan som visar hur man sätter de anpassade egenskaperna för en presentation.
 
 ```javascript
 var aspose = aspose || {};
@@ -146,7 +225,7 @@ var pres = new aspose.slides.Presentation();
 try {
     // Hämtar dokumentegenskaper
     var dProps = pres.getDocumentProperties();
-    // Lägg till anpassade egenskaper
+    // Lägger till anpassade egenskaper
     dProps.set_Item("New Custom", 12);
     dProps.set_Item("My Name", "Mudassir");
     dProps.set_Item("Custom", 124);
@@ -154,7 +233,7 @@ try {
     var getPropertyName = dProps.getCustomPropertyName(2);
     // Tar bort vald egenskap
     dProps.removeCustomProperty(getPropertyName);
-    // Sparar presentation
+    // Sparar presentationen
     pres.save("CustomDemo.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -167,9 +246,9 @@ try {
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Åtkomst till och ändra anpassade egenskaper**
+## **Åtkomst till och modifiera anpassade egenskaper**
 
-Aspose.Slides för Node.js via Java låter också utvecklare komma åt värdena för anpassade egenskaper. Ett exempel visas nedan som visar hur du kan komma åt och ändra alla dessa anpassade egenskaper för en presentation.
+Aspose.Slides för Node.js via Java låter även utvecklare komma åt värdena för anpassade egenskaper. Ett exempel ges nedan som visar hur du kan komma åt och modifiera alla dessa anpassade egenskaper för en presentation.
 
 ```javascript
 var aspose = aspose || {};
@@ -179,7 +258,7 @@ var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     // Skapa en referens till DocumentProperties-objektet som är associerat med Presentation
     var dp = pres.getDocumentProperties();
-    // Kom åt och modifiera anpassade egenskaper
+    // Åtkomst till och modifiering av anpassade egenskaper
     for (var i = 0; i < dp.getCountOfCustomProperties(); i++) {
         // Visa namn och värden för anpassade egenskaper
         console.log("Custom Property Name : " + dp.getCustomPropertyName(i));
@@ -187,7 +266,7 @@ try {
         // Modifiera värden för anpassade egenskaper
         dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
     }
-    // Spara din presentation till en fil
+    // Spara presentationen till en fil
     pres.save("CustomDemoModified.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -196,13 +275,13 @@ try {
 }
 ```
 
-Detta exempel ändrar de anpassade egenskaperna för [PPTX ](https://docs.fileformat.com/presentation/pptx/)presentationen. Följande figurer visar presentationens anpassade egenskaper före och efter ändring:
+Detta exempel modifierar de anpassade egenskaperna för [PPTX](https://docs.fileformat.com/presentation/pptx/)presentationen. Följande figurer visar presentationens anpassade egenskaper före och efter modifiering:
 
-|**Anpassade egenskaper före ändring**|** |
+|**Anpassade egenskaper före modifiering**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Anpassade egenskaper efter ändring**|** |
+|**Anpassade egenskaper efter modifiering**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
@@ -212,9 +291,9 @@ Detta exempel ändrar de anpassade egenskaperna för [PPTX ](https://docs.filefo
 Nya metoder [ReadDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), och [WriteBindedPresentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) har lagts till i [PresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo), logiken för egenskapssättaren [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) har ändrats.
 {{% /alert %}} 
 
-De två nya metoderna [ReadDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) och [UpdateDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) har lagts till i klassen [PresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo). De ger snabb åtkomst till dokumentegenskaper och möjliggör att ändra och uppdatera egenskaper utan att ladda hela presentationen.
+De två nya metoderna [ReadDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) och [UpdateDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) har lagts till i klassen [PresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/PresentationInfo). De ger snabb åtkomst till dokumentegenskaper och möjliggör att ändra och uppdatera egenskaper utan att ladda en hel presentation.
 
-Det typiska scenariot att ladda egenskaperna, ändra ett värde och uppdatera dokumentet kan implementeras på följande sätt:
+Ett typiskt scenario är att ladda egenskaperna, ändra ett värde och uppdatera dokumentet, vilket kan implementeras på följande sätt:
 
 ```javascript
 var aspose = aspose || {};
@@ -224,7 +303,7 @@ aspose.slides = require("aspose.slides.via.java");
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
 // hämta de aktuella egenskaperna
 var props = info.readDocumentProperties();
-// sätt de nya värdena för författare och titelfält
+// sätt de nya värdena för fälten Author och Title
 props.setAuthor("New Author");
 props.setTitle("New Title");
 // uppdatera presentationen med nya värden
@@ -232,7 +311,7 @@ info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Det finns ett annat sätt att använda egenskaperna från en specifik presentation som en mall för att uppdatera egenskaper i andra presentationer:
+Ett annat sätt är att använda egenskaperna från en specifik presentation som en mall för att uppdatera egenskaper i andra presentationer:
 
 ```javascript
 var aspose = aspose || {};
@@ -271,7 +350,7 @@ function updateByTemplate(path, template)
 }
 ```
 
-En ny mall kan skapas från grunden och sedan användas för att uppdatera flera presentationer:
+En ny mall kan skapas från början och sedan användas för att uppdatera flera presentationer:
 
 ```javascript
 var aspose = aspose || {};
@@ -309,11 +388,11 @@ function updateByTemplate(path, template)
 }
 ```
 
-## **Ange språk för korrekturläsning**
+## **Ställ in korrekturläsningsspråk**
 
-Aspose.Slides tillhandahåller egenskapen LanguageId (exponerad av klassen PortionFormat) för att låta dig ange språk för korrekturläsning för ett PowerPoint‑dokument. Språket för korrekturläsning är det språk som stavning och grammatik i PowerPoint kontrolleras för.
+Aspose.Slides tillhandahåller egenskapen LanguageId (exponerad av klassen PortionFormat) för att låta dig ange korrekturläsningsspråket för ett PowerPoint‑dokument. Korrekturläsningsspråket är det språk för vilket stavning och grammatik i PowerPoint kontrolleras.
 
-Denna JavaScript‑kod visar hur du anger språk för korrekturläsning för en PowerPoint: xxx Varför saknas LanguageId i JavaScript PortionFormat‑klassen?
+Den här JavaScript‑koden visar hur du ställer in korrekturläsningsspråket för en PowerPoint: xxx Varför saknas LanguageId i JavaScript PortionFormat‑klassen?
 
 ```javascript
 var aspose = aspose || {};
@@ -330,7 +409,7 @@ try {
     portionFormat.setComplexScriptFont(font);
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
-    portionFormat.setLanguageId("zh-CN");// ange id för ett korrekturläsningsspråk
+    portionFormat.setLanguageId("zh-CN");// set the Id of a proofing language
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
 } finally {
@@ -340,7 +419,7 @@ try {
 }
 ```
 
-## **Ange standardspråk**
+## **Ställ in standardspråk**
 
 Denna JavaScript‑kod visar hur du anger standardspråket för en hel PowerPoint‑presentation:
 
@@ -355,7 +434,7 @@ try {
     // Lägger till en ny rektangelform med text
     var shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
     shp.getTextFrame().setText("New Text");
-    // Kontrollerar språket för den första portionen
+    // Kontrollerar det första portionsspråket
     console.log(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
 } finally {
     if (pres != null) {
@@ -366,20 +445,28 @@ try {
 
 ## **Live‑exempel**
 
-Prova den online‑appen [**Aspose.Slides Metadata**](https://products.aspose.app/slides/sv/metadata) för att se hur du arbetar med dokumentegenskaper via Aspose.Slides API:
+Prova den online‑app [**Aspose.Slides Metadata**](https://products.aspose.app/slides/sv/metadata) för att se hur du arbetar med dokumentegenskaper via Aspose.Slides API:
 
-[![Visa & redigera PowerPoint-metadata](slides-metadata.png)](https://products.aspose.app/slides/sv/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/sv/metadata)
 
 ## **FAQ**
 
 **Hur kan jag ta bort en inbyggd egenskap från en presentation?**
 
-Inbyggda egenskaper är en integrerad del av presentationen och kan inte tas bort helt. Du kan dock ändra deras värden eller, om tillåtet för den specifika egenskapen, sätta dem till tomma.
+Inbyggda egenskaper är en integrerad del av presentationen och kan inte tas bort helt. Du kan dock ändra deras värden eller sätta dem till tomma om den specifika egenskapen tillåter det.
 
 **Vad händer om jag lägger till en anpassad egenskap som redan finns?**
 
 Om du lägger till en anpassad egenskap som redan finns, kommer dess befintliga värde att skrivas över med det nya. Du behöver inte ta bort eller kontrollera egenskapen i förväg, eftersom Aspose.Slides automatiskt uppdaterar egenskapens värde.
 
-**Kan jag komma åt presentationsegenskaper utan att helt ladda presentationen?**
+**Kan jag komma åt presentationsegenskaper utan att ladda hela presentationen?**
 
 Ja. Använd [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) och sedan [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) för att läsa lagrad dokumentmetadata utan att skapa en [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/)‑instans. Se [Build a Lightweight Presentation Inventory](/slides/sv/nodejs-java/examine-presentation/) för ett komplett rapportexempel och format‑specifika begränsningar.
+
+**Kan jag läsa offentliga egenskaper i en krypterad presentation utan dess öppningslösenord?**
+
+Ja. Dokumentegenskapskryptering måste ha inaktiverats innan presentationen krypterades, och presentationen måste laddas i läge enbart dokumentegenskaper.
+
+**Kan jag uppdatera en krypterad PPTX‑fil i läge enbart dokumentegenskaper?**
+
+Nej. Offentlig och krypterad egendomsdata måste förbli konsistenta, så för att uppdatera en krypterad PPTX‑fil krävs att hela presentationen laddas med rätt öppningslösenord.

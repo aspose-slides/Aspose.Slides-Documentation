@@ -1,18 +1,18 @@
 ---
-title: JavaScript でプレゼンテーションをパスワード保護する
+title: JavaScript でプレゼンテーションをパスワード保護
 linktitle: パスワード保護
 type: docs
 weight: 20
 url: /ja/nodejs-java/password-protected-presentation/
 keywords:
 - パスワード保護されたプレゼンテーション
-- 開くためのパスワード
+- オープニングパスワード
 - PowerPoint の暗号化
 - PowerPoint の復号化
 - プレゼンテーション パスワードの検証
 - プレゼンテーション パスワードの確認
 - 暗号化されたプレゼンテーションを開く
-- 暗号化の削除
+- 暗号化の解除
 - PowerPoint
 - PPT
 - PPTX
@@ -20,19 +20,19 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript と Aspose.Slides を使用して、パスワード保護された PowerPoint PPT および PPTX プレゼンテーションを暗号化、検出、検証、開く、復号化します。"
+description: "Aspose.Slides を使用して、JavaScript でパスワード保護された PowerPoint PPT および PPTX プレゼンテーションを暗号化、検出、検証、開く、復号化します。"
 ---
 ## **概要**
 
-開くためのパスワードはプレゼンテーションを暗号化します。正しいパスワードが必要となり、プレゼンテーションのコンテンツを読み込み表示できるため、この保護は機密性を提供します。
+オープニングパスワードはプレゼンテーションを暗号化します。正しいパスワードが必要となり、プレゼンテーションのコンテンツをロードして表示できるため、この保護は機密性を提供します。
 
-開くためのパスワードは書き込み保護パスワードとは異なります。書き込み保護は変更を制限しますが、コンテンツを暗号化したり、プレゼンテーションの読み込みを防止したりはしません。プレゼンテーションの変更用パスワードを管理するには、[Write-Protect Presentations](/slides/ja/nodejs-java/write-protected-presentation/) を参照してください。
+オープニングパスワードは書き込み保護パスワードとは異なります。書き込み保護は変更を制限しますが、コンテンツを暗号化したりプレゼンテーションのロードを防止したりはしません。プレゼンテーションの変更用パスワードを管理するには、[プレゼンテーションの書き込み保護](/slides/ja/nodejs-java/write-protected-presentation/)をご覧ください。
 
-以下のワークフローは PPT と PPTX の両方のプレゼンテーションに適用されます。例では、ファイルベースおよびストリームベースの動作が重要な場合に両方の形式を使用しています。
+以下のワークフローは PPT と PPTX の両方のプレゼンテーションに適用されます。例では、ファイルベースとストリームベースの動作が重要になる両形式を使用しています。
 
-## **開くためのパスワードでプレゼンテーションを暗号化する**
+## **オープニングパスワードでプレゼンテーションを暗号化**
 
-開くためのパスワードを割り当てるには、[ProtectionManager.encrypt](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#encrypt) を使用します。次に、暗号化されたプレゼンテーションを保存するには、[Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) を使用します。
+オープニングパスワードを割り当てるには、[ProtectionManager.encrypt](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#encrypt) を使用します。その後、暗号化されたプレゼンテーションを保存するには [Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) を使用します。
 
 以下の例は PPTX プレゼンテーションを暗号化します:
 
@@ -48,9 +48,36 @@ try {
 }
 ```
 
-## **暗号化されたプレゼンテーションを読み込む**
+## **ドキュメント プロパティを公開したままにする**
 
-[LoadOptions.setPassword](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/loadoptions/#setPassword) に開くためのパスワードを設定し、ファイルを読み込む際にオプションを [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) に渡します。開くためのパスワードが必要なのに提供されたパスワードが欠落または正しくない場合、読み込みは失敗します。
+既定では、Aspose.Slides はプレゼンテーションの暗号化にドキュメント プロパティを含めます。[ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) メソッドは、スライド コンテンツの暗号化とは独立してこの動作を制御します。インデックス作成、分類、検索、またはドキュメント管理システムがオープニングパスワードなしでメタデータを読み取る必要がある場合は、[ProtectionManager.encrypt](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#encrypt) を呼び出す前に `false` を渡してください。
+
+以下の例は、組み込みのドキュメント プロパティを公開したまま暗号化された PPTX プレゼンテーションを作成します:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
+try {
+    const properties = presentation.getDocumentProperties();
+    properties.setAuthor("Contoso Knowledge Management");
+    properties.setTitle("Quarterly Product Roadmap");
+    properties.setKeywords("roadmap, planning, internal");
+
+    presentation.getSlides().get_Item(0).setName("Encrypted presentation content");
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("public-properties-encrypted.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`false` を [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) に渡しても、スライド、マスター、レイアウト、シェイプ、メディア、またはその他のプレゼンテーション コンテンツが公開されるわけではありません。影響を受けるのはドキュメント プロパティのみです。暗号化されたコンテンツをロードせずにこれらのプロパティを読み取るには、[プレゼンテーション プロパティの管理](/slides/ja/nodejs-java/presentation-properties/) を参照してください。
+
+## **暗号化されたプレゼンテーションのロード**
+
+ファイルをロードする際に、オープニングパスワードを [LoadOptions.setPassword](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/loadoptions/#setPassword) に設定し、そのオプションを [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) に渡します。オープニングパスワードが必要なのにパスワードが未提供または誤っている場合、ロードは失敗します。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -66,9 +93,9 @@ try {
 }
 ```
 
-## **プレゼンテーションから暗号化を削除する**
+## **プレゼンテーションから暗号化を解除**
 
-プレゼンテーションを開くためのパスワードで読み込み、[ProtectionManager.removeEncryption](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) を呼び出して結果を保存します。その後、保存されたプレゼンテーションはパスワードなしで読み込むことができます。
+オープニングパスワードでプレゼンテーションをロードし、[ProtectionManager.removeEncryption](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#removeEncryption) を呼び出して結果を保存します。保存されたプレゼンテーションはパスワードなしでロードできるようになります。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -85,13 +112,13 @@ try {
 }
 ```
 
-## **読み込む前に開くためのパスワードを検証する**
+## **ロード前にオープニングパスワードを検証**
 
-[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) を使用して、完全なプレゼンテーションインスタンスを作成せずに [PresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/) を取得します。パスワードの要求または検証を行う前に、[PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) を確認します。保護が存在する場合、提供された値を [PresentationInfo.checkPassword](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/#checkPassword) で検証します。
+[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfo) を使用して、完全なプレゼンテーション インスタンスを作成せずに [PresentationInfo](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/) を取得します。パスワードの要求または検証の前に [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) を確認してください。保護が存在する場合は、[PresentationInfo.checkPassword](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/#checkPassword) で提供された値を検証します。
 
-### **ファイル パス ワークフロー**
+### **ファイルパス ワークフロー**
 
-以下の例は PPTX ファイルの開くためのパスワードを検証し、検証された値を [LoadOptions.setPassword](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/loadoptions/#setPassword) に渡して、完全なプレゼンテーションを読み込みます:
+以下の例は PPTX ファイルのオープニングパスワードを検証し、検証済みの値を [LoadOptions.setPassword](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/loadoptions/#setPassword) に渡してから、完全なプレゼンテーションをロードします:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -119,9 +146,9 @@ if (!presentationInfo.isPasswordProtected()) {
 
 ### **ストリーム ワークフロー**
 
-[PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) を使用して Node.js の読み取り可能ストリームを検査します。検査用ストリームが消費された後、[Presentation.createPresentationFromStream](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#createPresentationFromStream) を使用して完全なプレゼンテーションを読み込む前に新しいストリームを作成します。
+[PresentationFactory.getPresentationInfoFromStream](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationfactory/#getPresentationInfoFromStream) を使用して Node.js の読み取り可能ストリームを検査します。検査用ストリームが消費された後、[Presentation.createPresentationFromStream](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#createPresentationFromStream) を使用して完全なプレゼンテーションをロードする前に新しいストリームを作成します。
 
-以下の例は PPT ファイルを使用しています:
+以下の例は PPT ファイルを使用します:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -161,17 +188,17 @@ slides.PresentationFactory.getPresentationInfoFromStream(presentationFactory, in
 
 ### **checkPassword の戻り値**
 
-[PresentationInfo.checkPassword](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/#checkPassword) は、プレゼンテーションに開くためのパスワードが設定され、提供されたパスワードが正しい場合にのみ `true` を返します。次のいずれかの場合は `false` を返します:
+[PresentationInfo.checkPassword](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/#checkPassword) は、プレゼンテーションにオープニングパスワードが設定されており、提供されたパスワードが正しい場合にのみ `true` を返します。以下のいずれかの場合は `false` を返します:
 
 - パスワードが正しくありません。
-- プレゼンテーションに開くためのパスワードが設定されていません。
+- プレゼンテーションにオープニングパスワードが設定されていません。
 - 提供されたパスワードが `null` または空です。
 
 この動作は PPT と PPTX のプレゼンテーションで同じです。
 
-## **読み込んだプレゼンテーションが暗号化されているか確認する**
+## **ロードされたプレゼンテーションが暗号化されているか確認**
 
-正しいパスワードでプレゼンテーションを読み込んだ後、[ProtectionManager.isEncrypted](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) を確認して、元のプレゼンテーションが暗号化されていることを確認します。読み込む前に開くためのパスワード保護を検出するには、上記のように [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) を使用します。
+正しいパスワードでプレゼンテーションをロードした後、[ProtectionManager.isEncrypted](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/protectionmanager/#isEncrypted) を確認して、元のプレゼンテーションが暗号化されていたことを確認します。ロード前にオープニングパスワード保護を検出するには、上記のように [PresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentationinfo/#isPasswordProtected) を使用します。
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -188,19 +215,21 @@ try {
 }
 ```
 
-## **セキュリティに関する推奨事項**
+## **セキュリティの推奨事項**
 
 {{% alert color="warning" title="Security" %}}
-開くためのパスワードをログに記録したり、診断メッセージに含めたりしないでください。不要な繰り返しの検証を避け、パスワードは必要な間だけメモリに保持し、プレゼンテーションをすぐに読み込む際には成功した検証結果を再利用してください。
+オープニングパスワードをログに記録したり、診断メッセージに含めたりしないでください。不要な繰り返し検証を避け、パスワードは必要な間だけメモリに保持し、プレゼンテーションをすぐにロードする際には成功した検証結果を再利用してください。
+
+プレゼンテーションのコンテンツが暗号化されていても、公開されたドキュメント プロパティにより、著者名、タイトル、サブジェクト、キーワード、会社情報、コメント、カスタム値が漏洩する可能性があります。機密性の高いメタデータはプレゼンテーションと共に暗号化してください。プロパティを公開することは、システムがオープニングパスワードなしでファイルをインデックス、分類、検索、または管理しなければならない場合にのみ、明示的に決定すべきです。
 {{% /alert %}}
 
-## **オンラインでプレゼンテーションにパスワード保護を設定する**
+## **オンラインでプレゼンテーションにパスワード保護**
 
 1. [Aspose.Slides Lock](https://products.aspose.app/slides/ja/lock) アプリケーションを開きます。
-1. プレゼンテーションを選択するかアップロードします。
-1. 表示保護用のパスワードを入力します。
-1. 必要に応じて、編集保護用の別のパスワードを入力します。
-1. 保護を適用し、生成されたファイルをダウンロードします。
+2. プレゼンテーションを選択するかアップロードします。
+3. 閲覧保護用のパスワードを入力します。
+4. 必要に応じて、編集保護用の別のパスワードを入力します。
+5. 保護を適用し、結果のファイルをダウンロードします。
 
 {{% alert color="info" title="See also" %}}
 - [プレゼンテーションの書き込み保護](/slides/ja/nodejs-java/write-protected-presentation/)
@@ -209,13 +238,17 @@ try {
 
 ## **FAQ**
 
-**開くためのパスワードと書き込み保護パスワードの違いは何ですか？**
+**オープニングパスワードと書き込み保護パスワードの違いは何ですか？**
 
-開くためのパスワードはプレゼンテーションを暗号化し、コンテンツの読み込みに必要です。書き込み保護パスワードはコンテンツを暗号化せずに変更を制限します。
+オープニングパスワードはプレゼンテーションを暗号化し、コンテンツをロードするために必要です。書き込み保護パスワードはコンテンツを暗号化せずに変更を制限します。
 
-**すべてのスライドを読み込まずに開くためのパスワードを検証できますか？**
+**すべてのスライドをロードせずにオープニングパスワードを検証できますか？**
 
-はい。プレゼンテーション情報を取得し、開くためのパスワード保護が存在するか確認し、完全なプレゼンテーションインスタンスを作成する前にパスワードを検証します。
+はい。プレゼンテーション情報を取得し、オープニングパスワード保護が存在するか確認し、完全なプレゼンテーション インスタンスを作成する前にパスワードを検証します。
+
+**アプリケーションはオープニングパスワードなしでメタデータを読み取れますか？**
+
+はい、ただしプレゼンテーションがドキュメント プロパティの暗号化を無効にして暗号化された場合に限ります。その場合、アプリケーションは [プレゼンテーション プロパティの管理](/slides/ja/nodejs-java/presentation-properties/) で説明されているドキュメント プロパティのみのロード モードを使用する必要があります。
 
 **パスワード検証のワークフローは PPT と PPTX の両方をサポートしていますか？**
 

@@ -1,16 +1,16 @@
 ---
-title: C++'ta Sunumları Parola ile Koruma
+title: C++'ta Sunumları Parola ile Korumak
 linktitle: Parola Koruması
 type: docs
 weight: 20
 url: /tr/cpp/password-protected-presentation/
 keywords:
 - parola korumalı sunum
-- açma parolası
-- PowerPoint şifreleme
-- PowerPoint şifre çözme
-- sunum parolasını doğrulama
-- sunum parolasını kontrol et
+- açılış şifresi
+- PowerPoint şifrele
+- PowerPoint şifre çöz
+- sunum şifresini doğrula
+- sunum şifresini kontrol et
 - şifreli sunumu aç
 - şifrelemeyi kaldır
 - PowerPoint
@@ -19,19 +19,19 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides ile C++'ta parola korumalı PowerPoint PPT ve PPTX sunumlarını şifreleyin, algılayın, doğrulayın, açın ve şifrelerini çözün."
+description: "Parola korumalı PowerPoint PPT ve PPTX sunumlarını C++ ile Aspose.Slides kullanarak şifrele, algıla, doğrula, aç ve şifresini çöz."
 ---
 ## **Genel Bakış**
 
-Açma parolası bir sunumu şifreler. Doğru parola, sunum içeriğini yüklemek ve görüntülemek için gereklidir; bu koruma gizliliği sağlar.
+Açılış şifresi bir sunumu şifreler. Doğru şifre, sunum içeriğini yüklemek ve görüntülemek için gereklidir, bu nedenle bu koruma gizlilik sağlar.
 
-Açma parolası, yazma koruma parolasından farklıdır. Yazma koruması değişiklikleri kısıtlar ancak içeriği şifrelemez ve sunumun yüklenmesini engellemez. Sunumları değiştirmek için parolaları yönetmek amacıyla [Write-Protect Presentations](/slides/tr/cpp/write-protected-presentation/) bölümüne bakın.
+Açılış şifresi, yazma koruma şifresinden farklıdır. Yazma koruması değişikliği kısıtlar ancak içeriği şifrelemez veya sunumun yüklenmesini engellemez. Sunumları değiştirmek için şifreleri yönetmek için, [Write-Protect Presentations](/slides/tr/cpp/write-protected-presentation/) bölümüne bakın.
 
-Aşağıdaki iş akışları PPT ve PPTX sunumları için geçerlidir. Örnekler, dosya tabanlı ve akış tabanlı davranışların önemli olduğu durumları her iki formatta da gösterir.
+Aşağıdaki iş akışları hem PPT hem de PPTX sunumları için geçerlidir. Örnekler, dosya tabanlı ve akış tabanlı davranışların önemli olduğu her iki formatı da kullanır.
 
-## **Açma Parolası ile Sunumu Şifreleme**
+## **Açılış Şifresi ile Bir Sunumu Şifreleme**
 
-Açma parolası atamak için [IProtectionManager::Encrypt](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/encrypt/) kullanın. Ardından şifreli sunumu kaydetmek için [IPresentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/save/) yöntemini çağırın.
+Açılış şifresi atamak için [IProtectionManager::Encrypt](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/encrypt/) yöntemini kullanın. Ardından şifrelenmiş sunumu kaydetmek için [IPresentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/save/) yöntemini kullanın.
 
 Aşağıdaki örnek bir PPTX sunumunu şifreler:
 
@@ -49,9 +49,43 @@ presentation->get_ProtectionManager()->Encrypt(u"open_password");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Şifreli Sunumu Yükleme**
+## **Belge Özelliklerini Genel Tut**
 
-[LoadOptions::set_Password](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_password/) özelliğine açma parolasını ata ve dosyayı yüklerken bu seçenekleri [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) yapıcısına geçir. Açma parolası gerekli ancak sağlanan parola eksik veya hatalı ise yükleme başarısız olur.
+Varsayılan olarak, Aspose.Slides belge özelliklerini sunum şifrelemesine dahil eder. [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) bu davranışı slayt içeriği şifrelemesinden bağımsız olarak kontrol eder. Bir indeksleme, sınıflandırma, arama veya belge yönetim sistemi açılış şifresi olmadan üst veriyi okuması gerektiğinde, [IProtectionManager::Encrypt](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/encrypt/) metodunu çağırmadan önce bu metoda `false` değeri gönderin.
+
+Aşağıdaki örnek, yerleşik belge özelliklerini genel tutarak şifrelenmiş bir PPTX sunumu oluşturur:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto properties = presentation->get_DocumentProperties();
+properties->set_Author(u"Contoso Knowledge Management");
+properties->set_Title(u"Quarterly Product Roadmap");
+properties->set_Keywords(u"roadmap, planning, internal");
+
+presentation->get_Slide(0)->set_Name(u"Encrypted presentation content");
+presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
+presentation->get_ProtectionManager()->Encrypt(u"open_password");
+presentation->Save(u"public-properties-encrypted.pptx", SaveFormat::Pptx);
+
+presentation->Dispose();
+```
+
+`set_EncryptDocumentProperties` metoduna `false` gönderilmesi, slaytları, ana slaytları, düzenleri, şekilleri, medyayı veya diğer sunum içeriğini genel tutmaz. Yalnızca belge özelliklerini etkiler. Şifreli içeriği yüklemeden bu özellikleri okumak için [Manage Presentation Properties](/slides/tr/cpp/presentation-properties/) bölümüne bakın.
+
+## **Şifrelenmiş Bir Sunumu Yükleme**
+
+Açılış şifresini ayarlamak için [LoadOptions::set_Password](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_password/) yöntemini kullanın ve dosyayı yüklerken seçenekleri [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfına iletin. Açılış şifresi gerekli olduğunda fakat verilen şifre eksik ya da hatalı olduğunda yükleme başarısız olur.
 
 ```cpp
 #include <DOM/LoadOptions.h>
@@ -64,12 +98,12 @@ loadOptions->set_Password(u"open_password");
 
 auto presentation = System::MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
 
-// Şifrelenmiş sunumla çalış.
+// Şifre çözülmüş sunumla çalış.
 ```
 
-## **Sunumdan Şifrelemeyi Kaldırma**
+## **Bir Sunumdan Şifrelemeyi Kaldırma**
 
-Sunumu açma parolasıyla yükleyin, [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/removeencryption/) yöntemini çağırın ve sonucu kaydedin. Kaydedilen sunum artık parola olmadan yüklenebilir.
+Sunumu açılış şifresiyle yükleyin, [IProtectionManager::RemoveEncryption](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/removeencryption/) metodunu çağırın ve sonucu kaydedin. Kaydedilen sunum daha sonra şifre olmadan yüklenebilir.
 
 ```cpp
 #include <DOM/IProtectionManager.h>
@@ -89,13 +123,13 @@ presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Yüklemeden Önce Açma Parolasını Doğrulama**
+## **Yüklemeden Önce Açılış Şifresini Doğrulama**
 
-Tam bir sunum örneği oluşturmadan [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) ile [IPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/) alın. Parola isteği veya doğrulaması yapmadan önce [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) özelliğini kontrol edin. Koruma mevcutsa, sağlanan değeri [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/checkpassword/) ile doğrulayın.
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) kullanarak tam bir sunum örneği oluşturmadan [IPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/) alın. Şifre talep etmeden veya doğrulamadan önce [IPresentationInfo::get_IsPasswordProtected](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/get_ispasswordprotected/) kontrol edin. Koruma mevcutsa, verilen değeri [IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/checkpassword/) ile doğrulayın.
 
 ### **Dosya Yolu İş Akışı**
 
-Aşağıdaki örnek bir PPTX dosyası için açma parolasını doğrular, doğrulanan değeri [LoadOptions::set_Password](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_password/) metoduna geçirir ve ardından tam sunumu yükler:
+Aşağıdaki örnek, bir PPTX dosyası için açılış şifresini doğrular, doğrulanan değeri [LoadOptions::set_Password](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_password/) metoduna iletir ve ardından tam sunumu yükler:
 
 ```cpp
 #include <DOM/IPresentationInfo.h>
@@ -132,7 +166,7 @@ else
 
 ### **Akış İş Akışı**
 
-[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) metodunun akış aşırı yüklemesi aynı iş akışını sağlar. Tam sunumu akıştan yüklemeden önce, konumlanabilir bir akışın konumunu sıfırlamayı unutmayın.
+[IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) metodunun akış aşırı yüklemesi aynı iş akışını sunar. Akıştan tam sunumu yüklemeden önce, arama yapılabilir bir akışın konumunu sıfırlayın.
 
 Aşağıdaki örnek bir PPT dosyası kullanır:
 
@@ -175,17 +209,17 @@ else
 
 ### **CheckPassword Dönüş Değerleri**
 
-[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/checkpassword/) yalnızca sunumda bir açma parolası varsa ve sağlanan parola doğruysa `true` döndürür. Aşağıdaki durumlarda `false` döner:
+[IPresentationInfo::CheckPassword](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentationinfo/checkpassword/) yalnızca sunumda bir açılış şifresi olduğunda ve verilen şifre doğru olduğunda `true` döndürür. Aşağıdaki durumlarda `false` döner:
 
-- Parola yanlış.
-- Sunumda bir açma parolası yok.
-- Sağlanan parola null veya boş.
+- Şifre yanlıştır.
+- Sunumun bir açılış şifresi yoktur.
+- Verilen şifre null veya boş.
 
-Davranış PPT ve PPTX sunumları için aynı şekildedir.
+Davranış PPT ve PPTX sunumları için aynıdır.
 
-## **Yüklenen Sunumun Şifreli Olup Olmadığını Kontrol Etme**
+## **Yüklenen Sunumun Şifrelenip Şifrelenmediğini Kontrol Et**
 
-Doğru parola ile bir sunumu yükledikten sonra, kaynağın şifreli olduğunu doğrulamak için [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) incelenir. Açma‑parola korumasını yüklemeden önce tespit etmek için yukarıda gösterildiği gibi `IPresentationInfo::get_IsPasswordProtected` kullanılabilir.
+Doğru şifreyle bir sunumu yükledikten sonra, kaynağın şifrelenip şifrelenmediğini doğrulamak için [IProtectionManager::get_IsEncrypted](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/get_isencrypted/) özelliğine bakın. Yüklemeden önce açılış şifresi korumasını tespit etmek için yukarıda gösterildiği gibi `IPresentationInfo::get_IsPasswordProtected` kullanın.
 
 ```cpp
 #include <DOM/IProtectionManager.h>
@@ -207,32 +241,38 @@ Console::WriteLine(isEncrypted ? u"The presentation is encrypted." : u"The prese
 ## **Güvenlik Önerileri**
 
 {{% alert color="warning" title="Security" %}}
-Açma parolalarını loglamayın veya tanılama mesajlarına eklemeyin. Gereksiz tekrar doğrulama girişimlerinden kaçının, parolaları sadece gerektiği sürece bellekte tutun ve sunumu hemen yüklerken başarılı bir doğrulama sonucunu yeniden kullanın.
+Açılış şifrelerini günlüğe kaydetmeyin veya teşhis mesajlarında bulundurmayın. Gereksiz tekrar doğrulama girişimlerinden kaçının, şifreleri yalnızca gerektiği süre boyunca bellekte tutun ve sunumu hemen yüklerken başarılı bir doğrulama sonucunu yeniden kullanın.
+
+Sunum içeriği şifreli olsa bile, genel belge özellikleri yazar adlarını, başlıkları, konuları, anahtar kelimeleri, şirket bilgilerini, yorumları ve özel değerleri ifşa edebilir. Hassas üst verileri sunumla birlikte şifreleyin. Özellikleri genel bırakmak, yalnızca sistemlerin dosyayı açılış şifresi olmadan indekslemesi, sınıflandırması, araması veya yönetmesi gerektiğinde alınacak açık bir karar olmalıdır.
 {{% /alert %}}
 
-## **Sunumu Çevrimiçi Parola ile Koruma**
+## **Bir Sunumu Çevrimiçi Şifreleme**
 
-1. [Aspose.Slides Lock](https://products.aspose.app/slides/tr/lock) uygulamasını açın.
+1. Aspose.Slides Lock uygulamasını açın.
 2. Sunumu seçin veya yükleyin.
-3. Görüntüleme koruması için bir parola girin.
-4. İsteğe bağlı olarak düzenleme koruması için ayrı bir parola girin.
+3. Görünüm koruması için bir şifre girin.
+4. İsteğe bağlı olarak düzenleme koruması için ayrı bir şifre girin.
 5. Koruma uygulayın ve ortaya çıkan dosyayı indirin.
 
 {{% alert color="info" title="See also" %}}
-- [Write-Protect Presentations](/slides/tr/cpp/write-protected-presentation/)
-- [Digital Signature in PowerPoint](/slides/tr/cpp/digital-signature-in-powerpoint/)
+- [Sunumları Yazma Koruması](/slides/tr/cpp/write-protected-presentation/)
+- [PowerPoint'te Dijital İmza](/slides/tr/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **SSS**
 
-**Açma parolası ile yazma koruma parolası arasındaki fark nedir?**
+**Açılış şifresi ile yazma koruma şifresi arasındaki fark nedir?**
 
-Açma parolası sunumu şifreler ve içeriğin yüklenmesi için gereklidir. Yazma koruma parolası içeriği şifrelemez, sadece değişiklikleri kısıtlar.
+Açılış şifresi sunumu şifreler ve içeriğini yüklemek için gereklidir. Yazma koruma şifresi, içeriği şifrelemeden değişikliği kısıtlar.
 
-**Tüm slaytları yüklemeden bir açma parolasını doğrulayabilir miyim?**
+**Tüm slaytları yüklemeden bir açılış şifresini doğrulayabilir miyim?**
 
-Evet. Sunum bilgilerini alın, açma‑parola korumasının varlığını kontrol edin ve tam bir sunum örneği oluşturulmadan önce parolayı doğrulayın.
+Evet. Sunum bilgilerini alın, açılış şifresi korumasının mevcut olup olmadığını kontrol edin ve tam bir sunum örneği oluşturmadan önce şifreyi doğrulayın.
 
-**Parola kontrol iş akışları PPT ve PPTX için destekleniyor mu?**
+**Bir uygulama açılış şifresi olmadan üst verileri okuyabilir mi?**
 
-Evet. Dosya yolu ve akış tabanlı parola algılama ve doğrulama, PPT ve PPTX sunumları için aynı şekilde çalışır.
+Evet, ancak yalnızca sunum `set_EncryptDocumentProperties(false)` ile şifrelenmişse. Uygulama daha sonra [Manage Presentation Properties](/slides/tr/cpp/presentation-properties/) bölümünde açıklanan sadece belge özelliklerini yükleme modunu kullanmalıdır.
+
+**Şifre kontrol iş akışları hem PPT hem de PPTX'i destekliyor mu?**
+
+Evet. Dosya yolu ve akış tabanlı şifre tespiti ve doğrulama, PPT ve PPTX sunumları için aynı şekilde çalışır.

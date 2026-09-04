@@ -6,12 +6,12 @@ weight: 20
 url: /ar/androidjava/password-protected-presentation/
 keywords:
 - عرض تقديمي محمي بكلمة مرور
-- كلمة مرور الفتح
+- كلمة مرور افتتاحية
 - تشفير PowerPoint
 - فك تشفير PowerPoint
-- التحقق من صحة كلمة مرور العرض
-- فحص كلمة مرور العرض
-- فتح عرض مشفر
+- التحقق من كلمة مرور العرض التقديمي
+- فحص كلمة مرور العرض التقديمي
+- فتح عرض تقديمي مشفر
 - إزالة التشفير
 - PowerPoint
 - PPT
@@ -20,21 +20,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "تشفير، اكتشاف، التحقق، فتح، وفك تشفير العروض التقديمية PowerPoint بصيغ PPT و PPTX المحمية بكلمة مرور باستخدام Aspose.Slides لنظام Android عبر Java."
+description: "تشفير، اكتشاف، التحقق، فتح، وفك تشفير عروض PowerPoint PPT و PPTX المحمية بكلمة مرور باستخدام Aspose.Slides للأندرويد عبر جافا."
 ---
 ## **نظرة عامة**
 
-كلمة مرور الفتح تقوم بتشفير العرض التقديمي. يلزم كلمة المرور الصحيحة لتحميل وعرض محتوى العرض، لذلك توفر هذه الحماية السرية.
+كلمة المرور الافتتاحية تقوم بتشفير العرض التقديمي. يُشترط توفير كلمة المرور الصحيحة لتحميل وعرض محتوى العرض التقديمي، لذا توفر هذه الحماية السرية.
 
-كلمة مرور الفتح تختلف عن كلمة مرور الحماية من الكتابة. حماية الكتابة تقيد التعديل لكنها لا تشفر المحتوى ولا تمنع تحميل العرض التقديمي. لإدارة كلمات المرور لتعديل العروض، راجع [حماية العروض من الكتابة](/slides/ar/androidjava/write-protected-presentation/).
+كلمة المرور الافتتاحية مختلفة عن كلمة مرور الحماية من الكتابة. الحماية من الكتابة تقيد التعديل ولكنها لا تشفر المحتوى ولا تمنع تحميل العرض التقديمي. لإدارة كلمات المرور الخاصة بتعديل العروض التقديمية، راجع [Write-Protect Presentations](/slides/ar/androidjava/write-protected-presentation/).
 
-تطبيقات سير العمل أدناه تنطبق على كل من عروض PPT و PPTX. تستخدم الأمثلة كلا الصيغتين حيث يكون سلوكهما القائم على الملفات أو التدفقات مهمًا.
+تطبق سير العمل أدناه على عروض PPT و PPTX. تُظهر الأمثلة كلا الصيغتين حيث يكون سلوك التعامل مع الملفات أو التيارات مهمًا.
 
-## **تشفير عرض تقديمي باستخدام كلمة مرور الفتح**
+## **تشفير عرض تقديمي بكلمة مرور افتتاحية**
 
-استخدم [IProtectionManager.encrypt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) لتعيين كلمة مرور الفتح. ثم استخدم [IPresentation.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-) لحفظ العرض المشفر.
+استخدم [IProtectionManager.encrypt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) لتعيين كلمة مرور افتتاحية. ثم استخدم [IPresentation.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#save-java.lang.String-int-) لحفظ العرض التقديمي المشفر.
 
-المثال التالي يقوم بتشفير عرض PPTX:
+المثال التالي يشفر عرضًا تقديميًا بصيغة PPTX:
 
 ```java
 import com.aspose.slides.Presentation;
@@ -49,9 +49,38 @@ try {
 }
 ```
 
-## **تحميل عرض مشفر**
+## **جعل خصائص المستند عامة**
 
-قم بتعيين [ILoadOptions.setPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) إلى كلمة مرور الفتح ومرّر الخيارات إلى [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) عند تحميل الملف. يفشل التحميل عندما تكون كلمة مرور الفتح مطلوبة لكن كلمة المرور المقدمة مفقودة أو غير صحيحة.
+بشكل افتراضي، يضم Aspose.Slides خصائص المستند في تشفير العرض التقديمي. تتحكم طريقة [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) في هذا السلوك بصورة مستقلة عن تشفير محتوى الشرائح. مرّر `false` قبل استدعاء [IProtectionManager.encrypt](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) عندما تحتاج أن تقرأ أنظمة الفهرسة أو التصنيف أو البحث أو إدارة المستندات البيانات الوصفية دون كلمة مرور افتتاحية.
+
+المثال التالي يخلق عرضًا تقديميًا بصيغة PPTX مشفرًا مع ترك خصائص المستند المدمجة عامة:
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation();
+try {
+    IDocumentProperties properties = presentation.getDocumentProperties();
+    properties.setAuthor("Contoso Knowledge Management");
+    properties.setTitle("Quarterly Product Roadmap");
+    properties.setKeywords("roadmap, planning, internal");
+
+    presentation.getSlides().get_Item(0).setName("Encrypted presentation content");
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("public-properties-encrypted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+تمرير `false` إلى [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) لا يجعل الشرائح أو القوالب أو التخطيطات أو الأشكال أو الوسائط أو أي محتوى آخر من العرض التقديمي عامًا. إنه يؤثر فقط على خصائص المستند. لقراءة تلك الخصائص دون تحميل المحتوى المشفر، راجع [Manage Presentation Properties](/slides/ar/androidjava/presentation-properties/).
+
+## **تحميل عرض تقديمي مشفر**
+
+عيّن [ILoadOptions.setPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) إلى كلمة المرور الافتتاحية ومرّر الخيارات إلى [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) عند تحميل الملف. سيفشل التحميل إذا كانت كلمة المرور الافتتاحية مطلوبة لكن كلمة المرور المقدمة مفقودة أو غير صحيحة.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -62,7 +91,7 @@ loadOptions.setPassword("open_password");
 
 Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 try {
-    // العمل مع العرض المفكك.
+    // العمل مع العرض التقديمي المفكك.
 } finally {
     presentation.dispose();
 }
@@ -70,7 +99,7 @@ try {
 
 ## **إزالة التشفير من عرض تقديمي**
 
-حمّل العرض باستخدام كلمة مرور الفتح، واستدعِ [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#removeEncryption--)، ثم احفظ النتيجة. يمكن بعد ذلك تحميل العرض المحفوظ دون كلمة مرور.
+حمّل العرض التقديمي بكلمة المرور الافتتاحية، استدعِ [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#removeEncryption--)، ثم احفظ النتيجة. يمكن بعدها تحميل العرض التقديمي المحفوظ دون كلمة مرور.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -89,13 +118,13 @@ try {
 }
 ```
 
-## **التحقق من صحة كلمة مرور الفتح قبل التحميل**
+## **التحقق من صحة كلمة مرور افتتاحية قبل التحميل**
 
-استخدم [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) للحصول على [IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/) دون إنشاء نسخة كاملة من العرض. تحقق من [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) قبل طلب أو التحقق من كلمة المرور. عندما تكون الحماية موجودة، تحقق من القيمة التي تم التحقق منها باستخدام [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
+استخدم [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) للحصول على [IPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/) دون إنشاء مثيل كامل للعرض التقديمي. تحقق من [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) قبل طلب أو التحقق من كلمة المرور. عندما تكون الحماية موجودة، تحقق من القيمة المقدمة باستخدام [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
 
-### **سير عمل المسار إلى الملف**
+### **سير عمل مسار الملف**
 
-المثال التالي يتحقق من صحة كلمة مرور الفتح لملف PPTX، يمرّر القيمة التي تم التحقق منها إلى [ILoadOptions.setPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-)، ثم يقوم بتحميل العرض الكامل:
+المثال التالي يتحقق من كلمة مرور افتتاحية لملف PPTX، يمرّر القيمة التي تم التحقق منها إلى [ILoadOptions.setPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-)، ثم يحمل العرض التقديمي كاملًا:
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -124,9 +153,9 @@ if (!presentationInfo.isPasswordProtected()) {
 }
 ```
 
-### **سير عمل التدفق**
+### **سير عمل التيار**
 
-نسخة التدفق من [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) توفر نفس سير العمل. أعد ضبط موضع تدفق قابل للبحث قبل تحميل العرض الكامل من ذلك التدفق.
+يوفر التحميل عبر التيار للطريقة [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) نفس سير العمل. أعد تعيين موضع التيار القابل للبحث قبل تحميل العرض التقديمي الكامل من ذلك التيار.
 
 المثال التالي يستخدم ملف PPT:
 
@@ -165,19 +194,19 @@ try {
 }
 ```
 
-### **قيم الإرجاع لـ checkPassword**
+### **قِيَم إرجاع checkPassword**
 
-[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) تُعيد `true` فقط عندما يكون للعرض كلمة مرور فتح وتكون كلمة المرور المقدمة صحيحة. تُعيد `false` في كل من الحالات التالية:
+يرجع [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) `true` فقط عندما يكون للعرض التقديمي كلمة مرور افتتاحية ويكون كلمة المرور المقدمة صحيحة. يرجع `false` في كل من الحالات التالية:
 
 - كلمة المرور غير صحيحة.
-- العرض لا يحتوي على كلمة مرور فتح.
+- العرض التقديمي لا يحتوي على كلمة مرور افتتاحية.
 - كلمة المرور المقدمة هي `null` أو فارغة.
 
 السلوك نفسه ينطبق على عروض PPT و PPTX.
 
-## **التحقق مما إذا كان العرض المحمّل مشفرًا**
+## **التحقق مما إذا كان العرض التقديمي المحمَّل مشفرًا**
 
-بعد تحميل عرض باستخدام كلمة المرور الصحيحة، تحقق من [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#isEncrypted--) للتأكد من أن العرض الأصلي كان مشفرًا. لاكتشاف حماية كلمة مرور الفتح قبل التحميل، استخدم `IPresentationInfo.isPasswordProtected` كما هو موضح أعلاه.
+بعد تحميل عرض تقديمي بكلمة مرور صحيحة، افحص [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iprotectionmanager/#isEncrypted--) لتأكيد أن العرض المصدر كان مشفرًا. لاكتشاف حماية كلمة المرور الافتتاحية قبل التحميل، استخدم `IPresentationInfo.isPasswordProtected` كما هو موضح أعلاه.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -195,35 +224,41 @@ try {
 }
 ```
 
-## **توصيات الأمان**
+## **توصيات أمنية**
 
-{{% alert color="warning" title="الأمان" %}}
-لا تقوم بتسجيل كلمات مرور الفتح أو تضمينها في رسائل التشخيص. تجنب محاولات التحقق المتكررة غير الضرورية، احتفظ بكلمات المرور في الذاكرة فقط طالما كان ذلك مطلوبًا، وأعد استخدام نتيجة التحقق الناجحة عند تحميل العرض مباشرةً.
+{{% alert color="warning" title="Security" %}}
+لا تُسجِّل كلمات المرور الافتتاحية ولا تُدرجها في رسائل التشخيص. تجنّب محاولات التحقق المتكررة غير الضرورية، واحفظ كلمات المرور في الذاكرة فقط للمدة المطلوبة، وأعد استخدام نتيجة تحقق ناجحة عند تحميل العرض مباشرةً.
+
+قد تكشف خصائص المستند العامة أسماء المؤلفين والعناوين والموضوعات والكلمات المفتاحية ومعلومات الشركة والتعليقات والقيم المخصصة حتى وإن كان محتوى العرض التقديمي مشفرًا. شفر البيانات الوصفية الحساسة مع العرض التقديمي. يجب أن يكون جعل الخصائص عامة قرارًا صريحًا يُتخذ فقط عندما تحتاج الأنظمة إلى فهرسة أو تصنيف أو بحث أو إدارة الملف دون كلمة مرور افتتاحية.
 {{% /alert %}}
 
-## **حماية عرض تقديمي بكلمة مرور عبر الإنترنت**
+## **حماية العرض التقديمي بكلمة مرور عبر الإنترنت**
 
 1. افتح تطبيق [Aspose.Slides Lock](https://products.aspose.app/slides/ar/lock).
 1. اختر أو حمّل العرض التقديمي.
 1. أدخل كلمة مرور لحماية العرض عند العرض.
-1. اختيارياً، أدخل كلمة مرور منفصلة لحماية التحرير.
-1. طبق الحماية وقم بتنزيل الملف الناتج.
+1. اختياريًا، أدخل كلمة مرور منفصلة لحماية التعديل.
+1. طبّق الحماية وحمّل الملف الناتج.
 
-{{% alert color="info" title="انظر أيضًا" %}}
-- [حماية العروض من الكتابة](/slides/ar/androidjava/write-protected-presentation/)
-- [التوقيع الرقمي في PowerPoint](/slides/ar/androidjava/digital-signature-in-powerpoint/)
+{{% alert color="info" title="See also" %}}
+- [Write-Protect Presentations](/slides/ar/androidjava/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/ar/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما الفرق بين كلمة مرور الفتح وكلمة مرور الحماية من الكتابة؟**
+**ما الفرق بين كلمة المرور الافتتاحية وكلمة مرور الحماية من الكتابة؟**
 
-كلمة مرور الفتح تقوم بتشفير العرض وتكون مطلوبة لتحميل محتواه. كلمة مرور الحماية من الكتابة تقيد التعديل دون تشفير المحتوى.
+كلمة المرور الافتتاحية تشفر العرض التقديمي وتُطلب لتحميل محتواه. كلمة مرور الحماية من الكتابة تقيد التعديل دون تشفير المحتوى.
 
-**هل يمكنني التحقق من صحة كلمة مرور الفتح دون تحميل جميع الشرائح؟**
+**هل يمكنني التحقق من كلمة مرور افتتاحية دون تحميل كل الشرائح؟**
 
-نعم. احصل على معلومات العرض، تحقق مما إذا كانت حماية كلمة مرور الفتح موجودة، واطّق كلمة المرور قبل إنشاء نسخة كاملة من العرض.
+نعم. احصل على معلومات العرض التقديمي، تحقق مما إذا كانت هناك حماية كلمة مرور افتتاحية، وحقق من صحة كلمة المرور قبل إنشاء مثيل كامل للعرض التقديمي.
 
-**هل تدعم عمليات التحقق من كلمة المرور كلًا من PPT و PPTX؟**
+**هل يمكن لتطبيق قراءة البيانات الوصفية دون كلمة المرور الافتتاحية؟**
 
-نعم. اكتشاف كلمة المرور والتحقق منها عبر المسار إلى الملف أو التدفق يعملان نفس الطريقة لعرض PPT و PPTX.
+نعم، ولكن فقط عندما يكون العرض مشفرًا مع تعطيل تشفير خصائص المستند. يجب على التطبيق حينها استخدام وضع التحميل المخصص للخصائص الوصفية كما هو موضح في [Manage Presentation Properties](/slides/ar/androidjava/presentation-properties/).
+
+**هل تدعم سير عمل التحقق من كلمة المرور كلا من PPT و PPTX؟**
+
+نعم. سلوك الكشف عن كلمة المرور وتحققها عبر مسار الملف أو التيار يتم بنفس الطريقة لعروض PPT و PPTX.

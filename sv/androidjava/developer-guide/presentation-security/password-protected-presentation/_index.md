@@ -24,11 +24,11 @@ description: "Kryptera, upptäcka, validera, öppna och dekryptera lösenordssky
 ---
 ## **Översikt**
 
-Ett öppningslösenord krypterar en presentation. Det korrekta lösenordet krävs för att ladda och visa presentationens innehåll, så detta skydd ger konfidentialitet.
+Ett öppningslösenord krypterar en presentation. Det korrekta lösenordet krävs för att läsa in och visa presentationens innehåll, så detta skydd ger konfidentialitet.
 
-Ett öppningslösenord skiljer sig från ett skrivskyddslösenord. Skrivskydd begränsar ändringar men krypterar inte innehållet eller hindrar presentationen från att laddas. För att hantera lösenord för att ändra presentationer, se [Skrivskydda presentationer](/slides/sv/androidjava/write-protected-presentation/).
+Ett öppningslösenord skiljer sig från ett skrivskyddslösenord. Skrivskydd begränsar modifiering men krypterar inte innehållet eller hindrar presentationen från att läsas in. För att hantera lösenord för att ändra presentationer, se [Write-Protect Presentations](/slides/sv/androidjava/write-protected-presentation/).
 
-Arbetsflödena nedan gäller både PPT- och PPTX-presentationer. Exemplen använder båda formaten där deras filbaserade och strömbaserade beteende är viktigt.
+Arbetsflödena nedan gäller både PPT- och PPTX-presentationer. Exemplen använder båda formaten där deras fil‑baserade och ström‑baserade beteende är viktigt.
 
 ## **Kryptera en presentation med ett öppningslösenord**
 
@@ -49,9 +49,38 @@ try {
 }
 ```
 
+## **Behåll dokumentegenskaper offentliga**
+
+Som standard inkluderar Aspose.Slides dokumentegenskaper i presentationens kryptering. Metoden [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) styr detta beteende oberoende av bild‑innehållets kryptering. Skicka `false` innan du anropar [IProtectionManager.encrypt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iprotectionmanager/#encrypt-java.lang.String-) när ett indexerings-, klassificerings-, sök- eller dokumenthanteringssystem måste läsa metadata utan öppningslösenordet.
+
+Följande exempel skapar en krypterad PPTX-presentation samtidigt som dess inbyggda dokumentegenskaper förblir offentliga:
+
+```java
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation();
+try {
+    IDocumentProperties properties = presentation.getDocumentProperties();
+    properties.setAuthor("Contoso Knowledge Management");
+    properties.setTitle("Quarterly Product Roadmap");
+    properties.setKeywords("roadmap, planning, internal");
+
+    presentation.getSlides().get_Item(0).setName("Encrypted presentation content");
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
+    presentation.getProtectionManager().encrypt("open_password");
+    presentation.save("public-properties-encrypted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Att skicka `false` till [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) gör inte bilder, master‑slides, layouter, former, media eller annat presentationsinnehåll offentligt. Det påverkar endast dokumentegenskaper. För att läsa dessa egenskaper utan att läsa in det krypterade innehållet, se [Manage Presentation Properties](/slides/sv/androidjava/presentation-properties/).
+
 ## **Ladda en krypterad presentation**
 
-Ange [ILoadOptions.setPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) till öppningslösenordet och skicka alternativen till [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) när filen laddas. Laddning misslyckas när ett öppningslösenord krävs men det angivna lösenordet saknas eller är felaktigt.
+Ställ in [ILoadOptions.setPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) till öppningslösenordet och skicka alternativen till [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) när filen läses in. Inläsning misslyckas när ett öppningslösenord krävs men det angivna lösenordet saknas eller är felaktigt.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -70,7 +99,7 @@ try {
 
 ## **Ta bort kryptering från en presentation**
 
-Ladda presentationen med dess öppningslösenord, anropa [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iprotectionmanager/#removeEncryption--), och spara resultatet. Den sparade presentationen kan sedan laddas utan ett lösenord.
+Läs in presentationen med dess öppningslösenord, anropa [IProtectionManager.removeEncryption](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iprotectionmanager/#removeEncryption--), och spara resultatet. Den sparade presentationen kan sedan läsas in utan ett lösenord.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -89,13 +118,13 @@ try {
 }
 ```
 
-## **Validera ett öppningslösenord innan laddning**
+## **Validera ett öppningslösenord innan inläsning**
 
-Använd [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) för att hämta [IPresentationInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationinfo/) utan att skapa en komplett presentationsinstans. Kontrollera [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) innan du begär eller validerar ett lösenord. När skyddet är närvarande, validera det angivna värdet med [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
+Använd [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.lang.String-) för att hämta [IPresentationInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationinfo/) utan att skapa en fullständig presentationsinstans. Kontrollera [IPresentationInfo.isPasswordProtected](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationinfo/#isPasswordProtected--) innan du begär eller validerar ett lösenord. När skydd finns, validera det angivna värdet med [IPresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-).
 
-### **Filvägsarbetsflöde**
+### **Fil‑sökvägsarbetsflöde**
 
-Följande exempel validerar ett öppningslösenord för en PPTX-fil, skickar det validerade värdet till [ILoadOptions.setPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-), och laddar sedan den kompletta presentationen:
+Följande exempel validerar ett öppningslösenord för en PPTX‑fil, skickar det validerade värdet till [ILoadOptions.setPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-), och läser sedan in den fullständiga presentationen:
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -124,11 +153,11 @@ if (!presentationInfo.isPasswordProtected()) {
 }
 ```
 
-### **Strömarbetsflöde**
+### **Ström‑arbetsflöde**
 
-Strömanropet av [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) ger samma arbetsflöde. Återställ positionen för en sökbar ström innan du laddar den kompletta presentationen från den strömmen.
+Ström‑överladdningen av [IPresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationfactory/#getPresentationInfo-java.io.InputStream-) ger samma arbetsflöde. Återställ positionen för en sökbar ström innan du läser in den fullständiga presentationen från den strömmen.
 
-Följande exempel använder en PPT-fil:
+Följande exempel använder en PPT‑fil:
 
 ```java
 import com.aspose.slides.IPresentationInfo;
@@ -165,19 +194,19 @@ try {
 }
 ```
 
-### **checkPassword returvärden**
+### **Returnvärden för checkPassword**
 
-[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) returnerar `true` endast när presentationen har ett öppningslösenord och det angivna lösenordet är korrekt. Det returnerar `false` i vart och ett av följande fall:
+[IPresentationInfo.checkPassword](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ipresentationinfo/#checkPassword-java.lang.String-) returnerar `true` endast när presentationen har ett öppningslösenord och det angivna lösenordet är korrekt. Den returnerar `false` i var och en av följande situationer:
 
 - Lösenordet är felaktigt.
 - Presentationen har inget öppningslösenord.
 - Det angivna lösenordet är `null` eller tomt.
 
-Beteendet är detsamma för PPT- och PPTX-presentationer.
+Beteendet är detsamma för PPT‑ och PPTX‑presentationer.
 
-## **Kontrollera om en laddad presentation är krypterad**
+## **Kontrollera om en inläst presentation är krypterad**
 
-Efter att ha laddat en presentation med rätt lösenord, inspektera [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iprotectionmanager/#isEncrypted--) för att bekräfta att källpresentationen var krypterad. För att upptäcka öppningslösenordsskydd innan laddning, använd `IPresentationInfo.isPasswordProtected` som visat ovan.
+Efter att ha läst in en presentation med rätt lösenord, inspektera [IProtectionManager.isEncrypted](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/iprotectionmanager/#isEncrypted--) för att bekräfta att källpresentationen var krypterad. För att upptäcka skydd med öppningslösenord innan inläsning, använd `IPresentationInfo.isPasswordProtected` som visat ovan.
 
 ```java
 import com.aspose.slides.LoadOptions;
@@ -198,18 +227,20 @@ try {
 ## **Säkerhetsrekommendationer**
 
 {{% alert color="warning" title="Säkerhet" %}}
-Logga inte öppningslösenord eller inkludera dem i diagnostiska meddelanden. Undvik onödiga upprepade valideringsförsök, håll lösenord i minnet endast så länge som behövs, och återanvänd ett lyckat valideringsresultat när du omedelbart laddar presentationen.
+Logga inte öppningslösenord eller inkludera dem i diagnostikmeddelanden. Undvik onödiga upprepade valideringsförsök, behåll lösenord i minnet endast så länge som de behövs, och återanvänd ett lyckat valideringsresultat när presentationen laddas omedelbart.
+
+Offentliga dokumentegenskaper kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden även om presentationsinnehållet är krypterat. Kryptera känslig metadata tillsammans med presentationen. Att lämna egenskaper offentliga bör vara ett tydligt beslut som endast tas när system måste indexera, klassificera, söka eller hantera filen utan ett öppningslösenord.
 {{% /alert %}}
 
 ## **Lösenordsskydda en presentation online**
 
 1. Öppna applikationen [Aspose.Slides Lock](https://products.aspose.app/slides/sv/lock).
 2. Välj eller ladda upp presentationen.
-3. Ange ett lösenord för vysskydd.
+3. Ange ett lösenord för visningsskydd.
 4. Ange eventuellt ett separat lösenord för redigeringsskydd.
 5. Tillämpa skyddet och ladda ner den resulterande filen.
 
-{{% alert color="info" title="Se också" %}}
+{{% alert color="info" title="Se även" %}}
 - [Skrivskydda presentationer](/slides/sv/androidjava/write-protected-presentation/)
 - [Digital signatur i PowerPoint](/slides/sv/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
@@ -218,12 +249,16 @@ Logga inte öppningslösenord eller inkludera dem i diagnostiska meddelanden. Un
 
 **Vad är skillnaden mellan ett öppningslösenord och ett skrivskyddslösenord?**
 
-Ett öppningslösenord krypterar presentationen och krävs för att ladda dess innehåll. Ett skrivskyddslösenord begränsar ändringar utan att kryptera innehållet.
+Ett öppningslösenord krypterar presentationen och krävs för att läsa in dess innehåll. Ett skrivskyddslösenord begränsar modifiering utan att kryptera innehållet.
 
-**Kan jag validera ett öppningslösenord utan att ladda alla bilder?**
+**Kan jag validera ett öppningslösenord utan att läsa in alla bilder?**
 
-Ja. Hämta presentationsinformation, kontrollera om öppningslösenordsskydd finns, och validera lösenordet innan du skapar en komplett presentationsinstans.
+Ja. Hämta presentationsinformation, kontrollera om skydd med öppningslösenord finns, och validera lösenordet innan du skapar en fullständig presentationsinstans.
 
-**Stöder lösenordsverifieringsarbetsflödena både PPT och PPTX?**
+**Kan en applikation läsa metadata utan öppningslösenordet?**
 
-Ja. Filvägs- och strömbaserad lösenordsdetektering och -validering fungerar likadant för PPT- och PPTX-presentationer.
+Ja, men endast när presentationen krypterades med dokumentegenskapskryptering inaktiverad. Applikationen måste då använda laddningsläget som bara läser dokumentegenskaper, beskrivet i [Manage Presentation Properties](/slides/sv/androidjava/presentation-properties/).
+
+**Stöder lösenords‑kontroll‑arbetsflödena både PPT och PPTX?**
+
+Ja. Fil‑sökvägs‑ och ström‑baserad lösenorddetektering och validering fungerar på samma sätt för PPT‑ och PPTX‑presentationer.

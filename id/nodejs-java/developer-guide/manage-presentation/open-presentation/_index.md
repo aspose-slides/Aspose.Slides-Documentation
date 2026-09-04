@@ -1,12 +1,11 @@
 ---
-title: Membuka Presentasi dengan JavaScript
+title: Membuka Presentasi dalam JavaScript
 linktitle: Buka Presentasi
 type: docs
 weight: 20
 url: /id/nodejs-java/open-presentation/
 keywords:
 - buka PowerPoint
-- buka OpenDocument
 - buka presentasi
 - buka PPTX
 - buka PPT
@@ -22,140 +21,142 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Buka presentasi PowerPoint (.pptx, .ppt) dan OpenDocument (.odp) dengan mudah menggunakan Aspose.Slides untuk Node.js via Java—cepat, andal, fitur lengkap."
+description: "Pelajari cara membuka presentasi PowerPoint dan OpenDocument dalam JavaScript, menyediakan kata sandi pembuka, mengontrol pemuatan sumber daya, dan mengurangi penggunaan memori dengan Aspose.Slides untuk Node.js via Java."
 ---
 ## **Pendahuluan**
 
-Selain membuat presentasi PowerPoint dari awal, Aspose.Slides juga memungkinkan Anda membuka presentasi yang sudah ada. Setelah memuat sebuah presentasi, Anda dapat mengambil informasi tentangnya, mengedit konten slide, menambahkan slide baru, menghapus slide yang ada, dan lainnya.
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/id/nodejs-java/) dapat memuat presentasi PowerPoint dan OpenDocument dari file dan aliran. Setelah sebuah presentasi dimuat, Anda dapat memeriksa strukturnya, mengedit slide, mengelola sumber daya, dan menyimpannya dalam format asli atau format lain yang didukung.
+
+Perilaku pemuatan dapat disesuaikan melalui kelas [LoadOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/). Misalnya, Anda dapat menyediakan kata sandi pembuka, menyimpan objek biner besar di luar memori Node.js, mengontrol sumber daya eksternal, atau mengabaikan data biner yang disematkan.
 
 ## **Buka Presentasi**
 
-Untuk membuka presentasi yang sudah ada, buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) dan berikan jalur file ke konstruktor‑nya.
+Untuk membuka presentasi yang ada, berikan jalur file-nya ke konstruktor [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/). Hapus (dispose) presentasi setelah selesai digunakan agar pegangan file, data sementara, dan sumber daya lainnya segera dibebaskan.
 
-Contoh JavaScript berikut menunjukkan cara membuka presentasi dan memperoleh jumlah slide‑nya:
+Contoh JavaScript berikut menunjukkan cara membuka presentasi dan mendapatkan jumlah slide:
 
-```js
-// Membuat instance kelas Presentation dan memberikan jalur file ke konstruktornya.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("sample.pptx");
 try {
-    // Cetak total jumlah slide dalam presentasi.
-    console.log(presentation.getSlides().size());
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Buka Presentasi yang Dilindungi Password**
+## **Buka Presentasi yang Dilindungi Kata Sandi**
 
-Ketika Anda perlu membuka presentasi yang dilindungi password, berikan password melalui metode [setPassword](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setPassword) dari kelas [LoadOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/) untuk mendekripsi dan memuatnya. Kode JavaScript berikut mendemonstrasikan operasi ini:
+Kata sandi pembuka mengenkripsi konten presentasi. Untuk memuat seluruh presentasi, berikan kata sandi yang benar ke [LoadOptions.setPassword](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setPassword) dan sediakan opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/). Pemuatan gagal jika kata sandi tidak ada atau salah.
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setPassword("YOUR_PASSWORD");
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation("encrypted-presentation.pptx", loadOptions);
 try {
-    // Lakukan operasi pada presentasi yang telah didekripsi.
+    console.log("Slide count: " + presentation.getSlides().size());
 } finally {
     presentation.dispose();
 }
 ```
+
+Untuk deteksi kata sandi, validasi, dan alur kerja enkripsi, lihat [Presentasi yang Dilindungi Kata Sandi](/slides/id/nodejs-java/password-protected-presentation/). Jika presentasi yang dienkripsi sengaja disimpan dengan properti dokumen publik, properti tersebut dapat dibaca tanpa kata sandi; lihat [Kelola Properti Presentasi](/slides/id/nodejs-java/presentation-properties/).
 
 ## **Buka Presentasi Besar**
 
-Aspose.Slides menyediakan opsi—khususnya metode [getBlobManagementOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) di kelas [LoadOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/)—untuk membantu Anda memuat presentasi berukuran besar.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions) mengembalikan opsi yang mengontrol cara Aspose.Slides menangani objek biner besar seperti gambar, audio, dan video. Anda dapat menjaga file sumber tetap terkunci, mengizinkan file sementara, dan membatasi jumlah data BLOB yang disimpan dalam memori.
 
-Kode JavaScript berikut mendemonstrasikan memuat presentasi besar (misalnya, 2 GB):
+Kode JavaScript berikut menunjukkan cara memuat presentasi besar (misalnya, 2 GB):
 
-```js
-const filePath = "LargePresentation.pptx";
+```javascript
+const slides = require("aspose.slides.via.java");
 
-let loadOptions = new aspose.slides.LoadOptions();
-// Pilih perilaku KeepLocked—file presentasi akan tetap terkunci selama masa hidup
-// instance Presentation, tetapi tidak perlu dimuat ke memori atau disalin ke file sementara.
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
+const filePath = "large-presentation.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(slides.PresentationLockingBehavior.KeepLocked);
 loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
-let presentation = new aspose.slides.Presentation(filePath, loadOptions);
+const presentation = new slides.Presentation(filePath, loadOptions);
 try {
-    // Presentasi besar telah dimuat dan dapat digunakan, sementara konsumsi memori tetap rendah.
-    
-    // Lakukan perubahan pada presentasi.
     presentation.getSlides().get_Item(0).setName("Large presentation");
-
-    // Simpan presentasi ke file lain. Konsumsi memori tetap rendah selama operasi ini.
-    presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
-
-    // Jangan lakukan ini! Pengecualian I/O akan dilempar karena file terkunci sampai objek presentasi dibuang.
-    //fs.unlinkSync(filePath);
+    presentation.save("large-presentation-copy.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
-
-// Tidak apa-apa melakukannya di sini. File sumber tidak lagi dikunci oleh objek presentasi.
-fs.unlinkSync(filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-Untuk mengatasi beberapa keterbatasan saat bekerja dengan aliran, Aspose.Slides mungkin menyalin isi aliran. Memuat presentasi besar dari aliran menyebabkan presentasi disalin dan dapat memperlambat proses pemuatan. Oleh karena itu, ketika Anda perlu memuat presentasi besar, kami sangat menyarankan menggunakan jalur file presentasi daripada aliran.
+{{% alert color="info" title="Note" %}}
+Dengan [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationlockingbehavior/#KeepLocked), file sumber tetap terkunci sampai instance presentasi dibuang. Jangan memindahkan, menimpa, atau menghapus file sumber selama instance tersebut masih hidup.
 
-Saat membuat presentasi yang berisi objek besar (video, audio, gambar beresolusi tinggi, dll.), Anda dapat menggunakan [BLOB management](/slides/id/nodejs-java/manage-blob/) untuk mengurangi konsumsi memori.
-{{%/alert %}}
+Aspose.Slides mungkin menyalin isi aliran masuk saat memuatnya. Untuk presentasi besar, jalur file biasanya lebih efisien daripada aliran. Lihat [Kelola BLOB](/slides/id/nodejs-java/manage-blob/) untuk opsi penyimpanan dan manajemen memori tambahan.
+{{% /alert %}}
 
-## **Kendalikan Sumber Daya Eksternal**
+## **Kontrol Sumber Daya Eksternal**
 
-Aspose.Slides menyediakan antarmuka [IResourceLoadingCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/iresourceloadingcallback/) yang memungkinkan Anda mengelola sumber daya eksternal. Kode JavaScript berikut menunjukkan cara menggunakan antarmuka `IResourceLoadingCallback`:
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setResourceLoadingCallback) menerima implementasi [IResourceLoadingCallback](https://reference.aspose.com/slides/id/java/com.aspose.slides/iresourceloadingcallback/). Callback dapat menyediakan data pengganti, mengarahkan ulang sumber daya, menggunakan pemuat default, atau melewati sumber daya tersebut. Ini berguna ketika presentasi berisi gambar eksternal yang harus diselesaikan menurut aturan keamanan atau penyimpanan spesifik aplikasi.
 
-```js
-const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  resourceLoading: function(args) {
-        if (args.getOriginalUri().endsWith(".jpg")) {
-            try {
-                // Muat gambar pengganti.
-                const imageData = fs.readFileSync("aspose-logo.jpg");
-                args.setData(imageData);
-                return aspose.slides.ResourceLoadingAction.UserProvided;
-            } catch {
-                return aspose.slides.ResourceLoadingAction.Skip;
-            }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // Setel URL pengganti.
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return aspose.slides.ResourceLoadingAction.Default;
+```javascript
+const slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const java = require("java");
+
+const imageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
+    resourceLoading: function(args) {
+        const isJpeg = args.getOriginalUri().toLowerCase().endsWith(".jpg");
+        const approvedImagePath = "approved-image.jpg";
+        if (!isJpeg || !fs.existsSync(approvedImagePath)) {
+            return slides.ResourceLoadingAction.Skip;
         }
-        // Lewati semua gambar lainnya.
-        return aspose.slides.ResourceLoadingAction.Skip;
-      }
+
+        try {
+            const imageData = fs.readFileSync(approvedImagePath);
+            args.setData(imageData);
+            return slides.ResourceLoadingAction.UserProvided;
+        } catch (error) {
+            console.error("The approved replacement image could not be read.");
+            return slides.ResourceLoadingAction.Skip;
+        }
+    }
 });
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setResourceLoadingCallback(imageLoadingHandler);
+
+const presentation = new slides.Presentation("presentation-with-external-images.pptx", loadOptions);
+try {
+    console.log("Slide count: " + presentation.getSlides().size());
+} finally {
+    presentation.dispose();
+}
 ```
 
-```js
-let loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
+## **Muat Presentasi tanpa Objek Biner yang Disematkan**
 
-let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
-```
+Sebuah presentasi dapat berisi data biner yang disematkan yang tidak diperlukan atau tidak ingin disimpan oleh aplikasi. Contohnya:
 
-## **Muat Presentasi Tanpa Objek Biner Tersemat**
+- Proyek VBA, tersedia melalui [Presentation.getVbaProject](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getVbaProject);
+- Data OLE yang disematkan, tersedia melalui [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- Data kontrol ActiveX, tersedia melalui [Control.getActiveXControlBinary](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/control/#getActiveXControlBinary).
 
-Sebuah presentasi PowerPoint dapat berisi jenis objek biner tersemat berikut:
+Setel [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) ke `true` untuk menghapus data biner ini saat memuat. Simpan presentasi yang dimuat untuk mempertahankan hasil yang telah dibersihkan.
 
-- Proyek VBA (dapat diakses melalui [Presentation.getVbaProject](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getVbaProject));
-- Data tersemat objek OLE (dapat diakses melalui [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- Data biner kontrol ActiveX (dapat diakses melalui [Control.getActiveXControlBinary](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/control/#getActiveXControlBinary)).
+Opsi ini mengurangi paparan terhadap payload yang tidak diinginkan yang disematkan, namun bukan sistem deteksi malware atau sanitasi konten yang lengkap.
 
-Dengan menggunakan metode [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects), Anda dapat memuat presentasi tanpa objek biner tersemat apa pun.
+```javascript
+const slides = require("aspose.slides.via.java");
 
-Metode ini berguna untuk menghapus konten biner yang berpotensi berbahaya. Kode JavaScript berikut mendemonstrasikan cara memuat presentasi tanpa konten biner tersemat:
-
-```js
-let loadOptions = new aspose.slides.LoadOptions();
+const loadOptions = new slides.LoadOptions();
 loadOptions.setDeleteEmbeddedBinaryObjects(true);
 
-let presentation = new aspose.slides.Presentation("malware.ppt", loadOptions);
+const presentation = new slides.Presentation("presentation-with-embedded-data.pptx", loadOptions);
 try {
-    // Lakukan operasi pada presentasi.
+    presentation.save("presentation-without-embedded-data.pptx", slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -165,12 +166,12 @@ try {
 
 **Bagaimana saya dapat mengetahui bahwa sebuah file rusak dan tidak dapat dibuka?**
 
-Anda akan mendapatkan pengecualian validasi parsing/format saat memuat. Kesalahan semacam ini biasanya menyebutkan struktur ZIP yang tidak valid atau rekaman PowerPoint yang rusak.
+Aspose.Slides melempar pengecualian parsing atau format saat memuat. Tangani kegagalan tersebut secara terpisah dari kesalahan kata sandi yang salah agar aplikasi dapat melaporkan penyebabnya secara akurat.
 
-**Apa yang terjadi jika font yang diperlukan hilang saat membuka?**
+**Apa yang terjadi jika font yang dibutuhkan tidak ada?**
 
-File akan terbuka, tetapi kemudian [rendering/export](/slides/id/nodejs-java/convert-presentation/) dapat mengganti font. [Konfigurasikan substitusi font](/slides/id/nodejs-java/font-substitution/) atau [tambahkan font yang diperlukan](/slides/id/nodejs-java/custom-font/) ke lingkungan runtime.
+Presentasi masih dapat dimuat, tetapi proses rendering dan ekspor mungkin menggantikan font. Anda dapat [mengonfigurasi substitusi font](/slides/id/nodejs-java/font-substitution/) atau [menyediakan font khusus](/slides/id/nodejs-java/custom-font/) untuk membuat output lebih dapat diprediksi.
 
-**Bagaimana dengan media tersemat (video/audio) saat membuka?**
+**Apakah memuat presentasi juga memuat media yang disematkan?**
 
-Mereka akan tersedia sebagai sumber daya presentasi. Jika media direferensikan melalui jalur eksternal, pastikan jalur tersebut dapat diakses di lingkungan Anda; jika tidak [rendering/export](/slides/id/nodejs-java/convert-presentation/) dapat mengabaikan media.
+Audio dan video yang disematkan menjadi tersedia melalui model objek presentasi. Sumber daya eksternal diselesaikan sesuai dengan perilaku pemuatan sumber daya yang dikonfigurasi dan mungkin tidak tersedia jika lokasinya tidak dapat diakses.

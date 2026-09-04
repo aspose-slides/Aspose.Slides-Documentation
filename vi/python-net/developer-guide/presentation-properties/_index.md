@@ -1,59 +1,128 @@
 ---
-title: Quản lý Thuộc tính Trình chiếu với Python
-linktitle: Thuộc tính Trình chiếu
+title: Quản lý Thuộc tính Bản trình bày bằng Python
+linktitle: Thuộc tính Bản trình bày
 type: docs
 weight: 70
 url: /vi/python-net/presentation-properties/
 keywords:
 - Thuộc tính PowerPoint
-- Thuộc tính trình chiếu
-- Thuộc tính tài liệu
-- Thuộc tính tích hợp
-- Thuộc tính tùy chỉnh
-- Thuộc tính nâng cao
-- Quản lý thuộc tính
-- Sửa đổi thuộc tính
-- Siêu dữ liệu tài liệu
-- Chỉnh sửa siêu dữ liệu
-- Ngôn ngữ kiểm tra chính tả
-- Ngôn ngữ mặc định
+- thuộc tính bản trình bày
+- thuộc tính tài liệu
+- thuộc tính tích hợp
+- thuộc tính tùy chỉnh
+- thuộc tính nâng cao
+- quản lý thuộc tính
+- sửa đổi thuộc tính
+- siêu dữ liệu tài liệu
+- chỉnh sửa siêu dữ liệu
+- ngôn ngữ kiểm tra chính tả
+- ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
-- Trình chiếu
+- bản trình bày
 - Python
 - Aspose.Slides
-description: "Nắm vững các thuộc tính trình chiếu trong Aspose.Slides cho Python qua .NET và tối ưu hoá việc tìm kiếm, thương hiệu và quy trình công việc trong các tệp PowerPoint của bạn."
+description: "Quản lý toàn diện các thuộc tính bản trình bày trong Aspose.Slides cho Python qua .NET và tối ưu hoá việc tìm kiếm, xây dựng thương hiệu và quy trình làm việc trong các tệp PowerPoint của bạn."
 ---
 ## **Giới thiệu**
 
 Aspose.Slides hỗ trợ hai loại thuộc tính tài liệu: **Built-in** và **Custom**. Cả hai loại thuộc tính này đều có thể được truy cập và quản lý dễ dàng bằng API Aspose.Slides.
 
-Aspose.Slides cho phép bạn làm việc với thuộc tính tài liệu của trình chiếu thông qua lớp [DocumentProperties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/documentproperties/). Một thể hiện của lớp này được trả về bởi thuộc tính [Presentation.document_properties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/document_properties/). Các ví dụ dưới đây cho thấy cách đọc, sửa đổi và quản lý các thuộc tính này.
+Aspose.Slides cho phép bạn làm việc với các thuộc tính tài liệu của bản trình bày thông qua lớp [DocumentProperties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/documentproperties/) . Một thể hiện của lớp này được trả về bởi thuộc tính [Presentation.document_properties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/document_properties/) . Các ví dụ sau đây cho thấy cách đọc, sửa đổi và quản lý các thuộc tính này.
 
-{{% alert color="info" title="Note" %}}
-Vui lòng lưu ý rằng bạn không thể đặt giá trị cho các trường **Application** và **Producer**, vì Aspose Ltd. và Aspose.Slides for Python via .NET x.x.x sẽ được hiển thị trong các trường này.
+{{% alert color="info" title="Ghi chú" %}}
+Xin lưu ý rằng bạn không thể đặt giá trị cho các trường **Application** và **Producer**, vì Aspose Ltd. và Aspose.Slides for Python via .NET x.x.x sẽ được hiển thị trong các trường này.
 {{% /alert %}} 
 
-## **Quản lý thuộc tính trình chiếu**
+## **Quản lý Thuộc tính Bản trình bày**
 
-Microsoft PowerPoint cung cấp tính năng thêm một số thuộc tính vào các tệp trình chiếu. Các thuộc tính tài liệu này cho phép lưu trữ một số thông tin hữu ích cùng với tài liệu (tệp trình chiếu). Có hai loại thuộc tính tài liệu như sau
+Microsoft PowerPoint cung cấp tính năng thêm một số thuộc tính vào các tệp bản trình bày. Các thuộc tính tài liệu này cho phép lưu trữ một số thông tin hữu ích cùng với tài liệu (các tệp bản trình bày). Có hai loại thuộc tính tài liệu như sau
 
-- Thuộc tính được định nghĩa hệ thống (Built-in) Properties
-- Thuộc tính do người dùng định nghĩa (Custom) Properties
+- Thuộc tính Được Định Nghĩa Hệ Thống (Built-in) Properties
+- Thuộc tính Được Định Nghĩa Bởi Người Dùng (Custom) Properties
 
-**Built-in** properties chứa thông tin chung về tài liệu như tiêu đề tài liệu, tên tác giả, thống kê tài liệu, v.v. **Custom** properties là những thuộc tính được người dùng định nghĩa dưới dạng cặp **Tên/Giá trị**, trong đó cả tên và giá trị đều do người dùng quyết định. Sử dụng Aspose.Slides for Python via .NET, các nhà phát triển có thể truy cập và sửa đổi giá trị của các thuộc tính built-in cũng như custom. Microsoft PowerPoint 2007 cho phép quản lý thuộc tính tài liệu của các tệp trình chiếu. Bạn chỉ cần nhấp vào biểu tượng Office và tiếp tục mục **Prepare | Properties | Advanced Properties** trong Microsoft PowerPoint 2007. Sau khi chọn mục **Advanced Properties**, một hộp thoại sẽ xuất hiện cho phép bạn quản lý thuộc tính tài liệu của tệp PowerPoint. Trong **Properties Dialog**, bạn sẽ thấy nhiều tab như **General, Summary, Statistics, Contents and Custom**. Tất cả các tab này cho phép cấu hình các loại thông tin khác nhau liên quan đến tệp PowerPoint. Tab **Custom** được dùng để quản lý các thuộc tính tùy chỉnh của tệp PowerPoint.
+**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Python via .NET, developers can access and modify the values of built-in properties as well as custom properties. Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007. After you select **Advanced Properties** menu item, a dialog would appear allowing you to manage the document properties of the PowerPoint file. In the **Properties Dialog**, you can see that there are many tab pages like **General, Summary, Statistics, Contents and Custom**. All these tab pages allow configuring different kinds of information related to the PowerPoint files. **Custom** tab is used to manage the custom properties of the PowerPoint files.
 
-## **Truy cập thuộc tính Built-in**
-Những thuộc tính được đưa ra bởi đối tượng **IDocumentProperties** bao gồm: **Creator(Author)**, **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** và **Title**
+## **Đọc Thuộc tính Công khai từ Bản trình bày Được Mã hóa**
+
+Một mật khẩu mở thường bảo vệ cả nội dung bản trình bày và các thuộc tính tài liệu. Khi một bản trình bày được mã hóa với [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) được đặt thành `False`, các thuộc tính tài liệu của nó vẫn công khai. Ứng dụng sau đó có thể đặt [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/only_load_document_properties/) thành `True` và đọc siêu dữ liệu công khai mà không cần cung cấp mật khẩu mở.
+
+`only_load_document_properties` controls what Aspose.Slides loads; it does not decrypt anything. If the properties were included in encryption, loading them without the password fails. If the presentation is not encrypted, the option is ignored and the complete presentation is loaded.
+
+The following example verifies the loading mode through [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/vi/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) and then reads built-in properties through [Presentation.document_properties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/document_properties/):
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.only_load_document_properties = True
+
+with slides.Presentation("public-properties-encrypted.pptx", load_options) as presentation:
+    if presentation.protection_manager.is_only_document_properties_loaded:
+        properties = presentation.document_properties
+
+        print("Author: " + properties.author)
+        print("Title: " + properties.title)
+        print("Keywords: " + properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+Trong chế độ này, nội dung slide không được tải. Slides, masters, layouts, shapes, media và các đối tượng khác của bản trình bày không khả dụng. Ứng dụng nên luôn kiểm tra `is_only_document_properties_loaded` trước khi thực hiện bất kỳ thao tác nào yêu cầu mô hình đối tượng bản trình bày đầy đủ.
+
+{{% alert color="warning" title="Bảo mật" %}}
+Public metadata may expose author names, titles, subjects, keywords, company information, comments, and custom values. Encrypt sensitive properties together with the presentation. Leave them public only when indexing, classification, search, or document-management systems have a specific requirement to access them without a password.
+{{% /alert %}}
+
+## **Cập nhật Thuộc tính của Bản trình bày Được Mã hóa**
+
+Đối với tệp PPTX đã được mã hóa, một bản trình bày được tải với `only_load_document_properties` chỉ nhằm mục đích đọc siêu dữ liệu công khai. Aspose.Slides không thể lưu các thuộc tính đã thay đổi từ đối tượng chỉ có siêu dữ liệu này vì các thuộc tính công cộng phải đồng nhất với dữ liệu tương ứng bên trong bản trình bày đã mã hóa. Do đó việc cập nhật chúng yêu cầu mật khẩu mở đúng và tải đầy đủ bản trình bày.
+
+The following example opens the presentation with [LoadOptions.password](https://reference.aspose.com/slides/vi/python-net/aspose.slides/loadoptions/password/), updates public built-in properties, and saves the result. It then uses [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentationinfo/is_encrypted/) to verify that encryption is preserved and reopens the public metadata without a password to verify the new values:
+
+```python
+import aspose.slides as slides
+
+input_path = "public-properties-encrypted.pptx"
+output_path = "updated-public-properties-encrypted.pptx"
+
+load_options = slides.LoadOptions()
+load_options.password = "open_password"
+
+with slides.Presentation(input_path, load_options) as presentation:
+    presentation.document_properties.title = "Updated Product Roadmap"
+    presentation.document_properties.keywords = "roadmap, planning, indexed"
+    presentation.save(output_path, slides.export.SaveFormat.PPTX)
+
+presentation_info = slides.PresentationFactory.instance.get_presentation_info(output_path)
+print("The presentation is encrypted: " + str(presentation_info.is_encrypted))
+
+metadata_load_options = slides.LoadOptions()
+metadata_load_options.only_load_document_properties = True
+
+with slides.Presentation(output_path, metadata_load_options) as metadata_presentation:
+    if metadata_presentation.protection_manager.is_only_document_properties_loaded:
+        print("Title: " + metadata_presentation.document_properties.title)
+        print("Keywords: " + metadata_presentation.document_properties.keywords)
+    else:
+        print("The presentation was not loaded in document-properties-only mode.")
+```
+
+Nếu một ứng dụng không được phép giải mã hoặc tải nội dung bản trình bày, nó phải xem các thuộc tính công khai của tệp PPTX đã mã hóa là chỉ đọc.
+
+## **Truy cập Thuộc tính Built-in**
+
+These properties as exposed by **IDocumentProperties** object include: **Creator(Author)**, **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
+
 ```py
 import aspose.slides as slides
 
-# Khởi tạo lớp Presentation đại diện cho bản trình chiếu
+# Tạo một thể hiện của lớp Presentation đại diện cho bản trình bày
 with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
     # Tạo một tham chiếu tới đối tượng liên kết với Presentation
     documentProperties = pres.document_properties
 
-    # Hiển thị các thuộc tính tích hợp sẵn
+    # Hiển thị các thuộc tính tích hợp
     print("category : " + documentProperties.category)
     print("Current Status : " + documentProperties.content_status)
     print("Creation Date : " + str(documentProperties.created_time))
@@ -70,42 +139,42 @@ with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
     print("Title : " + documentProperties.title)
 ```
 
-## **Sửa đổi thuộc tính Built-in**
+## **Sửa đổi Thuộc tính Built-in**
 
-Việc sửa đổi các thuộc tính built-in của tệp trình chiếu đơn giản như việc truy cập chúng. Bạn chỉ cần gán một giá trị chuỗi cho bất kỳ thuộc tính nào mong muốn và giá trị thuộc tính sẽ được thay đổi. Trong ví dụ dưới đây, chúng tôi đã minh họa cách chúng ta có thể sửa đổi các thuộc tính tài liệu built-in của tệp trình chiếu.
+Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated that how we can modify the built-in document properties of the presentation file.
 
 ```py
 import aspose.slides as slides
 
-# Khởi tạo lớp Presentation đại diện cho Presentation
+# Khởi tạo lớp Presentation đại diện cho bản trình bày
 with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
-    # Tạo một tham chiếu tới đối tượng liên kết với Presentation
+    # Tạo một tham chiếu tới đối tượng liên kết với bản trình bày
     documentProperties = presentation.document_properties
 
-    # Đặt các thuộc tính tích hợp sẵn
+    # Thiết lập các thuộc tính tích hợp
     documentProperties.author = "Aspose.Slides for .NET"
     documentProperties.title = "Modifying Presentation Properties"
     documentProperties.subject = "Aspose Subject"
     documentProperties.comments = "Aspose Description"
     documentProperties.manager = "Aspose Manager"
 
-    # Lưu bản trình chiếu của bạn vào tệp
+    # Lưu bản trình bày của bạn vào tệp
     presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Thêm thuộc tính tùy chỉnh cho trình chiếu**
+## **Thêm Thuộc tính Bản trình bày Tùy chỉnh**
 
-Aspose.Slides for Python via .NET cũng cho phép các nhà phát triển thêm các giá trị tùy chỉnh cho thuộc tính tài liệu của trình chiếu. Một ví dụ được đưa ra dưới đây cho thấy cách đặt các thuộc tính tùy chỉnh cho một trình chiếu.
+Aspose.Slides for Python via .NET also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ```py
 import aspose.slides as slides
 
 # Khởi tạo lớp Presentation
 with slides.Presentation() as presentation:
-    # Lấy thuộc tính tài liệu
+    # Lấy các thuộc tính tài liệu
     documentProperties = presentation.document_properties
 
-    # Thêm thuộc tính tùy chỉnh
+    # Thêm các thuộc tính tùy chỉnh
     documentProperties.set_custom_property_value("New Custom", 12)
     documentProperties.set_custom_property_value("My Nam", "Mudassir")
     documentProperties.set_custom_property_value("Custom", 124)
@@ -116,13 +185,13 @@ with slides.Presentation() as presentation:
     # Xóa thuộc tính đã chọn
     documentProperties.remove_custom_property(getPropertyName)
 
-    # Lưu bản trình chiếu
+    # Lưu bản trình bày
     presentation.save("CustomDocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Truy cập và sửa đổi thuộc tính Custom**
+## **Truy cập và Sửa đổi Thuộc tính Tùy chỉnh**
 
-Aspose.Slides for Python via .NET cũng cho phép các nhà phát triển truy cập giá trị của các thuộc tính tùy chỉnh. Một ví dụ được đưa ra dưới đây cho thấy cách bạn có thể truy cập và sửa đổi tất cả các thuộc tính tùy chỉnh này cho một trình chiếu.
+Aspose.Slides for Python via .NET also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```py
 import aspose.slides as slides
@@ -144,17 +213,17 @@ with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
 
         # Sửa đổi giá trị của các thuộc tính tùy chỉnh
         documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
-    # Lưu bản trình chiếu của bạn vào tệp
+    # Lưu bản trình bày của bạn vào tệp
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`get_custom_property_value` trả về giá trị thông qua danh sách một phần tử được truyền làm đối số thứ hai, và giá trị được lưu trữ sẽ được ép kiểu sang kiểu của phần tử đã có trong danh sách đó. Ví dụ trên sử dụng `[""]`, vì vậy nó đọc các thuộc tính kiểu chuỗi; để đọc một thuộc tính lưu dưới dạng số, truyền một placeholder số như `[0]`—nếu không, cuộc gọi sẽ ném ra một `InvalidCastException`.
+`get_custom_property_value` returns the value through the one-element list passed as its second argument, and the stored value is cast to the type of the element already in that list. The example above uses `[""]`, so it reads string properties; to read a property stored as a number, pass a numeric placeholder such as `[0]`—otherwise the call raises an `InvalidCastException`.
 
-## **Đặt ngôn ngữ kiểm tra chính tả**
+## **Đặt Ngôn ngữ Kiểm tra Chính tả**
 
-Aspose.Slides cung cấp thuộc tính `Language_Id` (được đưa ra bởi lớp [PortionFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portionformat/)) để cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một tài liệu PowerPoint. Ngôn ngữ kiểm tra chính tả là ngôn ngữ mà chính tả và ngữ pháp trong PowerPoint được kiểm tra.
+Aspose.Slides provides the `Language_Id` property (exposed by the [PortionFormat](https://reference.aspose.com/slides/vi/python-net/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-Đoạn mã Python sau cho bạn thấy cách đặt ngôn ngữ kiểm tra chính tả cho một PowerPoint:
+This Python code shows you how to set the proofing language for a PowerPoint:
 
 ```python
 import aspose.slides as slides
@@ -178,9 +247,9 @@ with slides.Presentation("SetProofingLanguage.pptx") as pres:
     paragraph.portions.add(new_portion)
 ```
 
-## **Đặt ngôn ngữ mặc định**
+## **Đặt Ngôn ngữ Mặc định**
 
-Đoạn mã Python sau cho bạn thấy cách đặt ngôn ngữ mặc định cho toàn bộ bản trình chiếu PowerPoint:
+This Python code shows you how to set the default language for an entire PowerPoint presentation:
 
 ```python
 import aspose.slides as slides
@@ -196,22 +265,30 @@ with slides.Presentation(load_options) as pres:
     print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
 ```
 
-## **Ví dụ thực tế**
+## **Ví dụ Trực tiếp**
 
-Hãy thử ứng dụng trực tuyến [**Aspose.Slides Metadata**](https://products.aspose.app/slides/vi/metadata) để xem cách làm việc với thuộc tính tài liệu thông qua API Aspose.Slides:
+Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/vi/metadata) online app to see how to work with document properties via Aspose.Slides API:
 
-[![Xem & Chỉnh sửa siêu dữ liệu PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/vi/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/vi/metadata)
 
-## **Câu hỏi thường gặp**
+## **Câu hỏi Thường gặp**
 
-**Làm thế nào để tôi xóa một thuộc tính Built-in khỏi trình chiếu?**
+**How can I remove a built-in property from a presentation?**
 
-Các thuộc tính Built-in là một phần không thể tách rời của trình chiếu và không thể bị xóa hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành rỗng nếu thuộc tính cụ thể cho phép.
+Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
 
-**Điều gì sẽ xảy ra nếu tôi thêm một thuộc tính Custom đã tồn tại?**
+**What happens if I add a custom property that already exists?**
 
-Nếu bạn thêm một thuộc tính Custom đã tồn tại, giá trị hiện tại của nó sẽ bị ghi đè bằng giá trị mới. Bạn không cần phải xóa hoặc kiểm tra thuộc tính trước, vì Aspose.Slides sẽ tự động cập nhật giá trị của thuộc tính.
+If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
 
-**Tôi có thể truy cập thuộc tính trình chiếu mà không tải toàn bộ trình chiếu không?**
+**Can I access presentation properties without fully loading the presentation?**
 
-Có. Sử dụng [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentationfactory/get_presentation_info/) rồi [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentationinfo/read_document_properties/) để đọc siêu dữ liệu tài liệu được lưu mà không cần tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/). Xem [Build a Lightweight Presentation Inventory](/slides/vi/python-net/examine-presentation/) để biết ví dụ báo cáo đầy đủ và các hạn chế theo định dạng.
+Yes. Use [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentationfactory/get_presentation_info/) and then [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentationinfo/read_document_properties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/vi/python-net/examine-presentation/) for a complete reporting example and format-specific limitations.
+
+**Can I read public properties of an encrypted presentation without its opening password?**
+
+Yes. The presentation must have been encrypted with `encrypt_document_properties` set to `False`, and it must be loaded with `only_load_document_properties` set to `True`.
+
+**Can I update an encrypted PPTX file in document-properties-only mode?**
+
+No. Public and encrypted property data must remain consistent, so updating an encrypted PPTX file requires loading the complete presentation with the correct opening password.

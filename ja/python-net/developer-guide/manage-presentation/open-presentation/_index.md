@@ -1,142 +1,120 @@
 ---
-title: Pythonでプレゼンテーションを開く
+title: Python でプレゼンテーションを開く
 linktitle: プレゼンテーションを開く
 type: docs
 weight: 20
 url: /ja/python-net/open-presentation/
 keywords:
-- PowerPointを開く
+- PowerPoint を開く
 - プレゼンテーションを開く
-- PPTXを開く
-- PPTを開く
-- ODPを開く
+- PPTX を開く
+- PPT を開く
+- ODP を開く
 - プレゼンテーションをロードする
-- PPTXをロードする
-- PPTをロードする
-- ODPをロードする
+- PPTX をロードする
+- PPT をロードする
+- ODP をロードする
 - 保護されたプレゼンテーション
-- 大容量プレゼンテーション
+- 大きなプレゼンテーション
 - 外部リソース
 - バイナリオブジェクト
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、PowerPoint（.pptx、.ppt）および OpenDocument（.odp）プレゼンテーションを簡単に開くことができます—高速で信頼性が高く、フル機能です。"
+description: "Python で PowerPoint および OpenDocument のプレゼンテーションを開く方法、開く際のパスワードを指定する方法、そして Aspose.Slides for Python via .NET を使用してメモリ使用量を削減する方法を学びます。"
 ---
+## **はじめに**
 
-## **概要**
+[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/ja/python-net/) は、ファイルやストリームから PowerPoint と OpenDocument のプレゼンテーションを読み込むことができます。プレゼンテーションを読み込んだ後、その構造を検査したり、スライドを編集したり、リソースを管理したり、元の形式または他のサポートされている形式で保存したりできます。
 
-PowerPoint プレゼンテーションを最初から作成するだけでなく、Aspose.Slides では既存のプレゼンテーションを開くこともできます。プレゼンテーションを読み込んだ後は、その情報を取得したり、スライドの内容を編集したり、新しいスライドを追加したり、既存のスライドを削除したり、その他さまざまな操作が可能です。
+読み込み動作は [LoadOptions](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/) クラスでカスタマイズできます。たとえば、開くためのパスワードを指定したり、大きなバイナリオブジェクトをメモリ外に保持したり、埋め込みバイナリデータを省略したりできます。
 
 ## **プレゼンテーションを開く**
 
-既存のプレゼンテーションを開くには、[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成し、コンストラクタにファイル パスを渡します。
+既存のプレゼンテーションを開くには、ファイルパスを [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) コンストラクタに渡します。`with` 文を使用すると、ファイルハンドル、テンポラリ データ、その他のリソースが速やかに解放されます。
 
-次の Python の例は、プレゼンテーションを開いてスライド数を取得する方法を示しています:
+以下の Python の例は、プレゼンテーションを開いてスライド数を取得する方法を示しています：
+
 ```python
 import aspose.slides as slides
 
-# Presentation クラスのインスタンスを作成し、コンストラクタにファイルパスを渡します。
 with slides.Presentation("sample.pptx") as presentation:
-    # プレゼンテーションのスライド総数を出力します。
-    print(presentation.slides.length)
+    print("Slide count: " + str(len(presentation.slides)))
 ```
-
 
 ## **パスワード保護されたプレゼンテーションを開く**
 
-パスワード保護されたプレゼンテーションを開く必要がある場合は、[LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) クラスの [password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) プロパティにパスワードを指定して復号化し、読み込みます。以下の Python コードがこの操作を示しています:
+開く際のパスワードはプレゼンテーションの内容を暗号化します。完全なプレゼンテーションを読み込むには、正しいパスワードを [LoadOptions.password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/password/) に設定し、そのオプションを [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) コンストラクタに渡します。パスワードがない、または間違っている場合は読み込みに失敗します。
+
 ```python
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "YOUR_PASSWORD"
+load_options.password = "open_password"
 
-with slides.Presentation("sample.pptx", load_options) as presentation:
-    # 復号化されたプレゼンテーションで操作を実行します。
+with slides.Presentation("encrypted-presentation.pptx", load_options) as presentation:
+    print("Slide count: " + str(len(presentation.slides)))
 ```
 
+パスワードの検出、検証、暗号化ワークフローについては、[Password-Protect Presentations](/slides/ja/python-net/password-protected-presentation/) を参照してください。暗号化されたプレゼンテーションが意図的に公開ドキュメントプロパティとともに保存された場合、パスワードなしでそれらのプロパティを読むことができます。詳細は [Manage Presentation Properties](/slides/ja/python-net/presentation-properties/) をご覧ください。
 
-## **大容量プレゼンテーションを開く**
+## **大きなプレゼンテーションを開く**
 
-Aspose.Slides は、特に [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) クラスの [blob_management_options](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/blob_management_options/) プロパティなどのオプションを提供し、大容量プレゼンテーションの読み込みを支援します。
+[LoadOptions.blob_management_options](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/blob_management_options/) は、画像、音声、動画などのバイナリ大規模オブジェクトの取り扱いを制御します。ソースファイルをロックしたままにしたり、一時ファイルを許可したり、メモリに保持する BLOB データ量を制限したりできます。
 
-次の Python コードは、たとえば 2 GB の大容量プレゼンテーションを読み込む例です:
+以下の Python コードは、大きなプレゼンテーション（例として 2 GB）を読み込む方法を示しています：
+
 ```python
 import aspose.slides as slides
-import os
-
-file_path = "LargePresentation.pptx"
+file_path = "large-presentation.pptx"
 
 load_options = slides.LoadOptions()
-# KeepLocked 動作を選択します—プレゼンテーション ファイルはインスタンスの存続期間中ロックされたままになります
-# プレゼンテーション インスタンスですが、メモリにロードしたり一時ファイルにコピーする必要はありません。
 load_options.blob_management_options.presentation_locking_behavior = slides.PresentationLockingBehavior.KEEP_LOCKED
 load_options.blob_management_options.is_temporary_files_allowed = True
-load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024  # 10 MB
+load_options.blob_management_options.max_blobs_bytes_in_memory = 10 * 1024 * 1024
 
 with slides.Presentation(file_path, load_options) as presentation:
-    # 大容量のプレゼンテーションがロードされ、使用可能です。メモリ使用量は低く抑えられます。
-
-    # プレゼンテーションを変更します。
     presentation.slides[0].name = "Large presentation"
-
-    # プレゼンテーションを別のファイルに保存します。この操作中もメモリ使用量は低く抑えられます。
-    presentation.save("LargePresentation-copy.pptx", slides.export.SaveFormat.PPTX)
-
-    # これを行わないでください！プレゼンテーション オブジェクトが破棄されるまでファイルがロックされているため、I/O 例外がスローされます。
-    os.remove(file_path)
-
-# ここで行っても問題ありません。ソース ファイルはプレゼンテーション オブジェクトによるロックが解除されています。
-os.remove(file_path)
+    presentation.save("large-presentation-copy.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+{{% alert color="info" title="Note" %}}
+`PresentationLockingBehavior.KEEP_LOCKED` を使用すると、`Presentation` オブジェクトが破棄されるまでソースファイルがロックされたままになります。そのオブジェクトが存続している間は、ソースファイルを移動、上書き、削除しないでください。
 
-{{% alert color="info" title="Info" %}}
-ストリームで作業する際の特定の制限を回避するために、Aspose.Slides はストリームの内容をコピーすることがあります。ストリームから大容量プレゼンテーションを読み込むと、プレゼンテーションがコピーされ、読み込みが遅くなる可能性があります。したがって、大容量プレゼンテーションを読み込む必要がある場合は、ストリームではなくプレゼンテーションのファイル パスを使用することを強く推奨します。
+Aspose.Slides は読み込み時に入力ストリームの内容をコピーする場合があります。大きなプレゼンテーションでは、ストリームよりもファイルパスの方が一般的に効率的です。追加のストレージおよびメモリ管理オプションについては、[Manage BLOBs](/slides/ja/python-net/manage-blob/) を参照してください。
+{{% /alert %}}
 
-大きなオブジェクト（動画、音声、高解像度画像など）を含むプレゼンテーションを作成する場合は、[BLOB management](/slides/ja/python-net/manage-blob/) を使用してメモリ使用量を削減できます。
-{{%/alert %}}
+## **埋め込みバイナリオブジェクトなしでプレゼンテーションを読み込む**
 
-## **外部リソースの制御**
+プレゼンテーションには、アプリケーションが必要としない、または保持したくない埋め込みバイナリデータが含まれることがあります。例としては：
 
-Aspose.Slides は、外部リソースを管理できる [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) クラスを提供します。以下の Python コードは `IResourceLoadingCallback` クラスの使用方法を示しています:
+- VBA プロジェクトは [Presentation.vba_project](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/vba_project/) で利用できます；
+- 埋め込み OLE データは [OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) で利用できます；
+- ActiveX コントロールデータは [Control.active_x_control_binary](https://reference.aspose.com/slides/ja/python-net/aspose.slides/control/active_x_control_binary/) で利用できます。
+
+[LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) を `True` に設定すると、読み込み時にこのバイナリデータが削除されます。サニタイズされた結果を保持するために、読み込んだプレゼンテーションを保存してください。
+
+このオプションは不要な埋め込みペイロードへの曝露を減らしますが、完全なマルウェア検出やコンテンツサニタイズシステムではありません。
+
 ```python
-# [TODO[not_supported_yet]: .NET インターフェイスの Python 実装]
-```
-
-
-## **埋め込みバイナリ オブジェクトなしでプレゼンテーションをロードする**
-
-PowerPoint プレゼンテーションには、次の種類の埋め込みバイナリ オブジェクトが含まれることがあります。
-
-- VBA プロジェクト（[Presentation.vba_project](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/vba_project/) でアクセス可能）;
-- OLE オブジェクトの埋め込みデータ（[OleEmbeddedDataInfo.embedded_file_data](https://reference.aspose.com/slides/python-net/aspose.slides/ioleembeddeddatainfo/embedded_file_data/) でアクセス可能）;
-- ActiveX コントロールのバイナリ データ（[Control.active_x_control_binary](https://reference.aspose.com/slides/python-net/aspose.slides/control/active_x_control_binary/) でアクセス可能）.
-
-[LoadOptions.delete_embedded_binary_objects](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/delete_embedded_binary_objects/) プロパティを使用すると、埋め込みバイナリ オブジェクトを含まないプレゼンテーションを読み込むことができます。
-
-このプロパティは、潜在的に危険なバイナリ コンテンツを除去するのに便利です。以下の Python コードは、埋め込みバイナリ コンテンツを含まないプレゼンテーションを読み込む方法を示しています:
-```py
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
 load_options.delete_embedded_binary_objects = True
 
-with slides.Presentation("malware.ppt", load_options) as presentation:
-    # プレゼンテーションに対して操作を行います。
+with slides.Presentation("presentation-with-embedded-data.pptx", load_options) as presentation:
+    presentation.save("presentation-without-embedded-data.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **よくある質問**
 
-## **FAQ**
+**ファイルが破損していて開けないことはどのように判断できますか？**
 
-**ファイルが破損していて開けないことをどう判断できますか？**
+Aspose.Slides は読み込み中にパース例外または形式例外をスローします。この失敗をパスワードが間違っているエラーとは別に処理し、アプリケーションが原因を正確に報告できるようにしてください。
 
-読み込み中に解析/形式検証例外がスローされます。この種のエラーは、ZIP 構造が無効であるか PowerPoint のレコードが破損していることを示すことが多いです。
+**必要なフォントが見つからない場合はどうなりますか？**
 
-**開く際に必須フォントが欠落しているとどうなりますか？**
+プレゼンテーションは依然として読み込めますが、レンダリングやエクスポート時にフォントが置換されることがあります。出力をより予測可能にするために、[フォント置換の構成](/slides/ja/python-net/font-substitution/) または [カスタムフォントの提供](/slides/ja/python-net/custom-font/) を行うことができます。
 
-ファイルは開きますが、後の [rendering/export](/slides/ja/python-net/convert-presentation/) 時にフォントが置き換えられることがあります。[フォント置換の設定](/slides/ja/python-net/font-substitution/) または [必要なフォントの追加](/slides/ja/python-net/custom-font/) を実行環境に行ってください。
+**プレゼンテーションの読み込みは埋め込みメディアも読み込みますか？**
 
-**開く際の埋め込みメディア（動画/音声）はどう扱われますか？**
-
-メディアはプレゼンテーションのリソースとして利用可能になります。メディアが外部パスで参照されている場合、そのパスが環境でアクセス可能であることを確認してください。そうでないと、[rendering/export](/slides/ja/python-net/convert-presentation/) 時にメディアが省略される可能性があります。
+埋め込みの音声や動画はプレゼンテーションオブジェクトモデルを通じて利用可能になります。外部リソースはデフォルトのリソース読み込み動作に従って解決され、場所にアクセスできない場合は利用できないことがあります。

@@ -5,8 +5,8 @@ type: docs
 weight: 70
 url: /sv/php-java/presentation-properties/
 keywords:
-- PowerPoint-egenskaper
-- presentations-egenskaper
+- PowerPoint egenskaper
+- presentations egenskaper
 - dokumentegenskaper
 - inbyggda egenskaper
 - anpassade egenskaper
@@ -22,50 +22,135 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Behärska presentationsegenskaper i Aspose.Slides för PHP via Java och effektivisera sökning, varumärkesprofilering och arbetsflöde i dina PowerPoint- och OpenDocument-filer."
+description: "Behärska presentationsegenskaper i Aspose.Slides för PHP via Java och effektivisera sökning, varumärkesprofilering och arbetsflöde i dina PowerPoint och OpenDocument filer."
 ---
 ## **Introduktion**
 
-Aspose.Slides stöder två typer av dokumentegenskaper: **Inbyggda** och **Anpassade**. Båda dessa egenskapstyper kan enkelt nås och hanteras med Aspose.Slides‑API‑et.
+Aspose.Slides stöder två typer av dokumentegenskaper: **Inbyggda** och **Anpassade**. Båda dessa egenskapstyper kan enkelt nås och hanteras med Aspose.Slides API.
 
-Aspose.Slides låter dig arbeta med presentationsdokumentegenskaper via klassen [DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties/) . En instans av denna klass returneras av metoden [Presentation::getDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getDocumentProperties). Följande exempel visar hur man läser, ändrar och hanterar dessa egenskaper.
+Aspose.Slides låter dig arbeta med presentationsdokumentegenskaper via klassen [DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties/) . En instans av denna klass returneras av metoden [Presentation::getDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getDocumentProperties) . Följande exempel visar hur man läser, modifierar och hanterar dessa egenskaper.
 
 {{% alert color="info" title="Note" %}}
-Observera att fälten **Application** och **AppVersion** inte kan ändras. Aspose.Slides skriver om dem vid varje sparning, så en sparad presentation alltid rapporterar "Aspose.Slides for PHP via Java" och versionen av biblioteket som skapade den. Eventuellt värde som skickas till `setNameOfApplication` kastas bort när presentationen skrivs.
+Observera att fälten **Application** och **AppVersion** inte kan ändras. Aspose.Slides skriver om dem vid varje sparning, så en sparad presentation alltid rapporterar "Aspose.Slides for PHP via Java" och versionen av biblioteket som skapade den. Alla värden som passerats till `setNameOfApplication` förkastas när presentationen skrivs.
 {{% /alert %}} 
 
 ## **Hantera presentationsegenskaper**
 
-Microsoft PowerPoint erbjuder en funktion för att lägga till vissa egenskaper i presentationsfilerna. Dessa dokumentegenskaper gör det möjligt att lagra användbar information tillsammans med dokumenten (presentationsfilerna). Det finns två typer av dokumentegenskaper:
+Microsoft PowerPoint erbjuder en funktion för att lägga till vissa egenskaper i presentationsfilerna. Dessa dokumentegenskaper möjliggör lagring av viss användbar information tillsammans med dokumenten (presentationsfiler). Det finns två slags dokumentegenskaper enligt följande
 
-- Systemdefinierade (Inbyggda) egenskaper  
-- Användardefinierade (Anpassade) egenskaper  
+- Systemdefinierade (Inbyggda) egenskaper
+- Användardefinierade (Anpassade) egenskaper
 
-**Inbyggda** egenskaper innehåller generell information om dokumentet, såsom dokumenttitel, författarens namn, dokumentstatistik med mera. **Anpassade** egenskaper är de som användarna definierar som **Namn/Värde**‑par, där både namn och värde bestäms av användaren. Med Aspose.Slides for PHP via Java kan utvecklare komma åt och ändra både inbyggda och anpassade egenskaper.
+**Inbyggda** egenskaper innehåller allmän information om dokumentet såsom dokumenttitel, författarens namn, dokumentstatistik med mera. **Anpassade** egenskaper är de som definieras av användarna som **Namn/Värde**-par, där både namn och värde definieras av användaren. Med Aspose.Slides for PHP via Java kan utvecklare komma åt och ändra värdena för både inbyggda och anpassade egenskaper.
 
 ## **Dokumentegenskaper i PowerPoint**
 
-Microsoft PowerPoint 2007 möjliggör hantering av dokumentegenskaper i presentationsfilerna. Allt du behöver göra är att klicka på Office‑ikonen och sedan **Prepare | Properties | Advanced Properties** i Microsoft PowerPoint 2007 som visas nedan:
+Microsoft PowerPoint 2007 tillåter hantering av dokumentegenskaperna i presentationsfilerna. Allt du behöver göra är att klicka på Office‑ikonen och sedan på menyalternativet **Prepare | Properties | Advanced Properties** i Microsoft PowerPoint 2007 som visas nedan:
 
 |**Välja menyalternativet Advanced Properties**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-När du har valt **Advanced Properties** visas en dialogruta som låter dig hantera dokumentegenskaperna i PowerPoint‑filen, enligt bilden nedan:
+När du väljer menyalternativet **Advanced Properties** visas en dialogruta som låter dig hantera dokumentegenskaperna för PowerPoint‑filen som visas nedan i figuren:
 
 |**Egenskapsdialog**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-I ovanstående **Egenskapsdialog** ser du flikar som **General**, **Summary**, **Statistics**, **Contents** och **Custom**. Alla dessa flikar låter dig konfigurera olika typer av information relaterad till PowerPoint‑filerna. Fliken **Custom** används för att hantera anpassade egenskaper i PowerPoint‑filerna.
+I dialogrutan **Properties Dialog** ovan kan du se att det finns många flikar såsom **General**, **Summary**, **Statistics**, **Contents** och **Custom**. Alla dessa flikar möjliggör konfiguration av olika typer av information relaterad till PowerPoint‑filerna. Fliken **Custom** används för att hantera anpassade egenskaper för PowerPoint‑filerna.
 
-### Arbeta med dokumentegenskaper med Aspose.Slides for PHP via Java
+Arbeta med dokumentegenskaper med Aspose.Slides for PHP via Java
 
-Som vi tidigare beskrivit stödjer Aspose.Slides for PHP via Java två typer av dokumentegenskaper: **Inbyggda** och **Anpassade**. Således kan utvecklare komma åt båda typerna med Aspose.Slides for PHP via Java‑API:t. Aspose.Slides for PHP via Java tillhandahåller klassen [DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties) som representerar dokumentegenskaperna som är associerade med en presentationsfil via egenskapen **Presentation.DocumentProperties**.
+Som vi beskrev tidigare stödjer Aspose.Slides for PHP via Java två typer av dokumentegenskaper, nämligen **Inbyggda** och **Anpassade** egenskaper. Således kan utvecklare komma åt båda typerna av egenskaper med hjälp av Aspose.Slides for PHP via Java API. Aspose.Slides for PHP via Java tillhandahåller klassen [DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties) som representerar dokumentegenskaperna associerade med en presentationsfil via egenskapen **Presentation.DocumentProperties**.
 
-Utvecklare kan använda egenskapen **DocumentProperties** som exponeras av [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation)-objektet för att nå dokumentegenskaperna i presentationsfilerna enligt nedan:
+Utvecklare kan använda egenskapen **DocumentProperties** som exponeras av objektet [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation) för att komma åt dokumentegenskaperna i presentationsfilerna enligt beskrivningen nedan:
 
-## **Kom åt inbyggda egenskaper**
+## **Läs offentliga egenskaper från en krypterad presentation**
 
-De egenskaper som exponeras av objektet [DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties) inkluderar: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** och **Title**.
+Ett öppningslösenord skyddar normalt både presentationsinnehåll och dokumentegenskaper. När en presentation krypteras genom att skicka `false` till [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) , förblir dess dokumentegenskaper offentliga. En applikation kan då skicka `true` till [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) och läsa den offentliga metadata utan att ange öppningslösenordet.
+
+Alternativet document-properties-only styr vad Aspose.Slides laddar; det dekrypterar ingenting. Om egenskaperna ingick i krypteringen misslyckas laddningen utan lösenord. Om presentationen inte är krypterad ignoreras alternativet och hela presentationen laddas.
+
+Följande exempel verifierar laddningsläget via [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/sv/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) och läser sedan inbyggda egenskaper via [Presentation::getDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getDocumentProperties) :
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+
+$loadOptions = new LoadOptions();
+$loadOptions->setOnlyLoadDocumentProperties(true);
+
+$presentation = new Presentation("public-properties-encrypted.pptx", $loadOptions);
+try {
+    if (java_values($presentation->getProtectionManager()->isOnlyDocumentPropertiesLoaded())) {
+        $properties = $presentation->getDocumentProperties();
+
+        echo("Author: " . $properties->getAuthor() . "\n");
+        echo("Title: " . $properties->getTitle() . "\n");
+        echo("Keywords: " . $properties->getKeywords() . "\n");
+    } else {
+        echo("The presentation was not loaded in document-properties-only mode.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+I detta läge laddas inte bildinnehåll. Bilder, masterbilder, layouter, former, media och andra presentationsobjekt är inte tillgängliga. Applikationer bör alltid kontrollera [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/sv/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) innan de utför en operation som kräver hela presentationsobjektmodellen.
+
+{{% alert color="warning" title="Warning" %}}
+Offentlig metadata kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden. Kryptera känsliga egenskaper tillsammans med presentationen. Låt dem vara offentliga endast när indexering, klassificering, sökning eller dokumenthanteringssystem har ett specifikt krav på att komma åt dem utan lösenord.
+{{% /alert %}}
+
+## **Uppdatera egenskaper i en krypterad presentation**
+
+För en krypterad PPTX‑file är en presentation som laddas i document‑properties‑only‑läge avsedd för att läsa offentlig metadata. Aspose.Slides kan inte spara ändrade egenskaper från det metadata‑endast‑objektet eftersom de offentliga egenskaperna måste förbli konsistenta med motsvarande data i den krypterade presentationen. Därför kräver uppdateringen rätt öppningslösenord och en fullständig laddning.
+
+Följande exempel öppnar presentationen med [LoadOptions::setPassword](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/#setPassword), uppdaterar offentliga inbyggda egenskaper och sparar resultatet. Det använder sedan [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentationinfo/#isEncrypted) för att verifiera att krypteringen bevaras och öppnar den offentliga metadata utan lösenord för att verifiera de nya värdena:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationFactory;
+use aspose\slides\SaveFormat;
+
+$inputPath = "public-properties-encrypted.pptx";
+$outputPath = "updated-public-properties-encrypted.pptx";
+
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation($inputPath, $loadOptions);
+try {
+    $presentation->getDocumentProperties()->setTitle("Updated Product Roadmap");
+    $presentation->getDocumentProperties()->setKeywords("roadmap, planning, indexed");
+    $presentation->save($outputPath, SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$presentationInfo = PresentationFactory::getInstance()->getPresentationInfo($outputPath);
+echo("The presentation is encrypted: " . (java_values($presentationInfo->isEncrypted()) ? "true" : "false") . "\n");
+
+$metadataLoadOptions = new LoadOptions();
+$metadataLoadOptions->setOnlyLoadDocumentProperties(true);
+
+$metadataPresentation = new Presentation($outputPath, $metadataLoadOptions);
+try {
+    if (java_values($metadataPresentation->getProtectionManager()->isOnlyDocumentPropertiesLoaded())) {
+        echo("Title: " . $metadataPresentation->getDocumentProperties()->getTitle() . "\n");
+        echo("Keywords: " . $metadataPresentation->getDocumentProperties()->getKeywords() . "\n");
+    } else {
+        echo("The presentation was not loaded in document-properties-only mode.\n");
+    }
+} finally {
+    $metadataPresentation->dispose();
+}
+```
+
+Om en applikation inte har behörighet att dekryptera eller ladda presentationsinnehållet måste den behandla offentliga egenskaper i en krypterad PPTX‑fil som skrivskyddade.
+
+## **Åtkomst till inbyggda egenskaper**
+
+Dessa egenskaper som exponeras av objektet [DocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties) inkluderar: **Creator** (Författare), **Description**, **Keywords**, **Created** (Skapat datum), **Modified** (Ändringsdatum), **Printed** (Senaste utskriftsdatum), **LastModifiedBy**, **Keywords**, **SharedDoc** (Delas mellan olika producenter?), **PresentationFormat**, **Subject** och **Title**
 
 ```php
   # Instansiera Presentation-klassen som representerar presentationen
@@ -95,22 +180,22 @@ De egenskaper som exponeras av objektet [DocumentProperties](https://reference.a
   }
 ```
 
-## **Ändra inbyggda egenskaper**
+## **Modifiera inbyggda egenskaper**
 
-Att ändra de inbyggda egenskaperna i presentationsfiler är lika enkelt som att komma åt dem. Du kan helt enkelt tilldela ett strängvärde till någon önskad egenskap så uppdateras värdet. I exemplet nedan demonstreras hur de inbyggda dokumentegenskaperna i presentationsfilen kan ändras med Aspose.Slides for PHP via Java.
+Att modifiera de inbyggda egenskaperna för presentationsfiler är lika enkelt som att komma åt dem. Du kan helt enkelt tilldela ett strängvärde till någon önskad egenskap så ändras egenskapsvärdet. I exemplet nedan har vi demonstrerat hur vi kan modifiera de inbyggda dokumentegenskaperna för presentationsfilen med Aspose.Slides for PHP via Java.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     # Skapa en referens till IDocumentProperties-objektet som är associerat med Presentation
     $dp = $pres->getDocumentProperties();
-    # Ange de inbyggda egenskaperna
+    # Sätt de inbyggda egenskaperna
     $dp->setAuthor("Aspose.Slides for PHP via Java");
     $dp->setTitle("Modifying Presentation Properties");
     $dp->setSubject("Aspose Subject");
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
-    # Spara din presentation till en fil
+    # Spara presentationen till en fil
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -119,15 +204,15 @@ Att ändra de inbyggda egenskaperna i presentationsfiler är lika enkelt som att
   }
 ```
 
-Detta exempel ändrar de inbyggda egenskaperna i presentationen som visas nedan:
+Detta exempel modifierar de inbyggda egenskaperna för presentationen som kan ses nedan:
 
-|**Inbyggda dokumentegenskaper efter ändring**|** |
+|**Inbyggda dokumentegenskaper efter modifiering**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Lägg till anpassade dokumentegenskaper**
 
-Aspose.Slides for PHP via Java låter också utvecklare lägga till anpassade värden för presentationsdokumentegenskaper. Exemplet nedan visar hur man sätter anpassade egenskaper för en presentation.
+Aspose.Slides for PHP via Java låter också utvecklare lägga till anpassade värden för presentationsdokumentegenskaper. Ett exempel visas nedan som visar hur man sätter de anpassade egenskaperna för en presentation.
 
 ```php
   $pres = new Presentation();
@@ -138,11 +223,11 @@ Aspose.Slides for PHP via Java låter också utvecklare lägga till anpassade v�
     $dProps->set_Item("New Custom", 12);
     $dProps->set_Item("My Name", "Mudassir");
     $dProps->set_Item("Custom", 124);
-    # Hämtar egenskapsnamn vid specifikt index
+    # Hämtar egenskapsnamn på specifikt index
     $getPropertyName = $dProps->getCustomPropertyName(2);
     # Tar bort vald egenskap
     $dProps->removeCustomProperty($getPropertyName);
-    # Sparar presentationen
+    # Sparar presentation
     $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -155,16 +240,16 @@ Aspose.Slides for PHP via Java låter också utvecklare lägga till anpassade v�
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
-## **Kom åt och ändra anpassade egenskaper**
+## **Åtkomst till och modifiera anpassade egenskaper**
 
-Aspose.Slides for PHP via Java låter även utvecklare komma åt värdena för anpassade egenskaper. Exemplet nedan visar hur du kan komma åt och ändra alla dessa anpassade egenskaper för en presentation.
+Aspose.Slides for PHP via Java låter också utvecklare komma åt värdena för anpassade egenskaper. Ett exempel visas nedan som visar hur du kan åtkomma och modifiera alla dessa anpassade egenskaper för en presentation.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
     # Skapa en referens till DocumentProperties-objektet som är associerat med Presentation
     $dp = $pres->getDocumentProperties();
-    # Åtkomst till och ändra anpassade egenskaper
+    # Åtkomst och ändring av anpassade egenskaper
     for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
       # Visa namn och värden för anpassade egenskaper
       echo("Custom Property Name : " . $dp->getCustomPropertyName($i));
@@ -172,7 +257,7 @@ Aspose.Slides for PHP via Java låter även utvecklare komma åt värdena för a
       # Ändra värden för anpassade egenskaper
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
-    # Spara din presentation till en fil
+    # Spara presentationen till en fil
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -181,32 +266,32 @@ Aspose.Slides for PHP via Java låter även utvecklare komma åt värdena för a
   }
 ```
 
-Detta exempel ändrar de anpassade egenskaperna för [PPTX ](https://docs.fileformat.com/presentation/pptx/)presentationen. Följande figurer visar presentationens anpassade egenskaper före och efter ändring:
+Detta exempel modifierar de anpassade egenskaperna för [PPTX ](https://docs.fileformat.com/presentation/pptx/)presentationen. Följande figurer visar presentationens anpassade egenskaper före och efter modifiering:
 
-|**Anpassade egenskaper före ändring**|** |
+|**Anpassade egenskaper före modifiering**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
 
-|**Anpassade egenskaper efter ändring**|** |
+|**Anpassade egenskaper efter modifiering**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Avancerade dokumentegenskaper**
 
 {{% alert color="info" title="Note" %}}
-Nya metoder [readDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) och [writeBindedPresentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) har lagts till i [PresentationInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo); logiken för egenskapsinställaren [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties/#setLastSavedTime) har ändrats.
+Nya metoder [readDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties), och [writeBindedPresentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation) har lagts till i [PresentationInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo), logiken för egenskapsättaren [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/sv/php-java/aspose.slides/documentproperties/#setLastSavedTime) har ändrats.
 {{% /alert %}} 
 
 De två nya metoderna [readDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo/#readDocumentProperties) och [updateDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties) har lagts till i klassen [PresentationInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/PresentationInfo). De ger snabb åtkomst till dokumentegenskaper och möjliggör att ändra och uppdatera egenskaper utan att ladda en hel presentation.
 
-Det typiska scenariot – ladda egenskaper, ändra ett värde och uppdatera dokumentet – kan implementeras på följande sätt:
+Det typiska scenariot att ladda egenskaperna, ändra ett värde och uppdatera dokumentet kan implementeras på följande sätt:
 
 ```php
-  # läs informationen om presentationen
+  # läsa informationen om presentationen
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
   # hämta de aktuella egenskaperna
   $props = $info->readDocumentProperties();
-  # ange de nya värdena för författare- och titel-fälten
+  # sätt de nya värdena för fälten Author och Title
   $props->setAuthor("New Author");
   $props->setTitle("New Title");
   # uppdatera presentationen med nya värden
@@ -214,7 +299,7 @@ Det typiska scenariot – ladda egenskaper, ändra ett värde och uppdatera doku
   $info->writeBindedPresentation("presentation.pptx");
 ```
 
-Det finns ett annat sätt att använda egenskaper i en specifik presentation som mall för att uppdatera egenskaper i andra presentationer:
+Det finns ett annat sätt att använda egenskaper från en viss presentation som mall för att uppdatera egenskaper i andra presentationer:
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
@@ -253,11 +338,11 @@ En ny mall kan skapas från grunden och sedan användas för att uppdatera flera
   updateByTemplate("doc3.ppt", $template);
 ```
 
-## **Ange rättstavningsspråk**
+## **Ställ in korrekturläsningsspråk**
 
-Aspose.Slides tillhandahåller egenskapen LanguageId (exponerad av klassen PortionFormat) för att låta dig ange rättstavningsspråket för ett PowerPoint‑dokument. Rättstavningsspråket är det språk som stavnings‑ och grammatikkontrollen i PowerPoint använder.
+Aspose.Slides tillhandahåller egenskapen LanguageId (exponerad av klassen PortionFormat) för att låta dig ange korrekturläsningsspråket för ett PowerPoint‑dokument. Korrekturläsningsspråket är det språk för vilket stavning och grammatik i PowerPoint kontrolleras.
 
-Denna PHP‑kod visar hur du anger rättstavningsspråket för en PowerPoint‑presentation: xxx Why is LanguageId missing from Java PortionFormat class?
+Denna PHP‑kod visar hur du ställer in korrekturläsningsspråket för ett PowerPoint: xxx Varför saknas LanguageId i Java‑klassen PortionFormat?
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -271,7 +356,7 @@ Denna PHP‑kod visar hur du anger rättstavningsspråket för en PowerPoint‑p
     $portionFormat->setComplexScriptFont($font);
     $portionFormat->setEastAsianFont($font);
     $portionFormat->setLatinFont($font);
-    $portionFormat->setLanguageId("zh-CN");// ange ID för ett korrekturläsningsspråk
+    $portionFormat->setLanguageId("zh-CN");// ange id för ett korrekturläsningsspråk
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);
@@ -282,7 +367,7 @@ Denna PHP‑kod visar hur du anger rättstavningsspråket för en PowerPoint‑p
   }
 ```
 
-## **Ange standardspråk**
+## **Ställ in standardspråk**
 
 Denna PHP‑kod visar hur du anger standardspråket för en hel PowerPoint‑presentation:
 
@@ -294,7 +379,7 @@ Denna PHP‑kod visar hur du anger standardspråket för en hel PowerPoint‑pre
     # Lägger till en ny rektangelform med text
     $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 50);
     $shp->getTextFrame()->setText("New Text");
-    # Kontrollerar språk för den första delen
+    # Kontrollerar första portionsspråket
     echo($shp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getLanguageId());
   } finally {
     if (!java_is_null($pres)) {
@@ -305,20 +390,28 @@ Denna PHP‑kod visar hur du anger standardspråket för en hel PowerPoint‑pre
 
 ## **Live‑exempel**
 
-Prova **[Aspose.Slides Metadata](https://products.aspose.app/slides/sv/metadata)**‑online‑appen för att se hur du arbetar med dokumentegenskaper via Aspose.Slides‑API:t:
+Prova den [**Aspose.Slides Metadata**](https://products.aspose.app/slides/sv/metadata) online‑appen för att se hur du arbetar med dokumentegenskaper via Aspose.Slides API:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/sv/metadata)
+[![Visa & redigera PowerPoint‑metadata](slides-metadata.png)](https://products.aspose.app/slides/sv/metadata)
 
 ## **FAQ**
 
 **Hur kan jag ta bort en inbyggd egenskap från en presentation?**
 
-Inbyggda egenskaper är en integrerad del av presentationen och kan inte tas bort helt. Du kan dock ändra deras värden eller, om egenskapen tillåter det, sätta dem till tomma.
+Inbyggda egenskaper är en integrerad del av presentationen och kan inte tas bort helt. Du kan dock ändra deras värden eller sätta dem till tomt om den specifika egenskapen tillåter det.
 
 **Vad händer om jag lägger till en anpassad egenskap som redan finns?**
 
-Om du lägger till en anpassad egenskap som redan finns, kommer dess befintliga värde att skrivas över med det nya. Du behöver inte ta bort eller kontrollera egenskapen i förväg, eftersom Aspose.Slides automatiskt uppdaterar egenskapsvärdet.
+Om du lägger till en anpassad egenskap som redan finns, kommer dess befintliga värde att skrivas över med det nya. Du behöver inte ta bort eller kontrollera egenskapen i förväg, eftersom Aspose.Slides automatiskt uppdaterar egenskapens värde.
 
 **Kan jag komma åt presentationsegenskaper utan att ladda hela presentationen?**
 
-Ja. Använd [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentationfactory/) och sedan [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentationinfo/#readDocumentProperties) för att läsa lagrad dokumentmetadata utan att skapa ett [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/)‑objekt. Se [Build a Lightweight Presentation Inventory](/slides/sv/php-java/examine-presentation/) för ett komplett rapporteringsexempel och format‑specifika begränsningar.
+Ja. Använd [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentationfactory/) och sedan [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentationinfo/#readDocumentProperties) för att läsa lagrad dokumentmetadata utan att skapa en [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/)‑instans. Se [Build a Lightweight Presentation Inventory](/slides/sv/php-java/examine-presentation/) för ett komplett rapportexempel och format‑specifika begränsningar.
+
+**Kan jag läsa offentliga egenskaper i en krypterad presentation utan dess öppningslösenord?**
+
+Ja. Dokument‑egenskap‑kryptering måste ha inaktiverats innan presentationen krypterades, och presentationen måste laddas i document‑properties‑only‑läge.
+
+**Kan jag uppdatera en krypterad PPTX‑fil i document‑properties‑only‑läge?**
+
+Nej. Offentliga och krypterade egenskapsdata måste förbli konsistenta, så att uppdatera en krypterad PPTX‑fil kräver att hela presentationen laddas med rätt öppningslösenord.

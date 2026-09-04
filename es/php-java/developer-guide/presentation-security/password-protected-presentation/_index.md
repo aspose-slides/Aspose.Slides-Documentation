@@ -23,15 +23,15 @@ description: "Cifrar, detectar, validar, abrir y descifrar presentaciones de Pow
 ---
 ## **Visión general**
 
-Una contraseña de apertura cifra una presentación. La contraseña correcta es necesaria para cargar y ver el contenido de la presentación, por lo que esta protección proporciona confidencialidad.
+Una contraseña de apertura cifra una presentación. Se requiere la contraseña correcta para cargar y ver el contenido de la presentación, por lo que esta protección brinda confidencialidad.
 
-Una contraseña de apertura es diferente de una contraseña de protección de escritura. La protección de escritura restringe la modificación pero no cifra el contenido ni impide que la presentación se cargue. Para gestionar contraseñas para modificar presentaciones, consulte [Write-Protect Presentations](/slides/es/php-java/write-protected-presentation/).
+Una contraseña de apertura es distinta de una contraseña de protección contra escritura. La protección contra escritura restringe la modificación pero no cifra el contenido ni impide que la presentación se cargue. Para gestionar contraseñas para modificar presentaciones, consulte [Write-Protect Presentations](/slides/es/php-java/write-protected-presentation/).
 
-Los flujos de trabajo a continuación se aplican tanto a presentaciones PPT como PPTX. Los ejemplos utilizan ambos formatos cuando su comportamiento basado en archivos y en flujos es importante.
+Los flujos de trabajo a continuación se aplican tanto a presentaciones PPT como PPTX. Los ejemplos utilizan ambos formatos donde su comportamiento basado en archivos y en flujos es importante.
 
 ## **Cifrar una presentación con una contraseña de apertura**
 
-Utilice [ProtectionManager::encrypt](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#encrypt) para asignar una contraseña de apertura. Luego utilice [Presentation::save](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#save) para guardar la presentación cifrada.
+Utilice [ProtectionManager::encrypt](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#encrypt) para asignar una contraseña de apertura. Luego use [Presentation::save](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#save) para guardar la presentación cifrada.
 
 El siguiente ejemplo cifra una presentación PPTX:
 
@@ -48,9 +48,37 @@ try {
 }
 ```
 
+## **Mantener públicas las propiedades del documento**
+
+De forma predeterminada, Aspose.Slides incluye las propiedades del documento en el cifrado de la presentación. El método [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) controla este comportamiento de forma independiente al cifrado del contenido de las diapositivas. Pase `false` antes de llamar a [ProtectionManager::encrypt](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#encrypt) cuando un sistema de indexado, clasificación, búsqueda o gestión de documentos necesite leer los metadatos sin la contraseña de apertura.
+
+El siguiente ejemplo crea una presentación PPTX cifrada dejando sus propiedades de documento integradas públicas:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $properties = $presentation->getDocumentProperties();
+    $properties->setAuthor("Contoso Knowledge Management");
+    $properties->setTitle("Quarterly Product Roadmap");
+    $properties->setKeywords("roadmap, planning, internal");
+
+    $presentation->getSlides()->get_Item(0)->setName("Encrypted presentation content");
+    $presentation->getProtectionManager()->setEncryptDocumentProperties(false);
+    $presentation->getProtectionManager()->encrypt("open_password");
+    $presentation->save("public-properties-encrypted.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pasar `false` a [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) no hace públicas las diapositivas, maestros, diseños, formas, medios u otro contenido de la presentación. Afecta solo a las propiedades del documento. Para leer esas propiedades sin cargar el contenido cifrado, consulte [Manage Presentation Properties](/slides/es/php-java/presentation-properties/).
+
 ## **Cargar una presentación cifrada**
 
-Establezca [LoadOptions::setPassword](https://reference.aspose.com/slides/es/php-java/aspose.slides/loadoptions/#setPassword) con la contraseña de apertura y pase las opciones a [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) al cargar el archivo. La carga falla cuando se requiere una contraseña de apertura pero la contraseña suministrada falta o es incorrecta.
+Establezca [LoadOptions::setPassword](https://reference.aspose.com/slides/es/php-java/aspose.slides/loadoptions/#setPassword) con la contraseña de apertura y pase las opciones a [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) al cargar el archivo. La carga falla cuando se requiere una contraseña de apertura pero la contraseña proporcionada falta o es incorrecta.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -69,7 +97,7 @@ try {
 
 ## **Eliminar el cifrado de una presentación**
 
-Cargue la presentación con su contraseña de apertura, llame a [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#removeEncryption) y guarde el resultado. La presentación guardada puede entonces cargarse sin una contraseña.
+Cargue la presentación con su contraseña de apertura, llame a [ProtectionManager::removeEncryption](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#removeEncryption) y guarde el resultado. La presentación guardada puede entonces cargarse sin contraseña.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -90,7 +118,7 @@ try {
 
 ## **Validar una contraseña de apertura antes de cargar**
 
-Utilice [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/#getPresentationInfo) para obtener [PresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/) sin crear una instancia completa de la presentación. Verifique [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#isPasswordProtected) antes de solicitar o validar una contraseña. Cuando la protección está presente, valide el valor validado con [PresentationInfo::checkPassword](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#checkPassword).
+Utilice [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/#getPresentationInfo) para obtener [PresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/) sin crear una instancia completa de la presentación. Compruebe [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#isPasswordProtected) antes de solicitar o validar una contraseña. Cuando existe protección, valide el valor suministrado con [PresentationInfo::checkPassword](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#checkPassword).
 
 ### **Flujo de trabajo con ruta de archivo**
 
@@ -126,7 +154,7 @@ if (!$presentationInfo->isPasswordProtected()) {
 
 La sobrecarga de flujo de [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationfactory/#getPresentationInfo) ofrece el mismo flujo de trabajo. Restablezca la posición de un flujo buscable antes de cargar la presentación completa desde ese flujo.
 
-El siguiente ejemplo utiliza un archivo PPT:
+El siguiente ejemplo usa un archivo PPT:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -173,7 +201,7 @@ El comportamiento es el mismo para presentaciones PPT y PPTX.
 
 ## **Comprobar si una presentación cargada está cifrada**
 
-Después de cargar una presentación con la contraseña correcta, inspeccione [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#isEncrypted) para confirmar que la presentación original estaba cifrada. Para detectar la protección con contraseña de apertura antes de cargar, use [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#isPasswordProtected) como se mostró arriba.
+Después de cargar una presentación con la contraseña correcta, inspeccione [ProtectionManager::isEncrypted](https://reference.aspose.com/slides/es/php-java/aspose.slides/protectionmanager/#isEncrypted) para confirmar que la presentación original estaba cifrada. Para detectar la protección con contraseña de apertura antes de cargar, use [PresentationInfo::isPasswordProtected](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentationinfo/#isPasswordProtected) como se mostró anteriormente.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -194,7 +222,9 @@ try {
 ## **Recomendaciones de seguridad**
 
 {{% alert color="warning" title="Security" %}}
-No registre las contraseñas de apertura ni las incluya en mensajes de diagnóstico. Evite intentos de validación repetidos e innecesarios, mantenga las contraseñas en memoria solo el tiempo necesario y reutilice un resultado de validación exitoso al cargar inmediatamente la presentación.
+No registre contraseñas de apertura ni las incluya en mensajes de diagnóstico. Evite intentos de validación repetidos innecesarios, mantenga las contraseñas en memoria solo el tiempo necesario y reutilice un resultado de validación exitoso cuando cargue inmediatamente la presentación.
+
+Las propiedades públicas del documento pueden revelar nombres de autor, títulos, asuntos, palabras clave, información de la empresa, comentarios y valores personalizados aunque el contenido de la presentación esté cifrado. Cifre los metadatos sensibles junto con la presentación. Dejar las propiedades públicas debe ser una decisión explícita que solo se tome cuando los sistemas deban indexar, clasificar, buscar o gestionar el archivo sin una contraseña de apertura.
 {{% /alert %}}
 
 ## **Proteger con contraseña una presentación en línea**
@@ -206,20 +236,24 @@ No registre las contraseñas de apertura ni las incluya en mensajes de diagnóst
 5. Aplique la protección y descargue el archivo resultante.
 
 {{% alert color="info" title="See also" %}}
-- [Proteger presentaciones contra escritura](/slides/es/php-java/write-protected-presentation/)
-- [Firma digital en PowerPoint](/slides/es/php-java/digital-signature-in-powerpoint/)
+- [Write-Protect Presentations](/slides/es/php-java/write-protected-presentation/)
+- [Digital Signature in PowerPoint](/slides/es/php-java/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Cuál es la diferencia entre una contraseña de apertura y una contraseña de protección de escritura?**
+**¿Cuál es la diferencia entre una contraseña de apertura y una contraseña de protección contra escritura?**
 
-Una contraseña de apertura cifra la presentación y es necesaria para cargar su contenido. Una contraseña de protección de escritura restringe la modificación sin cifrar el contenido.
+Una contraseña de apertura cifra la presentación y es necesaria para cargar su contenido. Una contraseña de protección contra escritura restringe la modificación sin cifrar el contenido.
 
 **¿Puedo validar una contraseña de apertura sin cargar todas las diapositivas?**
 
-Sí. Obtenga la información de la presentación, compruebe si la protección con contraseña de apertura está presente y valide la contraseña antes de crear una instancia completa de la presentación.
+Sí. Obtenga la información de la presentación, compruebe si existe protección con contraseña de apertura y valide la contraseña antes de crear una instancia completa de la presentación.
 
-**¿Los flujos de trabajo de verificación de contraseña son compatibles tanto con PPT como con PPTX?**
+**¿Puede una aplicación leer los metadatos sin la contraseña de apertura?**
 
-Sí. La detección y validación de contraseñas basada en ruta de archivo y en flujos se comportan de la misma manera para presentaciones PPT y PPTX.
+Sí, pero solo cuando la presentación se cifró con el cifrado de propiedades del documento desactivado. La aplicación debe entonces usar el modo de carga solo de propiedades del documento descrito en [Manage Presentation Properties](/slides/es/php-java/presentation-properties/).
+
+**¿Los flujos de trabajo de comprobación de contraseña son compatibles tanto con PPT como con PPTX?**
+
+Sí. La detección y validación de contraseñas basada en rutas de archivo y en flujos se comportan de la misma manera para presentaciones PPT y PPTX.

@@ -12,10 +12,10 @@ keywords:
 - anpassade egenskaper
 - avancerade egenskaper
 - hantera egenskaper
-- modifiera egenskaper
+- ändra egenskaper
 - dokumentmetadata
 - redigera metadata
-- korrekturspråk
+- korrekturläsningsspråk
 - standardspråk
 - PowerPoint
 - OpenDocument
@@ -26,38 +26,141 @@ description: "Behärska presentationsegenskaper i Aspose.Slides för C++ och eff
 ---
 ## **Introduktion**
 
-Aspose.Slides stödjer två typer av dokumentegenskaper: **Inbyggda** och **Anpassade**. Båda dessa egenskapstyper kan enkelt nås och hanteras med Aspose.Slides API.
+Aspose.Slides stöder två typer av dokumentegenskaper: **Inbyggda** och **Anpassade**. Båda dessa egenskapstyper kan enkelt nås och hanteras med Aspose.Slides API.
 
-Aspose.Slides allows you to work with presentation document properties through the [IDocumentProperties](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_document_properties) interface. An instance of this interface is returned by the [Presentation::get_DocumentProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_documentproperties/) method. The following examples show how to read, modify, and manage these properties.
+Aspose.Slides låter dig arbeta med presentationsdokumentegenskaper via gränssnittet [IDocumentProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/idocumentproperties/). En instans av detta gränssnitt returneras av [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_documentproperties/). Följande exempel visar hur man läser, ändrar och hanterar dessa egenskaper.
 
 {{% alert color="info" title="Note" %}}
-Observera att du inte kan ange värden för fälten **Application** och **Producer**, eftersom Aspose Ltd. och Aspose.Slides för C++ x.x.x kommer att visas i dessa fält.
+Observera att du inte kan sätta värden för fälten **Application** och **Producer**, eftersom Aspose Ltd. och Aspose.Slides för C++ x.x.x kommer att visas i dessa fält.
 {{% /alert %}} 
 
 ## **Hantera presentationsegenskaper**
 
-Microsoft PowerPoint provides a feature to add some properties to the presentation files. These document properties allow some useful information to be stored along with the documents (presentation files). There are two kinds of document properties as follows
+Microsoft PowerPoint erbjuder en funktion för att lägga till vissa egenskaper i presentationsfiler. Dessa dokumentegenskaper gör det möjligt att lagra användbar information tillsammans med dokumenten (presentationsfiler). Det finns två typer av dokumentegenskaper:
 
 - Systemdefinierade (Inbyggda) egenskaper
 - Användardefinierade (Anpassade) egenskaper
 
-**Inbyggda** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for C++, developers can access and modify the values of built-in properties as well as custom properties. Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Förbered | Egenskaper | Avancerade egenskaper** menu item of the Microsoft PowerPoint 2007. After you select **Avancerade egenskaper** menu item, a dialog would appear allowing you to manage the document properties of the PowerPoint file. In the **Egenskapsdialog** you can see that there are many tab pages like **Allmänt, Sammanfattning, Statistik, Innehåll och Anpassat**. All these tab pages allow configuring different kinds of information related to the PowerPoint files. **Anpassat** tab is used to manage custom properties of the PowerPoint files.
+**Inbyggda** egenskaper innehåller allmän information om dokumentet, såsom dokumenttitel, författarens namn, dokumentstatistik med mera. **Anpassade** egenskaper är de som definieras av användarna som **Namn/Värde**-par, där både namn och värde anges av användaren. Med Aspose.Slides för C++ kan utvecklare komma åt och ändra både inbyggda och anpassade egenskaper. Microsoft PowerPoint 2007 låter dig hantera dokumentegenskaperna i presentationsfilerna. Allt du behöver göra är att klicka på Office‑ikonen och sedan på **Prepare | Properties | Advanced Properties** i Microsoft PowerPoint 2007. När du väljer menyalternativet **Advanced Properties** visas en dialogruta som låter dig hantera dokumentegenskaperna i PowerPoint‑filen. I **Properties Dialog** kan du se flera flikar såsom **General, Summary, Statistics, Contents och Custom**. Alla dessa flikar möjliggör konfiguration av olika typer av information relaterad till PowerPoint‑filerna. Fliken **Custom** används för att hantera anpassade egenskaper i PowerPoint‑filerna.
 
-## **Åtkomst till inbyggda egenskaper**
+## **Läsa offentliga egenskaper från en krypterad presentation**
 
-These properties as exposed by **IDocumentProperties** object include: **Creator(Author)**, **Description**, **KeyWords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
+Ett öppningslösenord skyddar normalt både presentationsinnehåll och dokumentegenskaper. När en presentation krypteras genom att skicka `false` till [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), förblir dess dokumentegenskaper offentliga. En applikation kan då skicka `true` till [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) och läsa den offentliga metadata utan att ange öppningslösenordet.
+
+`set_OnlyLoadDocumentProperties` styr vad Aspose.Slides laddar; den dekrypterar ingenting. Om egenskaperna var inkluderade i krypteringen misslyckas laddningen utan lösenord. Om presentationen inte är krypterad ignoreras alternativet och hela presentationen laddas.
+
+Följande exempel verifierar laddningsläget via [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) och läser sedan inbyggda egenskaper via [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_documentproperties/):
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto presentation = MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
+
+if (presentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
+{
+    auto properties = presentation->get_DocumentProperties();
+
+    Console::WriteLine(u"Author: " + properties->get_Author());
+    Console::WriteLine(u"Title: " + properties->get_Title());
+    Console::WriteLine(u"Keywords: " + properties->get_Keywords());
+}
+else
+{
+    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+}
+
+presentation->Dispose();
+```
+
+I detta läge laddas inte bildinnehållet. Bilder, master‑bilder, layouter, former, media och andra presentationsobjekt är otillgängliga. Applikationer bör alltid kontrollera `get_IsOnlyDocumentPropertiesLoaded` innan en operation som kräver hela presentationsobjektmodellen utförs.
+
+{{% alert color="warning" title="Warning" %}}
+Offentlig metadata kan avslöja författarnamn, titlar, ämnen, nyckelord, företagsinformation, kommentarer och anpassade värden. Kryptera känsliga egenskaper tillsammans med presentationen. Lämna dem offentliga endast när indexering, klassificering, sökning eller dokumenthanteringssystem har ett specifikt krav på åtkomst utan lösenord.
+{{% /alert %}}
+
+## **Uppdatera egenskaper i en krypterad presentation**
+
+För en krypterad PPTX‑fil är en presentation som laddas efter anropet `set_OnlyLoadDocumentProperties(true)` avsedd för att läsa offentlig metadata. Aspose.Slides kan inte spara ändrade egenskaper från ett sådant metadata‑endast‑objekt eftersom de offentliga egenskaperna måste förbli i samklang med motsvarande data i den krypterade presentationen. Uppdatering kräver därför rätt öppningslösenord och en fullständig laddning.
+
+Följande exempel öppnar presentationen med [LoadOptions::set_Password](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_password/), uppdaterar offentliga inbyggda egenskaper och sparar resultatet. Därefter används [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) för att verifiera att krypteringen bevaras och den offentliga metadata öppnas utan lösenord för att verifiera de nya värdena:
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/IPresentationInfo.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresentationFactory.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+const String inputPath = u"public-properties-encrypted.pptx";
+const String outputPath = u"updated-public-properties-encrypted.pptx";
+
+{
+    auto loadOptions = MakeObject<LoadOptions>();
+    loadOptions->set_Password(u"open_password");
+
+    auto presentation = MakeObject<Presentation>(inputPath, loadOptions);
+    presentation->get_DocumentProperties()->set_Title(u"Updated Product Roadmap");
+    presentation->get_DocumentProperties()->set_Keywords(u"roadmap, planning, indexed");
+    presentation->Save(outputPath, SaveFormat::Pptx);
+    presentation->Dispose();
+}
+
+auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(outputPath);
+Console::WriteLine(presentationInfo->get_IsEncrypted() ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
+
+auto metadataLoadOptions = MakeObject<LoadOptions>();
+metadataLoadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto metadataPresentation = MakeObject<Presentation>(outputPath, metadataLoadOptions);
+
+if (metadataPresentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
+{
+    Console::WriteLine(u"Title: " + metadataPresentation->get_DocumentProperties()->get_Title());
+    Console::WriteLine(u"Keywords: " + metadataPresentation->get_DocumentProperties()->get_Keywords());
+}
+else
+{
+    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+}
+
+metadataPresentation->Dispose();
+```
+
+Om en applikation inte får dekryptera eller ladda presentationsinnehållet måste den behandla offentliga egenskaper i en krypterad PPTX‑fil som skrivskyddade.
+
+## **Komma åt inbyggda egenskaper**
+
+Dessa egenskaper som exponeras av **IDocumentProperties**‑objektet inkluderar: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Skapelsedatum), **Modified** (Ändringsdatum), **Printed** (Senaste utskriftsdatum), **LastModifiedBy**, **Keywords**, **SharedDoc** (Delas mellan olika producenter?), **PresentationFormat**, **Subject** och **Title**.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
 
 ## **Ändra inbyggda egenskaper**
 
-Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated that how we can modify the built-in document properties of the presentation file.
+Att ändra de inbyggda egenskaperna i presentationsfiler är lika enkelt som att komma åt dem. Du kan helt enkelt tilldela ett strängvärde till önskad egenskap så modifieras egenskapsvärdet. I exemplet nedan har vi demonstrerat hur vi kan ändra de inbyggda dokumentegenskaperna i presentationsfilen.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
 
 ## **Lägg till anpassade presentationsegenskaper**
 
-Aspose.Slides for C++ also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+Aspose.Slides för C++ låter också utvecklare lägga till anpassade värden för presentationsdokumentegenskaper. Ett exempel visas nedan som visar hur man sätter anpassade egenskaper för en presentation.
 
 ``` cpp
 #include <DOM/IDocumentProperties.h>
@@ -69,7 +172,7 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-// Instansiera Presentation-klassen
+// Skapa ett Presentation-objekt
 auto presentation = System::MakeObject<Presentation>();
 
 // Hämtar dokumentegenskaper
@@ -80,7 +183,7 @@ documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
 documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
 documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
 
-// Hämtar egenskapsnamn på ett specifikt index
+// Hämtar egenskapsnamn på ett visst index
 String getPropertyName = documentProperties->GetCustomPropertyName(2);
 
 // Tar bort vald egenskap
@@ -90,17 +193,17 @@ documentProperties->RemoveCustomProperty(getPropertyName);
 presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Åtkomst till och ändra anpassade egenskaper**
+## **Komma åt och ändra anpassade egenskaper**
 
-Aspose.Slides for C++ also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
+Aspose.Slides för C++ låter också utvecklare komma åt värdena för anpassade egenskaper. Ett exempel visas nedan som visar hur du kan komma åt och ändra alla dessa anpassade egenskaper för en presentation.
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
 
-## **Ställ in korrekturspråk**
+## **Ställ in korrekturläsningsspråk**
 
-Aspose.Slides provides the [LanguageId](https://reference.aspose.com/slides/sv/cpp/aspose.slides/baseportionformat/set_languageid/) property (exposed by the [PortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
+Aspose.Slides tillhandahåller egenskapen [LanguageId](https://reference.aspose.com/slides/sv/cpp/aspose.slides/baseportionformat/set_languageid/) (exponeras av klassen [PortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/portionformat/)) för att låta dig ange korrekturläsningsspråket för ett PowerPoint‑dokument. Korrekturläsningsspråket är det språk för vilket stavning och grammatik kontrolleras i PowerPoint.
 
-This C++ code shows you how to set the proofing language for a PowerPoint:
+Denna C++‑kod visar hur du ställer in korrekturläsningsspråket för en PowerPoint:
 
 ```c++
 #include <DOM/AutoShape.h>
@@ -131,7 +234,7 @@ portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
 portionFormat->set_LanguageId(u"zh-CN");
-// ange Id för ett korrekturspråk
+// set the Id of a proofing language
 
 newPortion->set_Text(u"1。");
 portions->Add(newPortion);
@@ -139,7 +242,7 @@ portions->Add(newPortion);
 
 ## **Ställ in standardspråk**
 
-This C++ code shows you how to set the default language for an entire PowerPoint presentation:
+Denna C++‑kod visar hur du ställer in standardspråket för en hel PowerPoint‑presentation:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -160,31 +263,39 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
 
-// Lägger till en ny rektangelform med text
+// Lägg till en ny rektangelform med text
 System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
 System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
 textFrame->set_Text(u"New Text");
 
-// Kontrollerar språk för den första delen
+// Kontrollerar det första portionsspråket
 System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
 ```
 
-## **Liveexempel**
+## **Live‑exempel**
 
-Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/sv/metadata) online app to see how to work with document properties via Aspose.Slides API:
+Prova [**Aspose.Slides Metadata**](https://products.aspose.app/slides/sv/metadata) online‑app för att se hur du arbetar med dokumentegenskaper via Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/sv/metadata)
 
-## **FAQ**
+## **Vanliga frågor**
 
-**How can I remove a built-in property from a presentation?**
+**Hur kan jag ta bort en inbyggd egenskap från en presentation?**
 
-Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
+Inbyggda egenskaper är en integrerad del av presentationen och kan inte tas bort helt. Du kan dock ändra deras värden eller sätta dem till tomma om den specifika egenskapen tillåter det.
 
-**What happens if I add a custom property that already exists?**
+**Vad händer om jag lägger till en anpassad egendom som redan finns?**
 
-If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
+Om du lägger till en anpassad egendom som redan finns, kommer dess befintliga värde att skrivas över med det nya. Du behöver inte ta bort eller kontrollera egendomen i förväg, eftersom Aspose.Slides automatiskt uppdaterar egendomens värde.
 
-**Can I access presentation properties without fully loading the presentation?**
+**Kan jag komma åt presentationsegenskaper utan att ladda hela presentationen?**
 
-Yes. Use [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) and then [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) to read stored document metadata without creating a [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/) instance. See [Build a Lightweight Presentation Inventory](/slides/sv/cpp/examine-presentation/) for a complete reporting example and format-specific limitations.
+Ja. Använd [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) och sedan [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) för att läsa lagrad dokumentmetadata utan att skapa en [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/)‑instans. Se [Build a Lightweight Presentation Inventory](/slides/sv/cpp/examine-presentation/) för ett komplett rapportexempel och format‑specifika begränsningar.
+
+**Kan jag läsa offentliga egenskaper i en krypterad presentation utan dess öppningslösenord?**
+
+Ja. Presentationen måste ha krypterats genom att skicka `false` till `set_EncryptDocumentProperties`, och den måste laddas genom att skicka `true` till `set_OnlyLoadDocumentProperties`.
+
+**Kan jag uppdatera en krypterad PPTX‑fil i läge som endast läser dokumentegenskaper?**
+
+Nej. Offentliga och krypterade egenskapsdata måste förbli i samklang, så uppdatering av en krypterad PPTX‑fil kräver att hela presentationen laddas med rätt öppningslösenord.

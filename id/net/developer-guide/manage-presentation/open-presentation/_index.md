@@ -21,161 +21,155 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Buka presentasi PowerPoint (.pptx, .ppt) dan OpenDocument (.odp) dengan mudah menggunakan Aspose.Slides untuk .NET—cepat, dapat diandalkan, dan memiliki semua fitur."
+description: "Pelajari cara membuka presentasi PowerPoint dan OpenDocument dalam C#, menyediakan kata sandi pembuka, mengontrol pemuatan sumber daya, dan mengurangi penggunaan memori dengan Aspose.Slides untuk .NET."
 ---
-## **Introduction**
+## **Pengantar**
 
-Selain membuat presentasi PowerPoint dari awal, Aspose.Slides juga memungkinkan Anda membuka presentasi yang sudah ada. Setelah memuat sebuah presentasi, Anda dapat mengambil informasi tentangnya, mengedit konten slide, menambahkan slide baru, menghapus slide yang ada, dan lain‑lain.
+[Aspose.Slides untuk .NET](https://products.aspose.com/slides/id/net/) dapat memuat presentasi PowerPoint dan OpenDocument dari file dan aliran. Setelah presentasi dimuat, Anda dapat memeriksa strukturnya, menyunting slide, mengelola sumber daya, dan menyimpannya dalam format asli atau format lain yang didukung.
 
-## **Open Presentations**
+Perilaku pemuatan dapat disesuaikan melalui kelas [LoadOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/). Misalnya, Anda dapat menyediakan kata sandi pembuka, menyimpan objek biner besar di luar memori terkelola, mengontrol sumber daya eksternal, atau mengabaikan data biner yang disematkan.
 
-Untuk membuka presentasi yang sudah ada, buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) dan berikan jalur file ke konstruktornya.
+## **Buka Presentasi**
 
-Contoh C# berikut menunjukkan cara membuka sebuah presentasi dan mendapatkan jumlah slidennya:
+Untuk membuka presentasi yang ada, berikan jalur file ke konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/). Buang (dispose) presentasi setelah selesai digunakan sehingga pegangan file, data sementara, dan sumber daya lain segera dilepaskan.
 
-```cs
-// Membuat instance kelas Presentation dan memberikan jalur file ke konstruktornya.
-using (Presentation presentation = new Presentation("Sample.pptx"))
-{
-    // Cetak jumlah total slide dalam presentasi.
-    System.Console.WriteLine(presentation.Slides.Count);
-}
+Contoh C# berikut menunjukkan cara membuka presentasi dan memperoleh jumlah slide-nya:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+
+Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-## **Open Password-Protected Presentations**
+## **Buka Presentasi yang Dilindungi Kata Sandi**
 
-Ketika Anda perlu membuka presentasi yang dilindungi kata sandi, berikan kata sandi melalui properti [Password](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/password/) dari kelas [LoadOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/) untuk mendekripsi dan memuatnya. Kode C# berikut mendemonstrasikan operasi ini:
+Kata sandi pembuka mengenkripsi konten presentasi. Untuk memuat seluruh presentasi, tetapkan kata sandi yang tepat ke [LoadOptions.Password](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/password/) dan berikan opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/). Pemuatan gagal bila kata sandi tidak ada atau tidak benar.
 
-```cs
-LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
-using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
-{
-    // Lakukan operasi pada presentasi yang didekripsi.
-}
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
+
+Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
-## **Open Large Presentations**
+Untuk deteksi kata sandi, validasi, dan alur kerja enkripsi, lihat [Presentasi yang Dilindungi Kata Sandi](/slides/id/net/password-protected-presentation/). Jika presentasi yang dienkripsi disimpan dengan sengaja menggunakan properti dokumen publik, properti tersebut dapat dibaca tanpa kata sandi; lihat [Kelola Properti Presentasi](/slides/id/net/presentation-properties/).
 
-Aspose.Slides menyediakan opsi—khususnya properti [BlobManagementOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/blobmanagementoptions/) di kelas [LoadOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/)—untuk membantu Anda memuat presentasi berukuran besar.
+## **Buka Presentasi Besar**
 
-Kode C# berikut mendemonstrasikan pemuatan presentasi besar (misalnya 2 GB):
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/blobmanagementoptions/) mengontrol cara Aspose.Slides menangani objek biner besar seperti gambar, audio, dan video. Anda dapat menjaga file sumber tetap terkunci, mengizinkan file sementara, dan membatasi jumlah data BLOB yang disimpan di memori.
 
-```cs
-const string filePath = "LargePresentation.pptx";
+Kode C# berikut menunjukkan cara memuat presentasi besar (misalnya, 2 GB):
 
-LoadOptions loadOptions = new LoadOptions
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string filePath = "large-presentation.pptx";
+
+var loadOptions = new LoadOptions
 {
-    BlobManagementOptions = 
+    BlobManagementOptions =
     {
-        // Pilih perilaku KeepLocked—file presentasi akan tetap terkunci selama masa hidup dari 
-        // instance Presentation, tetapi tidak perlu dimuat ke memori atau disalin ke file sementara.
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
         IsTemporaryFilesAllowed = true,
-        MaxBlobsBytesInMemory = 10 * 1024 * 1024 // 10 MB
+        MaxBlobsBytesInMemory = 10 * 1024 * 1024
     }
 };
 
-using (Presentation presentation = new Presentation(filePath, loadOptions))
-{
-    // Presentasi besar telah dimuat dan dapat digunakan, sementara konsumsi memori tetap rendah.
+using var presentation = new Presentation(filePath, loadOptions);
 
-    // Lakukan perubahan pada presentasi.
-    presentation.Slides[0].Name = "Large presentation";
-
-    // Simpan presentasi ke file lain. Konsumsi memori tetap rendah selama operasi ini.
-    presentation.Save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // Jangan lakukan ini! Pengecualian I/O akan dilempar karena file terkunci sampai objek presentation dibuang.
-    File.Delete(filePath);
-}
-
-// Tidak masalah melakukan ini di sini. File sumber tidak lagi terkunci oleh objek presentation.
-File.Delete(filePath);
+presentation.Slides[0].Name = "Large presentation";
+presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="info" title="Info" %}}
-Untuk mengatasi beberapa keterbatasan saat bekerja dengan aliran, Aspose.Slides mungkin menyalin isi aliran. Memuat presentasi besar dari aliran menyebabkan presentasi disalin dan dapat memperlambat proses pemuatan. Oleh karena itu, ketika Anda perlu memuat presentasi besar, kami sangat menyarankan menggunakan jalur file presentasi daripada aliran.
+{{% alert color="info" title="Note" %}}
+Dengan `PresentationLockingBehavior.KeepLocked`, file sumber tetap terkunci sampai objek `Presentation` dibuang. Jangan memindahkan, menimpa, atau menghapus file sumber selama objek tersebut masih hidup.
 
-Saat membuat presentasi yang berisi objek besar (video, audio, gambar resolusi tinggi, dll.), Anda dapat menggunakan [BLOB management](/slides/id/net/manage-blob/) untuk mengurangi konsumsi memori.
-{{%/alert %}}
+Aspose.Slides dapat menyalin isi aliran masukan saat memuatnya. Untuk presentasi besar, jalur file biasanya lebih efisien daripada aliran. Lihat [Kelola BLOBs](/slides/id/net/manage-blob/) untuk opsi penyimpanan dan manajemen memori tambahan.
+{{% /alert %}}
 
-## **Control External Resources**
+## **Kendalikan Sumber Daya Eksternal**
 
-Aspose.Slides menyediakan antarmuka [IResourceLoadingCallback](https://reference.aspose.com/slides/id/net/aspose.slides/iresourceloadingcallback/) yang memungkinkan Anda mengelola sumber daya eksternal. Kode C# berikut menunjukkan cara menggunakan antarmuka `IResourceLoadingCallback`:
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/resourceloadingcallback/) menerima implementasi [IResourceLoadingCallback](https://reference.aspose.com/slides/id/net/aspose.slides/iresourceloadingcallback/). Callback dapat menyediakan data pengganti, mengarahkan ulang sumber daya, menggunakan pemuat default, atau melewatkan sumber daya. Hal ini berguna ketika presentasi berisi gambar eksternal yang harus diselesaikan sesuai dengan aturan keamanan atau penyimpanan khusus aplikasi.
 
-```cs
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
-
-```cs
-public class ImageLoadingHandler : IResourceLoadingCallback
+internal static class OpenPresentationExample
 {
-    public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+    private static void Main()
     {
-        if (args.OriginalUri.EndsWith(".jpg"))
+        var loadOptions = new LoadOptions
         {
-            try
-            {
-                // Muat gambar pengganti.
-                byte[] imageData = File.ReadAllBytes("aspose-logo.jpg");
-                args.SetData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            }
-            catch (Exception)
+            ResourceLoadingCallback = new ImageLoadingHandler()
+        };
+
+        using var presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+        Console.WriteLine("Slide count: " + presentation.Slides.Count);
+    }
+
+    private sealed class ImageLoadingHandler : IResourceLoadingCallback
+    {
+        public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+        {
+            var isJpeg = args.OriginalUri.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase);
+            if (!isJpeg || !File.Exists("approved-image.jpg"))
             {
                 return ResourceLoadingAction.Skip;
             }
-        }
-        else if (args.OriginalUri.EndsWith(".png"))
-        {
-            // Tetapkan URL pengganti.
-            args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
-            return ResourceLoadingAction.Default;
-        }
 
-        // Lewati semua gambar lainnya.
-        return ResourceLoadingAction.Skip;
+            var imageData = File.ReadAllBytes("approved-image.jpg");
+            args.SetData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        }
     }
 }
 ```
 
-## **Load Presentations without Embedded Binary Objects**
+## **Muat Presentasi tanpa Objek Biner Tersisip**
 
-Sebuah presentasi PowerPoint dapat berisi tipe objek biner tersemat berikut:
+Sebuah presentasi dapat berisi data biner yang disematkan yang tidak diperlukan atau tidak diinginkan oleh aplikasi. Contohnya termasuk:
 
-- proyek VBA (dapat diakses melalui [IPresentation.VbaProject](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/vbaproject/));
-- data objek OLE yang tersemat (dapat diakses melalui [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/id/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
-- data biner kontrol ActiveX (dapat diakses melalui [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/id/net/aspose.slides/icontrol/activexcontrolbinary/)).
+- Proyek VBA, tersedia melalui [IPresentation.VbaProject](https://reference.aspose.com/slides/id/net/aspose.slides/ipresentation/vbaproject/);
+- Data OLE yang disematkan, tersedia melalui [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/id/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/);
+- Data kontrol ActiveX, tersedia melalui [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/id/net/aspose.slides/icontrol/activexcontrolbinary/).
 
-Dengan menggunakan properti [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/), Anda dapat memuat presentasi tanpa objek biner tersemat apa pun.
+Setel [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) ke `true` untuk menghapus data biner ini saat memuat. Simpan presentasi yang dimuat untuk mempertahankan hasil yang telah dibersihkan.
 
-Properti ini berguna untuk menghapus konten biner yang berpotensi berbahaya. Kode C# berikut mendemonstrasikan cara memuat presentasi tanpa konten biner tersemat:
+Opsi ini mengurangi paparan terhadap muatan tersisip yang tidak diinginkan, namun bukan sistem deteksi malware atau sanitasi konten yang lengkap.
 
-```cs
-LoadOptions loadOptions = new LoadOptions()
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions
 {
-	DeleteEmbeddedBinaryObjects = true
-}
+    DeleteEmbeddedBinaryObjects = true
+};
 
-using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
-{
-    // Lakukan operasi pada presentasi.
-}
+using var presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
+
+presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
 **Bagaimana saya dapat mengetahui bahwa sebuah file rusak dan tidak dapat dibuka?**
 
-Anda akan mendapatkan pengecualian parsing/validasi format selama pemuatan. Kesalahan semacam ini biasanya menyebutkan struktur ZIP yang tidak valid atau catatan PowerPoint yang rusak.
+Aspose.Slides melempar pengecualian parsing atau format saat memuat. Tangani kegagalan tersebut secara terpisah dari kesalahan kata sandi yang salah agar aplikasi dapat melaporkan penyebabnya dengan tepat.
 
-**Apa yang terjadi jika font yang diperlukan tidak ada saat membuka?**
+**Apa yang terjadi jika font yang diperlukan tidak ada?**
 
-File akan tetap terbuka, tetapi kemudian proses [rendering/export](/slides/id/net/convert-presentation/) mungkin akan mengganti font. [Konfigurasikan substitusi font](/slides/id/net/font-substitution/) atau [tambahkan font yang diperlukan](/slides/id/net/custom-font/) ke lingkungan runtime.
+Presentasi tetap dapat dimuat, tetapi proses rendering dan ekspor mungkin menggantikan font. Anda dapat mengonfigurasi substitusi font atau menyediakan font khusus untuk membuat output lebih dapat diprediksi.
 
-**Bagaimana dengan media tersemat (video/audio) saat membuka?**
+**Apakah memuat sebuah presentasi juga memuat media yang disematkan?**
 
-Media akan tersedia sebagai sumber daya presentasi. Jika media direferensikan melalui jalur eksternal, pastikan jalur tersebut dapat diakses di lingkungan Anda; jika tidak, proses [rendering/export](/slides/id/net/convert-presentation/) mungkin akan mengabaikan media tersebut.
+Audio dan video yang disematkan tersedia melalui model objek presentasi. Sumber daya eksternal diselesaikan sesuai dengan perilaku pemuatan sumber daya yang dikonfigurasi dan mungkin tidak tersedia jika lokasinya tidak dapat diakses.

@@ -1,5 +1,5 @@
 ---
-title: Buka Presentasi dalam C++
+title: Buka Presentasi di C++
 linktitle: Buka Presentasi
 type: docs
 weight: 20
@@ -21,147 +21,172 @@ keywords:
 - objek biner
 - C++
 - Aspose.Slides
-description: "Buka presentasi PowerPoint (.pptx, .ppt) dan OpenDocument (.odp) dengan mudah menggunakan Aspose.Slides untuk C++—cepat, dapat diandalkan, dan lengkap."
+description: "Pelajari cara membuka presentasi PowerPoint dan OpenDocument di C++, menyediakan kata sandi pembuka, mengontrol pemuatan sumber daya, dan mengurangi penggunaan memori dengan Aspose.Slides untuk C++."
 ---
 ## **Pendahuluan**
 
-Selain membuat presentasi PowerPoint dari awal, Aspose.Slides juga memungkinkan Anda membuka presentasi yang sudah ada. Setelah memuat sebuah presentasi, Anda dapat mengambil informasi tentangnya, mengedit konten slide, menambahkan slide baru, menghapus yang sudah ada, dan lain-lain.
+[Aspose.Slides for C++](https://products.aspose.com/slides/id/cpp/) dapat memuat presentasi PowerPoint dan OpenDocument dari file dan aliran. Setelah sebuah presentasi dimuat, Anda dapat memeriksa strukturnya, mengedit slide, mengelola sumber daya, dan menyimpannya dalam format asli atau format lain yang didukung.
 
-## **Membuka Presentasi**
+Perilaku pemuatan dapat disesuaikan melalui kelas [LoadOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/). Misalnya, Anda dapat menyediakan kata sandi pembuka, menyimpan objek biner besar di luar memori, mengontrol sumber daya eksternal, atau mengabaikan data biner yang disematkan.
 
-Untuk membuka presentasi yang sudah ada, buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) dan berikan jalur file ke konstruktornya.
+## **Buka Presentasi**
 
-Contoh C++ berikut menunjukkan cara membuka sebuah presentasi dan mendapatkan jumlah slide-nya:
+Untuk membuka presentasi yang ada, berikan jalur filenya ke konstruktor [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/). Buang (dispose) presentasi setelah digunakan agar pegangan file, data sementara, dan sumber daya lainnya segera dibebaskan.
+
+Contoh C++ berikut menunjukkan cara membuka presentasi dan mendapatkan jumlah slide:
 
 ```cpp
-// Membuat instance kelas Presentation dan memberikan jalur file ke konstruktor-nya.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-// Menampilkan total jumlah slide dalam presentasi.
-Console::WriteLine(presentation->get_Slides()->get_Count());
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
-## **Membuka Presentasi yang Dilindungi Kata Sandi**
+## **Buka Presentasi yang Dilindungi Kata Sandi**
 
-Ketika Anda perlu membuka presentasi yang dilindungi kata sandi, berikan kata sandi melalui metode [set_Password](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_password/) dari kelas [LoadOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/) untuk mendekripsi dan memuatnya. Kode C++ berikut mendemonstrasikan operasi ini:
+Kata sandi pembuka mengenkripsi konten presentasi. Untuk memuat seluruh presentasi, berikan kata sandi yang benar ke [LoadOptions::set_Password](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_password/) dan berikan opsi tersebut ke konstruktor [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/). Pemuatan gagal bila kata sandi hilang atau tidak tepat.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
 auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_Password(u"YOUR_PASSWORD");
+loadOptions->set_Password(u"open_password");
 
-auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
-    
-// Lakukan operasi pada presentasi yang telah didekripsi.
+auto presentation = MakeObject<Presentation>(u"encrypted-presentation.pptx", loadOptions);
+
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
 
 presentation->Dispose();
 ```
 
-## **Membuka Presentasi Besar**
+Untuk deteksi kata sandi, validasi, dan alur kerja enkripsi, lihat [Password-Protect Presentations](/slides/id/cpp/password-protected-presentation/). Jika sebuah presentasi terenkripsi secara sengaja disimpan dengan properti dokumen publik, properti tersebut dapat dibaca tanpa kata sandi; lihat [Manage Presentation Properties](/slides/id/cpp/presentation-properties/).
 
-Aspose.Slides menyediakan opsi—terutama metode [get_BlobManagementOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) di kelas [LoadOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/)—untuk membantu Anda memuat presentasi berukuran besar.
+## **Buka Presentasi Besar**
+
+[LoadOptions::get_BlobManagementOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/get_blobmanagementoptions/) mengontrol bagaimana Aspose.Slides menangani objek biner besar seperti gambar, audio, dan video. Anda dapat menjaga file sumber tetap terkunci, mengizinkan file sementara, dan membatasi jumlah data BLOB yang disimpan dalam memori.
 
 Kode C++ berikut menunjukkan cara memuat presentasi besar (misalnya, 2 GB):
 
 ```cpp
-auto filePath = u"LargePresentation.pptx";
+#include <DOM/ISlide.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <IBlobManagementOptions.h>
+#include <PresentationLockingBehavior.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+const String filePath = u"large-presentation.pptx";
 
 auto loadOptions = MakeObject<LoadOptions>();
-// Pilih perilaku KeepLocked—file presentasi akan tetap terkunci selama umur
-// instansi Presentation, tetapi tidak perlu dimuat ke memori atau disalin ke file sementara.
-loadOptions->get_BlobManagementOptions()->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
-loadOptions->get_BlobManagementOptions()->set_IsTemporaryFilesAllowed(true);
-loadOptions->get_BlobManagementOptions()->set_MaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 MB
+auto blobOptions = loadOptions->get_BlobManagementOptions();
+blobOptions->set_PresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+blobOptions->set_IsTemporaryFilesAllowed(true);
+blobOptions->set_MaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 auto presentation = MakeObject<Presentation>(filePath, loadOptions);
 
-// Presentasi besar telah dimuat dan dapat digunakan, sementara konsumsi memori tetap rendah.
-
-// Lakukan perubahan pada presentasi.
 presentation->get_Slide(0)->set_Name(u"Large presentation");
-
-// Simpan presentasi ke file lain. Konsumsi memori tetap rendah selama operasi ini.
-presentation->Save(u"LargePresentation-copy.pptx", SaveFormat::Pptx);
-
-// Jangan lakukan ini! Eksepsi I/O akan dilempar karena file terkunci sampai objek presentasi dibuang.
-File::Delete(filePath);
+presentation->Save(u"large-presentation-copy.pptx", SaveFormat::Pptx);
 
 presentation->Dispose();
-
-// Tidak apa-apa melakukannya di sini. File sumber tidak lagi terkunci oleh objek presentasi.
-File::Delete(filePath);
 ```
 
-{{% alert color="info" title="Info" %}}
-Untuk mengatasi beberapa keterbatasan saat bekerja dengan aliran, Aspose.Slides mungkin menyalin isi aliran. Memuat presentasi besar dari aliran menyebabkan presentasi disalin dan dapat memperlambat proses pemuatan. Oleh karena itu, ketika Anda perlu memuat presentasi besar, kami sangat menyarankan menggunakan jalur file presentasi alih-alih aliran.
+{{% alert color="info" title="Note" %}}
+Dengan `PresentationLockingBehavior::KeepLocked`, file sumber tetap terkunci hingga objek `Presentation` dibuang. Jangan memindahkan, menimpa, atau menghapus file sumber selama objek tersebut masih hidup.
 
-Saat membuat presentasi yang berisi objek besar (video, audio, gambar resolusi tinggi, dll.), Anda dapat menggunakan [BLOB management](/slides/id/cpp/manage-blob/) untuk mengurangi konsumsi memori.
-{{%/alert %}}
+Aspose.Slides dapat menyalin konten aliran masuk saat memuatnya. Untuk presentasi besar, jalur file biasanya lebih efisien daripada aliran. Lihat [Manage BLOBs](/slides/id/cpp/manage-blob/) untuk opsi penyimpanan dan manajemen memori tambahan.
+{{% /alert %}}
 
-## **Mengendalikan Sumber Daya Eksternal**
+## **Kendalikan Sumber Daya Eksternal**
 
-Aspose.Slides menyediakan antarmuka [IResourceLoadingCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/iresourceloadingcallback/) yang memungkinkan Anda mengelola sumber daya eksternal. Kode C++ berikut menunjukkan cara menggunakan antarmuka `IResourceLoadingCallback`:
+[LoadOptions::set_ResourceLoadingCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_resourceloadingcallback/) menerima implementasi [IResourceLoadingCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/iresourceloadingcallback/). Callback dapat menyediakan data pengganti, mengarahkan ulang sumber daya, menggunakan pemuat standar, atau melewatkan sumber daya. Hal ini berguna ketika presentasi berisi gambar eksternal yang harus diselesaikan sesuai aturan keamanan atau penyimpanan aplikasi tertentu.
 
 ```cpp
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IResourceLoadingArgs.h>
+#include <IResourceLoadingCallback.h>
+#include <ResourceLoadingAction.h>
+#include <system/console.h>
+#include <system/io/file.h>
+#include <system/string_comparison.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 class ImageLoadingHandler : public IResourceLoadingCallback
 {
 public:
     ResourceLoadingAction ResourceLoading(SharedPtr<IResourceLoadingArgs> args) override
     {
-        if (args->get_OriginalUri().EndsWith(u".jpg"))
+        auto isJpeg = args->get_OriginalUri().EndsWith(u".jpg", StringComparison::OrdinalIgnoreCase);
+        if (!isJpeg || !File::Exists(u"approved-image.jpg"))
         {
-            try
-            {
-                // Muat gambar pengganti.
-                auto imageData = File::ReadAllBytes(u"aspose-logo.jpg");
-                args->SetData(imageData);
-                return ResourceLoadingAction::UserProvided;
-            }
-            catch (Exception&)
-            {
-                return ResourceLoadingAction::Skip;
-            }
-        }
-        else if (args->get_OriginalUri().EndsWith(u".png"))
-        {
-            // Tetapkan URL pengganti.
-            args->set_Uri(u"http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+            return ResourceLoadingAction::Skip;
         }
 
-        // Lewati semua gambar lainnya.
-        return ResourceLoadingAction::Skip;
+        auto imageData = File::ReadAllBytes(u"approved-image.jpg");
+        args->SetData(imageData);
+        return ResourceLoadingAction::UserProvided;
     }
 };
-```
 
-```cpp
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
 
-auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
+auto presentation = MakeObject<Presentation>(u"presentation-with-external-images.pptx", loadOptions);
+Console::WriteLine(u"Slide count: {0}", presentation->get_Slides()->get_Count());
+
+presentation->Dispose();
 ```
 
 ## **Muat Presentasi tanpa Objek Biner yang Disematkan**
 
-Presentasi PowerPoint dapat berisi jenis objek biner yang disematkan berikut:
+Sebuah presentasi dapat berisi data biner yang disematkan yang tidak diperlukan atau tidak ingin dipertahankan oleh aplikasi. Contohnya termasuk:
 
-- Proyek VBA (dapat diakses melalui [IPresentation::get_VbaProject](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_vbaproject/));
-- Data yang disematkan objek OLE (dapat diakses melalui [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/));
-- Data biner kontrol ActiveX (dapat diakses melalui [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/id/cpp/aspose.slides/icontrol/get_activexcontrolbinary/)).
+- Proyek VBA, tersedia melalui [IPresentation::get_VbaProject](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_vbaproject/);
+- data OLE yang disematkan, tersedia melalui [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/);
+- data kontrol ActiveX, tersedia melalui [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/id/cpp/aspose.slides/icontrol/get_activexcontrolbinary/).
 
-Dengan menggunakan metode [ILoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/cpp/aspose.slides/iloadoptions/set_deleteembeddedbinaryobjects/), Anda dapat memuat sebuah presentasi tanpa objek biner yang disematkan.
+Berikan `true` ke [LoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_deleteembeddedbinaryobjects/) untuk menghapus data biner ini saat memuat. Simpan presentasi yang telah dimuat untuk mempertahankan hasil yang telah dibersihkan.
 
-Metode ini berguna untuk menghapus konten biner yang berpotensi berbahaya. Kode C++ berikut menunjukkan cara memuat sebuah presentasi tanpa konten biner yang disematkan:
+Opsi ini mengurangi paparan terhadap payload yang disematkan tidak diinginkan, namun bukan sistem deteksi malware atau sanitasi konten yang lengkap.
 
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto loadOptions = MakeObject<LoadOptions>();
 loadOptions->set_DeleteEmbeddedBinaryObjects(true);
 
-auto presentation = MakeObject<Presentation>(u"malware.ppt", loadOptions);
+auto presentation = MakeObject<Presentation>(u"presentation-with-embedded-data.pptx", loadOptions);
 
-// Perform operations on the presentation.
+presentation->Save(u"presentation-without-embedded-data.pptx", SaveFormat::Pptx);
 
 presentation->Dispose();
 ```
@@ -170,12 +195,12 @@ presentation->Dispose();
 
 **Bagaimana saya dapat mengetahui bahwa sebuah file rusak dan tidak dapat dibuka?**
 
-Anda akan menerima pengecualian parsing/validasi format saat memuat. Kesalahan semacam itu sering menyebutkan struktur ZIP yang tidak valid atau rekaman PowerPoint yang rusak.
+Aspose.Slides melemparkan pengecualian parsing atau format saat memuat. Tangani kegagalan itu secara terpisah dari kesalahan kata sandi yang salah agar aplikasi dapat melaporkan penyebabnya dengan tepat.
 
-**Apa yang terjadi jika font yang dibutuhkan tidak ada saat membuka?**
+**Apa yang terjadi jika font yang diperlukan tidak ada?**
 
-File akan terbuka, tetapi kemudian [rendering/export](/slides/id/cpp/convert-presentation/) mungkin menggantikan font. [Konfigurasikan substitusi font](/slides/id/cpp/font-substitution/) atau [tambahkan font yang diperlukan](/slides/id/cpp/custom-font/) ke lingkungan runtime.
+Presentasi masih dapat dimuat, tetapi proses rendering dan ekspor mungkin menggantikan font. Anda dapat [mengonfigurasi substitusi font](/slides/id/cpp/font-substitution/) atau [menyediakan font khusus](/slides/id/cpp/custom-font/) agar output lebih dapat diprediksi.
 
-**Bagaimana dengan media yang disematkan (video/audio) saat membuka?**
+**Apakah memuat presentasi juga memuat media yang disematkan?**
 
-Mereka akan tersedia sebagai sumber daya presentasi. Jika media direferensikan melalui jalur eksternal, pastikan jalur tersebut dapat diakses di lingkungan Anda; bila tidak, [rendering/export](/slides/id/cpp/convert-presentation/) mungkin tidak menyertakan media tersebut.
+Audio dan video yang disematkan menjadi tersedia melalui model objek presentasi. Sumber daya eksternal diselesaikan sesuai perilaku pemuatan sumber daya yang dikonfigurasi dan mungkin tidak tersedia jika lokasinya tidak dapat diakses.

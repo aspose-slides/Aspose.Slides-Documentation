@@ -6,7 +6,6 @@ weight: 20
 url: /ar/php-java/open-presentation/
 keywords:
 - فتح PowerPoint
-- فتح OpenDocument
 - فتح عرض تقديمي
 - فتح PPTX
 - فتح PPT
@@ -15,112 +14,115 @@ keywords:
 - تحميل PPTX
 - تحميل PPT
 - تحميل ODP
-- عرض تقديمي محمي
-- عرض تقديمي كبير
+- عرض محمي
+- عرض كبير
 - مورد خارجي
 - كائن ثنائي
 - PHP
 - Aspose.Slides
-description: "قم بفتح عروض PowerPoint (.pptx, .ppt) وOpenDocument (.odp) بسهولة باستخدام Aspose.Slides للـ PHP عبر Java — سريع، موثوق، كامل المميزات."
+description: "تعلم كيف تفتح عروض PowerPoint وOpenDocument في PHP، وتوفير كلمات مرور للفتح، والتحكم في تحميل الموارد، وتقليل استهلاك الذاكرة باستخدام Aspose.Slides for PHP عبر Java."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/ar/php-java/) يمكنه تحميل عروض PowerPoint وOpenDocument من الملفات وتدفقات البيانات. بعد تحميل العرض، يمكنك فحص هيكليته، تعديل الشرائح، إدارة الموارد، وحفظه بالصيغ الأصلية أو بصيغة مدعومة أخرى.
 
-بعيدًا عن إنشاء عروض PowerPoint من الصفر، يتيح Aspose.Slides أيضًا فتح العروض التقديمية الموجودة. بعد تحميل عرض تقديمي، يمكنك استرداد معلومات عنه، تعديل محتوى الشرائح، إضافة شرائح جديدة، حذف الشرائح الحالية، والمزيد.
+يمكن تخصيص سلوك التحميل عبر الفئة [LoadOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/) . على سبيل المثال، يمكنك توفير كلمة مرور للفتح، إبقاء الكائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المضمّنة.
 
 ## **فتح العروض التقديمية**
 
-لفتح عرض تقديمي موجود، قم بإنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) ومرر مسار الملف إلى منشئها.
+لفتح عرض تقديمي موجود، مرّر مسار ملفه إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) . حرّر العرض بعد الاستخدام لتصريف مقابض الملفات والبيانات المؤقتة وغيرها من الموارد على الفور.
 
-تظهر مثال PHP التالي كيفية فتح عرض تقديمي والحصول على عدد الشرائح:
 ```php
-// إنشاء كائن من الفئة Presentation وتمرير مسار الملف إلى منشئها.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("sample.pptx");
 try {
-    // طباعة العدد الإجمالي للشرائح في العرض التقديمي.
-    echo($presentation->getSlides()->size());
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
+## **فتح العروض المحمية بكلمة مرور**
 
-## **فتح العروض التقديمية المحمية بكلمة مرور**
+كلمة المرور المشفرة تحمي محتوى العرض. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions::setPassword](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setPassword) وقدم الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) . سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
 
-عند الحاجة إلى فتح عرض تقديمي محمي بكلمة مرور، مرّر كلمة المرور عبر طريقة [setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setPassword) في الفئة [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/) لفك التشفير وتحميله. يُظهر كود PHP التالي هذه العملية:
 ```php
-$loadOptions = new LoadOptions();
-$loadOptions->setPassword("YOUR_PASSWORD");
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
+$loadOptions = new LoadOptions();
+$loadOptions->setPassword("open_password");
+
+$presentation = new Presentation("encrypted-presentation.pptx", $loadOptions);
 try {
-    // تنفيذ العمليات على العرض التقديمي المفكوك.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
+لعمليات اكتشاف كلمة المرور، والتحقق، وسير عمل التشفير، انظر [Password-Protect Presentations](/slides/ar/php-java/password-protected-presentation/). إذا تم حفظ عرض مشفر عمداً بخصائص مستند عامة، يمكن قراءة تلك الخصائص بدون كلمة مرور؛ انظر [Manage Presentation Properties](/slides/ar/php-java/presentation-properties/).
 
-## **فتح العروض التقديمية الكبيرة**
+## **فتح عروض تقديمية كبيرة**
 
-يوفر Aspose.Slides خيارات—وبشكل خاص طريقة [getBlobManagementOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) في الفئة [LoadOptions](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/)—لمساعدتك في تحميل عروض تقديمية كبيرة.
+[LoadOptions::getBlobManagementOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#getBlobManagementOptions) تُعيد خيارات تتحكم في طريقة معالجة Aspose.Slides للكائنات الثنائية الضخمة مثل الصور، والصوت، والفيديو. يمكنك إبقاء ملف المصدر مقفلاً، السماح بالملفات المؤقتة، وتقييد كمية بيانات BLOB المحتفظ بها في الذاكرة.
 
-يوضح كود PHP التالي كيفية تحميل عرض تقديمي كبير (مثلاً 2 جيجابايت):
 ```php
-$filePath = "LargePresentation.pptx";
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\PresentationLockingBehavior;
+use aspose\slides\SaveFormat;
+
+$filePath = "large-presentation.pptx";
 
 $loadOptions = new LoadOptions();
-// اختر سلوك KeepLocked—ستظل ملف العرض مقفولًا طوال مدة
-// نسخة الـ Presentation، لكن لا تحتاج إلى تحميلها في الذاكرة أو نسخها إلى ملف مؤقت.
 $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
 $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
-$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024); // 10 ميجابايت
+$loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(10 * 1024 * 1024);
 
 $presentation = new Presentation($filePath, $loadOptions);
 try {
-    // تم تحميل العرض التقديمي الكبير ويمكن استخدامه، بينما يظل استهلاك الذاكرة منخفضًا.
-
-    // إجراء تغييرات على العرض التقديمي.
-    $presentation->getSlides()->get_Item(0)->setName("Very large presentation");
-
-    // حفظ العرض التقديمي إلى ملف آخر. يظل استهلاك الذاكرة منخفضًا أثناء هذه العملية.
-    $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
-	
-	// لا تفعل هذا! سيتم رمي استثناء I/O لأن الملف مقفول حتى يتم التخلص من كائن العرض التقديمي.
-	//unlink($filePath);
+    $presentation->getSlides()->get_Item(0)->setName("Large presentation");
+    $presentation->save("large-presentation-copy.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
-// من المقبول القيام بذلك هنا. لم يعد ملف المصدر مقفولًا بواسطة كائن العرض التقديمي.
-unlink($filePath);
 ```
 
+{{% alert color="info" title="ملاحظة" %}}
+مع [PresentationLockingBehavior::KeepLocked](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفلاً حتى يتم تحرير كائن العرض. لا تقم بنقل أو استبدال أو حذف ملف المصدر بينما يكون هذا الكائن حياً.
 
-{{% alert color="info" title="Info" %}}
-لتجاوز بعض القيود عند العمل مع التدفقات، قد يقوم Aspose.Slides بنسخ محتويات التدفق. تحميل عرض تقديمي كبير من تدفق يؤدي إلى نسخ العرض وقد يبطئ عملية التحميل. لذلك، عندما تحتاج إلى تحميل عرض تقديمي كبير، نوصي بشدة باستخدام مسار ملف العرض بدلاً من التدفق.
-
-عند إنشاء عرض تقديمي يحتوي على كائنات كبيرة (فيديو، صوت، صور عالية الدقة، إلخ)، يمكنك استخدام [BLOB management](/slides/ar/php-java/manage-blob/) لتقليل استهلاك الذاكرة.
-{{%/alert %}}
+قد تقوم Aspose.Slides بنسخ محتويات تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، غالباً ما يكون مسار الملف أكثر كفاءة من التدفق. راجع [Manage BLOBs](/slides/ar/php-java/manage-blob/) للحصول على مزيد من خيارات التخزين وإدارة الذاكرة.
+{{% /alert %}}
 
 ## **التحكم في الموارد الخارجية**
 
-يوفر Aspose.Slides الواجهة [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) التي تتيح لك إدارة الموارد الخارجية. يعرض كود PHP التالي كيفية استخدام واجهة `IResourceLoadingCallback`:
+[LoadOptions::setResourceLoadingCallback](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setResourceLoadingCallback) تقبل تنفيذًا لواجهة Java [IResourceLoadingCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iresourceloadingcallback/) عبر جسر PHP/Java. يمكن للـ callback تزويد بيانات بديلة، إعادة توجيه مورد، استخدام المحمّل الافتراضي، أو تخطّي المورد. يكون هذا مفيدًا عندما تحتوي العروض على صور خارجية يجب حلّها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
+
 ```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\ResourceLoadingAction;
+
 class ImageLoadingHandler {
     function resourceLoading($args) {
-        if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-            // تحميل صورة بديلة.
-			$bytes = file_get_contents("aspose-logo.jpg");
-			$javaByteArray = java_values($bytes);
-            $args->setData($javaByteArray);
-            return ResourceLoadingAction::UserProvided;
-        } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-            // تعيين عنوان URL بديل.
-            $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction::Default;
+        $originalUri = strtolower(java_values($args->getOriginalUri()));
+        $approvedImagePath = "approved-image.jpg";
+        $isJpeg = substr($originalUri, -4) === ".jpg";
+
+        if (!$isJpeg || !file_exists($approvedImagePath)) {
+            return ResourceLoadingAction::Skip;
         }
-        // تجاوز جميع الصور الأخرى.
-        return ResourceLoadingAction::Skip;
+
+        $imageData = file_get_contents($approvedImagePath);
+        if ($imageData === false) {
+            echo("The approved replacement image could not be read.\n");
+            return ResourceLoadingAction::Skip;
+        }
+
+        $args->setData(java_values($imageData));
+        return ResourceLoadingAction::UserProvided;
     }
 }
 
@@ -129,43 +131,49 @@ $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose
 $loadOptions = new LoadOptions();
 $loadOptions->setResourceLoadingCallback($loadingHandler);
 
-$presentation = new Presentation("Sample.pptx", $loadOptions);
-```
-
-
-## **تحميل العروض التقديمية دون كائنات ثنائية مضمّنة**
-
-قد يحتوي عرض PowerPoint على الأنواع التالية من الكائنات الثنائية المضمّنة:
-- مشروع VBA (يمكن الوصول إليه عبر [Presentation.getVbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject));
-- بيانات كائن OLE المضمّنة (يمكن الوصول إليها عبر [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData));
-- بيانات التحكم الثنائي ActiveX (يمكن الوصول إليها عبر [Control.getActiveXControlBinary](https://reference.aspose.com/slides/php-java/aspose.slides/control/#getActiveXControlBinary)).
-
-باستخدام طريقة [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects)، يمكنك تحميل عرض تقديمي دون أي كائنات ثنائية مضمّنة.
-
-تُعد هذه الطريقة مفيدة لإزالة المحتوى الثنائي المحتمل أن يكون ضارًا. يُظهر كود PHP التالي كيفية تحميل عرض تقديمي دون أي محتوى ثنائي مضمّن:
-```php
-$loadOptions = new LoadOptions();
-$loadOptions->setDeleteEmbeddedBinaryObjects(true);
-
-$presentation = new Presentation("malware.ppt", $loadOptions);
+$presentation = new Presentation("presentation-with-external-images.pptx", $loadOptions);
 try {
-    // تنفيذ العمليات على العرض التقديمي.
+    echo("Slide count: " . java_values($presentation->getSlides()->size()) . "\n");
 } finally {
     $presentation->dispose();
 }
 ```
 
+## **تحميل العروض بدون كائنات ثنائية مضمّنة**
 
-## **FAQ**
+قد يحتوي العرض على بيانات ثنائية مضمّنة لا تحتاجها التطبيق أو لا تريد الاحتفاظ بها. تشمل الأمثلة:
 
-**كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
+- مشاريع VBA، متاحة عبر [Presentation::getVbaProject](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#getVbaProject)؛
+- بيانات OLE مضمّنة، متاحة عبر [OleEmbeddedDataInfo::getEmbeddedFileData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData)؛
+- بيانات التحكم ActiveX، متاحة عبر [Control::getActiveXControlBinary](https://reference.aspose.com/slides/ar/php-java/aspose.slides/control/#getActiveXControlBinary) .
 
-ستحصل على استثناء أثناء التحميل يخص تحليل/تحقق من صحة الصيغة. غالباً ما تشير هذه الأخطاء إلى بنية ZIP غير صالحة أو سجلات PowerPoint مكسورة.
+حدد [LoadOptions::setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) إلى `true` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض المُحمَّل لتثبيت النتيجة المُنقاة.
 
-**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة عند الفتح؟**
+هذا الخيار يقلل من التعرض للحمولات المضمّنة غير المرغوبة، لكنه ليس نظام اكتشاف برامج ضارة أو تنقية محتوى كامل.
 
-سيفتح الملف، لكن قد تستبدل الخطوط لاحقاً أثناء [rendering/export](/slides/ar/php-java/convert-presentation/). يمكنك [Configure font substitutions](/slides/ar/php-java/font-substitution/) أو [add the required fonts](/slides/ar/php-java/custom-font/) في بيئة التشغيل.
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-**ماذا عن الوسائط المضمّنة (فيديو/صوت) عند الفتح؟**
+$loadOptions = new LoadOptions();
+$loadOptions->setDeleteEmbeddedBinaryObjects(true);
 
-ستصبح متاحة كموارد للعرض. إذا تمت الإشارة إلى الوسائط عبر مسارات خارجية، تأكد من أن تلك المسارات متاحة في بيئتك؛ وإلا قد يحذفها [rendering/export](/slides/ar/php-java/convert-presentation/).
+$presentation = new Presentation("presentation-with-embedded-data.pptx", $loadOptions);
+try {
+    $presentation->save("presentation-without-embedded-data.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **الأسئلة الشائعة**
+
+**كيف يمكنني معرفة أن الملف معيَّب ولا يمكن فتحه؟**  
+ترمي Aspose.Slides استثناءً يتعلّق بالتحليل أو الصيغة أثناء التحميل. عالج هذا الفشل بشكل منفصل عن خطأ كلمة المرور غير الصحيحة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
+
+**ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة؟**  
+يمكن للعرض أن يظل يُحمَّل، لكن قد تُستبدل الخطوط أثناء العرض أو التصدير. يمكنك [configure font substitution](/slides/ar/php-java/font-substitution/) أو [provide custom fonts](/slides/ar/php-java/custom-font/) لجعل المخرجات أكثر توقعًا.
+
+**هل يقوم تحميل العرض أيضًا بتحميل وسائطه المضمَّنة؟**  
+تصبح ملفات الصوت والفيديو المضمّنة متاحة عبر نموذج كائن العرض. تُحلّ الموارد الخارجية وفق سلوك تحميل الموارد المُكوَّن وقد تكون غير متوفرة إذا تعذر الوصول إلى مواقعها.

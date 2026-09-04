@@ -1,16 +1,16 @@
 ---
-title: Prezentáció tulajdonságok kezelése JavaScript-ben
-linktitle: Prezentáció tulajdonságok
+title: Presentáció tulajdonságok kezelése JavaScriptben
+linktitle: Prezentáció tulajdonságai
 type: docs
 weight: 70
 url: /hu/nodejs-java/presentation-properties/
 keywords:
 - PowerPoint tulajdonságok
 - prezentáció tulajdonságok
-- dokumentumtulajdonságok
+- dokumentum tulajdonságok
 - beépített tulajdonságok
 - egyéni tulajdonságok
-- speciális tulajdonságok
+- haladó tulajdonságok
 - tulajdonságok kezelése
 - tulajdonságok módosítása
 - dokumentum metaadatok
@@ -23,57 +23,144 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kezelje a prezentáció tulajdonságait az Aspose.Slides for Node.js via Java segítségével, és egyszerűsítse a keresést, a márkázást és a munkafolyamatot PowerPoint és OpenDocument fájljaiban."
+description: "Mesteri prezentációs tulajdonságok az Aspose.Slides for Node.js via Java használatával, és egyszerűsítse a keresést, a márkázást és a munkafolyamatot PowerPoint és OpenDocument fájljaiban."
 ---
 ## **Bevezetés**
 
 Az Aspose.Slides két típusú dokumentumtulajdonságot támogat: **Beépített** és **Egyéni**. Mindkét tulajdonságtípust könnyen el lehet érni és kezelni az Aspose.Slides API segítségével.
 
-Az Aspose.Slides lehetővé teszi, hogy a prezentáció dokumentumtulajdonságokkal a [DocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties/) osztályon keresztül dolgozzon. Ennek az osztálynak egy példánya a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDocumentProperties) metódus visszatérési értéke. A következő példák bemutatják, hogyan olvassuk, módosítsuk és kezeljük ezeket a tulajdonságokat.
+Az Aspose.Slides lehetővé teszi a prezentáció dokumentumtulajdonságokkal való munkát a [DocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties/) osztályon keresztül. Ennek az osztálynak egy példányát a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDocumentProperties) metódus adja vissza. A következő példák bemutatják, hogyan lehet ezeket a tulajdonságokat olvasni, módosítani és kezelni.
 
 {{% alert color="info" title="Note" %}}
-Kérjük, vegye figyelembe, hogy a **Application** és **AppVersion** mezők nem módosíthatók. Az Aspose.Slides minden mentéskor felülírja őket, így egy mentett prezentáció mindig azt a szöveget jelzi, hogy "Aspose.Slides for Node.js via Java" és a könyvtár verzióját, amely előállította. A `setNameOfApplication`‑nek átadott bármely érték eldobásra kerül a prezentáció írása során.
+Kérjük vegye figyelembe, hogy a **Application** és **AppVersion** mezőket nem lehet módosítani. Az Aspose.Slides minden mentéskor felülírja őket, ezért egy mentett prezentáció mindig azt jelzi, hogy "Aspose.Slides for Node.js via Java" és a könyvtár verziója, amely létrehozta. A `setNameOfApplication`-nek átadott bármely értéket eldobja a rendszer a prezentáció írásakor.
 {{% /alert %}} 
 
-## **Prezentáció tulajdonságainak kezelése**
+## **Prezentációtulajdonságok kezelése**
 
-A Microsoft PowerPoint lehetőséget nyújt a prezentációfájlokhoz tulajdonságok hozzáadására. Ezek a dokumentumtulajdonságok hasznos információk tárolását teszik lehetővé a dokumentumok (prezentációfájlok) mellett. Kétféle dokumentumtulajdonság létezik:
+A Microsoft PowerPoint lehetőséget biztosít a prezentációs fájlokhoz bizonyos tulajdonságok hozzáadására. Ezek a dokumentumtulajdonságok hasznos információk tárolását teszik lehetővé a dokumentumokkal (prezentációs fájlokkal) együtt. Kétféle dokumentumtulajdonság létezik:
 
 - Rendszer által definiált (Beépített) tulajdonságok
 - Felhasználó által definiált (Egyéni) tulajdonságok
 
-A **Beépített** tulajdonságok általános információkat tartalmaznak a dokumentumról, például a dokumentum címe, a szerző neve, a dokumentum statisztikái stb. Az **Egyéni** tulajdonságok olyanok, amelyeket a felhasználók **Név/Érték** párok formájában definiálnak, ahol mind a név, mind az érték a felhasználó által meghatározott. Az Aspose.Slides for Node.js via Java segítségével a fejlesztők hozzáférhetnek és módosíthatják mind a beépített, mind az egyéni tulajdonságok értékeit.
+**Beépített** tulajdonságok általános információkat tartalmaznak a dokumentumról, például a dokumentum címét, a szerző nevét, a dokumentum statisztikáit stb. **Egyéni** tulajdonságok olyanok, amelyeket a felhasználók **Név/Érték** párokként definiálnak, ahol a név és az érték is a felhasználó által kerül meghatározásra. Az Aspose.Slides for Node.js via Java használatával a fejlesztők hozzáférhetnek és módosíthatják a beépített és az egyéni tulajdonságok értékeit.
 
 ## **Dokumentumtulajdonságok a PowerPointban**
 
-A Microsoft PowerPoint 2007 lehetővé teszi a prezentációfájlok dokumentumtulajdonságainak kezelését. Elég csak rákattintani az Office ikonra, majd a **Prepare | Properties | Advanced Properties** menüpontra, ahogy az alább látható:
+A Microsoft PowerPoint 2007 lehetővé teszi a prezentációs fájlok dokumentumtulajdonságainak kezelését. Csak kattintson az Office ikonra, majd a **Prepare | Properties | Advanced Properties** menüpontra a Microsoft PowerPoint 2007-ben, ahogyan az alább látható:
 
-|**Speciális tulajdonságok menüpont kiválasztása**|** |
+|**Az Advanced Properties menüpont kiválasztása**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
 
-A **Advanced Properties** menüpont kiválasztása után egy párbeszédablak jelenik meg, amely lehetővé teszi a PowerPoint-fájl dokumentumtulajdonságainak kezelését, ahogy az alábbi ábra mutatja:
+Az **Advanced Properties** menüpont kiválasztása után egy párbeszédablak jelenik meg, amely lehetővé teszi a PowerPoint-fájl dokumentumtulajdonságainak kezelését, az alábbi ábrán látható módon:
 
 |**Tulajdonságok párbeszédablaka**|** |
 | :- | :- |
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 
-A fenti **Tulajdonságok párbeszédablak** számos lapot tartalmaz, például **General**, **Summary**, **Statistics**, **Contents** és **Custom**. Ezek a lapok különböző információk konfigurálását teszik lehetővé a PowerPoint-fájlokhoz. Az **Custom** lap a PowerPoint-fájlok egyéni tulajdonságainak kezelésére szolgál.
+Az előző **Tulajdonságok párbeszédablakban** számos lapot láthat, például **General**, **Summary**, **Statistics**, **Contents** és **Custom**. Ezek a lapok különféle információk beállítását teszik lehetővé a PowerPoint-fájlokkal kapcsolatban. A **Custom** lap a PowerPoint-fájlok egyéni tulajdonságainak kezelésére szolgál.
+
+Dokumentumtulajdonságok kezelése az Aspose.Slides for Node.js via Java használatával
+
+Ahogy korábban leírtuk, az Aspose.Slides for Node.js via Java kétféle dokumentumtulajdonságot támogat: **Beépített** és **Egyéni** tulajdonságokat. Így a fejlesztők mindkét típusú tulajdonsághoz hozzáférhetnek az Aspose.Slides for Node.js via Java API használatával. Az Aspose.Slides for Node.js via Java egy [DocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties) osztályt biztosít, amely a prezentációs fájlhoz kapcsolódó dokumentumtulajdonságokat reprezentálja a **Presentation.DocumentProperties** tulajdonságon keresztül.
+
+Fejlesztők a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation) objektum által biztosított **DocumentProperties** tulajdonságot használva hozzáférhetnek a prezentációs fájlok dokumentumtulajdonságaihoz, amint az alább le van írva:
+
+## **Nyilvános tulajdonságok olvasása titkosított prezentációból**
+
+A megnyitási jelszó általában a prezentáció tartalmát és a dokumentumtulajdonságokat is védi. Ha a prezentációt úgy titkosítják, hogy a [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) metódusnak `false` értéket adnak, akkor a dokumentumtulajdonságok nyilvánosak maradnak. Ezután az alkalmazás a [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) metódusnak `true` értéket adva a nyilvános metaadatokat olvashatja anélkül, hogy megadná a megnyitási jelszót.
+
+A csak dokumentumtulajdonságok betöltését vezérlő opció határozza meg, hogy az Aspose.Slides mit tölt be; semmit sem titkosít vissza. Ha a tulajdonságok a titkosítás részét képezték, akkor jelszó nélkül a betöltés sikertelen. Ha a prezentáció nincs titkosítva, az opciót figyelmen kívül hagyják, és a teljes prezentáció betöltődik.
+
+A következő példa ellenőrzi a betöltési módot a [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) segítségével, majd beolvassa a beépített tulajdonságokat a [Presentation.getDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDocumentProperties) segítségével:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+const presentation = new slides.Presentation("public-properties-encrypted.pptx", loadOptions);
+try {
+    if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        const properties = presentation.getDocumentProperties();
+
+        console.log("Author: " + properties.getAuthor());
+        console.log("Title: " + properties.getTitle());
+        console.log("Keywords: " + properties.getKeywords());
+    } else {
+        console.log("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Ebben a módban a dia tartalma nem töltődik be. A diák, a masterek, az elrendezések, az alakzatok, a média és egyéb prezentációs objektumok nem állnak rendelkezésre. Az alkalmazásoknak mindig ellenőrizniük kell a [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) metódust, mielőtt olyan műveletet hajtanának végre, amely a teljes prezentációs objektummodellt igényli.
+
+{{% alert color="warning" title="Warning" %}}
+A nyilvános metaadatok felfedhetik a szerzők nevét, a címeket, a tárgyakat, a kulcsszavakat, a céginformációkat, a megjegyzéseket és az egyéni értékeket. Titkosítsa a személyes tulajdonságokat a prezentációval együtt. Hagyja őket nyilvánosnak csak akkor, ha indexelés, osztályozás, keresés vagy dokumentumkezelő rendszerek speciális igényei miatt jelszó nélkül kell hozzáférni.
+{{% /alert %}}
+
+## **Titkosított prezentáció tulajdonságainak frissítése**
+
+Titkosított PPTX fájl esetén a dokumentumtulajdonságok-only módban betöltött prezentáció arra szolgál, hogy a nyilvános metaadatokat olvassa. Az Aspose.Slides nem tudja menteni a módosított tulajdonságokat ebből a csak metaadatot tartalmazó objektumból, mivel a nyilvános tulajdonságoknak összhangban kell lenniük a titkosított prezentációban lévő megfelelő adatokkal. Ennek frissítése ezért a helyes megnyitási jelszót és a teljes betöltést igényli.
+
+A következő példa a prezentációt a [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setPassword) segítségével nyitja meg, frissíti a nyilvános beépített tulajdonságokat, és elmenti az eredményt. Ezután a [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentationinfo/#isEncrypted) metódust használja, hogy ellenőrizze a titkosítás megmaradását, és a nyilvános metaadatokat jelszó nélkül nyissa meg az új értékek ellenőrzéséhez:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const inputPath = "public-properties-encrypted.pptx";
+const outputPath = "updated-public-properties-encrypted.pptx";
+
+const loadOptions = new slides.LoadOptions();
+loadOptions.setPassword("open_password");
+
+const presentation = new slides.Presentation(inputPath, loadOptions);
+try {
+    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
+    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    presentation.save(outputPath, slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const presentationInfo = slides.PresentationFactory.getInstance().getPresentationInfo(outputPath);
+console.log("The presentation is encrypted: " + presentationInfo.isEncrypted());
+
+const metadataLoadOptions = new slides.LoadOptions();
+metadataLoadOptions.setOnlyLoadDocumentProperties(true);
+
+const metadataPresentation = new slides.Presentation(outputPath, metadataLoadOptions);
+try {
+    if (metadataPresentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
+        console.log("Title: " + metadataPresentation.getDocumentProperties().getTitle());
+        console.log("Keywords: " + metadataPresentation.getDocumentProperties().getKeywords());
+    } else {
+        console.log("The presentation was not loaded in document-properties-only mode.");
+    }
+} finally {
+    metadataPresentation.dispose();
+}
+```
+
+Ha egy alkalmazás nem kap engedélyt a prezentáció tartalmának visszafejtésére vagy betöltésére, akkor a titkosított PPTX fájl nyilvános tulajdonságait csak olvashatóként kell kezelnie.
 
 ## **Beépített tulajdonságok elérése**
 
-Az [DocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties) objektum által kiadott tulajdonságok a következőket tartalmazzák: **Creator** (Szerző), **Description**, **Keywords**, **Created** (Létrehozás dátuma), **Modified** (Módosítás dátuma), **Printed** (Utolsó nyomtatás dátuma), **LastModifiedBy**, **Keywords**, **SharedDoc** (Megosztott dokumentum?), **PresentationFormat**, **Subject** és **Title**.
+Ezeket a tulajdonságokat a [DocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties) objektum teszi elérhetővé: **Creator** (Szerző), **Description**, **Keywords**, **Created** (Létrehozás dátuma), **Modified** (Módosítás dátuma), **Printed** (Legutóbbi nyomtatás dátuma), **LastModifiedBy**, **SharedDoc** (Megosztott dokumentum különböző előállítók között?), **PresentationFormat**, **Subject** és **Title**
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// Példányosítsa a Presentation osztályt, amely a prezentációt képviseli
+// A prezentációt képviselő Presentation osztály példányosítása
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Hozzon létre egy hivatkozást a prezentációhoz tartozó IDocumentProperties objektumra
+    // Hivatkozás létrehozása a Presentation-hez kapcsolódó IDocumentProperties objektumra
     var dp = pres.getDocumentProperties();
-    // Jelenítse meg a beépített tulajdonságokat
+    // A beépített tulajdonságok megjelenítése
     console.log("Category : " + dp.getCategory());
     console.log("Current Status : " + dp.getContentStatus());
     console.log("Creation Date : " + dp.getCreatedTime());
@@ -97,7 +184,7 @@ try {
 
 ## **Beépített tulajdonságok módosítása**
 
-A beépített tulajdonságok módosítása olyan egyszerű, mint azok elérése. Egyszerűen egy karakterlánc értéket adhat a kívánt tulajdonsághoz, és az érték módosul. Az alábbi példában bemutatjuk, hogyan módosíthatjuk a prezentáció beépített dokumentumtulajdonságait az Aspose.Slides for Node.js via Java használatával.
+A prezentációs fájlok beépített tulajdonságainak módosítása ugyanolyan egyszerű, mint a hozzáférésük. Egyszerűen egy karakterlánc értéket adhat meg bármely kívánt tulajdonságnak, és a tulajdonság értéke módosul. Az alábbi példában bemutattuk, hogyan módosíthatjuk a prezentációs fájl beépített dokumentumtulajdonságait az Aspose.Slides for Node.js via Java használatával.
 
 ```javascript
 var aspose = aspose || {};
@@ -105,7 +192,7 @@ aspose.slides = require("aspose.slides.via.java");
 
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Hozzon létre egy hivatkozást a prezentációhoz tartozó IDocumentProperties objektumra
+    // Hozzon létre egy hivatkozást a Presentation-hez kapcsolódó IDocumentProperties objektumra
     var dp = pres.getDocumentProperties();
     // Állítsa be a beépített tulajdonságokat
     dp.setAuthor("Aspose.Slides for Node.js via Java");
@@ -122,7 +209,7 @@ try {
 }
 ```
 
-Ez a példa módosítja a prezentáció beépített tulajdonságait, amelyek az alább láthatóak:
+Ez a példa módosítja a prezentáció beépített tulajdonságait, amelyek az alábbiakban láthatók:
 
 |**Beépített dokumentumtulajdonságok módosítás után**|** |
 | :- | :- |
@@ -130,7 +217,7 @@ Ez a példa módosítja a prezentáció beépített tulajdonságait, amelyek az 
 
 ## **Egyéni dokumentumtulajdonságok hozzáadása**
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi a fejlesztők számára, hogy egyéni értékeket adjanak a prezentáció dokumentumtulajdonságaihoz. Az alábbi példában látható, hogyan állíthatók be egyéni tulajdonságok egy prezentációhoz.
+Az Aspose.Slides for Node.js via Java lehetővé teszi a fejlesztők számára, hogy egyéni értékeket adjanak hozzá a prezentáció dokumentumtulajdonságaihoz. Az alábbi példában látható, hogyan állíthatók be az egyéni tulajdonságok egy prezentációhoz.
 
 ```javascript
 var aspose = aspose || {};
@@ -138,7 +225,7 @@ aspose.slides = require("aspose.slides.via.java");
 
 var pres = new aspose.slides.Presentation();
 try {
-    // Dokumentumtulajdonságok lekérése
+    // Dokumentum tulajdonságainak lekérése
     var dProps = pres.getDocumentProperties();
     // Egyéni tulajdonságok hozzáadása
     dProps.set_Item("New Custom", 12);
@@ -163,7 +250,7 @@ try {
 
 ## **Egyéni tulajdonságok elérése és módosítása**
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi a fejlesztők számára, hogy hozzáférjenek az egyéni tulajdonságok értékeihez. Az alábbi példa bemutatja, hogyan érheti el és módosíthatja ezeket az egyéni tulajdonságokat egy prezentációban.
+Az Aspose.Slides for Node.js via Java lehetővé teszi a fejlesztők számára, hogy hozzáférjenek az egyéni tulajdonságok értékeihez. Az alábbi példa azt mutatja, hogyan érheti el és módosíthatja ezeket az egyéni tulajdonságokat egy prezentációban.
 
 ```javascript
 var aspose = aspose || {};
@@ -171,11 +258,11 @@ aspose.slides = require("aspose.slides.via.java");
 
 var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Hozzon létre egy hivatkozást a prezentációhoz tartozó DocumentProperties objektumra
+    // Hozzon létre egy hivatkozást a Presentation-hez kapcsolódó DocumentProperties objektumra
     var dp = pres.getDocumentProperties();
-    // Egyéni tulajdonságok elérése és módosítása
+    // Az egyéni tulajdonságok elérése és módosítása
     for (var i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Az egyéni tulajdonságok neveinek és értékeinek megjelenítése
+        // Az egyéni tulajdonságok nevének és értékének megjelenítése
         console.log("Custom Property Name : " + dp.getCustomPropertyName(i));
         console.log("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
         // Az egyéni tulajdonságok értékeinek módosítása
@@ -190,7 +277,7 @@ try {
 }
 ```
 
-Ez a példa módosítja a [PPTX](https://docs.fileformat.com/presentation/pptx/) prezentáció egyéni tulajdonságait. Az alábbi ábrák a prezentáció egyéni tulajdonságait mutatják módosítás előtt és után:
+Ez a példa módosítja a [PPTX ](https://docs.fileformat.com/presentation/pptx/) prezentáció egyéni tulajdonságait. Az alábbi ábrák a prezentáció egyéni tulajdonságait mutatják módosítás előtt és után:
 
 |**Egyéni tulajdonságok módosítás előtt**|** |
 | :- | :- |
@@ -203,30 +290,27 @@ Ez a példa módosítja a [PPTX](https://docs.fileformat.com/presentation/pptx/)
 ## **Speciális dokumentumtulajdonságok**
 
 {{% alert color="info" title="Note" %}}
-Új módszerek: [ReadDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), és [WriteBindedPresentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) lettek hozzáadva a [PresentationInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo) osztályhoz, a [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) tulajdonság beállítójának logikája módosult.
+Új metódusok – [ReadDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), és [WriteBindedPresentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) – lettek hozzáadva a [PresentationInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo) osztályhoz, a [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) tulajdonság beállítójának logikája megváltozott.
 {{% /alert %}} 
 
-Az új [ReadDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) és [UpdateDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) módszerek a [PresentationInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo) osztályhoz lettek hozzáadva. Ezek gyors hozzáférést biztosítanak a dokumentumtulajdonságokhoz, és lehetővé teszik a tulajdonságok módosítását a teljes prezentáció betöltése nélkül.
+A két új metódus – [ReadDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) és [UpdateDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) – hozzá lett adva a [PresentationInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/PresentationInfo) osztályhoz. Gyors hozzáférést biztosítanak a dokumentumtulajdonságokhoz, és lehetővé teszik azok módosítását és frissítését anélkül, hogy a teljes prezentációt betöltenék.
 
-A tipikus forgatókönyv a tulajdonságok betöltése, értékek módosítása és a dokumentum frissítése a következő módon valósítható meg:
+A tipikus forgatókönyv, amikor betöltjük a tulajdonságokat, módosítunk egy értéket, és frissítjük a dokumentumot, az alábbi módon valósítható meg:
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// olvassa be a prezentáció információit
+// olvassa be a prezentáció adatait
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
-// obtain the current properties
 var props = info.readDocumentProperties();
-// set the new values of Author and Title fields
 props.setAuthor("New Author");
 props.setTitle("New Title");
-// update the presentation with a new values
 info.updateDocumentProperties(props);
 info.writeBindedPresentation("presentation.pptx");
 ```
 
-Létezik egy másik mód is, amelyben egy adott prezentáció tulajdonságait sablonként használva frissíthetjük a tulajdonságokat más prezentációkban:
+Van egy másik mód is, amelyben egy adott prezentáció tulajdonságait sablonként használva frissíthetők más prezentációk tulajdonságai:
 
 ```javascript
 var aspose = aspose || {};
@@ -265,7 +349,7 @@ function updateByTemplate(path, template)
 }
 ```
 
-Új sablon hozható létre a semmiből, és azt felhasználhatjuk több prezentáció frissítésére:
+Új sablon hozható létre teljesen az elejétől, majd használható több prezentáció frissítésére:
 
 ```javascript
 var aspose = aspose || {};
@@ -305,9 +389,9 @@ function updateByTemplate(path, template)
 
 ## **Helyesírási nyelv beállítása**
 
-Az Aspose.Slides a LanguageId tulajdonságot (a PortionFormat osztály által kiadott) biztosítja, hogy beállíthassa a helyesírási nyelvet egy PowerPoint-dokumentumhoz. A helyesírási nyelv az a nyelv, amelyre a PowerPoint helyesírás- és nyelvtani ellenőrzése vonatkozik. 
+Az Aspose.Slides a LanguageId tulajdonságot (a PortionFormat osztály által biztosítva) biztosítja, amely lehetővé teszi a PowerPoint-dokumentum helyesírási nyelvének beállítását. A helyesírási nyelv az a nyelv, amelynek helyesírását és nyelvtanát a PowerPoint ellenőrzi.
 
-Ez a JavaScript kód megmutatja, hogyan állítható be a helyesírási nyelv egy PowerPointhoz: xxx Miért hiányzik a LanguageId a JavaScript PortionFormat osztályból?
+Ez a JavaScript kód megmutatja, hogyan állítható be a PowerPoint helyesírási nyelve: xxx Miért hiányzik a LanguageId a JavaScript PortionFormat osztályból?
 
 ```javascript
 var aspose = aspose || {};
@@ -324,7 +408,7 @@ try {
     portionFormat.setComplexScriptFont(font);
     portionFormat.setEastAsianFont(font);
     portionFormat.setLatinFont(font);
-    portionFormat.setLanguageId("zh-CN");// a helyesírási nyelv azonosítójának beállítása
+    portionFormat.setLanguageId("zh-CN");// állítsa be a helyesírási nyelv azonosítóját
     newPortion.setText("1。");
     paragraph.getPortions().add(newPortion);
 } finally {
@@ -336,7 +420,7 @@ try {
 
 ## **Alapértelmezett nyelv beállítása**
 
-Ez a JavaScript kód megmutatja, hogyan állítható be az alapértelmezett nyelv egy teljes PowerPoint prezentációhoz:
+Ez a JavaScript kód megmutatja, hogyan állítható be az alapértelmezett nyelv az egész PowerPoint-prezentációhoz:
 
 ```javascript
 var aspose = aspose || {};
@@ -360,20 +444,28 @@ try {
 
 ## **Élő példa**
 
-Próbálja ki az **Aspose.Slides Metadata** online alkalmazást, hogy lássa, hogyan dolgozhat a dokumentumtulajdonságokkal az Aspose.Slides API segítségével:
+Próbálja ki a [**Aspose.Slides Metadata**](https://products.aspose.app/slides/hu/metadata) online alkalmazást, hogy lássa, hogyan dolgozhat a dokumentumtulajdonságokkal az Aspose.Slides API-n keresztül:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/hu/metadata)
 
-## **FAQ**
+## **GYIK**
 
 **Hogyan távolíthatok el egy beépített tulajdonságot egy prezentációból?**
 
-A beépített tulajdonságok a prezentáció szerves részei, és nem távolíthatók el teljesen. Azonban megváltoztathatja az értéküket vagy, ha a konkrét tulajdonság engedélyezi, üresen is beállíthatja.
+A beépített tulajdonságok a prezentáció szerves részét képezik, és nem távolíthatók el teljesen. Azonban megváltoztathatja az értéküket, vagy ha az adott tulajdonság megengedi, üresre állíthatja őket.
 
-**Mi történik, ha már létező egyéni tulajdonságot adok hozzá?**
+**Mi történik, ha egy már létező egyéni tulajdonságot adok hozzá?**
 
-Ha olyan egyéni tulajdonságot ad hozzá, amely már létezik, a meglévő érték felül lesz írva az újjal. Nem szükséges előbb eltávolítani vagy ellenőrizni a tulajdonságot, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
+Ha egy már létező egyéni tulajdonságot ad hozzá, a meglévő érték felülíródik az újjal. Nem szükséges a tulajdonságot előre eltávolítani vagy ellenőrizni, mivel az Aspose.Slides automatikusan frissíti a tulajdonság értékét.
 
-**Elérhetem a prezentáció tulajdonságait anélkül, hogy teljesen betölteném a prezentációt?**
+**Hozzáférhetek a prezentáció tulajdonságaihoz anélkül, hogy teljesen betölteném a prezentációt?**
 
-Igen. Használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) metódust, majd a [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) metódust a tárolt dokumentum metaadatok olvasásához anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) példányt hozna létre. Lásd a [Build a Lightweight Presentation Inventory](/slides/hu/nodejs-java/examine-presentation/) cikket a teljes jelentéspéldáért és a formátumspecifikus korlátozásokért.
+Igen. Használja a [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) metódust, majd a [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) metódust a tárolt dokumentum metaadatok olvasásához anélkül, hogy [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) példányt hozna létre. Tekintse meg a [Build a Lightweight Presentation Inventory](/slides/hu/nodejs-java/examine-presentation/) példát a teljes jelentési példáért és a formátumspecifikus korlátozásokért.
+
+**Olvashatok nyilvános tulajdonságokat egy titkosított prezentációból a megnyitási jelszó nélkül?**
+
+Igen. A dokumentumtulajdonságok titkosítását a prezentáció titkosítása előtt le kell tiltani, és a prezentációt a dokumentumtulajdonságok-only módban kell betölteni.
+
+**Frissíthetek egy titkosított PPTX fájlt dokumentumtulajdonságok-only módban?**
+
+Nem. A nyilvános és a titkosított tulajdonságadatoknak összhangban kell maradniuk, ezért egy titkosított PPTX fájl frissítéséhez a teljes prezentációt kell betölteni a megfelelő megnyitási jelszóval.

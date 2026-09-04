@@ -21,162 +21,155 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 轻松打开 PowerPoint (.pptx, .ppt) 和 OpenDocument (.odp) 演示文稿——快速、可靠、功能完善。"
+description: "了解如何在 C# 中打开 PowerPoint 和 OpenDocument 演示文稿，提供打开密码，控制资源加载，并使用 Aspose.Slides for .NET 减少内存使用。"
 ---
+## **简介**
 
-## **概述**
+[Aspose.Slides for .NET](https://products.aspose.com/slides/zh/net/) 可以从文件和流中加载 PowerPoint 和 OpenDocument 演示文稿。加载演示文稿后，您可以检查其结构、编辑幻灯片、管理资源，并以原始格式或其他受支持的格式保存。
 
-除了从零创建 PowerPoint 演示文稿，Aspose.Slides 还可以打开现有的演示文稿。加载演示文稿后，您可以获取其信息、编辑幻灯片内容、添加新幻灯片、删除已有幻灯片等。
+可以通过 [LoadOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/) 类自定义加载行为。例如，您可以提供打开密码、在受管内存之外保留大型二进制对象、控制外部资源，或省略嵌入的二进制数据。
 
 ## **打开演示文稿**
 
-要打开现有演示文稿，请实例化[Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)类，并将文件路径传递给其构造函数。
+要打开现有演示文稿，请将其文件路径传递给 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 构造函数。使用完毕后请释放演示文稿，以便及时释放文件句柄、临时数据和其他资源。
 
-下面的 C# 示例展示了如何打开演示文稿并获取其幻灯片数量：
-```cs
-// 实例化 Presentation 类并将文件路径传递给其构造函数。
-using (Presentation presentation = new Presentation("Sample.pptx"))
-{
-    // 打印演示文稿中的幻灯片总数。
-    System.Console.WriteLine(presentation.Slides.Count);
-}
+以下 C# 示例演示如何打开演示文稿并获取其幻灯片计数：
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("sample.pptx");
+
+Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
-
 
 ## **打开受密码保护的演示文稿**
 
-当需要打开受密码保护的演示文稿时，请通过[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)类的[Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/)属性传入密码，以解密并加载演示文稿。以下 C# 代码演示了此操作：
-```cs
-LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
-using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
-{
-    // 对已解密的演示文稿执行操作。
-}
+打开密码会加密演示文稿内容。要加载完整演示文稿，请将正确的密码分配给 [LoadOptions.Password](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/password/) 并将该选项传递给 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 构造函数。当密码缺失或不正确时，加载将失败。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation("encrypted-presentation.pptx", loadOptions);
+
+Console.WriteLine("Slide count: " + presentation.Slides.Count);
 ```
 
+有关密码检测、验证和加密工作流，请参阅 [Password-Protect Presentations](/slides/zh/net/password-protected-presentation/)。如果加密演示文稿在保存时有意保留公共文档属性，则这些属性可以在不提供密码的情况下读取；请参阅 [Manage Presentation Properties](/slides/zh/net/presentation-properties/)。
 
 ## **打开大型演示文稿**
 
-Aspose.Slides 提供了选项——尤其是[LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/)类中的[BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/)属性——帮助您加载大型演示文稿。
+[LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/blobmanagementoptions/) 控制 Aspose.Slides 如何处理图像、音频和视频等大型二进制对象。您可以保持源文件锁定，允许临时文件，并限制保存在内存中的 BLOB 数据量。
 
-下面的 C# 代码演示了加载大型演示文稿（例如 2 GB）的方式：
-```cs
-const string filePath = "LargePresentation.pptx";
+以下 C# 代码演示加载大型演示文稿（例如 2 GB）：
 
-LoadOptions loadOptions = new LoadOptions
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string filePath = "large-presentation.pptx";
+
+var loadOptions = new LoadOptions
 {
-    BlobManagementOptions = 
+    BlobManagementOptions =
     {
-        // 选择 KeepLocked 行为——演示文稿文件将在整个生命周期内保持锁定
-        // Presentation 实例，但它无需加载到内存或复制到临时文件。
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
         IsTemporaryFilesAllowed = true,
-        MaxBlobsBytesInMemory = 10 * 1024 * 1024 // 10 MB
+        MaxBlobsBytesInMemory = 10 * 1024 * 1024
     }
 };
 
-using (Presentation presentation = new Presentation(filePath, loadOptions))
-{
-    // 大型演示文稿已加载并可使用，同时内存消耗保持低水平。
+using var presentation = new Presentation(filePath, loadOptions);
 
-    // 对演示文稿进行修改。
-    presentation.Slides[0].Name = "Large presentation";
-
-    // 将演示文稿保存到另一个文件。在此操作期间内存消耗仍保持低水平。
-    presentation.Save("LargePresentation-copy.pptx", SaveFormat.Pptx);
-
-    // 不要这样做！会抛出 I/O 异常，因为文件会被锁定，直到释放 Presentation 对象。
-    File.Delete(filePath);
-}
-
-// 这里可以这样做。源文件已不再被 Presentation 对象锁定。
-File.Delete(filePath);
+presentation.Slides[0].Name = "Large presentation";
+presentation.Save("large-presentation-copy.pptx", SaveFormat.Pptx);
 ```
 
+{{% alert color="info" title="注意" %}}
+使用 `PresentationLockingBehavior.KeepLocked` 时，源文件将保持锁定，直到 `Presentation` 对象被释放。在该对象存活期间，请勿移动、覆盖或删除源文件。
 
-{{% alert color="info" title="Info" %}}
-为了解决在使用流时的某些限制，Aspose.Slides 可能会复制流的内容。从流加载大型演示文稿会导致演示文稿被复制，从而减慢加载速度。因此，当需要加载大型演示文稿时，我们强烈建议使用演示文稿文件路径，而不是流。
-
-在创建包含大型对象（视频、音频、高分辨率图像等）的演示文稿时，您可以使用[BLOB 管理](/slides/zh/net/manage-blob/)来降低内存消耗。
-{{%/alert %}}
+Aspose.Slides 在加载时可能会复制输入流的内容。对于大型演示文稿，文件路径通常比流更高效。有关更多存储和内存管理选项，请参阅 [Manage BLOBs](/slides/zh/net/manage-blob/)。
+{{% /alert %}}
 
 ## **控制外部资源**
 
-Aspose.Slides 提供了[IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/)接口，允许您管理外部资源。以下 C# 代码展示了如何使用`IResourceLoadingCallback`接口：
-```cs
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
+[LoadOptions.ResourceLoadingCallback](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/resourceloadingcallback/) 接受一个 [IResourceLoadingCallback](https://reference.aspose.com/slides/zh/net/aspose.slides/iresourceloadingcallback/) 实现。回调可以提供替代数据、重定向资源、使用默认加载器或跳过资源。当演示文稿包含必须根据特定安全或存储规则解析的外部图像时，此功能非常有用。
 
-Presentation presentation = new Presentation("Sample.pptx", loadOptions);
-```
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-```cs
-public class ImageLoadingHandler : IResourceLoadingCallback
+internal static class OpenPresentationExample
 {
-    public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+    private static void Main()
     {
-        if (args.OriginalUri.EndsWith(".jpg"))
+        var loadOptions = new LoadOptions
         {
-            try
-            {
-                // 加载替代图像。
-                byte[] imageData = File.ReadAllBytes("aspose-logo.jpg");
-                args.SetData(imageData);
-                return ResourceLoadingAction.UserProvided;
-            }
-            catch (Exception)
+            ResourceLoadingCallback = new ImageLoadingHandler()
+        };
+
+        using var presentation = new Presentation("presentation-with-external-images.pptx", loadOptions);
+        Console.WriteLine("Slide count: " + presentation.Slides.Count);
+    }
+
+    private sealed class ImageLoadingHandler : IResourceLoadingCallback
+    {
+        public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
+        {
+            var isJpeg = args.OriginalUri.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase);
+            if (!isJpeg || !File.Exists("approved-image.jpg"))
             {
                 return ResourceLoadingAction.Skip;
             }
-        }
-        else if (args.OriginalUri.EndsWith(".png"))
-        {
-            // 设置替代 URL。
-            args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
-            return ResourceLoadingAction.Default;
-        }
 
-        // 跳过所有其他图像。
-        return ResourceLoadingAction.Skip;
+            var imageData = File.ReadAllBytes("approved-image.jpg");
+            args.SetData(imageData);
+            return ResourceLoadingAction.UserProvided;
+        }
     }
 }
 ```
 
-
 ## **加载不含嵌入二进制对象的演示文稿**
 
-PowerPoint 演示文稿可能包含以下类型的嵌入二进制对象：
+演示文稿可能包含应用程序不需要或不想保留的嵌入二进制数据。例如：
 
-- VBA 项目（可通过[IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/)访问）；
-- OLE 对象嵌入数据（可通过[IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/)访问）；
-- ActiveX 控件二进制数据（可通过[IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)访问）。
+- VBA 项目，可通过 [IPresentation.VbaProject](https://reference.aspose.com/slides/zh/net/aspose.slides/ipresentation/vbaproject/) 获取；
+- 嵌入的 OLE 数据，可通过 [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/zh/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/) 获取；
+- ActiveX 控件数据，可通过 [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/zh/net/aspose.slides/icontrol/activexcontrolbinary/) 获取。
 
-使用[ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/)属性，您可以在加载演示文稿时排除所有嵌入的二进制对象。
+将 [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/zh/net/aspose.slides/loadoptions/deleteembeddedbinaryobjects/) 设置为 `true` 可在加载时删除这些二进制数据。将加载后的演示文稿保存以保留已清理的结果。
 
-此属性对于移除潜在的恶意二进制内容非常有用。下面的 C# 代码演示了如何在不加载任何嵌入二进制内容的情况下加载演示文稿：
-```cs
-LoadOptions loadOptions = new LoadOptions()
+此选项可降低不需要的嵌入负载的风险，但它并非完整的恶意软件检测或内容消毒系统。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var loadOptions = new LoadOptions
 {
-	DeleteEmbeddedBinaryObjects = true
-}
+    DeleteEmbeddedBinaryObjects = true
+};
 
-using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
-{
-    // 对演示文稿执行操作。
-}
+using var presentation = new Presentation("presentation-with-embedded-data.pptx", loadOptions);
+
+presentation.Save("presentation-without-embedded-data.pptx", SaveFormat.Pptx);
 ```
 
-
-## **FAQ**
+## **常见问题**
 
 **如何判断文件已损坏且无法打开？**
 
-加载期间会抛出解析/格式验证异常。此类错误通常会提及无效的 ZIP 结构或破损的 PowerPoint 记录。
+Aspose.Slides 在加载期间会抛出解析或格式异常。请将此类失败与密码错误区分处理，以便应用程序能够准确报告原因。
 
-**打开时缺少必需的字体会怎样？**
+**如果缺少必需的字体会怎样？**
 
-文件仍然会打开，但后续的[渲染/导出](/slides/zh/net/convert-presentation/)可能会使用替代字体。请[配置字体替代](/slides/zh/net/font-substitution/)或[添加所需字体](/slides/zh/net/custom-font/)到运行时环境。
+演示文稿仍可加载，但渲染和导出时可能会替换字体。您可以[配置字体替换](/slides/zh/net/font-substitution/)或[提供自定义字体](/slides/zh/net/custom-font/)，以使输出更可预测。
 
-**打开时嵌入的媒体（视频/音频）会怎样？**
+**加载演示文稿时是否也会加载其嵌入的媒体？**
 
-它们会作为演示文稿资源可用。如果媒体是通过外部路径引用，请确保这些路径在您的环境中可访问；否则[渲染/导出](/slides/zh/net/convert-presentation/)可能会省略这些媒体。
+嵌入的音频和视频可以通过演示文稿对象模型访问。外部资源会根据配置的资源加载行为解析，如果其位置无法访问，则可能不可用。

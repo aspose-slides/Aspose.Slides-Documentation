@@ -1,18 +1,18 @@
 ---
-title: .NET でプレゼンテーションにパスワード保護を付ける
+title: .NET でプレゼンテーションにパスワード保護を設定する
 linktitle: パスワード保護
 type: docs
 weight: 20
 url: /ja/net/password-protected-presentation/
 keywords:
 - パスワード保護されたプレゼンテーション
-- 開封パスワード
+- 開くためのパスワード
 - PowerPoint の暗号化
-- PowerPoint の復号化
+- PowerPoint の復号
 - プレゼンテーション パスワードの検証
-- プレゼンテーション パスワードのチェック
-- 暗号化されたプレゼンテーションを開く
-- 暗号化の除去
+- プレゼンテーション パスワードの確認
+- 暗号化されたプレゼンテーションの開封
+- 暗号化の解除
 - PowerPoint
 - PPT
 - PPTX
@@ -20,21 +20,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して、C# でパスワードで保護された PowerPoint PPT および PPTX プレゼンテーションを暗号化、検出、検証、開く、復号化します。"
+description: "Aspose.Slides for .NET を使用して、C# でパスワード保護された PowerPoint PPT および PPTX プレゼンテーションを暗号化、検出、検証、開く、復号します。"
 ---
 ## **概要**
 
-開封パスワードはプレゼンテーションを暗号化します。正しいパスワードがないとプレゼンテーションの内容を読み込んだり表示したりできないため、この保護は機密性を提供します。
+開くためのパスワードはプレゼンテーションを暗号化します。正しいパスワードが必要となり、プレゼンテーションの内容を読み込んで表示できるため、この保護は機密性を提供します。
 
-開封パスワードは書き込み保護パスワードとは異なります。書き込み保護は変更を制限しますが、内容を暗号化したりプレゼンテーションの読み込みを防止したりはしません。プレゼンテーションの変更用パスワードを管理するには、[プレゼンテーションの書き込み保護](/slides/ja/net/write-protected-presentation/)をご覧ください。
+開くためのパスワードは書き込み保護パスワードとは異なります。書き込み保護は変更を制限しますが、内容を暗号化したりプレゼンテーションの読み込みを防止したりはしません。プレゼンテーションの変更用パスワードを管理するには、[Write-Protect Presentations](/slides/ja/net/write-protected-presentation/) を参照してください。
 
-以下のワークフローは PPT と PPTX の両方のプレゼンテーションに適用されます。例では、ファイルベースとストリームベースの動作が重要になる場合の両形式を使用しています。
+以下のワークフローは PPT と PPTX の両方のプレゼンテーションに適用されます。例では、ファイルベースとストリームベースの動作が重要となる両形式を使用しています。
 
-## **開封パスワードでプレゼンテーションを暗号化**
+## **開くためのパスワードでプレゼンテーションを暗号化する**
 
-[IProtectionManager.Encrypt](https://reference.aspose.com/slides/ja/net/aspose.slides/iprotectionmanager/encrypt/) を使用して開封パスワードを割り当てます。その後、[IPresentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentation/save/) を使用して暗号化されたプレゼンテーションを永続化します。
+開くためのパスワードを割り当てるには [IProtectionManager.Encrypt](https://reference.aspose.com/slides/ja/net/aspose.slides/iprotectionmanager/encrypt/) を使用します。その後、暗号化されたプレゼンテーションを永続化するには [IPresentation.Save](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentation/save/) を使用します。
 
-次の例は PPTX プレゼンテーションを暗号化します：
+以下の例は PPTX プレゼンテーションを暗号化します:
 
 ```csharp
 using Aspose.Slides;
@@ -46,9 +46,34 @@ presentation.ProtectionManager.Encrypt("open_password");
 presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
 ```
 
-## **暗号化されたプレゼンテーションの読み込み**
+## **ドキュメントプロパティを公開したままにする**
 
-[LoadOptions.Password](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/password/) に開封パスワードを設定し、ファイルの読み込み時にそのオプションを [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) に渡します。開封パスワードが必要なのに提供されたパスワードが不足または不正確な場合、読み込みは失敗します。
+デフォルトでは、Aspose.Slides はプレゼンテーションの暗号化にドキュメントプロパティを含めます。[IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/ja/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) プロパティは、スライドコンテンツの暗号化とは独立してこの動作を制御します。インデックス作成、分類、検索、またはドキュメント管理システムが開くためのパスワードなしでメタデータを読み取る必要がある場合は、[IProtectionManager.Encrypt](https://reference.aspose.com/slides/ja/net/aspose.slides/iprotectionmanager/encrypt/) を呼び出す前にこれを `false` に設定します。
+
+以下の例は暗号化された PPTX プレゼンテーションを作成し、組み込みのドキュメントプロパティは公開されたままにします:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var properties = presentation.DocumentProperties;
+properties.Author = "Contoso Knowledge Management";
+properties.Title = "Quarterly Product Roadmap";
+properties.Keywords = "roadmap, planning, internal";
+
+presentation.Slides[0].Name = "Encrypted presentation content";
+presentation.ProtectionManager.EncryptDocumentProperties = false;
+presentation.ProtectionManager.Encrypt("open_password");
+presentation.Save("public-properties-encrypted.pptx", SaveFormat.Pptx);
+```
+
+`EncryptDocumentProperties` を `false` に設定しても、スライド、マスタ、レイアウト、シェイプ、メディア、またはその他のプレゼンテーションコンテンツが公開されるわけではありません。ドキュメントプロパティのみに影響します。暗号化されたコンテンツを読み込まずにこれらのプロパティを取得する方法については、[Manage Presentation Properties](/slides/ja/net/presentation-properties/) を参照してください。
+
+## **暗号化されたプレゼンテーションを読み込む**
+
+開くためのパスワードを設定するには [LoadOptions.Password](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/password/) にパスワードを設定し、ファイルを読み込む際にそのオプションを [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) に渡します。開くためのパスワードが必要なのに、提供されたパスワードが未指定または誤っている場合、読み込みは失敗します。
 
 ```csharp
 using Aspose.Slides;
@@ -56,12 +81,12 @@ using Aspose.Slides;
 var loadOptions = new LoadOptions { Password = "open_password" };
 using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 
-// 復号化されたプレゼンテーションで作業します。
+// 復号されたプレゼンテーションで作業します。
 ```
 
-## **プレゼンテーションから暗号化を解除**
+## **プレゼンテーションから暗号化を削除する**
 
-プレゼンテーションを開封パスワードで読み込み、[IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/ja/net/aspose.slides/iprotectionmanager/removeencryption/) を呼び出し、結果を保存します。保存されたプレゼンテーションはパスワードなしで読み込むことができます。
+プレゼンテーションをその開くためのパスワードで読み込み、[IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/ja/net/aspose.slides/iprotectionmanager/removeencryption/) を呼び出してから結果を保存します。保存されたプレゼンテーションはパスワードなしで読み込めるようになります。
 
 ```csharp
 using Aspose.Slides;
@@ -74,13 +99,13 @@ presentation.ProtectionManager.RemoveEncryption();
 presentation.Save("encryption-removed.pptx", SaveFormat.Pptx);
 ```
 
-## **読み込み前に開封パスワードを検証**
+## **読み込む前に開くためのパスワードを検証する**
 
-[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationfactory/getpresentationinfo/) を使用して、完全なプレゼンテーションインスタンスを作成せずに [IPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/) を取得します。パスワードの要求または検証を行う前に、[IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/ispasswordprotected/) を確認します。保護が存在する場合は、[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/checkpassword/) で提供された値を検証します。
+[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationfactory/getpresentationinfo/) を使用して、完全なプレゼンテーション インスタンスを作成せずに [IPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/) を取得します。パスワードを要求または検証する前に、[IPresentationInfo.IsPasswordProtected](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/ispasswordprotected/) を確認します。保護が存在する場合は、[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/checkpassword/) で提供された値を検証します。
 
 ### **ファイルパス ワークフロー**
 
-次の例は PPTX ファイルの開封パスワードを検証し、検証済みの値を [LoadOptions.Password](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/password/) に渡して、完全なプレゼンテーションを読み込みます：
+以下の例は PPTX ファイルの開くためのパスワードを検証し、検証済みの値を [LoadOptions.Password](https://reference.aspose.com/slides/ja/net/aspose.slides/loadoptions/password/) に渡してから、完全なプレゼンテーションを読み込みます:
 
 ```csharp
 using System;
@@ -109,9 +134,9 @@ else
 
 ### **ストリーム ワークフロー**
 
-[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationfactory/getpresentationinfo/) のストリームオーバーロードも同じワークフローを提供します。ストリームから完全なプレゼンテーションを読み込む前に、シーク可能なストリームの位置をリセットしてください。
+[IPresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationfactory/getpresentationinfo/) のストリームオーバーロードは同じワークフローを提供します。完全なプレゼンテーションをそのストリームから読み込む前に、シーク可能なストリームの位置をリセットしてください。
 
-次の例は PPT ファイルを使用しています：
+以下の例は PPT ファイルを使用しています:
 
 ```csharp
 using System;
@@ -143,17 +168,17 @@ else
 
 ### **CheckPassword の戻り値**
 
-[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/checkpassword/) は、プレゼンテーションに開封パスワードが設定されており、提供されたパスワードが正しい場合にのみ `true` を返します。以下のいずれかの場合は `false` を返します：
+[IPresentationInfo.CheckPassword](https://reference.aspose.com/slides/ja/net/aspose.slides/ipresentationinfo/checkpassword/) は、プレゼンテーションに開くためのパスワードが設定され、かつ提供されたパスワードが正しい場合にのみ `true` を返します。次の場合は `false` を返します:
 
-- パスワードが正しくありません。
-- プレゼンテーションに開封パスワードが設定されていません。
-- 指定されたパスワードが `null` または空です。
+- パスワードが正しくない。
+- プレゼンテーションに開くためのパスワードが設定されていない。
+- 提供されたパスワードが `null` または空文字列です。
 
-PPT と PPTX のプレゼンテーションで動作は同じです。
+PPT と PPTX のプレゼンテーションでも動作は同じです。
 
-## **読み込まれたプレゼンテーションが暗号化されているか確認**
+## **読み込んだプレゼンテーションが暗号化されているか確認する**
 
-正しいパスワードでプレゼンテーションを読み込んだ後、[IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/ja/net/aspose.slides/iprotectionmanager/isencrypted/) をチェックして、元のプレゼンテーションが暗号化されていたことを確認します。読み込み前に開封パスワード保護を検出するには、上記と同様に `IPresentationInfo.IsPasswordProtected` を使用します。
+正しいパスワードでプレゼンテーションを読み込んだ後、[IProtectionManager.IsEncrypted](https://reference.aspose.com/slides/ja/net/aspose.slides/iprotectionmanager/isencrypted/) を確認して、元のプレゼンテーションが暗号化されていたかどうかを確認します。読み込む前に開くパスワード保護を検出するには、上記と同様に `IPresentationInfo.IsPasswordProtected` を使用します。
 
 ```csharp
 using System;
@@ -166,17 +191,19 @@ var isEncrypted = presentation.ProtectionManager.IsEncrypted;
 Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 ```
 
-## **セキュリティの推奨事項**
+## **セキュリティに関する推奨事項**
 
 {{% alert color="warning" title="Security" %}}
-開封パスワードをログに記録したり診断メッセージに含めたりしないでください。不必要な繰り返し検証を避け、パスワードは必要な間だけメモリに保持し、直ちにプレゼンテーションを読み込む場合は検証結果を再利用してください。
+開くためのパスワードをログに記録したり診断メッセージに含めたりしないでください。不要な再検証を避け、パスワードは必要な期間だけメモリに保持し、プレゼンテーションをすぐに読み込む場合は成功した検証結果を再利用してください。
+
+公開されたドキュメントプロパティは、プレゼンテーションの内容が暗号化されていても、著者名、タイトル、テーマ、キーワード、会社情報、コメント、カスタム値などを漏洩させる可能性があります。機密性の高いメタデータはプレゼンテーションと共に暗号化してください。プロパティを公開したままにすることは、システムが開くためのパスワードなしでファイルをインデックス作成、分類、検索、または管理する必要がある場合にのみ、明示的に決定すべきです。
 {{% /alert %}}
 
-## **オンラインでプレゼンテーションをパスワード保護**
+## **オンラインでプレゼンテーションにパスワード保護をかける**
 
 1. [Aspose.Slides Lock](https://products.aspose.app/slides/ja/lock) アプリケーションを開きます。
 1. プレゼンテーションを選択またはアップロードします。
-1. 閲覧保護用のパスワードを入力します。
+1. 表示保護用のパスワードを入力します。
 1. 必要に応じて、編集保護用の別のパスワードを入力します。
 1. 保護を適用し、結果のファイルをダウンロードします。
 
@@ -187,14 +214,18 @@ Console.WriteLine("The presentation is encrypted: " + isEncrypted);
 
 ## **よくある質問**
 
-**開封パスワードと書き込み保護パスワードの違いは何ですか？**
+**開くためのパスワードと書き込み保護パスワードの違いは何ですか？**
 
-開封パスワードはプレゼンテーションを暗号化し、内容を読み込むために必要です。書き込み保護パスワードは暗号化せずに変更を制限します。
+開くためのパスワードはプレゼンテーションを暗号化し、その内容を読み込むために必要です。書き込み保護パスワードは内容を暗号化せずに変更を制限します。
 
-**すべてのスライドを読み込まずに開封パスワードを検証できますか？**
+**すべてのスライドを読み込まずに開くためのパスワードを検証できますか？**
 
-はい。プレゼンテーション情報を取得し、開封パスワード保護が存在するか確認したうえで、完全なプレゼンテーションインスタンスを作成する前にパスワードを検証できます。
+はい。プレゼンテーション情報を取得し、開くためのパスワード保護があるか確認し、完全なプレゼンテーション インスタンスを作成する前にパスワードを検証します。
 
-**パスワード検証のワークフローは PPT と PPTX の両方に対応していますか？**
+**アプリケーションは開くためのパスワードなしでメタデータを読み取れますか？**
 
-はい。ファイルパスおよびストリームベースのパスワード検出と検証は、PPT と PPTX のプレゼンテーションで同じように動作します。
+はい、ただしプレゼンテーションが `EncryptDocumentProperties` を `false` に設定して暗号化された場合に限ります。その場合、[Manage Presentation Properties](/slides/ja/net/presentation-properties/) で説明されているドキュメントプロパティのみの読み込みモードを使用する必要があります。
+
+**パスワード検証のワークフローは PPT と PPTX の両方をサポートしていますか？**
+
+はい。ファイルパスとストリームベースのパスワード検出および検証は、PPT と PPTX のプレゼンテーションで同様に動作します。
