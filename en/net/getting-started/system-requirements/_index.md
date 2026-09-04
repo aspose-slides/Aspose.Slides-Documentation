@@ -189,3 +189,7 @@ For Alpine Linux containers, install at least one font package in addition to `l
 ### Why does a custom font render as a fallback or missing text on Linux?
 
 If the font file has inconsistent or corrupted name-table entries, the Linux font-matching stack (FreeType/fontconfig) may select an invalid record, causing the font to be unresolved. Using a font version with corrected name-table records or installing a consistent replacement resolves the issue.
+
+### Why does PDF export crash on Linux when a presentation references Windows-only CJK fonts?
+
+Aspose.Slides versions 25.12 and later may throw `System.InvalidOperationException: Cannot find table 'loca' in the font file` during `Presentation.Save` to PDF on Linux. The crash occurs when the engine falls back to OpenType CFF CJK fonts (e.g., NotoSansCJK-Regular.ttc, NotoSerifCJK-Regular.ttc) that lack a `loca` table. This is a known regression. As a temporary workaround, install a TrueType CJK font (which includes a `loca` table) on the Linux system or use an earlier Aspose.Slides version where the issue does not appear.
