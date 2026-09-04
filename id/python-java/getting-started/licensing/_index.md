@@ -1,159 +1,151 @@
 ---
 title: Lisensi
-description: "Aspose.Slides untuk Python via Java menyediakan berbagai rencana pembelian atau menawarkan Uji Coba Gratis dan Lisensi Sementara 30 hari untuk evaluasi menggunakan kebijakan Lisensi dan Langganan."
 type: docs
 weight: 80
 url: /id/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- file lisensi
+- lisensi sementara
+- lisensi bermeteran
+- batasan evaluasi
+description: "Terapkan lisensi berbentuk file, berbasis byte, atau bermeteran di Aspose.Slides for Python via Java dan hilangkan batasan evaluasi dari aplikasi Anda."
 ---
-Kadang‑kadang, untuk hasil evaluasi yang terbaik, pendekatan langsung mungkin diperlukan. Karena itu, Aspose.Slides menyediakan berbagai rencana pembelian serta menawarkan Uji Coba Gratis dan Lisensi Sementara 30‑hari untuk evaluasi.
+## **Gambaran Umum**
 
-{{% alert color="primary" %}}
-Perhatikan bahwa terdapat sejumlah kebijakan dan praktik umum yang membimbing Anda tentang cara mengevaluasi, melisensikan dengan benar, dan membeli produk kami. Anda dapat menemukannya di bagian ["Purchase Policies and FAQ"](https://purchase.aspose.com/policies).
-{{% /alert %}}
+Aspose.Slides for Python via Java dapat dijalankan dalam mode evaluasi atau dengan lisensi. Artikel ini menjelaskan cara menerapkan lisensi dari file atau byte serta cara mengonfigurasi lisensi bermeteran.
 
-## **Evaluasi Aspose.Slides**
-Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi hanya perlu dilisensikan dengan menambahkan beberapa baris kode untuk menerapkan lisensi. 
+Untuk opsi pembelian, lihat [Informasi Harga](https://purchase.aspose.com/pricing/slides/id/family). Untuk pertanyaan umum tentang lisensi dan pembelian, lihat [Kebijakan Pembelian dan FAQ](https://purchase.aspose.com/policies).
 
-## **Batasan Versi Evaluasi**
-Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan semua fungsi produk, namun menambahkan watermark evaluasi di bagian atas dokumen saat dibuka dan disimpan. Anda juga dibatasi hanya satu slide ketika mengekstrak teks dari slide presentasi.
-
-{{% alert color="primary" %}} 
-Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda dapat meminta **Lisensi Sementara 30 Hari**. Silakan lihat [How to get a Temporary License?](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
-{{% /alert %}} 
+Untuk batasan evaluasi dan cara meminta lisensi sementara, lihat [Evaluasi Aspose.Slides](/slides/id/python-java/evaluate-aspose-slides/). Terapkan lisensi sementara dengan cara yang sama seperti file lisensi yang dibeli.
 
 ## **Tentang Lisensi**
-Anda dapat dengan mudah mengunduh versi evaluasi Aspose.Slides untuk Python via Java dari [halaman unduhan](https://releases.aspose.com/slides/id/python-java/). Versi evaluasi sepenuhnya **memiliki kemampuan yang sama** dengan versi berlisensi Aspose.Slides. Selain itu, versi evaluasi hanya perlu dilisensikan setelah Anda membeli lisensi dan menambahkan beberapa baris kode untuk menerapkan lisensi.
 
-Lisensi adalah file XML teks biasa yang berisi detail seperti nama produk, jumlah pengembang yang dilisensikan, tanggal kedaluwarsa langganan, dan lain‑lain. File ini ditandatangani secara digital, jadi jangan memodifikasinya. Bahkan penambahan baris kosong secara tidak sengaja ke dalam isi file akan membuatnya tidak berlaku.
+File lisensi berisi informasi seperti nama produk, jumlah pengembang berlisensi, dan tanggal kedaluwarsa langganan. File tersebut adalah XML yang ditandatangani secara digital.
 
-Untuk menghindari batasan terkait versi evaluasi, Anda harus mengatur lisensi sebelum menggunakan **Aspose.Slides**. Anda hanya perlu mengatur lisensi sekali per aplikasi atau proses.
-
-## Lisensi yang Dibeli
-
-Setelah pembelian, Anda harus menerapkan file atau aliran lisensi. 
-
-{{% alert color="primary" %}}
-Anda perlu mengatur lisensi:
-* hanya sekali per domain aplikasi
-* sebelum menggunakan kelas Aspose.Slides lainnya
+{{% alert color="warning" title="Warning" %}}
+Jangan edit file lisensi. Bahkan tambahan baris kosong dapat membuat tanda tangan digitalnya tidak berlaku.
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Anda dapat menemukan informasi harga pada halaman [“Pricing Information”](https://purchase.aspose.com/pricing/slides/id/family).
-{{% /alert %}}
+Terapkan lisensi satu kali per aplikasi atau proses, sebelum membuat presentasi atau melakukan operasi Aspose.Slides lainnya. Untuk file lisensi, gunakan kelas [License](https://reference.aspose.com/slides/id/python-java/aspose.slides/license/). Lisensi bermeteran menggunakan pasangan kunci publik dan privat alih-alih file lisensi.
 
-### **Mengatur Lisensi di Aspose.Slides untuk Python via Java**
+## **Menerapkan Lisensi**
 
-Lisensi dapat diterapkan dari lokasi berikut:
+Contoh berikut mengasumsikan bahwa Aspose.Slides for Python via Java dan prasyaratnya telah terpasang. Setiap contoh adalah skrip mandiri yang memulai JVM, mengimpor API, dan menerapkan lisensi. Dalam aplikasi Anda, lakukan operasi presentasi setelah menerapkan lisensi dan matikan JVM hanya setelah semua pekerjaan Aspose.Slides selesai.
 
-* Jalur eksplisit
-* Aliran
-* Sebagai Lisensi Metered – mekanisme lisensi baru
+### **Menerapkan Lisensi dari File**
 
-{{% alert color="primary" %}}
-Gunakan metode **setLicense** untuk melisensikan sebuah komponen.
-
-Meskipun memanggil **setLicense** berkali‑kali tidak berbahaya, hal itu membuang sumber daya (processor).
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Lisensi baru hanya dapat mengaktifkan Aspose.Slides dengan versi 21.4 atau yang lebih baru. Versi sebelumnya menggunakan sistem lisensi yang berbeda dan tidak akan mengenali lisensi ini.
-{{% /alert %}}
-
-#### **Menerapkan Lisensi Menggunakan File**
-
-Potongan kode ini digunakan untuk mengatur file lisensi:
-
-**Python**
+Berikan jalur file lisensi ke [License.setLicense](https://reference.aspose.com/slides/id/python-java/aspose.slides/license/#setLicense). Ganti `Aspose.Slides.lic` dengan jalur ke file lisensi Anda.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # Lakukan operasi presentasi di sini, sebelum mematikan JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-Saat memanggil metode setLicense, nama lisensi harus sama dengan nama file lisensi Anda. Misalnya, Anda dapat mengubah nama file lisensi menjadi "Aspose.Slides.lic.xml". Kemudian, dalam kode Anda, Anda harus menyertakan nama lisensi baru (Aspose.Slides.lic.xml) ke metode setLicense.
+Gunakan nama file yang tepat, termasuk ekstensi. Misalnya, jika file bernama `Aspose.Slides.lic.xml`, sertakan `.xml` dalam jalur. Jalur absolut menghindari ambiguitas tentang direktori kerja aplikasi.
 
-#### **Menerapkan Lisensi dari Byte**
+Contoh ini menggunakan [License.isLicensed](https://reference.aspose.com/slides/id/python-java/aspose.slides/license/#isLicensed) untuk memeriksa apakah lisensi telah diterapkan.
 
-Potongan kode ini digunakan untuk menerapkan lisensi dari byte:
+### **Menerapkan Lisensi dari Byte**
 
-**Python**
+Gunakan [License.setLicenseFromBytes](https://reference.aspose.com/slides/id/python-java/aspose.slides/license/#setLicenseFromBytes) ketika lisensi tersedia sebagai byte Python. Contoh berikut membaca file dalam mode biner dan menutupnya sebelum menerapkan lisensi.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # Lakukan operasi presentasi di sini, sebelum mematikan JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### Terapkan Lisensi Metered
+Pertahankan byte asli tetap tidak berubah. Jangan melakukan decode, reformat, atau memodifikasi konten lisensi sebelum menerapkannya.
 
-Aspose.Slides memungkinkan pengembang menerapkan kunci metered. Ini merupakan mekanisme lisensi baru.
+## **Menerapkan Lisensi Bermeteran**
 
-Mekanisme lisensi baru akan digunakan bersamaan dengan metode lisensi yang ada. Pelanggan yang ingin ditagih berdasarkan penggunaan fitur API dapat menggunakan Lisensi Metered.
+Lisensi bermeteran menagih Anda berdasarkan penggunaan API. Setelah memperoleh lisensi bermeteran, terapkan kunci publik dan privatnya dengan [Metered.setMeteredKey](https://reference.aspose.com/slides/id/python-java/aspose.slides/metered/#setMeteredKey). Inisialisasi objek [Metered](https://reference.aspose.com/slides/id/python-java/aspose.slides/metered/) dan terapkan kunci satu kali saat aplikasi dimulai.
 
-Setelah menyelesaikan semua langkah yang diperlukan untuk memperoleh jenis lisensi ini, Anda akan menerima kunci, bukan file lisensi. Kunci metered ini dapat diterapkan menggunakan kelas **Metered** yang khusus diperkenalkan untuk tujuan ini.
-
-Contoh kode berikut menunjukkan cara mengatur kunci publik dan privat metered:
+Contoh berikut membaca kunci dari variabel lingkungan `ASPOSE_METERED_PUBLIC_KEY` dan `ASPOSE_METERED_PRIVATE_KEY`. Tetapkan kedua variabel tersebut sebelum menjalankan skrip.
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# Buat instance dari kelas CAD Metered
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# Akses properti set_metered_key dan lewati kunci publik serta privat sebagai parameter
-metered.setMeteredKey("*****", "*****");
-
-# Dapatkan jumlah data metered sebelum memanggil API
-amountbefore = Metered.getConsumptionQuantity()
-
-# Tampilkan informasi
-print("Amount Consumed Before: \" + amountbefore + \"" )
-
-# Muat dokumen dari disk.
-pres = Presentation();
-
-# Dapatkan jumlah halaman dokumen
-print("Amount Consumed After: \" +  pres.getSlides().size()) + \"" )
-
-# simpan sebagai PDF
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# Dapatkan jumlah data metered setelah memanggil API
-amountafter = Metered.getConsumptionQuantity()
-
-# Tampilkan informasi
-print("Amount Consumed After: \" + amountafter + \"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # Lakukan operasi presentasi di sini, sebelum mematikan JVM.
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-Harap perhatikan bahwa Anda harus memiliki koneksi Internet yang stabil untuk penggunaan lisensi Metered yang tepat, karena mekanisme Metered memerlukan interaksi terus‑menerus dengan layanan kami untuk perhitungan yang benar. Untuk detail lebih lanjut, lihat bagian [“Metered Licensing FAQ”](https://purchase.aspose.com/faqs/licensing/metered).
+{{% alert color="info" title="Note" %}}
+Lisensi bermeteran memerlukan koneksi Internet untuk memvalidasi kunci dan melaporkan penggunaan. Jaga agar kunci privat tidak berada dalam kode sumber dan log. Lihat [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) untuk detail konektivitas dan penagihan.
 {{% /alert %}}
+
+## **FAQ**
+
+**Apakah saya harus menginstal paket yang berbeda setelah membeli lisensi?**
+
+Tidak. Terapkan lisensi pada paket yang sama yang Anda gunakan untuk evaluasi.
+
+**Apakah saya harus menerapkan lisensi untuk setiap presentasi?**
+
+Tidak. Terapkan sekali saat aplikasi dimulai, sebelum membuat atau memuat presentasi.
+
+**Apakah saya dapat mengganti nama file lisensi?**
+
+Ya. Gunakan nama file baru yang tepat dalam kode Anda dan pertahankan isi file tidak berubah.
+
+**Apakah saya dapat menggunakan lisensi sementara dengan contoh berbasis byte?**
+
+Ya. Baca file lisensi sementara sebagai byte dan terapkan dengan cara yang sama seperti lisensi yang dibeli.

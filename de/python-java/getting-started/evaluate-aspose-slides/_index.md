@@ -1,18 +1,24 @@
 ---
-title: Aspose.Slides bewerten
+title: Aspose.Slides evaluieren
 type: docs
 weight: 120
 url: /de/python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- Evaluierungsversion
+- Testbeschränkungen
+- Evaluierungswasserzeichen
+- temporäre Lizenz
+description: "Evaluieren Sie Aspose.Slides für Python via Java, erfahren Sie mehr über die Einschränkungen der Testversion und beantragen Sie eine 30-tägige temporäre Lizenz, um die volle Funktionalität zu testen."
 ---
+Sie können Aspose.Slides für Python via Java herunterladen, um seine Funktionen zu evaluieren. Das Evaluierungspaket ist identisch mit dem lizenzierten Paket. Um es ohne Evaluierungsbeschränkungen zu verwenden, fügen Sie ein paar Codezeilen hinzu, um eine Lizenz anzuwenden.
 
-Sie können Aspose.Slides problemlos zum Testen herunterladen. Das Evaluierungspaket ist dasselbe wie das gekaufte Paket. Die Evaluierungsversion wird einfach lizenziert, nachdem Sie einige Codezeilen hinzugefügt haben, um die Lizenz anzuwenden.
+Die Evaluierungsversion von Aspose.Slides (ohne Lizenz verwendet) bietet die vollständige Produktfunktionalität, fügt jedoch beim Öffnen oder Speichern des Dokuments ein Evaluierungswasserzeichen oben im Dokument ein. Die Textextraktion ist auf eine Folie pro Präsentation beschränkt.
 
-Die Evaluierungsversion von Aspose.Slides (ohne eine angegebene Lizenz) bietet die volle Produktfunktionalität, fügt jedoch beim Öffnen und Speichern ein Wasserzeichen zur Evaluierung am oberen Rand des Dokuments ein. Außerdem sind Sie beim Extrahieren von Texten aus Präsentationsfolien auf eine Folie beschränkt.
+![Aspose.Slides Evaluierungswasserzeichen auf einer Präsentationsfolie](evaluate-aspose-slides_1.png)
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
-
-{{% alert color="primary" %}} 
-
-Wenn Sie Aspose.Slides ohne Einschränkungen der Evaluierungsversion testen möchten, können Sie eine **30-tägige temporäre Lizenz** anfordern. Bitte beachten Sie [Wie man eine temporäre Lizenz erhält?](https://purchase.aspose.com/temporary-license) für weitere Informationen.
-
+{{% alert color="info" title="Note" %}}
+Um Aspose.Slides ohne Evaluierungsbeschränkungen zu testen, können Sie eine **30-tägige temporäre Lizenz** anfordern. Weitere Informationen finden Sie unter [Temporäre Lizenz erhalten](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}

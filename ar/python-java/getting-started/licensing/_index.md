@@ -1,168 +1,151 @@
 ---
 title: الترخيص
-description: "يوفر Aspose.Slides لـ Python عبر Java خططًا مختلفة للشراء أو يقدم تجربة مجانية ورخصة مؤقتة لمدة 30 يومًا للتقييم باستخدام سياسات الترخيص والاشتراك."
 type: docs
 weight: 80
 url: /ar/python-java/licensing/
+keywords:
+- Aspose.Slides
+- بايثون
+- جافا
+- ملف الترخيص
+- رخصة مؤقتة
+- ترخيص قائم على الاستخدام
+- قيود التقييم
+description: "قم بتطبيق رخصة من ملف أو رخصة تعتمد على البايتات أو رخصة قائمة على الاستخدام في Aspose.Slides for Python via Java وأزل قيود التقييم من تطبيقاتك."
 ---
+## **نظرة عامة**
 
-في بعض الأحيان، من أجل تحقيق أفضل نتائج التقييم، قد تكون الحاجة إلى نهج عملي. لهذا السبب، يوفر Aspose.Slides خطط شراء مختلفة ويقدم أيضًا تجربة مجانية ورخصة مؤقتة لمدة 30 يومًا للتقييم.
+يمكن تشغيل Aspose.Slides for Python via Java في وضع التقييم أو باستخدام رخصة. يوضح هذا المقال كيفية تطبيق رخصة من ملف أو من بايتات وكيفية تكوين الترخيص القائم على الاستخدام.
 
-{{% alert color="primary" %}}
+لخيارات الشراء، راجع [معلومات التسعير](https://purchase.aspose.com/pricing/slides/ar/family). للأسئلة العامة حول الترخيص والشراء، راجع [سياسات الشراء والأسئلة المتكررة](https://purchase.aspose.com/policies).
 
-يرجى ملاحظة أن هناك مجموعة من السياسات والممارسات العامة التي توجهك حول كيفية تقييم وترخيص وشراء منتجاتنا. يمكنك العثور عليها في قسم ["سياسات الشراء والأسئلة الشائعة"](https://purchase.aspose.com/policies).
+لحدود التقييم وكيفية طلب رخصة مؤقتة، راجع [تقييم Aspose.Slides](/slides/ar/python-java/evaluate-aspose-slides/). طبّق رخصة مؤقتة بنفس الطريقة التي تُطبّق بها رخصة مشتراة من ملف.
 
+{{% alert color="warning" title="Warning" %}}
+لا تقم بتحرير ملف الرخصة. حتى وجود سطر فارغ إضافي يمكن أن يبطل توقيعه الرقمي.
 {{% /alert %}}
 
-## **تقييم Aspose.Slides**
-يمكنك تنزيل Aspose.Slides للتقييم بسهولة. حزمة التقييم هي نفس حزمة الشراء. الإصدار التجريبي يصبح مرخصًا ببساطة بعد إضافة بعض سطور الشيفرة لتطبيق الترخيص.
+طبّق الرخصة مرة واحدة لكل تطبيق أو عملية، قبل إنشاء العروض التقديمية أو تنفيذ عمليات Aspose.Slides أخرى. لاستخدام ملف رخصة، استخدم الفئة [License](https://reference.aspose.com/slides/ar/python-java/aspose.slides/license/). الترخيص القائم على الاستخدام يستخدم زوج مفاتيح عام وخاص بدلاً من ملف رخصة.
 
-## **قيود الإصدار التجريبي**
-يوفر الإصدار التجريبي من Aspose.Slides (دون ترخيص محدد) كامل وظائف المنتج، ولكنه يضيف علامة مائية للتقييم في أعلى المستند عند الفتح والحفظ. كما أنك محدود بصفحة واحدة عند استخراج النصوص من شرائح العرض التقديمي.
+## **حول الرخصة**
 
-{{% alert color="primary" %}} 
+ملف الرخصة يحتوي على معلومات مثل اسم المنتج، عدد المطورين المرخصين، وتاريخ انتهاء الاشتراك. الملف هو XML موقّع رقمياً.
 
-إذا كنت ترغب في اختبار Aspose.Slides دون قيود الإصدار التجريبي، يمكنك طلب **رخصة مؤقتة مدتها 30 يومًا**. يرجى الرجوع إلى [كيفية الحصول على رخصة مؤقتة؟](https://purchase.aspose.com/temporary-license) لمزيد من المعلومات.
+## **تطبيق رخصة**
 
-{{% /alert %}} 
+تُفترض الأمثلة التالية أن Aspose.Slides for Python via Java ومتطلباته مثبتة. كل مثال هو برنامج مستقل يبدأ JVM، يستورد الواجهة البرمجية، ويطبّق رخصة. في تطبيقك، نفّذ عمليات العرض بعد تطبيق الرخصة وأغلق JVM فقط بعد اكتمال جميع أعمال Aspose.Slides.
 
-## **حول الترخيص**
-يمكنك تنزيل إصدار تجريبي من Aspose.Slides لـ Python عبر Java من صفحته [صفحة التنزيل](https://releases.aspose.com/slides/python-java/). يوفر الإصدار التجريبي نفس **القدرات تمامًا** كالإصدار المرخص من Aspose.Slides. علاوة على ذلك، يصبح الإصدار التجريبي مرخصًا ببساطة بعد شراء ترخيص وإضافة بضعة سطور من الشيفرة لتطبيق الترخيص.
+### **تطبيق رخصة من ملف**
 
-الترخيص هو ملف XML نصي يحتوي على تفاصيل مثل اسم المنتج، وعدد المطورين المرخص لهم، وتاريخ انتهاء الاشتراك، وما إلى ذلك. الملف موقع رقميًا، لذا يجب ألا تقوم بتعديل الملف. حتى إضافة غير مقصودة لفراغ إضافي إلى محتويات الملف ستجعله غير صالح.
-
-لتجنب القيود المرتبطة بالإصدار التجريبي، تحتاج إلى تعيين ترخيص قبل استخدام **Aspose.Slides**. تحتاج فقط إلى تعيين ترخيص مرة واحدة لكل تطبيق أو عملية.
-
-## الترخيص المشتراة
-
-بعد الشراء، تحتاج إلى تطبيق ملف الترخيص أو الدفق. 
-
-{{% alert color="primary" %}}
-
-تحتاج إلى تعيين الترخيص:
-* مرة واحدة فقط لكل مجال تطبيق
-* قبل استخدام أي من فئات Aspose.Slides الأخرى
-
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-
-يمكنك العثور على معلومات التسعير على صفحة [“معلومات التسعير”](https://purchase.aspose.com/pricing/slides/family).
-
-{{% /alert %}}
-
-### **تعيين ترخيص في Aspose.Slides لـ Python عبر Java**
-
-يمكن تطبيق التراخيص من هذه المواقع:
-
-* مسار صريح
-* دفق
-* كترخيص مدفوع – آلية ترخيص جديدة
-
-{{% alert color="primary" %}}
-
-استخدم طريقة **setLicense** لترخيص مكون.
-
-بينما تعدد الاتصالات إلى **setLicense** ليست ضارة، إلا أنها تعتبر إهدارًا للموارد (المعالج).
-
-{{% /alert %}}
-
-#### **تطبيق ترخيص باستخدام ملف**
-
-هذا المقتطف البرمجي يُستخدم لتعيين ملف الترخيص:
-
-**Python**
+مرّر مسار ملف الرخصة إلى [License.setLicense](https://reference.aspose.com/slides/ar/python-java/aspose.slides/license/#setLicense). استبدل `Aspose.Slides.lic` بمسار ملف رخصتك.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # إجراء عمليات العرض التقديمي هنا، قبل إغلاق JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-عند استدعاء طريقة setLicense، يجب أن يكون اسم الترخيص مطابقًا لاسم ملف الترخيص الخاص بك. على سبيل المثال، يمكنك تغيير اسم ملف الترخيص إلى "Aspose.Slides.lic.xml". ثم، في الشيفرة الخاصة بك، يجب عليك تمرير اسم الترخيص الجديد (Aspose.Slides.lic.xml) إلى طريقة setLicense.
+استخدم الاسم الدقيق للملف، بما في ذلك الامتداد. على سبيل المثال، إذا كان اسم الملف `Aspose.Slides.lic.xml`، أدرج `.xml` في المسار. استخدام مسار مطلق يجنب الالتباس حول دليل العمل الخاص بالتطبيق.
 
-#### **تطبيق ترخيص من بايتس**
+يستخدم المثال [License.isLicensed](https://reference.aspose.com/slides/ar/python-java/aspose.slides/license/#isLicensed) للتحقق مما إذا تم تطبيق الرخصة.
 
-هذا المقتطف البرمجي يُستخدم لتطبيق ترخيص من بايتس:
+### **تطبيق رخصة من بايتات**
 
-**Python**
+استخدم [License.setLicenseFromBytes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/license/#setLicenseFromBytes) عندما تكون الرخصة متاحة كبايتات بايثون. يقرأ المثال التالي الملف في وضع ثنائي ويغلقه قبل تطبيق الرخصة.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # إجراء عمليات العرض التقديمي هنا، قبل إغلاق JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### تطبيق ترخيص مدفوع
+احتفظ بالبايتات الأصلية دون تغيير. لا تقم بفك التشفير أو إعادة التنسيق أو تعديل محتوى الرخصة بأي شكل قبل تطبيقها.
 
-يسمح Aspose.Slides للمطورين بتطبيق مفتاح مدفوع. هذه آلية ترخيص جديدة.
+## **تطبيق رخصة قائمة على الاستخدام**
 
-سيتم استخدام آلية الترخيص الجديدة مع طريقة الترخيص الحالية. يمكن للعملاء الذين يرغبون في دفع رسوم بناءً على استخدام ميزات واجهة برمجة التطبيقات استخدام الترخيص المدفوع.
+الترخيص القائم على الاستخدام يفرض رسومًا وفقًا لاستخدام الواجهة البرمجية. بعد الحصول على رخصة قائمة على الاستخدام، طبّق مفاتيحه العامة والخاصة باستخدام [Metered.setMeteredKey](https://reference.aspose.com/slides/ar/python-java/aspose.slides/metered/#setMeteredKey). أنشئ كائن [Metered](https://reference.aspose.com/slides/ar/python-java/aspose.slides/metered/) وطبّق المفاتيح مرة واحدة عند بدء تشغيل التطبيق.
 
-بعد إكمال جميع الخطوات اللازمة للحصول على هذا النوع من الترخيص، ستتلقى المفاتيح، وليس ملف الترخيص. يمكن تطبيق هذا المفتاح المدفوع باستخدام فئة **Metered** التي تم تقديمها خصيصًا لهذا الغرض.
-
-يوضح المثال البرمجي التالي كيفية تعيين المفاتيح العامة والخاصة المدفوعة:
+يقرأ المثال التالي المفاتيح من متغيرات البيئة `ASPOSE_METERED_PUBLIC_KEY` و `ASPOSE_METERED_PRIVATE_KEY`. اضبط كلا المتغيرين قبل تشغيل البرنامج النصي.
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# إنشاء مثيل من فئة Metered
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# الوصول إلى خاصية set_metered_key وتمرير المفاتيح العامة والخاصة كمعلمات
-metered.setMeteredKey("*****", "*****");
-
-# الحصول على كمية البيانات المدفوعة قبل استدعاء واجهة برمجة التطبيقات
-amountbefore = Metered.getConsumptionQuantity()
-
-# عرض المعلومات
-print("الكمية المستهلكة قبل: \" + amountbefore + \"" )
-
-# تحميل المستند من القرص.
-pres = Presentation();
-
-# الحصول على عدد الصفحات في المستند
-print("الكمية المستهلكة بعد: \" +  pres.getSlides().size()) + \"" )
-
-# حفظ كملف PDF
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# الحصول على كمية البيانات المدفوعة بعد استدعاء واجهة برمجة التطبيقات
-amountafter = Metered.getConsumptionQuantity()
-
-# عرض المعلومات
-print("الكمية المستهلكة بعد: \" + amountafter + \"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # إجراء عمليات العرض التقديمي هنا، قبل إغلاق JVM.
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-
-يرجى ملاحظة أنه يجب أن تكون لديك اتصال إنترنت مستقر للاستخدام الصحيح لترخيص المدفوع، حيث تتطلب آلية المدفوع التفاعل المستمر مع خدماتنا لتسجیل الحسابات بشكل صحيح. لمزيد من التفاصيل، يرجى الرجوع إلى قسم [“الأسئلة الشائعة حول الترخيص المدفوع”](https://purchase.aspose.com/faqs/licensing/metered).
-
+{{% alert color="info" title="Note" %}}
+يتطلب الترخيص القائم على الاستخدام اتصال إنترنت للتحقق من المفاتيح وتقرير الاستخدام. احفظ المفتاح الخاص خارج الشيفرة المصدرية والسجلات. راجع [الأسئلة المتكررة حول الترخيص القائم على الاستخدام](https://purchase.aspose.com/faqs/licensing/metered) لتفاصيل الاتصال والفوترة.
 {{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**هل يلزم تثبيت حزمة مختلفة بعد شراء رخصة؟**
+
+لا. طبّق الرخصة على نفس الحزمة التي استخدمتها في التقييم.
+
+**هل يجب تطبيق رخصة لكل عرض تقديمي؟**
+
+لا. طبّقها مرة واحدة عند بدء تشغيل التطبيق، قبل إنشاء أو تحميل العروض التقديمية.
+
+**هل يمكن إعادة تسمية ملف الرخصة؟**
+
+نعم. استخدم الاسم الجديد الدقيق للملف في الشيفرة واحفظ محتويات الملف دون تعديل.
+
+**هل يمكن استخدام رخصة مؤقتة مع المثال القائم على البايتات؟**
+
+نعم. اقرأ ملف الرخصة المؤقتة كبايتات وطبّقه بنفس طريقة رخصة الشراء.

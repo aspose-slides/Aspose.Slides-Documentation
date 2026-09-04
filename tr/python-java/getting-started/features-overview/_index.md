@@ -3,69 +3,79 @@ title: Özellikler Genel Bakışı
 type: docs
 weight: 20
 url: /tr/python-java/features-overview/
+keywords:
+- Aspose.Slides for Python via Java
+- PowerPoint özellikleri
+- sunum dönüştürme
+- slayt renderleme
+- sunum düzenleme
+- metin biçimlendirme
+- şekiller ve grafikler
+- PPT
+- PPTX
+- Python
+description: "Aspose.Slides for Python via Java özelliklerini keşfedin; PowerPoint sunumlarını dönüştürme, renderleme ve düzenleme, slaytlar, metin, şekiller ve grafikler dahil."
 ---
-## **Desteklenen Platformlar**
-Aspose.Slides for Python via Java, platform bağımsız bir API'dir. Python 3.7 veya daha üstü yüklü olan herhangi bir platformda (Windows, Linux, macOS vb.) kullanılabilir. JDK 8 veya üzeri ise bir diğer gereksinimdir.
+Bu makale, Aspose.Slides for Python via Java'ın sunum işleme yeteneklerini açıklar. Desteklenen işletim sistemleri ve bağımlılıklar için, [Sistem Gereksinimleri](/slides/tr/python-java/system-requirements/).
 
 ## **Dosya Biçimleri ve Dönüşümler**
-Aspose.Slides for Python via Java, çoğu PowerPoint belge formatını destekler. Ayrıca bunları kurumların kullandığı ve birbirleriyle paylaştığı popüler dosya biçimlerine dışa aktarabilirsiniz. Aşağıdaki detaylara göz atın:
 
-|**Özellik**|**Açıklama**|
-| :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Python via Java, bu sunum belge formatı için en hızlı işleme performansını sağlar.|
-|PPT'den PPTX'e dönüşüm|Aspose.Slides for Python via Java, PPT'den PPTX'e dönüşümü destekler.|
-|Portable Document Format (PDF)|Tek bir yöntemle tüm desteklenen dosya formatlarını Adobe Portable Document Format (PDF) belgelerine dışa aktarabilirsiniz.|
-|XML Parser Specification (XPS)|Tek bir yöntemle tüm desteklenen dosya formatlarını XML Parser Specification (XPS) belgelerine dışa aktarabilirsiniz.|
-|Tagged Image File Format (TIFF)|Tek bir yöntemle tüm desteklenen sunum dosya formatlarını Tagged Image File Format (TIFF) formatına dışa aktarabilirsiniz.|
-|PPTX'ten HTML'ye Dönüşüm|Aspose.Slides for Python via Java, PresentationEx'in HTML formatına dönüştürülmesini destekler.|
+Aspose.Slides for Python via Java, sunum biçimleri arasında dönüşüm yapmanıza ve sunumları belge ve web biçimlerine dışa aktarmanıza olanak tanır. Tam format tablosu ve sunumları yükleme, içerik ithal etme ve çıktı dışa aktarma arasındaki ayrım için [Desteklenen Dosya Biçimleri](/slides/tr/python-java/supported-file-formats/) sayfasına bakın.
 
-## **Sunum Renderleme**
-Aspose.Slides for Python via Java, slaytların yüksek doğrulukta farklı grafik formatlarına render edilmesini destekler. Aşağıdaki detaylara göz atın:
+## **Sunum Oluşturma**
 
-|**Özellik**|**Açıklama**|
-| :- | :- |
-|Java Destekli Görüntü Formatları|Aspose.Slides for Python via Java kullanarak, sunum slaytlarını ve slaytlardaki görüntüleri TIFF, PNG, BMP, JPEG, GIF gibi Java tarafından desteklenen tüm grafik formatlarına render edebilirsiniz.|
-|SVG Formatı|Aspose.Slides for Python via Java ayrıca, sunum slaytlarını Scalable Vector Graphics (SVG) formatına dışa aktarmanızı sağlayan yerleşik yöntemler sunar.|
+Aspose.Slides for Python via Java, ön izlemeler ve diğer görsel çıktılar için kaydırakları raster veya vektör görüntüler olarak yüksek doğrulukta render eder. Slaytlarda görüntü render etmenizi de sağlar. Kullanılabilir görüntü biçimleri ve dışa aktarma notları için [Desteklenen Dosya Biçimleri](/slides/tr/python-java/supported-file-formats/#supported-file-formats) bölümüne bakın.
 
 ## **İçerik Özellikleri**
-Aspose.Slides for Python via Java, sunum belgelerinin neredeyse tüm öğelerine veya içeriklerine erişmenizi, değiştirmenizi ya da oluşturmanızı sağlar. Aşağıdaki detaylara göz atın:
+
+Aspose.Slides for Python via Java, aşağıda anlatıldığı gibi neredeyse tüm sunum içerik türlerine erişmenize, değiştirmenize ve oluşturmanıza izin verir:
 
 |**Özellik**|**Açıklama**|
 | :- | :- |
-|Master Slaytları|Master Slaytlar, normal slaytların düzenini tanımlar. Aspose.Slides for Python via Java, sunum belgelerinin Master Slaytlarına erişmenizi ve bunları değiştirmenizi sağlar.|
-|Normal Slaytlar|Aspose.Slides for Python via Java ile farklı tiplerde yeni slaytlar oluşturabilirsiniz; ayrıca sunumlardaki mevcut slaytlara erişip onları değiştirebilirsiniz.|
-|Klonlama / Slayt Kopyalama|Aspose.Slides for Python via Java tarafından sağlanan yerleşik yöntemlerle bir sunum içindeki mevcut slaytları klonlayabilir veya kopyalayabilirsiniz. Ayrıca kopyalanan ve klonlanan slaytları bir sunumdan diğerine kullanabilirsiniz. Bir slayt, düzenini master slayttan miras aldığından, yerleşik klonlama yöntemleri klonlamada otomatik olarak master'ı da kopyalar.|
-|Slayt Bölümlerini Yönetme|Sunum içinde slaytları farklı bölümlerde düzenlemek için yöntemler.|
-|Yer Tutucular ve Metin Tutucuları|Bir slayttaki yer tutuculara ve metin tutucularına erişebilirsiniz. Ayrıca uygun yöntemi kullanarak sıfırdan metin tutucularına sahip bir slayt oluşturabilirsiniz.|
-|Üst Bilgi ve Alt Bilgi|Aspose.Slides for Python via Java, slaytlarda üst bilgi/alt bilgi yönetimini kolaylaştırır.|
-|Slaytlardaki Notlar|Aspose.Slides for Python via Java ile bir slayta bağlı notlara erişebilir, bunları değiştirebilir ve yeni notlar ekleyebilirsiniz.|
-|Şekil Bulma|Şekille ilişkilendirilmiş alternatif metni kullanarak bir slayttan belirli bir şekli bulabilirsiniz.|
-|Arka Planlar|Aspose.Slides for Python via Java, bir sunumdaki master veya normal slaytlarla ilişkilendirilmiş arka planlarla çalışmanıza olanak tanır.|
-|Metin Kutuları|Metin kutuları sıfırdan oluşturulabilir. Mevcut metin kutularına erişebilirsiniz. Ayrıca orijinal metin biçimini kaybetmeden metinlerini değiştirebilirsiniz.|
-|Dikdörtgen Şekiller|Aspose.Slides for Python via Java ile dikdörtgen şekiller oluşturabilir veya değiştirebilirsiniz.|
-|Poli Çizgi Şekilleri|Aspose.Slides for Python via Java ile poli çizgi şekilleri oluşturabilir veya değiştirebilirsiniz.|
-|Elips Şekilleri|Aspose.Slides for Python via Java ile elips şekilleri oluşturabilir veya değiştirebilirsiniz.|
-|Grup Şekilleri|Aspose.Slides for Python via Java, grup şekillerini destekler.|
-|Otomatik Şekiller|Aspose.Slides for Python via Java, otomatik şekilleri destekler.|
-|SmartArt|Aspose.Slides for Python via Java, MS PowerPoint'teki SmartArt şekilleri için destek sağlar.|
-|Grafikler|Aspose.Slides for Python via Java, PowerPoint'teki MSO grafikler için destek sağlar.|
-|Şekil Serileştirme|Aspose.Slides for Python via Java, çok sayıda şekli destekler. Aspose.Slides for Python via Java bir şekli desteklemediğinde, mevcut bir slayttan o şekli serileştirmenizi sağlayan bir serileştirme yöntemi kullanabilirsiniz. Böylece şekli ihtiyacınıza göre daha sonra kullanabilirsiniz.|
-|Görsel Çerçeveler|Aspose.Slides for Python via Java ile görsel çerçevelerdeki resimleri yönetebilirsiniz.|
-|Ses Çerçeveleri|Aspose.Slides for Python via Java ile slaytlardaki ses çerçevelerinde ses dosyalarını bağlayabilir veya gömebilirsiniz.|
-|Video Çerçeveleri|Video dosyalarını video çerçevelerinde işleyebilirsiniz. Aspose.Slides for Python via Java ayrıca, bağlantılı ve gömülü videolar için destek sağlar.|
-|OLE Çerçevesi|Aspose.Slides for Python via Java ile OLE çerçevelerindeki OLE Nesnelerini yönetebilirsiniz.|
-|Tablolar|Aspose.Slides for Python via Java, slaytlarda tabloyu destekler.|
-|ActiveX Kontrolleri|ActiveX kontrolleri için destek.|
-|VBA Makroları|Sunumlar içinde VBA makrolarını yönetmek için destek.|
-|Metin Çerçevesi|Herhangi bir şeklin ilişkilendirilmiş metin çerçevesi aracılığıyla metnine erişebilirsiniz.|
-|Metin Tarama|Yerleşik tarama yöntemleriyle bir sunumda veya slayt düzeyinde metni tarayabilirsiniz.|
-|Animasyonlar|Şekillere animasyonlar uygulayabilirsiniz.|
-|Slayt Gösterileri|Aspose.Slides for Python via Java, slayt gösterilerini ve slayt geçişlerini destekler.|
+|Presentations|Sıfırdan sunum oluşturabilir veya mevcut dosyaları açabilirsiniz.|
+|Document Properties|Belge özelliklerini okuyabilir ve değiştirebilirsiniz.|
+|Presentation Protection|Şifre koruması uygulayabilir ve sunum koruma ayarlarını yönetebilirsiniz.|
+|Master Slides|Ana slaytlar normal slaytların düzenini tanımlar. Aspose.Slides for Python via Java, sunumlardaki ana slaytlara erişmenizi ve bunları değiştirmenizi sağlar.|
+|Normal Slides|Sunumlardaki slaytları ekleyebilir, erişebilir, düzenleyebilir, yeniden sıralayabilir ve silebilirsiniz.|
+|Slide Layouts|Slayt düzenleriyle çalışabilirsiniz.|
+|Cloning and Copying Slides|Yerleşik yöntemler, bir sunum içinde veya sunumlar arasında slaytları klonlamanıza veya kopyalamanıza olanak tanır. Bu yöntemler, bir slaytı klonlarken ilgili ana slaytı otomatik olarak kopyalar.|
+|Slide Sections|Slaytları bir sunum içinde bölümlere organize edebilirsiniz.|
+|Placeholders and Text Holders|Bir slayttaki yer tutuculara ve metin tutucularına erişebilir ve ayrıca sıfırdan metin tutuculu slaytlar oluşturabilirsiniz.|
+|Headers and Footers|Aspose.Slides for Python via Java, üstbilgi ve altbilgileri yönetmenizi sağlar.|
+|Slide Notes|Slayt notlarına erişebilir, ekleyebilir ve değiştirebilir ve bunları PDF veya TIFF olarak dışa aktarırken dahil edebilirsiniz.|
+|Finding a Shape|Alternatif metnini kullanarak bir slayttaki belirli bir şekli bulabilirsiniz.|
+|Alternative Text|Şekiller için alternatif metni okuyabilir ve güncelleyebilirsiniz.|
+|Hyperlinks|Şekillerdeki bağlantıları okuyabilir ve güncelleyebilir, ayrıca metne bağlantılar ekleyebilirsiniz.|
+|Backgrounds|Bir sunumda ana slaytların ve normal slaytların arka planlarıyla çalışabilirsiniz.|
+|Text Boxes|Sıfırdan metin kutuları oluşturabilir, mevcut metin kutularına erişebilir ve orijinal biçimlendirmeyi koruyarak metinlerini değiştirebilirsiniz.|
+|Rectangle Shapes|Dikdörtgen şekilleri oluşturabilir ve değiştirebilirsiniz.|
+|Line Shapes|Çizgi şekilleri oluşturabilir ve değiştirebilirsiniz.|
+|Polyline Shapes|Çoklu çizgi şekilleri oluşturabilir ve değiştirebilirsiniz.|
+|Ellipse Shapes|Elips şekilleri oluşturabilir ve değiştirebilirsiniz.|
+|Group Shapes|Aspose.Slides for Python via Java grup şekilleri destekler.|
+|AutoShapes|Aspose.Slides for Python via Java AutoShape'leri destekler.|
+|SmartArt|Sunumlarda SmartArt şekilleri oluşturabilir ve düzenleyebilirsiniz.|
+|Charts|PowerPoint sunumlarında Microsoft Office grafiklerini oluşturabilir ve düzenleyebilirsiniz.|
+|Shape Serialization|Aspose.Slides for Python via Java birçok şekil tipini destekler. Desteklenmeyen şekiller için, mevcut bir slayttan bir şekli yeniden kullanmak üzere korumak amacıyla serileştirme kullanabilirsiniz.|
+|Shape Locks|Düzenleme eylemlerini kısıtlamak için şekil kilitleri uygulayabilirsiniz.|
+|Picture Frames|Resim çerçevelerindeki resimleri yönetebilirsiniz.|
+|Audio Frames|Slaytlardaki ses çerçevelerine ses dosyalarını bağlayabilir veya gömebilirsiniz.|
+|Video Frames|Video çerçevelerindeki bağlı ve gömülü videoları yönetebilirsiniz.|
+|OLE Frames|OLE çerçevelerindeki OLE nesnelerini yönetebilirsiniz.|
+|Tables|Tablolar oluşturabilir, taşıyabilir ve yeniden boyutlandırabilirsiniz; satır ve sütun ekleyebilir, silebilir ve yeniden boyutlandırabilirsiniz; ayrıca hücre içeriğini, kenarlıkları, doldurmayı ve metin biçimlendirmesini okuyup değiştirebilirsiniz.|
+|ActiveX Controls|Aspose.Slides for Python via Java ActiveX denetimlerini destekler.|
+|VBA Macros|Sunumlarda VBA makrolarını yönetebilirsiniz.|
+|Text Frames|Bir şeklin metnine ilişkili metin çerçevesi üzerinden erişebilir ve metin çerçevesi kenar boşluklarını ve metin kaydırmasını ayarlayabilirsiniz.|
+|Fonts|Sunumlarda kullanılan yazı tiplerini yönetebilirsiniz.|
+|Text Scanning|Yerleşik yöntemler, tüm bir sunumda veya tek tek slaytlarda metni taramanıza olanak tanır.|
+|Animations|Şekillerde animasyon efektleri ekleyebilir ve değiştirebilirsiniz.|
+|Slide Shows|Aspose.Slides for Python via Java slayt gösterileri ve slayt geçişlerini, Morph geçişleri dahil, destekler.|
 
 ## **Biçimlendirme Özellikleri**
-Aspose.Slides for Python via Java ile, sunumlardaki slaytlarda metin ve şekilleri biçimlendirebilirsiniz. Aşağıdaki detaylara göz atın:
+
+Aspose.Slides for Python via Java, sunum slaytlarındaki metin ve şekilleri aşağıda açıklandığı gibi biçimlendirmenizi sağlar:
 
 |**Özellik**|**Açıklama**|
 | :- | :- |
-|Text Formatting|<p>Aspose.Slides for Python via Java'da, şekillerle ilişkilendirilmiş metin çerçeveleri aracılığıyla metinleri yönetebilirsiniz. Böylece, metin çerçevelerine bağlı paragrafları ve bölümleri kullanarak metinleri biçimlendirebilirsiniz. Bu metin öğeleri Aspose.Slides for Python via Java ile biçimlendirilebilir.</p><p>- Yazı Tipi</p><p>- Yazı Boyutu</p><p>- Yazı Rengi</p><p>- Yazı Gölgeleri</p><p>- Paragraf Hizalaması</p><p>- Paragraf Madde İşaretleme</p><p>- Paragraf Yönlendirmesi</p>|
-|Shape Formatting|<p>Aspose.Slides for Python via Java'da, bir slaydın temel öğesi bir şekildir. Bu şekil öğelerini Aspose.Slides for Python via Java ile biçimlendirebilirsiniz:</p><p>- Konum</p><p>- Boyut</p><p>- Çizgi</p><p>- Doldurma (Desen, Degrade, Katı dahil)</p><p>- Metin</p><p>- Görüntü</p>|
+|Text Formatting|<p>Şekillerle ilişkili metin çerçeveleri aracılığıyla metni yönetebilir ve tek tek paragrafları ve metin bölümlerini biçimlendirebilirsiniz. Aşağıdaki biçimlendirme seçenekleri mevcuttur:</p><p>- Yazı tipi</p><p>- Yazı boyutu</p><p>- Yazı rengi</p><p>- Yazı gölgelendirmesi</p><p>- Paragraf hizalaması</p><p>- Paragraf girintisi ve sekmeler</p><p>- Paragraf madde işaretleri</p><p>- Paragraf yönü</p>|
+|Shape Formatting|<p>Şekiller bir slaytın temel öğeleridir. Aşağıdaki şekil özelliklerini ayarlayabilirsiniz:</p><p>- Konum</p><p>- Boyut</p><p>- Döndürme</p><p>- Çizgi stilleri</p><p>- Doldurma (düz, degrade, desen, doku ve resim doldurmaları dahil)</p><p>- Metin</p><p>- Görsel</p>|

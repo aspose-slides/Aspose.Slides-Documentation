@@ -3,13 +3,22 @@ title: Evaluasi Aspose.Slides
 type: docs
 weight: 120
 url: /id/python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- versi evaluasi
+- batasan percobaan
+- watermark evaluasi
+- lisensi sementara
+description: "Evaluasi Aspose.Slides untuk Python via Java, pelajari tentang batasan percobaan, dan minta lisensi sementara 30 hari untuk menguji fungsionalitas lengkap."
 ---
-Anda dapat dengan mudah mengunduh Aspose.Slides untuk evaluasi. Paket evaluasi sama dengan paket yang dibeli. Versi evaluasi menjadi berlisensi setelah Anda menambahkan beberapa baris kode untuk menerapkan lisensi.
+Anda dapat mengunduh Aspose.Slides untuk Python via Java untuk mengevaluasi fiturnya. Paket evaluasi identik dengan paket berlisensi. Untuk menggunakannya tanpa batasan evaluasi, tambahkan beberapa baris kode untuk menerapkan lisensi.
 
-Versi evaluasi Aspose.Slides (tanpa lisensi yang ditentukan) menyediakan fungsionalitas produk penuh, tetapi menambahkan watermark evaluasi di bagian atas dokumen saat dibuka dan disimpan. Anda juga dibatasi hanya satu slide saat mengekstrak teks dari slide presentasi.
+Versi evaluasi Aspose.Slides (digunakan tanpa lisensi) memberikan fungsionalitas produk penuh, tetapi memasukkan watermark evaluasi di bagian atas dokumen saat Anda membuka atau menyimpannya. Ekstraksi teks dibatasi satu slide per presentasi.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Watermark evaluasi Aspose.Slides pada slide presentasi](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-Jika Anda ingin menguji Aspose.Slides tanpa batasan versi evaluasi, Anda dapat meminta **30 Day Temporary License**. Silakan lihat [Cara Mendapatkan Lisensi Sementara?](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
+{{% alert color="info" title="Catatan" %}}
+Untuk menguji Aspose.Slides tanpa batasan evaluasi, Anda dapat meminta **lisensi sementara 30 hari**. Lihat [Dapatkan Lisensi Sementara](https://purchase.aspose.com/temporary-license) untuk informasi lebih lanjut.
 {{% /alert %}}

@@ -3,11 +3,20 @@ title: API Referansı
 type: docs
 weight: 50
 url: /tr/python-java/api-reference/
+keywords:
+- API referansı
+- Aspose.Slides for Python via Java
+- Python PowerPoint API
+- sunum API'si
+- Python
+- Java
+- Aspose.Slides
+description: "Microsoft PowerPoint kullanmadan sunumlar oluşturmak, düzenlemek ve dışa aktarmak için Aspose.Slides for Python via Java API referansını keşfedin."
 ---
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Not" %}}
 
-Aspose.Slides for Python via Java, Python uygulamalarının Microsoft PowerPoint® veya diğer programları kullanmadan sunum belgelerini okumasını ve yazmasını sağlayan bir sınıf kitaplığıdır. Aspose.Slides for Python via Java, metin, şekiller, tablolar ve animasyonları yönetmenize, slaytlara ses ve video eklemenize, slaytları önizlemenize, slaytları SVG ve PDF formatına dışa aktarmanıza ve çok daha fazlasını yapmanıza olanak tanır.
+Aspose.Slides for Python via Java bir sınıf kitaplığıdır ve Python uygulamalarının Microsoft PowerPoint® gerektirmeden sunumları okumasını ve yazmasını sağlar. Metin, şekiller, tablolar ve animasyonları yönetmenize; slaytlara ses ve video eklemenize; slaytları önizlemenize; ve slaytları SVG, PDF ve diğer biçimlerde dışa aktarmanıza olanak tanır.
 
-Aspose.Slides for Python via Java, [Aspose.Slides for Java ile aynı API referansı](https://reference.aspose.com/slides/tr/python-java/) kullanır. 
+Ayrıntılar için, [Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/tr/python-java/) adresine bakın.
 
 {{% /alert %}}

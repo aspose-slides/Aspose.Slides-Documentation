@@ -1,152 +1,151 @@
 ---
 title: 授權
-description: "Aspose.Slides for Python via Java 提供不同的購買方案，或提供免費試用與 30 天臨時授權，讓您依照授權與訂閱政策進行評估。"
 type: docs
 weight: 80
 url: /zh-hant/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- 授權檔案
+- 臨時授權
+- 計量授權
+- 評估限制
+description: "在 Aspose.Slides for Python via Java 中套用檔案、位元組或計量授權，並從您的應用程式中移除評估限制。"
 ---
-有時為了取得最佳的評估結果，可能需要實際操作。因此，Aspose.Slides 提供了不同的購買方案，並提供免費試用與 30 天臨時授權以供評估。
+## **概觀**
 
-{{% alert color="primary" %}}
-請注意，有多項一般政策與做法可指導您如何評估、正確授權以及購買我們的產品。您可以在[「購買政策與常見問答」](https://purchase.aspose.com/policies)頁面找到相關資訊。
+Aspose.Slides for Python via Java 可以在評估模式或使用授權下執行。本篇說明如何從檔案或位元組套用授權，以及如何設定計量授權。
+
+欲了解購買方案，請參考 [定價資訊](https://purchase.aspose.com/pricing/slides/zh-hant/family)。如需一般授權與購買問題，請參考 [購買政策與常見問答](https://purchase.aspose.com/policies)。
+
+關於評估限制與如何申請臨時授權，請參閱 [評估 Aspose.Slides](/slides/zh-hant/python-java/evaluate-aspose-slides/)。臨時授權的套用方式與購買授權檔相同。
+
+## **關於授權**
+
+授權檔案包含產品名稱、授權開發人員數量以及訂閱到期日等資訊。此檔案為數位簽署的 XML。
+
+{{% alert color="warning" title="警告" %}}
+請勿編輯授權檔案。即使多加一個換行也會使其數位簽章失效。
 {{% /alert %}}
 
-## **Evaluate Aspose.Slides**
-您可以輕鬆下載 Aspose.Slides 進行評估。評估套件與購買套件相同。只要在程式碼中加入幾行授權設定，即可將評估版變為已授權版本。
+在應用程式或程序啟動時套用授權一次，於建立簡報或執行其他 Aspose.Slides 操作之前完成。若使用授權檔，請使用 [License](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/license/) 類別。計量授權則以公私鑰組而非授權檔案方式運作。
 
-## **Evaluation Version Limitation**
-未指定授權的 Aspose.Slides 評估版提供完整功能，但在文件開啟與儲存時會在頂部插入評估浮水印。從簡報投影片中擷取文字時也僅限於單一投影片。
+## **套用授權**
 
-{{% alert color="primary" %}} 
-若您想測試 Aspose.Slides 而不受評估版限制，可申請 **30 Day Temporary License**。請參考[How to get a Temporary License?](https://purchase.aspose.com/temporary-license)取得更多資訊。
-{{% /alert %}} 
+以下範例假設已安裝 Aspose.Slides for Python via Java 及其前置需求。每個範例都是獨立腳本，會啟動 JVM、匯入 API 並套用授權。於您的應用程式中，請在套用授權後執行簡報操作，並於所有 Aspose.Slides 工作完成後才關閉 JVM。
 
-## **About the License**
-您可以從其[download page](https://releases.aspose.com/slides/zh-hant/python-java/)輕鬆下載 Aspose.Slides for Python via Java 的評估版。評估版提供與已授權版**完全相同的功能**。此外，購買授權並在程式碼中加入幾行授權設定後，評估版即會轉為已授權。
+### **從檔案套用授權**
 
-授權檔是一個純文字 XML 檔，內含產品名稱、授權開發人員數量、訂閱到期日等資訊。檔案已經數位簽章，請勿修改檔案。即使不小心在檔案內容加入額外換行，也會使其失效。
+將授權檔路徑傳遞給 [License.setLicense](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/license/#setLicense)。請將 `Aspose.Slides.lic` 替換為您的授權檔路徑。
 
-為避免評估版的限制，您必須在使用 **Aspose.Slides** 前設定授權。每個應用程式或處理程序只需設定一次授權。
-
-## Purchased License
-
-購買後，您需要套用授權檔或串流。 
-
-{{% alert color="primary" %}}
-您需要設定授權：
-* 每個應用程式域僅一次
-* 在使用任何其他 Aspose.Slides 類別之前
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-您可以在[“Pricing Information”](https://purchase.aspose.com/pricing/slides/zh-hant/family)頁面找到價格資訊。
-{{% /alert %}}
-
-### **Setting a License in Aspose.Slides for Python via Java**
-授權可以從以下位置套用：
-
-* 明確路徑
-* 串流
-* 作為 Metered License – 新的授權機制
-
-{{% alert color="primary" %}}
-使用 **setLicense** 方法為元件授權。
-
-雖然多次呼叫 **setLicense** 不會造成傷害，但會浪費資源（處理器）。
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-新授權僅能在版本 21.4 或更高版本的 Aspose.Slides 中啟用。較早版本使用不同的授權系統，無法辨識這些授權。
-{{% /alert %}}
-
-#### **Applying a License Using a File**
-以下程式碼片段用於設定授權檔：
-
-**Python**
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # 在此執行簡報操作，於關閉 JVM 前完成。
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-呼叫 setLicense 方法時，授權名稱應與您的授權檔名稱相同。例如，您可以將授權檔名稱改為 "Aspose.Slides.lic.xml"。然後在程式碼中將新名稱 (Aspose.Slides.lic.xml) 傳遞給 setLicense 方法。
+請使用完整檔名，包含副檔名。例如，若檔案名稱為 `Aspose.Slides.lic.xml`，請在路徑中加入 `.xml`。絕對路徑可避免應用程式工作目錄的歧義。
 
-#### **Applying a License from a Bytes**
-以下程式碼片段用於從位元組套用授權：
+範例使用 [License.isLicensed](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/license/#isLicensed) 來檢查授權是否已套用。
 
-**Python**
+### **從位元組套用授權**
+
+當授權以 Python 位元組形式提供時，請使用 [License.setLicenseFromBytes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/license/#setLicenseFromBytes)。以下範例以二進位模式讀取檔案，並在套用授權前關閉檔案。
+
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # 在此執行簡報操作，於關閉 JVM 前完成。
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### Apply Metered License
-Aspose.Slides 允許開發人員套用計量金鑰。這是一種新的授權機制。
+請保持原始位元組不變。套用前勿解碼、重新格式化或以其他方式修改授權內容。
 
-新的授權機制將與現有授權方式一起使用。希望根據 API 功能使用量計費的客戶可以使用計量授權。
+## **套用計量授權**
 
-完成取得此類授權的所有必要步驟後，您將收到金鑰，而非授權檔。此計量金鑰可使用專為此目的引入的 **Metered** 類別套用。
+計量授權會依 API 使用量收費。取得計量授權後，請使用 [Metered.setMeteredKey](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/metered/#setMeteredKey) 套用其公私鑰。於應用程式啟動時初始化 [Metered](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/metered/) 物件，並一次性套用金鑰。
 
-以下程式碼示範如何設定計量的公私鑰：
+以下範例從環境變數 `ASPOSE_METERED_PUBLIC_KEY` 與 `ASPOSE_METERED_PRIVATE_KEY` 讀取金鑰。請在執行腳本前設定這兩個變數。
+
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# 建立 CAD Metered 類別的實例
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# 存取 set_metered_key 屬性，並將公鑰與私鑰作為參數傳入
-metered.setMeteredKey("*****", "*****");
-
-# 在呼叫 API 前取得計量資料量
-amountbefore = Metered.getConsumptionQuantity()
-
-# 顯示資訊
-print("Amount Consumed Before: \" + amountbefore + \"" )
-
-# 從磁碟載入文件。
-pres = Presentation();
-
-# 取得文件的頁數
-print("Amount Consumed After: \" +  pres.getSlides().size()) + \"" )
-
-# 儲存為 PDF
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# 在呼叫 API 後取得計量資料量
-amountafter = Metered.getConsumptionQuantity()
-
-# 顯示資訊
-print("Amount Consumed After: \" + amountafter + \"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # 在此執行簡報操作，於關閉 JVM 前完成。
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-請注意，使用計量授權必須保持穩定的網際網路連線，因為計量機制需要不斷與我們的服務互動以進行正確計算。詳情請參閱[“Metered Licensing FAQ”](https://purchase.aspose.com/faqs/licensing/metered)章節。
+{{% alert color="info" title="注意" %}}
+計量授權需要網際網路連線以驗證金鑰並回報使用量。請將私鑰保留在程式碼與日誌之外。詳情請參閱 [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered)。
 {{% /alert %}}
+
+## **常見問題**
+
+**購買授權後需要安裝其他套件嗎？**
+
+不需要。請將授權套用於您評估時使用的相同套件。
+
+**每個簡報都需要套用授權嗎？**
+
+不需要。請於應用程式啟動時套用一次，於建立或載入簡報之前。
+
+**可以重新命名授權檔嗎？**
+
+可以。請在程式碼中使用新的完整檔名，且保持檔案內容不變。
+
+**可以在基於位元組的範例中使用臨時授權嗎？**
+
+可以。以位元組方式讀取臨時授權檔，並以與購買授權相同的方式套用。

@@ -3,13 +3,22 @@ title: Vyhodnocení Aspose.Slides
 type: docs
 weight: 120
 url: /cs/python-java/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- verze pro hodnocení
+- omezení zkušební verze
+- vodotisk hodnocení
+- dočasná licence
+description: "Vyhodnoťte Aspose.Slides pro Python via Java, seznámte se s omezeními zkušební verze a požádejte o 30denní dočasnou licenci k otestování plné funkčnosti."
 ---
-Aspose.Slides můžete snadno stáhnout pro vyzkoušení. Vyhodnocovací balíček je stejný jako zakoupený balíček. Vyhodnocovací verze se jednoduše stane licencovanou po přidání několika řádků kódu pro aplikaci licence.
+Můžete si stáhnout Aspose.Slides pro Python via Java, abyste vyzkoušeli jeho funkce. Hodnotící balíček je identický s licencovaným balíčkem. Pro použití bez omezení hodnocení přidejte několik řádků kódu pro aplikaci licence.
 
-Vyhodnocovací verze Aspose.Slides (bez specifikované licence) poskytuje plnou funkčnost produktu, ale při otevření a uložení vloží do horní části dokumentu vodoznak pro hodnocení. Navíc jste omezeni na jeden snímek při extrahování textu ze snímků prezentace.
+Hodnotící verze Aspose.Slides (používaná bez licence) poskytuje plnou funkčnost produktu, ale při otevření nebo uložení dokumentu vloží vodotisk hodnocení v horní části dokumentu. Extrakce textu je omezena na jeden snímek na prezentaci.
 
-![todo:image_alt_text](evaluate-aspose-slides_1.png)
+![Vodotisk hodnocení Aspose.Slides na snímku prezentace](evaluate-aspose-slides_1.png)
 
-{{% alert color="primary" %}} 
-Pokud chcete testovat Aspose.Slides bez omezení vyhodnocovací verze, můžete požádat o **30denní dočasnou licenci**. Další informace naleznete v [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license). 
+{{% alert color="info" title="Note" %}}
+Chcete-li testovat Aspose.Slides bez omezení hodnocení, můžete požádat o **30denní dočasnou licenci**. Více informací najdete v [Získat dočasnou licenci](https://purchase.aspose.com/temporary-license).
 {{% /alert %}}

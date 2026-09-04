@@ -1,71 +1,81 @@
 ---
-title: Funktionsöversikt
+title: Översikt över funktioner
 type: docs
 weight: 20
 url: /sv/python-java/features-overview/
+keywords:
+- Aspose.Slides for Python via Java
+- PowerPoint-funktioner
+- presentationkonvertering
+- sidrendering
+- presentationredigering
+- textformatering
+- former och diagram
+- PPT
+- PPTX
+- Python
+description: "Utforska Aspose.Slides for Python via Java-funktionerna för konvertering, rendering och redigering av PowerPoint-presentationer, inklusive bilder, text, former och diagram."
 ---
-## **Supporterade plattformar**
-Aspose.Slides for Python via Java är ett plattformsoberoende API. Det kan användas på alla plattformar (Windows, Linux, macOS osv.) där Python 3.7 eller högre är installerat. JDK 8 eller högre är ett annat krav.
+Den här artikeln beskriver presentationsbearbetningsfunktionerna i Aspose.Slides for Python via Java. För stödjade operativsystem och beroenden, se [System Requirements](/slides/sv/python-java/system-requirements/).
 
 ## **Filformat och konverteringar**
-Aspose.Slides for Python via Java stöder de flesta PowerPoint-dokumentformat. Det låter dig också exportera dem till de populära filformat som organisationer använder och delar med varandra. Gå igenom dessa detaljer:
 
-|**Funktion**|**Beskrivning**|
-| :- | :- |
-|Microsoft PowerPoint (PPT)|Aspose.Slides for Python via Java erbjuder den snabbaste bearbetningen för detta presentationsdokumentformat.|
-|PPT till PPTX-konvertering|Aspose.Slides for Python via Java stöder PPT till PPTX-konvertering|
-|Portable Document Format (PDF)|Du kan exportera alla stödda filformat till Adobe Portable Document Format (PDF)-dokument med en enda metod.|
-|XML Parser Specification (XPS)|Du kan exportera alla stödda filformat till XML Parser Specification (XPS)-dokument med en enda metod.|
-|Tagged Image File Format (TIFF)|Du kan exportera alla stödda presentationsfilformat till Tagged Image File Format (TIFF).|
-|PPTX till HTML-konvertering|Aspose.Slides for Python via Java stöder konvertering av PresentationEx till HTML-format.|
+Aspose.Slides for Python via Java låter dig konvertera mellan presentationsformat och exportera presentationer till dokument- och webbformat. Se [Supported File Formats](/slides/sv/python-java/supported-file-formats/) för den kompletta formatabellen och skillnaden mellan att läsa in presentationer, importera innehåll och exportera resultat.
 
 ## **Rendering av presentationer**
-Aspose.Slides for Python via Java stöder högupplöst rendering av bilder i en presentation till olika grafikformat. Gå igenom dessa detaljer:
 
-|**Funktion**|**Beskrivning**|
-| :- | :- |
-|Java Supported Image Formats|Med Aspose.Slides for Python via Java kan du rendera presentationsbilder och bilder på bilder till alla Java‑stödda grafikformat såsom TIFF, PNG, BMP, JPEG, GIF.|
-|SVG Format|Aspose.Slides for Python via Java erbjuder också inbyggda metoder som låter dig exportera presentationsbilder till Scalable Vector Graphics (SVG)-format.|
+Aspose.Slides for Python via Java tillhandahåller högkvalitativ bildrendering av bildspel som raster- eller vektorbilder för förhandsgranskningar och annan visuell output. Det låter dig också rendera bilder på bildspel. För tillgängliga bildformat och exportanteckningar, se [Supported File Formats](/slides/sv/python-java/supported-file-formats/#supported-file-formats).
 
 ## **Innehållsfunktioner**
-Aspose.Slides for Python via Java låter dig komma åt, ändra eller skapa nästan alla objekt eller innehåll i presentationsdokument. Gå igenom dessa detaljer:
+
+Aspose.Slides for Python via Java låter dig komma åt, ändra och skapa nästan alla typer av presentationsinnehåll, som beskrivs nedan:
 
 |**Funktion**|**Beskrivning**|
 | :- | :- |
-|Master Slides|Master Slides definierar layouten för de vanliga bilderna. Aspose.Slides for Python via Java låter dig komma åt och ändra Master Slides i presentationsdokument.|
-|Normal Slides|Med Aspose.Slides for Python via Java kan du skapa nya bilder av olika typer; du kan också komma åt och ändra befintliga bilder i presentationerna.|
-|Cloning / Copying Slides|Det finns inbyggda metoder tillhandahållna av Aspose.Slides for Python via Java som låter dig klona eller kopiera befintliga bilder inom en presentation. Du kan också använda kopierade och klonade bilder från en presentation till en annan. Eftersom en bild ärver sin layout från master‑bilden kopierar de inbyggda kloningsmetoderna automatiskt master‑bilden vid kloning.|
-|Managing Slides sections|Metoder för att organisera bilder i olika sektioner inom en presentation.|
-|Place Holders and Text Holders|Du kan komma åt platshållare och texthållare i en bild. Dessutom kan du skapa en bild med texthållare från början med hjälp av lämplig metod.|
-|Header and Footers|Aspose.Slides for Python via Java underlättar hantering av sidhuvuden och sidfötter i bilder.|
-|Notes in Slides|Med Aspose.Slides for Python via Java kan du komma åt och ändra anteckningar som är kopplade till en bild samt lägga till nya anteckningar.|
-|Finding a Shape|Du kan även hitta en specifik form i en bild genom att använda den alternativa texten som är kopplad till formen.|
-|Backgrounds|Aspose.Slides for Python via Java låter dig arbeta med bakgrunder som är kopplade till en master‑ eller normalbild i en presentation.|
-|Text Boxes|Textrutor kan skapas från början. Du kan komma åt befintliga textrutor. Du kan också ändra deras texter utan att förlora det ursprungliga textformatet.|
-|Rectangle Shapes|Du kan skapa eller ändra rektangulära former med Aspose.Slides for Python via Java.|
-|Poly Line Shapes|Du kan skapa eller ändra polylinjer med Aspose.Slides for Python via Java.|
-|Ellipse Shapes|Du kan skapa eller ändra ellipsformer med Aspose.Slides for Python via Java.|
-|Group Shapes|Aspose.Slides for Python via Java stöder gruppformer.|
-|Auto Shapes|Aspose.Slides for Python via Java stöder autosformer.|
-|SmartArt|Aspose.Slides for Python via Java erbjuder stöd för SmartArt‑former i MS PowerPoint.|
-|Charts|Aspose.Slides for Python via Java erbjuder stöd för MSO-diagram i PowerPoint.|
-|Shapes Serialization|Aspose.Slides for Python via Java stöder ett stort antal former. När Aspose.Slides for Python via Java saknar stöd för en form kan du använda en serialiseringsmetod för att serialisera den formen från en befintlig bild. På så sätt kan du använda formen vidare enligt dina krav.|
-|Picture Frames|Du kan hantera bilder i bildramar med Aspose.Slides for Python via Java.|
-|Audio Frames|Du kan länka eller bädda in ljudfiler i ljudramar på bilder med Aspose.Slides for Python via Java.|
-|Video Frames|Du kan hantera videofiler i videoramar. Aspose.Slides for Python via Java erbjuder också stöd för länkade och inbäddade videor.|
-|OLE Frame|Du kan hantera OLE‑objekt i OLE‑ramar med Aspose.Slides for Python via Java.|
-|Tables|Aspose.Slides for Python via Java stöder tabeller i bilder.|
-|ActiveX Controls|Stöd för ActiveX‑kontroller.|
-|VBA Macros|Stöd för hantering av VBA‑makron i presentationer.|
-|Text Frame|Du kan komma åt texten i en form via textramen som är kopplad till den formen.|
-|Text Scanning|Du kan skanna text i en presentation på presentations- eller bildnivå med inbyggda skanningsmetoder.|
-|Animations|Du kan applicera animationer på former.|
-|Slide Shows|Aspose.Slides for Python via Java stöder bildspel och bildövergångar.|
+|Presentationer|Du kan skapa presentationer från början eller öppna befintliga filer.|
+|Dokumentegenskaper|Du kan läsa och ändra dokumentegenskaper.|
+|Presentationsskydd|Du kan tillämpa lösenordsskydd och hantera inställningar för presentationsskydd.|
+|Masterbilder|Masterbilder definierar layouten för vanliga bilder. Aspose.Slides for Python via Java låter dig komma åt och ändra masterbilder i presentationer.|
+|Vanliga bilder|Du kan lägga till, komma åt, redigera, omordna och ta bort bilder i presentationer.|
+|Bildlayouter|Du kan arbeta med bildlayouter.|
+|Kloning och kopiering av bilder|Inbyggda metoder låter dig klona eller kopiera bilder inom en presentation eller mellan presentationer. Dessa metoder kopierar automatiskt den associerade masterbilden när en bild klonas.|
+|Bildsektioner|Du kan organisera bilder i sektioner inom en presentation.|
+|Platshållare och textplatshållare|Du kan komma åt platshållare och textplatshållare på en bild, samt skapa bilder med textplatshållare från början.|
+|Sidhuvuden och sidfötter|Aspose.Slides for Python via Java låter dig hantera sidhuvuden och sidfötter.|
+|Bildanteckningar|Du kan komma åt, lägga till och ändra bildanteckningar, och inkludera dem vid export till PDF eller TIFF.|
+|Hitta en form|Du kan hitta en viss form på en bild med hjälp av dess alternativa text.|
+|Alternativ text|Du kan läsa och uppdatera alternativ text för former.|
+|Hyperlänkar|Du kan läsa och uppdatera hyperlänkar på former och lägga till hyperlänkar i text.|
+|Bakgrunder|Du kan arbeta med bakgrunderna för masterbilder och vanliga bilder i en presentation.|
+|Textrutor|Du kan skapa textrutor från början, komma åt befintliga textrutor och ändra deras text samtidigt som du bevarar den ursprungliga formateringen.|
+|Rektangulära former|Du kan skapa och ändra rektangulära former.|
+|Linjeformer|Du kan skapa och ändra linjeformer.|
+|Polylinjeformer|Du kan skapa och ändra polylinjeformer.|
+|Ellipsformer|Du kan skapa och ändra ellipsformer.|
+|Gruppformer|Aspose.Slides for Python via Java stöder gruppformer.|
+|AutoFormer|Aspose.Slides for Python via Java stöder AutoFormer.|
+|SmartArt|Du kan skapa och redigera SmartArt-former i presentationer.|
+|Diagram|Du kan skapa och redigera Microsoft Office-diagram i PowerPoint-presentationer.|
+|Formserialisering|Aspose.Slides for Python via Java stöder många formtyper. För icke-stödda former kan du använda serialisering för att bevara en form från en befintlig bild för återanvändning.|
+|Formlås|Du kan tillämpa formlås för att begränsa redigeringsåtgärder.|
+|Bildramar|Du kan hantera bilder i bildramar.|
+|Ljudramar|Du kan länka eller bädda in ljudfiler i ljudramar på bilder.|
+|Video-ramar|Du kan hantera länkade och inbäddade videor i video-ramar.|
+|OLE-ramar|Du kan hantera OLE-objekt i OLE-ramar.|
+|Tabeller|Du kan skapa, flytta och ändra storlek på tabeller; lägga till, ta bort och ändra storlek på rader och kolumner; samt läsa och ändra cellinnehåll, kantlinjer, fyllningar och textformatering.|
+|ActiveX-kontroller|Aspose.Slides for Python via Java stöder ActiveX-kontroller.|
+|VBA-makron|Du kan hantera VBA-makron i presentationer.|
+|Textramar|Du kan komma åt en forms text via dess associerade textram och justera textramarnas marginaler och textomslutning.|
+|Typsnitt|Du kan hantera typsnitt som används i presentationer.|
+|Textsökning|Inbyggda metoder låter dig skanna text över en hel presentation eller på enskilda bilder.|
+|Animationer|Du kan lägga till och ändra animationseffekter på former.|
+|Bildspel|Aspose.Slides for Python via Java stöder bildspel och bildövergångar, inklusive Morph-övergångar.|
 
 ## **Formateringsfunktioner**
-Med Aspose.Slides for Python via Java kan du formatera texter och former på bilder i presentationer. Gå igenom dessa detaljer:
+
+Aspose.Slides for Python via Java låter dig formatera text och former på presentationsbilder, som beskrivs nedan:
 
 |**Funktion**|**Beskrivning**|
 | :- | :- |
-|Text Formatting|<p>I Aspose.Slides for Python via Java kan du hantera texter via textramarna som är kopplade till formerna. Därmed kan du formatera texter med hjälp av stycken och delar som är kopplade till textramarna. Dessa textelement kan formateras via Aspose.Slides for Python via Java.</p><p>- Typsnittstyp</p><p>- Typsnittsstorlek</p><p>- Typsnittsfärg</p><p>- Typsnittstoner</p><p>- Styckejustering</p><p>- Punktlista för stycke</p><p>- Styckesorientering</p>|
-|Shape Formatting|<p>I Aspose.Slides for Python via Java är det grundläggande elementet i en bild en form. Du kan formatera dessa formelement med Aspose.Slides for Python via Java:</p><p>- Position</p><p>- Storlek</p><p>- Linje</p><p>- Fyllning (inklusive mönster, gradient, solid)</p><p>- Text</p><p>- Bild</p>|
+|Text Formatting|<p>Du kan hantera text via textramarna som är associerade med former och formatera enskilda stycken och textdelar. Följande formateringsalternativ är tillgängliga:</p><p>- Typsnittstyp</p><p>- Typsnittsstorlek</p><p>- Typsnittsfärg</p><p>- Typsnittsskuggning</p><p>- Styckejustering</p><p>- Styckeindrag och tabb</p><p>- Styckepunkter</p><p>- Styckerientering</p>|
+|Shape Formatting|<p>Former är de grundläggande elementen i en bild. Du kan justera följande formegenskaper:</p><p>- Position</p><p>- Storlek</p><p>- Rotation</p><p>- Linjestilar</p><p>- Fyllning (inklusive solid, gradient, mönster, textur och bildfyllningar)</p><p>- Text</p><p>- Bild</p>|

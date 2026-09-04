@@ -1,297 +1,342 @@
 ---
-title: API Hiện đại
+title: Nâng cao Xử lý Hình ảnh với API Hiện đại trong Python
+linktitle: API Hiện đại
 type: docs
 weight: 237
 url: /vi/python-java/modern-api/
-keywords: "CrossPlatform API Hiện đại"
-description: "API Hiện đại"
+keywords:
+- API hiện đại
+- vẽ
+- hình thu nhỏ slide
+- slide thành ảnh
+- hình thu nhỏ hình dạng
+- hình dạng thành ảnh
+- hình thu nhỏ bản trình chiếu
+- bản trình chiếu thành ảnh
+- thêm ảnh
+- thêm hình ảnh
+- Python
+- Java
+- Aspose.Slides
+description: "Hiện đại hoá xử lý hình ảnh trong Python qua Java: render slide và shape, thêm hình ảnh, và di chuyển các lời gọi xử lý ảnh đã lỗi thời sang API Hiện đại của Aspose.Slides."
 ---
-## Giới thiệu
+## **Giới thiệu**
 
-Trong lịch sử, Aspose Slides phụ thuộc vào java.awt và trong API công cộng có các lớp sau từ đó:
-- [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
-- [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
+Aspose.Slides for Python via Java truy cập thư viện Java thông qua JPype. API xử lý ảnh kế thừa của nó đã sử dụng [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) và [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) từ `java.awt`.
 
-Kể từ phiên bản 24.4, API công cộng này được khai báo là đã lỗi thời.
+Thư viện Java đã ngừng hỗ trợ các API xử lý ảnh này bắt đầu từ phiên bản 24.4. API Hiện đại sử dụng [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/) để tải, render và lưu ảnh. Hãy sử dụng nó cho mã Python mới và khi di chuyển các quy trình xử lý ảnh hiện có.
 
-Để loại bỏ các phụ thuộc vào các lớp này, chúng tôi đã thêm cái gọi là “Modern API” – tức là API nên được sử dụng thay cho API đã lỗi thời, các chữ ký của nó không còn phụ thuộc vào BufferedImage. Graphics2D được khai báo là đã lỗi thời và hỗ trợ của nó đã bị loại bỏ khỏi API Slides công cộng.
+{{% alert color="info" title="Note" %}}
+Các tên phương thức cũ dưới đây chỉ dùng làm tham chiếu di chuyển. Chúng không còn có trong các phiên bản hiện tại. Các ví dụ thực thi sử dụng API Hiện đại.
+{{% /alert %}}
 
-Việc loại bỏ API công cộng đã lỗi thời có phụ thuộc vào System.Drawing sẽ xuất hiện trong bản phát hành 24.8.
+## **API Hiện đại**
 
-## API hiện đại
+Các kiểu xử lý ảnh chính là:
 
-Đã thêm các lớp và enum sau vào API công cộng:
+- [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/) — đại diện cho ảnh raster hoặc vector.
+- [ImageFormat](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imageformat/) — cung cấp các hằng số định dạng file ảnh.
+- [Images](https://reference.aspose.com/slides/vi/python-java/aspose.slides/images/) — tạo ảnh, ví dụ với [Images.fromFile](https://reference.aspose.com/slides/vi/python-java/aspose.slides/images/#fromFile).
 
-- IImage – đại diện cho ảnh raster hoặc vector.
-- ImageFormat – đại diện cho định dạng tệp của ảnh.
-- Images – các phương thức để tạo và làm việc với giao diện IImage.
+Sử dụng [Slide.getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) hoặc [Shape.getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/#getImage) để render một slide hoặc shape. Sử dụng [Presentation.getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) với các tùy chọn render để render nhiều slide. Phương thức không có đối số trả về bộ sưu tập ảnh của bản trình chiếu.
 
-Lưu ý rằng IImage là đối tượng có thể giải phóng (nó triển khai giao diện IDisposable và việc sử dụng nó nên được bao bọc trong using hoặc giải phóng theo cách thuận tiện khác).
+Tải ảnh bằng [Images.fromFile](https://reference.aspose.com/slides/vi/python-java/aspose.slides/images/#fromFile), thêm nó bằng [ImageCollection.addImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagecollection/#addImage), hoặc cập nhật ảnh của bản trình chiếu hiện có bằng [PPImage.replaceImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/#replaceImage). Cả hai thao tác bộ sưu tập ảnh đều chấp nhận [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/).
 
-Một kịch bản điển hình khi sử dụng API mới có thể trông như sau:
+Giải phóng mỗi ảnh bạn tải hoặc render bằng cách gọi phương thức `dispose` của nó trong một khối `finally`. Giải phóng bản trình chiếu bằng [Presentation.dispose](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#dispose).
 
-``` python
-from asposeslides.api import Presentation, SaveFormat, Images, ShapeType, ImageFormat
-from javax.imageio import ImageIO
-from java.io import File
+### **Chuẩn bị môi trường Python**
+
+Cài đặt các gói như mô tả trong [Installation](/slides/vi/python-java/installation/). Mỗi ví dụ nhập `asposeslides` trước khi khởi chạy JVM, sau đó nhập API sau khi JVM đang chạy. Các ví dụ để JVM chạy liên tục để có thể tái sử dụng. Xem [Limitations and API Differences](/slides/vi/python-java/limitations-and-api-differences/#import-the-library) để biết hướng dẫn về vòng đời notebook và JVM.
+
+Các ví dụ mở `pres.pptx` yêu cầu có một bản trình chiếu trong thư mục làm việc. Các ví dụ tải `image.png` yêu cầu một tệp ảnh tồn tại.
+
+### **Tải hình ảnh và Render một Slide**
+
+Ví dụ này thêm một hình ảnh vào slide đầu tiên và lưu slide dưới dạng ảnh JPEG. [IImage.save](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/#save) ghi ảnh đã render ở định dạng được chỉ định.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Images, Presentation, ShapeType
 from java.awt import Dimension
 
-pres = Presentation();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
 
-# khởi tạo một thể hiện có thể giải phóng của IImage từ tệp trên đĩa.
-image = Images.fromFile("image.png");
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
-# tạo một hình ảnh PowerPoint bằng cách thêm một thể hiện của IImage vào các hình ảnh của bản trình bày.
-ppImage = pres.getImages().addImage(image);
-image.dispose();
-
-# thêm một hình dạng hình ảnh vào slide số 1
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
-
-# lấy một thể hiện của IImage đại diện cho slide số 1.
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-
-# lưu hình ảnh vào đĩa.
-slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
-slideImage.dispose();
-
-pres.dispose();
+    image_size = Dimension(1920, 1080)
+    slide_image = slide.getImage(image_size)
+    try:
+        slide_image.save("slide1.jpeg", ImageFormat.Jpeg)
+    finally:
+        slide_image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-## Thay thế mã cũ bằng API hiện đại
+## **Thay thế mã cũ bằng API Hiện đại**
 
-Nói chung, bạn sẽ cần thay thế lời gọi tới phương thức cũ sử dụng ImageIO bằng phương thức mới.
+Thay thế các lời gọi thumbnail kế thừa bằng các phương thức trả về [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/), sau đó lưu kết quả bằng [IImage.save](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/#save). Điều này loại bỏ nhu cầu truyền ảnh đã render cho [ImageIO.write](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.File-).
 
-Old:
-``` python
-image_format = "PNG"
-buffImage = pres.getSlides().get_Item(0).getThumbnail(Dimension(1920, 1080))
-ImageIO.write(buffImage, image_format, File("image.png"))
-```
-New:
-``` python
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-slideImage.save("image.png", ImageFormat.Png);
-```
+### **Render một Slide với Kích thước Được chỉ định**
 
-### Lấy hình thu nhỏ của slide
+Thay thế lời gọi kế thừa `slide.getThumbnail(image_size)` bằng [Slide.getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) sử dụng cùng kích thước ảnh.
 
-Mã sử dụng API đã lỗi thời:
+```python
+import jpype
+import asposeslides
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-slideImage = pres.getSlides().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(slideImage, image_format, File("slide1.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        image_size = Dimension(1920, 1080)
+        slide_image = presentation.getSlides().get_Item(0).getImage(image_size)
+        try:
+            slide_image.save("image.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-API hiện đại:
+### **Lấy Thumbnail của Slide**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Thay thế lời gọi kế thừa `slide.getThumbnail()` bằng [Slide.getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) không có đối số.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-slideImage = pres.getSlides().get_Item(0).getImage();
-slideImage.save("slide1.png", ImageFormat.Png);
-slideImage.dispose();
+from asposeslides.api import ImageFormat, Presentation
 
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide_image = presentation.getSlides().get_Item(0).getImage()
+        try:
+            slide_image.save("slide1.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-### Lấy hình thu nhỏ của shape
+### **Lấy Thumbnail của Shape**
 
-Mã sử dụng API đã lỗi thời:
+Thay thế lời gọi kế thừa `shape.getThumbnail()` bằng [Shape.getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/#getImage). Kiểm tra rằng slide chứa shape trước khi truy cập.
 
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
+
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide = presentation.getSlides().get_Item(0)
+        if slide.getShapes().size() > 0:
+            shape_image = slide.getShapes().get_Item(0).getImage()
+            try:
+                shape_image.save("shape.png", ImageFormat.Png)
+            finally:
+                shape_image.dispose()
+        else:
+            print("The first slide contains no shapes.")
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
+```
+
+### **Lấy Thumbnail của Presentation**
+
+Thay thế lời gọi kế thừa `presentation.getThumbnails(options, image_size)` bằng [Presentation.getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages). Sử dụng [RenderingOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/renderingoptions/) để cấu hình render.
+
+Duyệt trực tiếp mảng trả về bằng `enumerate` của Python. Giải phóng mọi ảnh trả về trong một khối `finally` để việc lưu thất bại không để lại các ảnh chưa giải phóng.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation, RenderingOptions
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(shapeImage, image_format, File("shape.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    rendering_options = RenderingOptions()
+    image_size = Dimension(1920, 1080)
+    images = presentation.getImages(rendering_options, image_size)
+    try:
+        for index, image in enumerate(images, start=1):
+            image.save(f"slide{index}.png", ImageFormat.Png)
+    finally:
+        for image in images:
+            image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-API hiện đại:
+### **Thêm Hình ảnh vào Presentation**
 
-``` python
-from asposeslides.api import Presentation, ImageFormat
+Thay thế việc tải qua [ImageIO.read](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.io.File-) bằng [Images.fromFile](https://reference.aspose.com/slides/vi/python-java/aspose.slides/images/#fromFile), sau đó truyền ảnh đã tạo cho [ImageCollection.addImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagecollection/#addImage). Thêm hình ảnh vào slide và lưu bản trình chiếu.
 
+```python
+import jpype
+import asposeslides
 
-pres = Presentation("pres.pptx");
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-shapeImage.save("shape.png", ImageFormat.Png);
-shapeImage.dispose();
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
 
-pres.dispose();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
+
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
+    presentation.save("picture.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-### Lấy hình thu nhỏ của presentation
+## **Các phương thức bị Deprecate và Thay thế trong API Hiện đại**
 
-Mã sử dụng API đã lỗi thời:
+Các bảng sử dụng cú pháp gọi Python. Các tên trong cột legacy xác định API đã bị xóa; sử dụng các phương thức thay thế được liên kết. Các phương thức render ảnh hiện đại trả về đối tượng [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/) thay vì ảnh Java buffered.
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions
-from javax.imageio import ImageIO
-from java.io import File
-from java.awt import Dimension
+### **Presentation**
 
+`Presentation.getImages` trả về một mảng các ảnh đã render khi được gọi với các tùy chọn render.
 
-pres = Presentation("pres.pptx");
+| Legacy call | Modern replacement |
+| --- | --- |
+| `presentation.getThumbnails(options)` | [getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) with `options` |
+| `presentation.getThumbnails(options, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) with `options, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides)` | [getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) with `options, slides` |
+| `presentation.getThumbnails(options, slides, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) with `options, slides, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides, image_size)` | [getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) with `options, slides, image_size` |
+| `presentation.getThumbnails(options, image_size)` | [getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) with `options, image_size` |
 
-image_format = "PNG"
-rendering_options = RenderingOptions();
-bitmaps = pres.getThumbnails(rendering_options, Dimension(1980, 1028));
+Ở đây, `slides` là một mảng Java `int[]` chứa các số slide bắt đầu từ 1; tạo nó bằng `jpype.JArray(jpype.JInt)([1, 3])` để chọn slide 1 và 3. `image_size` là một [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html).
 
-for index in range(bitmaps.length):
-    thumbnail = bitmaps[index];
-    ImageIO.write(thumbnail, "PNG", File("slide" + str(index) + ".png"));
-    
-pres.dispose();
-```
+### **Shape**
 
-API hiện đại:
+| Legacy call | Modern replacement |
+| --- | --- |
+| `shape.getThumbnail()` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/#getImage) with no arguments |
+| `shape.getThumbnail(bounds, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shape/#getImage) with `bounds, scale_x, scale_y` |
 
-``` python
-from asposeslides.api import Presentation, RenderingOptions, ImageFormat
-from java.awt import Dimension
+### **Slide**
 
+| Legacy call | Modern replacement |
+| --- | --- |
+| `slide.getThumbnail()` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) with no arguments |
+| `slide.getThumbnail(scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) with `scale_x, scale_y` |
+| `slide.getThumbnail(options)` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) with `options` |
+| `slide.getThumbnail(options, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) with `options, scale_x, scale_y` |
+| `slide.getThumbnail(options, image_size)` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) with `options, image_size` |
+| `slide.getThumbnail(tiff_options)` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) with `tiff_options` |
+| `slide.getThumbnail(image_size)` | [getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) with `image_size` |
+| `slide.renderToGraphics(options, graphics)` | No direct replacement; render to an image instead |
+| `slide.renderToGraphics(options, graphics, scale_x, scale_y)` | No direct replacement; render to an image instead |
+| `slide.renderToGraphics(options, graphics, image_size)` | No direct replacement; render to an image instead |
 
-pres = Presentation("pres.pptx");
+Ở đây, `options` là [RenderingOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/renderingoptions/), và `tiff_options` là [TiffOptions](https://reference.aspose.com/slides/vi/python-java/aspose.slides/tiffoptions/).
 
-rendering_options = RenderingOptions();
-images = pres.getImages(rendering_options, Dimension(1980, 1028));
+### **Output**
 
-for index in range(images.length):
-    thumbnail = images[index];
-    thumbnail.save("slide" + str(index) + ".png", ImageFormat.Png);
-    thumbnail.dispose();
+| Legacy call | Modern replacement |
+| --- | --- |
+| `output.add(path, buffered_image)` | [Output.add](https://reference.aspose.com/slides/vi/python-java/aspose.slides/output/#add) with `path, image`, where `image` is [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/) |
 
-pres.dispose();
-```
+### **ImageCollection**
 
-### Thêm hình ảnh vào presentation
+| Legacy call | Modern replacement |
+| --- | --- |
+| `collection.addImage(buffered_image)` | [ImageCollection.addImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagecollection/#addImage) with an [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/) |
 
-Mã sử dụng API đã lỗi thời:
+### **PPImage**
 
-``` python
-from asposeslides.api import Presentation, ShapeType
-from javax.imageio import ImageIO
-from java.io import File
+| Legacy call | Modern replacement |
+| --- | --- |
+| `picture.getSystemImage()` | [PPImage.getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/#getImage) |
 
+Để thay thế nội dung của một ảnh trình chiếu hiện có, sử dụng [PPImage.replaceImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/#replaceImage) với một [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/).
 
-pres = Presentation();
+### **PatternFormat**
 
-bufferedImages = ImageIO.read(File("image.png"));
-ppImage = pres.getImages().addImage(bufferedImages);
+| Legacy call | Modern replacement |
+| --- | --- |
+| `pattern.getTileImage(style_color)` | [PatternFormat.getTile](https://reference.aspose.com/slides/vi/python-java/aspose.slides/patternformat/#getTile) with `style_color` |
+| `pattern.getTileImage(background, foreground)` | [PatternFormat.getTile](https://reference.aspose.com/slides/vi/python-java/aspose.slides/patternformat/#getTile) with `background, foreground` |
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+Các đối số màu vẫn là các đối tượng Java [Color](https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html).
 
-pres.dispose();
-```
+### **PatternFormatEffectiveData**
 
-API hiện đại:
+| Legacy call | Modern replacement |
+| --- | --- |
+| `effective_pattern.getTileImage(background, foreground)` | `effective_pattern.getTileIImage(background, foreground)`, returning [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/) |
 
-``` python
-from asposeslides.api import Presentation, ShapeType, Images
-from java.awt import Dimension
+## **Hỗ trợ API cho Graphics2D**
 
+Các overload `renderToGraphics` kế thừa đã vẽ vào ngữ cảnh [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) do người gọi cung cấp. API Hiện đại không có thay thế trực tiếp để vẽ vào ngữ cảnh đó.
 
-pres = Presentation();
+Sử dụng [Slide.getImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/slide/#getImage) để render một slide hoặc [Presentation.getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) để render nhiều slide, sau đó lưu các ảnh trả về bằng [IImage.save](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/#save). Các ứng dụng kết hợp render slide với việc vẽ Java tùy chỉnh cần điều chỉnh bước tổng hợp.
 
-image = Images.fromFile("image.png");
-ppImage = pres.getImages().addImage(image);
-image.dispose();
+## **FAQ**
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+**Tại sao API ảnh Java cũ bị thay thế?**
 
-pres.dispose();
-```
+API Hiện đại chuyển việc tải, render và lưu ảnh sang [IImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/iimage/). Điều này cung cấp một abstraction ảnh chung thay vì phơi bày ảnh Java buffered hoặc ngữ cảnh đồ họa Java.
 
-## Các phương thức sẽ bị loại bỏ và thay thế trong API hiện đại
+**Tôi vẫn cần Java và JPype không?**
 
-### Presentation
-| Chữ ký phương thức | Chữ ký phương thức thay thế |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
+Có. Aspose.Slides for Python via Java vẫn chạy trên JVM. API Hiện đại chỉ thay đổi các lời gọi xử lý ảnh, không thay đổi yêu cầu môi trường. Xem [System Requirements](/slides/vi/python-java/system-requirements/).
 
-### Shape
-| Chữ ký phương thức | Chữ ký phương thức thay thế |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
+**Làm sao tôi giải phóng ảnh trong Python?**
 
-### Slide
-| Chữ ký phương thức | Chữ ký phương thức thay thế |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
-| public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
-| public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely |
+Gọi `dispose` trên mỗi ảnh bạn tải hoặc render trong một khối `finally`. Nếu bạn render nhiều slide, giải phóng mọi ảnh trong mảng trả về. Giải phóng bản trình chiếu riêng biệt bằng [Presentation.dispose](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#dispose).
 
-### Output
-| Chữ ký phương thức | Chữ ký phương thức thay thế |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
+**Việc chuyển sang API Hiện đại có đảm bảo tạo thumbnail nhanh hơn không?**
 
-### ImageCollection
-| Chữ ký phương thức | Chữ ký phương thức thay thế |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+Không có cải thiện hiệu suất nào được đảm bảo. Các thay thế hỗ trợ tùy chọn render, scaling và kích thước ảnh; hãy đo hiệu suất với bản trình chiếu và cài đặt xuất của bạn.
 
-### PPImage
-| Chữ ký phương thức | Chữ ký phương thức thay thế |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage getSystemImage() | public final IImage getImage() |
+**Tại sao hàm lấy ảnh đôi khi trả về một bộ sưu tập?**
 
-### PatternFormat
-| Chữ ký phương thức | Chữ ký phương thức thay thế |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
-
-### PatternFormatEffectiveData
-| Chữ ký phương thức | Chữ ký phương thức thay thế |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
-
-## Hỗ trợ API cho Graphics2D sẽ ngừng
-
-Các phương thức có [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) được khai báo là đã lỗi thời và hỗ trợ của chúng sẽ bị loại bỏ khỏi API công cộng.
-
-Phần API sử dụng nó sẽ bị loại bỏ:
-
-[Slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/)
-
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+[Presentation.getImages](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getImages) không có đối số trả về các ảnh nhúng trong bản trình chiếu. Các overload có tùy chọn render trả về các ảnh slide đã render.

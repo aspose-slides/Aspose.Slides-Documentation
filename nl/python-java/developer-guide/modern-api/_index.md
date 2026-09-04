@@ -1,289 +1,344 @@
 ---
-title: Moderne API
+title: Verbeter de afbeeldingverwerking met de Moderne API in Python
+linktitle: Moderne API
 type: docs
 weight: 237
 url: /nl/python-java/modern-api/
-keywords: "CrossPlatform Moderne API"
-description: "Moderne API"
+keywords:
+- moderne API
+- tekenen
+- dia-miniatuur
+- dia naar afbeelding
+- vorm-miniatuur
+- vorm naar afbeelding
+- presentatie-miniatuur
+- presentatie naar afbeeldingen
+- afbeelding toevoegen
+- foto toevoegen
+- Python
+- Java
+- Aspose.Slides
+description: "Moderniseer de afbeeldingverwerking in Python via Java: render dia's en vormen, voeg afbeeldingen toe, en migreer verouderde imaging‑aanroepen naar de Aspose.Slides Moderne API."
 ---
-## Inleiding
+## **Introductie**
 
-Historisch gezien heeft Aspose Slides een afhankelijkheid van java.awt en bevat de openbare API de volgende klassen daarvan:
-- [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)
-- [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html)
+Aspose.Slides voor Python via Java benadert de Java‑bibliotheek via JPype. De legacy‑image‑verwerking‑API gebruikte [BufferedImage](https://docs.oracle.com/javase/8/docs/api/java/awt/image/BufferedImage.html) en [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) van `java.awt`.
 
-Vanaf versie 24.4 wordt deze openbare API gemarkeerd als verouderd.
+De Java‑bibliotheek heeft deze imaging‑API’s vanaf versie 24.4 verouderd verklaard. De Moderne API gebruikt [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/) om afbeeldingen te laden, te renderen en op te slaan. Gebruik deze voor nieuwe Python‑code en bij het migreren van bestaande image‑verwerkings‑workflows.
 
-Om van de afhankelijkheden van deze klassen af te komen, hebben we de zogenaamde "Moderne API" toegevoegd – dat is de API die in plaats van de verouderde moet worden gebruikt, waarvan de handtekeningen afhankelijkheden van BufferedImage bevatten. Graphics2D wordt gemarkeerd als verouderd en de ondersteuning ervan is verwijderd uit de openbare Slides‑API.
+{{% alert color="info" title="Note" %}}
+De oude methodenamen hieronder zijn migratiereferénces. Ze zijn niet meer beschikbaar in de huidige releases. De uitvoerbare voorbeelden gebruiken de Moderne API.
+{{% /alert %}}
 
-Het verwijderen van de verouderde openbare API met afhankelijkheden van System.Drawing zal plaatsvinden in release 24.8.
+## **Moderne API**
 
-## Moderne API
+De belangrijkste image‑verwerkingstypen zijn:
 
-De volgende klassen en opsommingen zijn toegevoegd aan de openbare API:
+- [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/) — vertegenwoordigt een raster‑ of vectorafbeelding.
+- [ImageFormat](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imageformat/) — biedt constanten voor afbeeldingsbestandsformaten.
+- [Images](https://reference.aspose.com/slides/nl/python-java/aspose.slides/images/) — maakt afbeeldingen, bijvoorbeeld met [Images.fromFile](https://reference.aspose.com/slides/nl/python-java/aspose.slides/images/#fromFile).
 
-- IImage – vertegenwoordigt de raster‑ of vectorafbeelding.
-- ImageFormat – vertegenwoordigt het bestandsformaat van de afbeelding.
-- Images – methoden om een IImage‑instantie te maken en ermee te werken.
+Gebruik [Slide.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) of [Shape.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getImage) om één dia of vorm te renderen. Gebruik [Presentation.getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) met renderopties om meerdere dia's te renderen. De overload zonder argumenten retourneert in plaats daarvan de afbeeldingscollectie van de presentatie.
 
-Let op: IImage is disposable (het implementeert de IDisposable‑interface en het gebruik moet worden omgeven met using of op een andere handige manier worden disposed).
+Laad een afbeelding met [Images.fromFile](https://reference.aspose.com/slides/nl/python-java/aspose.slides/images/#fromFile), voeg deze toe met [ImageCollection.addImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagecollection/#addImage), of werk een bestaande presentatieweergave bij met [PPImage.replaceImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/ppimage/#replaceImage). Beide bewerkingen op de afbeeldingscollectie accepteren [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/).
 
-Een typisch scenario voor het gebruik van de nieuwe API ziet er als volgt uit:
+Maak elke afbeelding die je laadt of rendert vrij door zijn `dispose`‑methode aan te roepen in een `finally`‑block. Maak de presentatie vrij met [Presentation.dispose](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#dispose).
 
-``` python
-from asposeslides.api import Presentation, SaveFormat, Images, ShapeType, ImageFormat
-from javax.imageio import ImageIO
-from java.io import File
+### **Bereid de Python‑omgeving voor**
+
+Installeer de pakketten zoals beschreven in [Installation](/slides/nl/python-java/installation/). Elk voorbeeld importeert `asposeslides` vóór het starten van de JVM, daarna wordt de API geïmporteerd nadat de JVM draait. De voorbeelden laten de JVM actief zodat deze hergebruikt kan worden. Zie [Limitations and API Differences](/slides/nl/python-java/limitations-and-api-differences/#import-the-library) voor notebook‑ en JVM‑levenscyclusrichtlijnen.
+
+Voorbeelden die `pres.pptx` openen vereisen een presentatie in de werkdirectory. Voorbeelden die `image.png` laden vereisen een bestaand afbeeldingsbestand.
+
+### **Laad een afbeelding en render een dia**
+
+Dit voorbeeld voegt een afbeelding toe aan de eerste dia en slaat de dia op als een JPEG‑afbeelding. [IImage.save](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/#save) schrijft de gerenderde afbeelding in het opgegeven formaat.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Images, Presentation, ShapeType
 from java.awt import Dimension
 
-pres = Presentation();
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
 
-# instantieer een disposable exemplaar van IImage vanaf het bestand op de schijf.
-image = Images.fromFile("image.png");
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
-# maak een PowerPoint‑afbeelding door een instantie van IImage toe te voegen aan de afbeeldingen van de presentatie.
-ppImage = pres.getImages().addImage(image);
-image.dispose();
-
-# voeg een afbeeldingvorm toe op dia #1
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
-
-# verkrijg een instantie van IImage die dia #1 representeert.
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-
-# sla de afbeelding op de schijf op.
-slideImage.save("slide1.jpeg", ImageFormat.Jpeg);
-slideImage.dispose();
-
-pres.dispose();
+    image_size = Dimension(1920, 1080)
+    slide_image = slide.getImage(image_size)
+    try:
+        slide_image.save("slide1.jpeg", ImageFormat.Jpeg)
+    finally:
+        slide_image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-## Oude code vervangen door Moderne API
+## **Vervangen van oude code met de Moderne API**
 
-Algemeen moet u de aanroep van de oude methode met ImageIO vervangen door de nieuwe.
+Vervang legacy‑thumbnail‑aanroepen door methoden die [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/) retourneren, en sla het resultaat vervolgens op met [IImage.save](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/#save). Hierdoor is het niet meer nodig om gerenderde afbeeldingen door te geven aan [ImageIO.write](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.File-).
 
-Oude:
-``` python
-image_format = "PNG"
-buffImage = pres.getSlides().get_Item(0).getThumbnail(Dimension(1920, 1080))
-ImageIO.write(buffImage, image_format, File("image.png"))
-```
-Nieuwe:
-``` python
-slideImage = pres.getSlides().get_Item(0).getImage(Dimension(1920, 1080));
-slideImage.save("image.png", ImageFormat.Png);
-```
+### **Render een dia met een gespecificeerde grootte**
 
-### Miniatuur van een dia ophalen
+Vervang de legacy‑aanroep `slide.getThumbnail(image_size)` door [Slide.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) met dezelfde afbeeldingsgrootte.
 
-Code die een verouderde API gebruikt:
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-slideImage = pres.getSlides().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(slideImage, image_format, File("slide1.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        image_size = Dimension(1920, 1080)
+        slide_image = presentation.getSlides().get_Item(0).getImage(image_size)
+        try:
+            slide_image.save("image.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-Moderne API:
-``` python
-from asposeslides.api import Presentation, ImageFormat
+### **Een dia‑miniatuur ophalen**
 
+Vervang de legacy‑aanroep `slide.getThumbnail()` door [Slide.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) zonder argumenten.
 
-pres = Presentation("pres.pptx");
+```python
+import jpype
+import asposeslides
 
-slideImage = pres.getSlides().get_Item(0).getImage();
-slideImage.save("slide1.png", ImageFormat.Png);
-slideImage.dispose();
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-pres.dispose();
+from asposeslides.api import ImageFormat, Presentation
+
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide_image = presentation.getSlides().get_Item(0).getImage()
+        try:
+            slide_image.save("slide1.png", ImageFormat.Png)
+        finally:
+            slide_image.dispose()
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
 ```
 
-### Miniatuur van een vorm ophalen
+### **Een vorm‑miniatuur ophalen**
 
-Code die een verouderde API gebruikt:
-``` python
-from asposeslides.api import Presentation
-from javax.imageio import ImageIO
-from java.io import File
+Vervang de legacy‑aanroep `shape.getThumbnail()` door [Shape.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getImage). Controleer dat de dia een vorm bevat voordat je er toegang toe krijgt.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation
+
+presentation = Presentation("pres.pptx")
+try:
+    if presentation.getSlides().size() > 0:
+        slide = presentation.getSlides().get_Item(0)
+        if slide.getShapes().size() > 0:
+            shape_image = slide.getShapes().get_Item(0).getImage()
+            try:
+                shape_image.save("shape.png", ImageFormat.Png)
+            finally:
+                shape_image.dispose()
+        else:
+            print("The first slide contains no shapes.")
+    else:
+        print("The presentation contains no slides.")
+finally:
+    presentation.dispose()
+```
+
+### **Een presentatie‑miniatuur ophalen**
+
+Vervang de legacy‑aanroep `presentation.getThumbnails(options, image_size)` door [Presentation.getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages). Gebruik [RenderingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/renderingoptions/) om het renderen te configureren.
+
+Itereer direct over de geretourneerde array met Python’s `enumerate`. Ruim elke geretourneerde afbeelding op in een `finally`‑block zodat een opslagfout de overige afbeeldingen niet onopgeruimd laat.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation, RenderingOptions
 from java.awt import Dimension
 
-
-pres = Presentation("pres.pptx");
-
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
-image_format = "PNG"
-ImageIO.write(shapeImage, image_format, File("shape.png"))
-
-pres.dispose();
+presentation = Presentation("pres.pptx")
+try:
+    rendering_options = RenderingOptions()
+    image_size = Dimension(1920, 1080)
+    images = presentation.getImages(rendering_options, image_size)
+    try:
+        for index, image in enumerate(images, start=1):
+            image.save(f"slide{index}.png", ImageFormat.Png)
+    finally:
+        for image in images:
+            image.dispose()
+finally:
+    presentation.dispose()
 ```
 
-Moderne API:
-``` python
-from asposeslides.api import Presentation, ImageFormat
+### **Een afbeelding aan een presentatie toevoegen**
 
+Vervang het laden via [ImageIO.read](https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#read-java.io.File-) door [Images.fromFile](https://reference.aspose.com/slides/nl/python-java/aspose.slides/images/#fromFile), en geef vervolgens de resulterende afbeelding door aan [ImageCollection.addImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagecollection/#addImage). Voeg de afbeelding toe aan de dia en sla de presentatie op.
 
-pres = Presentation("pres.pptx");
+```python
+import jpype
+import asposeslides
 
-shapeImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-shapeImage.save("shape.png", ImageFormat.Png);
-shapeImage.dispose();
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-pres.dispose();
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
+
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
+    presentation.save("picture.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
 ```
 
-### Miniatuur van een presentatie ophalen
+## **Verouderde methoden en hun vervanging in de Moderne API**
 
-Code die een verouderde API gebruikt:
-``` python
-from asposeslides.api import Presentation, RenderingOptions
-from javax.imageio import ImageIO
-from java.io import File
-from java.awt import Dimension
+De tabellen gebruiken Python‑aanroepnotatie. Namen in de legacy‑kolom duiden verwijderde API’s aan; gebruik de gekoppelde vervangende methoden. De moderne rendermethoden retourneren [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/) objecten in plaats van Java‑buffered images.
 
+### **Presentation**
 
-pres = Presentation("pres.pptx");
+[Presentation.getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) retourneert een array van gerenderde afbeeldingen wanneer het wordt aangeroepen met renderopties.
 
-image_format = "PNG"
-rendering_options = RenderingOptions();
-bitmaps = pres.getThumbnails(rendering_options, Dimension(1980, 1028));
+| Legacy oproep | Moderne vervanging |
+| --- | --- |
+| `presentation.getThumbnails(options)` | [getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) met `options` |
+| `presentation.getThumbnails(options, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) met `options, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides)` | [getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) met `options, slides` |
+| `presentation.getThumbnails(options, slides, scale_x, scale_y)` | [getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) met `options, slides, scale_x, scale_y` |
+| `presentation.getThumbnails(options, slides, image_size)` | [getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) met `options, slides, image_size` |
+| `presentation.getThumbnails(options, image_size)` | [getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) met `options, image_size` |
 
-for index in range(bitmaps.length):
-    thumbnail = bitmaps[index];
-    ImageIO.write(thumbnail, "PNG", File("slide" + str(index) + ".png"));
-    
-pres.dispose();
-```
+Hier is `slides` een Java `int[]` met één‑gebaseerde slidennummers; maak het aan met `jpype.JArray(jpype.JInt)([1, 3])` om dia 1 en 3 te selecteren. `image_size` is een [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html).
 
-Moderne API:
-``` python
-from asposeslides.api import Presentation, RenderingOptions, ImageFormat
-from java.awt import Dimension
+### **Shape**
 
+| Legacy oproep | Moderne vervanging |
+| --- | --- |
+| `shape.getThumbnail()` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getImage) zonder argumenten |
+| `shape.getThumbnail(bounds, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getImage) met `bounds, scale_x, scale_y` |
 
-pres = Presentation("pres.pptx");
+### **Slide**
 
-rendering_options = RenderingOptions();
-images = pres.getImages(rendering_options, Dimension(1980, 1028));
+| Legacy oproep | Moderne vervanging |
+| --- | --- |
+| `slide.getThumbnail()` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) zonder argumenten |
+| `slide.getThumbnail(scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) met `scale_x, scale_y` |
+| `slide.getThumbnail(options)` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) met `options` |
+| `slide.getThumbnail(options, scale_x, scale_y)` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) met `options, scale_x, scale_y` |
+| `slide.getThumbnail(options, image_size)` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) met `options, image_size` |
+| `slide.getThumbnail(tiff_options)` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) met `tiff_options` |
+| `slide.getThumbnail(image_size)` | [getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) met `image_size` |
+| `slide.renderToGraphics(options, graphics)` | Geen directe vervanging; render naar een afbeelding in plaats daarvan |
+| `slide.renderToGraphics(options, graphics, scale_x, scale_y)` | Geen directe vervanging; render naar een afbeelding in plaats daarvan |
+| `slide.renderToGraphics(options, graphics, image_size)` | Geen directe vervanging; render naar een afbeelding in plaats daarvan |
 
-for index in range(images.length):
-    thumbnail = images[index];
-    thumbnail.save("slide" + str(index) + ".png", ImageFormat.Png);
-    thumbnail.dispose();
+Hier is `options` een [RenderingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/renderingoptions/), en `tiff_options` een [TiffOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/tiffoptions/).
 
-pres.dispose();
-```
+### **Output**
 
-### Afbeelding toevoegen aan een presentatie
+| Legacy oproep | Moderne vervanging |
+| --- | --- |
+| `output.add(path, buffered_image)` | [Output.add](https://reference.aspose.com/slides/nl/python-java/aspose.slides/output/#add) met `path, image`, waarbij `image` een [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/) is |
 
-Code die een verouderde API gebruikt:
-``` python
-from asposeslides.api import Presentation, ShapeType
-from javax.imageio import ImageIO
-from java.io import File
+### **ImageCollection**
 
+| Legacy oproep | Moderne vervanging |
+| --- | --- |
+| `collection.addImage(buffered_image)` | [ImageCollection.addImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/imagecollection/#addImage) met een [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/) |
 
-pres = Presentation();
+### **PPImage**
 
-bufferedImages = ImageIO.read(File("image.png"));
-ppImage = pres.getImages().addImage(bufferedImages);
+| Legacy oproep | Moderne vervanging |
+| --- | --- |
+| `picture.getSystemImage()` | [PPImage.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/ppimage/#getImage) |
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+Om de inhoud van een bestaand presentatie‑beeld te vervangen, gebruik [PPImage.replaceImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/ppimage/#replaceImage) met een [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/).
 
-pres.dispose();
-```
+### **PatternFormat**
 
-Moderne API:
-``` python
-from asposeslides.api import Presentation, ShapeType, Images
-from java.awt import Dimension
+| Legacy oproep | Moderne vervanging |
+| --- | --- |
+| `pattern.getTileImage(style_color)` | [PatternFormat.getTile](https://reference.aspose.com/slides/nl/python-java/aspose.slides/patternformat/#getTile) met `style_color` |
+| `pattern.getTileImage(background, foreground)` | [PatternFormat.getTile](https://reference.aspose.com/slides/nl/python-java/aspose.slides/patternformat/#getTile) met `background, foreground` |
 
+De kleurargumenten blijven Java‑[Color](https://docs.oracle.com/javase/8/docs/api/java/awt/Color.html)‑objecten.
 
-pres = Presentation();
+### **PatternFormatEffectiveData**
 
-image = Images.fromFile("image.png");
-ppImage = pres.getImages().addImage(image);
-image.dispose();
+Voor effectieve patroon‑data die door de Java‑API via JPype wordt teruggegeven, behoudt de vervangende methode de naam `getTileIImage`.
 
-pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, ppImage);
+| Legacy oproep | Moderne vervanging |
+| --- | --- |
+| `effective_pattern.getTileImage(background, foreground)` | `effective_pattern.getTileIImage(background, foreground)`, retourneert een [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/) |
 
-pres.dispose();
-```
+## **API‑ondersteuning voor Graphics2D**
 
-## Methoden die worden verwijderd en hun vervanging in de Moderne API
+De legacy‑overloads van `renderToGraphics` tekenden in een door de aanroeper geleverde [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html)‑context. De Moderne API heeft geen directe vervanging die naar die context tekent.
 
-### Presentation
-| Methodehandtekening | Vervangende methodehandtekening |
-|-----------------------------------------------|---------------------------------------------------------|
-| public final BufferedImage[] getThumbnails(IRenderingOptions options) | public final IImage[] getImages(IRenderingOptions options) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides) | public final IImage[] getImages(IRenderingOptions options, int[] slides) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, float scaleX, float scaleY) | public final IImage[] getImages(IRenderingOptions options, int[] slides, float scaleX, float scaleY) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, int[] slides, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, int[] slides, Dimension imageSize) |
-| public final BufferedImage[] getThumbnails(IRenderingOptions options, Dimension imageSize) | public final IImage[] getImages(IRenderingOptions options, Dimension imageSize) |
+Gebruik [Slide.getImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getImage) om een dia te renderen of [Presentation.getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) om meerdere dia's te renderen, en sla vervolgens de geretourneerde afbeeldingen op met [IImage.save](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/#save). Toepassingen die dia‑rendering combineerden met aangepaste Java‑tekeningen moeten hun compositiestap aanpassen.
 
-### Shape
-| Methodehandtekening | Vervangende methodehandtekening |
-|----------------------------------------------------------------------|-------------------------------------------------------------------|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(int bounds, float scaleX, float scaleY) | public final IImage getImage(int bounds, float scaleX, float scaleY) |
+## **FAQ**
 
-### Slide
-| Methodehandtekening | Vervangende methodehandtekening |
-|----------------------------------------------------------------------|-----------------------------------------------------------------------|
-| public final BufferedImage getThumbnail() | public final IImage getImage() |
-| public final BufferedImage getThumbnail(float scaleX, float scaleY) | public final IImage getImage(float scaleX, float scaleY) |
-| public final BufferedImage getThumbnail(IRenderingOptions options) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, float scaleX, float scaleY) | public final IImage getImage(IRenderingOptions options) |
-| public final BufferedImage getThumbnail(IRenderingOptions options, Dimension imageSize) | public final IImage getImage(IRenderingOptions options, Dimension imageSize) |
-| public final BufferedImage getThumbnail(ITiffOptions options) | public final IImage getImage(ITiffOptions options) |
-| public final BufferedImage getThumbnail(Dimension imageSize) | public final IImage getImage(Dimension imageSize) |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY) | Will be deleted completely |
-| public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize) | Will be deleted completely |
+**Waarom is de oude Java‑imaging‑API vervangen?**
 
-### Output
-| Methodehandtekening | Vervangende methodehandtekening |
-|-----------------------------------------------------------------|-------------------------------------------------------------|
-| public final IOutputFile add(String path, BufferedImage image) | public final IOutputFile add(String path, IImage image) |
+De Moderne API verplaatst het laden, renderen en opslaan van afbeeldingen naar [IImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/iimage/). Dit geeft deze workflows een gemeenschappelijke afbeeldingsabstractie in plaats van Java‑buffered images of een Java‑graphics‑context bloot te stellen.
 
-### ImageCollection
-| Methodehandtekening | Vervangende methodehandtekening |
-|-------------------------------------------|--------------------------------------------|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+**Heb ik nog steeds Java en JPype nodig?**
 
-### PPImage
-| Methodehandtekening | Vervangende methodehandtekening |
-|--------------------------------------|-----------------------------------------|
-| public final BufferedImage getSystemImage() | public final IImage getImage() |
+Ja. Aspose.Slides voor Python via Java draait nog steeds op de JVM. De Moderne API wijzigt alleen de image‑verwerkings‑aanroepen, niet de runtime‑vereisten. Zie [System Requirements](/slides/nl/python-java/system-requirements/).
 
-### PatternFormat
-| Methodehandtekening | Vervangende methodehandtekening |
-|-----------------------------------------------------------|-----------------------------------------------------|
-| public final BufferedImage getTileImage(Color styleColor) | public final IImage getTile(Color styleColor) |
-| public final BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTile(Color background, Color foreground) |
+**Hoe maak ik afbeeldingen vrij in Python?**
 
-### PatternFormatEffectiveData
-| Methodehandtekening | Vervangende methodehandtekening |
-|-----------------------------------------------------------|-----------------------------------------------------|
-| public final java.awt.image.BufferedImage getTileImage(Color background, Color foreground) | public final IImage getTileIImage(Color background, Color foreground) |
+Roep `dispose` aan op elke afbeelding die je laadt of rendert in een `finally`‑block. Als je meerdere dia's rendert, maak dan elke afbeelding in de geretourneerde array vrij. Maak de presentatie apart vrij met [Presentation.dispose](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#dispose).
 
-## API-ondersteuning voor Graphics2D wordt stopgezet
+**Garandeert het overstappen op de Moderne API snellere thumbnail‑generatie?**
 
-Methoden met [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Graphics2D.html) worden gemarkeerd als verouderd en hun ondersteuning wordt verwijderd uit de openbare API.
+Geen prestatie‑verbetering is gegarandeerd. De vervangingen ondersteunen render‑opties, schalen en afbeeldingsgroottes; meet de prestaties met jouw presentaties en output‑instellingen.
 
-Het deel van de API dat gebruikmaakt van deze zal worden verwijderd:
+**Waarom levert de afbeeldings‑getter soms een collectie?**
 
-[Slide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slide/)
-
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+[Presentation.getImages](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getImages) zonder argumenten retourneert ingebedde presentatiewerkafbeeldingen. De overloads met renderopties retourneren de gerenderde dia‑afbeeldingen.

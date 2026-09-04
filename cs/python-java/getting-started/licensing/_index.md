@@ -1,159 +1,151 @@
 ---
 title: Licencování
-description: "Aspose.Slides pro Python via Java poskytuje různé plány pro nákup nebo nabízí bezplatnou zkušební verzi a 30denní dočasnou licenci pro hodnocení podle licenčních a předplatných zásad."
 type: docs
 weight: 80
 url: /cs/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- licenční soubor
+- dočasná licence
+- měřené licencování
+- omezení zkušební verze
+description: "Použijte souborovou, bajtovou nebo měřenou licenci v Aspose.Slides pro Python přes Java a odstraňte omezení zkušební verze z vašich aplikací."
 ---
-Někdy může být pro dosažení nejlepších výsledků hodnocení potřeba praktický přístup. Z tohoto důvodu Aspose.Slides nabízí různé nákupní plány a také poskytuje bezplatnou zkušební verzi a 30denní dočasnou licenci pro hodnocení.
+## **Přehled**
 
-{{% alert color="primary" %}}
-Všimněte si, že existuje řada obecných zásad a postupů, které vás vedou, jak hodnotit, řádně licencovat a nakupovat naše produkty. Najdete je v sekci ["Politiky nákupu a časté dotazy"](https://purchase.aspose.com/policies).
-{{% /alert %}}
+Aspose.Slides pro Python přes Java může běžet v režimu zkušební verze nebo s licencí. Tento článek vysvětluje, jak použít licenci ze souboru nebo z bajtů a jak nakonfigurovat měřené licencování.
 
-## **Vyzkoušejte Aspose.Slides**
-Aspose.Slides můžete snadno stáhnout pro vyhodnocení. Vyhodnocovací balíček je stejný jako zakoupený balíček. Vyhodnocovací verze se jednoduše licencuje poté, co přidáte několik řádků kódu pro použití licence. 
+Pro možnosti nákupu viz [Pricing Information](https://purchase.aspose.com/pricing/slides/cs/family). Pro obecné otázky ohledně licencování a nákupu viz [Purchase Policies and FAQ](https://purchase.aspose.com/policies).
 
-## **Omezení vyhodnocovací verze**
-Vyhodnocovací verze Aspose.Slides (bez specifikované licence) poskytuje plnou funkčnost produktu, ale při otevření a uložení vloží vodotisk pro vyhodnocení do horní části dokumentu. Při extrahování textu z prezentačních snímků jste také omezeni na jeden snímek.
-
-{{% alert color="primary" %}} 
-Pokud chcete testovat Aspose.Slides bez omezení vyhodnocovací verze, můžete požádat o **30denní dočasnou licenci**. Další informace naleznete v [Jak získat dočasnou licenci?](https://purchase.aspose.com/temporary-license).
-{{% /alert %}} 
+Pro omezení zkušební verze a způsob, jak požádat o dočasnou licenci, viz [Evaluate Aspose.Slides](/slides/cs/python-java/evaluate-aspose-slides/). Dočasnou licenci použijte stejným způsobem jako zakoupený licenční soubor.
 
 ## **O licenci**
-Vyhodnocovací verzi Aspose.Slides pro Python via Java můžete snadno stáhnout z jeho [stránky ke stažení](https://releases.aspose.com/slides/cs/python-java/). Vyhodnocovací verze poskytuje naprosto **stejné funkce** jako licencovaná verze Aspose.Slides. Navíc se vyhodnocovací verze jednoduše licencuje po zakoupení licence a přidání několika řádků kódu pro použití licence.
 
-Licence je textový soubor XML, který obsahuje údaje jako název produktu, počet vývojářů, pro které je licence určena, datum vypršení předplatného a další. Soubor je digitálně podepsán, proto jej neprovádějte úpravy. I neúmyslné přidání dalšího řádku do obsahu souboru jej zneplatní.
+Licenční soubor obsahuje informace jako název produktu, počet licencovaných vývojářů a datum vypršení předplatného. Soubor je digitálně podepsaný XML.
 
-Abyste se vyhnuli omezením spojeným s vyhodnocovací verzí, musíte nastavit licenci před použitím **Aspose.Slides**. Licenci je třeba nastavit pouze jednou na aplikaci nebo proces.
-
-## Zakoupená licence
-
-Po zakoupení je nutné použít soubor licence nebo proud. 
-
-{{% alert color="primary" %}}
-Musíte nastavit licenci:
-* pouze jednou na doménu aplikace
-* před použitím jakékoli jiné třídy Aspose.Slides
+{{% alert color="warning" title="Varování" %}}
+Neúpravujte licenční soubor. I další prázdný řádek může zneplatnit jeho digitální podpis.
 {{% /alert %}}
 
-{{% alert color="primary" %}}
-Informace o cenách najdete na stránce [“Informace o cenách”](https://purchase.aspose.com/pricing/slides/cs/family).
-{{% /alert %}}
+Licenci aplikujte jednou na aplikaci nebo proces, před vytvořením prezentací nebo prováděním jiných operací Aspose.Slides. Pro licenční soubor použijte třídu [License](https://reference.aspose.com/slides/cs/python-java/aspose.slides/license/). Měřené licencování používá pár veřejného a soukromého klíče místo licenčního souboru.
 
-### **Nastavení licence v Aspose.Slides pro Python via Java**
+## **Použití licence**
 
-Licence lze použít z těchto míst:
+Následující příklady předpokládají, že Aspose.Slides pro Python přes Java a jeho předpoklady jsou nainstalovány. Každý příklad je samostatný skript, který spustí JVM, importuje API a použije licenci. Ve své aplikaci provádějte operace s prezentacemi až po aplikaci licence a JVM vypněte až po dokončení veškeré práce s Aspose.Slides.
 
-* Explicitní cesta
-* Proud
-* Jako měřená licence – nový licenční mechanismus
+### **Použití licence ze souboru**
 
-{{% alert color="primary" %}}
-Použijte metodu **setLicense** k licencování komponenty.
-
-I když jsou více volání **setLicense** neškodná, jsou zbytečnou ztrátou zdrojů (procesoru).
-{{% /alert %}}
-
-{{% alert color="warning" %}}
-Nové licence mohou aktivovat Aspose.Slides pouze od verze 21.4 a vyšší. Starší verze používají jiný licenční systém a tyto licence nepoznají.
-{{% /alert %}}
-
-#### **Použití licence ze souboru**
-
-Tento úryvek kódu slouží k nastavení souboru licence:
-
-**Python**
+Předávejte cestu k licenčnímu souboru metodě [License.setLicense](https://reference.aspose.com/slides/cs/python-java/aspose.slides/license/#setLicense). Nahraďte `Aspose.Slides.lic` cestou k vašemu licenčnímu souboru.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # Zde provádějte operace s prezentacemi, před vypnutím JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-Při volání metody setLicense by měl být název licence stejný jako název vašeho licenčního souboru. Například můžete změnit název licenčního souboru na "Aspose.Slides.lic.xml". Pak ve vašem kódu musíte předat nový název licence (Aspose.Slides.lic.xml) metodě setLicense.
+Použijte přesný název souboru včetně jeho přípony. Například pokud se soubor jmenuje `Aspose.Slides.lic.xml`, zahrňte `.xml` v cestě. Absolutní cesta zabraňuje nejasnostem ohledně pracovního adresáře aplikace.
 
-#### **Použití licence z bajtů**
+Příklad používá [License.isLicensed](https://reference.aspose.com/slides/cs/python-java/aspose.slides/license/#isLicensed) pro kontrolu, zda byla licence použita.
 
-Tento úryvek kódu slouží k použití licence z bajtů:
+### **Použití licence z bajtů**
 
-**Python**
+Použijte [License.setLicenseFromBytes](https://reference.aspose.com/slides/cs/python-java/aspose.slides/license/#setLicenseFromBytes), když je licence k dispozici jako Python bajty. Následující příklad načte soubor v binárním režimu a zavře jej před použitím licence.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # Zde provádějte operace s prezentacemi, před vypnutím JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### Použít měřenou licenci
+Uchovejte původní bajty beze změny. Neukládejte, nepřeformátovávejte ani jinak neprovádějte úpravy obsahu licence před jejím použitím.
 
-Aspose.Slides umožňuje vývojářům použít měřený klíč. Jedná se o nový licenční mechanismus.
+## **Použití měřené licence**
 
-Nový licenční mechanismus bude používán spolu s existující licenční metodou. Zákazníci, kteří chtějí být fakturováni na základě využití funkcí API, mohou použít měřené licencování.
+Měřené licencování vám účtuje podle využití API. Po získání měřené licence aplikujte její veřejný a soukromý klíč pomocí [Metered.setMeteredKey](https://reference.aspose.com/slides/cs/python-java/aspose.slides/metered/#setMeteredKey). Inicializujte objekt [Metered](https://reference.aspose.com/slides/cs/python-java/aspose.slides/metered/) a klíče aplikujte jednou při spuštění aplikace.
 
-Po dokončení všech potřebných kroků k získání tohoto typu licence obdržíte klíče, nikoli licenční soubor. Tento měřený klíč lze použít pomocí třídy **Metered**, která byla speciálně zavedena pro tento účel.
-
-Následující ukázka kódu ukazuje, jak nastavit veřejné a soukromé měřené klíče:
+Následující příklad načítá klíče z proměnných prostředí `ASPOSE_METERED_PUBLIC_KEY` a `ASPOSE_METERED_PRIVATE_KEY`. Před spuštěním skriptu nastavte obě proměnné.
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# Vytvořte instanci třídy CAD Metered
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# Přístup k vlastnosti set_metered_key a předání veřejného a soukromého klíče jako parametrů
-metered.setMeteredKey("*****", "*****");
-
-# Získejte množství měřených dat před voláním API
-amountbefore = Metered.getConsumptionQuantity()
-
-# Zobrazte informace
-print("Amount Consumed Before: \" + amountbefore + \"" )
-
-# Načtěte dokument z disku.
-pres = Presentation();
-
-# Získejte počet stránek dokumentu
-print("Amount Consumed After: \" +  pres.getSlides().size()) + \"" )
-
-# Uložte jako PDF
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# Získejte množství měřených dat po volání API
-amountafter = Metered.getConsumptionQuantity()
-
-# Zobrazte informace
-print("Amount Consumed After: \" + amountafter + \"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # Zde provádějte operace s prezentacemi, před vypnutím JVM.
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-Vezměte prosím na vědomí, že pro správné používání měřené licence musíte mít stabilní připojení k Internetu, protože mechanismus Metered vyžaduje neustálou interakci s našimi službami pro správné výpočty. Další podrobnosti najdete v sekci [“Časté dotazy o měřeném licencování”](https://purchase.aspose.com/faqs/licensing/metered).
+{{% alert color="info" title="Poznámka" %}}
+Měřené licencování vyžaduje internetové připojení k ověření klíčů a odesílání informací o využití. Soukromý klíč uchovávejte mimo zdrojový kód a logy. Viz [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) pro podrobnosti o připojení a fakturaci.
 {{% /alert %}}
+
+## **Často kladené otázky**
+
+**Musím po zakoupení licence instalovat jiný balíček?**
+
+Ne. Licenci použijte ve stejném balíčku, který jste používali během zkušební verze.
+
+**Mám aplikovat licenci pro každou prezentaci?**
+
+Ne. Aplikujte ji jednou při spuštění aplikace, před vytvořením nebo načtením prezentací.
+
+**Mohu přejmenovat licenční soubor?**
+
+Ano. V kódu použijte přesný nový název souboru a nechte obsah souboru beze změny.
+
+**Mohu použít dočasnou licenci s příkladem založeným na bajtech?**
+
+Ano. Načtěte dočasný licenční soubor jako bajty a aplikujte jej stejným způsobem jako zakoupenou licenci.

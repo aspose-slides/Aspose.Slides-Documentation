@@ -7,146 +7,125 @@ keywords:
 - Aspose.Slides 다운로드
 - Aspose.Slides 설치
 - Aspose.Slides 설치
+- Python
+- Java
+- JPype
 - Windows
 - macOS
 - Linux
-- Python
-description: "Windows, Linux 또는 macOS에서 Java를 통해 Python용 Aspose.Slides를 설치합니다"
+description: "Windows, Linux 또는 macOS에서 Java를 통해 Python용 Aspose.Slides를 설치하고, Java와 JPype를 구성하며, 작동 예제로 설정을 확인합니다."
 ---
-Aspose.Slides for Python via Java는 플랫폼에 독립적인 API이며 `Python`, `Java` 및 `jpype1` 브리지가 설치된 모든 플랫폼(Windows, Linux 및 MacOS)에서 사용할 수 있습니다.
+Aspose.Slides for Python via Java는 Windows, Linux 및 macOS에서 실행됩니다. JPype를 사용하여 Python에서 Java 라이브러리에 접근합니다. Microsoft PowerPoint는 필요하지 않습니다.
 
-## **프로그램 및 버전 요구 사항**
+## **필수 조건**
 
-Aspose.Slides for Python via Java가 올바르게 작동하려면 다음 프로그램 및 패키지를 설치해야 합니다:
+Python 패키지를 설치하기 전에, [시스템 요구 사항](/slides/ko/python-java/system-requirements/)를 충족하는 Python과 JDK를 설치하십시오. 해당 페이지에서는 호환되는 버전, 아키텍처 요구 사항 및 JPype를 소스에서 빌드하는 데 필요한 모든 종속성을 나열합니다.
 
-- JRE 버전 >=8 (JPype1은 Java 버전 1.8부터 11까지 테스트되었습니다).
-- Python 버전 >=3.7, <=3.12.
-- JPype1 패키지 버전: >=1.5.0.
+`JAVA_HOME`를 JDK 설치 디렉터리( `bin` 하위 디렉터리가 아님)로 설정하고, JDK의 `bin` 디렉터리를 `PATH`에 추가하십시오. 환경 변수를 변경한 후 새 터미널을 열십시오.
 
-## **pip에서 설치**
+## **PyPI에서 설치**
 
-필요한 모든 프로그램(Java, Python)이 설치되어 있으면 [pip](https://pypi.org/)에서 Aspose.Slides for Python via Java를 쉽게 설치할 수 있습니다.
-
-새 프로젝트 폴더를 만듭니다.
-
-[JPype1 설치](https://jpype.readthedocs.io/en/latest/install.html) 를 다음 명령으로 수행합니다:
-```
-$ pip install JPype1
-```
-
-다음 명령을 사용하여 Aspose.Slides for Python via Java를 설치합니다:
-```
-$ pip install aspose-slides-java
-```
-
-## **ZIP 아카이브에서 설치**
-
-ZIP 아카이브에서 Aspose.Slides for Python via Java를 설치하고 사용하려면 다음 지침을 따르세요:
+다음 명령을 터미널에서 실행하십시오. Python 인터랙티브 프롬프트에서 실행하지 마십시오. 프로젝트 디렉터리와 가상 환경을 생성하여 패키지를 다른 프로젝트와 격리하십시오.
 
 ### **Windows**
 
-1. JDK8을 설치하고 `JAVA_HOME` 환경 변수를 구성합니다.
-2. [Python 설치](https://www.python.org/downloads/) 버전 >=3.7을 설치하고 python.exe를 `PATH`에 추가합니다.
-3. [Microsoft C++ 빌드 도구 설치](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
-4. [JPype1 설치](https://jpype.readthedocs.io/en/latest/install.html). Python 터미널에서 아래 명령을 실행할 수 있습니다:
+`PATH`에 `python`으로 사용 가능한 선택한 Python 인터프리터가 있는 경우, 명령 프롬프트에서 다음 명령을 실행하십시오:
+
+```bat
+mkdir slides-example
+cd slides-example
+python -m venv .venv
+.venv\Scripts\activate.bat
 ```
-$ pip install --upgrade pip
-$ pip install JPype1
+
+### **Linux 및 macOS**
+
+`python3`으로 사용 가능한 선택한 Python 버전이 있는 경우, Bash 또는 zsh에서 다음 명령을 실행하십시오:
+
+```bash
+mkdir slides-example
+cd slides-example
+python3 -m venv .venv
+source .venv/bin/activate
 ```
-5. [Aspose.Slides for Python via Java 다운로드](https://releases.aspose.com/slides/ko/python-java/)하고 `aspose-slides-java` 폴더에 압축을 풉니다.
-6. `aspose-slides-java` 폴더에 `example.py` 파일을 다음 샘플 코드를 사용하여 생성합니다:
+
+Debian 또는 Ubuntu에서 `ensurepip`을 사용할 수 없어 환경 생성에 실패하면, `sudo apt-get install python3-venv` 명령으로 `python3-venv` 패키지를 설치한 후 환경 생성 명령을 다시 실행하십시오. 별도로 설치된 Python 버전은 해당 버전에 맞는 `venv` 패키지가 필요할 수 있습니다.
+
+### **패키지 설치**
+
+가상 환경이 활성화된 상태에서 JPype와 Aspose.Slides를 설치하십시오:
+
+```sh
+python -m pip install --upgrade pip
+python -m pip install JPype1 aspose-slides-java
+```
+
+`python -m pip`를 사용하면 애플리케이션을 실행하는 인터프리터에 패키지가 설치됩니다.
+
+기존 Aspose.Slides 설치를 업데이트하려면, 동일한 환경에서 `python -m pip install --upgrade aspose-slides-java`를 실행하십시오.
+
+## **ZIP 아카이브에서 설치**
+
+다음 [Aspose.Slides 다운로드 페이지](https://releases.aspose.com/slides/ko/python-java/)에서 라이브러리를 사용할 수도 있습니다:
+
+1. [전제 조건](#prerequisites)에서 설명한 대로 Python 및 Java를 설치하십시오.
+2. 위 지침을 사용하여 가상 환경을 만들고 활성화하십시오.
+3. `python -m pip install JPype1` 명령으로 JPype를 설치하십시오.
+4. Aspose.Slides for Python via Java ZIP 아카이브를 다운로드하고 압축을 풉니다.
+5. 추출된 `asposeslides` 패키지 디렉터리를 찾으십시오. `lib` 디렉터리 및 JAR 파일을 포함한 모든 내용을 함께 보관하십시오.
+6. 다음 섹션의 `example.py` 파일을 `asposeslides` 디렉터리와 같은 위치에 두어 Python이 패키지를 import할 수 있도록 하십시오.
+
+## **설치 확인**
+
+다음 코드를 `example.py` 파일로 저장하십시오. 이 코드는 텍스트 상자가 포함된 프레젠테이션을 생성하고 현재 작업 디렉터리에 `out.pptx`로 저장합니다.
+
 ```python
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat
+try:
+    from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
-
-jpype.shutdownJVM()
+    presentation = Presentation()
+    try:
+        slide = presentation.getSlides().get_Item(0)
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 500, 80)
+        shape.getTextFrame().setText("Aspose.Slides is ready!")
+        presentation.save("out.pptx", SaveFormat.Pptx)
+    finally:
+        presentation.dispose()
+finally:
+    jpype.shutdownJVM()
 ```
-7. 이제 명령 프롬프트에서 `py example.py`를 실행합니다.
 
-### **Linux**
+가상 환경이 활성화된 상태에서 `example.py`가 들어 있는 디렉터리에서 예제를 실행하십시오:
 
-1. Linux용 JDK8을 설치하고 `JAVA_HOME` 환경 변수를 구성합니다.
-2. [Python 설치](https://www.python.org/downloads/) 버전 >=3.7
-3. ``g++`` 및 ``python-dev``를 설치합니다.
-
-- Debian/Ubuntu의 경우:
-    ```
-    sudo apt-get install g++ python3-dev
+```sh
+python example.py
 ```
-- RedHat 기반의 경우:
-    ```
-    dnf install redhat-rpm-config gcc-c++ python3-devel unixODBC-devel
-    ```
 
-4. [JPype1 설치](https://jpype.readthedocs.io/en/latest/install.html). Python 터미널에서 아래 명령을 실행할 수 있습니다:
-```
-$ pip install --upgrade pip
-$ pip install JPype1
-```
-5. [Aspose.Slides for Python via Java 다운로드](https://releases.aspose.com/slides/ko/python-java/)하고 `aspose-slides-java`에 압축을 풉니다.
-6. `aspose-slides-java` 폴더에 이 샘플 코드를 사용하여 `example.py` 테스트 파일을 생성합니다:
-```python
-import jpype
-import asposeslides
+`asposeslides` import는 JVM이 시작되기 전에 번들된 Java 라이브러리를 등록합니다. JVM을 시작한 후 `asposeslides.api`를 import하고, JVM을 종료하기 전에 프레젠테이션 리소스를 해제하십시오.
 
-jpype.startJVM()
+{{% alert color="info" title="참고" %}}
+라이선스가 없으면 출력에 평가용 워터마크가 포함됩니다. 평가 제한 및 임시 라이선스 정보는 [Aspose.Slides 평가](/slides/ko/python-java/evaluate-aspose-slides/)를 참조하십시오.
+{{% /alert %}}
 
-from asposeslides.api import Presentation, SaveFormat
+## **자주 묻는 질문**
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
+**Python이 JVM을 찾을 수 없거나 로드할 수 없다고 보고하는 이유는 무엇입니까?**
 
-jpype.shutdownJVM()
-```
-7. 이제 명령 프롬프트에서 `py example.py`를 실행합니다.
+`JAVA_HOME`가 Python 및 JPype 설치와 호환되는 JDK를 가리키는지 확인하십시오( [시스템 요구 사항](/slides/ko/python-java/system-requirements/)에 설명됨). 추가 확인을 위해 [JPype 설치 문제 해결 가이드](https://jpype.readthedocs.io/en/latest/install.html)를 참고하십시오.
 
-### **Mac**
+**설치 후 Python이 `asposeslides`가 없다고 보고하는 이유는 무엇입니까?**
 
-1. Mac용 JDK8을 설치하고 `JAVA_HOME` 환경 변수를 구성합니다.
-2. `/Library/Java/JavaVirtualMachines/jdk1.8.x_xxx.jdk/Contents/Info.plist`의 JVMCapabilities 섹션을 루트 권한으로 수정합니다. `jdk1.8.x_xxx.jdk`는 jdk 버전에 따라 다릅니다. 아래와 같이 설정합니다:
-```xml
-<key>JavaVM</key>
-    <dict>
-        <key>JVMCapabilities</key>
-        <array>
-                <string>JNI</string>
-                <string>BundledApp</string>
-                <string>CommandLine</string>
-        </array>
-```
-3. [Python 설치](https://www.python.org/downloads/) 버전 >=3.7.
-4. Python 버전 및 플랫폼에 따라 GCC 또는 Clang 컴파일러를 설치합니다.
-5. [JPype1 설치](https://jpype.readthedocs.io/en/latest/install.html). Python 터미널에서 아래 명령을 실행할 수 있습니다:
-```
-$ pip install --upgrade pip
-$ pip install JPype1
-```
-6. [Aspose.Slides for Python via Java 다운로드](https://releases.aspose.com/slides/ko/python-java/)하고 `aspose-slides-java`에 압축을 풉니다.
-7. `aspose-slides-java` 폴더에 이 샘플 코드를 사용하여 `example.py` 테스트 파일을 생성합니다:
-```python
-import jpype
-import asposeslides
+패키지가 다른 Python 인터프리터에 설치되었을 수 있습니다. 설치에 사용한 가상 환경을 활성화하고 `python -m pip show aspose-slides-java`를 실행하십시오. ZIP 설치의 경우 `asposeslides` 디렉터리가 스크립트와 같은 위치에 있거나 Python 모듈 검색 경로에 포함되어 있는지 확인하십시오.
 
-jpype.startJVM()
+**노트북에서 예제를 반복해서 실행할 수 있습니까?**
 
-from asposeslides.api import Presentation, SaveFormat
+이 예제는 독립형 Python 프로세스를 위해 설계되었습니다. 노트북에서 반복 실행하도록 조정하기 전에 JVM 수명 주기 및 노트북 가이드에 대해서는 [제한 사항 및 API 차이점](/slides/ko/python-java/limitations-and-api-differences/#import-the-library)을 참조하십시오.
 
-pres = Presentation()
-slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0))
-slide.getShapes().get_Item(0).getTextFrame().setText("Slide Title Heading")
-pres.save("out.pptx", SaveFormat.Pptx)
+**`CERTIFICATE_VERIFY_FAILED` 오류로 pip가 실패하는 이유는 무엇입니까?**
 
-jpype.shutdownJVM()
-```
-9. 이제 명령 프롬프트에서 `python example.py`를 실행합니다.
+네트워크가 HTTPS 검사 프록시를 사용하는 경우, pip가 해당 인증서 기관을 신뢰하도록 해야 합니다. pip의 `--cert` 옵션 또는 `PIP_CERT` 환경 변수를 사용하여 신뢰할 수 있는 CA 번들을 구성하십시오. 자세한 내용은 [pip HTTPS 인증서 지침](https://pip.pypa.io/en/stable/topics/https-certificates/)을 참고하십시오. 필요한 구성은 네트워크와 pip 버전에 따라 다릅니다.

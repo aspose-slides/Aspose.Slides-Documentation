@@ -3,28 +3,60 @@ title: Απαιτήσεις Συστήματος
 type: docs
 weight: 60
 url: /el/python-java/system-requirements/
+keywords:
+- απαιτήσεις συστήματος
+- Python
+- Java
+- JPype
+- Windows
+- Linux
+- macOS
+- Aspose.Slides
+description: "Ελέγξτε τις απαιτήσεις του λειτουργικού συστήματος, Python, Java και JPype για την εκτέλεση του Aspose.Slides for Python via Java σε Windows, Linux και macOS."
 ---
-Το Aspose.Slides για Python μέσω Java δεν απαιτεί κανένα προϊόν τρίτου, όπως το Microsoft PowerPoint, να είναι εγκατεστημένο. Το ίδιο το Aspose.Slides είναι μια μηχανή για δημιουργία, τροποποίηση, μετατροπή και απόδοση εγγράφων σε διάφορες μορφές, συμπεριλαμβανομένων των μορφών παρουσίασης Microsoft PowerPoint.
+## **Επισκόπηση**
 
-## Υποστηριζόμενα λειτουργικά συστήματα
+Το Aspose.Slides for Python via Java δημιουργεί, τροποποιεί, μετατρέπει και αποδίδει παρουσιάσεις χωρίς να είναι εγκατεστημένο το Microsoft PowerPoint. Χρησιμοποιεί το JPype για πρόσβαση στη βιβλιοθήκη Java από το Python, επομένως το περιβάλλον πρέπει να υποστηρίζει ταυτόχρονα το Python, το Java και το JPype.
 
-Το Aspose.Slides για Java υποστηρίζει οποιοδήποτε λειτουργικό σύστημα 32‑bit ή 64‑bit που εκτελεί το Java runtime, συμπεριλαμβανομένων αλλά όχι περιοριστικά:
+## **Υποστηριζόμενα λειτουργικά συστήματα**
 
-### **Windows**
-- Microsoft Windows 2003 Server ( x64, x86)
-- Microsoft Windows 2008 Server ( x64, x86)
-- Microsoft Windows 2012 Server ( x64, x86)
-- Microsoft Windows 2012 R2 Server ( x64, x86)
-- Microsoft Windows 2016 Server ( x64, x86)
-- Microsoft Windows 2019 Server ( x64, x86)
-- Microsoft Windows Vista ( x64, x86)
-- Microsoft Windows XP ( x64, x86)
-- Microsoft Windows 7 ( x64, x86)
-- Microsoft Windows 8, 8.1 ( x64, x86)
-- Microsoft Windows 10 ( x64, x86)
+Το [Aspose.Slides package](https://pypi.org/project/aspose-slides-java/) υποστηρίζει τις ακόλουθες οικογένειες λειτουργικών συστημάτων:
 
-### **Linux**
-- Linux (Ubuntu, CentOS και άλλα)
+- Windows
+- Linux
+- macOS
 
-### **Mac**
-- Mac OS X
+Επιλέξτε μια έκδοση λειτουργικού συστήματος που υποστηρίζεται από τις εκδόσεις Python, Java και JPype που έχετε επιλέξει. Η διαθεσιμότητα μόνο του Java δεν εγγυάται τη συμβατότητα με το πακέτο Python και τη γέφυρά του.
+
+## **Απαιτήσεις Python, Java και JPype**
+
+| Στοιχείο | Απαιτήσεις |
+| --- | --- |
+| Python | Το πακέτο Aspose.Slides δηλώνει υποστήριξη για Python 3.7 έως 3.14. Η επιλεγμένη έκδοση JPype πρέπει να υποστηρίζει την ίδια έκδοση Python· για παράδειγμα, το [JPype1 1.7.1](https://pypi.org/project/jpype1/1.7.1/) απαιτεί Python 3.8 ή νεότερο. |
+| Java | Εγκαταστήστε ένα runtime ή JDK Java που είναι συμβατό με την επιλεγμένη έκδοση JPype. Οι τρέχουσες [JPype prerequisites](https://jpype.readthedocs.io/en/latest/userguide.html#prerequisites) ορίζουν Java 11 ή νεότερη. Η Java 8 δεν μπορεί να εκτελέσει το JPype1 1.7.1. |
+| JPype | Εγκαταστήστε το πακέτο JPype1 για τον διερμηνέα Python, το λειτουργικό σύστημα και την αρχιτεκτονική CPU. |
+| CPU architecture | Το Python και η Εικονική Μηχανή Java (JVM) πρέπει να χρησιμοποιούν συμβατές αρχιτεκτονικές. Για παράδειγμα, ένας 64-bit διερμηνέας Python απαιτεί μια συμβατή 64-bit JVM. |
+
+Σε Apple Silicon, το Python και το Java πρέπει και τα δύο να χρησιμοποιούν ARM64 ή και τα δύο x64. Μια JVM που τρέχει ανεξάρτητα μπορεί ακόμη να αποτύχει να φορτωθεί μέσω JPype εάν η αρχιτεκτονική της διαφέρει από αυτή του Python.
+
+Για ένα νέο περιβάλλον, η Python 3.12, το JDK 17 και το JPype1 1.7.1 αποτελούν ένα κατάλληλο σημείο εκκίνησης. Αυτός ο συνδυασμός επαληθεύτηκε με το Aspose.Slides for Python via Java 26.6.0 στα Windows. Άλλοι συνδυασμοί πρέπει να ικανοποιούν τις απαιτήσεις και των τριών στοιχείων.
+
+Για τη ρύθμιση του περιβάλλοντος και ένα λειτουργικό παράδειγμα επαλήθευσης, δείτε το [Installation](/slides/el/python-java/installation/).
+
+## **Επιπλέον εξαρτήσεις**
+
+Ένα συμβατό προσυγκροτημένο JPype wheel δεν απαιτεί μεταγλωττιστή C++. Εάν το JPype πρέπει να κατασκευαστεί από τον πηγαίο κώδικα, εγκαταστήστε έναν συμβατό μεταγλωττιστή C++ και τα αρχεία ανάπτυξης Python που απαιτούνται από την πλατφόρμα σας. Δείτε τις [JPype installation instructions](https://jpype.readthedocs.io/en/latest/install.html) για απαιτήσεις κατασκευής και αντιμετώπιση προβλημάτων.
+
+## **Συχνές ερωτήσεις**
+
+**Χρειάζεται να είναι εγκατεστημένο το Microsoft PowerPoint;**
+
+Όχι. Το Aspose.Slides επεξεργάζεται τις παρουσιάσεις ανεξάρτητα από το PowerPoint. Το Python, το Java και το JPype απαιτούνται ακόμη.
+
+**Μπορώ να χρησιμοποιήσω Python 3.7 με οποιαδήποτε έκδοση JPype;**
+
+Όχι. Παρόλο που το πακέτο Aspose.Slides δηλώνει υποστήριξη για Python 3.7, το JPype1 1.7.1 απαιτεί Python 3.8 ή νεότερο. Επιλέξτε εκδόσεις των οποίων οι απαιτήσεις επικαλύπτονται.
+
+**Μπορώ να συνδυάσω 32-bit Python με 64-bit Java;**
+
+Όχι. Το JPype φορτώνει τη JVM στη διαδικασία του Python, έτσι το Python και το Java πρέπει να έχουν συμβατές αρχιτεκτονικές. Η ίδια απαίτηση ισχύει για ARM64 και x64 στο macOS.

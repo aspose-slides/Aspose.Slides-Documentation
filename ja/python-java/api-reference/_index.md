@@ -1,14 +1,22 @@
 ---
-title: APIリファレンス
+title: API リファレンス
 type: docs
 weight: 50
 url: /ja/python-java/api-reference/
+keywords:
+- API リファレンス
+- Aspose.Slides for Python via Java
+- Python PowerPoint API
+- プレゼンテーション API
+- Python
+- Java
+- Aspose.Slides
+description: "Microsoft PowerPoint を使用せずに、プレゼンテーションを作成、編集、エクスポートできる Aspose.Slides for Python via Java API リファレンスをご覧ください。"
 ---
+{{% alert color="info" title="Note" %}}
 
-{{% alert color="primary" %}} 
+Aspose.Slides for Python via Java は、Python アプリケーションが Microsoft PowerPoint® を必要とせずにプレゼンテーションの読み書きを可能にするクラスライブラリです。テキスト、シェイプ、テーブル、アニメーションを管理し、スライドに音声や動画を追加し、スライドをプレビューし、SVG、PDF、その他の形式へエクスポートすることができます。
 
-Aspose.Slides for Python via Javaは、Microsoft PowerPoint®などを使用せずにプレゼンテーションドキュメントを読み書きすることを可能にするクラスライブラリです。Aspose.Slides for Python via Javaを使用すると、テキスト、シェイプ、表、アニメーションを管理し、スライドに音声やビデオを追加し、スライドをプレビューし、スライドをSVG、PDF形式にエクスポートし、さらに多くのことができます。
-
-Aspose.Slides for Python via Javaは、[Aspose.Slides for Javaと同じAPIリファレンスを使用しています](https://reference.aspose.com/slides/python-java/)。 
+詳しくは、[Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/ja/python-java/)をご覧ください。
 
 {{% /alert %}}

@@ -1,168 +1,151 @@
 ---
 title: Licencias
-description: "Aspose.Slides para Python a través de Java proporciona diferentes planes de compra o ofrece una Prueba Gratuita y una Licencia Temporal de 30 días para evaluación utilizando políticas de Licenciamiento y Suscripción."
 type: docs
 weight: 80
 url: /es/python-java/licensing/
+keywords:
+- Aspose.Slides
+- Python
+- Java
+- archivo de licencia
+- licencia temporal
+- licencia por consumo
+- limitaciones de evaluación
+description: "Aplique una licencia de archivo, basada en bytes o por consumo en Aspose.Slides para Python a través de Java y elimine las limitaciones de evaluación de sus aplicaciones."
 ---
+## **Visión general**
 
-A veces, para obtener los mejores resultados de evaluación, puede ser necesario un enfoque práctico. Por esta razón, Aspose.Slides proporciona diferentes planes de compra y también ofrece una Prueba Gratuita y una Licencia Temporal de 30 días para evaluación.
+Aspose.Slides for Python via Java puede ejecutarse en modo de evaluación o con una licencia. Este artículo explica cómo aplicar una licencia desde un archivo o desde bytes y cómo configurar la licencia por consumo.
 
-{{% alert color="primary" %}}
+Para opciones de compra, consulte [Información de precios](https://purchase.aspose.com/pricing/slides/es/family). Para preguntas generales sobre licencias y compras, consulte [Políticas de compra y preguntas frecuentes](https://purchase.aspose.com/policies).
 
-Tenga en cuenta que hay una serie de políticas y prácticas generales que le guían sobre cómo evaluar, licenciar adecuadamente y comprar nuestros productos. Puede encontrarlas en la sección ["Políticas de Compra y Preguntas Frecuentes"](https://purchase.aspose.com/policies).
+Para conocer las limitaciones de la evaluación y cómo solicitar una licencia temporal, consulte [Evaluar Aspose.Slides](/slides/es/python-java/evaluate-aspose-slides/). Aplique una licencia temporal de la misma manera que un archivo de licencia adquirido.
 
+## **Sobre la licencia**
+
+Un archivo de licencia contiene información como el nombre del producto, el número de desarrolladores con licencia y la fecha de vencimiento de la suscripción. El archivo es XML firmado digitalmente.
+
+{{% alert color="warning" title="Advertencia" %}}
+No edite el archivo de licencia. Incluso un salto de línea adicional puede invalidar su firma digital.
 {{% /alert %}}
 
-## **Evaluar Aspose.Slides**
-Puede descargar fácilmente Aspose.Slides para evaluación. El paquete de evaluación es el mismo que el paquete comprado. La versión de evaluación simplemente se licencia después de que añada algunas líneas de código para aplicar la licencia.
+Aplique la licencia una vez por aplicación o proceso, antes de crear presentaciones o realizar otras operaciones de Aspose.Slides. Para un archivo de licencia, utilice la clase [License](https://reference.aspose.com/slides/es/python-java/aspose.slides/license/). La licencia por consumo utiliza un par de claves pública y privada en lugar de un archivo de licencia.
 
-## **Limitación de la Versión de Evaluación**
-La versión de evaluación de Aspose.Slides (sin una licencia especificada) proporciona toda la funcionalidad del producto, pero inserta una marca de agua de evaluación en la parte superior del documento al abrirlo y guardarlo. También está limitado a una diapositiva al extraer textos de las diapositivas de presentación.
+## **Aplicar una licencia**
 
-{{% alert color="primary" %}} 
+Los siguientes ejemplos asumen que Aspose.Slides for Python via Java y sus requisitos previos están instalados. Cada ejemplo es un script independiente que inicia la JVM, importa la API y aplica una licencia. En su aplicación, realice las operaciones de presentación después de aplicar la licencia y cierre la JVM solo cuando todo el trabajo con Aspose.Slides haya finalizado.
 
-Si desea probar Aspose.Slides sin las limitaciones de la versión de evaluación, puede solicitar una **Licencia Temporal de 30 Días**. Consulte [¿Cómo obtener una Licencia Temporal?](https://purchase.aspose.com/temporary-license) para más información.
+### **Aplicar una licencia desde un archivo**
 
-{{% /alert %}} 
-
-## **Acerca de la Licencia**
-Puede descargar fácilmente una versión de evaluación de Aspose.Slides para Python a través de Java desde su [página de descarga](https://releases.aspose.com/slides/python-java/). La versión de evaluación proporciona absolutamente **mismas capacidades** que la versión licenciada de Aspose.Slides. Además, la versión de evaluación simplemente se licencia después de comprar una licencia y agregar un par de líneas de código para aplicar la licencia.
-
-La licencia es un archivo XML en texto plano que contiene detalles como el nombre del producto, número de desarrolladores a los que está licenciada, fecha de caducidad de la suscripción, etc. El archivo está firmado digitalmente, por lo que no debe modificarlo. Incluso una adición inadvertida de un salto de línea extra en el contenido del archivo lo invalidará.
-
-Para evitar las limitaciones asociadas con la versión de evaluación, necesita establecer una licencia antes de usar **Aspose.Slides**. Solo se requiere establecer una licencia una vez por aplicación o proceso.
-
-## Licencia Comprada
-
-Después de la compra, necesita aplicar el archivo o flujo de licencia. 
-
-{{% alert color="primary" %}}
-
-Debe establecer la licencia:
-* solo una vez por dominio de aplicación
-* antes de usar cualquier otra clase de Aspose.Slides
-
-{{% /alert %}}
-
-{{% alert color="primary" %}}
-
-Puede encontrar información sobre precios en la página [“Información de Precios”](https://purchase.aspose.com/pricing/slides/family).
-
-{{% /alert %}}
-
-### **Configurando una Licencia en Aspose.Slides para Python a través de Java**
-
-Las licencias pueden aplicarse desde estas ubicaciones:
-
-* Ruta explícita
-* Flujo
-* Como Licencia Medida – un nuevo mecanismo de licenciamiento
-
-{{% alert color="primary" %}}
-
-Utilice el método **setLicense** para licenciar un componente.
-
-Si bien múltiples llamadas a **setLicense** no son dañinas, son un desperdicio de recursos (procesador).
-
-{{% /alert %}}
-
-#### **Aplicando una Licencia Usando un Archivo**
-
-Este fragmento de código se utiliza para establecer un archivo de licencia:
-
-**Python**
+Pase la ruta del archivo de licencia a [License.setLicense](https://reference.aspose.com/slides/es/python-java/aspose.slides/license/#setLicense). Reemplace `Aspose.Slides.lic` con la ruta a su archivo de licencia.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-pres = Presentation()
-license.setLicense("Aspose.Slides.lic");
-
-jpype.shutdownJVM()
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        license = License()
+        license.setLicense(str(license_path))
+        print("Licensed:", license.isLicensed())
+        # Realice las operaciones de presentación aquí, antes de cerrar la JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-Al llamar al método setLicense, el nombre de la licencia debe ser el mismo que el de su archivo de licencia. Por ejemplo, puede cambiar el nombre del archivo de licencia a "Aspose.Slides.lic.xml". Luego, en su código, debe pasar el nuevo nombre de licencia (Aspose.Slides.lic.xml) al método setLicense.
+Utilice el nombre exacto del archivo, incluida su extensión. Por ejemplo, si el archivo se llama `Aspose.Slides.lic.xml`, incluya `.xml` en la ruta. Una ruta absoluta evita ambigüedades sobre el directorio de trabajo de la aplicación.
 
-#### **Aplicando una Licencia de un Bytes**
+El ejemplo utiliza [License.isLicensed](https://reference.aspose.com/slides/es/python-java/aspose.slides/license/#isLicensed) para comprobar si la licencia se ha aplicado.
 
-Este fragmento de código se utiliza para aplicar una licencia de un bytes:
+### **Aplicar una licencia desde bytes**
 
-**Python**
+Utilice [License.setLicenseFromBytes](https://reference.aspose.com/slides/es/python-java/aspose.slides/license/#setLicenseFromBytes) cuando la licencia está disponible como bytes de Python. El siguiente ejemplo lee el archivo en modo binario y lo cierra antes de aplicar la licencia.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, License
+try:
+    from asposeslides.api import License
 
-license = License();
-input = open("Aspose.Slides.lic", mode="rb")
-data = input.read()
-pres = Presentation()
-license.setLicenseFromBytes(data);
+    license_path = Path("Aspose.Slides.lic")
+    if license_path.is_file():
+        with license_path.open("rb") as license_file:
+            license_data = license_file.read()
 
-jpype.shutdownJVM()
+        license = License()
+        license.setLicenseFromBytes(license_data)
+        print("Licensed:", license.isLicensed())
+        # Realice las operaciones de presentación aquí, antes de cerrar la JVM.
+    else:
+        print("License file not found. Set the path to your license file.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-#### Aplicar Licencia Medida
+Mantenga los bytes originales sin cambios. No decodifique, reformatee ni modifique de otro modo el contenido de la licencia antes de aplicarla.
 
-Aspose.Slides permite a los desarrolladores aplicar una clave medida. Este es un nuevo mecanismo de licenciamiento.
+## **Aplicar una licencia por consumo**
 
-El nuevo mecanismo de licenciamiento se utilizará junto con el método de licenciamiento existente. Aquellos clientes que deseen ser facturados según el uso de las características de la API pueden utilizar la Licencia Medida.
+La licencia por consumo le factura según el uso de la API. Después de obtener una licencia por consumo, aplique sus claves pública y privada con [Metered.setMeteredKey](https://reference.aspose.com/slides/es/python-java/aspose.slides/metered/#setMeteredKey). Inicialice el objeto [Metered](https://reference.aspose.com/slides/es/python-java/aspose.slides/metered/) y aplique las claves una sola vez al iniciar la aplicación.
 
-Después de completar todos los pasos necesarios para obtener este tipo de licencia, recibirá las claves, no el archivo de licencia. Esta clave medida se puede aplicar utilizando la clase **Metered** especialmente introducida para este propósito.
-
-El siguiente ejemplo de código muestra cómo establecer claves públicas y privadas medidas:
+El siguiente ejemplo lee las claves de las variables de entorno `ASPOSE_METERED_PUBLIC_KEY` y `ASPOSE_METERED_PRIVATE_KEY`. Establezca ambas variables antes de ejecutar el script.
 
 ```python
+import os
+
 import jpype
 import asposeslides
 
 jpype.startJVM()
 
-from asposeslides.api import Presentation, Metered, SaveFormat
+try:
+    from asposeslides.api import Metered
 
-# Crear una instancia de la clase Metered CAD
-metered = Metered();
+    public_key = os.environ.get("ASPOSE_METERED_PUBLIC_KEY")
+    private_key = os.environ.get("ASPOSE_METERED_PRIVATE_KEY")
 
-# Acceder a la propiedad set_metered_key y pasar claves públicas y privadas como parámetros
-metered.setMeteredKey("*****", "*****");
-
-# Obtener la cantidad de datos medidos antes de llamar a la API
-amountbefore = Metered.getConsumptionQuantity()
-
-# Mostrar información
-print("Cantidad Consumida Antes: \" + amountbefore + \"" )
-
-# Cargar el documento desde el disco.
-pres = Presentation();
-
-# Obtener el conteo de páginas del documento
-print("Cantidad Consumida Después: \" +  pres.getSlides().size()) + \"" )
-
-# guardar como PDF
-pres.save("out_pdf.pdf", SaveFormat.Pdf);
-
-# Obtener la cantidad de datos medidos después de llamar a la API
-amountafter = Metered.getConsumptionQuantity()
-
-# Mostrar información
-print("Cantidad Consumida Después: \" + amountafter + \"" )
-
-jpype.shutdownJVM()
+    if public_key and private_key:
+        metered = Metered()
+        metered.setMeteredKey(public_key, private_key)
+        # Realice las operaciones de presentación aquí, antes de cerrar la JVM.
+    else:
+        print("Set both metered licensing environment variables before running this example.")
+finally:
+    jpype.shutdownJVM()
 ```
 
-{{% alert color="primary" %}}
-
-Tenga en cuenta que debe tener una conexión a Internet estable para el uso correcto de la licencia medida, ya que el mecanismo medido requiere la interacción constante con nuestros servicios para cálculos correctos. Para más detalles, consulte la sección [“Preguntas Frecuentes sobre Licencias Medidas”](https://purchase.aspose.com/faqs/licensing/metered).
-
+{{% alert color="info" title="Nota" %}}
+La licencia por consumo requiere una conexión a Internet para validar las claves e informar del uso. Mantenga la clave privada fuera del código fuente y de los registros. Consulte la [FAQ de licencia por consumo](https://purchase.aspose.com/faqs/licensing/metered) para obtener detalles sobre conectividad y facturación.
 {{% /alert %}}
+
+## **Preguntas frecuentes**
+
+**¿Necesito instalar un paquete diferente después de comprar una licencia?**
+
+No. Aplique la licencia al mismo paquete que utilizó para la evaluación.
+
+**¿Debo aplicar una licencia para cada presentación?**
+
+No. Aplíquela una sola vez durante el inicio de la aplicación, antes de crear o cargar presentaciones.
+
+**¿Puedo cambiar el nombre del archivo de licencia?**
+
+Sí. Utilice el nuevo nombre exacto del archivo en su código y mantenga el contenido del archivo sin cambios.
+
+**¿Puedo usar una licencia temporal con el ejemplo basado en bytes?**
+
+Sí. Lea el archivo de licencia temporal como bytes y aplíquelo de la misma manera que una licencia comprada.
