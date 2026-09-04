@@ -177,3 +177,37 @@ Install libfreetype and fontconfig:
 Don't forget to install fonts or use FontsLoader.
 
 {{% /alert %}}  
+
+## **Exception: FileNotFoundException for Temporary Font Files**
+
+This exception may be thrown when Aspose.Slides saves a presentation on Linux and the Java AWT font subsystem creates a temporary font file such as **+~JF*.tmp** in the directory defined by `java.io.tmpdir`. If an external cleanup process removes the file before it is used, Aspose.Slides reports:
+
+```
+com.aspose.slides.exceptions.FileNotFoundException: Can’t find file: /tmp/+~JFxxxx.tmp
+```
+
+**Workaround**
+
+Create a private temporary directory that is not subject to external cleanup and set `java.io.tmpdir` to that directory **before the JVM starts**.
+
+```bash
+mkdir -p /opt/application/aspose-tmp
+chmod 700 /opt/application/aspose-tmp
+
+java \
+  -Djava.io.tmpdir=/opt/application/aspose-tmp \
+  ...
+```
+
+Alternatively, configure `BlobManagementOptions` to use the same directory at runtime:
+
+```java
+String tempDirectory = System.getProperty("java.io.tmpdir");
+
+BlobManagementOptions blobOptions = new BlobManagementOptions();
+blobOptions.setTemporaryFilesAllowed(true);
+blobOptions.setTempFilesRootPath(tempDirectory);
+
+LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
+loadOptions.setBlobManagementOptions(blobOptions);
+```
