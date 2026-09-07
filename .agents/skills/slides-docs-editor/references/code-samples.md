@@ -31,6 +31,14 @@ write `Fonts::GetScriptFont`, not `Fonts::GetScriptFont()`.
 - Put import declarations at the beginning of every code block and reference imported types by their
   short names. Do not use fully qualified class names in sample bodies.
 
+## Python via Java
+
+- Link API mentions to classes and their members in the Python via Java API Reference
+  (`https://reference.aspose.com/slides/python-java/aspose.slides/`). Do not link to interfaces
+  or their members, and do not substitute Java API Reference links.
+- Use the corresponding class names in prose and link labels, such as `Shape`, `TextFrameFormat`,
+  and `ThreeDFormat`. Verify member anchors on the class pages.
+
 ## PHP via Java
 
 - Put `use` imports at the beginning of every code block and reference imported types by their short
