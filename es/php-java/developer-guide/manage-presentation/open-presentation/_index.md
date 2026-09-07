@@ -184,5 +184,3 @@ La presentación aún puede cargarse, pero la representación y la exportación 
 **¿La carga de una presentación también carga sus medios incrustados?**
 
 El audio y vídeo incrustados están disponibles a través del modelo de objetos de la presentación. Los recursos externos se resuelven de acuerdo con el comportamiento de carga de recursos configurado y pueden no estar disponibles si sus ubicaciones no pueden accederse.
-
-{{% /alert %}}
