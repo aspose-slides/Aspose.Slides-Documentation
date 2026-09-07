@@ -1,0 +1,25 @@
+---
+title: จัดการการนำเสนอใน Python
+linktitle: จัดการการนำเสนอ
+type: docs
+weight: 10
+url: /th/python-java/manage-presentation/
+keywords:
+- จัดการการนำเสนอ
+- จัดการ PPT
+- จัดการ PPTX
+- จัดการ ODP
+- สร้างการนำเสนอ
+- เปิดการนำเสนอ
+- ตรวจสอบการนำเสนอ
+- รวมการนำเสนอ
+- แปลงการนำเสนอ
+- บันทึกการนำเสนอ
+- จัดการการแสดงสไลด์
+- PowerPoint
+- OpenDocument
+- Python
+- Java
+- Aspose.Slides
+description: "จัดการการนำเสนอ PowerPoint PPT, PPTX และ ODP ใน Python ผ่าน Java ด้วย Aspose.Slides: สร้าง, โหลด, แก้ไข, คัดลอกสไลด์และควบคุมเนื้อหาโดยอัตโนมัติ."
+---

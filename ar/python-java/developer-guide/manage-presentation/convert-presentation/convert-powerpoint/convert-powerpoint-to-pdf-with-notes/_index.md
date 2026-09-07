@@ -1,0 +1,76 @@
+---
+title: تحويل عروض PowerPoint إلى PDF مع ملاحظات في Python
+linktitle: PowerPoint إلى PDF مع ملاحظات
+type: docs
+weight: 50
+url: /ar/python-java/convert-powerpoint-to-pdf-with-notes/
+keywords:
+  - تحويل PowerPoint
+  - تحويل العرض التقديمي
+  - تحويل PPT
+  - تحويل PPTX
+  - PowerPoint إلى PDF
+  - العرض التقديمي إلى PDF
+  - PPT إلى PDF
+  - PPTX إلى PDF
+  - حفظ العرض التقديمي كـ PDF
+  - تصدير PPT إلى PDF
+  - تصدير PPTX إلى PDF
+  - ملاحظات المتحدث
+  - PDF مع ملاحظات
+  - Python
+  - Java
+  - Aspose.Slides
+description: "تحويل عروض PPT و PPTX إلى PDF مع ملاحظات المتحدث باستخدام Aspose.Slides for Python via Java. ضبط وضع الملاحظات والحفاظ على الملاحظات الطويلة."
+---
+## **نظرة عامة**
+
+هذا المقال يشرح كيفية تحويل عروض PowerPoint إلى PDF مع ملاحظات المتحدث باستخدام Aspose.Slides for Python via Java. يمكنك تضمين الملاحظات أسفل كل شريحة والسماح للملاحظات الطويلة بالمتابعة إلى صفحات إضافية. للإعدادات الأخرى لتصدير PDF، انظر [تحويل PowerPoint إلى PDF](/slides/ar/python-java/convert-powerpoint-to-pdf/).
+
+## **تحويل PowerPoint إلى PDF مع الملاحظات**
+
+استخدم طريقة [save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save) لفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) لتصدير عرض PPT أو PPTX إلى PDF. لتضمين ملاحظات المتحدث، أنشئ كائن [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notescommentslayoutingoptions/) وقم بتهيئة طريقة [setNotesPosition](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). عيّن هذا التخطيط إلى [PdfOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/) باستخدام الطريقة [setSlidesLayoutOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+
+المثال التالي يحمل `sample.pptx` ويصدره إلى `output.pdf` مع ملاحظات المتحدث أسفل الشرائح:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import NotesCommentsLayoutingOptions, NotesPositions, PdfOptions, Presentation, SaveFormat
+
+presentation = Presentation("sample.pptx")
+try:
+    # تكوين خيارات PDF لتصوير ملاحظات المتحدث.
+    notes_options = NotesCommentsLayoutingOptions()
+    notes_options.setNotesPosition(NotesPositions.BottomFull)
+
+    pdf_options = PdfOptions()
+    pdf_options.setSlidesLayoutOptions(notes_options)
+
+    # حفظ العرض التقديمي كـ PDF مع ملاحظات المتحدث.
+    presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
+finally:
+    presentation.dispose()
+```
+
+{{% alert color="info" title="Note" %}}
+يمكنك أيضًا تجربة [محول PowerPoint إلى PDF عبر الإنترنت](https://products.aspose.app/slides/ar/conversion).
+{{% /alert %}}
+
+## **الأسئلة الشائعة**
+
+**كيف يمكنني منع اقتطاع الملاحظات الطويلة للمتحدث؟**
+
+استخدم [NotesPositions.BottomFull](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notespositions/#BottomFull)، كما في المثال أعلاه. يؤدي هذا الإعداد إلى عرض جميع الملاحظات، مع استخدام صفحات إضافية عند الحاجة.
+
+**هل يمكنني إبقاء كل شريحة وملاحظاتها على صفحة واحدة؟**
+
+استخدم [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notespositions/#BottomTruncated). يحد هذا الإعداد الملاحظات إلى صفحة واحدة، لذلك قد يتم تقصير الملاحظات التي لا تتسع.
+
+**كيف أقوم بتصدير الشرائح بدون ملاحظات المتحدث؟**
+
+تجنّب تكوين تخطيط الملاحظات واستخدم تصدير PDF القياسي الموضح في [تحويل PowerPoint إلى PDF](/slides/ar/python-java/convert-powerpoint-to-pdf/).
