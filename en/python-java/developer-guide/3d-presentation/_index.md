@@ -234,17 +234,15 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, PictureFillMode, Presentation, ShapeType
 from java.awt import Color
 from pathlib import Path
-from java.nio.file import Files, Paths
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250)
 
-    file_path = str(Path("image.jpg").resolve())
-    image_path = Paths.get(file_path)
-    image_data = Files.readAllBytes(image_path)
-    image = presentation.getImages().addImage(image_data)
+    image_data = Path("image.jpg").read_bytes()
+    java_image_data = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(java_image_data)
 
     shape.getFillFormat().setFillType(FillType.Picture)
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image)

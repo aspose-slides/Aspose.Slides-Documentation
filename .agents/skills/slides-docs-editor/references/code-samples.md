@@ -15,6 +15,10 @@ write `Fonts::GetScriptFont`, not `Fonts::GetScriptFont()`.
 
 ## Shared style
 
+- Use clear, descriptive variable names instead of abbreviations, such as `presentation` instead of
+  `pres` and `paragraph` instead of `para`. When several objects have the same type, name them by
+  purpose rather than numbering them. Follow the platform's naming conventions. Short loop indices
+  such as `i` and `j` are acceptable.
 - Keep each statement on one physical line. Simplify long statements with meaningful intermediate values.
 - Do not create a local only to split a clear property, member-access, indexer, or getter chain.
 - Extract values used more than once, runtime casts, side effects, difficult chains, and semantically
@@ -33,6 +37,11 @@ write `Fonts::GetScriptFont`, not `Fonts::GetScriptFont()`.
 
 ## Python via Java
 
+- Prefer Python's standard file I/O (`pathlib.Path` or `open`) for reading and writing files.
+  Pass a string path directly when the API supports it. Use Java types or I/O classes only when
+  required by the called API or when the example specifically demonstrates Java streams or BLOB
+  handling. Convert Python data to the required Java type at the API boundary and validate the
+  interoperation with the existing Python via Java snippet checker.
 - Link API mentions to classes and their members in the Python via Java API Reference
   (`https://reference.aspose.com/slides/python-java/aspose.slides/`). Do not link to interfaces
   or their members, and do not substitute Java API Reference links.

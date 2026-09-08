@@ -28,21 +28,23 @@ Install the package as described in [Installation](/slides/python-java/installat
 Embed a PDF file into the presentation.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from java.nio.file import Files, Paths
 from asposeslides.api import OleEmbeddedDataInfo, Presentation
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    pdf_data = Files.readAllBytes(Paths.get("doc.pdf"))
-    data_info = OleEmbeddedDataInfo(pdf_data, "pdf")
+    pdf_data = Path("doc.pdf").read_bytes()
+    java_pdf_data = jpype.JArray(jpype.JByte)(pdf_data)
+    data_info = OleEmbeddedDataInfo(java_pdf_data, "pdf")
     ole_frame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, data_info)
 finally:
     presentation.dispose()
@@ -53,21 +55,23 @@ finally:
 Retrieve the first OLE object frame on a slide.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from java.nio.file import Files, Paths
 from asposeslides.api import OleEmbeddedDataInfo, OleObjectFrame, Presentation
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    pdf_data = Files.readAllBytes(Paths.get("doc.pdf"))
-    data_info = OleEmbeddedDataInfo(pdf_data, "pdf")
+    pdf_data = Path("doc.pdf").read_bytes()
+    java_pdf_data = jpype.JArray(jpype.JByte)(pdf_data)
+    data_info = OleEmbeddedDataInfo(java_pdf_data, "pdf")
     slide.getShapes().addOleObjectFrame(20, 20, 50, 50, data_info)
 
     first_ole_frame = None
@@ -87,21 +91,23 @@ finally:
 Delete an embedded OLE object from the slide.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from java.nio.file import Files, Paths
 from asposeslides.api import OleEmbeddedDataInfo, Presentation
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    pdf_data = Files.readAllBytes(Paths.get("doc.pdf"))
-    data_info = OleEmbeddedDataInfo(pdf_data, "pdf")
+    pdf_data = Path("doc.pdf").read_bytes()
+    java_pdf_data = jpype.JArray(jpype.JByte)(pdf_data)
+    data_info = OleEmbeddedDataInfo(java_pdf_data, "pdf")
     ole_frame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, data_info)
 
     slide.getShapes().remove(ole_frame)
@@ -114,25 +120,28 @@ finally:
 Replace the data embedded in an existing OLE object.
 
 ```python
+from pathlib import Path
+
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from java.nio.file import Files, Paths
 from asposeslides.api import OleEmbeddedDataInfo, Presentation
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    pdf_data = Files.readAllBytes(Paths.get("doc.pdf"))
-    data_info = OleEmbeddedDataInfo(pdf_data, "pdf")
+    pdf_data = Path("doc.pdf").read_bytes()
+    java_pdf_data = jpype.JArray(jpype.JByte)(pdf_data)
+    data_info = OleEmbeddedDataInfo(java_pdf_data, "pdf")
     ole_frame = slide.getShapes().addOleObjectFrame(20, 20, 50, 50, data_info)
 
-    new_data = Files.readAllBytes(Paths.get("Picture.png"))
-    new_data_info = OleEmbeddedDataInfo(new_data, "png")
+    new_data = Path("Picture.png").read_bytes()
+    java_new_data = jpype.JArray(jpype.JByte)(new_data)
+    new_data_info = OleEmbeddedDataInfo(java_new_data, "png")
     ole_frame.setEmbeddedData(new_data_info)
 finally:
     presentation.dispose()
