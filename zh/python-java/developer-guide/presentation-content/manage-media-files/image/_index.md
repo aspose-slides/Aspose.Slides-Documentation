@@ -1,0 +1,334 @@
+---
+title: 使用 Python 优化演示文稿中的图像管理
+linktitle: 管理图像
+type: docs
+weight: 10
+url: /zh/python-java/image/
+keywords:
+- 添加图像
+- 添加图片
+- 替换图像
+- 图像集合
+- 图片框
+- 链接图像
+- 背景
+- 添加 PNG
+- 添加 JPG
+- 添加 SVG
+- SVG 转形状
+- 外部 SVG 资源
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Java
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via Java 在 PowerPoint 和 OpenDocument 演示文稿中添加、复用、链接、替换和管理光栅图像及 SVG 图像。"
+---
+## **介绍**
+
+Aspose.Slides for Python via Java 提供了多种处理图像的方式，每种方式都有其特定用途。您可以在演示文稿中存储图像、在图片框中显示图像、将其用作幻灯片背景、链接到外部图像、替换共享图像资源，或将 SVG 内容转换为可编辑的形状。
+
+本文重点介绍图像资源及其在整个演示文稿中的使用方式。有关对单个图片框进行裁剪、透明度、效果、拉伸以及其他格式设置的内容，请参阅[图片框](/slides/zh/python-java/picture-frame/)。
+
+## **了解图像模型**
+
+以下 API 概念紧密相关但并不可互换：
+
+- [演示文稿图像集合](https://reference.aspose.com/slides/zh/python-java/aspose.slides/imagecollection/) 存储演示文稿使用的图像资源。使用[ImageCollection.addImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/imagecollection/#addImage) 添加图像数据并获取[PPImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/ppimage/)资源。
+- [图片框](https://reference.aspose.com/slides/zh/python-java/aspose.slides/pictureframe/) 是在幻灯片、版式或母版上显示图像的形状。使用[ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapecollection/#addPictureFrame) 将图像资源放置在幻灯片上。
+- 幻灯片背景使用图像作为幻灯片填充的一部分，而不是作为形状。因此它的行为不同于图片框。
+- [PPImage.replaceImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/ppimage/#replaceImage) 替换图像资源。如果多个演示文稿元素使用该资源，它们都会使用替换后的图像。
+- 将 SVG 转换为形状会创建可编辑的幻灯片形状。转换后，内容不再作为单一图片资源进行管理。
+
+典型的工作流是：将图像数据添加到图像集合，获取[PPImage]，然后在一个或多个图片框或填充中使用该资源。
+
+## **添加嵌入式图像**
+
+要插入本地图像，加载文件，将其添加到图像集合，并创建使用返回的[PPImage]的图片框。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    source_image = Images.fromFile("photo.png")
+    try:
+        image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
+
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image)
+
+    presentation.save("presentation.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+以这种方式添加的图像会嵌入到演示文稿中，因此生成的文件不依赖于原始图像文件的可用性。
+
+### **从网络添加图像**
+
+当图像可通过 HTTP 或 HTTPS 获取时，下载其字节，将其添加到演示文稿图像集合，并以与本地图像相同的方式使用返回的图像资源。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from urllib.request import urlopen
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    with urlopen("https://example.com/image.png", timeout=10) as response:
+        image_data = response.read()
+
+    image_bytes = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(image_bytes)
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+在长时间运行的应用程序中，应该复用 HTTP 客户端或适合应用程序的连接管理策略，而不是反复创建不必要的网络基础设施。同时，当来源不可信时，请验证远程 URL、响应大小和内容类型。
+
+## **跨幻灯片复用图像**
+
+如果同一图像需要使用多次，只需在演示文稿中添加一次，并在创建其他图片框时复用返回的[PPImage]。这样可以避免重复加载相同的源数据，并使共享图像资源与其使用之间的关系更加明确。
+
+对于需要在多张幻灯片上自动出现的图形（如公司徽标），建议将图片框放置在[幻灯片母版](/slides/zh/python-java/slide-master/)或版式上，而不是在每张幻灯片中添加等效形状。
+
+## **将图像用作幻灯片背景**
+
+背景图像分配给幻灯片填充；它不是作为图片框形状添加的。当图片需要覆盖幻灯片背景且不应像普通幻灯片对象一样进行操作时，这种方式很有用。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, Images, PictureFillMode, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    source_image = Images.fromFile("background.jpg")
+    try:
+        image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
+
+    slide.getBackground().setType(BackgroundType.OwnBackground)
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture)
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch)
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image)
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+有关更多背景选项（包括母版和版式背景），请参阅[演示文稿背景](/slides/zh/python-java/presentation-background/)。
+
+## **嵌入式图像和链接图像**
+
+嵌入式和链接图像在可移植性和文件大小方面各有取舍：
+
+- **嵌入式图像**：图像数据存储在演示文稿内部。演示文稿是自包含的，但文件大小包含图像数据。
+- **链接图像**：演示文稿存储外部图像的路径或 URL。此方式可以减小演示文稿大小，但外部资源必须在打开或渲染演示文稿时保持可访问。
+
+可以通过[Picture.setLinkPathLong](https://reference.aspose.com/slides/zh/python-java/aspose.slides/picture/#setLinkPathLong) 指定外部路径或 URL 来创建链接图片，而不是嵌入图像数据。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    picture_frame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, None)
+    picture_frame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png")
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+仅在部署环境能够可靠访问外部资源时才使用链接图像。对于必须离线使用或在系统之间移动的演示文稿，嵌入式图像通常更安全。
+
+## **使用 SVG 图像**
+
+SVG 是一种矢量格式，可用于图标、图表等需要在放大时保持细节的图形。Aspose.Slides 同时支持将 SVG 作为图像资源和作为可编辑幻灯片形状的来源。
+
+### **将 SVG 作为图像添加**
+
+创建[SvgImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/svgimage/)，将其添加到图像集合，并在图片框中放置得到的图像资源。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from pathlib import Path
+from asposeslides.api import Presentation, SaveFormat, ShapeType, SvgImage
+
+presentation = Presentation()
+try:
+    svg_content = Path("icon.svg").read_text(encoding="utf-8")
+    svg_image = SvgImage(svg_content)
+
+    image = presentation.getImages().addImage(svg_image)
+    slide = presentation.getSlides().get_Item(0)
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image)
+
+    presentation.save("svg-image.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+### **带外部资源的 SVG 文件**
+
+SVG 可以引用外部图像、样式表或字体。针对这些情况，[SvgImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/svgimage/)提供接受[ExternalResourceResolver](https://reference.aspose.com/slides/zh/python-java/aspose.slides/externalresourceresolver/)和基准 URI 的构造函数。解析器可以将相对 URI 映射为允许的绝对 URI，并返回所请求资源的流。
+
+解析器在 Aspose.Slides 处理 SVG 时会提供外部资源，但不会将 SVG 重写为自包含文档。如果 SVG 必须保持可移植，请在 SVG 本身中嵌入所需资源，例如对链接图像使用 `data:` URI。
+
+当 SVG 文件来自不可信来源时，请限制解析器能够访问的方案、文件位置和主机。网络解析器还应应用超时、响应大小限制和内容验证。
+
+### **将 SVG 转换为可编辑形状**
+
+Aspose.Slides 可以将 SVG 转换为一组可编辑的幻灯片形状，类似于 PowerPoint 中的对应命令。
+
+![PowerPoint Popup Menu](img_01_01.png)
+
+使用接受[SvgImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/svgimage/) 的[ShapeCollection.addGroupShape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapecollection/#addGroupShape) 重载来执行转换。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from pathlib import Path
+from asposeslides.api import Presentation, SaveFormat, SvgImage
+
+presentation = Presentation()
+try:
+    svg_content = Path("diagram.svg").read_text(encoding="utf-8")
+    svg_image = SvgImage(svg_content)
+
+    slide_size = presentation.getSlideSize().getSize()
+    slide = presentation.getSlides().get_Item(0)
+    slide_width = jpype.JFloat(slide_size.getWidth())
+    slide_height = jpype.JFloat(slide_size.getHeight())
+    slide.getShapes().addGroupShape(svg_image, 0, 0, slide_width, slide_height)
+
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+当需要单独编辑向量元素时请使用 SVG‑to‑shapes 转换。如果 SVG 仅用于显示，保持其作为图像更简便，也能避免创建大量独立形状。
+
+## **替换现有图像资源**
+
+当需要替换现有图像资源时，请使用[PPImage.replaceImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/ppimage/#replaceImage)。这在共享图形（如徽标）时尤为有用。
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Images, Presentation, SaveFormat
+
+presentation = Presentation("input.pptx")
+try:
+    image_to_replace = presentation.getImages().get_Item(0)
+
+    replacement_image = Images.fromFile("new-logo.png")
+    try:
+        image_to_replace.replaceImage(replacement_image)
+    finally:
+        replacement_image.dispose()
+
+    presentation.save("output.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+如果多个图片框、背景、母版或版式使用同一图像资源，替换该资源会更新所有使用位置。如果只想更改单个图片框，请为该框分配不同的图像，而不是替换共享资源。
+
+[PPImage.replaceImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/ppimage/#replaceImage) 还提供接受字节数组或另一个[PPImage]的重载。
+
+## **实用图像管理指南**
+
+### **控制演示文稿大小**
+
+大型光栅图像会导致演示文稿体积不必要地增大。请使用与目标显示尺寸相匹配的源图像，尽可能复用共享图像资源，并避免嵌入同一全分辨率图形的重复副本。
+
+对于已经放置在图片框中的光栅图片，可以使用[PictureFillFormat.compressImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/picturefillformat/#compressImage) 根据所选分辨率和裁剪设置压缩图像数据。这属于图片框处理，而非图像集合管理，请参阅[图片框](/slides/zh/python-java/picture-frame/)了解相关格式化操作。
+
+### **在嵌入与链接内容之间做选择**
+
+嵌入使演示文稿可移植，因为所有必需的图像数据都随文件一起移动。链接可以减小文件大小，但会引入外部依赖。仅在可以接受且可靠的情况下使用链接。
+
+### **复用共享品牌形象**
+
+对于重复使用的徽标、水印或装饰图形，请使用单一图像资源并复用。如果该图形属于演示文稿设计而非幻灯片内容，请将其放置在母版或版式上，以便被相应幻灯片继承。
+
+### **保持 SVG 资源可移植**
+
+自包含的 SVG 更易于移动并保持一致渲染。尽可能在导入 SVG 前嵌入所需资源，仅在必须编辑单个向量元素时才将 SVG 转换为形状。
+
+### **使用现代跨平台图像 API**
+
+对于新建的 Python via Java 代码，请使用 Aspose.Slides 跨平台图像对象和[Images](https://reference.aspose.com/slides/zh/python-java/aspose.slides/images/) API，避免使用基于 `java.awt.image.BufferedImage` 的旧公共 API。迁移指南请参阅[现代 API](/slides/zh/python-java/modern-api/)。
+
+WMF 和 EMF 需要特殊处理。当这些格式通过跨平台图像对象传递时，[ImageCollection.addImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/imagecollection/#addImage) 会在插入前将元文件转换为光栅 PNG。如果需要保留元文件数据，请改用接受流的[ImageCollection.addImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/imagecollection/#addImage) 重载。生成 EMF 内容的工作流（如从电子表格导出）属于独立的集成流程，不在本文范围内。
+
+## **常见问题解答**
+
+**图像集合和图片框有什么区别？**
+
+图像集合存储可复用的图像资源。图片框是显示这些资源的幻灯片形状，并提供裁剪、效果等特定的图片格式设置。
+
+**如何在所有位置统一替换同一徽标？**
+
+如果徽标已经作为单一图像资源共享，使用[PPImage.replaceImage](https://reference.aspose.com/slides/zh/python-java/aspose.slides/ppimage/#replaceImage) 替换该资源。对于全局品牌形象，也可以将徽标放在母版或版式上，以减少幻灯片内容的重复。
+
+**为什么链接的图像在另一台电脑上消失？**
+
+链接的图片依赖外部文件或 URL。如果该资源在另一台电脑上不可访问，链接图像就会不可用。需要自包含的演示文稿时请嵌入图像。
+
+**插入的 SVG 能否编辑为 PowerPoint 形状？**
+
+可以。使用[ShapeCollection.addGroupShape](https://reference.aspose.com/slides/zh/python-java/aspose.slides/shapecollection/#addGroupShape) 将 SVG 转换，生成的组包含可编辑的幻灯片形状，而不是单一的 SVG 图片。
+
+**如何在包含大量图像的演示文稿中保持体积更小？**
+
+复用共享图像资源，避免使用不必要的大尺寸光栅源，在适当情况下压缩光栅图片，将重复的品牌图形放在母版或版式上，并仅在外部依赖可接受时使用链接图像。

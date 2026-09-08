@@ -1,0 +1,448 @@
+---
+title: Hantera bildramar i presentationer med Python
+linktitle: Bildram
+type: docs
+weight: 10
+url: /sv/python-java/picture-frame/
+keywords:
+- bildram
+- lägg till bildram
+- skapa bildram
+- inbäddad bild
+- länkad bild
+- extrahera bild
+- rasterbild
+- SVG-bild
+- beskär bild
+- ta bort beskurna områden
+- komprimera bild
+- StretchOffset
+- bildramformatering
+- relativ skala
+- bildeffekt
+- bildförhållande
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Java
+- Aspose.Slides
+description: "Skapa, formatera, länka, beskära, extrahera och komprimera bildramar i presentationer med Aspose.Slides för Python via Java."
+---
+## **Översikt**
+
+En bildram är en bildform som visar en bild. I Aspose.Slides är bildresursen och formen som visar den separata objekt: en [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) äger inbäddade bildresurser via sin [ImageCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/imagecollection/), medan en [PictureFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/) styr bildens position, storlek, linjeformatering, rotation, beskärning, bildeffekter och andra ram‑nivåinställningar.
+
+Denna separation är användbar när samma bild visas mer än en gång. Lägg till bilden i presentationen en gång, behåll den returnerade [PPImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/ppimage/), och använd den bildresursen när du skapar bildramar.
+
+Bildramar kan innehålla rasterbilder såsom PNG eller JPEG samt vektor‑SVG‑bilder. De kan också referera till länkade bilder istället för att lagra bildens bytes i presentationen. Valet påverkar portabilitet, filstorlek, extrahering och exportbeteende, så det är bra att bestämma hur bilden ska lagras innan formatering eller optimering tillämpas.
+
+## **Lägg till och formatera en inbäddad bild**
+
+För en inbäddad bild lägg till bilddata i presentationen och skapa en bildram med [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shapecollection/#addPictureFrame). Bilden blir en del av presentationspaketet, så presentationen förblir självständig när den flyttas till en annan dator.
+
+Följande exempel lägger till en JPEG‑bild, skapar en ram med bildens ursprungliga dimensioner och tillämpar linjeformatering och rotation:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from java.awt import Color
+from asposeslides.api import FillType, Images, Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    source_image = Images.fromFile("photo.jpg")
+    try:
+        image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
+
+    picture_frame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image)
+    picture_frame.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    picture_frame.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
+    picture_frame.getLineFormat().setWidth(3)
+    picture_frame.setRotation(15)
+
+    presentation.save("picture-frame.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Bildramen styr den visade geometrin; att ändra ramens storlek ändrar inte de ursprungliga pixeldimensionerna som lagras i den inbäddade bildresursen. Denna skillnad blir viktig när man beskär eller komprimerar en bild senare.
+
+## **Använd relativ skala**
+
+[PictureFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/) exponerar relativ bredd‑ och höjdsberäkning för ramen via [setRelativeScaleWidth](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) och [setRelativeScaleHeight](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Ett värde på `1.0` motsvarar 100 % av den ursprungliga bildstorleken. Relativ skala är användbar när ett arbetsflöde måste bevara förhållandet till källbildens storlek istället för att manuellt beräkna slutdimensionerna.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    source_image = Images.fromFile("photo.jpg")
+    try:
+        image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
+
+    picture_frame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image)
+    picture_frame.setRelativeScaleWidth(1.35)
+    picture_frame.setRelativeScaleHeight(0.8)
+
+    presentation.save("relative-scale.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Relativ skala ändrar ramens skalningsinställningar; den omvandlar inte eller komprimerar den inbäddade bilden.
+
+## **Inbäddade och länkade bilder**
+
+En inbäddad bild lagrar bilddata i presentationen och är därför det säkraste valet för portabilitet och förutsägbar rendering. En länkad bild lagrar en extern plats via metoden [Picture.setLinkPathLong](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picture/#setLinkPathLong) istället för att bädda in bilddata på samma sätt.
+
+Länkade bilder kan minska mängden bilddata som lagras i PPTX, men de introducerar ett externt beroende. Den länkade filen måste förbli åtkomlig för programmet som öppnar eller renderar presentationen. Om sökvägen ändras, filen flyttas eller resursen blir otillgänglig kan den länkade bilden sakna korrekt visning. För presentationer som ska skickas via e‑post, arkiveras eller renderas i isolerade miljöer är inbäddade bilder vanligtvis mer pålitliga.
+
+### **Lägg till en länkad bild**
+
+Följande exempel skapar en bildram och pekar den på en lokal bildfil. Det handlar endast om bildlänkning; videolänkning är ett separat mediaprotokoll och är avsiktligt inte blandat i detta exempel.
+
+```python
+import jpime
+import asposeslides
+
+if not jpime.isJVMStarted():
+    jpime.startJVM()
+
+from pathlib import Path
+from asposeslides.api import Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    picture_frame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, None)
+    linked_image_file = Path("linked-image.jpg").resolve()
+    link_path = str(linked_image_file)
+    picture_frame.getPictureFormat().getPicture().setLinkPathLong(link_path)
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Använd länkar när extern filhantering är avsiktlig. Använd dem inte bara som en ersättning för komprimering: en liten PPTX med brutna bildberoenden är vanligtvis mindre användbar än en större självständigt paket.
+
+## **Extrahera bilder från bildramar**
+
+Innan en bild extraheras från en befintlig presentation, kontrollera att en form faktiskt är en [PictureFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/) och att den innehåller en inbäddad bild. Länkade bildramar kan sakna bildbytes som kan extraheras på samma sätt.
+
+### **Extrahera en rasterbild**
+
+Det moderna bild‑API:t arbetar direkt med rasterbilder och kräver inte den äldre Java‑bild‑omslutaren. Följande exempel hittar den första inbäddade rasterbilden på en bild och sparar den som PNG:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ImageFormat, Presentation, PictureFrame
+
+presentation = Presentation("sample.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if not isinstance(shape, PictureFrame):
+            continue
+
+        picture_frame = shape
+        embedded_image = picture_frame.getPictureFormat().getPicture().getImage()
+        if embedded_image is None or embedded_image.getSvgImage() is not None:
+            continue
+
+        raster_image = embedded_image.getImage()
+        try:
+            raster_image.save("extracted-image.png", ImageFormat.Png)
+        finally:
+            raster_image.dispose()
+        break
+finally:
+    presentation.dispose()
+```
+
+Att spara rasterbilden konverterar den extraherade bilden till det begärda utdataformatet. Om du behöver de kodade bytes som lagras i presentationen istället för en konverterad rasterfil, använd bildresursens binära data.
+
+### **Extrahera en SVG‑bild**
+
+För en SVG‑bild exponerar [PPImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/ppimage/) ett [SvgImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/svgimage/)-objekt. Detta låter dig hämta SVG‑data direkt istället för att rasterisera bilden först.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from pathlib import Path
+from asposeslides.api import Presentation, PictureFrame
+
+presentation = Presentation("sample.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for shape in slide.getShapes():
+        if not isinstance(shape, PictureFrame):
+            continue
+
+        picture_frame = shape
+        embedded_image = picture_frame.getPictureFormat().getPicture().getImage()
+        svg_image = embedded_image.getSvgImage() if embedded_image is not None else None
+        if svg_image is None:
+            continue
+
+        svg_data = svg_image.getSvgData()
+        Path("extracted-image.svg").write_bytes(bytes(svg_data))
+        break
+finally:
+    presentation.dispose()
+```
+
+Att behålla SVG‑innehållet som SVG bevarar vektor‑källan i presentationen. Rasterexport som PNG eller JPEG tvingas rendera vektorn till pixlar. PDF‑ eller SVG‑bildexport är också en renderingsoperation, så de exporterade grafikerna bör inte betraktas som en byte‑för‑byte‑kopia av den ursprungliga inbäddade SVG:n; använd den inbäddade [SvgImage.getSvgData](https://reference.aspose.com/slides/sv/python-java/aspose.slides/svgimage/#getSvgData)-datan när den ursprungliga vektorresursen själv behövs.
+
+## **Beskär en bild**
+
+Beskärning ändrar vilken del av en bild som syns i ramen. Beskära‑värdena på [PictureFillFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picturefillformat/) är procentandelar av källbildens dimensioner. Beskärning tar initialt inte bort dolda pixlar från den inbäddade bilden; den ändrar endast den synliga regionen.
+
+Följande exempel hittar en bildram på ett säkert sätt och tillämpar beskärningsvärden:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, PictureFrame
+
+presentation = Presentation("sample.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    picture_frame = None
+
+    for shape in slide.getShapes():
+        if isinstance(shape, PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        picture_frame.getPictureFormat().setCropLeft(23.6)
+        picture_frame.getPictureFormat().setCropRight(21.5)
+        picture_frame.getPictureFormat().setCropTop(3)
+        picture_frame.getPictureFormat().setCropBottom(31)
+        presentation.save("cropped-image.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Eftersom den dolda bilddatan fortfarande finns kvar kan beskärningen ändras senare utan att förlora de ursprungliga pixlarna. Om filstorlek är viktigare än återställningsmöjlighet kan de beskurna regionerna fysiskt tas bort enligt nästa avsnitt.
+
+## **Ta bort beskurna bilddata**
+
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) tar bort bilddata utanför den aktuella beskärningsrektangeln och returnerar den resulterande bildresursen. Detta kan minska filstorleken, men det är en destruktiv optimering: efter att presentationen sparats är de borttagna pixlarna inte längre tillgängliga för en senare avbeskärning.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat, PictureFrame
+
+presentation = Presentation("cropped-image.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    picture_frame = None
+
+    for shape in slide.getShapes():
+        if isinstance(shape, PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        cropped_image = picture_frame.getPictureFormat().deletePictureCroppedAreas()
+        if cropped_image is not None:
+            presentation.save("cropped-data-removed.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Metoden kan lägga till en ny bildresurs i presentationen. Om den ursprungliga bilden också används av andra bildramar behåller dessa sina befintliga resurser, så att radering av beskurna områden inte nödvändigtvis minskar det totala antalet bilder. Beskärning av WMF‑ eller EMF‑innehåll med denna metod rasteriserar det beskurna resultatet till PNG.
+
+## **Komprimera rasterbilder**
+
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picturefillformat/#compressImage) minskar rasterbildens upplösning relativt den storlek som bilden visas i. Den kan också ta bort beskurna regioner i samma operation. Metoden returnerar `True` när bilden har ändrat storlek eller beskärts och `False` när ingen förändring var nödvändig.
+
+Använd ett fördefinierat [PicturesCompression](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picturescompression/)‑värde när en standardmålupplösning är tillräcklig:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import PicturesCompression, Presentation, SaveFormat, PictureFrame
+
+presentation = Presentation("sample.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    picture_frame = None
+
+    for shape in slide.getShapes():
+        if isinstance(shape, PictureFrame):
+            picture_frame = shape
+            break
+
+    if picture_frame is not None:
+        compressed = picture_frame.getPictureFormat().compressImage(True, PicturesCompression.Dpi150)
+        print("The image was compressed." if compressed else "No compression was necessary.")
+        presentation.save("compressed-image.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Ett eget positivt DPI‑värde kan anges i stället för ett fördefinierat värde när ett specifikt mål krävs.
+
+Komprimering är avsedd för rasterbilder. SVG‑ och metafil‑innehåll reduceras inte av detta rasterkomprimeringsflöde. Kom också ihåg att lägre upplösning och borttagna beskurna regioner inte kan återställas från den optimerade presentationen. Välj en målupplösning baserat på den största storlek som bilden faktiskt kommer att visas eller exporteras i, snarare än att applicera lägsta DPI globalt.
+
+## **Hantera bildtransformeringseffekter**
+
+För ett komplett arbetsflöde som täcker ljusstyrka, kontrast, färgtransformeringar, oskärpa, alfa‑effekter, ordnade kedjor, inspektion, borttagning och återvalidering, se [Image Transform Effects](/slides/sv/python-java/image-transform-effects/).
+
+## **Lås bildramens geometri**
+
+[PictureFrameLock](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframelock/)‑inställningarna styr vilka redigeringsåtgärder som är inaktiverade för en bildram. Till exempel bevarar [setAspectRatioLocked](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) formens proportioner när den skalas.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Images, Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    source_image = Images.fromFile("photo.jpg")
+    try:
+        image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
+
+    picture_frame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 50, 100, image.getWidth(), image.getHeight(), image)
+    picture_frame.getPictureFrameLock().setAspectRatioLocked(True)
+
+    presentation.save("locked-picture-frame.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Låset gäller bildramformen. Det tvingar inte källbilden att omprovas eller permanent ändras till samma bildförhållande.
+
+## **Justera StretchOffset‑värdena**
+
+När bildfyllningsläget är stretch definierar stretch‑offset‑värdena på [PictureFillFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picturefillformat/) fyllningsrektangeln relativt bildramens begränsningsruta. Positiva procenttal skapar ett inset från en kant, medan negativa procenttal skapar ett outset.
+
+Detta skiljer sig från beskärning. Beskärningsvärden väljer vilken del av källbilden som syns; stretch‑offset ändrar rektangeln som den synliga bildfyllningen strechas in i.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Images, PictureFillMode, Presentation, SaveFormat, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    source_image = Images.fromFile("photo.png")
+    try:
+        image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
+
+    picture_frame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image)
+    picture_frame.getPictureFormat().setPictureFillMode(PictureFillMode.Stretch)
+    picture_frame.getPictureFormat().setStretchOffsetLeft(12)
+    picture_frame.getPictureFormat().setStretchOffsetRight(12)
+    picture_frame.getPictureFormat().setStretchOffsetTop(8)
+    picture_frame.getPictureFormat().setStretchOffsetBottom(8)
+
+    presentation.save("stretch-offsets.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Använd stretch‑offset för placering av fyllning. Använd beskärnings‑egenskaper när målet är att dölja kanter i källbilden.
+
+## **Lagring, filstorlek och exportöverväganden**
+
+De viktigaste avvägningarna blir enklare att hantera när bildlagring och bildram‑formatering behandlas separat:
+
+- **Inbäddade bilder** gör presentationen självständig och är det mest pålitliga för delning och server‑sida rendering, men stora rasterbilder ökar PPTX‑storlek och minnesanvändning.
+- **Länkade bilder** kan hålla paketet mindre, men presentationen är beroende av att externa filer förblir tillgängliga på de lagrade sökvägarna eller platserna.
+- **Beskärning** är initialt icke‑destruktiv. Dolda pixlar förblir inbäddade tills beskurna områden explicit tas bort eller tas bort under komprimering.
+- **Komprimering** kan minska filstorleken avsevärt för överdimensionerade rasterbilder, men den offrar källupplösning. Den bör tillämpas efter att den avsedda on‑slide‑storleken är känd.
+- **SVG‑bilder** bör förbli SVG när vektorbevarande är viktigt. Extrahera den inbäddade SVG:n direkt när du behöver själva vektorresursen. Raster‑slide‑export konverterar alltid den renderade sliden till pixlar.
+- **Upprepade bilder** bör återanvända en befintlig [PPImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/ppimage/)‑resurs när det är möjligt i stället för att ladda samma fil flera gånger i arbetsflödet.
+
+För stora presentationer är bildoptimering ofta mest effektiv när den utförs selektivt: behåll logotyper och diagram som vektorinnehåll, komprimera fotografier enligt deras faktiska visningsstorlek, ta bort beskurna pixlar bara när senare redigering inte krävs, och undvik externa länkar om inte beroendehantering är en del av distributionsdesignen.
+
+## **FAQ**
+
+**Vad är skillnaden mellan en bildram och en bildresurs?**
+
+En [PPImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/ppimage/) representerar en bildresurs som är associerad med presentationen. En [PictureFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/) är en form på en bild som visar en bild och lagrar ram‑nivågeometri och formatering såsom storlek, rotation, beskärningsvärden, effekter och lås.
+
+**Ska jag bädda in eller länka bilder?**
+
+Bädda in bilder när presentationen måste vara portabel, arkiverad eller renderas utan åtkomst till externa resurser. Länka bilder endast när det är avsiktligt att hålla bildfiler utanför PPTX och de externa platserna kan underhållas på ett pålitligt sätt.
+
+**Minskar beskärning PPTX‑filens storlek?**
+
+Inte i sig. Normala beskärningsinställningar döljer delar av källbilden men behåller de underliggande pixlarna. Använd [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) eller bildkomprimering med borttagning av beskurna områden när dessa pixlar kan tas bort permanent.
+
+**Kan jag återställa bildkvaliteten efter komprimering?**
+
+Nej. Komprimering kan reducera den lagrade rasterupplösningen, och borttagning av beskurna regioner förlorar bilddata. Behåll originalkällbilden utanför presentationen om senare högupplöst redigering kan behövas.
+
+**Hur ska SVG‑bilder hanteras?**
+
+Behåll SVG‑innehållet som SVG när vektorfidelity är viktigt. Den inbäddade [SvgImage](https://reference.aspose.com/slides/sv/python-java/aspose.slides/svgimage/) kan extraheras direkt. Rendering av en sida till ett rasterformat som PNG eller JPEG rasteriserar SVG‑innehållet som en del av sidans bild.
+
+**Hur undviker jag osäkra typcastings när jag läser befintliga bilder?**
+
+Kontrollera formtypen innan du använder bildram‑specifika medlemmar. En `isinstance`‑kontroll mot [PictureFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pictureframe/) undviker ogiltiga castings och låter koden hantera bilder som inte innehåller bildramar.
