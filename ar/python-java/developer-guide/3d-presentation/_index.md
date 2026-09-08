@@ -1,5 +1,5 @@
 ---
-title: إنشاء تأثيرات ثلاثية الأبعاد في العروض التقديمية باستخدام بايثون
+title: إنشاء تأثيرات ثلاثية الأبعاد في العروض التقديمية باستخدام Python
 linktitle: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
@@ -7,9 +7,9 @@ url: /ar/python-java/3d-presentation/
 keywords:
 - PowerPoint ثلاثي الأبعاد
 - عرض ثلاثي الأبعاد
-- دوران ثلاثي الأبعاد
+- تدوير ثلاثي الأبعاد
 - عمق ثلاثي الأبعاد
-- امتداد ثلاثي الأبعاد
+- بثق ثلاثي الأبعاد
 - تدرج ثلاثي الأبعاد
 - نص ثلاثي الأبعاد
 - PowerPoint
@@ -17,47 +17,47 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "تطبيق وعرض تأثيرات ثلاثية الأبعاد لأشكال PowerPoint والنصوص في بايثون عبر جافا باستخدام Aspose.Slides. ضبط الكاميرا والإضاءة والمواد والامتداد والتعبئات والنص ثلاثي الأبعاد."
+description: "تطبيق وتصيّر تأثيرات ثلاثية الأبعاد لأشكال PowerPoint والنص في Python عبر Java باستخدام Aspose.Slides. قم بتكوين الكاميرا والإضاءة والمادة والبثق والتعبئات والنص ثلاثي الأبعاد."
 ---
 ## **نظرة عامة**
 
-يمكن لـ Aspose.Slides for Python via Java إنشاء وتعديل وحفظ وعرض تنسيق ثلاثي الأبعاد على نمط PowerPoint للأشكال والنصوص. تغطي هذه المقالة التأثيرات ثلاثية الأبعاد مثل الدوران، والامتداد، والحواف المائلة، والإضاءة، والمواد، وتعبئات التدرج أو الصورة، والنص ثلاثي الأبعاد.
+Aspose.Slides for Python via Java يمكنه إنشاء وتحرير والحفاظ على وتصيير تنسيق ثلاثي الأبعاد على نمط PowerPoint للأشكال والنص. يغطي هذا المقال تأثيرات ثلاثية الأبعاد مثل التدوير، البثق، الحواف المائلة، الإضاءة، المادة، التعبئة بالتدرج أو الصورة، والنص ثلاثي الأبعاد.
 
-{{% alert color="info" title="Note" %}}
-هذه المقالة تتناول تأثيرات تنسيق ثلاثي الأبعاد على أشكال PowerPoint والنص. لا تتعلق بإدراج أو تعديل ملفات نموذج ثلاثية الأبعاد مستقلة. عند تصدير شريحة إلى صورة أو PDF أو HTML، يقوم Aspose.Slides بعرض تلك التأثيرات الثلاثية الأبعاد في النتيجة الثنائية الأبعاد المصدرة.
+{{% alert color="info" title="ملاحظة" %}}
+هذا المقال يتناول تأثيرات تنسيق ثلاثي الأبعاد على أشكال PowerPoint والنص. لا يتعلق بإدراج أو تحرير ملفات نماذج ثلاثية الأبعاد مستقلة. عند تصدير شريحة إلى صورة أو PDF أو HTML، تقوم Aspose.Slides بتصيّر تلك التأثيرات ثلاثية الأبعاد في المخرجات الثنائية الأبعاد.
 {{% /alert %}}
 
-قم بتثبيت الحزمة كما هو موضح في [التثبيت](/slides/ar/python-java/installation/). كل مثال يستورد `asposeslides`، يبدأ JVM إذا لزم الأمر، ثم يستورد API. مثال تعبئة الصورة يتطلب ملف `image.jpg` في مجلد العمل.
+ثبّت الحزمة كما هو موضح في [التثبيت](/slides/ar/python-java/installation/). تستورد كل مثال `asposeslides`، وتبدأ JVM إذا لزم الأمر، ثم تستورد API. مثال تعبئة الصورة يتطلب ملف `image.jpg` في دليل العمل.
 
 ## **مفاهيم تنسيق ثلاثي الأبعاد**
 
-استخدم [Shape.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getThreeDFormat) لتطبيق تنسيق ثلاثي الأبعاد على شكل. يتحكم كائن التنسيق المعاد في المشهد ثلاثي الأبعاد لهذا الشكل.
+استخدم [Shape.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getThreeDFormat) لتطبيق تنسيق ثلاثي الأبعاد على شكل. يتحكم كائن التنسيق المرتجع في مشهد ثلاثي الأبعاد لهذا الشكل.
 
-للنص، استخدم [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#getThreeDFormat). يطبق هذا تنسيق ثلاثي الأبعاد على إطار النص بدلاً من جسم الشكل.
+للنص، استخدم [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#getThreeDFormat). يطبق هذا تنسيقًا ثلاثيًا أبعاد على إطار النص بدلًا من جسم الشكل.
 
-أهم الأعضاء في API هي:
+أهم أعضاء API هي:
 
-| عضو API | ما الذي يتحكم به | متى يتم استخدامه |
+| عضو API | ما الذي يتحكم فيه | متى يستخدم |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getCamera) | نقطة المشاهدة، نوع الكاميرا المحدد مسبقًا، الدوران، التكبير، والمنظور. | تدوير الكائن في الفضاء الثلاثي الأبعاد أو مطابقة إعداد مسبق للدوران الثلاثي الأبعاد في PowerPoint. |
-| [getLightRig](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getLightRig) | إعداد الضوء المسبق، الاتجاه، ودوران الضوء. | تغيير كيفية ظهور الإضاءات والظلال على السطح الثلاثي الأبعاد. |
-| [getMaterial](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getMaterial) و [setMaterial](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#setMaterial) | مادة السطح، مثل مسطح، مطفي، بلاستيك، أو معدن. | جعل الشكل نفسه يبدو أكثر تسطحًا أو نعومة أو لمعانًا أو معدنيًا. |
-| [getExtrusionHeight](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getExtrusionHeight) و [setExtrusionHeight](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#setExtrusionHeight) | المسافة التي يمتد فيها الشكل للخلف من وجهه الأمامي. | تحويل شكل مسطح إلى كائن ثلاثي الأبعاد سميك يَظهر. |
-| [getExtrusionColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getExtrusionColor) | لون الجوانب الممتدة. | إظهار العمق أو تنسيق لون الجوانب مع تعبئة الوجه الأمامي. |
-| [getDepth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getDepth) و [setDepth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#setDepth) | عمق ثلاثي الأبعاد إضافي يستخدمه تنسيق PowerPoint ثلاثي الأبعاد. | ضبط العمق للأشكال أو النص، خاصةً مع إعدادات الحافة والمادة. |
-| [getBevelTop](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getBevelTop) و [getBevelBottom](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getBevelBottom) | حواف مرتفعة أو مستديرة على الوجوه الأمامية والخلفية. | إضافة حافة مُنعمة أو مُشكَّلة بدلاً من وجه مسطح حاد. |
-| [getContourColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getContourColor)، [getContourWidth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getContourWidth)، و [setContourWidth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#setContourWidth) | الخط الخارجي حول الكائن الثلاثي الأبعاد. | إبراز حد الكائن في المخرجات المرسومة. |
+| [getCamera](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getCamera) | نقطة الرؤية، نوع الكاميرا المسبق، الدوران، التكبير، والمنظور. | تدوير الكائن في الفضاء ثلاثي الأبعاد أو مطابقة إعدادات دوران ثلاثي الأبعاد في PowerPoint. |
+| [getLightRig](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getLightRig) | إعدادات الإضاءة المسبقة، الاتجاه، ودوران الضوء. | تغيير كيفية ظهور اللمعات والظلال على السطح ثلاثي الأبعاد. |
+| [getMaterial](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getMaterial) و [setMaterial](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#setMaterial) | مادة السطح، مثل مسطح، غير لامع، بلاستيك، أو معدن. | جعل الهندسة نفسها تبدو مسطحة أكثر، ناعمة، لامعة، أو معدنية. |
+| [getExtrusionHeight](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getExtrusionHeight) و [setExtrusionHeight](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#setExtrusionHeight) | مدى امتداد الشكل إلى الخلف من وجهه الأمامي. | تحويل شكل مسطح إلى كائن ثلاثي الأبعاد سميك واضح. |
+| [getExtrusionColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getExtrusionColor) | لون الجوانب البثقية. | إظهار العمق أو تنسيق لون الجانب مع تعبئة الوجه الأمامي. |
+| [getDepth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getDepth) و [setDepth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#setDepth) | عمق ثلاثي أبعاد إضافي يستخدمه تنسيق ثلاثي الأبعاد في PowerPoint. | ضبط العمق بدقة للأشكال أو النص، خاصةً مع إعدادات الحافة والمادة. |
+| [getBevelTop](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getBevelTop) و [getBevelBottom](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getBevelBottom) | حواف مرتفعة أو مستديرة على الوجهين الأمامي والخلفي. | إضافة حافة ناعمة أو مصقولة بدلاً من وجه مسطح حاد. |
+| [getContourColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getContourColor)، [getContourWidth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getContourWidth)، و [setContourWidth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#setContourWidth) | الخط الخارجي حول الكائن ثلاثي الأبعاد. | إبراز حدود الكائن في المخرجات المصيّرة. |
 
 ## **إنشاء شكل ثلاثي الأبعاد**
 
-عادةً ما يحتاج الشكل إلى أربعة أنواع من الإعدادات قبل أن يبدو بصورة مقنعة ثلاثية الأبعاد:
+عادةً ما يحتاج الشكل إلى أربعة أنواع من الإعدادات قبل أن يبدو ثلاثيًا الأبعاد بشكل مقنع:
 
-- إعدادات الكاميرا، لأن العرض الأمامي الافتراضي قد يخفي الامتداد.
-- إعدادات الضوء، لأن الإضاءة تجعل الوجوه والجوانب قابلة للقراءة.
-- إعدادات المادة، لأن السطح يؤثر على طريقة عرض الضوء.
-- إعدادات الامتداد أو العمق، لأن الشكل المسطح يحتاج إلى سماكة.
+- إعدادات الكاميرا، لأن العرض الأمامي الافتراضي قد يخفي البثق.
+- إعدادات الإضاءة، لأن الإضاءة تجعل الوجوه والجوانب قابلة للقراءة.
+- إعدادات المادة، لأن السطح يؤثر على طريقة تصيير الضوء.
+- إعدادات البثق أو العمق، لأن الشكل المسطح يحتاج إلى سمك.
 
-المثال التالي ينشئ مستطيلًا، يضيف نصًا إلى وجهه الأمامي، يطبق تنسيق ثلاثي الأبعاد، يحفظ العرض كملف PPTX، ويعرض الشريحة كصورة PNG.
+المثال التالي ينشئ مستطيلًا، يضيف نصًا إلى وجهه الأمامي، يطبق تنسيقًا ثلاثيًا أبعاد، يحفظ العرض التقديمي كملف PPTX، ويصيّر الشريحة إلى صورة PNG.
 
 ```python
 import jpype
@@ -100,17 +100,17 @@ finally:
     presentation.dispose()
 ```
 
-تُظهر صورة الشريحة المرسومة المستطيل ككتلة سميكة ثلاثية الأبعاد:
+صورة الشريحة المصيّرة تُظهر المستطيل ككتلة سميكة ثلاثية الأبعاد:
 
-![مستطيل ثلاثي الأبعاد أزرق مُعرض مع نص ثلاثي الأبعاد أبيض على الوجه الأمامي](img_01_01.png)
+![مستطيل أزرق ثلاثي الأبعاد مصيّر مع نص أبيض ثلاثي الأبعاد على الوجه الأمامي](img_01_01.png)
 
-## **تدوير شكل باستخدام الكاميرا**
+## **تدوير الشكل باستخدام الكاميرا**
 
-في PowerPoint، يتم تكوين الدوران الثلاثي الأبعاد من لوحة 3-D Rotation. قيم الدوران X و Y و Z تتطابق مع الدوران الذي تحدده عبر API الكاميرا.
+في PowerPoint، يتم تكوين التدوير ثلاثي الأبعاد من لوحة "3-D Rotation". قيم التدوير X وY وZ تتطابق مع التدوير الذي تحدده عبر API الكاميرا.
 
-![لوحة PowerPoint 3-D Rotation مع إبراز قيم الدوران X و Y و Z](img_02_01.png)
+![لوحة PowerPoint 3-D Rotation مع تمييز قيم التدوير X، Y، Z](img_02_01.png)
 
-في Aspose.Slides، اضبط نوع الكاميرا والدوران عبر تنسيق 3D المعاد من [Shape.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getThreeDFormat):
+في Aspose.Slides، عيّن نوع الكاميرا والدوران عبر تنسيق 3D المرتجع من [Shape.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getThreeDFormat):
 
 ```python
 import jpype
@@ -132,15 +132,15 @@ finally:
     presentation.dispose()
 ```
 
-استخدم الكاميرا عندما تحتاج إلى تغيير طريقة رؤية المشاهد للكائن. لا يغير ذلك هندسة الشكل الثنائي الأبعاد على الشريحة. إنه يغيّر منظور 3D الذي يستخدمه PowerPoint وAspose.Slides عند العرض.
+استخدم الكاميرا عندما تحتاج إلى تغيير طريقة رؤية المشاهد للكائن. لا يغير ذلك هندسة الشكل الثنائية الأبعاد على الشريحة؛ بل يغير منظور العرض ثلاثي الأبعاد المستخدم من قبل PowerPoint وAspose.Slides عند التصيّر.
 
-## **إضافة امتداد وعمق**
+## **إضافة بثق وعمق**
 
-يجعل الامتداد الشكل يبدو سميكًا بتمديده خلف الوجه الأمامي. في PowerPoint، يتحكم إعداد العمق في هذه السماكة المرئية، ويتحكم إعداد اللون في لون الوجوه الجانبية.
+البثق يجعل الشكل يبدو سميكًا بتمديده خلف الوجه الأمامي. في PowerPoint، يتحكم إعداد العمق في هذا السُمك الظاهر، وتتحكم إعدادات اللون في لون وجوه الجوانب.
 
-![إعدادات العمق في PowerPoint مرتبطة بخصائص لون الامتداد وارتفاع الامتداد](img_02_02.png)
+![ضوابط العمق في PowerPoint المرتبطة بخصائص لون البثق وارتفاع البثق](img_02_02.png)
 
-اضبط ارتفاع الامتداد للسماكة ولون الامتداد للون الجوانب:
+عيّن ارتفاع البثق للسمك ولون البثق للجانب:
 
 ```python
 import jpype
@@ -166,13 +166,13 @@ finally:
     presentation.dispose()
 ```
 
-استخدم إعداد العمق عندما تحتاج إلى العمل مباشرةً مع قيمة العمق في PowerPoint أو دمج العمق مع الحافة والمادة وتأثيرات النص. في العديد من سيناريوهات الشكل، يكون ارتفاع الامتداد هو الإعداد الأكثر وضوحًا لأنه يعبر مباشرةً عن الامتداد المرئي.
+استخدم إعداد العمق عندما تحتاج إلى العمل مباشرةً مع قيمة العمق في PowerPoint أو دمج العمق مع الحافة، المادة، وتأثيرات النص. في العديد من سيناريوهات الشكل، يُعد ارتفاع البثق الإعداد الأكثر وضوحًا لأنه يعبّر مباشرةً عن البثق الظاهر.
 
-## **استخدام تعبئات التدرج أو الصورة مع تأثيرات ثلاثية الأبعاد**
+## **استخدام تعبئة بالتدرج أو صورة مع تأثيرات ثلاثية الأبعاد**
 
-تنسيق 3D مستقل عن تعبئة الشكل. يمكنك تطبيق لون صلب، أو تدرج، أو نمط، أو تعبئة صورة على الوجه الأمامي وما زالت تستخدم نفس إعدادات الكاميرا والضوء والمادة والامتداد.
+تنسيق ثلاثي الأبعاد مستقل عن تعبئة الشكل. يمكنك تطبيق لون صلب، أو تدرج، أو نمط، أو تعبئة صورة على الوجه الأمامي ويبقى بإمكانك استخدام نفس إعدادات الكاميرا والإضاءة والمادة والبثق.
 
-هذا المثال يطبق تعبئة تدرج على الشكل ولون امتداد أغمق للجوانب:
+هذا المثال يطبق تعبئة بالتدرج على الشكل ولون بثق داكن على الجوانب:
 
 ```python
 import jpype
@@ -215,9 +215,11 @@ finally:
     presentation.dispose()
 ```
 
-![مستطيل ثلاثي الأبعاد مُعرض بتعبئة تدرج من الأزرق إلى البرتقالي وامتداد برتقالي](img_02_03.png)
+المخرج المصيّر يحافظ على التدرج على الوجه الأمامي ويصيّر البثق بشكل منفصل:
 
-لاستخدام تعبئة صورة بدلاً من ذلك، أضف الصورة إلى العرض وعيّنها كتعبئة للشكل:
+![مستطيل ثلاثي الأبعاد مصيّر بتدرج أزرق إلى برتقالي وتطبيق بسطن برتقالي](img_02_03.png)
+
+لاستخدام تعبئة صورة بدلاً من ذلك، أضف الصورة إلى العرض التقديمي وعيّنها لتعبئة الشكل:
 
 ```python
 import jpype
@@ -229,17 +231,15 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, PictureFillMode, Presentation, ShapeType
 from java.awt import Color
 from pathlib import Path
-from java.nio.file import Files, Paths
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250)
 
-    file_path = str(Path("image.jpg").resolve())
-    image_path = Paths.get(file_path)
-    image_data = Files.readAllBytes(image_path)
-    image = presentation.getImages().addImage(image_data)
+    image_data = Path("image.jpg").read_bytes()
+    java_image_data = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(java_image_data)
 
     shape.getFillFormat().setFillType(FillType.Picture)
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image)
@@ -253,13 +253,15 @@ finally:
     presentation.dispose()
 ```
 
-![مستطيل ثلاثي الأبعاد مُعرض بتعبئة صورة على الوجه الأمامي وامتداد برتقالي](img_02_04.png)
+الصورة تُصَيّر على الوجه الأمامي، بينما يُصَيّر البثق كسطح جانبي ثلاثي الأبعاد:
+
+![مستطيل ثلاثي الأبعاد مصيّر بتعبئة صورة على الوجه الأمامي وتطبيق بسطن برتقالي](img_02_04.png)
 
 ## **تطبيق تنسيق ثلاثي الأبعاد على النص**
 
-تنسيق 3D للشكل يؤثر على جسم الشكل. تنسيق 3D للنص يؤثر على إطار النص. هذا مفيد لتأثيرات تشبه WordArt حيث تحتاج الحروف نفسها إلى امتداد، مادة، إضاءة، وإعدادات كاميرا.
+تنسيق ثلاثي الأبعاد للشكل يؤثر على جسم الشكل. تنسيق ثلاثي الأبعاد للنص يؤثر على إطار النص. هذا مفيد لتأثيرات تشبه WordArt حيث تحتاج الحروف نفسها إلى بثق، مادة، إضاءة، وإعدادات كاميرا.
 
-المثال التالي ينشئ نصًا بتعبئة نمط، يطبق تحويل WordArt، ويضبط إعدادات 3D على [TextFrameFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/):
+المثال التالي ينشئ نصًا بتعبئة نمط، يطبق تحويل WordArt، ويضبط إعدادات ثلاثية الأبعاد على [TextFrameFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/):
 
 ```python
 import jpype
@@ -311,41 +313,43 @@ finally:
     presentation.dispose()
 ```
 
-![نص ثلاثي الأبعاد مُعرَّض بتحويل WordArt مقوس، تعبئة نمط برتقالي، وامتداد داكن](img_02_05.png)
+النص يُصَيّر كحروف ثلاثية الأبعاد منحنية ومُبَثق:
 
-## **سلوك التصدير والعرض**
+![نص ثلاثي الأبعاد مصيّر بتحويل WordArt مقوس وتعبئة نمط برتقالية وبثق غامق](img_02_05.png)
 
-يحافظ Aspose.Slides على تنسيق 3D عند الحفظ إلى صيغ PowerPoint مثل PPTX. عند العرض أو التصدير إلى صيغ ذات تخطيط ثابت، يتم رسم المشهد ثلاثي الأبعاد كصورة نقطية أو يُدمج في الناتج كنتيجة ثنائية الأبعاد. ينطبق هذا عند عرض الشرائح كـ PNG، أو التصدير إلى PDF، أو HTML، أو توليد إطارات للتحويل إلى فيديو.
+## **سلوك التصدير والتصيّر**
 
-احرص على هذه النقاط:
+Aspose.Slides يحتفظ بتنسيق ثلاثي الأبعاد عند الحفظ إلى صيغ PowerPoint مثل PPTX. عند التصيّر أو التصدير إلى صيغ ذات تخطيط ثابت، يتم تحويل مشهد 3D إلى نقطية أو رسم داخل المخرج بنتيجة ثنائية الأبعاد. ينطبق ذلك عندما تُصِيّر الشرائح إلى PNG، أو تصدير إلى PDF، أو HTML، أو توليد إطارات لتحويل الفيديو.
 
-- الصور وملفات PDF المصدرة ليست تفاعلية. لا يمكن للمشاهد تدوير الكائن بعد التصدير.
-- المظهر النهائي يعتمد على دمج الكاميرا، وإضاءة rig، والمادة، والامتداد، والتعبئة، وتدرج حجم الشريحة.
-- إذا كنت تحتاج إلى فحص قيم التنسيق الموروثة أو المستندة إلى القالب، استخدم API التنسيق الفعّال.
-- بعض صيغ الإخراج لا يمكنها تخزين تنسيق 3D القابل للتحرير في PowerPoint. في تلك الصيغ، تُعرض النتيجة بصريًا بدلاً من حفظها كإعدادات 3D قابلة للتحرير.
+احتفظ بهذه النقاط في الاعتبار:
+
+- الصور وملفات PDF المصدَّرة ليست تفاعلية. لا يمكن للمشاهد تدوير الكائن بعد التصدير.
+- المظهر النهائي يعتمد على مزيج الكاميرا، وإضاءة Rig، والمادة، والبثق، والتعبئة، وتوسيع الشريحة.
+- إذا احتجت إلى فحص قيم التنسيق الموروثة أو القائمة على السمة، استخدم API التنسيق الفعّال.
+- بعض صيغ الإخراج لا يمكنها تخزين تنسيق ثلاثي الأبعاد قابل للتحرير في PowerPoint. في تلك الصيغ، يتم تصيير النتيجة المرئية بدلاً من الحفاظ عليها كإعدادات ثلاثية الأبعاد قابلة للتحرير.
 
 ## **الأسئلة المتكررة**
 
 **هل يمكن لـ Aspose.Slides إنشاء عروض تقديمية ثلاثية الأبعاد تفاعلية؟**
 
-إن Aspose.Slides ينشئ ويعرض تأثيرات 3D في PowerPoint للأشكال والنص. لا يجعل الصور المصدرة أو ملفات PDF أو صفحات HTML مشاهد ثلاثية الأبعاد تفاعلية يمكن للمشاهد تدويرها. في PPTX يبقى تنسيق 3D قابلًا للتحرير في PowerPoint حيث يدعم الصيغة ذلك.
+Aspose.Slides ينشئ ويصيّر تأثيرات ثلاثية الأبعاد في PowerPoint للأشكال والنص. لا يجعل الصور المصدَّرة أو ملفات PDF أو صفحات HTML مشاهد ثلاثية الأبعاد تفاعلية يمكن للمشاهد تدويرها. في PPTX، يبقى تنسيق ثلاثي الأبعاد قابلاً للتحرير في PowerPoint حيث يدعم الصيغة ذلك.
 
-**ما الفرق بين النموذج ثلاثي الأبعاد والتأثير ثلاثي الأبعاد؟**
+**ما الفرق بين النموذج الثلاثي الأبعاد والتأثير الثلاثي الأبعاد؟**
 
-النموذج ثلاثي الأبعاد هو كائن ثلاثي أبعاد منفصل يُدرج في العرض. التأثير ثلاثي الأبعاد هو تنسيق يُطبق على شكل PowerPoint عادي أو نص، مثل الدوران، والامتداد، والحافة، والإضاءة، والمادة. تتناول هذه المقالة التأثيرات الثلاثية الأبعاد.
+النموذج الثلاثي الأبعاد هو كائن ثلاثي أبعاد منفصل يُدرج في العرض التقديمي. التأثير الثلاثي الأبعاد هو تنسيق يُطبق على شكل PowerPoint عادي أو نص، مثل التدوير، البثق، الحافة، الإضاءة، والمادة. يغطي هذا المقال التأثيرات الثلاثية الأبعاد.
 
 **ما الإعدادات المطلوبة للحصول على شكل ثلاثي الأبعاد مرئي؟**
 
-على الأقل، اضبط دوران الكاميرا وإما الامتداد أو العمق. عمليًا، يُفضَّل أيضًا ضبط إضاءة rig والمادة بحيث تكون الوجوه المُرسومة واضحة الإضاءات والظلال.
+على الأقل، عيّن دوران الكاميرا وإما البثق أو العمق. في الممارسة العملية، عيّن أيضًا إضاءة Rig والمادة لكي تكون الوجوه المصيّرة ذات إضاءات وظلال واضحة.
 
 **هل يمكنني تطبيق تأثيرات ثلاثية الأبعاد على كل من الأشكال والنص؟**
 
-نعم. استخدم [Shape.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getThreeDFormat) لجسم الشكل و [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#getThreeDFormat) للنص.
+نعم. استخدم [Shape.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getThreeDFormat) لجسم الشكل و[TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframeformat/#getThreeDFormat) للنص.
 
-**هل ستظهر تأثيرات 3D عند التصدير إلى صور أو PDF أو HTML أو إطارات فيديو؟**
+**هل ستظهر التأثيرات الثلاثية الأبعاد عند التصدير إلى صور أو PDF أو HTML أو إطارات فيديو؟**
 
-نعم. يقوم Aspose.Slides بعرض تأثيرات 3D عند إنتاج صور الشرائح، أو إخراج PDF، أو HTML، أو الإطارات المستخدمة للتحويل إلى فيديو. يحتوي الناتج المصدّر على المظهر المرسوم، وليس كائنًا ثلاثيًا أبعادًا قابلاً للتحرير.
+نعم. Aspose.Slides يصيّر التأثيرات الثلاثية الأبعاد عند إنتاج صور الشرائح، مخرجات PDF، مخرجات HTML، وإطارات تُستخدم لتحويل الفيديو. يحتوي المخرج المصدّر على المظهر المصيّر، وليس كائنًا ثلاثيًا أبعادًا قابلاً للتحرير.
 
-**هل يمكنني قراءة القيم النهائية لـ 3D بعد تطبيق الوراثة وإعدادات القالب؟**
+**هل يمكنني قراءة القيم الثلاثية الأبعاد النهائية بعد تطبيق الوراثة وإعدادات السمة؟**
 
-نعم. استخدم [ThreeDFormat.getEffective](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getEffective) لقراءة الكاميرا النهائية، وإضاءة rig، والحافة، والقيم الثلاثية الأبعاد ذات الصلة.
+نعم. استخدم [ThreeDFormat.getEffective](https://reference.aspose.com/slides/ar/python-java/aspose.slides/threedformat/#getEffective) لقراءة الكاميرا النهائية، وإضاءة Rig، والحافة، والقيم الثلاثية الأبعاد المرتبطة.

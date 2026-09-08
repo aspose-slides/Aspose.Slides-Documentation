@@ -1,11 +1,11 @@
 ---
-title: Python का उपयोग करके प्रस्तुतियों में 3D प्रभाव बनाना
+title: Python का उपयोग करके प्रस्तुतियों में 3D इफ़ेक्ट बनाएं
 linktitle: 3D प्रस्तुति
 type: docs
 weight: 232
 url: /hi/python-java/3d-presentation/
 keywords:
-- 3D पॉवरपॉइंट
+- 3D PowerPoint
 - 3D प्रस्तुति
 - 3D घूर्णन
 - 3D गहराई
@@ -17,47 +17,47 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Python के माध्यम से Java के साथ Aspose.Slides का उपयोग करके PowerPoint आकृतियों और टेक्स्ट के लिए 3D प्रभाव लागू करें और रेंडर करें। कैमरा, लाइटिंग, सामग्री, एक्सट्रूज़न, भराव और 3D टेक्स्ट को कॉन्फ़िगर करें।"
+description: "Aspose.Slides के साथ Java के माध्यम से Python में PowerPoint आकारों और टेक्स्ट के लिए 3D इफ़ेक्ट लागू करें और रेंडर करें। कैमरा, लाइटिंग, मैटेरियल, एक्सट्रूज़न, फ़िल और 3D टेक्स्ट को कॉन्फ़िगर करें।"
 ---
-## **सारांश**
+## **समग्र अवलोकन**
 
-Aspose.Slides for Python via Java shapes और text के लिए PowerPoint‑style 3D फ़ॉर्मेटिंग बना, संपादित, संरक्षित और रेंडर कर सकता है। यह लेख घूर्णन, एक्सट्रूज़न, बिवल, लाइटिंग, मैटेरियल, ग्रेडिएंट या चित्र भराव, और 3D टेक्स्ट जैसी 3D प्रभावों को कवर करता है।
+Aspose.Slides for Python via Java आकारों और टेक्स्ट के लिए PowerPoint‑स्टाइल 3D फॉर्मेटिंग बना, संपादित, संरक्षित और रेंडर कर सकता है। यह लेख घूर्णन, एक्सट्रूज़न, बिवल, लाइटिंग, मैटेरियल, ग्रेडिएंट या पिक्चर फ़िल, और 3D टेक्स्ट जैसे 3D इफ़ेक्ट्स को कवर करता है।
 
 {{% alert color="info" title="Note" %}}
-यह लेख PowerPoint shapes और टेक्स्ट पर 3D फ़ॉर्मेटिंग प्रभावों के बारे में है। यह स्वतंत्र 3D मॉडल फ़ाइलों को सम्मिलित करने या संपादित करने से संबंधित नहीं है। जब आप स्लाइड को इमेज, PDF, या HTML में निर्यात करते हैं, तो Aspose.Slides उन 3D प्रभावों को निर्यातित 2D आउटपुट में रेंडर करता है।
+यह लेख PowerPoint आकारों और टेक्स्ट पर 3D फॉर्मेटिंग इफ़ेक्ट्स के बारे में है। यह स्वतंत्र 3D मॉडल फ़ाइलें सम्मिलित करने या संपादित करने के बारे में नहीं है। जब आप स्लाइड को इमेज, PDF, या HTML में निर्यात करते हैं, तो Aspose.Slides उन 3D इफ़ेक्ट्स को निर्यातित 2D आउटपुट में रेंडर करता है।
 {{% /alert %}}
 
-पैकेज को [स्थापना](/slides/hi/python-java/installation/) में वर्णित अनुसार स्थापित करें। प्रत्येक उदाहरण `asposeslides` को इम्पोर्ट करता है, आवश्यकता होने पर JVM शुरू करता है, और फिर API को इम्पोर्ट करता है। चित्र‑भरण उदाहरण के लिए कार्य निर्देशिका में `image.jpg` फ़ाइल आवश्यक है।
+पैकेज को [इंस्टॉलेशन](/slides/hi/python-java/installation/) में वर्णित अनुसार स्थापित करें। प्रत्येक उदाहरण `asposeslides` को आयात करता है, आवश्यक होने पर JVM शुरू करता है, और फिर API को आयात करता है। picture-fill उदाहरण को कार्य निर्देशिका में `image.jpg` फ़ाइल की आवश्यकता होती है।
 
-## **3D फ़ॉर्मेटिंग अवधारणाएँ**
+## **3D फॉर्मेटिंग अवधारणाएँ**
 
-एक shape पर 3D फ़ॉर्मेटिंग लागू करने के लिए [Shape.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getThreeDFormat) का उपयोग करें। लौटाया गया फ़ॉर्मेट ऑब्जेक्ट उस shape के 3D दृश्य को नियंत्रित करता है।
+एक आकार पर 3D फॉर्मेटिंग लागू करने के लिए [Shape.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getThreeDFormat) का उपयोग करें। लौटाया गया फ़ॉर्मेट ऑब्जेक्ट उस आकार के लिए 3D सीन को नियंत्रित करता है।
 
-टेक्स्ट के लिए, [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframeformat/#getThreeDFormat) का उपयोग करें। यह shape बॉडी के बजाय टेक्स्ट फ्रेम पर 3D फ़ॉर्मेटिंग लागू करता है।
+टेक्स्ट के लिए, [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframeformat/#getThreeDFormat) का उपयोग करें। यह आकार के बॉडी के बजाय टेक्स्ट फ़्रेम पर 3D फॉर्मेटिंग लागू करता है।
 
 सबसे महत्वपूर्ण API सदस्य हैं:
 
 | API सदस्य | यह क्या नियंत्रित करता है | कब उपयोग करें |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getCamera) | व्यूपॉइंट, प्रीसेट कैमरा प्रकार, घूर्णन, ज़ूम, और परिप्रेक्ष्य। | ऑब्जेक्ट को 3D स्थान में घुमाएँ या PowerPoint 3D घूर्णन प्रीसेट से मिलाएँ। |
-| [getLightRig](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getLightRig) | लाइट प्रीसेट, दिशा, और लाइट घूर्णन। | 3D सतह पर हाइलाइट और शैडो कैसे दिखते हैं इसे बदलें। |
-| [getMaterial](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getMaterial) और [setMaterial](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#setMaterial) | सतह सामग्री, जैसे समतल, मैट, प्लास्टिक, या धातु। | एक ही ज्यामिति को अधिक समतल, नरम, चमकीला, या धातु जैसा बनाएं। |
-| [getExtrusionHeight](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getExtrusionHeight) और [setExtrusionHeight](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#setExtrusionHeight) | आकार अपने सामने की सतह से कितनी दूरी पीछे तक विस्तारित होता है। | एक समतल आकार को स्पष्ट रूप से मोटा 3D वस्तु में बदलें। |
-| [getExtrusionColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getExtrusionColor) | एक्सट्रूड की गई साइडों का रंग। | गहराई प्रदर्शित करें या साइड रंग को सामने के भराव के साथ समन्वयित करें। |
-| [getDepth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getDepth) और [setDepth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#setDepth) | PowerPoint 3D फ़ॉर्मेटिंग द्वारा उपयोग की गई अतिरिक्त 3D गहराई। | आकार या टेक्स्ट के लिए गहराई को सूक्ष्म रूप से समायोजित करें, विशेषकर बिवल और मैटेरियल सेटिंग के साथ। |
-| [getBevelTop](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getBevelTop) और [getBevelBottom](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getBevelBottom) | सामने और पीछे की सतहों पर उठे या गोल किनारे। | तीखा समतल चेहरा के बजाय मुलायम या ढाला हुआ किनारा जोड़ें। |
-| [getContourColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getContourWidth), और [setContourWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#setContourWidth) | 3D वस्तु के चारों ओर रूपरेखा। | रेंडर आउटपुट में वस्तु की सीमा पर ज़ोर दें। |
+| [getCamera](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getCamera) | दृश्य बिंदु, प्रीसेट कैमरा प्रकार, घूर्णन, ज़ूम, और परिप्रेक्ष्य। | ऑब्जेक्ट को 3D स्पेस में घुमाएँ या PowerPoint 3D घूर्णन प्रीसेट से मेल करें। |
+| [getLightRig](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getLightRig) | लाइट प्रीसेट, दिशा, और लाइट घूर्णन। | 3D सतह पर हाइलाइट और छाया कैसे दिखें, इसे बदलें। |
+| [getMaterial](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getMaterial) और [setMaterial](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#setMaterial) | सतह सामग्री, जैसे समतल, मैट, प्लास्टिक, या धातु। | समान ज्यामिति को अधिक समतल, मुलायम, चमकदार या धातु जैसी दिखावट दें। |
+| [getExtrusionHeight](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getExtrusionHeight) और [setExtrusionHeight](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#setExtrusionHeight) | आकार की सामने वाली सतह से पीछे की ओर कितना विस्तार है। | एक समतल आकार को स्पष्ट रूप से मोटा 3D ऑब्जेक्ट बनाएं। |
+| [getExtrusionColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getExtrusionColor) | एक्सट्रूडेड पक्षों का रंग। | गहराई को दृश्य बनाएं या साइड रंग को सामने की फ़िल के साथ मिलाएँ। |
+| [getDepth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getDepth) और [setDepth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#setDepth) | PowerPoint 3D फॉर्मेटिंग द्वारा उपयोग किया गया अतिरिक्त 3D गहराई। | आकार या टेक्स्ट के लिए गहराई को सूक्ष्म रूप से समायोजित करें, विशेषकर बिवल और मैटेरियल सेटिंग्स के साथ। |
+| [getBevelTop](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getBevelTop) और [getBevelBottom](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getBevelBottom) | सामने और पीछे की सतहों पर उभरे या गोल किनारे। | तेज़ समतल सतह के बजाय नरम या ढाला हुआ किनारा जोड़ें। |
+| [getContourColor](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getContourWidth), और [setContourWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#setContourWidth) | 3D ऑब्जेक्ट के चारों ओर रूपरेखा। | रेंडर किए गए आउटपुट में ऑब्जेक्ट की सीमा को उजागर करें। |
 
-## **3D आकार बनाएँ**
+## **3D आकार बनाना**
 
-एक shape को विश्वसनीय 3D दिखने से पहले आमतौर पर चार प्रकार की सेटिंग्स की आवश्यकता होती है:
+एक आकार को विश्वसनीय रूप से 3D दिखाने के लिए आमतौर पर चार प्रकार की सेटिंग्स की आवश्यकता होती है:
 
-- कैमरा सेटिंग्स, क्योंकि डिफ़ॉल्ट फ्रंट व्यू एक्सट्रूज़न को छुपा सकता है।
-- लाइट सेटिंग्स, क्योंकि प्रकाश से चेहरे और साइड्स स्पष्ट दिखते हैं।
-- मैटेरियल सेटिंग्स, क्योंकि सतह यह निर्धारित करती है कि प्रकाश कैसे प्रस्तुत होता है।
-- एक्सट्रूज़न या गहराई सेटिंग्स, क्योंकि एक समतल shape को मोटाई चाहिए।
+- कैमरा सेटिंग्स, क्योंकि डिफ़ॉल्ट सामने का दृश्य एक्सट्रूज़न को छिपा सकता है।
+- लाइट सेटिंग्स, क्योंकि प्रकाश साइड और फेस को पठनीय बनाता है।
+- मैटेरियल सेटिंग्स, क्योंकि सतह यह निर्धारित करती है कि प्रकाश कैसे रेंडर होता है।
+- एक्सट्रूज़न या गहराई सेटिंग्स, क्योंकि समतल आकार को मोटाई चाहिए।
 
-निम्न उदाहरण एक आयत बनाता है, उसकी सामने की सतह पर टेक्स्ट जोड़ता है, 3D फ़ॉर्मेटिंग लागू करता है, प्रस्तुति को PPTX के रूप में सहेजता है, और स्लाइड को PNG इमेज में रेंडर करता है।
+निम्न उदाहरण एक आयत बनाता है, उसके सामने वाले फेस पर टेक्स्ट जोड़ता है, 3D फॉर्मेटिंग लागू करता है, प्रस्तुति को PPTX के रूप में सहेजता है, और स्लाइड को PNG इमेज में रेंडर करता है।
 
 ```python
 import jpype
@@ -100,15 +100,15 @@ finally:
     presentation.dispose()
 ```
 
-रेंडर किया गया स्लाइड इमेज आयत को एक मोटे 3D ब्लॉक के रूप में दर्शाता है:
+रेंडर की गई स्लाइड इमेज आयत को एक मोटे 3D ब्लॉक के रूप में दिखाती है:
 
-![सामने की सतह पर सफेद 3D टेक्स्ट के साथ रेंडर किया गया नीला 3D आयत](img_01_01.png)
+![सामने के सतह पर सफ़ेद 3D टेक्स्ट के साथ रेंडर किया गया नीला 3D आयत](img_01_01.png)
 
-## **कैमरा के साथ Shape घुमाएँ**
+## **कैमरा के साथ आकार को घुमाएँ**
 
-PowerPoint में, 3D घूर्णन को 3‑D Rotation पैनल से कॉन्फ़िगर किया जाता है। X, Y, और Z घूर्णन मान कैमरा API के माध्यम से सेट किए गए घूर्णन से मेल खाते हैं।
+PowerPoint में, 3D घूर्णन को 3‑D Rotation पैन से कॉन्फ़िगर किया जाता है। X, Y, और Z घूर्णन मान कैमरा API के माध्यम से सेट किए गए घूर्णन के अनुरूप होते हैं।
 
-![PowerPoint 3‑D Rotation पैनल जिसमें X, Y, और Z घूर्णन मान हाइलाइट किए गए हैं](img_02_01.png)
+![X, Y, और Z घूर्णन मानों के साथ PowerPoint 3‑D Rotation पैन हाइलाइट किया गया](img_02_01.png)
 
 Aspose.Slides में, [Shape.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getThreeDFormat) द्वारा लौटाए गए 3D फ़ॉर्मेट के माध्यम से कैमरा प्रकार और घूर्णन सेट करें:
 
@@ -132,15 +132,15 @@ finally:
     presentation.dispose()
 ```
 
-जब आपको दर्शक की वस्तु को देखने के तरीके को बदलने की आवश्यकता हो, तब कैमरा का उपयोग करें। यह स्लाइड पर 2D shape ज्योमेट्री को नहीं बदलता। यह PowerPoint और Aspose.Slides द्वारा रेंडरिंग के समय उपयोग किए जाने वाले 3D व्यू पॉइंट को बदलता है।
+जब आपको दर्शक के ऑब्जेक्ट देखने के तरीके को बदलना हो तो कैमरा का उपयोग करें। यह स्लाइड पर 2D आकार ज्यामिति को नहीं बदलता, बल्कि PowerPoint और Aspose.Slides द्वारा रेंडरिंग के समय उपयोग किए जाने वाले 3D दृष्टिकोण को बदलता है।
 
 ## **एक्सट्रूज़न और गहराई जोड़ें**
 
-एक्सट्रूज़न shape को मोटा दिखाता है, इसे सामने की सतह के पीछे विस्तारित करके। PowerPoint में, गहराई नियंत्रण इस दृश्य मोटाई को सेट करता है, और रंग नियंत्रण साइड सतहों के रंग को सेट करता है।
+एक्सट्रूज़न आकार को सामने के फेस के पीछे तक फैलाकर मोटा दिखाता है। PowerPoint में, गहराई नियंत्रण इस दृश्यमान मोटाई को निर्धारित करता है, और रंग नियंत्रण साइड फेस के रंग को सेट करता है।
 
-![PowerPoint गहराई नियंत्रण जो एक्सट्रूज़न रंग और एक्सट्रूज़न ऊँचाई गुणों से जुड़े हैं](img_02_02.png)
+![एक्सट्रूज़न रंग और एक्सट्रूज़न ऊँचाई गुणों से मैप्ड PowerPoint गहराई नियंत्रण](img_02_02.png)
 
-मोटाई के लिए एक्सट्रूज़न ऊँचाई और साइड के रंग के लिए एक्सट्रूज़न रंग सेट करें:
+मोटाई के लिए एक्सट्रूज़न ऊँचाई और साइड रंग के लिए एक्सट्रूज़न रंग सेट करें:
 
 ```python
 import jpype
@@ -166,13 +166,13 @@ finally:
     presentation.dispose()
 ```
 
-जब आपको PowerPoint के गहराई मान को सीधे काम करना हो या गहराई को बिवल, मैटेरियल, और टेक्स्ट प्रभावों के साथ संयोजित करना हो, तब गहराई सेटिंग का उपयोग करें। कई shape परिदृश्यों में, एक्सट्रूज़न ऊँचाई स्पष्ट सेटिंग है क्योंकि यह सीधे दृश्य एक्सट्रूज़न को दर्शाती है।
+जब आपको सीधे PowerPoint की गहराई मान के साथ काम करना हो या गहराई को बिवल, मैटेरियल और टेक्स्ट इफ़ेक्ट्स के साथ मिलाना हो, तब गहराई सेटिंग का उपयोग करें। कई आकार परिदृश्यों में, एक्सट्रूज़न ऊँचाई स्पष्ट सेटिंग होती है क्योंकि यह सीधे दृश्य एक्सट्रूज़न को दर्शाती है।
 
-## **3D प्रभावों के साथ ग्रेडिएंट या चित्र भराव का उपयोग करें**
+## **3D इफ़ेक्ट्स के साथ ग्रेडिएंट या पिक्चर फ़िल का उपयोग करें**
 
-3D फ़ॉर्मेटिंग shape भराव से स्वतंत्र है। आप सामने की सतह पर सॉलिड रंग, ग्रेडिएंट, पैटर्न, या चित्र भराव लागू कर सकते हैं और फिर भी समान कैमरा, लाइट, मैटेरियल, और एक्सट्रूज़न सेटिंग्स का उपयोग कर सकते हैं।
+3D फॉर्मेटिंग आकार के फ़िल से स्वतंत्र है। आप सामने के फेस पर सॉलिड रंग, ग्रेडिएंट, पैटर्न, या पिक्चर फ़िल लागू कर सकते हैं और फिर भी वही कैमरा, लाइट, मैटेरियल और एक्सट्रूज़न सेटिंग्स उपयोग कर सकते हैं।
 
-यह उदाहरण shape पर ग्रेडिएंट भराव और साइड्स पर गहरा एक्सट्रूज़न रंग लागू करता है:
+यह उदाहरण आकार पर ग्रेडिएंट फ़िल और साइड्स के लिए गहरे एक्सट्रूज़न रंग लागू करता है:
 
 ```python
 import jpype
@@ -215,11 +215,11 @@ finally:
     presentation.dispose()
 ```
 
-रेंडर किया गया आउटपुट सामने की सतह पर ग्रेडिएंट को रखता है और एक्सट्रूज़न को अलग से रेंडर करता है:
+रेंडर किया गया आउटपुट सामने के फेस पर ग्रेडिएंट को बनाए रखता है और एक्सट्रूज़न को अलग से रेंडर करता है:
 
-![नीले से नारंगी ग्रेडिएंट भराव और नारंगी एक्सट्रूज़न के साथ रेंडर किया गया 3D आयत](img_02_03.png)
+![नीले‑से‑नारंगी ग्रेडिएंट फ़िल और नारंगी एक्सट्रूज़न के साथ रेंडर किया गया 3D आयत](img_02_03.png)
 
-यदि आप चित्र भराव का उपयोग करना चाहते हैं, तो प्रस्तुति में चित्र जोड़ें और उसे shape भराव को असाइन करें:
+पिक्चर फ़िल का उपयोग करने के लिए, इमेज को प्रस्तुति में जोड़ें और उसे आकार फ़िल के रूप में असाइन करें:
 
 ```python
 import jpype
@@ -231,17 +231,15 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, PictureFillMode, Presentation, ShapeType
 from java.awt import Color
 from pathlib import Path
-from java.nio.file import Files, Paths
 
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250)
 
-    file_path = str(Path("image.jpg").resolve())
-    image_path = Paths.get(file_path)
-    image_data = Files.readAllBytes(image_path)
-    image = presentation.getImages().addImage(image_data)
+    image_data = Path("image.jpg").read_bytes()
+    java_image_data = jpype.JArray(jpype.JByte)(image_data)
+    image = presentation.getImages().addImage(java_image_data)
 
     shape.getFillFormat().setFillType(FillType.Picture)
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image)
@@ -255,15 +253,15 @@ finally:
     presentation.dispose()
 ```
 
-सामने की सतह पर फोटो भराव और नारंगी एक्सट्रूज़न के साथ रेंडर किया गया 3D आयत:
+पिक्चर सामने के फेस पर रेंडर होता है, जबकि एक्सट्रूज़न 3D साइड सतह के रूप में रेंडर होता है:
 
-![सामने की सतह पर फोटो भराव और नारंगी एक्सट्रूज़न के साथ रेंडर किया गया 3D आयत](img_02_04.png)
+![फ़्रंट फ़ेस पर फोटो फ़िल और नारंगी एक्सट्रूज़न के साथ रेंडर किया गया 3D आयत](img_02_04.png)
 
-## **टेक्स्ट पर 3D फ़ॉर्मेटिंग लागू करें**
+## **टेक्स्ट पर 3D फॉर्मेटिंग लागू करें**
 
-Shape 3D फ़ॉर्मेटिंग shape बॉडी को प्रभावित करती है। टेक्स्ट 3D फ़ॉर्मेटिंग टेक्स्ट फ्रेम को प्रभावित करती है। यह WordArt‑समान प्रभावों के लिए उपयोगी है जहाँ अक्षर स्वयं को एक्सट्रूज़न, मैटेरियल, लाइटिंग, और कैमरा सेटिंग्स की आवश्यकता होती है।
+आकार की 3D फॉर्मेटिंग आकार के बॉडी को प्रभावित करती है। टेक्स्ट की 3D फॉर्मेटिंग टेक्स्ट फ़्रेम को प्रभावित करती है। यह WordArt‑समान इफ़ेक्ट्स के लिए उपयोगी है जहाँ अक्षरों को स्वयं एक्सट्रूज़न, मैटेरियल, लाइटिंग और कैमरा सेटिंग्स की आवश्यकता होती है।
 
-निम्न उदाहरण पैटर्न भराव के साथ टेक्स्ट बनाता है, WordArt ट्रांसफ़ॉर्म लागू करता है, और [TextFrameFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframeformat/) पर 3D सेटिंग्स कॉन्फ़िगर करता है:
+निम्न उदाहरण पैटर्न फ़िल के साथ टेक्स्ट बनाता है, WordArt ट्रांसफ़ॉर्म लागू करता है, और [TextFrameFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframeformat/) पर 3D सेटिंग्स कॉन्फ़िगर करता है:
 
 ```python
 import jpype
@@ -315,41 +313,43 @@ finally:
     presentation.dispose()
 ```
 
-आर्क्ड WordArt ट्रांसफ़ॉर्म, नारंगी पैटर्न भराव, और गहरा एक्सट्रूज़न के साथ रेंडर किया गया 3D टेक्स्ट:
+टेक्स्ट को वक्र, एक्सट्रूडेड 3D लेटरिंग के रूप में रेंडर किया गया है:
 
-![आर्क्ड WordArt ट्रांसफ़ॉर्म, नारंगी पैटर्न भराव, और गहरा एक्सट्रूज़न के साथ रेंडर किया गया 3D टेक्स्ट](img_02_05.png)
+![आर्क्ड WordArt ट्रांसफ़ॉर्म, नारंगी पैटर्न फ़िल, और डार्क एक्सट्रूज़न के साथ रेंडर किया गया 3D टेक्स्ट](img_02_05.png)
 
 ## **निर्यात और रेंडरिंग व्यवहार**
 
-Aspose.Slides PPTX जैसी PowerPoint फ़ॉर्मेट में सहेजते समय 3D फ़ॉर्मेटिंग को संरक्षित रखता है। जब रेंडरिंग या निर्यात स्थिर‑लेआउट फ़ॉर्मेट में किया जाता है, तो 3D दृश्य को रास्टर किया जाता है या 2D परिणाम के रूप में आउटपुट में खींचा जाता है। यह तब लागू होता है जब आप स्लाइड को PNG में रेंडर करते हैं, PDF में निर्यात करते हैं, HTML में निर्यात करते हैं, या वीडियो रूपांतरण के लिए फ्रेम उत्पन्न करते हैं।
+Aspose.Slides PPTX जैसे PowerPoint फ़ॉर्मेट में सहेजते समय 3D फॉर्मेटिंग को संरक्षित रखता है। जब स्थिर‑लेआउट फ़ॉर्मेट में रेंडर या निर्यात किया जाता है, तो 3D सीन को 2D परिणाम के रूप में रास्टराइज़ या ड्रॉ किया जाता है। यह तब लागू होता है जब आप स्लाइड्स को PNG में रेंडर करते हैं, PDF, HTML में निर्यात करते हैं, या वीडियो रूपांतरण के लिए फ्रेम उत्पन्न करते हैं।
 
-- निर्यात किए गए इमेज और PDF इंटरैक्टिव नहीं होते। निर्यात के बाद दर्शक ऑब्जेक्ट को घुमा नहीं सकता।
-- अंतिम स्वरूप कैमरा, लाइट रिग, मैटेरियल, एक्सट्रूज़न, भराव, और स्लाइड स्केलिंग के संयोजन पर निर्भर करता है।
-- यदि आपको विरासत में मिले या थीम‑आधारित फ़ॉर्मेटिंग मानों की जाँच करनी हो, तो effective फ़ॉर्मेटिंग API का उपयोग करें।
-- कुछ आउटपुट फ़ॉर्मेट संपादनीय PowerPoint 3D फ़ॉर्मेटिंग को संग्रहीत नहीं कर सकते। उन फ़ॉर्मेट में दृश्य परिणाम रेंडर किया जाता है न कि संपादनीय 3D सेटिंग्स के रूप में संरक्षित किया जाता है।
+ध्यान देने योग्य बिंदु:
+
+- निर्यातित इमेज और PDF इंटरैक्टिव नहीं होते। निर्यात के बाद दर्शक द्वारा ऑब्जेक्ट को घुमाया नहीं जा सकता।
+- अंतिम दिखावट कैमरा, लाइट रिग, मैटेरियल, एक्सट्रूज़न, फ़िल, और स्लाइड स्केलिंग के संयोजन पर निर्भर करती है।
+- यदि आपको विरासत या थीम‑आधारित फॉर्मेटिंग मानों की जांच करनी हो, तो प्रभावी फॉर्मेटिंग API का उपयोग करें।
+- कुछ आउटपुट फ़ॉर्मेट संपादनीय PowerPoint 3D फॉर्मेटिंग को संग्रहीत नहीं कर सकते। उन फ़ॉर्मेट में, दृश्य परिणाम रेंडर किया जाता है न कि संपादन योग्य 3D सेटिंग्स के रूप में संरक्षित।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या Aspose.Slides इंटरैक्टिव 3D प्रस्तुतियाँ बना सकता है?**
+**क्या Aspose.Slides इंटरैक्टिव 3D प्रेज़ेंटेशन बना सकता है?**
 
-Aspose.Slides shapes और टेक्स्ट के लिए PowerPoint 3D प्रभाव बनाता है और रेंडर करता है। यह निर्यात किए गए इमेज, PDF, या HTML पेजों को ऐसा इंटरैक्टिव 3D दृश्य नहीं बनाता जिसे दर्शक घुमा सके। PPTX में, जहाँ फ़ॉर्मेट समर्थन करता है, 3D फ़ॉर्मेटिंग PowerPoint में संपादनीय रहती है।
+Aspose.Slides आकारों और टेक्स्ट के लिए PowerPoint 3D इफ़ेक्ट्स बनाता और रेंडर करता है। यह निर्यातित इमेज, PDF, या HTML पेजों को इंटरैक्टिव 3D सीन नहीं बनाता जिसे दर्शक घुमा सके। PPTX में, जहाँ फ़ॉर्मेट समर्थन करता है, 3D फॉर्मेटिंग PowerPoint में संपादनीय रहती है।
 
-**एक 3D मॉडल और एक 3D प्रभाव में क्या अंतर है?**
+**3D मॉडल और 3D इफ़ेक्ट में क्या अंतर है?**
 
-3D मॉडल वह अलग‑अलग 3D वस्तु है जिसे प्रस्तुति में सम्मिलित किया जाता है। 3D प्रभाव सामान्य PowerPoint shape या टेक्स्ट पर लागू किया जाने वाला फ़ॉर्मेटिंग है, जैसे घूर्णन, एक्सट्रूज़न, बिवल, लाइटिंग, और मैटेरियल। यह लेख 3D प्रभावों को कवर करता है।
+3D मॉडल एक अलग 3D ऑब्जेक्ट है जिसे प्रस्तुति में डाला जाता है। 3D इफ़ेक्ट एक सामान्य PowerPoint आकार या टेक्स्ट पर लागू फॉर्मेटिंग है, जैसे घूर्णन, एक्सट्रूज़न, बिवल, लाइटिंग, और मैटेरियल। यह लेख 3D इफ़ेक्ट्स को कवर करता है।
 
-**दृश्य 3D shape के लिए कौन सी सेटिंग्स आवश्यक हैं?**
+**एक दिखने योग्य 3D आकार के लिए कौन सी सेटिंग्स आवश्यक हैं?**
 
-न्यूनतम रूप से, कैमरा घूर्णन और या तो एक्सट्रूज़न या गहराई सेट करें। व्यवहार में, स्पष्ट हाइलाइट और शैडो के लिए लाइट रिग और मैटेरियल भी सेट करना उपयोगी होता है।
+न्यूनतम रूप से, कैमरा घूर्णन और या तो एक्सट्रूज़न या गहराई सेट करें। व्यवहार में, लाइट रिग और मैटेरियल भी सेट करें ताकि रेंडर किए गए फेस में स्पष्ट हाइलाइट और शैडो हों।
 
-**क्या मैं shape और टेक्स्ट दोनों पर 3D प्रभाव लागू कर सकता हूँ?**
+**क्या मैं आकार और टेक्स्ट दोनों पर 3D इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-हाँ। shape बॉडी के लिये [Shape.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getThreeDFormat) और टेक्स्ट के लिये [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframeformat/#getThreeDFormat) का उपयोग करें।
+हाँ। आकार बॉडी के लिए [Shape.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getThreeDFormat) और टेक्स्ट के लिए [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframeformat/#getThreeDFormat) उपयोग करें।
 
-**क्या 3D प्रभाव इमेज, PDF, HTML, या वीडियो फ्रेम में निर्यात करते समय दिखाई देंगे?**
+**क्या 3D इफ़ेक्ट्स इमेज, PDF, HTML, या वीडियो फ्रेम में निर्यात करते समय दिखते हैं?**
 
-हाँ। Aspose.Slides स्लाइड इमेज, PDF आउटपुट, HTML आउटपुट, और वीडियो रूपांतरण के लिए उपयोग किए जाने वाले फ्रेम उत्पन्न करते समय 3D प्रभाव रेंडर करता है। निर्यातित आउटपुट में रेंडर किया हुआ रूप दिखता है, न कि संपादनीय 3D वस्तु।
+हाँ। Aspose.Slides स्लाइड इमेज, PDF आउटपुट, HTML आउटपुट, और वीडियो रूपांतरण के लिए उपयोग किए जाने वाले फ्रेम उत्पन्न करते समय 3D इफ़ेक्ट्स को रेंडर करता है। निर्यातित आउटपुट में रेंडर किया हुआ दृश्य होता है, संपादन योग्य 3D ऑब्जेक्ट नहीं।
 
-**क्या मैं विरासत और थीम सेटिंग लागू होने के बाद अंतिम 3D मान पढ़ सकता हूँ?**
+**क्या मैं विरासत और थीम सेटिंग्स लागू होने के बाद अंतिम 3D मान पढ़ सकता हूँ?**
 
-हाँ। अंतिम कैमरा, लाइट रिग, बिवल, और संबंधित 3D मान पढ़ने के लिये [ThreeDFormat.getEffective](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getEffective) का उपयोग करें।
+हाँ। अंतिम कैमरा, लाइट रिग, बिवल और संबंधित 3D मान पढ़ने के लिए [ThreeDFormat.getEffective](https://reference.aspose.com/slides/hi/python-java/aspose.slides/threedformat/#getEffective) का उपयोग करें।
