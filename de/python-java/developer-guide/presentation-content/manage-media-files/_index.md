@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Mediendateien in Python über Java
+title: Mediendateien in Python über Java verwalten
 linktitle: Mediendateien
 type: docs
 weight: 30
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Verwalten Sie Audio und Video in Aspose.Slides für Java: Hinzufügen, Extrahieren, Ersetzen und Optimieren von Medien in PPT-, PPTX- und ODP-Dateien. Schritt-für-Schritt-Anleitungen und Java-Code."
+description: "Audio und Video in Aspose.Slides für Python über Java verwalten: Hinzufügen, Extrahieren, Ersetzen und Optimieren von Medien in PPT-, PPTX- und ODP-Dateien. Schritt-für-Schritt-Anleitungen und Python-Code."
 ---

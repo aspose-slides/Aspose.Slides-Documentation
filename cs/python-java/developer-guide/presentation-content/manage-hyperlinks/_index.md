@@ -1,5 +1,5 @@
 ---
-title: Spravujte hypertextové odkazy v prezentacích v Pythonu přes Java
+title: Správa hypertextových odkazů v prezentacích pomocí Pythonu přes Java
 linktitle: Spravovat hypertextový odkaz
 type: docs
 weight: 20
@@ -12,10 +12,10 @@ keywords:
 - odstranit hypertextový odkaz
 - aktualizovat hypertextový odkaz
 - hypertextový odkaz v textu
-- hypertextový odkaz na snímek
-- hypertextový odkaz na tvar
-- hypertextový odkaz na obrázek
-- hypertextový odkaz na video
+- hypertextový odkaz na snímku
+- hypertextový odkaz na tvaru
+- hypertextový odkaz na obrázku
+- hypertextový odkaz na videu
 - mutabilní hypertextový odkaz
 - PowerPoint
 - OpenDocument
@@ -23,28 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Jednoduše spravujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python přes Java - zvyšte interaktivitu a efektivitu práce během několika minut."
+description: "Jednoduše spravujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python přes Java — zvyšte interaktivitu a efektivitu práce během minut."
 ---
 ## **Úvod**
 
-Hypertextový odkaz je reference na objekt, data nebo místo v něčem. Toto jsou běžné hypertextové odkazy v prezentacích PowerPoint:
+Hyperlink je odkaz na objekt, data nebo umístění. Běžné hypertextové odkazy v prezentacích PowerPoint zahrnují:
 
-* Odkazy na webové stránky v textech, tvarech nebo médiích
+* Odkazy na webové stránky v textu, tvarech nebo médiích
 * Odkazy na snímky
 
-Aspose.Slides for Python via Java umožňuje provádět mnoho úkolů souvisejících s hypertextovými odkazy v prezentacích. 
+Aspose.Slides pro Python přes Java vám umožňuje provádět mnoho úkolů souvisejících s hypertextovými odkazy v prezentacích. 
 
-{{% alert color="info" title="Poznámka" %}} 
-
-Možná budete chtít vyzkoušet jednoduchý, [zdarma online editor PowerPointu.](https://products.aspose.app/slides/cs/editor)
-
+{{% alert color="info" title="Note" %}} 
+Možná budete chtít vyzkoušet jednoduchý, [bezplatný online editor PowerPointu.](https://products.aspose.app/slides/cs/editor)
 {{% /alert %}} 
 
-## **Přidat hypertextové odkazy URL**
+## **Přidat URL hypertextové odkazy**
 
-### **Přidat hypertextové odkazy URL do textu**
+### **Přidat URL hypertextové odkazy do textu**
 
-Tento Python kód ukazuje, jak přidat hypertextový odkaz na webovou stránku do textu:
+Tento kód v Pythonu vám ukazuje, jak přidat hypertextový odkaz na webovou stránku do textu:
 
 ```python
 import jpype
@@ -70,9 +68,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Přidat hypertextové odkazy URL do tvarů nebo rámečků**
+### **Přidat URL hypertextové odkazy do tvarů nebo rámečků**
 
-Tento ukázkový kód v Python via Java ukazuje, jak přidat hypertextový odkaz na webovou stránku do tvaru:
+Tento ukázkový kód v Pythonu přes Java vám ukazuje, jak přidat hypertextový odkaz na webovou stránku do tvaru:
 
 ```python
 import jpype
@@ -95,18 +93,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Přidat hypertextové odkazy URL do médií**
+### **Přidat URL hypertextové odkazy k médiím**
 
-Aspose.Slides umožňuje přidávat hypertextové odkazy k obrázkům, audio‑ a video souborům. 
+Aspose.Slides vám umožňuje přidávat hypertextové odkazy na obrázky, zvukové a video soubory. 
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **obrázku**:
+Tento ukázkový kód vám ukazuje, jak přidat hypertextový odkaz k **obrázku**:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpade.startJVM()
 
 from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeType
 
@@ -118,7 +116,7 @@ try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # Vytvoří rámeček obrázku na snímku 1 na základě předchozího přidaného obrázku
+    # Vytvoří rámeček s obrázkem na snímku 1 na základě dříve přidaného obrázku
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -129,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **audio souboru**:
+Tento ukázkový kód vám ukazuje, jak přidat hypertextový odkaz k **zvukovému souboru**:
 
 ```python
 from pathlib import Path
@@ -157,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-Tento ukázkový kód ukazuje, jak přidat hypertextový odkaz k **videu**:
+Tento ukázkový kód vám ukazuje, jak přidat hypertextový odkaz k **videu**:
 
 ```python
 from pathlib import Path
@@ -186,16 +184,14 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}} 
-
-Můžete se podívat na *[Správa OLE](/slides/cs/python-java/manage-ole/)*.
-
+Možná budete chtít zobrazit *[Spravovat OLE](/slides/cs/python-java/manage-ole/)*.
 {{% /alert %}}
 
-## **Použití hypertextových odkazů k vytvoření obsahu**
+## **Použít hypertextové odkazy pro vytvoření obsahu**
 
-Protože hypertextové odkazy umožňují přidávat reference na objekty nebo místa, můžete je použít k vytvoření obsahu. 
+Protože hypertextové odkazy vám umožňují přidávat odkazy na objekty nebo místa, můžete je použít k vytvoření obsahu.
 
-Tento ukázkový kód ukazuje, jak vytvořit obsah s hypertextovými odkazy:
+Tento ukázkový kód vám ukazuje, jak vytvořit obsah s hypertextovými odkazy:
 
 ```python
 import jpype
@@ -235,13 +231,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Formátování hypertextových odkazů**
+## **Formátovat hypertextové odkazy**
 
 ### **Barva**
 
-Pomocí vlastnosti [Hyperlink.setColorSource](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setColorSource) ve třídě [Hyperlink](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/) můžete nastavit barvu hypertextových odkazů a také získat informaci o barvě z odkazů. Tato funkce byla poprvé představena v PowerPointu 2019, takže změny týkající se této vlastnosti se neuplatní na starší verze PowerPointu.
+Pomocí vlastnosti [Hyperlink.setColorSource](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setColorSource) ve třídě [Hyperlink](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/) můžete nastavit barvu hypertextových odkazů a také získat informaci o barvě z odkazů. Tato funkce byla poprvé představena v PowerPointu 2019, takže změny týkající se této vlastnosti se nepoužijí na starší verze PowerPointu.
 
-Tento ukázkový kód demonstruje operaci, při které byly na stejný snímek přidány hypertextové odkazy s různými barvami:
+Tento ukázkový kód demonstruje operaci, při které jsou na stejný snímek přidány hypertextové odkazy s různými barvami:
 
 ```python
 import jpype
@@ -273,11 +269,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Odstranění hypertextových odkazů z prezentací**
+## **Odstranit hypertextové odkazy z prezentací**
 
-### **Odstranění hypertextových odkazů z textu**
+### **Odstranit hypertextové odkazy z textu**
 
-Tento Python kód ukazuje, jak odstranit hypertextový odkaz z textu na snímku prezentace:
+Tento kód v Pythonu vám ukazuje, jak odstranit hypertextový odkaz z textu na snímku prezentace:
 
 ```python
 import jpype
@@ -304,9 +300,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Odstranění hypertextových odkazů z tvarů nebo rámečků**
+### **Odstranit hypertextové odkazy z tvarů nebo rámců**
 
-Tento Python kód ukazuje, jak odstranit hypertextový odkaz z tvaru na snímku prezentace: 
+Tento kód v Pythonu vám ukazuje, jak odstranit hypertextový odkaz z tvaru na snímku prezentace:
 
 ```python
 import jpype
@@ -329,7 +325,7 @@ finally:
 
 ## **Mutabilní hypertextový odkaz**
 
-Třída [Hyperlink](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/) je mutabilní. Pomocí této třídy můžete měnit hodnoty následujících vlastností:
+Třída [Hyperlink](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/) je mutabilní. Pomocí této třídy můžete měnit hodnoty těchto vlastností:
 
 - [setTargetFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -337,7 +333,7 @@ Třída [Hyperlink](https://reference.aspose.com/slides/cs/python-java/aspose.sl
 - [setHighlightClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-Úryvek kódu ukazuje, jak přidat hypertextový odkaz na snímek a později upravit jeho popisek:
+Ukázkový kód vám ukazuje, jak přidat hypertextový odkaz na snímek a později upravit jeho popisek:
 
 ```python
 import jpype
@@ -368,29 +364,29 @@ finally:
 
 ## **Podporované vlastnosti v HyperlinkQueries**
 
-K [HyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/) můžete přistupovat z prezentace, snímku nebo textového rámce, pro který je odkaz definován. 
+K [HyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/) můžete přistupovat z prezentace, snímku nebo textu, pro který je hypertextový odkaz definován. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-Třída [HyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/) podporuje následující metody a vlastnosti: 
+Třída [HyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/) podporuje tyto metody a vlastnosti: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
 - [getAnyHyperlinks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
 - [removeAllHyperlinks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jak mohu vytvořit interní navigaci nejen na snímek, ale i na „sekci“ nebo první snímek sekce?**
+**Jak mohu vytvořit vnitřní navigaci nejen na snímek, ale i na „sekci“ nebo první snímek sekce?**
 
-Sekce v PowerPointu jsou seskupení snímků; navigace technicky cílí na konkrétní snímek. Chcete‑li „navigovat do sekce“, obvykle odkazujete na její první snímek.
+Oddíly v PowerPointu jsou seskupení snímků; navigace technicky cílí na konkrétní snímek. Pro „navigaci k oddílu“ obvykle odkazujete na jeho první snímek.
 
-**Mohu připojit hypertextový odkaz k prvkům master snímku, aby fungoval na všech snímcích?**
+**Mohu připojit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?**
 
-Ano. Prvky master snímku a rozložení podporují hypertextové odkazy. Takové odkazy se zobrazí na podřízených snímcích a jsou klikatelné během prezentace.
+Ano. Prvky hlavního snímku a rozložení podporují hypertextové odkazy. Takové odkazy se objeví na podřízených snímcích a jsou klikatelné během prezentace.
 
 **Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
 
-V [PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/python-java/convert-powerpoint-to-html/) ano – odkazy jsou obecně zachovány. Při exportu do [obrázků](/slides/cs/python-java/convert-powerpoint-to-png/) a [video](/slides/cs/python-java/convert-powerpoint-to-video/) klikatelnost nepřetrvá, protože tyto formáty (rasterové snímky/video) hypertextové odkazy nepodporují.
+V [PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/python-java/convert-powerpoint-to-html/) ano — odkazy jsou obecně zachovány. Při exportu do [obrázků](/slides/cs/python-java/convert-powerpoint-to-png/) a [videí](/slides/cs/python-java/convert-powerpoint-to-video/) nebudou klikatelné, protože tyto formáty (rastrové snímky/video) hypertextové odkazy nepodporují.

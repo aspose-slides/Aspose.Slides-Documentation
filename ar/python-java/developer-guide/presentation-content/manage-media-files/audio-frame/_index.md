@@ -5,8 +5,8 @@ type: docs
 weight: 10
 url: /ar/python-java/audio-frame/
 keywords:
-- الصوت
-- إطار الصوت
+- صوت
+- إطار صوت
 - صورة مصغرة
 - إضافة صوت
 - خصائص الصوت
@@ -14,24 +14,24 @@ keywords:
 - استخراج الصوت
 - بايثون
 - Aspose.Slides
-description: "إنشاء والتحكم في إطارات الصوت في Aspose.Slides لـ بايثون عبر Java—أمثلة تعليمية لتضمين الصوت، قصه، تكراره، وتكوين التشغيل عبر عروض PPT و PPTX و ODP."
+description: "إنشاء والتحكم في إطارات الصوت في Aspose.Slides للبايثون عبر جافا — أمثلة على الشيفرة لتضمين، قص، تكرار، وتكوين تشغيل عبر عروض PPT و PPTX و ODP."
 ---
 ## **نظرة عامة**
 
-تشرح هذه المقالة كيفية العمل مع إطارات الصوت في Aspose.Slides. تُظهر كيفية إضافة صوت مدمج إلى الشرائح، تخصيص الصورة المصغرة لإطار الصوت، تكوين خيارات التشغيل مثل مستوى الصوت، التكرار، الإخفاء، القطع، ومدد التلاشي، واستخراج الصوت المستخدم في انتقالات عرض الشرائح.
+توضح هذه المقالة كيفية العمل مع إطارات الصوت في Aspose.Slides. تُظهر كيفية إضافة صوت مضمّن إلى الشرائح، وتخصيص صورة المصغّر لإطار الصوت، وتكوين خيارات التشغيل مثل مستوى الصوت، والتكرار، والإخفاء، والقص، ومدد التلاشي، واستخراج الصوت المستخدم في انتقالات عرض الشرائح.
 
 ## **إنشاء إطارات الصوت**
 
-تتيح لك Aspose.Slides for Python via Java إضافة ملفات صوتية إلى الشرائح. تُدمج ملفات الصوت في الشرائح كإطارات صوتية.
+Aspose.Slides for Python via Java يتيح لك إضافة ملفات صوتية إلى الشرائح. تُضمّن ملفات الصوت في الشرائح كإطارات صوتية.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/).
+2. الحصول على مرجع إلى شريحة بحسب فهرستها.
 3. قراءة ملف الصوت الذي تريد تضمينه في الشريحة.
-4. إضافة إطار الصوت المدمج (الذي يحتوي على ملف الصوت) إلى الشريحة.
-5. ضبط [setPlayMode](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setPlayMode) و[setVolume](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setVolume) المعروضين بواسطة كائن [AudioFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/) .
+4. إضافة إطار الصوت المضمّن (الذي يحتوي على ملف الصوت) إلى الشريحة.
+5. استخدام الأسلوبين [setPlayMode](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setPlayMode) و[setVolume](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setVolume) المتاحين عبر كائن [AudioFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/).
 6. حفظ العرض التقديمي المعدل.
 
-هذا الكود بايثون يوضح لك كيفية إضافة إطار صوت مدمج إلى شريحة:
+هذا الكود بلغة Python يُظهر لك كيفية إضافة إطار صوت مضمّن إلى شريحة:
 
 ```python
 from pathlib import Path
@@ -59,11 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **تغيير الصورة المصغرة لإطار الصوت**
+## **تغيير صورة المصغّر لإطار الصوت**
 
-عند إضافة ملف صوت إلى عرض تقديمي، يظهر الصوت كإطار بصورة افتراضية قياسية (انظر الصورة في القسم أدناه). يمكنك تغيير صورة المعاينة لإطار الصوت (تحديد الصورة المفضلة لديك).
+عند إضافة ملف صوتي إلى عرض تقديمي، يظهر الصوت كإطار بصورة افتراضية قياسية (انظر الصورة في القسم أدناه). يمكنك تغيير صورة معاينة إطار الصوت إلى صورة من اختيارك.
 
-هذا الكود بايثون يوضح لك كيفية تغيير الصورة المصغرة أو صورة المعاينة لإطار الصوت:
+هذا الكود بلغة Python يُظهر لك كيفية تغيير صورة المصغّر أو صورة المعاينة لإطار الصوت:
 
 ```python
 from pathlib import Path
@@ -98,13 +98,13 @@ finally:
 
 ## **تغيير خيارات تشغيل الصوت**
 
-تتيح لك Aspose.Slides for Python via Java تغيير الخيارات التي تتحكم في تشغيل الصوت أو خصائصه. على سبيل المثال، يمكنك تعديل مستوى صوت الصوت، ضبط تشغيل الصوت بتكرار، أو حتى إخفاء أيقونة الصوت.
+Aspose.Slides for Python via Java يتيح لك تعديل الخيارات التي تتحكم في تشغيل الصوت أو خصائصه. على سبيل المثال، يمكنك ضبط مستوى صوت الصوت، أو تعيين الصوت للتكرار، أو حتى إخفاء رمز الصوت.
 
 لوحة **Audio Options** في Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-خيارات **Audio Options** في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/) :
+**Audio Options** في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/):
 
 - **Start** قائمة منسدلة تتطابق مع طريقة [setPlayMode](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setPlayMode)
 - **Volume** تتطابق مع طريقة [setVolume](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setVolume)
@@ -113,22 +113,22 @@ finally:
 - **Hide During Show** تتطابق مع طريقة [setHideAtShowing](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setHideAtShowing)
 - **Rewind after Playing** تتطابق مع طريقة [setRewindAudio](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setRewindAudio)
 
-خيارات **Editing** في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/) :
+خيارات **Editing** في PowerPoint التي تتطابق مع خصائص Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/):
 
 - **Fade In** تتطابق مع طريقة [setFadeInDuration](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setFadeInDuration)
 - **Fade Out** تتطابق مع طريقة [setFadeOutDuration](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setFadeOutDuration)
 - **Trim Audio Start Time** تتطابق مع طريقة [setTrimFromStart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setTrimFromStart)
-- **Trim Audio End Time** القيمة تساوي مدة الصوت مطروحاً منها قيمة طريقة [setTrimFromEnd](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setTrimFromEnd)
+- **Trim Audio End Time** القيمة تساوي مدة الصوت مطروحاً منها القيمة المحددة بواسطة طريقة [setTrimFromEnd](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setTrimFromEnd)
 
-تحكم **Volume** في PowerPoint على لوحة تحكم الصوت يتطابق مع طريقة [setVolumeValue](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setVolumeValue) . يتيح لك تغيير مستوى الصوت كنسبة مئوية.
+تحكم **Volume** في PowerPoint على لوحة تحكم الصوت يتطابق مع طريقة [setVolumeValue](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setVolumeValue). يسمح لك بتغيير مستوى الصوت كنسبة مئوية.
 
-إليك خطوات تغيير خيارات تشغيل الصوت:
+هذا هو كيفية تغيير خيارات تشغيل الصوت:
 
-1. [إنشاء](#create-audio-frames) أو الحصول على إطار الصوت.
-2. ضبط القيم الجديدة لخصائص إطار الصوت التي تريد تعديلها.
+1. [Create](#create-audio-frames) أو الحصول على إطار الصوت.
+2. تعيين قيم جديدة لخصائص إطار الصوت التي تريد تعديلها.
 3. حفظ ملف PowerPoint المعدل.
 
-هذا الكود بايثون يوضح عملية تعديل خيارات الصوت:
+هذا الكود بلغة Python يُظهر عملية تعديل خيارات الصوت:
 
 ```python
 import jpype
@@ -143,12 +143,12 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # تشغيل عند النقر بحجم منخفض، عبر الشرائح، بدون تكرار.
+        # تشغيل عند النقر بحجم صوت منخفض، عبر الشرائح، دون تكرار.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # إخفاء الإطار أثناء عرض الشرائح وإعادة التدوير بعد التشغيل.
+        # إخفاء الإطار أثناء عرض الشرائح وإعادة الرجوع بعد التشغيل.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
@@ -158,7 +158,7 @@ finally:
     presentation.dispose()
 ```
 
-هذا المثال بايثون يوضح كيفية إضافة إطار صوت جديد مع صوت مدمج، قصه، وضبط مدد التلاشي:
+هذا المثال في Python يُظهر كيفية إضافة إطار صوت جديد مضمّن، قصه، وتعيين مدد التلاشي:
 
 ```python
 from pathlib import Path
@@ -179,10 +179,10 @@ try:
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # قص 1.5 ثانية من البداية و2 ثانية من النهاية.
+    # قص 1.5 ثانية من البداية و 2 ثانية من النهاية.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # ضبط التلاشي التدريجي إلى 200 مللي ثانية و التلاشي الخارج إلى 500 مللي ثانية.
+    # اضبط التلاشي الافتتاحي إلى 200 مللي ثانية والتلاشي الختامي إلى 500 مللي ثانية.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
@@ -190,7 +190,7 @@ finally:
     presentation.dispose()
 ```
 
-العينة البرمجية التالية توضح كيفية استرجاع إطار صوت مدمج وضبط مستوى صوته إلى 85%:
+العينة البرمجية التالية تُظهر كيفية استرجاع إطار صوت مضمّن وتعيين مستوى صوته إلى 85%:
 
 ```python
 import jpype
@@ -214,13 +214,13 @@ finally:
     presentation.dispose()
 ```
 
-## **إدارة توضيحات الصوت**
+## **إدارة تسميات الصوت**
 
-تتيح لك Aspose.Slides إضافة توضيحات مغلقة إلى إطار الصوت عبر الطريقة [getCaptionTracks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#getCaptionTracks) . تُرجع هذه الطريقة مجموعة [CaptionsCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/)، مما يتيح لك إضافة مسارات توضيحات WebVTT، التكرار عبر المسارات الموجودة، وإزالتها عند الحاجة.
+Aspose.Slides يتيح لك إضافة تسميات نصية مغلقة إلى إطار صوت عبر طريقة [getCaptionTracks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#getCaptionTracks). تُرجع هذه الطريقة كائنًا من نوع [CaptionsCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/)، والذي يتيح لك إضافة مسارات تسميات WebVTT، والت iterating عبر المسارات الموجودة، وإزالتها عند الحاجة.
 
-**إضافة توضيحات صوتية**
+**إضافة تسميات صوتية**
 
-استخدم الطريقة [getCaptionTracks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#getCaptionTracks) لإرفاق مسار توضيح واحد أو أكثر بإطار الصوت. في المثال التالي يُضاف ملف صوت إلى شريحة، ثم يتم تحميل مسار توضيح جديد من ملف `.vtt` .
+استخدم طريقة [getCaptionTracks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#getCaptionTracks) لإرفاق مسار أو أكثر من مسارات التسمية إلى إطار صوت. في المثال التالي، يُضاف ملف صوت إلى شريحة، ثم يتم تحميل مسار تسمية جديد من ملف `.vtt`.
 
 ```python
 from pathlib import Path
@@ -241,16 +241,15 @@ try:
     slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # إضافة مسار توضيح جديد من ملف WebVTT.
-    audio_frame.getCaptionTracks().add("New track", "track.vtt")
+    # أضف مسار تسمية توضيحية جديد من ملف WebVTT.
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**استخراج توضيحات صوتية**
+**استخراج تسميات صوتية**
 
-يمكنك التكرار عبر مسارات التوضيح المرتبطة بإطار الصوت وحفظها كملفات `.vtt`. كل مسار توضيح يكشف عن بياناته الثنائية ومعرفه الفريد، مما يمكن استخدامه عند تصدير التوضيحات.
+يمكنك iterating خلال مسارات التسمية المرتبطة بإطار صوت وحفظها كملفات `.vtt`. كل مسار تسمية يُظهر بياناته الثنائية ومعرفه الفريد، والذي يمكن استخدامه عند تصدير التسميات.
 
 ```python
 from pathlib import Path
@@ -269,7 +268,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
-                # احفظ مسار التوضيح كملف .vtt.
+                # احفظ مسار التسمية كملف .vtt.
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -277,9 +276,9 @@ finally:
     presentation.dispose()
 ```
 
-**إزالة توضيحات صوتية**
+**إزالة تسميات صوتية**
 
-لإزالة التوضيحات من إطار الصوت، استخدم الطرق المتوفرة في [CaptionsCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/)، مثل [clear](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#clear)، [remove](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#remove)، أو [removeAt](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#removeAt). المثال التالي يزيل جميع مسارات التوضيح من إطار الصوت.
+لإزالة التسميات من إطار صوت، استخدم الأساليب المقدمة من [CaptionsCollection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/)، مثل [clear](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#clear)، [remove](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#remove)، أو [removeAt](https://reference.aspose.com/slides/ar/python-java/aspose.slides/captionscollection/#removeAt). المثال التالي يزيل جميع مسارات التسمية من إطار صوت.
 
 ```python
 import jpype
@@ -305,14 +304,14 @@ finally:
 
 ## **استخراج الصوت**
 
-تتيح لك Aspose.Slides for Python via Java استخراج الصوت المستخدم في انتقالات عرض الشرائح. على سبيل المثال، يمكنك استخراج الصوت المستخدم في شريحة معينة.
+Aspose.Slides for Python via Java يتيح لك استخراج الصوت المستخدم في انتقالات عرض الشرائح. على سبيل المثال، يمكنك استخراج الصوت المستخدم في شريحة معينة.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) وتحميل العرض التقديمي الذي يحتوي على الصوت.
-2. الحصول على مرجع الشريحة ذات الصلة من خلال فهرسها.
-3. الوصول إلى [slideshow transitions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/baseslide/#getSlideShowTransition) للشريحة.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) وتحميل العرض التقديمي الذي يحتوي على الصوت.
+2. الحصول على مرجع إلى الشريحة ذات الصلة بحسب فهرستها.
+3. الوصول إلى [slideshow transitions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/baseslide/#getSlideShowTransition) لتلك الشريحة.
 4. استخراج الصوت كبيانات بايت.
 
-هذا الكود بايثون يوضح لك كيفية استخراج الصوت المستخدم في شريحة:
+هذا الكود في Python يُظهر لك كيفية استخراج الصوت المستخدم في شريحة:
 
 ```python
 import jpype
@@ -337,16 +336,16 @@ finally:
     presentation.dispose()
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **هل يمكنني إعادة استخدام نفس ملف الصوت عبر عدة شرائح دون زيادة حجم الملف؟**
 
-نعم. أضف الصوت مرة واحدة إلى [audio collection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getAudios) المشترك في العرض التقديمي وأنشئ إطارات صوت إضافية تشير إلى هذا الأصل الموجود. هذا يمنع تكرار بيانات الوسائط ويحافظ على حجم العرض تحت السيطرة.
+نعم. أضف الصوت مرة واحدة إلى [audio collection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getAudios) المشترك في العرض التقديمي وأنشئ إطارات صوت إضافية تشير إلى هذا الأصل الموجود. هذا يمنع تكرار بيانات الوسائط ويحافظ على حجم العرض التقديمي تحت السيطرة.
 
 **هل يمكنني استبدال الصوت في إطار صوت موجود دون إعادة إنشاء الشكل؟**
 
-نعم. بالنسبة للصوت المرتبط، حدّث [link path](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setLinkPathLong) للإشارة إلى الملف الجديد. بالنسبة للصوت المدمج، استبدل كائن [embedded audio](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setEmbeddedAudio) بآخر من [audio collection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getAudios) الخاص بالعرض. يظل تنسيق الإطار ومعظم إعدادات التشغيل كما هي.
+نعم. بالنسبة إلى صوت مرتبط، حدّث [link path](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setLinkPathLong) للإشارة إلى الملف الجديد. بالنسبة إلى صوت مضمّن، استبدل كائن [embedded audio](https://reference.aspose.com/slides/ar/python-java/aspose.slides/audioframe/#setEmbeddedAudio) بآخر من [audio collection](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getAudios) في العرض التقديمي. يظل تنسيق الإطار ومعظم إعدادات التشغيل دون تغيير.
 
-**هل يغيّر القطع البيانات الصوتية الأساسية المخزنة في العرض؟**
+**هل يغيّر القص البيانات الصوتية الأساسية المخزنة في العرض التقديمي؟**
 
-لا. يقتصر القطع على تعديل حدود التشغيل فقط. تظل بايتات الصوت الأصلية كما هي ويمكن الوصول إليها عبر الصوت المدمج أو مجموعة الصوت في العرض.
+لا. القص يضبط حدود التشغيل فقط. تبقى بايتات الصوت الأصلية دون تعديل وتستطيع الوصول إليها عبر الصوت المضمّن أو مجموعة الصوت في العرض التقديمي.

@@ -6,47 +6,47 @@ weight: 30
 url: /th/python-java/manage-autofit-settings/
 keywords:
 - กล่องข้อความ
-- autofit
-- ไม่ทำการปรับอัตโนมัติ
-- พอดีข้อความ
+- Autofit
+- ไม่ทำ Autofit
+- ปรับข้อความให้พอดี
 - ย่อข้อความ
-- ตัดข้อความ
-- ปรับขนาดรูป
+- ห่อข้อความ
+- ปรับขนาดรูปทรง
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการการตั้งค่า AutoFit ใน Aspose.Slides สำหรับ Python ผ่าน Java เพื่อปรับแต่งการแสดงข้อความในงานนำเสนอ PowerPoint และ OpenDocument ของคุณและเพิ่มความอ่านง่ายของเนื้อหา"
+description: "เรียนรู้วิธีจัดการการตั้งค่า AutoFit ใน Aspose.Slides สำหรับ Python ผ่าน Java เพื่อเพิ่มประสิทธิภาพการแสดงผลข้อความในงานนำเสนอ PowerPoint และ OpenDocument ของคุณและปรับปรุงการอ่านข้อความของเนื้อหา"
 ---
-## **คำนำ**
+## **บทนำ**
 
-โดยค่าเริ่มต้นเมื่อคุณเพิ่มกล่องข้อความ Microsoft PowerPoint จะใช้การตั้งค่า **Resize shape to fix text** สำหรับกล่องข้อความ—โดยอัตโนมัติปรับขนาดกล่องข้อความเพื่อให้ข้อความของมันพอดีเสมอ
+โดยค่าเริ่มต้นเมื่อคุณเพิ่มกล่องข้อความ Microsoft PowerPoint จะใช้การตั้งค่า **Resize shape to fit text** สำหรับกล่องข้อความ — มันจะปรับขนาดกล่องข้อความโดยอัตโนมัติเพื่อให้ข้อความอยู่ภายในกล่องเสมอ
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+![กล่องข้อความใน PowerPoint](textbox-in-powerpoint.png)
 
-* เมื่อข้อความในกล่องข้อความยาวหรือใหญ่ขึ้น PowerPoint จะขยายกล่องข้อความโดยเพิ่มความสูงเพื่อให้บรรจุข้อความได้มากขึ้น  
-* เมื่อข้อความในกล่องข้อความสั้นหรือเล็กลง PowerPoint จะลดขนาดกล่องข้อความโดยลดความสูงเพื่อกำจัดพื้นที่ว่างที่ไม่จำเป็น  
+* เมื่อข้อความในกล่องข้อความยาวขึ้นหรือใหญ่ขึ้น PowerPoint จะขยายกล่องข้อความโดยเพิ่มความสูงเพื่อให้สามารถใส่ข้อความได้มากขึ้น  
+* เมื่อข้อความในกล่องข้อความสั้นลงหรือเล็กลง PowerPoint จะลดขนาดกล่องข้อความโดยลดความสูงเพื่อกำจัดพื้นที่ว่างส่วนเกิน
 
-ใน PowerPoint มีพารามิเตอร์หรือ 옵션สำคัญ 4 อย่างที่ควบคุมพฤติกรรม Autofit ของกล่องข้อความ:
+ใน PowerPoint มี 4 พารามิเตอร์หรือทางเลือกสำคัญที่ควบคุมพฤติกรรม autofit ของกล่องข้อความ:
 
-* **ไม่ทำ Autofit**
-* **ย่อข้อความเมื่อเกินขนาด**
-* **ปรับขนาดรูปให้พอดีข้อความ**
-* **ตัดข้อความในรูป**
+* **Do not Autofit**
+* **Shrink text on overflow**
+* **Resize shape to fit text**
+* **Wrap text in shape.**
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+![ตัวเลือก autofit ใน PowerPoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Python via Java ให้ตัวเลือกคล้ายกัน—บางคุณสมบัติภายใต้คลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)—ที่ช่วยให้คุณควบคุมพฤติกรรม Autofit ของกล่องข้อความในงานนำเสนอ
+Aspose.Slides for Python via Java มีตัวเลือกคล้ายกัน — คุณสมบัติบางส่วนในคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/) — ที่ให้คุณควบคุมพฤติกรรม autofit ของกล่องข้อความในงานนำเสนอ
 
-## **ปรับขนาดรูปให้พอดีข้อความ**
+## **Resize a Shape to Fit Text**
 
-หากคุณต้องการให้ข้อความในกล่องพอดีกับกล่องเสมอหลังจากมีการเปลี่ยนแปลงข้อความ คุณต้องใช้ตัวเลือก **Resize shape to fix text** เพื่อกำหนดการตั้งค่านี้ ให้ใช้เมธอด [setAutofitType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setAutofitType) (จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)) พร้อมกับ [Shape](https://reference.aspose.com/slides/th/python-java/aspose.slides/textautofittype/#Shape)
+หากคุณต้องการให้ข้อความในกล่องพอดีเสมอหลังจากมีการเปลี่ยนแปลงข้อความ คุณต้องใช้ตัวเลือก **Resize shape to fit text** ระบุการตั้งค่านี้ด้วยวิธี [setAutofitType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setAutofitType) (จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)) พร้อมค่าพารามิเตอร์ [Shape](https://reference.aspose.com/slides/th/python-java/aspose.slides/textautofittype/#Shape)
 
-![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
+![การตั้งค่า alwaysfit ใน PowerPoint](alwaysfit-setting-powerpoint.png)
 
-This Python code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
+โค้ด Python นี้แสดงวิธีกำหนดให้ข้อความต้องพอดีกับกล่องเสมอในงานนำเสนอ PowerPoint:
 
 ```python
 import jpype
@@ -76,15 +76,15 @@ finally:
     presentation.dispose()
 ```
 
-หากข้อความยาวหรือใหญ่ขึ้น กล่องข้อความจะถูกปรับขนาดโดยอัตโนมัติ (เพิ่มความสูง) เพื่อให้ข้อความทั้งหมดพอดี หากข้อความสั้นลง จะดำเนินการในทางตรงกันข้าม
+หากข้อความยาวหรือใหญ่ขึ้น กล่องข้อความจะปรับขนาดโดยอัตโนมัติ (เพิ่มความสูง) เพื่อให้ข้อความทั้งหมดพอดี หากข้อความสั้นลง จะเกิดการย้อนกลับ
 
-## **ไม่ทำ Autofit**
+## **Do Not Autofit**
 
-หากคุณต้องการให้กล่องข้อความหรือรูปคงขนาดเดิมไม่ว่าเนื้อความจะเปลี่ยนแปลงอย่างไร คุณต้องใช้ตัวเลือก **Do not Autofit** เพื่อกำหนดการตั้งค่านี้ ให้ใช้เมธอด [setAutofitType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setAutofitType) (จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)) พร้อมกับ [None](https://reference.aspose.com/slides/th/python-java/aspose.slides/textautofittype/#None)
+หากคุณต้องการให้กล่องข้อความหรือรูปร่างคงขนาดเดิมไม่ว่าข้อความในนั้นจะเปลี่ยนแปลงอย่างไร คุณต้องใช้ตัวเลือก **Do not Autofit** ระบุการตั้งค่านี้ด้วยวิธี [setAutofitType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setAutofitType) (จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)) พร้อมค่าพารามิเตอร์ [None](https://reference.aspose.com/slides/th/python-java/aspose.slides/textautofittype/#None)
 
-![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
+![การตั้งค่า donotautofit ใน PowerPoint](donotautofit-setting-powerpoint.png)
 
-This Python code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
+โค้ด Python นี้แสดงวิธีกำหนดให้กล่องข้อความคงขนาดเดิมในงานนำเสนอ PowerPoint:
 
 ```python
 import jpype
@@ -107,22 +107,22 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setAutofitType(TextAutofitType.None)
+    text_frame_format.setAutofitType(TextAutofitType.None_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-เมื่อข้อความยาวเกินขนาดของกล่อง จะเกิดการล้นออกนอกกล่อง
+เมื่อข้อความยาวเกินขนาดกล่อง มันจะล้นออกมานอกกล่อง
 
-## **ย่อข้อความเมื่อเกินขนาด**
+## **Shrink Text on Overflow**
 
-หากข้อความยาวเกินขนาดของกล่อง คุณสามารถใช้ตัวเลือก **Shrink text on overflow** เพื่อกำหนดให้ขนาดและระยะห่างของข้อความถูกลดลงให้พอดีกล่องได้ โดยใช้เมธอด [setAutofitType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setAutofitType) (จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)) พร้อมกับ [Normal](https://reference.aspose.com/slides/th/python-java/aspose.slides/textautofittype/#Normal)
+หากข้อความยาวเกินขนาดกล่อง คุณสามารถใช้ตัวเลือก **Shrink text on overflow** เพื่อกำหนดให้ขนาดและระยะห่างของข้อความถูกลดลงเพื่อให้พอดีกับกล่อง ระบุการตั้งค่านี้ด้วยวิธี [setAutofitType](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setAutofitType) (จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)) พร้อมค่าพารามิเตอร์ [Normal](https://reference.aspose.com/slides/th/python-java/aspose.slides/textautofittype/#Normal)
 
-![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
+![การตั้งค่า shrinktextonoverflow ใน PowerPoint](shrinktextonoverflow-setting-powerpoint.png)
 
-This Python code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
+โค้ด Python นี้แสดงวิธีกำหนดให้ข้อความต้องหดลงเมื่อเกิด overflow ในงานนำเสนอ PowerPoint:
 
 ```python
 import jpype
@@ -152,15 +152,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert title="หมายเหตุ" color="info" %}}
-เมื่อใช้ตัวเลือก **Shrink text on overflow** การตั้งค่านี้จะถูกนำไปใช้เฉพาะเมื่อข้อความยาวเกินขนาดของกล่องเท่านั้น
+{{% alert title="Note" color="info" %}}
+เมื่อใช้ตัวเลือก **Shrink text on overflow** การตั้งค่าจะถูกนำไปใช้เฉพาะเมื่ข้อความยาวเกินขนาดกล่องเท่านั้น
 {{% /alert %}}
 
-## **ตัดข้อความในรูป**
+## **Wrap Text**
 
-หากต้องการให้ข้อความในรูปตัดบรรทัดภายในรูปเมื่อข้อความเกินขอบความกว้างของรูป (เฉพาะความกว้าง) คุณต้องใช้พารามิเตอร์ **Wrap text in shape** โดยใช้เมธอด [setWrapText](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setWrapText) (จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)) พร้อมกับ [NullableBool.True](https://reference.aspose.com/slides/th/python-java/aspose.slides/nullablebool/#True)
+หากคุณต้องการให้ข้อความในรูปร่างห่อหุ้มภายในรูปร่างเมื่อข้อความเกินขอบเขตของรูปร่าง (เฉพาะความกว้าง) คุณต้องใช้พารามิเตอร์ **Wrap text in shape** ระบุการตั้งค่านี้ด้วยวิธี [setWrapText](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setWrapText) (จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/)) พร้อมค่าพารามิเตอร์ [NullableBool.True_](https://reference.aspose.com/slides/th/python-java/aspose.slides/nullablebool/#True)
 
-This Python code shows you how to use the Wrap Text setting in a PowerPoint presentation:
+โค้ด Python นี้แสดงวิธีใช้การตั้งค่า Wrap Text ในงานนำเสนอ PowerPoint:
 
 ```python
 import jpype
@@ -183,24 +183,27 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setWrapText(NullableBool.True)
+    text_frame_format.setWrapText(NullableBool.True_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-{{% alert title="คำเตือน" color="warning" %}}
-หากคุณใช้เมธอด [setWrapText](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setWrapText) พร้อมกับ [NullableBool.False](https://reference.aspose.com/slides/th/python-java/aspose.slides/nullablebool/#False) สำหรับรูปหนึ่ง เมื่อข้อความภายในรูปยาวเกินความกว้างของรูป ข้อความจะลำดับต่อเนื่องออกไปนอกขอบของรูปในบรรทัดเดียว
+{{% alert title="Warning" color="warning" %}} 
+หากคุณใช้วิธี [setWrapText](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframeformat/#setWrapText) พร้อมค่าพารามิเตอร์ [NullableBool.False](https://reference.aspose.com/slides/th/python-java/aspose.slides/nullablebool/#False) สำหรับรูปแบบใดรูปแบบหนึ่ง เมื่อข้อความภายในรูปร่างยาวกว่าความกว้างของรูปร่าง ข้อความจะล้นออกมานอกขอบเขตของรูปร่างในบรรทัดเดียว
 {{% /alert %}}
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ขนาดขอบด้านในของกรอบข้อความส่งผลต่อ AutoFit หรือไม่?**  
-ใช่ การเพิ่ม Padding (ขอบด้านใน) จะลดพื้นที่ใช้ได้สำหรับข้อความ ดังนั้น AutoFit จะทำงานเร็วขึ้นโดยการย่อฟอนต์หรือปรับขนาดรูปก่อน
+**Do the text frame’s internal margins affect AutoFit?**
 
-**AutoFit ทำงานร่วมกับการแทรกบรรทัดใหม่แบบแมนนวลและแบบอ่อนอย่างไร?**  
-บรรทัดใหม่ที่บังคับไว้จะคงอยู่ และ AutoFit จะปรับขนาดฟอนต์และระยะห่างให้เหมาะกับตำแหน่งนั้น ๆ การลบบรรทัดใหม่ที่ไม่จำเป็นมักช่วยลดการย่อข้อความของ AutoFit ได้
+ใช่ ระยะห่างภายใน (padding) ลดพื้นที่ใช้ได้สำหรับข้อความ ดังนั้น AutoFit จะทำงานเร็วขึ้นโดยการหดขนาดฟอนต์หรือปรับขนาดรูปร่างเร็วขึ้น ตรวจสอบและปรับระยะห่างก่อนทำการปรับ AutoFit
 
-**การเปลี่ยนฟอนต์ของธีมหรือการทำ substitution ฟอนต์มีผลต่อผลลัพธ์ของ AutoFit หรือไม่?**  
-ใช่ การเปลี่ยนเป็นฟอนต์ที่มีเมตริกซ์ต่างกันจะเปลี่ยนความกว้าง/ความสูงของข้อความ ซึ่งอาจทำให้ขนาดฟอนต์สุดท้ายหรือการตัดบรรทัดเปลี่ยนไป หลังจากเปลี่ยนฟอนต์หรือทำ substitution ควรตรวจสอบสไลด์อีกครั้ง
+**How does AutoFit interact with manual and soft line breaks?**
+
+การแบ่งบรรทัดที่บังคับไว้จะคงอยู่และ AutoFit จะปรับขนาดฟอนต์และระยะห่างรอบ ๆ การแบ่งบรรทัดนั้น การลบการแบ่งบรรทัดที่ไม่จำเป็นมักช่วยลดการหดขนาดข้อความของ AutoFit
+
+**Does changing the theme font or triggering font substitution affect AutoFit results?**
+
+ใช่ การแทนที่ฟอนต์ด้วยฟอนต์ที่มีเมตริกซ์ glyph ต่างกันจะเปลี่ยนความกว้าง/สูงของข้อความ ซึ่งอาจทำให้ขนาดฟอนต์สุดท้ายและการห่อบรรทัดเปลี่ยนแปลง หลังจากเปลี่ยนฟอนต์หรือทำการแทนที่ฟอนต์ ควรตรวจสอบสไลด์อีกครั้ง

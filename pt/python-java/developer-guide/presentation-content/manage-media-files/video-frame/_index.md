@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Quadros de Vídeo em Apresentações Usando Python
-linktitle: Quadro de Vídeo
+title: Gerenciar quadros de vídeo em apresentações usando Python
+linktitle: Quadro de vídeo
 type: docs
 weight: 10
 url: /pt/python-java/video-frame/
@@ -17,30 +17,28 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Aprenda a adicionar e extrair programaticamente quadros de vídeo em slides PowerPoint e OpenDocument usando Aspose.Slides para Python via Java. Guia rápido passo a passo."
+description: "Aprenda a adicionar e extrair programaticamente quadros de vídeo em slides PowerPoint e OpenDocument usando Aspose.Slides para Python via Java. Guia prático rápido."
 ---
 ## **Introdução**
 
-Um vídeo bem posicionado em uma apresentação pode tornar sua mensagem mais atraente e aumentar os níveis de engajamento com seu público.
+Um vídeo bem posicionado em uma apresentação pode tornar sua mensagem mais persuasiva e aumentar os níveis de engajamento com o público.
 
 O PowerPoint permite que você adicione vídeos a um slide em uma apresentação de duas maneiras:
 
-* Adicionar ou incorporar um vídeo local (armazenado em sua máquina)
+* Adicionar ou incorporar um vídeo local (armazenado na sua máquina)
 * Adicionar um vídeo online (de uma fonte web como o YouTube).
 
 Para permitir que você adicione vídeos (objetos de vídeo) a uma apresentação, o Aspose.Slides fornece a classe [Video](https://reference.aspose.com/slides/pt/python-java/aspose.slides/video/) , a classe [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) e outros tipos relevantes.
 
-## **Criar Quadros de Vídeo Incorporados**
+## **Criar quadros de vídeo incorporados**
 
-Se o arquivo de vídeo que você deseja adicionar ao seu slide estiver armazenado localmente, você pode criar um quadro de vídeo para incorporar o vídeo em sua apresentação.
+Se o arquivo de vídeo que você deseja adicionar ao seu slide estiver armazenado localmente, você pode criar um quadro de vídeo para incorporar o vídeo na sua apresentação.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) .
-2. Obtenha a referência de um slide através de seu índice.
-3. Adicione um objeto [Video](https://reference.aspose.com/slides/pt/python-java/aspose.slides/video/) e passe os dados do arquivo de vídeo para incorporar o vídeo na apresentação.
-4. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) para criar um quadro para o vídeo.
-5. Salve a apresentação modificada.
-
-Este código Python mostra como adicionar um vídeo armazenado localmente a uma apresentação:
+1. Obtenha uma referência a um slide pelo seu índice.
+1. Adicione um objeto [Video](https://reference.aspose.com/slides/pt/python-java/aspose.slides/video/) e passe os dados do arquivo de vídeo para incorporar o vídeo na apresentação.
+1. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) para criar um quadro para o vídeo.
+1. Salve a apresentação modificada.
 
 ```python
 from pathlib import Path
@@ -64,7 +62,7 @@ finally:
     presentation.dispose()
 ```
 
-Alternativamente, você pode adicionar um vídeo passando seu caminho de arquivo diretamente ao método [addVideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapecollection/#addVideoFrame) :
+Alternativamente, você pode adicionar um vídeo passando seu caminho de arquivo diretamente para o método [addVideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapecollection/#addVideoFrame) :
 
 ```python
 import jpype
@@ -83,17 +81,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Criar Quadros de Vídeo com Vídeo de Fontes Web**
+## **Criar quadros de vídeo com vídeo de fontes web**
 
-O Microsoft [PowerPoint 2013 e posteriores](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) suportam vídeos do YouTube em apresentações. Se o vídeo que você deseja usar estiver disponível online (por exemplo, no YouTube), você pode adicioná-lo à sua apresentação através do link da web.
+O Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) oferece suporte a vídeos do YouTube em apresentações. Se o vídeo que você deseja usar estiver disponível online (por exemplo, no YouTube), você pode adicioná‑lo à sua apresentação por meio do seu link web.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) .
-2. Obtenha a referência de um slide através de seu índice.
-3. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) e passe o link para o vídeo.
-4. Defina uma miniatura para o quadro de vídeo.
-5. Salve a apresentação.
-
-Este código Python mostra como adicionar um vídeo da web a um slide em uma apresentação do PowerPoint:
+1. Obtenha uma referência a um slide pelo seu índice.
+1. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) e passe o link para o vídeo.
+1. Defina uma miniatura para o quadro de vídeo.
+1. Salve a apresentação.
 
 ```python
 from urllib.request import urlopen
@@ -128,21 +124,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Aparar um Quadro de Vídeo**
+## **Cortar um quadro de vídeo**
 
-O Aspose.Slides permite controlar qual parte de um vídeo é reproduzida definindo os valores trim-from-start e trim-from-end através de [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setTrimFromStart) e [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setTrimFromEnd). Ambos os valores são especificados em milissegundos e definem quanto tempo é pulado do início e do final do vídeo, respectivamente. Essas configurações alteram as configurações de reprodução do vídeo na apresentação; elas não cortam nem modificam de outra forma os dados binários do vídeo incorporado.
+Aspose.Slides permite que você controle qual parte de um vídeo é reproduzida definindo os valores trim‑from‑start e trim‑from‑end através de [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setTrimFromStart) e [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setTrimFromEnd). Ambos os valores são especificados em milissegundos e definem quanto tempo é pulado do início e do fim do vídeo, respectivamente. Essas configurações alteram as propriedades de reprodução do vídeo na apresentação; elas não cortam nem modificam os dados binários do vídeo incorporado.
 
-**Definir Configurações de Aparagem**
+**Definir configurações de corte**
 
-Para criar um quadro de vídeo e definir suas configurações de aparagem:
+Para criar um quadro de vídeo e definir suas configurações de corte:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) .
-2. Adicione um objeto [Video](https://reference.aspose.com/slides/pt/python-java/aspose.slides/video/) à apresentação.
-3. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) a um slide.
-4. Defina os valores trim-from-start e trim-from-end através de [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setTrimFromStart) e [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setTrimFromEnd) .
-5. Salve a apresentação modificada.
-
-O exemplo de código a seguir pula os primeiros 2,5 segundos e o último segundo de um vídeo incorporado durante a reprodução:
+1. Adicione um objeto [Video](https://reference.aspose.com/slides/pt/python-java/aspose.slides/video/) à apresentação.
+1. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) a um slide.
+1. Defina os valores trim‑from‑start e trim‑from‑end através de [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setTrimFromStart) e [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setTrimFromEnd) .
+1. Salve a apresentação modificada.
 
 ```python
 from pathlib import Path
@@ -170,11 +164,9 @@ finally:
     presentation.dispose()
 ```
 
-**Ler Configurações de Aparagem**
+**Ler configurações de corte**
 
-Para inspecionar as configurações de aparagem existentes, carregue uma apresentação, encontre um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) entre as formas no primeiro slide e leia os valores através de [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#getTrimFromStart) e [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#getTrimFromEnd) .
-
-O exemplo de código a seguir encontra o primeiro quadro de vídeo no primeiro slide e relata suas configurações de aparagem em milissegundos:
+Para inspecionar as configurações de corte existentes, carregue uma apresentação, encontre um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) entre as formas do primeiro slide e leia os valores através de [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#getTrimFromStart) e [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#getTrimFromEnd) .
 
 ```python
 import jpype
@@ -199,19 +191,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Gerenciar Legendas de Vídeo**
+## **Gerenciar legendas de vídeo**
 
-O Aspose.Slides permite que você gerencie legendas fechadas para quadros de vídeo em apresentações do PowerPoint. As legendas são armazenadas no formato WebVTT e são expostas através do método [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#getCaptionTracks) .
+Aspose.Slides permite que você gerencie legendas ocultas para quadros de vídeo em apresentações do PowerPoint. As legendas são armazenadas no formato WebVTT e são expostas através do método [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#getCaptionTracks) .
 
-**Adicionar Legendas a um Quadro de Vídeo**
+**Adicionar legendas a um quadro de vídeo**
+
+Para adicionar legendas a um quadro de vídeo:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) .
-2. Adicione um vídeo à apresentação.
-3. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) a um slide.
-4. Use a [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/) retornada por [getCaptionTracks](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#getCaptionTracks) para adicionar uma faixa de legendas WebVTT.
-5. Salve a apresentação modificada.
-
-O código a seguir mostra como adicionar legendas a um quadro de vídeo:
+1. Adicione um vídeo à apresentação.
+1. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) a um slide.
+1. Use a [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/) retornada por [getCaptionTracks](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#getCaptionTracks) para adicionar uma faixa de legenda WebVTT.
+1. Salve a apresentação modificada.
 
 ```python
 from pathlib import Path
@@ -239,16 +231,16 @@ finally:
     presentation.dispose()
 ```
 
-A classe [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/) também fornece uma sobrecarga que permite adicionar legendas a partir de um stream.
+A classe [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/) também oferece uma sobrecarga que permite adicionar legendas a partir de um fluxo.
 
-**Extrair Legendas de um Quadro de Vídeo**
+**Extrair legendas de um quadro de vídeo**
+
+Para extrair legendas de um quadro de vídeo:
 
 1. Carregue a apresentação que contém o vídeo.
-2. Encontre o objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) alvo.
-3. Itere pelas faixas de legendas na [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/) .
-4. Salve cada faixa de legenda em um arquivo `.vtt` .
-
-O código a seguir mostra como extrair legendas de um quadro de vídeo:
+1. Encontre o objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) alvo.
+1. Percorra as faixas de legenda na [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/) .
+1. Salve cada faixa de legenda em um arquivo `.vtt` .
 
 ```python
 from pathlib import Path
@@ -275,16 +267,16 @@ finally:
     presentation.dispose()
 ```
 
-Cada objeto [Captions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captions/) expõe o identificador da legenda, rótulo, dados binários e o texto da legenda como uma string UTF-8.
+Cada objeto [Captions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captions/) expõe o identificador da legenda, rótulo, dados binários e o texto da legenda como uma string UTF‑8.
 
-**Remover Legendas de um Quadro de Vídeo**
+**Remover legendas de um quadro de vídeo**
+
+Para remover legendas de um quadro de vídeo:
 
 1. Carregue a apresentação que contém o vídeo.
-2. Obtenha o objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) alvo.
-3. Remova as faixas de legenda da [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/) .
-4. Salve a apresentação modificada.
-
-O código a seguir mostra como remover todas as legendas de um quadro de vídeo:
+1. Obtenha o objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) alvo.
+1. Remova as faixas de legenda da [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/) .
+1. Salve a apresentação modificada.
 
 ```python
 import jpype
@@ -311,16 +303,14 @@ finally:
 
 Se precisar remover apenas uma faixa de legenda, use os métodos [remove](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#removeAt) em vez de [clear](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#clear) .
 
-## **Extrair Vídeo de Slides**
+## **Extrair vídeo de slides**
 
-Além de adicionar vídeos a slides, o Aspose.Slides permite extrair vídeos incorporados em apresentações.
+Além de adicionar vídeos aos slides, o Aspose.Slides permite extrair vídeos incorporados em apresentações.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) para carregar a apresentação que contém o vídeo.
-2. Itere por todos os objetos [Slide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/) .
-3. Itere por todos os objetos [Shape](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shape/) para encontrar um [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) .
-4. Salve o vídeo no disco.
-
-Este código Python mostra como extrair o vídeo de um slide de apresentação:
+2. Percorra todos os objetos [Slide](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/) .
+3. Percorra todos os objetos [Shape](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shape/) para encontrar um [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) .
+4. Salve o vídeo em disco.
 
 ```python
 from pathlib import Path
@@ -350,11 +340,11 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Perguntas frequentes**
 
 **Quais parâmetros de reprodução de vídeo podem ser alterados para um VideoFrame?**
 
-Você pode controlar o [modo de reprodução](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setPlayMode) (auto ou ao clicar) e o [looping](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setPlayLoopMode). Essas opções estão disponíveis nas propriedades do objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) .
+Você pode controlar o [modo de reprodução](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setPlayMode) (automático ou ao clicar) e o [looping](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/#setPlayLoopMode). Essas opções estão disponíveis nas propriedades do objeto [VideoFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/videoframe/) .
 
 **Adicionar um vídeo afeta o tamanho do arquivo PPTX?**
 
@@ -366,4 +356,4 @@ Sim. Você pode trocar o [conteúdo do vídeo](https://reference.aspose.com/slid
 
 **É possível determinar o tipo de conteúdo (MIME) de um vídeo incorporado?**
 
-Sim. Um vídeo incorporado possui um [tipo de conteúdo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/video/#getContentType) que pode ser lido e usado, por exemplo ao salvá‑lo no disco.
+Sim. Um vídeo incorporado possui um [tipo de conteúdo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/video/#getContentType) que você pode ler e usar, por exemplo, ao salvá‑lo em disco.

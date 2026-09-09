@@ -1,6 +1,6 @@
 ---
-title: Open presentaties in Python via Java
-linktitle: Open presentatie
+title: Presentaties openen in Python via Java
+linktitle: Presentatie openen
 type: docs
 weight: 20
 url: /nl/python-java/open-presentation/
@@ -16,24 +16,24 @@ keywords:
 - ODP laden
 - beveiligde presentatie
 - grote presentatie
-- externe resource
+- externe bron
 - binair object
 - Python
 - Java
 - Aspose.Slides
-description: "Leer hoe u PowerPoint- en OpenDocument-presentaties kunt openen in Python via Java, openingswachtwoorden kunt opgeven, het laden van resources kunt beheren en het geheugenverbruik kunt verminderen met Aspose.Slides voor Python via Java."
+description: "Leer hoe u PowerPoint- en OpenDocument‑presentaties kunt openen in Python via Java, openings‑wachtwoorden kunt opgeven, het laden van bronnen kunt beheersen en het geheugenverbruik kunt verminderen met Aspose.Slides voor Python via Java."
 ---
 ## **Introductie**
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/nl/python-java/) kan PowerPoint- en OpenDocument-presentaties laden vanuit bestanden en streams. Nadat een presentatie is geladen, kun je de structuur inspecteren, dia's bewerken, resources beheren en deze opslaan in het oorspronkelijke of een ander ondersteund formaat.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/nl/python-java/) kan PowerPoint‑ en OpenDocument‑presentaties laden vanuit bestanden en streams. Nadat een presentatie is geladen, kunt u de structuur inspecteren, dia’s bewerken, bronnen beheren en deze opslaan in het oorspronkelijke of een ander ondersteund formaat.
 
-Het laadgedrag kan aangepast worden via de [LoadOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/) klasse. Bijvoorbeeld kun je een openingswachtwoord opgeven, grote binaire objecten buiten het Java-heapgeheugen houden, externe resources beheren of ingebedde binaire gegevens weglaten.
+Het laadgedrag kan worden aangepast via de [LoadOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/)‑klasse. U kunt bijvoorbeeld een openings‑wachtwoord opgeven, grote binaire objecten buiten het Java‑heapgeheugen houden, externe bronnen beheren of ingebedde binaire gegevens weglaten.
 
-## **Presentaties openen**
+## **Open Presentaties**
 
-Om een bestaande presentatie te openen, geef je het bestandspad door aan de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) constructor. Maak de presentatie vrij na gebruik zodat bestands-handelingen, tijdelijke gegevens en andere bronnen onmiddellijk worden vrijgegeven.
+Om een bestaande presentatie te openen, geeft u het bestandspad door aan de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑constructor. Maak de presentatie vrij nadat u deze hebt gebruikt, zodat bestands‑handles, tijdelijke gegevens en andere bronnen direct worden vrijgegeven.
 
-Het volgende Python‑voorbeeld laat zien hoe je een presentatie opent en het aantal dia's opvraagt:
+De volgende Python‑voorbeeld laat zien hoe u een presentatie opent en het aantal dia's opvraagt:
 
 ```python
 import jpype
@@ -51,9 +51,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Wachtwoordbeveiligde presentaties openen**
+## **Open wachtwoord‑beveiligde presentaties**
 
-Een openingswachtwoord versleutelt de inhoud van de presentatie. Om de volledige presentatie te laden, geef je het juiste wachtwoord door aan [LoadOptions.setPassword](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#setPassword) en lever je de opties aan de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) constructor. Laden mislukt wanneer het wachtwoord ontbreekt of onjuist is.
+Een openings‑wachtwoord versleutelt de inhoud van de presentatie. Om de volledige presentatie te laden, geeft u het juiste wachtwoord door aan [LoadOptions.setPassword](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#setPassword) en levert u de opties aan de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑constructor. Het laden mislukt wanneer het wachtwoord ontbreekt of onjuist is.
 
 ```python
 import jpype
@@ -74,13 +74,13 @@ finally:
     presentation.dispose()
 ```
 
-Voor wachtwoorddetectie, validatie en versleutelingswerkstromen, zie [Wachtwoordbeveiligde presentaties](/slides/nl/python-java/password-protected-presentation/). Als een versleutelde presentatie bewust is opgeslagen met publieke documenteigenschappen, kunnen die eigenschappen zonder wachtwoord gelezen worden; zie [Presentatie-eigenschappen beheren](/slides/nl/python-java/presentation-properties/).
+Voor wachtwoord‑detectie, validatie en versleutelings‑workflows, zie [Wachtwoord‑beveiligde presentaties](/slides/nl/python-java/password-protected-presentation/). Als een versleutelde presentatie opzettelijk is opgeslagen met openbare documenteigenschappen, kunnen die eigenschappen worden gelezen zonder wachtwoord; zie [Presentatie‑eigenschappen beheren](/slides/nl/python-java/presentation-properties/).
 
-## **Grote presentaties openen**
+## **Open grote presentaties**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) geeft opties terug die bepalen hoe Aspose.Slides binaire grote objecten zoals afbeeldingen, audio en video verwerkt. Je kunt het bronbestand vergrendeld houden, tijdelijke bestanden toestaan en de hoeveelheid BLOB‑gegevens die in het geheugen behouden blijven beperken.
+De [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#getBlobManagementOptions)‑methode retourneert opties die bepalen hoe Aspose.Slides binair grote objecten zoals afbeeldingen, audio en video afhandelt. U kunt het bronbestand vergrendeld houden, tijdelijke bestanden toestaan en de hoeveelheid BLOB‑gegevens die in het geheugen worden bewaard beperken.
 
-De volgende Python‑code demonstreert het laden van een grote presentatie (bijvoorbeeld 2 GB):
+De volgende Python‑code toont hoe een grote presentatie te laden (bijvoorbeeld 2 GB):
 
 ```python
 import jpype
@@ -107,14 +107,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Met [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) blijft het bronbestand vergrendeld totdat de presentatie‑instantie wordt vrijgegeven. Verplaats, overschrijf of verwijder het bronbestand niet terwijl die instantie actief is.
+Met [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) blijft het bronbestand vergrendeld totdat de presentatie‑instantie wordt vrijgegeven. Verplaats, overschrijf of verwijder het bronbestand niet zolang die instantie bestaat.
 
-Aspose.Slides kan de inhoud van een invoer‑stream kopiëren tijdens het laden. Voor grote presentaties is een bestandspad daarom doorgaans efficiënter dan een stream. Zie [Manage BLOBs](/slides/nl/python-java/manage-blob/) voor extra opslag‑ en geheugen‑beheeropties.
+Aspose.Slides kan de inhoud van een invoerstroom kopiëren tijdens het laden. Voor grote presentaties is een bestandspad daarom doorgaans efficiënter dan een stream. Zie [Manage BLOBs](/slides/nl/python-java/manage-blob/) voor extra opslag‑ en geheugenbeheeropties.
 {{% /alert %}}
 
-## **Externe resources beheren**
+## **Beheer externe bronnen**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accepteert een JPype‑proxy die de Java resource‑loading callback‑interface implementeert. De callback kan vervangende gegevens leveren, een resource omleiden, de standaardloader gebruiken of de resource overslaan. Dit is nuttig wanneer presentaties externe afbeeldingen bevatten die volgens toepassingsspecifieke beveiligings‑ of opslagregels moeten worden opgezocht.
+De [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accepteert een JPype‑proxy die de Java‑resource‑laadcallback‑interface implementeert. De callback kan vervangende gegevens leveren, een bron omleiden, de standaardladder gebruiken of de bron overslaan. Dit is nuttig wanneer presentaties externe afbeeldingen bevatten die volgens toepassings‑specifieke beveiligings‑ of opslagregels moeten worden opgelost.
 
 ```python
 import jpype
@@ -154,17 +154,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Presentaties laden zonder ingebedde binaire objecten**
+## **Laad presentaties zonder ingebedde binaire objecten**
 
-Een presentatie kan ingebedde binaire gegevens bevatten die een applicatie niet nodig heeft of wil behouden. Voorbeelden zijn:
+Een presentatie kan ingebedde binaire gegevens bevatten die een toepassing niet nodig heeft of niet wil behouden. Voorbeelden zijn:
 
 - VBA‑projecten, beschikbaar via [Presentation.getVbaProject](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getVbaProject);
 - ingebedde OLE‑gegevens, beschikbaar via [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/nl/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
-- ActiveX‑controlgegevens, beschikbaar via [Control.getActiveXControlBinary](https://reference.aspose.com/slides/nl/python-java/aspose.slides/control/#getActiveXControlBinary).
+- ActiveX‑controlegegevens, beschikbaar via [Control.getActiveXControlBinary](https://reference.aspose.com/slides/nl/python-java/aspose.slides/control/#getActiveXControlBinary).
 
-Stel [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) in op `True` om deze binaire gegevens tijdens het laden te verwijderen. Sla de geladen presentatie op om het gesaniteerde resultaat te behouden.
+Stel [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nl/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) in op `True` om deze binaire gegevens tijdens het laden te verwijderen. Sla de geladen presentatie op om het opgeschoonde resultaat te behouden.
 
-Deze optie vermindert de blootstelling aan ongewenste ingebedde payloads, maar is geen volledig systeem voor malware‑detectie of inhouds‑sanitatie.
+Deze optie verkleint de blootstelling aan ongewenste ingebedde payloads, maar is geen volledig malware‑detectie‑ of content‑sanitiseringssysteem.
 
 ```python
 import jpype
@@ -185,16 +185,16 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Hoe kan ik zien dat een bestand corrupt is en niet geopend kan worden?**
+**Hoe kan ik bepalen dat een bestand corrupt is en niet geopend kan worden?**
 
-Aspose.Slides werpt tijdens het laden een parse‑ of format‑exception. Handel deze fout afzonderlijk af van een onjuist‑wachtwoord‑fout, zodat de applicatie de oorzaak nauwkeurig kan rapporteren.
+Aspose.Slides gooit tijdens het laden een parser‑ of formaat‑uitzondering. Verwerk deze fout apart van een onjuist‑wachtwoord‑fout, zodat de toepassing de oorzaak nauwkeurig kan melden.
 
 **Wat gebeurt er als vereiste lettertypen ontbreken?**
 
-De presentatie kan nog steeds geladen worden, maar weergave en export kunnen lettertypen vervangen. Je kunt [lettertype‑substitutie configureren](/slides/nl/python-java/font-substitution/) of [aangepaste lettertypen leveren](/slides/nl/python-java/custom-font/) om de output voorspelbaarder te maken.
+De presentatie kan nog steeds worden geladen, maar weergave en export kunnen lettertypen vervangen. U kunt [font‑substitutie configureren](/slides/nl/python-java/font-substitution/) of [aangepaste lettertypen leveren](/slides/nl/python-java/custom-font/) om de output voorspelbaarder te maken.
 
 **Laadt het laden van een presentatie ook de ingebedde media?**
 
-Ingebedde audio en video zijn beschikbaar via het presentatie‑objectmodel. Externe resources worden opgezocht volgens het geconfigureerde resource‑loading gedrag en kunnen onbeschikbaar zijn als hun locaties niet toegankelijk zijn.
+Ingebedde audio en video worden beschikbaar via het presentatie‑objectmodel. Externe bronnen worden opgelost volgens het geconfigureerde resource‑laadgedrag en kunnen onbeschikbaar zijn als hun locaties niet toegankelijk zijn.

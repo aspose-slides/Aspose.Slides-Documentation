@@ -38,7 +38,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Utwórz prostokątny kształt.
+    # Utwórz kształt prostokąta.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
     # Usuń wypełnienie i obramowanie, aby wyświetlać tylko tekst.
@@ -124,5 +124,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-Zbierz pasujące kształty do osobnej listy przed ich usunięciem, aby uniknąć modyfikacji kolekcji kształtów podczas iteracji.
+Zbierz pasujące kształty w osobnej liście przed ich usunięciem, aby uniknąć modyfikacji kolekcji kształtów podczas iteracji.
 {{% /alert %}}

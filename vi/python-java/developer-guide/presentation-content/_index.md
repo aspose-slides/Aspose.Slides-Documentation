@@ -1,6 +1,6 @@
 ---
-title: Quản lý nội dung bài thuyết trình trong Python qua Java
-linktitle: Nội dung bài thuyết trình
+title: Quản lý nội dung trình chiếu trong Python thông qua Java
+linktitle: Nội dung Trình chiếu
 type: docs
 weight: 30
 url: /vi/python-java/presentation-content/
@@ -11,11 +11,11 @@ keywords:
 - phương tiện
 - OLE
 - văn bản
-- thu phóng
-- biểu đồ
+- phóng to
+- đồ thị
 - phương trình
 - hình dạng
-- mực
+- bút vẽ
 - SmartArt
 - bảng
 - PowerPoint
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Tạo, chỉnh sửa và trích xuất nội dung bài thuyết trình với Aspose.Slides cho Python qua Java—nhận các ví dụ mã cho văn bản, hình ảnh, hình dạng, biểu đồ; PPT, PPTX và ODP."
+description: "Tạo, chỉnh sửa và trích xuất nội dung trình chiếu bằng Aspose.Slides cho Python qua Java—nhận các ví dụ mã cho văn bản, hình ảnh, hình dạng và biểu đồ trong các tệp PPT, PPTX và ODP."
 ---

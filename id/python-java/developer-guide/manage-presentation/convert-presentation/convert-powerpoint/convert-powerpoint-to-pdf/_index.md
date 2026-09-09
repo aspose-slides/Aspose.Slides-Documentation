@@ -24,11 +24,11 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Konversi PowerPoint PPT/PPTX menjadi PDF berkualitas tinggi dan dapat dicari dalam Python via Java menggunakan Aspose.Slides, dengan contoh kode cepat dan opsi konversi lanjutan."
+description: "Konversi PowerPoint PPT/PPTX ke PDF berkualitas tinggi dan dapat dicari dalam Python via Java menggunakan Aspose.Slides, dengan contoh kode cepat dan opsi konversi lanjutan."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Mengonversi presentasi PowerPoint (PPT, PPTX, ODP, dll.) ke format PDF dalam Python via Java menawarkan beberapa keuntungan, termasuk kompatibilitas lintas perangkat dan mempertahankan tata letak serta pemformatan presentasi Anda. Panduan ini menunjukkan cara mengonversi presentasi ke dokumen PDF, menggunakan berbagai opsi untuk mengontrol kualitas gambar, menyertakan slide tersembunyi, melindungi file PDF dengan kata sandi, mendeteksi substitusi font, memilih slide tertentu untuk konversi, dan menerapkan standar kepatuhan pada dokumen output.
+Mengonversi presentasi PowerPoint (PPT, PPTX, ODP, dll.) ke format PDF dalam Python melalui Java menawarkan beberapa keuntungan, termasuk kompatibilitas di berbagai perangkat dan menjaga tata letak serta pemformatan presentasi Anda. Panduan ini menunjukkan cara mengonversi presentasi ke dokumen PDF, menggunakan berbagai opsi untuk mengontrol kualitas gambar, menyertakan slide tersembunyi, memberi perlindungan password pada file PDF, mendeteksi substitusi font, memilih slide tertentu untuk konversi, dan menerapkan standar kepatuhan pada dokumen keluaran.
 
 ## **Konversi PowerPoint ke PDF**
 
@@ -38,10 +38,10 @@ Dengan Aspose.Slides, Anda dapat mengonversi presentasi dalam format berikut ke 
 * **PPTX**
 * **ODP**
 
-Untuk mengonversi sebuah presentasi ke PDF, berikan nama file sebagai argumen ke kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan kemudian simpan presentasi sebagai PDF menggunakan metode [save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save). Kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) menyediakan metode [save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) yang biasanya digunakan untuk mengonversi presentasi ke PDF.
+Untuk mengonversi sebuah presentasi ke PDF, berikan nama file sebagai argumen ke kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) lalu simpan presentasi sebagai PDF menggunakan metode [save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save). Kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) menyediakan metode [save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) yang biasanya digunakan untuk mengonversi sebuah presentasi ke PDF.
 
 {{% alert color="info" title="Note" %}}
-Aspose.Slides for Python via Java menyisipkan informasi API dan nomor versinya ke dalam dokumen output. Misalnya, saat mengonversi presentasi ke PDF, Aspose.Slides mengisi bidang Application dengan "*Aspose.Slides*" dan bidang PDF Producer dengan nilai dalam format "*Aspose.Slides v XX.XX*". **Catatan** bahwa Anda tidak dapat menginstruksikan Aspose.Slides untuk mengubah atau menghapus informasi ini dari dokumen output.
+Aspose.Slides for Python via Java menyisipkan informasi API dan nomor versi ke dalam dokumen output. Misalnya, saat mengonversi sebuah presentasi ke PDF, Aspose.Slides mengisi bidang Application dengan "*Aspose.Slides*" dan bidang PDF Producer dengan nilai dalam format "*Aspose.Slides v XX.XX*". **Catatan** bahwa Anda tidak dapat menginstruksikan Aspose.Slides untuk mengubah atau menghapus informasi ini dari dokumen output.
 {{% /alert %}}
 
 Aspose.Slides memungkinkan Anda mengonversi:
@@ -49,20 +49,20 @@ Aspose.Slides memungkinkan Anda mengonversi:
 * Seluruh presentasi ke PDF
 * Slide tertentu dari sebuah presentasi ke PDF
 
-Aspose.Slides mengekspor presentasi ke PDF, memastikan PDF yang dihasilkan sangat mirip dengan presentasi aslinya. Elemen dan atribut dirender dengan akurat dalam konversi, termasuk:
+Aspose.Slides mengekspor presentasi ke PDF, memastikan PDF yang dihasilkan sangat mirip dengan presentasi asli. Elemen dan atribut dirender secara akurat dalam konversi, termasuk:
 
 * Gambar
 * Kotak teks dan bentuk
 * Pemformatan teks
 * Pemformatan paragraf
-* Tautan hiper
+* Tautan
 * Header dan footer
-* Bulatan
+* Bullet
 * Tabel
 
 ## **Mengonversi PowerPoint ke PDF**
 
-Konversi standar menggunakan pengaturan ekspor PDF default. Gunakan opsi kustom ketika Anda perlu mengontrol kualitas gambar, konten halaman, atau kepatuhan PDF.
+Konversi standar menggunakan pengaturan ekspor PDF default. Gunakan opsi khusus ketika Anda perlu mengontrol kualitas gambar, konten halaman, atau kepatuhan PDF.
 
 Instal [Aspose.Slides for Python via Java](/slides/id/python-java/installation/) dan runtime Java yang kompatibel sebelum menjalankan contoh. Setiap contoh membaca `presentation.pptx` dari direktori kerja saat ini; ganti dengan file PPT, PPTX, atau ODP Anda. Mulai JVM sekali per proses Python.
 
@@ -85,18 +85,18 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose menawarkan konverter online gratis **PowerPoint ke PDF** ([https://products.aspose.app/slides/id/conversion/ppt-to-pdf](https://products.aspose.app/slides/id/conversion/ppt-to-pdf)) yang mendemonstrasikan proses konversi presentasi ke PDF. Anda dapat menguji konverter ini untuk implementasi langsung dari prosedur yang dijelaskan di sini.
+Aspose menyediakan konverter online gratis **PowerPoint ke PDF** di https://products.aspose.app/slides/id/conversion/ppt-to-pdf yang menunjukkan proses konversi presentasi ke PDF. Anda dapat menguji konverter ini untuk melihat implementasi prosedur yang dijelaskan di sini.
 {{% /alert %}}
 
 ## **Mengonversi PowerPoint ke PDF dengan Opsi**
 
-Aspose.Slides menyediakan opsi kustom—properti dalam kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/)—yang memungkinkan Anda menyesuaikan PDF hasil, mengunci PDF dengan kata sandi, atau menentukan bagaimana proses konversi harus berjalan.
+Aspose.Slides menyediakan opsi khusus—properti di dalam kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/)—yang memungkinkan Anda menyesuaikan PDF yang dihasilkan, mengunci PDF dengan password, atau menentukan bagaimana proses konversi harus berjalan.
 
 ### **Mengonversi PowerPoint ke PDF dengan Opsi Kustom**
 
-Dengan opsi konversi kustom, Anda dapat menentukan pengaturan kualitas yang diinginkan untuk gambar raster, menentukan cara penanganan metafile, mengatur tingkat kompresi untuk teks, mengonfigurasi DPI untuk gambar, dan lain-lain.
+Dengan opsi konversi kustom, Anda dapat menentukan pengaturan kualitas gambar raster yang diinginkan, menentukan cara menangani metafile, menetapkan tingkat kompresi untuk teks, mengonfigurasi DPI untuk gambar, dan lainnya.
 
-Contoh kode di bawah ini menunjukkan cara mengonversi presentasi PowerPoint ke PDF dengan beberapa opsi kustom.
+Contoh kode di bawah ini menunjukkan cara mengonversi sebuah presentasi PowerPoint ke PDF dengan beberapa opsi kustom.
 
 ```python
 import jpype
@@ -124,7 +124,7 @@ finally:
 
 Jika sebuah presentasi berisi slide tersembunyi, Anda dapat menggunakan metode [setShowHiddenSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) dari kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/) untuk menyertakan slide tersembunyi sebagai halaman dalam PDF yang dihasilkan.
 
-Kode ini menunjukkan cara mengonversi presentasi PowerPoint ke PDF dengan slide tersembunyi disertakan:
+Kode ini menunjukkan cara mengonversi sebuah presentasi PowerPoint ke PDF dengan slide tersembunyi disertakan:
 
 ```python
 import jpype
@@ -144,9 +144,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Mengonversi PowerPoint ke PDF yang Dilindungi Kata Sandi**
+### **Mengonversi PowerPoint ke PDF dengan Perlindungan Password**
 
-Kode ini mendemonstrasikan cara mengonversi presentasi PowerPoint menjadi PDF yang dilindungi kata sandi menggunakan parameter perlindungan dari kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/):
+Kode ini mendemonstrasikan cara mengonversi sebuah presentasi PowerPoint menjadi PDF yang dilindungi password menggunakan parameter perlindungan dari kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/):
 
 ```python
 import jpype
@@ -170,7 +170,7 @@ finally:
 
 ### **Mendeteksi Substitusi Font**
 
-Aspose.Slides menyediakan metode [setWarningCallback](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveoptions/#setWarningCallback) di bawah kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/), memungkinkan Anda mendeteksi substitusi font selama proses konversi presentasi ke PDF.
+Aspose.Slides menyediakan metode [setWarningCallback](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveoptions/#setWarningCallback) di dalam kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/) yang memungkinkan Anda mendeteksi substitusi font selama proses konversi presentasi ke PDF.
 
 Gunakan proxy JPype untuk menerima callback peringatan dari API Java. Konversi string deskripsi Java ke string Python sebelum memeriksa prefiksnya:
 
@@ -179,7 +179,7 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpime.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import PdfOptions, Presentation, ReturnAction, SaveFormat, WarningType
 
@@ -203,12 +203,12 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Untuk informasi lebih lanjut tentang menerima callback untuk substitusi font selama proses rendering, lihat [Mendapatkan Callback Peringatan untuk Substitusi Font](/slides/id/python-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+Untuk informasi lebih lanjut tentang menerima callback untuk substitusi font selama proses rendering, lihat [Getting Warning Callbacks for Font Substitution](/slides/id/python-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-Untuk informasi lebih lanjut tentang substitusi font, lihat artikel [Substitusi Font](/slides/id/python-java/font-substitution/).
+Untuk informasi lebih lanjut tentang substitusi font, lihat artikel [Font Substitution](/slides/id/python-java/font-substitution/).
 {{% /alert %}}
 
-## **Mengonversi Slide Terpilih dalam PowerPoint ke PDF**
+## **Mengonversi Slide Pilihan di PowerPoint ke PDF**
 
 Nomor slide yang diberikan ke [Presentation.save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) bersifat berbasis 1. Contoh ini mengekspor slide 1 dan 3 bila keduanya ada:
 
@@ -234,7 +234,7 @@ finally:
 
 ## **Mengonversi PowerPoint ke PDF dengan Ukuran Slide Kustom**
 
-Contoh ini mengekspor slide pertama pada halaman berukuran 612 x 792 poin (US Letter). Ia menggandakan slide ke dalam presentasi baru dengan ukuran yang ditentukan:
+Contoh ini mengekspor slide pertama pada halaman berukuran 612 x 792 poin (US Letter). Ia menyalin slide ke dalam presentasi baru dengan ukuran yang ditentukan:
 
 ```python
 import jpype
@@ -265,7 +265,7 @@ finally:
 
 ## **Mengonversi PowerPoint ke PDF dalam Tampilan Catatan Slide**
 
-Kode ini mendemonstrasikan cara mengonversi presentasi PowerPoint ke PDF yang mencakup catatan:
+Kode ini menunjukkan cara mengonversi sebuah presentasi PowerPoint ke PDF yang menyertakan catatan:
 
 ```python
 import jpype
@@ -287,9 +287,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Standar Aksesibilitas dan Kepatuhan untuk PDF**
+## **Aksesibilitas dan Standar Kepatuhan PDF**
 
-Saat menyiapkan PDF yang dapat diakses, konsultasikan [Pedoman Aksesibilitas Konten Web (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Gunakan [PdfOptions.setCompliance](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setCompliance) untuk memilih standar output: **PDF/A1a**, **PDF/A1b**, dan **PDF/UA**.
+Saat menyiapkan PDF yang dapat diakses, lihat [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). Gunakan [PdfOptions.setCompliance](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setCompliance) untuk memilih standar output: **PDF/A1a**, **PDF/A1b**, dan **PDF/UA**.
 
 Kode ini mendemonstrasikan proses konversi PowerPoint ke PDF yang menghasilkan beberapa PDF berdasarkan standar kepatuhan yang berbeda:
 
@@ -315,17 +315,17 @@ finally:
     presentation.dispose()
 ```
 
-> **Catatan:** Saat mengekspor ke PDF/UA, Aspose.Slides memperlakukan grafik kompleks seperti SmartArt, diagram, dan formula sebagai satu gambar tunggal. Elemen jalur individual tidak dipertahankan sebagai konten terpisah dan dapat ditandai sebagai artefak; teks alternatif hanya disediakan untuk keseluruhan gambar.
+> **Catatan:** Saat mengekspor ke PDF/UA, Aspose.Slides memperlakukan grafik kompleks seperti SmartArt, diagram, dan formula sebagai satu gambar tunggal. Elemen jalur individual tidak dipertahankan sebagai konten terpisah dan dapat ditandai sebagai artefak; teks alternatif hanya disediakan untuk gambar keseluruhan.
 
 ## **FAQ**
 
 **Apakah saya dapat mengonversi banyak file PowerPoint ke PDF secara massal?**
 
-Ya, Aspose.Slides mendukung konversi batch banyak file PPT atau PPTX ke PDF. Anda dapat mengiterasi file Anda dan menerapkan proses konversi secara programatis.
+Ya, Aspose.Slides mendukung konversi batch banyak file PPT atau PPTX ke PDF. Anda dapat mengiterasi file-file Anda dan menerapkan proses konversi secara programatik.
 
-**Apakah memungkinkan melindungi PDF yang dikonversi dengan kata sandi?**
+**Apakah dapat memberi password pada PDF yang telah dikonversi?**
 
-Ya. Gunakan kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/) untuk mengatur kata sandi dan mendefinisikan izin akses selama proses konversi.
+Ya. Gunakan kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/) untuk menetapkan password dan mendefinisikan izin akses selama proses konversi.
 
 **Bagaimana cara menyertakan slide tersembunyi dalam PDF?**
 
@@ -333,14 +333,14 @@ Gunakan metode [setShowHiddenSlides](https://reference.aspose.com/slides/id/pyth
 
 **Apakah Aspose.Slides dapat mempertahankan kualitas gambar tinggi dalam PDF?**
 
-Ya, Anda dapat mengontrol kualitas gambar dengan menggunakan metode seperti [setJpegQuality](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setJpegQuality) dan [setSufficientResolution](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setSufficientResolution) dalam kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/) untuk memastikan gambar berkualitas tinggi dalam PDF Anda.
+Ya, Anda dapat mengontrol kualitas gambar dengan menggunakan metode seperti [setJpegQuality](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setJpegQuality) dan [setSufficientResolution](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/#setSufficientResolution) pada kelas [PdfOptions](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfoptions/) untuk memastikan gambar berkualitas tinggi dalam PDF Anda.
 
 **Apakah Aspose.Slides mendukung standar kepatuhan PDF/A?**
 
-Ya, Aspose.Slides memungkinkan Anda mengekspor PDF yang mematuhi [berbagai standar](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfcompliance/), termasuk PDF/A1a, PDF/A1b, dan PDF/UA, untuk aksesibilitas atau arsip. Pilih standar yang sesuai dan tinjau output sesuai kebutuhan Anda.
+Ya, Aspose.Slides memungkinkan Anda mengekspor PDF yang mematuhi [berbagai standar](https://reference.aspose.com/slides/id/python-java/aspose.slides/pdfcompliance/), termasuk PDF/A1a, PDF/A1b, dan PDF/UA, untuk aksesibilitas atau arsip. Pilih standar yang sesuai dan tinjau output terhadap kebutuhan Anda.
 
 ## **Sumber Daya Tambahan**
 
-- [Dokumentasi Aspose.Slides untuk Python via Java](/slides/id/python-java/)
-- [Referensi API Aspose.Slides untuk Python via Java](https://reference.aspose.com/slides/id/python-java/)
-- [Konverter Online Gratis Aspose](https://products.aspose.app/slides/id/conversion)
+- [Aspose.Slides for Python via Java Documentation](/slides/id/python-java/)
+- [Aspose.Slides for Python via Java API Reference](https://reference.aspose.com/slides/id/python-java/)
+- [Aspose Free Online Converters](https://products.aspose.app/slides/id/conversion)

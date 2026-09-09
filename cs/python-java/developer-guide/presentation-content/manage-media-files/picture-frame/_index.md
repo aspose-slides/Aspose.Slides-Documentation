@@ -1,15 +1,15 @@
 ---
-title: Správa rámců obrázků v prezentacích pomocí Pythonu
-linktitle: Rámec obrázku
+title: Správa obrázkových rámců v prezentacích pomocí Pythonu
+linktitle: Obrázkový rámec
 type: docs
 weight: 10
 url: /cs/python-java/picture-frame/
 keywords:
-- rámec obrázku
-- přidat rámec obrázku
-- vytvořit rámec obrázku
+- obrázkový rámec
+- přidat obrázkový rámec
+- vytvořit obrázkový rámec
 - vložený obrázek
-- odkazovaný obrázek
+- propojený obrázek
 - extrahovat obrázek
 - rastrový obrázek
 - SVG obrázek
@@ -17,7 +17,7 @@ keywords:
 - smazat ořezané oblasti
 - komprimovat obrázek
 - StretchOffset
-- formátování rámce obrázku
+- formátování obrázkového rámce
 - relativní měřítko
 - efekt obrázku
 - poměr stran
@@ -27,21 +27,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Vytvořte, formátujte, odkažte, ořízněte, extrahujte a komprimujte rámce obrázků v prezentacích pomocí Aspose.Slides pro Python přes Java."
+description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte obrázkové rámečky v prezentacích pomocí Aspose.Slides pro Python přes Java."
 ---
 ## **Přehled**
 
-Rámec obrázku je tvar snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím své [ImageCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagecollection/), zatímco [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) řídí pozici obrázku, velikost, formátování čar, otáčení, ořez, efekty obrázku a další nastavení na úrovni rámce.
+Obrázkový rámec je tvar snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, oddělené objekty: [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím své [ImageCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagecollection/), zatímco [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) řídí pozici obrázku, velikost, formátování čáry, otáčení, ořezávání, efekty obrázku a další nastavení na úrovni rámce.
 
-Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/), a použijte tento zdroj obrázku při vytváření rámců obrázků.
+Takové oddělení je užitečné, když je stejný obrázek zobrazen více než jednou. Přidejte obrázek do prezentace jednou, uchovejte vrácený [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/), a použijte tento zdroj obrázku při vytváření obrázkových rámců.
 
-Rámce obrázků mohou obsahovat rastrové obrázky jako PNG nebo JPEG a vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku do prezentace. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
+Obrázkové rámy mohou obsahovat rastrové obrázky jako PNG nebo JPEG a vektorové obrázky SVG. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
 
 ## **Přidání a formátování vloženého obrázku**
 
-Pro vložený obrázek přidejte data obrázku do prezentace a vytvořte rámec obrázku pomocí [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addPictureFrame). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná při přesunu na jiný počítač.
+U vloženého obrázku přidejte data obrázku do prezentace a vytvořte obrázkový rámec pomocí [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addPictureFrame). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstává samostatná při přesunu na jiný počítač.
 
-Následující příklad přidá JPEG obrázek, vytvoří rámec s původními rozměry obrázku a aplikuje formátování čáry a otáčení:
+Následující příklad přidá JPEG obrázek, vytvoří rámec v původních rozměrech obrázku a použije formátování čáry a otočení:
 
 ```python
 import jpype
@@ -74,11 +74,11 @@ finally:
     presentation.dispose()
 ```
 
-Rámec obrázku ovládá zobrazovanou geometrii; změna velikosti rámce nemění původní rozměry pixelů uložených ve vloženém zdroji obrázku. Tento rozdíl je důležitý při pozdějším ořezávání nebo kompresi obrázku.
+Obrázkový rámec řídí zobrazenou geometrii; změna velikosti rámce nemění původní rozměry v pixelech uložené ve vloženém zdroji obrázku. Tento rozdíl je důležitý při pozdějším ořezávání nebo kompresi obrázku.
 
-## **Použití relativního měřítka**
+## **Použití relativní měřítka**
 
-[PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) poskytuje relativní škálování šířky a výšky rámce pomocí [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když workflow potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
+[PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) umožňuje relativní změnu šířky a výšky rámce pomocí [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když pracovní postup potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
 
 ```python
 import jpype
@@ -110,15 +110,15 @@ finally:
 
 Relativní měřítko mění nastavení měřítka rámce; neprovádí přeškálování ani kompresi vloženého obrázku.
 
-## **Vložené a odkazované obrázky**
+## **Vložené a propojené obrázky**
 
-Vložený obrázek ukládá data obrázku uvnitř prezentace a je tak nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Odkazovaný obrázek ukládá externí umístění pomocí metody [Picture.setLinkPathLong](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picture/#setLinkPathLong) místo vkládání dat obrázku stejným způsobem.
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí metody [Picture.setLinkPathLong](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picture/#setLinkPathLong) místo vložení dat obrázku stejným způsobem.
 
-Odkazované obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Odkazovaný soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor je přesunut nebo zdroj není dostupný, může se odkazovaný obrázek nezobrazit podle očekávání. Pro prezentace, které je třeba e‑mailem posílat, archivovat nebo vykreslovat v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
+Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj není dostupný, může být propojený obrázek zobrazen neočekávaně. Pro prezentace, které musí být posílány e-mailem, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
 
-### **Přidání odkazovaného obrázku**
+### **Přidání propojeného obrázku**
 
-Následující příklad vytvoří rámec obrázku a nasměruje jej na lokální soubor obrázku. Zabývá se pouze odkazováním na obrázek; odkazování na video je samostatný mediální workflow a záměrně není v tomto příkladu smícháno.
+Následující příklad vytvoří obrázkový rámec a nasměruje jej na lokální soubor obrázku. Zabývá se pouze propojováním obrázků; propojování videí je samostatný multimediální pracovní postup a je úmyslně v tomto příkladu nepoužito.
 
 ```python
 import jpype
@@ -144,15 +144,15 @@ finally:
     presentation.dispose()
 ```
 
-Používejte odkazy, když je externí správa souborů úmyslná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s poškozenými závislostmi obrázků je obvykle méně užitečný než větší samostatná prezentace.
+Používejte odkazy, když je správa externích souborů záměrná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s poškozenými závislostmi obrázků je obvykle méně užitečný než větší samostatná prezentace.
 
-## **Extrahování obrázků z rámců obrázků**
+## **Extrahování obrázků z obrázkových rámců**
 
-Před extrahováním obrázku z existující prezentace zkontrolujte, že tvar je skutečně [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) a že obsahuje vložený obrázek. Odkazované rámce obrázků nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
+Před extrahováním obrázku z existující prezentace ověřte, že tvar je skutečně [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) a že obsahuje vložený obrázek. Propojené obrázkové rámy nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
 
 ### **Extrahování rastrového obrázku**
 
-Moderní API obrázku pracuje přímo s rastrovými obrázky a nevyžaduje starší Java wrapper. Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
+Moderní API obrázků pracuje přímo s rastrovými obrázky a nevyžaduje starší Java wrapper obrázku. Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
 
 ```python
 import jpype
@@ -186,11 +186,11 @@ finally:
     presentation.dispose()
 ```
 
-Ukládání rastrového obrázku převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete zakódované bajty uložené v prezentaci místo převedeného rastrového souboru, použijte binární data zdroje obrázku.
+Uložení rastrového obrázku převede extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete zakódované bajty uložené v prezentaci místo konvertovaného rastrového souboru, použijte binární data zdroje obrázku.
 
 ### **Extrahování SVG obrázku**
 
-Pro SVG obrázek [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/) poskytuje objekt [SvgImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/svgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
+U SVG obrázku [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/) poskytuje objekt [SvgImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/svgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku.
 
 ```python
 import jpype
@@ -223,13 +223,13 @@ finally:
     presentation.dispose()
 ```
 
-Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nutně renderují tento vektorový obsah do pixelů. Export slidu do PDF nebo SVG je také operace renderování, takže exportovaná grafika by neměla být považována za bit‑po‑bitu kopii původního vloženého SVG; použijte data [SvgImage.getSvgData](https://reference.aspose.com/slides/cs/python-java/aspose.slides/svgimage/#getSvgData), když je požadován samotný vektorový zdroj.
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nutně převádějí tento vektorový obsah na pixely. Export snímku do PDF nebo SVG je také operací vykreslování, takže exportovaná grafika by neměla být považována za bit‑po‑bit kopii původního vloženého SVG; použijte vložená data [SvgImage.getSvgData](https://reference.aspose.com/slides/cs/python-java/aspose.slides/svgimage/#getSvgData), pokud je požadován samotný vektorový zdroj.
 
-## **Ořez obrázku**
+## **Oříznutí obrázku**
 
-Ořez mění, která část obrázku je viditelná uvnitř rámce. Hodnoty ořezu na [PictureFillFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořez neodstraňuje skryté pixely z vloženého obrázku; pouze mění viditelný region.
+Ořezávání mění, která část obrázku je viditelná uvnitř rámce. Hodnoty ořezu v [PictureFillFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořezávání zpočátku neodstraňuje skryté pixely z vloženého obrázku; pouze mění viditelnou oblast.
 
-Následující příklad bezpečně najde rámec obrázku a použije hodnoty ořezu:
+Následující příklad bezpečně najde obrázkový rámec a aplikuje hodnoty ořezu:
 
 ```python
 import jpype
@@ -260,11 +260,11 @@ finally:
     presentation.dispose()
 ```
 
-Protože jsou skrytá data obrázku stále přítomna, lze ořez později změnit bez ztráty původních pixelů. Pokud je velikost souboru důležitější než možnost reverze, lze ořezané oblasti fyzicky odstranit, jak je popsáno v následující sekci.
+Protože jsou skrytá data obrázku stále přítomna, lze ořez později změnit bez ztráty původních pixelů. Pokud je důležitější velikost souboru než možnost vrácení, mohou být ořezané oblasti fyzicky odstraněny, jak je popsáno v následující sekci.
 
 ## **Odstranění ořezaných dat obrázku**
 
-[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací výsledný zdroj obrázku. To může snížit velikost souboru, ale jde o destruktivní optimalizaci: po uložení prezentace nejsou odstraněné pixely nadále k dispozici pro případný zpětný ořez.
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) odstraňuje data obrázku mimo aktuální obdélník ořezu a vrací vzniklý zdroj obrázku. To může zmenšit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace nejsou odstraněné pixely již k dispozici pro pozdější operaci odořezání.
 
 ```python
 import jpype
@@ -293,13 +293,13 @@ finally:
     presentation.dispose()
 ```
 
-Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek také používán jinými rámci, tyto rámce stále potřebují svůj existující zdroj, takže smazání ořezaných oblastí nutně nesníží celkový počet obrázků. Ořez WMF nebo EMF pomocí této metody rasterizuje ořezaný výsledek do PNG.
+Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek používán i v jiných obrázkových rámech, tyto rámy stále potřebují svůj existující zdroj, takže smazání ořezaných oblastí nemusí nutně snížit celkový počet obrázků. Ořezávání obsahu WMF nebo EMF touto metodou rasterizuje ořezaný výsledek do PNG.
 
 ## **Komprese rastrových obrázků**
 
-[PictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/#compressImage) snižuje rozlišení rastrového obrázku vzhledem k velikosti, ve které je obrázek zobrazován. Může také v rámci stejné operace odstranit ořezané oblasti. Metoda vrací `True`, když byl obrázek změněn velikostí nebo oříznut, a `False`, když nebyla nutná žádná změna.
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/#compressImage) snižuje rozlišení rastrového obrázku vzhledem k velikosti, při které je obrázek zobrazen. Může také odstranit ořezané oblasti ve stejné operaci. Metoda vrátí `True`, pokud byl obrázek změněn velikost nebo oříznut, a `False`, pokud žádná změna nebyla potřebná.
 
-Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturescompression/), když je dostačující standardní cílové rozlišení:
+Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturescompression/) , když stačí standardní cílové rozlišení:
 
 ```python
 import jpype
@@ -328,17 +328,17 @@ finally:
     presentation.dispose()
 ```
 
-Místo předdefinované hodnoty lze předat vlastní kladnou hodnotu DPI, pokud je požadováno konkrétní cílové rozlišení.
+Vlastní kladná hodnota DPI může být předána místo předdefinované hodnoty, pokud je požadován konkrétní cíl.
 
-Komprese je určena pro rastrové obrázky. SVG a metafile obsah není tímto rasterovým kompresním workflow zmenšován. Také nezapomeňte, že nižší rozlišení a odstraněné ořezané oblasti nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení podle největší velikosti, při které bude obrázek skutečně zobrazován nebo exportován, místo aby se globálně aplikovalo nejnižší DPI.
+Komprese je určena pro rastrové obrázky. SVG a obsah metafile nejsou tímto workflow komprese rastrových obrázků zmenšeny. Také pamatujte, že nižší rozlišení a smazané ořezané oblasti nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení na základě největší velikosti, při které bude obrázek skutečně zobrazen nebo exportován, místo aby se použilo nejnižší DPI celosvětově.
 
 ## **Správa efektů transformace obrázku**
 
-Pro kompletní workflow zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řetězce operací, inspekci, odstraňování a ověření round‑trip viz [Image Transform Effects](/slides/cs/python-java/image-transform-effects/).
+Pro kompletní pracovní postup zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řazené řetězce, kontrolu, odstranění a ověření round‑trip viz [Image Transform Effects](/slides/cs/python-java/image-transform-effects/).
 
-## **Zamknutí geometrie rámce obrázku**
+## **Uzamčení geometrie obrázkového rámce**
 
-Nastavení [PictureFrameLock](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframelock/) řídí, které editační operace jsou pro rámec obrázku zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) zachovává proporce tvaru při změně jeho velikosti.
+Nastavení [PictureFrameLock](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframelock/) řídí, které operace úprav jsou pro obrázkový rámec zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) zachovává proporce tvaru během změny velikosti.
 
 ```python
 import jpype
@@ -367,13 +367,13 @@ finally:
     presentation.dispose()
 ```
 
-Zámek se vztahuje na tvar rámce obrázku. Nevyžaduje, aby byl zdrojový obrázek přeškálován nebo trvale změněn na stejný poměr stran.
+Uzamčení se vztahuje na tvar obrázkového rámce. Nevyžaduje, aby zdrojový obrázek byl přeškálován nebo trvale změněn na stejné proporce.
 
 ## **Úprava hodnot StretchOffset**
 
-Když je režim vyplnění obrázku nastaven na stretch, hodnoty stretch‑offset na [PictureFillFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/) definují výplňový obdélník vzhledem k ohraničujícímu rámečku rámce obrázku. Kladná procenta vytvářejí odsazení od okraje, záporná procenta pak vystupování.
+Když je režim výplně obrázku nastaven na stretch, hodnoty stretch‑offsetu v [PictureFillFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/) definují výplňový obdélník relativně k ohraničujícímu rámečku obrázkového rámce. Kladná procenta vytvoří vnitřní odsazení od okraje, zatímco záporná procenta vytvoří vnější odsazení.
 
-To se liší od ořezu. Hodnoty ořezu určují, která část zdrojového obrázku je viditelná; stretch‑offsety mění obdélník, do kterého je viditelná výplň obrázku roztahována.
+Toto se liší od ořezu. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch‑offsety mění obdélník, do kterého je viditelná výplň obrázku roztažena.
 
 ```python
 import jpype
@@ -406,43 +406,43 @@ finally:
     presentation.dispose()
 ```
 
-Používejte stretch‑offsety pro umístění výplně. Používejte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
+Použijte stretch‑offsety pro umístění výplně. Použijte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
 
 ## **Úvahy o úložišti, velikosti souboru a exportu**
 
-Hlavní kompromisy je snazší spravovat, když jsou úložiště obrázků a formátování rámců zpracovávány odděleně:
+Hlavní kompromisy jsou snazší spravovat, když jsou ukládání obrázků a formátování obrázkových rámců řešeny odděleně:
 
-- **Vložené obrázky** činí prezentaci samostatnou a jsou nejspolehlivější pro sdílení a server‑side vykreslování, ale velké rastrové obrázky zvětšují velikost PPTX a paměťovou náročnost.
-- **Odkazované obrázky** mohou udržet balíček menší, ale prezentace závisí na externích souborech, které musí zůstat dostupné na uložených cestách nebo místech.
-- **Ořez** je zpočátku nedestruktivní. Skryté pixely zůstávají vloženy, dokud nejsou ořezané oblasti výslovně smazány nebo odebrány během komprese.
-- **Komprese** může značně zmenšit velikost souboru u příliš velkých rastrových obrázků, ale snižuje zdrojové rozlišení. Měla by být použita až po určení zamýšlené velikosti na snímku.
-- **SVG obrázky** by měly zůstat jako SVG, když je důležitá zachování vektoru. Extrahujte vložené SVG přímo, když potřebujete samotný vektorový zdroj. Rasterové exporty slidu vždy převádějí vykreslený snímek do pixelů.
-- **Opakované obrázky** by měly opakovaně používat existující zdroj [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/), pokud je to možné, místo opakovaného načítání stejného souboru do workflow prezentace.
+- **Vložené obrázky** dělají prezentaci samostatnou a jsou nejspolehlivější pro sdílení a serverové vykreslování, ale velké rastrové obrázky zvyšují velikost PPTX a spotřebu paměti.
+- **Propojené obrázky** mohou držet balíček menší, ale prezentace závisí na tom, že externí soubory zůstávají dostupné na uložených cestách nebo umístěních.
+- **Ořezávání** je zpočátku nedestruktivní. Skryté pixely zůstávají vloženy, dokud nejsou ořezané oblasti výslovně smazány nebo odstraněny během komprese.
+- **Kompresie** může podstatně snížit velikost souboru u příliš velkých rastrových obrázků, ale na úkor zdrojového rozlišení. Měla by být aplikována po určení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstat jako SVG, pokud je důležitá zachování vektoru. Extrahujte vložené SVG přímo, když potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly při možnosti znovu použít existující [PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/) zdroj místo opakovaného načítání stejného souboru do pracovního postupu prezentace.
 
-U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když se provádí selektivně: loga a diagramy ponechte jako vektorový obsah, komprimujte fotografie podle jejich skutečné zobrazovací velikosti, odstraňujte ořezané pixely jen když další úpravy nejsou vyžadovány, a vyhýbejte se externím odkazům, pokud správa závislostí není součástí návrhu nasazení.
+U velkých prezentací je optimalizace obrázků obvykle nejúčinnější při selektivním provedení: uchovávejte loga a diagramy jako vektorový obsah, komprimujte fotografie podle jejich skutečné zobrazovací velikosti, odstraňujte ořezané pixely jen když není potřeba pozdější úpravy, a vyhýbejte se externím odkazům, pokud správa závislostí není součástí návrhu nasazení.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi rámcem obrázku a zdrojem obrázku?**
+**Jaký je rozdíl mezi obrázkovým rámcem a zdrojem obrázku?**
 
-[PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/) představuje zdroj obrázku spojený s prezentací. [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) je tvar na snímku, který obrázek zobrazuje a ukládá geometrii a formátování na úrovni rámce, jako jsou velikost, otočení, hodnoty ořezu, efekty a zámky.
+[PPImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/ppimage/) představuje zdroj obrázku spojený s prezentací. [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) je tvar na snímku, který zobrazí obrázek a ukládá geometrie a formátování na úrovni rámce, jako je velikost, otáčení, hodnoty ořezu, efekty a zámky.
 
-**Mám vkládat nebo odkazovat obrázky?**
+**Mám obrázky vkládat nebo propojovat?**
 
-Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslená bez přístupu k externím zdrojům. Odkazujte obrázky jen když je úmyslné mít soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
+Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslena bez přístupu k externím zdrojům. Propojujte obrázky jen v případě, že je úmyslné mít soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
 
-**Snižuje ořez velikost souboru PPTX?**
+**Snižuje ořezávání velikost souboru PPTX?**
 
-Ne, samostatně. Normální nastavení ořezu skrývá části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) nebo kompresi obrázku s odstraněním ořezaných oblastí, když lze tyto pixely trvale odstranit.
+Není to samo o sobě. Normální nastavení ořezu skryje části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) nebo kompresi obrázku s odstraňováním ořezaných oblastí, když mohou být tyto pixely trvale odstraněny.
 
-**Mohu obnovit kvalitu obrázku po kompresi?**
+**Mohu po kompresi obnovit kvalitu obrázku?**
 
-Ne. Komprese může snížit uložené rastrové rozlišení a odstranění ořezaných oblastí zahazuje data obrázku. Uchovejte původní zdrojový obrázek mimo prezentaci, pokud může být později vyžadována úprava v vysokém rozlišení.
+Ne. Komprese může snížit uložené rastrové rozlišení a odstraňování ořezaných oblastí zahazuje data obrázku. Uchovejte původní zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava ve vysokém rozlišení.
 
-**Jak zacházet se SVG obrázky?**
+**Jak by se měly zacházet s SVG obrázky?**
 
-Uchovejte SVG obsah jako SVG, když je důležitá vektorová přesnost. Vložený [SvgImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/svgimage/) lze extrahovat přímo. Vykreslení slidu do rastrového formátu jako PNG nebo JPEG rasterizuje SVG jako součást obrazu snímku.
+Uchovávejte SVG obsah jako SVG, když je důležitá věrnost vektoru. Vložený [SvgImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/svgimage/) lze extrahovat přímo. Vykreslení snímku do rastrového formátu, jako je PNG nebo JPEG, rasterizuje SVG jako součást obrázku snímku.
 
-**Jak se vyhnout nebezpečným přetypováním při čtení existujících snímků?**
+**Jak se mohu vyhnout nebezpečným přetypováním při čtení existujících snímků?**
 
-Před použitím členů specifických pro rámec obrázku zkontrolujte typ tvaru. Kontrola `isinstance` proti [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) zabraňuje neplatnému přetypování a umožňuje kódu správně zacházet se snímky, které neobsahují rámce obrázků.
+Zkontrolujte typ tvaru před použitím členů specifických pro obrázkový rámec. Kontrola `isinstance` proti [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) zabraňuje neplatným přetypováním a umožňuje kódu zpracovat snímky, které neobsahují obrázkové rámy.

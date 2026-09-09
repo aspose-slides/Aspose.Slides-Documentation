@@ -14,15 +14,15 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides for Python via Java içinde metin kutularıyla çalışın: PowerPoint ve OpenDocument sunumlarında metin ekleyin, biçimlendirin, bulun ve kaldırın."
 ---
-**Aspose.Slides for Python via Java** içinde, bir metin kutusu metin içeren otomatik bir şekildir. Neredeyse her şekil metin içerebilir, ancak tipik bir metin kutusunun dolgu veya kenarlığı yoktur ve yalnızca metin gösterir.
+**Aspose.Slides for Python via Java** içinde bir metin kutusu, metin içeren bir otomatik şekildir. Neredeyse tüm şekiller metin içerebilir, ancak tipik bir metin kutusunun dolgu ya da kenarlığı yoktur ve yalnızca metni gösterir.
 
-Bu kılavuz, metin kutularını programlı olarak ekleme, erişme ve kaldırma yollarını açıklar.
+Bu kılavuz, programlı olarak metin kutularını nasıl ekleyeceğinizi, erişeceğinizi ve kaldıracağınızı açıklar.
 
-Paketi, [Installation](/slides/tr/python-java/installation/) bölümünde açıklandığı gibi kurun. Her örnek, JVM'yi başlatmadan önce `asposeslides` kütüphanesini, JVM çalıştıktan sonra ise API'yi içe aktarır.
+Paketi, [Kurulum](/slides/tr/python-java/installation/) bölümünde açıklandığı gibi kurun. Her örnek, JVM'i başlatmadan önce `asposeslides` paketini içe aktarır, ardından JVM çalıştıktan sonra API'yi içe aktarır.
 
 ## **Metin Kutusu Ekle**
 
-Bir dikdörtgen oluşturun, dolgusunu ve kenarlığını kaldırın ve biçimlendirilmiş metni atayın.
+Bir dikdörtgen oluşturun, dolgu ve kenarlığını kaldırın ve biçimlendirilmiş metni atayın.
 
 ```python
 import jpype
@@ -90,7 +90,7 @@ finally:
 
 ## **İçeriğe Göre Metin Kutularını Kaldır**
 
-Belirli bir anahtar kelimeyi içeren ilk slayttaki metin kutularını bulun ve silin.
+İlk slaytta belirli bir anahtar kelimeyi içeren metin kutularını bulun ve silin.
 
 ```python
 import jpype
@@ -123,6 +123,6 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}}
-Şekil koleksiyonunu yineleme sırasında değiştirmemek için, eşleşen şekilleri kaldırmadan önce ayrı bir listede toplayın.
+{{% alert color="success" title="İpucu" %}}
+İterasyon sırasında şekil koleksiyonunu değiştirmemek için, eşleşen şekilleri kaldırmadan önce ayrı bir listede toplayın.
 {{% /alert %}}

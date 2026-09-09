@@ -7,37 +7,37 @@ url: /sv/python-java/manage-slide-show/
 keywords:
 - visningstyp
 - presenterad av talare
-- visad av individ
-- visad på kiosk
+- bläddrad av enskild
+- bläddrad i kiosk
 - visningsalternativ
-- upprepa kontinuerligt
+- loopa kontinuerligt
 - visa utan berättarröst
 - visa utan animation
-- pennfärg
+- penfärg
 - visa bilder
 - anpassad visning
-- gå vidare bilder
+- avancera bilder
 - manuellt
-- med tidsinställningar
+- använda tider
 - PowerPoint
 - OpenDocument
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Lär dig hur du hanterar bildspel i Aspose.Slides för Python via Java. Styr bildövergångar, tidsinställningar och mer i PPT-, PPTX- och ODP-format med lätthet."
+description: "Lär dig hur du hanterar bildspel i Aspose.Slides för Python via Java. Kontrollera bildövergångar, tider och mer i PPT-, PPTX- och ODP-format med lätthet."
 ---
 ## **Introduktion**
 
-Microsoft PowerPoints **Set Up Show**-alternativ låter dig välja visningstyp, aktivera loopning, välja bilder och styra hur bilderna avancerar. Med Aspose.Slides för Python via Java kan du konfigurera dessa alternativ programmässigt och spara dem i en presentationsfil.
+Microsoft PowerPoints **Set Up Show**-alternativ låter dig välja bildspels‑typ, aktivera loopning, välja bilder och kontrollera hur bilderna avancerar. Med Aspose.Slides för Python via Java kan du konfigurera dessa alternativ programatiskt och spara dem i en presentationsfil.
 
-Metoden [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getSlideShowSettings) returnerar ett [SlideShowSettings](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/)-objekt som styr dessa alternativ. Exemplen nedan kräver Aspose.Slides för Python via Java och en kompatibel Java-runtime. Varje exempel startar JVM om det behövs och frigör presentationen när den är klar.
+Metoden [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getSlideShowSettings) returnerar ett [SlideShowSettings](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/)‑objekt som styr dessa alternativ. Exemplen nedan kräver Aspose.Slides för Python via Java och en kompatibel Java‑runtime. Varje exempel startar JVM om det behövs och frigör presentationen när den är klar.
 
-## **Välj visningstyp**
+## **Välj bildspels‑typ**
 
-[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setSlideShowType) definierar typen av bildspel, som kan vara en instans av följande klasser: [PresentedBySpeaker](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/sv/python-java/aspose.slides/browsedbyindividual/), eller [BrowsedAtKiosk](https://reference.aspose.com/slides/sv/python-java/aspose.slides/browsedatkiosk/). Att använda denna metod gör det möjligt att anpassa presentationen för olika användningsscenarier, såsom automatiserade kiosker eller manuella presentationer.
+[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setSlideShowType) definierar typen av bildspel, som kan vara en instans av följande klasser: [PresentedBySpeaker](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/sv/python-java/aspose.slides/browsedbyindividual/), eller [BrowsedAtKiosk](https://reference.aspose.com/slides/sv/python-java/aspose.slides/browsedatkiosk/). Genom att använda den här metoden kan du anpassa presentationen för olika användningsscenarier, såsom automatiserade kiosker eller manuella presentationer.
 
-Kodexemplet nedan skapar en ny presentation och ställer in visningstypen till "Browsed by an individual" utan att visa rullningslisten.
+Kodexemplet nedan skapar en ny presentation och ställer in bildspels‑typen till "Browsed by an individual" utan att visa rullningslisten.
 
 ```python
 import jpype
@@ -59,9 +59,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Aktivera visningsalternativ**
+## **Aktivera bildspelsalternativ**
 
-[SlideShowSettings.setLoop](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setLoop) bestämmer om bildspelet ska upprepas i en slinga tills det stoppas manuellt. Detta är användbart för automatiserade presentationer som måste köras kontinuerligt. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setShowNarration) bestämmer om röstberättelser ska spelas upp under bildspelet. Det är användbart för automatiserade presentationer som innehåller röstvägledning för publiken. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setShowAnimation) bestämmer om animationer som lagts till på bildobjekt ska spelas upp. Detta är användbart för att ge presentationen full visuell effekt.
+[SlideShowSettings.setLoop](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setLoop) bestämmer om bildspelet ska upprepas i en loop tills det stoppas manuellt. Detta är användbart för automatiserade presentationer som måste köras kontinuerligt. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setShowNarration) bestämmer om röstberättelser ska spelas upp under bildspelet. Det är användbart för automatiserade presentationer som innehåller röstinstruktioner för publiken. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setShowAnimation) bestämmer om animationer som lagts till i bildobjekt ska spelas upp. Detta är användbart för att ge den fulla visuella effekten av presentationen.
 
 Följande kodexempel skapar en ny presentation och loopar bildspelet.
 
@@ -85,7 +85,7 @@ finally:
 
 ## **Välj bilder att visa**
 
-[SlideShowSettings.setSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setSlides)‑metoden låter dig välja ett intervall av bilder som ska visas under presentationen. Detta är användbart när du bara behöver visa en del av presentationen istället för alla bilder. Följande kodexempel skapar en presentation med nio bilder och väljer bilder 2 till 9. Intervallet använder bildnummer med början på 1.
+[SlideShowSettings.setSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setSlides) låter dig välja ett intervall av bilder som ska visas under presentationen. Detta är användbart när du bara vill visa en del av presentationen istället för alla bilder. Följande kodexempel skapar en presentation med nio bilder och väljer bilderna 2 till 9. Intervallet använder bildnummer med gränsen 1.
 
 ```python
 import jpype
@@ -113,9 +113,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Styr bildövergång**
+## **Kontrollera bildframsteg**
 
-[SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setUseTimings)‑metoden låter dig aktivera eller inaktivera användning av förinställda tidsinställningar för varje bild. Detta är användbart för att automatiskt visa bilder med fördefinierade visningstider. Kodexemplet nedan skapar en ny presentation och inaktiverar användning av tidsinställningar.
+[SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setUseTimings) låter dig aktivera eller inaktivera användningen av fördefinierade tider för varje bild. Detta är användbart för att automatiskt visa bilder med fördefinierade visningstider. Kodexemplet nedan skapar en ny presentation och inaktiverar användning av tider.
 
 ```python
 import jpype
@@ -137,9 +137,9 @@ finally:
 
 ## **Visa mediakontroller**
 
-[SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setShowMediaControls)‑metoden bestämmer om mediakontroller (såsom spela, pausa och stoppa) ska visas under bildspelet när multimediainnehåll (t.ex. video eller ljud) spelas. Detta är användbart när du vill ge presentatören kontroll över mediouppspelning under presentationen.
+[SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) bestämmer om mediakontroller (t.ex. spela, pausa och stoppa) ska visas under bildspelet när multimediainnehåll (t.ex. video eller ljud) spelas. Detta är användbart när du vill ge presentatören kontroll över mediuppspelning under presentationen.
 
-Följande kodexempel skapar en ny presentation och aktiverar visning av mediakontroller.
+Följande kodexempel skapar en ny presentation och möjliggör att mediakontroller visas.
 
 ```python
 import jpype
@@ -163,12 +163,12 @@ finally:
 
 **Kan jag spara en presentation så att den öppnas direkt i bildspelsläge?**
 
-Ja. Spara filen som PPSX eller PPSM; dessa format startar direkt i bildspelsläge när de öppnas i PowerPoint. I Aspose.Slides väljer du motsvarande sparaformat [under export](/slides/sv/python-java/save-presentation/).
+Ja. Spara filen som PPSX eller PPSM; dessa format startar direkt i bildspelsläge när de öppnas i PowerPoint. I Aspose.Slides väljer du motsvarande sparformat [vid export](/slides/sv/python-java/save-presentation/).
 
 **Kan jag utesluta enskilda bilder från visningen utan att radera dem från filen?**
 
-Ja. Markera en bild som [hidden](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#setHidden). Dolda bilder finns kvar i presentationen men visas inte under bildspelet.
+Ja. Markera en bild som [dold](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/#setHidden). Dolda bilder finns kvar i presentationen men visas inte under bildspelet.
 
-**Kan Aspose.Slides spela ett bildspel eller styra en live‑presentation på skärmen?**
+**Kan Aspose.Slides spela upp ett bildspel eller styra en livepresentation på skärmen?**
 
-Nej. Aspose.Slides redigerar, analyserar och konverterar presentationsfiler; den faktiska uppspelningen hanteras av ett visningsprogram som PowerPoint.
+Nej. Aspose.Slides redigerar, analyserar och konverterar presentationsfiler; själva uppspelningen hanteras av ett visningsprogram som PowerPoint.

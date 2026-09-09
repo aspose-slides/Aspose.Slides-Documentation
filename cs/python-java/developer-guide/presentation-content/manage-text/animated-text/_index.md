@@ -1,5 +1,5 @@
 ---
-title: Animovat text v PowerPointu v Pythonu přes Java
+title: Animovat text PowerPointu v Pythonu via Java
 linktitle: Animovaný text
 type: docs
 weight: 60
@@ -16,15 +16,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Vytvořte dynamický animovaný text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python přes Java, s snadno sledovatelnými, optimalizovanými ukázkami kódu v Pythonu."
+description: "Vytvořte dynamický animovaný text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python via Java, s snadno sledovatelnými, optimalizovanými ukázkami kódu v Pythonu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s animovaným textem v Aspose.Slides aplikací animačních efektů na jednotlivé odstavce a získáním efektů, které jsou již přiřazeny k odstavcům v textovém rámečku. Soustředí se na API metody používané k přidání animace na úrovni odstavce a prozkoumání existujících animačních efektů odstavců v prezentaci.
+Tento článek vysvětluje, jak pracovat s animovaným textem v Aspose.Slides aplikací animačních efektů na jednotlivé odstavce a získáním efektů již přiřazených odstavcům v textovém rámečku. Zaměřuje se na API metody používané k přidání animace na úrovni odstavce a k prohlédnutí existujících animačních efektů odstavců v prezentaci.
 
-## **Add Animation Effects to Paragraphs**
+## **Přidání animačních efektů k odstavcům**
 
-Metoda [addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect) třídy [Sequence](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/) vám umožňuje přidat animační efekty do jediného odstavce. Tento ukázkový kód vám ukazuje, jak přidat animační efekt do jediného odstavce:
+Metoda [addEffect](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/#addEffect) třídy [Sequence](https://reference.aspose.com/slides/cs/python-java/aspose.slides/sequence/) umožňuje přidat animační efekt k jednomu odstavci. Tento ukázkový kód ukazuje, jak přidat animační efekt k jednomu odstavci:
 
 ```python
 import jpype
@@ -49,14 +49,14 @@ finally:
     presentation.dispose()
 ```
 
-## **Get Animation Effects of Paragraphs**
+## **Získání animačních efektů odstavců**
 
-Můžete se rozhodnout zjistit animační efekty přidané k odstavci - například v jednom scénáři chcete získat animační efekty v odstavci, protože je plánujete použít na jiný odstavec nebo tvar.
+Možná budete chtít získat animační efekty aplikované na odstavec – například pro aplikaci těchto efektů na jiný odstavec nebo tvar.
 
-Aspose.Slides for Python via Java vám umožňuje získat všechny animační efekty aplikované na odstavce obsažené v textovém rámečku (tvaru). Tento ukázkový kód vám ukazuje, jak získat animační efekty v odstavci:
+Aspose.Slides for Python via Java umožňuje získat všechny animační efekty aplikované na odstavce obsažené v textovém rámečku (tvaru). Tento ukázkový kód ukazuje, jak získat animační efekty aplikované na odstavec:
 
 ```python
-import jpade
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -78,16 +78,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Jak se animace textu liší od přechodů snímků a lze je kombinovat?**
+**Jak se liší textové animace od přechodů snímků a lze je kombinovat?**
 
-Animace textu řídí chování objektu v čase na snímku, zatímco [transitions](/slides/cs/python-java/slide-transition/) řídí, jak se mění snímky. Jsou nezávislé a lze je používat společně; pořadí přehrávání určuje časová osa animace a nastavení přechodu.
+Textové animace řídí chování objektu v čase na snímku, zatímco [transitions](/slides/cs/python-java/slide-transition/) řídí, jak se mění snímky. Jsou nezávislé a lze je použít společně; pořadí přehrávání určuje časová osa animace a nastavení přechodu.
 
-**Zůstávají animace textu zachovány při exportu do PDF nebo obrázků?**
+**Zůstávají textové animace zachovány při exportu do PDF nebo obrázků?**
 
 Ne. PDF a rastrové obrázky jsou statické, takže uvidíte jediný stav snímku bez pohybu. Pro zachování pohybu použijte export do [video](/slides/cs/python-java/convert-powerpoint-to-video/) nebo [HTML](/slides/cs/python-java/export-to-html5/).
 
-**Fungují animace textu v rozvrženích a v masteru snímků?**
+**Fungují textové animace v rozvrženích a v hlavním snímku?**
 
-Efekty aplikované na objekty rozvržení/masteru jsou děděny snímky, ale jejich časování a interakce s animacemi na úrovni snímku závisí na konečné posloupnosti na snímku.
+Efekty aplikované na objekty rozvržení/masteru jsou děděny snímky, ale jejich načasování a interakce s animacemi na úrovni snímku závisí na konečné sekvenci na snímku.

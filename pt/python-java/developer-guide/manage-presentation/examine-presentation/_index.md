@@ -1,11 +1,11 @@
 ---
 title: Recuperar e Atualizar Informações da Apresentação em Python via Java
-linktitle: Informações da Apresentação
+linktitle: Informação da Apresentação
 type: docs
 weight: 30
 url: /pt/python-java/examine-presentation/
 keywords:
-- formato da apresentação
+- formato de apresentação
 - propriedades da apresentação
 - propriedades do documento
 - obter propriedades
@@ -13,9 +13,9 @@ keywords:
 - alterar propriedades
 - modificar propriedades
 - atualizar propriedades
-- examinar PPTX
-- examinar PPT
-- examinar ODP
+- analisar PPTX
+- analisar PPT
+- analisar ODP
 - PowerPoint
 - OpenDocument
 - apresentação
@@ -26,15 +26,11 @@ description: "Explore slides, estrutura e metadados em apresentações PowerPoin
 ---
 ## **Visão geral**
 
-Aspose.Slides pode identificar o formato de uma apresentação e ler seus metadados de documento sem criar um modelo completo de objeto de apresentação. Isso é útil quando você precisa classificar arquivos, criar um inventário ou inspecionar propriedades antes de decidir se deve carregar e processar o conteúdo da apresentação.
+Aspose.Slides pode identificar o formato de uma apresentação e ler seus metadados de documento sem criar um modelo de objeto de apresentação completo. Isso é útil quando você precisa classificar arquivos, criar um inventário ou inspecionar propriedades antes de decidir carregar e processar o conteúdo da apresentação.
 
-Os exemplos requerem Aspose.Slides para Python via Java e um runtime Java compatível. Cada exemplo inicia a JVM se ela ainda não estiver em execução. Forneça arquivos de apresentação existentes nos caminhos usados nos exemplos.
+Os exemplos requerem Aspose.Slides for Python via Java e um runtime Java compatível. Cada exemplo inicia a JVM se ela ainda não estiver em execução. Forneça arquivos de apresentação existentes nos caminhos usados nos exemplos.
 
 Este artigo demonstra inspeção leve através de [PresentationFactory](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationfactory/) e [PresentationInfo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/), bem como atualizações direcionadas através de [DocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/documentproperties/).
-
-## **Verificar o formato de uma apresentação**
-
-Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationfactory/#getPresentationInfo) para inspecionar um arquivo sem criar uma instância de [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/). O método [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#getLoadFormat) relata o formato detectado, como PPTX, PPT ou ODP.
 
 ```python
 import jpype
@@ -62,9 +58,13 @@ for file_name in file_names:
     print(f"{file_name}: {format_name}")
 ```
 
-## **Criar um inventário de apresentações leve**
+## **Verificar o formato de uma apresentação**
 
-Quando você processa muitos arquivos de apresentação, pode precisar de um inventário compacto para validação, indexação ou um sistema de gerenciamento de documentos. Nesse cenário, use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationfactory/#getPresentationInfo) para obter um objeto [PresentationInfo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/), e então chame [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#readDocumentProperties) para ler os metadados do documento. Essa abordagem não cria uma instância de [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) nem exige que você percorra o modelo completo de objeto de apresentação.
+Use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationfactory/#getPresentationInfo) para inspecionar um arquivo sem criar uma instância de [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/). O método [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#getLoadFormat) informa o formato detectado, como PPTX, PPT ou ODP.
+
+## **Criar um inventário leve de apresentações**
+
+Ao processar muitos arquivos de apresentação, pode ser necessário um inventário compacto para validação, indexação ou um sistema de gerenciamento de documentos. Nesse cenário, use [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationfactory/#getPresentationInfo) para obter um objeto [PresentationInfo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/), e então chame [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#readDocumentProperties) para ler os metadados do documento. Essa abordagem não cria uma instância de [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) nem requer que você percorra o modelo de objeto de apresentação completo.
 
 As propriedades estendidas expostas por [DocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/documentproperties/) fornecem os seguintes valores de inventário:
 
@@ -143,27 +143,25 @@ else:
             part_index += 1
 ```
 
-Cada [HeadingPair](https://reference.aspose.com/slides/pt/python-java/aspose.slides/headingpair/) fornece um nome de grupo e o número de itens naquele grupo. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/pt/python-java/aspose.slides/documentproperties/#getTitlesOfParts) retorna uma matriz plana e ordenada, portanto, consuma o número de títulos consecutivos especificado por cada par de cabeçalho.
+Cada [HeadingPair](https://reference.aspose.com/slides/pt/python-java/aspose.slides/headingpair/) fornece um nome de grupo e o número de itens nesse grupo. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/pt/python-java/aspose.slides/documentproperties/#getTitlesOfParts) devolve um array plano e ordenado, portanto consuma o número de títulos consecutivos especificado por cada par de cabeçalho.
 
 ### **Metadados armazenados e limitações de formato**
 
-As propriedades de inventário retornadas por [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#readDocumentProperties) refletem os metadados disponíveis no documento de origem. Aspose.Slides não carrega nem percorre o modelo de objeto da apresentação para recalcular esses valores nesta chamada. Propriedades ausentes são representadas por valores padrão, e valores armazenados podem estar desatualizados se a aplicação que salvou o arquivo pela última vez não atualizou suas propriedades de documento.
+As propriedades de inventário retornadas por [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#readDocumentProperties) refletem os metadados disponíveis no documento de origem. Aspose.Slides não carrega e percorre o modelo de objeto da apresentação para recalcular esses valores para esta chamada. Propriedades ausentes são representadas por valores padrão, e valores armazenados podem estar desatualizados se a aplicação que salvou o arquivo pela última vez não atualizou suas propriedades de documento.
 
-- **PPTX:** O formato fornece propriedades de documento estendidas para contagens de slides, notas, slides ocultos, parágrafos, palavras e multimídia, além de pares de cabeçalhos e títulos de partes. A disponibilidade depende de quais propriedades foram gravadas pelo produtor do documento.
-- **PPT:** O formato binário pode armazenar propriedades resumidas de documento correspondentes. Se uma propriedade estiver ausente ou não for atualizada pelo produtor do documento, Aspose.Slides retorna seu valor armazenado ou padrão em vez de calculá‑lo a partir dos slides.
-- **ODP:** Os metadados do OpenDocument fornecem estatísticas gerais de documento, como contagem de páginas, parágrafos e palavras, mas esses valores não mapeiam todas as propriedades estendidas específicas do PowerPoint. Metadados de slides ocultos, notas, multimídia, pares de cabeçalhos e títulos de partes podem estar indisponíveis, e as propriedades de inventário podem retornar valores padrão. Não trate um valor zero ou uma matriz vazia como prova autoritativa de que o conteúdo correspondente está ausente.
+- **PPTX:** O formato fornece propriedades de documento estendidas para contagem de slides, notas, slides ocultos, parágrafos, palavras e multimídia, além de pares de cabeçalhos e títulos de partes. A disponibilidade depende de quais propriedades foram gravadas pelo produtor do documento.
+- **PPT:** O formato binário pode armazenar propriedades resumidas correspondentes. Se uma propriedade estiver ausente ou não for atualizada pelo produtor do documento, Aspose.Slides devolve seu valor armazenado ou padrão ao invés de calculá‑lo a partir dos slides.
+- **ODP:** Os metadados OpenDocument fornecem estatísticas gerais do documento, como contagem de páginas, parágrafos e palavras, mas esses valores não mapeiam para todas as propriedades estendidas específicas do PowerPoint. Metadados de slide oculto, slide de notas, multimídia, pares de cabeçalhos e títulos de partes podem estar indisponíveis, e as propriedades de inventário podem retornar valores padrão. Não trate um valor zero ou um array vazio como prova autoritária de que o conteúdo correspondente está ausente.
 
-Use a abordagem de metadados leves para inventários e verificações preliminares. Carregue a apresentação e inspecione seu modelo de objeto em tempo real quando o resultado precisar refletir alterações em memória ou quando for necessário verificar o conteúdo real da apresentação.
+Use a abordagem de metadados leves para inventários e verificações preliminares. Carregue a apresentação e inspecione seu modelo de objeto ao vivo quando o resultado precisar refletir alterações em memória ou quando precisar verificar o conteúdo real da apresentação.
 
 ## **Atualizar propriedades da apresentação**
 
-As propriedades retornadas por [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#readDocumentProperties) também podem ser alteradas sem criar uma instância de [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/). Aplique as alterações com [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) e, em seguida, escreva a apresentação vinculada com [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#writeBindedPresentation).
+As propriedades retornadas por [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#readDocumentProperties) também podem ser alteradas sem criar uma instância de [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/). Aplique as mudanças com [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#updateDocumentProperties), e então escreva a apresentação vinculada com [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#writeBindedPresentation).
 
-A imagem a seguir mostra as propriedades de documento originais da apresentação PowerPoint.
+A imagem a seguir mostra as propriedades originais do documento.
 
-![Propriedades de documento originais da apresentação PowerPoint](input_properties.png)
-
-O exemplo a seguir altera o título e a data da última gravação e grava o resultado em um novo arquivo:
+![Propriedades do documento original da apresentação PowerPoint](input_properties.png)
 
 ```python
 import jpype
@@ -193,35 +191,35 @@ finally:
     output_stream.close()
 ```
 
-A imagem a seguir mostra as propriedades de documento atualizadas da apresentação PowerPoint.
+A imagem a seguir mostra as propriedades do documento alteradas.
 
-![Propriedades de documento alteradas da apresentação PowerPoint](output_properties.png)
+![Propriedades do documento alteradas da apresentação PowerPoint](output_properties.png)
 
 ## **Links úteis**
 
-Para verificações de segurança relacionadas e configurações de proteção, consulte os artigos seguintes:
+Para verificações de segurança relacionadas e configurações de proteção, veja os artigos a seguir:
 
-- [Proteger apresentações com senha](/slides/pt/python-java/password-protected-presentation/)
-- [Proteger apresentações contra gravação](/slides/pt/python-java/write-protected-presentation/)
+- [Password-Protect Presentations](/slides/pt/python-java/password-protected-presentation/)
+- [Write-Protect Presentations](/slides/pt/python-java/write-protected-presentation/)
 
-## **FAQ**
+## **Perguntas frequentes**
 
 **Como posso verificar se as fontes estão incorporadas e quais são?**
 
 Carregue a apresentação e use [Presentation.getFontsManager](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getFontsManager). Chame [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/pt/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) para obter as fontes incorporadas e [FontsManager.getFonts](https://reference.aspose.com/slides/pt/python-java/aspose.slides/fontsmanager/#getFonts) para obter as fontes usadas pela apresentação. Compare os dois resultados para encontrar fontes necessárias para renderização que não estejam incorporadas.
 
-**Como posso dizer rapidamente se o arquivo tem slides ocultos e quantos?**
+**Como posso rapidamente saber se o arquivo tem slides ocultos e quantos?**
 
 Quando os metadados armazenados do documento são suficientes, leia [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/documentproperties/#getHiddenSlides) através de [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationfactory/#getPresentationInfo) e [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentationinfo/#readDocumentProperties). Isso é adequado para um inventário leve. Se a apresentação foi modificada em memória, os metadados armazenados podem estar ausentes ou desatualizados, ou se precisar verificar valores ao vivo, percorra [Presentation.getSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getSlides) e inspecione o método [Slide.getHidden](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/#getHidden) de cada slide.
 
-**Posso detectar se um tamanho ou orientação de slide personalizado está sendo usado e se difere dos padrões?**
+**Posso detectar se um tamanho de slide personalizado e orientação são usados, e se diferem dos padrões?**
 
-Sim. Carregue a apresentação e chame [Presentation.getSlideSize](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getSlideSize). Use [SlideSize.getType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slidesize/#getType), [SlideSize.getSize](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slidesize/#getSize) e [SlideSize.getOrientation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slidesize/#getOrientation) para comparar as configurações atuais com o preset e as dimensões esperadas.
+Sim. Carregue a apresentação e chame [Presentation.getSlideSize](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getSlideSize). Use [SlideSize.getType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slidesize/#getType), [SlideSize.getSize](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slidesize/#getSize) e [SlideSize.getOrientation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slidesize/#getOrientation) para comparar as configurações atuais com o preset e dimensões esperados.
 
-**Existe uma forma rápida de ver se gráficos referenciam fontes de dados externas?**
+**Existe uma maneira rápida de ver se os gráficos referenciam fontes de dados externas?**
 
-Sim. Localize cada [Chart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/) e chame [ChartData.getDataSourceType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getDataSourceType). Para uma pasta de trabalho externa, chame [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). O tipo de fonte de dados e o caminho identificam uma referência externa, mas verificar se o alvo está disponível requer uma verificação de recurso separada.
+Sim. Localize cada [Chart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chart/) e chame [ChartData.getDataSourceType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getDataSourceType). Para uma pasta de trabalho externa, chame [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/pt/python-java/aspose.slides/chartdata/#getExternalWorkbookPath). O tipo de fonte de dados e o caminho identificam uma referência externa, mas verificar se o destino está disponível requer uma verificação de recurso separada.
 
-**Como posso avaliar slides “pesados” que podem desacelerar a renderização ou a exportação para PDF?**
+**Como posso avaliar slides 'pesados' que podem desacelerar a renderização ou a exportação para PDF?**
 
-Não existe uma única propriedade de complexidade. Percorra [Presentation.getSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getSlides) e a coleção [BaseSlide.getShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#getShapes) de cada slide. Use contagens de formas e a presença de imagens grandes, efeitos, animações ou multimídia como sinais de triagem, e meça uma renderização ou exportação representativa antes de considerar um slide como um gargalo de desempenho confirmado.
+Não existe uma única propriedade de complexidade. Percorra [Presentation.getSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getSlides) e a coleção [BaseSlide.getShapes](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#getShapes) de cada slide. Use contagens de formas e a presença de imagens grandes, efeitos, animações ou multimídia como sinais de triagem, e meça uma renderização ou exportação representativa antes de considerar um slide como um gargalo de desempenho comprovado.

@@ -1,50 +1,48 @@
 ---
-title: จัดการ Hyperlink ของการนำเสนอใน Python ผ่าน Java
-linktitle: จัดการ Hyperlink
+title: จัดการไฮเปอร์ลิงก์การนำเสนอใน Python ผ่าน Java
+linktitle: จัดการไฮเปอร์ลิงก์
 type: docs
 weight: 20
 url: /th/python-java/manage-hyperlinks/
 keywords:
 - เพิ่ม URL
-- เพิ่ม Hyperlink
-- สร้าง Hyperlink
-- จัดรูปแบบ Hyperlink
-- ลบ Hyperlink
-- อัปเดต Hyperlink
-- Hyperlink ข้อความ
-- Hyperlink สไลด์
-- Hyperlink รูปร่าง
-- Hyperlink รูปภาพ
-- Hyperlink วิดีโอ
-- Hyperlink ที่แก้ไขได้
+- เพิ่มไฮเปอร์ลิงก์
+- สร้างไฮเปอร์ลิงก์
+- จัดรูปแบบไฮเปอร์ลิงก์
+- ลบไฮเปอร์ลิงก์
+- อัปเดตไฮเปอร์ลิงก์
+- ไฮเปอร์ลิงก์ข้อความ
+- ไฮเปอร์ลิงก์สไลด์
+- ไฮเปอร์ลิงก์รูปร่าง
+- ไฮเปอร์ลิงก์รูปภาพ
+- ไฮเปอร์ลิงก์วิดีโอ
+- ไฮเปอร์ลิงก์ที่แก้ไขได้
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "จัดการ Hyperlink ในการนำเสนอ PowerPoint และ OpenDocument อย่างง่ายดายด้วย Aspose.Slides สำหรับ Python ผ่าน Java—เพิ่มความโต้ตอบและประสิทธิภาพการทำงานในเวลาไม่กี่นาที"
+description: "จัดการไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument ได้อย่างง่ายดายด้วย Aspose.Slides สำหรับ Python ผ่าน Java—เพิ่มการโต้ตอบและกระบวนการทำงานในไม่กี่นาที"
 ---
-## **คำนำ**
+## **บทนำ**
 
-Hyperlink คือการอ้างอิงไปยังออบเจกต์หรือข้อมูลหรือสถานที่ในบางอย่าง ซึ่งเป็น Hyperlink ที่พบบ่อยในงานนำเสนอ PowerPoint:
+Hyperlink คือการอ้างอิงถึงวัตถุ ข้อมูล หรือสถานที่ ใบลิงก์ทั่วไปในงานนำเสนอ PowerPoint ประกอบด้วย:
 
-* ลิงก์ไปยังเว็บไซต์ภายในข้อความ, รูปร่าง, หรือสื่อ
+* ลิงก์ไปยังเว็บไซต์ในข้อความ รูปร่าง หรือสื่อ
 * ลิงก์ไปยังสไลด์
 
-Aspose.Slides for Python via Java ช่วยคุณทำงานหลายอย่างที่เกี่ยวกับ Hyperlink ในการนำเสนอ
+Aspose.Slides for Python via Java ช่วยให้คุณทำงานหลายอย่างที่เกี่ยวกับไฮเปอร์ลิงก์ในงานนำเสนอได้
 
-{{% alert color="info" title="หมายเหตุ" %}} 
-
-คุณอาจอยากลองใช้ Aspose อย่างง่าย, [ฟรีออนไลน์ PowerPoint editor.](https://products.aspose.app/slides/th/editor)
-
+{{% alert color="info" title="Note" %}} 
+คุณอาจต้องการตรวจสอบ [โปรแกรมแก้ไข PowerPoint ออนไลน์ฟรี](https://products.aspose.app/slides/th/editor) ของ Aspose
 {{% /alert %}} 
 
-## **เพิ่ม URL Hyperlink**
+## **เพิ่มไฮเปอร์ลิงก์ URL**
 
-### **เพิ่ม URL Hyperlink ไปยังข้อความ**
+### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับข้อความ**
 
-โค้ด Python นี้แสดงวิธีเพิ่ม Hyperlink เว็บไซต์ไปยังข้อความ:
+โค้ด Python นี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์เว็บไซต์ให้กับข้อความ:
 
 ```python
 import jpype
@@ -70,9 +68,9 @@ finally:
     presentation.dispose()
 ```
 
-### **เพิ่ม URL Hyperlink ไปยังรูปร่างหรือเฟรม**
+### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับรูปร่างหรือเฟรม**
 
-ตัวอย่างโค้ดใน Python via Java นี้แสดงวิธีเพิ่ม Hyperlink เว็บไซต์ไปยังรูปร่าง:
+ตัวอย่างโค้ดนี้ใน Python via Java แสดงวิธีการเพิ่มไฮเปอร์ลิงก์เว็บไซต์ให้กับรูปร่าง:
 
 ```python
 import jpype
@@ -95,11 +93,11 @@ finally:
     presentation.dispose()
 ```
 
-### **เพิ่ม URL Hyperlink ไปยังสื่อ**
+### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับสื่อ**
 
-Aspose.Slides ให้คุณเพิ่ม Hyperlink ไปยังรูปภาพ, ไฟล์เสียง, และไฟล์วิดีโอ
+Aspose.Slides อนุญาตให้คุณเพิ่มไฮเปอร์ลิงก์ไปยังไฟล์รูปภาพ เสียง และวิดีโอ
 
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่ม Hyperlink ไปยัง **รูปภาพ**:
+ตัวอย่างโค้ดนี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์ให้กับ **ภาพ**:
 
 ```python
 import jpype
@@ -112,13 +110,13 @@ from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeT
 
 presentation = Presentation()
 try:
-    # เพิ่มรูปภาพลงในการนำเสนอ
+    # เพิ่มรูปภาพลงในงานนำเสนอ
     image = Images.fromFile("image.png")
     try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # สร้างกรอบรูปภาพบนสไลด์ที่ 1 โดยอิงจากรูปภาพที่เพิ่มไว้ก่อนหน้า
+    # สร้างกรอบรูปบนสไลด์ที่ 1 โดยอ้างอิงจากรูปภาพที่เพิ่มไว้ก่อนหน้า
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -129,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่ม Hyperlink ไปยัง **ไฟล์เสียง**:
+ตัวอย่างโค้ดนี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์ให้กับ **ไฟล์เสียง**:
 
 ```python
 from pathlib import Path
@@ -157,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-ตัวอย่างโค้ดนี้แสดงวิธีเพิ่ม Hyperlink ไปยัง **วิดีโอ**:
+ตัวอย่างโค้ดนี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์ให้กับ **วิดีโอ**:
 
 ```python
 from pathlib import Path
@@ -185,17 +183,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="เคล็ดลับ" %}} 
-
-คุณอาจอยากดู *[Manage OLE](/slides/th/python-java/manage-ole/)*.
-
+{{% alert color="success" title="Tip" %}} 
+คุณอาจต้องการดู *[จัดการ OLE](/slides/th/python-java/manage-ole/)*.
 {{% /alert %}}
 
-## **ใช้ Hyperlink เพื่อสร้างสารบัญ**
+## **ใช้ไฮเปอร์ลิงก์เพื่อสร้างสารบัญ**
 
-เนื่องจาก Hyperlink ช่วยให้คุณเพิ่มการอ้างอิงไปยังออบเจกต์หรือสถานที่ คุณสามารถใช้มันสร้างสารบัญได้
+เนื่องจากไฮเปอร์ลิงก์ทำให้คุณเพิ่มการอ้างอิงถึงวัตถุหรือสถานที่ได้ คุณสามารถใช้มันเพื่อสร้างสารบัญได้
 
-ตัวอย่างโค้ดนี้แสดงวิธีสร้างสารบัญที่มี Hyperlink:
+ตัวอย่างโค้ดนี้แสดงวิธีการสร้างสารบัญที่มีไฮเปอร์ลิงก์:
 
 ```python
 import jpype
@@ -235,13 +231,13 @@ finally:
     presentation.dispose()
 ```
 
-## **จัดรูปแบบ Hyperlink**
+## **จัดรูปแบบไฮเปอร์ลิงก์**
 
 ### **สี**
 
-ด้วยคุณสมบัติ [Hyperlink.setColorSource](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/#setColorSource) ในคลาส [Hyperlink](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/) คุณสามารถกำหนดสีของ Hyperlink และยังสามารถดึงข้อมูลสีจาก Hyperlink ได้ คุณลักษณะนี้ถูกแนะนำครั้งแรกใน PowerPoint 2019 ดังนั้นการเปลี่ยนแปลงที่เกี่ยวกับคุณสมบัตินี้จะไม่ทำงานกับเวอร์ชัน PowerPoint ที่เก่ากว่า
+ด้วยคุณสมบัติ [Hyperlink.setColorSource](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/#setColorSource) ในคลาส [Hyperlink](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/) คุณสามารถตั้งค่าสีสำหรับไฮเปอร์ลิงก์และยังสามารถดึงข้อมูลสีจากไฮเปอร์ลิงก์ได้ คุณลักษณะนี้เริ่มต้นแนะนำใน PowerPoint 2019 ดังนั้นการเปลี่ยนแปลงที่เกี่ยวข้องกับคุณสมบัตินี้จะไม่ได้ใช้กับ PowerPoint เวอร์ชันเก่า
 
-ตัวอย่างโค้ดนี้สาธิตการเพิ่ม Hyperlink ที่มีสีต่างกันลงในสไลด์เดียวกัน:
+ตัวอย่างโค้ดนี้แสดงการดำเนินการที่เพิ่มไฮเปอร์ลิงก์ที่มีสีต่างกันลงในสไลด์เดียวกัน:
 
 ```python
 import jpype
@@ -273,11 +269,11 @@ finally:
     presentation.dispose()
 ```
 
-## **ลบ Hyperlink ออกจากการนำเสนอ**
+## **ลบไฮเปอร์ลิงก์จากงานนำเสนอ**
 
-### **ลบ Hyperlink จากข้อความ**
+### **ลบไฮเปอร์ลิงก์จากข้อความ**
 
-โค้ด Python นี้แสดงวิธีลบ Hyperlink จากข้อความในสไลด์การนำเสนอ:
+โค้ด Python นี้แสดงวิธีการลบไฮเปอร์ลิงก์ออกจากข้อความบนสไลด์ของงานนำเสนอ:
 
 ```python
 import jpype
@@ -304,9 +300,9 @@ finally:
     presentation.dispose()
 ```
 
-### **ลบ Hyperlink จากรูปร่างหรือเฟรม**
+### **ลบไฮเปอร์ลิงก์จากรูปร่างหรือเฟรม**
 
-โค้ด Python นี้แสดงวิธีลบ Hyperlink จากรูปร่างในสไลด์การนำเสนอ:
+โค้ด Python นี้แสดงวิธีการลบไฮเปอร์ลิงก์ออกจากรูปร่างบนสไลด์ของงานนำเสนอ:
 
 ```python
 import jpype
@@ -327,9 +323,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Hyperlink แบบเปลี่ยนแปลงได้**
+## **Hyperlink ที่สามารถแก้ไขได้**
 
-คลาส [Hyperlink](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/) สามารถเปลี่ยนแปลงค่าได้ ด้วยคลาสนี้คุณสามารถแก้ไขค่าของคุณสมบัติเหล่านี้:
+คลาส [Hyperlink](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/) สามารถแก้ไขได้ ด้วยคลาสนี้คุณสามารถเปลี่ยนค่าให้กับคุณสมบัติเหล่านี้ได้:
 
 - [setTargetFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -337,14 +333,14 @@ finally:
 - [setHighlightClick](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-ส่วนของโค้ดนี้แสดงวิธีเพิ่ม Hyperlink ไปยังสไลด์และแก้ไข Tooltip ของมันภายหลัง:
+ตัวอย่างโค้ดนี้แสดงวิธีการเพิ่มไฮเปอร์ลิงก์ลงในสไลด์และแก้ไข tooltip ของมันภายหลัง:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpime.startJVM()
 
 from asposeslides.api import Hyperlink, Presentation, SaveFormat, ShapeType
 
@@ -358,7 +354,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # เปลี่ยน tooltip ของ hyperlink ที่ได้เพิ่มไว้แล้ว
+    # เปลี่ยน tooltip ของไฮเปอร์ลิงก์ที่ได้เพิ่มไว้แล้ว
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -368,29 +364,29 @@ finally:
 
 ## **คุณสมบัติที่รองรับใน HyperlinkQueries**
 
-คุณสามารถเข้าถึง [HyperlinkQueries](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlinkqueries/) จากการนำเสนอ, สไลด์, หรือข้อความที่กำหนด Hyperlink ไว้ได้
+คุณสามารถเข้าถึง [HyperlinkQueries](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlinkqueries/) จากงานนำเสนอ สไลด์ หรือข้อความที่กำหนดไฮเปอร์ลิงก์ไว้ได้.
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-คลาส [HyperlinkQueries](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlinkqueries/) รองรับเมธอดและคุณสมบัติดังนี้:
+คลาส [HyperlinkQueries](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlinkqueries/) รองรับเมธอดและคุณสมบัติเหล่านี้:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
 - [getAnyHyperlinks](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
 - [removeAllHyperlinks](https://reference.aspose.com/slides/th/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะสร้างการนำทางภายในที่ไม่ใช่แค่สไลด์เดียว แต่ไปยัง “ส่วน” หรือสไลด์แรกของส่วนได้อย่างไร?**
+**ฉันจะสร้างการนำทางภายในไม่ใช่แค่สไลด์เท่านั้น แต่ถึง "section" หรือสไลด์แรกของ section ได้อย่างไร?**
 
-ส่วนใน PowerPoint คือการจัดกลุ่มสไลด์; การนำทางทางเทคนิคจะชี้ไปยังสไลด์เฉพาะ เพื่อ “ไปยังส่วน” คุณมักจะลิงก์ไปยังสไลด์แรกของส่วนนั้น
+Section ใน PowerPoint คือการจัดกลุ่มสไลด์; การนำทางโดยเทคนิคจะชี้ไปที่สไลด์เฉพาะ การ "นำทางไปยัง section" มักทำได้โดยลิงก์ไปยังสไลด์แรกของมัน
 
-**ฉันสามารถแนบ Hyperlink ไปยังองค์ประกอบของมาสเตอร์สไลด์เพื่อให้ทำงานบนสไลด์ทั้งหมดได้หรือไม่?**
+**ฉันสามารถแนบไฮเปอร์ลิงก์กับองค์ประกอบของมาสเตอร์สไลด์เพื่อให้ทำงานบนสไลด์ทั้งหมดได้หรือไม่?**
 
-ได้ มาสเตอร์สไลด์และเลเอาต์อิลิเมนต์รองรับ Hyperlink ลิงก์เหล่านี้จะแสดงบนสไลด์ลูกและสามารถคลิกได้ระหว่างการพรีเซ็นต์
+ได้. องค์ประกอบของมาสเตอร์สไลด์และเลย์เอาต์รองรับไฮเปอร์ลิงก์ ลิงก์เหล่านี้จะแสดงบนสไลด์ลูกและสามารถคลิกได้ระหว่างการนำเสนอ
 
-**Hyperlink จะถูกเก็บไว้เมื่อส่งออกเป็น PDF, HTML, ภาพ หรือวิดีโอหรือไม่?**
+**ไฮเปอร์ลิงก์จะคงอยู่เมื่อส่งออกเป็น PDF, HTML, รูปภาพ หรือวิดีโอหรือไม่?**
 
-ใน [PDF](/slides/th/python-java/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/python-java/convert-powerpoint-to-html/) ใช่—ลิงก์ส่วนใหญ่จะถูกเก็บไว้ แต่เมื่อส่งออกเป็น [ภาพ](/slides/th/python-java/convert-powerpoint-to-png/) และ [วิดีโอ](/slides/th/python-java/convert-powerpoint-to-video/) ความสามารถในการคลิกจะไม่ถ่ายทอดต่อเนื่องเนื่องจากลักษณะของฟอร์แมตเหล่านั้น (เฟรมภาพ/วิดีโอแบบแรสเตอร์ไม่รองรับ Hyperlink)
+ใน [PDF](/slides/th/python-java/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/python-java/convert-powerpoint-to-html/) ใช่ — ลิงก์โดยทั่วไปจะคงไว้เมื่อส่งออก แต่เมื่อส่งออกเป็น [images](/slides/th/python-java/convert-powerpoint-to-png/) และ [video](/slides/th/python-java/convert-powerpoint-to-video/) ความสามารถในการคลิกจะไม่ถูกส่งต่อเนื่องจากลักษณะของรูปแบบเหล่านั้น (เฟรมภาพราสเตอร์/วิดีโอไม่รองรับไฮเปอร์ลิงก์)

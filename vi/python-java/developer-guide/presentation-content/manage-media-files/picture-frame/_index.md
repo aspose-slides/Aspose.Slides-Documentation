@@ -1,47 +1,47 @@
 ---
-title: Quản lý Khung Hình trong Bản Trình Bày Sử dụng Python
-linktitle: Khung Hình
+title: Quản lý khung ảnh trong bài thuyết trình bằng Python
+linktitle: Khung Ảnh
 type: docs
 weight: 10
 url: /vi/python-java/picture-frame/
 keywords:
-- khung hình
-- thêm khung hình
-- tạo khung hình
-- hình ảnh nhúng
-- hình ảnh liên kết
-- trích xuất hình ảnh
-- hình ảnh raster
-- SVG image
-- cắt hình ảnh
-- xóa vùng đã cắt
-- nén hình ảnh
+- khung ảnh
+- thêm khung ảnh
+- tạo khung ảnh
+- ảnh nhúng
+- ảnh liên kết
+- trích xuất ảnh
+- ảnh raster
+- ảnh SVG
+- cắt ảnh
+- xóa các vùng đã cắt
+- nén ảnh
 - StretchOffset
-- định dạng khung hình
+- định dạng khung ảnh
 - tỷ lệ tương đối
-- hiệu ứng hình ảnh
-- tỷ lệ khía cạnh
+- hiệu ứng ảnh
+- tỷ lệ khung hình
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bài thuyết trình
 - Python
 - Java
 - Aspose.Slides
-description: "Tạo, định dạng, liên kết, cắt, trích xuất và nén khung hình trong bản trình bày với Aspose.Slides cho Python thông qua Java."
+description: "Tạo, định dạng, liên kết, cắt, trích xuất và nén khung ảnh trong bài thuyết trình với Aspose.Slides cho Python qua Java."
 ---
 ## **Tổng quan**
 
-Khung hình là một hình dạng trên slide hiển thị một hình ảnh. Trong Aspose.Slides, tài nguyên hình ảnh và hình dạng hiển thị nó là các đối tượng riêng biệt: một [Presentation] sở hữu các tài nguyên hình ảnh được nhúng thông qua [ImageCollection] của nó, trong khi một [PictureFrame] kiểm soát vị trí, kích thước, định dạng đường viền, xoay, cắt, hiệu ứng ảnh và các thiết lập cấp khung khác.
+Khung hình ảnh là một hình dạng trên slide dùng để hiển thị hình ảnh. Trong Aspose.Slides, tài nguyên hình ảnh và hình dạng hiển thị nó là các đối tượng riêng biệt: một [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) sở hữu các tài nguyên ảnh được nhúng thông qua [ImageCollection](https://reference.aspose.com/slides/vi/python-java/aspose.slides/imagecollection/), trong khi một [PictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/) điều khiển vị trí, kích thước, định dạng đường viền, xoay, cắt, hiệu ứng ảnh và các cài đặt cấp khung khác.
 
-Sự phân tách này hữu ích khi cùng một hình ảnh được hiển thị nhiều lần. Thêm hình ảnh vào bản trình bày một lần, giữ lại [PPImage] trả về, và sử dụng tài nguyên hình ảnh đó khi tạo các khung hình.
+Sự tách biệt này hữu ích khi cùng một hình ảnh được hiển thị nhiều lần. Thêm hình ảnh vào bản trình chiếu một lần, giữ lại đối tượng [PPImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/) trả về, và sử dụng tài nguyên ảnh đó khi tạo các khung hình ảnh.
 
-Các khung hình có thể chứa hình ảnh raster như PNG hoặc JPEG và hình ảnh vector SVG. Chúng cũng có thể tham chiếu tới hình ảnh liên kết thay vì lưu trữ byte hình ảnh trong bản trình bày. Lựa chọn này ảnh hưởng đến khả năng di động, kích thước tệp, việc trích xuất và hành vi xuất, vì vậy nên quyết định cách lưu trữ hình ảnh trước khi áp dụng định dạng hoặc tối ưu hóa.
+Khung hình ảnh có thể chứa ảnh raster như PNG hoặc JPEG và ảnh vector SVG. Chúng cũng có thể tham chiếu tới ảnh được liên kết thay vì lưu trữ dữ liệu ảnh trong bản trình chiếu. Lựa chọn này ảnh hưởng đến khả năng di động, kích thước tệp, việc trích xuất và hành vi xuất khẩu, vì vậy nên quyết định cách lưu trữ ảnh trước khi áp dụng định dạng hoặc tối ưu hoá.
 
-## **Thêm và Định dạng Hình ảnh Nhúng**
+## **Thêm và Định dạng Ảnh Nhúng**
 
-Đối với hình ảnh nhúng, thêm dữ liệu hình ảnh vào bản trình bày và tạo một khung hình bằng [ShapeCollection.addPictureFrame]. Hình ảnh trở thành một phần của gói bản trình bày, vì vậy bản trình bày vẫn tự chứa khi được chuyển sang máy tính khác.
+Đối với ảnh nhúng, thêm dữ liệu ảnh vào bản trình chiếu và tạo một khung hình ảnh bằng [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/shapecollection/#addPictureFrame). Ảnh sẽ trở thành một phần của gói bản trình chiếu, nên bản trình chiếu vẫn tự chứa khi được chuyển sang máy tính khác.
 
-Ví dụ sau thêm một hình ảnh JPEG, tạo khung với kích thước gốc của hình ảnh và áp dụng định dạng đường viền cũng như xoay:
+Ví dụ dưới đây thêm một ảnh JPEG, tạo khung với kích thước gốc của ảnh, và áp dụng định dạng đường viền cũng như xoay:
 
 ```python
 import jpype
@@ -74,11 +74,11 @@ finally:
     presentation.dispose()
 ```
 
-Khung hình kiểm soát hình học hiển thị; việc thay đổi kích thước khung không thay đổi kích thước pixel gốc được lưu trong tài nguyên hình ảnh nhúng. Sự khác biệt này quan trọng khi cắt hoặc nén hình ảnh sau này.
+Khung hình ảnh điều khiển hình học hiển thị; việc thay đổi kích thước khung không làm thay đổi kích thước pixel gốc được lưu trong tài nguyên ảnh nhúng. Sự khác biệt này trở nên quan trọng khi cắt hoặc nén ảnh sau này.
 
 ## **Sử dụng Tỷ lệ Tương đối**
 
-[PictureFrame] cung cấp khả năng tỷ lệ chiều rộng và chiều cao tương đối cho khung thông qua [setRelativeScaleWidth] và [setRelativeScaleHeight]. Giá trị `1.0` tương đương với 100% kích thước hình ảnh gốc. Tỷ lệ tương đối hữu ích khi quy trình làm việc cần duy trì mối quan hệ với kích thước nguồn thay vì tính toán kích thước cuối cùng một cách thủ công.
+[PictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/) cung cấp khả năng điều chỉnh tỷ lệ rộng và cao tương đối cho khung qua [setRelativeScaleWidth](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) và [setRelativeScaleHeight](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Giá trị `1.0` tương đương với 100% kích thước ảnh gốc. Tỷ lệ tương đối hữu ích khi quy trình cần duy trì mối quan hệ với kích thước ảnh nguồn thay vì tính toán kích thước cuối cùng một cách thủ công.
 
 ```python
 import jpype
@@ -108,17 +108,17 @@ finally:
     presentation.dispose()
 ```
 
-Tỷ lệ tương đối thay đổi cài đặt tỷ lệ của khung; nó không tái mẫu hoặc nén hình ảnh nhúng.
+Tỷ lệ tương đối thay đổi các cài đặt tỷ lệ của khung; nó không tái mẫu hoặc nén ảnh nhúng.
 
-## **Hình ảnh Nhúng và Liên kết**
+## **Ảnh Nhúng và Ảnh Liên kết**
 
-Một hình ảnh nhúng lưu trữ dữ liệu hình ảnh bên trong bản trình bày và do đó là lựa chọn an toàn nhất cho khả năng di động và việc hiển thị dự đoán được. Một hình ảnh liên kết lưu trữ vị trí bên ngoài thông qua phương thức [Picture.setLinkPathLong] thay vì nhúng dữ liệu hình ảnh cùng cách.
+Ảnh nhúng lưu trữ dữ liệu ảnh bên trong bản trình chiếu và do đó là lựa chọn an toàn nhất cho khả năng di động và việc render dự đoán được. Ảnh liên kết lưu trữ vị trí bên ngoài thông qua phương thức [Picture.setLinkPathLong](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picture/#setLinkPathLong) thay vì nhúng dữ liệu ảnh theo cách thông thường.
 
-Hình ảnh liên kết có thể giảm lượng dữ liệu hình ảnh lưu trong PPTX, nhưng chúng tạo ra một phụ thuộc bên ngoài. Tệp liên kết phải vẫn có thể truy cập được đối với ứng dụng mở hoặc hiển thị bản trình bày. Nếu đường dẫn thay đổi, tệp bị di chuyển, hoặc tài nguyên không khả dụng, hình ảnh liên kết có thể không hiển thị như mong đợi. Đối với các bản trình bày cần gửi qua email, lưu trữ hoặc hiển thị trong môi trường cô lập, hình ảnh nhúng thường đáng tin cậy hơn.
+Ảnh liên kết có thể giảm lượng dữ liệu ảnh lưu trong PPTX, nhưng chúng tạo ra một phụ thuộc bên ngoài. Tệp liên kết phải luôn khả dụng đối với ứng dụng mở hoặc render bản trình chiếu. Nếu đường dẫn thay đổi, tệp được di chuyển, hoặc tài nguyên không có, ảnh liên kết có thể không hiển thị như mong đợi. Đối với các bản trình chiếu phải được gửi email, lưu trữ, hoặc render trong môi trường cô lập, ảnh nhúng thường đáng tin cậy hơn.
 
-### **Thêm Hình ảnh Liên kết**
+### **Thêm Ảnh Liên kết**
 
-Ví dụ sau tạo một khung hình và trỏ nó tới một tệp hình ảnh cục bộ. Nó chỉ xử lý việc liên kết hình ảnh; liên kết video là một quy trình media riêng và không được trộn vào ví dụ này.
+Ví dụ dưới đây tạo một khung ảnh và trỏ nó tới một tệp ảnh cục bộ. Nó chỉ xử lý việc liên kết ảnh; việc liên kết video là một quy trình truyền thông riêng và không được trộn vào ví dụ này.
 
 ```python
 import jpype
@@ -144,15 +144,15 @@ finally:
     presentation.dispose()
 ```
 
-Sử dụng liên kết khi việc quản lý tệp bên ngoài là có chủ đích. Đừng sử dụng chúng chỉ để thay thế nén: một PPTX nhỏ với các phụ thuộc hình ảnh bị hỏng thường kém hữu ích hơn so với một bản trình bày tự chứa lớn hơn.
+Sử dụng liên kết khi việc quản lý tệp bên ngoài là có chủ đích. Đừng dùng chúng chỉ để thay thế cho việc nén: một PPTX nhỏ với các phụ thuộc ảnh bị hỏng thường ít hữu ích hơn một bản trình chiếu tự chứa lớn hơn.
 
-## **Trích xuất Hình ảnh từ Khung Hình**
+## **Trích xuất Ảnh từ Khung Hình ảnh**
 
-Trước khi trích xuất hình ảnh từ một bản trình bày hiện có, hãy kiểm tra xem một hình dạng thực sự là [PictureFrame] và nó có chứa hình ảnh nhúng hay không. Các khung hình liên kết có thể không chứa byte hình ảnh có thể trích xuất theo cùng cách.
+Trước khi trích xuất ảnh từ một bản trình chiếu hiện có, kiểm tra xem hình dạng thực sự là một [PictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/) và nó có chứa ảnh nhúng không. Các khung ảnh liên kết có thể không chứa byte ảnh có thể được trích xuất theo cùng cách.
 
-### **Trích xuất Hình ảnh Raster**
+### **Trích xuất Ảnh Raster**
 
-API hình ảnh hiện đại làm việc trực tiếp với hình ảnh raster và không cần wrapper Java cũ. Ví dụ sau tìm ảnh raster nhúng đầu tiên trên một slide và lưu nó dưới dạng PNG:
+API ảnh hiện đại làm việc trực tiếp với ảnh raster và không yêu cầu lớp bọc ảnh Java cũ. Ví dụ dưới đây tìm ảnh raster nhúng đầu tiên trên một slide và lưu nó dưới dạng PNG:
 
 ```python
 import jpype
@@ -186,11 +186,11 @@ finally:
     presentation.dispose()
 ```
 
-Lưu hình ảnh raster chuyển đổi hình ảnh đã trích xuất sang định dạng đầu ra yêu cầu. Nếu bạn cần các byte đã mã hoá lưu trong bản trình bày thay vì một tệp raster đã chuyển đổi, hãy sử dụng dữ liệu nhị phân của tài nguyên hình ảnh.
+Lưu ảnh raster sẽ chuyển đổi ảnh đã trích xuất sang định dạng đầu ra yêu cầu. Nếu bạn cần byte đã mã hóa được lưu trong bản trình chiếu thay vì tệp raster đã chuyển đổi, hãy sử dụng dữ liệu nhị phân của tài nguyên ảnh thay vì.
 
-### **Trích xuất Hình ảnh SVG**
+### **Trích xuất Ảnh SVG**
 
-Đối với ảnh SVG, [PPImage] cung cấp một đối tượng [SvgImage]. Điều này cho phép bạn lấy dữ liệu SVG trực tiếp thay vì raster hoá ảnh trước.
+Đối với ảnh SVG, [PPImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/) cung cấp một đối tượng [SvgImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/svgimage/). Điều này cho phép bạn lấy dữ liệu SVG trực tiếp thay vì raster hoá ảnh trước.
 
 ```python
 import jpype
@@ -223,13 +223,13 @@ finally:
     presentation.dispose()
 ```
 
-Giữ nội dung SVG dưới dạng SVG bảo toàn nguồn vector bên trong bản trình bày. Các xuất raster như PNG hoặc JPEG buộc phải render nội dung vector thành pixel. Xuất slide thành PDF hoặc SVG cũng là một thao tác render, vì vậy đồ họa xuất không nên được coi là bản sao byte‑for‑byte của SVG nhúng gốc; hãy sử dụng dữ liệu [SvgImage.getSvgData] khi cần tài nguyên vector gốc.
+Giữ nội dung SVG dưới dạng SVG bảo tồn nguồn vector trong bản trình chiếu. Các xuất khẩu raster như PNG hoặc JPEG buộc phải render nội dung vector thành pixel. Xuất khẩu slide dưới dạng PDF hoặc SVG cũng là một thao tác render, vì vậy đồ họa xuất ra không nên được xem như một bản sao byte‑for‑byte của SVG nhúng gốc; hãy sử dụng dữ liệu [SvgImage.getSvgData](https://reference.aspose.com/slides/vi/python-java/aspose.slides/svgimage/#getSvgData) khi cần tài nguyên vector gốc.
 
-## **Cắt Hình ảnh**
+## **Cắt Ảnh**
 
-Cắt thay đổi phần nào của hình ảnh hiển thị bên trong khung. Các giá trị cắt trên [PictureFillFormat] là phần trăm của kích thước ảnh nguồn. Cắt không xóa ngay các pixel ẩn khỏi hình ảnh nhúng; nó chỉ thay đổi vùng hiển thị.
+Cắt ảnh thay đổi phần nào của ảnh sẽ hiển thị bên trong khung. Các giá trị cắt trên [PictureFillFormat](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picturefillformat/) là tỷ lệ phần trăm của kích thước ảnh nguồn. Cắt không xóa ngay các pixel ẩn khỏi ảnh nhúng; nó chỉ thay đổi khu vực hiển thị.
 
-Ví dụ sau tìm một khung hình một cách an toàn và áp dụng các giá trị cắt:
+Ví dụ dưới đây tìm một khung ảnh một cách an toàn và áp dụng các giá trị cắt:
 
 ```python
 import jpype
@@ -260,11 +260,11 @@ finally:
     presentation.dispose()
 ```
 
-Vì dữ liệu ảnh ẩn vẫn còn, việc cắt có thể được thay đổi sau mà không mất pixel gốc. Nếu kích thước tệp quan trọng hơn khả năng đảo ngược, các vùng đã cắt có thể được loại bỏ thực tế như mô tả trong phần tiếp theo.
+Vì dữ liệu ảnh ẩn vẫn còn, việc cắt có thể được thay đổi sau mà không mất pixel gốc. Nếu kích thước tệp quan trọng hơn khả năng đảo ngược, các khu vực đã cắt có thể bị loại bỏ vật lý như mô tả trong phần tiếp theo.
 
-## **Xóa Dữ liệu Hình ảnh Đã Cắt**
+## **Xóa Dữ liệu Ảnh Đã Cắt**
 
-[PictureFillFormat.deletePictureCroppedAreas] loại bỏ dữ liệu hình ảnh nằm ngoài hình chữ nhật cắt hiện tại và trả về tài nguyên hình ảnh kết quả. Điều này có thể giảm kích thước tệp, nhưng là một tối ưu hoá phá hủy: sau khi bản trình bày được lưu, các pixel đã bị xóa không còn khả dụng cho thao tác hủy cắt sau này.
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) loại bỏ dữ liệu ảnh nằm ngoài hình chữ nhật cắt hiện tại và trả về tài nguyên ảnh mới. Điều này có thể giảm kích thước tệp, nhưng là một tối ưu hoá phá hủy: sau khi bản trình chiếu được lưu, các pixel đã bị xóa không còn có thể phục hồi cho thao tác “uncrop” sau này.
 
 ```python
 import jpype
@@ -293,13 +293,13 @@ finally:
     presentation.dispose()
 ```
 
-Phương thức có thể thêm một tài nguyên hình ảnh mới vào bản trình bày. Nếu hình ảnh gốc cũng được các khung hình khác sử dụng, những khung đó vẫn cần tài nguyên hiện có, vì vậy việc xóa vùng đã cắt không nhất thiết giảm tổng số hình ảnh. Cắt nội dung WMF hoặc EMF bằng phương thức này raster hoá kết quả đã cắt thành PNG.
+Phương pháp này có thể thêm một tài nguyên ảnh mới vào bản trình chiếu. Nếu ảnh gốc cũng được các khung ảnh khác sử dụng, những khung đó vẫn cần tài nguyên hiện có, vì vậy việc xóa các khu vực đã cắt không nhất thiết giảm tổng số ảnh. Cắt nội dung WMF hoặc EMF bằng phương pháp này sẽ raster hoá kết quả đã cắt thành PNG.
 
-## **Nén Hình ảnh Raster**
+## **Nén Ảnh Raster**
 
-[PictureFillFormat.compressImage] giảm độ phân giải hình ảnh raster tương ứng với kích thước hiển thị của ảnh. Nó cũng có thể loại bỏ các vùng đã cắt trong cùng một thao tác. Phương thức trả về `True` khi ảnh đã được thay đổi kích thước hoặc cắt và `False` khi không có thay đổi nào cần thiết.
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picturefillformat/#compressImage) giảm độ phân giải ảnh raster tương ứng với kích thước mà ảnh được hiển thị. Nó cũng có thể loại bỏ các khu vực đã cắt trong cùng một thao tác. Phương pháp trả về `True` khi ảnh đã được thay đổi kích thước hoặc cắt và `False` khi không cần thay đổi nào.
 
-Sử dụng một giá trị [PicturesCompression] đã định sẵn khi độ phân giải mục tiêu tiêu chuẩn là đủ:
+Sử dụng giá trị [PicturesCompression](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picturescompression/) được định trước khi độ phân giải mục tiêu tiêu chuẩn là đủ:
 
 ```python
 import jpype
@@ -328,17 +328,17 @@ finally:
     presentation.dispose()
 ```
 
-Có thể truyền một giá trị DPI dương tùy chỉnh thay cho giá trị đã định sẵn khi cần mục tiêu cụ thể.
+Một giá trị DPI dương tùy chỉnh có thể được truyền vào thay vì giá trị định trước khi cần mục tiêu cụ thể.
 
-Nén được dự định cho hình ảnh raster. Nội dung SVG và metafile không bị giảm bởi quy trình nén raster này. Ngoài ra, hãy nhớ rằng độ phân giải thấp hơn và các vùng đã cắt bị xóa không thể khôi phục từ bản trình bày đã tối ưu hoá. Chọn độ phân giải mục tiêu dựa trên kích thước lớn nhất mà hình ảnh sẽ thực sự được xem hoặc xuất thay vì áp dụng DPI thấp nhất trên toàn bộ.
+Nén được thiết kế cho ảnh raster. Nội dung SVG và metafile không bị giảm bởi quy trình nén raster này. Cũng nhớ rằng độ phân giải thấp hơn và các khu vực đã cắt bị xóa không thể khôi phục từ bản trình chiếu đã tối ưu hoá. Chọn độ phân giải mục tiêu dựa trên kích thước lớn nhất mà ảnh sẽ thực sự được xem hoặc xuất khẩu thay vì áp dụng DPI thấp nhất cho toàn bộ.
 
-## **Quản lý Hiệu ứng Biến đổi Hình ảnh**
+## **Quản lý Hiệu Ứng Biến Đổi Ảnh**
 
-Đối với một quy trình hoàn chỉnh bao gồm độ sáng, độ tương phản, biến đổi màu, mờ, hiệu ứng alpha, chuỗi đặt thứ tự, kiểm tra, loại bỏ và xác minh vòng lặp, xem [Image Transform Effects](/slides/vi/python-java/image-transform-effects/).
+Đối với quy trình đầy đủ bao gồm chỉnh sáng, độ tương phản, biến đổi màu, làm mờ, hiệu ứng alpha, chuỗi có thứ tự, kiểm tra, loại bỏ và xác thực vòng quanh, xem [Image Transform Effects](/slides/vi/python-java/image-transform-effects/).
 
-## **Khóa Hình học Khung Hình**
+## **Khóa Hình Học Khung Ảnh**
 
-Cài đặt [PictureFrameLock] kiểm soát các thao tác chỉnh sửa nào bị vô hiệu hoá cho một khung hình. Ví dụ, [setAspectRatioLocked] bảo toàn tỉ lệ hình dạng khi nó được thay đổi kích thước.
+Cài đặt [PictureFrameLock](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframelock/) điều khiển các thao tác chỉnh sửa nào bị vô hiệu hoá cho một khung ảnh. Ví dụ, [setAspectRatioLocked](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) giữ tỉ lệ hình dạng khi nó được thay đổi kích thước.
 
 ```python
 import jpype
@@ -367,13 +367,13 @@ finally:
     presentation.dispose()
 ```
 
-Khóa áp dụng cho hình dạng khung hình. Nó không buộc hình ảnh nguồn phải được tái mẫu hoặc thay đổi vĩnh viễn theo cùng tỉ lệ.
+Khóa áp dụng cho hình dạng khung ảnh. Nó không buộc ảnh nguồn phải được tái mẫu hoặc thay đổi vĩnh viễn thành cùng tỉ lệ.
 
-## **Điều chỉnh Giá trị StretchOffset**
+## **Điều Chỉnh Giá Trị StretchOffset**
 
-Khi chế độ lấp đầy ảnh là stretch, các giá trị stretch‑offset trên [PictureFillFormat] xác định hình chữ nhật lấp đầy tương đối với khung hình. Phần trăm dương tạo ra một khoảng vào từ cạnh, trong khi phần trăm âm tạo ra một khoảng ra.
+Khi chế độ lấp đầy ảnh là kéo dài, các giá trị stretch‑offset trên [PictureFillFormat](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picturefillformat/) xác định hình chữ nhật lấp đầy tương đối với hộp bao của khung ảnh. Tỷ lệ phần trăm dương tạo một lề vào từ cạnh, trong khi tỷ lệ phần trăm âm tạo một lề ra ngoài.
 
-Điều này khác với cắt. Giá trị cắt chọn phần nào của ảnh nguồn hiển thị; stretch offset thay đổi hình chữ nhật mà ảnh lấp đầy được kéo dãn vào.
+Điều này khác với việc cắt. Giá trị cắt chọn phần nào của ảnh nguồn sẽ hiển thị; offset kéo dài thay đổi hình chữ nhật mà ảnh lấp đầy sẽ được kéo dài vào.
 
 ```python
 import jpype
@@ -406,43 +406,43 @@ finally:
     presentation.dispose()
 ```
 
-Sử dụng stretch offset để đặt vị trí lấp đầy. Sử dụng thuộc tính cắt khi mục tiêu là ẩn các cạnh của ảnh nguồn.
+Sử dụng stretch offsets để đặt vị trí lấp đầy. Dùng thuộc tính cắt khi mục tiêu là ẩn các cạnh của ảnh nguồn.
 
-## **Lưu trữ, Kích thước Tệp và Các Xem xét Khi Xuất**
+## **Lưu Trữ, Kích Thước Tệp và Các Xem Xét Khi Xuất**
 
-Các đánh đổi chính dễ quản lý hơn khi lưu trữ hình ảnh và định dạng khung hình được tách rời:
+Các đánh đổi chính dễ quản lý hơn khi việc lưu trữ ảnh và định dạng khung ảnh được xem xét riêng biệt:
 
-- **Hình ảnh nhúng** làm cho bản trình bày tự chứa và là lựa chọn đáng tin cậy nhất cho việc chia sẻ và render phía máy chủ, nhưng các hình ảnh raster lớn làm tăng kích thước PPTX và sử dụng bộ nhớ.
-- **Hình ảnh liên kết** có thể giữ gói nhỏ hơn, nhưng bản trình bày phụ thuộc vào các tệp bên ngoài vẫn phải khả dụng tại các đường dẫn hoặc vị trí đã lưu.
-- **Cắt** ban đầu là không phá hủy. Các pixel ẩn vẫn được nhúng cho đến khi các vùng đã cắt được xóa rõ ràng hoặc loại bỏ trong quá trình nén.
-- **Nén** có thể giảm đáng kể kích thước tệp cho các hình raster quá lớn, nhưng đổi lại độ phân giải nguồn. Nó nên được áp dụng sau khi đã biết kích thước thực tế trên slide.
-- **Hình ảnh SVG** nên giữ dưới dạng SVG khi việc bảo tồn vector quan trọng. Trích xuất SVG nhúng trực tiếp khi bạn cần tài nguyên vector. Xuất slide raster luôn chuyển đổi slide đã render thành pixel.
-- **Hình ảnh lặp lại** nên tái sử dụng tài nguyên [PPImage] hiện có khi có thể thay vì tải lại cùng một tệp nhiều lần trong quy trình làm việc.
+- **Ảnh nhúng** làm cho bản trình chiếu tự chứa và là lựa chọn đáng tin cậy nhất cho việc chia sẻ và render phía máy chủ, nhưng ảnh raster lớn làm tăng kích thước PPTX và mức sử dụng bộ nhớ.
+- **Ảnh liên kết** có thể giữ gói nhỏ hơn, nhưng bản trình chiếu phụ thuộc vào các tệp bên ngoài phải vẫn khả dụng tại các đường dẫn hoặc vị trí đã lưu.
+- **Cắt** ban đầu là không phá hủy. Các pixel ẩn vẫn được nhúng cho đến khi các khu vực đã cắt được xóa rõ ràng hoặc bị loại bỏ trong quá trình nén.
+- **Nén** có thể giảm đáng kể kích thước tệp cho các ảnh raster quá lớn, nhưng nó đổi chác độ phân giải nguồn. Nên áp dụng sau khi đã biết kích thước thực tế trên slide.
+- **Ảnh SVG** nên giữ dưới dạng SVG khi việc bảo tồn vector quan trọng. Trích xuất SVG nhúng trực tiếp khi bạn cần tài nguyên vector gốc. Các xuất khẩu slide dạng raster luôn chuyển đổi slide đã render thành pixel.
+- **Ảnh lặp lại** nên tái sử dụng một tài nguyên [PPImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/) hiện có khi có thể thay vì liên tục tải cùng một tệp vào quy trình bản trình chiếu.
 
-Đối với các bản trình bày lớn, tối ưu hoá hình ảnh thường hiệu quả nhất khi thực hiện có chọn lọc: giữ logo và sơ đồ dưới dạng vector, nén ảnh chụp theo kích thước hiển thị thực tế, loại bỏ pixel đã cắt chỉ khi không cần chỉnh sửa sau này, và tránh liên kết bên ngoài trừ khi quản lý phụ thuộc là một phần của thiết kế triển khai.
+Đối với các bản trình chiếu lớn, tối ưu hoá ảnh thường hiệu quả nhất khi được thực hiện có chọn lọc: giữ logo và sơ đồ dưới dạng nội dung vector, nén ảnh chụp theo kích thước hiển thị thực tế, loại bỏ pixel đã cắt chỉ khi không cần chỉnh sửa sau này, và tránh liên kết bên ngoài trừ khi quản lý phụ thuộc là một phần của thiết kế triển khai.
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Sự khác biệt giữa khung hình và tài nguyên hình ảnh là gì?**
+**Khác biệt giữa khung ảnh và tài nguyên ảnh là gì?**
 
-[PPImage] đại diện cho một tài nguyên hình ảnh liên kết với bản trình bày. [PictureFrame] là một hình dạng trên slide hiển thị hình ảnh và lưu trữ các thuộc tính cấp khung như kích thước, xoay, giá trị cắt, hiệu ứng và khóa.
+[PPImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/ppimage/) đại diện cho một tài nguyên ảnh gắn với bản trình chiếu. [PictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/) là một hình dạng trên slide hiển thị ảnh và lưu trữ các thuộc tính cấp khung như kích thước, xoay, giá trị cắt, hiệu ứng và khóa.
 
-**Nên nhúng hay liên kết hình ảnh?**
+**Nên nhúng hay liên kết ảnh?**
 
-Nhúng hình ảnh khi bản trình bày phải di động, lưu trữ hoặc render mà không cần truy cập tài nguyên bên ngoài. Liên kết hình ảnh chỉ khi việc giữ các tệp ảnh ngoài PPTX là có chủ đích và các vị trí bên ngoài có thể được duy trì đáng tin cậy.
+Nhúng ảnh khi bản trình chiếu cần di động, lưu trữ, hoặc render mà không cần truy cập tài nguyên bên ngoài. Liên kết ảnh chỉ khi việc để ảnh ở ngoài PPTX là có chủ đích và các vị trí bên ngoài có thể được duy trì một cách đáng tin cậy.
 
-**Cắt có giảm kích thước PPTX không?**
+**Cắt ảnh có giảm kích thước PPTX không?**
 
-Không tự động. Cài đặt cắt bình thường ẩn phần của ảnh nguồn nhưng giữ lại pixel bên dưới. Sử dụng [PictureFillFormat.deletePictureCroppedAreas] hoặc nén ảnh với việc loại bỏ vùng đã cắt khi những pixel đó có thể bị loại bỏ vĩnh viễn.
+Không tự động. Cài đặt cắt bình thường ẩn một phần ảnh nguồn nhưng giữ lại các pixel bên dưới. Sử dụng [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/vi/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) hoặc nén ảnh với việc loại bỏ khu vực đã cắt khi các pixel đó có thể bị loại bỏ vĩnh viễn.
 
 **Có thể khôi phục chất lượng ảnh sau khi nén không?**
 
-Không. Nén có thể giảm độ phân giải raster lưu trữ, và việc loại bỏ các vùng đã cắt sẽ loại bỏ dữ liệu ảnh. Giữ bản gốc ngoài bản trình bày nếu có thể cần chỉnh sửa độ phân giải cao sau này.
+Không. Nén có thể giảm độ phân giải raster đã lưu, và việc loại bỏ các khu vực đã cắt sẽ loại bỏ dữ liệu ảnh. Giữ ảnh nguồn gốc bên ngoài bản trình chiếu nếu có thể cần chỉnh sửa độ phân giải cao sau này.
 
-**Cần xử lý hình ảnh SVG như thế nào?**
+**Nên xử lý ảnh SVG như thế nào?**
 
-Giữ nội dung SVG dưới dạng SVG khi độ trung thực vector quan trọng. [SvgImage] nhúng có thể được trích xuất trực tiếp. Rendering slide sang định dạng raster như PNG hoặc JPEG sẽ raster hoá SVG như một phần của ảnh slide.
+Giữ nội dung SVG dưới dạng SVG khi độ trung thực vector quan trọng. [SvgImage](https://reference.aspose.com/slides/vi/python-java/aspose.slides/svgimage/) được nhúng có thể được trích xuất trực tiếp. Render một slide sang định dạng raster như PNG hoặc JPEG sẽ raster hoá SVG như một phần của hình ảnh slide.
 
-**Làm sao tránh cast không an toàn khi đọc các slide hiện có?**
+**Làm sao tránh lỗi ép kiểu không an toàn khi đọc slide hiện có?**
 
-Kiểm tra loại hình dạng trước khi sử dụng các thành viên đặc thù cho picture frame. Kiểm tra `isinstance` đối với [PictureFrame] tránh các cast không hợp lệ và cho phép mã xử lý các slide không chứa picture frame.
+Kiểm tra kiểu hình dạng trước khi sử dụng các thành viên đặc thù của khung ảnh. Kiểm tra `isinstance` đối với [PictureFrame](https://reference.aspose.com/slides/vi/python-java/aspose.slides/pictureframe/) tránh các ép kiểu không hợp lệ và cho phép mã xử lý các slide không chứa khung ảnh.

@@ -1,14 +1,14 @@
 ---
-title: تحويل العروض التقديمية إلى HTML5 باستخدام بايثون عبر جافا
-linktitle: العرض التقديمي إلى HTML5
+title: تحويل العروض إلى HTML5 في Python عبر Java
+linktitle: العرض إلى HTML5
 type: docs
 weight: 40
 url: /ar/python-java/export-to-html5/
 keywords:
 - PowerPoint إلى HTML5
 - OpenDocument إلى HTML5
-- العرض التقديمي إلى HTML5
-- شريحة إلى HTML5
+- العرض إلى HTML5
+- الشريحة إلى HTML5
 - PPT إلى HTML5
 - PPTX إلى HTML5
 - ODP إلى HTML5
@@ -21,17 +21,17 @@ keywords:
 - بايثون
 - جافا
 - Aspose.Slides
-description: "صدّر عروض PowerPoint وOpenDocument إلى HTML5 متجاوب باستخدام Aspose.Slides للغة بايثون عبر جافا. احرص على الحفاظ على التنسيق والرسوم المتحركة والتفاعل."
+description: "تصدير عروض PowerPoint و OpenDocument إلى HTML5 متجاوب باستخدام Aspose.Slides للغة Python عبر Java. الحفاظ على التنسيق، التحريكات، والتفاعل."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية تحويل عروض PowerPoint إلى HTML5 باستخدام Aspose.Slides. تغطي تصدير HTML5 الأساسي دون امتدادات ويب إضافية، بالإضافة إلى خيارات التحكم في رسوم المتحركات للأشكال وانتقالات الشرائح. كما تُظهر المقالة عملية التصدير القياسية من PowerPoint إلى HTML، وتشرح كيفية إنشاء مخرجات HTML5 في وضع عرض الشرائح، وتُظهر كيفية تضمين التعليقات في المستند المصدَّر من خلال تكوين تخطيطها.
+تشرح هذه المقالة كيفية تحويل عروض PowerPoint إلى HTML5 باستخدام Aspose.Slides. تغطي التصدير الأساسي إلى HTML5 دون امتدادات ويب إضافية، بالإضافة إلى خيارات التحكم في تحريك الأشكال وانتقالات الشرائح. كما تعرض العملية القياسية لتصدير PowerPoint إلى HTML، وتوضح كيفية توليد ناتج HTML5 في وضع عرض الشرائح، وتبين كيفية تضمين التعليقات في المستند المُصدَّر عن طريق ضبط تخطيطها.
 
-تتطلب الأمثلة Aspose.Slides للغة Python عبر Java وبيئة تشغيل Java متوافقة. ضع ملف `pres.pptx` (أو `sample.pptx` لمثال التعليقات) في دليل العمل الحالي. يبدأ كل مثال تشغيل الـ JVM فقط إذا لم يكن قيد التشغيل بالفعل.
+تتطلب الأمثلة Aspose.Slides للغة Python عبر Java وبيئة تشغيل Java متوافقة. ضع الملف `pres.pptx` (أو `sample.pptx` لمثال التعليقات) في دليل العمل الحالي. يبدأ كل مثال تشغيل JVM فقط إذا لم يكن قيد التشغيل مسبقاً.
 
 ## **تصدير PowerPoint إلى HTML5**
 
-استخدم [Presentation.save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save) مع [SaveFormat.Html5](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveformat/#Html5) لتصدير عرض تقديمي دون امتدادات ويب إضافية:
+استخدم [Presentation.save](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#save) مع [SaveFormat.Html5](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveformat/#Html5) لتصدير العرض دون امتدادات ويب إضافية:
 
 ```python
 import jpype
@@ -49,13 +49,11 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}} 
-
-The HTML5 exporter creates HTML content for viewing in a browser. 
-
+{{% alert color="info" title="ملاحظة" %}} 
+المصدِّر HTML5 ينشئ محتوى HTML للعرض في المتصفح. 
 {{% /alert %}}
 
-استخدم [Html5Options](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/) لتكوين التصدير. استدعِ [setAnimateShapes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateShapes) و[setAnimateTransitions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateTransitions) مع القيمة `False` لتعطيل رسوم المتحركات للأشكال وانتقالات الشرائح:
+استخدم [Html5Options](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/) لتكوين التصدير. استدعِ [setAnimateShapes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateShapes) و[setAnimateTransitions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateTransitions) مع `False` لتعطيل تحريك الأشكال وانتقالات الشرائح:
 
 ```python
 import jpype
@@ -79,7 +77,7 @@ finally:
 
 ## **تصدير PowerPoint إلى HTML**
 
-استخدم [SaveFormat.Html](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveformat/#Html) لتصدير HTML القياسي. راجع [Convert PowerPoint to HTML](/slides/ar/python-java/convert-powerpoint-to-html/) للمزيد من الخيارات:
+استخدم [SaveFormat.Html](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveformat/#Html) للتصدير القياسي إلى HTML. راجع [Convert PowerPoint to HTML](/slides/ar/python-java/convert-powerpoint-to-html/) للمزيد من الخيارات:
 
 ```python
 import jpype
@@ -97,7 +95,7 @@ finally:
     presentation.dispose()
 ```
 
-في هذه الحالة، يتم عرض محتوى العرض التقديمي عبر SVG في شكل مشابه لهذا:
+في هذه الحالة، يتم عرض محتوى العرض عبر SVG على النحو التالي:
 
 ```html
 <body>
@@ -109,17 +107,15 @@ finally:
 </body>
 ```
 
-{{% alert title="Warning" color="warning" %}} 
-
-Standard HTML export renders slide content through SVG and does not provide the HTML5 shape-animation and slide-transition options. 
-
+{{% alert title="تحذير" color="warning" %}} 
+التصدير القياسي إلى HTML يعرض محتوى الشرائح عبر SVG ولا يوفر خيارات تحريك الأشكال وانتقالات الشرائح في HTML5. 
 {{% /alert %}}
 
 ## **تصدير PowerPoint إلى عرض شرائح HTML5**
 
-**Aspose.Slides** يتيح لك تحويل عرض PowerPoint إلى مستند HTML5 تُعرض فيه الشرائح في وضع عرض الشرائح. في هذه الحالة، عند فتح ملف HTML5 الناتج في المتصفح، ترى العرض التقديمي في وضع عرض الشرائح على صفحة الويب.
+**Aspose.Slides** يتيح لك تحويل عرض PowerPoint إلى مستند HTML5 تُعرض فيه الشرائح في وضع عرض الشرائح. في هذه الحالة، عند فتح ملف HTML5 الناتج في المتصفح، ترى العرض في وضع عرض الشرائح على صفحة الويب.
 
-يوضح هذا الكود بلغة Python عملية تصدير PowerPoint إلى عرض شرائح HTML5:
+يعرض هذا الكود Python عملية تصدير PowerPoint إلى عرض شرائح HTML5:
 
 ```python
 import jpype
@@ -141,17 +137,17 @@ finally:
     presentation.dispose()
 ```
 
-## **تحويل العروض التقديمية إلى مستندات HTML5 مع التعليقات**
+## **تحويل العروض إلى مستندات HTML5 مع التعليقات**
 
-التعليقات في PowerPoint هي أداة تسمح للمستخدمين بترك ملاحظات أو ملاحظات على شرائح العرض التقديمي. وهي مفيدة بشكل خاص في المشاريع التعاونية، حيث يمكن لعدة أشخاص إضافة اقتراحاتهم أو ملاحظاتهم إلى عناصر شريحة معينة دون تغيير المحتوى الرئيسي. كل تعليق يُظهر اسم المؤلف، مما يسهل تتبع من ترك الملاحظة.
+التعليقات في PowerPoint أداة تسمح للمستخدمين بترك ملاحظات أو ملاحظات على شرائح العرض. تُفيد بشكل خاص في المشاريع التعاونية، حيث يمكن لأكثر من شخص إضافة اقتراحاته أو ملاحظاته إلى عناصر شريحة معينة دون تعديل المحتوى الرئيسي. تُظهر كل تعليق اسم المؤلف، مما يسهل تتبع من ترك الملاحظة.
 
-لنفترض أن لدينا عرض PowerPoint التالي محفوظ في الملف "sample.pptx".
+لنفترض أن لدينا عرض PowerPoint محفوظ في الملف “sample.pptx”.
 
-![تعليقان على شريحة العرض](two_comments_pptx.png)
+![Two comments on the presentation slide](two_comments_pptx.png)
 
-عند تحويل عرض PowerPoint إلى مستند HTML5، يمكنك بسهولة تحديد ما إذا كنت تريد تضمين التعليقات من العرض في المستند الناتج. للقيام بذلك، مرّر معلمات عرض التعليقات إلى طريقة [setSlidesLayoutOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) في فئة [Html5Options](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/) .
+عند تحويل عرض PowerPoint إلى مستند HTML5، يمكنك بسهولة تحديد ما إذا كان سيتم تضمين التعليقات من العرض في المستند الناتج. للقيام بذلك، مرّر معلمات عرض التعليقات إلى طريقة [setSlidesLayoutOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) من فئة [Html5Options](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/).
 
-استخدم [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notescommentslayoutingoptions/) و[setCommentsPosition](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) مع [CommentsPositions.Right](https://reference.aspose.com/slides/ar/python-java/aspose.slides/commentspositions/#Right). المثال التالي من الشيفرة يحول عرضًا إلى مستند HTML5 مع عرض التعليقات إلى يمين الشرائح.
+استخدم [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notescommentslayoutingoptions/) و[setCommentsPosition](https://reference.aspose.com/slides/ar/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) مع [CommentsPositions.Right](https://reference.aspose.com/slides/ar/python-java/aspose.slides/commentspositions/#Right). المثال التالي يحوِّل العرض إلى مستند HTML5 تُعرض فيه التعليقات إلى يمين الشرائح.
 
 ```python
 import jpype
@@ -175,20 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-المستند "output.html" موضوح في الصورة أدناه.
+المستند “output.html” موضح في الصورة أدناه.
 
-![التعليقات في مستند HTML5 الناتج](two_comments_html5.png)
+![The comments in the output HTML5 document](two_comments_html5.png)
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني التحكم فيما إذا كانت رسوم المتحركات للكائنات وانتقالات الشرائح ستُشغَّل في HTML5؟**
+**هل يمكنني التحكم فيما إذا كانت تحركات الكائنات وانتقالات الشرائح ستُشغَّل في HTML5؟**
 
 نعم، يوفر HTML5 خيارات منفصلة لتمكين أو تعطيل [shape animations](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateShapes) و[slide transitions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setAnimateTransitions).
 
-**هل يتم دعم مخرجات التعليقات، وأين يمكن وضعها بالنسبة إلى الشريحة؟**
+**هل يمكن تصدير التعليقات، وأين يمكن وضعها بالنسبة للشرائح؟**
 
-نعم، يمكن إضافة التعليقات في HTML5 وتحديد موضعها (على سبيل المثال، إلى يمين الشريحة) عبر [layout settings](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) للملاحظات والتعليقات.
+نعم، يمكن إضافة التعليقات في HTML5 وتحديد موقعها (مثلاً إلى يمين الشريحة) عبر [layout settings](https://reference.aspose.com/slides/ar/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) للملاحظات والتعليقات.
 
-**هل يمكنني تخطي الروابط التي تستدعي JavaScript لأسباب أمنية أو بسبب سياسات CSP؟**
+**هل يمكنني تخطي الروابط التي تستدعي JavaScript لأسباب أمنية أو متعلقة بـ CSP؟**
 
-نعم، هناك [setting](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) يتيح لك تخطي الروابط التشعبية التي تستدعي JavaScript أثناء الحفظ. يزيل هذا الروابط؛ لكنه لا يضمن بحد ذاته أن جميع سكريبتات HTML5 المُولدة تتوافق مع سياسة أمان المحتوى للموقع.
+نعم، هناك [setting](https://reference.aspose.com/slides/ar/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) يتيح لك تخطي الروابط التي تحتوي على استدعاءات JavaScript أثناء الحفظ. هذا يزيل تلك الروابط؛ لكنه لا يضمن بحد ذاته توافق جميع سكريبتات HTML5 المولَّدة مع سياسة أمان المحتوى الخاصة بالموقع.

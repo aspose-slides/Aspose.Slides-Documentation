@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie hiperłączami w prezentacji w Pythonie via Java
+title: Zarządzanie hiperłączami prezentacji w Pythonie via Java
 linktitle: Zarządzaj hiperłączem
 type: docs
 weight: 20
@@ -8,9 +8,9 @@ keywords:
 - dodaj URL
 - dodaj hiperłącze
 - utwórz hiperłącze
-- sformatuj hiperłącze
+- formatowanie hiperłącza
 - usuń hiperłącze
-- zaktualizuj hiperłącze
+- aktualizuj hiperłącze
 - hiperłącze tekstowe
 - hiperłącze slajdu
 - hiperłącze kształtu
@@ -23,28 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Bezproblemowo zarządzaj hiperłączami w prezentacjach PowerPoint i OpenDocument za pomocą Aspose.Slides dla Pythona via Java — zwiększ interaktywność i efektywność pracy w kilka minut."
+description: "Bez wysiłku zarządzaj hiperłączami w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona via Java — zwiększ interaktywność i efektywność pracy w kilka minut."
 ---
 ## **Wprowadzenie**
 
-Hiperłącze to odniesienie do obiektu, danych lub miejsca w dokumencie. Są to typowe hiperłącza w prezentacjach PowerPoint:
+Hiperłącze jest odwołaniem do obiektu, danych lub lokalizacji. Typowe hiperłącza w prezentacjach PowerPoint obejmują:
 
-* Łącza do stron internetowych w tekstach, kształtach lub mediach
-* Łącza do slajdów
+* Linki do stron internetowych w tekście, kształtach lub mediach
+* Linki do slajdów
 
 Aspose.Slides for Python via Java umożliwia wykonywanie wielu zadań związanych z hiperłączami w prezentacjach. 
 
 {{% alert color="info" title="Uwaga" %}} 
-
-Możesz chcieć wypróbować prosty, [darmowy edytor PowerPoint online](https://products.aspose.app/slides/pl/editor).
-
+Możesz sprawdzić prosty, [bezpłatny edytor PowerPoint online](https://products.aspose.app/slides/pl/editor).
 {{% /alert %}} 
 
-## **Dodaj hiperłącza URL**
+## **Dodawanie hiperłączy URL**
 
-### **Dodaj hiperłącza URL do tekstu**
+### **Dodawanie hiperłączy URL do tekstu**
 
-Ten kod w Pythonie pokazuje, jak dodać hiperłącze do strony internetowej w tekscie:
+Ten kod w Pythonie pokazuje, jak dodać hiperłącze do witryny w tekście:
 
 ```python
 import jpype
@@ -70,9 +68,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Dodaj hiperłącza URL do kształtów lub ramek**
+### **Dodawanie hiperłączy URL do kształtów lub ramek**
 
-Ten przykładowy kod w Pythonie via Java pokazuje, jak dodać hiperłącze do strony internetowej w kształcie:
+Ten przykładowy kod w Pythonie za pośrednictwem Javy pokazuje, jak dodać hiperłącze do witryny w kształcie:
 
 ```python
 import jpype
@@ -95,9 +93,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Dodaj hiperłącza URL do mediów**
+### **Dodawanie hiperłączy URL do multimediów**
 
-Aspose.Slides pozwala dodawać hiperłącza do obrazów, plików audio i wideo. 
+Aspose.Slides pozwala dodawać hiperłącza do obrazów, plików audio i wideo.
 
 Ten przykładowy kod pokazuje, jak dodać hiperłącze do **obrazu**:
 
@@ -186,14 +184,12 @@ finally:
 ```
 
 {{% alert color="success" title="Wskazówka" %}} 
-
-Możesz zobaczyć *[Zarządzanie OLE](/slides/pl/python-java/manage-ole/)*.
-
+Możesz chcieć zobaczyć *[Zarządzanie OLE](/slides/pl/python-java/manage-ole/)*
 {{% /alert %}}
 
-## **Użyj hiperłącza do stworzenia spisu treści**
+## **Używanie hiperłączy do tworzenia spisu treści**
 
-Ponieważ hiperłącza pozwalają dodawać odniesienia do obiektów lub miejsc, możesz ich użyć do stworzenia spisu treści. 
+Ponieważ hiperłącza umożliwiają dodawanie odwołań do obiektów lub miejsc, możesz je używać do tworzenia spisu treści.
 
 Ten przykładowy kod pokazuje, jak utworzyć spis treści z hiperłączami:
 
@@ -235,13 +231,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Formatuj hiperłącza**
+## **Formatowanie hiperłączy**
 
 ### **Kolor**
 
-Za pomocą właściwości [Hyperlink.setColorSource](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setColorSource) w klasie [Hyperlink](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/) możesz ustawić kolor dla hiperłączy oraz pobrać informację o kolorze z hiperłączy. Funkcja została wprowadzona po raz pierwszy w PowerPoint 2019, więc zmiany dotyczące tej właściwości nie mają zastosowania do starszych wersji PowerPointa.
+Za pomocą właściwości [Hyperlink.setColorSource](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setColorSource) w klasie [Hyperlink](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/) możesz ustawić kolor dla hiperłączy oraz pobrać informację o kolorze z hiperłączy. Funkcja została po raz pierwszy wprowadzona w programie PowerPoint 2019, więc zmiany związane z tą właściwością nie dotyczą starszych wersji PowerPoint.
 
-Ten przykładowy kod demonstruje operację, w której do tego samego slajdu dodano hiperłącza o różnych kolorach:
+Ten przykładowy kod demonstruje operację, w której do tego samego slajdu dodawane są hiperłącza o różnych kolorach:
 
 ```python
 import jpype
@@ -306,7 +302,7 @@ finally:
 
 ### **Usuwanie hiperłączy z kształtów lub ramek**
 
-Ten kod w Pythonie pokazuje, jak usunąć hiperłącze z kształtu na slajdzie prezentacji: 
+Ten kod w Pythonie pokazuje, jak usunąć hiperłącze z kształtu na slajdzie prezentacji:
 
 ```python
 import jpype
@@ -327,9 +323,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Modyfikowalne hiperłącze**
+## **Modyfikowalny hiperłącze**
 
-Klasa [Hyperlink](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/) jest modyfikowalna. Dzięki niej możesz zmienić wartości następujących właściwości:
+Klasa [Hyperlink](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/) jest modyfikowalna. Dzięki tej klasie możesz zmieniać wartości następujących właściwości:
 
 - [setTargetFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -337,7 +333,7 @@ Klasa [Hyperlink](https://reference.aspose.com/slides/pl/python-java/aspose.slid
 - [setHighlightClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-Ten fragment kodu pokazuje, jak dodać hiperłącze do slajdu i później edytować jego podpowiedź (tooltip):
+Fragment kodu pokazuje, jak dodać hiperłącze do slajdu i później edytować jego podpowiedź (tooltip):
 
 ```python
 import jpype
@@ -368,13 +364,13 @@ finally:
 
 ## **Obsługiwane właściwości w HyperlinkQueries**
 
-Możesz uzyskać dostęp do [HyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/) z prezentacji, slajdu lub tekstu, w którym zdefiniowano hiperłącze. 
+Możesz uzyskać dostęp do [HyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/) z prezentacji, slajdu lub tekstu, dla którego zdefiniowano hiperłącze. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-Klasa [HyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/) wspiera następujące metody i właściwości: 
+Klasa [HyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/) obsługuje następujące metody i właściwości: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
@@ -385,12 +381,12 @@ Klasa [HyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspo
 
 **Jak mogę stworzyć wewnętrzną nawigację nie tylko do slajdu, ale do „sekcji” lub pierwszego slajdu sekcji?**
 
-Sekcje w PowerPoint to grupy slajdów; nawigacja technicznie celuje w konkretny slajd. Aby „przejść do sekcji”, zwykle linkuje się do jej pierwszego slajdu.
+Sekcje w PowerPoint są grupami slajdów; nawigacja technicznie skierowana jest do konkretnego slajdu. Aby „nawigować do sekcji”, zazwyczaj linkujesz do jej pierwszego slajdu.
 
 **Czy mogę dołączyć hiperłącze do elementów slajdu wzorcowego, aby działało na wszystkich slajdach?**
 
-Tak. Elementy slajdu wzorcowego i układu obsługują hiperłącza. Takie łącza pojawiają się na slajdach podrzędnych i są klikalne podczas pokazu.
+Tak. Elementy slajdu wzorcowego i układu obsługują hiperłącza. Takie linki pojawiają się na slajdach potomnych i są klikalne podczas pokazu slajdów.
 
-**Czy hiperłącza zostaną zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
+**Czy hiperłącza będą zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
 
-W [PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/python-java/convert-powerpoint-to-html/) tak — łącza są zazwyczaj zachowywane. Przy eksporcie do [obrazów](/slides/pl/python-java/convert-powerpoint-to-png/) i [wideo](/slides/pl/python-java/convert-powerpoint-to-video/) klikalność nie zostanie przeniesiona ze względu na charakter tych formatów (ramki rastrowe/wideo nie wspierają hiperłączy).
+W [PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/python-java/convert-powerpoint-to-html/) tak — linki są zazwyczaj zachowywane. Przy eksporcie do [obrazów](/slides/pl/python-java/convert-powerpoint-to-png/) i [wideo](/slides/pl/python-java/convert-powerpoint-to-video/) klikalność nie zostanie przeniesiona ze względu na charakter tych formatów (ramki rastrowe/wideo nie obsługują hiperłączy).

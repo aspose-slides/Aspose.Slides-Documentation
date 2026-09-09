@@ -1,5 +1,5 @@
 ---
-title: Python üzerinden Java ile Slayt Gösterilerini Yönetme
+title: Python üzerinden Java ile Slayt Gösterilerini Yönet
 linktitle: Slayt Gösterisi
 type: docs
 weight: 90
@@ -7,18 +7,18 @@ url: /tr/python-java/manage-slide-show/
 keywords:
 - gösteri tipi
 - konuşmacı tarafından sunulan
-- birey tarafından gözatılan
-- kiosk'ta gözatılan
+- bireysel olarak incelenen
+- kiosk'ta incelenen
 - gösteri seçenekleri
 - sürekli döngü
-- anlatımsız gösteri
-- animasyonsuz gösteri
+- anlatım olmadan göster
+- animasyon olmadan göster
 - kalem rengi
 - slaytları göster
 - özel gösteri
 - slaytları ilerlet
 - manuel olarak
-- zamanlamalarla
+- zamanlamaları kullanarak
 - PowerPoint
 - OpenDocument
 - sunum
@@ -29,15 +29,15 @@ description: "Aspose.Slides for Python via Java ile slayt gösterilerini nasıl 
 ---
 ## **Giriş**
 
-Microsoft PowerPoint'in **Set Up Show** seçenekleri, gösteri tipini seçmenize, döngüyü etkinleştirmenize, slaytları seçmenize ve slaytların nasıl ilerleyeceğini kontrol etmenize olanak tanır. Aspose.Slides for Python via Java ile bu seçenekleri programlı olarak yapılandırabilir ve bir sunum dosyasına kaydedebilirsiniz.
+Microsoft PowerPoint'un **Set Up Show** seçenekleri, gösteri tipini seçmenize, döngüyü etkinleştirmenize, slaytları seçmenize ve slaytların nasıl ilerleyeceğini kontrol etmenize olanak tanır. Aspose.Slides for Python via Java ile bu seçenekleri programlı olarak yapılandırabilir ve bir sunum dosyasına kaydedebilirsiniz.
 
-The [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlideShowSettings) method returns a [SlideShowSettings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/) object that controls these options. The examples below require Aspose.Slides for Python via Java and a compatible Java runtime. Each example starts the JVM if needed and releases the presentation when finished.
+The [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSlideShowSettings) yöntemi, bu seçenekleri kontrol eden bir [SlideShowSettings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/) nesnesi döndürür. Aşağıdaki örnekler Aspose.Slides for Python via Java ve uyumlu bir Java çalışma zamanı gerektirir. Her örnek gerektiğinde JVM'yi başlatır ve tamamlandığında sunumu serbest bırakır.
 
-## **Gösteri Tipi Seçimi**
+## **Gösteri Tipini Seç**
 
-[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setSlideShowType) defines the type of slide show, which can be an instance of the following classes: [PresentedBySpeaker](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/tr/python-java/aspose.slides/browsedbyindividual/), or [BrowsedAtKiosk](https://reference.aspose.com/slides/tr/python-java/aspose.slides/browsedatkiosk/). Using this method allows you to adapt the presentation for different usage scenarios, such as automated kiosks or manual presentations.
+[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setSlideShowType) slayt gösterisi tipini tanımlar; bu, aşağıdaki sınıfların bir örneği olabilir: [PresentedBySpeaker](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/tr/python-java/aspose.slides/browsedbyindividual/), veya [BrowsedAtKiosk](https://reference.aspose.com/slides/tr/python-java/aspose.slides/browsedatkiosk/). Bu yöntemi kullanarak sunumu otomatik kiosklar veya manuel sunumlar gibi farklı kullanım senaryolarına uyarlayabilirsiniz.
 
-The code example below creates a new presentation and sets the show type to "Browsed by an individual" without displaying the scrollbar.
+Aşağıdaki kod örneği yeni bir sunum oluşturur ve gösteri tipini "Browsed by an individual" olarak ayarlar; kaydırma çubuğu gösterilmez.
 
 ```python
 import jpype
@@ -61,9 +61,9 @@ finally:
 
 ## **Gösteri Seçeneklerini Etkinleştir**
 
-[SlideShowSettings.setLoop](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setLoop) determines whether the slide show should repeat in a loop until manually stopped. This is useful for automated presentations that need to run continuously. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setShowNarration) determines whether voice narrations should be played during the slide show. It is useful for automated presentations that contain voice guidance for the audience. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setShowAnimation) determines whether animations added to slide objects should be played. This is useful for providing the full visual effect of the presentation.
+[SlideShowSettings.setLoop](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setLoop) slayt gösterisinin elle durdurulana kadar bir döngüde tekrar edip etmeyeceğini belirler. Bu, sürekli çalışması gereken otomatik sunumlar için faydalıdır. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setShowNarration) slayt gösterisi sırasında sesli anlatımların çalınıp çalınmayacağını belirler. Bu, izleyicilere sesli rehberlik içeren otomatik sunumlar için yararlıdır. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setShowAnimation) slayt nesnelerine eklenen animasyonların oynatılıp oynatılmayacağını belirler. Bu, sunumun tam görsel etkisini sağlamak için kullanışlıdır.
 
-The following code example creates a new presentation and loops the slide show.
+Aşağıdaki kod örneği yeni bir sunum oluşturur ve slayt gösterisini döngüye alır.
 
 ```python
 import jpype
@@ -85,7 +85,7 @@ finally:
 
 ## **Gösterilecek Slaytları Seç**
 
-[SlideShowSettings.setSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setSlides) method allows you to select a range of slides to be shown during the presentation. This is useful when you need to show only part of the presentation rather than all slides. The following code example creates a presentation with nine slides and selects slides 2 through 9. The range uses one-based slide numbers.
+[SlideShowSettings.setSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setSlides) yöntemi, sunum sırasında gösterilecek slayt aralığını seçmenize olanak tanır. Bu, tüm slaytları göstermek yerine sadece bir kısmını göstermek istediğinizde faydalıdır. Aşağıdaki kod örneği dokuz slayttan oluşan bir sunum oluşturur ve 2 ila 9 arasındaki slaytları seçer. Aralık, bir tabanlı slayt numaraları kullanır.
 
 ```python
 import jpype
@@ -98,7 +98,7 @@ from asposeslides.api import Presentation, SaveFormat, SlidesRange
 
 presentation = Presentation()
 try:
-    # Seçilen aralığın mevcut olması için dokuz slayt oluştur.
+    # Seçilen aralık mevcut olması için dokuz slayt oluştur.
     first_slide = presentation.getSlides().get_Item(0)
     for _ in range(8):
         presentation.getSlides().addClone(first_slide)
@@ -115,7 +115,7 @@ finally:
 
 ## **Slayt İlerlemesini Kontrol Et**
 
-[SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setUseTimings) method allows you to enable or disable the use of preset timings for each slide. This is useful for automatically showing slides with pre-defined display durations. The code example below creates a new presentation and disables the use of timings.
+[SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setUseTimings) yöntemi, her slayt için önceden belirlenmiş zamanlamaların kullanımını etkinleştirmenize veya devre dışı bırakmanıza izin verir. Bu, önceden tanımlı gösterim süreleriyle slaytların otomatik olarak gösterilmesi için faydalıdır. Aşağıdaki kod örneği yeni bir sunum oluşturur ve zamanlamaların kullanımını devre dışı bırakır.
 
 ```python
 import jpype
@@ -137,9 +137,9 @@ finally:
 
 ## **Medya Kontrollerini Göster**
 
-[SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) method determines whether media controls (such as play, pause, and stop) should be displayed during the slide show when multimedia content (e.g., video or audio) is played. This is useful when you want to give the presenter control over media playback during the presentation.
+[SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) yöntemi, multimedya içeriği (ör. video veya ses) oynatıldığında slayt gösterisi sırasında medya kontrollerinin (oynat, duraklat, durdur gibi) gösterilip gösterilmeyeceğini belirler. Bu, sunum sırasında sunucuya medya oynatımını kontrol etme imkanı vermek istediğinizde yararlıdır.
 
-The following code example creates a new presentation and enables media controls to be displayed.
+Aşağıdaki kod örneği yeni bir sunum oluşturur ve medya kontrollerinin gösterilmesini etkinleştirir.
 
 ```python
 import jpype
@@ -161,14 +161,14 @@ finally:
 
 ## **SSS**
 
-**Bir sunumu doğrudan slayt gösterisi modunda açılacak şekilde kaydedebilir miyim?**
+**Sunumu doğrudan slayt gösterisi modunda açılacak şekilde kaydedebilir miyim?**
 
-Yes. Save the file as PPSX or PPSM; these formats launch directly in slide show when opened in PowerPoint. In Aspose.Slides, choose the corresponding save format [dışa aktarma sırasında](/slides/tr/python-java/save-presentation/).
+Evet. Dosyayı PPSX veya PPSM olarak kaydedin; bu formatlar PowerPoint'te açıldığında doğrudan slayt gösterisi modunda başlatılır. Aspose.Slides'te, ilgili kaydetme formatını [export sırasında](/slides/tr/python-java/save-presentation/) seçin.
 
-**Tek tek slaytları dosyadan silmeden gösteriden hariç tutabilir miyim?**
+**Dosyadan silmeden bireysel slaytları gösteriden hariç tutabilir miyim?**
 
-Yes. Mark a slide as [gizli](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#setHidden). Hidden slides remain in the presentation but are not displayed during the slide show.
+Evet. Bir slaytı [hidden](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slide/#setHidden) olarak işaretleyin. Gizli slaytlar sunumda kalır ancak slayt gösterisi sırasında gösterilmez.
 
 **Aspose.Slides bir slayt gösterisini oynatabilir veya ekranda canlı bir sunumu kontrol edebilir mi?**
 
-No. Aspose.Slides edits, analyzes, and converts presentation files; the actual playback is handled by a viewer application such as PowerPoint.
+Hayır. Aspose.Slides sunum dosyalarını düzenler, analiz eder ve dönüştürür; gerçek oynatma ise PowerPoint gibi bir görüntüleyici uygulama tarafından gerçekleştirilir.

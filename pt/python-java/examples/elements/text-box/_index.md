@@ -12,23 +12,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Trabalhe com caixas de texto no Aspose.Slides para Python via Java: adicione, formate, encontre e remova texto em apresentações PowerPoint e OpenDocument."
+description: "Trabalhe com caixas de texto no Aspose.Slides for Python via Java: adicione, formate, encontre e remova texto em apresentações PowerPoint e OpenDocument."
 ---
-No **Aspose.Slides for Python via Java**, uma caixa de texto é uma forma automática que contém texto. Praticamente qualquer forma pode conter texto, mas uma caixa de texto típica não tem preenchimento nem borda e exibe apenas texto.
+No **Aspose.Slides for Python via Java**, uma caixa de texto é uma forma automática que contém texto. Quase qualquer forma pode conter texto, mas uma caixa de texto típica não tem preenchimento nem borda e exibe apenas texto.
 
 Este guia explica como adicionar, acessar e remover caixas de texto programaticamente.
 
-Instale o pacote conforme descrito em [Installation](/slides/pt/python-java/installation/). Cada exemplo importa `asposeslides` antes de iniciar a JVM e, em seguida, importa a API após a JVM estar em execução.
+Instale o pacote conforme descrito em [Installation](/slides/pt/python-java/installation/). Cada exemplo importa `asposeslides` antes de iniciar a JVM, e depois importa a API quando a JVM está em execução.
 
 ## **Adicionar uma Caixa de Texto**
 
-Crie um retângulo, remova seu preenchimento e borda e atribua texto formatado.
+Crie um retângulo, remova seu preenchimento e borda, e atribua texto formatado.
 
 ```python
 import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
+if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, ShapeType, FillType
@@ -41,7 +41,7 @@ try:
     # Crie uma forma retangular.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
-    # Remova o preenchimento e a borda para exibir apenas o texto.
+    # Remova o preenchimento e a borda para exibir apenas texto.
     text_box.getFillFormat().setFillType(FillType.NoFill)
     text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
 
@@ -58,7 +58,7 @@ finally:
 
 ## **Acessar Caixas de Texto por Conteúdo**
 
-Adicione uma caixa de texto de exemplo e, em seguida, encontre formas cujo texto contenha a palavra‑chave "Slide".
+Adicione uma caixa de texto de exemplo, então encontre formas cujo texto contém a palavra‑chave "Slide".
 
 ```python
 import jpype
@@ -106,7 +106,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
     text_box.getFillFormat().setFillType(FillType.NoFill)
-    text_box.getLineFormat().setFillType(FillType.NoFill)
+    text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
     text_box.getTextFrame().setText("Slide notes")
 
     shapes_to_remove = []

@@ -20,9 +20,9 @@ keywords:
 - ตาราง
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "สร้าง แก้ไข และสกัดเนื้อหาการนำเสนอด้วย Aspose.Slides สำหรับ Python ผ่าน Java — ดูตัวอย่างโค้ดสำหรับข้อความ รูปภาพ รูปร่าง แผนภูมิ; PPT, PPTX และ ODP."
+description: "สร้าง แก้ไข และดึงเนื้อหาการนำเสนอด้วย Aspose.Slides สำหรับ Python ผ่าน Java — รับตัวอย่างโค้ดสำหรับข้อความ รูปภาพ รูปร่าง และแผนภูมิในไฟล์ PPT, PPTX และ ODP"
 ---

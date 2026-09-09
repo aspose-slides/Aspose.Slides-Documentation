@@ -1,6 +1,6 @@
 ---
-title: "Hantera presentations‑BLOBs i Python via Java för effektiv minnesanvändning"
-linktitle: "Hantera BLOB"
+title: Hantera presentations BLOBs i Python via Java för effektiv minnesanvändning
+linktitle: Hantera BLOB
 type: docs
 weight: 10
 url: /sv/python-java/manage-blob/
@@ -8,44 +8,44 @@ keywords:
 - stort objekt
 - stor post
 - stor fil
-- lägg till BLOB
+- lägga till BLOB
 - exportera BLOB
-- lägg till bild som BLOB
-- minska minne
+- lägga till bild som BLOB
+- reducera minne
 - minnesförbrukning
 - stor presentation
-- temporär fil
+- tillfällig fil
 - PowerPoint
 - OpenDocument
 - presentation
 - Python
 - Java
 - Aspose.Slides
-description: "Hantera BLOB-data i Aspose.Slides för Python via Java för att förenkla PowerPoint- och OpenDocument-filoperationer för effektiv presentationshantering."
+description: "Hantera BLOB‑data i Aspose.Slides för Python via Java för att effektivisera PowerPoint‑ och OpenDocument‑filoperationer för effektiv presentationshantering."
 ---
 ## **Översikt**
 
-Aspose.Slides tillhandahåller BLOB-baserad hantering för stora binära data i presentationer för att hjälpa till att minska minnesförbrukningen när man arbetar med stora bilder, ljud, video och presentationsfiler.
+Aspose.Slides tillhandahåller BLOB‑baserad hantering av stora binära data i presentationer för att minska minnesförbrukningen när du arbetar med stora bilder, ljud, video och presentationsfiler.
 
-Denna artikel visar hur man använder BLOB-baserad bearbetning för att lägga till stora media i en presentation, exportera stora media från en presentation och läsa in stora presentationer mer effektivt. Den förklarar också hur temporära filer kan användas under bearbetning och hur man ändrar mappen som används för att lagra dem.
+Den här artikeln visar hur du använder BLOB‑baserad behandling för att lägga till stora media i en presentation, exportera stora media från en presentation och läsa in stora presentationer mer effektivt. Den förklarar också hur tillfälliga filer kan användas under bearbetning och hur du ändrar mappen som används för att lagra dem.
 
 ## **Om BLOB**
 
-**BLOB** (**Binary Large Object**) är vanligtvis ett stort objekt (foto, presentation, dokument eller media) som sparas i binära format.
+En **BLOB** (**Binary Large Object**, binärt stort objekt) är vanligtvis ett stort föremål (foto, presentation, dokument eller media) som sparas i binärt format.
 
 Aspose.Slides för Python via Java låter dig använda BLOBs för objekt på ett sätt som minskar minnesförbrukningen när stora filer är inblandade.
 
-{{% alert color="info" title="Note" %}}
-För att kringgå vissa begränsningar vid interaktion med strömmar kan Aspose.Slides kopiera strömmens innehåll. Att läsa in en stor presentation via dess ström resulterar i en kopiering av presentationens innehåll och orsakar långsam inläsning. Därför rekommenderar vi starkt att du använder presentationsfilens sökväg och inte dess ström när du avser att läsa in en stor presentation.
+{{% alert color="info" title="Obs" %}}
+För att kringgå vissa begränsningar vid interaktion med strömmar kan Aspose.Slides kopiera strömmens innehåll. Att läsa in en stor presentation via dess ström kommer att resultera i en kopiering av presentationens innehåll och orsaka långsam inläsning. Därför rekommenderar vi starkt att du använder presentationsfilens sökväg och inte dess ström när du tänker läsa in en stor presentation.
 {{% /alert %}}
 
-## **Använd BLOB för att minska minnesförbrukning**
+## **Använd BLOBs för att minska minnesförbrukningen**
 
-### **Lägg till en stor fil via BLOB i en presentation**
+### **Lägg till en stor fil i en presentation med BLOBs**
 
 [Aspose.Slides](/slides/sv/python-java/) för Python via Java låter dig lägga till stora filer (i detta fall en stor videofil) genom en process som involverar BLOBs för att minska minnesförbrukningen.
 
-Denna Python‑kod visar hur du lägger till en stor videofil via BLOB‑processen i en presentation:
+Denna Python‑kod visar hur du lägger till en stor videofil via BLOB‑processen till en presentation:
 
 ```python
 import jpype
@@ -59,7 +59,7 @@ from java.io import FileInputStream
 
 path_to_very_large_video = "veryLargeVideo.avi"
 
-# Skapa en ny presentation som videon ska läggas till i.
+# Skapa en ny presentation till vilken videon ska läggas till.
 presentation = Presentation()
 try:
     file_stream = FileInputStream(path_to_very_large_video)
@@ -76,11 +76,10 @@ finally:
     presentation.dispose()
 ```
 
-### **Exportera en stor fil via BLOB från en presentation**
+### **Exportera en stor fil från en presentation med BLOBs**
+Aspose.Slides för Python via Java låter dig exportera stora filer (i detta fall en ljud‑ eller videofil) genom en BLOB‑process från presentationer. Till exempel kan du behöva extrahera en stor medi fil från en presentation men inte vill att filen laddas in i datorns minne. Genom att exportera filen via BLOB‑processen håller du minnesförbrukningen låg.
 
-Aspose.Slides för Python via Java låter dig exportera stora filer (i detta fall en ljud‑ eller videofil) genom en process som involverar BLOBs från presentationer. Till exempel kan du behöva extrahera en stor medi fil från en presentation men inte vill att filen laddas in i datorns minne. Genom att exportera filen via BLOB‑processen kan du hålla minnesförbrukningen låg.
-
-Denna kod i Python demonstrerar den beskrivna operationen:
+Denna Python‑kod demonstrerar den beskrivna operationen:
 
 ```python
 import jpype
@@ -94,7 +93,7 @@ from asposeslides.api import LoadOptions, Presentation, PresentationLockingBehav
 huge_presentation_file = "LargeVideoFileTest.pptx"
 
 load_options = LoadOptions()
-# Lås källfilen istället för att läsa in den i minnet.
+# Lås källfilen istället för att ladda den i minnet.
 load_options.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked)
 
 presentation = Presentation(huge_presentation_file, load_options)
@@ -105,7 +104,7 @@ try:
     for index in range(presentation.getVideos().size()):
         video = presentation.getVideos().get_Item(index)
 
-        # Använd strömmen istället för att läsa in hela videon i en byte‑array.
+        # Använd strömmen istället för att ladda hela videon i en byte array.
         video_stream = video.getStream()
         try:
             with open(f"video{index}.avi", "wb") as output_stream:
@@ -122,8 +121,7 @@ finally:
 ```
 
 ### **Lägg till en bild som BLOB i en presentation**
-
-Med metoder från klassen [ImageCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/imagecollection/) kan du lägga till en stor bild som en ström för att få den behandlad som en BLOB.
+Med metoder från [ImageCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/imagecollection/)‑klassen kan du lägga till en stor bild som en ström så att den behandlas som en BLOB.
 
 Denna Python‑kod visar hur du lägger till en stor bild via BLOB‑processen:
 
@@ -139,7 +137,7 @@ from java.io import FileInputStream
 
 path_to_large_image = "large_image.jpg"
 
-# Skapa en ny presentation som bilden ska läggas till i.
+# Skapa en ny presentation till vilken bilden ska läggas till.
 presentation = Presentation()
 try:
     file_stream = FileInputStream(path_to_large_image)
@@ -158,9 +156,9 @@ finally:
 
 ## **Minne och stora presentationer**
 
-Vanligtvis kräver inläsning av en stor presentation mycket tillfälligt minne. Allt presentationens innehåll laddas in i minnet och filen (från vilken presentationen laddades) slutar användas.
+Vanligtvis kräver inläsning av en stor presentation mycket tillfälligt minne. Allt presentationens innehåll laddas in i minnet och filen (från vilken presentationen lästes) slutar användas.
 
-Tänk på en stor PowerPoint‑presentation (large.pptx) som innehåller en 1,5 GB videofil. Den standardmetod för att läsa in presentationen beskrivs i denna Python‑kod:
+Tänk dig en stor PowerPoint‑presentation (large.pptx) som innehåller en 1,5 GB videofil. Standardmetoden för att läsa in presentationen beskrivs i denna Python‑kod:
 
 ```python
 import jpype
@@ -182,7 +180,7 @@ Men denna metod förbrukar omkring 1,6 GB tillfälligt minne.
 
 ### **Läs in en stor presentation som BLOB**
 
-Genom processen som involverar en BLOB kan du läsa in en stor presentation med lite minne. Denna Python‑kod beskriver implementeringen där BLOB‑processen används för att läsa in en stor presentationsfil (large.pptx):
+Genom att använda BLOB‑hantering kan du läsa in en stor presentation samtidigt som du använder lite minne. Denna Python‑kod visar hur du använder BLOB‑hantering för att läsa in en stor presentationsfil (large.pptx):
 
 ```python
 import jpype
@@ -204,9 +202,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Ändra mappen för temporära filer**
+### **Ändra mappen för tillfälliga filer**
 
-När BLOB‑processen används skapar din dator temporära filer i standardmappen för temporära filer. Om du vill att de temporära filerna ska sparas i en annan mapp kan du ändra lagringsinställningarna med [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath):
+När BLOB‑processen används skapar datorn tillfälliga filer i standardmappen för tillfälliga filer. Om du vill att de tillfälliga filerna ska lagras i en annan mapp kan du ändra lagringsinställningarna med [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath):
 
 ```python
 import jpype
@@ -223,13 +221,13 @@ load_options.getBlobManagementOptions().setTemporaryFilesAllowed(True)
 load_options.getBlobManagementOptions().setTempFilesRootPath("temp")
 ```
 
-{{% alert color="info" title="Note" %}}
-När du använder [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath) skapar inte Aspose.Slides automatiskt en mapp för att lagra temporära filer. Du måste skapa mappen manuellt.
+{{% alert color="info" title="Obs" %}}
+När du använder [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath) skapar inte Aspose.Slides automatiskt en mapp för att lagra tillfälliga filer. Du måste skapa mappen manuellt.
 {{% /alert %}}
 
-### **Frigör presentationsobjekt för att släppa minne**
+### **Avsluta presentationsobjekt för att frigöra minne**
 
-När du bearbetar stora presentationer, se till att instansen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) avsörjs korrekt så att det minne den upptog frigörs. Anropa [Presentation.dispose](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#dispose) efter att du har avslutat användningen av presentationen för att frigöra osäkra resurser.
+När du bearbetar stora presentationer, se till att [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)-instansen avslutas korrekt så att det minne den upptog frigörs. Anropa [Presentation.dispose](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#dispose) när du är klar med presentationen för att frigöra ohanterade resurser.
 
 ```python
 import jpype
@@ -251,22 +249,22 @@ finally:
 
 ## **FAQ**
 
-**Vilken data i en Aspose.Slides‑presentation behandlas som BLOB och styrs av BLOB‑alternativ?**
+**Vilken data i en Aspose.Slides‑presentation behandlas som en BLOB och styrs av BLOB‑alternativ?**
 
-Stora binära objekt såsom bilder, ljud och video behandlas som BLOB. Hela presentationsfilen involverar också BLOB‑hantering när den läses in eller sparas. Dessa objekt styrs av BLOB‑policyer som låter dig hantera minnesanvändning och överföra till temporära filer vid behov.
+Stora binära objekt som bilder, ljud och video behandlas som BLOBs. Hela presentationsfilen omfattas också av BLOB‑hantering när den läses in eller sparas. Dessa objekt styrs av BLOB‑policyer som låter dig hantera minnesanvändning och överföra tillfälliga filer vid behov.
 
-**Var konfigurerar jag BLOB‑hanteringsregler under inläsning av en presentation?**
+**Var konfigurerar jag BLOB‑hanteringsregler vid presentationens inläsning?**
 
-Använd [LoadOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/) med [BlobManagementOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/). Där anger du minnesgränsen för BLOB, tillåter eller förbjuder temporära filer, väljer rot‑sökvägen för temporära filer och väljer beteende för kilslåsning av källan.
+Använd [LoadOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/) tillsammans med [BlobManagementOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/). Där ställer du in minnesgränsen för BLOBs, tillåter eller förbjuder tillfälliga filer, väljer rot‑sökväg för tillfälliga filer och anger låsningsbeteende för källan.
 
 **Påverkar BLOB‑inställningar prestanda, och hur balanserar jag hastighet mot minne?**
 
-Ja. Att hålla BLOB i minnet maximerar hastigheten men ökar RAM‑förbrukningen; att sänka minnesgränsen flyttar mer arbete till temporära filer, vilket minskar RAM på bekostnad av extra I/O. Använd metoden [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory) för att hitta rätt balans för din arbetsbelastning och miljö.
+Ja. Att hålla BLOBs i minnet maximerar hastigheten men ökar RAM‑förbrukningen; en lägre minnesgräns flyttar mer arbete till tillfälliga filer, vilket minskar RAM‑användningen på bekostnad av extra I/O. Använd metoden [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory) för att hitta rätt balans för din arbetsbelastning och din miljö.
 
 **Hjälper BLOB‑alternativ när man öppnar extremt stora presentationer (t.ex. flera gigabyte)?**
 
-Ja. [BlobManagementOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/) är utformade för sådana scenarier: att aktivera temporära filer och använda kilslåsning kan avsevärt minska topp‑RAM‑användning och stabilisera bearbetningen av mycket stora presentationer.
+Ja. [BlobManagementOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/blobmanagementoptions/) är designat för sådana scenarier: att möjliggöra tillfälliga filer och använda käll‑låsning kan avsevärt minska topp‑RAM‑användning och stabilisera bearbetning av mycket stora bildspel.
 
-**Kan jag använda BLOB‑policyer när jag läser från strömmar istället för diskfiler?**
+**Kan jag använda BLOB‑policyer när jag läser in från strömmar istället för diskfiler?**
 
-Ja. Samma regler gäller för strömmar: presentationsinstansen kan äga och låsa inmatningsströmmen (beroende på valt låsläge), och temporära filer används när det är tillåtet, vilket håller minnesanvändningen förutsägbar under bearbetning.
+Ja. Samma regler gäller för strömmar: presentationsinstansen kan äga och låsa inmatningsströmmen (beroende på valt låsningsläge), och tillfälliga filer används när de är tillåtna, vilket håller minnesanvändningen förutsägbar under bearbetning.

@@ -5,33 +5,33 @@ type: docs
 weight: 10
 url: /cs/python-java/audio-frame/
 keywords:
-- audio
+- zvuk
 - audio rámec
-- miniatura
-- přidat audio
-- vlastnosti audia
-- možnosti audia
-- extrahovat audio
+- náhled
+- přidat zvuk
+- vlastnosti zvuku
+- možnosti zvuku
+- extrahovat zvuk
 - Python
 - Aspose.Slides
-description: "Vytvořte a ovládejte audio rámy v Aspose.Slides pro Python via Java — příklady kódu pro vložení, ořezání, smyčkování a konfiguraci přehrávání v prezentacích PPT, PPTX a ODP."
+description: "Vytvářejte a ovládejte audio rámečky v Aspose.Slides pro Python přes Java – příklady kódu pro vkládání, ořezávání, smyčkování a konfiguraci přehrávání v PPT, PPTX a ODP prezentacích."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s audio rámci v Aspose.Slides. Ukazuje, jak přidat vložený zvuk do snímků, přizpůsobit miniaturu audio rámce, nakonfigurovat možnosti přehrávání, jako jsou hlasitost, smyčkování, skrytí, ořezávání a doby zeslabení, a extrahovat zvuk použitý v přechodech prezentace.
+Tento článek vysvětluje, jak pracovat s audio rámci v Aspose.Slides. Ukazuje, jak přidat vložený zvuk do snímků, přizpůsobit miniaturu audio rámce, nakonfigurovat možnosti přehrávání, jako je hlasitost, smyčkování, skrývání, ořezávání a dobu proslábnutí, a extrahovat zvuk použité v přechodech prezentace.
 
-## **Vytvořit audio rámce**
+## **Vytvoření audio rámců**
 
-Aspose.Slides pro Python via Java umožňuje přidávat audio soubory do snímků. Audio soubory jsou do snímků vloženy jako audio rámce. 
+Aspose.Slides pro Python přes Java umožňuje přidávat zvukové soubory do snímků. Zvukové soubory jsou vkládány do snímků jako audio rámce. 
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) .
-2. Získejte odkaz na snímek pomocí jeho indexu.
-3. Načtěte audio soubor, který chcete vložit do snímku.
-4. Přidejte vložený audio rámec (obsahující audio soubor) do snímku.
-5. Nastavte [setPlayMode](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setPlayMode) a [setVolume](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setVolume) poskytované objektem [AudioFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/) .
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přečtěte zvukový soubor, který chcete vložit do snímku.
+4. Přidejte vložený audio rámec (obsahující zvukový soubor) do snímku.
+5. Použijte [setPlayMode](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setPlayMode) a [setVolume](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setVolume) vystavené objektem [AudioFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/).
 6. Uložte upravenou prezentaci.
 
-Tento Python kód ukazuje, jak přidat vložený audio rámec do snímku:
+Tento kód v Pythonu ukazuje, jak přidat vložený audio rámec do snímku:
 
 ```python
 from pathlib import Path
@@ -61,9 +61,9 @@ finally:
 
 ## **Změna miniatury audio rámce**
 
-Když přidáte audio soubor do prezentace, zvuk se zobrazí jako rámec se standardním výchozím obrázkem (viz obrázek v následující sekci). Můžete změnit náhledový obrázek audio rámce (nastavte vámi preferovaný obrázek).
+Když do prezentace přidáte zvukový soubor, zvuk se zobrazí jako rámec se standardním výchozím obrázkem (viz obrázek v následující sekci). Můžete změnit náhledový obrázek audio rámce na obrázek dle vašeho výběru.
 
-Tento Python kód ukazuje, jak změnit miniaturu audio rámce nebo náhledový obrázek:
+Tento kód v Pythonu ukazuje, jak změnit miniaturu nebo náhledový obrázek audio rámce:
 
 ```python
 from pathlib import Path
@@ -96,15 +96,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Změna možností přehrávání audia**
+## **Změna možností přehrávání zvuku**
 
-Aspose.Slides pro Python via Java umožňuje měnit možnosti, které řídí přehrávání nebo vlastnosti audia. Například můžete upravit hlasitost audia, nastavit, aby se audio přehrávalo ve smyčce, nebo dokonce skrýt ikonu audia.
+Aspose.Slides pro Python přes Java umožňuje měnit možnosti, které řídí přehrávání zvuku nebo jeho vlastnosti. Například můžete upravit hlasitost zvuku, nastavit smyčkování zvuku nebo dokonce skrýt ikonu zvuku.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+Panel **Audio Options** v Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/) properties:
+PowerPoint **Audio Options**, které odpovídají vlastnostem Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/):
+
 - **Start** rozbalovací seznam odpovídá metodě [setPlayMode](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setPlayMode)
 - **Volume** odpovídá metodě [setVolume](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setVolume)
 - **Play Across Slides** odpovídá metodě [setPlayAcrossSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)
@@ -112,23 +113,25 @@ PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https
 - **Hide During Show** odpovídá metodě [setHideAtShowing](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setHideAtShowing)
 - **Rewind after Playing** odpovídá metodě [setRewindAudio](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setRewindAudio)
 
-Možnosti **Editing** v PowerPointu, které odpovídají vlastnostem Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/) properties:
+Možnosti **Editing** v PowerPointu, které odpovídají vlastnostem Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/) :
+
 - **Fade In** odpovídá metodě [setFadeInDuration](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setFadeInDuration) 
 - **Fade Out** odpovídá metodě [setFadeOutDuration](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setFadeOutDuration) 
 - **Trim Audio Start Time** odpovídá metodě [setTrimFromStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time** hodnota se rovná délce audia minus hodnota metody [setTrimFromEnd](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setTrimFromEnd) method
+- **Trim Audio End Time** hodnota se rovná délce zvuku minus hodnota nastavená metodou [setTrimFromEnd](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setTrimFromEnd) 
 
-Ovládání **Volume control** v PowerPointu na panelu pro ovládání audia odpovídá metodě [setVolumeValue](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setVolumeValue) . Umožňuje změnit hlasitost audia v procentech.
+Ovládání **Volume** v PowerPointu na panelu pro audio odpovídá metodě [setVolumeValue](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setVolumeValue). Umožňuje vám změnit hlasitost zvuku v procentech.
 
-Takto změníte možnosti přehrávání audia:
-1. [Vytvořit](#create-audio-frames) nebo získat Audio Frame.
-2. Nastavte nové hodnoty pro vlastnosti Audio Frame, které chcete upravit.
+Takto měníte možnosti přehrávání zvuku:
+
+1. [Vytvořit](#create-audio-frames) nebo získejte audio rámec.
+2. Nastavte nové hodnoty pro vlastnosti audio rámce, které chcete upravit.
 3. Uložte upravený soubor PowerPoint.
 
-Tento Python kód demonstruje operaci, při které jsou upraveny možnosti audia:
+Tento kód v Pythonu demonstruje operaci, při které jsou upraveny možnosti zvuku:
 
 ```python
-import jpide
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -140,12 +143,12 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # Přehrát při kliknutí s nízkou hlasitostí, napříč snímky, bez smyčkování.
+        # Přehrát po kliknutí s nízkou hlasitostí, napříč snímky, bez smyčkování.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # Skrýt rámec během prezentace a po přehrání jej přetočit zpět.
+        # Skrýt rámec během prezentace a přetočit po přehrání.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
@@ -155,7 +158,7 @@ finally:
     presentation.dispose()
 ```
 
-Tento Python příklad ukazuje, jak přidat nový audio rámec s vloženým audiem, oříznout jej a nastavit doby zeslabení:
+Tento příklad v Pythonu ukazuje, jak přidat nový audio rámec s vloženým zvukem, oříznout jej a nastavit dobu proslábnutí:
 
 ```python
 from pathlib import Path
@@ -163,7 +166,7 @@ from pathlib import Path
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpage.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
@@ -187,7 +190,7 @@ finally:
     presentation.dispose()
 ```
 
-Následující ukázkový kód ukazuje, jak získat audio rámec s vloženým audiem a nastavit jeho hlasitost na 85 %:
+Níže uvedený ukázkový kód ukazuje, jak získat audio rámec s vloženým zvukem a nastavit jeho hlasitost na 85 %:
 
 ```python
 import jpype
@@ -211,13 +214,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Správa titulků audia**
+## **Správa titulků zvuku**
 
-Aspose.Slides umožňuje přidat uzavřené titulky k audio rámci pomocí metody [getCaptionTracks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#getCaptionTracks) . Tato metoda vrací [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/) , která umožňuje přidávat WebVTT titulkové stopy, procházet existující stopy a odstraňovat je podle potřeby.
+Aspose.Slides vám umožňuje přidávat uzavřené titulky k audio rámci pomocí metody [getCaptionTracks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#getCaptionTracks). Tato metoda vrací [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/), který vám umožňuje přidávat WebVTT stopy titulků, procházet existující stopy a odstraňovat je podle potřeby.
 
-**Přidání titulků audia**
+**Přidání titulků zvuku**
 
-Použijte metodu [getCaptionTracks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#getCaptionTracks) k připojení jedné nebo více titulkových stop k audio rámci. V následujícím příkladu je audio soubor přidán do snímku a poté je nová titulková stopa načtena ze souboru `.vtt` .
+Použijte metodu [getCaptionTracks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#getCaptionTracks), abyste připojili jednu nebo více stop titulků k audio rámci. V následujícím příkladu je zvukový soubor přidán do snímku a poté je nová stopa titulků načtena ze souboru `.vtt`.
 
 ```python
 from pathlib import Path
@@ -245,9 +248,9 @@ finally:
     presentation.dispose()
 ```
 
-**Extrahování titulků audia**
+**Extrahování titulků zvuku**
 
-Můžete procházet titulkové stopy spojené s audio rámcem a uložit je jako soubory `.vtt`. Každá titulková stopa poskytuje svá binární data a jedinečný identifikátor, který lze použít při exportu titulků.
+Můžete procházet stopy titulků přiřazené k audio rámci a uložit je jako soubory `.vtt`. Každá stopa titulků poskytuje svá binární data a jedinečný identifikátor, který lze použít při exportu titulků.
 
 ```python
 from pathlib import Path
@@ -274,9 +277,9 @@ finally:
     presentation.dispose()
 ```
 
-**Odstranění titulků audia**
+**Odstranění titulků zvuku**
 
-Pro odstranění titulků z audio rámce použijte metody poskytované třídou [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/) , jako jsou [clear](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#clear) , [remove](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#removeAt) . Následující příklad odstraňuje všechny titulkové stopy z audio rámce.
+Chcete-li odstranit titulky z audio rámce, použijte metody poskytované [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/), např. [clear](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#remove), nebo [removeAt](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#removeAt). Následující příklad odstraňuje všechny stopy titulků z audio rámce.
 
 ```python
 import jpype
@@ -300,16 +303,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Extrahování audia**
+## **Extrahování zvuku**
 
-Aspose.Slides pro Python via Java umožňuje extrahovat zvuk použitého při přechodech prezentace. Například můžete extrahovat zvuk použitý v konkrétním snímku.
+Aspose.Slides pro Python přes Java vám umožňuje extrahovat zvuk použitý v přechodech prezentace. Například můžete extrahovat zvuk použitý v konkrétním snímku.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a načtěte prezentaci obsahující audio.
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a načtěte prezentaci obsahující zvuk.
+2. Získejte odkaz na příslušný snímek podle jeho indexu.
 3. Přistupte k [slideshow transitions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseslide/#getSlideShowTransition) pro snímek.
-4. Extrahujte zvuk v bajtových datech.
+4. Extrahujte zvuk jako bajtová data.
 
-Tento Python kód ukazuje, jak extrahovat audio použité v snímku:
+Tento kód v Pythonu ukazuje, jak extrahovat zvuk použitý v snímku:
 
 ```python
 import jpype
@@ -336,14 +339,14 @@ finally:
 
 ## **Často kladené otázky**
 
-**Mohu znovu použít stejný audio soubor na více snímcích, aniž by se zvětšila velikost souboru?**
+**Mohu znovu použít stejný zvukový zdroj na více snímcích, aniž by se zvětšila velikost souboru?**
 
-Ano. Přidejte audio jednou do sdílené [audio collection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getAudios) prezentace a vytvořte další audio rámce, které odkazují na tento existující asset. Tím se zabrání duplikaci mediálních dat a velikost prezentace zůstane pod kontrolou.
+Ano. Přidejte zvuk jednou do sdílené [audio collection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getAudios) prezentace a vytvořte další audio rámce, které odkazují na tento existující zdroj. Tím se zabrání duplikaci multimediálních dat a velikost prezentace zůstane pod kontrolou.
 
 **Mohu nahradit zvuk v existujícím audio rámci, aniž bych znovu vytvářel tvar?**
 
-Ano. Pro propojený zvuk aktualizujte [link path](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setLinkPathLong), aby ukazoval na nový soubor. Pro vložený zvuk vyměňte objekt [embedded audio](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setEmbeddedAudio) za jiný z [audio collection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getAudios) prezentace. Formátování rámce a většina nastavení přehrávání zůstane nezměněna.
+Ano. U propojeného zvuku aktualizujte [link path](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setLinkPathLong), aby ukazoval na nový soubor. U vloženého zvuku vyměňte objekt [embedded audio](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audioframe/#setEmbeddedAudio) za jiný z [audio collection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getAudios) prezentace. Formátování rámce a většina nastavení přehrávání zůstane nedotčena.
 
-**Změní ořezávání základní audio data uložená v prezentaci?**
+**Mění ořezávání podkladová audio data uložená v prezentaci?**
 
-Ne. Ořezávání upravuje pouze hranice přehrávání. Původní audio bajty zůstávají nedotčeny a jsou přístupné přes vložené audio nebo audio kolekci prezentace.
+Ne. Ořezávání upravuje pouze hranice přehrávání. Původní audio bajty zůstávají nedotčeny a jsou přístupné přes vložený zvuk nebo audio kolekci prezentace.

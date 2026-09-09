@@ -17,30 +17,30 @@ keywords:
 - 簡報
 - Python
 - Aspose.Slides
-description: "學習如何使用 Aspose.Slides for Python via Java，在 PowerPoint 與 OpenDocument 投影片中以程式方式新增與擷取影片框架。快速上手指南。"
+description: "學習如何使用 Aspose.Slides for Python via Java，以程式方式在 PowerPoint 與 OpenDocument 投影片中新增與擷取影片框架。快速上手指南。"
 ---
 ## **簡介**
 
-在簡報中適當放置的影片可以使您的訊息更加有說服力，並提升觀眾的參與度。
+在簡報中恰當地放置影片可以讓您的訊息更具說服力，並提升觀眾的參與度。
 
-PowerPoint 允許您以兩種方式將影片新增至簡報中的投影片：
+PowerPoint 提供兩種方式在簡報的投影片中加入影片：
 
 * 新增或嵌入本機影片（儲存在您的電腦上）
-* 新增線上影片（來自諸如 YouTube 等網路來源）。
+* 新增線上影片（來自 YouTube 等網路來源）
 
-為了讓您能將影片（video 物件）新增至簡報，Aspose.Slides 提供了 [Video](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/video/) 類別、[VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 類別以及其他相關類型。
+為了讓您能在簡報中加入影片（video 物件），Aspose.Slides 提供了 [Video](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/video/) 類別、[VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 類別，以及其他相關類型。
 
-## **建立內嵌影片框架**
+## **建立嵌入式影片框架**
 
-如果您想新增至投影片的影片檔案儲存在本機，您可以建立影片框架以將影片內嵌至簡報中。
+如果您要加入投影片的影片檔案儲存在本機，您可以建立影片框架將影片嵌入簡報。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的執行個體。
-1. 透過索引取得投影片的參考。
-1. 新增 [Video](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/video/) 物件，並傳遞影片檔案資料以將影片內嵌至簡報中。
-1. 新增 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件，以建立影片的框架。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
+1. 依索引取得投影片的參照。
+1. 新增 [Video](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/video/) 物件，並傳遞影片檔案資料以將影片嵌入簡報。
+1. 新增 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件以建立影片框架。
 1. 儲存已修改的簡報。
 
-以下 Python 程式碼示範如何將本機儲存的影片新增至簡報：
+以下 Python 程式碼示範如何將本機影片加入簡報：
 
 ```python
 from pathlib import Path
@@ -64,7 +64,7 @@ finally:
     presentation.dispose()
 ```
 
-或者，您也可以直接將檔案路徑傳遞給 [addVideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shapecollection/#addVideoFrame) 方法來新增影片：
+或者，您也可以直接將影片檔案路徑傳遞給 [addVideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shapecollection/#addVideoFrame) 方法：
 
 ```python
 import jpype
@@ -85,15 +85,15 @@ finally:
 
 ## **建立來自網路來源的影片框架**
 
-Microsoft [PowerPoint 2013 及更新版本](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) 支援在簡報中使用 YouTube 影片。若您要使用的影片線上可取得（例如在 YouTube 上），您可以透過其網路連結將其加入簡報。
+Microsoft [PowerPoint 2013 及更新版本](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) 支援在簡報中使用 YouTube 影片。若您要使用的影片已上傳至線上（例如 YouTube），即可透過其網路連結將影片加入簡報。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的執行個體
-1. 透過索引取得投影片的參考。
-1. 新增 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件，並傳遞影片的連結。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
+1. 依索引取得投影片的參照。
+1. 新增 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件，並傳遞影片連結。
 1. 為影片框架設定縮圖。
 1. 儲存簡報。
 
-以下 Python 程式碼示範如何將來自網路的影片新增至 PowerPoint 簡報的投影片中：
+以下 Python 程式碼示範如何從網路加入影片至 PowerPoint 投影片：
 
 ```python
 from urllib.request import urlopen
@@ -128,21 +128,21 @@ finally:
     presentation.dispose()
 ```
 
-## **修剪影片框架**
+## **裁切影片框架**
 
-Aspose.Slides 允許您透過 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setTrimFromStart) 與 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setTrimFromEnd) 設定 trim-from-start 與 trim-from-end 之值，以控制影片播放的區段。兩個值皆以毫秒為單位，分別定義從影片開始與結束處跳過的時間長度。此設定會變更簡報中影片的播放行為，並不會裁剪或以其他方式修改內嵌影片的二進位資料。
+Aspose.Slides 允許您透過 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setTrimFromStart) 與 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setTrimFromEnd) 來設定 trim‑from‑start 與 trim‑from‑end 值，從而控制播放的影片段落。兩個值均以毫秒為單位，分別定義從影片開始與結束跳過的時間長度。這些設定會變更簡報中的影片播放行為；不會裁切或修改嵌入的影片二進位資料。
 
-**設定修剪參數**
+**設定裁切參數**
 
-建立影片框架並設定其修剪參數的步驟如下：
+建立影片框架並設定裁切參數的步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的執行個體。
-1. 向簡報新增 [Video](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/video/) 物件。
-1. 向投影片新增 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件。
-1. 透過 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setTrimFromStart) 與 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setTrimFromEnd) 設定 trim-from-start 與 trim-from-end 的值。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
+1. 新增 [Video](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/video/) 物件至簡報。
+1. 在投影片上新增 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件。
+1. 透過 [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setTrimFromStart) 與 [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setTrimFromEnd) 設定裁切起始與結束值。
 1. 儲存已修改的簡報。
 
-以下程式碼示範在播放時跳過內嵌影片的前 2.5 秒與最後 1 秒：
+以下程式碼範例在播放時跳過嵌入影片的前 2.5 秒與最後 1 秒：
 
 ```python
 from pathlib import Path
@@ -170,11 +170,11 @@ finally:
     presentation.dispose()
 ```
 
-**讀取修剪參數**
+**讀取裁切參數**
 
-若要檢視現有的修剪參數，請載入簡報，於第一張投影片的形狀中尋找 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件，並透過 [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#getTrimFromStart) 與 [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#getTrimFromEnd) 讀取其值。
+若要檢查現有的裁切設定，請載入簡報，在第一張投影片的形狀中找到 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件，並透過 [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#getTrimFromStart) 與 [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#getTrimFromEnd) 取得值。
 
-以下程式碼示範如何找出第一張投影片中的第一個影片框架，並以毫秒為單位回報其修剪參數：
+以下程式碼範例會尋找第一張投影片上的第一個影片框架，並以毫秒為單位回報其裁切設定：
 
 ```python
 import jpype
@@ -201,19 +201,19 @@ finally:
 
 ## **管理影片字幕**
 
-Aspose.Slides 允許您管理 PowerPoint 簡報中影片框架的隱藏式字幕。字幕以 WebVTT 格式儲存，並可透過 [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#getCaptionTracks) 方法取得。
+Aspose.Slides 允許您在 PowerPoint 簡報的影片框架中管理隱蔽字幕（closed captions）。字幕以 WebVTT 格式儲存，並可透過 [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#getCaptionTracks) 方法取得。
 
-**新增字幕至影片框架**
+**為影片框架加入字幕**
 
-將字幕新增至影片框架的步驟如下：
+將字幕加入影片框架的步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的執行個體。
-1. 向簡報新增影片。
-1. 向投影片新增 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件。
-1. 使用由 [getCaptionTracks](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#getCaptionTracks) 回傳的 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/) 來新增 WebVTT 字幕軌。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例。
+1. 在簡報中加入影片。
+1. 在投影片上加入 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件。
+1. 使用由 [getCaptionTracks](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#getCaptionTracks) 回傳的 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/) 來加入 WebVTT 字幕軌道。
 1. 儲存已修改的簡報。
 
-以下程式碼示範如何將字幕新增至影片框架：
+以下程式碼示範如何為影片框架加入字幕：
 
 ```python
 from pathlib import Path
@@ -234,23 +234,23 @@ try:
     slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # 從 WebVTT 檔案新增字幕軌。
+    # 從 WebVTT 檔案新增字幕軌道。
     video_frame.getCaptionTracks().add("English", "track.vtt")
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-[CaptionsCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/) 類別亦提供一個重載，可讓您從串流新增字幕。
+[CaptionsCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/) 類別也提供一個多載，可讓您從串流加入字幕。
 
 **從影片框架擷取字幕**
 
-從影片框架擷取字幕的步驟如下：
+從影片框架擷取字幕的步驟：
 
 1. 載入包含影片的簡報。
-1. 找到目標 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件。
-1. 迭代 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/) 中的字幕軌。
-1. 將每個字幕軌儲存為 `.vtt` 檔案。
+1. 找到目標的 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件。
+1. 迭代 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/) 中的字幕軌道。
+1. 將每個字幕軌道儲存為 `.vtt` 檔案。
 
 以下程式碼示範如何從影片框架擷取字幕：
 
@@ -271,7 +271,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             for caption_track in shape.getCaptionTracks():
-                # 將字幕軌儲存為 WebVTT 檔案。
+                # 將字幕軌道儲存為 WebVTT 檔案。
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -279,18 +279,18 @@ finally:
     presentation.dispose()
 ```
 
-每個 [Captions](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captions/) 物件會公開字幕的 identifier、label、二進位資料，以及以 UTF-8 編碼的字幕文字。
+每個 [Captions](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captions/) 物件皆會公開字幕識別碼、標籤、二進位資料以及以 UTF‑8 字串表示的字幕文字。
 
 **從影片框架移除字幕**
 
-從影片框架移除字幕的步驟如下：
+移除影片框架字幕的步驟：
 
 1. 載入包含影片的簡報。
-1. 取得目標 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件。
-1. 從 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/) 中移除字幕軌。
+1. 取得目標的 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件。
+1. 從 [CaptionsCollection](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/) 移除字幕軌道。
 1. 儲存已修改的簡報。
 
-以下程式碼示範如何移除影片框架中的全部字幕：
+以下程式碼示範如何移除影片框架中的所有字幕：
 
 ```python
 import jpype
@@ -315,15 +315,15 @@ finally:
     presentation.dispose()
 ```
 
-如果您只需移除單一字幕軌，請使用 [remove](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/#removeAt) 方法，而非 [clear](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/#clear)。
+如果您只需要移除單一字幕軌道，請使用 [remove](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/#remove) 或 [removeAt](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/#removeAt) 方法，而非 [clear](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/captionscollection/#clear)。
 
 ## **從投影片擷取影片**
 
-除了將影片新增至投影片外，Aspose.Slides 也允許您擷取簡報中內嵌的影片。
+除了在投影片中加入影片外，Aspose.Slides 也允許您擷取簡報中嵌入的影片。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的執行個體，以載入包含影片的簡報。
-2. 迭代所有 [Slide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slide/) 物件。
-3. 迭代所有 [Shape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shape/) 物件以尋找 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/)。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 類別的實例以載入包含影片的簡報。
+2. 迭代所有的 [Slide](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slide/) 物件。
+3. 迭代所有的 [Shape](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/shape/) 物件以尋找 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/)。
 4. 將影片儲存至磁碟。
 
 以下 Python 程式碼示範如何擷取簡報投影片上的影片：
@@ -356,20 +356,20 @@ finally:
     presentation.dispose()
 ```
 
-## **常見問題**
+## **FAQ**
 
 **可以變更 VideoFrame 的哪些影片播放參數？**
 
-您可以透過 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件的屬性控制 [playback mode](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setPlayMode)（自動或點擊播放）以及 [looping](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setPlayLoopMode)。
+您可以透過 [VideoFrame](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/) 物件的屬性控制 [playback mode](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setPlayMode)（自動或點擊）以及 [looping](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setPlayLoopMode)。  
 
-**新增影片會影響 PPTX 檔案大小嗎？**
+**加入影片會影響 PPTX 檔案大小嗎？**
 
-會。當您嵌入本機影片時，二進位資料會被寫入文件，簡報大小會依檔案大小等比例增加。當您新增線上影片時，僅會嵌入連結與縮圖，因而僅會稍微增加大小。
+會的。當您嵌入本機影片時，二進位資料會寫入文件，簡報大小會隨檔案大小成比例增加。加入線上影片時，只會嵌入連結與縮圖，檔案大小的增幅較小。
 
-**能否在不變更位置與大小的情況下取代現有 VideoFrame 的影片？**
+**是否可以在不變更位置與尺寸的前提下，取代既有 VideoFrame 中的影片？**
 
-可以。您可以在保留形狀幾何的情況下，於框架內更換 [video content](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setEmbeddedVideo)，此為更新現有版面媒體的常見情境。
+可以。您可交換 [video content](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/videoframe/#setEmbeddedVideo) 而保留形狀的幾何資訊，這是更新既有版面中媒體的常見情境。
 
-**能否判斷內嵌影片的內容類型 (MIME)？**
+**能否判斷嵌入影片的內容類型（MIME）？**
 
-可以。內嵌影片具備可讀取的 [content type](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/video/#getContentType)，您可以使用它，例如在儲存至磁碟時。
+可以。嵌入的影片具備可透過 [content type](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/video/#getContentType) 讀取的 MIME 類型，您亦可在儲存至磁碟時使用此資訊。

@@ -1,5 +1,5 @@
 ---
-title: Python के माध्यम से Java में मीडिया फ़ाइलें प्रबंधित करें
+title: Python के माध्यम से Java में मीडिया फ़ाइलों को प्रबंधित करें
 linktitle: मीडिया फ़ाइलें
 type: docs
 weight: 30
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java में ऑडियो और वीडियो प्रबंधित करें: जोड़ें, निकालें, बदलें, और PPT, PPTX और ODP फ़ाइलों में मीडिया को अनुकूलित करें। चरण-दर-चरण गाइड और Java कोड।"
+description: "Aspose.Slides for Python via Java में ऑडियो और वीडियो को प्रबंधित करें: PPT, PPTX और ODP फ़ाइलों में मीडिया जोड़ें, निकालें, बदलें और अनुकूलित करें। चरण‑दर‑चरण मार्गदर्शिकाएँ और Python कोड।"
 ---

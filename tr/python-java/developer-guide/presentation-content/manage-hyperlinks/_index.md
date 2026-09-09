@@ -1,50 +1,48 @@
 ---
-title: Python üzerinden Java ile Sunum Köprülerini Yönet
+title: Python üzerinden Java ile Sunum Köprülerini Yönetme
 linktitle: Köprüyü Yönet
 type: docs
 weight: 20
 url: /tr/python-java/manage-hyperlinks/
 keywords:
-- URL ekle
-- köprü ekle
-- köprü oluştur
-- köprüyü biçimlendir
-- köprü kaldır
-- köprüyü güncelle
-- metin köprüsü
-- slayt köprüsü
-- şekil köprüsü
-- görsel köprüsü
-- video köprüsü
-- değiştirilebilir köprü
-- PowerPoint
-- OpenDocument
-- sunum
-- Python
-- Java
-- Aspose.Slides
-description: "Aspose.Slides for Python via Java ile PowerPoint ve OpenDocument sunumlarındaki köprüleri zahmetsizce yönetin—interaktiviteyi ve iş akışını dakikalar içinde artırın."
+  - URL ekle
+  - köprü ekle
+  - köprü oluştur
+  - köprüyü biçimlendir
+  - köprüyü kaldır
+  - köprüyü güncelle
+  - metin köprüsü
+  - slayt köprüsü
+  - şekil köprüsü
+  - görüntü köprüsü
+  - video köprüsü
+  - değiştirilebilir köprü
+  - PowerPoint
+  - OpenDocument
+  - sunum
+  - Python
+  - Java
+  - Aspose.Slides
+description: "Aspose.Slides for Python via Java ile PowerPoint ve OpenDocument sunumlarındaki köprüleri zahmetsizce yönetin—etkileşimi ve iş akışını dakikalar içinde artırın."
 ---
 ## **Giriş**
 
-Bir köprü, bir nesneye, veriye veya bir konuma referanstır. PowerPoint Sunumlarında yaygın köprüler şunlardır:
+Köprü, bir nesneye, veriye veya konuma yapılan bir referanstır. PowerPoint sunularında yaygın köprüler şunlardır:
 
-* Metin, şekil veya multimedya içinde web sitelerine bağlantılar
+* Metin, şekil veya medyada bulunan web sitelerine bağlantılar
 * Slaytlara bağlantılar
 
-Aspose.Slides for Python via Java, sunumlardaki köprülerle ilgili birçok görevi gerçekleştirmenizi sağlar. 
+Aspose.Slides for Python via Java, sunularda köprülerle ilgili birçok görevi gerçekleştirmenize olanak tanır. 
 
-{{% alert color="info" title="Note" %}} 
-
-Aspose’un basit, [ücretsiz çevrimiçi PowerPoint düzenleyicisini]https://products.aspose.app/slides/tr/editor inceleyebilirsiniz.
-
+{{% alert color="info" title="Not" %}} 
+Aspose'un basit, [ücretsiz çevrimiçi PowerPoint düzenleyicisini](https://products.aspose.app/slides/tr/editor) kontrol edebilirsiniz.
 {{% /alert %}} 
 
-## **URL Köprüleri Ekle**
+## **URL Köprüleri Ekleme**
 
-### **Metne URL Köprüleri Ekle**
+### **Metne URL Köprüsü Ekleme**
 
-Bu Python kodu, bir metne web sitesi köprüsü eklemenizi gösterir:
+Bu Python kodu, bir web sitesi köprüsünü metne nasıl ekleyeceğinizi gösterir:
 
 ```python
 import jpype
@@ -70,9 +68,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Şekillere veya Çerçevelere URL Köprüleri Ekle**
+### **Şekillere veya Çerçevelere URL Köprüsü Ekleme**
 
-Bu Python via Java örnek kodu, bir şekle web sitesi köprüsü eklemenizi gösterir:
+Python via Java örnek kodu, bir şekle web sitesi köprüsü eklemeyi gösterir:
 
 ```python
 import jpype
@@ -95,11 +93,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Multimedyaya URL Köprüleri Ekle**
+### **Medyaya URL Köprüsü Ekleme**
 
-Aspose.Slides, görsellere, ses ve video dosyalarına köprü eklemenizi sağlar. 
+Aspose.Slides, görüntülere, ses ve video dosyalarına köprü eklemenize izin verir. 
 
-Bu örnek kod, bir **görsele** köprü eklemeyi gösterir:
+Bu örnek kod, bir **görüntüye** köprü eklemeyi gösterir:
 
 ```python
 import jpype
@@ -112,13 +110,13 @@ from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeT
 
 presentation = Presentation()
 try:
-    # Sunuma görsel ekler
+    # Sunuma resim ekler
     image = Images.fromFile("image.png")
     try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # Daha önce eklenen görsele dayanarak slayt 1'de resim çerçevesi oluşturur
+    # Daha önce eklenen resme dayanarak slayt 1'de resim çerçevesi oluşturur
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -157,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-Bu örnek kod, bir **video** dosyasına köprü eklemeyi gösterir:
+Bu örnek kod, bir **videoya** köprü eklemeyi gösterir:
 
 ```python
 from pathlib import Path
@@ -185,17 +183,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}} 
-
-*[OLE'yi Yönet](/slides/tr/python-java/manage-ole/)*'ı görebilirsiniz.
-
+{{% alert color="success" title="İpucu" %}} 
+Şu bölümü görmek isteyebilirsiniz *[OLE'yi Yönet](/slides/tr/python-java/manage-ole/)*.
 {{% /alert %}}
 
-## **İçindekiler Tablosu Oluşturmak İçin Köprüleri Kullanma**
+## **Köprüleri Kullanarak İçindekiler Tablosu Oluşturma**
 
-Köprüler, nesnelere veya konumlara referans eklemenizi sağladığından, bir içindekiler tablosu oluşturmak için kullanılabilir. 
+Köprüler nesnelere veya yerlere referans eklemenizi sağladığından, içindekiler tablosu oluşturmak için kullanılabilir.
 
-Bu örnek kod, köprülerle bir içindekiler tablosu oluşturmanızı gösterir:
+Bu örnek kod, köprülerle bir içindekiler tablosu oluşturmayı gösterir:
 
 ```python
 import jpype
@@ -239,7 +235,7 @@ finally:
 
 ### **Renk**
 
-[Hyperlink.setColorSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlink/#setColorSource) özelliğiyle, [Hyperlink](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlink/) sınıfındaki köprülerin rengini ayarlayabilir ve renk bilgisini alabilirsiniz. Bu özellik PowerPoint 2019’da ilk kez tanıtıldı; bu nedenle özellik ile ilgili değişiklikler eski PowerPoint sürümlerinde uygulanmaz.
+Hyperlink sınıfındaki [Hyperlink.setColorSource](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlink/#setColorSource) özelliğiyle, köprülerin rengini ayarlayabilir ve köprülerden renk bilgisi alabilirsiniz. Bu özellik ilk kez PowerPoint 2019'da tanıtıldı; bu yüzden özellikteki değişiklikler daha eski PowerPoint sürümlerine uygulanmaz.
 
 Bu örnek kod, aynı slayta farklı renklerde köprülerin eklenmesini gösterir:
 
@@ -277,7 +273,7 @@ finally:
 
 ### **Metinden Köprüleri Kaldırma**
 
-Bu Python kodu, bir sunum slaydındaki metinden köprüyü kaldırmanızı gösterir:
+Bu Python kodu, bir sunum slaydındaki metinden köprüyü nasıl kaldıracağınızı gösterir:
 
 ```python
 import jpype
@@ -306,7 +302,7 @@ finally:
 
 ### **Şekillerden veya Çerçevelerden Köprüleri Kaldırma**
 
-Bu Python kodu, bir sunum slaydındaki bir şekilden köprüyü kaldırmanızı gösterir: 
+Bu Python kodu, bir sunum slaydındaki şekilden köprüyü nasıl kaldıracağınızı gösterir:
 
 ```python
 import jpype
@@ -337,7 +333,7 @@ finally:
 - [setHighlightClick](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-Kod snippet'i, bir slayta köprü ekleyip sonradan araç ipucunu düzenlemenizi gösterir:
+Kod parçacığı, bir slayta köprü eklemeyi ve daha sonra araç ipucunu düzenlemeyi gösterir:
 
 ```python
 import jpype
@@ -366,15 +362,15 @@ finally:
     presentation.dispose()
 ```
 
-## **HyperlinkQueries İçin Desteklenen Özellikler**
+## **HyperlinkQueries'de Desteklenen Özellikler**
 
-Bir sunum, slayt veya köprünün tanımlandığı metin üzerinden [HyperlinkQueries](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlinkqueries/) erişilebilir. 
+Köprünün tanımlı olduğu bir sunum, slayt veya metinden [HyperlinkQueries](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlinkqueries/) erişebilirsiniz. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/tr/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-[HyperlinkQueries](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlinkqueries/) sınıfı şu yöntem ve özellikleri destekler: 
+[HyperlinkQueries](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlinkqueries/) sınıfı aşağıdaki yöntem ve özellikleri destekler: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/tr/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
@@ -383,14 +379,14 @@ Bir sunum, slayt veya köprünün tanımlandığı metin üzerinden [HyperlinkQu
 
 ## **SSS**
 
-**Bir slayta değil, bir "bölüm"e veya bir bölümün ilk slaytına iç navigasyon nasıl oluşturabilirim?**
+**Bir slayta değil, bir "bölüm"e ya da bir bölümün ilk slaytına dahili gezinme nasıl oluşturabilirim?**
 
-PowerPoint’te bölümler, slayt gruplarıdır; navigasyon teknik olarak belirli bir slaytı hedef alır. “Bir bölüme gitmek” için genellikle o bölümün ilk slaytına bağlantı verilir.
+PowerPoint'teki bölümler slayt gruplarıdır; gezinme teknik olarak belirli bir slaytı hedefler. Bir "bölüme" gezinmek için genellikle o bölümün ilk slaytına bağlanırsınız.
 
-**Ana slayt öğelerine köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
+**Ana slayt öğelerine köprü ekleyebilir ve tüm slaytlarda çalışmasını sağlayabilir miyim?**
 
-Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu bağlantılar alt slaytlarda da görünür ve sunum sırasında tıklanabilir olur.
+Evet. Ana slayt ve düzen öğeleri köprüleri destekler. Bu tür bağlantılar alt slaytlarda görünür ve slayt gösterisi sırasında tıklanabilir.
 
-**Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarıldığında korunur mu?**
+**PDF, HTML, görüntüler veya video olarak dışa aktarırken köprüler korunacak mı?**
 
-[PDF](/slides/tr/python-java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/python-java/convert-powerpoint-to-html/) dışa aktarmalarında evet—bağlantılar genellikle korunur. [Görüntüler](/slides/tr/python-java/convert-powerpoint-to-png/) ve [video](/slides/tr/python-java/convert-powerpoint-to-video/) dışa aktarmalarında ise, raster çerçeveler/video formatları köprüleri desteklemediği için tıklanabilirlik taşınmaz.
+[PDF](/slides/tr/python-java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/python-java/convert-powerpoint-to-html/) formatlarında evet—bağlantılar genellikle korunur. [Görüntüler](/slides/tr/python-java/convert-powerpoint-to-png/) ve [video](/slides/tr/python-java/convert-powerpoint-to-video/) formatlarına dışa aktarırken, bu formatların doğası (raster kareler/video) nedeniyle tıklanabilirlik taşınmaz.

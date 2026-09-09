@@ -6,7 +6,7 @@ weight: 30
 url: /nl/python-java/manage-media-files/
 keywords:
 - mediabestand
-- media beheren
+- mediabeheer
 - audio insluiten
 - flash extraheren
 - afbeelding beheren
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Beheer audio en video in Aspose.Slides voor Java: toevoegen, extraheren, vervangen en optimaliseren van media in PPT, PPTX en ODP-bestanden. Stapsgewijze handleidingen en Java-code."
+description: "Beheer audio en video in Aspose.Slides voor Python via Java: voeg toe, extraheer, vervang en optimaliseer media in PPT-, PPTX- en ODP-bestanden. Stapsgewijze handleidingen en Python-code."
 ---

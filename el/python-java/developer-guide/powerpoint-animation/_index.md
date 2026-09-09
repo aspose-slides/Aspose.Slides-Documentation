@@ -13,40 +13,41 @@ keywords:
 - έλεγχος κίνησης
 - εφέ κίνησης
 - κίνηση PowerPoint
-- χρονογραμμή κίνησης
+- γραμμή χρόνου κίνησης
 - διαδραστική κίνηση
 - προσαρμοσμένη κίνηση
 - κίνηση σχήματος
-- κινούμενο διάγραμμα
-- κινούμενο κείμενο
-- κινούμενο σχήμα
-- κινούμενο αντικείμενο OLE
-- κινούμενη εικόνα
-- κινούμενος πίνακας
+- γράφημα με κίνηση
+- κείμενο με κίνηση
+- σχήμα με κίνηση
+- αντικείμενο OLE με κίνηση
+- εικόνα με κίνηση
+- πίνακας με κίνηση
 - PowerPoint
 - παρουσίαση
 - Python
 - Java
 - Aspose.Slides
-description: "Εξερευνήστε τις δυνατότητες του Aspose.Slides για Python μέσω Java στη διαχείριση κινήσεων PowerPoint. Αυτή η γενική επισκόπηση τονίζει τα κύρια χαρακτηριστικά και προσφέρει ιδέες για τη βελτίωση των παρουσιάσεών σας."
+description: "Εξερευνήστε τις δυνατότητες του Aspose.Slides για Python μέσω Java στη διαχείριση κινήσεων PowerPoint. Αυτή η γενική επισκόπηση επισημαίνει κύρια χαρακτηριστικά και προσφέρει ιδέες για τη βελτίωση των παρουσιάσεών σας."
 ---
 ## **Εισαγωγή**
 
-Δεδομένου ότι οι παρουσιάσεις προορίζονται να παρουσιάσουν κάτι, η οπτική τους εμφάνιση και η διαδραστική συμπεριφορά λαμβάνονται πάντα υπόψη κατά τη δημιουργία.
+Τanto η οπτική εμφάνιση όσο και η διαδραστική συμπεριφορά λαμβάνονται υπόψη όταν δημιουργούνται παρουσιάσεις.
 
-**PowerPoint animation** παίζει σημαντικό ρόλο στο να κάνει μια παρουσίαση ελκυστική και δελεαστική για τους θεατές. Το Aspose.Slides παρέχει μια ευρεία γκάμα επιλογών για την προσθήκη κινούμενων γραφικών σε παρουσιάσεις PowerPoint:
+**PowerPoint animation** παίζει σημαντικό ρόλο στο να κάνει μια παρουσίαση ελκυστική και ενδιαφέρουσα για τους θεατές. Το Aspose.Slides παρέχει ευρεία γκάμα επιλογών για την προσθήκη κινήσεων σε παρουσιάσεις PowerPoint:
 
-- Εφαρμόστε διάφορους τύπους εφέ κίνησης PowerPoint σε σχήματα, διαγράμματα, πίνακες, αντικείμενα OLE και άλλα στοιχεία παρουσίασης.
-- Χρησιμοποιήστε πολλαπλά εφέ κίνησης PowerPoint σε ένα μόνο σχήμα.
-- Εκμεταλλευτείτε τη χρονογραμμή κίνησης για να ελέγξετε τα εφέ κίνησης.
-- Δημιουργήστε προσαρμοσμένες κινήσεις.
+- Εφαρμόζετε διάφορους τύπους εφέ κίνησης PowerPoint σε σχήματα, γραφήματα, πίνακες, αντικείμενα OLE και άλλα στοιχεία παρουσίασης.  
+- Χρησιμοποιείτε πολλαπλά εφέ κίνησης PowerPoint σε ένα μόνο σχήμα.  
+- Εκμεταλλεύεστε τη γραμμή χρόνου κίνησης για να ελέγχετε τα εφέ κίνησης.  
+- Δημιουργείτε προσαρμοσμένες κινήσεις.
 
-Στο Aspose.Slides, μπορούν να εφαρμοστούν διάφορα εφέ κίνησης σε σχήματα. Δεδομένου ότι κάθε στοιχείο σε μια διαφάνεια, συμπεριλαμβανομένου κειμένου, εικόνων, αντικειμένων OLE και πινάκων, θεωρείται σχήμα, τα εφέ κίνησης μπορούν να εφαρμοστούν σε οποιοδήποτε στοιχείο της διαφάνειας.
+Στο Aspose.Slides, μπορούν να εφαρμοστούν διάφορα εφέ κίνησης σε σχήματα. Δεδομένου ότι κάθε στοιχείο σε μια διαφάνεια, συμπεριλαμβανομένου του κειμένου, των εικόνων, των αντικειμένων OLE και των πινάκων, θεωρείται σχήμα, τα εφέ κίνησης μπορούν να εφαρμοστούν σε οποιοδήποτε στοιχείο της διαφάνειας.
 
 ## **Εφέ Κίνησης**
-Το Aspose.Slides υποστηρίζει **150+ εφέ κίνησης**, συμπεριλαμβανομένων βασικών εφέ όπως Bounce, PathFootball, εφέ Zoom και συγκεκριμένων εφέ όπως OLEObjectShow, OLEObjectOpen. Μπορείτε να βρείτε έναν πλήρη κατάλογο των εφέ κίνησης στην απαρίθμηση [EffectType](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttype/).
+Το Aspose.Slides υποστηρίζει **150+ εφέ κίνησης**, συμπεριλαμβανομένων βασικών εφέ όπως Bounce, PathFootball και Zoom, καθώς και εξειδικευμένων εφέ όπως OLEObjectShow και OLEObjectOpen. Μπορείτε να βρείτε πλήρη λίστα των εφέ κίνησης στην απαρίθμιση [EffectType](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttype/).
 
-Επιπλέον, αυτά τα εφέ κίνησης μπορούν να χρησιμοποιηθούν σε συνδυασμό με τα εξής:
+Επιπλέον, τα παρακάτω εφέ κίνησης μπορούν να χρησιμοποιηθούν σε συνδυασμό με αυτά που αναφέρονται παραπάνω:
+
 - [ColorEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/coloreffect/)
 - [CommandEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/commandeffect/)
 - [FilterEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/filtereffect/)
@@ -57,48 +58,51 @@ description: "Εξερευνήστε τις δυνατότητες του Aspose
 - [SetEffect](https://reference.aspose.com/slides/el/python-java/aspose.slides/seteffect/)
 
 ## **Προσαρμοσμένη Κίνηση**
-Μπορείτε να δημιουργήσετε τις δικές σας **προσαρμοσμένες κινήσεις** στο Aspose.Slides. Αυτό μπορεί να επιτευχθεί αν συνδυάσετε αρκετές συμπεριφορές μαζί δημιουργώντας μια νέα προσαρμοσμένη κίνηση.
+Είναι δυνατόν να δημιουργήσετε τις δικές σας **προσαρμοσμένες κινήσεις** στο Aspose.Slides. Μπορείτε να το κάνετε συνδυάζοντας διάφορες συμπεριφορές σε μια νέα προσαρμοσμένη κίνηση.
 
-[Behavior](https://reference.aspose.com/slides/el/python-java/aspose.slides/behavior/) είναι η δομική μονάδα κάθε εφέ κίνησης PowerPoint. Όλα τα εφέ κίνησης αποτελούν στην πραγματικότητα ένα σύνολο συμπεριφορών που συντίθενται σε μία στρατηγική. Μπορείτε να συνδυάσετε συμπεριφορές σε μια προσαρμοσμένη κίνηση μία φορά και να την επαναχρησιμοποιήσετε σε άλλες παρουσιάσεις. Αν προσθέσετε μια νέα συμπεριφορά σε ένα τυπικό εφέ κίνησης PowerPoint - θα δημιουργηθεί μια άλλη προσαρμοσμένη κίνηση. Για παράδειγμα, μπορείτε να προσθέσετε συμπεριφορά επανάληψης σε μια κίνηση ώστε να επαναλαμβάνεται λίγες φορές.
+[Behavior](https://reference.aspose.com/slides/el/python-java/aspose.slides/behavior/) είναι το δομικό στοιχείο κάθε εφέ κίνησης PowerPoint. Κάθε εφέ κίνησης αποτελείται από ένα σύνολο συμπεριφορών που συνδυάζονται σε μια ενιαία στρατηγική. Μπορείτε να συνδυάσετε συμπεριφορές σε μια προσαρμοσμένη κίνηση μία φορά και να την επαναχρησιμοποιήσετε σε άλλες παρουσιάσεις. Η προσθήκη μιας νέας συμπεριφοράς σε ένα τυπικό εφέ κίνησης PowerPoint δημιουργεί μια ακόμη προσαρμοσμένη κίνηση. Για παράδειγμα, μπορείτε να προσθέσετε μια συμπεριφορά επανάληψης ώστε μια κίνηση να επαναλαμβάνεται πολλές φορές.
 
-[Point](https://reference.aspose.com/slides/el/python-java/aspose.slides/point/) είναι το σημείο όπου πρέπει να εφαρμοστεί η συμπεριφορά.
+[Point](https://reference.aspose.com/slides/el/python-java/aspose.slides/point/) είναι το σημείο στο οποίο πρέπει να εφαρμοστεί μια συμπεριφορά.
 
-## **Χρονογραμμή Κίνησης**
-[Sequence](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/) είναι μια συλλογή εφέ κίνησης, που εφαρμόζονται σε ένα συγκεκριμένο σχήμα.
+## **Γραμμή Χρόνου Ανιμασίας**
+[Sequence](https://reference.aspose.com/slides/el/python-java/aspose.slides/sequence/) είναι μια συλλογή εφέ κίνησης που εφαρμόζονται σε ένα συγκεκριμένο σχήμα.
 
-[AnimationTimeLine](https://reference.aspose.com/slides/el/python-java/aspose.slides/animationtimeline/) είναι ένα σύνολο Sequencess που χρησιμοποιείται σε μια συγκεκριμένη διαφάνεια. Είναι μια μηχανή κίνησης που υπάρχει από το PowerPoint 2002. Σε προηγούμενες εκδόσεις του PowerPoint, ήταν δύσκολο να προστεθούν εφέ κίνησης σε παρουσίαση, κάτι που μπορούσε να επιτευχθεί μόνο με διαφορετικές παρακαμπτικές λύσεις. Η χρονογραμμή αντικαθιστά την παλιά κλάση AnimationSettings και παρέχει ένα πιο σαφές αντικειμενοστραφές μοντέλο για τις κινήσεις του PowerPoint. Μία διαφάνεια μπορεί να έχει μόνο μία χρονογραμμή κίνησης.
+[AnimationTimeLine](https://reference.aspose.com/slides/el/python-java/aspose.slides/animationtimeline/) είναι ένα σύνολο ακολουθιών που χρησιμοποιείται σε μια συγκεκριμένη διαφάνεια. Αντιπροσωπεύει τη μηχανή κίνησης που εισήχθη στο PowerPoint 2002. Σε παλαιότερες εκδόσεις του PowerPoint, η προσθήκη εφέ κίνησης σε μια παρουσίαση ήταν δύσκολη και απαιτούσε παρακάμψεις. Η γραμμή χρόνου αντικαθιστά την παλιά κλάση AnimationSettings και προσφέρει ένα πιο σαφές μοντέλο αντικειμένων για την κίνηση PowerPoint. Μια διαφάνεια μπορεί να έχει μόνο μία γραμμή χρόνου κίνησης.
 
 ## **Διαδραστική Κίνηση**
-[EffectTriggerType](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttriggertype/) επιτρέπει τον ορισμό ενεργειών χρήστη (π.χ. κλικ κουμπιού), που θα ξεκινήσουν μια συγκεκριμένη κίνηση. Οι ενεργοποιητές προστέθηκαν μόνο στην πιο πρόσφατη έκδοση του PowerPoint.
+[EffectTriggerType](https://reference.aspose.com/slides/el/python-java/aspose.slides/effecttriggertype/) σας επιτρέπει να ορίσετε ενέργειες χρήστη (π.χ. κλικ κουμπιού) που εκκινούν μια συγκεκριμένη κίνηση. Τα triggers προστέθηκαν μόνο στην πιο πρόσφατη έκδοση του PowerPoint.
 
 ## **Κίνηση Σχήματος**
-Το Aspose.Slides επιτρέπει την εφαρμογή κίνησης σε σχήματα, τα οποία μπορεί να είναι κείμενο, ορθογώνιο, γραμμή, πλαίσιο, αντικείμενο OLE κ.λπ.
+Το Aspose.Slides σας επιτρέπει να εφαρμόζετε κίνηση σε σχήματα, τα οποία μπορούν να αντιπροσωπεύουν κείμενο, ορθογώνια, γραμμές, πλαίσια, αντικείμενα OLE και άλλα στοιχεία.
 
-{{% alert color="info" title="Σημείωση" %}} 
-Διαβάστε περισσότερα [Σχετικά με την Κίνηση Σχήματος](/slides/el/python-java/shape-animation/).
+{{% alert color="info" title="Σημείωση" %}}
+Διαβάστε περισσότερα [About Shape Animation](/slides/el/python-java/shape-animation/).
 {{% /alert %}}
 
-## **Κινούμενα Διαγράμματα**
-Για τη δημιουργία κινούμενων διαγραμμάτων, πρέπει να χρησιμοποιήσετε όλες τις ίδιες κλάσεις όπως για τα σχήματα. Ωστόσο, είναι δυνατόν να χρησιμοποιήσετε κίνηση PowerPoint μόνο σε κατηγορίες διαγράμματος ή σειρές διαγράμματος. Μπορείτε επίσης να εφαρμόσετε εφέ κίνησης σε στοιχείο κατηγορίας ή σε στοιχείο σειράς.
+## **Γραφήματα με Κίνηση**
+Για τη δημιουργία γραφημάτων με κίνηση, χρησιμοποιήστε τις ίδιες κλάσεις όπως για τα σχήματα. Ωστόσο, είναι δυνατόν να χρησιμοποιήσετε κίνηση PowerPoint μόνο σε κατηγορίες γραφήματος ή σε σειρές γραφήματος. Μπορείτε επίσης να εφαρμόσετε ένα εφέ κίνησης σε ένα στοιχείο κατηγορίας ή σε ένα στοιχείο σειράς.
 
-{{% alert color="info" title="Σημείωση" %}} 
-Διαβάστε περισσότερα [Σχετικά με τα Κινούμενα Διαγράμματα](/slides/el/python-java/animated-charts/).
+{{% alert color="info" title="Σημείωση" %}}
+Διαβάστε περισσότερα [About Animated Charts](/slides/el/python-java/animated-charts/).
 {{% /alert %}}
 
-## **Κινούμενο Κείμενο**
-Εκτός από το κινούμενο κείμενο, είναι επίσης δυνατόν να εφαρμόσετε κίνηση σε μια παράγραφο.
+## **Κείμενο με Κίνηση**
+Εκτός από την κίνηση του κειμένου, μπορείτε να εφαρμόσετε κίνηση σε μια παράγραφο.
 
-{{% alert color="info" title="Σημείωση" %}} 
-Διαβάστε περισσότερα [Σχετικά με το Κινούμενο Κείμενο](/slides/el/python-java/animated-text/).
+{{% alert color="info" title="Σημείωση" %}}
+Διαβάστε περισσότερα [About Animated Text](/slides/el/python-java/animated-text/).
 {{% /alert %}}
 
 ## **Συχνές Ερωτήσεις**
 
-**Θα διατηρηθούν τα εφέ κίνησης κατά την εξαγωγή σε PDF;**
-Όχι. Το PDF είναι στατικό φορμά, έτσι τα εφέ κίνησης και οι [μεταβάσεις διαφανειών](/slides/el/python-java/slide-transition/) δεν αναπαράγονται. Εάν χρειάζεστε κίνηση, εξάγετε σε [HTML5](/slides/el/python-java/export-to-html5/), [animated GIF](/slides/el/python-java/convert-powerpoint-to-animated-gif/), ή [video](/slides/el/python-java/convert-powerpoint-to-video/) αντ' αυτού.
+**Will animations be preserved when exporting to PDF?**
 
-**Μπορώ να μετατρέψω μια κινούμενη παρουσίαση σε βίντεο και να ελέγξω το ρυθμό καρέ και το μέγεθος του καρέ;**
-Ναι. Μπορείτε να [αποδώσετε την παρουσίαση ως καρέ](/slides/el/python-java/convert-powerpoint-to-video/) και να τα κωδικοποιήσετε σε βίντεο (π.χ., μέσω ffmpeg), επιλέγοντας τα FPS και την ανάλυση. Τα εφέ κίνησης και οι μεταβάσεις διαφανειών αναπαράγονται κατά το rendering.
+No. PDF is a static format, so animations and [slide transitions](/slides/el/python-java/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/el/python-java/export-to-html5/), [animated GIF](/slides/el/python-java/convert-powerpoint-to-animated-gif/), or [video](/slides/el/python-java/convert-powerpoint-to-video/) instead.
 
-**Θα παραμείνουν τα εφέ κίνησης αμετάβλητα όταν εργάζεστε με ODP (όχι μόνο PPTX);**
-Τα PPT, PPTX και ODP υποστηρίζονται για [ανάγνωση](/slides/el/python-java/open-presentation/) και [εγγραφή](/slides/el/python-java/save-presentation/), αλλά οι διαφορές μορφής σημαίνουν ότι ορισμένα εφέ ενδέχεται να φαίνονται ή να συμπεριφέρονται ελαφρώς διαφορετικά. Επικυρώστε τις κρίσιμες περιπτώσεις με πραγματικά δείγματα.
+**Can I turn an animated presentation into a video and control the frame rate and frame size?**
+
+Yes. You can [render the presentation as frames](/slides/el/python-java/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
+
+**Will animations remain intact when working with ODP (not just PPTX)?**
+
+PPT, PPTX, and ODP are supported for [reading](/slides/el/python-java/open-presentation/) and [writing](/slides/el/python-java/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.

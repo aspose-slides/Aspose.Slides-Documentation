@@ -4,7 +4,7 @@ type: docs
 weight: 40
 url: /hu/python-java/examples/elements/text-box/
 keywords:
-- kód példa
+- kódpélda
 - szövegdoboz
 - PowerPoint
 - OpenDocument
@@ -12,17 +12,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Dolgozzon szövegdobozokkal az Aspose.Slides for Python via Java-ban: szöveget adjon hozzá, formázza, keresse meg és távolítsa el a PowerPoint és OpenDocument prezentációkban."
+description: "Szövegdobozok kezelése az Aspose.Slides for Python via Java‑ban: szöveg hozzáadása, formázása, keresése és eltávolítása PowerPoint és OpenDocument prezentációkban."
 ---
-Az **Aspose.Slides for Python via Java**-ban a szövegdoboz egy automatikus alakzat, amely szöveget tartalmaz. Szinte bármely alakzat tartalmazhat szöveget, de egy tipikus szövegdoboz nem rendelkezik kitöltéssel vagy szegéllyel, és csak a szöveget jeleníti meg.
+Az **Aspose.Slides for Python via Java**‑ban egy szövegdoboz egy automatikus alakzat, amely szöveget tartalmaz. Szinte bármely alakzat tartalmazhat szöveget, de egy tipikus szövegdoboznak nincs kitöltése vagy szegélye, és csak a szöveget jeleníti meg.
 
-Ez az útmutató elmagyarázza, hogyan lehet programozottan szövegdobozokat hozzáadni, elérni és eltávolítani.
+Ez az útmutató bemutatja, hogyan lehet programból hozzáadni, elérni és eltávolítani a szövegdobozokat.
 
-Telepítse a csomagot a [Installation](/slides/hu/python-java/installation/) oldalán leírtak szerint. Minden példa a `asposeslides` könyvtárat importálja a JVM indítása előtt, majd a JVM futása közben importálja az API-t.
+Telepítse a csomagot a [Telepítés](/slides/hu/python-java/installation/) leírása szerint. Minden példa a `asposeslides` modult importálja a JVM indítása előtt, majd a JVM futása közben importálja az API-t.
 
 ## **Szövegdoboz hozzáadása**
 
-Hozzon létre egy téglalapot, távolítsa el annak kitöltését és szegélyét, majd rendelje hozzá a formázott szöveget.
+Hozzon létre egy téglalapot, távolítsa el a kitöltését és szegélyét, majd rendelje hozzá a formázott szöveget.
 
 ```python
 import jpype
@@ -58,7 +58,7 @@ finally:
 
 ## **Szövegdobozok elérése tartalom alapján**
 
-Adjon hozzá egy minta szövegdobozt, majd keresse meg azokat az alakzatokat, amelyek szövege tartalmazza a "Slide" kulcsszót.
+Adjon hozzá egy mintaszövegdobozt, majd keresse meg azokat az alakzatokat, amelyek szövege tartalmazza a "Slide" kulcsszót.
 
 ```python
 import jpype
@@ -82,7 +82,7 @@ try:
         if isinstance(shape, AutoShape):
             text_frame = shape.getTextFrame()
             if text_frame is not None and "Slide" in str(text_frame.getText()):
-                # Használja a megfelelő szövegdobozt.
+                # Használd a megfelelő szövegdobozt.
                 print(text_frame.getText())
 finally:
     presentation.dispose()
@@ -124,5 +124,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-Gyűjtse össze a megfelelő alakzatokat egy külön listába a törlésük előtt, hogy elkerülje a alakzatgyűjtemény módosítását iteráció közben.
+Gyűjtse a megfelelő alakzatokat egy külön listába, mielőtt eltávolítaná őket, hogy elkerülje a forma gyűjtemény módosítását az iteráció során.
 {{% /alert %}}

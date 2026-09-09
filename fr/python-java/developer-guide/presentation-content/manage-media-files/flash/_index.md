@@ -12,15 +12,15 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Apprenez comment extraire les objets Flash des diapositives PowerPoint et OpenDocument en Python avec Aspose.Slides, avec des exemples de code complets et les meilleures pratiques."
+description: "Apprenez comment extraire des objets Flash des diapositives PowerPoint et OpenDocument en Python avec Aspose.Slides, des exemples de code complets et les meilleures pratiques."
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment extraire des objets Flash des présentations en utilisant Aspose.Slides. Il montre comment trouver un contrôle Flash par son nom dans la collection de contrôles d’une diapositive et travailler avec les données d’objet SWF intégrées.
+Cet article explique comment extraire des objets Flash des présentations en utilisant Aspose.Slides. Il montre comment trouver un contrôle Flash par son nom dans la collection de contrôles d’une diapositive et travailler avec les données de l’objet SWF intégré.
 
-## **Extraire des objets Flash des présentations**
+## **Extraire les objets Flash des présentations**
 
-Aspose.Slides for Python via Java offre une fonctionnalité d’extraction des objets flash d’une présentation. Vous pouvez accéder au contrôle Flash par son nom et l’extraire de la présentation, y compris les données d’objet SWF stockées.
+Aspose.Slides for Python via Java fournit une fonctionnalité d’extraction des objets Flash d’une présentation. Vous pouvez accéder au contrôle Flash par son nom et l’extraire de la présentation, y compris les données de l’objet SWF stockées.
 
 ```python
 import jpype
@@ -45,18 +45,18 @@ finally:
 
 ## **FAQ**
 
-**Quels formats de présentation sont pris en charge lors de l’extraction de contenu Flash ?**
+**Quels formats de présentation sont pris en charge lors de l'extraction du contenu Flash ?**
 
-[Aspose.Slides prend en charge](/slides/fr/python-java/supported-file-formats/) les principaux formats PowerPoint tels que PPT et PPTX, car il peut charger ces conteneurs et accéder à leurs contrôles, y compris les éléments ActiveX liés au Flash.
+[Aspose.Slides prend en charge](/slides/fr/python-java/supported-file-formats/) les principaux formats PowerPoint tels que PPT et PPTX, car il peut charger ces conteneurs et accéder à leurs contrôles, y compris les éléments ActiveX liés à Flash.
 
-**Puis‑je convertir une présentation contenant du Flash en HTML5 tout en conservant l’interactivité Flash ?**
+**Puis-je convertir une présentation contenant du Flash en HTML5 et préserver l'interactivité du Flash ?**
 
-Non. Aspose.Slides n’exécute pas le contenu SWF et ne convertit pas son interactivité. Bien que l’exportation vers [HTML](/slides/fr/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/fr/python-java/export-to-html5/) soit prise en charge, le Flash ne fonctionnera pas dans les navigateurs modernes en raison de la fin de son support. La solution recommandée consiste à remplacer le Flash par des alternatives telles que la vidéo ou des animations HTML5 avant l’exportation.
+Non. Aspose.Slides n'exécute pas le contenu SWF ni ne convertit son interactivité. Bien que l'exportation vers [HTML](/slides/fr/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/fr/python-java/export-to-html5/) soit prise en charge, le Flash ne fonctionnera pas dans les navigateurs modernes en raison de la fin de son support. Le chemin recommandé consiste à remplacer le Flash par des alternatives telles que la vidéo ou les animations HTML5 avant l'exportation.
 
-**Du point de vue de la sécurité, Aspose.Slides exécute‑t‑il des fichiers SWF lors de la lecture d’une présentation ?**
+**D'un point de vue sécurité, Aspose.Slides exécute-t-il des fichiers SWF lors de la lecture d'une présentation ?**
 
-Non. Aspose.Slides traite le Flash comme des données binaires intégrées au fichier et n’exécute pas le contenu SWF pendant le traitement.
+Non. Aspose.Slides traite le Flash comme des données binaires intégrées dans le fichier et n'exécute pas le contenu SWF pendant le traitement.
 
-**Comment gérer les présentations contenant du Flash ainsi que d’autres fichiers intégrés via OLE ?**
+**Comment dois-je gérer les présentations qui incluent du Flash ainsi que d'autres fichiers incorporés via OLE ?**
 
-Aspose.Slides prend en charge [l’extraction d’objets OLE intégrés](/slides/fr/python-java/manage-ole/), vous permettant de traiter tout le contenu intégré en une seule passe, en gérant les contrôles Flash et les autres documents intégrés via OLE simultanément.
+Aspose.Slides prend en charge l'[extraction d'objets OLE incorporés](/slides/fr/python-java/manage-ole/), vous pouvez donc traiter tout le contenu incorporé lié en une seule passe, en gérant les contrôles Flash et les autres documents incorporés via OLE ensemble.

@@ -1,17 +1,17 @@
 ---
-title: Prezentáció tartalom kezelése Pythonban Java-n keresztül
-linktitle: Prezentáció tartalom
+title: Prezentációs tartalom kezelése Pythonon keresztül Java-val
+linktitle: Prezentációs tartalom
 type: docs
 weight: 30
 url: /hu/python-java/presentation-content/
 keywords:
 - tartalom
 - BLOB
-- hyperlink
+- hiperhivatkozás
 - média
 - OLE
 - szöveg
-- zoom
+- nagyítás
 - diagram
 - egyenlet
 - alakzat
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Készítsen, szerkesszen és nyerjen ki prezentációs tartalmakat az Aspose.Slides for Python via Java segítségével — kódpéldákat kap a szövegre, képekre, alakzatokra, diagramokra; PPT, PPTX és ODP."
+description: "Készítsen, szerkesszen és vonjon ki prezentációs tartalmakat az Aspose.Slides for Python via Java segítségével — kapjon kódpéldákat szövegre, képekre, alakzatokra és diagramokra PPT, PPTX és ODP fájlokban."
 ---

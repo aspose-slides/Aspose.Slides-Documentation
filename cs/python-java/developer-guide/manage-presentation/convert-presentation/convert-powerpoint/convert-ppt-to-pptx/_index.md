@@ -17,20 +17,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Převést starší soubory PPT na PPTX v Pythonu pomocí Aspose.Slides. Obsahuje příklady v Pythonu pro konverzi jedné souboru i dávkové konverze, zpracování chyb a poznámky o věrnosti."
+description: "Převod starých souborů PPT na PPTX v Pythonu pomocí Aspose.Slides. Obsahuje příklady v Pythonu pro konverzi jednotlivých souborů i dávkovou, zpracování chyb a poznámky o věrnosti."
 ---
-## **Přehled**
+## **Overview**
 
-PPT je starší binární formát PowerPointu, zatímco PPTX je novější formát Open XML. Aspose.Slides for Python via Java může načíst soubor PPT a uložit jej jako PPTX bez Microsoft PowerPoint. Tento článek ukazuje, jak převést jeden soubor nebo adresář souborů a vysvětluje, co zkontrolovat po konverzi.
+PPT je starší binární formát PowerPointu, zatímco PPTX je novější formát Open XML. Aspose.Slides pro Python přes Java dokáže načíst soubor PPT a uložit jej jako PPTX bez Microsoft PowerPoint. Tento článek ukazuje, jak převést jeden soubor nebo adresář souborů a vysvětluje, co ověřit po konverzi.
 
 Každý příklad spustí virtuální stroj Java, pokud je to potřeba, a po použití uvolní prezentaci. Nahraďte ukázkové cesty vlastními cestami k souborům nebo adresářům.
 
 ## **Převod souboru PPT na PPTX**
 
-Nahrát zdrojový soubor pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) , poté zavolejte [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) s argumentem [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Pptx) . Blok `finally` uvolní prezentaci a její prostředky.
+Načtěte zdrojový soubor pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/), poté zavolejte [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) s [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Pptx). Blok `finally` uvolní prezentaci a její prostředky.
 
 ```python
-import jpile
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -38,7 +38,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# Načtěte starou PPT prezentaci.
+# Načtěte starší prezentaci PPT.
 presentation = Presentation("presentation.ppt")
 try:
     # Uložte prezentaci ve formátu PPTX.
@@ -47,11 +47,11 @@ finally:
     presentation.dispose()
 ```
 
-Přípona souboru sama o sobě nevybírá výstupní formát; to dělá argument [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Pptx) . Pokud potřebujete zachovat původní soubor PPT, udržujte vstupní a výstupní cesty odlišné.
+Přípona souboru sama o sobě nevybírá výstupní formát; to určuje argument [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Pptx). Uchovávejte vstupní a výstupní cesty odlišné, pokud potřebujete zachovat původní soubor PPT.
 
 ## **Převod více souborů PPT**
 
-Následující příklad převádí každý soubor `.ppt` v jednom adresáři. Každý soubor je zpracován nezávisle, takže selhání jedné konverze neblokuje zbytek dávky.
+Následující příklad převádí každý soubor `.ppt` v jednom adresáři. Každý soubor je zpracován nezávisle, takže selhání jedné konverze neukončí zbytek dávky.
 
 ```python
 from pathlib import Path
@@ -93,25 +93,25 @@ else:
                 presentation.dispose()
 ```
 
-Pro produkční úlohy zaznamenejte kompletní výjimku, rozhodněte, zda může být existující výstupní soubor přepsán, a zapište názvy selhaných souborů do fronty pro opakování nebo revizi. Poškozené soubory, soubory chráněné heslem otevřené bez požadovaného hesla, nedostupné cesty a nepodporovaný obsah mohou všechny způsobit selhání konverze. Viz [Password-Protected Presentations](/slides/cs/python-java/password-protected-presentation/) pro načítání šifrovaných souborů.
+Pro produkční úlohy zaznamenávejte úplnou výjimku, rozhodněte, zda lze přepsat existující výstupní soubor, a zapište názvy neúspěšných souborů do fronty pro opakování nebo revizi. Poškozené soubory, soubory chráněné heslem otevřené bez požadovaného hesla, nedostupné cesty a nepodporovaný obsah mohou způsobit selhání konverze. Viz [Password-Protected Presentations](/slides/cs/python-java/password-protected-presentation/) pro načítání šifrovaných souborů.
 
 ## **Věrnost a starší funkce**
 
-Konverze obvykle zachovává snímky, mastery, rozvržení, text, tvary, obrázky, tabulky a grafy. Nicméně PPT a PPTX nepředstavují každou funkci přesně stejným způsobem. Legacy funkce, která nemá ekvivalent v PPTX, nebo není knihovnou podporována, může být normalizována, vynechána nebo zobrazena jinak.
+Konverze obvykle zachovává snímky, předlohy, rozvržení, text, tvary, obrázky, tabulky a grafy. Přesto PPT a PPTX neznázorňují každou funkci přesně stejným způsobem. Starší funkce, která nemá ekvivalent v PPTX, nebo není knihovnou podporována, může být normalizována, vynechána nebo zobrazena odlišně.
 
-Zkontrolujte převedený soubor, pokud obsahuje animace, přechody, vložené nebo propojené OLE objekty, ActiveX ovládací prvky, vložená média, neobvyklá písma nebo VBA makra. Pouhý soubor PPTX není formát podporující makra, takže použijte vhodný workflow podporující makra, pokud musí být VBA k dispozici. Také ověřte, že požadovaná písma a externí zdroje jsou přítomny v prostředí, kde bude převedená prezentace otevřena nebo vykreslena.
+Zkontrolujte převzatý soubor, pokud obsahuje animace, přechody, vložené nebo odkazované objekty OLE, ovládací prvky ActiveX, vložená média, neobvyklá písma nebo makra VBA. Pouhý soubor PPTX není formát s podporou maker, takže při nutnosti zachovat VBA použijte odpovídající workflow s povolenými makry. Také ověřte, že požadovaná písma a externí zdroje jsou k dispozici v prostředí, kde bude převzatá prezentace otevřena nebo vykreslena.
 
-U důležitých dokumentů znovu načtěte generovaný PPTX programově a zkontrolujte klíčové počty snímků a obsah, poté porovnejte jeho vzhled a chování prezentace ve zamýšleném prohlížeči. Nepovažujte úspěšné volání [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) za důkaz, že každá starší funkce má přesnou PPTX reprezentaci.
+U důležitých dokumentů znovu otevřete vygenerovaný PPTX programově a zkontrolujte počet snímků a obsah, poté porovnejte jeho vzhled a chování prezentace v zamýšleném prohlížeči. Nepovažujte úspěšné volání [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) za důkaz, že každá starší funkce má přesnou reprezentaci v PPTX.
 
 ## **Kdy použít PPTX**
 
-PPTX používejte, když bude prezentace upravována v aktuálních verzích PowerPointu, vyměňována se systémy pracujícími s Open XML balíčky, nebo uložena ve formátu, který je snadněji kontrolovatelný a obnovitelný než starší binární PPT. Uchovávejte originální PPT jako archivní nebo záložní kopii, dokud převedená prezentace neprojde vašimi kontroly věrnosti.
+Používejte PPTX, když bude prezentace upravována v aktuálních verzích PowerPointu, vyměňována se systémy pracujícími s balíčky Open XML, nebo ukládána ve formátu, který je snazší prozkoumat a obnovit než starší binární PPT. Ponechte původní PPT jako archivní nebo záložní kopii, dokud převzatá prezentace neprojde vašimi kontrolami věrnosti.
 
-Pokud místo toho potřebujete PDF, HTML, obrázky, XPS nebo jiný výstupní typ, použijte specifické pokyny pro formát v [Convert Presentations to Multiple Formats](/slides/cs/python-java/convert-presentation/) místo předpokladu, že všechny cíle zachovávají editovatelné funkce PowerPointu.
+Pokud místo toho potřebujete PDF, HTML, obrázky, XPS nebo jiný výstupní typ, použijte specifické pokyny pro formát v [Convert Presentations to Multiple Formats](/slides/cs/python-java/convert-presentation/) místo předpokladu, že všechny cíle zachovají editovatelné funkce PowerPointu.
 
-## **Online převaděč**
+## **Online převodník**
 
-Pro občasný soubor nebo rychlé srovnání můžete použít [online PPT to PPTX converter](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx) . Pro opakované konverze, hromadné zpracování nebo zpracování chyb na úrovni aplikace použijte API Python via Java.
+Pro občasný soubor nebo rychlé srovnání můžete použít [online PPT to PPTX converter](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx). Pro opakované konverze, dávkové zpracování nebo zpracování chyb na úrovni aplikace použijte API Python přes Java.
 
 ## **Související články**
 
@@ -122,18 +122,18 @@ Pro občasný soubor nebo rychlé srovnání můžete použít [online PPT to PP
 
 ## **Často kladené otázky**
 
-**Mohu převést PPT na PPTX bez instalovaného Microsoft PowerPoint?**
+**Mohu převést PPT na PPTX bez nainstalovaného Microsoft PowerPoint?**
 
-Ano. Aspose.Slides for Python via Java načítá a ukládá soubory prezentací bez nutnosti Microsoft PowerPoint.
+Ano. Aspose.Slides pro Python přes Java načítá a ukládá soubory prezentací, aniž by vyžadoval Microsoft PowerPoint.
 
 **Zachová konverze PPT na PPTX veškerý obsah přesně?**
 
-Zachovává běžný obsah prezentací, ale přesná věrnost není zaručena pro každou starší nebo nepodporovanou funkci. Prohlédněte si vygenerovaný soubor, pokud obsahuje makra, OLE nebo ActiveX objekty, média, speciální animace nebo neobvyklá písma.
+Zachovává běžný obsah prezentace, ale přesná věrnost není zaručena pro každou starší nebo nepodporovanou funkci. Prohlédněte vygenerovaný soubor, pokud obsahuje makra, objekty OLE či ActiveX, média, specializované animace nebo neobvyklá písma.
 
 **Mohu převést soubor PPT chráněný heslem?**
 
-Ano, pokud při načítání souboru zadáte správné heslo. Chybějící nebo nesprávné heslo způsobí selhání načítací operace.
+Ano, pokud při načítání souboru zadáte správné heslo. Chybějící nebo nesprávné heslo způsobí selhání operace načítání.
 
 **Mám po konverzi smazat soubor PPT?**
 
-Uchovávejte originál, dokud neověříte PPTX ve prohlížečích a pracovních postupech, které jsou pro vás důležité. To poskytuje záložní kopii pro případ, že se starší funkce převede odlišně.
+Ponechte originál, dokud neověříte PPTX ve prohlížečích a pracovních postupech, které jsou pro vás důležité. To poskytne záložní kopii pro případ, že se starší funkce převádí odlišně.

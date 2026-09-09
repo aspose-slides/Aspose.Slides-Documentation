@@ -1,5 +1,5 @@
 ---
-title: Prezentációs hiperhivatkozások kezelése Pythonban Java segítségével
+title: Prezentációs hiperhivatkozások kezelése Pythonon keresztül Java‑val
 linktitle: Hiperhivatkozás kezelése
 type: docs
 weight: 20
@@ -23,28 +23,28 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Könnyedén kezelheti a hiperhivatkozásokat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via Java segítségével – fokozza az interaktivitást és a munkafolyamatot percek alatt."
+description: "Könnyedén kezelje a hiperhivatkozásokat PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via Java segítségével — fokozza az interaktivitást és a munkafolyamatot percek alatt."
 ---
 ## **Bevezetés**
 
-A hiperhivatkozás egy objektumra, adatra vagy egy helyre való hivatkozás. Ezek gyakori hiperhivatkozások a PowerPoint‑prezentációkban:
+A hiperhivatkozás egy objektumra, adatra vagy helyre mutató hivatkozás. A PowerPoint‑prezentációkban gyakori hiperhivatkozások a következők:
 
-* Weboldalakra mutató hivatkozások szövegekben, alakzatokban vagy médiában
-* Dia hivatkozások
+* Weboldalakra mutató hivatkozások szövegben, alakzatokban vagy médiában
+* Hivatkozások diákra
 
-Az Aspose.Slides for Python via Java lehetővé teszi, hogy számos, hiperhivatkozásokkal kapcsolatos feladatot hajtson végre a prezentációkban. 
+Az Aspose.Slides for Python via Java lehetővé teszi, hogy számos, a hiperhivatkozásokkal kapcsolatos feladatot hajtson végre prezentációkban. 
 
-{{% alert color="info" title="Note" %}} 
+{{% alert color="info" title="Megjegyzés" %}} 
 
-Érdemes megnézni az egyszerű, [ingyenes online PowerPoint szerkesztőt.](https://products.aspose.app/slides/hu/editor)
+Érdemes megnézni az Aspose egyszerű, [ingyenes online PowerPoint szerkesztőt.](https://products.aspose.app/slides/hu/editor)
 
 {{% /alert %}} 
 
-## **URL‑hiperhivatkozások hozzáadása**
+## **URL hiperhivatkozások hozzáadása**
 
-### **URL‑hiperhivatkozások hozzáadása szöveghez**
+### **URL hiperhivatkozások hozzáadása szöveghez**
 
-Ez a Python‑kód bemutatja, hogyan lehet weboldal‑hiperhivatkozást hozzáadni egy szöveghez:
+Ez a Python kód megmutatja, hogyan adjon hozzá egy weboldal hiperhivatkozást a szöveghez:
 
 ```python
 import jpype
@@ -70,9 +70,9 @@ finally:
     presentation.dispose()
 ```
 
-### **URL‑hiperhivatkozások hozzáadása alakzatokhoz vagy keretekhez**
+### **URL hiperhivatkozások hozzáadása alakzatokhoz vagy keretekhez**
 
-Ez a példa Python via Java nyelven megmutatja, hogyan lehet weboldal‑hiperhivatkozást hozzáadni egy alakzathoz:
+Ez a minta kód Python via Java nyelven megmutatja, hogyan adjon hozzá egy weboldal hiperhivatkozást egy alakzathoz:
 
 ```python
 import jpype
@@ -95,11 +95,11 @@ finally:
     presentation.dispose()
 ```
 
-### **URL‑hiperhivatkozások hozzáadása médiához**
+### **URL hiperhivatkozások hozzáadása médiához**
 
-Az Aspose.Slides lehetővé teszi hiperhivatkozások hozzáadását képekhez, hang‑ és videofájlokhoz. 
+Aspose.Slides lehetővé teszi, hogy hiperhivatkozásokat adjon hozzá képekhez, hangokhoz és videó fájlokhoz.
 
-Ez a példa bemutatja, hogyan lehet hiperhivatkozást hozzáadni egy **képhez**:
+Ez a minta kód megmutatja, hogyan adjon hozzá hiperhivatkozást egy **képre**:
 
 ```python
 import jpype
@@ -112,24 +112,24 @@ from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeT
 
 presentation = Presentation()
 try:
-        # Képet ad hozzá a prezentációhoz
-        image = Images.fromFile("image.png")
-        try:
-            picture = presentation.getImages().addImage(image)
-        finally:
-            image.dispose()
-        # Képkockát hoz létre az 1. dián az előzőleg hozzáadott kép alapján
-        picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
+    # Képet ad a prezentációhoz
+    image = Images.fromFile("image.png")
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
+    # Képkeret létrehozása az 1. dián a korábban hozzáadott kép alapján
+    picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
-        picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
-        picture_frame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
+    picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
+    picture_frame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
 
-        presentation.save("pres-out.pptx", SaveFormat.Pptx)
+    presentation.save("pres-out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Ez a példa bemutatja, hogyan lehet hiperhivatkozást hozzáadni egy **hangfájlhoz**:
+Ez a minta kód megmutatja, hogyan adjon hozzá hiperhivatkozást egy **hangfájlhoz**:
 
 ```python
 from pathlib import Path
@@ -157,7 +157,7 @@ finally:
     presentation.dispose()
 ```
 
-Ez a példa bemutatja, hogyan lehet hiperhivatkozást hozzáadni egy **videóhoz**:
+Ez a minta kód megmutatja, hogyan adjon hozzá hiperhivatkozást egy **videóhoz**:
 
 ```python
 from pathlib import Path
@@ -185,17 +185,17 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}} 
+{{% alert color="success" title="Tipp" %}} 
 
-Érdemes megnézni a *[OLE kezelés](/slides/hu/python-java/manage-ole/)*.
+Érdemes lehet megnézni a *[OLE kezelése](/slides/hu/python-java/manage-ole/)*.
 
 {{% /alert %}}
 
 ## **Hiperhivatkozások használata tartalomjegyzék létrehozásához**
 
-Mivel a hiperhivatkozások lehetővé teszik objektumokra vagy helyekre való hivatkozás hozzáadását, ezeket felhasználhatja tartalomjegyzék létrehozásához. 
+Mivel a hiperhivatkozások lehetővé teszik, hogy hivatkozásokat adjunk objektumokra vagy helyekre, használhatók tartalomjegyzék létrehozására. 
 
-Ez a példa bemutatja, hogyan hozhat létre tartalomjegyzéket hiperhivatkozásokkal:
+Ez a minta kód megmutatja, hogyan hozzon létre tartalomjegyzéket hiperhivatkozásokkal:
 
 ```python
 import jpype
@@ -239,9 +239,9 @@ finally:
 
 ### **Szín**
 
-A [Hyperlink.setColorSource](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setColorSource) tulajdonsággal a [Hyperlink](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/) osztályban beállíthatja a hiperhivatkozások színét, illetve lekérdezheti a színinformációkat a hiperhivatkozásokból. Ez a funkció először a PowerPoint 2019‑ben került bevezetésre, így a tulajdonságra vonatkozó változások nem érvényesek a régebbi PowerPoint‑verziókra.
+Az [Hyperlink.setColorSource](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setColorSource) tulajdonságával a [Hyperlink](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/) osztályban beállíthatja a hiperhivatkozások színét, valamint lekérdezheti a színinformációt a hiperhivatkozásokból. A funkció először a PowerPoint 2019‑ben jelent meg, így a tulajdonságra vonatkozó változások nem érvényesek a régebbi PowerPoint verziókra.
 
-Ez a példa kód bemutat egy olyan műveletet, ahol különböző színű hiperhivatkozásokat adtak hozzá ugyanahhoz a diához:
+Ez a minta kód bemutat egy műveletet, ahol különböző színű hiperhivatkozásokat adnak hozzá ugyanahhoz a diára:
 
 ```python
 import jpype
@@ -273,11 +273,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Hiperhivatkozások eltávolítása a prezentációkból**
+## **Hiperhivatkozások eltávolítása prezentációkból**
 
 ### **Hiperhivatkozások eltávolítása szövegből**
 
-Ez a Python‑kód megmutatja, hogyan lehet eltávolítani a hiperhivatkozást egy szövegből egy prezentációs dián:
+Ez a Python kód megmutatja, hogyan távolítható el a hiperhivatkozás a prezentációs dia szövegéből:
 
 ```python
 import jpype
@@ -306,7 +306,7 @@ finally:
 
 ### **Hiperhivatkozások eltávolítása alakzatokból vagy keretekből**
 
-Ez a Python‑kód megmutatja, hogyan lehet eltávolítani a hiperhivatkozást egy alakzatról egy prezentációs dián: 
+Ez a Python kód megmutatja, hogyan távolítható el a hiperhivatkozás egy alakzatról a prezentációs dián:
 
 ```python
 import jpype
@@ -329,7 +329,7 @@ finally:
 
 ## **Módosítható hiperhivatkozás**
 
-A [Hyperlink](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/) osztály módosítható. Ezzel az osztállyal megváltoztathatja az alábbi tulajdonságok értékeit:
+A [Hyperlink](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/) osztály módosítható. Ezzel az osztállyal módosíthatja az alábbi tulajdonságok értékeit:
 
 - [setTargetFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -337,7 +337,7 @@ A [Hyperlink](https://reference.aspose.com/slides/hu/python-java/aspose.slides/h
 - [setHighlightClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-A kódrészlet bemutatja, hogyan adhat hiperhivatkozást egy diához, és később szerkesztheti annak eszköztippjét:
+A kódrészlet megmutatja, hogyan adjon hozzá egy hiperhivatkozást egy diára, majd később módosítsa annak tooltipjét:
 
 ```python
 import jpype
@@ -358,7 +358,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # Módosítja a már hozzáadott hiperhivatkozás eszköztippjét
+    # Módosítja a már hozzáadott hiperhivatkozás tooltipjét
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -366,31 +366,31 @@ finally:
     presentation.dispose()
 ```
 
-## **A HyperlinkQueries támogatott tulajdonságai**
+## **Támogatott tulajdonságok a HyperlinkQueries‑ben**
 
-A [HyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/) osztályt elérheti egy prezentációból, diámból vagy szövegből, amelyhez a hiperhivatkozás definiálva van. 
+Elérheti a [HyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/)‑t egy prezentációból, diából vagy szövegből, amelyhez a hiperhivatkozás definiálva van. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-A [HyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/) osztály támogatja a következő metódusokat és tulajdonságokat: 
+A [HyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/) osztály támogatja ezeket a metódusokat és tulajdonságokat: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
 - [getAnyHyperlinks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
 - [removeAllHyperlinks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
 
-## **GYIK**
+## **FAQ**
 
-**Hogyan hozhatok létre belső navigációt nem csak egy diára, hanem egy „szekcióra” vagy egy szekció első diájára?**
+**Hogyan hozhatok létre belső navigációt nem csak egy diára, hanem egy „szakaszra” vagy egy szakasz első diájára?**
 
-A PowerPoint szekciók a diák csoportosításai; a navigáció technikailag egy adott diára irányul. A „szekcióra navigáláshoz” általában annak első diájára kell hivatkozni.
+A PowerPoint‑szakaszok a diák csoportosításai; a navigáció technikailag egy meghatározott diára mutat. Egy „szakaszra” történő navigáláshoz általában az első diára mutató hivatkozást kell létrehozni.
 
-**Csatolhatok hiperhivatkozást a mesterdia elemeihez, hogy minden dián működjön?**
+**Csatolhatok hiperhivatkozást a mesterdiák elemeihez, hogy minden dián működjön?**
 
-Igen. A mesterdia és az elrendezés elemei támogatják a hiperhivatkozásokat. Az ilyen hivatkozások megjelennek a gyerekdiákon, és a vetítés során kattinthatók.
+Igen. A mesterdia és elrendezési elemek támogatják a hiperhivatkozásokat. Az ilyen hivatkozások megjelennek a gyermek diáknál, és a vetítés során kattinthatók.
 
-**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó formátumba exportáláskor?**
+**Megmaradnak a hiperhivatkozások PDF‑re, HTML‑re, képekre vagy videóra exportáláskor?**
 
-A [PDF](/slides/hu/python-java/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/python-java/convert-powerpoint-to-html/) esetén igen – a hivatkozások általában megmaradnak. Képek ([képek](/slides/hu/python-java/convert-powerpoint-to-png/)) és videó ([videó](/slides/hu/python-java/convert-powerpoint-to-video/)) exportálásakor a kattinthatóság nem marad meg az adott formátumok (raszteres keretek/videó) természetéből adódóan, mivel nem támogatják a hiperhivatkozásokat.
+A [PDF](/slides/hu/python-java/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/python-java/convert-powerpoint-to-html/) esetén igen — a hivatkozások általában megmaradnak. A [képek](/slides/hu/python-java/convert-powerpoint-to-png/) és [videó](/slides/hu/python-java/convert-powerpoint-to-video/) exportálásakor a kattinthatóság nem kerül át, mivel ezek a formátumok (raszteres képkockák/videó) nem támogatják a hiperhivatkozásokat.

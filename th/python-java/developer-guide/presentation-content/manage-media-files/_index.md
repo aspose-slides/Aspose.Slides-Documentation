@@ -8,15 +8,15 @@ keywords:
 - ไฟล์สื่อ
 - จัดการสื่อ
 - ฝังเสียง
-- แยก flash
+- แยก Flash
 - จัดการภาพ
 - เพิ่มรูปภาพ
 - เพิ่มวิดีโอ
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "จัดการเสียงและวิดีโอใน Aspose.Slides for Java: เพิ่ม, แยก, แทนที่, และเพิ่มประสิทธิภาพสื่อในไฟล์ PPT, PPTX และ ODP อย่างละเอียด คู่มือขั้นตอนและโค้ด Java."
+description: "จัดการเสียงและวิดีโอใน Aspose.Slides สำหรับ Python ผ่าน Java: เพิ่ม, แยก, แทนที่ และเพิ่มประสิทธิภาพสื่อในไฟล์ PPT, PPTX และ ODP. คู่มือขั้นตอนต่อขั้นตอนและโค้ด Python."
 ---

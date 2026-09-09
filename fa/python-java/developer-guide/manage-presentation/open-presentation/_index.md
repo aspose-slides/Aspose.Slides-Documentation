@@ -14,10 +14,10 @@ keywords:
 - بارگذاری PPTX
 - بارگذاری PPT
 - بارگذاری ODP
-- ارائهٔ محافظت‌شده
-- ارائهٔ بزرگ
+- ارائه محافظت‌شده
+- ارائه بزرگ
 - منبع خارجی
-- شیء باینری
+- شی باینری
 - پایتون
 - جاوا
 - Aspose.Slides
@@ -25,15 +25,15 @@ description: "یاد بگیرید چگونه ارائه‌های PowerPoint و O
 ---
 ## **مقدمه**
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/fa/python-java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در قالب اصلی یا قالب پشتیبانی‌شده دیگری ذخیره کنید.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/fa/python-java/) می‌تواند ارائه‌های PowerPoint و OpenDocument را از فایل‌ها و جریان‌ها بارگذاری کند. پس از بارگذاری یک ارائه، می‌توانید ساختار آن را بررسی کنید، اسلایدها را ویرایش کنید، منابع را مدیریت کنید و آن را در قالب اصلی یا قالب پشتیبانی شده دیگر ذخیره کنید.
 
-رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/) سفارشی شود. برای مثال، می‌توانید گذرواژهٔ باز کردن را ارائه دهید، اشیای باینری بزرگ را خارج از حافظهٔ heap جاوا نگه دارید، منابع خارجی را کنترل کنید یا داده‌های باینری جاسازی‌شده را حذف کنید.
+رفتار بارگذاری می‌تواند از طریق کلاس [LoadOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/) سفارشی شود. به عنوان مثال، می‌توانید یک گذرواژه باز کردن ارائه دهید، اشیاء باینری بزرگ را خارج از حافظه heap جاوا نگه دارید، منابع خارجی را کنترل کنید یا داده‌های باینری جاسازی‌شده را حذف کنید.
 
 ## **باز کردن ارائه‌ها**
 
-برای باز کردن یک ارائهٔ موجود، مسیر فایل آن را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) پاس دهید. پس از استفاده، ارائه را آزاد کنید تا دسته‌ها، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
+برای باز کردن یک ارائه موجود، مسیر فایل آن را به سازنده [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) پاس بدهید. پس از استفاده، ارائه را آزاد کنید تا دسته‌های فایل، داده‌های موقت و سایر منابع به‌سرعت آزاد شوند.
 
-کد پایتون زیر نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را دریافت کنید:
+مثال زیر در Python نشان می‌دهد چگونه یک ارائه را باز کنید و تعداد اسلایدهای آن را به‌دست آورید:
 
 ```python
 import jpype
@@ -53,7 +53,7 @@ finally:
 
 ## **باز کردن ارائه‌های دارای گذرواژه**
 
-یک گذرواژهٔ باز کردن محتویات ارائه را رمزنگاری می‌کند. برای بارگذاری کامل ارائه، گذرواژهٔ صحیح را به متد [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#setPassword) بدهید و گزینه‌ها را به سازندهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ارسال کنید. در صورت عدم وجود یا نادرست بودن گذرواژه، بارگذاری ناموفق خواهد شد.
+یک گذرواژه باز کردن محتویات ارائه را رمزگذاری می‌کند. برای بارگذاری کامل ارائه، گذرواژه صحیح را به [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#setPassword) پاس بدهید و گزینه‌ها را به سازنده [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ارائه کنید. در صورت عدم وجود یا نادرست بودن گذرواژه، بارگذاری شکست می‌خورد.
 
 ```python
 import jpype
@@ -74,13 +74,13 @@ finally:
     presentation.dispose()
 ```
 
-برای تشخیص گذرواژه، اعتبارسنجی و جریان‌های کاری رمزنگاری، به [Password‑Protect Presentations](/slides/fa/python-java/password-protected-presentation/) مراجعه کنید. اگر یک ارائهٔ رمزنگاری‌شده عمداً با ویژگی‌های عمومی سند ذخیره شده باشد، این ویژگی‌ها بدون گذرواژه قابل خواندن‌اند؛ برای جزئیات به [Manage Presentation Properties](/slides/fa/python-java/presentation-properties/) نگاه کنید.
+برای تشخیص، اعتبارسنجی و جریان‌های کاری رمزگذاری گذرواژه، به [Password-Protect Presentations](/slides/fa/python-java/password-protected-presentation/) مراجعه کنید. اگر یک ارائه رمزگذاری‌شده عمداً با ویژگی‌های عمومی سند ذخیره شده باشد، می‌توان این ویژگی‌ها را بدون گذرواژه خواند؛ به [Manage Presentation Properties](/slides/fa/python-java/presentation-properties/) نگاه کنید.
 
 ## **باز کردن ارائه‌های بزرگ**
 
-متد [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) گزینه‌هایی را برمی‌گرداند که نحوهٔ مدیریت اشیای باینری بزرگ مانند تصاویر، صدا و ویدئو توسط Aspose.Slides را کنترل می‌کند. می‌توانید فایل منبع را قفل نگه دارید، اجازهٔ ایجاد فایل‌های موقت را بدهید و میزان دادهٔ BLOB نگهداری‌شده در حافظه را محدود کنید.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) گزینه‌هایی را برمی‌گرداند که کنترل می‌کند Aspose.Slides چگونه اشیاء باینری بزرگ مانند تصویرها، صدا و ویدیو را مدیریت کند. می‌توانید فایل منبع را قفل نگه دارید، اجازهٔ استفاده از فایل‌های موقت را بدهید و مقدار داده‌های BLOB نگهداری شده در حافظه را محدود کنید.
 
-کد پایتون زیر نحوهٔ بارگذاری یک ارائه بزرگ (مثلاً ۲ گیگابایت) را نشان می‌دهد:
+کد زیر در Python نشان می‌دهد چگونه یک ارائه بزرگ (به عنوان مثال ۲ گیگابایت) را بارگذاری کنید:
 
 ```python
 import jpype
@@ -107,14 +107,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-با استفاده از [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمانی که نمونهٔ ارائه آزاد نشود، قفل می‌ماند. در حالی که این نمونه زنده است، فایل منبع را جابجا، بازنویسی یا حذف نکنید.
+با استفاده از [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، فایل منبع تا زمانی که نمونهٔ ارائه آزاد نشود، قفل می‌ماند. هنگام زنده بودن آن نمونه، فایل منبع را جابه‌جا، بازنویسی یا حذف نکنید.
 
-Aspose.Slides ممکن است هنگام بارگذاری، محتویات یک جریان ورودی را کپی کند. برای ارائه‌های بزرگ، مسیر فایل عموماً کارایی بالاتری نسبت به یک جریان دارد. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه به [Manage BLOBs](/slides/fa/python-java/manage-blob/) مراجعه کنید.
+Aspose.Slides ممکن است محتویات یک جریان ورودی را هنگام بارگذاری کپی کند. برای ارائه‌های بزرگ، به‌طور کلی مسیر فایل نسبت به یک جریان کارآمدتر است. برای گزینه‌های اضافی ذخیره‌سازی و مدیریت حافظه، به [Manage BLOBs](/slides/fa/python-java/manage-blob/) مراجعه کنید.
 {{% /alert %}}
 
 ## **کنترل منابع خارجی**
 
-متد [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) یک پروکسی JPype که رابط فراخوانی بارگذاری منبع جاوا را پیاده‌سازی می‌کند، می‌پذیرد. این فراخوانی می‌تواند دادهٔ جایگزین فراهم کند، منبعی را بازگردانی کند، از بارگذار پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این ویژگی زمانی مفید است که ارائه‌ها شامل تصاویر خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی خاص برنامه حل شوند.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) یک پراکسی JPype که رابط فراخوانی بارگذاری منبع جاوا را پیاده‌سازی می‌کند، می‌پذیرد. این فراخوانی می‌تواند داده‌های جایگزین فراهم کند، منبعی را بازگردانی کند، از بارگذار پیش‌فرض استفاده کند یا منبع را نادیده بگیرد. این زمانی مفید است که ارائه‌ها شامل تصویرهای خارجی باشند که باید بر اساس قوانین امنیتی یا ذخیره‌سازی مخصوص به برنامه حل شوند.
 
 ```python
 import jpype
@@ -154,17 +154,17 @@ finally:
     presentation.dispose()
 ```
 
-## **بارگذاری ارائه‌ها بدون اشیای باینری جاسازی‌شده**
+## **بارگذاری ارائه‌ها بدون اشیاء باینری جاسازی‌شده**
 
-یک ارائه ممکن است شامل داده‌های باینری جاسازی‌شده باشد که برنامه به آن‌ها نیازی ندارد یا نمی‌خواهد نگهداری کند. مثال‌ها شامل:
+یک ارائه ممکن است حاوی داده‌های باینری جاسازی‌شده باشد که برنامه به آن نیازی ندارد یا نمی‌خواهد نگه دارد. نمونه‌ها شامل:
 
-- پروژه‌های VBA که از طریق [Presentation.getVbaProject](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getVbaProject) در دسترس هستند؛
-- داده‌های OLE جاسازی‌شده که از طریق [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/fa/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) قابل دسترسی‌اند؛
-- داده‌های کنترل ActiveX که از طریق [Control.getActiveXControlBinary](https://reference.aspose.com/slides/fa/python-java/aspose.slides/control/#getActiveXControlBinary) در دسترس هستند.
+- پروژه‌های VBA، قابل دسترسی از طریق [Presentation.getVbaProject](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getVbaProject);
+- داده‌های OLE جاسازی‌شده، قابل دسترسی از طریق [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/fa/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- داده‌های کنترل ActiveX، قابل دسترسی از طریق [Control.getActiveXControlBinary](https://reference.aspose.com/slides/fa/python-java/aspose.slides/control/#getActiveXControlBinary).
 
-با تنظیم [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) بر روی `True` می‌توانید این داده‌های باینری را هنگام بارگذاری حذف کنید. ارائهٔ بارگذاری‌شده را ذخیره کنید تا نتیجهٔ پاک‌سازی شده حفظ شود.
+برای حذف این داده‌های باینری هنگام بارگذاری، [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/fa/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) را روی `True` تنظیم کنید. ارائه بارگذاری‌شده را ذخیره کنید تا نتیجهٔ پاک‌سازی شده حفظ شود.
 
-این گزینه میزان تماس با payloadهای جاسازی‌شده‌ی ناخواسته را کاهش می‌دهد، اما یک سیستم کامل تشخیص بدافزار یا پاک‌سازی محتوا نیست.
+این گزینه در معرض شدن به بارهای جاسازی‌شده نامطلوب را کاهش می‌دهد، اما یک سیستم کامل تشخیص بدافزار یا پاک‌سازی محتوا نیست.
 
 ```python
 import jpype
@@ -187,14 +187,14 @@ finally:
 
 ## **سوالات متداول**
 
-**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌تواند باز شود؟**
+**چگونه می‌توانم تشخیص دهم که یک فایل خراب است و نمی‌توان آن را باز کرد؟**
 
-Aspose.Slides هنگام بارگذاری یک استثنای پارس یا فرمت را پرتاب می‌کند. این شکست را جدا از خطای گذرواژهٔ نادرست مدیریت کنید تا برنامه بتواند علت را به‌دقت گزارش دهد.
+Aspose.Slides هنگام بارگذاری یک استثنا مربوط به تجزیه یا فرمت پرتاب می‌کند. این شکست را به‌صورت جداگانه از خطای گذرواژه نادرست مدیریت کنید تا برنامه بتواند علت را به‌دقت گزارش دهد.
 
-**اگر قلم‌های موردنیاز موجود نباشند، چه اتفاقی می‌افتد؟**
+**چه اتفاقی می‌افتد اگر قلم‌های مورد نیاز موجود نباشند؟**
 
-ارائه هنوز می‌تواند بارگذاری شود، اما رندرینگ و خروجی ممکن است قلم‌ها را جایگزین کند. می‌توانید [configure font substitution](/slides/fa/python-java/font-substitution/) یا [provide custom fonts](/slides/fa/python-java/custom-font/) را اعمال کنید تا خروجی پیش‌بینی‌پذیرتر باشد.
+ارائه ممکن است همچنان بارگذاری شود، اما رندرینگ و صادرات ممکن است قلم‌ها را جایگزین کنند. می‌توانید [پیکربندی جایگزینی قلم](/slides/fa/python-java/font-substitution/) یا [ارائه قلم‌های سفارشی](/slides/fa/python-java/custom-font/) را تنظیم کنید تا خروجی قابل پیش‌بینی‌تر باشد.
 
-**آیا بارگذاری یک ارائه همچنین رسانه‌های جاسازی‌شده را بارگذاری می‌کند؟**
+**آیا بارگذاری یک ارائه همچنین رسانه‌های جاسازی‌شده آن را بارگذاری می‌کند؟**
 
-صدا و ویدئوی جاسازی‌شده از طریق مدل شیء ارائه در دسترس می‌شوند. منابع خارجی براساس رفتار پیکربندی‌شدهٔ بارگذاری منبع حل می‌شوند و ممکن است در دسترس نباشند اگر محل آن‌ها قابل دسترسی نباشد.
+صدا و ویدئوی جاسازی‌شده از طریق مدل شیء ارائه در دسترس قرار می‌گیرند. منابع خارجی بر اساس رفتار بارگذاری منبع پیکربندی‌شده حل می‌شوند و ممکن است در صورت عدم امکان دسترسی به مکان‌های آنها در دسترس نباشند.

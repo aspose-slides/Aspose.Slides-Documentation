@@ -1,6 +1,6 @@
 ---
-title: Gestion des hyperliens de présentation en Python via Java
-linktitle: Gestion des hyperliens
+title: Gérer les hyperliens de présentation en Python via Java
+linktitle: Gérer le lien hypertexte
 type: docs
 weight: 20
 url: /fr/python-java/manage-hyperlinks/
@@ -23,26 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Gérez facilement les hyperliens dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour Python via Java — améliorez l'interactivité et le flux de travail en quelques minutes."
+description: "Gérez facilement les hyperliens dans les présentations PowerPoint et OpenDocument avec Aspose.Slides pour Python via Java—améliorez l'interactivité et le flux de travail en quelques minutes."
 ---
 ## **Introduction**
 
-Un hyperlien est une référence à un objet, à des données ou à un emplacement dans quelque chose. Voici des hyperliens courants dans les présentations PowerPoint :
+Un hyperlien est une référence à un objet, des données ou un emplacement. Les hyperliens courants dans les présentations PowerPoint comprennent :
 
-* Liens vers des sites Web dans les textes, les formes ou les médias
+* Liens vers des sites Web dans le texte, les formes ou les médias
 * Liens vers des diapositives
 
-Aspose.Slides for Python via Java vous permet d'effectuer de nombreuses tâches liées aux hyperliens dans les présentations. 
+Aspose.Slides pour Python via Java vous permet d'effectuer de nombreuses tâches liées aux hyperliens dans les présentations. 
 
 {{% alert color="info" title="Note" %}} 
-Vous voudrez peut-être consulter Aspose simple, [éditeur PowerPoint en ligne gratuit.](https://products.aspose.app/slides/fr/editor)
+Vous voudrez peut-être essayer l'éditeur PowerPoint en ligne gratuit d'Aspose, [éditeur PowerPoint en ligne gratuit d'Aspose.](https://products.aspose.app/slides/fr/editor)
 {{% /alert %}} 
 
-## **Ajouter des hyperliens URL**
+## **Add URL Hyperlinks**
 
-### **Ajouter des hyperliens URL au texte**
+### **Add URL Hyperlinks to Text**
 
-Ce code Python vous montre comment ajouter un hyperlien vers un site Web à un texte :
+Ce code Python montre comment ajouter un hyperlien vers un site Web au texte :
 
 ```python
 import jpype
@@ -68,9 +68,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Ajouter des hyperliens URL aux formes ou aux cadres**
+### **Add URL Hyperlinks to Shapes or Frames**
 
-Ce code d'exemple en Python via Java vous montre comment ajouter un hyperlien vers un site Web à une forme :
+Ce code d'exemple en Python via Java montre comment ajouter un hyperlien vers un site Web à une forme :
 
 ```python
 import jpype
@@ -93,11 +93,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Ajouter des hyperliens URL aux médias**
+### **Add URL Hyperlinks to Media**
 
 Aspose.Slides vous permet d'ajouter des hyperliens aux images, aux fichiers audio et vidéo. 
 
-Ce code d'exemple vous montre comment ajouter un hyperlien à une **image** :
+Ce code d'exemple montre comment ajouter un hyperlien à une **image** :
 
 ```python
 import jpype
@@ -116,7 +116,7 @@ try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # Crée un cadre image sur la diapositive 1 en se basant sur l'image précédemment ajoutée
+    # Crée un cadre d'image sur la diapositive 1 basé sur l'image précédemment ajoutée
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -127,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-Ce code d'exemple vous montre comment ajouter un hyperlien à un **fichier audio** :
+Ce code d'exemple montre comment ajouter un hyperlien à un **fichier audio** :
 
 ```python
 from pathlib import Path
@@ -155,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-Ce code d'exemple vous montre comment ajouter un hyperlien à une **vidéo** :
+Ce code d'exemple montre comment ajouter un hyperlien à une **vidéo** :
 
 ```python
 from pathlib import Path
@@ -183,15 +183,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Astuce" %}} 
-Vous voudrez peut-être voir *[Gestion OLE](/slides/fr/python-java/manage-ole/)*.
+{{% alert color="success" title="Tip" %}} 
+Vous voudrez peut-être voir *[Gérer OLE](/slides/fr/python-java/manage-ole/)*.
 {{% /alert %}}
 
-## **Utiliser les hyperliens pour créer une table des matières**
+## **Use Hyperlinks to Create a Table of Contents**
 
-Étant donné que les hyperliens vous permettent d’ajouter des références à des objets ou des emplacements, vous pouvez les utiliser pour créer une table des matières. 
+Puisque les hyperliens vous permettent d'ajouter des références à des objets ou des emplacements, vous pouvez les utiliser pour créer une table des matières. 
 
-Ce code d'exemple vous montre comment créer une table des matières avec des hyperliens :
+Ce code d'exemple montre comment créer une table des matières avec des hyperliens :
 
 ```python
 import jpype
@@ -231,13 +231,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Formater les hyperliens**
+## **Format Hyperlinks**
 
-### **Couleur**
+### **Color**
 
-Avec la propriété [Hyperlink.setColorSource](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setColorSource) de la classe [Hyperlink](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/), vous pouvez définir la couleur des hyperliens et également récupérer les informations de couleur provenant des hyperliens. Cette fonctionnalité a été introduite pour la première fois dans PowerPoint 2019, de sorte que les modifications liées à cette propriété ne s’appliquent pas aux versions plus anciennes de PowerPoint.
+Avec la propriété [Hyperlink.setColorSource](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setColorSource) dans la classe [Hyperlink](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/), vous pouvez définir la couleur des hyperliens et également obtenir les informations de couleur à partir des hyperliens. Cette fonctionnalité a été introduite pour la première fois dans PowerPoint 2019, de sorte que les modifications impliquant cette propriété ne s'appliquent pas aux versions plus anciennes de PowerPoint.
 
-Ce code d'exemple montre une opération où des hyperliens de différentes couleurs ont été ajoutés à la même diapositive :
+Ce code d'exemple montre une opération où des hyperliens de différentes couleurs sont ajoutés à la même diapositive :
 
 ```python
 import jpype
@@ -269,11 +269,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Supprimer les hyperliens des présentations**
+## **Remove Hyperlinks from Presentations**
 
-### **Supprimer les hyperliens du texte**
+### **Remove Hyperlinks from Text**
 
-Ce code Python vous montre comment supprimer l’hyperlien d’un texte dans une diapositive de présentation :
+Ce code Python montre comment supprimer l'hyperlien du texte sur une diapositive de présentation :
 
 ```python
 import jpype
@@ -300,9 +300,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Supprimer les hyperliens des formes ou des cadres**
+### **Remove Hyperlinks from Shapes or Frames**
 
-Ce code Python vous montre comment supprimer l’hyperlien d’une forme dans une diapositive de présentation : 
+Ce code Python montre comment supprimer l'hyperlien d'une forme sur une diapositive de présentation :
 
 ```python
 import jpype
@@ -323,7 +323,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Hyperlien mutable**
+## **Mutable Hyperlink**
 
 La classe [Hyperlink](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/) est mutable. Avec cette classe, vous pouvez modifier les valeurs de ces propriétés :
 
@@ -333,7 +333,7 @@ La classe [Hyperlink](https://reference.aspose.com/slides/fr/python-java/aspose.
 - [setHighlightClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-Le fragment de code montre comment ajouter un hyperlien à une diapositive et modifier son infobulle ultérieurement :
+L'extrait de code montre comment ajouter un hyperlien à une diapositive et modifier son infobulle ultérieurement :
 
 ```python
 import jpype
@@ -354,7 +354,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # Modifie l'infobulle de l'hyperlien déjà ajouté
+    # Modifie l'infobulle du lien hypertexte déjà ajouté
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -362,9 +362,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Propriétés prises en charge dans HyperlinkQueries**
+## **Supported Properties in HyperlinkQueries**
 
-Vous pouvez accéder à [HyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/) depuis une présentation, une diapositive ou un texte pour lequel l’hyperlien est défini. 
+Vous pouvez accéder à [HyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/) depuis une présentation, une diapositive ou un texte pour lequel l'hyperlien est défini. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
@@ -379,14 +379,14 @@ La classe [HyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/
 
 ## **FAQ**
 
-**Comment créer une navigation interne non seulement vers une diapositive, mais aussi vers une « section » ou la première diapositive d’une section ?**
+**Comment créer une navigation interne non seulement vers une diapositive, mais vers une « section » ou la première diapositive d’une section ?**
 
-Les sections dans PowerPoint sont des groupements de diapositives ; la navigation cible techniquement une diapositive spécifique. Pour « naviguer vers une section », vous liez généralement à sa première diapositive.
+Les sections dans PowerPoint sont des regroupements de diapositives ; la navigation cible techniquement une diapositive spécifique. Pour « naviguer vers une section », vous liez généralement à sa première diapositive.
 
-**Puis‑je attacher un hyperlien aux éléments de la diapositive maître afin qu’il fonctionne sur toutes les diapositives ?**
+**Puis-je attacher un hyperlien aux éléments de la diapositive maîtresse afin qu’il fonctionne sur toutes les diapositives ?**
 
-Oui. Les éléments de la diapositive maître et des mises en page prennent en charge les hyperliens. Ces liens apparaissent sur les diapositives enfants et sont cliquables lors du diaporama.
+Oui. Les éléments de la diapositive maîtresse et des dispositions prennent en charge les hyperliens. Ces liens apparaissent sur les diapositives enfants et sont cliquables pendant le diaporama.
 
-**Les hyperliens seront‑ils conservés lors de l’exportation vers PDF, HTML, images ou vidéo ?**
+**Les hyperliens seront-ils conservés lors de l’exportation vers PDF, HTML, images ou vidéo ?**
 
-Dans [PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/) et [HTML](/slides/fr/python-java/convert-powerpoint-to-html/), oui — les liens sont généralement conservés. Lors de l’exportation vers [images](/slides/fr/python-java/convert-powerpoint-to-png/) et [video](/slides/fr/python-java/convert-powerpoint-to-video/), la possibilité de cliquer ne sera pas transférée en raison de la nature de ces formats (les images rasterisées/vidéos ne supportent pas les hyperliens).
+Dans [PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/) et [HTML](/slides/fr/python-java/convert-powerpoint-to-html/), oui — les liens sont généralement conservés. Lors de l’exportation vers [images](/slides/fr/python-java/convert-powerpoint-to-png/) et [vidéo](/slides/fr/python-java/convert-powerpoint-to-video/), la possibilité de cliquer ne sera pas conservée en raison de la nature de ces formats (les trames raster/vidéo ne prennent pas en charge les hyperliens).

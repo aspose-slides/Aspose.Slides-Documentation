@@ -13,9 +13,9 @@ keywords:
 - extrair imagem
 - imagem raster
 - imagem SVG
-- cortar imagem
+- recortar imagem
 - excluir áreas recortadas
-- compactar imagem
+- comprimir imagem
 - StretchOffset
 - formatação de quadro de imagem
 - escala relativa
@@ -27,21 +27,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Criar, formatar, vincular, recortar, extrair e compactar quadros de imagem em apresentações com Aspose.Slides para Python via Java."
+description: "Criar, formatar, vincular, recortar, extrair e comprimir quadros de imagem em apresentações com Aspose.Slides para Python via Java."
 ---
 ## **Visão geral**
 
-Um quadro de imagem é uma forma deslizante que exibe uma imagem. No Aspose.Slides, o recurso de imagem e a forma que a exibe são objetos separados: um [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) possui recursos de imagem incorporados por meio de sua [ImageCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/imagecollection/), enquanto um [PictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/) controla a posição, o tamanho, a formatação de linha, a rotação, o corte, os efeitos de imagem e outras configurações ao nível do quadro.
+Um quadro de imagem é uma forma de slide que exibe uma imagem. No Aspose.Slides, o recurso de imagem e a forma que a exibe são objetos separados: uma [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) possui recursos de imagem incorporados através de sua [ImageCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/imagecollection/), enquanto um [PictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/) controla a posição, tamanho, formatação de linha, rotação, recorte, efeitos de imagem e outras configurações ao nível do quadro.
 
-Essa separação é útil quando a mesma imagem é mostrada mais de uma vez. Adicione a imagem à apresentação uma única vez, mantenha o [PPImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/ppimage/) retornado e use esse recurso de imagem ao criar quadros de imagem.
+Esta separação é útil quando a mesma imagem é mostrada mais de uma vez. Adicione a imagem à apresentação uma vez, mantenha o [PPImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/ppimage/) retornado e use esse recurso de imagem ao criar quadros de imagem.
 
-Quadros de imagem podem conter imagens raster, como PNG ou JPEG, e imagens vetoriais SVG. Eles também podem referenciar imagens vinculadas em vez de armazenar os bytes da imagem na apresentação. A escolha afeta a portabilidade, o tamanho do arquivo, a extração e o comportamento de exportação, por isso é útil decidir como a imagem deve ser armazenada antes de aplicar formatações ou otimizações.
+Quadros de imagem podem conter imagens raster, como PNG ou JPEG, e imagens vetoriais SVG. Eles também podem referir‑se a imagens vinculadas em vez de armazenar os bytes da imagem na apresentação. A escolha afeta portabilidade, tamanho do arquivo, extração e comportamento de exportação, portanto é útil decidir como a imagem deve ser armazenada antes de aplicar formatação ou otimização.
 
 ## **Adicionar e formatar uma imagem incorporada**
 
-Para uma imagem incorporada, adicione os dados da imagem à apresentação e crie um quadro de imagem com [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapecollection/#addPictureFrame). A imagem passa a fazer parte do pacote da apresentação, de modo que a apresentação permanece autônoma quando for movida para outro computador.
+Para uma imagem incorporada, adicione os dados da imagem à apresentação e crie um quadro de imagem com [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/shapecollection/#addPictureFrame). A imagem torna‑se parte do pacote da apresentação, de modo que a apresentação permanece autocontida quando é movida para outro computador.
 
-O exemplo a seguir adiciona uma imagem JPEG, cria um quadro com as dimensões nativas da imagem e aplica formatação de linha e rotação:
+O exemplo a seguir adiciona uma imagem JPEG, cria um quadro nas dimensões nativas da imagem e aplica formatação de linha e rotação:
 
 ```python
 import jpype
@@ -78,7 +78,7 @@ O quadro de imagem controla a geometria exibida; alterar o tamanho do quadro nã
 
 ## **Usar escala relativa**
 
-[PictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/) expõe escalas relativas de largura e altura para o quadro por meio de [setRelativeScaleWidth](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) e [setRelativeScaleHeight](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Um valor de `1.0` corresponde a 100 % do tamanho original da imagem. A escala relativa é útil quando um fluxo de trabalho precisa preservar a relação com o tamanho da imagem de origem em vez de calcular manualmente as dimensões finais.
+[PictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/) expõe a escala relativa de largura e altura para o quadro por meio de [setRelativeScaleWidth](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) e [setRelativeScaleHeight](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Um valor de `1.0` corresponde a 100 % do tamanho original da imagem. A escala relativa é útil quando um fluxo de trabalho precisa preservar a relação com o tamanho da imagem fonte em vez de calcular as dimensões finais manualmente.
 
 ```python
 import jpype
@@ -112,13 +112,13 @@ A escala relativa altera as configurações de escala do quadro; não reamostra 
 
 ## **Imagens incorporadas e vinculadas**
 
-Uma imagem incorporada armazena os dados da imagem dentro da apresentação e, portanto, é a escolha mais segura para portabilidade e renderização previsível. Uma imagem vinculada armazena uma localização externa por meio do método [Picture.setLinkPathLong](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picture/#setLinkPathLong) em vez de incorporar os dados da imagem da mesma forma.
+Uma imagem incorporada armazena os dados da imagem dentro da apresentação e, portanto, é a escolha mais segura para portabilidade e renderização previsível. Uma imagem vinculada armazena um local externo por meio do método [Picture.setLinkPathLong](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picture/#setLinkPathLong) em vez de incorporar os dados da imagem da mesma forma.
 
-Imagens vinculadas podem reduzir a quantidade de dados de imagem armazenados no PPTX, mas introduzem uma dependência externa. O arquivo vinculado deve permanecer acessível à aplicação que abre ou renderiza a apresentação. Se o caminho mudar, o arquivo for movido ou o recurso ficar indisponível, a imagem vinculada pode não ser exibida como esperado. Para apresentações que precisam ser enviadas por e‑mail, arquivadas ou renderizadas em ambientes isolados, imagens incorporadas costumam ser mais confiáveis.
+Imagens vinculadas podem reduzir a quantidade de dados de imagem armazenados no PPTX, mas introduzem uma dependência externa. O arquivo vinculado deve permanecer acessível à aplicação que abre ou renderiza a apresentação. Se o caminho mudar, o arquivo for movido ou o recurso ficar indisponível, a imagem vinculada pode não ser exibida como esperado. Para apresentações que precisam ser enviadas por e‑mail, arquivadas ou renderizadas em ambientes isolados, imagens incorporadas são geralmente mais confiáveis.
 
 ### **Adicionar uma imagem vinculada**
 
-O exemplo a seguir cria um quadro de imagem e o aponta para um arquivo de imagem local. Ele trata apenas de vínculo de imagem; vínculo de vídeo é um fluxo de mídia separado e intencionalmente não foi misturado neste exemplo.
+O exemplo a seguir cria um quadro de imagem e o aponta para um arquivo de imagem local. Ele trata apenas de vinculação de imagens; a vinculação de vídeo é um fluxo de mídia separado e, intencionalmente, não foi misturada neste exemplo.
 
 ```python
 import jpype
@@ -144,7 +144,7 @@ finally:
     presentation.dispose()
 ```
 
-Use vínculos quando a gestão de arquivos externos for intencional. Não os use apenas como substituto da compressão: um PPTX pequeno com dependências de imagem quebradas costuma ser menos útil que uma apresentação maior e autônoma.
+Use links quando a gestão externa de arquivos for intencional. Não os use apenas como substituto da compressão: um PPTX pequeno com dependências de imagem quebradas costuma ser menos útil que uma apresentação maior e autocontida.
 
 ## **Extrair imagens de quadros de imagem**
 
@@ -152,7 +152,7 @@ Antes de extrair uma imagem de uma apresentação existente, verifique se a form
 
 ### **Extrair uma imagem raster**
 
-A API de imagem moderna trabalha diretamente com imagens raster e não requer o wrapper de imagem Java antigo. O exemplo a seguir encontra a primeira imagem raster incorporada em um slide e a salva como PNG:
+A API de imagem moderna trabalha diretamente com imagens raster e não requer o wrapper Java antigo. O exemplo a seguir localiza a primeira imagem raster incorporada em um slide e a salva como PNG:
 
 ```python
 import jpype
@@ -190,7 +190,7 @@ Salvar a imagem raster converte a imagem extraída para o formato de saída soli
 
 ### **Extrair uma imagem SVG**
 
-Para uma imagem SVG, o [PPImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/ppimage/) expõe um objeto [SvgImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/svgimage/). Isso permite recuperar os dados SVG diretamente, sem rasterizar a imagem primeiro.
+Para uma imagem SVG, o [PPImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/ppimage/) expõe um objeto [SvgImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/svgimage/). Isso permite recuperar os dados SVG diretamente em vez de rasterizar a imagem primeiro.
 
 ```python
 import jpype
@@ -223,13 +223,13 @@ finally:
     presentation.dispose()
 ```
 
-Manter o conteúdo SVG como SVG preserva a fonte vetorial dentro da apresentação. Exportações raster, como PNG ou JPEG, necessariamente renderizam esse conteúdo vetorial em pixels. A exportação de slide para PDF ou SVG também é uma operação de renderização, de modo que os gráficos exportados não devem ser tratados como cópia byte‑a‑byte do SVG incorporado original; use os dados de [SvgImage.getSvgData](https://reference.aspose.com/slides/pt/python-java/aspose.slides/svgimage/#getSvgData) quando o recurso vetorial original for necessário.
+Manter o conteúdo SVG como SVG preserva a fonte vetorial dentro da apresentação. Exportações raster, como PNG ou JPEG, renderizam esse conteúdo vetorial em pixels. A exportação de slides como PDF ou SVG também é uma operação de renderização, portanto os gráficos exportados não devem ser tratados como uma cópia byte‑a‑byte do SVG incorporado; use os dados de [SvgImage.getSvgData](https://reference.aspose.com/slides/pt/python-java/aspose.slides/svgimage/#getSvgData) quando o recurso vetorial original for necessário.
 
-## **Cortar uma imagem**
+## **Recortar uma imagem**
 
-O corte altera qual parte da imagem fica visível dentro do quadro. Os valores de corte em [PictureFillFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/) são porcentagens das dimensões da imagem de origem. O corte não exclui inicialmente os pixels ocultos da imagem incorporada; ele apenas altera a região visível.
+O recorte altera qual parte de uma imagem é visível dentro do quadro. Os valores de recorte em [PictureFillFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/) são percentuais das dimensões da imagem fonte. O recorte não exclui inicialmente os pixels ocultos da imagem incorporada; ele apenas muda a região visível.
 
-O exemplo a seguir localiza um quadro de imagem com segurança e aplica valores de corte:
+O exemplo a seguir localiza um quadro de imagem com segurança e aplica valores de recorte:
 
 ```python
 import jpype
@@ -260,11 +260,11 @@ finally:
     presentation.dispose()
 ```
 
-Como os dados da imagem oculta ainda estão presentes, o corte pode ser alterado posteriormente sem perder os pixels originais. Se o tamanho do arquivo for mais importante que a reversibilidade, as áreas recortadas podem ser removidas fisicamente, conforme descrito na seção seguinte.
+Como os dados de imagem ocultos ainda estão presentes, o recorte pode ser alterado posteriormente sem perder os pixels originais. Se o tamanho do arquivo for mais importante que a reversibilidade, as regiões recortadas podem ser removidas fisicamente conforme descrito na próxima seção.
 
 ## **Remover dados de imagem recortados**
 
-[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) remove os dados de imagem fora do retângulo de corte atual e devolve o recurso de imagem resultante. Isso pode reduzir o tamanho do arquivo, mas é uma otimização destrutiva: após a apresentação ser salva, os pixels removidos não ficam mais disponíveis para uma operação de “desrecorte” posterior.
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) remove os dados da imagem fora do retângulo de recorte atual e devolve o recurso de imagem resultante. Isso pode reduzir o tamanho do arquivo, mas é uma otimização destrutiva: após a apresentação ser salva, os pixels removidos não estão mais disponíveis para uma operação de des‑recorte posterior.
 
 ```python
 import jpype
@@ -293,13 +293,13 @@ finally:
     presentation.dispose()
 ```
 
-O método pode adicionar um novo recurso de imagem à apresentação. Se a imagem original também for usada por outros quadros de imagem, esses quadros ainda precisarão do recurso existente, de modo que excluir áreas recortadas não reduz necessariamente o número total de imagens. Recortar conteúdo WMF ou EMF com este método rasteriza o resultado recortado para PNG.
+O método pode adicionar um novo recurso de imagem à apresentação. Se a imagem original também for usada por outros quadros, esses quadros ainda precisarão do recurso existente, de modo que a exclusão das áreas recortadas não reduz necessariamente o número total de imagens. Recortar conteúdo WMF ou EMF com este método rasteriza o resultado recortado para PNG.
 
 ## **Comprimir imagens raster**
 
 [PictureFillFormat.compressImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/#compressImage) reduz a resolução da imagem raster em relação ao tamanho em que a imagem é exibida. Também pode remover regiões recortadas na mesma operação. O método devolve `True` quando a imagem foi redimensionada ou recortada e `False` quando nenhuma alteração foi necessária.
 
-Use um valor predefinido de [PicturesCompression](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturescompression/) quando uma resolução alvo padrão for suficiente:
+Use um valor pré‑definido de [PicturesCompression](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturescompression/) quando uma resolução‑alvo padrão for suficiente:
 
 ```python
 import jpype
@@ -328,9 +328,9 @@ finally:
     presentation.dispose()
 ```
 
-Um valor DPI positivo personalizado pode ser passado em vez de um valor predefinido quando um alvo específico for exigido.
+Um valor DPI positivo personalizado pode ser passado em vez de um valor pré‑definido quando um alvo específico for necessário.
 
-A compressão destina‑se a imagens raster. Conteúdo SVG e metafile não é reduzido por este fluxo de compressão raster. Também lembre‑se de que resolução mais baixa e regiões recortadas excluídas não podem ser recuperadas da apresentação otimizada. Escolha a resolução alvo com base no maior tamanho em que a imagem será realmente visualizada ou exportada, em vez de aplicar o DPI mais baixo globalmente.
+A compressão destina‑se a imagens raster. Conteúdo SVG e metafile não é reduzido por este fluxo de compressão raster. Também lembre‑se de que resolução mais baixa e regiões recortadas excluídas não podem ser recuperadas da apresentação otimizada. Escolha uma resolução‑alvo com base no maior tamanho em que a imagem será realmente visualizada ou exportada, em vez de aplicar o DPI mais baixo globalmente.
 
 ## **Gerenciar efeitos de transformação de imagem**
 
@@ -367,13 +367,13 @@ finally:
     presentation.dispose()
 ```
 
-O bloqueio se aplica à forma do quadro de imagem. Não força a imagem de origem a ser reamostrada ou alterada permanentemente para a mesma proporção.
+O bloqueio se aplica à forma do quadro de imagem. Ele não força a imagem fonte a ser reamostrada ou alterada permanentemente para a mesma proporção.
 
-## **Ajustar os valores StretchOffset**
+## **Ajustar os valores de StretchOffset**
 
-Quando o modo de preenchimento de imagem é “stretch”, os valores stretch‑offset em [PictureFillFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/) definem o retângulo de preenchimento relativo à caixa delimitadora do quadro de imagem. Percentuais positivos criam um recuo a partir de uma borda, enquanto percentuais negativos criam um sobresalto.
+Quando o modo de preenchimento de imagem é stretch, os valores de stretch‑offset em [PictureFillFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/) definem o retângulo de preenchimento relativo à caixa delimitadora do quadro de imagem. Percentuais positivos criam um recuo a partir de uma borda, enquanto percentuais negativos criam um extrusão.
 
-Isso difere do recorte. Valores de recorte selecionam qual parte da imagem de origem fica visível; stretch offsets alteram o retângulo no qual o preenchimento visível da imagem é esticado.
+Isso difere do recorte. Valores de recorte selecionam qual parte da imagem fonte fica visível; offsets de stretch alteram o retângulo no qual o preenchimento visível é esticado.
 
 ```python
 import jpype
@@ -406,43 +406,43 @@ finally:
     presentation.dispose()
 ```
 
-Use stretch offsets para posicionamento de preenchimento. Use propriedades de recorte quando o objetivo for ocultar as bordas da imagem de origem.
+Use offsets de stretch para posicionamento de preenchimento. Use propriedades de recorte quando o objetivo for ocultar bordas da imagem fonte.
 
-## **Armazenamento, tamanho de arquivo e considerações de exportação**
+## **Considerações de armazenamento, tamanho de arquivo e exportação**
 
-Os principais trade‑offs são mais fáceis de gerenciar quando o armazenamento de imagem e a formatação do quadro de imagem são tratados separadamente:
+Os principais trade‑offs são mais fáceis de gerenciar quando o armazenamento de imagens e a formatação de quadros são tratados separadamente:
 
-- **Imagens incorporadas** tornam a apresentação autônoma e são as mais confiáveis para compartilhamento e renderização no servidor, mas imagens raster grandes aumentam o tamanho do PPTX e o uso de memória.
-- **Imagens vinculadas** podem manter o pacote menor, porém a apresentação depende de arquivos externos que permaneçam disponíveis nos caminhos ou locais armazenados.
+- **Imagens incorporadas** tornam a apresentação autocontida e são as mais confiáveis para compartilhamento e renderização no servidor, mas imagens raster grandes aumentam o tamanho do PPTX e o uso de memória.
+- **Imagens vinculadas** podem manter o pacote menor, porém a apresentação depende de arquivos externos permanecerem disponíveis nos caminhos ou locais armazenados.
 - **Recorte** é inicialmente não destrutivo. Os pixels ocultos permanecem incorporados até que áreas recortadas sejam explicitamente excluídas ou removidas durante a compressão.
-- **Compressão** pode reduzir substancialmente o tamanho do arquivo para imagens raster excessivas, mas sacrifica a resolução original. Deve ser aplicada após o tamanho final da imagem no slide ser conhecido.
-- **Imagens SVG** devem permanecer como SVG quando a preservação vetorial for importante. Extraia o SVG incorporado diretamente quando precisar do recurso vetorial em si. Exportações de slide raster sempre convertem o slide renderizado em pixels.
-- **Imagens repetidas** devem reutilizar um recurso [PPImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/ppimage/) existente sempre que possível, em vez de carregar repetidamente o mesmo arquivo no fluxo de trabalho da apresentação.
+- **Compressão** pode reduzir o tamanho do arquivo substancialmente para imagens raster excessivamente grandes, mas sacrifica a resolução original. Deve ser aplicada depois que o tamanho final na tela for conhecido.
+- **Imagens SVG** devem permanecer como SVG quando a preservação vetorial é importante. Extraia o SVG incorporado diretamente quando precisar do recurso vetorial em si. Exportações de slides raster, como PNG ou JPEG, convertem o slide renderizado em pixels.
+- **Imagens repetidas** devem reutilizar um recurso [PPImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/ppimage/) existente sempre que possível, em vez de carregar o mesmo arquivo repetidamente no fluxo de trabalho da apresentação.
 
-Para apresentações grandes, a otimização de imagem costuma ser mais eficaz quando feita seletivamente: mantenha logotipos e diagramas como conteúdo vetorial, comprima fotografias de acordo com seu tamanho real de exibição, remova pixels recortados somente quando a edição posterior não for necessária e evite vínculos externos a menos que a gestão de dependências faça parte do design de implantação.
+Para apresentações grandes, a otimização de imagem costuma ser mais eficaz quando feita seletivamente: mantenha logotipos e diagramas como conteúdo vetorial, comprima fotografias de acordo com seu tamanho real de exibição, remova pixels recortados apenas quando a edição posterior não for necessária e evite links externos, a menos que a gestão de dependências faça parte do design de implantação.
 
-## **FAQ**
+## **Perguntas frequentes**
 
-**Qual a diferença entre um quadro de imagem e um recurso de imagem?**
+**Qual é a diferença entre um quadro de imagem e um recurso de imagem?**
 
-Um [PPImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/ppimage/) representa um recurso de imagem associado à apresentação. Um [PictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/) é uma forma em um slide que exibe uma imagem e armazena geometria e formatação ao nível do quadro, como tamanho, rotação, valores de corte, efeitos e bloqueios.
+Um [PPImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/ppimage/) representa um recurso de imagem associado à apresentação. Um [PictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/) é uma forma em um slide que exibe uma imagem e armazena geometria e formatação ao nível do quadro, como tamanho, rotação, valores de recorte, efeitos e travas.
 
 **Devo incorporar ou vincular imagens?**
 
-Incorpore imagens quando a apresentação precisar ser portátil, arquivada ou renderizada sem acesso a recursos externos. Vincule imagens somente quando manter arquivos de imagem fora do PPTX for intencional e os locais externos puderem ser mantidos de forma confiável.
+Incorpore imagens quando a apresentação precisar ser portátil, arquivada ou renderizada sem acesso a recursos externos. Vincule imagens apenas quando manter os arquivos de imagem fora do PPTX for intencional e os locais externos puderem ser mantidos de forma confiável.
 
 **O recorte reduz o tamanho do arquivo PPTX?**
 
-Não por si só. As configurações de recorte normais ocultam partes da imagem de origem, mas mantêm os pixels subjacentes. Use [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) ou compressão de imagem com remoção de áreas recortadas quando esses pixels puderem ser descartados permanentemente.
+Não por si só. Configurações normais de recorte ocultam partes da imagem fonte, mas mantêm os pixels subjacentes. Use [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pt/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) ou compressão de imagem com remoção de áreas recortadas quando esses pixels puderem ser descartados permanentemente.
 
 **Posso restaurar a qualidade da imagem após a compressão?**
 
-Não. A compressão pode reduzir a resolução raster armazenada e a remoção de regiões recortadas descarta dados da imagem. Mantenha a imagem fonte original fora da apresentação se edição de alta resolução posterior for necessária.
+Não. A compressão pode reduzir a resolução raster armazenada e a remoção de regiões recortadas elimina dados de imagem. Mantenha a imagem fonte original fora da apresentação se futuras edições em alta resolução forem necessárias.
 
-**Como devo tratar imagens SVG?**
+**Como as imagens SVG devem ser tratadas?**
 
-Mantenha o conteúdo SVG como SVG quando a fidelidade vetorial for relevante. O [SvgImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/svgimage/) incorporado pode ser extraído diretamente. Renderizar um slide para um formato raster, como PNG ou JPEG, rasteriza o SVG como parte da imagem do slide.
+Mantenha o conteúdo SVG como SVG quando a fidelidade vetorial for importante. O [SvgImage](https://reference.aspose.com/slides/pt/python-java/aspose.slides/svgimage/) incorporado pode ser extraído diretamente. Renderizar um slide para um formato raster, como PNG ou JPEG, rasteriza o SVG como parte da imagem do slide.
 
-**Como evitar casts inseguros ao ler slides existentes?**
+**Como posso evitar casts inseguros ao ler slides existentes?**
 
 Verifique o tipo da forma antes de usar membros específicos de quadro de imagem. Uma verificação `isinstance` contra [PictureFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/pictureframe/) evita casts inválidos e permite que o código trate slides que não contêm quadros de imagem.

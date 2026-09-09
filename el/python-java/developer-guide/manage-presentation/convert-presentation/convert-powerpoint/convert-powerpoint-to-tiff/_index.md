@@ -1,41 +1,41 @@
 ---
-title: Μετατροπή Παρουσιάσεων PowerPoint σε TIFF με Python
+title: Μετατροπή παρουσιάσεων PowerPoint σε TIFF με Python
 linktitle: PowerPoint σε TIFF
 type: docs
 weight: 90
 url: /el/python-java/convert-powerpoint-to-tiff/
 keywords:
-- Μετατροπή PowerPoint
-- Μετατροπή OpenDocument
-- Μετατροπή παρουσίασης
-- Μετατροπή διαφάνειας
-- Μετατροπή PPT
-- Μετατροπή PPTX
+- μετατροπή PowerPoint
+- μετατροπή OpenDocument
+- μετατροπή παρουσίασης
+- μετατροπή διαφάνειας
+- μετατροπή PPT
+- μετατροπή PPTX
 - PowerPoint σε TIFF
-- Παρουσίαση σε TIFF
-- Διαφάνεια σε TIFF
+- παρουσίαση σε TIFF
+- διαφάνεια σε TIFF
 - PPT σε TIFF
 - PPTX σε TIFF
-- Αποθήκευση PPT ως TIFF
-- Αποθήκευση PPTX ως TIFF
-- Εξαγωγή PPT σε TIFF
-- Εξαγωγή PPTX σε TIFF
+- αποθήκευση PPT ως TIFF
+- αποθήκευση PPTX ως TIFF
+- εξαγωγή PPT σε TIFF
+- εξαγωγή PPTX σε TIFF
 - Python
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να μετατρέψετε εύκολα παρουσιάσεις PowerPoint (PPT, PPTX) σε εικόνες TIFF υψηλής ποιότητας χρησιμοποιώντας το Aspose.Slides για Python μέσω Java, με παραδείγματα κώδικα."
+description: "Μάθετε πώς να μετατρέπετε εύκολα παρουσιάσεις PowerPoint (PPT, PPTX) σε εικόνες TIFF υψηλής ποιότητας χρησιμοποιώντας το Aspose.Slides για Python μέσω Java, με παραδείγματα κώδικα."
 ---
 ## **Εισαγωγή**
 
-Το TIFF (**Tagged Image File Format**) είναι μια μορφή raster εικόνας που υποστηρίζει πολλαπλές σελίδες και μη απώλεια συμπίεση. Είναι χρήσιμο για την αποθήκευση αποδιδόμενων διαφανειών σε ένα μόνο αρχείο εικόνας.
+TIFF (**Tagged Image File Format**) είναι ένα μορφότυπο raster εικόνας που υποστηρίζει πολλαπλές σελίδες και συμπίεση χωρίς απώλεια. Είναι χρήσιμο για την αποθήκευση αποδιδόμενων διαφανειών σε ένα ενιαίο αρχείο εικόνας.
 
-Χρησιμοποιώντας το Aspose.Slides για Python μέσω Java, μπορείτε να μετατρέψετε παρουσιάσεις PowerPoint (PPT, PPTX) και OpenDocument (ODP) σε TIFF. Κάθε παράδειγμα παρακάτω ξεκινά τη μηχανή εικονικής Java εάν χρειάζεται και απελευθερώνει την παρουσίαση μετά τη χρήση. 
+Χρησιμοποιώντας το Aspose.Slides για Python μέσω Java, μπορείτε να μετατρέψετε παρουσιάσεις PowerPoint (PPT, PPTX) και OpenDocument (ODP) σε TIFF. Κάθε παράδειγμα παρακάτω ξεκινά τη μηχανή εικονικού Java εάν χρειάζεται και απελευθερώνει την παρουσίαση μετά τη χρήση. 
 
-## **Μετατροπή Παρουσίασης σε TIFF**
+## **Μετατροπή παρουσίασης σε TIFF**
 
-Χρησιμοποιώντας τη μέθοδο [save](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#save) που παρέχεται από την κλάση [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/), μπορείτε γρήγορα να μετατρέψετε ολόκληρη παρουσίαση PowerPoint σε TIFF. Το προκύπτον TIFF πολλαπλών σελίδων περιέχει μια αποδιδόμενη εικόνα κάθε διαφάνειας στο προεπιλεγμένο μέγεθος.
+Χρησιμοποιώντας τη μέθοδο [αποθήκευση](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#save) που παρέχεται από την κλάση [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) μπορείτε γρήγορα να μετατρέψετε μια ολόκληρη παρουσίαση PowerPoint σε TIFF. Το προκύπτον TIFF πολλαπλών σελίδων περιέχει μια αποδιδόμενη εικόνα κάθε διαφάνειας στο προεπιλεγμένο μέγεθος.
 
-Αυτό το κομμάτι κώδικα δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε TIFF:
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε TIFF:
 
 ```python
 import jpype
@@ -54,19 +54,19 @@ finally:
     presentation.dispose()
 ```
 
-## **Μετατροπή Παρουσίασης σε Ασπρόμαυρο TIFF**
+## **Μετατροπή παρουσίασης σε Ασπρόμαυρο TIFF**
 
-Η μέθοδος [setBwConversionMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setBwConversionMode) στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/) σας επιτρέπει να καθορίσετε τον αλγόριθμο που χρησιμοποιείται όταν μετατρέπετε μια έγχρωμη διαφάνεια ή εικόνα σε ασπρόμαυρο TIFF. Σημειώστε ότι αυτή η ρύθμιση εφαρμόζεται μόνο όταν η μέθοδος [setCompressionType](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setCompressionType) ορίζεται σε [TiffCompressionTypes.CCITT4](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffcompressiontypes/#CCITT4) ή [TiffCompressionTypes.CCITT3](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffcompressiontypes/#CCITT3).
+Η μέθοδος [setBwConversionMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setBwConversionMode) στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/) επιτρέπει να ορίσετε τον αλγόριθμο που χρησιμοποιείται όταν μετατρέπετε μια έγχρωμη διαφάνεια ή εικόνα σε ασπρόμαυρο TIFF. Σημειώστε ότι αυτή η ρύθμιση ισχύει μόνο όταν η μέθοδος [setCompressionType](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setCompressionType) ορίζεται σε [TiffCompressionTypes.CCITT4](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffcompressiontypes/#CCITT4) ή [TiffCompressionTypes.CCITT3](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffcompressiontypes/#CCITT3).
 
 {{% alert color="info" title="Σημείωση" %}}
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setBwConversionMode) είναι μια ρύθμιση επιπέδου εξαγωγή που επιλέγει αλγόριθμο μετατροπής εικονοστοιχείου για ολόκληρη την εικόνα TIFF. Για να ορίσετε πώς πρέπει να εμφανίζεται ένα μεμονωμένο σχήμα όταν είναι ενεργή η ασπρόμαυρη λειτουργία εμφάνισης, χρησιμοποιήστε [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#setBlackWhiteMode). Δείτε το [Έλεγχος Ασπρόμαυρης Απόδοσης Σχημάτων](/slides/el/python-java/shape-formatting/#control-black-and-white-rendering-for-shapes) για παραδείγματα.
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setBwConversionMode) είναι μια ρύθμιση επιπέδου εξαγωγής που επιλέγει έναν αλγόριθμο μετατροπής pixel για ολόκληρη την εικόνα TIFF. Για να ορίσετε πώς πρέπει να εμφανίζεται ένα μεμονωμένο σχήμα όταν είναι ενεργή η λειτουργία ασπρόμαυρης εμφάνισης, χρησιμοποιήστε το [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#setBlackWhiteMode). Δείτε το [Control Black-and-White Rendering for Shapes](/slides/el/python-java/shape-formatting/#control-black-and-white-rendering-for-shapes) για παραδείγματα.
 {{% /alert %}}
 
-Ας πούμε ότι έχουμε ένα αρχείο "sample.pptx" με την ακόλουθη διαφάνεια:
+Ας πούμε ότι έχουμε ένα αρχείο «sample.pptx» με την παρακάτω διαφάνεια:
 
 ![Διαφάνεια παρουσίασης](slide_black_and_white.png)
 
-Αυτό το κομμάτι κώδικα δείχνει πώς να μετατρέψετε την έγχρωμη διαφάνεια σε ασπρόμαυρο TIFF:
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε τη χρωματιστή διαφάνεια σε ασπρόμαυρο TIFF:
 
 ```python
 import jpype
@@ -92,11 +92,11 @@ finally:
 
 ![Ασπρόμαυρο TIFF](TIFF_black_and_white.png)
 
-## **Μετατροπή Παρουσίασης σε TIFF με Προσαρμοσμένο Μέγεθος**
+## **Μετατροπή παρουσίασης σε TIFF με προσαρμοσμένο μέγεθος**
 
-Εάν χρειάζεστε μια εικόνα TIFF με συγκεκριμένες διαστάσεις, μπορείτε να ορίσετε τις επιθυμητές τιμές χρησιμοποιώντας μεθόδους που διατίθενται στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/). Για παράδειγμα, η μέθοδος [setImageSize](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setImageSize) σας επιτρέπει να καθορίσετε το μέγεθος της προκύπτουσας εικόνας.
+Εάν χρειάζεστε εικόνα TIFF με συγκεκριμένες διαστάσεις, μπορείτε να ορίσετε τις επιθυμητές τιμές χρησιμοποιώντας τις μεθόδους που διατίθενται στην κλάση [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/). Για παράδειγμα, η μέθοδος [setImageSize](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setImageSize) σας επιτρέπει να ορίσετε το μέγεθος της προκύπτουσας εικόνας.
 
-Αυτό το κομμάτι κώδικα δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε εικόνες TIFF με προσαρμοσμένο μέγεθος:
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε εικόνες TIFF με προσαρμοσμένο μέγεθος:
 
 ```python
 import jpype
@@ -113,15 +113,15 @@ try:
     tiff_options = TiffOptions()
     tiff_options.setCompressionType(TiffCompressionTypes.Default)
 
-    # Ορισμός της οριζόντιας και κάθετης ανάλυσης.
+    # Ορίστε την οριζόντια και κάθετη ανάλυση.
     tiff_options.setDpiX(200)
     tiff_options.setDpiY(200)
 
-    # Ορισμός των διαστάσεων εξόδου σε εικονοστοιχεία.
+    # Ορίστε τις διαστάσεις εξόδου σε εικονοστοιχεία.
     image_size = Dimension(1728, 1078)
     tiff_options.setImageSize(image_size)
 
-    # Συμπερίληψη των πλήρων σημειώσεων ομιλητή κάτω από κάθε διαφάνεια.
+    # Συμπεριλάβετε τις πλήρεις σημειώσεις ομιλητή κάτω από κάθε διαφάνεια.
     notes_options = NotesCommentsLayoutingOptions()
     notes_options.setNotesPosition(NotesPositions.BottomFull)
     tiff_options.setSlidesLayoutOptions(notes_options)
@@ -131,11 +131,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Μετατροπή Παρουσίασης σε TIFF με Προσαρμοσμένη Μορφή Πιξελ Εικόνας**
+## **Μετατροπή παρουσίασης σε TIFF με προσαρμοσμένη μορφή pixel εικόνας**
 
-Χρησιμοποιώντας τη μέθοδο [setPixelFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setPixelFormat) από την κλάση [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/), μπορείτε να καθορίσετε την προτιμώμενη μορφή πιξελ για την προκύπτουσα εικόνα TIFF.
+Χρησιμοποιώντας τη μέθοδο [setPixelFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/#setPixelFormat) από την κλάση [TiffOptions](https://reference.aspose.com/slides/el/python-java/aspose.slides/tiffoptions/) μπορείτε να καθορίσετε την προτιμώμενη μορφή pixel για την προκύπτουσα εικόνα TIFF.
 
-Αυτό το κομμάτι κώδικα δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε εικόνα TIFF με προσαρμοσμένη μορφή πιξελ:
+Αυτός ο κώδικας δείχνει πώς να μετατρέψετε μια παρουσίαση PowerPoint σε εικόνα TIFF με προσαρμοσμένη μορφή pixel:
 
 ```python
 import jpype
@@ -157,19 +157,19 @@ finally:
 ```
 
 {{% alert title="Συμβουλή" color="success" %}}
-Δείτε τον [ΔΩΡΕΑΝ μετατροπέα PowerPoint σε Αφίσα](https://products.aspose.app/slides/el/conversion/convert-ppt-to-poster-online) του Aspose.
+Δείτε το [ΔΩΡΕΑΝ μετατροπέα PowerPoint σε αφίσα]​(https://products.aspose.app/slides/el/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
 **Μπορώ να μετατρέψω μια μεμονωμένη διαφάνεια αντί για ολόκληρη παρουσίαση PowerPoint σε TIFF;**
 
-Ναι. Το Aspose.Slides επιτρέπει τη μετατροπή μεμονωμένων διαφανειών από παρουσιάσεις PowerPoint και OpenDocument σε εικόνες TIFF ξεχωριστά.
+Ναι. Το Aspose.Slides σάς επιτρέπει να μετατρέψετε μεμονωμένες διαφάνειες από παρουσιάσεις PowerPoint και OpenDocument σε εικόνες TIFF ξεχωριστά.
 
 **Υπάρχει κάποιο όριο στον αριθμό των διαφανειών κατά τη μετατροπή μιας παρουσίασης σε TIFF;**
 
-Δεν υπάρχει καθορισμένο όριο στον αριθμό των διαφανειών για εξαγωγή TIFF. Η διαθέσιμη μνήμη, η πολυπλοκότητα των διαφανειών και οι διαστάσεις εξόδου επηρεάζουν το μέγεθος των παρουσιάσεων που μπορείτε να επεξεργαστείτε.
+Δεν υπάρχει σταθερό όριο στον αριθμό των διαφανειών για εξαγωγή σε TIFF. Η διαθέσιμη μνήμη, η πολυπλοκότητα των διαφανειών και οι διαστάσεις εξόδου επηρεάζουν το μέγεθος των παρουσιάσεων που μπορείτε να επεξεργαστήτε.
 
-**Διατηρούνται οι κινήσεις και τα εφέ μετάβασης του PowerPoint κατά τη μετατροπή των διαφανειών σε TIFF;**
+**Διατηρούνται τα εφέ κίνησης και μεταβάσεων του PowerPoint όταν μετατρέπονται οι διαφάνειες σε TIFF;**
 
-Όχι, το TIFF είναι μια μορφή στατικής εικόνας. Συνεπώς, οι κινήσεις και τα εφέ μετάβασης δεν διατηρούνται· εξάγονται μόνο στατικά στιγμιότυπα των διαφανειών.
+Όχι, το TIFF είναι μορφότυπο στατικής εικόνας. Συνεπώς, τα εφέ κίνησης και μεταβάσεων δεν διατηρούνται· μόνο στατικές λήψεις των διαφανειών εξάγονται.

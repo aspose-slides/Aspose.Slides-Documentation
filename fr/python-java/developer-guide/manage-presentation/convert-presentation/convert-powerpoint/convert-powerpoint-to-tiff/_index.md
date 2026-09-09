@@ -1,5 +1,5 @@
 ---
-title: Convertir des présentations PowerPoint en TIFF avec Python
+title: Convertir des présentations PowerPoint en TIFF en Python
 linktitle: PowerPoint en TIFF
 type: docs
 weight: 90
@@ -27,15 +27,13 @@ description: "Apprenez comment convertir facilement des présentations PowerPoin
 ---
 ## **Introduction**
 
-TIFF (**Tagged Image File Format**) est un format d’image raster qui prend en charge plusieurs pages et la compression sans perte. Il est utile pour stocker des diapositives rendues dans un seul fichier image.
+TIFF (**Tagged Image File Format**) est un format d'image raster qui prend en charge plusieurs pages et la compression sans perte. Il est utile pour stocker les diapositives rendues dans un seul fichier image.
 
-En utilisant Aspose.Slides for Python via Java, vous pouvez convertir des présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) en TIFF. Chaque exemple ci‑dessous démarre la machine virtuelle Java si nécessaire et libère la présentation après utilisation. 
+Avec Aspose.Slides pour Python via Java, vous pouvez convertir des présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) en TIFF. Chaque exemple ci‑dessous démarre la machine virtuelle Java si nécessaire et libère la présentation après utilisation. 
 
 ## **Convertir une présentation en TIFF**
 
 En utilisant la méthode [save](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#save) fournie par la classe [Presentation](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/), vous pouvez rapidement convertir une présentation PowerPoint complète en TIFF. Le TIFF multipage résultant contient une image rendue de chaque diapositive à la taille par défaut.
-
-Ce code montre comment convertir une présentation PowerPoint en TIFF :
 
 ```python
 import jpype
@@ -48,7 +46,7 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation("presentation.pptx")
 try:
-    # Enregistrer toutes les diapositives dans un fichier TIFF multipage.
+    # Enregistrez toutes les diapositives dans un fichier TIFF multipage.
     presentation.save("output.tiff", SaveFormat.Tiff)
 finally:
     presentation.dispose()
@@ -56,13 +54,13 @@ finally:
 
 ## **Convertir une présentation en TIFF noir et blanc**
 
-La méthode [setBwConversionMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setBwConversionMode) de la classe [TiffOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/) vous permet de spécifier l’algorithme utilisé lors de la conversion d’une diapositive ou d’une image couleur en TIFF noir et blanc. Notez que ce paramètre ne s’applique que lorsque la méthode [setCompressionType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setCompressionType) est réglée sur [TiffCompressionTypes.CCITT4](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffcompressiontypes/#CCITT4) ou [TiffCompressionTypes.CCITT3](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffcompressiontypes/#CCITT3).
+La méthode [setBwConversionMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setBwConversionMode) dans la classe [TiffOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/) vous permet de préciser l'algorithme utilisé lors de la conversion d'une diapositive ou d'une image couleur en TIFF noir et blanc. Notez que ce paramètre s'applique uniquement lorsque la méthode [setCompressionType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setCompressionType) est définie sur [TiffCompressionTypes.CCITT4](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffcompressiontypes/#CCITT4) ou [TiffCompressionTypes.CCITT3](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffcompressiontypes/#CCITT3).
 
 {{% alert color="info" title="Note" %}}
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setBwConversionMode) est un paramètre au niveau de l’export qui sélectionne un algorithme de conversion de pixels pour l’image TIFF complète. Pour définir comment une forme individuelle doit apparaître lorsqu’un mode d’affichage noir et blanc est actif, utilisez [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#setBlackWhiteMode). Voir [Control Black-and-White Rendering for Shapes](/slides/fr/python-java/shape-formatting/#control-black-and-white-rendering-for-shapes) pour des exemples.
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setBwConversionMode) est un paramètre au niveau de l'exportation qui sélectionne un algorithme de conversion de pixels pour l'image TIFF complète. Pour définir l'apparence d'une forme individuelle lorsque le mode d'affichage noir et blanc est actif, utilisez [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#setBlackWhiteMode). Consultez [Contrôler le rendu noir et blanc pour les formes](/slides/fr/python-java/shape-formatting/#control-black-and-white-rendering-for-shapes) pour des exemples.
 {{% /alert %}}
 
-Supposons que nous ayons un fichier "sample.pptx" avec la diapositive suivante :
+Supposons que nous ayons un fichier "sample.pptx" contenant la diapositive suivante :
 
 ![Une diapositive de présentation](slide_black_and_white.png)
 
@@ -88,15 +86,13 @@ finally:
     presentation.dispose()
 ```
 
-Le résultat:
+Le résultat :
 
 ![TIFF noir et blanc](TIFF_black_and_white.png)
 
-## **Convertir une présentation en TIFF avec taille personnalisée**
+## **Convertir une présentation en TIFF avec une taille personnalisée**
 
-Si vous avez besoin d’une image TIFF avec des dimensions spécifiques, vous pouvez définir les valeurs souhaitées à l’aide des méthodes disponibles dans [TiffOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/). Par exemple, la méthode [setImageSize](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setImageSize) vous permet de définir la taille de l’image résultante.
-
-Ce code montre comment convertir une présentation PowerPoint en images TIFF avec une taille personnalisée :
+Si vous avez besoin d'une image TIFF avec des dimensions spécifiques, vous pouvez définir les valeurs souhaitées à l'aide des méthodes disponibles dans [TiffOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/). Par exemple, la méthode [setImageSize](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setImageSize) vous permet de spécifier la taille de l'image résultante.
 
 ```python
 import jpype
@@ -131,11 +127,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Convertir une présentation en TIFF avec format de pixel d’image personnalisé**
+## **Convertir une présentation en TIFF avec un format de pixel d'image personnalisé**
 
-En utilisant la méthode [setPixelFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setPixelFormat) de la classe [TiffOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/), vous pouvez spécifier le format de pixel souhaité pour l’image TIFF résultante.
-
-Ce code montre comment convertir une présentation PowerPoint en image TIFF avec un format de pixel personnalisé :
+En utilisant la méthode [setPixelFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/#setPixelFormat) de la classe [TiffOptions](https://reference.aspose.com/slides/fr/python-java/aspose.slides/tiffoptions/), vous pouvez indiquer le format de pixel souhaité pour l'image TIFF résultante.
 
 ```python
 import jpype
@@ -156,20 +150,20 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert title="Tip" color="success" %}}
-Découvrez le [convertisseur GRATUIT PowerPoint vers Poster](https://products.aspose.app/slides/fr/conversion/convert-ppt-to-poster-online).
+{{% alert title="Astuce" color="success" %}}
+Découvrez le [convertisseur GRATUIT PowerPoint vers Poster]https://products.aspose.app/slides/fr/conversion/convert-ppt-to-poster-online) d’Aspose.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Puis-je convertir une diapositive individuelle au lieu de la présentation PowerPoint complète en TIFF ?**
+**Puis‑je convertir une diapositive individuelle au lieu de toute la présentation PowerPoint en TIFF ?**
 
-Oui. Aspose.Slides vous permet de convertir des diapositives individuelles provenant de présentations PowerPoint et OpenDocument en images TIFF séparément.
+Oui. Aspose.Slides vous permet de convertir des diapositives individuelles de présentations PowerPoint et OpenDocument en images TIFF séparément.
 
-**Existe-t-il une limite au nombre de diapositives lors de la conversion d’une présentation en TIFF ?**
+**Existe‑t‑il une limite au nombre de diapositives lors de la conversion d’une présentation en TIFF ?**
 
-Il n’y a pas de limite fixe du nombre de diapositives pour l’exportation TIFF. La mémoire disponible, la complexité des diapositives et les dimensions de sortie influencent la taille des présentations que vous pouvez traiter.
+Il n’existe pas de limite fixe du nombre de diapositives pour l’exportation en TIFF. La mémoire disponible, la complexité des diapositives et les dimensions de sortie influencent la taille des présentations que vous pouvez traiter.
 
-**Les animations et effets de transition PowerPoint sont-ils conservés lors de la conversion des diapositives en TIFF ?**
+**Les animations et les transitions PowerPoint sont‑elles conservées lors de la conversion des diapositives en TIFF ?**
 
-Non, le TIFF est un format d’image statique. Ainsi, les animations et effets de transition ne sont pas conservés ; seules des captures d’écran statiques des diapositives sont exportées.
+Non, le TIFF est un format d'image statique. Ainsi, les animations et les effets de transition ne sont pas conservés ; seules des captures d’écran statiques des diapositives sont exportées.

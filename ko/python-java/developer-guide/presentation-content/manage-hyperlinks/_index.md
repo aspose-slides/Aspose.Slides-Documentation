@@ -7,7 +7,7 @@ url: /ko/python-java/manage-hyperlinks/
 keywords:
 - URL 추가
 - 하이퍼링크 추가
-- 하이퍼링크 생성
+- 하이퍼링크 만들기
 - 하이퍼링크 서식 지정
 - 하이퍼링크 제거
 - 하이퍼링크 업데이트
@@ -23,26 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션의 하이퍼링크를 손쉽게 관리하고, 몇 분 안에 인터랙티브와 작업 흐름을 향상시킵니다."
+description: "Aspose.Slides for Python via Java를 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 하이퍼링크를 손쉽게 관리하고, 몇 분 만에 인터랙티브와 워크플로를 향상시킵니다."
 ---
 ## **소개**
 
-하이퍼링크는 객체나 데이터, 혹은 어떤 위치에 대한 참조입니다. 다음은 PowerPoint 프레젠테이션에서 일반적으로 사용되는 하이퍼링크입니다:
+하이퍼링크는 객체, 데이터 또는 위치에 대한 참조입니다. PowerPoint 프레젠테이션에서 일반적인 하이퍼링크에는 다음이 포함됩니다:
 
-* 텍스트, 도형 또는 미디어 내의 웹사이트 링크
-* 슬라이드 링크
+* 텍스트, 도형 또는 미디어에 포함된 웹사이트 링크
+* 슬라이드에 대한 링크
 
 Aspose.Slides for Python via Java를 사용하면 프레젠테이션에서 하이퍼링크와 관련된 다양한 작업을 수행할 수 있습니다.
 
-{{% alert color="info" title="참고" %}} 
-Aspose 간단한 [무료 온라인 PowerPoint 편집기](https://products.aspose.app/slides/ko/editor)를 확인해 보세요.
-{{% /alert %}}
+{{% alert color="info" title="Note" %}} 
+Aspose의 간단한 [무료 온라인 PowerPoint 편집기](https://products.aspose.app/slides/ko/editor)를 확인해 보세요.
+{{% /alert %}} 
 
 ## **URL 하이퍼링크 추가**
 
 ### **텍스트에 URL 하이퍼링크 추가**
 
-다음 Python 코드는 텍스트에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
+이 Python 코드는 텍스트에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -70,7 +70,7 @@ finally:
 
 ### **도형 또는 프레임에 URL 하이퍼링크 추가**
 
-Python via Java 샘플 코드는 도형에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
+Python via Java로 작성된 이 샘플 코드는 도형에 웹사이트 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -97,7 +97,7 @@ finally:
 
 Aspose.Slides를 사용하면 이미지, 오디오 및 비디오 파일에 하이퍼링크를 추가할 수 있습니다.
 
-다음 샘플 코드는 **이미지**에 하이퍼링크를 추가하는 방법을 보여줍니다:
+이 샘플 코드는 **이미지**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -110,13 +110,13 @@ from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeT
 
 presentation = Presentation()
 try:
-    # 프레젠테이션에 이미지 추가
+    # 프레젠테이션에 이미지를 추가합니다
     image = Images.fromFile("image.png")
     try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # 이전에 추가된 이미지를 기반으로 슬라이드 1에 그림 프레임 생성
+    # 이전에 추가한 이미지를 기반으로 슬라이드 1에 그림 프레임을 생성합니다
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -127,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-다음 샘플 코드는 **오디오 파일**에 하이퍼링크를 추가하는 방법을 보여줍니다:
+이 샘플 코드는 **오디오 파일**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```python
 from pathlib import Path
@@ -155,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-다음 샘플 코드는 **비디오**에 하이퍼링크를 추가하는 방법을 보여줍니다:
+이 샘플 코드는 **비디오**에 하이퍼링크를 추가하는 방법을 보여줍니다:
 
 ```python
 from pathlib import Path
@@ -183,15 +183,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="팁" %}} 
-다음 *[OLE 관리](/slides/ko/python-java/manage-ole/)*를 확인해 보세요.
+{{% alert color="success" title="Tip" %}} 
+다음도 확인해 보세요 *[OLE 관리](/slides/ko/python-java/manage-ole/)*.
 {{% /alert %}}
 
 ## **하이퍼링크를 사용하여 목차 만들기**
 
-하이퍼링크를 사용하면 객체나 위치에 대한 참조를 추가할 수 있으므로 목차를 만들 때 활용할 수 있습니다.
+하이퍼링크를 사용하면 객체나 위치에 대한 참조를 추가할 수 있으므로 이를 활용해 목차를 만들 수 있습니다.
 
-다음 샘플 코드는 하이퍼링크가 포함된 목차를 만드는 방법을 보여줍니다:
+이 샘플 코드는 하이퍼링크가 포함된 목차를 만드는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -235,9 +235,9 @@ finally:
 
 ### **색상**
 
-링크의 색상을 설정하고 하이퍼링크에서 색상 정보를 가져오려면 [Hyperlink.setColorSource](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/#setColorSource) 속성을 [Hyperlink](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/) 클래스에서 사용할 수 있습니다. 이 기능은 PowerPoint 2019에서 처음 도입되었으므로, 해당 속성과 관련된 변경 사항은 이전 버전의 PowerPoint에는 적용되지 않습니다.
+[Hyperlink.setColorSource](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/#setColorSource) 속성을 사용하면 하이퍼링크의 색상을 설정하고 색상 정보를 가져올 수 있습니다. 이 기능은 PowerPoint 2019에서 처음 도입되었으므로 해당 속성에 대한 변경 사항은 이전 버전의 PowerPoint에는 적용되지 않습니다.
 
-다음 샘플 코드는 서로 다른 색상의 하이퍼링크를 동일한 슬라이드에 추가하는 작업을 보여줍니다:
+이 샘플 코드는 동일한 슬라이드에 서로 다른 색상의 하이퍼링크를 추가하는 작업을 보여줍니다:
 
 ```python
 import jpype
@@ -273,7 +273,7 @@ finally:
 
 ### **텍스트에서 하이퍼링크 제거**
 
-다음 Python 코드는 프레젠테이션 슬라이드의 텍스트에서 하이퍼링크를 제거하는 방법을 보여줍니다:
+이 Python 코드는 프레젠테이션 슬라이드의 텍스트에서 하이퍼링크를 제거하는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -302,7 +302,7 @@ finally:
 
 ### **도형 또는 프레임에서 하이퍼링크 제거**
 
-다음 Python 코드는 프레젠테이션 슬라이드의 도형에서 하이퍼링크를 제거하는 방법을 보여줍니다: 
+이 Python 코드는 프레젠테이션 슬라이드의 도형에서 하이퍼링크를 제거하는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -325,7 +325,7 @@ finally:
 
 ## **가변 하이퍼링크**
 
-[Hyperlink](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/) 클래스는 가변입니다. 이 클래스를 사용하면 다음 속성값을 변경할 수 있습니다:
+[Hyperlink](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/) 클래스는 변경 가능합니다. 이 클래스를 사용하면 다음 속성 값을 변경할 수 있습니다:
 
 - [setTargetFrame](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -333,7 +333,7 @@ finally:
 - [setHighlightClick](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-다음 코드 조각은 슬라이드에 하이퍼링크를 추가하고 나중에 툴팁을 편집하는 방법을 보여줍니다:
+이 코드 조각은 슬라이드에 하이퍼링크를 추가하고 나중에 툴팁을 편집하는 방법을 보여줍니다:
 
 ```python
 import jpype
@@ -364,13 +364,13 @@ finally:
 
 ## **HyperlinkQueries에서 지원되는 속성**
 
-하이퍼링크가 정의된 프레젠테이션, 슬라이드 또는 텍스트에서 [HyperlinkQueries](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlinkqueries/)에 접근할 수 있습니다. 
+프레젠테이션, 슬라이드 또는 하이퍼링크가 정의된 텍스트에서 [HyperlinkQueries](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlinkqueries/)에 액세스할 수 있습니다.
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/ko/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/ko/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/ko/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-[HyperlinkQueries](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlinkqueries/) 클래스는 다음 메서드와 속성을 지원합니다: 
+[HyperlinkQueries](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlinkqueries/) 클래스는 다음 메서드와 속성을 지원합니다:
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/ko/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
@@ -379,14 +379,14 @@ finally:
 
 ## **FAQ**
 
-**슬라이드뿐만 아니라 "섹션"이나 섹션의 첫 번째 슬라이드로 내부 탐색을 만들려면 어떻게 해야 하나요?**
+**섹션 또는 섹션의 첫 번째 슬라이드로 이동하는 내부 탐색을 어떻게 만들 수 있나요?**
 
-PowerPoint에서 섹션은 슬라이드의 그룹이며, 탐색은 기술적으로 특정 슬라이드를 대상으로 합니다. "섹션으로 이동"하려면 일반적으로 해당 섹션의 첫 번째 슬라이드에 링크를 연결합니다.
+PowerPoint의 섹션은 슬라이드를 그룹화한 것이며, 탐색은 기술적으로 특정 슬라이드를 대상으로 합니다. '섹션으로 이동'하려면 일반적으로 해당 섹션의 첫 번째 슬라이드에 링크합니다.
 
-**마스터 슬라이드 요소에 하이퍼링크를 연결하면 모든 슬라이드에서 작동하도록 할 수 있나요?**
+**마스터 슬라이드 요소에 하이퍼링크를 연결하여 모든 슬라이드에서 작동하도록 할 수 있나요?**
 
-예. 마스터 슬라이드 및 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 링크는 하위 슬라이드에 표시되며 슬라이드 쇼 중에 클릭할 수 있습니다.
+예. 마스터 슬라이드와 레이아웃 요소는 하이퍼링크를 지원합니다. 이러한 링크는 하위 슬라이드에 표시되며 슬라이드 쇼 중에 클릭할 수 있습니다.
 
 **PDF, HTML, 이미지 또는 비디오로 내보낼 때 하이퍼링크가 유지되나요?**
 
-[PDF](/slides/ko/python-java/convert-powerpoint-to-pdf/)와 [HTML](/slides/ko/python-java/convert-powerpoint-to-html/)에서는 링크가 일반적으로 유지됩니다. [이미지](/slides/ko/python-java/convert-powerpoint-to-png/)와 [비디오](/slides/ko/python-java/convert-powerpoint-to-video/)로 내보낼 경우, 해당 형식은 래스터 프레임/비디오가 하이퍼링크를 지원하지 않기 때문에 클릭 가능성이 유지되지 않습니다.
+[PDF](/slides/ko/python-java/convert-powerpoint-to-pdf/)와 [HTML](/slides/ko/python-java/convert-powerpoint-to-html/)에서는 하이퍼링크가 일반적으로 유지됩니다. [이미지](/slides/ko/python-java/convert-powerpoint-to-png/)와 [비디오](/slides/ko/python-java/convert-powerpoint-to-video/)로 내보낼 경우, 해당 포맷의 특성상(래스터 프레임/비디오는 하이퍼링크를 지원하지 않음) 클릭 가능한 상태가 유지되지 않습니다.

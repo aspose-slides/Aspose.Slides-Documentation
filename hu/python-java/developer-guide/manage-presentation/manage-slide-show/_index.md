@@ -1,43 +1,43 @@
 ---
-title: Diaátverések kezelése Pythonon keresztül Java-val
+title: Diavetítések kezelése Pythonon keresztül Java-val
 linktitle: Diavetítés
 type: docs
 weight: 90
 url: /hu/python-java/manage-slide-show/
 keywords:
-- bemutató típusa
+- diavetítés típusa
 - előadó által bemutatott
 - egyéni böngészés
-- kioszkban böngészve
-- bemutató beállítások
+- kioszkos böngészés
+- vetítési beállítások
 - folyamatos ciklus
-- narráció nélkül
-- animáció nélkül
+- narráció nélküli vetítés
+- animáció nélküli vetítés
 - toll színe
 - diák megjelenítése
-- egyedi bemutató
+- egyéni vetítés
 - diák előrehaladása
-- manuálisan
+- kézzel
 - időzítések használata
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Python
 - Java
 - Aspose.Slides
-description: "Tanulja meg, hogyan kezelje a diavetítéseket az Aspose.Slides for Python via Java segítségével. Könnyedén szabályozza a diák átmeneteit, időzítéseit és egyebeket a PPT, PPTX és ODP formátumokban."
+description: "Ismerje meg, hogyan kezelheti a diavetítéseket az Aspose.Slides for Python via Java segítségével. Könnyedén szabályozhatja a diaátmeneteket, időzítéseket és egyéb beállításokat a PPT, PPTX és ODP formátumokban."
 ---
 ## **Bevezetés**
 
-A Microsoft PowerPoint **Set Up Show** beállításai lehetővé teszik a bemutató típusának kiválasztását, a ciklus engedélyezését, a diák kiválasztását és a diaváltás módjának szabályozását. Az Aspose.Slides for Python via Java segítségével ezeket a beállításokat programozottan konfigurálhatja, és egy bemutatófájlban elmentheti.
+A Microsoft PowerPoint **Set Up Show** beállításai lehetővé teszik a bemutató típusának kiválasztását, a ciklus engedélyezését, a diák kiválasztását, és a diák előrehaladásának szabályozását. Az Aspose.Slides for Python via Java segítségével ezek a beállítások programozottan konfigurálhatók, és egy bemutatófájlba menthetők.
 
-Az [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getSlideShowSettings) metódus egy [SlideShowSettings](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/) objektumot ad vissza, amely ezeket a beállításokat szabályozza. Az alábbi példák az Aspose.Slides for Python via Java és egy kompatibilis Java futtatókörnyezet használatát igénylik. Minden példa szükség esetén elindítja a JVM-et, és a végén felszabadítja a bemutatót.
+A [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getSlideShowSettings) metódus egy [SlideShowSettings](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/) objektumot ad vissza, amely szabályozza ezeket a beállításokat. Az alábbi példákhoz az Aspose.Slides for Python via Java és egy kompatibilis Java futtatókörnyezet szükséges. Minden példa elindítja a JVM-et, ha szükséges, és a végén felszabadítja a bemutatót.
 
 ## **Bemutató típusának kiválasztása**
 
-Az [SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setSlideShowType) meghatározza a diavetítés típusát, amely a következő osztályok egyikének példánya lehet: [PresentedBySpeaker](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/hu/python-java/aspose.slides/browsedbyindividual/), vagy [BrowsedAtKiosk](https://reference.aspose.com/slides/hu/python-java/aspose.slides/browsedatkiosk/). Ennek a metódusnak a használatával a bemutatót különböző felhasználási scenáriókhoz igazíthatja, például automatizált kioszkokhoz vagy kézi bemutatókhoz.
+[A SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setSlideShowType) meghatározza a diavetítés típusát, amely a következő osztályok valamelyikének példánya lehet: [PresentedBySpeaker](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/hu/python-java/aspose.slides/browsedbyindividual/), vagy [BrowsedAtKiosk](https://reference.aspose.com/slides/hu/python-java/aspose.slides/browsedatkiosk/). Ennek a metódusnak a használata lehetővé teszi a bemutató különböző felhasználási forgatókönyvekhez való igazítását, például automatizált kioszkokhoz vagy manuális bemutatókhoz.
 
-Az alábbi kódrészlet új bemutatót hoz létre, és a bemutató típusát „Browsed by an individual” értékre állítja anélkül, hogy a görgetősáv megjelenne.
+Az alábbi kódrészlet egy új bemutatót hoz létre, és a bemutató típusát „Browsed by an individual” értékre állítja a gördítősáv megjelenítése nélkül.
 
 ```python
 import jpype
@@ -59,13 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Bemutató opciók engedélyezése**
+## **Megjelenítési lehetőségek engedélyezése**
 
-Az [SlideShowSettings.setLoop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setLoop) meghatározza, hogy a diavetítés ciklusban ismétlődjön-e, amíg manuálisan le nem állítják. Ez hasznos automatikus bemutatók esetén, amelyeknek folyamatosan kell futniuk.  
-Az [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setShowNarration) meghatározza, hogy a hangos narrációk lejátszódjanak-e a diavetítés során. Hasznos automatikus bemutatók esetén, amelyek hangutasítást tartalmaznak a közönség számára.  
-Az [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setShowAnimation) meghatározza, hogy a diák objektumaihoz hozzáadott animációk le legyenek-e játszva. Ez a teljes vizuális hatás biztosításához hasznos.
+[A SlideShowSettings.setLoop](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setLoop) meghatározza, hogy a diavetítés ismétlődjön-e ciklikusan, amíg manuálisan nem állítják le. Ez hasznos automatizált bemutatók esetén, amelyek folyamatos futást igényelnek. A [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setShowNarration) beállítja, hogy a hangos narrációk lejátszódjanak-e a diavetítés során. Ez akkor hasznos, ha a bemutató hangutasítást tartalmaz a közönség számára. A [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setShowAnimation) meghatározza, hogy a diaképekre helyezett animációk lejátszódjanak-e. Ez a bemutató teljes vizuális hatásának biztosításához szükséges.
 
-Az alábbi kódrészlet új bemutatót hoz létre, és ciklikusan lejátsza a diavetítést.
+A következő kódrészlet egy új bemutatót hoz létre, és ciklikusan futtatja a diavetítést.
 
 ```python
 import jpype
@@ -87,8 +85,7 @@ finally:
 
 ## **Megjelenítendő diák kiválasztása**
 
-Az [SlideShowSettings.setSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setSlides) metódus lehetővé teszi a bemutató során megjelenítendő diák tartományának kiválasztását. Ez akkor hasznos, ha csak a bemutató egy részét szeretné megjeleníteni, nem az összes diát.  
-Az alábbi kódrészlet kilenc diás bemutatót hoz létre, és a 2‑től 9‑ig terjedő diákot választja ki. A tartomány egy‑alapú diaszámokat használ.
+[A SlideShowSettings.setSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setSlides) metódus lehetővé teszi a bemutató során megjelenítendő diák tartományának kiválasztását. Ez akkor hasznos, ha a teljes bemutató csak egy részét szeretné megjeleníteni, nem minden diát. Az alábbi kódrészlet kilenc diát tartalmazó bemutatót hoz létre, és a 2-9. diát választja ki. A tartomány egy-alapú diaszámozást használ.
 
 ```python
 import jpype
@@ -116,10 +113,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Diaváltás vezérlése**
+## **Diák előrehaladásának vezérlése**
 
-Az [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setUseTimings) metódus lehetővé teszi az előre beállított időzítések használatának engedélyezését vagy letiltását minden dián. Ez hasznos a diák automatikus, előre meghatározott megjelenítési idejének biztosításához.  
-Az alábbi kódrészlet új bemutatót hoz létre, és letiltja az időzítések használatát.
+[A SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setUseTimings) metódus engedélyezi vagy letiltja az előre beállított időzítések használatát minden diára vonatkozóan. Ez hasznos automatikus diavetítéshez, amely előre meghatározott megjelenítési időtartamokkal rendelkezik. Az alábbi kódrészlet egy új bemutatót hoz létre, és letiltja az időzítések használatát.
 
 ```python
 import jpype
@@ -139,10 +135,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Médiavezérlők megjelenítése**
+## **Média vezérlők megjelenítése**
 
-Az [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) metódus meghatározza, hogy a médiavezérlők (például lejátszás, szüneteltetés és leállítás) megjelenjenek-e a diavetítés során, amikor multimédia tartalom (pl. videó vagy hang) játszódik le. Ez akkor hasznos, ha a prezentáló számára lehetővé akarja tenni a média lejátszásának vezérlését a bemutató alatt.  
-Az alábbi kódrészlet új bemutatót hoz létre, és engedélyezi a médiavezérlők megjelenítését.
+[A SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) metódus meghatározza, hogy a diavetítés során, ha multimédiás tartalom (például videó vagy hang) játszódik, megjelenjenek-e a médiavezérlők (például lejátszás, szünet, stop). Ez akkor hasznos, ha a bemutató során a prezentátornak szeretnénk biztosítani a média lejátszásának irányítását.
+
+A következő kódrészlet egy új bemutatót hoz létre, és engedélyezi a médiavezérlők megjelenítését.
 
 ```python
 import jpype
@@ -164,11 +161,14 @@ finally:
 
 ## **GYIK**
 
-**Menthetek-e egy bemutatót úgy, hogy közvetlenül diavetítési módban nyílik meg?**  
-Igen. Mentse a fájlt PPSX vagy PPSM formátumban; ezek a formátumok a PowerPointban megnyitáskor közvetlenül diavetítési módban indulnak. Az Aspose.Slides-ben válassza a megfelelő mentési formátumot [exportálás során](/slides/hu/python-java/save-presentation/).
+**Menthetek egy bemutatót úgy, hogy közvetlenül diavetítési módban nyíljon meg?**
 
-**Kizárhatok-e egyes diákat a bemutatóból anélkül, hogy törölném őket a fájlból?**  
-Igen. Jelölje meg a diát [hidden](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#setHidden) állapotban. A rejtett diák megmaradnak a bemutatóban, de a diavetítés során nem jelennek meg.
+Igen. Mentse a fájlt PPSX vagy PPSM formátumban; ezek a formátumok a PowerPoint megnyitásakor közvetlenül diavetítési módban indulnak. Az Aspose.Slides-ben válassza ki a megfelelő mentési formátumot a [exportálás során](/slides/hu/python-java/save-presentation/).
 
-**Le tudja-e az Aspose.Slides lejátszani a diavetítést vagy vezérelni egy élő prezentációt a képernyőn?**  
-Nem. Az Aspose.Slides a bemutatófájlok szerkesztésére, elemzésére és konvertálására szolgál; a tényleges lejátszást egy nézőalkalmazás, például a PowerPoint kezeli.
+**Kiválaszthatok egyes diákat a bemutatóból anélkül, hogy törölném őket a fájlból?**
+
+Igen. Jelöljön meg egy diát [rejtettnek](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#setHidden). A rejtett diák a bemutatóban maradnak, de a diavetítés során nem jelennek meg.
+
+**Le tudja-e az Aspose.Slides lejátszani a diavetítést vagy vezérelni egy élő bemutatót a képernyőn?**
+
+Nem. Az Aspose.Slides a bemutatófájlokat szerkeszti, elemzi és konvertálja; a tényleges lejátszást egy megjelenítő alkalmazás, például a PowerPoint kezeli.

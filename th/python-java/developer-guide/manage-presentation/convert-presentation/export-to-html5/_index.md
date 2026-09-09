@@ -1,17 +1,17 @@
 ---
-title: แปลงการนำเสนอเป็น HTML5 ด้วย Python ผ่าน Java
-linktitle: การนำเสนอเป็น HTML5
+title: แปลงงานนำเสนอเป็น HTML5 ด้วย Python ผ่าน Java
+linktitle: งานนำเสนอเป็น HTML5
 type: docs
 weight: 40
 url: /th/python-java/export-to-html5/
 keywords:
-- PowerPoint เป็น HTML5
-- OpenDocument เป็น HTML5
-- การนำเสนอเป็น HTML5
-- สไลด์เป็น HTML5
-- PPT เป็น HTML5
-- PPTX เป็น HTML5
-- ODP เป็น HTML5
+- PowerPoint ไปเป็น HTML5
+- OpenDocument ไปเป็น HTML5
+- การนำเสนอไปเป็น HTML5
+- สไลด์ไปเป็น HTML5
+- PPT ไปเป็น HTML5
+- PPTX ไปเป็น HTML5
+- ODP ไปเป็น HTML5
 - บันทึก PPT เป็น HTML5
 - บันทึก PPTX เป็น HTML5
 - บันทึก ODP เป็น HTML5
@@ -21,17 +21,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "ส่งออกการนำเสนอ PowerPoint และ OpenDocument ไปเป็น HTML5 ที่ตอบสนองต่ออุปกรณ์ด้วย Aspose.Slides สำหรับ Python ผ่าน Java. รักษาการจัดรูปแบบ การเคลื่อนไหว และความโต้ตอบ."
+description: "ส่งออกงานนำเสนอ PowerPoint & OpenDocument เป็น HTML5 แบบตอบสนองด้วย Aspose.Slides สำหรับ Python ผ่าน Java. รักษาการจัดรูปแบบ, เอฟเฟกต์เคลื่อนไหว, และความโต้ตอบ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีแปลงไฟล์งานนำเสนอ PowerPoint เป็น HTML5 ด้วย Aspose.Slides ครอบคลุมการส่งออก HTML5 พื้นฐานโดยไม่มีส่วนขยายเว็บเพิ่มเติม พร้อมตัวเลือกสำหรับการควบคุมการเคลื่อนไหวของรูปร่างและการเปลี่ยนสไลด์ บทความยังแสดงกระบวนการส่งออก PowerPoint ไปยัง HTML มาตรฐาน สาธิตการสร้างผลลัพธ์ HTML5 ในโหมดมุมมองสไลด์ และอธิบายวิธีใส่คอมเมนต์ลงในเอกสารที่ส่งออกโดยกำหนดค่าเลเอาท์ของคอมเมนต์
+บทความนี้อธิบายวิธีแปลงงานนำเสนอ PowerPoint เป็น HTML5 โดยใช้ Aspose.Slides ครอบคลุมการส่งออก HTML5 ขั้นพื้นฐานโดยไม่ต้องใช้ส่วนขยายเว็บเพิ่มเติม รวมถึงตัวเลือกในการควบคุมการเคลื่อนไหวของรูปร่างและการเปลี่ยนสไลด์ บทความยังแสดงกระบวนการส่งออกมาตรฐานจาก PowerPoint เป็น HTML อธิบายวิธีสร้างผลลัพธ์ HTML5 ในโหมดการดูสไลด์ และสาธิตวิธีรวมความคิดเห็นในเอกสารที่ส่งออกโดยกำหนดการจัดวางของมัน
 
-ตัวอย่างต้องใช้ Aspose.Slides for Python via Java และ Java runtime ที่เข้ากันได้ วางไฟล์ `pres.pptx` (หรือ `sample.pptx` สำหรับตัวอย่างคอมเมนต์) ไว้ในไดเรกทอรีทำงานปัจจุบัน แต่ละตัวอย่างจะเริ่ม JVM เฉพาะเมื่อยังไม่ได้รัน
+ตัวอย่างต้องใช้ Aspose.Slides for Python via Java และ Java runtime ที่เข้ากันได้ วาง `pres.pptx` (หรือ `sample.pptx` สำหรับตัวอย่างคอมเมนต์) ในไดเรกทรีทำงานปัจจุบัน ตัวอย่างแต่ละอันจะเริ่ม JVM เฉพาะเมื่อตัว JVM ยังไม่มีการทำงาน
 
-## **ส่งออก PowerPoint เป็น HTML5**
+## **ส่งออก PowerPoint ไปเป็น HTML5**
 
-ใช้ [Presentation.save](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#save) กับ [SaveFormat.Html5](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveformat/#Html5) เพื่อส่งออกงานนำเสนอโดยไม่มีส่วนขยายเว็บเพิ่มเติม:
+Use [Presentation.save](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#save) with [SaveFormat.Html5](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveformat/#Html5) to export a presentation without additional web extensions:
 
 ```python
 import jpype
@@ -50,10 +50,10 @@ finally:
 ```
 
 {{% alert color="info" title="หมายเหตุ" %}} 
-โปรแกรมส่งออก HTML5 จะสร้างเนื้อหา HTML สำหรับการแสดงผลในเบราว์เซอร์ 
+โปรแกรมส่งออก HTML5 จะสร้างเนื้อหา HTML สำหรับการดูในเบราว์เซอร์ 
 {{% /alert %}}
 
-ใช้ [Html5Options](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/) เพื่อตั้งค่าการส่งออก เรียกใช้ [setAnimateShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateShapes) และ [setAnimateTransitions](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateTransitions) ด้วยค่า `False` เพื่อปิดการเคลื่อนไหวของรูปร่างและการเปลี่ยนสไลด์:
+Use [Html5Options](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/) to configure the export. Call [setAnimateShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateShapes) and [setAnimateTransitions](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateTransitions) with `False` to disable shape animations and slide transitions:
 
 ```python
 import jpype
@@ -75,9 +75,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ส่งออก PowerPoint เป็น HTML**
+## **ส่งออก PowerPoint ไปเป็น HTML**
 
-ใช้ [SaveFormat.Html](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveformat/#Html) สำหรับการส่งออก HTML มาตรฐาน ดูรายละเอียดเพิ่มเติมที่ [Convert PowerPoint to HTML](/slides/th/python-java/convert-powerpoint-to-html/) :
+Use [SaveFormat.Html](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveformat/#Html) for standard HTML export. See [Convert PowerPoint to HTML](/slides/th/python-java/convert-powerpoint-to-html/) for more options:
 
 ```python
 import jpype
@@ -95,7 +95,7 @@ finally:
     presentation.dispose()
 ```
 
-ในกรณีนี้ เนื้อหาในงานนำเสนอจะถูกเรนเดอร์ผ่าน SVG ในรูปแบบดังต่อไปนี้:
+In this case, the presentation content is rendered through SVG in a form like this:
 
 ```html
 <body>
@@ -108,14 +108,14 @@ finally:
 ```
 
 {{% alert title="คำเตือน" color="warning" %}} 
-การส่งออก HTML มาตรฐานจะเรนเดอร์เนื้อหาสไลด์ผ่าน SVG และไม่ให้ตัวเลือกการเคลื่อนไหวของรูปร่างหรือการเปลี่ยนสไลด์ในรูปแบบ HTML5 
+Standard HTML export renders slide content through SVG and does not provide the HTML5 shape-animation and slide-transition options. 
 {{% /alert %}}
 
-## **ส่งออก PowerPoint เป็น HTML5 แบบมุมมองสไลด์**
+## **ส่งออก PowerPoint ไปเป็นมุมมองสไลด์ HTML5**
 
-**Aspose.Slides** ทำให้คุณสามารถแปลงงานนำเสนอ PowerPoint เป็นเอกสาร HTML5 ที่สไลด์จะถูกแสดงในโหมดมุมมองสไลด์ เมื่อเปิดไฟล์ HTML5 ที่ได้ในเบราว์เซอร์ คุณจะเห็นการนำเสนอในโหมดมุมมองสไลด์บนหน้าเว็บ
+**Aspose.Slides** allows you to convert a PowerPoint presentation to an HTML5 document in which the slides are presented in a slide view mode. In this case, when you open the resulting HTML5 file in a browser, you see the presentation in slide view mode on a web page.
 
-โค้ด Python ตัวอย่างนี้สาธิตกระบวนการส่งออก PowerPoint ไปเป็น HTML5 แบบมุมมองสไลด์:
+This Python code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```python
 import jpype
@@ -137,17 +137,17 @@ finally:
     presentation.dispose()
 ```
 
-## **แปลงการนำเสนอเป็นเอกสาร HTML5 พร้อมคอมเมนต์**
+## **แปลงงานนำเสนอเป็นเอกสาร HTML5 พร้อมคอมเมนต์**
 
-คอมเมนต์ใน PowerPoint เป็นเครื่องมือที่ช่วยให้ผู้ใช้สามารถทิ้งบันทึกหรือข้อเสนอแนะบนสไลด์ได้ โดยเฉพาะอย่างยิ่งในการทำงานร่วมกันหลายคนที่สามารถเพิ่มข้อเสนอหรือข้อคิดเห็นต่อองค์ประกอบของสไลด์โดยไม่ต้องแก้ไขเนื้อหาหลัก คอมเมนต์แต่ละรายการจะแสดงชื่อผู้เขียน ทำให้ติดตามได้ว่าใครเป็นผู้ทิ้งข้อคิดเห็น
+Comments in PowerPoint are a tool that allows users to leave notes or feedback on presentation slides. They are especially useful in collaborative projects, where multiple people can add their suggestions or remarks to specific slide elements without altering the main content. Each comment shows the author's name, making it easy to track who left the remark.
 
-ให้สมมติว่าเรามีไฟล์งานนำเสนอ PowerPoint ชื่อ “sample.pptx”
+Let's say we have the following PowerPoint presentation saved in the "sample.pptx" file.
 
 ![สองคอมเมนต์บนสไลด์การนำเสนอ](two_comments_pptx.png)
 
-เมื่อคุณแปลงงานนำเสนอ PowerPoint เป็นเอกสาร HTML5 สามารถระบุได้ว่าจะใส่คอมเมนต์จากงานนำเสนอลงในเอกสารผลลัพธ์หรือไม่ ทำได้โดยส่งพารามิเตอร์การแสดงผลของคอมเมนต์ไปยังเมธอด [setSlidesLayoutOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) ของคลาส [Html5Options](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/)
+When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, pass the display parameters for comments to the [setSlidesLayoutOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) method of the [Html5Options](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/) class.
 
-ใช้ [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/notescommentslayoutingoptions/) และ [setCommentsPosition](https://reference.aspose.com/slides/th/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) พร้อมกับ [CommentsPositions.Right](https://reference.aspose.com/slides/th/python-java/aspose.slides/commentspositions/#Right) ตัวอย่างโค้ดต่อไปนี้จะแปลงงานนำเสนอเป็นเอกสาร HTML5 โดยแสดงคอมเมนต์ที่อยู่ด้านขวาของสไลด์
+Use [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/notescommentslayoutingoptions/) and [setCommentsPosition](https://reference.aspose.com/slides/th/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) with [CommentsPositions.Right](https://reference.aspose.com/slides/th/python-java/aspose.slides/commentspositions/#Right). The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
 
 ```python
 import jpype
@@ -171,17 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-เอกสาร “output.html” แสดงในภาพด้านล่าง
+The "output.html" document is shown in the image below.
 
 ![คอมเมนต์ในเอกสาร HTML5 ที่ส่งออก](two_comments_html5.png)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถควบคุมได้หรือไม่ว่าการเคลื่อนไหวของวัตถุและการเปลี่ยนสไลด์จะเล่นใน HTML5 หรือไม่?**  
-ใช่, HTML5 มีตัวเลือกแยกต่างหากให้เปิดหรือปิด [shape animations](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateShapes) และ [slide transitions](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateTransitions)
+**ฉันสามารถควบคุมได้หรือไม่ว่าการเคลื่อนที่ของวัตถุและการเปลี่ยนสไลด์จะเล่นใน HTML5 หรือไม่?**
 
-**การสนับสนุนการแสดงคอมเมนต์เป็นอย่างไร และสามารถวางคอมเมนต์ได้ตำแหน่งใดบ้าง relative to สไลด์?**  
-ใช่, สามารถเพิ่มคอมเมนต์ใน HTML5 และกำหนดตำแหน่ง (เช่น ด้านขวาของสไลด์) ผ่าน [layout settings](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) สำหรับโน้ตและคอมเมนต์
+Yes, HTML5 provides separate options to enable or disable [shape animations](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateShapes) and [slide transitions](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setAnimateTransitions).
 
-**ฉันสามารถข้ามลิงก์ที่เรียกใช้ JavaScript เพื่อเหตุผลด้านความปลอดภัยหรือ CSP ได้หรือไม่?**  
-ใช่, มี [setting](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) ที่ช่วยให้ข้ามไฮเปอร์ลิงก์ที่มีการเรียก JavaScript ในระหว่างการบันทึก ซึ่งจะลบไฮเปอร์ลิงก์เหล่านั้นออก แต่ไม่ได้รับประกันโดยตรงว่าสคริปต์ HTML5 ทั้งหมดที่สร้างขึ้นจะสอดคล้องกับ Content Security Policy ของเว็บไซต์.
+**คอมเมนต์สามารถส่งออกได้หรือไม่ และสามารถวางตำแหน่งสัมพันธ์กับสไลด์ได้อย่างไร?**
+
+Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/th/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) for notes and comments.
+
+**ฉันสามารถข้ามลิงก์ที่เรียกใช้ JavaScript เพื่อเหตุผลด้านความปลอดภัยหรือ CSP ได้หรือไม่?**
+
+Yes, there is a [setting](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) that allows you to skip hyperlinks with JavaScript calls during saving. This removes those hyperlinks; it does not by itself guarantee that all generated HTML5 scripts satisfy a site's Content Security Policy.

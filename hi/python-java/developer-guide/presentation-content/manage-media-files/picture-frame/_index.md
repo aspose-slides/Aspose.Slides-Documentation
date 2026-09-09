@@ -14,10 +14,10 @@ keywords:
 - रास्टर छवि
 - SVG छवि
 - छवि क्रॉप करें
-- क्रॉप्ड क्षेत्रों को हटाएँ
-- छवि संपीड़ित करें
+- क्रॉप किए गए क्षेत्रों को हटाएँ
+- छवि संपीडित करें
 - StretchOffset
-- चित्र फ्रेम स्वरूपण
+- चित्र फ्रेम फ़ॉर्मेटिंग
 - रिलेटिव स्केल
 - छवि प्रभाव
 - आस्पेक्ट अनुपात
@@ -27,21 +27,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java का उपयोग करके प्रस्तुतियों में चित्र फ्रेम बनाएं, स्वरूपित करें, लिंक करें, क्रॉप करें, निकालें और संपीड़ित करें।"
+description: "Aspose.Slides for Python via Java के साथ प्रस्तुतियों में चित्र फ्रेम बनाएं, फ़ॉर्मेट करें, लिंक करें, क्रॉप करें, निकालें और संपीड़ित करें।"
 ---
-## **आवलोकन**
+## **समीक्षा**
 
-एक चित्र फ्रेम एक स्लाइड आकार है जो एक छवि प्रदर्शित करता है। Aspose.Slides में, छवि संसाधन और उसे प्रदर्शित करने वाला आकार अलग-अलग वस्तुएँ हैं: एक [प्रस्तुति](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) अपनी अंतर्निहित छवि संसाधनों का स्वामित्व अपनी [ImageCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagecollection/) के माध्यम से रखता है, जबकि एक [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) छवि की स्थिति, आकार, रेखा स्वरूपण, घूर्णन, क्रॉपिंग, चित्र प्रभाव और अन्य फ्रेम‑स्तर सेटिंग्स को नियंत्रित करता है।
+एक picture frame वह slide shape है जो एक image प्रदर्शित करता है। Aspose.Slides में, image resource और उसे प्रदर्शित करने वाला shape अलग‑अलग objects होते हैं: एक [Presentation](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/) अपने [ImageCollection](https://reference.aspose.com/slides/hi/python-java/aspose.slides/imagecollection/) के माध्यम से एम्बेडेड image resources को धारण करता है, जबकि एक [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) image की स्थिति, आकार, line formatting, rotation, cropping, picture effects और अन्य frame‑level सेटिंग्स को नियंत्रित करता है।
 
-जब एक ही छवि को एक से अधिक बार दिखाया जाता है, तब यह विभाजन उपयोगी होता है। छवि को प्रस्तुति में एक बार जोड़ें, लौटाई गई [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) को रखें, और चित्र फ्रेम बनाते समय उसी छवि संसाधन का उपयोग करें।
+यह विभाजन तब उपयोगी होता है जब एक ही image को कई बार दिखाना हो। image को presentation में एक बार जोड़ें, लौटाए गए [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) को रखें, और picture frames बनाते समय उसी image resource का उपयोग करें।
 
-चित्र फ्रेम रास्टर छवियों जैसे PNG या JPEG तथा वेक्टर SVG छवियों को समाहित कर सकते हैं। वे प्रस्तुति में छवि बाइट्स संग्रहीत करने के बजाय लिंक की गई छवियों के भी उल्लेख कर सकते हैं। यह चयन पोर्टेबिलिटी, फ़ाइल आकार, निष्कर्षण और निर्यात व्यवहार को प्रभावित करता है, इसलिए स्वरूपण या अनुकूलन लागू करने से पहले यह तय करना उपयोगी है कि छवि कैसे संग्रहीत की जानी चाहिए।
+Picture frames raster images जैसे PNG या JPEG तथा vector SVG images को भी रख सकते हैं। वे लिंक्ड images की ओर भी इशारा कर सकते हैं, जिससे image बाइट्स को presentation में संग्रहीत करने की आवश्यकता नहीं रहती। यह चयन portability, फ़ाइल आकार, extraction और export व्यवहार को प्रभावित करता है, इसलिए फ़ॉर्मेटिंग या ऑप्टिमाइज़ेशन करने से पहले यह तय करना उपयोगी है कि image कैसे संग्रहीत की जानी चाहिए।
 
-## **एंबेडेड इमेज जोड़ें और स्वरूपित करें**
+## **एक Embedded Image जोड़ें और फ़ॉर्मेट करें**
 
-एक एंबेडेड छवि के लिए, छवि डेटा को प्रस्तुति में जोड़ें और [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/#addPictureFrame) के साथ एक चित्र फ्रेम बनाएं। छवि प्रस्तुति पैकेज का हिस्सा बन जाती है, इसलिए प्रस्तुति को दूसरे कंप्यूटर पर ले जाने पर भी वह स्व-समाहित रहती है।
+एक एम्बेडेड image के लिए, image डेटा को presentation में जोड़ें और [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shapecollection/#addPictureFrame) के साथ एक picture frame बनाएँ। image presentation पैकेज का हिस्सा बन जाता है, इसलिए presentation को किसी अन्य कंप्यूटर पर ले जाने पर भी यह self‑contained रहता है।
 
-निम्न उदाहरण JPEG छवि जोड़ता है, छवि के मूल आयामों पर एक फ्रेम बनाता है, और रेखा स्वरूपण एवं घूर्णन लागू करता है:
+निम्न उदाहरण एक JPEG image जोड़ता है, image के मूल आयामों पर एक फ्रेम बनाता है, और line formatting एवं rotation लागू करता है:
 
 ```python
 import jpype
@@ -74,11 +74,11 @@ finally:
     presentation.dispose()
 ```
 
-चित्र फ्रेम प्रदर्शित ज्यामिति को नियंत्रित करता है; फ्रेम आकार बदलने से एंबेडेड छवि संसाधन में संग्रहीत मूल पिक्सेल आयाम नहीं बदलते। यह अंतर बाद में छवि को क्रॉप या संकुचित करने पर महत्वपूर्ण होता है।
+picture frame प्रदर्शित geometry को नियंत्रित करता है; फ़्रेम का आकार बदलने से एम्बेडेड image resource में संग्रहीत मूल पिक्सेल आयाम नहीं बदलते। यह अंतर बाद में image को crop या compress करने पर महत्वपूर्ण हो जाता है।
 
-## **रिलेटिव स्केल का उपयोग करें**
+## **Relative Scale का उपयोग करें**
 
-[PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) फ्रेम के लिए रिलेटिव चौड़ाई और ऊँचाई स्केलिंग को [setRelativeScaleWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) और [setRelativeScaleHeight](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight) के माध्यम से उजागर करता है। मान `1.0` मूल चित्र आकार का 100 % दर्शाता है। रिलेटिव स्केल तब उपयोगी होता है जब वर्कफ़्लो को स्रोत छवि के आकार के साथ संबंध बनाए रखना हो बजाय अंतिम आयामों की मैन्युअल गणना के।
+[PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) फ्रेम के लिए relative width और height scaling को [setRelativeScaleWidth](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) तथा [setRelativeScaleHeight](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight) के माध्यम से उजागर करता है। `1.0` का मान मूल picture आकार का 100 % दर्शाता है। Relative scale तब उपयोगी होता है जब workflow को source image के आकार के साथ एक संबंध बनाए रखना हो, न कि अंतिम आयामों की मैन्युअल गणना करनी पड़े।
 
 ```python
 import jpype
@@ -108,17 +108,17 @@ finally:
     presentation.dispose()
 ```
 
-रिलेटिव स्केल फ्रेम के स्केल सेटिंग्स को बदलता है; यह एंबेडेड छवि को पुन:सैंपल या संकुचित नहीं करता।
+Relative scale फ्रेम की scale सेटिंग्स बदलता है; यह एम्बेडेड image को resample या compress नहीं करता।
 
-## **एंबेडेड और लिंक्ड इमेजेज**
+## **Embedded और Linked Images**
 
-एंबेडेड चित्र छवि डेटा को प्रस्तुति के भीतर संग्रहीत करता है और इसलिए पोर्टेबिलिटी और पूर्वानुमेय रेंडरिंग के लिए सबसे सुरक्षित विकल्प है। लिंक्ड चित्र [Picture.setLinkPathLong](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picture/#setLinkPathLong) मेथड के माध्यम से बाहरी स्थान को संग्रहीत करता है, न कि उसी तरह छवि डेटा को एंबेड करके।
+एक एम्बेडेड picture image डेटा को presentation के भीतर संग्रहीत करता है और इसलिए portability और पूर्वानुमानित रेंडरिंग के लिए सबसे सुरक्षित विकल्प है। एक linked picture [Picture.setLinkPathLong](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picture/#setLinkPathLong) मेथड के माध्यम से बाहरी स्थान को संदर्भित करता है, न कि image डेटा को उसी तरह embed करता है।
 
-लिंक्ड छवियां PPTX में संग्रहीत छवि डेटा की मात्रा को कम कर सकती हैं, लेकिन वे एक बाहरी निर्भरता प्रस्तुत करती हैं। लिंक्ड फ़ाइल को उस अनुप्रयोग द्वारा सुलभ रहना चाहिए जो प्रस्तुति को खोलता या रेंडर करता है। यदि पाथ बदल जाता है, फ़ाइल स्थानांतरित हो जाती है, या संसाधन अनुपलब्ध हो जाता है, तो लिंक्ड चित्र अपेक्षित रूप से प्रदर्शित नहीं हो सकता। उन प्रस्तुतियों के लिए जो ई‑मेल, अभिलेख, या अलग‑थलग वातावरण में रेंडर की जानी हों, एंबेडेड छवियां आमतौर पर अधिक भरोसेमंद होती हैं।
+Linked images PPTX में संग्रहीत image डेटा की मात्रा को कम कर सकते हैं, लेकिन वे एक बाहरी निर्भरता पेश करते हैं। लिंक्ड फ़ाइल को उस एप्लिकेशन के लिए सुलभ रहना चाहिए जो presentation खोलता या रेंडर करता है। यदि path बदल जाता है, फ़ाइल स्थानांतरित हो जाती है, या संसाधन उपलब्ध नहीं रहता, तो linked picture उम्मीद के अनुसार नहीं दिखेगा। उन presentations के लिए जो ई‑मेल किए जाने, आर्काइव किए जाने या अलग‑थलग वातावरण में रेंडर किए जाने हैं, एम्बेडेड images आमतौर पर अधिक भरोसेमंद होते हैं।
 
-### **लिंक्ड इमेज जोड़ें**
+### **एक Linked Image जोड़ें**
 
-निम्न उदाहरण एक चित्र फ्रेम बनाता है और उसे स्थानीय छवि फ़ाइल की ओर संकेत करता है। यह केवल छवि लिंकिंग से निपटता है; वीडियो लिंकिंग एक अलग मीडिया वर्कफ़्लो है और जानबूझकर इस उदाहरण में मिश्रित नहीं किया गया है।
+निम्न उदाहरण एक picture frame बनाता है और उसे स्थानीय image फ़ाइल की ओर इंगित करता है। यह केवल image लिंकिंग को दिखाता है; video लिंकिंग एक अलग media workflow है और जानबूझकर इस उदाहरण में मिश्रित नहीं किया गया है।
 
 ```python
 import jpype
@@ -144,15 +144,15 @@ finally:
     presentation.dispose()
 ```
 
-जब बाहरी फ़ाइल प्रबंधन इरादतन हो तब लिंक का उपयोग करें। उन्हें केवल संपीड़न के विकल्प के रूप में उपयोग न करें: टूटा हुआ इमेज डिपेंडेंसी वाला छोटा PPTX आमतौर पर बड़े स्व‑समाहित प्रस्तुति से कम उपयोगी होता है।
+बाहरी फ़ाइल प्रबंधन इरादतन होने पर लिंक का उपयोग करें। उन्हें केवल compression के विकल्प के रूप में उपयोग न करें: एक छोटा PPTX जिसमें टूटे हुए image निर्भरताएँ हैं, आमतौर पर बड़े self‑contained presentation से कम उपयोगी होता है।
 
-## **चित्र फ्रेम से छवियों को निकालें**
+## **Picture Frames से Images निकालें**
 
-किसी मौजूदा प्रस्तुति से छवि निकालने से पहले, जांचें कि आकार वास्तव में एक [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) है और उसमें एंबेडेड छवि मौजूद है। लिंक्ड चित्र फ्रेम में वह छवि बाइट्स नहीं हो सकते जिन्हें समान तरीके से निकाला जा सके।
+किसी मौजूदा presentation से image निकालने से पहले, सत्यापित करें कि shape वास्तव में एक [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) है और उसमें एम्बेडेड image मौजूद है। Linked picture frames में वह image बाइट्स नहीं हो सकते जिन्हें समान तरीके से निकाला जा सके।
 
-### **रास्टर इमेज निकालें**
+### **एक Raster Image निकालें**
 
-आधुनिक इमेज API रास्टर छवियों के साथ सीधे काम करता है और पुराने जावा इमेज रैपर की आवश्यकता नहीं होती। निम्न उदाहरण स्लाइड पर पहली एंबेडेड रास्टर चित्र को खोजता है और उसे PNG के रूप में सहेजता है:
+आधुनिक image API सीधे raster images के साथ काम करता है और पुराने Java image wrapper की आवश्यकता नहीं होती। निम्न उदाहरण स्लाइड पर पहला एम्बेडेड raster picture खोजता है और उसे PNG के रूप में सहेजता है:
 
 ```python
 import jpype
@@ -186,11 +186,11 @@ finally:
     presentation.dispose()
 ```
 
-रास्टर छवि को सहेजने से निकाली गई छवि अनुरोधित आउटपुट फ़ॉर्मेट में बदल जाती है। यदि आप प्रस्तुति में संग्रहीत एन्कोडेड बाइट्स चाहते हैं न कि परिवर्तित रास्टर फ़ाइल, तो छवि संसाधन के बाइनरी डेटा का उपयोग करें।
+raster image को सहेजना निकाली गई image को अनुरोधित आउटपुट फ़ॉर्मेट में परिवर्तित करता है। यदि आपको presentation में संग्रहीत encoded बाइट्स चाहिए, न कि परिवर्तित raster फ़ाइल, तो image resource के binary data का उपयोग करें।
 
-### **SVG इमेज निकालें**
+### **एक SVG Image निकालें**
 
-SVG चित्र के लिए, [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) एक [SvgImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/svgimage/) ऑब्जेक्ट उजागर करता है। इससे आप SVG डेटा को सीधे प्राप्त कर सकते हैं बजाय पहले चित्र को रास्टराइज़ किए।
+एक SVG picture के लिए, [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) एक [SvgImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/svgimage/) ऑब्जेक्ट को उजागर करता है। यह आपको SVG डेटा को सीधे प्राप्त करने की अनुमति देता है, बजाय पहले picture को rasterize किए।
 
 ```python
 import jpype
@@ -223,13 +223,13 @@ finally:
     presentation.dispose()
 ```
 
-SVG सामग्री को SVG के रूप में रखना प्रस्तुति के भीतर वेक्टर स्रोत को संरक्षित करता है। PNG या JPEG जैसे रास्टर निर्यात स्वाभाविक रूप से उस वेक्टर सामग्री को पिक्सल में रेंडर करते हैं। PDF या SVG स्लाइड निर्यात भी एक रेंडरिंग ऑपरेशन है, इसलिए निर्यातित ग्राफ़िक्स को मूल एंबेडेड SVG की बाइट‑दर‑बाइट प्रतिलिपि नहीं माना जाना चाहिए; जब मूल वेक्टर संसाधन की आवश्यकता हो तो एंबेडेड [SvgImage.getSvgData](https://reference.aspose.com/slides/hi/python-java/aspose.slides/svgimage/#getSvgData) डेटा का उपयोग करें।
+SVG सामग्री को SVG के रूप में रखना presentation के भीतर vector source को संरक्षित करता है। PNG या JPEG जैसे raster एक्सपोर्ट्स इस vector सामग्री को पिक्सेल में रेंडर करते हैं। PDF या SVG slide export भी एक रेंडरिंग ऑपरेशन है, इसलिए निर्यात किए गए ग्राफिक्स को मूल एम्बेडेड SVG की बाइट‑फ़ॉर‑बाइट कॉपी न समझें; जब मूल vector संसाधन स्वयं आवश्यक हो तो एम्बेडेड [SvgImage.getSvgData](https://reference.aspose.com/slides/hi/python-java/aspose.slides/svgimage/#getSvgData) डेटा का उपयोग करें।
 
-## **छवि को क्रॉप करें**
+## **एक Image को Crop करें**
 
-क्रॉपिंग फ्रेम के भीतर दिखायी देने वाले छवि भाग को बदलती है। [PictureFillFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/) पर क्रॉप मान स्रोत छवि आयामों के प्रतिशत होते हैं। क्रॉपिंग प्रारम्भ में एंबेडेड छवि से छिपे पिक्सेल को मिटाती नहीं है; यह केवल दृश्य क्षेत्र को बदलती है।
+Cropping फ्रेम के भीतर image के कौन से हिस्से दिखेंगे, इसे बदलता है। [PictureFillFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/) पर crop मान source image के आयामों के प्रतिशत होते हैं। Cropping प्रारंभ में एम्बेडेड image से छिपे पिक्सेल को हटाता नहीं है; यह केवल दृश्यमान क्षेत्र को बदलता है।
 
-निम्न उदाहरण सुरक्षित रूप से एक चित्र फ्रेम खोजता है और क्रॉप मान लागू करता है:
+निम्न उदाहरण सुरक्षित रूप से एक picture frame खोजता है और crop मान लागू करता है:
 
 ```python
 import jpype
@@ -260,11 +260,11 @@ finally:
     presentation.dispose()
 ```
 
-चूंकि छिपा हुआ छवि डेटा अभी भी मौजूद है, क्रॉप को बाद में मूल पिक्सेल खोए बिना बदला जा सकता है। यदि फ़ाइल आकार अधिक महत्वपूर्ण है और पुनरावृत्ति की आवश्यकता नहीं है, तो अगले सेक्शन में वर्णित अनुसार क्रॉप्ड क्षेत्र को शारीरिक रूप से हटाया जा सकता है।
+क्योंकि छिपा हुआ image डेटा अभी भी मौजूद है, crop को बाद में बदला जा सकता है बिना मूल पिक्सेल खोए। यदि फ़ाइल आकार अधिक महत्वपूर्ण है और पुनः‑संपादन की आवश्यकता नहीं है, तो अगले अनुभाग में वर्णित अनुसार cropped क्षेत्रों को शारीरिक रूप से हटाया जा सकता है।
 
-## **क्रॉप्ड इमेज डेटा हटाएँ**
+## **Cropped Image Data हटाएँ**
 
-[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) वर्तमान क्रॉप आयत के बाहर के छवि डेटा को हटाता है और resulting इमेज रिसोर्स लौटाता है। इससे फ़ाइल आकार घट सकता है, लेकिन यह एक विनाशकारी अनुकूलन है: प्रस्तुति सहेजने के बाद हटाए गए पिक्सेल बाद में अनक्रॉप संचालन के लिए उपलब्ध नहीं रहेंगे।
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) वर्तमान crop rectangle के बाहर के image डेटा को हटाता है और परिणामी image resource को लौटाता है। यह फ़ाइल आकार को घटा सकता है, लेकिन यह एक विनाशकारी ऑप्टिमाइज़ेशन है: presentation सेव होने के बाद हटाए गए पिक्सेल बाद के uncrop ऑपरेशन के लिए उपलब्ध नहीं रहते।
 
 ```python
 import jpype
@@ -293,13 +293,13 @@ finally:
     presentation.dispose()
 ```
 
-यह मेथड प्रस्तुति में नया इमेज रिसोर्स जोड़ सकता है। यदि मूल छवि का उपयोग अन्य चित्र फ्रेम भी करते हैं, तो उन फ्रेम को अभी भी अपना मौजूदा रिसोर्स चाहिए, इसलिए क्रॉप्ड क्षेत्रों को हटाना आवश्यक रूप से कुल छवियों की संख्या कम नहीं करता। WMF या EMF सामग्री को इस मेथड के साथ क्रॉप करने से क्रॉप्ड परिणाम PNG में रास्टराइज़ हो जाता है।
+यह मेथड presentation में एक नया image resource जोड़ सकता है। यदि मूल image को अन्य picture frames भी उपयोग कर रहे हैं, तो उन फ्रेमों को अभी भी अपना मौजूदा resource चाहिए, इसलिए cropped क्षेत्रों को हटाने से कुल images की संख्या अनिवार्य रूप से नहीं घटती। इस मेथड के साथ WMF या EMF सामग्री को crop करने से परिणाम PNG में rasterized हो जाता है।
 
-## **रास्टर इमेजेज को संपीड़ित करें**
+## **Raster Images को Compress करें**
 
-[PictureFillFormat.compressImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/#compressImage) रास्टर छवि रिज़ॉल्यूशन को उस आकार के सापेक्ष कम करता है जिस पर चित्र प्रदर्शित होता है। यह एक ही ऑपरेशन में क्रॉप्ड क्षेत्रों को भी हटा सकता है। मेथड तब `True` लौटाता है जब छवि को आकार बदल दिया गया हो या क्रॉप किया गया हो, और `False` जब कोई परिवर्तन आवश्यक न हो।
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/#compressImage) raster image की रिज़ॉल्यूशन को उस आकार के सापेक्ष घटाता है जिस पर picture प्रदर्शित हो रहा है। यह एक ही ऑपरेशन में cropped क्षेत्रों को भी हटा सकता है। मेथड तब `True` लौटाता है जब image को resized या cropped किया गया हो और `False` जब कोई परिवर्तन आवश्यक न हो।
 
-जब एक मानक लक्ष्य रिज़ॉल्यूशन पर्याप्त हो, तब एक पूर्वनिर्धारित [PicturesCompression](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturescompression/) मान का उपयोग करें:
+जब एक मानक लक्ष्य रिज़ॉल्यूशन पर्याप्त हो, तो एक पूर्वनिर्धारित [PicturesCompression](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturescompression/) मान का उपयोग करें:
 
 ```python
 import jpype
@@ -328,17 +328,17 @@ finally:
     presentation.dispose()
 ```
 
-जब विशिष्ट लक्ष्य आवश्यक हो, तो पूर्वनिर्धारित मान के बजाय कोई कस्टम सकारात्मक DPI मान पास किया जा सकता है।
+यदि कोई विशिष्ट लक्ष्य आवश्यक हो, तो पूर्वनिर्धारित मान के बजाय एक कस्टम सकारात्मक DPI मान पास किया जा सकता है।
 
-संकुचन रास्टर इमेजेज के लिए अभिप्रेत है। SVG और मैटाफाइल सामग्री इस रास्टर संपीड़न वर्कफ़्लो से नहीं घटती। यह भी याद रखें कि कम रिज़ॉल्यूशन और हटाए गए क्रॉप्ड क्षेत्रों को अनुकूलित प्रस्तुति से पुनः प्राप्त नहीं किया जा सकता। लक्ष्य रिज़ॉल्यूशन को उस सबसे बड़े आकार के आधार पर चुनें जिस पर छवि वास्तविक रूप से देखी या निर्यात की जाएगी, न कि वैश्विक रूप से सबसे कम DPI लागू करें।
+Compression raster images के लिए अभिप्रेत है। SVG और metafile सामग्री इस raster compression workflow द्वारा नहीं घटाई जाती। साथ ही याद रखें कि कम रिज़ॉल्यूशन और हटाए गए cropped क्षेत्रों को अनऑप्टिमाइज़्ड प्रस्तुति से पुनः प्राप्त नहीं किया जा सकता। लक्ष्य रिज़ॉल्यूशन को उस सबसे बड़े आकार के आधार पर चुनें जिस पर image वास्तव में देखी या निर्यात की जाएगी, न कि वैश्विक रूप से सबसे कम DPI लागू करके।
 
-## **इमेज ट्रांसफ़ॉर्म इफ़ेक्ट्स प्रबंधित करें**
+## **Image Transform Effects को Manage करें**
 
-पूर्ण कार्यप्रवाह जिसमें चमक, कंट्रास्ट, रंग परिवर्तन, ब्लर, अल्फा इफ़ेक्ट्स, क्रमबद्ध श्रृंखलाएँ, निरीक्षण, हटाना और राउंड‑ट्रिप सत्यापन शामिल हैं, के लिए देखें [Image Transform Effects](/slides/hi/python-java/image-transform-effects/)।
+पूर्ण workflow जो brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, और round‑trip verification को कवर करता है, उसके लिए देखें [Image Transform Effects](/slides/hi/python-java/image-transform-effects/)।
 
-## **चित्र फ्रेम ज्यामिति को लॉक करें**
+## **Picture Frame Geometry को Lock करें**
 
-[PictureFrameLock](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframelock/) सेटिंग्स निर्धारित करती हैं कि चित्र फ्रेम के लिए कौन से संपादन कार्य अक्षम हैं। उदाहरण के लिए, [setAspectRatioLocked](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) आकार बदलते समय आकार अनुपात को बनाए रखता है।
+[PictureFrameLock](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframelock/) सेटिंग्स यह निर्धारित करती हैं कि picture frame के लिए कौन‑सी editing operations अक्षम हैं। उदाहरण के लिए, [setAspectRatioLocked](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) shape के आकार को बदलते समय उसके अनुपात को संरक्षित रखता है।
 
 ```python
 import jpype
@@ -367,13 +367,13 @@ finally:
     presentation.dispose()
 ```
 
-यह लॉक चित्र फ्रेम आकार पर लागू होती है। यह स्रोत छवि को पुनःसैंपल या स्थायी रूप से समान अनुपात में बदलने के लिए बाध्य नहीं करता।
+लॉक picture frame shape पर लागू होता है। यह स्रोत image को resample या स्थायी रूप से समान aspect ratio में बदलता नहीं है।
 
 ## **StretchOffset मानों को समायोजित करें**
 
-जब चित्र फ़िल मोड स्ट्रेच हो, तो [PictureFillFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/) पर stretch‑offset मान चित्र फ्रेम के बाउंडिंग बॉक्स के सापेक्ष फ़िल आयत को परिभाषित करते हैं। सकारात्मक प्रतिशत किनारे से एक इनसेट बनाते हैं, जबकि नकारात्मक प्रतिशत एक आउटसेट बनाते हैं।
+जब picture fill mode stretch हो, तो [PictureFillFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/) पर stretch‑offset मान picture frame के bounding box के सापेक्ष fill rectangle को परिभाषित करते हैं। सकारात्मक प्रतिशत एक किनारे से inset बनाते हैं, जबकि नकारात्मक प्रतिशत एक outset बनाते हैं।
 
-यह क्रॉपिंग से अलग है। क्रॉप मान स्रोत छवि के किस भाग को दिखाना है, इसे चुनते हैं; स्ट्रेच ऑफ़सेट दृश्यमान चित्र फ़िल को किनमें स्ट्रेच किया जाता है, उस आयत को बदलते हैं।
+यह cropping से अलग है। Crop मान निर्धारित करते हैं कि source image का कौन‑सा हिस्सा दृश्यमान है; stretch offsets वह rectangle बदलते हैं जिसमें visible picture fill को stretch किया जाता है।
 
 ```python
 import jpype
@@ -406,43 +406,43 @@ finally:
     presentation.dispose()
 ```
 
-फ़िल प्लेसमेंट के लिए स्ट्रेच ऑफ़सेट का उपयोग करें। स्रोत‑छवि किनारों को छिपाने के लक्ष्य के लिए क्रॉप गुणों का उपयोग करें।
+fill placement के लिए stretch offsets का उपयोग करें। जब लक्ष्य source‑image किनारों को छिपाना हो, तो crop properties का उपयोग करें।
 
-## **स्टोरेज, फ़ाइल आकार, और निर्यात विचार**
+## **Storage, फ़ाइल आकार, और Export पर विचार**
 
-छवि स्टोरेज और चित्र‑फ़्रेम स्वरूपण को अलग‑अलग संभालने पर मुख्य ट्रेड‑ऑफ़ अधिक आसान होते हैं:
+जब image storage और picture‑frame फ़ॉर्मेटिंग को अलग‑अलग माना जाता है, तो मुख्य trade‑offs अधिक स्पष्ट हो जाते हैं:
 
-- **एंबेडेड इमेजेज** प्रस्तुति को स्व‑समाहित बनाती हैं और साझा करने तथा सर्वर‑साइड रेंडरिंग के लिये सबसे भरोसेमंद होती हैं, लेकिन बड़े रास्टर इमेजेज PPTX आकार और मेमोरी उपयोग को बढ़ाते हैं।
-- **लिंक्ड इमेजेज** पैकेज को छोटा रख सकती हैं, लेकिन प्रस्तुति बाहरी फ़ाइलों पर निर्भर रहती है जो संग्रहीत पाथ या स्थानों पर उपलब्ध होनी चाहिए।
-- **क्रॉपिंग** प्रारम्भ में गैर‑विनाशकारी होती है। छिपे पिक्सेल एंबेडेड रहते हैं जब तक कि क्रॉप्ड क्षेत्रों को स्पष्ट रूप से हटाया न जाए या संकुचन के दौरान हटाया न जाए।
-- **कम्प्रेशन** अधिक बड़े रास्टर इमेजेज के लिये फ़ाइल आकार को उल्लेखनीय रूप से घटा सकता है, पर स्रोत रिज़ॉल्यूशन का बलिदान देता है। इसे स्लाइड पर इच्छित आकार ज्ञात होने के बाद लागू करना चाहिए।
-- **SVG इमेजेज** को तब SVG के रूप में रखना चाहिए जब वेक्टर संरक्षण महत्वपूर्ण हो। जब आपको स्वयं वेक्टर संसाधन की आवश्यकता हो तो एंबेडेड SVG को सीधे निकालें। रास्टर स्लाइड निर्यात हमेशा रेंडर किए गए स्लाइड को पिक्सल में बदल देता है।
-- **दोहराई गई इमेजेज** संभव हो तो मौजूदा [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) रिसोर्स को पुनः उपयोग करें, बजाय प्रत्येक बार वही फ़ाइल प्रस्तुति वर्कफ़्लो में लोड करने के।
+- **Embedded images** presentation को self‑contained बनाते हैं और साझा करने तथा सर्वर‑साइड रेंडरिंग के लिए सबसे भरोसेमंद होते हैं, लेकिन बड़े raster images PPTX आकार और मेमोरी उपयोग को बढ़ाते हैं।
+- **Linked images** पैकेज को छोटा रख सकते हैं, लेकिन presentation को बाहरी फ़ाइलों पर निर्भर रहना पड़ता है जो निर्दिष्ट पाथ या स्थानों पर उपलब्ध रहें।
+- **Cropping** प्रारंभ में non‑destructive होता है। छिपे पिक्सेल तब तक एम्बेडेड रहते हैं जब तक cropped क्षेत्रों को स्पष्ट रूप से हटाया न जाए या compression के दौरान हटा न दिया जाए।
+- **Compression** बड़े raster images के फ़ाइल आकार को काफी घटा सकता है, लेकिन यह source resolution के बलिदान के साथ आता है। इसे स्लाइड पर अंतिम आकार ज्ञात होने के बाद लागू किया जाना चाहिए।
+- **SVG images** को तब SVG के रूप में रखना चाहिए जब vector संरक्षण महत्वपूर्ण हो। जब आपको स्वयं vector संसाधन चाहिए, तो एम्बेडेड SVG को सीधे निकालें। Raster slide export हमेशा rendered slide को पिक्सेल में परिवर्तित करता है।
+- **Repeated images** को संभव हो तो मौजूदा [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) resource को पुनः उपयोग करना चाहिए, न कि एक ही फ़ाइल को कई बार presentation workflow में लोड करना।
 
-बड़ी प्रस्तुतियों के लिये, छवि अनुकूलन आम तौर पर चयनात्मक रूप से सबसे प्रभावी होता है: लोगो और आरेख को वेक्टर सामग्री के रूप में रखें, फ़ोटोग्राफ़ को उनके वास्तविक प्रदर्शित आकार के अनुसार संकुचित करें, क्रॉप्ड पिक्सेल तभी हटाएँ जब बाद में संपादन की आवश्यकता न हो, और बाहरी लिंक से बचें जब तक कि निर्भरता प्रबंधन परिनियोजन डिज़ाइन का हिस्सा न हो।
+बड़ी presentations के लिए, image optimization आमतौर पर चयनात्मक रूप से सबसे प्रभावी होती है: लोगो और डायाग्राम को vector सामग्री के रूप में रखें, फ़ोटोग्राफ़ को उनके वास्तविक प्रदर्शन आकार के अनुसार compress करें, केवल तब cropped पिक्सेल हटाएँ जब बाद में संपादन की आवश्यकता न हो, और बाहरी लिंक तभी रखें जब निर्भरता प्रबंधन deployment डिजाइन का हिस्सा हो।
 
 ## **FAQ**
 
-**एक चित्र फ्रेम और एक छवि संसाधन में क्या अंतर है?**
+**एक picture frame और एक image resource में क्या अंतर है?**
 
-एक [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) प्रस्तुति से जुड़ा हुआ छवि संसाधन दर्शाता है। एक [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) स्लाइड पर वह आकार है जो छवि प्रदर्शित करता है और आकार, घूर्णन, क्रॉप मान, इफ़ेक्ट्स और लॉक जैसी फ्रेम‑स्तर ज्यामिति एवं स्वरूपण को संग्रहीत करता है।
+एक [PPImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/ppimage/) वह image resource है जो presentation से जुड़ा होता है। एक [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) स्लाइड पर वह shape है जो image प्रदर्शित करता है और फ्रेम‑स्तर की geometry व फ़ॉर्मेटिंग जैसे आकार, rotation, crop मान, effects, और locks को संग्रहीत करता है।
 
-**मुझे एंबेड करना चाहिए या लिंक करना चाहिए?**
+**मुझे images को embed करना चाहिए या link?**
 
-जब प्रस्तुति को पोर्टेबल, अभिलेखित या बाहरी संसाधनों की पहुँच के बिना रेंडर किया जाना हो, तो छवियों को एंबेड करें। केवल तब लिंक करें जब छवि फ़ाइलों को PPTX के बाहर रखना इरादा हो और बाहरी स्थानों को विश्वसनीय रूप से बनाए रखा जा सके।
+जब presentation को portable, archived, या बाहरी संसाधनों के बिना रेंडर करना हो, तो images को embed करें। केवल तब images को link करें जब image फ़ाइलों को PPTX के बाहर रखने का इरादा हो और बाहरी स्थितियों को विश्वसनीय रूप से बनाए रखा जा सके।
 
-**क्या क्रॉपिंग PPTX फ़ाइल आकार कम करती है?**
+**क्या cropping PPTX फ़ाइल आकार को घटाता है?**
 
-स्वयं नहीं। सामान्य क्रॉप सेटिंग्स स्रोत छवि के भागों को छिपाती हैं लेकिन अंतर्निहित पिक्सेल को रखती हैं। फ़ाइल आकार घटाने के लिये [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) या क्रॉप्ड‑एरिया हटाने के साथ इमेज संपीड़न का उपयोग करें।
+स्वतः नहीं। सामान्य crop सेटिंग्स source image के भागों को छिपाती हैं लेकिन अंतर्निहित पिक्सेल को बनाए रखती हैं। जब उन पिक्सेल को स्थायी रूप से हटाया जा सके, तो [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/hi/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) या cropped‑area हटाने के साथ image compression का उपयोग करें।
 
-**क्या मैं संपीड़न के बाद इमेज क्वालिटी पुनर्स्थापित कर सकता हूँ?**
+**क्या compression के बाद image गुणवत्ता को बहाल किया जा सकता है?**
 
-नहीं। संपीड़न संग्रहीत रास्टर रिज़ॉल्यूशन कम कर देता है, और क्रॉप्ड क्षेत्रों को हटाने से इमेज डेटा हट जाता है। यदि बाद में हाई‑रिज़ॉल्यूशन संपादन की संभावना हो, तो मूल स्रोत छवि को प्रस्तुति के बाहर रखें।
+नहीं। Compression संग्रहीत raster रिज़ॉल्यूशन को घटा देता है, और cropped क्षेत्रों को हटाने से image डेटा समाप्त हो जाता है। यदि बाद में हाई‑resolution संपादन की संभावना हो, तो मूल स्रोत image को presentation के बाहर रखें।
 
-**SVG इमेजेज को कैसे संभालना चाहिए?**
+**SVG images को कैसे संभालना चाहिए?**
 
-जब वेक्टर फ़िडेलिटी महत्वपूर्ण हो, तो SVG सामग्री को SVG के रूप में रखें। एंबेडेड [SvgImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/svgimage/) को सीधे निकाला जा सकता है। स्लाइड को PNG या JPEG जैसी रास्टर फ़ॉर्मेट में निर्यात करने से SVG स्लाइड इमेज का भाग पिक्सल में रास्टराइज़ हो जाता है।
+जब vector fidelity महत्वपूर्ण हो, तो SVG सामग्री को SVG ही रखें। एम्बेडेड [SvgImage](https://reference.aspose.com/slides/hi/python-java/aspose.slides/svgimage/) को सीधे निकाला जा सकता है। स्लाइड को PNG या JPEG जैसे raster फ़ॉर्मेट में रेंडर करने से SVG को पिक्सेल में बदल दिया जाता है।
 
-**मौजूदा स्लाइड्स को पढ़ते समय असुरक्षित कास्ट से कैसे बचें?**
+**मौजूदा slides को पढ़ते समय unsafe casts से कैसे बचें?**
 
-चित्र‑फ़्रेम‑विशिष्ट सदस्यों का उपयोग करने से पहले आकार प्रकार की जांच करें। [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) के विरुद्ध `isinstance` जांच असुरक्षित कास्ट से बचाती है और कोड को उन स्लाइड्स को संभालने देती है जिनमें चित्र‑फ़्रेम नहीं होते।
+shape type की जाँच करें इससे पहले कि picture‑frame‑विशिष्ट सदस्य उपयोग किए जाएँ। [PictureFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/pictureframe/) के विरुद्ध `isinstance` जाँच करना invalid casts से बचाता है और कोड को उन slides को हैंडल करने की अनुमति देता है जिसमें picture frames नहीं होते।

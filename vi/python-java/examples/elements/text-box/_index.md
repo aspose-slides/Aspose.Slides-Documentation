@@ -8,21 +8,21 @@ keywords:
 - hộp văn bản
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - Python
 - Java
 - Aspose.Slides
-description: "Làm việc với hộp văn bản trong Aspose.Slides for Python via Java: thêm, định dạng, tìm và xóa văn bản trong các bản trình bày PowerPoint và OpenDocument."
+description: "Làm việc với hộp văn bản trong Aspose.Slides cho Python thông qua Java: thêm, định dạng, tìm và xóa văn bản trong các bản trình chiếu PowerPoint và OpenDocument."
 ---
-Trong **Aspose.Slides for Python via Java**, một hộp văn bản là một hình dạng tự động chứa văn bản. Hầu hết mọi hình dạng đều có thể chứa văn bản, nhưng một hộp văn bản tiêu chuẩn không có màu nền hay viền và chỉ hiển thị văn bản.
+Trong **Aspose.Slides for Python via Java**, một hộp văn bản là một auto shape chứa văn bản. Hầu hết mọi shape đều có thể chứa văn bản, nhưng một hộp văn bản điển hình không có nền hay viền và chỉ hiển thị văn bản.
 
-Hướng dẫn này giải thích cách thêm, truy cập và xóa hộp văn bản một cách lập trình.
+Hướng dẫn này mô tả cách thêm, truy cập và xóa hộp văn bản một cách lập trình.
 
-Cài đặt gói như mô tả trong [Installation](/slides/vi/python-java/installation/). Mỗi ví dụ sẽ nhập `asposeslides` trước khi khởi động JVM, sau đó nhập API khi JVM đã chạy.
+Cài đặt gói theo mô tả trong [Cài đặt](/slides/vi/python-java/installation/). Mỗi ví dụ đều import `asposeslides` trước khi khởi động JVM, sau đó import API khi JVM đã chạy.
 
-## **Add a Text Box**
+## **Thêm một hộp văn bản**
 
-Tạo một hình chữ nhật, xóa màu nền và viền của nó, và gán văn bản đã định dạng.
+Tạo một hình chữ nhật, xóa nền và viền của nó, và gán văn bản đã định dạng.
 
 ```python
 import jpype
@@ -38,10 +38,10 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Tạo một hình chữ nhật.
+    # Tạo một shape hình chữ nhật.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
-    # Xóa màu nền và viền để chỉ hiển thị văn bản.
+    # Xóa nền và viền để chỉ hiển thị văn bản.
     text_box.getFillFormat().setFillType(FillType.NoFill)
     text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
 
@@ -56,9 +56,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Access Text Boxes by Content**
+## **Truy cập các hộp văn bản theo nội dung**
 
-Thêm một hộp văn bản mẫu, sau đó tìm các hình dạng có văn bản chứa từ khóa "Slide".
+Thêm một hộp văn bản mẫu, sau đó tìm các shape có văn bản chứa từ khóa "Slide".
 
 ```python
 import jpype
@@ -74,7 +74,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
     text_box.getFillFormat().setFillType(FillType.NoFill)
-    text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+    text_box.getLineFormat().setFillType(FillType.NoFill)
     text_box.getTextFrame().setText("Slide notes")
 
     for index in range(slide.getShapes().size()):
@@ -88,7 +88,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Remove Text Boxes by Content**
+## **Xóa các hộp văn bản theo nội dung**
 
 Tìm và xóa các hộp văn bản trên slide đầu tiên có chứa một từ khóa cụ thể.
 
@@ -123,6 +123,6 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}}
-Thu thập các hình dạng khớp vào một danh sách riêng trước khi xóa chúng để tránh việc sửa đổi bộ sưu tập hình dạng trong quá trình lặp.
+{{% alert color="success" title="Mẹo" %}}
+Thu thập các shape phù hợp vào một danh sách riêng trước khi xóa chúng để tránh việc sửa đổi bộ sưu tập shape trong quá trình lặp.
 {{% /alert %}}

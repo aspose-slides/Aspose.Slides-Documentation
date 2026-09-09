@@ -12,17 +12,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Bekerja dengan kotak teks di Aspose.Slides untuk Python via Java: menambahkan, memformat, mencari, dan menghapus teks dalam presentasi PowerPoint dan OpenDocument."
+description: "Bekerja dengan kotak teks di Aspose.Slides for Python via Java: menambahkan, memformat, menemukan, dan menghapus teks dalam presentasi PowerPoint dan OpenDocument."
 ---
-Pada **Aspose.Slides for Python via Java**, sebuah kotak teks adalah bentuk otomatis yang berisi teks. Hampir semua bentuk dapat berisi teks, tetapi kotak teks tipikal tidak memiliki isian atau batas dan hanya menampilkan teks.
+Dalam **Aspose.Slides for Python via Java**, sebuah kotak teks adalah auto shape yang berisi teks. Hampir semua shape dapat berisi teks, tetapi kotak teks tipikal tidak memiliki isi atau batas dan hanya menampilkan teks.
 
-Panduan ini menjelaskan cara menambahkan, mengakses, dan menghapus kotak teks secara programatik.
+Panduan ini menjelaskan cara menambahkan, mengakses, dan menghapus kotak teks secara programatis.
 
-Instal paket sebagaimana dijelaskan pada [Installation](/slides/id/python-java/installation/). Setiap contoh mengimpor `asposeslides` sebelum memulai JVM, kemudian mengimpor API setelah JVM berjalan.
+Instal paket seperti yang dijelaskan di [Installation](/slides/id/python-java/installation/). Setiap contoh mengimpor `asposeslides` sebelum memulai JVM, kemudian mengimpor API setelah JVM berjalan.
 
-## **Menambahkan Kotak Teks**
+## **Tambah Kotak Teks**
 
-Buat sebuah persegi panjang, hapus isian dan batasnya, lalu tetapkan teks yang diformat.
+Buat sebuah persegi panjang, hapus isi dan batasnya, lalu tetapkan teks yang diformat.
 
 ```python
 import jpype
@@ -38,14 +38,14 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Membuat bentuk persegi panjang.
+    # Buat sebuah shape persegi panjang.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
-    # Menghapus isian dan batas untuk hanya menampilkan teks.
+    # Hapus isi dan batas agar hanya menampilkan teks.
     text_box.getFillFormat().setFillType(FillType.NoFill)
     text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
 
-    # Mengatur pemformatan teks default.
+    # Atur format teks default.
     paragraph = text_box.getTextFrame().getParagraphs().get_Item(0)
     text_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
     text_format.getFillFormat().setFillType(FillType.Solid)
@@ -56,9 +56,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Mengakses Kotak Teks Berdasarkan Konten**
+## **Akses Kotak Teks Berdasarkan Konten**
 
-Tambahkan kotak teks contoh, lalu temukan bentuk yang teksnya mengandung kata kunci "Slide".
+Tambahkan kotak teks contoh, lalu temukan shape yang teksnya mengandung kata kunci "Slide".
 
 ```python
 import jpype
@@ -88,9 +88,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Menghapus Kotak Teks Berdasarkan Konten**
+## **Hapus Kotak Teks Berdasarkan Konten**
 
-Temukan dan hapus kotak teks pada slide pertama yang berisi kata kunci tertentu.
+Temukan dan hapus kotak teks pada slide pertama yang mengandung kata kunci tertentu.
 
 ```python
 import jpype
@@ -124,5 +124,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-Kumpulkan bentuk yang cocok dalam daftar terpisah sebelum menghapusnya untuk menghindari memodifikasi koleksi bentuk selama iterasi.
+Kumpulkan shape yang cocok dalam daftar terpisah sebelum menghapusnya untuk menghindari memodifikasi koleksi shape selama iterasi.
 {{% /alert %}}

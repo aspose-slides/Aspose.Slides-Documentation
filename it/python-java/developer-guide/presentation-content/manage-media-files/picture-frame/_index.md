@@ -1,21 +1,21 @@
 ---
-title: Gestire i picture frame nelle presentazioni usando Python
+title: Gestire i frame immagine nelle presentazioni usando Python
 linktitle: Frame immagine
 type: docs
 weight: 10
 url: /it/python-java/picture-frame/
 keywords:
 - frame immagine
-- aggiungere frame immagine
-- creare frame immagine
+- aggiungi frame immagine
+- crea frame immagine
 - immagine incorporata
 - immagine collegata
-- estrarre immagine
+- estrai immagine
 - immagine raster
 - immagine SVG
-- ritagliare immagine
-- eliminare aree ritagliate
-- comprimere immagine
+- ritaglia immagine
+- elimina aree ritagliate
+- comprimi immagine
 - StretchOffset
 - formattazione frame immagine
 - scala relativa
@@ -27,15 +27,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Crea, formatta, collega, ritaglia, estrae e comprime i frame immagine nelle presentazioni con Aspose.Slides per Python tramite Java."
+description: "Crea, formatta, collega, ritaglia, estrae e comprime i frame immagine nelle presentazioni con Aspose.Slides per Python via Java."
 ---
 ## **Panoramica**
 
-Un picture frame è una forma di diapositiva che visualizza un'immagine. In Aspose.Slides, la risorsa immagine e la forma che la visualizza sono oggetti separati: una [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/) possiede risorse immagine incorporate attraverso la sua [ImageCollection](https://reference.aspose.com/slides/it/python-java/aspose.slides/imagecollection/), mentre un [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) controlla la posizione, le dimensioni, la formattazione delle linee, la rotazione, il ritaglio, gli effetti immagine e altre impostazioni a livello di frame.
+Un picture frame è una forma di diapositiva che visualizza un'immagine. In Aspose.Slides, la risorsa immagine e la forma che la visualizza sono oggetti separati: una [Presentation](https://reference.aspose.com/slides/it/python-java/aspose.slides/presentation/) possiede le risorse immagine incorporate tramite la sua [ImageCollection](https://reference.aspose.com/slides/it/python-java/aspose.slides/imagecollection/), mentre un [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) controlla la posizione, le dimensioni, la formattazione della linea, la rotazione, il ritaglio, gli effetti dell'immagine e altre impostazioni a livello di cornice.
 
-Questa separazione è utile quando la stessa immagine viene mostrata più di una volta. Aggiungi l'immagine alla presentazione una sola volta, conserva il [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/) restituito e utilizza quella risorsa immagine quando crei i picture frame.
+Questa separazione è utile quando la stessa immagine viene mostrata più di una volta. Aggiungi l'immagine alla presentazione una sola volta, conserva il [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/) restituito e utilizza quella risorsa immagine quando crei picture frame.
 
-I picture frame possono contenere immagini raster come PNG o JPEG e immagini vettoriali SVG. Possono anche fare riferimento a immagini collegate invece di memorizzare i byte dell'immagine nella presentazione. La scelta influisce sulla portabilità, le dimensioni del file, l'estrazione e il comportamento di esportazione, quindi è utile decidere come l'immagine dovrebbe essere archiviata prima di applicare formattazioni o ottimizzazioni.
+I picture frame possono contenere immagini raster come PNG o JPEG e immagini vettoriali SVG. Possono anche fare riferimento a immagini collegate invece di memorizzare i byte dell'immagine nella presentazione. La scelta influisce sulla portabilità, sulla dimensione del file, sull'estrazione e sul comportamento di esportazione, quindi è utile decidere come l'immagine debba essere archiviata prima di applicare formattazioni o ottimizzazioni.
 
 ## **Aggiungere e formattare un'immagine incorporata**
 
@@ -74,11 +74,11 @@ finally:
     presentation.dispose()
 ```
 
-Il picture frame controlla la geometria visualizzata; modificare le dimensioni del frame non cambia le dimensioni dei pixel originali memorizzati nella risorsa immagine incorporata. Questa distinzione diventa importante quando si ritaglia o si comprime un'immagine in seguito.
+Il picture frame controlla la geometria visualizzata; modificare le dimensioni del frame non cambia le dimensioni in pixel originali memorizzate nella risorsa immagine incorporata. Questa distinzione diventa importante quando si ritaglia o si comprime un'immagine in seguito.
 
 ## **Usare la scala relativa**
 
-[PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) espone la scala relativa di larghezza e altezza per il frame tramite [setRelativeScaleWidth](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) e [setRelativeScaleHeight](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Un valore di `1.0` corrisponde al 100% della dimensione originale dell'immagine. La scala relativa è utile quando un flusso di lavoro deve preservare una relazione con la dimensione dell'immagine di origine invece di calcolare manualmente le dimensioni finali.
+[PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) espone la scala relativa di larghezza e altezza per il frame tramite [setRelativeScaleWidth](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) e [setRelativeScaleHeight](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Un valore di `1.0` corrisponde al 100% della dimensione originale dell'immagine. La scala relativa è utile quando un flusso di lavoro deve preservare una relazione con le dimensioni dell'immagine sorgente invece di calcolare manualmente le dimensioni finali.
 
 ```python
 import jpype
@@ -112,13 +112,13 @@ La scala relativa modifica le impostazioni di scala del frame; non ricampiona n�
 
 ## **Immagini incorporate e collegate**
 
-Un'immagine incorporata memorizza i dati dell'immagine all'interno della presentazione ed è quindi la scelta più sicura per la portabilità e il rendering prevedibile. Un'immagine collegata memorizza un percorso esterno tramite il metodo [Picture.setLinkPathLong](https://reference.aspose.com/slides/it/python-java/aspose.slides/picture/#setLinkPathLong) invece di incorporare i dati dell'immagine nello stesso modo.
+Un'immagine incorporata memorizza i dati dell'immagine all'interno della presentazione ed è quindi la scelta più sicura per la portabilità e il rendering prevedibile. Un'immagine collegata memorizza una posizione esterna tramite il metodo [Picture.setLinkPathLong](https://reference.aspose.com/slides/it/python-java/aspose.slides/picture/#setLinkPathLong) invece di incorporare i dati dell'immagine allo stesso modo.
 
-Le immagini collegate possono ridurre la quantità di dati immagine archiviati nel PPTX, ma introducono una dipendenza esterna. Il file collegato deve rimanere accessibile all'applicazione che apre o rende la presentazione. Se il percorso cambia, il file viene spostato o la risorsa non è disponibile, il picture frame collegato potrebbe non essere visualizzato come previsto. Per presentazioni che devono essere inviate via e‑mail, archiviate o renderizzate in ambienti isolati, le immagini incorporate sono solitamente più affidabili.
+Le immagini collegate possono ridurre la quantità di dati immagine memorizzati nel PPTX, ma introducono una dipendenza esterna. Il file collegato deve rimanere accessibile all'applicazione che apre o rende la presentazione. Se il percorso cambia, il file viene spostato o la risorsa non è disponibile, l'immagine collegata potrebbe non essere visualizzata come previsto. Per presentazioni che devono essere inviate via email, archiviate o renderizzate in ambienti isolati, le immagini incorporate sono generalmente più affidabili.
 
 ### **Aggiungere un'immagine collegata**
 
-L'esempio seguente crea un picture frame e lo collega a un file immagine locale. Si occupa solo del collegamento dell'immagine; il collegamento dei video è un flusso di lavoro multimediale separato e non è mescolato intenzionalmente in questo esempio.
+L'esempio seguente crea un picture frame e lo punta a un file immagine locale. Tratta solo il collegamento delle immagini; il collegamento dei video è un flusso di lavoro multimediale separato e non è intenzionalmente mescolato in questo esempio.
 
 ```python
 import jpype
@@ -144,15 +144,15 @@ finally:
     presentation.dispose()
 ```
 
-Usa i collegamenti quando la gestione dei file esterni è intenzionale. Non usarli semplicemente come sostituto della compressione: un PPTX piccolo con dipendenze immagine interrotte è solitamente meno utile di una presentazione più grande e autonoma.
+Usa i collegamenti quando la gestione dei file esterni è intenzionale. Non usarli semplicemente come sostituto della compressione: un PPTX piccolo con dipendenze di immagine rotte è solitamente meno utile di una presentazione più grande e autonoma.
 
-## **Estrarre immagini dai picture frame**
+## **Estrarre immagini da picture frame**
 
-Prima di estrarre un'immagine da una presentazione esistente, verifica che una forma sia effettivamente un [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) e che contenga un'immagine incorporata. I picture frame collegati potrebbero non contenere byte immagine estraibili nello stesso modo.
+Prima di estrarre un'immagine da una presentazione esistente, verifica che una forma sia realmente un [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) e che contenga un'immagine incorporata. I picture frame collegati potrebbero non contenere byte di immagine estraibili nello stesso modo.
 
 ### **Estrarre un'immagine raster**
 
-L'API immagine moderna lavora direttamente con immagini raster e non richiede l'wrapper Java più vecchio. L'esempio seguente trova la prima immagine raster incorporata in una diapositiva e la salva come PNG:
+L'API immagine moderna lavora direttamente con immagini raster e non richiede il wrapper immagine Java più vecchio. L'esempio seguente trova la prima immagine raster incorporata su una diapositiva e la salva come PNG:
 
 ```python
 import jpype
@@ -190,7 +190,7 @@ Salvare l'immagine raster converte l'immagine estratta nel formato di output ric
 
 ### **Estrarre un'immagine SVG**
 
-Per un'immagine SVG, il [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/) espone un oggetto [SvgImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/svgimage/). Questo ti consente di recuperare direttamente i dati SVG invece di rasterizzare prima l'immagine.
+Per un'immagine SVG, il [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/) espone un oggetto [SvgImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/svgimage/). Questo ti permette di recuperare i dati SVG direttamente invece di rasterizzare prima l'immagine.
 
 ```python
 import jpype
@@ -223,13 +223,13 @@ finally:
     presentation.dispose()
 ```
 
-Mantenere il contenuto SVG come SVG preserva la sorgente vettoriale all'interno della presentazione. Le esportazioni raster come PNG o JPEG devono necessariamente renderizzare quel contenuto vettoriale in pixel. L'esportazione della diapositiva in PDF o SVG è anch'essa un'operazione di rendering, quindi la grafica esportata non deve essere trattata come una copia byte‑per‑byte dell'SVG incorporato originale; utilizza i dati di [SvgImage.getSvgData](https://reference.aspose.com/slides/it/python-java/aspose.slides/svgimage/#getSvgData) quando è richiesto il recurso vettoriale originale.
+Mantenere il contenuto SVG come SVG preserva la fonte vettoriale all'interno della presentazione. Le esportazioni raster come PNG o JPEG rendono necessariamente quel contenuto vettoriale in pixel. L'esportazione della diapositiva in PDF o SVG è anch'essa un'operazione di rendering, quindi la grafica esportata non dovrebbe essere trattata come una copia byte-per-byte dell'SVG incorporato originale; utilizza i dati [SvgImage.getSvgData](https://reference.aspose.com/slides/it/python-java/aspose.slides/svgimage/#getSvgData) incorporati quando è necessario la risorsa vettoriale originale.
 
 ## **Ritagliare un'immagine**
 
-Il ritaglio cambia quale parte dell'immagine è visibile all'interno del frame. I valori di ritaglio su [PictureFillFormat](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/) sono percentuali delle dimensioni dell'immagine di origine. Il ritaglio non elimina inizialmente i pixel nascosti dall'immagine incorporata; modifica solo la regione visibile.
+Il ritaglio modifica quale parte di un'immagine è visibile all'interno del frame. I valori di ritaglio su [PictureFillFormat](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/) sono percentuali delle dimensioni dell'immagine sorgente. Il ritaglio non elimina inizialmente i pixel nascosti dall'immagine incorporata; cambia solo la regione visibile.
 
-L'esempio seguente trova in modo sicuro un picture frame e applica i valori di ritaglio:
+L'esempio seguente trova un picture frame in modo sicuro e applica i valori di ritaglio:
 
 ```python
 import jpype
@@ -260,11 +260,11 @@ finally:
     presentation.dispose()
 ```
 
-Poiché i dati dell'immagine nascosta sono ancora presenti, il ritaglio può essere modificato in seguito senza perdere i pixel originali. Se le dimensioni del file sono più importanti della reversibilità, le regioni ritagliate possono essere rimosse fisicamente come descritto nella sezione successiva.
+Poiché i dati dell'immagine nascosta sono ancora presenti, il ritaglio può essere modificato in seguito senza perdere i pixel originali. Se la dimensione del file è più importante della reversibilità, le regioni ritagliate possono essere rimosse fisicamente come descritto nella sezione successiva.
 
-## **Rimuovere i dati di immagine ritagliati**
+## **Rimuovere i dati immagine ritagliati**
 
-[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) rimuove i dati immagine al di fuori del rettangolo di ritaglio corrente e restituisce la risorsa immagine risultante. Questo può ridurre le dimensioni del file, ma è un'ottimizzazione distruttiva: dopo il salvataggio della presentazione, i pixel rimossi non sono più disponibili per un'operazione di "uncrop" successiva.
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) rimuove i dati immagine al di fuori del rettangolo di ritaglio corrente e restituisce la risorsa immagine risultante. Questo può ridurre la dimensione del file, ma è un'ottimizzazione distruttiva: dopo il salvataggio della presentazione, i pixel rimossi non sono più disponibili per un'operazione di annullamento del ritaglio successiva.
 
 ```python
 import jpype
@@ -293,13 +293,13 @@ finally:
     presentation.dispose()
 ```
 
-Il metodo può aggiungere una nuova risorsa immagine alla presentazione. Se l'immagine originale è utilizzata anche da altri picture frame, quei frame hanno ancora bisogno della loro risorsa esistente, quindi l'eliminazione delle aree ritagliate non riduce necessariamente il numero totale di immagini. Il ritaglio di contenuti WMF o EMF con questo metodo rasterizza il risultato ritagliato in PNG.
+Il metodo può aggiungere una nuova risorsa immagine alla presentazione. Se l'immagine originale è anche usata da altri picture frame, questi frame hanno ancora bisogno della loro risorsa esistente, quindi l'eliminazione delle aree ritagliate non riduce necessariamente il numero totale di immagini. Ritagliare contenuti WMF o EMF con questo metodo rasterizza il risultato ritagliato in PNG.
 
 ## **Comprimere immagini raster**
 
 [PictureFillFormat.compressImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/#compressImage) riduce la risoluzione dell'immagine raster rispetto alle dimensioni con cui l'immagine è visualizzata. Può anche rimuovere le regioni ritagliate nella stessa operazione. Il metodo restituisce `True` quando l'immagine è stata ridimensionata o ritagliata e `False` quando non è stato necessario alcun cambiamento.
 
-Utilizza un valore predefinito di [PicturesCompression](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturescompression/) quando è sufficiente una risoluzione target standard:
+Usa un valore predefinito [PicturesCompression](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturescompression/) quando è sufficiente una risoluzione di destinazione standard:
 
 ```python
 import jpype
@@ -328,17 +328,17 @@ finally:
     presentation.dispose()
 ```
 
-È possibile passare un valore DPI positivo personalizzato al posto di un valore predefinito quando è richiesto un target specifico.
+È possibile passare un valore DPI positivo personalizzato invece di un valore predefinito quando è richiesto un target specifico.
 
-La compressione è destinata alle immagini raster. Il contenuto SVG e metafile non è ridotto da questo flusso di lavoro di compressione raster. Ricorda anche che una risoluzione più bassa e le regioni ritagliate eliminate non possono essere recuperate dalla presentazione ottimizzata. Scegli una risoluzione target basata sulla dimensione massima alla quale l'immagine verrà effettivamente visualizzata o esportata, anziché applicare il DPI più basso a livello globale.
+La compressione è destinata alle immagini raster. Il contenuto SVG e metafile non è ridotto da questo flusso di lavoro di compressione raster. Ricorda anche che una risoluzione più bassa e le regioni ritagliate eliminate non possono essere recuperate dalla presentazione ottimizzata. Scegli una risoluzione di destinazione basata sulla dimensione più grande con cui l'immagine sarà effettivamente visualizzata o esportata invece di applicare il DPI più basso a livello globale.
 
-## **Gestire gli effetti di trasformazione dell'immagine**
+## **Gestire gli effetti di trasformazione delle immagini**
 
-Per un flusso di lavoro completo che copra luminosità, contrasto, trasformazioni di colore, sfocatura, effetti alfa, catene ordinate, ispezione, rimozione e verifica end‑to‑end, vedi [Image Transform Effects](/slides/it/python-java/image-transform-effects/).
+Per un flusso di lavoro completo che copre luminosità, contrasto, trasformazioni di colore, sfocatura, effetti alfa, catene ordinate, ispezione, rimozione e verifica round-trip, vedi [Image Transform Effects](/slides/it/python-java/image-transform-effects/).
 
 ## **Bloccare la geometria del picture frame**
 
-Le impostazioni di [PictureFrameLock](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframelock/) controllano quali operazioni di modifica sono disabilitate per un picture frame. Ad esempio, [setAspectRatioLocked](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) preserva le proporzioni della forma durante il ridimensionamento.
+Le impostazioni [PictureFrameLock](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframelock/) controllano quali operazioni di modifica sono disabilitate per un picture frame. Ad esempio, [setAspectRatioLocked](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) conserva le proporzioni della forma mentre viene ridimensionata.
 
 ```python
 import jpype
@@ -367,13 +367,13 @@ finally:
     presentation.dispose()
 ```
 
-Il blocco si applica alla forma del picture frame. Non forza l'immagine di origine a essere ricampionata o permanentemente modificata per avere lo stesso rapporto d'aspetto.
+Il blocco si applica alla forma del picture frame. Non forza l'immagine sorgente a essere ricampionata o modificata permanentemente allo stesso rapporto d'aspetto.
 
 ## **Regolare i valori StretchOffset**
 
-Quando la modalità di riempimento dell'immagine è stretch, i valori stretch‑offset su [PictureFillFormat](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/) definiscono il rettangolo di riempimento relativo al bounding box del picture frame. Percentuali positive creano un inset da un bordo, mentre percentuali negative creano un outset.
+Quando la modalità di riempimento dell'immagine è stretch, i valori stretch-offset su [PictureFillFormat](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/) definiscono il rettangolo di riempimento relativo al riquadro di delimitazione del picture frame. Percentuali positive creano un rientro dal bordo, mentre percentuali negative creano un'estensione.
 
-Questo è diverso dal ritaglio. I valori di ritaglio selezionano quale parte dell'immagine di origine è visibile; gli stretch offset modificano il rettangolo in cui il riempimento immagine visibile è allungato.
+Questo è diverso dal ritaglio. I valori di ritaglio selezionano quale parte dell'immagine sorgente è visibile; gli offset di stretch modificano il rettangolo in cui il riempimento dell'immagine visibile viene allungato.
 
 ```python
 import jpype
@@ -406,43 +406,43 @@ finally:
     presentation.dispose()
 ```
 
-Usa gli stretch offset per il posizionamento del riempimento. Usa le proprietà di ritaglio quando l'obiettivo è nascondere i bordi dell'immagine di origine.
+Usa gli stretch offset per il posizionamento del riempimento. Usa le proprietà di ritaglio quando l'obiettivo è nascondere i bordi dell'immagine sorgente.
 
 ## **Considerazioni su archiviazione, dimensione del file ed esportazione**
 
-I principali compromessi sono più facili da gestire quando l'archiviazione delle immagini e la formattazione dei picture frame sono trattati separatamente:
+I principali compromessi sono più facili da gestire quando l'archiviazione delle immagini e la formattazione dei picture frame vengono trattati separatamente:
 
-- **Immagini incorporate** rendono la presentazione autonoma e sono le più affidabili per la condivisione e il rendering lato server, ma le grandi immagini raster aumentano le dimensioni del PPTX e l'uso di memoria.
-- **Immagini collegate** possono mantenere il pacchetto più piccolo, ma la presentazione dipende dal fatto che i file esterni rimangano disponibili nei percorsi o nelle posizioni memorizzate.
+- **Immagini incorporate** rendono la presentazione autonoma e sono le più affidabili per la condivisione e il rendering lato server, ma le immagini raster di grandi dimensioni aumentano la dimensione del PPTX e l'uso della memoria.
+- **Immagini collegate** possono mantenere il pacchetto più piccolo, ma la presentazione dipende dalla disponibilità dei file esterni ai percorsi o alle posizioni memorizzate.
 - **Ritaglio** è inizialmente non distruttivo. I pixel nascosti rimangono incorporati finché le aree ritagliate non vengono esplicitamente eliminate o rimosse durante la compressione.
-- **Compressione** può ridurre notevolmente le dimensioni del file per immagini raster sovradimensionate, ma sacrifica la risoluzione di origine. Deve essere applicata dopo aver definito la dimensione finale sulla diapositiva.
-- **Immagini SVG** dovrebbero rimanere come SVG quando la conservazione vettoriale è importante. Estrai l'SVG incorporato direttamente quando è necessario il recurso vettoriale stesso. Le esportazioni raster della diapositiva convertono sempre la diapositiva renderizzata in pixel.
-- **Immagini ripetute** dovrebbero riutilizzare una risorsa [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/) esistente quando possibile, invece di caricare ripetutamente lo stesso file nel flusso di lavoro della presentazione.
+- **Compressione** può ridurre notevolmente la dimensione del file per immagini raster sovradimensionate, ma sacrifica la risoluzione originale. Deve essere applicata dopo aver conosciuto la dimensione prevista sulla slide.
+- **Immagini SVG** dovrebbero rimanere come SVG quando la conservazione del vettoriale è importante. Estrai l'SVG incorporato direttamente quando hai bisogno della risorsa vettoriale stessa. Le esportazioni raster delle slide convertono sempre la slide renderizzata in pixel.
+- **Immagini ripetute** dovrebbero riutilizzare una risorsa [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/) esistente quando possibile invece di caricare ripetutamente lo stesso file nel flusso di lavoro della presentazione.
 
-Per presentazioni grandi, l'ottimizzazione delle immagini è solitamente più efficace quando eseguita in modo selettivo: mantieni loghi e diagrammi come contenuto vettoriale, comprimi le fotografie in base alla loro reale dimensione di visualizzazione, rimuovi i pixel ritagliati solo quando non è necessaria una modifica successiva e evita i link esterni a meno che la gestione delle dipendenze non faccia parte del design di distribuzione.
+Per presentazioni di grandi dimensioni, l'ottimizzazione delle immagini è solitamente più efficace quando eseguita in modo selettivo: mantieni loghi e diagrammi come contenuto vettoriale, comprimi le fotografie in base alle loro reali dimensioni di visualizzazione, rimuovi i pixel ritagliati solo quando la modifica successiva non è necessaria e evita collegamenti esterni a meno che la gestione delle dipendenze non faccia parte del design di distribuzione.
 
 ## **FAQ**
 
 **Qual è la differenza tra un picture frame e una risorsa immagine?**
 
-Un [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/) rappresenta una risorsa immagine associata alla presentazione. Un [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) è una forma su una diapositiva che visualizza un'immagine e memorizza geometria e formattazione a livello di frame come dimensioni, rotazione, valori di ritaglio, effetti e blocchi.
+Un [PPImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/ppimage/) rappresenta una risorsa immagine associata alla presentazione. Un [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) è una forma su una diapositiva che visualizza un'immagine e memorizza la geometria a livello di frame e la formattazione come dimensioni, rotazione, valori di ritaglio, effetti e blocchi.
 
 **Devo incorporare o collegare le immagini?**
 
-Incorpora le immagini quando la presentazione deve essere portabile, archiviata o renderizzata senza accesso a risorse esterne. Collega le immagini solo quando mantenere i file immagine fuori dal PPTX è intenzionale e le posizioni esterne possono essere mantenute in modo affidabile.
+Incorpora le immagini quando la presentazione deve essere portabile, archiviata o renderizzata senza accesso a risorse esterne. Collega le immagini solo quando è intenzionale mantenere i file immagine fuori dal PPTX e le posizioni esterne possono essere gestite in modo affidabile.
 
-**Il ritaglio riduce le dimensioni del file PPTX?**
+**Il ritaglio riduce la dimensione del file PPTX?**
 
-Non di per sé. Le impostazioni di ritaglio normali nascondono parti dell'immagine di origine ma mantengono i pixel sottostanti. Usa [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) o la compressione dell'immagine con rimozione delle aree ritagliate quando quei pixel possono essere eliminati definitivamente.
+Non di per sé. Le impostazioni di ritaglio normali nascondono parti dell'immagine sorgente ma mantengono i pixel sottostanti. Usa [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) o la compressione dell'immagine con rimozione delle aree ritagliate quando quei pixel possono essere scartati in modo permanente.
 
 **Posso ripristinare la qualità dell'immagine dopo la compressione?**
 
-No. La compressione può ridurre la risoluzione raster memorizzata e la rimozione delle regioni ritagliate elimina i dati dell'immagine. Mantieni l'immagine originale al di fuori della presentazione se in seguito potresti aver bisogno di modifiche ad alta risoluzione.
+No. La compressione può ridurre la risoluzione raster memorizzata e la rimozione delle regioni ritagliate elimina i dati dell'immagine. Conserva l'immagine sorgente originale al di fuori della presentazione se in seguito potrebbe essere necessario un editing ad alta risoluzione.
 
 **Come dovrebbero essere gestite le immagini SVG?**
 
-Mantieni il contenuto SVG come SVG quando la fedeltà vettoriale è importante. L'[SvgImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/svgimage/) incorporato può essere estratto direttamente. Il rendering di una diapositiva in formato raster come PNG o JPEG rasterizza l'SVG come parte dell'immagine della diapositiva.
+Mantieni il contenuto SVG come SVG quando la fedeltà vettoriale è importante. L'[SvgImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/svgimage/) incorporato può essere estratto direttamente. Il rendering di una diapositiva in un formato raster come PNG o JPEG rasterizza l'SVG come parte dell'immagine della diapositiva.
 
-**Come evitare cast non sicuri quando leggo le diapositive esistenti?**
+**Come posso evitare cast non sicuri quando leggo slide esistenti?**
 
-Controlla il tipo di forma prima di utilizzare membri specifici del picture frame. Un controllo `isinstance` contro [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) evita cast invalidi e consente al codice di gestire le diapositive che non contengono picture frame.
+Verifica il tipo di forma prima di utilizzare i membri specifici del picture frame. Un controllo `isinstance` contro [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) evita cast non validi e consente al codice di gestire le slide che non contengono picture frame.

@@ -6,7 +6,7 @@ weight: 40
 url: /tr/python-java/manage-ole/
 keywords:
 - OLE nesnesi
-- Nesne Bağlantısı ve Gömme
+- Nesne Bağlama ve Gömme
 - OLE ekle
 - OLE göm
 - nesne ekle
@@ -18,9 +18,9 @@ keywords:
 - OLE değiştir
 - OLE simgesi
 - OLE başlığı
-- OLE çıkar
-- nesne çıkar
-- dosya çıkar
+- OLE çıkart
+- nesne çıkart
+- dosya çıkart
 - PowerPoint
 - sunum
 - Python
@@ -30,31 +30,30 @@ description: "Aspose.Slides for Python via Java ile PowerPoint ve OpenDocument d
 ---
 ## **Giriş**
 
-{{% alert color="info" title="Not" %}}
+{{% alert color="info" title="Note" %}}
 
-OLE (Object Linking & Embedding), bir uygulamada oluşturulan veri ve nesnelerin başka bir uygulamaya bağlanma veya gömme yoluyla yerleştirilmesine izin veren bir Microsoft teknolojisidir.
+OLE (Object Linking & Embedding), bir Microsoft teknolojisidir ve bir uygulamada oluşturulan veri ve nesnelerin bağlama veya gömme yoluyla başka bir uygulamada yer almasını sağlar.
 
 {{% /alert %}}
 
-MS Excel'de oluşturulmuş bir grafiği düşünün. Grafik daha sonra bir PowerPoint slaytına yerleştirilir. Bu Excel grafiği bir OLE nesnesi olarak kabul edilir.
+MS Excel’de oluşturulmuş bir grafiği düşünün. Bu grafik daha sonra bir PowerPoint slaytına yerleştirilir. Bu Excel grafiği bir OLE nesnesi olarak kabul edilir.
 
-- Bir OLE nesnesi bir simge olarak görünebilir. Bu durumda, simgeye çift tıkladığınızda grafik ilişkili uygulamasında (Excel) açılır veya nesneyi açma/düzenleme için bir uygulama seçmeniz istenir.
-- Bir OLE nesnesi gerçek içeriğini, örneğin bir grafiğin içeriğini, gösterebilir. Bu durumda, grafik PowerPoint içinde etkinleşir, grafik arabirimi yüklenir ve grafiğin verilerini PowerPoint içinde değiştirebilirsiniz.
+- Bir OLE nesnesi simge olarak görünebilir. Bu durumda, simgeye çift tıkladığınızda grafik ilişkili uygulamasında (Excel) açılır veya nesneyi açmak/düzenlemek için bir uygulama seçmeniz istenir.
+- Bir OLE nesnesi gerçek içeriğini, örneğin grafiğin içeriğini, görüntüleyebilir. Bu durumda grafik PowerPoint içinde etkinleşir, grafik arabirimi yüklenir ve grafiğin verilerini PowerPoint içinde değiştirebilirsiniz.
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/tr/python-java/) slide'lara OLE nesnelerini OLE nesne çerçeveleri ([OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/)) olarak eklemenizi sağlar.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/tr/python-java/) OLE nesnelerini slaytlara OLE nesne çerçeveleri ([OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/)) olarak eklemenizi sağlar.
 
-## **Slide'lara OLE Nesne Çerçeveleri Ekleme**
+## **OLE Nesne Çerçevelerini Slaytlara Ekleme**
 
-Microsoft Excel'de zaten bir grafik oluşturduğunuzu ve bunu Aspose.Slides for Python via Java kullanarak bir slayta OLE nesne çerçevesi olarak gömmek istediğinizi varsayalım; bunu şu şekilde yapabilirsiniz:
+Microsoft Excel’de zaten bir grafik oluşturduğunuzu ve Aspose.Slides for Python via Java kullanarak bu grafiği bir OLE nesne çerçevesi olarak bir slayta gömmek istediğinizi varsayalım; bunu aşağıdaki şekilde yapabilirsiniz:
 
 1. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. Slaytın indeksine göre referansını alın.  
-1. Excel dosyasını bayt dizisi olarak okuyun.  
-1. OleObjectFrame'i, bayt dizisini ve OLE nesnesiyle ilgili diğer bilgileri içerecek şekilde slayta ekleyin.  
-1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+1. İndeksiyle bir slayta referans alın.  
+1. Excel dosyasını bir bayt dizisi olarak okuyun.  
+1. Bayt dizisini ve OLE nesnesiyle ilgili diğer bilgileri içeren [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) nesnesini slayta ekleyin.  
+1. Değiştirilmiş sunumu bir PPTX dosyası olarak yazın.
 
-Aşağıdaki örnekte, bir Excel dosyasındaki grafiği Aspose.Slides for Python via Java kullanarak OLE nesne çerçevesi olarak bir slayta ekledik.  
-**Not** [OleEmbeddedDataInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleembeddeddatainfo/) yapıcı metodunun ikinci parametresi, gömülebilir nesne uzantısını alır. Bu uzantı, PowerPoint'in dosya türünü doğru yorumlamasını ve OLE nesnesini açmak için uygun uygulamayı seçmesini sağlar.
+Aşağıdaki örnekte, bir Excel dosyasından bir grafiği Aspose.Slides for Python via Java kullanarak OLE nesne çerçevesi olarak bir slayta ekledik. **Not** ki [OleEmbeddedDataInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleembeddeddatainfo/) yapıcısı, ikinci parametre olarak gömülebilir bir nesne uzantısı alır. Bu uzantı, PowerPoint’in dosya türünü doğru bir şekilde yorumlamasını ve OLE nesnesini açmak için uygun uygulamayı seçmesini sağlar.
 
 ```python
 from pathlib import Path
@@ -87,11 +86,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Bağlantılı OLE Nesne Çerçeveleri Ekleme**
+### **Bağlantılı OLE Nesne Çerçevelerini Ekleme**
 
-Aspose.Slides for Python via Java, veriyi gömmeden yalnızca dosyaya bir bağlantı ile bir [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) eklemenizi sağlar.
+Aspose.Slides for Python via Java, gömülü veri yerine dosyaya bir bağlantı içeren bir [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) eklemenize olanak tanır.
 
-Bu Python kodu, bir slayta bağlantılı bir Excel dosyasıyla bir [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) eklemenin nasıl yapılacağını gösterir:
+Bu Python kodu, bir Excel dosyasına bağlantılı bir [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) nesnesini bir slayta nasıl ekleyeceğinizi gösterir:
 
 ```python
 import jpype
@@ -106,7 +105,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Bağlantılı bir Excel dosyasıyla bir OLE nesne çerçevesi ekleyin.
+    # Bağlantılı bir Excel dosyasıyla OLE nesne çerçevesi ekleyin.
     slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
 
     presentation.save("output.pptx", SaveFormat.Pptx)
@@ -114,16 +113,16 @@ finally:
     presentation.dispose()
 ```
 
-## **OLE Nesne Çerçevelerine Erişme**
+## **OLE Nesne Çerçevelerine Erişim**
 
-Bir OLE nesnesi zaten bir slayta gömülmüşse, ona şu şekilde kolayca ulaşabilir veya bulabilirsiniz:
+Bir OLE nesnesi zaten bir slayta gömülü ise, ona bu şekilde kolayca ulaşabilir veya bulabilirsiniz:
 
 1. Gömülü OLE nesnesi içeren bir sunumu, [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturarak yükleyin.  
-2. Slaytın indeksine göre referansını alın.  
-3. [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) şekline erişin. Örneğimizde, yalnızca bir şekli olan ilk slayttaki önceden oluşturulmuş PPTX'i kullandık. Ardından nesnenin bir [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) olduğunu doğruladık. Bu, erişilmek istenen OLE nesne çerçevesiydi.  
+2. İndeksiyle slayta referans alın.  
+3. [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) şekline erişin. Örneğimizde, ilk slaytta yalnızca bir şekil bulunan önceden oluşturulmuş PPTX’i kullandık. Ardından nesnenin bir [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) olduğunu doğruladık. Bu, erişilmek istenen OLE nesne çerçevesiydi.  
 4. OLE nesne çerçevesine erişildikten sonra, üzerinde istediğiniz herhangi bir işlemi gerçekleştirebilirsiniz.
 
-Aşağıdaki örnekte, bir OLE nesne çerçevesi (bir slayta gömülmüş bir Excel grafik nesnesi) ve dosya verileri erişilir.
+Aşağıdaki örnekte bir OLE nesne çerçevesi (slayta gömülmüş bir Excel grafik nesnesi) ve dosya verisi erişilmiştir.
 
 ```python
 import jpype
@@ -142,10 +141,10 @@ try:
     if isinstance(shape, OleObjectFrame):
         ole_frame = shape
 
-        # Gömülü dosya verisini alın.
+        # Gömülü dosya verisini al.
         file_data = ole_frame.getEmbeddedData().getEmbeddedFileData()
 
-        # Gömülü dosyanın uzantısını alın.
+        # Gömülü dosyanın uzantısını al.
         file_extension = ole_frame.getEmbeddedData().getEmbeddedFileExtension()
 
         # ...
@@ -153,18 +152,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Bağlantılı OLE Nesne Çerçevesi Özelliklerine Erişme**
+### **Bağlantılı OLE Nesne Çerçeve Özelliklerine Erişim**
 
 Aspose.Slides, bağlantılı OLE nesne çerçevesi özelliklerine erişmenizi sağlar.
 
 Bu Python kodu, bir OLE nesnesinin bağlantılı olup olmadığını kontrol etmeyi ve ardından bağlantılı dosyanın yolunu elde etmeyi gösterir:
 
 ```python
-import jpype
+import jpide
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpide.isJVMStarted():
+    jpide.startJVM()
 
 from asposeslides.api import OleObjectFrame, Presentation
 
@@ -181,35 +180,33 @@ try:
             # Bağlantılı dosyanın tam yolunu yazdır.
             print("OLE object frame is linked to: " + str(ole_frame.getLinkPathLong()))
 
-            # Bağlantılı dosyanın göreli yolu mevcutsa yazdır.
+            # Varsa bağlantılı dosyanın göreli yolunu yazdır.
             # Yalnızca PPT sunumları göreli yolu içerebilir.
             relative_path = ole_frame.getLinkPathRelative()
-            if relative_path is not None and not relative_path.isEmpty():
-                print("OLE object frame relative path: " + str(relative_path))
 finally:
     presentation.dispose()
 ```
 
 ## **OLE Nesne Verisini Değiştirme**
 
-{{% alert color="info" title="Not" %}}
+{{% alert color="info" title="Note" %}}
 
-Bu bölümdeki kod örneği, [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/) kullanmaktadır.
+Bu bölümdeki kod örneği aşağıda [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/) kullanmaktadır.
 
 {{% /alert %}}
 
-Bir OLE nesnesi zaten bir slayta gömülmüşse, o nesneye kolayca erişebilir ve verisini şu şekilde değiştirebilirsiniz:
+Bir OLE nesnesi zaten bir slayta gömülü ise, o nesneye kolayca erişebilir ve verisini aşağıdaki şekilde değiştirebilirsiniz:
 
 1. Gömülü OLE nesnesi içeren bir sunumu, [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturarak yükleyin.  
-2. Slaytın indeksine göre referansını alın.  
-3. OLE nesne çerçevesi şekline erişin. Örneğimizde, ilk slaytta bir şekli olan önceden oluşturulmuş PPTX'i kullandık. Ardından nesnenin bir [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) olduğunu doğruladık. Bu, erişilmek istenen OLE nesne çerçevesiydi.  
+2. İndeksiyle slayta referans alın.  
+3. OLE nesne çerçevesi şekline erişin. Örneğimizde, ilk slaytta bir şekil bulunan önceden oluşturulmuş PPTX’i kullandık. Ardından nesnenin bir [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) olduğunu doğruladık. Bu, erişilmek istenen OLE nesne çerçevesiydi.  
 4. OLE nesne çerçevesine erişildikten sonra, üzerinde istediğiniz herhangi bir işlemi gerçekleştirebilirsiniz.  
 5. [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) nesnesi oluşturun ve OLE verisine erişin.  
-6. İstenen [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) erişin ve verileri değiştirin.  
+6. İstenen [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) öğesine erişin ve veriyi düzenleyin.  
 7. Güncellenmiş [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) nesnesini bir akışa kaydedin.  
-8. OLE nesne verisini akıştan değiştirin.
+8. Akıştan OLE nesne verisini değiştirin.
 
-Aşağıdaki örnekte, bir OLE nesne çerçevesi (bir slayta gömülmüş bir Excel grafik nesnesi) erişilir ve dosya verileri grafiğin verilerini güncelleyecek şekilde değiştirilir.
+Aşağıdaki örnekte bir OLE nesne çerçevesi (slayta gömülmüş bir Excel grafik nesnesi) erişilmiş ve dosya verisi grafik verilerini güncelleyecek şekilde değiştirilmiştir.
 
 ```python
 import jpype
@@ -260,9 +257,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Slide'lara Diğer Dosya Türlerini Gömme**
+## **Diğer Dosya Türlerini Slaytlara Gömme**
 
-Excel grafiklerinin yanı sıra, Aspose.Slides for Python via Java, slide'lara HTML, PDF ve ZIP gibi diğer dosya türlerini nesne olarak gömmenize olanak tanır. Kullanıcı eklenen nesneye çift tıkladığında, ilgili program otomatik olarak açılır veya kullanıcıdan uygun bir program seçmesi istenir.
+Excel grafiklerinin yanı sıra, Aspose.Slides for Python via Java, slaytlara HTML, PDF ve ZIP gibi diğer dosya türlerini nesne olarak gömmenize olanak tanır. Kullanıcı eklenen nesneye çift tıkladığında, ilgili program otomatik olarak açılır veya kullanıcıdan dosyayı açmak için uygun bir program seçmesi istenir.
 
 Bu Python kodu, bir slayta HTML ve ZIP dosyalarını nasıl gömeceğinizi gösterir:
 
@@ -300,9 +297,9 @@ finally:
 
 ## **Gömülü Nesneler İçin Dosya Türlerini Ayarlama**
 
-Sunumlarla çalışırken eski OLE nesnelerini yenileriyle değiştirmek veya desteklenmeyen bir OLE nesnesini desteklenen bir nesneyle değiştirmek isteyebilirsiniz. Aspose.Slides for Python via Java, gömülü bir nesne için dosya türünü ayarlamanıza olanak tanır; böylece OLE çerçeve verilerini veya uzantısını güncelleyebilirsiniz.
+Sunumlarla çalışırken, eski OLE nesnelerini yenileriyle değiştirmek veya desteklenmeyen bir OLE nesnesini desteklenen bir nesneyle değiştirmek isteyebilirsiniz. Aspose.Slides for Python via Java, gömülü bir nesnenin dosya türünü ayarlamanıza izin verir; bu sayede OLE çerçeve verisini veya uzantısını güncelleyebilirsiniz.
 
-Bu Python kodu, gömülü bir OLE nesnesinin dosya türünü `zip` olarak ayarlamayı gösterir:
+Bu Python kodu, gömülü bir OLE nesnesinin dosya türünü `zip` olarak nasıl ayarlayacağınızı gösterir:
 
 ```python
 import jpype
@@ -334,9 +331,9 @@ finally:
 
 ## **Gömülü Nesneler İçin Simge Görüntüleri ve Başlıkları Ayarlama**
 
-Bir OLE nesnesi gömüldükten sonra, otomatik olarak bir simge görüntüsünden oluşan bir ön izleme eklenir. Bu ön izleme, kullanıcıların OLE nesnesine erişmeden/ açmadan önce gördükleri şeydir. Ön izlemeye belirli bir görüntü ve metin eklemek istiyorsanız, Aspose.Slides for Python via Java kullanarak simge görüntüsü ve başlığı ayarlayabilirsiniz.
+Bir OLE nesnesi gömüldükten sonra, otomatik olarak bir simge görüntüsü içeren bir ön izleme eklenir. Bu ön izleme, kullanıcıların OLE nesnesine erişmeden veya açmadan önce gördükleri şeydir. Ön izlemede belirli bir resim ve metin kullanmak isterseniz, Aspose.Slides for Python via Java ile simge görüntüsünü ve başlığı ayarlayabilirsiniz.
 
-Bu Python kodu, gömülü bir nesne için simge görüntüsü ve başlığı nasıl ayarlayacağınızı gösterir:
+Bu Python kodu, gömülü bir nesne için simge görüntüsünü ve başlığını nasıl ayarlayacağınızı gösterir:
 
 ```python
 from pathlib import Path
@@ -359,7 +356,7 @@ try:
     image_data = jpype.JArray(jpype.JByte)(image_data)
     ole_image = presentation.getImages().addImage(image_data)
 
-    # OLE önizlemesi için bir başlık ve resmi ayarlayın.
+    # OLE ön izlemesi için bir başlık ve resmi ayarlayın.
     ole_frame.setSubstitutePictureTitle("My title")
     ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
     ole_frame.setObjectIcon(True)
@@ -369,9 +366,9 @@ finally:
     presentation.dispose()
 ```
 
-## **OLE Nesne Çerçevesinin Yeniden Boyutlandırılmasını ve Konumlandırılmasını Önleme**
+## **OLE Nesne Çerçevesinin Yeniden Boyutlandırılmasını ve Yeniden Konumlandırılmasını Önleme**
 
-Bir bağlantılı OLE nesnesini bir sunum slaytına ekledikten sonra, PowerPoint'te sunumu açtığınızda bağlamaları güncellemek isteyip istemediğinizi soran bir ileti görebilirsiniz. “Bağlantıları Güncelle” düğmesine tıklamak, PowerPoint'in bağlantılı OLE nesnesinden verileri güncellemesi ve ön izlemeyi yenilemesi nedeniyle OLE nesne çerçevesinin boyut ve konumunu değiştirebilir. PowerPoint'in nesne verilerini güncelleme istemesini önlemek için, [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) sınıfının **setUpdateAutomatic** metodunu `False` olarak ayarlayın:
+Bağlantılı bir OLE nesnesini bir sunum slaytına ekledikten sonra, PowerPoint’te sunumu açtığınızda “Bağlantıları Güncelle” mesajı görebilirsiniz. “Bağlantıları Güncelle” düğmesine tıklamak, PowerPoint bağlantılı OLE nesnesinden verileri güncellediği ve nesne ön izlemesini yenilediği için OLE nesne çerçevesinin boyut ve konumunu değiştirebilir. Nesnenin verileri güncellenmek üzere istemeyi önlemek için [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) sınıfının **setUpdateAutomatic** metodunu `False` olarak ayarlayın:
 
 ```python
 import jpype
@@ -396,13 +393,13 @@ finally:
 
 ## **Gömülü Dosyaları Çıkarma**
 
-Aspose.Slides for Python via Java, slaytlara OLE nesneleri olarak gömülmüş dosyaları şu şekilde çıkarmanıza izin verir:
+Aspose.Slides for Python via Java, slaytlarda OLE nesneleri olarak gömülü dosyaları aşağıdaki şekilde çıkarabilir:
 
-1. Çıkarmak istediğiniz OLE nesnelerini içeren bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının örneğini oluşturun.  
-2. Sunumdaki tüm şekiller üzerinden döngü yapın ve [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) şekillerine erişin.  
-3. OLE nesne çerçevelerinden gömülü dosya verilerine erişin ve diske yazın.
+1. Çıkarmak istediğiniz OLE nesnelerini içeren bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği oluşturun.  
+2. Sunumdaki tüm şekillerin üzerinden döngü oluşturarak [OleObjectFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/oleobjectframe/) şekillerine erişin.  
+3. Gömülü dosyaların verilerine OLE nesne çerçevelerinden ulaşın ve diske yazın.
 
-Bu Python kodu, bir slayttaki OLE nesneleri olarak gömülü dosyaları nasıl çıkaracağınızı gösterir:
+Bu Python kodu, bir slaytta OLE nesnesi olarak gömülü dosyaları nasıl çıkaracağınızı gösterir:
 
 ```python
 from pathlib import Path
@@ -436,18 +433,18 @@ finally:
 
 ## **SSS**
 
-**OLE içeriği slaytlar PDF/görsellere dışa aktarılırken renderlanacak mı?**
+**Slaytlar PDF/görsellere dışa aktarılırken OLE içeriği renderlanacak mı?**
 
-Slaytta görülen şey renderlanır—simge/yer tutucu görüntü (ön izleme). “Canlı” OLE içeriği renderleme sırasında yürütülmez. Gerekirse, dışa aktarılan PDF'de beklenen görünümü sağlamak için kendi ön izleme görüntünüzü ayarlayın.
+Slaytta görünen şey renderlanır — simge/ikame görüntüsü (ön izleme). “Canlı” OLE içeriği renderlama sırasında çalıştırılmaz. Gerekiyorsa, dışa aktarılan PDF'de beklenen görünümü sağlamak için kendi ön izleme resminizi ayarlayın.
 
-**Bir OLE nesnesini bir slaytta kilitleyerek kullanıcıların PowerPoint'te onu taşımalarını/düzenlemelerini nasıl engelleyebilirim?**
+**Bir OLE nesnesini bir slaytta kilitleyerek kullanıcıların PowerPoint’te nesneyi taşımasını/düzenlemesini nasıl engelleyebilirim?**
 
-Şekli kilitleyin: Aspose.Slides, [şekil düzeyinde kilitler](/slides/tr/python-java/applying-protection-to-presentation/) sağlar. Bu şifreleme değildir, ancak kazara düzenlemeleri ve hareketi etkili bir şekilde önler.
+Şekli kilitleyin: Aspose.Slides [şekil‑seviyesi kilitler](/slides/tr/python-java/applying-protection-to-presentation/) sağlar. Bu bir şifreleme değildir, ancak yanlışlıkla düzenleme ve taşıma işlemlerini etkili bir şekilde önler.
 
-**Bağlantılı bir Excel nesnesi, sunumu açtığımda “atlar” ya da boyutu değişiyor, neden?**
+**Bağlantılı bir Excel nesnesi, sunumu açtığımda “atlıyor” ya da boyutu değişiyor, neden?**
 
-PowerPoint, bağlantılı OLE'nin ön izlemesini yenileyebilir. Sabit bir görünüm için, [Worksheet Yeniden Boyutlandırma için Çalışma Çözümü](/slides/tr/python-java/working-solution-for-worksheet-resizing/) uygulamalarını izleyin—ya çerçeveyi aralığa göre ayarlayın, ya da aralığı sabit bir çerçeveye ölçeklendirin ve uygun bir yer tutucu görüntü belirleyin.
+PowerPoint, bağlantılı OLE nesnesinin ön izlemesini yenileyebilir. Stabil bir görünüm elde etmek için [Worksheet Resizing için Çalışma Çözümü](/slides/tr/python-java/working-solution-for-worksheet-resizing/) uygulamalarını izleyin — ya çerçeveyi aralığa göre ayarlayın ya da aralığı sabit bir çerçeveye ölçekleyin ve uygun bir ikame görüntüsü belirleyin.
 
-**Bağlantılı OLE nesneleri için relatif yollar PPTX formatında korunur mu?**
+**Bağlantılı OLE nesneleri için göreli yollar PPTX formatında korunur mu?**
 
-PPTX içinde “relatif yol” bilgisi bulunmaz—yalnızca tam yol mevcuttur. Relatif yollar, eski PPT formatında bulunur. Taşınabilirlik için güvenilir mutlak yollar/erişilebilir URI'lar veya gömme tercih edin.
+PPTX’te “göreli yol” bilgisi bulunmaz — yalnızca tam yol vardır. Göreli yollar, eski PPT formatında mevcuttur. Taşınabilirliği artırmak için güvenilir mutlak yollar/erişilebilir URI’ler veya gömme kullanın.

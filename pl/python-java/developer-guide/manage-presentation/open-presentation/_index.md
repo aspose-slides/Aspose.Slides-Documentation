@@ -10,13 +10,13 @@ keywords:
 - otwórz PPTX
 - otwórz PPT
 - otwórz ODP
-- wczytaj prezentację
-- wczytaj PPTX
-- wczytaj PPT
-- wczytaj ODP
+- załaduj prezentację
+- załaduj PPTX
+- załaduj PPT
+- załaduj ODP
 - zabezpieczona prezentacja
 - duża prezentacja
-- zewnętrzny zasób
+- zasób zewnętrzny
 - obiekt binarny
 - Python
 - Java
@@ -25,13 +25,13 @@ description: "Dowiedz się, jak otwierać prezentacje PowerPoint i OpenDocument 
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides for Python via Java może ładować prezentacje PowerPoint i OpenDocument z plików oraz strumieni. Po załadowaniu prezentacji możesz przeglądać jej strukturę, edytować slajdy, zarządzać zasobami i zapisać ją w oryginalnym lub innym obsługiwanym formacie.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/pl/python-java/) może ładować prezentacje PowerPoint i OpenDocument z plików i strumieni. Po załadowaniu prezentacji można przeglądać jej strukturę, edytować slajdy, zarządzać zasobami i zapisać ją w oryginalnym lub innym obsługiwanym formacie.
 
-Zachowanie ładowania można dostosować przy użyciu klasy [LoadOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/). Na przykład możesz podać hasło otwierające, przechowywać duże obiekty binarne poza pamięcią sterty Java, kontrolować zasoby zewnętrzne lub pominąć osadzone dane binarne.
+Zachowanie ładowania można dostosować za pomocą klasy [LoadOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/). Na przykład można podać hasło otwierające, trzymać duże obiekty binarne poza pamięcią sterty Java, kontrolować zasoby zewnętrzne lub pominąć osadzone dane binarne.
 
 ## **Otwieranie prezentacji**
 
-Aby otworzyć istniejącą prezentację, przekaż jej ścieżkę pliku do konstruktora [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/). Zwolnij prezentację po użyciu, aby uchwyty plików, dane tymczasowe i inne zasoby zostały szybko zwolnione.
+Aby otworzyć istniejącą prezentację, przekaż jej ścieżkę pliku do konstruktora [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/). Po użyciu zwolnij prezentację, aby uchwyty plików, dane tymczasowe i inne zasoby zostały szybko zwolnione.
 
 Poniższy przykład w Pythonie pokazuje, jak otworzyć prezentację i uzyskać liczbę slajdów:
 
@@ -51,9 +51,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Otwieranie zabezpieczonych hasłem prezentacji**
+## **Otwieranie prezentacji zabezpieczonych hasłem**
 
-Hasło otwierające szyfruje zawartość prezentacji. Aby załadować pełną prezentację, podaj poprawne hasło do [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#setPassword) i przekaż opcje do konstruktora [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/). Ładowanie kończy się niepowodzeniem, gdy hasło jest nieobecne lub nieprawidłowe.
+Hasło otwierające szyfruje zawartość prezentacji. Aby załadować całą prezentację, przekaż poprawne hasło do [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#setPassword) i podaj opcje w konstruktorze [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/). Ładowanie nie powiedzie się, gdy hasło jest brakujące lub nieprawidłowe.
 
 ```python
 import jpype
@@ -74,13 +74,13 @@ finally:
     presentation.dispose()
 ```
 
-W celu wykrywania, weryfikacji haseł i procesów szyfrowania zobacz [Zabezpieczanie prezentacji hasłem](/slides/pl/python-java/password-protected-presentation/). Jeśli zaszyfrowana prezentacja została celowo zapisana z publicznymi właściwościami dokumentu, te właściwości można odczytać bez hasła; zobacz [Zarządzanie właściwościami prezentacji](/slides/pl/python-java/presentation-properties/).
+Zobacz [Ochrona hasłem prezentacji](/slides/pl/python-java/password-protected-presentation/). Jeśli zaszyfrowana prezentacja została celowo zapisana z publicznymi właściwościami dokumentu, można je odczytać bez hasła; zobacz [Zarządzanie właściwościami prezentacji](/slides/pl/python-java/presentation-properties/).
 
 ## **Otwieranie dużych prezentacji**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) zwraca opcje kontrolujące sposób, w jaki Aspose.Slides obsługuje duże obiekty binarne, takie jak obrazy, dźwięk i wideo. Możesz utrzymać plik źródłowy zablokowany, zezwolić na pliki tymczasowe i ograniczyć ilość danych BLOB przechowywanych w pamięci.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) zwraca opcje kontrolujące, jak Aspose.Slides obsługuje duże obiekty binarne, takie jak obrazy, audio i wideo. Możesz utrzymać plik źródłowy zablokowany, zezwolić na pliki tymczasowe i ograniczyć ilość danych BLOB przechowywanych w pamięci.
 
-Poniższy kod w Pythonie demonstruje ładowanie dużej prezentacji (na przykład 2 GB):
+Poniższy kod w Pythonie demonstruje ładowanie dużej prezentacji (np. 2 GB):
 
 ```python
 import jpype
@@ -106,15 +106,17 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}}
-Przy użyciu PresentationLockingBehavior.KeepLocked plik źródłowy pozostaje zablokowany aż do zwolnienia instancji prezentacji. Nie przenoś, nie nadpisuj ani nie usuwaj pliku źródłowego, gdy ta instancja jest aktywna.
+{{% alert color="info" title="Uwaga" %}}
 
-Aspose.Slides może kopiować zawartość strumienia wejściowego podczas ładowania. Dla dużych prezentacji ścieżka pliku jest zazwyczaj wydajniejsza niż strumień. Zobacz [Zarządzanie BLOB-ami](/slides/pl/python-java/manage-blob/) w celu uzyskania dodatkowych opcji przechowywania i zarządzania pamięcią.
+Przy użyciu [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), plik źródłowy pozostaje zablokowany, aż do zwolnienia instancji prezentacji. Nie przenoś, nie nadpisuj ani nie usuwaj pliku źródłowego, gdy ta instancja jest aktywna.
+
+Aspose.Slides może kopiować zawartość strumienia wejściowego podczas ładowania. Dla dużych prezentacji ścieżka pliku jest zazwyczaj bardziej wydajna niż strumień. Zobacz [Zarządzanie BLOB‑ami](/slides/pl/python-java/manage-blob/) aby uzyskać dodatkowe opcje przechowywania i zarządzania pamięcią.
+
 {{% /alert %}}
 
 ## **Kontrola zasobów zewnętrznych**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) akceptuje proxy JPype implementujące interfejs Java callbacku ładowania zasobów. Callback może dostarczyć dane zastępcze, przekierować zasób, użyć domyślnego loadera lub pominąć zasób. Jest to przydatne, gdy prezentacje zawierają obrazy zewnętrzne, które muszą być rozwiązywane zgodnie z zasadami bezpieczeństwa lub przechowywania specyficznymi dla aplikacji.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) akceptuje proxy JPype implementujące interfejs zwrotnego wywołania ładowania zasobów Java. Wywołanie zwrotne może dostarczyć dane zastępcze, przekierować zasób, użyć domyślnego ładowania lub pominąć zasób. Jest to przydatne, gdy prezentacje zawierają zewnętrzne obrazy, które muszą być rozwiązywane zgodnie z zasadami bezpieczeństwa lub przechowywania określonymi przez aplikację.
 
 ```python
 import jpype
@@ -156,15 +158,15 @@ finally:
 
 ## **Ładowanie prezentacji bez osadzonych obiektów binarnych**
 
-Prezentacja może zawierać osadzone dane binarne, które aplikacja nie potrzebuje lub nie chce zachowywać. Przykłady obejmują:
+Prezentacja może zawierać osadzone dane binarne, które aplikacja nie potrzebuje lub nie chce zachować. Przykłady obejmują:
 
-- projekty VBA, dostępne przez [Presentation.getVbaProject](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getVbaProject);
-- osadzone dane OLE, dostępne przez [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
-- dane kontrolki ActiveX, dostępne przez [Control.getActiveXControlBinary](https://reference.aspose.com/slides/pl/python-java/aspose.slides/control/#getActiveXControlBinary).
+- projekty VBA, dostępne poprzez [Presentation.getVbaProject](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getVbaProject);
+- osadzone dane OLE, dostępne poprzez [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- dane kontrolki ActiveX, dostępne poprzez [Control.getActiveXControlBinary](https://reference.aspose.com/slides/pl/python-java/aspose.slides/control/#getActiveXControlBinary).
 
-Ustaw [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) na `True`, aby usunąć te dane binarne podczas ładowania. Zapisz załadowaną prezentację, aby zachować odsanowaną wersję.
+Ustaw [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) na `True`, aby usunąć te dane binarne podczas ładowania. Zapisz załadowaną prezentację, aby utrwalić oczyszczony wynik.
 
-Ta opcja zmniejsza ryzyko niechcianych osadzonych ładunków, ale nie jest pełnym systemem wykrywania złośliwego oprogramowania ani sanitizacji treści.
+Ta opcja zmniejsza ryzyko niechcianych osadzonych ładunków, ale nie jest kompletnym systemem wykrywania złośliwego oprogramowania ani sanitizacji treści.
 
 ```python
 import jpype
@@ -189,12 +191,12 @@ finally:
 
 **Jak mogę stwierdzić, że plik jest uszkodzony i nie może zostać otwarty?**
 
-Aspose.Slides zgłasza wyjątek parsowania lub formatu podczas ładowania. Obsłuż tę awarię oddzielnie od błędu nieprawidłowego hasła, aby aplikacja mogła dokładnie zgłosić przyczynę.
+Aspose.Slides zgłasza wyjątek parsowania lub formatu podczas ładowania. Obsłuż tę niepowodzenie osobno od błędu nieprawidłowego hasła, aby aplikacja mogła dokładnie zgłosić przyczynę.
 
 **Co się stanie, jeśli brak wymaganych czcionek?**
 
-Prezentacja może nadal zostać załadowana, ale renderowanie i eksport mogą zastąpić czcionki. Możesz skonfigurować substytucję czcionek lub dostarczyć własne czcionki, aby wynik był bardziej przewidywalny.
+Prezentacja może nadal się ładować, ale renderowanie i eksport mogą zastąpić czcionki. Możesz [skonfigurować podstawianie czcionek](/slides/pl/python-java/font-substitution/) lub [dostarczyć własne czcionki](/slides/pl/python-java/custom-font/), aby wynik był bardziej przewidywalny.
 
 **Czy ładowanie prezentacji ładuje również jej osadzone media?**
 
-Osadzone audio i wideo stają się dostępne poprzez model obiektowy prezentacji. Zasoby zewnętrzne są rozwiązywane zgodnie z skonfigurowanym zachowaniem ładowania zasobów i mogą być niedostępne, jeśli ich lokalizacji nie można uzyskać.
+Osadzone audio i wideo stają się dostępne poprzez model obiektowy prezentacji. Zasoby zewnętrzne są rozwiązywane zgodnie z skonfigurowanym zachowaniem ładowania zasobów i mogą być niedostępne, jeśli ich lokalizacji nie można odczytać.

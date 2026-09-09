@@ -1,5 +1,5 @@
 ---
-title: إدارة OLE في العروض التقديمية باستخدام Python
+title: إدارة OLE في العروض باستخدام Python
 linktitle: إدارة OLE
 type: docs
 weight: 40
@@ -22,39 +22,39 @@ keywords:
 - استخراج كائن
 - استخراج ملف
 - PowerPoint
-- عرض تقديمي
+- عرض
 - Python
 - Java
 - Aspose.Slides
-description: "تحسين إدارة كائنات OLE في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides للـ Python عبر Java. تضمين، تحديث، وتصدير محتوى OLE بسلاسة."
+description: "تحسين إدارة كائنات OLE في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides for Python via Java. تضمين، تحديث، وتصدير محتوى OLE بسلاسة."
 ---
-## **مقدمة**
+## **المقدمة**
 
 {{% alert color="info" title="ملاحظة" %}}
 
-OLE (Object Linking & Embedding) هي تقنية من مايكروسوفت تسمح بنقل البيانات والكائنات التي تم إنشاؤها في تطبيق إلى تطبيق آخر عبر الربط أو التضمين.
+OLE (Object Linking & Embedding) هي تقنية من مايكروسوفت تسمح بنقل البيانات والكائنات التي تم إنشاؤها في تطبيق واحد إلى تطبيق آخر عبر الربط أو التضمين.
 
 {{% /alert %}}
 
-تخيل وجود مخطط تم إنشاؤه في MS Excel. يتم وضع المخطط بعد ذلك داخل شريحة PowerPoint. يُعتبر هذا المخطط في Excel ككائن OLE.
+تخيل مخططًا تم إنشاؤه في MS Excel. ثم يتم وضعه داخل شريحة PowerPoint. يعتبر هذا المخطط في Excel كائن OLE.
 
-- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عند النقر المزدوج على الأيقونة، يُفتح المخطط في التطبيق المرتبط به (Excel)، أو يُطلب منك اختيار تطبيق لفتح أو تحرير الكائن.
-- قد يعرض كائن OLE محتوياته الفعلية، مثل محتويات المخطط. في هذه الحالة، يتم تفعيل المخطط في PowerPoint، تُحمَّل واجهة المخطط، وتتمكن من تعديل بيانات المخطط داخل PowerPoint.
+- قد يظهر كائن OLE كأيقونة. في هذه الحالة، عندما تنقر مزدوجًا على الأيقونة، يفتح المخطط في التطبيق المرتبط به (Excel)، أو يطلب منك اختيار تطبيق لفتح أو تحرير الكائن.
+- قد يعرض كائن OLE محتواه الفعلي، مثل محتوى المخطط. في هذه الحالة، يتم تفعيل المخطط في PowerPoint، يُحمَّل واجهة المخطط، ويمكنك تعديل بيانات المخطط داخل PowerPoint.
 
-[Aspose.Slides للـ Python عبر Java](https://products.aspose.com/slides/ar/python-java/) يسمح لك بإدراج كائنات OLE في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/ar/python-java/) يتيح لك إدراج كائنات OLE في الشرائح كإطارات كائن OLE ([OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/)).
 
 ## **إضافة إطارات كائن OLE إلى الشرائح**
 
-با افتراض أنك قد أنشأت مخططًا في Microsoft Excel وتريد تضمينه في شريحة كإطار كائن OLE باستخدام Aspose.Slides للـ Python عبر Java، يمكنك القيام بذلك بهذه الطريقة:
+بافتراض أنك أنشأت مخططًا بالفعل في Microsoft Excel وتريد تضمينه في شريحة كإطار كائن OLE باستخدام Aspose.Slides for Python via Java، يمكنك القيام بذلك بهذه الطريقة:
 
-1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. قراءة ملف Excel كمصفوفة بايت.
-4. إضافة الـ [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) إلى الشريحة مع مصفوفة البايت ومعلومات أخرى عن كائن OLE.
-5. كتابة العرض المعدل كملف PPTX.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى الشريحة بحسب الفهرس.
+1. قراءة ملف Excel كمصفوفة بايت.
+1. إضافة الـ [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) إلى الشريحة مع مصفوفة البايت ومعلومات أخرى حول كائن OLE.
+1. كتابة العرض المعدَّل كملف PPTX.
 
-في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كإطار كائن OLE باستخدام Aspose.Slides للـ Python عبر Java.  
-**ملاحظة** أن مُنشئ الـ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleembeddeddatainfo/) يأخذ امتداد الكائن القابل للتضمين كمعامل ثانٍ. يسمح هذا الامتداد لـ PowerPoint بتفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح كائن OLE هذا.
+في المثال أدناه، أضفنا مخططًا من ملف Excel إلى شريحة كإطار كائن OLE باستخدام Aspose.Slides for Python via Java.  
+**ملاحظة** أن مُنشئ الـ [OleEmbeddedDataInfo](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleembeddeddatainfo/) يأخذ امتداد الكائن القابل للتضمين كمعامله الثاني. هذا الامتداد يسمح لـ PowerPoint بتفسير نوع الملف بشكل صحيح واختيار التطبيق المناسب لفتح كائن OLE هذا.
 
 ```python
 from pathlib import Path
@@ -72,7 +72,7 @@ try:
     slide_size = presentation.getSlideSize().getSize()
     slide = presentation.getSlides().get_Item(0)
 
-    # إعداد البيانات لكائن OLE.
+    # تحضير البيانات لكائن OLE.
     file_data = Path("book.xlsx").read_bytes()
     file_data = jpype.JArray(jpype.JByte)(file_data)
     data_info = OleEmbeddedDataInfo(file_data, "xlsx")
@@ -87,11 +87,11 @@ finally:
     presentation.dispose()
 ```
 
-### **إضافة إطارات كائن OLE المرتبطة**
+### **إضافة إطارات OLE مرتبطة**
 
-Aspose.Slides للـ Python عبر Java يسمح لك بإضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) دون تضمين البيانات ولكن فقط عبر ارتباط بالملف.
+Aspose.Slides for Python via Java يتيح لك إضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) مع رابط إلى الملف بدلاً من البيانات المضمَّنة.
 
-يعرض لك هذا الشيفرة Python كيفية إضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) بملف Excel مرتبط إلى شريحة:
+هذا الكود بلغة Python يوضح كيفية إضافة [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) مع ملف Excel مرتبط إلى شريحة:
 
 ```python
 import jpype
@@ -106,7 +106,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # إضافة إطار كائن OLE بملف Excel مرتبط.
+    # إضافة إطار كائن OLE مع ملف Excel مرتبط.
     slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
 
     presentation.save("output.pptx", SaveFormat.Pptx)
@@ -116,21 +116,22 @@ finally:
 
 ## **الوصول إلى إطارات كائن OLE**
 
-إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك العثور عليه أو الوصول إليه بهذه الطريقة:
+إذا كان كائن OLE مُضمَّنًا بالفعل في شريحة، يمكنك العثور عليه أو الوصول إليه بسهولة بهذه الطريقة:
 
-1. تحميل عرض يحتوي على كائن OLE المضمّن من خلال إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة باستخدام فهرستها.
-3. الوصول إلى شكل [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) . في مثالنا، استخدمنا ملف PPTX السابق الذي يحتوي على شكل واحد فقط في الشريحة الأولى. ثم تحققنا من أن الكائن هو [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/). كان هذا هو إطار كائن OLE المطلوب الوصول إليه.
-4. بمجرد الوصول إلى إطار كائن OLE، يمكنك إجراء أي عملية عليه.
+1. تحميل عرض يحتوي على كائن OLE المضمَّن بإنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى الشريحة بحسب الفهرس.
+3. الوصول إلى شكل [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/).  
+   في مثالنا، استخدمنا ملف PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد فقط في الشريحة الأولى. ثم تحققنا من أن الكائن هو [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/). كان هذا هو إطار OLE المطلوب الوصول إليه.
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.
 
 في المثال أدناه، يتم الوصول إلى إطار كائن OLE (كائن مخطط Excel مضمّن في شريحة) وبيانات ملفه.
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpime.isJVMStarted():
+    jpime.startJVM()
 
 from asposeslides.api import OleObjectFrame, Presentation
 
@@ -142,18 +143,22 @@ try:
     if isinstance(shape, OleObjectFrame):
         ole_frame = shape
 
-        # احصل على بيانات الملف المضمّن.
-        # احصل على امتداد الملف المضمّن.
+        # احصل على بيانات الملف المضمن.
+        file_data = ole_frame.getEmbeddedData().getEmbeddedFileData()
+
+        # احصل على امتداد الملف المضمن.
+        file_extension = ole_frame.getEmbeddedData().getEmbeddedFileExtension()
+
         # ...
 finally:
     presentation.dispose()
 ```
 
-### **الوصول إلى خصائص إطار كائن OLE المرتبط**
+### **الوصول إلى خصائص إطار OLE المرتبط**
 
-Aspose.Slides يسمح لك بالوصول إلى خصائص إطار كائن OLE المرتبط.
+Aspose.Slides يتيح لك الوصول إلى خصائص إطارات OLE المرتبطة.
 
-يعرض لك هذا الشيفرة Python كيفية التحقق مما إذا كان كائن OLE مرتبطًا ثم الحصول على مسار الملف المرتبط:
+هذا الكود بلغة Python يوضح كيفية التحقق مما إذا كان كائن OLE مرتبطًا ثم الحصول على مسار الملف المرتبط:
 
 ```python
 import jpype
@@ -178,7 +183,7 @@ try:
             print("OLE object frame is linked to: " + str(ole_frame.getLinkPathLong()))
 
             # طباعة المسار النسبي للملف المرتبط إذا كان موجودًا.
-            # يمكن لعروض PPT فقط احتواء المسار النسبي.
+            # يمكن فقط لعروض PPT أن تحتوي على المسار النسبي.
             relative_path = ole_frame.getLinkPathRelative()
             if relative_path is not None and not relative_path.isEmpty():
                 print("OLE object frame relative path: " + str(relative_path))
@@ -190,18 +195,19 @@ finally:
 
 {{% alert color="info" title="ملاحظة" %}}
 
-في هذا القسم، يستخدم المثال التالي [Aspose.Cells للـ Python عبر Java](https://products.aspose.com/cells/python-java/).
+في هذا القسم، يستخدم المثال البرمجي أدناه [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/).
 
 {{% /alert %}}
 
-إذا كان كائن OLE مضمّنًا بالفعل في شريحة، يمكنك بسهولة الوصول إلى ذلك الكائن وتعديل بياناته بهذه الطريقة:
+إذا كان كائن OLE مُضمَّنًا بالفعل في شريحة، يمكنك بسهولة الوصول إلى ذلك الكائن وتعديل بياناته بهذه الطريقة:
 
-1. تحميل عرض يحتوي على كائن OLE المضمّن من خلال إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
-2. الحصول على مرجع الشريحة عبر فهرستها.
-3. الوصول إلى شكل إطار كائن OLE. في مثالنا، استخدمنا ملف PPTX السابق الذي يحتوي على شكل واحد في الشريحة الأولى. ثم تحققنا من أن الكائن هو [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/). كان هذا هو إطار كائن OLE المطلوب الوصول إليه.
-4. بمجرد الوصول إلى إطار كائن OLE، يمكنك إجراء أي عملية عليه.
+1. تحميل عرض يحتوي على كائن OLE المضمَّن بإنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى الشريحة بحسب الفهرس.
+3. الوصول إلى شكل إطار كائن OLE.  
+   في مثالنا، استخدمنا ملف PPTX الذي تم إنشاؤه مسبقًا والذي يحتوي على شكل واحد في الشريحة الأولى. ثم تحققنا من أن الكائن هو [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/). كان هذا هو إطار OLE المطلوب الوصول إليه.
+4. بمجرد الوصول إلى إطار كائن OLE، يمكنك تنفيذ أي عملية عليه.
 5. إنشاء كائن [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) والوصول إلى بيانات OLE.
-6. الوصول إلى ورقة العمل [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) المطلوبة وتعديل البيانات.
+6. الوصول إلى الـ [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) المطلوب وتعديل البيانات.
 7. حفظ الـ [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) المحدث في تدفق.
 8. تغيير بيانات كائن OLE من التدفق.
 
@@ -256,11 +262,11 @@ finally:
     presentation.dispose()
 ```
 
-## **إدراج أنواع ملفات أخرى في الشرائح**
+## **تضمين أنواع ملفات أخرى في الشرائح**
 
-بالإضافة إلى مخططات Excel، يسمح لك Aspose.Slides للـ Python عبر Java بإدراج أنواع أخرى من الملفات في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML، PDF، وZIP ككائنات. عندما ينقر المستخدم مزدوجًا على الكائن المُدرج، يفتح تلقائيًا في البرنامج المناسب، أو يُطلب من المستخدم اختيار برنامج مناسب لفتحه.
+بالإضافة إلى مخططات Excel، Aspose.Slides for Python via Java يتيح لك تضمين أنواع أخرى من الملفات في الشرائح. على سبيل المثال، يمكنك إدراج ملفات HTML، PDF وZIP ككائنات. عندما ينقر المستخدم مزدوجًا على الكائن المُدرج، يفتح تلقائيًا في البرنامج المناسب، أو يُطلب من المستخدم اختيار برنامج ملائم لفتحه.
 
-يعرض لك هذا الشيفرة Python كيفية تضمين HTML وZIP في شريحة:
+هذا الكود بلغة Python يوضح كيفية تضمين HTML وZIP في شريحة:
 
 ```python
 from pathlib import Path
@@ -294,11 +300,11 @@ finally:
     presentation.dispose()
 ```
 
-## **تعيين أنواع الملفات للكائنات المضمنة**
+## **تحديد نوع الملف للكائنات المضمَّنة**
 
-عند العمل على العروض، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير المدعوم بآخر مدعوم. يسمح لك Aspose.Slides للـ Python عبر Java بتعيين نوع الملف لكائن مضمّن، مما يتيح لك تحديث بيانات إطار OLE أو امتداده.
+عند العمل على العروض، قد تحتاج إلى استبدال كائنات OLE القديمة بأخرى جديدة أو استبدال كائن OLE غير مدعوم بآخر مدعوم. Aspose.Slides for Python via Java يتيح لك تعيين نوع الملف لكائن مضمَّن، مما يمكنك من تحديث بيانات إطار OLE أو امتداده.
 
-يعرض لك هذا الشيفرة Python كيفية تعيين نوع الملف لكائن OLE مضمّن إلى `zip`:
+هذا الكود بلغة Python يوضح كيفية تعيين نوع الملف لكائن OLE مضمّن إلى `zip`:
 
 ```python
 import jpype
@@ -319,7 +325,7 @@ try:
 
     print("Current embedded file extension is: " + str(file_extension))
 
-    # تغيير نوع الملف إلى ZIP.
+    # غيّر نوع الملف إلى ZIP.
     data_info = OleEmbeddedDataInfo(file_data, "zip")
     ole_frame.setEmbeddedData(data_info)
 
@@ -328,11 +334,11 @@ finally:
     presentation.dispose()
 ```
 
-## **تعيين صور الأيقونات والعناوين للكائنات المضمنة**
+## **تعيين صور الأيقونات والعناوين للكائنات المضمَّنة**
 
-بعد تضمين كائن OLE، تُضاف معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة هي ما يراه المستخدمون قبل الوصول أو فتح كائن OLE. إذا رغبت في استخدام صورة ونص محددين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides للـ Python عبر Java.
+بعد تضمين كائن OLE، تُضاف معاينة تتكون من صورة أيقونة تلقائيًا. هذه المعاينة هي ما يراه المستخدمون قبل الوصول إلى كائن OLE أو فتحه. إذا رغبت في استخدام صورة ونص محددين كعناصر في المعاينة، يمكنك تعيين صورة الأيقونة والعنوان باستخدام Aspose.Slides for Python via Java.
 
-يعرض لك هذا الشيفرة Python كيفية تعيين صورة الأيقونة والعنوان لكائن مضمّن:
+هذا الكود بلغة Python يوضح كيفية تعيين صورة الأيقونة والعنوان لكائن مضمّن:
 
 ```python
 from pathlib import Path
@@ -355,7 +361,7 @@ try:
     image_data = jpype.JArray(jpype.JByte)(image_data)
     ole_image = presentation.getImages().addImage(image_data)
 
-    # تعيين عنوان والصورة لمعاينة OLE.
+    # تعيين عنوان وصورة للمعاينة OLE.
     ole_frame.setSubstitutePictureTitle("My title")
     ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
     ole_frame.setObjectIcon(True)
@@ -365,9 +371,9 @@ finally:
     presentation.dispose()
 ```
 
-## **منع إطار كائن OLE من تغيير الحجم وإعادة الموقع**
+## **منع تغيير حجم وإعادة تموضع إطار كائن OLE**
 
-بعد إضافتك لكائن OLE مرتبط إلى شريحة عرض، قد ترى عند فتح العرض في PowerPoint رسالة تطلب منك تحديث الروابط. قد يؤدي النقر على زر "تحديث الروابط" إلى تغيير حجم وإ موقع إطار كائن OLE لأن PowerPoint يحدث البيانات من كائن OLE المرتبط ويُعيد تحميل معاينة الكائن. لتجنب مطالبة PowerPoint بتحديث بيانات الكائن، عيّن طريقة [setUpdateAutomatic](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) للفئة [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) إلى `False`:
+بعد إضافة كائن OLE مرتبط إلى شريحة عرض، عندما تفتح العرض في PowerPoint قد ترى رسالة تطلب منك تحديث الروابط. النقر على زر "Update Links" قد يغيّر حجم وموقع إطار كائن OLE لأن PowerPoint يحدث البيانات من كائن OLE المرتبط ويُحدّث معاينة الكائن. لمنع PowerPoint من طلب تحديث بيانات الكائن، اضبط طريقة [setUpdateAutomatic](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) للفئة [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) إلى `False`:
 
 ```python
 import jpype
@@ -390,15 +396,15 @@ finally:
     presentation.dispose()
 ```
 
-## **استخراج الملفات المضمنة**
+## **استخراج الملفات المضمَّنة**
 
-Aspose.Slides للـ Python عبر Java يتيح لك استخراج الملفات المضمنة في الشرائح ككائنات OLE بهذه الطريقة:
+Aspose.Slides for Python via Java يتيح لك استخراج الملفات المُضمَّنة في الشرائح ككائنات OLE بهذه الطريقة:
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) التي تحتوي على كائنات OLE التي تريد استخراجها.
-2. تمرير جميع الأشكال في العرض والوصول إلى أشكال [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/) .
-3. الوصول إلى بيانات الملفات المضمنة من إطارات كائن OLE وكتابتها إلى القرص.
+1. إنشاء مثال من فئة [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/) التي تحتوي على كائنات OLE التي تريد استخراجها.
+2. التكرار عبر جميع الأشكال في العرض والوصول إلى أشكال [OleObjectFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleobjectframe/).
+3. الوصول إلى بيانات الملفات المضمَّنة من إطارات OLE وكتابتها إلى القرص.
 
-يعرض لك هذا الشيفرة Python كيفية استخراج الملفات المضمنة في شريحة ككائنات OLE:
+هذا الكود بلغة Python يوضح كيفية استخراج الملفات المضمَّنة في شريحة ككائنات OLE:
 
 ```python
 from pathlib import Path
@@ -430,16 +436,20 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **الأسئلة المتكررة**
 
-**هل سيتم عرض محتوى OLE عند تصدير الشرائح إلى PDF/صور؟**  
-ما يُرى على الشريحة هو ما يُصدّر — أي الأيقونة/الصورة البديلة (المعاينة). لا يتم تنفيذ محتوى OLE "الحي" أثناء عملية التصيير. إذا لزم الأمر، عيّن صورة معاينة خاصة لضمان المظهر المتوقع في ملف PDF المصدر.
+**هل سيُعرض محتوى OLE عند تصدير الشرائح إلى PDF/صور؟**
 
-**كيف يمكنني قفل كائن OLE على شريحة بحيث لا يستطيع المستخدمون تحريكه/تعديله في PowerPoint؟**  
+ما يُعرض على الشريحة هو المعاينة (الأيقونة/الصورة البديلة). محتوى OLE "الحي" لا يُنفّذ أثناء عملية العرض. إذا لزم الأمر، عيّن صورة معاينة خاصة لضمان الشكل المتوقع في PDF المُصدّر.
+
+**كيف يمكن قفل كائن OLE على شريحة بحيث لا يتمكن المستخدمون من تحريكه/تحريره في PowerPoint؟**
+
 قفل الشكل: Aspose.Slides يوفر [قفل على مستوى الشكل](/slides/ar/python-java/applying-protection-to-presentation/). هذا ليس تشفيرًا، لكنه يمنع التعديلات غير المقصودة والتحريك.
 
-**لماذا "يقفز" كائن Excel المرتبط أو يتغيّر حجمه عند فتح العرض؟**  
-قد يقوم PowerPoint بتحديث معاينة OLE المرتبط. للحصول على مظهر ثابت، اتبع ممارسات [الحل العملي لإعادة تحجيم ورقة العمل](/slides/ar/python-java/working-solution-for-worksheet-resizing/) — إما ضبط الإطار على النطاق، أو قياس النطاق إلى إطار ثابت وتعيين صورة بديلة مناسبة.
+**لماذا "يقفز" أو يتغيّر حجم كائن Excel المرتبط عندما أفتح العرض؟**
 
-**هل سيتم الحفاظ على المسارات النسبية لكائنات OLE المرتبطة في صيغة PPTX؟**  
-في PPTX، لا تتوفر معلومات "المسار النسبي" — فقط المسار الكامل. تُوجد المسارات النسبية في الصيغة القديمة PPT. للانتقالية، يفضَّل استخدام مسارات مطلقة موثوقة/عناوين URI قابلة للوصول أو تضمين الملف.
+قد يقوم PowerPoint بتحديث معاينة OLE المرتبط. للحفاظ على مظهر ثابت، اتبع ممارسات [الحل العملي لإعادة تحجيم ورقة العمل](/slides/ar/python-java/working-solution-for-worksheet-resizing/) — إما ضبط الإطار ليتناسب مع النطاق، أو تحجيم النطاق إلى إطار ثابت وتعيين صورة بديلة مناسبة.
+
+**هل ستتم المحافظة على المسارات النسبية لكائنات OLE المرتبطة في تنسيق PPTX؟**
+
+في PPTX، لا تتوفر معلومات "المسار النسبي" — فقط المسار الكامل. المسارات النسبية موجودة في تنسيق PPT القديم. للملاءمة، يُفضَّل استخدام مسارات مطلقة موثوقة/URIs قابلة للوصول أو التضمين.

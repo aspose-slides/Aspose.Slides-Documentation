@@ -1,5 +1,5 @@
 ---
-title: Správa prezentací v Pythonu přes Java
+title: Spravování prezentací v Pythonu přes Java
 linktitle: Prezentace
 type: docs
 weight: 90
@@ -10,34 +10,34 @@ keywords:
 - prohlíženo jednotlivcem
 - prohlíženo v kiosku
 - možnosti prezentace
-- opakovat nepřetržitě
-- bez vyprávění
-- bez animace
+- nekonečné opakování
+- prezentace bez komentáře
+- prezentace bez animací
 - barva pera
 - zobrazit snímky
 - vlastní prezentace
-- posunout snímky
+- postupovat snímky
 - ručně
-- s časováním
+- s použitím časování
 - PowerPoint
 - OpenDocument
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Naučte se, jak spravovat prezentace v Aspose.Slides pro Python přes Java. Ovládejte přechody snímků, časování a další možnosti v formátech PPT, PPTX a ODP s lehkostí."
+description: "Naučte se, jak spravovat prezentace v Aspose.Slides pro Python přes Java. Ovládejte přechody snímků, časování a další funkce v formátech PPT, PPTX a ODP s lehkostí."
 ---
 ## **Úvod**
 
-Možnosti **Set Up Show** v Microsoft PowerPoint vám umožňují vybrat typ prezentace, povolit opakování, vybrat snímky a řídit, jak se snímky posunují. S Aspose.Slides for Python via Java můžete tyto možnosti konfigurovat programově a uložit je do souboru prezentace.
+Microsoft PowerPoint's **Set Up Show** options let you choose the show type, enable looping, select slides, and control how slides advance. With Aspose.Slides for Python via Java, you can configure these options programmatically and save them in a presentation file.
 
-Metoda [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSlideShowSettings) vrací objekt [SlideShowSettings](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/) , který tyto možnosti řídí. Níže uvedené příklady vyžadují Aspose.Slides for Python via Java a kompatibilní runtime Java. Každý příklad spustí JVM, pokud je to potřeba, a po dokončení uvolní prezentaci.
+The [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getSlideShowSettings) method returns a [SlideShowSettings](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/) object that controls these options. The examples below require Aspose.Slides for Python via Java and a compatible Java runtime. Each example starts the JVM if needed and releases the presentation when finished.
 
 ## **Vyberte typ prezentace**
 
-[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setSlideShowType) definuje typ prezentace, který může být instancí jedné z následujících tříd: [PresentedBySpeaker](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/cs/python-java/aspose.slides/browsedbyindividual/) nebo [BrowsedAtKiosk](https://reference.aspose.com/slides/cs/python-java/aspose.slides/browsedatkiosk/). Použitím této metody můžete prezentaci přizpůsobit různým scénářům použití, například automatizovaným kioskom nebo ručním prezentacím.
+[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setSlideShowType) defines the type of slide show, which can be an instance of the following classes: [PresentedBySpeaker](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/cs/python-java/aspose.slides/browsedbyindividual/), or [BrowsedAtKiosk](https://reference.aspose.com/slides/cs/python-java/aspose.slides/browsedatkiosk/). Using this method allows you to adapt the presentation for different usage scenarios, such as automated kiosks or manual presentations.
 
-Níže uvedený ukázkový kód vytvoří novou prezentaci a nastaví typ prezentace na „Browsed by an individual“ bez zobrazení posuvníku.
+The code example below creates a new presentation and sets the show type to "Browsed by an individual" without displaying the scrollbar.
 
 ```python
 import jpype
@@ -61,9 +61,9 @@ finally:
 
 ## **Povolit možnosti prezentace**
 
-[SlideShowSettings.setLoop](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setLoop) určuje, zda se má prezentace opakovat v nekonečné smyčce, dokud není ručně zastavena. To je užitečné pro automatizované prezentace, které mají běžet kontinuálně. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setShowNarration) určuje, zda mají být během prezentace přehrávány hlasové výklady. To je užitečné pro automatizované prezentace, které obsahují hlasové vedení pro publikum. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setShowAnimation) určuje, zda mají být přehrány animace přidané k objektům snímku. To je užitečné pro zajištění plného vizuálního efektu prezentace.
+[SlideShowSettings.setLoop](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setLoop) determines whether the slide show should repeat in a loop until manually stopped. This is useful for automated presentations that need to run continuously. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setShowNarration) determines whether voice narrations should be played during the slide show. It is useful for automated presentations that contain voice guidance for the audience. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setShowAnimation) determines whether animations added to slide objects should be played. This is useful for providing the full visual effect of the presentation.
 
-Následující ukázkový kód vytvoří novou prezentaci a nastaví opakování prezentace.
+The following code example creates a new presentation and loops the slide show.
 
 ```python
 import jpype
@@ -85,7 +85,7 @@ finally:
 
 ## **Vyberte snímky k zobrazení**
 
-Metoda [SlideShowSettings.setSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setSlides) vám umožňuje vybrat rozsah snímků, které budou během prezentace zobrazeny. To je užitečné, když potřebujete zobrazit jen část prezentace místo všech snímků. Následující ukázkový kód vytvoří prezentaci s devíti snímky a vybere snímky 2 až 9. Rozsah používá číslování snímků od jedné.
+The [SlideShowSettings.setSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setSlides) method allows you to select a range of slides to be shown during the presentation. This is useful when you need to show only part of the presentation rather than all slides. The following code example creates a presentation with nine slides and selects slides 2 through 9. The range uses one-based slide numbers.
 
 ```python
 import jpype
@@ -113,9 +113,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Řízení postupu snímků**
+## **Ovládání postupu snímků**
 
-Metoda [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setUseTimings) umožňuje povolit nebo zakázat použití přednastavených časování pro každý snímek. To je užitečné pro automatické zobrazování snímků s předdefinovanou dobou zobrazení. Níže uvedený ukázkový kód vytvoří novou prezentaci a zakáže použití časování.
+The [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setUseTimings) method allows you to enable or disable the use of preset timings for each slide. This is useful for automatically showing slides with pre-defined display durations. The code example below creates a new presentation and disables the use of timings.
 
 ```python
 import jpype
@@ -137,9 +137,9 @@ finally:
 
 ## **Zobrazit ovládací prvky médií**
 
-Metoda [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) určuje, zda mají být během prezentace zobrazeny ovládací prvky médií (např. přehrát, pozastavit, zastavit), když se přehrává multimediální obsah (např. video nebo audio). To je užitečné, pokud chcete presenterovi poskytnout kontrolu nad přehráváním médií během prezentace.
+The [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) method determines whether media controls (such as play, pause, and stop) should be displayed during the slide show when multimedia content (e.g., video or audio) is played. This is useful when you want to give the presenter control over media playback during the presentation.
 
-Následující ukázkový kód vytvoří novou prezentaci a povolí zobrazení ovládacích prvků médií.
+The following code example creates a new presentation and enables media controls to be displayed.
 
 ```python
 import jpype
@@ -163,12 +163,12 @@ finally:
 
 **Mohu uložit prezentaci tak, aby se po otevření rovnou spustila v režimu prezentace?**
 
-Ano. Uložte soubor jako PPSX nebo PPSM; tyto formáty se po otevření v PowerPointu spustí přímo v režimu prezentace. V Aspose.Slides vyberte odpovídající formát uložení [během exportu](/slides/cs/python-java/save-presentation/).
+Ano. Save the file as PPSX or PPSM; these formats launch directly in slide show mode when opened in PowerPoint. In Aspose.Slides, choose the corresponding save format [během exportu](/slides/cs/python-java/save-presentation/).
 
 **Mohu vyloučit jednotlivé snímky z prezentace, aniž bych je smazal ze souboru?**
 
-Ano. Označte snímek jako [hidden](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#setHidden). Skryté snímky zůstávají v prezentaci, ale nejsou zobrazovány během prezentace.
+Ano. Mark a slide as [hidden](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#setHidden). Hidden slides remain in the presentation but are not displayed during the slide show.
 
 **Může Aspose.Slides přehrávat prezentaci nebo ovládat živou prezentaci na obrazovce?**
 
-Ne. Aspose.Slides upravuje, analyzuje a konvertuje soubory prezentací; samotné přehrávání zajišťuje prohlížeč, například PowerPoint.
+Ne. Aspose.Slides edits, analyzes, and converts presentation files; the actual playback is handled by a viewer application such as PowerPoint.

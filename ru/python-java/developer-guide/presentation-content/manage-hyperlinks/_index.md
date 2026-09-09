@@ -1,5 +1,5 @@
 ---
-title: Управление гиперссылками презентаций в Python через Java
+title: Управление гиперссылками презентации в Python через Java
 linktitle: Управление гиперссылкой
 type: docs
 weight: 20
@@ -11,11 +11,11 @@ keywords:
 - форматировать гиперссылку
 - удалить гиперссылку
 - обновить гиперссылку
-- гиперссылка в тексте
-- гиперссылка на слайд
-- гиперссылка на фигуру
-- гиперссылка на изображение
-- гиперссылка на видео
+- текстовая гиперссылка
+- гиперссылка слайда
+- гиперссылка фигуры
+- гиперссылка изображения
+- гиперссылка видео
 - изменяемая гиперссылка
 - PowerPoint
 - OpenDocument
@@ -27,22 +27,20 @@ description: "Легко управляйте гиперссылками в пр
 ---
 ## **Введение**
 
-Гиперссылка — это ссылка на объект, данные или место в документе. Ниже перечислены типичные гиперссылки в презентациях PowerPoint:
+Гиперссылка — это ссылка на объект, данные или место. Общие гиперссылки в презентациях PowerPoint включают:
 
-* Ссылки на веб‑сайты внутри текста, фигур или медиа
+* Ссылки на веб‑сайты в тексте, формах или медиа
 * Ссылки на слайды
 
 Aspose.Slides for Python via Java позволяет выполнять множество задач, связанных с гиперссылками в презентациях. 
 
-{{% alert color="info" title="Note" %}} 
-
-Возможно, вам будет интересен простой, [бесплатный онлайн‑редактор PowerPoint.](https://products.aspose.app/slides/ru/editor)
-
+{{% alert color="info" title="Примечание" %}} 
+Возможно, вам будет интересен простой [бесплатный онлайн‑редактор PowerPoint от Aspose.](https://products.aspose.app/slides/ru/editor)
 {{% /alert %}} 
 
-## **Добавить URL‑гиперссылки**
+## **Добавление URL‑гиперссылок**
 
-### **Добавить URL‑гиперссылки к тексту**
+### **Добавление URL‑гиперссылок к тексту**
 
 Этот код на Python показывает, как добавить гиперссылку на веб‑сайт к тексту:
 
@@ -70,9 +68,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Добавить URL‑гиперссылки к фигурам или кадрам**
+### **Добавление URL‑гиперссылок к фигурам или кадрам**
 
-Этот пример кода на Python via Java демонстрирует, как добавить гиперссылку на веб‑сайт к фигуре:
+Этот пример кода на Python via Java показывает, как добавить гиперссылку на веб‑сайт к фигуре:
 
 ```python
 import jpype
@@ -95,9 +93,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Добавить URL‑гиперссылки к медиа**
+### **Добавление URL‑гиперссылок к медиа**
 
-Aspose.Slides позволяет добавлять гиперссылки к изображениям, аудио‑ и видеофайлам. 
+Aspose.Slides позволяет добавлять гиперссылки к изображениям, аудио и видеофайлам. 
 
 Этот пример кода показывает, как добавить гиперссылку к **изображению**:
 
@@ -118,7 +116,7 @@ try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # Создает рамку изображения на слайде 1 на основе ранее добавленного изображения
+    # Создает кадр изображения на слайде 1 на основе ранее добавленного изображения
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -185,13 +183,11 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}} 
-
-Возможно, вам будет полезно посмотреть *[Manage OLE](/slides/ru/python-java/manage-ole/)*.
-
+{{% alert color="success" title="Совет" %}} 
+Возможно, вам будет интересно посмотреть *[Управление OLE](/slides/ru/python-java/manage-ole/)*.
 {{% /alert %}}
 
-## **Использовать гиперссылки для создания оглавления**
+## **Использование гиперссылок для создания оглавления**
 
 Поскольку гиперссылки позволяют добавлять ссылки на объекты или места, их можно использовать для создания оглавления. 
 
@@ -235,13 +231,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Форматировать гиперссылки**
+## **Форматирование гиперссылок**
 
 ### **Цвет**
 
-С помощью свойства [Hyperlink.setColorSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlink/#setColorSource) в классе [Hyperlink](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlink/) можно задать цвет гиперссылок и получить информацию о цвете из гиперссылок. Эта возможность впервые появилась в PowerPoint 2019, поэтому изменения, связанные со свойством, не применяются к более ранним версиям PowerPoint.
+С помощью свойства [Hyperlink.setColorSource](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlink/#setColorSource) в классе [Hyperlink](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlink/) вы можете задать цвет гиперссылок и также получить информацию о цвете из гиперссылок. Эта возможность была впервые представлена в PowerPoint 2019, поэтому изменения, связанные со свойством, не применяются к более старым версиям PowerPoint.
 
-Этот пример кода демонстрирует операцию, в которой на один и тот же слайд были добавлены гиперссылки разных цветов:
+Этот пример кода демонстрирует операцию, при которой гиперссылки с разными цветами добавляются на один и тот же слайд:
 
 ```python
 import jpype
@@ -273,9 +269,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Удалить гиперссылки из презентаций**
+## **Удаление гиперссылок из презентаций**
 
-### **Удалить гиперссылки из текста**
+### **Удаление гиперссылок из текста**
 
 Этот код на Python показывает, как удалить гиперссылку из текста на слайде презентации:
 
@@ -304,9 +300,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Удалить гиперссылки из фигур или кадров**
+### **Удаление гиперссылок из фигур или кадров**
 
-Этот код на Python показывает, как удалить гиперссылку из фигуры на слайде презентации: 
+Этот код на Python показывает, как удалить гиперссылку из фигуры на слайде презентации:
 
 ```python
 import jpype
@@ -329,7 +325,7 @@ finally:
 
 ## **Изменяемая гиперссылка**
 
-Класс [Hyperlink](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlink/) изменяемый. С его помощью можно менять значения следующих свойств:
+Класс [Hyperlink](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlink/) изменяемый. С помощью этого класса можно изменять значения следующих свойств:
 
 - [setTargetFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -368,7 +364,7 @@ finally:
 
 ## **Поддерживаемые свойства в HyperlinkQueries**
 
-Вы можете получить доступ к [HyperlinkQueries](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlinkqueries/) из презентации, слайда или текста, для которого определена гиперссылка. 
+Вы можете получить доступ к [HyperlinkQueries](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlinkqueries/) из презентации, слайда или текста, для которых определена гиперссылка. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
@@ -381,16 +377,16 @@ finally:
 - [getAnyHyperlinks](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
 - [removeAllHyperlinks](https://reference.aspose.com/slides/ru/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
 
-## **FAQ**
+## **Вопросы и ответы**
 
-**Как создать внутренняя навигацию не только к слайду, но и к «разделу» или к первому слайду раздела?**
+**Как я могу создать внутреннюю навигацию не только к слайду, но и к «разделу» или первому слайду раздела?**
 
-Разделы в PowerPoint — это группы слайдов; навигация технически указывает на конкретный слайд. Чтобы «перейти к разделу», обычно связываются с его первым слайдом.
+Разделы в PowerPoint представляют собой группы слайдов; навигация технически ориентирована на конкретный слайд. Чтобы «перейти к разделу», обычно связываются с его первым слайдом.
 
-**Можно ли привязать гиперссылку к элементам шаблона слайда, чтобы она работала на всех слайдах?**
+**Можно ли привязать гиперссылку к элементам мастер‑слайда, чтобы она работала на всех слайдах?**
 
-Да. Элементы шаблона и макета поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и кликабельны во время показа.
+Да. Элементы мастер‑слайда и макета поддерживают гиперссылки. Такие ссылки отображаются на дочерних слайдах и кликабельны во время показа.
 
-**Сохраняются ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
+**Сохранятся ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
 
-В [PDF](/slides/ru/python-java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/python-java/convert-powerpoint-to-html/) да — ссылки, как правило, сохраняются. При экспорте в [изображения](/slides/ru/python-java/convert-powerpoint-to-png/) и [видео](/slides/ru/python-java/convert-powerpoint-to-video/) кликабельность не переносится из‑за характера этих форматов (растровые кадры/видео не поддерживают гиперссылки).
+В [PDF](/slides/ru/python-java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/python-java/convert-powerpoint-to-html/) — да, ссылки обычно сохраняются. При экспорте в [изображения](/slides/ru/python-java/convert-powerpoint-to-png/) и [видео](/slides/ru/python-java/convert-powerpoint-to-video/) кликабельность не сохраняется из‑за характера этих форматов (растровые кадры/видео не поддерживают гиперссылки).

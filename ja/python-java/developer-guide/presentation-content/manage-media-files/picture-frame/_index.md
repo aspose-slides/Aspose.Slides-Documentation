@@ -1,25 +1,25 @@
 ---
-title: Python を使用したプレゼンテーションでのピクチャーフレームの管理
+title: Python を使用したプレゼンテーションでのピクチャーフレーム管理
 linktitle: ピクチャーフレーム
 type: docs
 weight: 10
 url: /ja/python-java/picture-frame/
 keywords:
 - ピクチャーフレーム
-- ピクチャーフレームを追加
-- ピクチャーフレームを作成
+- ピクチャーフレームの追加
+- ピクチャーフレームの作成
 - 埋め込み画像
 - リンク画像
-- 画像を抽出
-- ラスター画像
-- SVG画像
-- 画像をクロップ
-- クロップ領域を削除
-- 画像を圧縮
+- 画像の抽出
+- ラスタ画像
+- SVG 画像
+- 画像のクロップ
+- クロップ領域の削除
+- 画像の圧縮
 - StretchOffset
 - ピクチャーフレームの書式設定
 - 相対スケール
-- 画像効果
+- 画像エフェクト
 - アスペクト比
 - PowerPoint
 - OpenDocument
@@ -31,17 +31,17 @@ description: "Aspose.Slides for Python via Java を使用して、プレゼン�
 ---
 ## **概要**
 
-Pictureフレームは画像を表示するスライドシェイプです。Aspose.Slidesでは、画像リソースとそれを表示するシェイプは別々のオブジェクトです。 [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) は埋め込み画像リソースをその [ImageCollection](https://reference.aspose.com/slides/ja/python-java/aspose.slides/imagecollection/) を介して所有し、[PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) は画像の位置、サイズ、線の書式設定、回転、クロップ、画像効果、その他フレームレベルの設定を制御します。
+Pictureフレームは画像を表示するスライドシェイプです。Aspose.Slidesでは、画像リソースとそれを表示するシェイプは別々のオブジェクトです。`Presentation` は [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) を通じて埋め込み画像リソースを所有し、[ImageCollection](https://reference.aspose.com/slides/ja/python-java/aspose.slides/imagecollection/) を介して管理します。一方、[PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) は画像の位置、サイズ、線の書式設定、回転、クロップ、画像効果など、フレームレベルの設定を制御します。
 
-同じ画像を複数回表示する場合、この分離は便利です。画像をプレゼンテーションに一度だけ追加し、返された [PPImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/ppimage/) を保持し、PictureFrame を作成する際にその画像リソースを使用します。
+同じ画像を複数回表示する場合にこの分離は便利です。画像をプレゼンテーションに一度追加し、返される [PPImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/ppimage/) を保持し、Pictureフレームを作成する際にその画像リソースを使用します。
 
-PictureFrame は PNG や JPEG などのラスタ画像や SVG などのベクタ画像を含めることができます。また、画像バイトをプレゼンテーションに保存せずにリンク画像を参照することも可能です。この選択はポータビリティ、ファイルサイズ、抽出、エクスポートの挙動に影響するため、書式設定や最適化を行う前に画像の保存方法を決定しておくと便利です。
+Pictureフレームは PNG や JPEG などのラスタ画像や、SVG などのベクタ画像を含めることができます。また、画像バイトをプレゼンテーションに格納せずにリンク画像を参照することもできます。選択はポータビリティ、ファイルサイズ、抽出、エクスポートの動作に影響するため、書式設定や最適化を適用する前に画像の保存方法を決めておくと便利です。
 
 ## **埋め込み画像の追加と書式設定**
 
-埋め込み画像の場合、画像データをプレゼンテーションに追加し、[ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapecollection/#addPictureFrame) を使用して画像フレームを作成します。画像はプレゼンテーション パッケージの一部となるため、別のコンピュータに移動してもプレゼンテーションは自己完結型のままです。
+埋め込み画像の場合、画像データをプレゼンテーションに追加し、[ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapecollection/#addPictureFrame) で picture フレームを作成します。画像はプレゼンテーション パッケージの一部になるため、別のコンピューターに移動してもプレゼンテーションは自己完結した状態を保ちます。
 
-次の例は JPEG 画像を追加し、画像の元サイズでフレームを作成し、線の書式設定と回転を適用します。
+以下の例は JPEG 画像を追加し、画像の元サイズでフレームを作成し、線の書式設定と回転を適用します：
 
 ```python
 import jpype
@@ -74,11 +74,11 @@ finally:
     presentation.dispose()
 ```
 
-PictureFrame は表示されるジオメトリを制御します。フレームサイズを変更しても、埋め込み画像リソースに格納された元のピクセル寸法は変わりません。この違いは、後で画像をクロップまたは圧縮する際に重要になります。
+picture フレームは表示されるジオメトリを制御します。フレームサイズを変更しても、埋め込み画像リソースに格納された元のピクセル寸法は変更されません。この違いは後で画像をクロップしたり圧縮したりする際に重要になります。
 
 ## **相対スケールの使用**
 
-PictureFrame はフレームの幅と高さの相対スケーリングを [setRelativeScaleWidth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) と [setRelativeScaleHeight](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight) で公開します。`1.0` の値は元画像サイズの 100% に相当します。相対スケールは、最終サイズを手動で計算する代わりに、ソース画像サイズとの関係を保持する必要があるワークフローで便利です。
+[PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) は [setRelativeScaleWidth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) と [setRelativeScaleHeight](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight) によってフレームの幅と高さの相対スケールを公開します。`1.0` の値は元の画像サイズの 100% に相当します。相対スケールは、最終寸法を手動で計算せずに元画像サイズとの関係を保持したいワークフローで便利です。
 
 ```python
 import jpype
@@ -108,17 +108,17 @@ finally:
     presentation.dispose()
 ```
 
-相対スケールはフレームのスケール設定を変更しますが、埋め込み画像のリサンプリングや圧縮は行いません。
+相対スケールはフレームのスケール設定を変更しますが、埋め込み画像をリサンプルしたり圧縮したりはしません。
 
 ## **埋め込み画像とリンク画像**
 
-埋め込み画像は画像データをプレゼンテーション内に保存するため、ポータビリティと予測可能なレンダリングに最も安全な選択です。リンク画像は画像データを埋め込む代わりに、[Picture.setLinkPathLong](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picture/#setLinkPathLong) メソッドで外部の場所を保持します。
+埋め込み picture は画像データをプレゼンテーション内部に格納するため、ポータビリティと予測可能なレンダリングに最も安全です。リンク picture は [Picture.setLinkPathLong](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picture/#setLinkPathLong) メソッドを通じて外部場所を参照し、画像データを同様に埋め込むことはありません。
 
-リンク画像は PPTX に保存される画像データ量を減らすことができますが、外部依存性が発生します。リンク先のファイルは、プレゼンテーションを開くまたはレンダリングするアプリケーションがアクセスできる状態である必要があります。パスが変更されたり、ファイルが移動されたり、リソースが利用できなくなると、リンク画像は期待通りに表示されません。メールで送信したり、アーカイブしたり、隔離環境でレンダリングする必要があるプレゼンテーションでは、埋め込み画像の方が通常は信頼性が高いです。
+リンク画像は PPTX に格納される画像データ量を減らすことができますが、外部依存が発生します。リンク先のファイルはプレゼンテーションを開くまたはレンダリングするアプリケーションからアクセス可能であり続けなければなりません。パスが変更されたり、ファイルが移動されたり、リソースが利用できなくなると、リンク picture は期待通りに表示されない可能性があります。メールで送信したり、アーカイブしたり、隔離された環境でレンダリングする必要があるプレゼンテーションでは、埋め込み画像の方が通常は信頼性が高いです。
 
 ### **リンク画像の追加**
 
-次の例は PictureFrame を作成し、ローカル画像ファイルへのリンクを設定します。この例は画像リンクのみに焦点を当てており、動画リンクは別のメディアワークフローであり、意図的にこの例には混在させていません。
+以下の例は picture フレームを作成し、ローカル画像ファイルへリンクします。画像リンクのみを扱っており、動画リンクは別のメディアワークフローであり、本例には意図的に混ぜていません。
 
 ```python
 import jpype
@@ -144,15 +144,15 @@ finally:
     presentation.dispose()
 ```
 
-外部ファイル管理が意図的な場合にのみリンクを使用してください。圧縮の代替として単に使用しないでください。画像依存関係が壊れた小さな PPTX は、サイズが大きくても自己完結型のプレゼンテーションよりも実用性が低いことが多いです。
+外部ファイル管理が意図的な場合にリンクを使用してください。圧縮の代替として単にリンクを使用しないでください。リンクが切れた小さな PPTX は、自己完結した大きなプレゼンテーションよりも実用性が低くなります。
 
-## **PictureFrame から画像を抽出**
+## **Picture Frame から画像を抽出する**
 
-既存のプレゼンテーションから画像を抽出する前に、シェイプが実際に PictureFrame であり、埋め込み画像を含んでいるかを確認してください。リンクされた PictureFrame には、同様に抽出できる画像バイトが含まれていない場合があります。
+既存のプレゼンテーションから画像を抽出する前に、シェイプが実際に [PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) であり、埋め込み画像を含んでいるか確認してください。リンク picture フレームは同じ方法で抽出できる画像バイトを持たない場合があります。
 
 ### **ラスタ画像の抽出**
 
-最新の画像 API はラスタ画像を直接扱い、従来の Java 画像ラッパーは不要です。次の例はスライド上の最初の埋め込みラスタ画像を見つけ、PNG として保存します。
+最新の画像 API はラスタ画像を直接扱い、古い Java 画像ラッパーは不要です。以下の例はスライド上の最初の埋め込みラスタ picture を見つけ、PNG として保存します。
 
 ```python
 import jpype
@@ -186,11 +186,11 @@ finally:
     presentation.dispose()
 ```
 
-ラスタ画像を保存すると、抽出した画像が要求された出力形式に変換されます。プレゼンテーションに保存されているエンコード済みバイトが必要な場合は、変換されたラスタファイルではなく画像リソースのバイナリデータを使用してください。
+ラスタ画像の保存は抽出した画像を要求された出力形式に変換します。プレゼンテーションに格納されたエンコード済みバイトが必要な場合は、画像リソースのバイナリ データを使用してください。
 
 ### **SVG 画像の抽出**
 
-SVG 画像の場合、PPImage は SvgImage オブジェクトを提供します。これにより、画像を先にラスタイズすることなく、SVG データを直接取得できます。
+SVG picture の場合、[PPImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/ppimage/) は [SvgImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/svgimage/) オブジェクトを公開します。これにより、まず picture をラスタ化せずに SVG データを直接取得できます。
 
 ```python
 import jpype
@@ -223,13 +223,13 @@ finally:
     presentation.dispose()
 ```
 
-SVG コンテンツを SVG のまま保持すると、プレゼンテーション内のベクトルソースが保存されます。PNG や JPEG などのラスタエクスポートは、必然的にベクトルコンテンツをピクセルにレンダリングします。PDF や SVG へのスライドエクスポートもレンダリング操作であるため、エクスポートされた画像は元の埋め込み SVG のバイト単位のコピーとして扱うべきではありません。元のベクトルリソースが必要な場合は、埋め込み SvgImage.getSvgData のデータを使用してください。
+SVG コンテンツを SVG のまま保持することで、プレゼンテーション内部にベクタソースが残ります。PNG や JPEG などのラスタエクスポートはベクタコンテンツをピクセルにレンダリングします。PDF や SVG のスライドエクスポートもレンダリング操作であるため、エクスポートされたグラフィックは元の埋め込み SVG のバイト単位のコピーとは見なさず、元のベクタリソースが必要な場合は埋め込み [SvgImage.getSvgData](https://reference.aspose.com/slides/ja/python-java/aspose.slides/svgimage/#getSvgData) を使用してください。
 
 ## **画像のクロップ**
 
-クロップはフレーム内で画像のどの部分が表示されるかを変更します。PictureFillFormat のクロップ値はソース画像の寸法に対するパーセンテージです。クロップは埋め込み画像から隠れたピクセルを削除するわけではなく、表示領域を変更するだけです。
+クロップはフレーム内で画像のどの部分が可視になるかを変更します。[PictureFillFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picturefillformat/) のクロップ値は元画像の寸法に対するパーセンテージです。クロップは埋め込み画像から隠れたピクセルを即座に削除するわけではなく、表示領域だけを変更します。
 
-次の例は PictureFrame を安全に取得し、クロップ値を適用します。
+以下の例は picture フレームを安全に取得し、クロップ値を適用します：
 
 ```python
 import jpype
@@ -260,11 +260,11 @@ finally:
     presentation.dispose()
 ```
 
-隠れた画像データがまだ存在するため、クロップは後で変更でき、元のピクセルは失われません。ファイルサイズが可逆性より重要な場合は、次のセクションで説明するようにクロップ領域を実際に削除できます。
+隠れた画像データは依然として存在するため、後からクロップを変更しても元のピクセルは失われません。ファイルサイズが重要であり、可逆性が必要ない場合は、次節で説明するようにクロップ領域を実際に削除できます。
 
 ## **クロップされた画像データの削除**
 
-PictureFillFormat.deletePictureCroppedAreas は現在のクロップ矩形の外側の画像データを削除し、結果として得られる画像リソースを返します。これによりファイルサイズが削減できますが、破壊的な最適化です。プレゼンテーションを保存した後は、削除されたピクセルは後でクロップ解除を行う際に利用できなくなります。
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) は現在のクロップ矩形外の画像データを削除し、結果として得られる画像リソースを返します。これによりファイルサイズは削減できますが、破壊的最適化となります。プレゼンテーションを保存した後は、削除されたピクセルは元に戻せません。
 
 ```python
 import jpype
@@ -293,13 +293,13 @@ finally:
     presentation.dispose()
 ```
 
-このメソッドはプレゼンテーションに新しい画像リソースを追加する場合があります。元の画像が他の PictureFrame でも使用されている場合、これらのフレームは既存のリソースを引き続き必要とするため、クロップ領域の削除が必ずしも画像総数の削減につながるわけではありません。このメソッドで WMF や EMF コンテンツをクロップすると、結果は PNG にラスタライズされます。
+このメソッドはプレゼンテーションに新しい画像リソースを追加する可能性があります。元の画像が他の picture フレームでも使用されている場合、これらのフレームは引き続き既存のリソースを必要とするため、クロップ領域の削除が必ずしも画像総数の削減につながるわけではありません。WMF や EMF コンテンツをこのメソッドでクロップすると、結果は PNG にラスタライズされます。
 
 ## **ラスタ画像の圧縮**
 
-PictureFillFormat.compressImage は、画像が表示されるサイズに対してラスタ画像の解像度を下げます。同時にクロップ領域を削除することもできます。画像がリサイズまたはクロップされた場合は `True`、変更が必要なかった場合は `False` を返します。
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picturefillformat/#compressImage) は表示サイズに対するラスタ画像の解像度を低減します。圧縮時にクロップ領域を同時に削除することもできます。画像がリサイズまたはクロップされた場合は `True`、変更が不要だった場合は `False` を返します。
 
-標準的な目標解像度で十分な場合は、事前定義された PicturesCompression の値を使用してください。
+標準的な対象解像度で十分な場合は、事前定義された [PicturesCompression](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picturescompression/) 値を使用してください：
 
 ```python
 import jpype
@@ -330,15 +330,15 @@ finally:
 
 特定の目標が必要な場合は、事前定義値の代わりにカスタムの正の DPI 値を渡すことができます。
 
-圧縮はラスタ画像を対象としています。SVG およびメタファイルのコンテンツはこのラスタ圧縮フローでは縮小されません。また、低解像度化や削除されたクロップ領域は最適化されたプレゼンテーションから復元できないことを忘れないでください。画像が実際に表示またはエクスポートされる最大サイズに基づいて目標解像度を選択し、全体的に最も低い DPI を適用しないようにしてください。
+圧縮はラスタ画像を対象としています。SVG やメタファイル コンテンツはこのラスタ圧縮ワークフローでは縮小されません。また、解像度を下げたりクロップ領域を削除したりした画像は、最適化されたプレゼンテーションからは復元できないことを覚えておいてください。画像が実際に表示またはエクスポートされる最大サイズに基づいて対象解像度を選択し、全体的に最も低い DPI を適用しないようにしてください。
 
 ## **画像変換エフェクトの管理**
 
-明るさ、コントラスト、カラートランスフォーメーション、ぼかし、アルファ効果、順序付けられたチェーン、検査、削除、往復検証を網羅した完全なワークフローについては、[Image Transform Effects](/slides/ja/python-java/image-transform-effects/) を参照してください。
+明るさ、コントラスト、カラー変換、ぼかし、アルファ効果、順序付けられたチェーン、検査、除去、往復検証を網羅した完全なワークフローについては、[Image Transform Effects](/slides/ja/python-java/image-transform-effects/) を参照してください。
 
-## **PictureFrame のジオメトリをロック**
+## **Picture Frame のジオメトリをロック**
 
-PictureFrameLock 設定は、PictureFrame に対して無効化する編集操作を制御します。たとえば、setAspectRatioLocked はリサイズ時にシェイプの比率を保持します。
+[PictureFrameLock](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframelock/) 設定は、picture フレームに対してどの編集操作が無効になるかを制御します。たとえば、[setAspectRatioLocked](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) はリサイズ時にシェイプの比例を維持します。
 
 ```python
 import jpype
@@ -367,13 +367,13 @@ finally:
     presentation.dispose()
 ```
 
-ロックは PictureFrame シェイプに適用されますが、ソース画像がリサンプリングされたり、同じアスペクト比に永続的に変更されたりすることはありません。
+ロックは picture フレーム シェイプに適用されます。ソース画像がリサンプルされたり、同じアスペクト比に永続的に変更されたりすることはありません。
 
 ## **StretchOffset 値の調整**
 
-画像の塗りつぶしモードが stretch の場合、PictureFillFormat の stretch-offset 値は PictureFrame のバウンディングボックスに対する塗りつぶし矩形を定義します。正のパーセンテージは端からのインセットを作り、負のパーセンテージはアウトセットを作ります。
+picture の塗りつぶしモードが stretch の場合、[PictureFillFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picturefillformat/) の stretch‑offset 値は picture フレームのバウンディング ボックスに対する塗りつぶし矩形を定義します。正のパーセンテージはエッジからの内側のインセットを作り、負のパーセンテージは外側へのアウトセットを作ります。
 
-これはクロップとは異なります。クロップ値はソース画像のどの部分を表示するかを選択し、stretch offset は表示された画像の塗りつぶしが伸縮される矩形を変更します。
+これはクロップとは異なります。クロップ値は元画像のどの部分が可視になるかを選択しますが、stretch offset は可視 picture 塗りつぶしが伸ばされる矩形を変更します。
 
 ```python
 import jpype
@@ -406,43 +406,43 @@ finally:
     presentation.dispose()
 ```
 
-塗りつぶしの配置には stretch offset を使用し、ソース画像の端を隠すことが目的の場合はクロッププロパティを使用してください。
+塗りつぶし位置を調整する場合は stretch offset を使用し、ソース画像の端を隠したい場合はクロップ プロパティを使用してください。
 
-## **ストレージ、ファイルサイズ、エクスポートに関する考慮事項**
+## **保存、ファイルサイズ、エクスポートに関する考慮事項**
 
-画像の保存と PictureFrame の書式設定を別々に扱うと、主なトレードオフの管理が容易になります。
+画像の保存と picture‑frame の書式設定を別々に扱うと、主要なトレードオフが管理しやすくなります。
 
-- **埋め込み画像** はプレゼンテーションを自己完結型にし、共有やサーバー側レンダリングで最も信頼性がありますが、大きなラスタ画像は PPTX のサイズとメモリ使用量を増加させます。
-- **リンク画像** はパッケージを小さく保てますが、プレゼンテーションは保存されたパスや位置にある外部ファイルが利用可能であることに依存します。
-- **クロップ** は最初は破壊的でありません。隠れたピクセルは、クロップ領域が明示的に削除されるか、圧縮時に除去されるまで埋め込まれたままです。
-- **圧縮** はサイズが大きすぎるラスタ画像のファイルサイズを大幅に削減できますが、元の解像度を犠牲にします。スライド上での実際のサイズが決まってから適用すべきです。
-- **SVG 画像** はベクトル保存が重要な場合は SVG のままにすべきです。ベクトルリソース自体が必要なときは埋め込み SVG を直接抽出してください。ラスタスライドのエクスポートは常にレンダリングされたスライドをピクセルに変換します。
-- **繰り返し使用される画像** は可能な限り既存の PPImage リソースを再利用し、同じファイルをプレゼンテーションのワークフローに何度もロードするのを避けるべきです。
+- **埋め込み画像** はプレゼンテーションを自己完結させ、共有やサーバー側レンダリングに最も信頼性がありますが、大きなラスタ画像は PPTX サイズとメモリ使用量を増加させます。
+- **リンク画像** はパッケージを小さく保てますが、プレゼンテーションは外部ファイルが保存パスまたは場所で利用可能であることに依存します。
+- **クロップ** は当初は非破壊的です。隠れたピクセルはクロップ領域が明示的に削除されるか、圧縮時に除去されるまで埋め込まれたままです。
+- **圧縮** は過大なラスタ画像のファイルサイズを大幅に削減できますが、元の解像度を犠牲にします。スライド上での最終サイズが確定した後に適用すべきです。
+- **SVG 画像** はベクタ保持が重要な場合は SVG のままにしてください。ベクタリソース自体が必要なときは埋め込み SVG を直接抽出します。ラスタスライド エクスポートは常にレンダリングされたスライドをピクセルに変換します。
+- **繰り返し使用される画像** は可能な限り既存の [PPImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/ppimage/) リソースを再利用し、同じファイルを何度もプレゼンテーション ワークフローに読み込むのを避けてください。
 
-大規模なプレゼンテーションでは、画像最適化は選択的に実行するのが最も効果的です。ロゴや図はベクトルコンテンツのまま保持し、写真は実際の表示サイズに合わせて圧縮し、後で編集が必要ない場合にのみクロップされたピクセルを削除し、依存関係の管理が展開設計の一部でない限り外部リンクは避けてください。
+大規模なプレゼンテーションでは、画像最適化は選択的に実施すると効果的です。ロゴや図はベクタコンテンツとして残し、写真は実際の表示サイズに合わせて圧縮し、後で編集が不要な場合にのみクロップピクセルを削除し、外部リンクは依存関係管理が展開設計の一部でない限り避けてください。
 
 ## **FAQ**
 
-**PictureFrame と画像リソースの違いは何ですか？**
+**Picture Frame と画像リソースの違いは何ですか？**
 
-[PPImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/ppimage/) はプレゼンテーションに関連付けられた画像リソースを表します。[PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) はスライド上で画像を表示し、サイズ、回転、クロップ値、エフェクト、ロックなどフレームレベルのジオメトリと書式設定を保持するシェイプです。
+[PPImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/ppimage/) はプレゼンテーションに関連付けられた画像リソースを表します。[PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) はスライド上のシェイプで、画像を表示し、サイズ、回転、クロップ値、エフェクト、ロックなどのフレームレベルのジオメトリと書式設定を保持します。
 
-**画像は埋め込むべきかリンクすべきか？**
+**画像は埋め込むべきですか、リンクすべきですか？**
 
-プレゼンテーションをポータブルにしたり、アーカイブしたり、外部リソースにアクセスできない状態でレンダリングする必要がある場合は、画像を埋め込んでください。画像ファイルを PPTX の外部に置き、外部の場所を確実に管理できる場合に限り、リンク画像を使用してください。
+プレゼンテーションをポータブルに、アーカイブ可能に、外部リソースなしでレンダリングできる必要がある場合は埋め込み画像を使用してください。画像ファイルを PPTX の外部に保持し、外部場所を確実に管理できる場合にのみリンク画像を使用してください。
 
-**クロップは PPTX のファイルサイズを削減しますか？**
+**クロップは PPTX のファイルサイズを減らしますか？**
 
-単独では削減しません。通常のクロップ設定は画像の一部を非表示にするだけで、基になるピクセルは保持されます。ピクセルを完全に削除したい場合は、PictureFillFormat.deletePictureCroppedAreas を使用するか、クロップ領域の削除を伴う画像圧縮を行ってください。
+単体では減りません。通常のクロップ設定は元画像のピクセルを保持したまま隠すだけです。ピクセルを永久に削除したい場合は [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) を使用するか、クロップ領域の削除を伴う画像圧縮を行ってください。
 
 **圧縮後に画像品質を復元できますか？**
 
-できません。圧縮は保存されたラスタ解像度を下げ、クロップ領域の削除は画像データを破棄します。後で高解像度編集が必要な場合は、プレゼンテーションの外部に元のソース画像を保管してください。
+できません。圧縮は保存されたラスタ解像度を下げ、クロップ領域の削除は画像データを破棄します。後で高解像度の編集が必要になる可能性がある場合は、元のソース画像をプレゼンテーション外に保持してください。
 
 **SVG 画像はどのように扱うべきですか？**
 
-ベクトルの忠実性が重要な場合は、SVG コンテンツを SVG のまま保持してください。埋め込まれた [SvgImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/svgimage/) は直接抽出できます。スライドを PNG や JPEG などのラスタ形式でレンダリングすると、SVG はピクセルにラスタライズされます。
+ベクタ忠実度が重要な場合は SVG コンテンツを SVG のまま保持してください。埋め込み [SvgImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/svgimage/) は直接抽出可能です。PNG や JPEG などのラスタ形式にスライドをレンダリングすると、SVG はピクセルに変換されます。
 
-**既存スライドを読むときに unsafe cast を防ぐには？**
+**既存スライドの読み取り時に安全でないキャストを避ける方法は？**
 
-PictureFrame 固有のメンバーを使用する前に、シェイプの型が PictureFrame であるかを確認してください。`isinstance` を使用して [PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) かどうかをチェックすれば、無効なキャストを防ぎ、PictureFrame を含まないスライドも安全に処理できます。
+picture‑frame 固有のメンバーを使用する前にシェイプの型を確認してください。`isinstance` チェックで [PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) かどうかを判定すれば、無効なキャストを防ぎ、picture フレームを含まないスライドでも安全に処理できます。

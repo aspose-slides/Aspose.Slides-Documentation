@@ -1,6 +1,6 @@
 ---
-title: Verimli Bellek Kullanımı için Python via Java'da Sunum BLOB'larını Yönetin
-linktitle: BLOB'u Yönet
+title: Python aracılığıyla Java'da Sunum BLOB'larını Verimli Bellek Kullanımı İçin Yönet
+linktitle: BLOB Yönet
 type: docs
 weight: 10
 url: /tr/python-java/manage-blob/
@@ -10,7 +10,7 @@ keywords:
 - büyük dosya
 - BLOB ekle
 - BLOB dışa aktar
-- görüntüyü BLOB olarak ekle
+- görseli BLOB olarak ekle
 - belleği azalt
 - bellek tüketimi
 - büyük sunum
@@ -21,31 +21,31 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java'da BLOB verilerini yönetin ve PowerPoint ve OpenDocument dosya işlemlerini verimli sunum yönetimi için basitleştirin."
+description: "Aspose.Slides için Python aracılığıyla Java'da BLOB verilerini yöneterek PowerPoint ve OpenDocument dosya işlemlerini verimli sunum işleme için düzenleyin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, büyük resimler, ses, video ve sunum dosyalarıyla çalışırken bellek tüketimini azaltmak için sunularda büyük ikili verileri (BLOB) işleme imkanı sağlar.
+Aspose.Slides, sunumlarda büyük ikili verileri (görüntüler, ses, video ve sunum dosyaları) işlemek için BLOB tabanlı işleme sağlar ve büyük dosyalarla çalışırken bellek tüketimini azaltmaya yardımcı olur.
 
-Bu makale, bir sunuma büyük medya eklemek, bir sunumdan büyük medya dışa aktarmak ve büyük sunumları daha verimli şekilde yüklemek için BLOB tabanlı işlemenin nasıl kullanılacağını gösterir. Ayrıca işlem sırasında geçici dosyaların nasıl kullanılacağını ve bu dosyaların saklanacağı klasörün nasıl değiştirileceğini açıklar.
+Bu makale, BLOB tabanlı işlemeyi kullanarak bir sunuma büyük medya eklemeyi, bir sunumdan büyük medya dışa aktarmayı ve büyük sunumları daha verimli yüklemeyi gösterir. Ayrıca işleme sırasında geçici dosyaların nasıl kullanılabileceğini ve bunların saklanacağı klasörün nasıl değiştirileceğini açıklar.
 
 ## **BLOB Hakkında**
 
-**BLOB** (**Binary Large Object**), genellikle ikili formatta kaydedilmiş büyük bir öğe (fotoğraf, sunum, belge veya medya) anlamına gelir.
+Bir **BLOB** (**Binary Large Object**, İkili Büyük Nesne) genellikle ikili formatta kaydedilen büyük bir öğedir (fotoğraf, sunum, belge veya medya).
 
-Aspose.Slides for Python via Java, büyük dosyalar söz konusu olduğunda bellek tüketimini azaltan bir yöntem olarak nesneler için BLOB kullanmanıza izin verir.
+Aspose.Slides for Python via Java, büyük dosyalar söz konusu olduğunda bellek tüketimini azaltan bir şekilde nesneler için BLOB kullanmanıza olanak tanır.
 
 {{% alert color="info" title="Not" %}}
-Akışlarla etkileşimde belirli sınırlamaları aşmak için Aspose.Slides akışın içeriğini kopyalayabilir. Bir büyük sunumu akış üzerinden yüklemek, sunumun içeriğinin kopyalanmasına ve yavaş yüklemeye neden olur. Bu nedenle, büyük bir sunumu yüklemeyi planladığınızda, akış yerine sunum dosya yolunu kullanmanızı şiddetle öneririz.
+Akışlarla etkileşimde belirli sınırlamaları aşmak için Aspose.Slides akışın içeriğini kopyalayabilir. Bir büyük sunumu akışından yüklemek, sunumun içeriğinin kopyalanmasına ve yavaş yüklemeye neden olur. Bu nedenle, büyük bir sunumu yüklemeyi planladığınızda akış yerine sunum dosya yolunu kullanmanızı şiddetle öneririz.
 {{% /alert %}}
 
-## **Bellek Tüketimini Azaltmak İçin BLOB Kullanma**
+## **Bellek Tüketimini Azaltmak İçin BLOB Kullanımı**
 
-### **BLOB ile Bir Sunuma Büyük Dosya Ekleme**
+### **BLOB Kullanarak Sunuma Büyük Bir Dosya Ekleyin**
 
-[Aspose.Slides](/slides/tr/python-java/) for Python via Java, bellek tüketimini azaltmak için BLOB içeren bir süreç aracılığıyla büyük dosyalar (bu örnekte büyük bir video dosyası) eklemenize olanak tanır.
+[Aspose.Slides](/slides/tr/python-java/) for Python via Java, bellek tüketimini azaltmak için BLOB sürecini içeren büyük dosyaları (bu örnekte büyük bir video dosyası) eklemenize olanak tanır.
 
-Bu Python kodu, BLOB süreci kullanılarak bir sunuma büyük bir video dosyasının nasıl ekleneceğini gösterir:
+Bu Python kodu, BLOB süreciyle bir sunuma büyük bir video dosyası eklemenizi gösterir:
 
 ```python
 import jpype
@@ -64,7 +64,7 @@ presentation = Presentation()
 try:
     file_stream = FileInputStream(path_to_very_large_video)
     try:
-        # Video dosyasına erişmeyi amaçlamadığımız için akışı kilitli tut.
+        # Video dosyasına erişmeyi planlamadığımız için akışı kilitli tut.
         video = presentation.getVideos().addVideo(file_stream, LoadingStreamBehavior.KeepLocked)
         presentation.getSlides().get_Item(0).getShapes().addVideoFrame(0, 0, 480, 270, video)
 
@@ -76,10 +76,10 @@ finally:
     presentation.dispose()
 ```
 
-### **BLOB ile Sunumdan Büyük Dosya Dışa Aktarma**
-Aspose.Slides for Python via Java, BLOB içeren bir süreç aracılığıyla sunumlardan büyük dosyalar (örneğin ses veya video dosyası) dışa aktarmanıza izin verir. Örneğin, bir sunumdan büyük bir medya dosyasını çıkarmanız gerekebilir, ancak dosyanın bilgisayar belleğine yüklenmesini istemezsiniz. Dosyayı BLOB süreciyle dışa aktararak bellek tüketimini düşük tutarsınız.
+### **BLOB Kullanarak Sunumdan Büyük Bir Dosya Dışa Aktarın**
+Aspose.Slides for Python via Java, BLOB sürecini içeren büyük dosyaları (örneğin bir ses veya video dosyasını) sunumlardan dışa aktarmanıza olanak tanır. Örneğin, bir sunumdan büyük bir medya dosyasını çıkarmak isteyebilir, ancak dosyanın bilgisayar belleğine yüklenmesini istemeyebilirsiniz. BLOB süreciyle dosyayı dışa aktararak bellek tüketimini düşük tutarsınız.
 
-Bu Python kodu, açıklanan işlemi gösterir:
+Bu Python kodu, bahsedilen işlemi gösterir:
 
 ```python
 import jpype
@@ -98,7 +98,7 @@ load_options.getBlobManagementOptions().setPresentationLockingBehavior(Presentat
 
 presentation = Presentation(huge_presentation_file, load_options)
 try:
-    # Bellek tüketimini düşük tutmak için video verilerini bir tampon üzerinden aktar.
+    # Bellek tüketimini düşük tutmak için video verilerini bir tampon aracılığıyla aktar.
     buffer = jpype.JArray(jpype.JByte)(8 * 1024)
 
     for index in range(presentation.getVideos().size()):
@@ -115,15 +115,15 @@ try:
                     bytes_read = video_stream.read(buffer, 0, len(buffer))
         finally:
             video_stream.close()
-    # Gerekirse, aynı adımları ses dosyalarına uygulayın.
+    # Gerekirse aynı adımları ses dosyalarına da uygulayın.
 finally:
     presentation.dispose()
 ```
 
-### **Bir Görüntüyü BLOB Olarak Sunuma Ekleme**
-[ImageCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/imagecollection/) sınıfının yöntemleriyle, büyük bir görüntüyü BLOB olarak işlemek için akış olarak ekleyebilirsiniz.
+### **Bir Görüntüyü BLOB Olarak Sunuma Ekleyin**
+[ImageCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/imagecollection/) sınıfının yöntemleriyle, büyük bir görüntüyü bir akış olarak ekleyebilir ve bunun BLOB olarak işlenmesini sağlayabilirsiniz.
 
-Bu Python kodu, BLOB süreci kullanılarak büyük bir görüntünün nasıl ekleneceğini gösterir:
+Bu Python kodu, BLOB süreciyle büyük bir görüntüyü eklemenizi gösterir:
 
 ```python
 import jpype
@@ -142,7 +142,7 @@ presentation = Presentation()
 try:
     file_stream = FileInputStream(path_to_large_image)
     try:
-        # Görüntü dosyasına erişmeyi amaçlamadığımız için akışı kilitli tut.
+        # Görüntü dosyasına erişmeyi planlamadığımız için akışı kilitli tut.
         image = presentation.getImages().addImage(file_stream, LoadingStreamBehavior.KeepLocked)
         presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, image)
 
@@ -156,9 +156,9 @@ finally:
 
 ## **Bellek ve Büyük Sunumlar**
 
-Genellikle büyük bir sunumu yüklemek için bilgisayarlar çok fazla geçici bellek gerekir. Sunumun tüm içeriği belleğe yüklenir ve sunumun yüklendiği dosya artık kullanılmaz.
+Genellikle bir büyük sunumu yüklemek için bilgisayarlar çok fazla geçici bellek gerektirir. Sunumun tüm içeriği belleğe yüklenir ve sunumun yüklendiği dosya kullanılmaz hale gelir.
 
-1,5 GB video dosyası içeren büyük bir PowerPoint sunumu (large.pptx) düşünün. Sunumu yüklemek için standart yöntem aşağıdaki Python kodunda açıklanmıştır:
+1,5 GB video dosyası içeren büyük.pptx adında bir PowerPoint sunumu düşünün. Bu sunumu yüklemenin standart yöntemi aşağıdaki Python kodunda açıklanmıştır:
 
 ```python
 import jpype
@@ -176,11 +176,11 @@ finally:
     presentation.dispose()
 ```
 
-Ancak bu yöntem yaklaşık 1,6 GB geçici bellek tüketir.
+Ancak bu yöntem yaklaşık 1,6 GB geçici bellek harcar.
 
-### **BLOB Olarak Büyük Sunum Yükleme**
+### **BLOB Olarak Büyük Bir Sunumu Yükleyin**
 
-BLOB içeren bir süreç sayesinde, az bellek kullanarak büyük bir sunumu yükleyebilirsiniz. Bu Python kodu, BLOB süreci kullanılarak büyük bir sunum dosyasının (large.pptx) nasıl yükleneceğini açıklar:
+BLOB işleme kullanarak, az bellek tüketimiyle büyük bir sunumu yükleyebilirsiniz. Bu Python kodu, BLOB işleme ile büyük bir sunum dosyasını (large.pptx) nasıl yükleyeceğinizi gösterir:
 
 ```python
 import jpype
@@ -202,9 +202,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Geçici Dosyalar İçin Klasörü Değiştirme**
+### **Geçici Dosyalar İçin Klasörü Değiştirin**
 
-BLOB süreci kullanıldığında, bilgisayarınız geçici dosyaları varsayılan geçici dosya klasöründe oluşturur. Geçici dosyaların farklı bir klasörde tutulmasını istiyorsanız, [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath) yöntemiyle depolama ayarlarını değiştirebilirsiniz:
+BLOB süreci kullanıldığında bilgisayarınız geçici dosyaları varsayılan geçici dosya klasöründe oluşturur. Geçici dosyaların farklı bir klasörde tutulmasını istiyorsanız, [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath) yöntemiyle depolama ayarlarını değiştirebilirsiniz:
 
 ```python
 import jpype
@@ -222,12 +222,12 @@ load_options.getBlobManagementOptions().setTempFilesRootPath("temp")
 ```
 
 {{% alert color="info" title="Not" %}}
-[BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath) yöntemini kullandığınızda, Aspose.Slides geçici dosyaları saklamak için bir klasör otomatik olarak oluşturmaz. Klasörü manuel olarak oluşturmanız gerekir.
+[BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath) kullandığınızda Aspose.Slides geçici dosyaları depolamak için otomatik olarak bir klasör oluşturmaz. Klasörü manuel olarak oluşturmanız gerekir.
 {{% /alert %}}
 
-### **Belleği Serbest Bırakmak İçin Sunum Nesnelerini Yok Etme**
+### **Belleği Serbest Bırakmak İçin Sunum Nesnelerini Yokedin**
 
-Büyük sunumları işlerken, [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneğinin doğru şekilde yok edildiğinden emin olun; böylece kullandığı bellek serbest bırakılır. Sunumu kullandıktan sonra, yönetilmeyen kaynakları temizlemek için [Presentation.dispose](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#dispose) metodunu çağırın.
+Büyük sunumları işlerken, [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneğinin gerektiği gibi yok edildiğinden emin olun; böylece kullandığı bellek serbest kalır. Sunumu kullandıktan sonra yönetilmeyen kaynakları serbest bırakmak için [Presentation.dispose](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#dispose) metodunu çağırın.
 
 ```python
 import jpype
@@ -249,22 +249,17 @@ finally:
 
 ## **SSS**
 
-**Bir Aspose.Slides sunumunda hangi veriler BLOB olarak ele alınır ve BLOB seçenekleriyle kontrol edilir?**
+**Aspose.Slides sunumunda hangi veriler BLOB olarak değerlendirilir ve BLOB seçenekleriyle kontrol edilir?**  
+Görseller, ses ve video gibi büyük ikili nesneler BLOB olarak değerlendirilir. Sunum dosyasının tamamı da yüklendiğinde veya kaydedildiğinde BLOB işleme dahil olur. Bu nesneler, bellek kullanımını yönetmenize ve gerektiğinde geçici dosyalara dökülmesini sağlayan BLOB politikalarına tabidir.
 
-Resimler, ses ve video gibi büyük ikili nesneler BLOB olarak ele alınır. Sunum dosyasının tamamı da yüklendiğinde veya kaydedildiğinde BLOB işleme dahildir. Bu nesneler, bellek kullanımını yönetmenize ve gerektiğinde geçici dosyalara dökülmesini kontrol eden BLOB politikalarıyla yönlendirilir.
+**Sunum yüklenirken BLOB işleme kurallarını nerede yapılandırırım?**  
+[LoadOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/) ile birlikte [BlobManagementOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/) kullanın. Burada BLOB'ların bellek sınırını, geçici dosyaların izin verilip verilmediğini, geçici dosyalar için kök yolu ve kaynak kilitleme davranışını ayarlarsınız.
 
-**Sunum yüklenirken BLOB işleme kurallarını nerede yapılandırırım?**
+**BLOB ayarları performansı etkiler mi ve hız ile bellek arasında nasıl bir denge kurarım?**  
+Evet. BLOB'ları bellekte tutmak hızı maksimize eder ancak RAM tüketimini artırır; bellek sınırını düşürmek daha fazla işi geçici dosyalara yönlendirir, RAM'i azaltır ancak ek I/O maliyeti getirir. İş yükünüz ve ortamınız için doğru dengeyi sağlamak amacıyla [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory) metodunu kullanın.
 
-[LoadOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/) ile [BlobManagementOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/) kullanın. Burada BLOB için bellek sınırını ayarlar, geçici dosyaların izin verilip verilmeyeceğini belirler, geçici dosyalar için kök yolu seçer ve kaynak kilitleme davranışını seçersiniz.
+**BLOB seçenekleri, çok büyük (gigabayt ölçeğinde) sunumları açarken faydalı mı?**  
+Evet. [BlobManagementOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/) bu senaryolar için tasarlanmıştır: geçici dosyaları etkinleştirmek ve kaynak kilitlemeyi kullanmak, en yüksek RAM kullanımını önemli ölçüde azaltır ve çok büyük sunumların işlenmesini stabilize eder.
 
-**BLOB ayarları performansı etkiler mi ve hız ile bellek arasında nasıl bir denge kurarım?**
-
-Evet. BLOB’u bellek içinde tutmak hızı maksimize eder ancak RAM tüketimini artırır; bellek sınırını düşürmek daha çok işi geçici dosyalara yönlendirir, RAM’i azaltır ama ek I/O maliyeti getirir. İş yükünüz ve ortamınız için doğru dengeyi bulmak amacıyla [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory) metodunu kullanın.
-
-**BLOB seçenekleri, çok büyük (örneğin gigabayt) sunumları açarken yardımcı olur mu?**
-
-Evet. [BlobManagementOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/blobmanagementoptions/) bu senaryolar için tasarlanmıştır: geçici dosyaları etkinleştirmek ve kaynak kilitlemeyi kullanmak, tepe RAM kullanımını önemli ölçüde azaltabilir ve çok büyük slayt desteleri için işleme istikrarı sağlayabilir.
-
-**Akışlardan disk dosyalarına göre BLOB politikalarını kullanabilir miyim?**
-
-Evet. Aynı kurallar akışlar için de geçerlidir: sunum örneği (seçilen kilitleme moduna bağlı olarak) giriş akışına sahip olabilir ve kilitleyebilir, ve izin verildiğinde geçici dosyalar kullanılarak işlem sırasında bellek kullanımı öngörülebilir tutulur.
+**Akışlardan (stream) okunurken BLOB politikalarını kullanabilir miyim?**  
+Evet. Aynı kurallar akışlara da uygulanır: sunum örneği, seçilen kilitleme moduna bağlı olarak giriş akışını sahiplenebilir ve kilitleyebilir; izin verildiğinde geçici dosyalar kullanılarak işleme sırasında bellek kullanımı öngörülebilir şekilde tutulur.

@@ -1,50 +1,50 @@
 ---
-title: إدارة الروابط التشعبية للعرض التقديمي في Python عبر Java
-linktitle: إدارة الرابط التشعبي
+title: إدارة ارتباطات العرض التقديمي في Python عبر Java
+linktitle: إدارة الارتباط التشعبي
 type: docs
 weight: 20
 url: /ar/python-java/manage-hyperlinks/
 keywords:
 - إضافة URL
-- إضافة رابط تشعبي
-- إنشاء رابط تشعبي
-- تنسيق رابط تشعبي
-- إزالة رابط تشعبي
-- تحديث رابط تشعبي
-- رابط تشعبي نصي
-- رابط تشعبي للشرائح
-- رابط تشعبي للشكل
-- رابط تشعبي للصورة
-- رابط تشعبي للفيديو
-- رابط تشعبي قابل للتعديل
+- إضافة ارتباط تشعبي
+- إنشاء ارتباط تشعبي
+- تنسيق ارتباط تشعبي
+- إزالة ارتباط تشعبي
+- تحديث ارتباط تشعبي
+- ارتباط تشعبي للنص
+- ارتباط تشعبي للشرائح
+- ارتباط تشعبي للشكل
+- ارتباط تشعبي للصورة
+- ارتباط تشعبي للفيديو
+- ارتباط تشعبي قابل للتعديل
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "إدارة الروابط التشعبية بسهولة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر Java—تعزيز التفاعل وسير العمل في دقائق."
+description: "إدارة الارتباطات التشعبية بسهولة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للـPython عبر Java—عزز التفاعل وسير العمل في دقائق."
 ---
 ## **المقدمة**
 
-الارتباط التشعبي هو إشارة إلى كائن أو بيانات أو مكان ما. هذه روابط تشعب شائعة في عروض PowerPoint:
+الارتباط التشعبي هو إشارة إلى كائن أو بيانات أو موقع. تشمل الروابط التشعبية الشائعة في عروض PowerPoint:
 
-* الروابط إلى مواقع الويب داخل النصوص أو الأشكال أو الوسائط
-* الروابط إلى الشرائح
+* روابط إلى مواقع ويب في النص أو الأشكال أو الوسائط
+* روابط إلى الشرائح
 
-يتيح لك Aspose.Slides for Python عبر Java تنفيذ العديد من المهام المتعلقة بالروابط التشعبية في العروض التقديمية. 
+Aspose.Slides for Python via Java يتيح لك تنفيذ العديد من المهام المتعلقة بالارتباطات التشعبية في العروض التقديمية. 
 
-{{% alert color="info" title="Note" %}} 
+{{% alert color="info" title="ملاحظة" %}} 
 
-ربما ترغب في تجربة Aspose البسيط، [محرر PowerPoint المجاني على الإنترنت.](https://products.aspose.app/slides/ar/editor)
+قد ترغب في تجربة محرّر PowerPoint **المجاني** على الإنترنت من Aspose: [محرّر PowerPoint المجاني على الويب.](https://products.aspose.app/slides/ar/editor)
 
 {{% /alert %}} 
 
-## **إضافة روابط URL**
+## **إضافة ارتباطات URL**
 
-### **إضافة روابط URL إلى النص**
+### **إضافة ارتباطات URL إلى النص**
 
-يعرض لك هذا الكود بلغة Python كيفية إضافة رابط موقع ويب إلى نص:
+هذا الكود في Python يوضح كيفية إضافة ارتباط ويب إلى النص:
 
 ```python
 import jpype
@@ -70,9 +70,9 @@ finally:
     presentation.dispose()
 ```
 
-### **إضافة روابط URL إلى الأشكال أو الإطارات**
+### **إضافة ارتباطات URL إلى الأشكال أو الإطارات**
 
-يعرض لك هذا المثال البرمجي بلغة Python عبر Java كيفية إضافة رابط موقع ويب إلى شكل:
+هذا المثال في Python عبر Java يوضح كيفية إضافة ارتباط ويب إلى شكل:
 
 ```python
 import jpype
@@ -95,30 +95,30 @@ finally:
     presentation.dispose()
 ```
 
-### **إضافة روابط URL إلى الوسائط**
+### **إضافة ارتباطات URL إلى الوسائط**
 
-يتيح لك Aspose.Slides إضافة روابط تشعبية إلى الصور وملفات الصوت والفيديو. 
+Aspose.Slides يتيح لك إضافة ارتباطات إلى الصور، ملفات الصوت، وملفات الفيديو. 
 
-يعرض لك هذا المثال البرمجي كيفية إضافة رابط تشعبي إلى **صورة**:
+هذا المثال يوضح كيفية إضافة ارتباط إلى **صورة**:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpase.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeType
 
 presentation = Presentation()
 try:
-    # إضافة صورة إلى العرض التقديمي
+    # يضيف صورة إلى العرض التقديمي
     image = Images.fromFile("image.png")
     try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # إنشاء إطار صورة على الشريحة 1 بناءً على الصورة المضافة مسبقًا
+    # ينشئ إطار صورة على الشريحة 1 استنادًا إلى الصورة المضافة مسبقًا
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -129,7 +129,7 @@ finally:
     presentation.dispose()
 ```
 
-يعرض لك هذا المثال البرمجي كيفية إضافة رابط تشعبي إلى **ملف صوتي**:
+هذا المثال يوضح كيفية إضافة ارتباط إلى **ملف صوت**:
 
 ```python
 from pathlib import Path
@@ -157,7 +157,7 @@ finally:
     presentation.dispose()
 ```
 
-يعرض لك هذا المثال البرمجي كيفية إضافة رابط تشعبي إلى **فيديو**:
+هذا المثال يوضح كيفية إضافة ارتباط إلى **فيديو**:
 
 ```python
 from pathlib import Path
@@ -185,17 +185,17 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}} 
+{{% alert color="success" title="نصيحة" %}} 
 
-ربما ترغب في مشاهدة *[إدارة OLE](/slides/ar/python-java/manage-ole/)*.
+قد ترغب في الاطلاع على *[إدارة OLE](/slides/ar/python-java/manage-ole/)*.
 
 {{% /alert %}}
 
-## **استخدام الروابط التشعبية لإنشاء جدول محتويات**
+## **استخدام الارتباطات لإنشاء جدول محتويات**
 
-نظرًا لأن الروابط التشعبية تسمح لك بإضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء جدول محتويات.
+نظرًا لأن الارتباطات تسمح بإضافة مراجع إلى كائنات أو أماكن، يمكنك استخدامها لإنشاء جدول محتويات. 
 
-يعرض لك هذا المثال البرمجي كيفية إنشاء جدول محتويات باستخدام الروابط التشعبية:
+هذا المثال يوضح كيفية إنشاء جدول محتويات مع ارتباطات تشعبية:
 
 ```python
 import jpype
@@ -235,13 +235,13 @@ finally:
     presentation.dispose()
 ```
 
-## **تنسيق الروابط التشعبية**
+## **تنسيق الارتباطات**
 
 ### **اللون**
 
-باستخدام الخاصية [Hyperlink.setColorSource](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/#setColorSource) في الفئة [Hyperlink](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/)، يمكنك تعيين لون الروابط التشعبية وكذلك الحصول على معلومات اللون من الروابط التشعبية. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذلك لا تُطبق التغييرات المتعلقة بهذه الخاصية على إصدارات PowerPoint القديمة.
+باستخدام خاصية [Hyperlink.setColorSource](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/#setColorSource) في فئة [Hyperlink](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/) يمكنك تعيين لون للارتباطات التشعبية والحصول على معلومات اللون منها. تم تقديم هذه الميزة لأول مرة في PowerPoint 2019، لذا فإن التغييرات المتعلقة بهذه الخاصية لا تنطبق على إصدارات PowerPoint الأقدم.
 
-يعرض لك هذا المثال البرمجي عملية تم فيها إضافة روابط تشعبية بألوان مختلفة إلى الشريحة نفسها:
+هذا المثال يُظهر عملية إضافة ارتباطات بألوان مختلفة إلى نفس الشريحة:
 
 ```python
 import jpype
@@ -273,11 +273,11 @@ finally:
     presentation.dispose()
 ```
 
-## **إزالة الروابط التشعبية من العروض التقديمية**
+## **إزالة الارتباطات من العروض**
 
-### **إزالة الروابط التشعبية من النص**
+### **إزالة الارتباطات من النص**
 
-يعرض لك هذا الكود بلغة Python كيفية إزالة الرابط التشعبي من نص في شريحة العرض التقديمي:
+هذا الكود في Python يوضح كيفية إزالة الارتباط من نص على شريحة عرض:
 
 ```python
 import jpype
@@ -304,9 +304,9 @@ finally:
     presentation.dispose()
 ```
 
-### **إزالة الروابط التشعبية من الأشكال أو الإطارات**
+### **إزالة الارتباطات من الأشكال أو الإطارات**
 
-يعرض لك هذا الكود بلغة Python كيفية إزالة الرابط التشعبي من شكل في شريحة العرض التقديمي: 
+هذا الكود في Python يوضح كيفية إزالة الارتباط من شكل على شريحة عرض:
 
 ```python
 import jpype
@@ -327,9 +327,9 @@ finally:
     presentation.dispose()
 ```
 
-## **رابط تشعبي قابل للتغيير**
+## **الارتباط القابل للتعديل**
 
-الفئة [Hyperlink](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/) قابلة للتغيير. باستخدام هذه الفئة، يمكنك تعديل قيم الخصائص التالية:
+فئة [Hyperlink](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/) قابلة للتعديل. باستخدام هذه الفئة يمكنك تغيير القيم للخصائص التالية:
 
 - [setTargetFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -337,7 +337,7 @@ finally:
 - [setHighlightClick](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-يعرض لك مقتطف الشيفرة كيفية إضافة رابط تشعبي إلى شريحة وتعديل تلميحه لاحقًا:
+المقتطف التالي يوضح كيفية إضافة ارتباط إلى شريحة وتعديل تلميحه لاحقًا:
 
 ```python
 import jpype
@@ -358,7 +358,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # يغيّر تلميح الرابط التشعبي الذي تم إضافته بالفعل
+    # يغيّر تلميح الارتباط التشعبي الذي تم إضافته بالفعل
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -368,29 +368,29 @@ finally:
 
 ## **الخصائص المدعومة في HyperlinkQueries**
 
-يمكنك الوصول إلى [HyperlinkQueries](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlinkqueries/) من عرض تقديمي أو شريحة أو نص تم تعريف الرابط التشعبي له. 
+يمكنك الوصول إلى [HyperlinkQueries](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlinkqueries/) من عرض تقديمي أو شريحة أو نص تم تعريف الارتباط التشعبي له. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/ar/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-تدعم الفئة [HyperlinkQueries](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlinkqueries/) هذه الطرق والخصائص: 
+فئة [HyperlinkQueries](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlinkqueries/) تدعم هذه الطرق والخصائص: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
 - [getAnyHyperlinks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
 - [removeAllHyperlinks](https://reference.aspose.com/slides/ar/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني إنشاء تنقل داخلي ليس فقط إلى شريحة، بل إلى "قسم" أو الشريحة الأولى من قسم؟**
+**كيف يمكنني إنشاء تنقل داخلي ليس فقط إلى شريحة، بل إلى "قسم" أو الشريحة الأولى في قسم؟**
 
-الأقسام في PowerPoint هي تجميعات للشرائح؛ التقنية تستهدف شريحة محددة. لل«انتقال إلى قسم»، عادةً ما تقوم بالربط إلى شريحته الأولى.
+الأقسام في PowerPoint هي مجموعات من الشرائح؛ التنقل يستهدف تقنيًا شريحة محددة. للـ"انتقال إلى قسم"، عادةً ما تقوم بالربط إلى الشريحة الأولى لهذا القسم.
 
-**هل يمكنني إرفاق رابط تشعبي بعناصر الشريحة الرئيسية بحيث يعمل على جميع الشرائح؟**
+**هل يمكنني إرفاق ارتباط تشعبي بعناصر الشريحة الرئيسة بحيث يعمل على جميع الشرائح؟**
 
-نعم. تدعم عناصر الشريحة الرئيسية والقوالب الروابط التشعبية. تظهر هذه الروابط على الشرائح الفرعية ويمكن النقر عليها أثناء تشغيل العرض.
+نعم. تدعم عناصر الشريحة الرئيسة وتخطيطاتها الارتباطات التشعبية. تظهر هذه الروابط على الشرائح الفرعية وتكون قابلة للنقر أثناء عرض الشرائح.
 
-**هل سيتم الحفاظ على الروابط التشعبية عند التصدير إلى PDF أو HTML أو صور أو فيديو؟**
+**هل سيتم الحفاظ على الارتباطات عند التحويل إلى PDF أو HTML أو صور أو فيديو؟**
 
-في [PDF](/slides/ar/python-java/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/python-java/convert-powerpoint-to-html/)، نعم—عادةً ما تُحفظ الروابط. عند التصدير إلى [صور](/slides/ar/python-java/convert-powerpoint-to-png/) و[فيديو](/slides/ar/python-java/convert-powerpoint-to-video/)، لن تُحافظ على القابلية للنقر بسبب طبيعة هذه الصيغ (الإطارات النقطية/الفيديو لا تدعم الروابط التشعبية).
+في [PDF](/slides/ar/python-java/convert-powerpoint-to-pdf/) و [HTML](/slides/ar/python-java/convert-powerpoint-to-html/)، نعم — عادةً ما تُحفظ الروابط. عند التحويل إلى [صور](/slides/ar/python-java/convert-powerpoint-to-png/) و [فيديو](/slides/ar/python-java/convert-powerpoint-to-video/)، لن تُنقل القابلية للنقر بسبب طبيعة هذه الصيغ (الإطارات النقطية/الفيديو لا تدعم الارتباطات).

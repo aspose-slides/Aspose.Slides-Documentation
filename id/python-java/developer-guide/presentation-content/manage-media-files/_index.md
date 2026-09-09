@@ -1,13 +1,13 @@
 ---
-title: Kelola File Media di Python melalui Java
-linktitle: File Media
+title: Kelola Berkas Media di Python melalui Java
+linktitle: Berkas Media
 type: docs
 weight: 30
 url: /id/python-java/manage-media-files/
 keywords:
-- file media
+- berkas media
 - kelola media
-- sematkan audio
+- menyematkan audio
 - ekstrak flash
 - kelola gambar
 - tambahkan gambar
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Kelola audio dan video dalam Aspose.Slides untuk Java: tambah, ekstrak, ganti, dan optimalkan media dalam file PPT, PPTX, dan ODP. Panduan langkah demi langkah serta kode Java."
+description: "Kelola audio dan video dalam Aspose.Slides untuk Python melalui Java: tambahkan, ekstrak, ganti, dan optimalisasi media dalam file PPT, PPTX, dan ODP. Panduan langkah demi langkah serta kode Python."
 ---

@@ -1,6 +1,6 @@
 ---
-title: Gestisci i collegamenti ipertestuali della presentazione in Python via Java
-linktitle: Gestisci collegamento ipertestuale
+title: Gestire i collegamenti ipertestuali della presentazione in Python via Java
+linktitle: Gestire collegamento ipertestuale
 type: docs
 weight: 20
 url: /it/python-java/manage-hyperlinks/
@@ -11,11 +11,11 @@ keywords:
 - formatta collegamento ipertestuale
 - rimuovi collegamento ipertestuale
 - aggiorna collegamento ipertestuale
-- collegamento ipertestuale nel testo
-- collegamento ipertestuale alla diapositiva
-- collegamento ipertestuale alla forma
-- collegamento ipertestuale all'immagine
-- collegamento ipertestuale al video
+- collegamento ipertestuale testo
+- collegamento ipertestuale diapositiva
+- collegamento ipertestuale forma
+- collegamento ipertestuale immagine
+- collegamento ipertestuale video
 - collegamento ipertestuale mutabile
 - PowerPoint
 - OpenDocument
@@ -23,26 +23,28 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Gestisci facilmente i collegamenti ipertestuali in presentazioni PowerPoint e OpenDocument con Aspose.Slides per Python via Java — migliora l'interattività e il flusso di lavoro in pochi minuti."
+description: "Gestisci senza sforzo i collegamenti ipertestuali nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per Python via Java — migliora l’interattività e il flusso di lavoro in pochi minuti."
 ---
 ## **Introduzione**
 
-Un collegamento ipertestuale è un riferimento a un oggetto, a dati o a un luogo in qualcosa. Questi sono collegamenti ipertestuali comuni nelle presentazioni PowerPoint:
+Un collegamento ipertestuale è un riferimento a un oggetto, a dei dati o a una posizione. I collegamenti ipertestuali più comuni nelle presentazioni PowerPoint includono:
 
-* Collegamenti a siti web all'interno di testi, forme o media
+* Collegamenti a siti web in testo, forme o media
 * Collegamenti a diapositive
 
-Aspose.Slides per Python via Java consente di eseguire molte attività relative ai collegamenti ipertestuali nelle presentazioni. 
+Aspose.Slides for Python via Java ti consente di eseguire numerose attività relative ai collegamenti ipertestuali nelle presentazioni. 
 
 {{% alert color="info" title="Nota" %}} 
-Potresti voler provare l'editor PowerPoint online, [gratuito e semplice di Aspose.](https://products.aspose.app/slides/it/editor)
+
+Potresti voler provare il semplice [editor online gratuito di PowerPoint di Aspose.](https://products.aspose.app/slides/it/editor)
+
 {{% /alert %}} 
 
-## **Aggiungi collegamenti ipertestuali URL**
+## **Aggiungere collegamenti URL**
 
-### **Aggiungi collegamenti ipertestuali URL al testo**
+### **Aggiungere collegamenti URL al testo**
 
-Questo codice Python mostra come aggiungere un collegamento ipertestuale a un sito web a un testo:
+Questo codice Python mostra come aggiungere un collegamento a un sito web al testo:
 
 ```python
 import jpype
@@ -68,9 +70,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Aggiungi collegamenti ipertestuali URL a forme o cornici**
+### **Aggiungere collegamenti URL a forme o cornici**
 
-Questo esempio di codice in Python via Java mostra come aggiungere un collegamento ipertestuale a un sito web a una forma:
+Questo esempio di codice in Python via Java mostra come aggiungere un collegamento a un sito web a una forma:
 
 ```python
 import jpype
@@ -93,30 +95,30 @@ finally:
     presentation.dispose()
 ```
 
-### **Aggiungi collegamenti ipertestuali URL ai media**
+### **Aggiungere collegamenti URL ai media**
 
 Aspose.Slides consente di aggiungere collegamenti ipertestuali a immagini, file audio e video. 
 
-Questo esempio mostra come aggiungere un collegamento ipertestuale a un **immagine**:
+Questo esempio di codice mostra come aggiungere un collegamento a un'**immagine**:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpade.startJVM()
 
 from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeType
 
 presentation = Presentation()
 try:
-    # Aggiunge immagine alla presentazione
+    # Aggiunge l'immagine alla presentazione
     image = Images.fromFile("image.png")
     try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # Crea cornice immagine nella diapositiva 1 basata sull'immagine precedentemente aggiunta
+    # Crea un frame immagine nella diapositiva 1 basato sull'immagine aggiunta in precedenza
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -127,7 +129,7 @@ finally:
     presentation.dispose()
 ```
 
-Questo esempio mostra come aggiungere un collegamento ipertestuale a un **file audio**:
+Questo esempio di codice mostra come aggiungere un collegamento a un **file audio**:
 
 ```python
 from pathlib import Path
@@ -155,7 +157,7 @@ finally:
     presentation.dispose()
 ```
 
-Questo esempio mostra come aggiungere un collegamento ipertestuale a un **video**:
+Questo esempio di codice mostra come aggiungere un collegamento a un **video**:
 
 ```python
 from pathlib import Path
@@ -184,12 +186,14 @@ finally:
 ```
 
 {{% alert color="success" title="Suggerimento" %}} 
+
 Potresti voler vedere *[Gestisci OLE](/slides/it/python-java/manage-ole/)*.
+
 {{% /alert %}}
 
-## **Usa i collegamenti ipertestuali per creare un indice**
+## **Utilizzare i collegamenti ipertestuali per creare un indice**
 
-Poiché i collegamenti ipertestuali consentono di aggiungere riferimenti a oggetti o luoghi, è possibile usarli per creare un indice. 
+Poiché i collegamenti ipertestuali consentono di aggiungere riferimenti a oggetti o posizioni, è possibile usarli per creare un indice. 
 
 Questo esempio di codice mostra come creare un indice con collegamenti ipertestuali:
 
@@ -231,13 +235,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Formattazione dei collegamenti ipertestuali**
+## **Formattare i collegamenti ipertestuali**
 
 ### **Colore**
 
-Con la proprietà [Hyperlink.setColorSource](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/#setColorSource) nella classe [Hyperlink](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/), è possibile impostare il colore per i collegamenti ipertestuali e anche ottenere le informazioni sul colore dai collegamenti stessi. La funzionalità è stata introdotta per la prima volta in PowerPoint 2019, quindi le modifiche relative alla proprietà non si applicano alle versioni più vecchie di PowerPoint.
+Con la proprietà [Hyperlink.setColorSource](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/#setColorSource) nella classe [Hyperlink](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/), è possibile impostare il colore per i collegamenti ipertestuali e anche ottenere le informazioni sul colore dai collegamenti. La funzionalità è stata introdotta per la prima volta in PowerPoint 2019, quindi le modifiche relative a questa proprietà non si applicano alle versioni precedenti di PowerPoint.
 
-Questo esempio di codice dimostra un'operazione in cui collegamenti ipertestuali con colori diversi vengono aggiunti alla stessa diapositiva:
+Questo esempio di codice dimostra un'operazione in cui vengono aggiunti collegamenti con diversi colori alla stessa diapositiva:
 
 ```python
 import jpype
@@ -269,11 +273,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Rimuovi i collegamenti ipertestuali dalle presentazioni**
+## **Rimuovere i collegamenti ipertestuali dalle presentazioni**
 
-### **Rimuovi i collegamenti ipertestuali dal testo**
+### **Rimuovere i collegamenti ipertestuali dal testo**
 
-Questo codice Python mostra come rimuovere il collegamento ipertestuale da un testo in una diapositiva della presentazione:
+Questo codice Python mostra come rimuovere il collegamento ipertestuale dal testo in una diapositiva della presentazione:
 
 ```python
 import jpype
@@ -300,9 +304,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Rimuovi i collegamenti ipertestuali da forme o cornici**
+### **Rimuovere i collegamenti ipertestuali da forme o cornici**
 
-Questo codice Python mostra come rimuovere il collegamento ipertestuale da una forma in una diapositiva della presentazione: 
+Questo codice Python mostra come rimuovere il collegamento ipertestuale da una forma in una diapositiva della presentazione:
 
 ```python
 import jpype
@@ -325,7 +329,7 @@ finally:
 
 ## **Collegamento ipertestuale mutabile**
 
-La classe [Hyperlink](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/) è mutabile. Con questa classe è possibile modificare i valori delle seguenti proprietà:
+La classe [Hyperlink](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/) è mutabile. Con questa classe, è possibile modificare i valori di queste proprietà:
 
 - [setTargetFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -333,7 +337,7 @@ La classe [Hyperlink](https://reference.aspose.com/slides/it/python-java/aspose.
 - [setHighlightClick](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/it/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-Lo snippet di codice mostra come aggiungere un collegamento ipertestuale a una diapositiva e modificare successivamente il suo tooltip:
+Questo frammento di codice mostra come aggiungere un collegamento ipertestuale a una diapositiva e modificare in seguito il suo tooltip:
 
 ```python
 import jpype
@@ -354,7 +358,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # Cambia il tooltip del collegamento ipertestuale già aggiunto
+    # Modifica il tooltip del collegamento ipertestuale già aggiunto
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -379,14 +383,14 @@ La classe [HyperlinkQueries](https://reference.aspose.com/slides/it/python-java/
 
 ## **FAQ**
 
-**Come posso creare una navigazione interna non solo a una diapositiva, ma a una “sezione” o alla prima diapositiva di una sezione?**
+**Come posso creare una navigazione interna non solo a una diapositiva, ma a una "sezione" o alla prima diapositiva di una sezione?**
 
-Le sezioni in PowerPoint sono raggruppamenti di diapositive; la navigazione punta tecnicamente a una diapositiva specifica. Per “navigare a una sezione”, tipicamente si collega alla sua prima diapositiva.
+Le sezioni in PowerPoint sono raggruppamenti di diapositive; la navigazione mira tecnicamente a una diapositiva specifica. Per "navigare a una sezione", normalmente si collega alla sua prima diapositiva.
 
-**Posso associare un collegamento ipertestuale agli elementi del master slide affinché funzioni su tutte le diapositive?**
+**Posso collegare un collegamento ipertestuale agli elementi del master slide in modo che funzioni su tutte le diapositive?**
 
-Sì. Gli elementi del master slide e del layout supportano i collegamenti ipertestuali. tali collegamenti appaiono sulle diapositive figlie e sono cliccabili durante la presentazione.
+Sì. Gli elementi del master slide e dei layout supportano i collegamenti ipertestuali. tali collegamenti compaiono nelle diapositive figlie e sono cliccabili durante la presentazione.
 
-**I collegamenti ipertestuali saranno conservati durante l'esportazione in PDF, HTML, immagini o video?**
+**I collegamenti ipertestuali verranno mantenuti quando si esporta in PDF, HTML, immagini o video?**
 
-In [PDF](/slides/it/python-java/convert-powerpoint-to-pdf/) e [HTML](/slides/it/python-java/convert-powerpoint-to-html/), sì—i link sono generalmente conservati. Quando si esporta in [immagini](/slides/it/python-java/convert-powerpoint-to-png/) e [video](/slides/it/python-java/convert-powerpoint-to-video/), la cliccabilità non verrà mantenuta a causa della natura di quei formati (frame raster/video non supportano collegamenti ipertestuali).
+In [PDF](/slides/it/python-java/convert-powerpoint-to-pdf/) e [HTML](/slides/it/python-java/convert-powerpoint-to-html/), sì — i collegamenti sono generalmente conservati. Quando si esporta in [immagini](/slides/it/python-java/convert-powerpoint-to-png/) e [video](/slides/it/python-java/convert-powerpoint-to-video/), la possibilità di cliccare non verrà mantenuta a causa della natura di quei formati (i fotogrammi raster/video non supportano i collegamenti ipertestuali).

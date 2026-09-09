@@ -1,5 +1,5 @@
 ---
-title: 使用 Python via Java 檢索與更新簡報資訊
+title: 在 Python 透過 Java 取得與更新簡報資訊
 linktitle: 簡報資訊
 type: docs
 weight: 30
@@ -22,19 +22,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: 使用 Python via Java 探索 PowerPoint 與 OpenDocument 簡報的投影片、結構與中繼資料，以獲得更快速的洞見與更智慧的內容稽核。
+description: "使用 Python 透過 Java 探索 PowerPoint 與 OpenDocument 簡報中的投影片、結構和中繼資料，以獲得更快速的洞見和更聰明的內容稽核。"
 ---
-## **概述**
+## **概觀**
 
-Aspose.Slides 能夠辨識簡報的格式並在不建立完整簡報物件模型的情況下讀取其文件中繼資料。這在您需要分類檔案、建立清單或在決定是否載入並處理簡報內容之前檢查屬性時非常有用。
+Aspose.Slides 可以在不建立完整的 Presentation 物件模型的情況下，識別簡報的格式並讀取其文件中繼資料。這在您需要對檔案分類、建立清單，或在決定是否載入與處理簡報內容之前檢查屬性時非常有用。
 
-範例需要 Aspose.Slides for Python via Java 與相容的 Java 執行環境。每個範例會在 JVM 未執行時啟動它。請在範例中使用的路徑提供現有的簡報檔案。
+這些範例需要 Aspose.Slides for Python via Java 以及相容的 Java 執行環境。每個範例若 JVM 尚未啟動，會自行啟動它。請在範例使用的路徑提供現有的簡報檔案。
 
-本文示範透過 [PresentationFactory](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationfactory/) 與 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/) 進行輕量檢查，以及透過 [DocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/) 進行目標更新。
+本文示範如何透過 [PresentationFactory](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationfactory/) 及 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/) 進行輕量檢查，以及透過 [DocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/) 進行目標化更新。
 
 ## **檢查簡報格式**
 
-使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationfactory/#getPresentationInfo) 在不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 實例的情況下檢查檔案。[PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#getLoadFormat) 方法會回報偵測到的格式，例如 PPTX、PPT 或 ODP。
+使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationfactory/#getPresentationInfo) 可在不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 實例的情況下檢查檔案。[PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#getLoadFormat) 方法會回報偵測到的格式，例如 PPTX、PPT 或 ODP。
 
 ```python
 import jpype
@@ -64,20 +64,20 @@ for file_name in file_names:
 
 ## **建立輕量簡報清單**
 
-當您處理大量簡報檔案時，可能需要緊湊的清單以供驗證、索引或文件管理系統使用。在此情境下，使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationfactory/#getPresentationInfo) 取得 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/) 物件，然後呼叫 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 讀取文件中繼資料。此方法不會建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 實例，也不需要遍歷完整的簡報物件模型。
+當您處理大量簡報檔案時，可能需要一個緊湊的清單以供驗證、索引或文件管理系統使用。在此情況下，使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationfactory/#getPresentationInfo) 取得 [PresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/) 物件，然後呼叫 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 讀取文件中繼資料。此方式不會建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 實例，也不需要遍歷完整的簡報物件模型。
 
-[DocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/) 所公開的延伸屬性提供以下清單值：
+由 [DocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/) 所公開的擴充屬性提供以下清單值：
 
 | 方法 | 清單值 |
 | --- | --- |
 | [getSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getSlides) | 投影片總數。 |
 | [getHiddenSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getHiddenSlides) | 隱藏投影片的數量。 |
-| [getNotes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getNotes) | 含註解的投影片數量。 |
+| [getNotes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getNotes) | 包含註解的投影片數量。 |
 | [getParagraphs](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getParagraphs) | 段落總數（若有提供）。 |
-| [getWords](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getWords) | 單字總數。 |
-| [getMultimediaClips](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getMultimediaClips) | 音訊與視訊剪輯總數。 |
+| [getWords](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getWords) | 字數總計。 |
+| [getMultimediaClips](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getMultimediaClips) | 音訊與影片剪輯的總數。 |
 
-以下範例在不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 物件的情況下讀取這些值，並輸出緊湊的清單。它同時結合 [getHeadingPairs](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getHeadingPairs) 與 [getTitlesOfParts](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getTitlesOfParts) 來顯示字型、主題與投影片標題等內容群組。
+以下範例在未建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 物件的情況下讀取這些值，並列印緊湊的清單。它同時結合 [getHeadingPairs](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getHeadingPairs) 與 [getTitlesOfParts](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getTitlesOfParts) 以顯示內容群組，例如字型、佈景主題與投影片標題。
 
 ```python
 import jpype
@@ -143,25 +143,25 @@ else:
             part_index += 1
 ```
 
-每個 [HeadingPair](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/headingpair/) 會提供群組名稱與該群組內項目的數量。[DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getTitlesOfParts) 回傳平坦且有順序的陣列，因此請依每個 heading pair 所指定的連續標題數量取用。
+每個 [HeadingPair](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/headingpair/) 提供群組名稱以及該群組的項目數量。[DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getTitlesOfParts) 會回傳一個平面且有序的陣列，因此請依照每個 HeadingPair 所指定的連續標題數量來取用。
 
 ### **已儲存的中繼資料與格式限制**
 
-由 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 回傳的清單屬性反映來源文件中可用的中繼資料。Aspose.Slides 不會載入並遍歷簡報物件模型以重新計算這些值。缺少的屬性會以預設值呈現，若最後儲存檔案的應用程式未更新文件屬性，已儲存的值可能已過時。
+[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 回傳的清單屬性反映來源文件中可取得的中繼資料。Aspose.Slides 不會載入並遍歷簡報物件模型以重新計算此呼叫的值。缺少的屬性會以預設值表示，若最後儲存檔案的應用程式未更新其文件屬性，則已儲存的值可能已過時。
 
-- **PPTX:** 此格式提供投影片、註解、隱藏投影片、段落、單字與多媒體計數的延伸文件屬性，以及 heading pairs 與部件標題。可用性取決於文件產生者寫入了哪些屬性。
-- **PPT:** 二進位格式可以儲存相應的文件摘要屬性。若屬性不存在或未由文件產生者重新整理，Aspose.Slides 會回傳其已儲存或預設值，而不是從投影片重新計算。
-- **ODP:** OpenDocument 中繼資料提供一般文件統計資訊，如頁面、段落與單字計數，但這些值未必對應每個 PowerPoint 專屬的延伸屬性。隱藏投影片、註解投影片、多媒體、heading‑pair 與部件標題等中繼資料可能不存在，清單屬性可能回傳預設值。請勿將零值或空陣列視為對應內容不存在的權威證明。
+- **PPTX：** 此格式提供投影片、註解、隱藏投影片、段落、字數與多媒體計數等擴充文件屬性，並包含 heading pairs 與 part titles。可用性取決於文件產生者寫入了哪些屬性。
+- **PPT：** 此二進位格式可以儲存對應的文件摘要屬性。若屬性缺失或未由文件產生者重新整理，Aspose.Slides 會回傳其已儲存或預設值，而非依投影片計算。
+- **ODP：** OpenDocument 中繼資料提供一般文件統計資訊，例如頁面、段落與字數計算，但這些值無法對應每個 PowerPoint 專屬的擴充屬性。隱藏投影片、註解投影片、多媒體、heading‑pair 與 part‑title 中繼資料可能不存在，清單屬性可能回傳預設值。請勿將零值或空陣列視為該內容一定不存在的權威證明。
 
-在需要建立清單或進行初步檢查時使用輕量中繼資料方法。若結果必須反映記憶體中的變更，或需要驗證實際簡報內容，請載入簡報並檢查其即時物件模型。
+在建立清單與初步檢查時，請使用輕量的中繼資料方法。當結果必須反映記憶體中的變更，或需要驗證實際簡報內容時，請載入簡報並檢查其即時物件模型。
 
 ## **更新簡報屬性**
 
-由 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 回傳的屬性亦可在不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 實例的情況下變更。使用 [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) 套用變更，然後以 [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#writeBindedPresentation) 寫出已繫結的簡報。
+[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 回傳的屬性也可以在不建立 [Presentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/) 實例的情況下進行變更。使用 [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) 套用變更，然後以 [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#writeBindedPresentation) 寫入已綁定的簡報。
 
-以下影像顯示原始的文件屬性。
+下圖顯示原始的文件屬性。
 
-![Original document properties of the PowerPoint presentation](input_properties.png)
+![PowerPoint 簡報的原始文件屬性](input_properties.png)
 
 以下範例變更標題與最後儲存時間，並將結果寫入新檔案：
 
@@ -193,35 +193,35 @@ finally:
     output_stream.close()
 ```
 
-以下影像顯示更新後的文件屬性。
+下圖顯示已更新的文件屬性。
 
-![Changed document properties of the PowerPoint presentation](output_properties.png)
+![PowerPoint 簡報的已變更文件屬性](output_properties.png)
 
-## **相關連結**
+## **實用連結**
 
-有關安全性檢查與保護設定，請參閱下列文章：
+欲了解相關的安全性檢查與保護設定，請參閱以下文章：
 
-- [Password-Protect Presentations](/slides/zh-hant/python-java/password-protected-presentation/)
-- [Write-Protect Presentations](/slides/zh-hant/python-java/write-protected-presentation/)
+- [密碼保護簡報](/slides/zh-hant/python-java/password-protected-presentation/)
+- [寫入保護簡報](/slides/zh-hant/python-java/write-protected-presentation/)
 
-## **常見問答**
+## **常見問題**
 
-**如何檢查字型是否已嵌入及是哪一些字型？**
+**如何檢查字型是否已嵌入以及是哪一些字型？**
 
-載入簡報並使用 [Presentation.getFontsManager](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getFontsManager)。呼叫 [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) 取得已嵌入的字型，並以 [FontsManager.getFonts](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/fontsmanager/#getFonts) 取得簡報使用的字型。比較兩者結果即可找出需要渲染卻未嵌入的字型。
+載入簡報並使用 [Presentation.getFontsManager](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getFontsManager)。呼叫 [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) 取得已嵌入的字型，呼叫 [FontsManager.getFonts](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/fontsmanager/#getFonts) 取得簡報使用的字型。比較兩個結果即可找出渲染所需但未嵌入的字型。
 
-**如何快速判斷檔案是否有隱藏投影片以及其數量？**
+**如何快速判斷檔案是否有隱藏投影片以及數量？**
 
-若已儲存的文件中繼資料足夠，透過 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationfactory/#getPresentationInfo) 與 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 讀取 [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getHiddenSlides)。這適用於輕量清單。若簡報已在記憶體中修改，或需要驗證即時值，請遍歷 [Presentation.getSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getSlides) 並檢查每張投影片的 [Slide.getHidden](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slide/#getHidden) 方法。
+當已儲存的文件中繼資料足以判斷時，可透過 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationfactory/#getPresentationInfo) 與 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 讀取 [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/documentproperties/#getHiddenSlides)。此方式適用於輕量清單。若簡報在記憶體中已被修改，已儲存的中繼資料可能遺失或過時，或需驗證即時值，則請遍歷 [Presentation.getSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getSlides) 並檢查每張投影片的 [Slide.getHidden](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slide/#getHidden) 方法。
 
-**我可以偵測是否使用自訂投影片尺寸與方向，且是否與預設不同嗎？**
+**我能偵測是否使用自訂投影片大小與方向，且它們是否與預設不同嗎？**
 
-可以。載入簡報後呼叫 [Presentation.getSlideSize](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getSlideSize)。使用 [SlideSize.getType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slidesize/#getType)、[SlideSize.getSize](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slidesize/#getSize) 與 [SlideSize.getOrientation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slidesize/#getOrientation) 將目前設定與預設尺寸、方向進行比較。
+可以。載入簡報並呼叫 [Presentation.getSlideSize](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getSlideSize)。使用 [SlideSize.getType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slidesize/#getType)、[SlideSize.getSize](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slidesize/#getSize) 與 [SlideSize.getOrientation](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/slidesize/#getOrientation) 來比較目前設定與預期的預設與尺寸。
 
-**是否有快速方法查看圖表是否參考外部資料來源？**
+**是否有快速方法檢查圖表是否參考外部資料來源？**
 
-有。定位每個 [Chart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/chart/)，呼叫 [ChartData.getDataSourceType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/chartdata/#getDataSourceType)。若為外部活頁簿，請呼叫 [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)。資料來源類型與路徑即能識別外部參考，但是否可用仍需另行檢查資源。
+可以。找出每個 [Chart](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/chart/) 並呼叫 [ChartData.getDataSourceType](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/chartdata/#getDataSourceType)。若為外部試算表，請呼叫 [ChartData.getExternalWorkbookPath](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/chartdata/#getExternalWorkbookPath)。資料來源類型與路徑可辨識外部參照，但要確認目標是否可用則需另行檢查資源。
 
-**如何評估「較重」的投影片，可能會導致渲染或 PDF 匯出變慢？**
+**我該如何評估可能導致渲染或 PDF 輸出變慢的「繁重」投影片？**
 
-沒有單一的複雜度屬性。遍歷 [Presentation.getSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getSlides) 與每張投影片的 [BaseSlide.getShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getShapes) 集合。以形狀數量、大圖、特效、動畫或多媒體的存在作為篩選指標，並在代表性投影片上測量渲染或匯出時間，才能將投影片確定為性能瓶頸。
+沒有單一的複雜度屬性。遍歷 [Presentation.getSlides](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getSlides) 以及每張投影片的 [BaseSlide.getShapes](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getShapes) 集合。以形狀數量以及大型影像、特效、動畫或多媒體的存在作為篩選訊號，並在將投影片視為已確認的效能瓶頸前，先測量具代表性的渲染或匯出時間。

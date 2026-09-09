@@ -1,37 +1,37 @@
 ---
 title: Kelola Audio dalam Presentasi Menggunakan Python
-linktitle: Kerangka Audio
+linktitle: Bingkai Audio
 type: docs
 weight: 10
 url: /id/python-java/audio-frame/
 keywords:
 - audio
-- kerangka audio
-- gambar miniatur
-- menambahkan audio
+- bingkai audio
+- pratinjau
+- tambahkan audio
 - properti audio
 - opsi audio
 - ekstrak audio
 - Python
 - Aspose.Slides
-description: "Buat dan kendalikan kerangka audio di Aspose.Slides untuk Python via Java—contoh kode untuk menyematkan, memotong, mengulang, dan mengkonfigurasi pemutaran pada presentasi PPT, PPTX, dan ODP."
+description: "Buat dan kontrol bingkai audio di Aspose.Slides untuk Python melalui Java—contoh kode untuk menyematkan, memotong, mengulang, dan mengonfigurasi pemutaran pada presentasi PPT, PPTX, dan ODP."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan frame audio di Aspose.Slides. Artikel ini menunjukkan cara menambahkan audio tersemat ke slide, menyesuaikan thumbnail frame audio, mengonfigurasi opsi pemutaran seperti volume, pengulangan, penyembunyian, pemangkasan, dan durasi fade, serta mengekstrak audio yang digunakan dalam transisi pertunjukan slide.
+Artikel ini menjelaskan cara bekerja dengan bingkai audio di Aspose.Slides. Artikel ini menunjukkan cara menambahkan audio tersemat ke slide, menyesuaikan thumbnail bingkai audio, mengonfigurasi opsi pemutaran seperti volume, pengulangan, penyembunyian, pemotongan, dan durasi fade, serta mengekstrak audio yang digunakan dalam transisi pertunjukan slide.
 
-## **Buat Frame Audio**
+## **Buat Bingkai Audio**
 
-Aspose.Slides for Python via Java memungkinkan Anda menambahkan file audio ke slide. File audio disematkan dalam slide sebagai frame audio. 
+Aspose.Slides for Python via Java memungkinkan Anda menambahkan file audio ke slide. File audio disematkan dalam slide sebagai bingkai audio. 
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Baca file audio yang ingin Anda sematkan ke dalam slide.
-4. Tambahkan frame audio tersemat (yang berisi file audio) ke slide.
-5. Atur [setPlayMode](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setPlayMode) dan [setVolume](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setVolume) yang disediakan oleh objek [AudioFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/).
+2. Dapatkan referensi ke slide berdasarkan indeksnya.
+3. Baca file audio yang ingin Anda sematkan ke slide.
+4. Tambahkan bingkai audio tersemat (yang berisi file audio) ke slide.
+5. Gunakan [setPlayMode](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setPlayMode) dan [setVolume](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setVolume) yang disediakan oleh objek [AudioFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/).
 6. Simpan presentasi yang telah dimodifikasi.
 
-Kode Python ini menunjukkan cara menambahkan frame audio tersemat ke slide:
+Kode Python berikut menunjukkan cara menambahkan bingkai audio tersemat ke slide:
 
 ```python
 from pathlib import Path
@@ -59,11 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Ubah Thumbnail Frame Audio**
+## **Ubah Thumbnail Bingkai Audio**
 
-Saat Anda menambahkan file audio ke presentasi, audio muncul sebagai frame dengan gambar standar default (lihat gambar pada bagian di bawah). Anda dapat mengubah gambar pratinjau frame audio (menetapkan gambar pilihan Anda).
+Saat Anda menambahkan file audio ke presentasi, audio muncul sebagai bingkai dengan gambar default standar (lihat gambar di bagian berikut). Anda dapat mengubah gambar pratinjau bingkai audio menjadi gambar pilihan Anda.
 
-Kode Python ini menunjukkan cara mengubah thumbnail atau gambar pratinjau frame audio:
+Kode Python berikut menunjukkan cara mengubah thumbnail atau gambar pratinjau bingkai audio:
 
 ```python
 from pathlib import Path
@@ -98,37 +98,37 @@ finally:
 
 ## **Ubah Opsi Pemutaran Audio**
 
-Aspose.Slides for Python via Java memungkinkan Anda mengubah opsi yang mengendalikan pemutaran atau properti audio. Misalnya, Anda dapat menyesuaikan volume audio, mengatur audio agar diputar berulang, atau bahkan menyembunyikan ikon audio.
+Aspose.Slides for Python via Java memungkinkan Anda mengubah opsi yang mengontrol pemutaran audio atau properti audio. Misalnya, Anda dapat menyesuaikan volume audio, mengatur audio untuk berulang, atau bahkan menyembunyikan ikon audio.
 
-Panel **Audio Options** di Microsoft PowerPoint:
+The **Audio Options** pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint **Audio Options** yang sesuai dengan properti Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/):
+PowerPoint **Audio Options** yang sesuai dengan properti Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/) :
 
-- **Start** drop-down list matches the [setPlayMode](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setPlayMode) method
-- **Volume** matches the [setVolume](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setVolume) method
-- **Play Across Slides** matches the [setPlayAcrossSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) method
-- **Loop until Stopped** matches the [setPlayLoopMode](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setPlayLoopMode) method
-- **Hide During Show** matches the [setHideAtShowing](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setHideAtShowing) method
-- **Rewind after Playing** matches the [setRewindAudio](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setRewindAudio) method
+- **Start** daftar drop-down cocok dengan metode [setPlayMode](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setPlayMode)
+- **Volume** cocok dengan metode [setVolume](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setVolume)
+- **Play Across Slides** cocok dengan metode [setPlayAcrossSlides](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)
+- **Loop until Stopped** cocok dengan metode [setPlayLoopMode](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setPlayLoopMode)
+- **Hide During Show** cocok dengan metode [setHideAtShowing](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setHideAtShowing)
+- **Rewind after Playing** cocok dengan metode [setRewindAudio](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setRewindAudio)
 
-PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/) properties:
+Pilihan **Editing** PowerPoint yang sesuai dengan properti Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/) :
 
-- **Fade In** matches the [setFadeInDuration](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setFadeInDuration) method 
-- **Fade Out** matches the [setFadeOutDuration](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setFadeOutDuration) method 
-- **Trim Audio Start Time** matches the [setTrimFromStart](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setTrimFromStart) method 
-- **Trim Audio End Time** value equals the audio duration minus the value of [setTrimFromEnd](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setTrimFromEnd) method
+- **Fade In** cocok dengan metode [setFadeInDuration](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setFadeInDuration) 
+- **Fade Out** cocok dengan metode [setFadeOutDuration](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setFadeOutDuration) 
+- **Trim Audio Start Time** cocok dengan metode [setTrimFromStart](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setTrimFromStart) 
+- **Trim Audio End Time** nilai sama dengan durasi audio dikurangi nilai yang ditetapkan oleh metode [setTrimFromEnd](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setTrimFromEnd)
 
-The PowerPoint **Volume control** on the audio control panel corresponds to the [setVolumeValue](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setVolumeValue) method. It lets you change the audio volume as a percentage.
+Kontrol **Volume** PowerPoint pada panel kontrol audio sesuai dengan metode [setVolumeValue](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setVolumeValue). Ini memungkinkan Anda mengubah volume audio dalam persentase.
 
 Berikut cara mengubah opsi Pemutaran Audio:
 
-1. [Сreate](#create-audio-frames) atau dapatkan Audio Frame.
-2. Atur nilai baru untuk properti Audio Frame yang ingin Anda ubah.
+1. [Buat](#create-audio-frames) atau dapatkan bingkai audio.
+2. Tetapkan nilai baru untuk properti bingkai audio yang ingin Anda sesuaikan.
 3. Simpan file PowerPoint yang telah dimodifikasi.
 
-Kode Python berikut mendemonstrasikan operasi di mana opsi audio disesuaikan:
+Kode Python berikut memperlihatkan operasi di mana opsi audio disesuaikan:
 
 ```python
 import jpype
@@ -143,12 +143,12 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # Putar saat diklik dengan volume rendah, di seluruh slide, tanpa pengulangan.
+        # Putar ketika diklik dengan volume rendah, melintasi slide, tanpa pengulangan.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # Sembunyikan frame selama pertunjukan slide dan putar kembali setelah diputar.
+        # Sembunyikan bingkai selama pertunjukan slide dan putar mundur setelah diputar.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
@@ -158,7 +158,7 @@ finally:
     presentation.dispose()
 ```
 
-Contoh Python ini menunjukkan cara menambahkan frame audio baru dengan audio tersemat, memotongnya, dan mengatur durasi fade:
+Contoh Python berikut menunjukkan cara menambahkan bingkai audio baru dengan audio tersemat, memotongnya, dan mengatur durasi fade:
 
 ```python
 from pathlib import Path
@@ -179,7 +179,7 @@ try:
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Potong 1.5 detik dari awal dan 2 detik dari akhir.
+    # Potong 1,5 detik dari awal dan 2 detik dari akhir.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
     # Atur fade-in menjadi 200 ms dan fade-out menjadi 500 ms.
@@ -190,7 +190,7 @@ finally:
     presentation.dispose()
 ```
 
-Contoh kode berikut menunjukkan cara mengambil frame audio dengan audio tersemat dan mengatur volumenya menjadi 85%:
+Contoh kode berikut menunjukkan cara mengambil bingkai audio dengan audio tersemat dan mengatur volumenya ke 85%:
 
 ```python
 import jpype
@@ -216,11 +216,11 @@ finally:
 
 ## **Kelola Caption Audio**
 
-Aspose.Slides memungkinkan Anda menambahkan caption tertutup ke sebuah frame audio melalui metode [getCaptionTracks](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#getCaptionTracks). Metode ini mengembalikan sebuah [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/), yang memungkinkan Anda menambahkan track caption WebVTT, mengiterasi track yang ada, dan menghapusnya bila diperlukan.
+Aspose.Slides memungkinkan Anda menambahkan caption tertutup ke bingkai audio melalui metode [getCaptionTracks](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#getCaptionTracks). Metode ini mengembalikan sebuah [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/), yang memungkinkan Anda menambahkan trek caption WebVTT, mengiterasi trek yang ada, dan menghapusnya bila diperlukan.
 
 **Tambah Caption Audio**
 
-Gunakan metode [getCaptionTracks](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#getCaptionTracks) untuk melampirkan satu atau lebih track caption ke sebuah frame audio. Pada contoh berikut, file audio ditambahkan ke slide, kemudian track caption baru dimuat dari file `.vtt`.
+Gunakan metode [getCaptionTracks](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#getCaptionTracks) untuk melampirkan satu atau lebih trek caption ke bingkai audio. Pada contoh berikut, file audio ditambahkan ke slide, dan kemudian trek caption baru dimuat dari file `.vtt`.
 
 ```python
 from pathlib import Path
@@ -241,7 +241,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # Tambahkan jalur caption baru dari file WebVTT.
+    # Tambahkan trek caption baru dari file WebVTT.
     audio_frame.getCaptionTracks().add("New track", "track.vtt")
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
@@ -250,7 +250,7 @@ finally:
 
 **Ekstrak Caption Audio**
 
-Anda dapat mengiterasi track caption yang terkait dengan sebuah frame audio dan menyimpannya sebagai file `.vtt`. Setiap track caption mengungkapkan data biner dan pengenal uniknya, yang dapat digunakan saat mengekspor caption.
+Anda dapat mengiterasi trek caption yang terkait dengan bingkai audio dan menyimpannya sebagai file `.vtt`. Setiap trek caption mengungkapkan data biner dan pengidentifikasi uniknya, yang dapat digunakan saat mengekspor caption.
 
 ```python
 from pathlib import Path
@@ -269,7 +269,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
-                # Simpan track caption sebagai file .vtt.
+                # Simpan trek caption sebagai file .vtt.
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -279,7 +279,7 @@ finally:
 
 **Hapus Caption Audio**
 
-Untuk menghapus caption dari sebuah frame audio, gunakan metode yang disediakan oleh [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/), seperti [clear](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#remove), atau [removeAt](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#removeAt). Contoh berikut menghapus semua track caption dari sebuah frame audio.
+Untuk menghapus caption dari bingkai audio, gunakan metode yang disediakan oleh [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/), seperti [clear](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#remove), atau [removeAt](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#removeAt). Contoh berikut menghapus semua trek caption dari bingkai audio.
 
 ```python
 import jpype
@@ -308,11 +308,11 @@ finally:
 Aspose.Slides for Python via Java memungkinkan Anda mengekstrak suara yang digunakan dalam transisi pertunjukan slide. Misalnya, Anda dapat mengekstrak suara yang digunakan pada slide tertentu.
 
 1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) dan muat presentasi yang berisi audio.
-2. Dapatkan referensi slide yang relevan melalui indeksnya.
+2. Dapatkan referensi ke slide yang relevan berdasarkan indeksnya.
 3. Akses [slideshow transitions](https://reference.aspose.com/slides/id/python-java/aspose.slides/baseslide/#getSlideShowTransition) untuk slide tersebut.
-4. Ekstrak suara dalam data byte.
+4. Ekstrak suara sebagai data byte.
 
-Kode Python ini menunjukkan cara mengekstrak audio yang digunakan pada sebuah slide:
+Kode Python berikut menunjukkan cara mengekstrak audio yang digunakan pada slide:
 
 ```python
 import jpype
@@ -339,14 +339,14 @@ finally:
 
 ## **FAQ**
 
-**Apakah saya dapat menggunakan kembali aset audio yang sama pada beberapa slide tanpa memperbesar ukuran file?**
+**Apakah saya dapat menggunakan kembali aset audio yang sama di beberapa slide tanpa memperbesar ukuran file?**
 
-Ya. Tambahkan audio sekali ke [audio collection](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getAudios) yang dibagikan dalam presentasi dan buat frame audio tambahan yang merujuk ke aset yang sudah ada. Ini menghindari duplikasi data media dan menjaga ukuran presentasi tetap terkendali.
+Ya. Tambahkan audio sekali ke [audio collection](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getAudios) bersama pada presentasi, dan buat bingkai audio tambahan yang merujuk ke aset yang ada. Ini menghindari duplikasi data media dan menjaga ukuran presentasi tetap terkendali.
 
-**Apakah saya dapat mengganti suara dalam frame audio yang sudah ada tanpa membuat ulang shape?**
+**Apakah saya dapat mengganti suara dalam bingkai audio yang ada tanpa membuat ulang bentuk?**
 
-Ya. Untuk suara yang ditautkan, perbarui [link path](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setLinkPathLong) agar mengarah ke file baru. Untuk suara yang tersemat, ganti objek [embedded audio](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setEmbeddedAudio) dengan yang lain dari [audio collection](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getAudios) presentasi. Format frame dan sebagian besar pengaturan pemutaran tetap tidak berubah.
+Ya. Untuk suara yang ditautkan, perbarui [link path](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setLinkPathLong) agar menunjuk ke file baru. Untuk suara yang tersemat, tukar objek [embedded audio](https://reference.aspose.com/slides/id/python-java/aspose.slides/audioframe/#setEmbeddedAudio) dengan yang lain dari [audio collection](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getAudios) presentasi. Pemformatan bingkai dan sebagian besar pengaturan pemutaran tetap tidak berubah.
 
-**Apakah pemangkasan mengubah data audio dasar yang disimpan dalam presentasi?**
+**Apakah pemotongan mengubah data audio dasar yang disimpan dalam presentasi?**
 
-Tidak. Pemangkasan hanya menyesuaikan batas pemutaran. Byte audio asli tetap tidak tersentuh dan dapat diakses melalui audio tersemat atau koleksi audio presentasi.
+Tidak. Pemotongan hanya menyesuaikan batas pemutaran. Byte audio asli tetap tidak tersentuh dan dapat diakses melalui audio tersemat atau [audio collection](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getAudios) presentasi.

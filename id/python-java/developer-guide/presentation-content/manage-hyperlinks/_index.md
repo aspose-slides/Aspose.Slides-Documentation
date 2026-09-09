@@ -1,12 +1,12 @@
 ---
-title: Kelola Hyperlink Presentasi di Python melalui Java
+title: Kelola Hyperlink Presentasi di Python via Java
 linktitle: Kelola Hyperlink
 type: docs
 weight: 20
 url: /id/python-java/manage-hyperlinks/
 keywords:
-- tambah URL
-- tambah hyperlink
+- tambahkan URL
+- tambahkan hyperlink
 - buat hyperlink
 - format hyperlink
 - hapus hyperlink
@@ -16,35 +16,33 @@ keywords:
 - hyperlink bentuk
 - hyperlink gambar
 - hyperlink video
-- hyperlink yang dapat diubah
+- hyperlink dapat diubah
 - PowerPoint
 - OpenDocument
 - presentasi
 - Python
 - Java
 - Aspose.Slides
-description: "Kelola hyperlink dengan mudah dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python melalui Java—tingkatkan interaktivitas dan alur kerja dalam hitungan menit."
+description: "Dengan mudah mengelola hyperlink dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java—tingkatkan interaktivitas dan alur kerja dalam hitungan menit."
 ---
 ## **Pendahuluan**
 
-Tautan hiperteks adalah referensi ke objek atau data atau tempat dalam sesuatu. Ini adalah contoh tautan hiperteks umum dalam Presentasi PowerPoint:
+Sebuah hyperlink adalah referensi ke sebuah objek, data, atau lokasi. Hyperlink umum dalam presentasi PowerPoint meliputi:
 
-* Tautan ke situs web di dalam teks, bentuk, atau media
+* Tautan ke situs web dalam teks, bentuk, atau media
 * Tautan ke slide
 
-Aspose.Slides untuk Python via Java memungkinkan Anda melakukan banyak tugas yang melibatkan tautan hiperteks dalam presentasi. 
+Aspose.Slides for Python via Java memungkinkan Anda melakukan banyak tugas yang melibatkan hyperlink dalam presentasi. 
 
-{{% alert color="info" title="Catatan" %}} 
-
-Anda mungkin ingin mencoba Aspose sederhana, [editor PowerPoint daring gratis.](https://products.aspose.app/slides/id/editor)
-
+{{% alert color="info" title="Note" %}} 
+Anda mungkin ingin mencoba editor PowerPoint online gratis sederhana dari Aspose.[editor PowerPoint online gratis sederhana.](https://products.aspose.app/slides/id/editor)
 {{% /alert %}} 
 
-## **Tambahkan Tautan URL**
+## **Menambahkan Hyperlink URL**
 
-### **Tambahkan Tautan URL ke Teks**
+### **Menambahkan Hyperlink URL ke Teks**
 
-Kode Python ini menunjukkan cara menambahkan tautan situs web ke teks:
+Kode Python ini menunjukkan cara menambahkan hyperlink situs web ke teks:
 
 ```python
 import jpype
@@ -70,9 +68,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Tambahkan Tautan URL ke Bentuk atau Bingkai**
+### **Menambahkan Hyperlink URL ke Bentuk atau Bingkai**
 
-Contoh kode ini dalam Python via Java menunjukkan cara menambahkan tautan situs web ke bentuk:
+Contoh kode ini dalam Python via Java menunjukkan cara menambahkan hyperlink situs web ke sebuah bentuk:
 
 ```python
 import jpype
@@ -95,11 +93,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Tambahkan Tautan URL ke Media**
+### **Menambahkan Hyperlink URL ke Media**
 
-Aspose.Slides memungkinkan Anda menambahkan tautan ke file gambar, audio, dan video. 
+Aspose.Slides memungkinkan Anda menambahkan hyperlink ke gambar, file audio, dan video. 
 
-Kode contoh ini menunjukkan cara menambahkan tautan ke **gambar**:
+Contoh kode ini menunjukkan cara menambahkan hyperlink ke **gambar**:
 
 ```python
 import jpype
@@ -112,7 +110,7 @@ from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeT
 
 presentation = Presentation()
 try:
-    # Tambahkan gambar ke presentasi
+    # Menambahkan gambar ke presentasi
     image = Images.fromFile("image.png")
     try:
         picture = presentation.getImages().addImage(image)
@@ -129,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-Kode contoh ini menunjukkan cara menambahkan tautan ke **file audio**:
+Contoh kode ini menunjukkan cara menambahkan hyperlink ke **file audio**:
 
 ```python
 from pathlib import Path
@@ -157,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-Kode contoh ini menunjukkan cara menambahkan tautan ke **video**:
+Contoh kode ini menunjukkan cara menambahkan hyperlink ke **video**:
 
 ```python
 from pathlib import Path
@@ -185,17 +183,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tips" %}} 
-
-Anda mungkin ingin melihat *[Manage OLE](/slides/id/python-java/manage-ole/)*.
-
+{{% alert color="success" title="Tip" %}} 
+Anda mungkin ingin melihat *[Kelola OLE](/slides/id/python-java/manage-ole/)*.
 {{% /alert %}}
 
-## **Gunakan Tautan untuk Membuat Daftar Isi**
+## **Gunakan Hyperlink untuk Membuat Daftar Isi**
 
-Karena tautan memungkinkan Anda menambahkan referensi ke objek atau tempat, Anda dapat menggunakannya untuk membuat daftar isi. 
+Karena hyperlink memungkinkan Anda menambahkan referensi ke objek atau tempat, Anda dapat menggunakannya untuk membuat daftar isi. 
 
-Kode contoh ini menunjukkan cara membuat daftar isi dengan tautan:
+Contoh kode ini menunjukkan cara membuat daftar isi dengan hyperlink:
 
 ```python
 import jpype
@@ -235,13 +231,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Format Tautan**
+## **Memformat Hyperlink**
 
 ### **Warna**
 
-Dengan properti [Hyperlink.setColorSource](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlink/#setColorSource) dalam kelas [Hyperlink](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlink/), Anda dapat mengatur warna untuk tautan dan juga mendapatkan informasi warna dari tautan. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan properti tidak berlaku pada versi PowerPoint yang lebih lama.
+Dengan properti [Hyperlink.setColorSource](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlink/#setColorSource) pada kelas [Hyperlink](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlink/), Anda dapat mengatur warna untuk hyperlink serta mendapatkan informasi warna dari hyperlink. Fitur ini pertama kali diperkenalkan di PowerPoint 2019, sehingga perubahan yang melibatkan properti ini tidak berlaku pada versi PowerPoint yang lebih lama.
 
-Kode contoh ini menunjukkan operasi dimana tautan dengan warna berbeda ditambahkan ke slide yang sama:
+Contoh kode ini mendemonstrasikan operasi di mana hyperlink dengan warna berbeda ditambahkan ke slide yang sama:
 
 ```python
 import jpype
@@ -273,11 +269,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Hapus Tautan dari Presentasi**
+## **Menghapus Hyperlink dari Presentasi**
 
-### **Hapus Tautan dari Teks**
+### **Menghapus Hyperlink dari Teks**
 
-Kode Python ini menunjukkan cara menghapus tautan dari teks di slide presentasi:
+Kode Python ini menunjukkan cara menghapus hyperlink dari teks pada slide presentasi:
 
 ```python
 import jpype
@@ -304,9 +300,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Hapus Tautan dari Bentuk atau Bingkai**
+### **Menghapus Hyperlink dari Bentuk atau Bingkai**
 
-Kode Python ini menunjukkan cara menghapus tautan dari bentuk di slide presentasi: 
+Kode Python ini menunjukkan cara menghapus hyperlink dari sebuah bentuk pada slide presentasi:
 
 ```python
 import jpype
@@ -327,7 +323,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Tautan yang Dapat Diubah**
+## **Hyperlink yang Dapat Diubah**
 
 Kelas [Hyperlink](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlink/) bersifat mutable. Dengan kelas ini, Anda dapat mengubah nilai properti berikut:
 
@@ -337,7 +333,7 @@ Kelas [Hyperlink](https://reference.aspose.com/slides/id/python-java/aspose.slid
 - [setHighlightClick](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-Potongan kode ini menunjukkan cara menambahkan tautan ke slide dan mengedit tooltip‑nya kemudian:
+Potongan kode ini menunjukkan cara menambahkan hyperlink ke slide dan mengedit tooltip‑nya kemudian:
 
 ```python
 import jpype
@@ -368,7 +364,7 @@ finally:
 
 ## **Properti yang Didukung dalam HyperlinkQueries**
 
-Anda dapat mengakses [HyperlinkQueries](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlinkqueries/) dari sebuah presentasi, slide, atau teks yang memiliki tautan yang didefinisikan. 
+Anda dapat mengakses [HyperlinkQueries](https://reference.aspose.com/slides/id/python-java/aspose.slides/hyperlinkqueries/) dari presentasi, slide, atau teks tempat hyperlink didefinisikan. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/id/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
@@ -383,14 +379,14 @@ Kelas [HyperlinkQueries](https://reference.aspose.com/slides/id/python-java/aspo
 
 ## **FAQ**
 
-**Bagaimana cara membuat navigasi internal tidak hanya ke satu slide, tetapi ke “bagian” atau slide pertama dari sebuah bagian?**
+**Bagaimana cara membuat navigasi internal tidak hanya ke slide, tetapi ke “bagian” atau slide pertama dari suatu bagian?**
 
-Bagian di PowerPoint adalah pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk “menavigasi ke bagian”, biasanya Anda menautkan ke slide pertamanya.
+Bagian di PowerPoint adalah pengelompokan slide; navigasi secara teknis menargetkan slide tertentu. Untuk “menavigasi ke sebuah bagian”, Anda biasanya menautkan ke slide pertamanya.
 
-**Apakah saya dapat menempelkan tautan ke elemen master slide sehingga berfungsi di semua slide?**
+**Apakah saya dapat menempelkan hyperlink pada elemen master slide sehingga berfungsi di semua slide?**
 
-Ya. Elemen master slide dan tata letak mendukung tautan. Tautan tersebut muncul pada slide turunan dan dapat diklik selama pertunjukan.
+Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan tersebut muncul pada slide anak dan dapat diklik selama pertunjukan slide.
 
-**Apakah tautan akan tetap ada saat mengekspor ke PDF, HTML, gambar, atau video?**
+**Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?**
 
-Di [PDF](/slides/id/python-java/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/python-java/convert-powerpoint-to-html/), ya—tautan biasanya dipertahankan. Saat mengekspor ke [images](/slides/id/python-java/convert-powerpoint-to-png/) dan [video](/slides/id/python-java/convert-powerpoint-to-video/), kemampuan mengklik tidak terbawa karena sifat format tersebut (frame raster/video tidak mendukung tautan).
+Di [PDF](/slides/id/python-java/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/python-java/convert-powerpoint-to-html/), ya—tautan umumnya dipertahankan. Saat mengekspor ke [gambar](/slides/id/python-java/convert-powerpoint-to-png/) dan [video](/slides/id/python-java/convert-powerpoint-to-video/), kemampuan klik tidak akan terbawa karena sifat format tersebut (frame raster/video tidak mendukung hyperlink).

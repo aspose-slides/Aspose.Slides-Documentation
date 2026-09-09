@@ -14,24 +14,24 @@ keywords:
 - PPT به PDF
 - PPTX به PDF
 - ذخیره ارائه به عنوان PDF
-- صادرات PPT به PDF
-- صادرات PPTX به PDF
+- استخراج PPT به PDF
+- استخراج PPTX به PDF
 - یادداشت‌های سخنران
 - PDF با یادداشت‌ها
 - Python
 - Java
 - Aspose.Slides
-description: "تبدیل ارائه‌های PPT و PPTX به PDF با یادداشت‌های سخنران با استفاده از Aspose.Slides برای Python از طریق Java. مکان‌گذاری یادداشت را پیکربندی کنید و یادداشت‌های طولانی را حفظ نمایید."
+description: "تبدیل ارائه‌های PPT و PPTX به PDF همراه با یادداشت‌های سخنران با استفاده از Aspose.Slides برای Python از طریق Java. مکان قرارگیری یادداشت‌ها را پیکربندی کنید و یادداشت‌های طولانی را حفظ کنید."
 ---
 ## **مرور کلی**
 
-این مقاله توضیح می‌دهد که چگونه می‌توان ارائه‌های PowerPoint را به PDF همراه با یادداشت‌های سخنران تبدیل کرد با استفاده از Aspose.Slides برای Python از طریق Java. می‌توانید یادداشت‌ها را زیر هر اسلاید قرار داده و اجازه دهید یادداشت‌های طولانی به صفحات اضافی ادامه یابد. برای سایر تنظیمات خروجی PDF، به [Convert PowerPoint to PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/) مراجعه کنید.
+این مقاله نحوه تبدیل ارائه‌های PowerPoint به PDF همراه با یادداشت‌های سخنران را با استفاده از Aspose.Slides برای Python از طریق Java توضیح می‌دهد. می‌توانید یادداشت‌ها را زیر هر اسلاید قرار دهید و اجازه دهید یادداشت‌های طولانی به صفحات اضافی ادامه یابند. برای سایر تنظیمات خروجی PDF، به [Convert PowerPoint to PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/) مراجعه کنید.
 
 ## **تبدیل PowerPoint به PDF با یادداشت‌ها**
 
-از متد [save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) برای خروجی گرفتن یک ارائه PPT یا PPTX به PDF استفاده کنید. برای گنجاندن یادداشت‌های سخنران، یک شیء [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notescommentslayoutingoptions/) ایجاد کرده و متد [setNotesPosition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) آن را پیکربندی کنید. این طرح چیدمان را با استفاده از [setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) به [PdfOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pdfoptions/) اختصاص دهید.
+از متد [save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) برای صادر کردن یک ارائه PPT یا PPTX به PDF استفاده کنید. برای افزودن یادداشت‌های سخنران، یک شیء [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notescommentslayoutingoptions/) ایجاد کنید و مکان یادداشت‌ها را با متد [setNotesPosition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) پیکربندی کنید. این چیدمان را با استفاده از [setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) به [PdfOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/pdfoptions/) اختصاص دهید.
 
-مثال زیر فایل `sample.pptx` را بارگیری کرده و آن را به `output.pdf` صادر می‌کند به‌طوری که یادداشت‌های سخنران زیر اسلایدها قرار می‌گیرند:
+مثال زیر فایل `sample.pptx` را بارگذاری کرده و آن را به `output.pdf` با یادداشت‌های سخنران زیر اسلایدها صادر می‌کند:
 
 ```python
 import jpype
@@ -44,33 +44,33 @@ from asposeslides.api import NotesCommentsLayoutingOptions, NotesPositions, PdfO
 
 presentation = Presentation("sample.pptx")
 try:
-    # پیکربندی گزینه‌های PDF برای رندر یادداشت‌های سخنران.
+    # پیکربندی گزینه‌های PDF برای نمایش یادداشت‌های سخنران.
     notes_options = NotesCommentsLayoutingOptions()
     notes_options.setNotesPosition(NotesPositions.BottomFull)
 
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(notes_options)
 
-    # ذخیره ارائه به صورت PDF با یادداشت‌های سخنران.
+    # ذخیره ارائه به PDF با یادداشت‌های سخنران.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="یادداشت" %}}
-همچنین می‌توانید از [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/fa/conversion) استفاده کنید.
+{{% alert color="info" title="Note" %}}
+همچنین می‌توانید مبدل آنلاین PowerPoint به PDF را امتحان کنید.
 {{% /alert %}}
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم مانع قطع شدن یادداشت‌های بلند سخنران شوم؟**
+**چگونه می‌توانم از قطع شدن یادداشت‌های طولانی جلوگیری کنم؟**
 
-از [NotesPositions.BottomFull](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notespositions/#BottomFull) استفاده کنید، همانطور که در مثال بالا نشان داده شده است. این تنظیم تمام یادداشت‌ها را نمایش می‌دهد و در صورت نیاز از صفحات اضافی استفاده می‌کند.
+از [NotesPositions.BottomFull](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notespositions/#BottomFull) استفاده کنید، همان‌طور که در مثال بالا نشان داده شده است. این تنظیم تمام یادداشت‌ها را نمایش می‌دهد و در صورت نیاز از صفحات اضافی استفاده می‌کند.
 
 **آیا می‌توانم هر اسلاید و یادداشت‌های آن را در یک صفحه نگه دارم؟**
 
-از [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notespositions/#BottomTruncated) استفاده کنید. این تنظیم یادداشت‌ها را به یک صفحه محدود می‌کند، بنابراین بخشی از یادداشت‌ها که جا نمی‌گیرد ممکن است قطع شود.
+از [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notespositions/#BottomTruncated) استفاده کنید. این تنظیم یادداشت‌ها را به یک صفحه محدود می‌کند، بنابراین یادداشت‌های بیش از حد ممکن است کوتاه شوند.
 
 **چگونه اسلایدها را بدون یادداشت‌های سخنران صادر کنم؟**
 
-پیکربندی طرح چیدمان یادداشت‌ها را حذف کنید و از خروجی PDF استاندارد توصیف‌شده در [Convert PowerPoint to PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/) استفاده کنید.
+پیکربندی چیدمان یادداشت‌ها را حذف کنید و از خروجی PDF استاندارد توصیف شده در [Convert PowerPoint to PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/) استفاده کنید.

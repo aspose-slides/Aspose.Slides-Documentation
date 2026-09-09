@@ -1,15 +1,15 @@
 ---
-title: Převod prezentací PowerPoint do HTML v Pythonu přes Java
+title: Převod PowerPoint prezentací do HTML v Pythonu přes Java
 linktitle: PowerPoint do HTML
 type: docs
 weight: 30
 url: /cs/python-java/convert-powerpoint-to-html/
 keywords:
-- převést PowerPoint
-- převést prezentaci
-- převést snímek
-- převést PPT
-- převést PPTX
+- převod PowerPoint
+- převod prezentace
+- převod snímku
+- převod PPT
+- převod PPTX
 - PowerPoint do HTML
 - prezentace do HTML
 - snímek do HTML
@@ -25,26 +25,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Převod prezentací PowerPoint do HTML v Pythonu přes Java. Použijte Aspose.Slides k exportu souborů PPT a PPTX, vybraných snímků, poznámek, písem, obrázků, SVG a médií."
+description: "Převod PowerPoint prezentací do HTML v Pythonu přes Java. Použijte Aspose.Slides k exportu souborů PPT a PPTX, vybraných snímků, poznámek, písem, obrázků, SVG a multimédií."
 ---
 ## **Přehled**
 
-Aspose.Slides for Python via Java může uložit prezentace PowerPoint jako HTML bez Microsoft PowerPointu. Základní konverze spočívá v načtení jedné [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a volání [save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) s [SaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/). Použijte [HtmlOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/), když potřebujete kontrolovat exportovaný rozvrh, písma, obrázky, poznámky, komentáře, výstup SVG nebo propojené zdroje.
+Aspose.Slides for Python via Java může uložit prezentace PowerPoint jako HTML bez Microsoft PowerPoint. Základní konverze spočívá v načtení jediné [Prezentace](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a volání [uložit](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) s [SaveFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/). Použijte [HtmlOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/), pokud potřebujete řídit exportované rozvržení, písma, obrázky, poznámky, komentáře, výstup SVG nebo propojené zdroje.
 
-Tento průvodce se zaměřuje na praktické scénáře exportu HTML:
+Tento průvodce se zaměřuje na praktické scénáře exportu do HTML:
 
-- Exportovat celou prezentaci nebo vybrané snímky.
-- Vytvořit HTML s pevnou stránkou, responzivní nebo založené na SVG.
-- Zahrnout poznámky přednášejícího a komentáře.
-- Řídit kvalitu obrázků a oříznutá data obrázků.
-- Vložit písma nebo uložit soubory písem samostatně.
-- Zvolit, jak jsou externí zdroje a mediální soubory zapisovány a odkazovány.
+- Export celé prezentace nebo vybraných snímků.
+- Generování pevného rozvržení, responzivního nebo založeného na SVG HTML.
+- Zahrnutí poznámek přednášejícího a komentářů.
+- Řízení kvality obrázků a oříznutých částí obrázků.
+- Vložení písem nebo samostatné uložení souborů písem.
+- Výběr způsobu zápisu a odkazování na externí zdroje a mediální soubory.
 
-Ve výchozím nastavení export HTML vytváří samostatný HTML dokument, kde jsou většina zdrojů vloženy. To je výhodné pro sdílení jediného souboru, ale může zvýšit velikost výstupu. Pro publikování na webu zvažte externí zdroje, nižší DPI obrázků a vkládání jen těch písem, která nejsou spolehlivě dostupná v cílovém prostředí.
+Ve výchozím nastavení export HTML vytváří samostatný HTML dokument, ve kterém je většina zdrojů vložena. To je vhodné pro sdílení jedné souboru, ale může to zvětšit velikost výstupu. Pro publikování na webu zvažte externí zdroje, nižší DPI obrázků a vložení pouze písem, která nejsou spolehlivě dostupná v cílovém prostředí.
 
 ## **Převod prezentace do HTML**
 
-Pro export prezentace do HTML ji načtěte pomocí [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a uložte pomocí [SaveFormat.Html](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Html).
+Pro export prezentace do HTML načtěte ji pomocí [Prezentace](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) a uložte ji s [SaveFormat.Html](https://reference.aspose.com/slides/cs/python-java/aspose.slides/saveformat/#Html).
 
 ```python
 import jpype
@@ -62,27 +62,27 @@ finally:
     presentation.dispose()
 ```
 
-Každý příklad načítá `presentation.pptx` z aktuálního pracovního adresáře. Před spuštěním nainstalujte Aspose.Slides for Python via Java a kompatibilní runtime Java. JVM se spustí jednou na každý proces Pythonu.
+Každý příklad načítá `presentation.pptx` z aktuálního pracovního adresáře. Před spuštěním nainstalujte Aspose.Slides for Python via Java a kompatibilní Java runtime. JVM se spustí jednou na jeden proces Pythonu.
 
-Tento příklad zapíše jeden HTML soubor. Objekt prezentace je uvolněn v bloku `finally`, který po exportu uvolní souborové handly a prostředky vykreslování.
+Tento příklad zapíše jeden HTML soubor. Objekt prezentace je uvolněn v bloku `finally`, který po exportu uvolní souborové handly a zdroje renderování.
 
-## **Nastavení exportu HTML**
+## **Konfigurace exportu HTML**
 
 [HtmlOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/) je hlavní konfigurační třída pro export HTML. Běžná nastavení zahrnují:
 
 - [setSlidesLayoutOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions): přidává poznámky, komentáře, podklady nebo jiné informace o rozvržení.
-- [setHtmlFormatter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setHtmlFormatter): mění strukturu HTML dokumentu nebo deleguje formátování na řadič.
-- [setSlideImageFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setSlideImageFormat): mění způsob reprezentace snímků, například jako SVG.
+- [setHtmlFormatter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setHtmlFormatter): mění strukturu HTML dokumentu nebo deleguje formátování na kontroler.
+- [setSlideImageFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setSlideImageFormat): mění způsob, jakým jsou snímky reprezentovány, například jako SVG.
 - [setPicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setPicturesCompression): řídí DPI obrázků a velikost výstupu.
 - [setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setDeletePicturesCroppedAreas): zachovává nebo odstraňuje oříznutá data obrázků.
 - [setSvgResponsiveLayout](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout): umožňuje exportovanému SVG obsahu přizpůsobit se svému kontejneru.
-- [setShowHiddenSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setShowHiddenSlides): zahrnuje skryté snímky, pokud jsou požadovány.
+- [setShowHiddenSlides](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setShowHiddenSlides): zahrnuje skryté snímky, pokud je to požadováno.
 
-Následující sekce ukazují nejčastější možnosti samostatně, aby jste mohli spojit jen ty, které vaše pracovní postup potřebuje.
+Následující sekce ukazují nejčastější možnosti samostatně, abyste je mohli kombinovat jen podle potřeby vašeho pracovního postupu.
 
 ## **Převod vybraných snímků do HTML**
 
-Přetížení [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save), které přijímá čísla snímků, používá 1‑založené pozice snímků. Smyčka níže uloží každý snímek do samostatného HTML souboru.
+Přetížení [Prezentace.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save), které přijímá čísla snímků, používá 1‑základní indexování snímků. Smyčka níže ukládá každý snímek do samostatného HTML souboru.
 
 ```python
 import jpype
@@ -105,7 +105,7 @@ finally:
     presentation.dispose()
 ```
 
-Použijte tento vzor, když webová stránka nebo aplikace potřebuje jednu HTML stránku na snímek. Pokud má mít každý snímek stejný rozvrh, vytvořte jednu instanci [HtmlOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/) a předávejte ji každému volání [Presentation.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save).
+Použijte tento vzor, když webová stránka nebo aplikace potřebuje jednu HTML stránku na snímek. Pokud má každý snímek stejné rozvržení, vytvořte jednu instanci [HtmlOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/) a předávejte ji každému volání [Prezentace.save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save).
 
 ## **Vytvoření responzivního HTML**
 
@@ -133,7 +133,7 @@ finally:
     presentation.dispose()
 ```
 
-Pro responzivní rozvrh založený na SVG zavolejte [HtmlOptions.setSvgResponsiveLayout](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout) s hodnotou `True`. To je užitečné, když je obsah snímku exportován jako škálovatelný SVG kód.
+Pro responzivní rozvržení založené na SVG zavolejte [HtmlOptions.setSvgResponsiveLayout](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout) s hodnotou `True`. To je užitečné, když je obsah snímku exportován jako škálovatelný SVG markup.
 
 ```python
 import jpype
@@ -156,11 +156,11 @@ finally:
 
 ## **Zahrnutí poznámek přednášejícího a komentářů**
 
-Použijte [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/) skrze [HtmlOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions), abyste zahrnuli poznámky přednášejícího nebo komentáře. Poznámky a komentáře jsou ve výchozím nastavení skryté, pokud nevyberete jejich pozice.
+Použijte [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/) přes [HtmlOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions) k zahrnutí poznámek přednášejícího nebo komentářů. Poznámky a komentáře jsou ve výchozím nastavení skryté, pokud si nevyberete jejich pozice.
 
 Předpokládejme, že zdrojová prezentace obsahuje poznámky přednášejícího:
 
-![Slide with speaker notes in PowerPoint](slide_with_notes.png)
+![Snímek s poznámkami přednášejícího v PowerPointu](slide_with_notes.png)
 
 Následující kód exportuje obsah snímku s poznámkami přednášejícího pod snímkem.
 
@@ -186,13 +186,15 @@ finally:
     presentation.dispose()
 ```
 
-![HTML output with the slide and speaker notes](HTML_with_notes.png)
+Exportované HTML obsahuje oblast poznámek:
 
-Pro export komentářů zavolejte [NotesCommentsLayoutingOptions.setCommentsPosition](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) např. s [CommentsPositions.Right](https://reference.aspose.com/slides/cs/python-java/aspose.slides/commentspositions/#Right) nebo [CommentsPositions.Bottom](https://reference.aspose.com/slides/cs/python-java/aspose.slides/commentspositions/#Bottom). Pokud potřebujete jen komentáře, vynechte [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Pokud potřebujete jak poznámky, tak komentáře, zavolejte obě metody.
+![HTML výstup se snímkem a poznámkami přednášejícího](HTML_with_notes.png)
+
+Pro export komentářů zavolejte [NotesCommentsLayoutingOptions.setCommentsPosition](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition), například s [CommentsPositions.Right](https://reference.aspose.com/slides/cs/python-java/aspose.slides/commentspositions/#Right) nebo [CommentsPositions.Bottom](https://reference.aspose.com/slides/cs/python-java/aspose.slides/commentspositions/#Bottom). Pokud potřebujete jen komentáře, vynechte [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Pokud potřebujete oba, poznámky i komentáře, zavolejte obě metody.
 
 ## **Řízení kvality obrázků a oříznutých oblastí**
 
-Export HTML může komprimovat obrázky snímků, aby snížil velikost výstupu. Při potřebě vyšší kvality obrázků předávejte hodnotu do [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setPicturesCompression) z [PicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturescompression/).
+Export HTML může komprimovat obrázky snímků, aby se snížila velikost výstupu. Při potřebě vyšší kvality obrázků předávejte hodnotu do [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setPicturesCompression) z [PicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturescompression/).
 
 ```python
 import jpype
@@ -213,7 +215,7 @@ finally:
     presentation.dispose()
 ```
 
-Ve výchozím nastavení mohou být oříznuté oblasti obrázků z exportovaného výstupu odstraněny. Uchovávejte oříznutá data pouze tehdy, když uživatelé musí mít možnost obnovit nebo prohlédnout tyto skryté části obrázku. Uchování může zvýšit velikost HTML.
+Ve výchozím nastavení mohou být oříznuté oblasti obrázků z exportovaného výstupu odstraněny. Zachovávejte oříznutá data jen tehdy, když uživatelé musí být schopni tyto skryté části obrázku obnovit nebo zkontrolovat. Zachování může zvýšit velikost HTML.
 
 ```python
 import jpype
@@ -236,7 +238,7 @@ finally:
 
 ## **Přidání CSS**
 
-Pro jednoduché stylování předávejte řetězec CSS do [HtmlFormatter.createDocumentFormatter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmlformatter/#createDocumentFormatter). Tím změníte okolní HTML dokument, zatímco Aspose.Slides nadále vykresluje obsah snímku.
+Pro jednoduché stylování předávejte řetězec CSS do [HtmlFormatter.createDocumentFormatter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmlformatter/#createDocumentFormatter). Tím se změní obklopující HTML dokument, zatímco Aspose.Slides nadále renderuje obsah snímku.
 
 ```python
 import jpype
@@ -260,11 +262,11 @@ finally:
     presentation.dispose()
 ```
 
-Pro vlastní hlavičku dokumentu, propojený soubor CSS nebo vlastní značkování kolem snímků a tvarů použijte vlastní řadič formátování přes proxy rozhraní JPype a předávejte jej [HtmlFormatter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmlformatter/) pomocí [HtmlFormatter.createCustomFormatter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmlformatter/#createCustomFormatter).
+Pro vlastní hlavičku dokumentu, odkazovaný soubor CSS nebo vlastní značkování okolo snímků a tvarů použijte vlastní řídící formátování přes proxy rozhraní JPype a předávejte jej [HtmlFormatter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmlformatter/) pomocí [HtmlFormatter.createCustomFormatter](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmlformatter/#createCustomFormatter).
 
-## **Vkládání písem**
+## **Vložení písem**
 
-Pokud cílové prostředí nemusí mít nainstalována písma prezentace, vložte písma do HTML pomocí [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cs/python-java/aspose.slides/embedallfontshtmlcontroller/). Vkládání zlepšuje vizuální věrnost, ale zvyšuje velikost výstupu.
+Pokud cílové prostředí nemusí mít písma z prezentace nainstalována, vložte písma do HTML pomocí [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/cs/python-java/aspose.slides/embedallfontshtmlcontroller/). Vkládání zlepšuje vizuální věrnost, ale zvětšuje velikost výstupu.
 
 ```python
 import jpype
@@ -289,26 +291,26 @@ finally:
     presentation.dispose()
 ```
 
-Vylučujte písma jen tehdy, když jste si jisti, že cílové prohlížeče nebo systémy je již poskytují. Pro firemní písma nebo méně běžná písma je vkládání obvykle bezpečnější.
+Vylučujte písma jen tehdy, když jste si jisti, že cílové prohlížeče nebo systémy je již poskytují. Pro firemní nebo méně běžná písma je vložení obvykle bezpečnější.
 
 ## **Ukládání zdrojů externě**
 
-Samostatný HTML je snadno přenositelný, ale vložené Base64 zdroje mohou soubor zvětšit. Pokud vaše aplikace potřebuje externí soubory obrázků, implementujte řadič pro propojování zdrojů přes proxy rozhraní JPype a předávejte jej konstruktoru [HtmlOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/).
+Samostatné HTML je snadno přenositelné, ale vložené zdroje Base64 mohou soubor zvětšit. Pokud vaše aplikace potřebuje externí soubory obrázků, implementujte řídící odkazování na zdroje přes proxy rozhraní JPype a předávejte jej konstruktoru [HtmlOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/).
 
-Při externalizaci zdrojů zvolte dva cesty úmyslně:
+Když externalizujete zdroje, zvolte dvě cesty úmyslně:
 
-- Cestu výstupu v souborovém systému, kam vaše aplikace zapisuje generované obrázky, písma, audio nebo video.
-- Cestu URL, kterou prohlížeč používá z HTML dokumentu k načtení těchto souborů.
+- Cestu výstupu na souborovém systému, kam aplikace zapisuje vygenerované obrázky, písma, audio nebo video.
+- URL cestu, kterou prohlížeč používá z HTML dokumentu k načtení těchto souborů.
 
 ## **Export mediálních souborů**
 
-[VideoPlayerHtmlController](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoplayerhtmlcontroller/) exportuje video a audio soubory a zapisuje HTML, které je může přehrát v prohlížeči. Jeho konstruktor přijímá:
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoplayerhtmlcontroller/) exportuje video a audio soubory a zapisuje HTML, které je dokáže přehrát v prohlížeči. Jeho konstruktor přijímá:
 
-- `path`: adresář, do kterého budou zapisovány generované mediální soubory.
+- `path`: adresář, kam budou zapisovány vygenerované mediální soubory.
 - `fileName`: název generovaného HTML souboru.
-- `baseUri`: absolutní URI předpona používaná v HTML odkazech na mediální soubory.
+- `baseUri`: absolutní URI předpona použitá v HTML odkazech na mediální soubory.
 
-Následující příklad exportuje média již vložená v `presentation.pptx`. Vytvořené HTML odkazuje na mediální soubory pouze podle názvu souboru, relativně k HTML dokumentu, takže `path` musí být adresář, který také přijímá HTML soubor. `baseUri` musí být absolutní URI: pro lokální náhled vytvořte `file:///` URI z výstupního adresáře; pro nasazenou aplikaci použijte absolutní URL publikovaného adresáře.
+Následující příklad exportuje média již vložená v `presentation.pptx`. Vygenerované HTML odkazuje na mediální soubory jen názvem souboru, relativně k HTML dokumentu, takže `path` musí být adresář, který také přijímá HTML soubor. `baseUri` musí být absolutní URI: pro lokální náhled vytvořte `file:///` URI z výstupního adresáře; pro nasazenou aplikaci použijte absolutní URL publikovaného adresáře.
 
 ```python
 import jpype
@@ -343,45 +345,45 @@ finally:
     presentation.dispose()
 ```
 
-Používejte výstupní adresáře jedinečné pro každou úlohu exportu, zvláště v serverových aplikacích. Sdílené výstupní cesty mohou způsobit přepsání souborů z různých konverzí.
+Používejte výstupní adresáře, které jsou jedinečné pro každý exportní úkol, zejména v serverových aplikacích. Sdílené výstupní cesty mohou způsobit přepsání souborů z různých konverzí.
 
 ## **Výkon a správa zdrojů**
 
-Konverze HTML je operace vykreslování, takže doba zpracování a využití paměti závisí na počtu snímků, rozlišení obrázků, písmenech, efektech, grafech a vložených médiích. Vyšší hodnoty DPI obrázků předávané do [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setPicturesCompression), vložená písma, výstup SVG a zachování oříznutých oblastí obrázků mohou zlepšit věrnost, ale obvykle zvětší velikost výstupu.
+Konverze HTML je renderovací operace, takže čas zpracování a využití paměti závisí na počtu snímků, rozlišení obrázků, písmům, efektech, grafech a vložených médiích. Vyšší DPI obrázků předávané do [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setPicturesCompression), vložená písma, výstup SVG a zachování oříznutých oblastí obrázků mohou zlepšit věrnost, ale obvykle zvětší velikost výstupu.
 
-Pro dávkový převod:
+Pro dávkovou konverzi:
 
-- Okamžitě uvolněte každou instanci [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-- Používejte oddělené výstupní adresáře pro různé úlohy.
-- Vyhněte se vkládání běžných písem, pokud to není nezbytné pro věrnost.
-- Snižte DPI obrázků, když je HTML určeno pro náhled nebo miniatury.
-- Uchovávejte zdrojovou prezentaci, vygenerované HTML a externí zdroje společně, dokud nejsou finální nasazovací cesty.
+- Okamžitě uvolňujte každou instanci [Prezentace](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
+- Používejte samostatné výstupní adresáře pro různé úkoly.
+- Vyhýbejte se vkládání běžných písem, pokud to není nezbytné pro věrnost.
+- Snižujte DPI obrázků, když je HTML určeno pro náhled nebo miniatury.
+- Uchovávejte zdrojovou prezentaci, vygenerované HTML a externí zdroje spolu, dokud nejsou konečné cesty nasazení.
 
 ## **Často kladené otázky**
 
-**Zůstávají hyper odkazy v HTML výstupu?**
+**Zachovají se hypertextové odkazy v HTML výstupu?**
 
-Ano. Hyper odkazy v prezentaci jsou exportovány do HTML a zůstávají klikatelné, pokud je cílová URL platná.
+Ano. Hypertextové odkazy v prezentaci jsou exportovány do HTML a zůstávají klikatelné, pokud je cílová URL platná.
 
 **Mohu převádět prezentace do HTML paralelně?**
 
-Ano, ale nesdílejte jednu instanci [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) mezi vlákny. Zpracovávejte různé soubory s oddělenými instancemi prezentace, oddělenými streamy a oddělenými výstupními adresáři. Podívejte se na [multithreading guidance](/slides/cs/python-java/multithreading/) pro podrobnosti.
+Ano, ale nesdílejte jednu instanci [Prezentace](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) mezi vlákny. Zpracovávejte různé soubory s oddělenými instancemi prezentací, oddělenými proudy a oddělenými výstupními adresáři. Viz [průvodce vícevláknovým zpracováním](/slides/cs/python-java/multithreading/) pro podrobnosti.
 
-**Je objekt prezentace bezpečný pro vlákna?**
+**Je objekt prezentace bezpečný pro více vláken?**
 
-Ne. Jedna instance [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) by měla být načtena, upravena, uložena a uvolněna v jednom vlákně. Pro paralelní práci vytvořte nezávislou instanci pro každé vlákno nebo proces.
+Ne. Jedna instance [Prezentace](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) by měla být načtena, upravena, uložena a uvolněna na jednom vlákně. Pro paralelní práci vytvořte nezávislou instanci na každé vlákno nebo proces.
 
 **Proč je vygenerovaný HTML soubor velký?**
 
-Výchozí export může vkládat zdroje přímo do HTML. Vložená písma, vysoké DPI obrázky, média, SVG obsah a zachování oříznutých oblastí obrázků také zvyšují velikost. Použijte externí zdroje, vyloučte běžná písma z vkládání a předávejte nižší hodnotu DPI do [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setPicturesCompression), pokud je menší výstup důležitější než maximální věrnost.
+Výchozí export může vkládat zdroje přímo do HTML. Vložená písma, obrázky s vysokým DPI, média, SVG obsah a zachování oříznutých oblastí obrázků také velikost zvyšují. Použijte externí zdroje, vylučte běžná písma z vkládání a předávejte nižší DPI hodnotu do [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/cs/python-java/aspose.slides/htmloptions/#setPicturesCompression), když je menší výstup důležitější než maximální věrnost.
 
-**Proč se hodnoty font-size v HTML mohou lišit od hodnot v PowerPointu?**
+**Proč se hodnoty font-size v HTML liší od hodnot v PowerPointu?**
 
-Exportovaná stránka může používat souřadnicové systémy SVG a transformace škálování. Samotná surová hodnota CSS nebo SVG font-size nepopisuje konečnou zobrazovanou velikost. Porovnejte vykreslený snímek na zamýšlené úrovni přiblížení a zkontrolujte dostupnost fontů, pokud text vypadá jinak.
+Exportovaná stránka může používat SVG souřadnicové systémy a škálovací transformace. Samotná hodnota CSS nebo SVG font-size nepopisuje finální zobrazenou velikost. Porovnejte vykreslený snímek při zamýšlené úrovni přiblížení a zkontrolujte dostupnost písem, pokud text vypadá jinak.
 
-**Jak mám zvolit baseUri pro export médií?**
+**Jak si mám vybrat baseUri pro export médií?**
 
-Zvolte `baseUri` z pohledu prohlížeče a předávejte jej jako absolutní URI. Pro lokální náhled jej můžete odvodit z výstupního adresáře pomocí `output_directory.as_uri() + "/"`. Pro nasazení použijte absolutní URL publikovaného adresáře. Souborový `path` a prohlížečový `baseUri` nemusí být stejný řetězec, ale musí popisovat stejné místo, a to místo musí být adresář, který obsahuje vygenerovaný HTML soubor, protože odkazy na média jsou zapisovány relativně k němu.
+Vyberte `baseUri` z pohledu prohlížeče a předávejte jej jako absolutní URI. Pro lokální náhled jej můžete odvodit z výstupního adresáře pomocí `output_directory.as_uri() + "/"`. Pro nasazení použijte absolutní URL publikovaného adresáře. Souborový systém `path` a prohlížeč `baseUri` nemusí být stejný řetězec, ale musí popisovat stejné umístění a to umístění musí být adresář, který obsahuje vygenerovaný HTML soubor, protože odkazy na média jsou k němu relativní.
 
 **Mohu zahrnout skryté snímky?**
 

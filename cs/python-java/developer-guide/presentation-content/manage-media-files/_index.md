@@ -1,5 +1,5 @@
 ---
-title: Správa mediálních souborů v Pythonu pomocí Javy
+title: Správa mediálních souborů v Pythonu přes Java
 linktitle: Mediální soubory
 type: docs
 weight: 30
@@ -7,9 +7,9 @@ url: /cs/python-java/manage-media-files/
 keywords:
 - mediální soubor
 - správa médií
-- vložit audio
+- vložit zvuk
 - extrahovat flash
-- správa obrázků
+- správa obrázku
 - přidat obrázek
 - přidat video
 - PowerPoint
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Spravujte audio a video v Aspose.Slides pro Javu: přidávejte, extrahujte, nahrazujte a optimalizujte média v souborech PPT, PPTX a ODP. Podrobné návody a kód v Javě."
+description: "Spravujte zvuk a video v Aspose.Slides pro Python přes Java: přidávejte, extrahujte, nahrazujte a optimalizujte média v souborech PPT, PPTX a ODP. Praktické návody krok za krokem a Python kód."
 ---

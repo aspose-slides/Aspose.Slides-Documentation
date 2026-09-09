@@ -12,17 +12,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "ทำงานกับกล่องข้อความใน Aspose.Slides for Python via Java: เพิ่ม, จัดรูปแบบ, ค้นหา, และลบข้อความในงานนำเสนอ PowerPointและ OpenDocument."
+description: "ทำงานกับกล่องข้อความใน Aspose.Slides for Python via Java: เพิ่ม, จัดรูปแบบ, ค้นหาและลบข้อความในงานนำเสนอ PowerPoint และ OpenDocument."
 ---
-ใน **Aspose.Slides for Python via Java**, กล่องข้อความเป็นรูปร่างอัตโนมัติที่บรรจุข้อความได้ เกือบทุกรูปร่างสามารถบรรจุข้อความได้ แต่กล่องข้อความทั่วไปจะไม่มีการเติมสีหรือเส้นขอบและจะแสดงเฉพาะข้อความเท่านั้น
+ใน **Aspose.Slides for Python via Java**, กล่องข้อความคือรูปทรงอัตโนมัติที่บรรจุข้อความได้ รูปทรงเกือบทั้งหมดสามารถบรรจุข้อความได้ แต่กล่องข้อความทั่วไปไม่มีสีพื้นหรือเส้นขอบและจะแสดงเฉพาะข้อความเท่านั้น
 
-คู่มือนี้อธิบายวิธีการเพิ่ม, เข้าถึง, และลบกล่องข้อความโดยโปรแกรม
+คู่มือนี้อธิบายวิธีการเพิ่ม, เข้าถึงและลบกล่องข้อความโดยใช้โปรแกรม
 
-ติดตั้งแพ็กเกจตามที่อธิบายใน [การติดตั้ง](/slides/th/python-java/installation/). ตัวอย่างแต่ละตัวจะทำการนำเข้า `asposeslides` ก่อนเริ่ม JVM แล้วจึงนำเข้า API หลังจากที่ JVM กำลังทำงาน
+Install the package as described in [Installation](/slides/th/python-java/installation/). Each example imports `asposeslides` before starting the JVM, then imports the API after the JVM is running.
 
-## **เพิ่มกล่องข้อความ**
+## **Add a Text Box**
 
-สร้างสี่เหลี่ยมผืนผ้า, ลบการเติมสีและเส้นขอบ, และกำหนดข้อความที่จัดรูปแบบ
+สร้างสี่เหลี่ยมผืนผ้า, ลบสีพื้นและเส้นขอบของมัน, และกำหนดข้อความที่จัดรูปแบบ
 
 ```python
 import jpype
@@ -38,14 +38,14 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # สร้างรูปร่างสี่เหลี่ยมผืนผ้า.
+    # สร้างรูปทรงสี่เหลี่ยม.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
-    # ลบการเติมสีและเส้นขอบเพื่อแสดงเฉพาะข้อความ.
+    # ลบสีเติมและเส้นขอบเพื่อแสดงเฉพาะข้อความ.
     text_box.getFillFormat().setFillType(FillType.NoFill)
     text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
 
-    # กำหนดการจัดรูปแบบข้อความเริ่มต้น.
+    # ตั้งค่าการจัดรูปแบบข้อความเริ่มต้น.
     paragraph = text_box.getTextFrame().getParagraphs().get_Item(0)
     text_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
     text_format.getFillFormat().setFillType(FillType.Solid)
@@ -56,9 +56,9 @@ finally:
     presentation.dispose()
 ```
 
-## **เข้าถึงกล่องข้อความตามเนื้อหา**
+## **Access Text Boxes by Content**
 
-เพิ่มกล่องข้อความตัวอย่าง, จากนั้นค้นหารูปร่างที่ข้อความของมันมีคำสำคัญ "Slide".
+เพิ่มกล่องข้อความตัวอย่าง, จากนั้นค้นหารูปทรงที่มีข้อความประกอบด้วยคีย์เวิร์ด "Slide"
 
 ```python
 import jpype
@@ -88,9 +88,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ลบกล่องข้อความตามเนื้อหา**
+## **Remove Text Boxes by Content**
 
-ค้นหาและลบกล่องข้อความบนสไลด์แรกที่มีคำสำคัญเฉพาะ
+ค้นหาและลบกล่องข้อความบนสไลด์แรกที่มีคีย์เวิร์ดเฉพาะ
 
 ```python
 import jpype
@@ -123,6 +123,6 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="เคล็ดลับ" %}}
-เก็บรวบรวมรูปร่างที่ตรงกันในรายการแยกต่างหากก่อนที่จะลบเพื่อหลีกเลี่ยงการแก้ไขคอลเลกชันของรูปร่างระหว่างการวนซ้ำ.
+{{% alert color="success" title="Tip" %}}
+รวบรวมรูปทรงที่ตรงกันไว้ในรายการแยกต่างหากก่อนทำการลบ เพื่อหลีกเลี่ยงการแก้ไขคอลเลกชันของรูปทรงในระหว่างการวนลูป.
 {{% /alert %}}

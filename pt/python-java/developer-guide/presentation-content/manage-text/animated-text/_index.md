@@ -1,6 +1,6 @@
 ---
-title: Animar Texto do PowerPoint em Python via Java
-linktitle: Texto Animado
+title: Animar texto do PowerPoint em Python via Java
+linktitle: Texto animado
 type: docs
 weight: 60
 url: /pt/python-java/animated-text/
@@ -20,7 +20,7 @@ description: "Crie texto animado dinâmico em apresentações PowerPoint e OpenD
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com texto animado no Aspose.Slides aplicando efeitos de animação a parágrafos individuais e recuperando os efeitos já atribuídos aos parágrafos em um quadro de texto. Ele se concentra nos métodos da API usados para adicionar animação ao nível de parágrafo e inspecionar os efeitos de animação de parágrafo existentes em uma apresentação.
+Este artigo explica como trabalhar com texto animado no Aspose.Slides aplicando efeitos de animação a parágrafos individuais e recuperando os efeitos já atribuídos a parágrafos em uma moldura de texto. Ele se concentra nos métodos da API usados para adicionar animação ao nível de parágrafo e inspecionar efeitos de animação de parágrafo existentes em uma apresentação.
 
 ## **Adicionar efeitos de animação a parágrafos**
 
@@ -37,7 +37,7 @@ from asposeslides.api import EffectSubtype, EffectTriggerType, EffectType, Prese
 
 presentation = Presentation("Presentation.pptx")
 try:
-    # Selecione o parágrafo ao qual adicionar um efeito.
+    # Selecione o parágrafo para adicionar um efeito.
     auto_shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
@@ -51,9 +51,9 @@ finally:
 
 ## **Obter efeitos de animação de parágrafos**
 
-Você pode decidir descobrir os efeitos de animação adicionados a um parágrafo — por exemplo, em um cenário, você deseja obter os efeitos de animação em um parágrafo porque pretende aplicar esses efeitos a outro parágrafo ou forma.
+Você pode querer recuperar os efeitos de animação aplicados a um parágrafo — por exemplo, para aplicar esses efeitos a outro parágrafo ou forma.
 
-O Aspose.Slides for Python via Java permite obter todos os efeitos de animação aplicados a parágrafos contidos em um quadro de texto (forma). Este código de exemplo mostra como obter os efeitos de animação em um parágrafo:
+Aspose.Slides for Python via Java permite obter todos os efeitos de animação aplicados a parágrafos contidos em uma moldura de texto (forma). Este código de exemplo mostra como obter os efeitos de animação aplicados a um parágrafo:
 
 ```python
 import jpype
@@ -78,7 +78,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Perguntas frequentes**
+## **FAQ**
 
 **Como as animações de texto diferem das transições de slide e podem ser combinadas?**
 
@@ -86,8 +86,8 @@ As animações de texto controlam o comportamento de objetos ao longo do tempo e
 
 **As animações de texto são preservadas ao exportar para PDF ou imagens?**
 
-Não. PDFs e imagens raster são estáticos, portanto você verá um único estado do slide sem movimento. Para manter a animação, use exportação para [video](/slides/pt/python-java/convert-powerpoint-to-video/) ou [HTML](/slides/pt/python-java/export-to-html5/).
+Não. PDFs e imagens raster são estáticos, portanto você verá um único estado do slide sem movimento. Para manter o movimento, use exportação para [video](/slides/pt/python-java/convert-powerpoint-to-video/) ou [HTML](/slides/pt/python-java/export-to-html5/).
 
 **As animações de texto funcionam em layouts e no mestre de slides?**
 
-Os efeitos aplicados a objetos de layout/mestre são herdados pelos slides, mas seu tempo e interação com animações ao nível do slide dependem da sequência final no slide.
+Os efeitos aplicados a objetos de layout/mestre são herdados pelos slides, mas seu tempo e interação com animações a nível de slide dependem da sequência final no slide.

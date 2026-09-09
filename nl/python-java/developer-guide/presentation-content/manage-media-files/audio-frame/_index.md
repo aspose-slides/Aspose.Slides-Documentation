@@ -14,24 +14,24 @@ keywords:
 - audio extraheren
 - Python
 - Aspose.Slides
-description: "Maak en beheer audioframes in Aspose.Slides voor Python via Java—codevoorbeelden om audio in te sluiten, bij te snijden, te herhalen en afspelen te configureren in PPT-, PPTX- en ODP-presentaties."
+description: "Maak en beheer audio-frames in Aspose.Slides voor Python via Java—code-voorbeelden om in te sluiten, te trimmen, te laten herhalen en de weergave te configureren in PPT-, PPTX- en ODP-presentaties."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met audio‑frames in Aspose.Slides kunt werken. Het laat zien hoe u ingebedde audio aan dia's kunt toevoegen, de miniatuur van het audioframe kunt aanpassen, afspeelopties zoals volume, herhaling, verbergen, bijsnijden en fade‑tijden kunt configureren, en audio die wordt gebruikt bij diavoorstelling‑overgangen kunt extraheren.
+Dit artikel legt uit hoe u met audio‑frames in Aspose.Slides kunt werken. Het laat zien hoe u ingesloten audio aan dia’s kunt toevoegen, de thumbnail van het audio‑frame kunt aanpassen, afspeelopties zoals volume, herhaling, verbergen, trimmen en vervagingstijden kunt configureren, en audio kunt extraheren die wordt gebruikt in dia‑show‑overgangen.
 
-## **Audioframes maken**
+## **Audio-frames maken**
 
-Aspose.Slides voor Python via Java stelt u in staat om audiobestanden aan dia's toe te voegen. De audiobestanden worden in dia's ingebed als audio‑frames. 
+Aspose.Slides voor Python via Java stelt u in staat om audiobestanden aan dia’s toe te voegen. De audiobestanden worden in de dia’s ingebed als audio‑frames. 
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse.
-2. Haal een referentie naar een dia op via de index.
-3. lees het audiobestand dat u in de dia wilt insluiten.
-4. Voeg het ingebedde audioframe (dat het audiobestand bevat) toe aan de dia.
-5. Stel [setPlayMode](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setPlayMode) en [setVolume](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setVolume) in die beschikbaar zijn via het [AudioFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/)‑object.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
+2. Haal een referentie naar een dia op basis van de index.
+3. Lees het audiobestand dat u in de dia wilt insluiten.
+4. Voeg het ingebedde audio‑frame (met het audiobestand) toe aan de dia.
+5. Gebruik [setPlayMode](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setPlayMode) en [setVolume](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setVolume) die beschikbaar worden gesteld door het [AudioFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/) object.
 6. Sla de gewijzigde presentatie op.
 
-Deze Python‑code toont hoe u een ingebed audioframe aan een dia kunt toevoegen:
+Deze Python‑code laat zien hoe u een ingebed audio‑frame aan een dia toevoegt:
 
 ```python
 from pathlib import Path
@@ -59,11 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Miniatuur van audioframe wijzigen**
+## **Miniatuur van het audio‑frame wijzigen**
 
-Wanneer u een audiobestand aan een presentatie toevoegt, verschijnt de audio als een frame met een standaard afbeeldingsvoorbeeld (zie de afbeelding in de sectie hieronder). U kunt de voorbeeldafbeelding van het audioframe wijzigen (stelt uw gewenste afbeelding in).
+Wanneer u een audiobestand aan een presentatie toevoegt, wordt de audio weergegeven als een frame met een standaard‑standaardafbeelding (zie de afbeelding in de sectie hieronder). U kunt de voorbeeldafbeelding van het audio‑frame wijzigen naar een afbeelding naar keuze.
 
-Deze Python‑code toont hoe u de miniatuur of voorbeeldafbeelding van een audioframe kunt wijzigen:
+Deze Python‑code laat zien hoe u de miniatuur of voorbeeldafbeelding van een audio‑frame wijzigt:
 
 ```python
 from pathlib import Path
@@ -98,37 +98,37 @@ finally:
 
 ## **Audio‑afspeelopties wijzigen**
 
-Aspose.Slides voor Python via Java stelt u in staat om opties te wijzigen die de weergave of eigenschappen van audio regelen. U kunt bijvoorbeeld het volume van de audio aanpassen, de audio in een lus afspelen, of zelfs het audio‑icoon verbergen.
+Aspose.Slides voor Python via Java maakt het mogelijk om opties die de audio‑afspeelinstellingen of eigenschappen regelen, te wijzigen. U kunt bijvoorbeeld het audiovolume aanpassen, de audio op herhaling instellen of zelfs het audio‑icoon verbergen.
 
-De **Audio‑opties**‑pane in Microsoft PowerPoint:
+Het **Audio‑opties**‑paneel in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint **Audio‑opties** die overeenkomen met Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/)‑eigenschappen:
+PowerPoint **Audio‑opties** die overeenkomen met de Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/)‑eigenschappen:
 
-- **Start** vervolgkeuzelijst komt overeen met de [setPlayMode](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setPlayMode)‑methode
+- **Start** drop‑down lijst komt overeen met de [setPlayMode](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setPlayMode)‑methode
 - **Volume** komt overeen met de [setVolume](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setVolume)‑methode
-- **Afspelen over dia's** komt overeen met de [setPlayAcrossSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)‑methode
-- **Lus tot gestopt** komt overeen met de [setPlayLoopMode](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setPlayLoopMode)‑methode
-- **Verbergen tijdens diavoorstelling** komt overeen met de [setHideAtShowing](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setHideAtShowing)‑methode
-- **Terugspoelen na afspelen** komt overeen met de [setRewindAudio](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setRewindAudio)‑methode
+- **Play Across Slides** komt overeen met de [setPlayAcrossSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)‑methode
+- **Loop until Stopped** komt overeen met de [setPlayLoopMode](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setPlayLoopMode)‑methode
+- **Hide During Show** komt overeen met de [setHideAtShowing](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setHideAtShowing)‑methode
+- **Rewind after Playing** komt overeen met de [setRewindAudio](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setRewindAudio)‑methode
 
-PowerPoint **Bewerken**‑opties die overeenkomen met de eigenschappen van Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/)‑object:
+PowerPoint **Bewerken**‑opties die overeenkomen met de Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/)‑eigenschappen:
 
-- **Fade in** komt overeen met de [setFadeInDuration](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setFadeInDuration)‑methode 
-- **Fade out** komt overeen met de [setFadeOutDuration](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setFadeOutDuration)‑methode 
-- **Audio‑begintijd bijsnijden** komt overeen met de [setTrimFromStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setTrimFromStart)‑methode 
-- **Audio‑eindtijd bijsnijden** is gelijk aan de audioduur min de waarde van de [setTrimFromEnd](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setTrimFromEnd)‑methode
+- **Fade In** komt overeen met de [setFadeInDuration](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setFadeInDuration)‑methode 
+- **Fade Out** komt overeen met de [setFadeOutDuration](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setFadeOutDuration)‑methode 
+- **Trim Audio Start Time** komt overeen met de [setTrimFromStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setTrimFromStart)‑methode 
+- **Trim Audio End Time** waarde is gelijk aan de audioduur min de waarde die is ingesteld door de [setTrimFromEnd](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setTrimFromEnd)‑methode
 
-De PowerPoint **volumeregelaar** op het audio‑bedieningspaneel komt overeen met de [setVolumeValue](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setVolumeValue)‑methode. Hiermee kunt u het audio‑volume aanpassen als een percentage.
+De PowerPoint **volumeregelaar** op het audio‑bedieningspaneel komt overeen met de [setVolumeValue](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setVolumeValue)‑methode. Hiermee kunt u het audiovolume als percentage aanpassen.
 
 Zo wijzigt u de audio‑afspeelopties:
 
-1. [Maken](#create-audio-frames) of haal het audioframe op.
-2. Stel nieuwe waarden in voor de audioframe‑eigenschappen die u wilt aanpassen.
-3. Sla het aangepaste PowerPoint‑bestand op.
+1. [Maak](#create-audio-frames) of haal het audio‑frame op.
+2. Stel nieuwe waarden in voor de audio‑frame‑eigenschappen die u wilt aanpassen.
+3. Sla het gewijzigde PowerPoint‑bestand op.
 
-Deze Python‑code demonstreert een bewerking waarbij de opties van een audio worden aangepast:
+Deze Python‑code demonstreert een bewerking waarbij audio‑opties worden aangepast:
 
 ```python
 import jpype
@@ -143,7 +143,7 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # Afspelen bij klik op laag volume, over dia's, zonder herhalen.
+        # Afspelen bij klikken op laag volume, over dia's, zonder herhaling.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
@@ -158,7 +158,7 @@ finally:
     presentation.dispose()
 ```
 
-Dit Python‑voorbeeld laat zien hoe u een nieuw audioframe met ingebedde audio toevoegt, het bijsnijdt en de fade‑tijden instelt:
+Dit Python‑voorbeeld laat zien hoe u een nieuw audio‑frame met ingesloten audio toevoegt, het trimt en de vervagingstijden instelt:
 
 ```python
 from pathlib import Path
@@ -179,7 +179,7 @@ try:
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Snij 1,5 seconde van het begin af en 2 seconden van het einde.
+    # Trim 1,5 seconden van het begin en 2 seconden van het einde.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
     # Stel fade-in in op 200 ms en fade-out op 500 ms.
@@ -190,7 +190,7 @@ finally:
     presentation.dispose()
 ```
 
-De volgende codevoorbeelden tonen hoe u een audioframe met ingebedde audio ophaalt en het volume op 85 % zet:
+De volgende codevoorbeelden laten zien hoe u een audio‑frame met ingesloten audio ophaalt en het volume instelt op 85%:
 
 ```python
 import jpype
@@ -216,11 +216,11 @@ finally:
 
 ## **Audio‑bijschriften beheren**
 
-Aspose.Slides stelt u in staat om gesloten ondertitels aan een audioframe toe te voegen via de [getCaptionTracks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#getCaptionTracks)‑methode. Deze methode retourneert een [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/), waarmee u WebVTT‑bijschrift‑tracks kunt toevoegen, door bestaande tracks kunt itereren en ze kunt verwijderen indien nodig.
+Aspose.Slides maakt het mogelijk om gesloten bijschriften aan een audio‑frame toe te voegen via de [getCaptionTracks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#getCaptionTracks)‑methode. Deze methode retourneert een [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/), waarmee u WebVTT‑bijschrifttracks kunt toevoegen, door bestaande tracks kunt itereren en ze kunt verwijderen wanneer nodig.
 
 **Audio‑bijschriften toevoegen**
 
-Gebruik de [getCaptionTracks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#getCaptionTracks)‑methode om één of meer bijschrift‑tracks aan een audioframe te koppelen. In het volgende voorbeeld wordt een audiobestand aan een dia toegevoegd en vervolgens wordt een nieuwe bijschrift‑track geladen vanuit een `.vtt`‑bestand.
+Gebruik de [getCaptionTracks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#getCaptionTracks)‑methode om één of meerdere bijschrifttracks aan een audio‑frame toe te voegen. In het volgende voorbeeld wordt een audiobestand aan een dia toegevoegd en vervolgens wordt een nieuwe bijschrifttrack geladen vanuit een `.vtt`‑bestand.
 
 ```python
 from pathlib import Path
@@ -241,7 +241,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # Voeg een nieuw bijschrifttrack toe vanuit een WebVTT‑bestand.
+    # Voeg een nieuw bijschrifttrack toe vanuit een WebVTT-bestand.
     audio_frame.getCaptionTracks().add("New track", "track.vtt")
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
@@ -250,12 +250,12 @@ finally:
 
 **Audio‑bijschriften extraheren**
 
-U kunt door de bijschrift‑tracks die aan een audioframe zijn gekoppeld itereren en ze opslaan als `.vtt`‑bestanden. Elke bijschrift‑track geeft zijn binaire gegevens en unieke identifier vrij, die bij het exporteren van bijschriften gebruikt kan worden.
+U kunt door de bijschrifttracks die aan een audio‑frame zijn gekoppeld itereren en ze opslaan als `.vtt`‑bestanden. Elke bijschrifttrack geeft zijn binaire gegevens en unieke identifier vrij, die kunnen worden gebruikt bij het exporteren van bijschriften.
 
 ```python
 from pathlib import Path
 
-import jpide
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -269,7 +269,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
-                # Sla het bijschrifttrack op als een .vtt-bestand.
+                # Sla het bijschrifttrack op als een .vtt bestand.
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -279,7 +279,7 @@ finally:
 
 **Audio‑bijschriften verwijderen**
 
-Om bijschriften van een audioframe te verwijderen, gebruikt u de methoden die beschikbaar zijn in [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/), zoals [clear](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#remove) of [removeAt](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#removeAt). Het volgende voorbeeld verwijdert alle bijschrift‑tracks van een audioframe.
+Om bijschriften uit een audio‑frame te verwijderen, gebruikt u de methoden die worden aangeboden door [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/), zoals [clear](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#remove) of [removeAt](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#removeAt). Het volgende voorbeeld verwijdert alle bijschrifttracks uit een audio‑frame.
 
 ```python
 import jpype
@@ -305,14 +305,14 @@ finally:
 
 ## **Audio extraheren**
 
-Aspose.Slides voor Python via Java stelt u in staat om het geluid dat wordt gebruikt bij diavoorstelling‑overgangen te extraheren. U kunt bijvoorbeeld het geluid uit een specifieke dia extraheren.
+Aspose.Slides voor Python via Java maakt het mogelijk om het geluid dat wordt gebruikt bij dia‑show‑overgangen te extraheren. U kunt bijvoorbeeld het geluid dat in een specifieke dia wordt gebruikt extraheren.
 
 1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse en laad de presentatie die de audio bevat.
-2. Haal de referentie naar de betreffende dia op via de index.
-3. Open de [slideshow transitions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/baseslide/#getSlideShowTransition)‑overgangen voor de dia.
-4. Extraheer het geluid als byte‑gegevens.
+2. Haal een referentie naar de betreffende dia op basis van de index.
+3. Benader de [slideshow transitions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/baseslide/#getSlideShowTransition) van de dia.
+4. Extraheer het geluid als byte‑data.
 
-Deze Python‑code toont hoe u het audio‑bestand dat in een dia wordt gebruikt, kunt extraheren:
+Deze Python‑code laat zien hoe u de audio die in een dia wordt gebruikt, kunt extraheren:
 
 ```python
 import jpype
@@ -339,14 +339,14 @@ finally:
 
 ## **FAQ**
 
-**Kan ik hetzelfde audio‑bestand hergebruiken op meerdere dia’s zonder de bestandsgrootte te laten toenemen?**
+**Kan ik hetzelfde audio‑bestand opnieuw gebruiken op meerdere dia’s zonder de bestandsgrootte op te blazen?**
 
-Ja. Voeg de audio één keer toe aan de gedeelde [audio collection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getAudios) van de presentatie en maak extra audioframes die naar dat bestaande onderdeel verwijzen. Dit voorkomt duplicatie van mediagegevens en houdt de presentatiegrootte onder controle.
+Ja. Voeg de audio één keer toe aan de gedeelde [audio collection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getAudios) van de presentatie en maak extra audio‑frames aan die naar dat bestaande asset verwijzen. Dit voorkomt dat mediagegevens worden gedupliceerd en houdt de presentatiemaat onder controle.
 
-**Kan ik het geluid in een bestaand audioframe vervangen zonder de vorm opnieuw te maken?**
+**Kan ik het geluid in een bestaand audio‑frame vervangen zonder de vorm opnieuw te maken?**
 
-Ja. Voor een gelinkt geluid werkt u het [link path](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setLinkPathLong) bij zodat het naar het nieuwe bestand wijst. Voor een ingebed geluid vervangt u het [embedded audio](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setEmbeddedAudio)‑object door een ander uit de [audio collection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getAudios) van de presentatie. De opmaak van het frame en de meeste afspeelinstellingen blijven onveranderd.
+Ja. Voor een gekoppeld geluid werkt u het [link path](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setLinkPathLong) bij zodat deze naar het nieuwe bestand verwijst. Voor een ingebed geluid vervangt u het [embedded audio](https://reference.aspose.com/slides/nl/python-java/aspose.slides/audioframe/#setEmbeddedAudio)‑object door een ander object uit de [audio collection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getAudios) van de presentatie. De opmaak van het frame en de meeste afspeelinstellingen blijven ongewijzigd.
 
-**Verandert bijsnijden de onderliggende audio‑gegevens die in de presentatie zijn opgeslagen?**
+**Verandert trimmen de onderliggende audiogegevens die in de presentatie zijn opgeslagen?**
 
-Nee. Bijsnijden wijzigt alleen de afspeelgrenzen. De oorspronkelijke audio‑bytes blijven onaangeroerd en zijn toegankelijk via de ingebedde audio of de audio‑collectie van de presentatie.
+Nee. Trimmen past alleen de afspeelgrenzen aan. De oorspronkelijke audio‑bytes blijven onaangeroerd en toegankelijk via de ingebedde audio of de [audio collection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getAudios) van de presentatie.

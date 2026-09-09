@@ -14,26 +14,26 @@ keywords:
 - โหลด PPTX
 - โหลด PPT
 - โหลด ODP
-- งานนำเสนอที่ป้องกัน
+- งานนำเสนอที่ได้รับการป้องกัน
 - งานนำเสนอขนาดใหญ่
-- แหล่งทรัพยากรภายนอก
-- วัตถุไบนารี
+- ทรัพยากรภายนอก
+- วัตถุไบต์
 - Python
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีเปิดงานนำเสนอ PowerPoint และ OpenDocument ใน Python ผ่าน Java, จัดหารหัสผ่านเปิดไฟล์, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
+description: "เรียนรู้วิธีเปิดงานนำเสนอ PowerPoint และ OpenDocument ใน Python ผ่าน Java, กำหนดรหัสผ่านเปิดไฟล์, ควบคุมการโหลดทรัพยากร, และลดการใช้หน่วยความจำด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
 ---
 ## **บทนำ**
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/th/python-java/) สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดงานนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกเป็นรูปแบบเดิมหรือรูปแบบอื่นที่รองรับ
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/th/python-java/) สามารถโหลดไฟล์งานนำเสนอ PowerPoint และ OpenDocument จากไฟล์และสตรีมได้ หลังจากโหลดไฟล์งานนำเสนอแล้ว คุณสามารถตรวจสอบโครงสร้าง แก้ไขสไลด์ จัดการทรัพยากร และบันทึกในรูปแบบดั้งเดิมหรือรูปแบบที่รองรับอื่นได้
 
-พฤติกรรมการโหลดสามารถปรับแต่งได้ผ่านคลาส [LoadOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถระบุรหัสผ่านเปิดไฟล์, เก็บวัตถุไบนารีขนาดใหญ่ไว้ภายนอกหน่วยความจำ Java heap, ควบคุมทรัพยากรภายนอก, หรือละเว้นข้อมูลไบนารีที่ฝังอยู่
+พฤติกรรมการโหลดสามารถปรับแต่งได้โดยใช้คลาส [LoadOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/) ตัวอย่างเช่น คุณสามารถกำหนดรหัสผ่านเปิดไฟล์ เก็บวัตถุไบต์ขนาดใหญ่ไว้ภายนอกหน่วยความจำ heap ของ Java ควบคุมทรัพยากรภายนอก หรือละเว้นข้อมูลไบต์ที่ฝังอยู่
 
 ## **เปิดงานนำเสนอ**
 
-เพื่อเปิดงานนำเสนอที่มีอยู่ ให้ส่งเส้นทางไฟล์ไปยังคอนสตรักเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) แล้วทำการ Dispose งานนำเสนอหลังการใช้งานเพื่อให้ตัวจับไฟล์ ข้อมูลชั่วคราว และทรัพยากรอื่น ๆ ถูกปล่อยออกอย่างรวดเร็ว
+เพื่อเปิดงานนำเสนอที่มีอยู่ ให้ส่งพาธไฟล์ไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) ปล่อยงานนำเสนอเมื่อใช้งานเสร็จเพื่อให้ตัวจัดการไฟล์ ข้อมูลชั่วคราว และทรัพยากรอื่น ๆ ถูกปล่อยออกอย่างทันที
 
-ตัวอย่าง Python ต่อไปนี้แสดงวิธีการเปิดงานนำเสนอและรับจำนวนสไลด์:
+ตัวอย่าง Python ด้านล่างแสดงวิธีเปิดงานนำเสนอและรับจำนวนสไลด์:
 
 ```python
 import jpype
@@ -53,7 +53,7 @@ finally:
 
 ## **เปิดงานนำเสนอที่มีการป้องกันด้วยรหัสผ่าน**
 
-รหัสผ่านเปิดไฟล์จะเข้ารหัสเนื้อหาของงานนำเสนอ เพื่อโหลดงานนำเสนอเต็มรูปแบบ ให้ส่งรหัสผ่านที่ถูกต้องไปยัง [LoadOptions.setPassword](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/#setPassword) แล้วส่งออปชันเหล่านั้นไปยังคอนสตรักเตอร์ของ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) หากรหัสผ่านหายไปหรือไม่ถูกต้อง การโหลดจะล้มเหลว
+รหัสผ่านเปิดไฟล์จะเข้ารหัสเนื้อหาของงานนำเสนอ เพื่อโหลดงานนำเสนอเต็มรูปแบบ ให้ส่งรหัสผ่านที่ถูกต้องไปยังเมธอด [LoadOptions.setPassword](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/#setPassword) แล้วส่งตัวเลือกนั้นไปยังคอนสตรัคเตอร์ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) การโหลดจะล้มเหลือเมื่อไม่มีรหัสผ่านหรือรหัสผ่านไม่ถูกต้อง
 
 ```python
 import jpype
@@ -74,13 +74,13 @@ finally:
     presentation.dispose()
 ```
 
-สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส ดูที่ [Password-Protect Presentations](/slides/th/python-java/password-protected-presentation/) หากงานนำเสนอที่เข้ารหัสถูกบันทึกโดยเจตนาพร้อมคุณสมบัติเอกสารสาธารณะ คุณสมบัตินั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [Manage Presentation Properties](/slides/th/python-java/presentation-properties/)
+สำหรับการตรวจจับรหัสผ่าน การตรวจสอบความถูกต้อง และกระบวนการเข้ารหัส ดูที่ [Password-Protect Presentations](/slides/th/python-java/password-protected-presentation/) หากงานนำเสนอที่เข้ารหัสถูกบันทึกอย่างตั้งใจพร้อมคุณสมบัติเอกสารสาธารณะ คุณสมบัติเหล่านั้นสามารถอ่านได้โดยไม่ต้องใช้รหัสผ่าน; ดูที่ [Manage Presentation Properties](/slides/th/python-java/presentation-properties/)
 
 ## **เปิดงานนำเสนอขนาดใหญ่**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) คืนค่าออปชันที่ควบคุมการที่ Aspose.Slides จัดการกับ Binary Large Object เช่น รูปภาพ เสียง และวิดีโอ คุณสามารถล็อกไฟล์ต้นฉบับ, อนุญาตไฟล์ชั่วคราว, และจำกัดจำนวนข้อมูล BLOB ที่เก็บไว้ในหน่วยความจำ
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) คืนค่าตัวเลือกที่ควบคุมว่า Aspose.Slides จะจัดการวัตถุไบต์ขนาดใหญ่ (เช่น รูปภาพ, เสียง, วีดีโอ) อย่างไร คุณสามารถทำให้ไฟล์ต้นแหล่งถูกล็อค อนุญาตไฟล์ชั่วคราว และจำกัดปริมาณข้อมูล BLOB ที่เก็บไว้ในหน่วยความจำ
 
-โค้ด Python ต่อไปนี้แสดงวิธีการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
+ตัวอย่างโค้ด Python ด้านล่างแสดงการโหลดงานนำเสนอขนาดใหญ่ (เช่น 2 GB):
 
 ```python
 import jpype
@@ -107,14 +107,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-โดยใช้ [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) ไฟล์ต้นฉบับจะยังคงถูกล็อกจนกว่าหนึ่งอินสแตนซ์ของงานนำเสนอจะถูก Dispose อย่าย้าย เขียนทับ หรือ ลบไฟล์ต้นฉบับในขณะที่อินสแตนซ์นั้นยังคงอยู่
+ด้วย [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) ไฟล์ต้นแหล่งจะยังคงถูกล็อคจนกว่าจะปล่อยอินสแตนซ์ของงานนำเสนอ อย่าย้าย ทับ หรือทำลายไฟล์ต้นแหล่งขณะที่อินสแตนซ์ยังอยู่
 
-Aspose.Slides อาจคัดลอกเนื้อหาของสตรีมอินพุตในระหว่างการโหลด สำหรับงานนำเสนอขนาดใหญ่ ดังนั้นการใช้เส้นทางไฟล์มักจะมีประสิทธิภาพมากกว่าสตรีม ดูที่ [Manage BLOBs](/slides/th/python-java/manage-blob/) เพื่อดูออปชันเพิ่มเติมเกี่ยวกับการจัดเก็บและการจัดการหน่วยความจำ
+Aspose.Slides อาจคัดลอกเนื้อหาของสตรีมอินพุตขณะโหลด สำหรับงานนำเสนอขนาดใหญ่ การใช้พาธไฟล์จึงมักมีประสิทธิภาพดีกว่าสตรีม ดูที่ [Manage BLOBs](/slides/th/python-java/manage-blob/) เพื่อดูตัวเลือกเพิ่มเติมเกี่ยวกับการจัดเก็บและการจัดการหน่วยความจำ
 {{% /alert %}}
 
 ## **ควบคุมทรัพยากรภายนอก**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) รับ JPype proxy ที่ทำการ implement อินเทอร์เฟซ callback การโหลดทรัพยากรของ Java Callback นี้สามารถให้ข้อมูลทดแทน เปลี่ยนเส้นทางทรัพยากร ใช้ตัวโหลดเริ่มต้น หรือข้ามทรัพยากรได้ ซึ่งเป็นประโยชน์เมื่องานนำเสนอมีรูปภาพภายนอกที่ต้องแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บของแอปพลิเคชัน
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) รับพร็อกซี่ JPype ที่ดำเนินการตามอินเทอร์เฟซการเรียกกลับการโหลดทรัพยากรของ Java คำเรียกกลับนี้สามารถให้ข้อมูลทดแทน เปลี่ยนเส้นทางทรัพยากร ใช้ตัวโหลดเริ่มต้น หรือข้ามทรัพยากร ซึ่งเป็นประโยชน์เมื่องานนำมีรูปภาพภายนอกที่ต้องแก้ไขตามกฎความปลอดภัยหรือการจัดเก็บเฉพาะแอปพลิเคชัน
 
 ```python
 import jpype
@@ -154,17 +154,17 @@ finally:
     presentation.dispose()
 ```
 
-## **โหลดงานนำเสนอโดยไม่มีวัตถุไบนารีฝังอยู่**
+## **โหลดงานนำเสนอโดยไม่มีวัตถุไบต์ที่ฝังอยู่**
 
-งานนำเสนออาจมีข้อมูลไบนารีฝังอยู่ที่แอปพลิเคชันไม่จำเป็นหรือไม่ต้องการเก็บ ตัวอย่างได้แก่:
+งานนำเสนออาจมีข้อมูลไบต์ที่ฝังอยู่ซึ่งแอปพลิเคชันไม่จำเป็นต้องใช้หรือไม่ต้องการเก็บ ตัวอย่างได้แก่:
 
-- โครงการ VBA, สามารถเข้าถึงได้ผ่าน [Presentation.getVbaProject](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getVbaProject);
-- ข้อมูล OLE ฝังอยู่, สามารถเข้าถึงได้ผ่าน [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/th/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
-- ข้อมูลควบคุม ActiveX, สามารถเข้าถึงได้ผ่าน [Control.getActiveXControlBinary](https://reference.aspose.com/slides/th/python-java/aspose.slides/control/#getActiveXControlBinary).
+- โครงการ VBA ที่เข้าถึงได้ผ่าน [Presentation.getVbaProject](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getVbaProject);
+- ข้อมูล OLE ที่ฝังอยู่ที่เข้าถึงได้ผ่าน [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/th/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- ข้อมูลคอนโทรล ActiveX ที่เข้าถึงได้ผ่าน [Control.getActiveXControlBinary](https://reference.aspose.com/slides/th/python-java/aspose.slides/control/#getActiveXControlBinary).
 
-ตั้งค่า [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) เป็น `True` เพื่อเอาข้อมูลไบนารีนี้ออกขณะโหลด จากนั้นบันทึกงานนำเสนอที่โหลดแล้วเพื่อเก็บผลลัพธ์ที่ทำความสะอาดไว้
+ตั้งค่า [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/th/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) เป็น `True` เพื่อเอาข้อมูลไบต์ที่ฝังอยู่เหล่านี้ออกขณะโหลด บันทึกงานนำเสนอที่โหลดแล้วเพื่อให้ผลลัพธ์ที่ทำความสะอาดถูกเก็บไว้
 
-ออปชันนี้ลดความเสี่ยงจาก payload ฝังที่ไม่ต้องการ แต่ไม่ได้เป็นระบบตรวจหามัลแวร์หรือทำความสะอาดเนื้อหาอย่างครบถ้วน
+ตัวเลือกนี้ลดความเสี่ยงต่อการเจอpayload ที่ฝังอยู่โดยไม่ต้องการ แต่ไม่ได้เป็นระบบตรวจจับมัลแวร์หรือทำความสะอาดเนื้อหาที่สมบูรณ์
 
 ```python
 import jpype
@@ -187,14 +187,14 @@ finally:
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะทราบได้อย่างไรว่าไฟล์เสียและไม่สามารถเปิดได้?**
+**ฉันจะทราบได้อย่างไรว่าไฟล์เสียหายและเปิดไม่ได้?**
 
-Aspose.Slides จะทำการโยนข้อยกเว้นการพาร์เซอร์หรือรูปแบบระหว่างการโหลด ให้จัดการความล้มเหลวนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้อง เพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
+Aspose.Slides จะทำการโยนข้อยกเว้นการพาร์สหรือรูปแบบในระหว่างการโหลด ให้จัดการความล้มเหลือนี้แยกจากข้อผิดพลาดรหัสผ่านไม่ถูกต้อง เพื่อให้แอปพลิเคชันสามารถรายงานสาเหตุได้อย่างแม่นยำ
 
-**จะเกิดอะไรขึ้นหากฟอนต์ที่ต้องการขาดหาย?**
+**จะเกิดอะไรขึ้นหากฟอนต์ที่จำเป็นหายไป?**
 
-งานนำเสนอยังคงสามารถโหลดได้ แต่การเรนเดอร์และการส่งออกอาจแทนที่ฟอนต์ คุณสามารถ [configure font substitution](/slides/th/python-java/font-substitution/) หรือ [provide custom fonts](/slides/th/python-java/custom-font/) เพื่อทำให้ผลลัพธ์คาดเดาได้มากขึ้น
+งานนำเสนอยังคงโหลดได้ แต่การเรนเดอร์และการส่งออกอาจแทนที่ฟอนต์ได้ คุณสามารถ [กำหนดค่าการแทนที่ฟอนต์](/slides/th/python-java/font-substitution/) หรือ [จัดหา ฟอนต์ที่กำหนดเอง](/slides/th/python-java/custom-font/) เพื่อทำให้ผลลัพธ์คาดเดาได้มากขึ้น
 
-**การโหลดงานนำเสนอจะโหลดสื่อที่ฝังอยู่ด้วยหรือไม่?**
+**การโหลดงานนำเสนอจะทำให้มีการโหลดสื่อที่ฝังอยู่ด้วยหรือไม่?**
 
-เสียงและวิดีโอที่ฝังอยู่จะสามารถเข้าถึงได้ผ่านโมเดลอ็อบเจ็กต์ของงานนำเสนอ ทรัพยากรภายนอกจะถูกแก้ไขตามพฤติกรรมการโหลดทรัพยากรที่กำหนดและอาจไม่พร้อมใช้งานหากไม่สามารถเข้าถึงตำแหน่งที่ตั้งของมันได้
+เสียงและวิดีโอที่ฝังอยู่จะพร้อมใช้งานผ่านโมเดลวัตถุของงานนำเสนอ ทรัพยากรภายนอกจะถูกแก้ไขตามพฤติกรรมการโหลดทรัพยากรที่กำหนด และอาจไม่พร้อมใช้หากไม่สามารถเข้าถึงตำแหน่งที่ตั้งได้

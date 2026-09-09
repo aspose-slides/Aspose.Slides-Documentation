@@ -1,48 +1,50 @@
 ---
-title: مدیریت هایپرلینک‌های ارائه در Python از طریق Java
-linktitle: مدیریت هایپرلینک
+title: مدیریت پیوندهای ارائه در Python از طریق Java
+linktitle: مدیریت پیوند
 type: docs
 weight: 20
 url: /fa/python-java/manage-hyperlinks/
 keywords:
 - افزودن URL
-- افزودن هایپرلینک
-- ایجاد هایپرلینک
-- قالب‌بندی هایپرلینک
-- حذف هایپرلینک
-- به‌روزرسانی هایپرلینک
-- هایپرلینک متن
-- هایپرلینک اسلاید
-- هایپرلینک شکل
-- هایپرلینک تصویر
-- هایپرلینک ویدئو
-- هایپرلینک قابل تغییر
+- افزودن پیوند
+- ایجاد پیوند
+- قالب‌بندی پیوند
+- حذف پیوند
+- به‌روزرسانی پیوند
+- پیوند متن
+- پیوند اسلاید
+- پیوند شکل
+- پیوند تصویر
+- پیوند ویدیو
+- پیوند قابل تغییر
 - PowerPoint
 - OpenDocument
 - ارائه
 - Python
 - Java
 - Aspose.Slides
-description: "به راحتی هایپرلینک‌ها را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Python از طریق Java مدیریت کنید—تعامل و جریان کار را در عرض چند دقیقه بهبود دهید."
+description: "به‌راحتی پیوندها را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Python از طریق Java مدیریت کنید—در عرض چند دقیقه تعامل و جریان کاری را بهبود ببخشید."
 ---
-## **معرفی**
+## **مقدمه**
 
-یک هایپرلینک، اشاره‌ای به یک شیء یا داده یا مکانی در چیزی است. این‌ها هایپرلینک‌های رایج در ارائه‌های PowerPoint هستند:
+یک پیوند یک ارجاع به یک شیء، داده یا مکان است. پیوندهای رایج در ارائه‌های PowerPoint شامل موارد زیر هستند:
 
-* لینک‌ها به وب‌سایت‌ها داخل متن‌ها، اشکال یا رسانه‌ها
-* لینک‌ها به اسلایدها
+* پیوندها به وب‌سایت‌ها در متن، اشکال یا رسانه‌ها
+* پیوندها به اسلایدها
 
-Aspose.Slides برای Python از طریق Java به شما امکان انجام بسیاری از کارها مرتبط با هایپرلینک‌ها در ارائه‌ها را می‌دهد.
+Aspose.Slides برای Python از طریق Java به شما امکان انجام بسیاری از کارها مرتبط با پیوندها در ارائه‌ها را می‌دهد. 
 
-{{% alert color="info" title="Note" %}} 
-ممکن است بخواهید Aspose ساده را ببینید، [ویرایشگر آنلاین رایگان PowerPoint.](https://products.aspose.app/slides/fa/editor)
+{{% alert color="info" title="نکته" %}} 
+
+ممکن است بخواهید ویرایشگر رایگان آنلاین پاورپوینت Aspose را بررسی کنید. [ویرایشگر رایگان آنلاین پاورپوینت.](https://products.aspose.app/slides/fa/editor)
+
 {{% /alert %}} 
 
-## **افزودن هایپرلینک‌های URL**
+## **افزودن پیوندهای URL**
 
-### **افزودن هایپرلینک‌های URL به متن**
+### **افزودن پیوندهای URL به متن**
 
-این کد Python نحوه افزودن یک هایپرلینک وب‌سایت به متن را نشان می‌دهد:
+این کد Python نشان می‌دهد چگونه یک پیوند وب‌سایت به متن اضافه کنید:
 
 ```python
 import jpype
@@ -68,9 +70,9 @@ finally:
     presentation.dispose()
 ```
 
-### **افزودن هایپرلینک‌های URL به اشکال یا فریم‌ها**
+### **افزودن پیوندهای URL به اشکال یا چارچوب‌ها**
 
-این نمونه کد در Python از طریق Java نشان می‌دهد چگونه یک هایپرلینک وب‌سایت را به یک شکل اضافه کنید:
+این مثال کد در Python از طریق Java نشان می‌دهد چگونه یک پیوند وب‌سایت به یک شکل اضافه کنید:
 
 ```python
 import jpype
@@ -93,11 +95,11 @@ finally:
     presentation.dispose()
 ```
 
-### **افزودن هایپرلینک‌های URL به رسانه‌ها**
+### **افزودن پیوندهای URL به رسانه‌ها**
 
-Aspose.Slides به شما امکان افزودن هایپرلینک‌ها به تصاویر، فایل‌های صوتی و ویدئویی را می‌دهد.
+Aspose.Slides به شما امکان می‌دهد پیوندها را به تصاویر، فایل‌های صوتی و ویدئویی اضافه کنید. 
 
-این نمونه کد نشان می‌دهد چگونه یک هایپرلینک به یک **تصویر** اضافه کنید:
+این مثال کد نشان می‌دهد چگونه به یک **تصویر** پیوند اضافه کنید:
 
 ```python
 import jpype
@@ -110,13 +112,13 @@ from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeT
 
 presentation = Presentation()
 try:
-    # تصویر را به ارائه اضافه می‌کند
+    # افزودن تصویر به ارائه
     image = Images.fromFile("image.png")
     try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # قاب تصویر را در اسلاید ۱ بر پایه تصویر اضافه شده قبلی ایجاد می‌کند
+    # ایجاد قاب تصویر در اسلاید 1 بر پایه تصویر قبلا اضافه شده
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -127,7 +129,7 @@ finally:
     presentation.dispose()
 ```
 
-این نمونه کد نشان می‌دهد چگونه یک هایپرلینک به یک **فایل صوتی** اضافه کنید:
+این مثال کد نشان می‌دهد چگونه به یک **فایل صوتی** پیوند اضافه کنید:
 
 ```python
 from pathlib import Path
@@ -155,7 +157,7 @@ finally:
     presentation.dispose()
 ```
 
-این نمونه کد نشان می‌دهد چگونه یک هایپرلینک به یک **ویدئو** اضافه کنید:
+این مثال کد نشان می‌دهد چگونه به یک **ویدئو** پیوند اضافه کنید:
 
 ```python
 from pathlib import Path
@@ -183,15 +185,17 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}} 
-ممکن است بخواهید ببینید *[مدیریت OLE](/slides/fa/python-java/manage-ole/)*.
+{{% alert color="success" title="نکته" %}} 
+
+ممکن است بخواهید *[مدیریت OLE](/slides/fa/python-java/manage-ole/)* را ببینید.
+
 {{% /alert %}}
 
-## **استفاده از هایپرلینک‌ها برای ایجاد فهرست مطالب**
+## **استفاده از پیوندها برای ایجاد فهرست مطالب**
 
-از آنجا که هایپرلینک‌ها به شما امکان اضافه کردن ارجاع به اشیاء یا مکان‌ها را می‌دهند، می‌توانید از آن‌ها برای ایجاد فهرست مطالب استفاده کنید.
+از آنجا که پیوندها به شما اجازه می‌دهند ارجاعاتی به اشیاء یا مکان‌ها اضافه کنید، می‌توانید از آن‌ها برای ایجاد فهرست مطالب استفاده کنید. 
 
-این نمونه کد نشان می‌دهد چگونه یک فهرست مطالب با هایپرلینک‌ها ایجاد کنید:
+این مثال کد نشان می‌دهد چگونه فهرست مطالبی با پیوندها ایجاد کنید:
 
 ```python
 import jpype
@@ -231,13 +235,13 @@ finally:
     presentation.dispose()
 ```
 
-## **قالب‌بندی هایپرلینک‌ها**
+## **قالب‌بندی پیوندها**
 
 ### **رنگ**
 
-با استفاده از ویژگی [Hyperlink.setColorSource](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/#setColorSource) در کلاس [Hyperlink](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/)، می‌توانید رنگ‌های هایپرلینک‌ها را تنظیم کنید و همچنین اطلاعات رنگ را از هایپرلینک‌ها دریافت کنید. این ویژگی اولین بار در PowerPoint 2019 معرفی شد، بنابراین تغییرات مربوط به این ویژگی بر روی نسخه‌های قدیمی‌تر PowerPoint اعمال نمی‌شود.
+با ویژگی [Hyperlink.setColorSource](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/#setColorSource) در کلاس [Hyperlink](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/) می‌توانید رنگ پیوندها را تنظیم کنید و همچنین اطلاعات رنگ را از پیوندها دریافت کنید. این ویژگی برای نخستین بار در PowerPoint 2019 معرفی شد، بنابراین تغییرات مربوط به این خصوصیت در نسخه‌های قدیمی‌تر PowerPoint اعمال نمی‌شود.
 
-این نمونه کد عملیاتی را نشان می‌دهد که در آن‌هایپرلینک‌های با رنگ‌های مختلف به همان اسلاید اضافه شده‌اند:
+این مثال کد عملیاتی را نشان می‌دهد که در آن پیوندهای با رنگ‌های مختلف به یک اسلاید اضافه می‌شوند:
 
 ```python
 import jpype
@@ -269,11 +273,11 @@ finally:
     presentation.dispose()
 ```
 
-## **حذف هایپرلینک‌ها از ارائه‌ها**
+## **حذف پیوندها از ارائه‌ها**
 
-### **حذف هایپرلینک‌ها از متن**
+### **حذف پیوندها از متن**
 
-این کد Python نحوه حذف هایپرلینک از یک متن در اسلاید ارائه را نشان می‌دهد:
+این کد Python نشان می‌دهد چگونه پیوند را از متن یک اسلاید ارائه حذف کنید:
 
 ```python
 import jpype
@@ -300,9 +304,9 @@ finally:
     presentation.dispose()
 ```
 
-### **حذف هایپرلینک‌ها از اشکال یا فریم‌ها**
+### **حذف پیوندها از اشکال یا چارچوب‌ها**
 
-این کد Python نحوه حذف هایپرلینک از یک شکل در اسلاید ارائه را نشان می‌دهد:
+این کد Python نشان می‌دهد چگونه پیوند را از یک شکل در یک اسلاید ارائه حذف کنید:
 
 ```python
 import jpype
@@ -323,9 +327,9 @@ finally:
     presentation.dispose()
 ```
 
-## **هایپرلینک قابل تغییر**
+## **پیوند قابل تغییر**
 
-کلاس [Hyperlink](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/) قابل تغییر است. با استفاده از این کلاس می‌توانید مقادیر این ویژگی‌ها را تغییر دهید:
+کلاس [Hyperlink](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/) قابل تغییر است. با این کلاس می‌توانید مقادیر خصوصیات زیر را تغییر دهید:
 
 - [setTargetFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -333,7 +337,7 @@ finally:
 - [setHighlightClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-این تکه کد نشان می‌دهد چگونه یک هایپرلینک به یک اسلاید اضافه کنید و بعداً توضیح ابزار (tooltip) آن را ویرایش کنید:
+این قطعه کد نشان می‌دهد چگونه یک پیوند به اسلاید اضافه کنید و پس از آن توضیح ابزار (tooltip) آن را ویرایش کنید:
 
 ```python
 import jpype
@@ -354,7 +358,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # تغییر راهنمای ابزار (tooltip) هایپرلینکی که قبلاً اضافه شده است
+    # تغییر tooltip پیوندی که قبلاً اضافه شده است
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -362,31 +366,31 @@ finally:
     presentation.dispose()
 ```
 
-## **ویژگی‌های پشتیبانی‌شده در HyperlinkQueries**
+## **خواص پشتیبانی‌شده در HyperlinkQueries**
 
-می‌توانید از [HyperlinkQueries](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlinkqueries/) از یک ارائه، اسلاید یا متن که هایپرلینک در آن تعریف شده است، دسترسی پیدا کنید.
+می‌توانید از [HyperlinkQueries](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlinkqueries/) برای یک ارائه، اسلاید یا متن که پیوند در آن تعریف شده است، دسترسی داشته باشید. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/fa/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-کلاس [HyperlinkQueries](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlinkqueries/) این متدها و ویژگی‌ها را پشتیبانی می‌کند:
+کلاس [HyperlinkQueries](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlinkqueries/) این متدها و خواص را پشتیبانی می‌کند: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
 - [getAnyHyperlinks](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
 - [removeAllHyperlinks](https://reference.aspose.com/slides/fa/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
 
-## **پرسش‌های رایج**
+## **سوالات متداول**
 
-**چگونه می‌توانم ناوبری داخلی نه تنها به یک اسلاید، بلکه به «بخش» یا اولین اسلاید یک بخش ایجاد کنم؟**
+**چگونه می‌توانم ناوبری داخلی نه فقط به یک اسلاید، بلکه به یک «بخش» یا اولین اسلاید یک بخش ایجاد کنم؟**
 
-بخش‌ها در PowerPoint گروه‌بندی‌ای از اسلایدها هستند؛ ناوبری به‌صورت فنی به یک اسلاید خاص هدف می‌گیرد. برای «ناوبری به یک بخش» معمولاً به اولین اسلاید آن بخش لینک می‌دهید.
+بخش‌ها در PowerPoint گروه‌بندی از اسلایدها هستند؛ ناوبری به‌صورت فنی به یک اسلاید خاص هدف می‌گیرد. برای «ناوبری به یک بخش» معمولاً به اولین اسلاید آن بخش پیوند می‌زنید.
 
-**آیا می‌توانم یک هایپرلینک را به عناصر اسلاید مستر وصل کنم تا در تمام اسلایدها کار کند؟**
+**آیا می‌توانم پیوند را به عناصر اسلاید اصلی (master) وصل کنم تا در تمام اسلایدها کار کند؟**
 
-بله. عناصر اسلاید مستر و لِی‌اوت از هایپرلینک‌ها پشتیبانی می‌کنند. چنین لینک‌هایی در اسلایدهای فرزند ظاهر می‌شوند و در حین نمایش اسلاید قابل کلیک هستند.
+بله. عناصر اسلاید اصلی و طرح‌بندی از پیوندها پشتیبانی می‌کنند. چنین پیوندهایی در اسلایدهای فرزند ظاهر می‌شوند و در زمان نمایش اسلاید قابل کلیک هستند.
 
-**آیا هایپرلینک‌ها هنگام خروجی گرفتن به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟**
+**آیا پیوندها هنگام خروجی گرفتن به PDF، HTML، تصویر یا ویدئو حفظ می‌شوند؟**
 
-در [PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/python-java/convert-powerpoint-to-html/) بله—به‌طور کلی لینک‌ها حفظ می‌شوند. هنگام خروجی گرفتن به [تصاویر](/slides/fa/python-java/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/python-java/convert-powerpoint-to-video/)، قابلیت کلیک شدن منتقل نمی‌شود زیرا این فرمت‌ها (فریم‌های رستر/ویدئوی) از هایپرلینک پشتیبانی نمی‌کنند.
+در [PDF](/slides/fa/python-java/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/python-java/convert-powerpoint-to-html/)، بله—پیوندها عموماً حفظ می‌شوند. هنگام خروجی به [تصاویر](/slides/fa/python-java/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/python-java/convert-powerpoint-to-video/)، قابلیت کلیک کردن منتقل نمی‌شود زیرا این فرمت‌ها (فریم‌های رستر/ویدئو) از پیوندها پشتیبانی نمی‌کنند.

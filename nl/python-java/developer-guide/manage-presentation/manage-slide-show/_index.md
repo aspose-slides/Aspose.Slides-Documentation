@@ -5,39 +5,39 @@ type: docs
 weight: 90
 url: /nl/python-java/manage-slide-show/
 keywords:
-- type voorstelling
+- showtype
 - gepresenteerd door spreker
 - bekeken door individu
 - bekeken op kiosk
-- voorstellingsopties
-- doorlopend herhalen
-- voorstelling zonder vertelling
-- voorstelling zonder animatie
+- showopties
+- continue herhalen
+- show zonder vertelling
+- show zonder animatie
 - penkleur
-- dia's tonen
-- aangepaste voorstelling
-- dia's voortbewegen
+- toon dia's
+- aangepaste show
+- dia's vooruit
 - handmatig
-- met timing
+- met timings
 - PowerPoint
 - OpenDocument
 - presentatie
 - Python
 - Java
 - Aspose.Slides
-description: "Leer hoe u diavoorstellingen beheert in Aspose.Slides voor Python via Java. Controleer diaovergangen, timing en meer in PPT-, PPTX- en ODP-formaten met gemak."
+description: "Leer hoe u diavoorstellingen kunt beheren in Aspose.Slides voor Python via Java. Beheer dia-overgangen, timing en meer in PPT-, PPTX- en ODP-formats met gemak."
 ---
-## **Introductie**
+## **Inleiding**
 
-De **Set Up Show**-opties van Microsoft PowerPoint stellen je in staat om het type voorstelling te kiezen, looping in te schakelen, dia's te selecteren en te bepalen hoe dia's worden voortbewogen. Met Aspose.Slides voor Python via Java kun je deze opties programmatisch configureren en opslaan in een presentatiebestand.
+Microsoft PowerPoint's **Set Up Show**-opties laten u het showtype kiezen, looping inschakelen, dia's selecteren en bepalen hoe dia's worden voortgezet. Met Aspose.Slides for Python via Java kunt u deze opties programmatisch configureren en opslaan in een presentatiebestand.
 
-De [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getSlideShowSettings) methode retourneert een [SlideShowSettings](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/) object dat deze opties beheert. De voorbeelden hieronder vereisen Aspose.Slides voor Python via Java en een compatibele Java-runtime. Elk voorbeeld start de JVM indien nodig en geeft de presentatie vrij wanneer het voltooid is.
+De [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getSlideShowSettings) methode retourneert een [SlideShowSettings](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/) object dat deze opties beheert. De onderstaande voorbeelden vereisen Aspose.Slides for Python via Java en een compatibele Java-runtime. Elk voorbeeld start de JVM indien nodig en maakt de presentatie vrij wanneer deze is voltooid.
 
-## **Selecteer type voorstelling**
+## **Selecteer showtype**
 
-[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setSlideShowType) bepaalt het type diavoorstelling, dat een instantie kan zijn van de volgende klassen: [PresentedBySpeaker](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/nl/python-java/aspose.slides/browsedbyindividual/), of [BrowsedAtKiosk](https://reference.aspose.com/slides/nl/python-java/aspose.slides/browsedatkiosk/). Het gebruik van deze methode maakt het mogelijk om de presentatie aan te passen aan verschillende gebruiksscenario's, zoals geautomatiseerde kiosken of handmatige presentaties.
+De [SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setSlideShowType) definieert het type diavoorstelling, dat een instantie kan zijn van de volgende klassen: [PresentedBySpeaker](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/nl/python-java/aspose.slides/browsedbyindividual/), of [BrowsedAtKiosk](https://reference.aspose.com/slides/nl/python-java/aspose.slides/browsedatkiosk/). Het gebruik van deze methode stelt u in staat de presentatie aan te passen aan verschillende gebruiksscenario's, zoals geautomatiseerde kiosken of handmatige presentaties.
 
-Het code-voorbeeld hieronder maakt een nieuwe presentatie aan en stelt het type voorstelling in op “Browsed by an individual” zonder de schuifbalk te tonen.
+Het code‑voorbeeld hieronder maakt een nieuwe presentatie en stelt het showtype in op “Browsed by an individual” zonder de schuifbalk weer te geven.
 
 ```python
 import jpype
@@ -59,11 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Inschakelen van voorstellingsopties**
+## **Schakel showopties in**
 
-[SlideShowSettings.setLoop](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setLoop) bepaalt of de diavoorstelling in een lus moet worden herhaald totdat deze handmatig wordt gestopt. Dit is handig voor geautomatiseerde presentaties die continu moeten draaien. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setShowNarration) bepaalt of voice-narraties tijdens de diavoorstelling moeten worden afgespeeld. Dit is nuttig voor geautomatiseerde presentaties die spraakinstructies voor het publiek bevatten. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setShowAnimation) bepaalt of animaties die aan dia-objecten zijn toegevoegd, moeten worden afgespeeld. Dit is nuttig om het volledige visuele effect van de presentatie te leveren.
+De [SlideShowSettings.setLoop](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setLoop) bepaalt of de diavoorstelling moet herhalen in een lus totdat deze handmatig wordt gestopt. Dit is handig voor geautomatiseerde presentaties die continu moeten draaien. De [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setShowNarration) bepaalt of stemvertellingen moeten worden afgespeeld tijdens de diavoorstelling. Het is nuttig voor geautomatiseerde presentaties die spraakbegeleiding voor het publiek bevatten. De [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setShowAnimation) bepaalt of animaties die aan dia‑objecten zijn toegevoegd moeten worden afgespeeld. Dit is handig om het volledige visuele effect van de presentatie te bieden.
 
-Het volgende code-voorbeeld maakt een nieuwe presentatie aan en laat de diavoorstelling herhalen.
+Het volgende code‑voorbeeld maakt een nieuwe presentatie en laat de diavoorstelling herhalen.
 
 ```python
 import jpype
@@ -85,7 +85,7 @@ finally:
 
 ## **Selecteer dia's om te tonen**
 
-[SlideShowSettings.setSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setSlides) methode stelt je in staat om een bereik van dia's te selecteren die tijdens de presentatie getoond worden. Dit is handig wanneer je slechts een deel van de presentatie wilt laten zien in plaats van alle dia's. Het volgende code-voorbeeld maakt een presentatie met negen dia's en selecteert dia's 2 t/m 9. Het bereik gebruikt één-gebaseerde dia-nummers.
+De [SlideShowSettings.setSlides](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setSlides) methode stelt u in staat een bereik van dia's te selecteren die tijdens de presentatie worden getoond. Dit is handig wanneer u slechts een deel van de presentatie wilt tonen in plaats van alle dia's. Het volgende code‑voorbeeld maakt een presentatie met negen dia's en selecteert dia's 2 tot en met 9. Het bereik gebruikt één‑gebaseerde dia‑nummers.
 
 ```python
 import jpype
@@ -113,9 +113,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Controleer dia-voortgang**
+## **Beheer dia‑voortgang**
 
-[SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setUseTimings) methode maakt het mogelijk om het gebruik van vooraf ingestelde timing per dia in of uit te schakelen. Dit is handig om dia's automatisch weer te geven met vooraf gedefinieerde weergaveduur. Het code-voorbeeld hieronder maakt een nieuwe presentatie aan en schakelt het gebruik van timing uit.
+De [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setUseTimings) methode stelt u in staat het gebruik van vooraf ingestelde timing voor elke dia in of uit te schakelen. Dit is handig om dia's automatisch te tonen met vooraf gedefinieerde weergaveduur. Het code‑voorbeeld hieronder maakt een nieuwe presentatie en schakelt het gebruik van timing uit.
 
 ```python
 import jpype
@@ -135,11 +135,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Media-bedieningsknoppen weergeven**
+## **Toon mediabedieningen**
 
-[SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) methode bepaalt of mediabedieningen (zoals afspelen, pauzeren en stoppen) tijdens de diavoorstelling moeten worden weergegeven wanneer multimediacontent (bijv. video of audio) wordt afgespeeld. Dit is handig wanneer je de presentator controle wilt geven over de weergave van media tijdens de presentatie.
+De [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) methode bepaalt of mediabedieningen (zoals afspelen, pauzeren en stoppen) moeten worden weergegeven tijdens de diavoorstelling wanneer multimedia‑inhoud (bijv. video of audio) wordt afgespeeld. Dit is handig wanneer u de presentator controle wilt geven over het afspelen van media tijdens de presentatie.
 
-Het volgende code-voorbeeld maakt een nieuwe presentatie aan en schakelt het weergeven van mediabedieningen in.
+Het volgende code‑voorbeeld maakt een nieuwe presentatie en schakelt weergeven van mediabedieningen in.
 
 ```python
 import jpype
@@ -159,16 +159,16 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik een presentatie opslaan zodat deze direct in diavoorstellingsmodus opent?**
+**Kan ik een presentatie opslaan zodat deze direct in de diavoorstellingsmodus wordt geopend?**
 
-Ja. Sla het bestand op als PPSX of PPSM; deze formaten starten direct in diavoorstelling wanneer ze in PowerPoint worden geopend. In Aspose.Slides selecteer je het overeenkomstige opslagformaat[tijdens export](/slides/nl/python-java/save-presentation/).
+Ja. Sla het bestand op als PPSX of PPSM; deze formaten worden direct in de diavoorstellingsmodus gestart wanneer ze in PowerPoint worden geopend. In Aspose.Slides kiest u het overeenkomstige opslagformaat [tijdens export](/slides/nl/python-java/save-presentation/).
 
-**Kan ik individuele dia's uitsluiten van de voorstelling zonder ze te verwijderen uit het bestand?**
+**Kan ik individuele dia's uitsluiten van de show zonder ze uit het bestand te verwijderen?**
 
-Ja. Markeer een dia als [verborgen](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#setHidden). Verborgen dia's blijven in de presentatie, maar worden niet getoond tijdens de diavoorstelling.
+Ja. Markeer een dia als [hidden](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#setHidden). Verborgen dia's blijven in de presentatie, maar worden niet getoond tijdens de diavoorstelling.
 
-**Kan Aspose.Slides een diavoorstelling afspelen of een livepresentatie op het scherm beheren?**
+**Kan Aspose.Slides een diavoorstelling afspelen of een livepresentatie op het scherm regelen?**
 
-Nee. Aspose.Slides bewerkt, analyseert en converteert presentatiebestanden; de daadwerkelijke weergave wordt afgehandeld door een viewer-applicatie zoals PowerPoint.
+Nee. Aspose.Slides bewerkt, analyseert en converteert presentatiebestanden; de daadwerkelijke weergave wordt verzorgd door een viewer‑applicatie zoals PowerPoint.

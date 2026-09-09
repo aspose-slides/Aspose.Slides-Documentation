@@ -1,6 +1,6 @@
 ---
-title: Beheer presentatie‑hyperlinks in Python via Java
-linktitle: Beheer hyperlink
+title: Hyperlinks in presentaties beheren in Python via Java
+linktitle: Hyperlink beheren
 type: docs
 weight: 20
 url: /nl/python-java/manage-hyperlinks/
@@ -11,41 +11,38 @@ keywords:
 - hyperlink opmaken
 - hyperlink verwijderen
 - hyperlink bijwerken
-- tekst‑hyperlink
-- dia‑hyperlink
-- vorm‑hyperlink
-- afbeeldings‑hyperlink
-- video‑hyperlink
-- veranderlijke hyperlink
+- teksthyperlink
+- diahyperlink
+- vormhyperlink
+- afbeeldinghyperlink
+- videohyperlink
+- aanpasbare hyperlink
 - PowerPoint
 - OpenDocument
 - presentatie
 - Python
 - Java
 - Aspose.Slides
-description: "Beheer moeiteloos hyperlinks in PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor Python via Java—verbeter interactiviteit en workflow in enkele minuten."
+description: "Beheer hyperlinks moeiteloos in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Python via Java—verhoog de interactiviteit en workflow in enkele minuten."
 ---
-## **Inleiding**
+## **Introductie**
 
-Een hyperlink is een verwijzing naar een object, gegevens of een locatie in iets. Dit zijn veelvoorkomende hyperlinks in PowerPoint‑presentaties:
+Een hyperlink is een verwijzing naar een object, gegevens of een locatie. Veelvoorkomende hyperlinks in PowerPoint‑presentaties omvatten:
 
 * Links naar websites in tekst, vormen of media
-* Links naar dia’s
+* Links naar dia's
 
-Aspose.Slides voor Python via Java stelt u in staat om vele taken met betrekking tot hyperlinks in presentaties uit te voeren. 
+Aspose.Slides for Python via Java stelt je in staat om vele taken met betrekking tot hyperlinks in presentaties uit te voeren. 
 
 {{% alert color="info" title="Note" %}} 
-
-U kunt wellicht de eenvoudige, [gratis online PowerPoint-editor.](https://products.aspose.app/slides/nl/editor) bekijken.
-
-{{% /alert %}}
+Je wilt misschien Aspose's eenvoudige, [gratis online PowerPoint‑editor.](https://products.aspose.app/slides/nl/editor)
+{{% /alert %}} 
 
 ## **URL‑hyperlinks toevoegen**
 
 ### **URL‑hyperlinks toevoegen aan tekst**
 
-Deze Python‑code toont hoe u een website‑hyperlink aan een tekst kunt toevoegen:
-
+Deze Python‑code laat zien hoe je een website‑hyperlink aan tekst kunt toevoegen:
 ```python
 import jpype
 import asposeslides
@@ -72,8 +69,7 @@ finally:
 
 ### **URL‑hyperlinks toevoegen aan vormen of frames**
 
-Deze voorbeeldcode in Python via Java laat zien hoe u een website‑hyperlink aan een vorm kunt toevoegen:
-
+Deze voorbeeldcode in Python via Java laat zien hoe je een website‑hyperlink aan een vorm kunt toevoegen:
 ```python
 import jpype
 import asposeslides
@@ -97,10 +93,9 @@ finally:
 
 ### **URL‑hyperlinks toevoegen aan media**
 
-Aspose.Slides stelt u in staat hyperlinks toe te voegen aan afbeeldingen, audio‑ en videobestanden. 
+Aspose.Slides stelt je in staat hyperlinks toe te voegen aan afbeeldingen, audio‑ en videobestanden. 
 
-Deze voorbeeldcode laat zien hoe u een hyperlink aan een **afbeelding** kunt toevoegen:
-
+Deze voorbeeldcode laat zien hoe je een hyperlink aan een **afbeelding** toevoegt:
 ```python
 import jpype
 import asposeslides
@@ -118,7 +113,7 @@ try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # Maakt een afbeeldingsframe op dia 1 op basis van de eerder toegevoegde afbeelding
+    # Maakt een afbeeldingframe op dia 1 gebaseerd op eerder toegevoegde afbeelding
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -129,8 +124,7 @@ finally:
     presentation.dispose()
 ```
 
-Deze voorbeeldcode laat zien hoe u een hyperlink aan een **audio‑bestand** kunt toevoegen:
-
+Deze voorbeeldcode laat zien hoe je een hyperlink aan een **audiobestand** toevoegt:
 ```python
 from pathlib import Path
 
@@ -157,8 +151,7 @@ finally:
     presentation.dispose()
 ```
 
-Deze voorbeeldcode laat zien hoe u een hyperlink aan een **video** kunt toevoegen:
-
+Deze voorbeeldcode laat zien hoe je een hyperlink aan een **video** toevoegt:
 ```python
 from pathlib import Path
 
@@ -186,17 +179,14 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}} 
-
-U kunt wellicht *[OLE beheren](/slides/nl/python-java/manage-ole/)* bekijken.
-
+Je wilt misschien *[OLE beheren](/slides/nl/python-java/manage-ole/)* zien.
 {{% /alert %}}
 
 ## **Hyperlinks gebruiken om een inhoudsopgave te maken**
 
-Omdat hyperlinks u in staat stellen verwijzingen naar objecten of locaties toe te voegen, kunt u ze gebruiken om een inhoudsopgave te maken. 
+Aangezien hyperlinks je in staat stellen verwijzingen naar objecten of plaatsen toe te voegen, kun je ze gebruiken om een inhoudsopgave te maken. 
 
-Deze voorbeeldcode laat zien hoe u een inhoudsopgave met hyperlinks kunt maken:
-
+Deze voorbeeldcode laat zien hoe je een inhoudsopgave met hyperlinks maakt:
 ```python
 import jpype
 import asposeslides
@@ -239,10 +229,9 @@ finally:
 
 ### **Kleur**
 
-Met de eigenschap [Hyperlink.setColorSource](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/#setColorSource) in de klasse [Hyperlink](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/) kunt u de kleur van hyperlinks instellen en ook de kleurinformatie van hyperlinks ophalen. Deze functie werd voor het eerst geïntroduceerd in PowerPoint 2019, waardoor wijzigingen met betrekking tot deze eigenschap niet van toepassing zijn op oudere PowerPoint‑versies.
+Met de eigenschap [Hyperlink.setColorSource](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/#setColorSource) in de klasse [Hyperlink](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/) kun je de kleur voor hyperlinks instellen en ook de kleurinformatie van hyperlinks ophalen. De functionaliteit werd voor het eerst geïntroduceerd in PowerPoint 2019, dus wijzigingen met betrekking tot deze eigenschap zijn niet van toepassing op oudere PowerPoint‑versies.
 
-Deze voorbeeldcode demonstreert een bewerking waarbij hyperlinks met verschillende kleuren aan dezelfde dia werden toegevoegd:
-
+Deze voorbeeldcode demonstreert een bewerking waarbij hyperlinks met verschillende kleuren aan dezelfde dia worden toegevoegd:
 ```python
 import jpype
 import asposeslides
@@ -277,8 +266,7 @@ finally:
 
 ### **Hyperlinks uit tekst verwijderen**
 
-Deze Python‑code toont hoe u de hyperlink uit een tekst in een presentatiedia kunt verwijderen:
-
+Deze Python‑code laat zien hoe je de hyperlink uit tekst op een presentatiedia verwijdert:
 ```python
 import jpype
 import asposeslides
@@ -306,8 +294,7 @@ finally:
 
 ### **Hyperlinks uit vormen of frames verwijderen**
 
-Deze Python‑code toont hoe u de hyperlink uit een vorm in een presentatiedia kunt verwijderen: 
-
+Deze Python‑code laat zien hoe je de hyperlink uit een vorm op een presentatiedia verwijdert:
 ```python
 import jpype
 import asposeslides
@@ -327,9 +314,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Veranderlijke hyperlink**
+## **Aanpasbare hyperlink**
 
-De klasse [Hyperlink](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/) is veranderbaar. Met deze klasse kunt u de waarden van de volgende eigenschappen wijzigen:
+De klasse [Hyperlink](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/) is aanpasbaar. Met deze klasse kun je de waarden van de volgende eigenschappen wijzigen:
 
 - [setTargetFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -337,10 +324,9 @@ De klasse [Hyperlink](https://reference.aspose.com/slides/nl/python-java/aspose.
 - [setHighlightClick](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-Het codefragment toont hoe u een hyperlink aan een dia kunt toevoegen en later de tooltip ervan kunt bewerken:
-
+Het codefragment laat zien hoe je een hyperlink aan een dia toevoegt en later de tooltip bewerkt:
 ```python
-import jpype
+import jpage
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -368,13 +354,13 @@ finally:
 
 ## **Ondersteunde eigenschappen in HyperlinkQueries**
 
-U kunt [HyperlinkQueries](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlinkqueries/) benaderen vanuit een presentatie, dia of tekst waarvoor de hyperlink is gedefinieerd. 
+Je kunt [HyperlinkQueries](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlinkqueries/) benaderen vanuit een presentatie, dia of tekst waarvoor de hyperlink is gedefinieerd. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nl/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nl/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-De klasse [HyperlinkQueries](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlinkqueries/) ondersteunt de volgende methoden en eigenschappen: 
+De klasse [HyperlinkQueries](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlinkqueries/) ondersteunt deze methoden en eigenschappen: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nl/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
@@ -383,14 +369,14 @@ De klasse [HyperlinkQueries](https://reference.aspose.com/slides/nl/python-java/
 
 ## **FAQ**
 
-**Hoe kan ik interne navigatie maken, niet alleen naar een dia, maar naar een “sectie” of de eerste dia van een sectie?**
+**Hoe kan ik interne navigatie creëren, niet alleen naar een dia, maar naar een "sectie" of de eerste dia van een sectie?**
 
-Secties in PowerPoint zijn groeperingen van dia’s; navigatie richt zich technisch op een specifieke dia. Om “naar een sectie te navigeren”, linkt u meestal naar de eerste dia van die sectie.
+Secties in PowerPoint zijn groeperingen van dia's; navigatie richt zich technisch gezien op een specifieke dia. Om "naar een sectie te navigeren" link je meestal naar de eerste dia van die sectie.
 
-**Kan ik een hyperlink aan elementen van de masterdia koppelen zodat die op alle dia’s werkt?**
+**Kan ik een hyperlink aan elementen van de master‑dia koppelen zodat deze op alle dia's werkt?**
 
-Ja. Elementen van de masterdia en lay‑out ondersteunen hyperlinks. Dergelijke links verschijnen op onderliggende dia’s en zijn klikbaar tijdens de diavoorstelling.
+Ja. Elementen van de master‑dia en lay‑out ondersteunen hyperlinks. Dergelijke links verschijnen op onderliggende dia's en zijn klikbaar tijdens de diavoorstelling.
 
 **Worden hyperlinks behouden bij het exporteren naar PDF, HTML, afbeeldingen of video?**
 
-Ja, in [PDF](/slides/nl/python-java/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/python-java/convert-powerpoint-to-html/) worden koppelingen over het algemeen behouden. Bij exporteren naar [afbeeldingen](/slides/nl/python-java/convert-powerpoint-to-png/) en [video](/slides/nl/python-java/convert-powerpoint-to-video/) blijft de klikbaarheid niet behouden vanwege de aard van die formaten (raster‑frames/video ondersteunen geen hyperlinks).
+In [PDF](/slides/nl/python-java/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/python-java/convert-powerpoint-to-html/) ja—links worden doorgaans behouden. Bij export naar [afbeeldingen](/slides/nl/python-java/convert-powerpoint-to-png/) en [video](/slides/nl/python-java/convert-powerpoint-to-video/) is klikbaarheid niet meer aanwezig vanwege de aard van die formaten (raster‑frames/video ondersteunen geen hyperlinks).

@@ -1,5 +1,5 @@
 ---
-title: Správa BLOB prezentací v Pythonu přes Java pro efektivní využití paměti
+title: Správa BLOBů prezentace v Pythonu přes Java pro efektivní využití paměti
 linktitle: Spravovat BLOB
 type: docs
 weight: 10
@@ -21,33 +21,31 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Spravujte BLOB data v Aspose.Slides pro Python přes Java, abyste zefektivnili operace se soubory PowerPoint a OpenDocument a dosáhli efektivního zpracování prezentací."
+description: "Spravujte BLOB data v Aspose.Slides pro Python přes Java, aby byl zjednodušený provoz souborů PowerPoint a OpenDocument pro efektivní zpracování prezentací."
 ---
 ## **Přehled**
 
-Aspose.Slides poskytuje zpracování založené na BLOB pro velká binární data v prezentacích, což pomáhá snížit spotřebu paměti při práci s velkými obrázky, zvukem, videem a soubory prezentací.
+Aspose.Slides poskytuje zpracování založené na BLOB pro velká binární data v prezentacích, aby pomohlo snížit spotřebu paměti při práci s velkými obrázky, zvuky, videi a soubory prezentací.
 
-Tento článek ukazuje, jak použít zpracování založené na BLOB k přidání velkých multimédií do prezentace, exportu velkých multimédií z prezentace a efektivnějšímu načtení velkých prezentací. Také vysvětluje, jak lze během zpracování použít dočasné soubory a jak změnit složku, ve které jsou ukládány.
+Tento článek ukazuje, jak použít zpracování založené na BLOB pro přidání velkých médií do prezentace, export velkých médií z prezentace a efektivnější načítání velkých prezentací. Také vysvětluje, jak lze během zpracování používat dočasné soubory a jak změnit složku, ve které jsou uloženy.
 
 ## **O BLOB**
 
-**BLOB** (**Binary Large Object**) je obvykle velká položka (fotografie, prezentace, dokument nebo multimédia) uložená v binárním formátu.
+**BLOB** (**Binary Large Object**) je obvykle velká položka (fotografie, prezentace, dokument nebo média) uložená v binárním formátu.
 
-Aspose.Slides for Python via Java vám umožňuje používat BLOB pro objekty způsobem, který snižuje spotřebu paměti při práci s velkými soubory.
+Aspose.Slides for Python via Java vám umožňuje používat BLOBy pro objekty způsobem, který snižuje spotřebu paměti při práci s velkými soubory.
 
 {{% alert color="info" title="Note" %}}
-
-To circumvent certain limitations when interacting with streams, Aspose.Slides may copy the stream's content. Loading a large presentation through its stream will result in the copying of the presentation's contents and cause slow loading. Therefore, when you intend to load a large presentation, we strongly recommend that you use the presentation file path and not its stream.
-
+Aby se obešla určitá omezení při práci se streamy, Aspose.Slides může zkopírovat obsah streamu. Načtení velké prezentace přes její stream povede ke kopírování obsahu prezentace a způsobí pomalé načítání. Proto, když chcete načíst velkou prezentaci, důrazně doporučujeme použít cestu k souboru prezentace a ne její stream.
 {{% /alert %}}
 
-## **Použít BLOB ke snížení spotřeby paměti**
+## **Použijte BLOBy ke snížení spotřeby paměti**
 
-### **Přidání velkého souboru pomocí BLOB do prezentace**
+### **Přidání velkého souboru do prezentace pomocí BLOBů**
 
-[Aspose.Slides](/slides/cs/python-java/) for Python via Java vám umožňuje přidat velké soubory (v tomto případě velký video soubor) prostřednictvím procesu zahrnujícího BLOB, aby se snížila spotřeba paměti.
+[Aspose.Slides](/slides/cs/python-java/) for Python via Java umožňuje přidávat velké soubory (v tomto případě velký video soubor) pomocí procesu zahrnujícího BLOBy ke snížení spotřeby paměti.
 
-Tento Python kód vám ukazuje, jak přidat velký video soubor pomocí procesu BLOB do prezentace:
+Tento Python kód vám ukazuje, jak přidat velký video soubor pomocí BLOB procesu do prezentace:
 
 ```python
 import jpype
@@ -66,11 +64,11 @@ presentation = Presentation()
 try:
     file_stream = FileInputStream(path_to_very_large_video)
     try:
-        # Zachovejte stream zamčený, protože neplánujeme přistupovat k video souboru.
+        # Uchovejte stream uzamčený, protože neplánujeme přistupovat k video souboru.
         video = presentation.getVideos().addVideo(file_stream, LoadingStreamBehavior.KeepLocked)
         presentation.getSlides().get_Item(0).getShapes().addVideoFrame(0, 0, 480, 270, video)
 
-        # Uložte prezentaci a současně udržujte nízkou spotřebu paměti.
+        # Save the presentation while keeping memory consumption low.
         presentation.save("presentationWithLargeVideo.pptx", SaveFormat.Pptx)
     finally:
         file_stream.close()
@@ -78,9 +76,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Export velkého souboru pomocí BLOB z prezentace**
+### **Exportování velkého souboru z prezentace pomocí BLOBů**
 
-Aspose.Slides for Python via Java umožňuje exportovat velké soubory (v tomto případě audio‑ nebo video soubor) prostřednictvím procesu zahrnujícího BLOB z prezentací. Například můžete potřebovat extrahovat velký multimediální soubor z prezentace, ale nechcete, aby byl soubor načten do paměti počítače. Exportováním souboru pomocí procesu BLOB udržíte spotřebu paměti nízkou.
+Aspose.Slides for Python via Java vám umožňuje exportovat velké soubory (v tomto případě audio nebo video soubor) pomocí procesu zahrnujícího BLOBy z prezentací. Například můžete potřebovat extrahovat velký mediální soubor z prezentace, ale nechcete, aby byl soubor načten do paměti počítače. Exportováním souboru pomocí BLOB procesu udržíte spotřebu paměti nízkou.
 
 Tento kód v Pythonu demonstruje popsanou operaci:
 
@@ -96,7 +94,7 @@ from asposeslides.api import LoadOptions, Presentation, PresentationLockingBehav
 huge_presentation_file = "LargeVideoFileTest.pptx"
 
 load_options = LoadOptions()
-# Zamkněte zdrojový soubor místo načtení do paměti.
+# Uzamkněte zdrojový soubor místo načítání do paměti.
 load_options.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked)
 
 presentation = Presentation(huge_presentation_file, load_options)
@@ -107,7 +105,7 @@ try:
     for index in range(presentation.getVideos().size()):
         video = presentation.getVideos().get_Item(index)
 
-        # Použijte stream místo načtení celého videa do pole bajtů.
+        # Použijte stream místo načítání celého videa do pole bajtů.
         video_stream = video.getStream()
         try:
             with open(f"video{index}.avi", "wb") as output_stream:
@@ -125,9 +123,9 @@ finally:
 
 ### **Přidání obrázku jako BLOB do prezentace**
 
-S metodami třídy [ImageCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagecollection/) můžete přidat velký obrázek jako stream, aby byl zpracován jako BLOB.
+Pomocí metod třídy [ImageCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/imagecollection/) můžete přidat velký obrázek jako stream, aby byl považován za BLOB.
 
-Tento Python kód vám ukazuje, jak přidat velký obrázek pomocí procesu BLOB:
+Tento Python kód vám ukazuje, jak přidat velký obrázek pomocí BLOB procesu:
 
 ```python
 import jpype
@@ -146,11 +144,11 @@ presentation = Presentation()
 try:
     file_stream = FileInputStream(path_to_large_image)
     try:
-        # Zamkněte stream, protože neplánujeme přístup k souboru obrázku.
+        # Uchovejte stream uzamčený, protože neplánujeme přistupovat k souboru obrázku.
         image = presentation.getImages().addImage(file_stream, LoadingStreamBehavior.KeepLocked)
         presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 300, 200, image)
 
-        # Uložte prezentaci a zároveň udržujte nízkou spotřebu paměti.
+        # Uložte prezentaci při zachování nízké spotřeby paměti.
         presentation.save("presentationWithLargeImage.pptx", SaveFormat.Pptx)
     finally:
         file_stream.close()
@@ -160,9 +158,9 @@ finally:
 
 ## **Paměť a velké prezentace**
 
-Obvykle pro načtení velké prezentace počítače potřebují hodně dočasné paměti. Veškerý obsah prezentace se načte do paměti a soubor (ze kterého byla prezentace načtena) přestane být používán.
+Obvykle pro načtení velké prezentace počítače vyžadují hodně dočasné paměti. Veškerý obsah prezentace se načte do paměti a soubor (ze kterého byla prezentace načtena) se přestane používat.
 
-Uvažujme velkou PowerPoint prezentaci (large.pptx), která obsahuje 1,5 GB video soubor. Standardní metoda načítání prezentace je popsána v tomto Python kódu:
+Uvažujme velkou PowerPoint prezentaci (large.pptx), která obsahuje video soubor o velikosti 1,5 GB. Standardní metoda načtení prezentace je popsána v tomto Python kódu:
 
 ```python
 import jpype
@@ -184,7 +182,7 @@ Tato metoda však spotřebuje přibližně 1,6 GB dočasné paměti.
 
 ### **Načtení velké prezentace jako BLOB**
 
-Prostřednictvím procesu zahrnujícího BLOB můžete načíst velkou prezentaci při minimální spotřebě paměti. Tento Python kód popisuje implementaci, kde je proces BLOB použit k načtení velkého souboru prezentace (large.pptx):
+Pomocí zpracování BLOB můžete načíst velkou prezentaci s malou spotřebou paměti. Tento Python kód ukazuje, jak použít BLOB zpracování k načtení velkého souboru prezentace (large.pptx):
 
 ```python
 import jpype
@@ -208,7 +206,7 @@ finally:
 
 ### **Změna složky pro dočasné soubory**
 
-Když je použit proces BLOB, počítač vytváří dočasné soubory ve výchozí složce pro dočasné soubory. Pokud chcete, aby byly dočasné soubory uchovávány v jiné složce, můžete změnit nastavení úložiště pomocí [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath):
+Když je použit BLOB proces, váš počítač vytváří dočasné soubory ve výchozí složce pro dočasné soubory. Pokud chcete, aby byly dočasné soubory uloženy v jiné složce, můžete změnit nastavení úložiště pomocí [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath):
 
 ```python
 import jpype
@@ -226,14 +224,12 @@ load_options.getBlobManagementOptions().setTempFilesRootPath("temp")
 ```
 
 {{% alert color="info" title="Note" %}}
-
-When you use [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath), Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually.
-
+Když použijete [BlobManagementOptions.setTempFilesRootPath](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/#setTempFilesRootPath), Aspose.Slides automaticky nevytvoří složku pro ukládání dočasných souborů. Složku musíte vytvořit ručně.
 {{% /alert %}}
 
 ### **Uvolnění objektů prezentace pro uvolnění paměti**
 
-Při zpracování velkých prezentací zajistěte, aby instance [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) byla řádně uvolněna, aby se uvolnila paměť, kterou zabírala. Po dokončení práce s prezentací zavolejte [Presentation.dispose](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#dispose), abyste uvolnili neřízené zdroje.
+Při zpracování velkých prezentací zajistěte, aby instance [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) byla řádně uvolněna, aby byla paměť, kterou zabírala, uvolněna. Po dokončení práce s prezentací zavolejte [Presentation.dispose](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#dispose), abyste uvolnili neřízené prostředky.
 
 ```python
 import jpype
@@ -257,20 +253,20 @@ finally:
 
 **Jaká data v prezentaci Aspose.Slides jsou považována za BLOB a řízena možnostmi BLOB?**
 
-Velké binární objekty, jako jsou obrázky, audio a video, jsou považovány za BLOB. Celý soubor prezentace také podléhá zpracování BLOB při načítání nebo ukládání. Tyto objekty jsou spravovány zásadami BLOB, které vám umožňují řídit využití paměti a přechod na dočasné soubory podle potřeby.
+Velké binární objekty jako obrázky, audio a video jsou považovány za BLOBy. Celý soubor prezentace také zahrnuje zpracování BLOB při načítání nebo ukládání. Tyto objekty jsou řízeny politikami BLOB, které vám umožňují spravovat využití paměti a přesměrování do dočasných souborů podle potřeby.
 
-**Kde mohu během načítání prezentace nakonfigurovat pravidla zpracování BLOB?**
+**Kde mohu konfigurovat pravidla zpracování BLOB během načítání prezentace?**
 
-Použijte [LoadOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/loadoptions/) spolu s [BlobManagementOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/). Zde nastavíte limit paměti pro BLOB, povolíte nebo zakážete dočasné soubory, zvolíte kořenovou cestu pro dočasné soubory a vyberete chování zamykání zdroje.
+Použijte [LoadOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/loadoptions/) s [BlobManagementOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/). Zde nastavíte limit paměti pro BLOBy, povolíte nebo zakážete dočasné soubory, zvolíte kořenovou cestu pro dočasné soubory a nastavíte chování uzamykání zdroje.
 
-**Ovlivňují nastavení BLOB výkon a jak najít rovnováhu mezi rychlostí a pamětí?**
+**Ovlivňují nastavení BLOB výkon a jak vyvážit rychlost versus paměť?**
 
-Ano. Udržování BLOB v paměti maximalizuje rychlost, ale zvyšuje spotřebu RAM; snížení limitu paměti přesune více práce na dočasné soubory, čímž snižuje RAM za cenu dodatečného I/O. Použijte metodu [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory) k dosažení správné rovnováhy pro vaše zatížení a prostředí.
+Ano. Udržování BLOBů v paměti maximalizuje rychlost, ale zvyšuje spotřebu RAM; snížení limitu paměti přesune více práce do dočasných souborů, čímž snižuje RAM za cenu dalšího I/O. Použijte metodu [setMaxBlobsBytesInMemory](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/#setMaxBlobsBytesInMemory) k dosažení správné rovnováhy pro vaše pracovní zatížení a prostředí.
 
-**Pomáhají možnosti BLOB při otevírání extrémně velkých prezentací (např. v gigabajtech)?**
+**Pomáhají možnosti BLOB při otevírání extrémně velkých prezentací (např. gigabajty)?**
 
-Ano. [BlobManagementOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/) jsou navrženy pro takové scénáře: povolení dočasných souborů a použití zamykání zdroje může významně snížit špičkovou spotřebu RAM a stabilizovat zpracování velmi velkých prezentací.
+Ano. [BlobManagementOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/blobmanagementoptions/) je navrženo pro takové scénáře: povolení dočasných souborů a použití uzamykání zdroje může výrazně snížit špičkovou spotřebu RAM a stabilizovat zpracování velmi velkých prezentací.
 
-**Mohu použít zásady BLOB při načítání ze streamů místo souborů na disku?**
+**Mohu použít politiky BLOB při načítání ze streamů místo souborů na disku?**
 
-Ano. Stejná pravidla platí pro streamy: instance prezentace může vlastnit a zamknout vstupní stream (v závislosti na zvoleném režimu zamykání) a dočasné soubory jsou použity, pokud jsou povoleny, což udržuje předvídatelnou spotřebu paměti během zpracování.
+Ano. Stejná pravidla platí pro streamy: instance prezentace může vlastnit a zamknout vstupní stream (v závislosti na zvoleném režimu uzamykání) a dočasné soubory jsou používány, pokud jsou povoleny, což udržuje předvídatelnou spotřebu paměti během zpracování.

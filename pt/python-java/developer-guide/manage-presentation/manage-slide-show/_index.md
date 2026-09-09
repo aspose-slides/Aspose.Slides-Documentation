@@ -5,17 +5,17 @@ type: docs
 weight: 90
 url: /pt/python-java/manage-slide-show/
 keywords:
-- tipo de exibição
-- apresentado pelo palestrante
-- visualizado por indivíduo
-- visualizado em quiosque
-- opções de exibição
+- tipo de apresentação
+- apresentado por palestrante
+- navegado por indivíduo
+- navegado em quiosque
+- opções de apresentação
 - repetir continuamente
-- exibir sem narração
-- exibir sem animação
+- apresentar sem narração
+- apresentar sem animação
 - cor da caneta
 - exibir slides
-- exibição personalizada
+- apresentação personalizada
 - avançar slides
 - manualmente
 - usando tempos
@@ -25,19 +25,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aprenda a gerenciar apresentações de slides no Aspose.Slides para Python via Java. Controle transições de slides, tempos e muito mais em formatos PPT, PPTX e ODP com facilidade."
+description: "Aprenda a gerenciar apresentações de slides no Aspose.Slides para Python via Java. Controle transições de slides, tempos e muito mais nos formatos PPT, PPTX e ODP com facilidade."
 ---
 ## **Introdução**
 
-As opções **Set Up Show** do Microsoft PowerPoint permitem escolher o tipo de apresentação, habilitar a repetição, selecionar slides e controlar como os slides avançam. Com o Aspose.Slides para Python via Java, você pode configurar essas opções programaticamente e salvá-las em um arquivo de apresentação.
+As opções **Set Up Show** do Microsoft PowerPoint permitem escolher o tipo de apresentação, habilitar a repetição, selecionar slides e controlar como os slides avançam. Com Aspose.Slides for Python via Java, você pode configurar essas opções programaticamente e salvar‑las em um arquivo de apresentação.
 
-O método [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getSlideShowSettings) retorna um objeto [SlideShowSettings](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/) que controla essas opções. Os exemplos abaixo requerem o Aspose.Slides para Python via Java e um runtime Java compatível. Cada exemplo inicia a JVM, se necessário, e libera a apresentação ao final.
+O método [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getSlideShowSettings) retorna um objeto [SlideShowSettings](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/) que controla essas opções. Os exemplos abaixo requerem Aspose.Slides for Python via Java e um runtime Java compatível. Cada exemplo inicia a JVM se necessário e libera a apresentação ao terminar.
 
-## **Selecionar Tipo de Exibição**
+## **Selecionar Tipo de Apresentação**
 
-[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setSlideShowType) define o tipo de apresentação de slides, que pode ser uma instância das seguintes classes: [PresentedBySpeaker](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/pt/python-java/aspose.slides/browsedbyindividual/), ou [BrowsedAtKiosk](https://reference.aspose.com/slides/pt/python-java/aspose.slides/browsedatkiosk/). Usar este método permite adaptar a apresentação para diferentes cenários de uso, como quiosques automáticos ou apresentações manuais.
+[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setSlideShowType) define o tipo de apresentação de slides, que pode ser uma instância das seguintes classes: [PresentedBySpeaker](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/pt/python-java/aspose.slides/browsedbyindividual/) ou [BrowsedAtKiosk](https://reference.aspose.com/slides/pt/python-java/aspose.slides/browsedatkiosk/). Usar este método permite adaptar a apresentação para diferentes cenários de uso, como quiosques automatizados ou apresentações manuais.
 
-O exemplo de código abaixo cria uma nova apresentação e define o tipo de exibição como "Browsed by an individual" sem exibir a barra de rolagem.
+O exemplo de código abaixo cria uma nova apresentação e define o tipo de exibição como “Browsed by an individual” sem exibir a barra de rolagem.
 
 ```python
 import jpype
@@ -59,11 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Habilitar Opções de Exibição**
+## **Habilitar Opções de Apresentação**
 
-[SlideShowSettings.setLoop](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setLoop) determina se a apresentação de slides deve repetir em um loop até ser interrompida manualmente. Isso é útil para apresentações automatizadas que precisam ser executadas continuamente. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setShowNarration) determina se as narrações de voz devem ser reproduzidas durante a apresentação de slides. É útil para apresentações automatizadas que contêm orientação de voz para o público. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setShowAnimation) determina se as animações adicionadas aos objetos dos slides devem ser reproduzidas. Isso é útil para proporcionar o efeito visual completo da apresentação.
+[SlideShowSettings.setLoop](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setLoop) determina se a apresentação de slides deve repetir em loop até ser interrompida manualmente. Isso é útil para apresentações automatizadas que precisam executar continuamente. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setShowNarration) determina se narrações de voz devem ser reproduzidas durante a apresentação. É útil para apresentações automatizadas que contêm orientação vocal para o público. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setShowAnimation) determina se animações adicionadas aos objetos dos slides devem ser reproduzidas. Isso é útil para proporcionar o efeito visual completo da apresentação.
 
-O exemplo de código a seguir cria uma nova apresentação e faz a apresentação de slides repetir em loop.
+O exemplo de código a seguir cria uma nova apresentação e repete a apresentação em loop.
 
 ```python
 import jpype
@@ -83,9 +83,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Selecionar Slides a Exibir**
+## **Selecionar Slides para Exibir**
 
-O método [SlideShowSettings.setSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setSlides) permite selecionar um intervalo de slides a serem exibidos durante a apresentação. Isso é útil quando você precisa mostrar apenas parte da apresentação em vez de todos os slides. O exemplo de código a seguir cria uma apresentação com nove slides e seleciona os slides de 2 a 9. O intervalo usa numeração de slides baseada em 1.
+O método [SlideShowSettings.setSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setSlides) permite selecionar um intervalo de slides a serem exibidos durante a apresentação. Isso é útil quando se precisa mostrar apenas parte da apresentação em vez de todos os slides. O exemplo de código a seguir cria uma apresentação com nove slides e seleciona os slides de 2 a 9. O intervalo usa numeração de slides baseada em 1.
 
 ```python
 import jpype
@@ -113,9 +113,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Controlar Avanço de Slides**
+## **Controlar Avanço dos Slides**
 
-O método [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setUseTimings) permite habilitar ou desabilitar o uso de tempos predefinidos para cada slide. Isso é útil para exibir slides automaticamente com durações de exibição predefinidas. O exemplo de código abaixo cria uma nova apresentação e desabilita o uso de tempos.
+O método [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setUseTimings) permite habilitar ou desabilitar o uso de tempos pré‑definidos para cada slide. Isso é útil para avançar os slides automaticamente com durações de exibição predefinidas. O exemplo de código abaixo cria uma nova apresentação e desabilita o uso de tempos.
 
 ```python
 import jpype
@@ -137,16 +137,16 @@ finally:
 
 ## **Exibir Controles de Mídia**
 
-O método [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) determina se os controles de mídia (como reproduzir, pausar e parar) devem ser exibidos durante a apresentação de slides quando conteúdo multimídia (por exemplo, vídeo ou áudio) for reproduzido. Isso é útil quando você deseja dar ao apresentador controle sobre a reprodução de mídia durante a apresentação.
+O método [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) determina se os controles de mídia (como reproduzir, pausar e parar) devem ser exibidos durante a apresentação quando conteúdo multimídia (por exemplo, vídeo ou áudio) é reproduzido. Isso é útil quando se deseja dar ao apresentador controle sobre a reprodução de mídia durante a apresentação.
 
 O exemplo de código a seguir cria uma nova apresentação e habilita a exibição dos controles de mídia.
 
 ```python
-import jpype
+import jpade
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpade.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
@@ -159,16 +159,16 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Perguntas frequentes**
 
-**Posso salvar uma apresentação para que ela abra diretamente no modo de apresentação de slides?**
+**Posso salvar uma apresentação de modo que ela abra diretamente no modo de apresentação?**
 
-Sim. Salve o arquivo como PPSX ou PPSM; esses formatos são iniciados diretamente em modo de apresentação de slides quando abertos no PowerPoint. No Aspose.Slides, escolha o formato de salvamento correspondente [durante a exportação](/slides/pt/python-java/save-presentation/).
+Sim. Salve o arquivo como PPSX ou PPSM; esses formatos são abertos diretamente no modo de apresentação ao serem abertos no PowerPoint. No Aspose.Slides, escolha o formato de salvamento correspondente [durante a exportação](/slides/pt/python-java/save-presentation/).
 
-**Posso excluir slides individuais da apresentação sem excluí-los do arquivo?**
+**Posso excluir slides individuais da apresentação sem removê‑los do arquivo?**
 
-Sim. Marque um slide como [hidden](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/#setHidden). Slides ocultos permanecem na apresentação, mas não são exibidos durante a apresentação de slides.
+Sim. Marque um slide como [hidden](https://reference.aspose.com/slides/pt/python-java/aspose.slides/slide/#setHidden). Slides ocultos permanecem na apresentação, mas não são exibidos durante a apresentação.
 
-**O Aspose.Slides pode reproduzir uma apresentação de slides ou controlar uma apresentação ao vivo na tela?**
+**O Aspose.Slides pode reproduzir uma apresentação ou controlar uma apresentação ao vivo na tela?**
 
-Não. O Aspose.Slides edita, analisa e converte arquivos de apresentação; a reprodução real é realizada por um aplicativo visualizador, como o PowerPoint.
+Não. O Aspose.Slides edita, analisa e converte arquivos de apresentação; a reprodução real é feita por um aplicativo visualizador, como o PowerPoint.

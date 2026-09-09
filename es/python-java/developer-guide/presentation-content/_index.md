@@ -1,6 +1,6 @@
 ---
-title: Gestionar el contenido de la presentación en Python mediante Java
-linktitle: Contenido de la presentación
+title: Gestionar contenido de presentación en Python mediante Java
+linktitle: Contenido de presentación
 type: docs
 weight: 30
 url: /es/python-java/presentation-content/
@@ -8,7 +8,7 @@ keywords:
 - contenido
 - BLOB
 - hipervínculo
-- medios
+- multimedia
 - OLE
 - texto
 - zoom
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Crear, editar y extraer contenido de presentaciones con Aspose.Slides para Python mediante Java; obtenga ejemplos de código para texto, imágenes, formas, gráficos; PPT, PPTX y ODP."
+description: "Crear, editar y extraer contenido de presentación con Aspose.Slides para Python mediante Java — obtener ejemplos de código para texto, imágenes, formas y gráficos en archivos PPT, PPTX y ODP."
 ---

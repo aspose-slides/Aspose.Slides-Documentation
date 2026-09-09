@@ -1,5 +1,5 @@
 ---
-title: Zarządzaj ramkami obrazu w prezentacjach przy użyciu Pythona
+title: Zarządzanie ramkami obrazu w prezentacjach przy użyciu Pythona
 linktitle: Ramka obrazu
 type: docs
 weight: 10
@@ -15,7 +15,7 @@ keywords:
 - obraz SVG
 - przytnij obraz
 - usuń przycięte obszary
-- skompresuj obraz
+- kompresuj obraz
 - StretchOffset
 - formatowanie ramki obrazu
 - skala względna
@@ -27,21 +27,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Twórz, formatuj, linkuj, przycinaj, wyodrębniaj i kompresuj ramki obrazu w prezentacjach przy użyciu Aspose.Slides dla Pythona poprzez Javę."
+description: "Twórz, formatuj, łącz, przycinaj, wyodrębniaj i kompresuj ramki obrazu w prezentacjach przy użyciu Aspose.Slides dla Pythona poprzez Javę."
 ---
 ## **Przegląd**
 
-Obrazek ramka jest kształtem slajdu wyświetlającym obraz. W Aspose.Slides zasób obrazu i kształt, który go wyświetla, są oddzielnymi obiektami: [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) posiada osadzone zasoby obrazów poprzez swoją [ImageCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/imagecollection/), natomiast [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) steruje pozycją obrazu, rozmiarem, formatowaniem linii, obrotem, przycinaniem, efektami obrazu i innymi ustawieniami na poziomie ramki.
+Ramka obrazu jest kształtem slajdu, który wyświetla obraz. W Aspose.Slides zasób obrazu i kształt, który go wyświetla, są oddzielnymi obiektami: [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) posiada osadzone zasoby obrazów poprzez swoją [ImageCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/imagecollection/), natomiast [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) kontroluje pozycję obrazu, rozmiar, formatowanie linii, obrót, przycinanie, efekty obrazu oraz inne ustawienia na poziomie ramki.
 
-To rozdzielenie jest przydatne, gdy ten sam obraz jest wyświetlany więcej niż raz. Dodaj obraz do prezentacji raz, zachowaj zwrócony [PPImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/ppimage/), i używaj tego zasobu obrazu przy tworzeniu ramek obrazu.
+To rozdzielenie jest przydatne, gdy ten sam obraz jest wyświetlany więcej niż raz. Dodaj obraz do prezentacji raz, zachowaj zwrócony [PPImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/ppimage/), i użyj tego zasobu obrazu przy tworzeniu ramek obrazu.
 
-Ramki obrazu mogą zawierać obrazy rastrowe, takie jak PNG lub JPEG, oraz obrazy wektorowe SVG. Mogą także odwoływać się do obrazów powiązanych zamiast przechowywać bajty obrazu w prezentacji. Wybór wpływa na przenośność, rozmiar pliku, wyodrębnianie i zachowanie przy eksporcie, dlatego warto zdecydować, jak obraz ma być przechowywany przed zastosowaniem formatowania lub optymalizacji.
+Ramki obrazu mogą zawierać obrazy rastrowe, takie jak PNG lub JPEG, oraz obrazy wektorowe SVG. Mogą również odwoływać się do obrazów powiązanych zamiast przechowywać bajty obrazu w prezentacji. Wybór wpływa na przenośność, rozmiar pliku, wyodrębnianie i zachowanie przy eksporcie, dlatego warto zdecydować, jak obraz ma być przechowywany przed zastosowaniem formatowania lub optymalizacji.
 
-## **Dodaj i sformatuj osadzony obraz**
+## **Dodaj i formatuj osadzony obraz**
 
-Dla obrazu osadzonego dodaj dane obrazu do prezentacji i utwórz ramkę obrazu przy użyciu [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapecollection/#addPictureFrame). Obraz staje się częścią pakietu prezentacji, więc prezentacja pozostaje samodzielna po przeniesieniu na inny komputer.
+Aby dodać osadzony obraz, dodaj dane obrazu do prezentacji i utwórz ramkę obrazu przy użyciu [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapecollection/#addPictureFrame). Obraz staje się częścią pakietu prezentacji, więc prezentacja pozostaje samodzielna po przeniesieniu na inny komputer.
 
-Poniższy przykład dodaje obraz JPEG, tworzy ramkę w natywnych wymiarach obrazu i stosuje formatowanie linii oraz obrót:
+Poniższy przykład dodaje obraz JPEG, tworzy ramkę o natywnych wymiarach obrazu i stosuje formatowanie linii oraz obrót:
 
 ```python
 import jpype
@@ -74,11 +74,11 @@ finally:
     presentation.dispose()
 ```
 
-Rama obrazu kontroluje wyświetlaną geometrię; zmiana rozmiaru ramki nie zmienia pierwotnych wymiarów pikseli przechowywanych w osadzonym zasobie obrazu. Rozróżnienie to jest istotne przy późniejszym przycinaniu lub kompresji obrazu.
+Ramka obrazu kontroluje wyświetlaną geometrię; zmiana rozmiaru ramki nie zmienia pierwotnych wymiarów w pikselach przechowywanych w osadzonym zasobie obrazu. Rozróżnienie to staje się ważne przy późniejszym przycinaniu lub kompresji obrazu.
 
 ## **Użyj skali względnej**
 
-[PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) udostępnia względne skalowanie szerokości i wysokości ramki poprzez [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) i [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Wartość `1.0` odpowiada 100 % pierwotnego rozmiaru obrazu. Skala względna jest przydatna, gdy przepływ pracy wymaga zachowania stosunku do rozmiaru obrazu źródłowego zamiast ręcznego obliczania wymiarów końcowych.
+[PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) udostępnia względne skalowanie szerokości i wysokości ramki poprzez [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/#setRelativeScaleWidth) i [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/#setRelativeScaleHeight). Wartość `1.0` odpowiada 100 % oryginalnego rozmiaru obrazu. Skala względna jest przydatna, gdy proces wymaga zachowania zależności od rozmiaru obrazu źródłowego zamiast ręcznego obliczania końcowych wymiarów.
 
 ```python
 import jpype
@@ -108,17 +108,17 @@ finally:
     presentation.dispose()
 ```
 
-Skala względna zmienia ustawienia skali ramki; nie powoduje przetworzenia ani kompresji osadzonego obrazu.
+Skala względna zmienia ustawienia skali ramki; nie przetwarza ponownie ani nie kompresuje osadzonego obrazu.
 
 ## **Obrazy osadzone i powiązane**
 
-Obraz osadzony zapisuje dane obrazu wewnątrz prezentacji i jest więc najbezpieczniejszym wyborem pod względem przenośności i przewidywalnego renderowania. Obraz powiązany przechowuje zewnętrzną lokalizację za pomocą metody [Picture.setLinkPathLong](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picture/#setLinkPathLong) zamiast osadzania danych obrazu w ten sam sposób.
+Obraz osadzony przechowuje dane obrazu wewnątrz prezentacji i jest dlatego najbezpieczniejszym wyborem pod względem przenośności i przewidywalnego renderowania. Obraz powiązany przechowuje zewnętrzną lokalizację przy użyciu metody [Picture.setLinkPathLong](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picture/#setLinkPathLong) zamiast osadzania danych obrazu w ten sam sposób.
 
-Obrazy powiązane mogą zmniejszyć ilość danych obrazu przechowywanych w pliku PPTX, ale wprowadzają zewnętrzne zależności. Plik powiązany musi pozostać dostępny dla aplikacji otwierającej lub renderującej prezentację. Jeśli ścieżka się zmieni, plik zostanie przeniesiony lub zasób będzie niedostępny, powiązany obraz może nie zostać wyświetlony zgodnie z oczekiwaniami. Dla prezentacji, które muszą być wysyłane e‑mailem, archiwizowane lub renderowane w odizolowanych środowiskach, obrazy osadzone są zazwyczaj bardziej niezawodne.
+Obrazy powiązane mogą zmniejszyć ilość danych obrazu przechowywanych w pliku PPTX, ale wprowadzają zewnętrzną zależność. Powiązany plik musi pozostać dostępny dla aplikacji otwierającej lub renderującej prezentację. Jeśli ścieżka się zmieni, plik zostanie przeniesiony lub zasób będzie niedostępny, powiązany obraz może nie być wyświetlany zgodnie z oczekiwaniami. Dla prezentacji, które muszą być wysyłane e‑mailem, archiwizowane lub renderowane w odizolowanych środowiskach, obrazy osadzone są zazwyczaj bardziej niezawodne.
 
 ### **Dodaj obraz powiązany**
 
-Poniższy przykład tworzy ramkę obrazu i wskazuje ją na lokalny plik obrazu. Dotyczy wyłącznie powiązania obrazu; powiązanie wideo jest osobnym przepływem multimedialnym i celowo nie jest łączone w tym przykładzie.
+Poniższy przykład tworzy ramkę obrazu i wskazuje ją na lokalny plik obrazu. Dotyczy wyłącznie łączenia obrazów; łączenie wideo to osobny przepływ mediów i zostało celowo pominięte w tym przykładzie.
 
 ```python
 import jpype
@@ -144,15 +144,15 @@ finally:
     presentation.dispose()
 ```
 
-Używaj linków, gdy zarządzanie plikami zewnętrznymi jest zamierzone. Nie używaj ich jedynie jako zamiennika kompresji: mały plik PPTX z uszkodzonymi zależnościami obrazu jest zazwyczaj mniej użyteczny niż większa, samodzielna prezentacja.
+Używaj linków, gdy zarządzanie plikami zewnętrznymi jest zamierzone. Nie stosuj ich jedynie jako zamiennika kompresji: mały PPTX z uszkodzonymi zależnościami obrazów jest zazwyczaj mniej użyteczny niż większa, samodzielna prezentacja.
 
 ## **Wyodrębnij obrazy z ramek obrazu**
 
-Zanim wyodrębnisz obraz z istniejącej prezentacji, sprawdź, czy kształt jest rzeczywiście [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) i czy zawiera osadzony obraz. Powiązane ramki obrazu mogą nie zawierać bajtów obrazu, które można wyodrębnić w ten sam sposób.
+Przed wyodrębnieniem obrazu z istniejącej prezentacji sprawdź, czy kształt jest faktycznie [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) i czy zawiera osadzony obraz. Powiązane ramki obrazu mogą nie zawierać bajtów obrazu, które można wyodrębnić w ten sam sposób.
 
 ### **Wyodrębnij obraz rastrowy**
 
-Nowoczesne API obrazu współpracuje bezpośrednio z obrazami rastrowymi i nie wymaga starszego wrappera Java. Poniższy przykład znajduje pierwszy osadzony rastrowy obraz na slajdzie i zapisuje go jako PNG:
+Nowoczesne API obrazu działa bezpośrednio z obrazami rastrowymi i nie wymaga starszego opakowania Java. Poniższy przykład znajduje pierwszy osadzony obraz rastrowy na slajdzie i zapisuje go jako PNG:
 
 ```python
 import jpype
@@ -186,11 +186,11 @@ finally:
     presentation.dispose()
 ```
 
-Zapis rastrowego obrazu konwertuje wyodrębniony obraz do żądanego formatu wyjściowego. Jeśli potrzebujesz zakodowanych bajtów przechowywanych w prezentacji, a nie skonwertowanego pliku rastrowego, użyj danych binarnych zasobu obrazu.
+Zapis obrazu rastrowego konwertuje wyodrębniony obraz do żądanego formatu wyjściowego. Jeśli potrzebujesz zakodowanych bajtów przechowywanych w prezentacji zamiast przekonwertowanego pliku rastrowego, użyj danych binarnych zasobu obrazu.
 
 ### **Wyodrębnij obraz SVG**
 
-W przypadku obrazu SVG, [PPImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/ppimage/) udostępnia obiekt [SvgImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/svgimage/). Dzięki temu możesz pobrać dane SVG bezpośrednio, zamiast rasteryzować obraz najpierw.
+Dla obrazu SVG, [PPImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/ppimage/) udostępnia obiekt [SvgImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/svgimage/). Pozwala to pobrać dane SVG bezpośrednio, zamiast najpierw rasteryzować obraz.
 
 ```python
 import jpype
@@ -223,13 +223,13 @@ finally:
     presentation.dispose()
 ```
 
-Zachowanie treści SVG jako SVG zachowuje wektorowe źródło w prezentacji. Eksporty rastrowe, takie jak PNG lub JPEG, muszą renderować tę treść wektorową do pikseli. Eksport slajdu do PDF lub SVG również jest operacją renderowania, więc wyeksportowana grafika nie powinna być traktowana jako dokładna kopia oryginalnego osadzonego SVG; użyj danych [SvgImage.getSvgData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/svgimage/#getSvgData), gdy wymagany jest sam wektorowy zasób.
+Utrzymywanie treści SVG jako SVG zachowuje wektorowe źródło w prezentacji. Eksporty rastrowe, takie jak PNG lub JPEG, muszą renderować tę wektorową treść do pikseli. Eksport slajdu do PDF lub SVG również jest operacją renderowania, więc wyeksportowane grafiki nie powinny być traktowane jako bit‑po‑bicie kopia oryginalnego osadzonego SVG; użyj danych [SvgImage.getSvgData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/svgimage/#getSvgData) z osadzonego obiektu, gdy potrzebny jest sam wektorowy zasób.
 
 ## **Przytnij obraz**
 
-Przycinanie zmienia, która część obrazu jest widoczna wewnątrz ramki. Wartości przycięcia w [PictureFillFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/) są procentami wymiarów obrazu źródłowego. Przycinanie nie usuwa od razu ukrytych pikseli z osadzonego obrazu; zmienia jedynie widoczny obszar.
+Przycinanie zmienia, która część obrazu jest widoczna w ramce. Wartości przycięcia w [PictureFillFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/) są procentami wymiarów obrazu źródłowego. Przycinanie nie usuwa początkowo ukrytych pikseli z osadzonego obrazu; zmienia jedynie widoczny obszar.
 
-Poniższy przykład znajduje ramkę obrazu w sposób bezpieczny i stosuje wartości przycięcia:
+Poniższy przykład bezpiecznie znajduje ramkę obrazu i stosuje wartości przycięcia:
 
 ```python
 import jpype
@@ -260,11 +260,11 @@ finally:
     presentation.dispose()
 ```
 
-Ponieważ ukryte dane obrazu nadal istnieją, przycięcie można zmienić później bez utraty oryginalnych pikseli. Jeśli rozmiar pliku ma większe znaczenie niż odwracalność, przycięte obszary mogą być fizycznie usunięte, jak opisano w następnym sekcji.
+Ponieważ ukryte dane obrazu są nadal obecne, przycięcie można zmienić później bez utraty oryginalnych pikseli. Jeśli rozmiar pliku jest ważniejszy niż możliwość odwrócenia, przycięte obszary można fizycznie usunąć, jak opisano w następnym rozdziale.
 
 ## **Usuń przycięte dane obrazu**
 
-[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) usuwa dane obrazu spoza bieżącego prostokąta przycięcia i zwraca powstały zasób obrazu. Może to zmniejszyć rozmiar pliku, ale jest destrukcyjną optymalizacją: po zapisaniu prezentacji usunięte piksele nie są już dostępne dla późniejszej operacji odprzycinania.
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) usuwa dane obrazu znajdujące się poza bieżącym prostokątem przycięcia i zwraca powstały zasób obrazu. Może to zmniejszyć rozmiar pliku, ale jest to destrukcyjna optymalizacja: po zapisaniu prezentacji usunięte piksele nie są już dostępne dla późniejszej operacji przywrócenia przycięcia.
 
 ```python
 import jpype
@@ -293,13 +293,13 @@ finally:
     presentation.dispose()
 ```
 
-Metoda może dodać nowy zasób obrazu do prezentacji. Jeśli oryginalny obraz jest używany także przez inne ramki obrazu, te ramki nadal potrzebują swojego istniejącego zasobu, więc usunięcie przyciętych obszarów niekoniecznie zmniejsza łączną liczbę obrazów. Przycinanie treści WMF lub EMF tą metodą rasteryzuje przycięty wynik do PNG.
+Metoda może dodać nowy zasób obrazu do prezentacji. Jeśli oryginalny obraz jest także używany przez inne ramki obrazu, te ramki nadal potrzebują swojego istniejącego zasobu, więc usunięcie przyciętych obszarów niekoniecznie zmniejsza łączną liczbę obrazów. Przycinanie treści WMF lub EMF tą metodą rasteryzuje przycięty wynik do PNG.
 
 ## **Kompresuj obrazy rastrowe**
 
-[PictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/#compressImage) zmniejsza rozdzielczość obrazu rastrowego względem rozmiaru, w jakim obraz jest wyświetlany. Może także usunąć przycięte obszary w tej samej operacji. Metoda zwraca `True`, gdy obraz został zmieniony rozmiarem lub przycięty oraz `False`, gdy nie było konieczności żadnej zmiany.
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/#compressImage) zmniejsza rozdzielczość obrazu rastrowego względem rozmiaru, w jakim obraz jest wyświetlany. Może również usunąć przycięte obszary w jednej operacji. Metoda zwraca `True`, gdy obraz został zmieniony rozmiarowo lub przycięty oraz `False`, gdy nie było konieczne żadnej zmiany.
 
-Użyj predefiniowanej wartości [PicturesCompression](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturescompression/), gdy wystarcza standardowa docelowa rozdzielczość:
+Użyj predefiniowanej wartości [PicturesCompression](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturescompression/) , gdy wystarcza standardowa docelowa rozdzielczość:
 
 ```python
 import jpype
@@ -328,15 +328,15 @@ finally:
     presentation.dispose()
 ```
 
-Zamiast predefiniowanej wartości można podać własną dodatnią wartość DPI, gdy wymagany jest konkretny cel.
+Można podać własną dodatnią wartość DPI zamiast predefiniowanej, gdy wymagany jest konkretny cel.
 
-Kompresja jest przeznaczona dla obrazów rastrowych. Treść SVG i metaplików nie jest zmniejszana przez ten workflow kompresji rastrowej. Pamiętaj również, że niższa rozdzielczość i usunięte przycięte obszary nie mogą być odzyskane z zoptymalizowanej prezentacji. Wybieraj docelową rozdzielczość na podstawie największego rozmiaru, w jakim obraz będzie rzeczywiście oglądany lub eksportowany, a nie stosuj najniższego DPI globalnie.
+Kompresja jest przeznaczona dla obrazów rastrowych. Treść SVG i metaplików nie jest zmniejszana w tym procesie kompresji rastrowej. Pamiętaj również, że niższa rozdzielczość i usunięte przycięte obszary nie mogą być przywrócone z zoptymalizowanej prezentacji. Wybierz docelową rozdzielczość na podstawie największego rozmiaru, w jakim obraz będzie rzeczywiście oglądany lub eksportowany, zamiast globalnie stosować najniższe DPI.
 
 ## **Zarządzaj efektami transformacji obrazu**
 
-Kompletny workflow obejmujący jasność, kontrast, transformacje kolorów, rozmycie, efekty alfa, łańcuchy uporządkowane, inspekcję, usuwanie oraz weryfikację dwukierunkową znajdziesz w [Image Transform Effects](/slides/pl/python-java/image-transform-effects/).
+Aby uzyskać kompletny przepływ obejmujący jasność, kontrast, transformacje kolorów, rozmycie, efekty alfa, łańcuchy kolejnych operacji, inspekcję, usuwanie i weryfikację dwukierunkową, zobacz [Image Transform Effects](/slides/pl/python-java/image-transform-effects/).
 
-## **Zablokuj geometrie ramki obrazu**
+## **Zablokuj geometrię ramki obrazu**
 
 Ustawienia [PictureFrameLock](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframelock/) kontrolują, które operacje edycji są wyłączone dla ramki obrazu. Na przykład [setAspectRatioLocked](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframelock/#setAspectRatioLocked) zachowuje proporcje kształtu podczas zmiany rozmiaru.
 
@@ -367,13 +367,13 @@ finally:
     presentation.dispose()
 ```
 
-Blokada dotyczy kształtu ramki obrazu. Nie wymusza ona przetworzenia źródłowego obrazu ani trwałej zmiany proporcji.
+Blokada dotyczy kształtu ramki obrazu. Nie wymusza ona ponownego próbkowania lub trwałej zmiany obrazu źródłowego do tego samego stosunku proporcji.
 
 ## **Dostosuj wartości StretchOffset**
 
-Gdy tryb wypełnienia obrazu jest rozciągnięty, wartości stretch‑offset w [PictureFillFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/) definiują prostokąt wypełnienia względem ramki obrazu. Dodatnie procenty tworzą wcięcie od krawędzi, a ujemne procenty tworzą występ.
+Gdy tryb wypełnienia obrazu to stretch, wartości stretch‑offset w [PictureFillFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/) definiują prostokąt wypełnienia względem obwiedni ramki obrazu. Dodatnie wartości procentowe tworzą wcięcie od krawędzi, natomiast ujemne wartości procentowe tworzą występ.
 
-To różni się od przycinania. Wartości przycięcia wybierają, która część obrazu źródłowego jest widoczna; offsety rozciągnięcia zmieniają prostokąt, w którym widoczne wypełnienie obrazu jest rozciągane.
+Jest to inne niż przycinanie. Wartości przycięcia wybierają, która część obrazu źródłowego jest widoczna; offsety rozciągania zmieniają prostokąt, w który widoczne wypełnienie obrazu jest rozciągane.
 
 ```python
 import jpype
@@ -406,43 +406,43 @@ finally:
     presentation.dispose()
 ```
 
-Używaj offsetów rozciągnięcia do pozycjonowania wypełnienia. Używaj właściwości przycięcia, gdy celem jest ukrycie krawędzi obrazu źródłowego.
+Używaj offsetów rozciągania do pozycjonowania wypełnienia. Używaj właściwości przycięcia, gdy celem jest ukrycie krawędzi obrazu źródłowego.
 
-## **Przechowywanie, rozmiar pliku i uwagi przy eksporcie**
+## **Rozważania dotyczące przechowywania, rozmiaru pliku i eksportu**
 
-Główne kompromisy są łatwiejsze do zarządzania, gdy przechowywanie obrazu i formatowanie ramki obrazu są traktowane oddzielnie:
+Główne kompromisy są łatwiejsze do zarządzania, gdy przechowywanie obrazów i formatowanie ramek obrazu są traktowane oddzielnie:
 
-- **Obrazy osadzone** czynią prezentację samodzielną i są najniebardziej niezawodne przy udostępnianiu oraz renderowaniu po stronie serwera, ale duże obrazy rastrowe zwiększają rozmiar PPTX i zużycie pamięci.
-- **Obrazy powiązane** mogą utrzymać mniejszy rozmiar pakietu, ale prezentacja zależy od dostępności plików zewnętrznych pod zapisanymi ścieżkami lub lokalizacjami.
-- **Przycinanie** jest początkowo nie­destrukcyjne. Ukryte piksele pozostają osadzone, dopóki przycięte obszary nie zostaną explicite usunięte lub usunięte podczas kompresji.
-- **Kompresja** może znacznie zmniejszyć rozmiar pliku przy zbyt dużych obrazach rastrowych, ale kosztem utraty rozdzielczości źródła. Powinna być stosowana po określeniu docelowego rozmiaru obrazu na slajdzie.
-- **Obrazy SVG** powinny pozostać jako SVG, gdy ważne jest zachowanie wektora. Wyodrębnij osadzony SVG bezpośrednio, gdy potrzebny jest sam zasób wektorowy. Eksporty slajdów do formatu rastrowego zawsze konwertują renderowany slajd do pikseli.
-- **Powtarzające się obrazy** powinny ponownie używać istniejącego zasobu [PPImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/ppimage/), kiedy to możliwe, zamiast wielokrotnie ładować ten sam plik w przepływie pracy prezentacji.
+- **Osadzone obrazy** sprawiają, że prezentacja jest samodzielna i są najbardziej niezawodne przy udostępnianiu oraz renderowaniu po stronie serwera, ale duże obrazy rastrowe zwiększają rozmiar PPTX i zużycie pamięci.
+- **Powiązane obrazy** mogą utrzymać pakiet mniejszy, ale prezentacja zależy od dostępności zewnętrznych plików w zapisanych ścieżkach lub lokalizacjach.
+- **Przycinanie** jest początkowo niedestrukcyjne. Ukryte piksele pozostają osadzone, dopóki przycięte obszary nie zostaną wyraźnie usunięte lub usunięte podczas kompresji.
+- **Kompresja** może znacznie zmniejszyć rozmiar pliku przy zbyt dużych obrazach rastrowych, ale kosztem utraty rozdzielczości źródłowej. Powinna być stosowana po ustaleniu docelowego rozmiaru na slajdzie.
+- **Obrazy SVG** powinny pozostać jako SVG, gdy ważne jest zachowanie wektora. Wyodrębnij osadzony SVG bezpośrednio, gdy potrzebny jest sam zasób wektorowy. Eksporty slajdów rastrowych zawsze konwertują wyrenderowany slajd na piksele.
+- **Powtarzane obrazy** powinny wykorzystywać istniejący zasób [PPImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/ppimage/) kiedy to możliwe, zamiast wielokrotnego wczytywania tego samego pliku do przepływu pracy prezentacji.
 
-W dużych prezentacjach optymalizacja obrazu jest najskuteczniejsza, gdy jest wykonywana selektywnie: utrzymuj logotypy i diagramy jako zawartość wektorową, kompresuj fotografie zgodnie z ich rzeczywistym rozmiarem wyświetlania, usuwaj przycięte piksele tylko wtedy, gdy dalsza edycja nie jest wymagana, i unikaj linków zewnętrznych, chyba że zarządzanie zależnościami jest częścią projektu wdrożenia.
+W przypadku dużych prezentacji optymalizacja obrazów jest zazwyczaj najskuteczniejsza przy selektywnym stosowaniu: zachowaj logotypy i diagramy jako treść wektorową, kompresuj zdjęcia zgodnie z ich rzeczywistym rozmiarem wyświetlania, usuwaj przycięte piksele tylko gdy późniejsza edycja nie jest wymagana oraz unikaj linków zewnętrznych, chyba że zarządzanie zależnościami jest częścią projektu wdrożenia.
 
 ## **FAQ**
 
 **Jaka jest różnica między ramką obrazu a zasobem obrazu?**
 
-[PPImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/ppimage/) reprezentuje zasób obrazu powiązany z prezentacją. [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) jest kształtem na slajdzie wyświetlającym obraz i przechowuje geometrię oraz formatowanie ramki, takie jak rozmiar, obrót, wartości przycięcia, efekty i blokady.
+[PPImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/ppimage/) reprezentuje zasób obrazu powiązany z prezentacją. [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) jest kształtem na slajdzie, który wyświetla obraz i przechowuje geometrię oraz formatowanie na poziomie ramki, takie jak rozmiar, obrót, wartości przycięcia, efekty i blokady.
 
-**Czy powinienem osadzać czy powiązywać obrazy?**
+**Czy powinienem osadzać czy łączyć obrazy?**
 
-Osadzaj obrazy, gdy prezentacja musi być przenośna, archiwizowana lub renderowana bez dostępu do zasobów zewnętrznych. Powiązuj obrazy tylko wtedy, gdy celowe jest utrzymywanie plików obrazu poza PPTX i miejsca zewnętrzne mogą być niezawodnie utrzymywane.
+Osadzaj obrazy, gdy prezentacja musi być przenośna, archiwizowana lub renderowana bez dostępu do zasobów zewnętrznych. Łącz obrazy tylko wtedy, gdy zamierzone jest trzymanie plików obrazu poza PPTX i lokalizacje zewnętrzne mogą być utrzymywane w sposób niezawodny.
 
 **Czy przycinanie zmniejsza rozmiar pliku PPTX?**
 
-Nie samo w sobie. Normalne ustawienia przycięcia ukrywają części obrazu źródłowego, ale zachowują podkład pikseli. Użyj [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) lub kompresji obrazu z usuwaniem przyciętych obszarów, gdy te piksele mogą być trwale odrzucone.
+Nie samo w sobie. Normalne ustawienia przycięcia ukrywają części obrazu źródłowego, ale zachowują ukryte piksele. Użyj [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) lub kompresji obrazu z usuwaniem przyciętych obszarów, gdy te piksele mogą być trwale odrzucone.
 
 **Czy mogę przywrócić jakość obrazu po kompresji?**
 
-Nie. Kompresja może zmniejszyć przechowywaną rozdzielczość rastrową, a usunięcie przyciętych regionów usuwa dane obrazu. Zachowaj oryginalny obraz źródłowy poza prezentacją, jeśli później może być potrzebna edycja w wysokiej rozdzielczości.
+Nie. Kompresja może obniżyć przechowywaną rozdzielczość rastrową, a usuwanie przyciętych obszarów odrzuca dane obrazu. Przechowaj oryginalny obraz źródłowy poza prezentacją, jeśli późniejsza edycja w wysokiej rozdzielczości może być potrzebna.
 
-**Jak należy postępować z obrazami SVG?**
+**Jak należy obsługiwać obrazy SVG?**
 
-Trzymaj treść SVG jako SVG, gdy liczy się wierność wektora. Osadzony [SvgImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/svgimage/) może być wyodrębniony bezpośrednio. Renderowanie slajdu do formatu rastrowego takiego jak PNG lub JPEG rasteryzuje SVG jako część obrazu slajdu.
+Utrzymuj treść SVG jako SVG, gdy ważna jest wierność wektora. Osadzony [SvgImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/svgimage/) można wyodrębnić bezpośrednio. Renderowanie slajdu do formatu rastrowego, takiego jak PNG lub JPEG, rasteryzuje SVG jako część obrazu slajdu.
 
 **Jak uniknąć niebezpiecznych rzutowań przy odczycie istniejących slajdów?**
 
-Sprawdź typ kształtu przed użyciem członków specyficznych dla ramki obrazu. Kontrola `isinstance` względem [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) zapobiega nieprawidłowym rzutowaniom i pozwala kodowi obsłużyć slajdy, które nie zawierają ramek obrazu.
+Sprawdź typ kształtu przed użyciem członków specyficznych dla ramki obrazu. Sprawdzanie `isinstance` względem [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) unika nieprawidłowych rzutowań i pozwala kodowi obsłużyć slajdy, które nie zawierają ramek obrazu.

@@ -1,5 +1,5 @@
 ---
-title: Kelola Konten Presentasi di Python via Java
+title: Kelola Konten Presentasi di Python melalui Java
 linktitle: Konten Presentasi
 type: docs
 weight: 30
@@ -11,7 +11,7 @@ keywords:
 - media
 - OLE
 - teks
-- zoom
+- perbesar
 - bagan
 - persamaan
 - bentuk
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Buat, edit, dan ekstrak konten presentasi dengan Aspose.Slides untuk Python via Java—dapatkan contoh kode untuk teks, gambar, bentuk, bagan; PPT, PPTX, dan ODP."
+description: "Buat, edit, dan ekstrak konten presentasi dengan Aspose.Slides untuk Python melalui Java—dapatkan contoh kode untuk teks, gambar, bentuk, dan bagan dalam file PPT, PPTX, dan ODP."
 ---
