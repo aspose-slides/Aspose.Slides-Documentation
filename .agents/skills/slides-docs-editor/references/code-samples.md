@@ -1,8 +1,7 @@
 # Code samples
 
 Every sample must be self-contained and valid for its platform: include imports/usings and label the
-code fence. [validation.md](validation.md) is the single source of truth for validation scope,
-required checks, completion criteria, and final reporting.
+code fence.
 
 Do not use `throw` statements in documentation samples. Handle missing objects, unexpected types,
 and unavailable data with conditional branches and non-throwing diagnostic output.
@@ -30,45 +29,12 @@ write `Fonts::GetScriptFont`, not `Fonts::GetScriptFont()`.
 - When a disposable object is created before a `try` block, dispose it directly in `finally` without
   a null check. Keep a null guard only when construction occurs inside `try` and may fail before assignment.
 
-## Java and Android via Java
+## Platform rules
 
-- Put import declarations at the beginning of every code block and reference imported types by their
-  short names. Do not use fully qualified class names in sample bodies.
+Read only the applicable style/API reference:
 
-## Python via Java
-
-- Prefer Python's standard file I/O (`pathlib.Path` or `open`) for reading and writing files.
-  Pass a string path directly when the API supports it. Use Java types or I/O classes only when
-  required by the called API or when the example specifically demonstrates Java streams or BLOB
-  handling. Convert Python data to the required Java type at the API boundary and validate the
-  interoperation with the existing Python via Java snippet checker.
-- Link API mentions to classes and their members in the Python via Java API Reference
-  (`https://reference.aspose.com/slides/python-java/aspose.slides/`). Do not link to interfaces
-  or their members, and do not substitute Java API Reference links.
-- Use the corresponding class names in prose and link labels, such as `Shape`, `TextFrameFormat`,
-  and `ThreeDFormat`. Verify member anchors on the class pages.
-
-## PHP via Java
-
-- Put `use` imports at the beginning of every code block and reference imported types by their short
-  names. Do not use fully qualified class names in sample bodies.
-- In prose, FAQ text, and link labels, separate a PHP class from its method with `::`, as in
-  `Presentation::save`; never write a class-qualified PHP method as `Presentation.save`.
-
-## C#
-
-- Use modern using declarations such as `using var presentation = new Presentation();`.
-- Use `var` where the type is inferred; retain explicit types where C# requires them.
-
-## C++
-
-- Prefer namespace imports after the include declarations and use short class and interface names in
-  sample bodies. Keep a fully qualified name only when needed to resolve an ambiguity.
-- Prefer `auto` for local variables initialized from an expression or simple literal, including
-  loop counters and collection indexes. Retain an explicit type when its width or signedness is
-  semantically important, when it controls overload resolution, or when type deduction would obscure
-  the sample.
-- Prefer owner indexed accessors such as `presentation->get_Slide(0)` and `slide->get_Shape(0)` over
-  fetching a collection solely to call `idx_get(0)`. Use collections for iteration, counting,
-  mutation, or when no direct accessor exists.
-- Assign `ExplicitCast<T>(value)` and other runtime casts to a well-named local before member access.
+- Java or Android via Java: [java](platform-java.md).
+- Python via Java: [python-java](platform-python-java.md).
+- PHP via Java: [php-java](platform-php-java.md).
+- C#: [net](platform-net.md).
+- C++: [cpp](platform-cpp.md).

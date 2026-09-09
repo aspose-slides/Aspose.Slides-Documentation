@@ -28,7 +28,7 @@ Each example starts the Java virtual machine if needed and releases the presenta
 
 ## **Convert a PPT File to PPTX**
 
-Load the source file with the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class, then call [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) with [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx). The `finally` block disposes the presentation and releases its resources.
+Load the source file with the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class, then call [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) with [SaveFormat.Pptx](https://reference.aspose.com/slides/python-java/aspose.slides/saveformat/#Pptx). The `finally` block disposes of the presentation and releases its resources.
 
 ```python
 import jpype

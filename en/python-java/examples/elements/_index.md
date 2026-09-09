@@ -12,5 +12,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Browse Aspose.Slides for Python via Java elements examples: add, style, and animate shapes, text, images, charts, and tables in presentations."
+description: "Browse Aspose.Slides for Python via Java examples of presentation elements: add, style, and animate shapes, text, images, charts, and tables in presentations."
 ---

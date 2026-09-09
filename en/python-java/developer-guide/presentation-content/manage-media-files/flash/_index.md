@@ -21,7 +21,7 @@ This article explains how to extract Flash objects from presentations by using A
 
 ## **Extract Flash Objects from Presentations**
 
-Aspose.Slides for Python via Java provides a facility for extracting flash objects from a presentation. You can access the Flash control by name and extract it from the presentation, including the stored SWF object data.
+Aspose.Slides for Python via Java provides a facility for extracting Flash objects from a presentation. You can access the Flash control by name and extract it from the presentation, including the stored SWF object data.
 
 ```python
 import jpype

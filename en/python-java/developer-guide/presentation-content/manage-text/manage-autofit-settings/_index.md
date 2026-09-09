@@ -5,7 +5,7 @@ type: docs
 weight: 30
 url: /python-java/manage-autofit-settings/
 keywords:
-- textbox
+- text box
 - autofit
 - do not autofit
 - fit text
@@ -23,14 +23,14 @@ description: "Learn how to manage AutoFit settings in Aspose.Slides for Python v
 
 ## **Introduction**
 
-By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fix text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it. 
+By default, when you add a text box, Microsoft PowerPoint uses the **Resize shape to fit text** setting for the text box—it automatically resizes the text box to ensure its text always fits into it.
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+![Text box in PowerPoint](textbox-in-powerpoint.png)
 
-* When the text in the textbox becomes longer or bigger, PowerPoint automatically enlarges the textbox—increases its height—to allow it to hold more text. 
-* When the text in the textbox becomes shorter or smaller, PowerPoint automatically reduces the textbox—decreases its height—to clear redundant space. 
+* When the text in the text box becomes longer or bigger, PowerPoint automatically enlarges the text box—increases its height—to allow it to hold more text.
+* When the text in the text box becomes shorter or smaller, PowerPoint automatically reduces the text box—decreases its height—to remove excess space.
 
-In PowerPoint, these are the 4 important parameters or options that control the autofit behavior for a textbox: 
+In PowerPoint, these are the 4 important parameters or options that control the autofit behavior for a text box:
 
 * **Do not Autofit**
 * **Shrink text on overflow**
@@ -39,15 +39,15 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Python via Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class—that allow you to control the autofit behavior for textboxes in presentations. 
+Aspose.Slides for Python via Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class—that allow you to control the autofit behavior for text boxes in presentations.
 
 ## **Resize a Shape to Fit Text**
 
-If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, use the [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) method (from the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class) with [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/#Shape).
+If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fit text** option. To specify this setting, use the [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) method (from the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class) with [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/#Shape).
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-This Python code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
+This Python code shows you how to specify that text must always fit into its box in a PowerPoint presentation:
 
 ```python
 import jpype
@@ -77,15 +77,15 @@ finally:
     presentation.dispose()
 ```
 
-If the text becomes longer or bigger, the textbox will be automatically resized (increase in height) to ensure all the text fits into it. If the text becomes shorter, the reverse occurs. 
+If the text becomes longer or bigger, the text box will be automatically resized (increase in height) to ensure all the text fits into it. If the text becomes shorter, the reverse occurs.
 
 ## **Do Not Autofit**
 
-If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, use the [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) method (from the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class) with [None](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/#None). 
+If you want a text box or shape to retain its dimensions regardless of changes to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, use the [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) method (from the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class) with [None](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/#None).
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-This Python code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
+This Python code shows you how to specify that a text box must always retain its dimensions in a PowerPoint presentation:
 
 ```python
 import jpype
@@ -108,7 +108,7 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setAutofitType(TextAutofitType.None)
+    text_frame_format.setAutofitType(TextAutofitType.None_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
@@ -119,11 +119,11 @@ When the text becomes too long for its box, it spills out.
 
 ## **Shrink Text on Overflow**
 
-If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, use the [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) method (from the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class) with [Normal](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/#Normal).
+If text becomes too long for its box, you can use the **Shrink text on overflow** option to specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, use the [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) method (from the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class) with [Normal](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/#Normal).
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-This Python code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
+This Python code shows you how to specify that text must be shrunk on overflow in a PowerPoint presentation:
 
 ```python
 import jpype
@@ -161,7 +161,7 @@ When the **Shrink text on overflow** option is used, the setting gets applied on
 
 ## **Wrap Text**
 
-If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to use the [setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) method (from the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class) with [NullableBool.True](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/#True). 
+If you want the text in a shape to wrap inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to use the [setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) method (from the [TextFrameFormat](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/) class) with [NullableBool.True_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/#True).
 
 This Python code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
@@ -186,7 +186,7 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setWrapText(NullableBool.True)
+    text_frame_format.setWrapText(NullableBool.True_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
@@ -195,7 +195,7 @@ finally:
 
 {{% alert title="Warning" color="warning" %}} 
 
-If you use the [setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) method with [NullableBool.False](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/#False) for a shape, when the text inside the shape becomes longer than the shape's width, the text gets extended beyond the shape's borders along a single line. 
+If you use the [setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText) method with [NullableBool.False](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/#False) for a shape, when the text inside the shape becomes longer than the shape's width, the text extends beyond the shape's borders along a single line.
 
 {{% /alert %}}
 
@@ -211,4 +211,4 @@ Forced breaks remain in place, and AutoFit adapts font size and spacing around t
 
 **Does changing the theme font or triggering font substitution affect AutoFit results?**
 
-Yes. Substituting to a font with different glyph metrics changes text width/height, which can alter final font size and line wrapping. After any font change or substitution, re-check the slides.
+Yes. Substituting a font with different glyph metrics changes text width/height, which can alter final font size and line wrapping. After any font change or substitution, re-check the slides.

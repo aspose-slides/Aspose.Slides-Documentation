@@ -15,7 +15,7 @@ keywords:
 description: "Work with text boxes in Aspose.Slides for Python via Java: add, format, find, and remove text in PowerPoint and OpenDocument presentations."
 ---
 
-In **Aspose.Slides for Python via Java**, a text box is an automatic shape that contains text. Nearly any shape can contain text, but a typical text box has no fill or border and displays only text.
+In **Aspose.Slides for Python via Java**, a text box is an auto shape that contains text. Nearly any shape can contain text, but a typical text box has no fill or border and displays only text.
 
 This guide explains how to add, access, and remove text boxes programmatically.
 
