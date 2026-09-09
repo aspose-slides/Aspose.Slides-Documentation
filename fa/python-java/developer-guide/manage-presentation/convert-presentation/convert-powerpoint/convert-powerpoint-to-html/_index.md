@@ -1,50 +1,50 @@
 ---
-title: تبدیل ارائه‌های پاورپوینت به HTML در پایتون با جاوا
-linktitle: پاورپوینت به HTML
+title: تبدیل ارائه‌های PowerPoint به HTML در Python از طریق Java
+linktitle: PowerPoint به HTML
 type: docs
 weight: 30
 url: /fa/python-java/convert-powerpoint-to-html/
 keywords:
-- تبدیل پاورپوینت
+- تبدیل PowerPoint
 - تبدیل ارائه
 - تبدیل اسلاید
 - تبدیل PPT
 - تبدیل PPTX
-- پاورپوینت به HTML
+- PowerPoint به HTML
 - ارائه به HTML
 - اسلاید به HTML
 - PPT به HTML
 - PPTX به HTML
-- ذخیره پاورپوینت به عنوان HTML
-- ذخیره ارائه به عنوان HTML
-- ذخیره اسلاید به عنوان HTML
-- ذخیره PPT به عنوان HTML
-- ذخیره PPTX به عنوان HTML
+- ذخیره PowerPoint به صورت HTML
+- ذخیره ارائه به صورت HTML
+- ذخیره اسلاید به صورت HTML
+- ذخیره PPT به صورت HTML
+- ذخیره PPTX به صورت HTML
 - صدور PPT به HTML
 - صدور PPTX به HTML
-- پایتون
-- جاوا
+- Python
+- Java
 - Aspose.Slides
-description: "پاورپوینت ارائه‌ها را به HTML در پایتون با جاوا تبدیل کنید. از Aspose.Slides برای خروجی‌گیری فایل‌های PPT و PPTX، اسلایدهای انتخابی، یادداشت‌ها، قلم‌ها، تصاویر، SVG و رسانه‌ها استفاده کنید."
+description: "تبدیل ارائه‌های PowerPoint به HTML در Python از طریق Java. از Aspose.Slides برای صدور فایل‌های PPT و PPTX، اسلایدهای انتخابی، یادداشت‌ها، فونت‌ها، تصاویر، SVG و رسانه‌ها استفاده کنید."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-Aspose.Slides for Python via Java می‌تواند ارائه‌های PowerPoint را بدون نیاز به Microsoft PowerPoint به فرم‌ HTML ذخیره کند. تبدیل پایه شامل یک بارگذاری [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) و فراخوانی [save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) با [SaveFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/) است. هنگامی که نیاز به کنترل چیدمان، قلم‌ها، تصاویر، یادداشت‌ها، نظرات، خروجی SVG یا منابع پیوست‌دار دارید، از [HtmlOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/) استفاده کنید.
+Aspose.Slides for Python via Java می‌تواند ارائه‌های PowerPoint را بدون نیاز به Microsoft PowerPoint به HTML ذخیره کند. تبدیل پایه شامل یک بارگذاری [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) و یک فراخوانی [save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) با استفاده از [SaveFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/) است. وقتی نیاز به کنترل طرح خروجی، فونت‌ها، تصاویر، یادداشت‌ها، نظرات، خروجی SVG یا منابع مرتبط دارید، از [HtmlOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/) استفاده کنید.
 
-این راهنما بر سناریوهای عملی خروجی HTML تمرکز دارد:
+این راهنما بر سناریوهای عملی صادرات HTML تمرکز دارد:
 
-- خروجی کل ارائه یا اسلایدهای انتخابی.
-- تولید HTML با چیدمان ثابت، واکنش‌گرا یا مبتنی بر SVG.
-- افزودن یادداشت‌های گوینده و نظرات.
-- کنترل کیفیت تصویر و داده‌های تصویر برش‌خورده.
-- تعبیه قلم‌ها یا ذخیرهٔ فایل‌های قلم به‌صورت جداگانه.
+- صادرات کل ارائه یا اسلایدهای انتخابی.
+- تولید HTML با طرح ثابت، واکنش‌گرا یا مبتنی بر SVG.
+- گنجاندن یادداشت‌های سخنران و نظرات.
+- کنترل کیفیت تصویر و داده‌های تصاویر برش‌خورده.
+- تعبیه فونت‌ها یا ذخیرهٔ فایل‌های فونت به‌صورت جداگانه.
 - انتخاب نحوهٔ نوشتن و ارجاع به منابع خارجی و فایل‌های رسانه‌ای.
 
-به طور پیش‌فرض، خروجی HTML یک سند HTML خودکفا تولید می‌کند که بیشتر منابع درون‌ریز هستند. این برای اشتراک‌گذاری یک فایل راحت است، اما می‌تواند اندازهٔ خروجی را افزایش دهد. برای انتشار وب، استفاده از منابع خارجی، کاهش DPI تصویر و تعبیهٔ تنها قلم‌هایی که به‌اطمینان در محیط هدف موجود نیستند را در نظر بگیرید.
+به‌صورت پیش‌فرض، صادرات HTML یک سند HTML خودکفا تولید می‌کند که در آن اکثر منابع جاسازی شده‌اند. این روش برای به‌اشتراک‌گذاری یک فایل مناسب است، اما می‌تواند حجم خروجی را افزایش دهد. برای انتشار وب، منابع خارجی، DPI تصویر کمتر و فقط تعبیهٔ فونت‌هایی که به‌طور قابل اعتمادی در محیط هدف موجود نیستند را درنظر بگیرید.
 
 ## **تبدیل ارائه به HTML**
 
-برای خروجی یک ارائه به HTML، آن را با [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) بارگذاری کنید و با [SaveFormat.Html](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/#Html) ذخیره کنید.
+برای صادرات یک ارائه به HTML، آن را با [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) بارگیری کنید و با [SaveFormat.Html](https://reference.aspose.com/slides/fa/python-java/aspose.slides/saveformat/#Html) ذخیره کنید.
 
 ```python
 import jpype
@@ -62,27 +62,27 @@ finally:
     presentation.dispose()
 ```
 
-هر مثال `presentation.pptx` را از پوشهٔ کاری جاری بارگذاری می‌کند. قبل از اجرا، Aspose.Slides for Python via Java و یک زمان‌اجرای Java سازگار را نصب کنید. JVM یک‌بار برای هر فرآیند Python راه‌اندازی می‌شود.
+هر مثال `presentation.pptx` را از پوشهٔ کاری فعلی بارگیری می‌کند. قبل از اجرا، Aspose.Slides for Python via Java و یک زمان اجرای Java سازگار را نصب کنید. JVM یک‌بار برای هر پردازش Python راه‌اندازی می‌شود.
 
-این مثال یک فایل HTML می‌نویسد. شیء ارائه در بلوک `finally` حذف می‌شود، که پس از خروجی‌گیری دستگیره‌های فایل و منابع رندر را آزاد می‌کند.
+این مثال یک فایل HTML می‌نویسد. شئ ارائه در بلاک `finally` از بین می‌رود، که پس از صادرات، دستگیره‌های فایل و منابع رندر را آزاد می‌کند.
 
-## **پیکربندی خروجی HTML**
+## **پیکربندی صادرات HTML**
 
-[HtmlOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/) کلاس اصلی پیکربندی برای خروجی HTML است. تنظیمات رایج شامل:
+[HtmlOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/) کلاس اصلی پیکربندی برای صادرات HTML است. تنظیمات رایج شامل موارد زیر می‌شود:
 
-- [setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions): افزودن یادداشت‌ها، نظرات، جزوه‌ها یا سایر اطلاعات چیدمان.
-- [setHtmlFormatter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setHtmlFormatter): تغییر ساختار سند HTML یا واگذاری قالب‌بندی به یک کنترل‌کننده.
-- [setSlideImageFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSlideImageFormat): تغییر نحوهٔ نمایش اسلایدها، مثلاً به صورت SVG.
-- [setPicturesCompression](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setPicturesCompression): کنترل DPI تصویر و اندازهٔ خروجی.
-- [setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setDeletePicturesCroppedAreas): نگه داشتن یا حذف داده‌های تصویر برش‌خورده.
-- [setSvgResponsiveLayout](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout): سازگار کردن محتوای SVG خروجی با محفظهٔ خود.
-- [setShowHiddenSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setShowHiddenSlides): شامل کردن اسلایدهای مخفی در صورت نیاز.
+- [setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions): افزودن یادداشت‌ها، نظرات، جزوات یا سایر اطلاعات طرح.
+- [setHtmlFormatter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setHtmlFormatter): تغییر ساختار سند HTML یا واگذاری فرمت‌دهی به یک کنترل‌کننده.
+- [setSlideImageFormat](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSlideImageFormat): تغییر نحوهٔ نمایش اسلایدها، مثلاً به‌صورت SVG.
+- [setPicturesCompression](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setPicturesCompression): کنترل DPI تصویر و حجم خروجی.
+- [setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setDeletePicturesCroppedAreas): نگه داشتن یا حذف داده‌های تصاویر برش‌خورده.
+- [setSvgResponsiveLayout](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout): سازگار کردن محتوای SVG خروجی با ظرف خود.
+- [setShowHiddenSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setShowHiddenSlides): شامل کردن اسلایدهای مخفی هنگام نیاز.
 
-بخش‌های زیر رایج‌ترین گزینه‌ها را به‌صورت جداگانه نشان می‌دهند تا بتوانید فقط گزینه‌های مورد نیاز جریان کاری خود را ترکیب کنید.
+بخش‌های زیر رایج‌ترین گزینه‌ها را به‌صورت جداگانه نمایش می‌دهند تا بتوانید تنها گزینه‌هایی را که جریان کاری‌تان نیاز دارد ترکیب کنید.
 
 ## **تبدیل اسلایدهای انتخابی به HTML**
 
-بازنویسی [Presentation.save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) که شمارهٔ اسلایدها را می‌پذیرد، از موقعیت‌های 1‑Based استفاده می‌کند. حلقهٔ زیر هر اسلاید را در فایلی HTML جداگانه ذخیره می‌کند.
+متد overload `Presentation.save` که شماره اسلایدها را می‌پذیرد، موقعیت‌های اسلاید را به‌صورت 1‑based در نظر می‌گیرد. حلقهٔ زیر هر اسلاید را در یک فایل HTML جداگانه ذخیره می‌کند.
 
 ```python
 import jpype
@@ -105,11 +105,11 @@ finally:
     presentation.dispose()
 ```
 
-از این الگو زمانی استفاده کنید که یک وب‌سایت یا برنامه به یک صفحهٔ HTML برای هر اسلاید نیاز دارد. اگر هر اسلاید باید همان چیدمان را داشته باشد، یک نمونهٔ [HtmlOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/) ایجاد کنید و آن را به هر فراخوانی [Presentation.save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) پاس دهید.
+از این الگو زمانی استفاده کنید که یک وب‌سایت یا برنامه به یک صفحهٔ HTML برای هر اسلاید نیاز داشته باشد. اگر هر اسلاید باید همان طرح را داشته باشد، یک شیء [HtmlOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/) ایجاد کنید و آن را به هر فراخوانی [Presentation.save](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#save) پاس بدهید.
 
 ## **ایجاد HTML واکنش‌گرا**
 
-[ResponsiveHtmlController](https://reference.aspose.com/slides/fa/python-java/aspose.slides/responsivehtmlcontroller/) خروجی HTML واکنش‌گرا را از طریق [HtmlFormatter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmlformatter/) فراهم می‌کند. هنگامی که صفحهٔ خروجی باید بهتر با عرض مرورگر سازگار شود، از آن استفاده کنید.
+[ResponsiveHtmlController](https://reference.aspose.com/slides/fa/python-java/aspose.slides/responsivehtmlcontroller/) خروجی HTML واکنش‌گرا را از طریق [HtmlFormatter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmlformatter/) فراهم می‌کند. زمانی که صفحهٔ خروجی باید بهتر به عرض مرورگر سازگار شود، از آن استفاده کنید.
 
 ```python
 import jpype
@@ -133,7 +133,7 @@ finally:
     presentation.dispose()
 ```
 
-برای چیدمان واکنش‌گرا بر پایه SVG، متد [HtmlOptions.setSvgResponsiveLayout](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout) را با مقدار `True` صدا بزنید. این زمانی مفید است که محتوای اسلاید به صورت نشانه‌گذاری SVG قابل مقیاس باشد.
+برای طرح واکنش‌گرا مبتنی بر SVG، `HtmlOptions.setSvgResponsiveLayout` را با مقدار `True` فراخوانی کنید. این گزینه زمانی مفید است که محتوای اسلاید به‌صورت علامت‌گذاری SVG مقیاس‌پذیر صادر می‌شود.
 
 ```python
 import jpype
@@ -154,15 +154,15 @@ finally:
     presentation.dispose()
 ```
 
-## **افزودن یادداشت‌های گوینده و نظرات**
+## **گنجاندن یادداشت‌های سخنران و نظرات**
 
-از [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notescommentslayoutingoptions/) از طریق [HtmlOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions) برای شامل‌کردن یادداشت‌های گوینده یا نظرات استفاده کنید. به‌طور پیش‌فرض یادداشت‌ها و نظرات مخفی هستند مگر اینکه موقعیت آن‌ها را انتخاب کنید.
+از [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notescommentslayoutingoptions/) از طریق [HtmlOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions) برای گنجاندن یادداشت‌های سخنران یا نظرات استفاده کنید. به‌طور پیش‌فرض یادداشت‌ها و نظرات مخفی هستند مگر اینکه موقعیت آن‌ها را انتخاب کنید.
 
-فرض کنید ارائهٔ منبع دارای یادداشت‌های گوینده باشد:
+فرض کنید ارائهٔ منبع شامل یادداشت‌های سخنران باشد:
 
-![اسلاید با یادداشت‌های گوینده در PowerPoint](slide_with_notes.png)
+![Slide with speaker notes in PowerPoint](slide_with_notes.png)
 
-کد زیر محتوای اسلاید را به‌همراه یادداشت‌های گوینده زیر اسلاید صادر می‌کند.
+کد زیر محتوی اسلاید را به‌همراه یادداشت‌های سخنران زیر اسلاید صادر می‌کند.
 
 ```python
 import jpype
@@ -186,15 +186,15 @@ finally:
     presentation.dispose()
 ```
 
-HTML خروجی شامل ناحیهٔ یادداشت‌ها خواهد بود:
+HTML صادرشده شامل ناحیهٔ یادداشت‌هاست:
 
-![خروجی HTML با اسلاید و یادداشت‌های گوینده](HTML_with_notes.png)
+![HTML output with the slide and speaker notes](HTML_with_notes.png)
 
-برای خروجی نظرات، متد [NotesCommentsLayoutingOptions.setCommentsPosition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) را صدا بزنید، برای مثال با [CommentsPositions.Right](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentspositions/#Right) یا [CommentsPositions.Bottom](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentspositions/#Bottom). اگر فقط به نظرات نیاز دارید، [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/fa/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) را حذف کنید. اگر به هر دو نیاز دارید، هر دو متد را فراخوانی کنید.
+برای صادرات نظرات، `NotesCommentsLayoutingOptions.setCommentsPosition` را فراخوانی کنید؛ به‌عنوان مثال با [CommentsPositions.Right](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentspositions/#Right) یا [CommentsPositions.Bottom](https://reference.aspose.com/slides/fa/python-java/aspose.slides/commentspositions/#Bottom). اگر فقط به نظرات نیاز دارید، `NotesCommentsLayoutingOptions.setNotesPosition` را حذف کنید. اگر به هر دو نیاز دارید، هر دو متد را فراخوانی کنید.
 
 ## **کنترل کیفیت تصویر و نواحی برش‌خورده**
 
-خروجی HTML می‌تواند تصاویر اسلاید را فشرده کند تا اندازهٔ خروجی کاهش یابد. مقدار موردنظر را به [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setPicturesCompression) از [PicturesCompression](https://reference.aspose.com/slides/fa/python-java/aspose.slides/picturescompression/) پاس دهید وقتی به کیفیت تصویر بالاتری نیاز دارید.
+صادرات HTML می‌تواند تصاویر اسلاید را فشرده کند تا حجم خروجی کاهش یابد. مقدار موردنظر را به `HtmlOptions.setPicturesCompression` از `PicturesCompression` پاس دهید وقتی به کیفیت تصویر بالاتر احتیاج دارید.
 
 ```python
 import jpype
@@ -215,7 +215,7 @@ finally:
     presentation.dispose()
 ```
 
-به‌طور پیش‌فرض، نواحی برش‌خوردهٔ تصاویر ممکن است از خروجی حذف شوند. تنها زمانی داده‌های برش‌خورده را نگه‌دارید که کاربران باید بتوانند این بخش‌های مخفی تصویر را بازیابی یا بررسی کنند. نگه‌داشتن آن می‌تواند اندازهٔ HTML را افزایش دهد.
+به‌صورت پیش‌فرض، نواحی برش‌خوردهٔ تصاویر ممکن است از خروجی حذف شوند. فقط زمانی داده‌های برش‌خورده را نگه دارید که کاربران باید بتوانند آن بخش‌های پنهان تصویر را بازیابی یا بررسی کنند. نگه‌داشتن آن‌ها می‌تواند حجم HTML را افزایش دهد.
 
 ```python
 import jpype
@@ -238,7 +238,7 @@ finally:
 
 ## **افزودن CSS**
 
-برای استایل‌سازی ساده، یک رشتهٔ CSS را به [HtmlFormatter.createDocumentFormatter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmlformatter/#createDocumentFormatter) پاس دهید. این کار سند HTML پیرامونی را تغییر می‌دهد در حالی که Aspose.Slides به رندر محتوای اسلاید ادامه می‌دهد.
+برای استایل ساده، یک رشتهٔ CSS را به `HtmlFormatter.createDocumentFormatter` پاس دهید. این کار ساختار سند HTML پیرامونی را تغییر می‌دهد در حالی که Aspose.Slides همچنان محتوی اسلاید را رندر می‌کند.
 
 ```python
 import jpype
@@ -262,11 +262,11 @@ finally:
     presentation.dispose()
 ```
 
-برای افزودن سرصفحهٔ سفارشی سند، یک فایل CSS پیوندی یا نشانه‌گذاری سفارشی دور اسلایدها و اشکال، از یک کنترل‌کننده قالب‌بندی سفارشی از طریق یک پروکسی رابط JPype استفاده کنید و آن را به [HtmlFormatter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmlformatter/) با [HtmlFormatter.createCustomFormatter](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmlformatter/#createCustomFormatter) پاس دهید.
+برای افزودن سرصفحهٔ سفارشی سند، یک فایل CSS مرتبط یا علامت‌گذاری سفارشی اطراف اسلایدها و اشکال، از یک کنترل‌کنندهٔ فرمت‑دهی سفارشی از طریق یک پراکسی رابط JPype استفاده کنید و آن را به `HtmlFormatter` با `HtmlFormatter.createCustomFormatter` پاس دهید.
 
-## **تعبیهٔ قلم‌ها**
+## **تعبیهٔ فونت‌ها**
 
-اگر محیط هدف ممکن است قلم‌های ارائه را نداشته باشد، با [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/fa/python-java/aspose.slides/embedallfontshtmlcontroller/) قلم‌ها را در HTML تعبیه کنید. تعبیهٔ قلم‌ها وفاداری بصری را بهبود می‌بخشد اما اندازهٔ خروجی را افزایش می‌دهد.
+اگر محیط هدف ممکن است فونت‌های ارائه را نصب نکرده باشد، فونت‌ها را در HTML با `EmbedAllFontsHtmlController` تعبیه کنید. تعبیه به‌دقت بصری کمک می‌کند اما حجم خروجی را افزایش می‌دهد.
 
 ```python
 import jpype
@@ -291,26 +291,26 @@ finally:
     presentation.dispose()
 ```
 
-قلم‌ها را تنها زمانی حذف کنید که مطمئن باشید مرورگرها یا سیستم‌های هدف آن‌ها را قبلاً فراهم کرده‌اند. برای قلم‌های برند یا کمتر رایج، تعبیه معمولاً ایمن‌تر است.
+فقط وقتی مطمئن هستید مرورگرها یا سیستم‌های هدف فونت‌ها را دارند، از تعبیه صرف‌نظر کنید. برای فونت‌های برند یا کمتر رایج، تعبیه معمولاً امن‌تر است.
 
 ## **ذخیرهٔ منابع به‌صورت خارجی**
 
-HTML خودکفا جابجایی آسان دارد، اما منابع Base64 تعبیه‌شده می‌توانند فایل را بزرگ کنند. اگر برنامهٔ شما به فایل‌های تصویر خارجی نیاز دارد، یک کنترل‌کنندهٔ پیوند منابع از طریق پروکسی رابط JPype پیاده‌سازی کنید و آن را به سازندهٔ [HtmlOptions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/) پاس دهید.
+HTML خودکفا جابه‌جایی آسانی دارد، اما منابع Base64 جاسازی‌شده می‌توانند فایل را بزرگ کنند. اگر برنامهٔ شما به فایل‌های تصویر خارجی نیاز دارد، یک کنترل‌کنندهٔ پیوند منابع از طریق پراکسی JPype پیاده‌سازی کنید و به سازندهٔ `HtmlOptions` پاس دهید.
 
-هنگام بیرونی‌سازی منابع، دو مسیر را به‌دقت انتخاب کنید:
+هنگام بیرون‌زدن منابع، دو مسیر را به‌دقت انتخاب کنید:
 
-- مسیر خروجی سیستم‌فایلی که برنامهٔ شما فایل‌های تصویر، قلم، صدا یا ویدیو تولید شده را در آن می‌نویسد.
-- مسیر URL که مرورگر از داخل سند HTML برای بارگذاری آن فایل‌ها استفاده می‌کند.
+- مسیر خروجی سیستم‑فایل، جایی که برنامه‌تان تصاویر، فونت‌ها، صدا یا ویدئوهای تولیدشده را می‌نویسد.
+- مسیر URL، که مرورگر از داخل سند HTML برای بارگذاری آن فایل‌ها استفاده می‌کند.
 
-## **خروجی فایل‌های رسانه‌ای**
+## **صادرات فایل‌های رسانه‌ای**
 
-[VideoPlayerHtmlController](https://reference.aspose.com/slides/fa/python-java/aspose.slides/videoplayerhtmlcontroller/) ویدیو و صدا را خروجی می‌دهد و HTMLی می‌نویسد که می‌تواند در مرورگر پخش شود. سازندهٔ آن شامل:
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/fa/python-java/aspose.slides/videoplayerhtmlcontroller/) ویدئوها و صداها را صادر می‌کند و HTMLی می‌نویسد که می‌تواند آن‌ها را در مرورگر پخش کند. سازندهٔ آن موارد زیر را می‌گیرد:
 
-- `path`: پوشه‌ای که فایل‌های رسانه‌ای تولید شده در آن نوشته می‌شود.
-- `fileName`: نام فایل HTML در حال تولید.
-- `baseUri`: پیشوند URI مطلق که در لینک‌های HTML به فایل‌های رسانه‌ای استفاده می‌شود.
+- `path`: پوشه‌ای که فایل‌های رسانه‌ای تولیدشده در آن نوشته می‌شوند.
+- `fileName`: نام فایل HTML تولیدشده.
+- `baseUri`: پیشوند URI مطلق که در پیوندهای HTML به فایل‌های رسانه‌ای استفاده می‌شود.
 
-مثال زیر رسانه‌های از پیش تعبیه‌شده در `presentation.pptx` را خروجی می‌دهد. HTML تولید شده فقط با نام فایل به فایل‌های رسانه‌ای ارجاع می‌دهد؛ این ارجاع نسبت به سند HTML است، بنابراین `path` باید همان پوشه‌ای باشد که فایل HTML هم در آن ذخیره می‌شود. `baseUri` باید یک URI مطلق باشد: برای پیش‌نمایش محلی، یک URI `file:///` از پوشه خروجی بسازید؛ برای برنامهٔ مستقر، از URL مطلق پوشه‌ی منتشرشده استفاده کنید.
+مثال زیر رسانه‌های از پیش تعبیه‌شده در `presentation.pptx` را صادر می‌کند. HTML تولیدشده فقط با نام فایل به فایل‌های رسانه‌ای ارجاع می‌دهد، نسبی به سند HTML؛ بنابراین `path` باید همان پوشه‌ای باشد که فایل HTML نیز در آن قرار می‌گیرد. `baseUri` باید یک URI مطلق باشد: برای پیش‌نمایش محلی، یک URI `file:///` از پوشه خروجی بسازید؛ برای برنامهٔ مستقر، از URL مطلق پوشهٔ منتشرشده استفاده کنید.
 
 ```python
 import jpype
@@ -345,46 +345,46 @@ finally:
     presentation.dispose()
 ```
 
-از پوشه‌های خروجی که برای هر کار تبدیل منحصر به‌فرد هستند استفاده کنید، به‌ویژه در برنامه‌های سرور. مسیرهای خروجی مشترک می‌توانند باعث شوند فایل‌های تبدیل‌های مختلف روی هم بنویسند.
+برای هر کار صادرات، پوشه‌های خروجی یکتا استفاده کنید، به‌ویژه در برنامه‌های سرور. مسیرهای خروجی مشترک می‌توانند باعث بازنویسی فایل‌های تبدیل‌های مختلف شوند.
 
-## **کارایی و مدیریت منابع**
+## **عملکرد و مدیریت منابع**
 
-تبدیل HTML یک عملیات رندر است، بنابراین زمان پردازش و مصرف حافظه به تعداد اسلایدها، وضوح تصویر، قلم‌ها، افکت‌ها، نمودارها و رسانه‌های تعبیه‌شده بستگی دارد. مقادیر DPI تصویر بالاتر که به [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setPicturesCompression) پاس می‌شوند، قلم‌های تعبیه‌شده، خروجی SVG و نگه‌داشت نواحی برش‌خورده می‌توانند وفاداری را بهبود بخشند اما معمولاً اندازهٔ خروجی را افزایش می‌دهند.
+تبدیل HTML یک عملیات رندر است، بنابراین زمان پردازش و استفاده از حافظه به تعداد اسلایدها، وضوح تصویر، فونت‌ها، افکت‌ها، نمودارها و رسانه‌های جاسازی‌شده وابسته است. مقادیر DPI تصویر بالاتر که به `HtmlOptions.setPicturesCompression` پاس می‌شوند، فونت‌های جاسازی‌شده، خروجی SVG و نگه‌داشتن نواحی برش‌خورده می‌توانند دقت را افزایش دهند اما معمولاً حجم خروجی را بزرگ می‌کنند.
 
 برای تبدیل دسته‌ای:
 
-- هر نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) را بلافاصله حذف کنید.
-- برای کارهای مختلف پوشه‌های خروجی جداگانه استفاده کنید.
-- از تعبیهٔ قلم‌های عمومی صرف‌نظر کنید مگر اینکه وفاداری نیاز داشته باشد.
-- DPI تصویر را هنگام پیش‌نمایش یا تولید تصویرهای کوچک کاهش دهید.
-- ارائهٔ منبع، HTML تولید شده و منابع خارجی را تا زمان نهایی شدن مسیرهای استقرار همراه نگه دارید.
+- هر نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) را بلافاصله پس از استفاده آزاد کنید.
+- برای هر کار پوشهٔ خروجی جداگانه استفاده کنید.
+- مگر اینکه دقت بصری ضروری باشد، از تعبیهٔ فونت‌های رایج خودداری کنید.
+- برای پیش‌نمایش یا تصویرهای بندانگشتی، DPI تصویر را کمتر کنید.
+- تا زمانی که مسیرهای انتشار نهایی شوند، ارائهٔ منبع، HTML تولیدشده و منابع خارجی را در کنار هم نگه دارید.
 
 ## **سوالات متداول**
 
-**آیا پیوندهای هیپرلینک در خروجی HTML حفظ می‌شوند؟**
+**آیا پیوندهای هیپرتکست در خروجی HTML حفظ می‌شوند؟**
 
-بله. پیوندهای ارائه به HTML صادر می‌شوند و زمانی که URL مقصد معتبر باشد قابل کلیک هستند.
+بله. پیوندهای هیپرتکست ارائه به HTML صادر می‌شوند و وقتی URL هدف معتبر باشد قابل کلیک‌اند.
 
 **آیا می‌توانم ارائه‌ها را به‌صورت موازی به HTML تبدیل کنم؟**
 
-بله، اما یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) را بین رشته‌ها به‌اشتراک نگذارید. فایل‌های مختلف را با نمونه‌های جداگانهٔ ارائه، جریان‌های جداگانه و مسیرهای خروجی جداگانه پردازش کنید. راهنمای [multithreading guidance](/slides/fa/python-java/multithreading/) را ببینید.
+بله، اما یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) را بین رشته‌ها به‌اشتراک نگذارید. فایل‌های متفاوت را با نمونه‌های ارائهٔ مستقل، جریان‌های جداگانه و مسیرهای خروجی جداگانه پردازش کنید. برای جزئیات به راهنمای [multithreading guidance](/slides/fa/python-java/multithreading/) مراجعه کنید.
 
-**آیا شیء ارائه(thread‑safe) است؟**
+**آیا شیء ارائه مبتنی بر رشته (thread‑safe) است؟**
 
-خیر. یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) باید در یک رشته بارگذاری، اصلاح، ذخیره و حذف شود. برای کار موازی، برای هر رشته یا فرآیند یک نمونه مستقل ایجاد کنید.
+خیر. یک نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) باید در یک رشته بارگیری، تغییر، ذخیره و آزاد شود. برای کارهای موازی، یک نمونهٔ مستقل برای هر رشته یا فرآیند ایجاد کنید.
 
-**چرا فایل HTML تولید شده بزرگ است؟**
+**چرا فایل HTML تولیدشده بزرگ است؟**
 
-خروجی پیش‌فرض می‌تواند منابع را مستقیماً در HTML تعبیه کند. قلم‌های تعبیه‌شده، تصاویر با DPI بالا، رسانه‌ها، محتوای SVG و نگه‌داشت نواحی برش‌خورده تصویر نیز اندازه را افزیش می‌دهند. برای کاهش اندازه از منابع خارجی استفاده کنید، قلم‌های عمومی را از تعبیه حذف کنید و مقدار DPI کمتری را به [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setPicturesCompression) بدهید وقتی خروجی کوچکتر مهم‌تر از حداکثر وفاداری است.
+صادرات پیش‌فرض می‌تواند منابع را مستقیماً در HTML جاسازی کند. فونت‌های جاسازی‌شده، تصاویر DPI بالا، رسانه‌ها, محتواهای SVG و نگه‌داشتن نواحی برش‌خورده تصویر نیز حجم را افزایش می‌دهند. برای کاهش حجم، از منابع خارجی استفاده کنید، فونت‌های رایج را از تعبیه حذف کنید و مقدار DPI پایین‌تری را به `HtmlOptions.setPicturesCompression` پاس دهید وقتی اندازهٔ کوچکتر مهم‌تر از حداکثر دقت باشد.
 
-**چرا مقادیر font-size در HTML ممکن است با مقادیر PowerPoint متفاوت باشد؟**
+**چرا مقدار font‑size در HTML می‌تواند با مقدار PowerPoint متفاوت باشد؟**
 
-صفحهٔ خروجی ممکن است از سیستم‌های مختصات SVG و تبدیل‌های مقیاس‌بندی استفاده کند. یک مقدار CSS یا SVG font-size به تنهایی اندازهٔ نمایش نهایی را توصیف نمی‌کند. اسلاید رندر شده را در سطح زوم مورد نظر مقایسه کنید و در صورتی که متن ظاهری متفاوت دارد، وجود قلم را بررسی کنید.
+صفحهٔ خروجی می‌تواند از سیستم‌های مختصات SVG و تبدیل‌های مقیاس استفاده کند. یک مقدار CSS یا SVG به‌تنهایی اندازهٔ نهایی نمایش داده‌شده را توصیف نمی‌کند. اسلاید رندرشده را در سطح بزرگنمایی مورد نظر مقایسه کنید و در صورت متفاوت بودن، در دسترس بودن فونت را بررسی کنید.
 
-**چگونه باید baseUri را برای خروجی رسانه انتخاب کنم؟**
+**چگونه باید baseUri را برای صادرات رسانه‌ها انتخاب کنم؟**
 
-`baseUri` را از دید مرورگر انتخاب کنید و به‌عنوان یک URI مطلق پاس دهید. برای پیش‌نمایش محلی می‌توانید آن را از پوشه خروجی به‌صورت `output_directory.as_uri() + "/"` استخراج کنید. برای استقرار، از URL مطلق پوشهٔ منتشرشده استفاده کنید. مسیر سیستم‌فایلی `path` و `baseUri` مرورگر نیازی به یک‌سان بودن ندارند، اما هر دو باید به همان مکان اشاره کنند؛ این مکان باید پوشه‌ای باشد که فایل HTML تولید شده در آن قرار دارد، زیرا لینک‌های رسانه‌ای به صورت نسبی نسبت به آن نوشته می‌شوند.
+`baseUri` را از منظر مرورگر انتخاب کنید و به‌عنوان یک URI مطلق پاس دهید. برای پیش‌نمایش محلی می‌توانید آن را از پوشهٔ خروجی با `output_directory.as_uri() + "/"` به‌دست آورید. برای انتشار، از URL مطلق پوشهٔ منتشرشده استفاده کنید. مسیر سیستم‑فایل `path` و `baseUri` مرورگر نیازی به یک رشتهٔ یکسان ندارند، اما باید به همان مکان اشاره کنند و آن مکان باید پوشهٔ حاوی فایل HTML تولیدشده باشد زیرا پیوندهای رسانه‌ای به‌صورت نسبی نسبت به آن نوشته می‌شوند.
 
-**آیا می‌توانم اسلایدهای مخفی را شامل کنم؟**
+**آیا می‌توانم اسلایدهای مخفی را هم شامل کنم؟**
 
-بله. وقتی اسلایدهای مخفی باید خروجی شوند، با `True` به [HtmlOptions.setShowHiddenSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/htmloptions/#setShowHiddenSlides) پاس دهید.
+بله. هنگام نیاز به صادرات اسلایدهای مخفی، `HtmlOptions.setShowHiddenSlides` را با مقدار `True` فراخوانی کنید.

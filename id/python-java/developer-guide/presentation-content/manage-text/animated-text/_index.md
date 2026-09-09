@@ -18,9 +18,9 @@ keywords:
 - Aspose.Slides
 description: "Buat teks animasi dinamis dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java, dengan contoh kode Python yang mudah diikuti dan dioptimalkan."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan teks animasi di Aspose.Slides dengan menerapkan efek animasi pada paragraf individu dan mengambil efek yang sudah ditetapkan pada paragraf dalam sebuah frame teks. Fokusnya pada metode API yang digunakan untuk menambahkan animasi tingkat paragraf dan memeriksa efek animasi paragraf yang sudah ada dalam sebuah presentasi.
+Artikel ini menjelaskan cara bekerja dengan teks animasi di Aspose.Slides dengan menerapkan efek animasi pada paragraf individual dan mengambil efek yang sudah ditetapkan pada paragraf dalam sebuah bingkai teks. Fokusnya adalah pada metode API yang digunakan untuk menambahkan animasi tingkat paragraf dan memeriksa efek animasi paragraf yang sudah ada dalam sebuah presentasi.
 
 ## **Menambahkan Efek Animasi ke Paragraf**
 
@@ -49,11 +49,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Mendapatkan Efek Animasi Paragraf**
+## **Mendapatkan Efek Animasi pada Paragraf**
 
-Anda mungkin ingin mengetahui efek animasi yang ditambahkan ke sebuah paragraf—misalnya, dalam satu skenario, Anda ingin mendapatkan efek animasi dalam sebuah paragraf karena Anda berencana menerapkan efek tersebut ke paragraf atau bentuk lain.
+Anda mungkin ingin mengambil efek animasi yang diterapkan pada sebuah paragraf—misalnya, untuk menerapkan efek tersebut pada paragraf atau bentuk lain.
 
-Aspose.Slides for Python via Java memungkinkan Anda mendapatkan semua efek animasi yang diterapkan pada paragraf yang terdapat dalam sebuah frame teks (shape). Kode contoh ini menunjukkan cara mendapatkan efek animasi dalam sebuah paragraf:
+Aspose.Slides for Python via Java memungkinkan Anda mendapatkan semua efek animasi yang diterapkan pada paragraf yang terdapat dalam sebuah bingkai teks (shape). Kode contoh ini menunjukkan cara mendapatkan efek animasi yang diterapkan pada sebuah paragraf:
 
 ```python
 import jpype
@@ -80,14 +80,14 @@ finally:
 
 ## **FAQ**
 
-**Bagaimana perbedaan animasi teks dengan transisi slide, dan dapatkah keduanya digabungkan?**
+**Bagaimana perbedaan antara animasi teks dan transisi slide, dan apakah keduanya dapat digabungkan?**
 
-Animasi teks mengendalikan perilaku objek seiring waktu pada sebuah slide, sementara [transitions](/slides/id/python-java/slide-transition/) mengendalikan cara slide berpindah. Kedua hal tersebut independen dan dapat digunakan bersamaan; urutan pemutaran diatur oleh garis waktu animasi dan pengaturan transisi.
+Animasi teks mengontrol perilaku objek seiring waktu pada slide, sementara [transitions](/slides/id/python-java/slide-transition/) mengontrol cara slide berubah. Kedua hal tersebut independen dan dapat digunakan bersama; urutan pemutaran diatur oleh timeline animasi dan pengaturan transisi.
 
-**Apakah animasi teks dipertahankan saat diekspor ke PDF atau gambar?**
+**Apakah animasi teks dipertahankan saat mengekspor ke PDF atau gambar?**
 
-Tidak. PDF dan gambar raster bersifat statis, sehingga Anda hanya akan melihat satu keadaan slide tanpa gerakan. Untuk mempertahankan pergerakan, gunakan ekspor [video](/slides/id/python-java/convert-powerpoint-to-video/) atau [HTML](/slides/id/python-java/export-to-html5/).
+Tidak. PDF dan gambar raster bersifat statis, sehingga Anda hanya akan melihat satu keadaan slide tanpa gerakan. Untuk mempertahankan gerakan, gunakan ekspor [video](/slides/id/python-java/convert-powerpoint-to-video/) atau [HTML](/slides/id/python-java/export-to-html5/).
 
-**Apakah animasi teks berfungsi pada tata letak dan master slide?**
+**Apakah animasi teks berfungsi di tata letak dan master slide?**
 
-Efek yang diterapkan pada objek tata letak/master diwariskan ke slide, namun timing dan interaksinya dengan animasi tingkat slide tergantung pada urutan akhir pada slide.
+Efek yang diterapkan pada objek tata letak/master diwariskan oleh slide, tetapi timing dan interaksinya dengan animasi tingkat slide bergantung pada urutan akhir pada slide.

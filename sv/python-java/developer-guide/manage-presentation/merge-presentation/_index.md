@@ -20,38 +20,38 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Lär dig hur du slår ihop PowerPoint- och OpenDocument-presentationer i Python via Java genom att klona bilder, kontrollera masters och layouter, ändra storlek på bildinnehåll, bevara sektioner och hantera skyddade eller stora filer."
+description: "Lär dig hur du sammanslår PowerPoint- och OpenDocument-presentationer i Python via Java genom att klona bilder, kontrollera master-objekt och layouter, ändra storlek på bildinnehåll, bevara avsnitt och hantera skyddade eller stora filer."
 ---
 ## **Översikt**
 
-Aspose.Slides for Python via Java slår samman presentationer genom att klona bilder från en [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) till en annan. Huvudoperationen är [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone), som kan bevara källbildens formatering eller fästa den klonade bilden till ett master eller en layout i målpresentationen.
+Aspose.Slides för Python via Java sammanfogar presentationer genom att klona bilder från en [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) till en annan. Huvudoperationen är [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone), som kan bevara källbildens formatering eller bifoga den klonade bilden till ett master‑ eller layout‑objekt i mål‑presentationen.
 
-Denna artikel täcker de vanligaste sammanslagningsarbetsflödena:
+Detta avsnitt täcker de vanligaste sammanslagningsarbetsflödena:
 
-- slå samman alla bilder och bevara deras källformattering;
-- slå samman valda bilder;
-- tillämpa ett master från mål‑presentationen;
+- sammanslå alla bilder samtidigt som deras källformatering bevaras;
+- sammanslå utvalda bilder;
+- tillämpa ett master‑objekt från mål‑presentationen;
 - tillämpa en specifik layout från mål‑presentationen;
-- normalisera olika bildstorlekar innan sammanslagning;
-- lägg till klonade bilder i en sektion;
-- slå samman flera presentationer i ett end‑to‑end‑arbetsflöde;
-- hantera masters, resurser, anteckningar, kommentarer, media, teckensnitt, lösenord, stora filer och multitrådningsfrågor.
+- normalisera olika bildstorlekar före sammanfogning;
+- lägga till klonade bilder i ett avsnitt;
+- sammanslå flera presentationer i ett komplett arbetsflöde;
+- hantera master‑objekt, resurser, anteckningar, kommentarer, media, teckensnitt, lösenord, stora filer och multitrådningsaspekter.
 
-## **Hur bildkloning påverkar masters och layouter**
+## **Hur bildkloning påverkar master‑objekt och layouter**
 
-En bild ärver mycket av sitt utseende från sin layout och master. Av den anledningen avgör den klonings‑overload du väljer hur den sammanslagna bilden integreras i målpresentationen.
+En bild ärver mycket av sitt utseende från sin layout och master. Av den anledningen avgör vilken klonings‑överladdning du väljer hur den sammanfogade bilden integreras i mål‑presentationen.
 
 Använd [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone) på ett av följande sätt:
 
-- `addClone(source_slide)` — bevara källbildens layout och formatering. Vid behov kan käll‑master klonas automatiskt in i målpresentationen. Aspose.Slides spårar automatiskt klonade masters så att återkommande bilder som använder samma käll‑master inte får den klonad flera gånger.
-- `addClone(source_slide, destination_master, allow_clone_missing_layout)` — fäst den klonade bilden till ett specifikt destination‑[MasterSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterslide/). Aspose.Slides söker efter en matchande layout under den mastern enligt layouttyp eller namn.
-- `addClone(source_slide, destination_layout)` — fäst den klonade bilden direkt till en specifik destination‑[LayoutSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/).
+- `addClone(source_slide)` — bevarar källbildens layout och formatering. Vid behov kan käll‑mastern klonas automatiskt in i mål‑presentationen. Aspose.Slides spårar automatiskt klonade master så att återkommande bilder som använder samma käll‑master inte leder till att den master klonas flera gånger.
+- `addClone(source_slide, destination_master, allow_clone_missing_layout)` — bifogar den klonade bilden till ett specifikt destination-[MasterSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/masterslide/). Aspose.Slides söker efter en matchande layout under den mastern efter layout‑typ eller namn.
+- `addClone(source_slide, destination_layout)` — bifogar den klonade bilden direkt till en specifik destination-[LayoutSlide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/layoutslide/).
 
-Den master eller layout som skickas till en `addClone`‑overload måste tillhöra **målpresentationen**, inte källpresentationen.
+Mastern eller layouten som skickas till en `addClone`‑överladdning måste tillhöra **mål**‑presentationen, inte käll‑presentationen.
 
-## **Sammanfoga hela presentationer och bevara källformattering**
+## **Sammanslå hela presentationer och bevara källformatering**
 
-Den enklaste sammanslagningen kopierar varje bild från källpresentationen till målpresentationen. Detta är det lämpliga valet när de importerade bilderna ska behålla sitt ursprungliga tema, master och layout‑relationer.
+Den enklaste sammanfogningen kopierar varje bild från käll‑presentationen till mål‑presentationen. Detta är ett lämpligt val när de importerade bilderna ska behålla sitt ursprungliga tema, master och layout‑relationer.
 
 ```python
 import jpype
@@ -76,11 +76,11 @@ finally:
     destination.dispose()
 ```
 
-Den resulterande presentationen kan innehålla flera masters när käll‑ och mål‑presentation använder olika designer. Detta förväntas när källformattering avsiktligt bevaras.
+Den resulterande presentationen kan innehålla flera master‑objekt när käll‑ och mål‑presentationerna använder olika designer. Detta är förväntat när källformateringen avsiktligt bevaras.
 
-## **Sammanfoga valda bilder**
+## **Sammanslå utvalda bilder**
 
-Du behöver inte klona varje bild. Följande exempel importerar endast utvalda bildindex från källpresentationen.
+Du behöver inte klona varje bild. Följande exempel importerar endast utvalda bildindex från käll‑presentationen.
 
 ```python
 import jpype
@@ -111,9 +111,9 @@ finally:
 
 Validera bildindex innan kloning när de kommer från användarinmatning eller extern konfiguration.
 
-## **Sammanfoga bilder med ett destinations‑master**
+## **Sammanslå bilder med ett destination‑master**
 
-Använd [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone)‑overload när importerade bilder ska följa ett master som redan finns i målpresentationen.
+Använd [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone)‑överladdningen när importerade bilder ska följa ett master‑objekt som redan tillhör mål‑presentationen.
 
 ```python
 import jpype
@@ -141,11 +141,11 @@ finally:
 
 Aspose.Slides väljer en lämplig layout under den angivna mastern genom att matcha käll‑layoutens typ eller namn. Om ingen lämplig layout finns och `allow_clone_missing_layout` är `True` klonas käll‑layouten så att bilden kan läggas till. Om den är `False` kastas ett [PptxEditException](https://reference.aspose.com/slides/sv/python-java/aspose.slides/pptxeditexception/).
 
-Använd `False` när du vill att sammanslagningen ska misslyckas istället för att införa en extra layout i destination‑mastern.
+Använd `False` när du vill att sammanfogningen ska misslyckas i stället för att införa en extra layout i mål‑mastern.
 
-## **Sammanfoga bilder med en specifik destinations‑layout**
+## **Sammanslå bilder med en specifik destination‑layout**
 
-Använd [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone)‑overload när du exakt vet vilken destinations‑layout de importerade bilderna ska använda.
+Använd [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone)‑överladdningen när du exakt vet vilken destination‑layout de importerade bilderna ska använda.
 
 ```python
 import jpype
@@ -171,13 +171,13 @@ finally:
     destination.dispose()
 ```
 
-Att använda en destinations‑layout ändrar den ärvda layout‑relationen; den omdesignar inte bildens innehåll. Om käll‑ och destinations‑layouter har olika platshållarstrukturer, inspektera resultatet för att bekräfta att den ärvda formateringen och platshållarbeteendet är lämpliga.
+Att tillämpa en destination‑layout förändrar den ärvda layout‑relationen; den omdesignar inte källbildens innehåll. Om käll‑ och destination‑layouter har olika platshållarstrukturer, inspektera resultatet för att bekräfta att den ärvda formateringen och platshållarbeteendet är lämpliga.
 
-## **Sammanfoga presentationer med olika bildstorlekar**
+## **Sammanslå presentationer med olika bildstorlekar**
 
-Presentationer med olika bilddimensioner kan slås ihop, men att klona en bild till en presentation med en annan bildstorlek omdesignar inte automatiskt innehållet för den nya duken. Former kan därför visas förskjutna, skalade oväntat eller utanför den synliga bildytan.
+Presentationer med olika bilddimensioner kan sammanfogas, men att klona en bild till en presentation med en annan bildstorlek omdesignar inte automatiskt innehållet för den nya duken. Former kan därför visas förskjutna, skalade oväntat eller utanför det synliga bildområdet.
 
-Ett praktiskt tillvägagångssätt är att ändra storlek på källpresentationen innan kloning. Metoden [SlideSize.setSize](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesize/#setSize) kan skala befintligt innehåll medan bilddimensionerna ändras. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesizescaletype/) skalar innehållet så att det får plats inom den begärda storleken.
+En praktisk metod är att ändra storlek på käll‑presentationen innan kloning. Metoden [SlideSize.setSize](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesize/#setSize) kan skala befintligt innehåll samtidigt som bilddimensionerna ändras. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesizescaletype/) skalar innehållet så att det passar inom den begärda storleken.
 
 ```python
 import jpype
@@ -209,11 +209,11 @@ finally:
     destination.dispose()
 ```
 
-Att ändra storlek modifierar källpresentationens objekt i minnet. Om du behöver den ursprungliga källpresentationen oförändrad för andra operationer, öppna en separat instans för sammanslagningen.
+Storleksändring ändrar käll‑presentationens objekt i minnet. Om du behöver den ursprungliga käll‑presentationen oförändrad för andra operationer, öppna en separat instans för sammanfogningen.
 
-## **Sammanfoga bilder i en presentations‑sektion**
+## **Sammanslå bilder i ett presentationsavsnitt**
 
-Den grundläggande bild‑kloningsloopen återskapar inte källpresentationens sektion‑hierarki. Om sektioner är viktiga i utdata, skapa eller välj sektioner i målpresentationen och klona bilder in i dem explicit med [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone).
+Den grundläggande bildkloningsloopen återger inte käll‑presentationens avsnittshierarki. Om avsnitt är viktiga i utdata, skapa eller välj avsnitt i mål‑presentationen och klona bilder in i dem explicit med [SlideCollection.addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone).
 
 ```python
 import jpype
@@ -239,11 +239,11 @@ finally:
     destination.dispose()
 ```
 
-De klonade bilderna läggs till i den angivna destinations‑sektionen. För att bevara flera källsektioner, iterera [Presentation.getSections](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getSections), hämta varje källsektons aktuella bilder med [Section.getSlidesListOfSection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/section/#getSlidesListOfSection), återskapa sektionerna i destinationen och klona varje returnerad bild till motsvarande destinations‑sektion. Se [Manage Slide Sections](/slides/sv/python-java/slide-section/) för ett komplett exempel på sektion‑enumeration, inklusive tomma sektioner och strukturella förändringar.
+De klonade bilderna läggs till i det angivna destination‑avsnittet. För att bevara flera käll‑avsnitt, lista [Presentation.getSections](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getSections), hämta varje käll‑avsnitts aktuella bilder med [Section.getSlidesListOfSection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/section/#getSlidesListOfSection), återskapa avsnitten i destinationen och klona varje returnerad bild till dess motsvarande destination‑avsnitt. Se [Manage Slide Sections](/slides/sv/python-java/slide-section/) för ett komplett avsnitt‑uppräkningsexempel, inklusive tomma avsnitt och strukturella förändringar.
 
-## **Sammanfoga flera presentationer säkert**
+## **Sammanslå flera presentationer på ett säkert sätt**
 
-Följande end‑to‑end‑exempel använder den första presentationen som destination, normaliserar bildstorleken för varje ytterligare källa, håller varje källa öppen endast medan den kopieras och sparar den slutliga filen en gång.
+Följande end‑to‑end‑exempel använder den första presentationen som mål, normaliserar bildstorleken för varje ytterligare källa, håller varje källa öppen endast medan den kopieras, och sparar den slutgiltiga filen en gång.
 
 ```python
 import jpype
@@ -279,35 +279,35 @@ finally:
     merged.dispose()
 ```
 
-Detta är en användbar baslinje för att bevara källformattering på importerade bilder. Om ditt resultat måste använda ett enda destinations‑tema, ersätt det enkla `addClone(slide)`‑anropet med den lämpliga destination‑master‑ eller destination‑layout‑overload som visades tidigare.
+Detta är en användbar grundlinje för att bevara källformateringen för importerade bilder. Om ditt resultat måste använda ett enda mål‑tema, ersätt det enkla anropet `addClone(slide)` med den lämpliga destination‑master‑ eller destination‑layout‑överladdning som visas tidigare.
 
 ## **Praktiska överväganden**
 
-### **Masters, layouter och formateringsnoggrannhet**
+### **Master‑objekt, layouter och formateringsnoggrannhet**
 
-Standard‑bildkloning kan automatiskt föra in ett nödvändigt käll‑master i målpresentationen. Aspose.Slides håller ett internt register över automatiskt klonade masters för att undvika att samma master klonas flera gånger. Manuellt klonade masters spåras inte av registret, så undvik förkloning av masters om du inte behöver explicit kontroll över master‑strukturen.
+Standardbildkloning kan automatiskt föra in en nödvändig käll‑master i mål‑presentationen. Aspose.Slides har ett internt register för automatiskt klonade master‑objekt för att undvika att klona samma master flera gånger. Manuellt klonade master‑objekt spåras inte av registret, så undvik förkloning av master‑objekt om du inte behöver explicit kontroll över master‑strukturen.
 
-Anta inte att två masters eller layouter med samma namn är visuellt likvärdiga. Om ett företagsmall måste styra det slutliga utseendet, välj ett destinations‑master eller en layout explicit och verifiera resultatet efter sammanslagning.
+Förutsätt inte att två master‑objekt eller layouter med samma namn är visuellt ekvivalenta. Om en företagsmall måste styra det slutliga utseendet, välj ett mål‑master‑ eller layout‑objekt explicit och verifiera resultatet efter sammanfogning.
 
 ### **Anteckningar och kommentarer**
 
-Talarnoteringar och bildkommentarer är kopplade till bildens innehåll och kopieras när en bild klonas. Aspose.Slides erbjuder också dedikerade API:er för [presentation notes](/slides/sv/python-java/presentation-notes/) och [presentation comments](/slides/sv/python-java/presentation-comments/).
+Talarnoteringar och bildkommentarer är associerade med bildens innehåll och kopieras när en bild klonas. Aspose.Slides tillhandahåller också dedikerade API:er för [presentation notes](/slides/sv/python-java/presentation-notes/) och [presentation comments](/slides/sv/python-java/presentation-comments/).
 
-Om formatering av notes‑sidan är viktig, verifiera den sammanslagna presentationen eftersom notes‑masters är objekt på presentationsnivå och kan skilja sig mellan källfiler. För granskningsarbetsflöden, verifiera även kommentar‑författare och trådade kommentarer efter sammanslagning av filer från olika författare eller mallar.
+Om formatering av notessidan är viktig, verifiera den sammanslagna presentationen eftersom notes‑master är objekt på presentationsnivå och kan skilja sig mellan käll‑filer. För granskningsarbetsflöden, verifiera även kommentarförfattare och trådade kommentarer efter sammanslagning av filer från olika författare eller mallar.
 
 ### **Bilder, ljud, video, OLE‑objekt och externa länkar**
 
-Bilder kan referera till resurser på presentationsnivå såsom bilder, inbäddat ljud, inbäddad video och OLE‑data. Klona själva bilden snarare än att bara kopiera dess synliga former så att Aspose.Slides kan bevara bildens relationer till dess resurser.
+Bilder kan referera till resurser på presentationsnivå såsom bilder, inbäddat ljud, inbäddad video och OLE‑data. Klona själva bilden istället för att bara kopiera dess synliga former så att Aspose.Slides kan behålla bildens relationer till dess resurser.
 
-Inbäddade och länkade resurser bör behandlas olika. En länkad ljud-, video‑, OLE‑objekt‑ eller hyperlänk förblir beroende av sin externa målfil; att klona en bild gör inte en extern länk till inbäddat innehåll. Testa länkrade resurssökvägar och URL:er i den miljö där den sammanslagna presentationen kommer att öppnas.
+Inbäddade och länkade resurser bör behandlas olika. En länkad ljud‑, video‑, OLE‑objekt‑ eller hyperlänk förblir beroende av sin externa destination; kloning av en bild omvandlar inte en extern länk till inbäddat innehåll. Testa länkressursökvägar och URL:er i den miljö där den sammanslagna presentationen kommer att öppnas.
 
-Aspose.Slides spårar uttryckligen automatiskt klonade masters, men detta bör inte ses som en generell garanti för att identiska binära resurser från orelaterade källpresentationer alltid dedupliceras. Om filstorlek är viktig, inspektera det sammanslagna paketet och mät resultatet istället för att förlita dig på implicit deduplicering.
+Aspose.Slides spårar uttryckligen automatiskt klonade master‑objekt, men detta bör inte ses som en generell garanti att identiska binära resurser från orelaterade käll‑presentationer alltid dedupliceras. Om utdatafilens storlek är viktig, inspektera det sammanslagna paketet och mät resultatet i stället för att förlita sig på implicit deduplicering.
 
-### **Inbäddade teckensnitt och teckensnitts‑tillgänglighet**
+### **Inbäddade teckensnitt och teckensnittstillgänglighet**
 
-Teckensnitt hanteras på presentationsnivå. Om typografi måste förbli konsekvent mellan maskiner, anta inte att bildkloning ensam garanterar att varje nödvändigt teckensnitt finns tillgängligt i målmiljön. Du kan inspektera inbäddade teckensnitt med [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/sv/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) och hantera inbäddning explicit enligt [Embed Fonts in Presentations](/slides/sv/python-java/embedded-font/).
+Teckensnitt hanteras på presentationsnivå. Om typografi måste förbli konsekvent över maskiner, förutsätt inte att enbart klona bilder garanterar att alla nödvändiga teckensnitt finns i mål‑miljön. Du kan inspektera inbäddade teckensnitt med [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/sv/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) och hantera inbäddning explicit enligt [Embed Fonts in Presentations](/slides/sv/python-java/embedded-font/).
 
-Verifiera också att du har tillstånd att inbädda de teckensnitt som används i källfilerna. Teckensnittslicenser kan begränsa inbäddning.
+Verifiera också att du har tillstånd att inbädda teckensnitten som används i käll‑filerna. Teckensnittslicenser kan begränsa inbäddning.
 
 ### **Lösenordsskyddade presentationer**
 
@@ -333,64 +333,64 @@ finally:
     source.dispose()
 ```
 
-Att öppna en krypterad källa applicerar inte automatiskt samma skydd på målpresentationen. Konfigurera utmatningsskydd separat när det krävs.
+Att öppna en krypterad källa applicerar inte automatiskt samma skydd på mål‑presentationen. Konfigurera utdata‑skydd separat när det behövs.
 
 ### **Stora presentationer och minnesanvändning**
 
-Stora presentationer med högupplösta bilder, ljud, video eller andra stora binära objekt kan förbruka betydande minne. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) ger kontroll över BLOB‑hantering och temporära filer. Se [Manage Presentation BLOBs](/slides/sv/python-java/manage-blob/) för strategier för stora filer.
+Stora presentationer som innehåller högupplösta bilder, ljud, video eller andra stora binära objekt kan förbruka betydande minne. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) ger kontroll för BLOB‑hantering och temporär‑fil‑användning. Se [Manage Presentation BLOBs](/slides/sv/python-java/manage-blob/) för strategier med stora filer.
 
-För stora filer, föredra inläsning från filsökvägar när det är möjligt, avlasta varje källpresentation så snart den har slås samman och undvik att spara mellanresultat upprepade gånger om arbetsflödet inte kräver checkpoint‑punkter.
+För stora filer, föredra inläsning från filvägar när det är möjligt, disponera varje käll‑presentation så snart den har sammanfogats, och undvik att spara mellansteg upprepade gånger om arbetsflödet inte kräver kontrollpunkter.
 
 ### **Trådsäkerhet**
 
-Ladda, modifiera, spara eller klona inte samma [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑instans samtidigt från flera trådar. Håll varje presentationsinstans begränsad till en sammanslagningsoperation. Om du parallelliserar oberoende jobb, använd oberoende presentationsinstanser och följ [Aspose.Slides multithreading guidance](/slides/sv/python-java/multithreading/).
+Läs inte in, ändra, spara eller klona samma [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑instans samtidigt från flera trådar. Håll varje presentation‑instans begränsad till en sammanslagningsoperation. Om du parallelliserar oberoende jobb, använd oberoende presentation‑instanser och följ [Aspose.Slides multithreading guidance](/slides/sv/python-java/multithreading/).
 
 ## **FAQ**
 
-**Hur behåller jag varje källpresentations originaldesign?**
+**Hur behåller jag varje käll‑presentations ursprungliga design?**
 
-Använd [addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone) utan att ange ett destinations‑master eller layout. Aspose.Slides kan automatiskt klona käll‑mastern när den behövs av den importerade bilden.
+Använd [addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone) utan att ange ett destination‑master eller -layout. Aspose.Slides kan automatiskt klona käll‑mastern när den behövs av den importerade bilden.
 
-**Hur får jag importerade bilder att använda destinations‑temat?**
+**Hur får jag importerade bilder att använda mål‑temat?**
 
-Använd overloaden som accepterar ett destinations‑master. Skicka ett master från målpresentationen, inte från källan. Aspose.Slides försöker mappa varje källbild till en lämplig layout under den mastern.
+Använd den överlastning som accepterar ett destination‑master. Skicka ett master från mål‑presentationen, inte från källan. Aspose.Slides kommer att försöka mappa varje käll‑bild till en lämplig layout under den mastern.
 
-**När bör jag använda en specifik destinations‑layout istället för ett destinations‑master?**
+**När bör jag använda en specifik destination‑layout istället för ett destination‑master?**
 
 Använd en specifik layout när varje importerad bild ska använda en känd layout. Använd ett master när du vill att Aspose.Slides ska välja bland masterns layouter baserat på käll‑layoutens typ eller namn.
 
-**Kan presentationer med olika bildstorlekar slås ihop?**
+**Kan presentationer med olika bildstorlekar sammanfogas?**
 
-Ja, men bildinnehållet redesignas inte automatiskt för destinationsdimensionerna. Ändra storlek på källpresentationen först när du behöver förutsägbar placering, exempelvis med [SlideSize.setSize](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesize/#setSize) och [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesizescaletype/).
+Ja, men bildinnehållet omdesignas inte automatiskt för mål‑dimensionerna. Ändra storlek på käll‑presentationen först när du behöver förutsägbara placeringar, till exempel med [SlideSize.setSize](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesize/#setSize) och [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidesizescaletype/).
 
-**Kan jag slå ihop PPT-, PPTX- och ODP‑presentationer till en fil?**
+**Kan jag sammanfoga PPT-, PPTX- och ODP‑presentationer i en fil?**
 
-Ja. Ladda varje källpresentation, klona de erforderliga bilderna till en destination och spara destinationen i ett stödformat. Eftersom presentationsformaten inte stödjer exakt samma funktionsuppsättning, verifiera komplext innehåll efter kors‑format‑sammanfogning. Se [Supported File Formats](/slides/sv/python-java/supported-file-formats/).
+Ja. Ladda varje käll‑presentation, klona de behövda bilderna till en destination, och spara destinationen i ett stödd utförandeformat. Eftersom presentationsformaten inte stödjer exakt samma funktionsuppsättning, verifiera komplext innehåll efter kors‑format‑sammanfogning. Se [Supported File Formats](/slides/sv/python-java/supported-file-formats/).
 
-**Bevaras källsektioner automatiskt?**
+**Bevaras käll‑avsnitt automatiskt?**
 
-Inte med en grundläggande loop som bara klonar bilder. Återskapa de nödvändiga sektionerna i destinationen och använd sektion‑overloaden av [addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone) när sektion‑strukturen måste bevaras.
+Inte av en grundläggande loop som bara klonar bilder. Återskapa de behövda avsnitten i mål‑presentationen och använd avsnitts‑överladdningen av [addClone](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slidecollection/#addClone) när avsnittsstrukturen måste bevaras.
 
-**Behålls talaranteckningar och kommentarer?**
+**Bevaras talarnoteringar och kommentarer?**
 
-De kopieras med den klonade bilden. För arbetsflöden som beror på notes‑master‑styling, kommentar‑författare eller trådad granskningsdata, verifiera det sammanslagna resultatet eftersom dessa scenarier involverar både presentations‑ och bild‑nivå‑strukturer.
+De kopieras med den klonade bilden. För arbetsflöden som är beroende av notes‑master‑stil, kommentarförfattare eller trådad granskningsdata, verifiera det sammanslagna resultatet eftersom dessa scenarier involverar både presentations‑ och bild‑nivåstrukturer.
 
 **Vad händer med ljud, video, OLE‑objekt och hyperlänkar?**
 
-Inbäddat innehåll följer med som en del av den klonade bildens resursrelationer. Externa länkar förblir externa, så deras mål‑filer eller URL:er måste fortfarande vara tillgängliga efter sammanslagning.
+Inbäddat innehåll medförs som en del av den klonade bildens resursrelationer. Externa länkar förblir externa, så deras mål‑filer eller URL:er måste fortfarande vara tillgängliga efter sammanfogning.
 
-**Är inbäddade teckensnitt från varje källa garanterade att finnas i den sammanslagna presentationen?**
+**Garanti­eras att inbäddade teckensnitt från varje källa finns i den sammanslagna presentationen?**
 
-Lita inte på bildkloning ensam för teckensnittsdistribution. Inspektera destinationens inbäddade teckensnitt och hantera teckensnittsinbäddning eller extern teckensnittstillgänglighet explicit när typografi är viktig.
+Lita inte på enbart bildkloning för teckensnittsdistribution. Inspektera mål‑presentationens inbäddade teckensnitt och hantera explicit teckensnitts‑inbäddning eller extern teckensnittstillgänglighet när typografi är viktig.
 
-**Hur slår jag ihop en lösenordsskyddad fil?**
+**Hur sammanslår jag en lösenordsskyddad fil?**
 
-Öppna den med rätt [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setPassword), klona sedan dess bilder som vanligt. Utmatningsskydd konfigureras separat.
+Öppna den med rätt [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setPassword), och klona sedan dess bilder på vanligt sätt. Utdata‑skydd konfigureras separat.
 
 **Hur bör jag hantera mycket stora presentationer?**
 
-Använd BLOB‑hantering när stora binära objekt dominerar minnesanvändningen, föredra inläsning via filsökväg för mycket stora filer, avlasta källpresentationer omedelbart och spara det slutliga resultatet endast när det behövs.
+Använd BLOB‑hantering när stora binära objekt dominerar minnesanvändningen, föredra inläsning från filväg för mycket stora filer, disponera käll‑presentationer omedelbart och spara slutresultatet endast när det behövs.
 
-**Kan jag slå ihop bilder från flera trådar?**
+**Kan jag sammanslå bilder från flera trådar?**
 
-Ladda inte en [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑instans samtidigt från flera trådar. Håll varje sammanslagningsoperation isolerad till sina egna presentationsinstanser.
+Använd inte en [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑instans samtidigt från flera trådar. Håll varje sammanslagningsoperation isolerad till sina egna presentation‑instanser.

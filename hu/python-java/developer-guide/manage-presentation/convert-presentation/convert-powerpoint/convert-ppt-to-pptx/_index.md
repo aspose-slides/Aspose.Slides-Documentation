@@ -1,6 +1,6 @@
 ---
 title: PPT konvertálása PPTX-re Pythonban
-linktitle: PPT PPTX-re
+linktitle: PPT-t PPTX-re
 type: docs
 weight: 20
 url: /hu/python-java/convert-ppt-to-pptx/
@@ -17,17 +17,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Konvertálja a régi PPT fájlokat PPTX-re Pythonban az Aspose.Slides segítségével. Tartalmaz Python példákat egyetlen fájl és kötegelt konvertáláshoz, hibakezeléshez és pontossági megjegyzésekhez."
+description: "Konvertálja a régi PPT fájlokat PPTX-re Pythonban az Aspose.Slides segítségével. Tartalmaz Python példákat egyedi fájl és kötegelt konverzióra, hibakezelésre és pontossági megjegyzésekre."
 ---
 ## **Áttekintés**
 
-A PPT a régi bináris PowerPoint formátum, míg a PPTX az újabb Open XML formátum. Az Aspose.Slides for Python via Java képes betölteni egy PPT fájlt és PPTX‑ként menteni anélkül, hogy a Microsoft PowerPoint jelen lenne. Ez a cikk bemutatja, hogyan konvertáljunk egyetlen fájlt vagy egy könyvtár fájljait, valamint hogy mit ellenőrizzünk a konvertálás után.
+A PPT a régi bináris PowerPoint formátum, míg a PPTX az újabb Open XML formátum. Az Aspose.Slides for Python via Java képes betölteni egy PPT fájlt és PPTX‑ként menteni anélkül, hogy a Microsoft PowerPoint telepítve lenne. Ez a cikk bemutatja, hogyan lehet egy fájlt vagy egy könyvtár fájljait konvertálni, és elmagyarázza, mit kell ellenőrizni a konverzió után.
 
-Minden példa szükség esetén elindítja a Java virtuális gépet, és a használat után felszabadítja a prezentációt. Cserélje ki a példában szereplő útvonalakat a saját fájl‑ vagy könyvtárútvonalaira.
+Minden példa szükség esetén elindítja a Java virtuális gépet, majd a használat után felszabadítja a prezentációt. Cserélje ki a példában szereplő útvonalakat a saját fájl vagy könyvtár útvonalaira.
 
-## **PPT fájl PPTX formátumba konvertálása**
+## **PPT fájl konvertálása PPTX‑be**
 
-Töltse be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztállyal, majd hívja meg a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/#Pptx) argumentummal. A `finally` blokk felszabadítja a prezentációt és annak erőforrásait.
+Töltse be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztállyal, majd hívja meg a [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/#Pptx) argumentummal. A `finally` blokk elpusztítja a prezentációt és felszabadítja annak erőforrásait.
 
 ```python
 import jpype
@@ -38,7 +38,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# Töltsük be a régi PPT prezentációt.
+# Betöltjük a régi PPT prezentációt.
 presentation = Presentation("presentation.ppt")
 try:
     # Mentse a prezentációt PPTX formátumban.
@@ -47,11 +47,11 @@ finally:
     presentation.dispose()
 ```
 
-A fájlkiterjesztés önmagában nem választja ki a kimeneti formátumot; ezt a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/#Pptx) argumentum határozza meg. Tartsa a bemeneti és kimeneti útvonalakat külön, ha meg akarja őrizni az eredeti PPT fájlt.
+A fájlkiterjesztés önmagában nem választja ki a kimeneti formátumot; ezt a [SaveFormat.Pptx](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveformat/#Pptx) argumentum végzi. Tartsa külön a bemeneti és kimeneti útvonalakat, ha meg szeretné őrizni az eredeti PPT fájlt.
 
 ## **Több PPT fájl konvertálása**
 
-Az alábbi példa minden `.ppt` fájlt konvertál egy könyvtárban. Minden fájlt önállóan dolgoz fel, így egy hibás konverzió sem állítja le a többi feldolgozását.
+A következő példa minden `.ppt` fájlt átkonvertál egy könyvtárban. Minden fájlt önállóan dolgoz fel, így egy sikertelen konverzió sem állítja meg a többi fájl feldolgozását.
 
 ```python
 from pathlib import Path
@@ -93,25 +93,25 @@ else:
                 presentation.dispose()
 ```
 
-Produktív környezetben naplózza a teljes kivételt, döntse el, hogy a meglévő kimeneti fájl felülírható‑e, és írja a sikertelen fájlneveket egy újrapróbálási vagy felülvizsgálati sorba. Sérült fájlok, a szükséges jelszó nélkül megnyitott jelszóval védett fájlok, elérhetetlen útvonalak és nem támogatott tartalom is okozhat konvertálási hibát. Lásd a [Password-Protected Presentations](/slides/hu/python-java/password-protected-presentation/) cikket a titkosított fájlok betöltéséhez.
+Éles környezetben naplózza a teljes kivételt, döntse el, hogy felülírható-e egy meglévő kimeneti fájl, és írja a sikertelen fájlneveket egy újrapróbálási vagy felülvizsgálati sorba. Sérült fájlok, a szükséges jelszó nélkül megnyitott jelszóval védett fájlok, elérhetetlen útvonalak és nem támogatott tartalmak is okozhatják a konverzió sikertelenségét. Tekintse meg a [Password-Protected Presentations](/slides/hu/python-java/password-protected-presentation/) cikket a titkosított fájlok betöltéséhez.
 
-## **Pontosság és régi funkciók**
+## **Pontosság és öröklött funkciók**
 
-A konvertálás általában megőrzi a diák, mester‑dia, elrendezések, szöveg, alakzatok, képek, táblázatok és diagramok tartalmát. Azonban a PPT és PPTX nem minden funkciót ábrázol pontosan ugyanúgy. Egy olyan régi funkció, amelynek nincs PPTX megfelelője, vagy amelyet a könyvtár nem támogat, normalizálásra, kihagyásra vagy eltérő megjelenítésre kerülhet.
+A konverzió általában megőrzi a diák, a mester-diák, az elrendezések, a szöveg, az alakzatok, a képek, a táblázatok és a diagramok tartalmát. Azonban a PPT és a PPTX nem ábrázolja minden funkciót pontosan ugyanúgy. Egy örökölt funkció, amelynek nincs PPTX megfelelője, vagy amelyet a könyvtár nem támogat, normalizálható, kihagyható vagy másként jeleníthető meg.
 
-Ellenőrizze a konvertált fájlt, ha animációkat, áttűnéseket, beágyazott vagy hivatkozott OLE objektumokat, ActiveX vezérlőket, beágyazott médiát, ritka betűtípusokat vagy VBA makrókat tartalmaz. A sima PPTX fájl nem makró‑engedélyezett formátum, ezért megfelelő makró‑engedélyezett munkafolyamatot használjon, ha a VBA‑nak elérhetőnek kell maradnia. Győződjön meg arról is, hogy a szükséges betűtípusok és külső erőforrások jelen vannak abban a környezetben, ahol a konvertált prezentációt megnyitják vagy renderelik.
+Ellenőrizze a konvertált fájlt, ha animációkat, átmeneteket, beágyazott vagy hivatkozott OLE-objektusokat, ActiveX vezérlőket, beágyazott médiát, ritka betűtípusokat vagy VBA makrókat tartalmaz. Egy egyszerű PPTX fájl nem makrókkal rendelkező formátum, ezért használjon megfelelő, makrókat támogató munkafolyamatot, ha a VBA-nak elérhetőnek kell maradnia. Győződjön meg arról is, hogy a szükséges betűtípusok és külső erőforrások jelen vannak abban a környezetben, ahol a konvertált prezentáció meg lesz nyitva vagy renderelve.
 
-Fontos dokumentumok esetén programozottan nyissa meg újra a létrehozott PPTX‑et, ellenőrizze a kulcsfontosságú dia‑számokat és a tartalmat, majd hasonlítsa össze a megjelenését és a diavetítés viselkedését a célzott megjelenítőben. Ne tekintse a sikeres [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) hívást bizonyítékul arra, hogy minden régi funkció pontos PPTX megfelelővel rendelkezik.
+Fontos dokumentumok esetén nyissa meg programozottan a létrehozott PPTX‑et, ellenőrizze a kulcsfontosságú diák számát és tartalmát, majd hasonlítsa össze megjelenését és diavetítés‑viselkedését a célnak megfelelő megjelenítőben. Ne tekintse a sikeres [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) hívást bizonyítéknak arra, hogy minden örökölt funkció pontos PPTX megfelelővel rendelkezik.
 
-## **Mikor használjuk a PPTX-et**
+## **Mikor használjuk a PPTX‑et**
 
-Használja a PPTX-et, ha a prezentációt a jelenlegi PowerPoint‑verziókban szerkesztik, Open XML csomagokkal dolgozó rendszerekkel cserélik, vagy olyan formátumban tárolják, amely könnyebben ellenőrizhető és visszaállítható, mint a régi bináris PPT. Tartsa meg az eredeti PPT‑t archiválási vagy visszagörgetési példányként, amíg a konvertált prezentáció át nem esik a pontossági ellenőrzéseken.
+Használja a PPTX‑et, ha a prezentációt a jelenlegi PowerPoint verziókban szerkesztik, Open XML csomagokkal dolgozó rendszerekkel cserélik, vagy egy olyan formátumban szeretné tárolni, amely könnyebben ellenőrizhető és helyreállítható, mint a régi bináris PPT. Tartsa meg az eredeti PPT‑t archivként vagy visszaállítási másolatként, amíg a konvertált prezentáció át nem esik a pontossági ellenőrzéseken.
 
-Ha PDF‑et, HTML‑t, képeket, XPS‑t vagy más kimeneti típust igényel, kövesse a [Convert Presentations to Multiple Formats](/slides/hu/python-java/convert-presentation/) útmutatót, ahelyett, hogy azt feltételezné, minden célformátum megőrzi a szerkeszthető PowerPoint funkciókat.
+Ha PDF‑re, HTML‑re, képekre, XPS‑re vagy egy másik kimeneti típusra van szüksége, használja a [Convert Presentations to Multiple Formats](/slides/hu/python-java/convert-presentation/) részben található formátumspecifikus útmutatót, ahelyett, hogy azt feltételezné, hogy minden cél megőrzi a szerkeszthető PowerPoint funkciókat.
 
 ## **Online konvertáló**
 
-Alkalmi fájl vagy gyors összehasonlítás esetén használhatja az [online PPT to PPTX converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) szolgáltatást. Ismétlődő konvertálásokhoz, kötegelt feldolgozáshoz vagy alkalmazásszintű hibakezeléshez használja a Python via Java API‑t.
+Egy alkalmi fájl vagy gyors összehasonlítás esetén használhatja a [online PPT to PPTX converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) szolgáltatást. Ismétlődő konverziókhoz, kötegelt feldolgozáshoz vagy alkalmazásszintű hibakezeléshez használja a Python via Java API‑t.
 
 ## **Kapcsolódó cikkek**
 
@@ -120,20 +120,20 @@ Alkalmi fájl vagy gyors összehasonlítás esetén használhatja az [online PPT
 - [Támogatott fájlformátumok](/slides/hu/python-java/supported-file-formats/)
 - [Prezentációk megnyitása Pythonban](/slides/hu/python-java/open-presentation/)
 
-## **Gyakran Ismételt Kérdések**
+## **GYIK**
 
-**Át tudok konvertálni PPT-t PPTX-re a Microsoft PowerPoint telepítése nélkül?**
+**Konvertálhatok PPT‑t PPTX‑be anélkül, hogy a Microsoft PowerPoint telepítve legyen?**
 
-Igen. Az Aspose.Slides for Python via Java betölti és elmenti a prezentációs fájlokat anélkül, hogy a Microsoft PowerPointra szükség lenne.
+Igen. Az Aspose.Slides for Python via Java betölti és menti a prezentációs fájlokat anélkül, hogy a Microsoft PowerPoint szükséges lenne.
 
-**A PPT‑ról PPTX‑re konvertálás pontosan megőrzi az összes tartalmat?**
+**A PPT‑ról PPTX‑re történő konverzió pontosan megőrzi az összes tartalmat?**
 
-A gyakori prezentációs tartalmak megmaradnak, de a teljes pontosság nem garantált minden régi vagy nem támogatott funkció esetén. Tekintse át a generált fájlt, ha makrókat, OLE vagy ActiveX objektumokat, médiát, speciális animációkat vagy ritka betűtípusokat tartalmaz.
+Megtartja a szokásos prezentációs tartalmakat, de az pontos pontosság nem garantált minden örökölt vagy nem támogatott funkció esetén. Tekintse át a generált fájlt, ha makrókat, OLE‑ vagy ActiveX‑objektusokat, médiát, speciális animációkat vagy ritka betűtípusokat tartalmaz.
 
-**Átkonvertálhatok jelszóval védett PPT fájlt?**
+**Konvertálhatok jelszóval védett PPT fájlt?**
 
-Igen, ha a betöltéskor a helyes jelszót adja meg. A hiányzó vagy hibás jelszó miatt a betöltés meghiúsul.
+Igen, ha a betöltéskor megadja a megfelelő jelszót. Hiányzó vagy helytelen jelszó esetén a betöltés meghiúsul.
 
-**Töröljem a PPT fájlt a konvertálás után?**
+**Töröljem a PPT fájlt a konverzió után?**
 
-Tartsa meg az eredetit, amíg a PPTX‑et a számodra fontos megjelenítőkben és munkafolyamatokban ellenőrizte. Ez visszagörgetési másolatot biztosít, ha egy régi funkció másként konvertálódik.
+Tartsa meg az eredetit, amíg ellenőrizte a PPTX‑et a számára fontos megjelenítőkben és munkafolyamatokban. Ez visszaállítási másolatot biztosít, ha egy örökölt funkció másként konvertálódik.

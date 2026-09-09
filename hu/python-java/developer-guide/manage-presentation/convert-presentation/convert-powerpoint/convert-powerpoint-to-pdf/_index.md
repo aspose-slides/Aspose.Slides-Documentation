@@ -1,18 +1,18 @@
 ---
-title: PPT és PPTX konvertálása PDF-be Python-on keresztül Java-val [Haladó funkciók beépítve]
-linktitle: PowerPoint PDF-be
+title: PPT és PPTX konvertálása PDF-re Pythonon keresztül Java-val [Haladó funkciók beépítve]
+linktitle: PowerPoint PDF-re
 type: docs
 weight: 40
 url: /hu/python-java/convert-powerpoint-to-pdf/
 keywords:
 - PowerPoint konvertálása
 - prezentáció konvertálása
-- PowerPoint PDF-be
-- prezentáció PDF-be
-- PPT PDF-be
-- PPT konvertálása PDF-be
-- PPTX PDF-be
-- PPTX konvertálása PDF-be
+- PowerPoint PDF-re
+- prezentáció PDF-re
+- PPT PDF-re
+- PPT konvertálása PDF-re
+- PPTX PDF-re
+- PPTX konvertálása PDF-re
 - PowerPoint mentése PDF-ként
 - PPT mentése PDF-ként
 - PPTX mentése PDF-ként
@@ -24,32 +24,32 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "PowerPoint PPT/PPTX konvertálása magas minőségű, kereshető PDF-ekbe Python-on keresztül Java-val az Aspose.Slides használatával, gyors kódrészletekkel és haladó konverziós beállításokkal."
+description: "PowerPoint PPT/PPTX átalakítása magas minőségű, kereshető PDF-ekre Pythonon keresztül Java-val az Aspose.Slides használatával, gyors kódrészletekkel és haladó konverziós beállításokkal."
 ---
 ## **Áttekintés**
 
-A PowerPoint‑prezentációk (PPT, PPTX, ODP stb.) PDF formátumba konvertálása Python‑on keresztül Java‑val több előnnyel jár, többek között a különböző eszközök közötti kompatibilitással és a prezentáció elrendezésének és formázásának megőrzésével. Ez az útmutató bemutatja, hogyan lehet a prezentációkat PDF‑dokumentumokká konvertálni, különféle beállításokkal szabályozni a képek minőségét, belefoglalni a rejtett diákot, jelszóval védeni a PDF fájlokat, észlelni a betűkészlet‑helyettesítéseket, kijelölni a konvertálandó diát, illetve alkalmazni a megfelelőségi szabványokat a kimeneti dokumentumokon.
+A PowerPoint előadások (PPT, PPTX, ODP stb.) PDF formátumba konvertálása Pythonon keresztül Java segítségével számos előnnyel jár, többek között különböző eszközök közötti kompatibilitás és az előadás elrendezésének és formázásának megőrzése. Ez az útmutató bemutatja, hogyan konvertálhatók az előadások PDF dokumentummá, hogyan lehet különböző beállításokkal szabályozni a képminőséget, belefoglalni a rejtett diákot, jelszóval védeni a PDF fájlokat, felismerni a betűkészlet-helyettesítéseket, konkrét diák kiválasztását a konverzióhoz, valamint hogyan alkalmazhatók megfelelőségi szabványok a kimeneti dokumentumokra.
 
-## **PowerPoint PDF konverziók**
+## **PowerPoint‑ról PDF‑re konverziók**
 
-Az Aspose.Slides használatával a következő formátumú prezentációkat konvertálhatja PDF‑be:
+Az Aspose.Slides segítségével a következő formátumú előadásokat konvertálhatja PDF‑be:
 
 * **PPT**
 * **PPTX**
 * **ODP**
 
-A prezentáció PDF‑re konvertálásához adja meg a fájlnevét argumentumként a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztálynak, majd mentse a prezentációt PDF‑ként a [save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódussal. A [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztály elérhetővé teszi a [save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust, amelyet általában a prezentáció PDF‑re konvertálásához használnak.
+Egy előadás PDF‑be konvertálásához adja át a fájlnevet argumentumként a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztálynak, majd mentse el az előadást PDF‑ként a [save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódussal. A [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztály a [save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust biztosítja, amelyet rendszerint a PowerPoint‑ról PDF‑re konvertáláshoz használnak.
 
 {{% alert color="info" title="Megjegyzés" %}}
-Aspose.Slides for Python via Java beilleszti az API információkat és a verziószámot a kimeneti dokumentumokba. Például, amikor egy prezentációt PDF‑re konvertál, az Aspose.Slides a Application mezőbe "*Aspose.Slides*" értéket, a PDF Producer mezőbe pedig "*Aspose.Slides v XX.XX*" formátumú értéket helyez. **Megjegyzés** hogy nem lehet megmondani az Aspose.Slides‑nek, hogy változtassa meg vagy távolítsa el ezt az információt a kimeneti dokumentumokból.
+Az Aspose.Slides for Python via Java beilleszti az API‑információkat és a verziószámot a kimeneti dokumentumokba. Például PDF‑re konvertáláskor az Application mezőbe "*Aspose.Slides*" kerül, a PDF Producer mezőbe pedig "*Aspose.Slides v XX.XX*" formátumú érték. **Megjegyzés:** a kimeneti dokumentumokból ezt az információt nem lehet eltávolítani vagy módosítani.
 {{% /alert %}}
 
-Az Aspose.Slides lehetővé teszi a következők konvertálását:
+Az Aspose.Slides lehetővé teszi a következőket:
 
-* Teljes prezentációk PDF‑re
-* A prezentáció egyes diái PDF‑re
+* Teljes előadások PDF‑re exportálása
+* Kijelölt diák PDF‑re exportálása
 
-Az Aspose.Slides exportálja a prezentációkat PDF‑be, biztosítva, hogy a létrejövő PDF‑ek szorosan megegyezzenek az eredeti prezentációkkal. Az elemek és attribútumok pontosan jelennek meg a konverzió során, többek között:
+Az Aspose.Slides a PowerPoint‑ot PDF‑be exportálja úgy, hogy a létrejövő PDF-ek szorosan megegyezzenek az eredeti előadással. A konverzió során az elemek és attribútumok pontosan jelennek meg, többek között:
 
 * Képek
 * Szövegdobozok és alakzatok
@@ -62,11 +62,11 @@ Az Aspose.Slides exportálja a prezentációkat PDF‑be, biztosítva, hogy a l�
 
 ## **PowerPoint PDF‑re konvertálása**
 
-Az alapértelmezett konverzió a PDF export alapbeállításait használja. Egyedi beállításokat használjon, ha a képek minőségét, az oldal tartalmát vagy a PDF megfelelőséget szeretné szabályozni.
+Az alapértelmezett konvertálás a PDF‑export alapbeállításait használja. Egyéni beállításokat kell alkalmazni, ha a képminőséget, az oldal tartalmát vagy a PDF megfelelőséget szeretné szabályozni.
 
-Telepítse az [Aspose.Slides for Python via Java](/slides/hu/python-java/installation/) és egy kompatibilis Java futtatókörnyezetet a példák futtatása előtt. Minden példa a `presentation.pptx` fájlt olvassa az aktuális munkakönyvtárból; cserélje ki a saját PPT, PPTX vagy ODP fájljára. Indítsa el a JVM‑et egyszer a Python folyamatra.
+Telepítse az [Aspose.Slides for Python via Java](/slides/hu/python-java/installation/) csomagot és egy kompatibilis Java futtatókörnyezetet, mielőtt futtatná a példákat. Minden példa a jelenlegi munkakönyvtárból olvassa a `presentation.pptx` fájlt; cserélje le saját PPT, PPTX vagy ODP fájljára. A JVM‑et egyszer indítsa el egy Python‑folyamat alatt.
 
-Ez a kód egy prezentációt PDF‑re konvertál:
+Ez a kód egy előadást PDF‑be konvertál:
 
 ```python
 import jpype
@@ -85,21 +85,21 @@ finally:
 ```
 
 {{% alert color="info" title="Megjegyzés" %}}
-Aspose ingyenes online **PowerPoint‑PDF konvertert** biztosít, amely bemutatja a prezentáció‑PDF konvertálási folyamatot. Tesztelheti a konvertert, hogy élőben lássa a leírt eljárást.
+Az Aspose egy ingyenes online **PowerPoint‑ról PDF‑re konvertert** kínál ([link](https://products.aspose.app/slides/hu/conversion/ppt-to-pdf)), amely bemutatja a konverziós folyamatot. Tesztelheti a leírt módszert ezzel a konverterrel.
 {{% /alert %}}
 
-## **PowerPoint PDF‑re konvertálása opciókkal**
+## **PowerPoint PDF‑re konvertálása beállításokkal**
 
-Az Aspose.Slides egyedi beállításokat kínál – a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztály tulajdonságait –, amelyekkel testre szabhatja a kimeneti PDF‑et, jelszóval zárolhatja, vagy meghatározhatja a konverziós folyamat menetét.
+Az Aspose.Slides egyéni beállításokat biztosít – a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztály tulajdonságait – amelyekkel testre szabhatja a kimeneti PDF‑et, jelszóval zárolhatja, vagy meghatározhatja a konverzió menetét.
 
-### **PowerPoint PDF‑re konvertálása egyedi beállításokkal**
+### **PowerPoint PDF‑re konvertálása egyéni beállításokkal**
 
-Egyedi konverziós beállítások használatával meghatározhatja a raszteres képek kívánt minőségét, megadhatja a metafájlok kezelését, beállíthatja a szöveg tömörítési szintjét, konfigurálhatja a képek DPI‑ját, és egyebeket.
+Egyéni konvertálási opciók használatával megadhatja a raszteres képek kívánt minőségi beállítását, a metafájlok kezelését, a szöveg tömörítési szintjét, a képek DPI‑ját és egyebeket.
 
-Az alábbi kódrészlet bemutatja, hogyan konvertáljon PowerPoint‑prezentációt PDF‑re több egyedi beállítással.
+Az alábbi kódrészlet bemutatja, hogyan konvertálhat egy PowerPoint‑ot PDF‑be több egyéni beállítással.
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -122,9 +122,9 @@ finally:
 
 ### **PowerPoint PDF‑re konvertálása rejtett diák szerepeltetésével**
 
-Ha egy prezentáció rejtett diákot tartalmaz, a [setShowHiddenSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályból használva belefoglalhatja a rejtett diákot a kimeneti PDF oldalai közé.
+Ha egy előadás rejtett diákot tartalmaz, a [setShowHiddenSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályból használva a rejtett diák a kimeneti PDF‑ben oldalként jelennek meg.
 
-Ez a kód bemutatja, hogyan konvertáljon PowerPoint‑prezentációt PDF‑re a rejtett diák szerepeltetésével:
+Ez a kód mutatja, hogyan konvertálhat egy PowerPoint‑ot PDF‑be rejtett diák szerepeltetésével:
 
 ```python
 import jpype
@@ -144,9 +144,9 @@ finally:
     presentation.dispose()
 ```
 
-### **PowerPoint PDF‑re konvertálása jelszóval védve**
+### **PowerPoint PDF‑re konvertálása jelszóval védett PDF‑ként**
 
-Ez a kód bemutatja, hogyan konvertáljon PowerPoint‑prezentációt jelszóval védett PDF‑be a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztály védelmi paramétereinek használatával:
+Ez a kód bemutatja, hogyan lehet egy PowerPoint‑ot jelszóval védett PDF‑be konvertálni a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztály védelmi paramétereivel:
 
 ```python
 import jpype
@@ -170,9 +170,9 @@ finally:
 
 ### **Betűkészlet‑helyettesítések észlelése**
 
-Az Aspose.Slides a [setWarningCallback](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveoptions/#setWarningCallback) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályon belül biztosítja, ami lehetővé teszi a betűkészlet‑helyettesítések észlelését a prezentáció‑PDF konverzió során.
+Az Aspose.Slides a [setWarningCallback](https://reference.aspose.com/slides/hu/python-java/aspose.slides/saveoptions/#setWarningCallback) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztály alatt biztosítja, amely lehetővé teszi a betűkészlet‑helyettesítések észlelését a PowerPoint‑ról PDF‑re konvertálás során.
 
-Használjon JPype proxyt a figyelmeztető visszahívások fogadásához a Java API‑tól. A Java leíró karakterláncot konvertálja Python karakterláncra, mielőtt ellenőrizné az előtagját:
+Használjon JPype proxyt a Java API figyelmeztető visszahívásainak fogadásához. A Java leíró karakterláncot konvertálja Python‑stringgé, mielőtt a prefixét ellenőrizné:
 
 ```python
 import jpype
@@ -203,14 +203,14 @@ finally:
 ```
 
 {{% alert color="info" title="Megjegyzés" %}}
-További információért a renderelés során a betűkészlet‑helyettesítések visszahívásának fogadásáról lásd a [Getting Warning Callbacks for Fonts Substitution](/slides/hu/python-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/) cikket.
+A betűkészlet‑helyettesítések során a figyelmeztető visszahívások részleteiről lásd: [Getting Warning Callbacks for Font Substitution](/slides/hu/python-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-További információért a betűkészlet‑helyettesítésekről lásd a [Font Substitution](/slides/hu/python-java/font-substitution/) cikket.
+A betűkészlet‑helyettesítésekkel kapcsolatos további információkért lásd a [Font Substitution](/slides/hu/python-java/font-substitution/) cikket.
 {{% /alert %}}
 
-## **Kiválasztott diák konvertálása PowerPoint‑ból PDF‑be**
+## **Kijelölt diák PDF‑re konvertálása PowerPoint‑ból**
 
-A [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódusnak átadott diaszámok 1‑től indulnak. Ez a példa az 1‑es és 3‑as diát exportálja, ha mindkettő létezik:
+A [Presentation.save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódus által elfogadott dia számok 1‑től indulnak. Ez a példa az 1‑es és 3‑as diát exportálja, ha mindkettő létezik:
 
 ```python
 import jpype
@@ -232,9 +232,9 @@ finally:
     presentation.dispose()
 ```
 
-## **PowerPoint PDF‑re konvertálása egyedi dia mérettel**
+## **PowerPoint PDF‑re konvertálása egyéni dia mérettel**
 
-Ez a példa az első diát egy 612 × 792 pont (US Letter) méretű oldalra exportálja. A diát egy új prezentációba klónozza a megadott mérettel:
+Ez a példa az első diát egy 612 × 792 pont (US Letter) méretű oldalra exportálja, és a diát egy új előadásba klónozza a megadott mérettel:
 
 ```python
 import jpype
@@ -263,9 +263,9 @@ finally:
     presentation.dispose()
 ```
 
-## **PowerPoint PDF‑re konvertálása jegyzetdia nézetben**
+## **PowerPoint PDF‑re konvertálása jegyzet nézetben**
 
-Ez a kód bemutatja, hogyan konvertáljon PowerPoint‑prezentációt PDF‑re, amely tartalmazza a jegyzeteket:
+Ez a kód bemutatja, hogyan konvertálhat egy PowerPoint‑ot PDF‑re, amely tartalmazza a jegyzeteket:
 
 ```python
 import jpype
@@ -287,11 +287,11 @@ finally:
     presentation.dispose()
 ```
 
-## **PDF hozzáférhetőség és megfelelőségi szabványok**
+## **PDF‑ek hozzáférhetősége és megfelelőségi szabványai**
 
-Hozzáférhető PDF‑ek előállításakor tekintse meg a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) útmutatót. Használja a [PdfOptions.setCompliance](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setCompliance) metódust a kimeneti szabvány kiválasztásához: **PDF/A1a**, **PDF/A1b** és **PDF/UA**.
+Akadálymentes PDF‑ek készítésekor tekintse meg a [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) útmutatót. A [PdfOptions.setCompliance](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setCompliance) metódussal választhatja ki a kimeneti szabványt: **PDF/A1a**, **PDF/A1b**, és **PDF/UA**.
 
-Ez a kód bemutatja a PowerPoint‑PDF konverziós folyamatot, amely a különböző megfelelőségi szabványok alapján több PDF‑et hoz létre:
+Ez a kód bemutat egy PowerPoint‑ról PDF‑re konvertálási folyamatot, amely több PDF‑et hoz létre különböző megfelelőségi szabványok alapján:
 
 ```python
 import jpype
@@ -315,27 +315,32 @@ finally:
     presentation.dispose()
 ```
 
-> **Megjegyzés:** PDF/UA exportálásakor az Aspose.Slides a komplex grafikákat, például a SmartArt, diagramok és képletek egyetlen ábraként kezeli. Az egyes útvonal elemek nem maradnak meg különálló tartalomként, és csak az egész ábrához tartozó alternatív szöveg kerül megadásra.
+> **Megjegyzés:** PDF/UA‑ra exportáláskor az Aspose.Slides a komplex grafikákat (például SmartArt, diagramok, képletek) egyetlen ábrának tekinti. Az egyes útvonal elemek nem maradnak meg különálló tartalomként, és eltávolíthatók; az alternatív szöveg csak az egész ábrához kerül hozzáadásra.
 
 ## **GYIK**
 
-**Konvertálhatok több PowerPoint fájlt egyszerre PDF‑be?**  
-Igen, az Aspose.Slides támogatja a több PPT vagy PPTX fájl kötegelt konvertálását PDF‑be. A fájlokat programozottan iterálhatja, és alkalmazhatja a konverziós folyamatot.
+**Több PowerPoint fájlt konvertálhatok egyszerre PDF‑re?**
 
-**Lehetőség van jelszóval védeni a konvertált PDF‑et?**  
-Igen. Használja a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályt a jelszó beállításához és a hozzáférési jogosultságok meghatározásához a konverzió során.
+Igen, az Aspose.Slides támogatja a több PPT vagy PPTX fájl kötegelt konvertálását PDF‑re. Fájljaiban iterálva programozottan alkalmazhatja a konverziós folyamatot.
 
-**Hogyan foglalhatom bele a rejtett diákot a PDF‑be?**  
-Használja a [setShowHiddenSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályban a rejtett diák kimeneti PDF‑be való belefoglalásához.
+**Lehet jelszóval védeni a konvertált PDF‑et?**
 
-**Az Aspose.Slides képes fenntartani a magas képi minőséget a PDF‑ben?**  
-Igen, a képek minőségét a [setJpegQuality](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setJpegQuality) és a [setSufficientResolution](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setSufficientResolution) metódusokkal szabályozhatja a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályban, biztosítva a magas minőségű képeket a PDF‑ben.
+Igen. A [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztály használatával beállíthatja a jelszót és a hozzáférési jogosultságokat a konverzió során.
 
-**Az Aspose.Slides támogatja a PDF/A megfelelőségi szabványokat?**  
-Igen, az Aspose.Slides lehetővé teszi, hogy PDF‑eket exportáljon, amelyek megfelelnek a [különféle szabványoknak](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfcompliance/), beleértve a PDF/A1a, PDF/A1b és PDF/UA szabványokat, a hozzáférhetőség vagy archiválás céljából. Válassza ki a megfelelő szabványt, és ellenőrizze a kimenetet az igényeinek megfelelően.
+**Hogyan szerepeltethetők a rejtett diák a PDF‑ben?**
+
+A [setShowHiddenSlides](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) metódust a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályban használva a rejtett diák a kimeneti PDF‑ben jelennek meg.
+
+**Az Aspose.Slides megőrzi a magas képminőséget a PDF‑ben?**
+
+Igen, a képminőséget a [setJpegQuality](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setJpegQuality) és a [setSufficientResolution](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setSufficientResolution) metódusokkal szabályozhatja a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályban, így biztosíthatja a magas minőséget.
+
+**Az Aspose.Slides támogatja a PDF/A megfelelőségi szabványokat?**
+
+Igen, az Aspose.Slides lehetővé teszi olyan PDF‑ek exportálását, amelyek megfelelnek a [különböző szabványoknak](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfcompliance/), többek között a PDF/A1a, PDF/A1b és PDF/UA szabványoknak, az akadálymentesség vagy archiválás céljából. Válassza ki a megfelelő szabványt, és ellenőrizze a kimenetet az igényei szerint.
 
 ## **További források**
 
-- [Aspose.Slides for Python via Java dokumentáció](/slides/hu/python-java/)
-- [Aspose.Slides for Python via Java API referencia](https://reference.aspose.com/slides/hu/python-java/)
-- [Aspose ingyenes online konvertálók](https://products.aspose.app/slides/hu/conversion)
+- [Aspose.Slides for Python via Java Dokumentáció](/slides/hu/python-java/)
+- [Aspose.Slides for Python via Java API Referencia](https://reference.aspose.com/slides/hu/python-java/)
+- [Aspose Ingyenes Online Konvertálók](https://products.aspose.app/slides/hu/conversion)

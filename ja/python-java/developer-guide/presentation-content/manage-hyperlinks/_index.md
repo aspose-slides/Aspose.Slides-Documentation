@@ -1,21 +1,21 @@
 ---
-title: Python via Java でプレゼンテーションのハイパーリンクを管理
+title: Python via Javaでプレゼンテーションのハイパーリンクを管理
 linktitle: ハイパーリンクの管理
 type: docs
 weight: 20
 url: /ja/python-java/manage-hyperlinks/
 keywords:
-- URL を追加
+- URLを追加
 - ハイパーリンクを追加
 - ハイパーリンクを作成
 - ハイパーリンクの書式設定
 - ハイパーリンクを削除
 - ハイパーリンクを更新
-- テキスト ハイパーリンク
-- スライド ハイパーリンク
-- 図形 ハイパーリンク
-- 画像 ハイパーリンク
-- 動画 ハイパーリンク
+- テキストハイパーリンク
+- スライドハイパーリンク
+- 図形ハイパーリンク
+- 画像ハイパーリンク
+- 動画ハイパーリンク
 - 可変ハイパーリンク
 - PowerPoint
 - OpenDocument
@@ -23,26 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用して、PowerPoint および OpenDocument プレゼンテーションのハイパーリンクを簡単に管理し、数分でインタラクティブ性とワークフローを向上させます。"
+description: "Aspose.Slides for Python via Java を使用して、PowerPoint および OpenDocument プレゼンテーションのハイパーリンクを手軽に管理し、数分でインタラクティブ性とワークフローを向上させます。"
 ---
-## **導入**
+## **はじめに**
 
-ハイパーリンクは、オブジェクトやデータ、あるいは場所への参照です。PowerPoint プレゼンテーションで一般的に使用されるハイパーリンクは次のとおりです。
+ハイパーリンクは、オブジェクト、データ、または場所への参照です。PowerPoint プレゼンテーションで一般的なハイパーリンクには次のものがあります：
 
 * テキスト、図形、またはメディア内のウェブサイトへのリンク
 * スライドへのリンク
 
-Aspose.Slides for Python via Java を使用すると、プレゼンテーション内のハイパーリンクに関するさまざまな操作を実行できます。
+Aspose.Slides for Python via Java を使用すると、プレゼンテーション内のハイパーリンクに関するさまざまなタスクを実行できます。 
 
 {{% alert color="info" title="Note" %}} 
-Aspose Simple、[無料のオンライン PowerPoint エディタ](https://products.aspose.app/slides/ja/editor) をご確認ください。
+Aspose のシンプルな、[無料オンライン PowerPoint エディター](https://products.aspose.app/slides/ja/editor) をご確認ください。 
 {{% /alert %}} 
 
 ## **URL ハイパーリンクの追加**
 
 ### **テキストへの URL ハイパーリンクの追加**
 
-この Python コードは、テキストにウェブサイトのハイパーリンクを追加する方法を示します。
+この Python コードは、テキストに Web サイトのハイパーリンクを追加する方法を示しています。
 
 ```python
 import jpype
@@ -70,7 +70,7 @@ finally:
 
 ### **図形またはフレームへの URL ハイパーリンクの追加**
 
-この Python via Java のサンプルコードは、図形にウェブサイトのハイパーリンクを追加する方法を示します。
+この Python via Java のサンプルコードは、図形に Web サイトのハイパーリンクを追加する方法を示しています。
 
 ```python
 import jpype
@@ -97,7 +97,7 @@ finally:
 
 Aspose.Slides を使用すると、画像、音声、動画ファイルにハイパーリンクを追加できます。
 
-このサンプルコードは、**画像** にハイパーリンクを追加する方法を示します。
+このサンプルコードは、**画像**にハイパーリンクを追加する方法を示しています。
 
 ```python
 import jpype
@@ -116,7 +116,7 @@ try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # 以前に追加した画像を基にスライド 1 にピクチャフレームを作成
+    # スライド1に、以前追加した画像を基に画像フレームを作成
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -127,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-このサンプルコードは、**音声ファイル** にハイパーリンクを追加する方法を示します。
+このサンプルコードは、**音声ファイル**にハイパーリンクを追加する方法を示しています。
 
 ```python
 from pathlib import Path
@@ -155,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-このサンプルコードは、**動画** にハイパーリンクを追加する方法を示します。
+このサンプルコードは、**動画**にハイパーリンクを追加する方法を示しています。
 
 ```python
 from pathlib import Path
@@ -184,14 +184,14 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}} 
-*[OLE の管理](/slides/ja/python-java/manage-ole/)* をご覧ください。
+*[Manage OLE](/slides/ja/python-java/manage-ole/)* をご覧になることをお勧めします。 
 {{% /alert %}}
 
 ## **ハイパーリンクを使用した目次の作成**
 
 ハイパーリンクはオブジェクトや場所への参照を追加できるため、目次の作成に利用できます。
 
-このサンプルコードは、ハイパーリンク付きの目次を作成する方法を示します。
+このサンプルコードは、ハイパーリンク付きの目次を作成する方法を示しています。
 
 ```python
 import jpype
@@ -233,9 +233,9 @@ finally:
 
 ## **ハイパーリンクの書式設定**
 
-### **カラー**
+### **色**
 
-[Hyperlink] クラスの [Hyperlink.setColorSource](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlink/#setColorSource) プロパティを使用すると、ハイパーリンクの色を設定したり、ハイパーリンクから色情報を取得したりできます。この機能は PowerPoint 2019 で初めて導入されたため、プロパティに関する変更は旧バージョンの PowerPoint には適用されません。
+[Hyperlink.setColorSource](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlink/#setColorSource) プロパティを使用すると、[Hyperlink](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlink/) クラスでハイパーリンクの色を設定したり、ハイパーリンクから色情報を取得したりできます。この機能は PowerPoint 2019 で初めて導入されたため、プロパティに関する変更は旧バージョンの PowerPoint には適用されません。
 
 このサンプルコードは、同じスライドに異なる色のハイパーリンクを追加する操作を示しています。
 
@@ -269,11 +269,11 @@ finally:
     presentation.dispose()
 ```
 
-## **プレゼンテーションからハイパーリンクを削除する**
+## **プレゼンテーションからハイパーリンクを削除**
 
-### **テキストからハイパーリンクを削除する**
+### **テキストからハイパーリンクを削除**
 
-この Python コードは、プレゼンテーションスライドのテキストからハイパーリンクを削除する方法を示します。
+この Python コードは、プレゼンテーションのスライド上のテキストからハイパーリンクを削除する方法を示しています。
 
 ```python
 import jpype
@@ -300,9 +300,9 @@ finally:
     presentation.dispose()
 ```
 
-### **図形またはフレームからハイパーリンクを削除する**
+### **図形またはフレームからハイパーリンクを削除**
 
-この Python コードは、プレゼンテーションスライドの図形からハイパーリンクを削除する方法を示します。
+この Python コードは、プレゼンテーションのスライド上の図形からハイパーリンクを削除する方法を示しています。
 
 ```python
 import jpype
@@ -325,7 +325,7 @@ finally:
 
 ## **可変ハイパーリンク**
 
-[Hyperlink] クラスは可変です。このクラスを使用すると、次のプロパティの値を変更できます。
+[Hyperlink](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlink/) クラスは可変です。このクラスを使用すると、次のプロパティの値を変更できます：
 
 - [setTargetFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -333,7 +333,7 @@ finally:
 - [setHighlightClick](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-このコードスニペットは、スライドにハイパーリンクを追加し、後でツールチップを編集する方法を示します。
+このコードスニペットは、スライドにハイパーリンクを追加し、後でツールチップを編集する方法を示しています。
 
 ```python
 import jpype
@@ -354,7 +354,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # すでに追加されたハイパーリンクのツールチップを変更します
+    # 既に追加されているハイパーリンクのツールチップを変更する
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -362,15 +362,15 @@ finally:
     presentation.dispose()
 ```
 
-## **HyperlinkQueries でサポートされているプロパティ**
+## **HyperlinkQueries のサポートされているプロパティ**
 
-プレゼンテーション、スライド、またはハイパーリンクが定義されているテキストから [HyperlinkQueries](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlinkqueries/) にアクセスできます。
+ハイパーリンクが定義されているプレゼンテーション、スライド、またはテキストから [HyperlinkQueries](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlinkqueries/) にアクセスできます。
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-[HyperlinkQueries] クラスは次のメソッドとプロパティをサポートしています。
+[HyperlinkQueries](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlinkqueries/) クラスは、以下のメソッドとプロパティをサポートしています：
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/ja/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
@@ -381,12 +381,12 @@ finally:
 
 **スライドだけでなく「セクション」やセクションの最初のスライドへ内部ナビゲーションを作成するにはどうすればよいですか？**
 
-PowerPoint のセクションはスライドのグループ化です。ナビゲーションは技術的に特定のスライドを対象とするため、「セクションへ移動」したい場合は通常、そのセクションの最初のスライドへリンクします。
+PowerPoint のセクションはスライドのグループ化です。ナビゲーションは技術的には特定のスライドを対象とします。「セクションへ移動」する場合、通常はその最初のスライドへリンクします。
 
-**マスタースライドの要素にハイパーリンクを付けることで、すべてのスライドで機能させることはできますか？**
+**マスタースライド要素にハイパーリンクを付けて、すべてのスライドで機能させることはできますか？**
 
-はい。マスタースライドやレイアウトの要素はハイパーリンクをサポートします。これらのリンクは子スライドに反映され、スライドショー中にクリック可能です。
+はい。マスタースライドとレイアウト要素はハイパーリンクをサポートしています。そのようなリンクは子スライドに表示され、スライドショー中にクリック可能です。
 
-**PDF、HTML、画像、または動画へエクスポートした場合、ハイパーリンクは保持されますか？**
+**PDF、HTML、画像、動画へのエクスポート時にハイパーリンクは保持されますか？**
 
-[PDF](/slides/ja/python-java/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/python-java/convert-powerpoint-to-html/) では、リンクは通常保持されます。画像 ([PNG](/slides/ja/python-java/convert-powerpoint-to-png/)) や動画 ([動画](/slides/ja/python-java/convert-powerpoint-to-video/)) にエクスポートした場合は、ラスターフレームや動画はハイパーリンクをサポートしないため、クリック可能性は引き継がれません。
+PDF（[PDF](/slides/ja/python-java/convert-powerpoint-to-pdf/)）および HTML（[HTML](/slides/ja/python-java/convert-powerpoint-to-html/)）へのエクスポートでは、一般的にリンクは保持されます。画像（[images](/slides/ja/python-java/convert-powerpoint-to-png/)）や動画（[video](/slides/ja/python-java/convert-powerpoint-to-video/)）へのエクスポートでは、これらの形式はラスターフレーム/動画でハイパーリンクをサポートしないため、クリック可能性は引き継がれません。

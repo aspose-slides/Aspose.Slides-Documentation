@@ -4,7 +4,7 @@ type: docs
 weight: 40
 url: /cs/python-java/examples/elements/text-box/
 keywords:
-- příklad kódu
+- ukázka kódu
 - textové pole
 - PowerPoint
 - OpenDocument
@@ -14,15 +14,15 @@ keywords:
 - Aspose.Slides
 description: "Pracujte s textovými poli v Aspose.Slides for Python via Java: přidávejte, formátujte, vyhledávejte a odstraňujte text v prezentacích PowerPoint a OpenDocument."
 ---
-V **Aspose.Slides for Python via Java** je textové pole automatický tvar, který obsahuje text. Téměř jakýkoli tvar může obsahovat text, ale typické textové pole nemá výplň ani ohraničení a zobrazuje pouze text.
+V **Aspose.Slides for Python via Java** je textové pole automatický tvar, který obsahuje text. Skoro jakýkoli tvar může obsahovat text, ale typické textové pole nemá výplň ani okraj a zobrazuje pouze text.
 
 Tento průvodce vysvětluje, jak programově přidávat, přistupovat k a odstraňovat textová pole.
 
-Balíček nainstalujte podle popisu v [Installation](/slides/cs/python-java/installation/). Každý příklad nejprve naimportuje `asposeslides` před spuštěním JVM a poté naimportuje API po spuštění JVM.
+Balíček nainstalujte podle pokynů v [Installation](/slides/cs/python-java/installation/). Každý příklad importuje `asposeslides` před spuštěním JVM a následně importuje API poté, co JVM běží.
 
 ## **Přidat textové pole**
 
-Vytvořte obdélník, odstraňte jeho výplň a ohraničení a přiřaďte formátovaný text.
+Vytvořte obdélník, odstraňte jeho výplň a okraj a přiřaďte formátovaný text.
 
 ```python
 import jpype

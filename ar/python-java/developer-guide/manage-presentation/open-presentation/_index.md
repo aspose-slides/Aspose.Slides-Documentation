@@ -1,39 +1,39 @@
 ---
-title: فتح العروض في Python عبر Java
-linktitle: فتح العرض
+title: فتح العروض التقديمية في Python عبر Java
+linktitle: فتح عرض تقديمي
 type: docs
 weight: 20
 url: /ar/python-java/open-presentation/
 keywords:
 - فتح PowerPoint
-- فتح عرض
+- فتح عرض تقديمي
 - فتح PPTX
 - فتح PPT
 - فتح ODP
-- تحميل عرض
+- تحميل عرض تقديمي
 - تحميل PPTX
 - تحميل PPT
 - تحميل ODP
-- عرض محمي
-- عرض كبير
+- عرض تقديمي محمي
+- عرض تقديمي كبير
 - مورد خارجي
 - كائن ثنائي
 - Python
 - Java
 - Aspose.Slides
-description: "تعلم كيفية فتح عروض PowerPoint وOpenDocument في Python عبر Java، وتوفير كلمات مرور للفتح، والتحكم في تحميل الموارد، وتقليل استخدام الذاكرة باستخدام Aspose.Slides for Python via Java."
+description: "تعلم كيفية فتح عروض PowerPoint وOpenDocument في Python عبر Java، وتوفير كلمات مرور الفتح، والتحكم في تحميل الموارد، وتقليل استخدام الذاكرة باستخدام Aspose.Slides للغة Python عبر Java."
 ---
-## **المقدمة**
+## **مقدمة**
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/ar/python-java/) يمكنه تحميل عروض PowerPoint وOpenDocument من الملفات وتيارات البيانات. بعد تحميل العرض، يمكنك فحص هيكله، تعديل الشرائح، إدارة الموارد، وحفظه بالصيغة الأصلية أو بصيغة مدعومة أخرى.
+يمكن لـ [Aspose.Slides للغة Python عبر Java](https://products.aspose.com/slides/ar/python-java/) تحميل عروض PowerPoint وOpenDocument من الملفات والتيارات. بعد تحميل العرض التقديمي، يمكنك فحص هيكله، تحرير الشرائح، إدارة الموارد، وحفظه بالتنسيق الأصلي أو أي تنسيق مدعوم آخر.
 
-يمكن تخصيص سلوك التحميل عبر فئة [LoadOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/). على سبيل المثال، يمكنك تقديم كلمة مرور للفتح، إبقاء الكائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المضمنة.
+يمكن تخصيص سلوك التحميل عبر فئة [LoadOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/). على سبيل المثال، يمكنك توفير كلمة مرور للفتح، إبقاء الكائنات الثنائية الكبيرة خارج ذاكرة Java heap، التحكم في الموارد الخارجية، أو حذف البيانات الثنائية المضمنة.
 
-## **فتح العروض**
+## **فتح العروض التقديمية**
 
-لفتح عرض موجود، مرّر مسار الملف إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/). قم بتحرير العرض بعد الاستخدام حتى يتم تحرير مقبض الملف والبيانات المؤقتة وغيرها من الموارد على الفور.
+لفتح عرض تقديمي موجود، مرّر مسار ملفه إلى المُنشئ [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/). حرّر العرض التقديمي بعد الاستخدام حتى يتم تحرير مقابض الملفات والبيانات المؤقتة وغيرها من الموارد على الفور.
 
-يظهر المثال التالي بلغة Python كيفية فتح عرض والحصول على عدد الشرائح:
+يظهر المثال التالي بلغة Python كيفية فتح عرض تقديمي والحصول على عدد الشرائح:
 
 ```python
 import jpype
@@ -51,9 +51,9 @@ finally:
     presentation.dispose()
 ```
 
-## **فتح العروض المحمية بكلمة مرور**
+## **فتح العروض التقديمية المحمية بكلمة مرور**
 
-كلمة المرور للفتح تشفر محتوى العرض. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#setPassword) وقدم الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
+كلمة مرور الفتح تشفر محتوى العرض التقديمي. لتحميل العرض بالكامل، مرّر كلمة المرور الصحيحة إلى [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#setPassword) وقدم الخيارات إلى مُنشئ [Presentation](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/). سيفشل التحميل إذا كانت كلمة المرور مفقودة أو غير صحيحة.
 
 ```python
 import jpype
@@ -74,13 +74,13 @@ finally:
     presentation.dispose()
 ```
 
-للتعرف على كلمات المرور، والتحقق منها، وسير عمل التشفير، راجع [Password-Protect Presentations](/slides/ar/python-java/password-protected-presentation/). إذا تم حفظ عرض مشفر مع خصائص مستند عامة، يمكن قراءة هذه الخصائص بدون كلمة مرور؛ انظر [Manage Presentation Properties](/slides/ar/python-java/presentation-properties/).
+للتعرف على كلمة المرور، والتحقق، وسير عمل التشفير، راجع [Password-Protect Presentations](/slides/ar/python-java/password-protected-presentation/). إذا تم حفظ عرض تقديمي مشفر مع خصائص المستند العامة عمدًا، يمكن قراءة تلك الخصائص بدون كلمة مرور؛ انظر [Manage Presentation Properties](/slides/ar/python-java/presentation-properties/).
 
-## **فتح العروض الكبيرة**
+## **فتح العروض التقديمية الكبيرة**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) تُرجع خيارات تتحكم في كيفية معالجة Aspose.Slides للكائنات الثنائية الكبيرة مثل الصور، الصوت، والفيديو. يمكنك إبقاء ملف المصدر مقفولًا، السماح بالملفات المؤقتة، وتحديد كمية بيانات BLOB المحتفظ بها في الذاكرة.
+تُعيد [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) خيارات تتحكم في كيفية تعامل Aspose.Slides مع الكائنات الثنائية الكبيرة مثل الصور والصوت والفيديو. يمكنك إبقاء ملف المصدر مقفلاً، السماح بملفات مؤقتة، وتحديد كمية بيانات BLOB المحتفظ بها في الذاكرة.
 
-يُظهر الكود التالي بلغة Python كيفية تحميل عرض كبير (مثلاً 2 GB):
+يظهر الكود التالي بلغة Python كيفية تحميل عرض تقديمي كبير (على سبيل المثال، 2 جيجابايت):
 
 ```python
 import jpype
@@ -107,16 +107,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
+مع [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفلًا حتى يتم تحرير كائن العرض التقديمي. لا تقم بنقل، أو استبدال، أو حذف ملف المصدر أثناء بقاء هذا الكائن حيا.
 
-باستخدام [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked)، يبقى ملف المصدر مقفولًا حتى يتم تحرير كائن العرض. لا تقم بنقل أو استبدال أو حذف ملف المصدر بينما يكون هذا الكائن حيًا.
-
-قد تقوم Aspose.Slides بنسخ محتويات تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، يكون مسار الملف أكثر كفاءة عمومًا من التدفق. راجع [Manage BLOBs](/slides/ar/python-java/manage-blob/) لمزيد من خيارات التخزين وإدارة الذاكرة.
-
+قد تقوم Aspose.Slides بنسخ محتويات تدفق الإدخال أثناء تحميله. بالنسبة للعروض الكبيرة، يكون مسار الملف عمومًا أكثر كفاءة من التدفق. راجع [Manage BLOBs](/slides/ar/python-java/manage-blob/) لمزيد من خيارات التخزين وإدارة الذاكرة.
 {{% /alert %}}
 
 ## **التحكم في الموارد الخارجية**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) تقبل وكيل JPype يُطبق واجهة استدعاء Java لتحميل الموارد. يمكن للاستدعاء توفير بيانات بديلة، إعادة توجيه مورد، استخدام المُحمّل الافتراضي، أو تخطي المورد. هذا مفيد عندما تحتوي العروض على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
+تقبل [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) وكيل JPype ينفذ واجهة رد الاتصال لتحميل الموارد في Java. يمكن لرد الاتصال توفير بيانات بديلة، إعادة توجيه المورد، استخدام المحمل الافتراضي، أو تخطي المورد. هذا مفيد عندما يحتوي العرض التقديمي على صور خارجية يجب حلها وفقًا لقواعد الأمان أو التخزين الخاصة بالتطبيق.
 
 ```python
 import jpype
@@ -156,17 +154,17 @@ finally:
     presentation.dispose()
 ```
 
-## **تحميل العروض دون الكائنات الثنائية المضمنة**
+## **تحميل العروض التقديمية دون كائنات ثنائية مدمجة**
 
-قد يحتوي العرض على بيانات ثنائية مدمجة لا تحتاجها التطبيق أو لا يريد الاحتفاظ بها. تشمل الأمثلة:
+يمكن أن يحتوي عرض تقديمي على بيانات ثنائية مدمجة لا يحتاجها التطبيق أو لا يرغب في الاحتفاظ بها. أمثلة على ذلك:
 
-- مشاريع VBA، متاحة عبر [Presentation.getVbaProject](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getVbaProject)؛
-- بيانات OLE مدمجة، متاحة عبر [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData)؛
-- بيانات التحكم ActiveX، متاحة عبر [Control.getActiveXControlBinary](https://reference.aspose.com/slides/ar/python-java/aspose.slides/control/#getActiveXControlBinary).
+- مشاريع VBA، يمكن الوصول إليها عبر [Presentation.getVbaProject](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getVbaProject);
+- بيانات OLE مدمجة، يمكن الوصول إليها عبر [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/ar/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
+- بيانات عناصر التحكم ActiveX، يمكن الوصول إليها عبر [Control.getActiveXControlBinary](https://reference.aspose.com/slides/ar/python-java/aspose.slides/control/#getActiveXControlBinary).
 
-عيّن [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) إلى `True` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض الذي تم تحميله لتثبيت النتيجة المُنقاة.
+اضبط [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/ar/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) على `True` لإزالة هذه البيانات الثنائية أثناء التحميل. احفظ العرض الذي تم تحميله لتثبيت النتيجة المنقاة.
 
-هذا الخيار يقلل من التعرض للحمولات المضمنة غير المرغوب فيها، لكنه ليس نظامًا كاملاً لاكتشاف البرمجيات الضارة أو تنقية المحتوى.
+هذا الخيار يقلل من التعرض للحمولات المدمجة غير المرغوب فيها، لكنه ليس نظامًا كاملاً لاكتشاف البرمجيات الخبيثة أو تنقية المحتوى.
 
 ```python
 import jpype
@@ -191,12 +189,12 @@ finally:
 
 **كيف يمكنني معرفة أن الملف تالف ولا يمكن فتحه؟**
 
-تقوم Aspose.Slides بإلقاء استثناء تحليل أو صيغة أثناء التحميل. تعامل مع هذا الفشل بشكل منفصل عن خطأ كلمة المرور الخاطئة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
+تطرح Aspose.Slides استثناءً أثناء التحليل أو التنسيق عند التحميل. عالج هذا الفشل بشكل منفصل عن خطأ كلمة المرور غير الصحيحة حتى يتمكن التطبيق من الإبلاغ عن السبب بدقة.
 
 **ماذا يحدث إذا كانت الخطوط المطلوبة مفقودة؟**
 
-يمكن للعرض أن يظل يُحمَّل، لكن قد تستبدل الخطوط أثناء العرض أو التصدير. يمكنك [تكوين استبدال الخطوط](/slides/ar/python-java/font-substitution/) أو [توفير خطوط مخصصة](/slides/ar/python-java/custom-font/) لجعل المخرجات أكثر توقعًا.
+يمكن للعرض التقديمي أن يظل يحمل، لكن قد يستبدل العرض والتصدير الخطوط. يمكنك [إعداد استبدال الخطوط](/slides/ar/python-java/font-substitution/) أو [توفير خطوط مخصصة](/slides/ar/python-java/custom-font/) لجعل المخرجات أكثر توقعًا.
 
-**هل تحميل العرض يحمل أيضًا الوسائط المضمنة؟**
+**هل تحميل العرض التقديمي يحمل أيضًا الوسائط المدمجة؟**
 
-تصبح ملفات الصوت والفيديو المدمجة متاحة عبر نموذج كائن العرض. تُحل الموارد الخارجية وفق سلوك تحميل الموارد المُكوَّن وقد لا تكون متاحة إذا تعذّر الوصول إلى مواقعها.
+تصبح ملفات الصوت والفيديو المدمجة متاحة عبر نموذج كائن العرض التقديمي. يتم حل الموارد الخارجية وفقًا لسلوك تحميل الموارد المكوّن وقد تكون غير متاحة إذا لم يمكن الوصول إلى مواقعها.

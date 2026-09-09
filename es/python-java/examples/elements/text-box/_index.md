@@ -12,17 +12,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Trabaje con cuadros de texto en Aspose.Slides para Python mediante Java: añada, dé formato, busque y elimine texto en presentaciones de PowerPoint y OpenDocument."
+description: "Trabajar con cuadros de texto en Aspose.Slides for Python via Java: agregar, dar formato, buscar y eliminar texto en presentaciones de PowerPoint y OpenDocument."
 ---
-En **Aspose.Slides for Python via Java**, un cuadro de texto es una forma automática que contiene texto. Casi cualquier forma puede contener texto, pero un cuadro de texto típico no tiene relleno ni borde y solo muestra texto.
+En **Aspose.Slides for Python via Java**, un cuadro de texto es una autoforma que contiene texto. Casi cualquier forma puede contener texto, pero un cuadro de texto típico no tiene relleno ni borde y muestra solo texto.
 
-Esta guía explica cómo añadir, acceder y eliminar cuadros de texto mediante código.
+Esta guía explica cómo agregar, acceder y eliminar cuadros de texto mediante código.
 
-Instale el paquete como se describe en [Installation](/slides/es/python-java/installation/). Cada ejemplo importa `asposeslides` antes de iniciar la JVM y, a continuación, importa la API una vez que la JVM se está ejecutando.
+Instale el paquete como se describe en [Instalación](/slides/es/python-java/installation/). Cada ejemplo importa `asposeslides` antes de iniciar la JVM y luego importa la API una vez que la JVM está en ejecución.
 
-## **Add a Text Box**
+## **Agregar un cuadro de texto**
 
-Cree un rectángulo, elimine su relleno y borde, y asigne texto con formato.
+Crear un rectángulo, eliminar su relleno y borde, y asignar texto con formato.
 
 ```python
 import jpype
@@ -41,7 +41,7 @@ try:
     # Crear una forma rectangular.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
-    # Eliminar el relleno y el borde para mostrar solo texto.
+    # Eliminar el relleno y el borde para mostrar solo el texto.
     text_box.getFillFormat().setFillType(FillType.NoFill)
     text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
 
@@ -56,9 +56,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Access Text Boxes by Content**
+## **Acceder a cuadros de texto por contenido**
 
-Añada un cuadro de texto de ejemplo y, a continuación, busque formas cuyo texto contenga la palabra clave "Slide".
+Agregar un cuadro de texto de ejemplo y luego buscar formas cuyo texto contenga la palabra clave "Slide".
 
 ```python
 import jpype
@@ -88,9 +88,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Remove Text Boxes by Content**
+## **Eliminar cuadros de texto por contenido**
 
-Encuentre y elimine los cuadros de texto en la primera diapositiva que contengan una palabra clave específica.
+Buscar y eliminar los cuadros de texto en la primera diapositiva que contengan una palabra clave específica.
 
 ```python
 import jpype
@@ -124,5 +124,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-Recoja las formas coincidentes en una lista separada antes de eliminarlas para evitar modificar la colección de formas durante la iteración.
+Recopile las formas coincidentes en una lista separada antes de eliminarlas para evitar modificar la colección de formas durante la iteración.
 {{% /alert %}}

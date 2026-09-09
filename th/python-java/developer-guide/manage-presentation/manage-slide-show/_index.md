@@ -1,6 +1,6 @@
 ---
 title: จัดการการแสดงสไลด์ใน Python ผ่าน Java
-linktitle: สไลด์โชว์
+linktitle: การแสดงสไลด์
 type: docs
 weight: 90
 url: /th/python-java/manage-slide-show/
@@ -10,34 +10,34 @@ keywords:
 - เรียกดูโดยบุคคล
 - เรียกดูที่คีออส
 - ตัวเลือกการแสดง
-- วนลูปต่อเนื่อง
+- วนซ้ำอย่างต่อเนื่อง
 - แสดงโดยไม่มีคำบรรยาย
 - แสดงโดยไม่มีแอนิเมชัน
 - สีปากกา
 - แสดงสไลด์
 - การแสดงที่กำหนดเอง
-- เลื่อนสไลด์ต่อไป
+- เลื่อนสไลด์
 - ด้วยตนเอง
-- ใช้การกำหนดเวลา
+- ใช้เวลา
 - PowerPoint
 - OpenDocument
 - งานนำเสนอ
 - Python
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการการแสดงสไลด์ใน Aspose.Slides สำหรับ Python ผ่าน Java. ควบคุมการเปลี่ยนสไลด์, การกำหนดเวลาและอื่น ๆ ทั่วรูปแบบ PPT, PPTX และ ODP อย่างง่ายดาย."
+description: "เรียนรู้วิธีจัดการการแสดงสไลด์ใน Aspose.Slides สำหรับ Python ผ่าน Java. ควบคุมการเปลี่ยนสไลด์, เวลาและอื่น ๆ อีกมากในรูปแบบ PPT, PPTX และ ODP อย่างง่ายดาย."
 ---
 ## **บทนำ**
 
-ตัวเลือก **Set Up Show** ของ Microsoft PowerPoint ให้คุณเลือกประเภทการแสดง, เปิดการวนลูป, เลือกสไลด์, และควบคุมการเลื่อนสไลด์ต่อไป. ด้วย Aspose.Slides for Python via Java, คุณสามารถกำหนดค่าตัวเลือกเหล่านี้โดยโปรแกรมและบันทึกลงในไฟล์การนำเสนอได้.
+ตัวเลือก **Set Up Show** ของ Microsoft PowerPoint ให้คุณเลือกประเภทการแสดง, เปิดการวนซ้ำ, เลือกสไลด์, และควบคุมการเปลี่ยนสไลด์. ด้วย Aspose.Slides for Python via Java คุณสามารถกำหนดค่าตัวเลือกเหล่านี้ด้วยโปรแกรมและบันทึกลงในไฟล์งานนำเสนอ.
 
-เมธอด [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getSlideShowSettings) จะคืนค่าออบเจ็กต์ [SlideShowSettings](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/) ที่ควบคุมตัวเลือกเหล่านี้ ตัวอย่างด้านล่างต้องใช้ Aspose.Slides for Python via Java และ Java runtime ที่เข้ากันได้ แต่ละตัวอย่างจะเริ่ม JVM หากจำเป็นและจะปล่อยการนำเสนอเมื่อเสร็จสิ้น.
+เมธอด [Presentation.getSlideShowSettings](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#getSlideShowSettings) จะคืนค่าอ็อบเจกต์ [SlideShowSettings](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/) ที่ควบคุมตัวเลือกเหล่านี้ ตัวอย่างด้านล่างต้องใช้ Aspose.Slides for Python via Java และ Runtime ของ Java ที่เข้ากันได้ แต่ละตัวอย่างจะเริ่ม JVM หากจำเป็นและจะปล่อยการใช้งานงานนำเสนอเมื่อเสร็จสิ้น.
 
 ## **เลือกประเภทการแสดง**
 
-[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setSlideShowType) กำหนดประเภทของการแสดงสไลด์ ซึ่งอาจเป็นอินสแตนซ์ของคลาสต่อไปนี้: [PresentedBySpeaker](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/th/python-java/aspose.slides/browsedbyindividual/), หรือ [BrowsedAtKiosk](https://reference.aspose.com/slides/th/python-java/aspose.slides/browsedatkiosk/). การใช้เมธอดนี้ช่วยให้คุณปรับการนำเสนอให้เหมาะกับสถานการณ์การใช้งานต่าง ๆ เช่น คีออสอัตโนมัติหรือการนำเสนอด้วยมือ.
+[SlideShowSettings.setSlideShowType](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setSlideShowType) กำหนดประเภทของการแสดงสไลด์ ซึ่งอาจเป็นอินสแตนซ์ของคลาสต่อไปนี้: [PresentedBySpeaker](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/th/python-java/aspose.slides/browsedbyindividual/), หรือ [BrowsedAtKiosk](https://reference.aspose.com/slides/th/python-java/aspose.slides/browsedatkiosk/). การใช้เมธอดนี้ช่วยให้คุณปรับงานนำเสนอให้เหมาะกับสถานการณ์การใช้งานต่าง ๆ เช่น คีออสอัตโนมัติหรือการนำเสนอด้วยมือ.
 
-ตัวอย่างโค้ดด้านล่างสร้างการนำเสนอใหม่และตั้งค่าประเภทการแสดงเป็น “Browsed by an individual” โดยไม่แสดงแถบเลื่อน.
+ตัวอย่างโค้ดด้านล่างสร้างงานนำเสนอใหม่และตั้งประเภทการแสดงเป็น “Browsed by an individual” โดยไม่แสดงแถบเลื่อน.
 
 ```python
 import jpype
@@ -59,11 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **เปิดตัวเลือกการแสดง**
+## **เปิดใช้งานตัวเลือกการแสดง**
 
-[SlideShowSettings.setLoop](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setLoop) กำหนดว่าการแสดงสไลด์ควรทำซ้ำเป็นลูปจนกว่าจะหยุดด้วยมือหรือไม่ ซึ่งเป็นประโยชน์สำหรับการนำเสนออัตโนมัติที่ต้องทำงานต่อเนื่อง. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setShowNarration) กำหนดว่าจะเล่นการบรรยายเสียงระหว่างการแสดงสไลด์หรือไม่ ซึ่งเป็นประโยชน์สำหรับการนำเสนออัตโนมัติที่มีแนวทางเสียงสำหรับผู้ชม. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setShowAnimation) กำหนดว่าจะเล่นแอนิเมชั่นที่เพิ่มในวัตถุสไลด์หรือไม่ ซึ่งช่วยให้แสดงผลภาพครบถ้วนของการนำเสนอ.
+[SlideShowSettings.setLoop](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setLoop) กำหนดว่าการแสดงสไลด์จะทำซ้ำในลูปจนกว่าจะหยุดด้วยตนเองหรือไม่ สิ่งนี้เป็นประโยชน์สำหรับการนำเสนออัตโนมัติที่ต้องทำงานต่อเนื่อง. [SlideShowSettings.setShowNarration](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setShowNarration) กำหนดว่าจะเล่นคำบรรยายเสียงระหว่างการแสดงสไลด์หรือไม่ ซึ่งมีประโยชน์สำหรับการนำเสนออัตโนมัติที่มีคำแนะนำเสียงสำหรับผู้ชม. [SlideShowSettings.setShowAnimation](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setShowAnimation) กำหนดว่าจะเล่นแอนิเมชันที่เพิ่มลงในวัตถุสไลด์หรือไม่ ซึ่งช่วยให้ได้เอฟเฟกต์ภาพเต็มรูปแบบของการนำเสนอ.
 
-ตัวอย่างโค้ดต่อไปนี้สร้างการนำเสนอใหม่และทำให้การแสดงสไลด์วนลูป.
+ตัวอย่างโค้ดต่อไปนี้สร้างงานนำเสนอใหม่และทำให้การแสดงสไลด์วนซ้ำ.
 
 ```python
 import jpype
@@ -85,7 +85,7 @@ finally:
 
 ## **เลือกสไลด์ที่จะแสดง**
 
-เมธอด [SlideShowSettings.setSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setSlides) ช่วยให้คุณเลือกช่วงของสไลด์ที่จะถูกแสดงในระหว่างการนำเสนอ ซึ่งเป็นประโยชน์เมื่อคุณต้องการแสดงเฉพาะส่วนของการนำเสนอแทนที่จะเป็นสไลด์ทั้งหมด ตัวอย่างโค้ดต่อไปนี้สร้างการนำเสนอที่มีสไลด์ 9 แผ่นและเลือกสไลด์ที่ 2 ถึง 9 โดยใช้หมายเลขสไลด์แบบเริ่มจาก 1.
+เมธอด [SlideShowSettings.setSlides](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setSlides) ช่วยให้คุณเลือกช่วงของสไลด์ที่จะนำเสนอในระหว่างการนำเสนอ ซึ่งเป็นประโยชน์เมื่อคุณต้องการแสดงเฉพาะบางส่วนของการนำเสนอแทนที่จะแสดงทุกสไลด์ ตัวอย่างโค้ดต่อไปนี้สร้างงานนำเสนอที่มีสไลด์จำนวน 9 แผ่นและเลือกสไลด์ที่ 2 ถึง 9 โดยใช้เลขสไลด์เริ่มจาก 1.
 
 ```python
 import jpype
@@ -98,7 +98,7 @@ from asposeslides.api import Presentation, SaveFormat, SlidesRange
 
 presentation = Presentation()
 try:
-    # สร้างสไลด์จำนวนเก้าแผ่นเพื่อให้ช่วงที่เลือกมีอยู่.
+    # สร้างสไลด์จำนวนเก้าแผ่นเพื่อให้ช่วงที่เลือกมีอยู่
     first_slide = presentation.getSlides().get_Item(0)
     for _ in range(8):
         presentation.getSlides().addClone(first_slide)
@@ -113,9 +113,9 @@ finally:
     presentation.dispose()
 ```
 
-## **ควบคุมการเลื่อนสไลด์**
+## **ควบคุมการเปลี่ยนสไลด์**
 
-เมธอด [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setUseTimings) ช่วยให้คุณเปิดหรือปิดการใช้การกำหนดเวลาที่ตั้งล่วงหน้าสำหรับแต่ละสไลด์ ซึ่งเป็นประโยชน์สำหรับการแสดงสไลด์โดยอัตโนมัติที่มีระยะเวลาแสดงที่กำหนดไว้ ตัวอย่างโค้ดด้านล่างสร้างการนำเสนอใหม่และปิดการใช้การกำหนดเวลา.
+เมธอด [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setUseTimings) ให้คุณเปิดหรือปิดการใช้เวลา preset สำหรับแต่ละสไลด์ ซึ่งเป็นประโยชน์สำหรับการแสดงสไลด์โดยอัตโนมัติที่มีระยะเวลาการแสดงที่กำหนดไว้ล่วงหน้า ตัวอย่างโค้ดด้านล่างสร้างงานนำเสนอใหม่และปิดการใช้เวลา.
 
 ```python
 import jpype
@@ -137,9 +137,9 @@ finally:
 
 ## **แสดงการควบคุมสื่อ**
 
-เมธอด [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) กำหนดว่าจะต้องแสดงการควบคุมสื่อ (เช่น เล่น, หยุด, หยุดชั่วคราว) ระหว่างการแสดงสไลด์เมื่อมีการเล่นเนื้อหามัลติมีเดีย (เช่น วิดีโอหรือเสียง) หรือไม่ ซึ่งเป็นประโยชน์เมื่อคุณต้องการให้ผู้นำเสนอควบคุมการเล่นสื่อระหว่างการนำเสนอ.
+เมธอด [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/th/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) กำหนดว่าการควบคุมสื่อ (เช่น เล่น, หยุดชั่วคราว, และหยุด) ควรแสดงในระหว่างการแสดงสไลด์เมื่อมีการเล่นเนื้อหามัลติมีเดีย (เช่น วิดีโอหรือเสียง) หรือไม่ ซึ่งเป็นประโยชน์เมื่อคุณต้องการให้ผู้พรีเซนเทเตอร์ควบคุมการเล่นสื่อระหว่างการนำเสนอ.
 
-ตัวอย่างโค้ดต่อไปนี้สร้างการนำเสนอใหม่และเปิดการแสดงการควบคุมสื่อ.
+ตัวอย่างโค้ดต่อไปนี้สร้างงานนำเสนอใหม่และเปิดการแสดงการควบคุมสื่อ.
 
 ```python
 import jpype
@@ -161,14 +161,14 @@ finally:
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถบันทึกการนำเสนอให้เปิดโดยตรงในโหมดการแสดงสไลด์ได้หรือไม่?**
+**ฉันสามารถบันทึกงานนำเสนอให้เปิดโดยตรงในโหมดการแสดงสไลด์ได้ไหม?**
 
 ได้. บันทึกไฟล์เป็นรูปแบบ PPSX หรือ PPSM; รูปแบบเหล่านี้จะเปิดโดยตรงในโหมดการแสดงสไลด์เมื่อเปิดใน PowerPoint. ใน Aspose.Slides ให้เลือกรูปแบบการบันทึกที่สอดคล้องกัน [ระหว่างการส่งออก](/slides/th/python-java/save-presentation/).
 
-**ฉันสามารถยกเว้นสไลด์แต่ละอันจากการแสดงโดยไม่ลบออกจากไฟล์ได้หรือไม่?**
+**ฉันสามารถยกเว้นสไลด์เดี่ยวจากการแสดงโดยไม่ลบออกจากไฟล์ได้ไหม?**
 
-ได้. ทำเครื่องหมายสไลด์เป็น [hidden](https://reference.aspose.com/slides/th/python-java/aspose.slides/slide/#setHidden). สไลด์ที่ซ่อนอยู่จะยังคงอยู่ในการนำเสนอแต่จะไม่แสดงระหว่างการแสดงสไลด์.
+ได้. ทำเครื่องหมายสไลด์ว่าเป็น [hidden](https://reference.aspose.com/slides/th/python-java/aspose.slides/slide/#setHidden). สไลด์ที่ซ่อนไว้จะยังคงอยู่ในงานนำเสนอแต่จะไม่แสดงในระหว่างการแสดงสไลด์.
 
-**Aspose.Slides สามารถเล่นการแสดงสไลด์หรือควบคุมการนำเสนอแบบสดบนหน้าจอได้หรือไม่?**
+**Aspose.Slides สามารถเล่นการแสดงสไลด์หรือควบคุมการนำเสนอสดบนหน้าจอได้ไหม?**
 
-ไม่ได้. Aspose.Slides ทำการแก้ไข วิเคราะห์ และแปลงไฟล์การนำเสนอ; การเล่นจริงจะดำเนินการโดยแอปพลิเคชันผู้ชมเช่น PowerPoint.
+ไม่ได้. Aspose.Slides ทำการแก้ไข, วิเคราะห์, และแปลงไฟล์งานนำเสนอ; การเล่นจริงจะถูกจัดการโดยแอปพลิเคชันดูไฟล์เช่น PowerPoint.

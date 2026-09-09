@@ -1,15 +1,15 @@
 ---
-title: Java aracılığıyla Python'da Medya Dosyalarını Yönet
+title: Python üzerinden Java ile Medya Dosyalarını Yönet
 linktitle: Medya Dosyaları
 type: docs
 weight: 30
 url: /tr/python-java/manage-media-files/
 keywords:
 - medya dosyası
-- medya yönetimi
-- ses gömme
-- flash çıkarma
-- görsel yönetimi
+- medyayı yönet
+- ses göm
+- flash çıkar
+- resmi yönet
 - resim ekle
 - video ekle
 - PowerPoint
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'da ses ve videoyu yönetin: PPT, PPTX ve ODP dosyalarında medya ekleyin, çıkarın, değiştirin ve optimize edin. Adım adım rehberler ve Java kodu."
+description: "Python için Aspose.Slides'de Java aracılığıyla ses ve video yönetimi: PPT, PPTX ve ODP dosyalarındaki medyayı ekleyin, çıkarın, değiştirin ve optimize edin. Adım adım kılavuzlar ve Python kodu."
 ---

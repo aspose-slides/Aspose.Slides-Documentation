@@ -4,32 +4,32 @@ type: docs
 weight: 40
 url: /fa/python-java/examples/elements/text-box/
 keywords:
-- نمونه کد
+- مثال کد
 - جعبه متن
-- PowerPoint
-- OpenDocument
+- پاورپوینت
+- سند باز
 - ارائه
-- Python
-- Java
+- پایتون
+- جاوا
 - Aspose.Slides
-description: "کار با جعبه‌های متن در Aspose.Slides برای Python از طریق Java: افزودن، قالب‌بندی، یافتن و حذف متن در ارائه‌های PowerPoint و OpenDocument."
+description: "کار با جعبه‌های متن در Aspose.Slides برای Python از طریق Java: افزودن، قالب‌بندی، جستجو و حذف متن در ارائه‌های PowerPoint و OpenDocument."
 ---
-در **Aspose.Slides for Python via Java**، یک جعبه متن یک شکل خودکار است که متن را در خود نگه می‌دارد. تقریباً هر شکل می‌تواند متن داشته باشد، اما یک جعبه متن معمولی پر یا حاشیه‌ای ندارد و فقط متن را نمایش می‌دهد.
+در **Aspose.Slides for Python via Java**, جعبه متن یک شکل خودکار است که متن را در بر می‌گیرد. تقریباً هر شکلی می‌تواند متن داشته باشد، اما یک جعبه متن معمولی پر یا حاشیه ندارد و فقط متن را نمایش می‌دهد.
 
-این راهنما توضیح می‌دهد که چگونه جعبه‌های متن را به‌صورت برنامه‌نویسی اضافه، دسترسی پیدا کنید و حذف کنید.
+این راهنما توضیح می‌دهد چگونه جعبه‌های متن را برنامه‌نویسی اضافه، دسترسی و حذف کنیم.
 
-پکیج را همان‌طور که در [Installation](/slides/fa/python-java/installation/) توضیح داده شده نصب کنید. هر مثال قبل از راه‌اندازی JVM، `asposeslides` را وارد می‌کند و سپس پس از راه‌اندازی JVM، API را وارد می‌نماید.
+پکیج را همان‌طور که در [Installation](/slides/fa/python-java/installation/) توصیف شده است نصب کنید. هر مثال قبل از راه‌اندازی JVM، `asposeslides` را وارد می‌کند و سپس پس از اجرای JVM، API را وارد می‌نماید.
 
-## **افزودن یک جعبه متن**
+## **اضافه کردن جعبه متن**
 
-یک مستطیل ایجاد کنید، پر و حاشیه آن را حذف کنید و متن قالب‌بندی‌شده‌ای را اختصاص دهید.
+یک مستطیل ایجاد کنید، پر و حاشیه آن را حذف کنید و متن قالب‌بندی‌شده را اختصاص دهید.
 
 ```python
 import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
-    jpime.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, ShapeType, FillType
 from java.awt import Color
@@ -38,7 +38,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # یک شکل مستطیلی ایجاد کنید.
+    # یک شکل مستطیل ایجاد کنید.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
     # پر و حاشیه را حذف کنید تا فقط متن نمایش داده شود.
@@ -58,14 +58,14 @@ finally:
 
 ## **دسترسی به جعبه‌های متن بر اساس محتوا**
 
-یک جعبه متن نمونه اضافه کنید، سپس شکل‌هایی را پیدا کنید که متن آن‌ها شامل کلیدواژه «Slide» باشد.
+یک جعبه متن نمونه اضافه کنید، سپس شکل‌هایی را پیدا کنید که متن آن‌ها شامل کلیدواژه "Slide" باشد.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpde.startJVM()
 
 from asposeslides.api import Presentation, ShapeType, FillType, AutoShape
 
@@ -88,9 +88,9 @@ finally:
     presentation.dispose()
 ```
 
-## **حذف جعبه‌های متن بر اساس محتوا**
+## **حذف جعبه‌های متن بر حسب محتوا**
 
-جعبه‌های متنی را که در اولین اسلاید وجود دارند و شامل یک کلیدواژه خاص هستند پیدا کرده و حذف کنید.
+جعبه‌های متنی را که در اسلاید اول هستند و شامل یک کلیدواژه خاص هستند، پیدا کنید و حذف کنید.
 
 ```python
 import jpype
@@ -124,5 +124,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-قبل از حذف شکل‌ها، آن‌هایی که مطابقت دارند را در یک لیست جداگانه جمع‌آوری کنید تا از تغییر مجموعه شکل‌ها در حین تکرار جلوگیری شود.
+قبل از حذف آن‌ها، شکل‌های منطبق را در یک لیست جداگانه جمع‌آوری کنید تا از تغییر مجموعه شکل‌ها در حین تکرار جلوگیری شود.
 {{% /alert %}}

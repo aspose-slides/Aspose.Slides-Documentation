@@ -17,47 +17,47 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して、Python（Java 経由）で PowerPoint のシェイプとテキストに 3D 効果を適用およびレンダリングします。カメラ、照明、素材、押し出し、塗りつぶし、3D テキストを構成します。"
+description: "Aspose.Slides を使用して、Python via Java で PowerPoint の図形とテキストに 3D 効果を適用およびレンダリングします。カメラ、照明、素材、押し出し、塗りつぶし、3D テキストを設定します。"
 ---
 ## **概要**
 
-Aspose.Slides for Python via Java は、シェイプとテキストに対して PowerPoint 形式の 3D 書式設定を作成、編集、保持、レンダリングできます。本記事では、回転、押し出し、ベベル、照明、素材、グラデーションまたは画像塗りつぶし、そして 3D テキストといった 3D 効果について説明します。
+Aspose.Slides for Python via Java は、図形やテキストに対して PowerPoint 形式の 3D 書式設定を作成、編集、保持、レンダリングできます。本記事では、回転、押し出し、ベベル、照明、素材、グラデーションまたは画像塗りつぶし、そして 3D テキストといった 3D 効果について説明します。
 
 {{% alert color="info" title="Note" %}}
-この文書は PowerPoint のシェイプとテキストに対する 3D 書式設定効果について説明しています。単独の 3D モデル ファイルの挿入や編集については取り上げていません。スライドを画像、PDF、または HTML にエクスポートすると、Aspose.Slides はこれらの 3D 効果をエクスポートされた 2D 出力にレンダリングします。
+この記事は PowerPoint の図形とテキストに対する 3D 書式設定効果について説明しています。単独の 3D モデル ファイルの挿入や編集については取り扱いません。スライドを画像、PDF、または HTML にエクスポートする際、Aspose.Slides はそれらの 3D 効果をエクスポートされた 2D 出力にレンダリングします。
 {{% /alert %}}
 
-パッケージは [Installation](/slides/ja/python-java/installation/) に記載された手順でインストールしてください。各サンプルは `asposeslides` をインポートし、必要に応じて JVM を起動し、API をインポートします。画像塗りつぶしの例では、作業ディレクトリに `image.jpg` ファイルが必要です。
+パッケージは [インストール](/slides/ja/python-java/installation/) に記載されている手順でインストールしてください。各例では `asposeslides` をインポートし、必要に応じて JVM を起動し、API をインポートします。画像塗りつぶしの例では、作業ディレクトリに `image.jpg` ファイルが必要です。
 
 ## **3D 書式設定の概念**
 
-シェイプに 3D 書式設定を適用するには、[Shape.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getThreeDFormat) を使用します。返されるフォーマット オブジェクトがそのシェイプの 3D シーンを制御します。
+シェイプに 3D 書式設定を適用するには、[Shape.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getThreeDFormat) を使用します。返されるフォーマット オブジェクトは、そのシェイプの 3D シーンを制御します。
 
-テキストの場合は、[TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#getThreeDFormat) を使用します。これにより、シェイプ本体ではなくテキスト フレームに 3D 書式設定が適用されます。
+テキストの場合は、[TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#getThreeDFormat) を使用します。これにより、シェイプ本体ではなくテキストフレームに 3D 書式設定が適用されます。
 
-最も重要な API メンバーは次のとおりです。
+最も重要な API メンバーは次のとおりです：
 
-| API メンバー | 制御内容 | 使用シーン |
+| API メンバー | 制御対象 | 使用するタイミング |
 |---|---|---|
-| [getCamera](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getCamera) | 視点、プリセット カメラ タイプ、回転、ズーム、遠近法。 | 3D 空間でオブジェクトを回転させるか、PowerPoint の 3D 回転プリセットに合わせる場合。 |
-| [getLightRig](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getLightRig) | ライト プリセット、方向、ライト回転。 | 3D 表面上のハイライトや影の表示方法を変更する場合。 |
-| [getMaterial](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getMaterial) と [setMaterial](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#setMaterial) | フラット、マット、プラスチック、金属などの表面素材。 | 同じジオメトリをより平坦、柔らか、光沢、金属的に見せる場合。 |
-| [getExtrusionHeight](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getExtrusionHeight) と [setExtrusionHeight](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#setExtrusionHeight) | シェイプが前面からどれだけ後方に延びるか。 | 平面シェイプを目に見える厚みのある 3D オブジェクトに変換する場合。 |
-| [getExtrusionColor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getExtrusionColor) | 押し出し側面の色。 | 奥行きを視覚化したり、前面の塗りつぶしと側面の色を合わせる場合。 |
-| [getDepth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getDepth) と [setDepth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#setDepth) | PowerPoint の 3D 書式設定で使用される追加の奥行き。 | ベベルや素材設定と組み合わせて、シェイプやテキストの奥行きを微調整する場合。 |
-| [getBevelTop](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getBevelTop) と [getBevelBottom](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getBevelBottom) | 前面と背面のエッジに対する隆起または丸み。 | 鋭い平面ではなく、柔らかく成形されたエッジを追加する場合。 |
-| [getContourColor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getContourColor)、[getContourWidth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getContourWidth) と [setContourWidth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#setContourWidth) | 3D オブジェクトの輪郭線。 | レンダリング結果でオブジェクトの境界を強調したい場合。 |
+| [getCamera](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getCamera) | 視点、プリセット カメラ タイプ、回転、ズーム、およびパースペクティブ。 | オブジェクトを 3D 空間で回転させる、または PowerPoint の 3D 回転プリセットに合わせる。 |
+| [getLightRig](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getLightRig) | ライトのプリセット、方向、光の回転。 | 3D 表面上のハイライトと影の表示方法を変更する。 |
+| [getMaterial](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getMaterial) と [setMaterial](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#setMaterial) | 平面、マット、プラスチック、金属などの表面素材。 | 同じジオメトリをより平坦、柔らか、光沢、または金属性に見せる。 |
+| [getExtrusionHeight](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getExtrusionHeight) と [setExtrusionHeight](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#setExtrusionHeight) | シェイプが正面からどれだけ後方に伸びるか。 | 平面のシェイプを視覚的に厚みのある 3D オブジェクトに変換します。 |
+| [getExtrusionColor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getExtrusionColor) | 押し出された側面の色。 | 奥行きを可視化したり、側面の色を前面の塗りつぶしと調和させます。 |
+| [getDepth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getDepth) と [setDepth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#setDepth) | PowerPoint の 3D 書式設定で使用される追加の 3D 深さ。 | シェイプやテキストの深さを微調整します。特にベベルや素材設定と組み合わせる際に有用です。 |
+| [getBevelTop](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getBevelTop) と [getBevelBottom](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getBevelBottom) | 正面と背面の面に突起または丸みを帯びたエッジ。 | 鋭い平坦な面の代わりに、柔らかく成形されたエッジを追加します。 |
+| [getContourColor](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getContourColor), [getContourWidth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getContourWidth), と [setContourWidth](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#setContourWidth) | 3D オブジェクトの輪郭線。 | レンダリング結果でオブジェクトの境界を強調します。 |
 
-## **3D シェイプを作成する**
+## **3D シェイプの作成**
 
-シェイプが説得力のある 3D に見えるようになるには、通常次の 4 種類の設定が必要です。
+シェイプが説得力のある 3D に見えるためには、通常、4 種類の設定が必要です：
 
-- カメラ設定：デフォルトの正面ビューでは押し出しが隠れてしまうことがあるため。
-- ライト設定：照明により面と側面が読みやすくなるため。
-- 素材設定：表面が光の当たり方に影響するため。
-- 押し出しまたは奥行き設定：平面シェイプに厚みを持たせるため。
+- カメラ設定：デフォルトの正面ビューでは押し出しが見えなくなる可能性があるため。
+- ライト設定：照明により面や側面が視認しやすくなるため。
+- 素材設定：表面が光のレンダリングに影響するため。
+- 押し出しまたは深さ設定：平面のシェイプに厚みが必要なため。
 
-以下の例は矩形を作成し、前面にテキストを追加し、3D 書式設定を適用し、プレゼンテーションを PPTX として保存し、スライドを PNG 画像としてレンダリングします。
+以下の例では、長方形を作成し、正面にテキストを追加し、3D 書式設定を適用し、プレゼンテーションを PPTX として保存し、スライドを PNG 画像としてレンダリングします。
 
 ```python
 import jpype
@@ -100,17 +100,15 @@ finally:
     presentation.dispose()
 ```
 
-レンダリングされたスライド画像は、矩形が厚みのある 3D ブロックとして表示されます。
+レンダリングされたスライド画像は、長方形が厚みのある 3D ブロックとして表示されます：
 
-![前面に白色の 3D テキストがある青い 3D 矩形のレンダリング画像](img_01_01.png)
+![正面に白色の 3D テキストがある、青い 3D 長方形のレンダリング画像](img_01_01.png)
 
-## **カメラでシェイプを回転させる**
+## **カメラでシェイプを回転する**
 
-PowerPoint では、3‑D 回転ペインで回転が設定されます。X、Y、Z の回転値はカメラ API で設定する回転に対応しています。
+PowerPoint では、3-D 回転は「3-D 回転」ペインから設定します。X、Y、Z の回転値は、カメラ API を通じて設定する回転に対応しています。
 
-![X、Y、Z の回転値がハイライトされた PowerPoint の 3‑D 回転ペイン](img_02_01.png)
-
-Aspose.Slides では、[Shape.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getThreeDFormat) が返す 3D フォーマットを介してカメラ タイプと回転を設定します。
+![X、Y、Z の回転値がハイライトされた PowerPoint の 3-D 回転ペイン](img_02_01.png)
 
 ```python
 import jpype
@@ -132,15 +130,15 @@ finally:
     presentation.dispose()
 ```
 
-ビューアがオブジェクトを見る視点を変更したいときにカメラを使用します。スライド上の 2D シェイプ ジオメトリは変更されません。PowerPoint と Aspose.Slides がレンダリング時に使用する 3D 視点が変わります。
+ビューアがオブジェクトを見る視点を変更したい場合にカメラを使用します。これはスライド上の 2D シェイプジオメトリを変更するものではなく、PowerPoint および Aspose.Slides がレンダリング時に使用する 3D 視点を変更します。
 
-## **押し出しと奥行きを追加する**
+## **押し出しと深さの追加**
 
-押し出しはシェイプを前面から後方に延長させ、厚みを持たせます。PowerPoint では奥行きコントロールがこの可視厚みを決定し、色コントロールが側面の色を決めます。
+押し出しは、シェイプの正面の背後に拡張することで厚みを持たせます。PowerPoint では、深さコントロールがこの可視的な厚さを設定し、色コントロールが側面の色を設定します。
 
-![奥行きコントロールが押し出しの色と高さプロパティにマッピングされた PowerPoint の画面](img_02_02.png)
+![PowerPoint の深さコントロールが押し出し色と押し出し高さプロパティに対応している様子](img_02_02.png)
 
-厚みには押し出し高さ、側面の色には押し出し色を設定します。
+厚みのために押し出し高さを、側面の色のために押し出し色を設定します：
 
 ```python
 import jpype
@@ -166,13 +164,13 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint の奥行き値を直接操作したい場合や、ベベル、素材、テキスト効果と組み合わせて奥行きを使用したい場合に depth 設定を使用します。多くのシェイプ シナリオでは、押し出し高さの方が可視的な押し出しを直接表現するため分かりやすいです。
+PowerPoint の深さ値を直接操作したり、深さをベベル、素材、テキスト効果と組み合わせたりする必要がある場合に深さ設定を使用します。多くのシェイプシナリオでは、押し出し高さの方が可視的な押し出しを直接表すため、より明確な設定となります。
 
-## **3D 効果と共にグラデーションまたは画像塗りつぶしを使用する**
+## **3D 効果とともにグラデーションまたは画像塗りつぶしを使用する**
 
-3D 書式設定はシェイプの塗りつぶしとは独立しています。前面に単色、グラデーション、パターン、または画像塗りつぶしを適用しつつ、同じカメラ、ライト、素材、押し出し設定を使用できます。
+3D 書式設定はシェイプの塗りつぶしとは独立しています。正面に単色、グラデーション、パターン、または画像塗りつぶしを適用しつつ、同じカメラ、ライト、素材、押し出し設定を使用できます。
 
-この例はシェイプにグラデーション塗りつぶしを適用し、側面には暗めの押し出し色を設定します。
+この例ではシェイプにグラデーション塗りつぶしを適用し、側面には濃い押し出し色を設定します：
 
 ```python
 import jpype
@@ -215,11 +213,11 @@ finally:
     presentation.dispose()
 ```
 
-レンダリング結果は前面にグラデーションが残り、押し出しは別個に描画されます。
+レンダリング結果は正面のグラデーションを保持し、押し出しを別個に描画します：
 
-![青からオレンジへのグラデーション塗りつぶしとオレンジの押し出しを持つ 3D 矩形のレンダリング画像](img_02_03.png)
+![青からオレンジへのグラデーション塗りつぶしとオレンジの押し出しを持つ 3D 長方形のレンダリング画像](img_02_03.png)
 
-画像塗りつぶしを使用する場合は、画像をプレゼンテーションに追加し、シェイプの塗りつぶしに割り当てます。
+画像を使用する場合は、画像をプレゼンテーションに追加し、シェイプの塗りつぶしに割り当てます：
 
 ```python
 import jpype
@@ -253,15 +251,15 @@ finally:
     presentation.dispose()
 ```
 
-画像は前面にレンダリングされ、押し出しは 3D 側面として描画されます。
+画像は正面にレンダリングされ、押し出しは 3D 側面として描画されます：
 
-![前面に写真塗りつぶし、側面にオレンジの押し出しを持つ 3D 矩形のレンダリング画像](img_02_04.png)
+![正面に写真塗りつぶし、側面にオレンジの押し出しを持つ 3D 長方形のレンダリング画像](img_02_04.png)
 
-## **テキストに 3D 書式設定を適用する**
+## **テキストへの 3D 書式設定の適用**
 
-シェイプの 3D 書式設定はシェイプ本体に影響し、テキストの 3D 書式設定はテキスト フレームに影響します。文字自体に押し出し、素材、照明、カメラ設定が必要な WordArt のような効果に便利です。
+シェイプの 3D 書式設定はシェイプ本体に影響し、テキストの 3D 書式設定はテキストフレームに影響します。文字自体に押し出し、素材、照明、カメラ設定が必要な WordArt のような効果に有用です。
 
-以下の例はパターン塗りつぶしのテキストを作成し、WordArt 変形を適用し、[TextFrameFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/) に 3D 設定を構成します。
+以下の例では、パターン塗りつぶしのテキストを作成し、WordArt 変形を適用し、[TextFrameFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/) に 3D 設定を構成します：
 
 ```python
 import jpype
@@ -313,43 +311,43 @@ finally:
     presentation.dispose()
 ```
 
-テキストは曲線状に押し出された 3D 文字としてレンダリングされます。
+テキストは曲線状で押し出された 3D 文字としてレンダリングされます：
 
 ![アーチ状の WordArt 変形、オレンジのパターン塗りつぶし、暗い押し出しを持つ 3D テキストのレンダリング画像](img_02_05.png)
 
 ## **エクスポートとレンダリングの動作**
 
-Aspose.Slides は PPTX などの PowerPoint 形式で保存する際に 3D 書式設定を保持します。固定レイアウト形式へレンダリングまたはエクスポートする場合、3D シーンはラスタライズされ、2D の結果として出力に描画されます。これは PNG へのスライドレンダリング、PDF へのエクスポート、HTML へのエクスポート、またはビデオ変換用フレームの生成時に適用されます。
+Aspose.Slides は PPTX などの PowerPoint 形式で保存する際に 3D 書式設定を保持します。固定レイアウト形式へレンダリングまたはエクスポートする場合、3D シーンはラスタライズされ、2D 結果として出力に描画されます。これはスライドを PNG にレンダリングする、PDF にエクスポートする、HTML にエクスポートする、またはビデオ変換用のフレームを生成する場合に適用されます。
 
-留意点：
+以下の点に留意してください：
 
 - エクスポートされた画像や PDF はインタラクティブではありません。エクスポート後にビューアがオブジェクトを回転させることはできません。
-- 最終的な外観はカメラ、ライトリグ、素材、押し出し、塗りつぶし、スライドのスケーリングの組み合わせに依存します。
-- 継承された設定やテーマベースの書式設定値を確認したい場合は、Effective Formatting API を使用してください。
-- 一部の出力形式は編集可能な PowerPoint 3D 書式設定を保存できません。そのような形式では、視覚的結果は 3D 設定として保持されるのではなく、レンダリングされた画像として保存されます。
+- 最終的な外観は、カメラ、ライトリグ、素材、押し出し、塗りつぶし、スライドのスケーリングの組み合わせに依存します。
+- 継承されたフォーマットやテーマベースのフォーマット値を確認する必要がある場合は、effective formatting API を使用してください。
+- 一部の出力形式では、編集可能な PowerPoint 3D 書式設定を保存できません。そのような形式では、視覚的な結果がレンダリングされ、編集可能な 3D 設定として保持されません。
 
-## **よくある質問**
+## **FAQ**
 
 **Aspose.Slides はインタラクティブな 3D プレゼンテーションを作成できますか？**
 
-Aspose.Slides はシェイプとテキストに対する PowerPoint の 3D 効果を作成およびレンダリングしますが、エクスポートされた画像、PDF、HTML ページをインタラクティブな 3D シーン（ビューアが回転できる）にすることはできません。PPTX では、フォーマットが対応している場合に 3D 書式設定は PowerPoint で編集可能なまま残ります。
+Aspose.Slides はシェイプとテキストに対する PowerPoint の 3D 効果を作成およびレンダリングします。エクスポートされた画像、PDF、HTML ページを、ビューアが回転させられるインタラクティブな 3D シーンにすることはありません。PPTX では、対応フォーマットであれば 3D 書式設定は PowerPoint で編集可能なまま残ります。
 
 **3D モデルと 3D 効果の違いは何ですか？**
 
-3D モデルはプレゼンテーションに挿入される別個の 3D オブジェクトです。3D 効果は通常の PowerPoint シェイプやテキストに対して適用される書式設定で、回転、押し出し、ベベル、照明、素材などが含まれます。本記事は 3D 効果について扱っています。
+3D モデルは、プレゼンテーションに挿入される別個の 3D オブジェクトです。3D 効果は、通常の PowerPoint シェイプやテキストに適用される書式設定で、回転、押し出し、ベベル、照明、素材などがあります。本記事は 3D 効果について解説しています。
 
 **見える 3D シェイプに必要な設定は何ですか？**
 
-最低限、カメラの回転と押し出しまたは奥行きを設定します。実務では、ライトリグと素材も設定して、レンダリングされた面に明確なハイライトと影を付けることが一般的です。
+最低限、カメラの回転と押し出しまたは深さのいずれかを設定します。実際には、レンダリングされた面に明確なハイライトと影を持たせるために、ライトリグと素材も設定することが一般的です。
 
 **シェイプとテキストの両方に 3D 効果を適用できますか？**
 
-はい。シェイプ本体には [Shape.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getThreeDFormat) を使用し、テキストには [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#getThreeDFormat) を使用します。
+はい。シェイプ本体には [Shape.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getThreeDFormat) を、テキストには [TextFrameFormat.getThreeDFormat](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframeformat/#getThreeDFormat) を使用します。
 
-**画像、PDF、HTML、またはビデオフレームへエクスポートしたときに 3D 効果は表示されますか？**
+**画像、PDF、HTML、ビデオフレームへエクスポートする際に 3D 効果は表示されますか？**
 
-はい。Aspose.Slides はスライド画像、PDF 出力、HTML 出力、ビデオ変換用フレームを生成する際に 3D 効果をレンダリングします。エクスポートされた出力にはレンダリングされた外観が含まれ、編集可能な 3D オブジェクトは含まれません。
+はい。Aspose.Slides はスライド画像、PDF、HTML、ビデオ変換用フレームを生成する際に 3D 効果をレンダリングします。エクスポートされた出力にはレンダリングされた外観が含まれ、編集可能な 3D オブジェクトは含まれません。
 
 **継承やテーマ設定が適用された後の最終的な 3D 値を取得できますか？**
 
-はい。最終的なカメラ、ライトリグ、ベベル、その他 3D 値を取得するには、[ThreeDFormat.getEffective](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getEffective) を使用してください。
+はい。最終的なカメラ、ライトリグ、ベベル、関連する 3D 値を取得するには、[ThreeDFormat.getEffective](https://reference.aspose.com/slides/ja/python-java/aspose.slides/threedformat/#getEffective) を使用します。

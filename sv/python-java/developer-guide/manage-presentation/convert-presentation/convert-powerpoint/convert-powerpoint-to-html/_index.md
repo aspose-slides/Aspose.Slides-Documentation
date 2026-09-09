@@ -25,26 +25,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Konvertera PowerPoint-presentationer till HTML i Python via Java. Använd Aspose.Slides för att exportera PPT- och PPTX-filer, valda bilder, anteckningar, typsnitt, bilder, SVG och media."
+description: "Konvertera PowerPoint-presentationer till HTML i Python via Java. Använd Aspose.Slides för att exportera PPT- och PPTX-filer, utvalda bilder, noteringar, teckensnitt, bilder, SVG och media."
 ---
 ## **Översikt**
 
-Aspose.Slides för Python via Java kan spara PowerPoint-presentationer som HTML utan Microsoft PowerPoint. Den grundläggande konverteringen är en enda [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) laddning och ett [save](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#save)-anrop med [SaveFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/saveformat/). Använd [HtmlOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/) när du behöver kontrollera den exporterade layouten, typsnitt, bilder, anteckningar, kommentarer, SVG-utdata eller länkade resurser.
+Aspose.Slides for Python via Java kan spara PowerPoint‑presentationer som HTML utan Microsoft PowerPoint. Den grundläggande konverteringen innebär en enda [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑laddning och ett [save](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#save)‑anrop med [SaveFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/saveformat/). Använd [HtmlOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/) när du behöver kontrollera den exporterade layouten, teckensnitt, bilder, anteckningar, kommentarer, SVG‑utmatning eller länkade resurser.
 
-Denna guide fokuserar på praktiska HTML-exportscenarier:
+Den här guiden fokuserar på praktiska scenarier för HTML‑export:
 
-- Exportera en hel presentation eller valda bilder.
-- Generera fast layout, responsiv eller SVG-baserad HTML.
-- Inkludera talaranteckningar och kommentarer.
-- Kontrollera bildkvalitet och beskurna bilddata.
-- Bädda in typsnitt eller spara typsnittsfiler separat.
+- Exportera en hel presentation eller utvalda bilder.
+- Generera fast layout, responsiv eller SVG‑baserad HTML.
+- Inkludera talarnoteringar och kommentarer.
+- Styr bildkvalitet och beskurna bilddata.
+- Bädda in teckensnitt eller spara teckensnittsfiler separat.
 - Välj hur externa resurser och mediafiler skrivs och refereras.
 
-Som standard producerar HTML-export ett självständigt HTML-dokument där de flesta resurser är inbäddade. Detta är praktiskt för att dela en enda fil, men det kan öka utdatafilens storlek. För webbpublicering, överväg externa resurser, lägre bild‑DPI och endast bädda in typsnitt som inte är pålitligt tillgängliga i målmiljön.
+Som standard skapar HTML‑export ett självständigt HTML‑dokument där de flesta resurser är inbäddade. Detta är bekvämt för att dela en enda fil, men det kan öka utdata­storleken. För webbpublicering bör du överväga externa resurser, lägre bild‑DPI och endast bädda in teckensnitt som inte är pålitligt tillgängliga i målmiljön.
 
 ## **Konvertera en presentation till HTML**
 
-För att exportera en presentation till HTML, ladda den med [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) och spara den med [SaveFormat.Html](https://reference.aspose.com/slides/sv/python-java/aspose.slides/saveformat/#Html).
+För att exportera en presentation till HTML laddar du den med [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) och sparar den med [SaveFormat.Html](https://reference.aspose.com/slides/sv/python-java/aspose.slides/saveformat/#Html).
 
 ```python
 import jpype
@@ -62,27 +62,27 @@ finally:
     presentation.dispose()
 ```
 
-Varje exempel laddar `presentation.pptx` från den aktuella arbetskatalogen. Installera Aspose.Slides för Python via Java och en kompatibel Java-runtime innan du kör det. JVM startas en gång per Python-process.
+Varje exempel laddar `presentation.pptx` från den aktuella arbetskatalogen. Installera Aspose.Slides for Python via Java och en kompatibel Java‑runtime innan du kör det. JVM startas en gång per Python‑process.
 
-Detta exempel skriver en HTML-fil. presentationsobjektet tas bort i `finally`-blocket, vilket frigör filhandtag och renderingsresurser efter export.
+Detta exempel skriver en HTML‑fil. Presentationsobjektet frigörs i `finally`‑blocket, vilket släpper filhandtag och renderingsresurser efter exporten.
 
-## **Konfigurera HTML-export**
+## **Konfigurera HTML‑export**
 
-[HtmlOptions] är huvudkonfigurationsklassen för HTML-export. Vanliga inställningar inkluderar:
+[HtmlOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/) är huvudklassen för konfiguration av HTML‑export. Vanliga inställningar inkluderar:
 
-- [setSlidesLayoutOptions]: lägger till anteckningar, kommentarer, handouts eller annan layoutinformation.
-- [setHtmlFormatter]: ändrar HTML-dokumentets struktur eller delegerar formatering till en controller.
-- [setSlideImageFormat]: ändrar hur bilder representeras, till exempel som SVG.
-- [setPicturesCompression]: styr bild‑DPI och utdatafilens storlek.
-- [setDeletePicturesCroppedAreas]: behåller eller tar bort beskuren bilddata.
-- [setSvgResponsiveLayout]: får exporterad SVG-innehåll att anpassa sig till sin behållare.
-- [setShowHiddenSlides]: inkluderar dolda bilder när det krävs.
+- [setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions): lägger till noteringar, kommentarer, handouts eller annan layoutinformation.
+- [setHtmlFormatter](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setHtmlFormatter): ändrar HTML‑dokumentets struktur eller delegerar formatering till en controller.
+- [setSlideImageFormat](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setSlideImageFormat): ändrar hur bilderna representeras, till exempel som SVG.
+- [setPicturesCompression](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setPicturesCompression): styr bild‑DPI och utdata­storlek.
+- [setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setDeletePicturesCroppedAreas): behåller eller tar bort beskurna bilddata.
+- [setSvgResponsiveLayout](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout): får exporterad SVG‑innehåll att anpassa sig till sin behållare.
+- [setShowHiddenSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setShowHiddenSlides): inkluderar dolda bilder när så krävs.
 
-Följande sektioner visar de vanligaste alternativen separat så att du kan kombinera endast de som ditt arbetsflöde behöver.
+Följande avsnitt visar de vanligaste alternativen var för sig så att du kan kombinera endast de som ditt arbetsflöde behöver.
 
 ## **Konvertera valda bilder till HTML**
 
-[Presentation.save]-overloaden som accepterar bildnummer använder 1-baserade bildpositioner. Loopen nedan sparar varje bild till en separat HTML-fil.
+Den [Presentation.save](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#save)‑överladdning som accepterar bildnummer använder 1‑baserade bildpositioner. Loopen nedan sparar varje bild till en separat HTML‑fil.
 
 ```python
 import jpype
@@ -105,11 +105,11 @@ finally:
     presentation.dispose()
 ```
 
-Använd detta mönster när en webbplats eller applikation behöver en HTML-sida per bild. Om varje bild ska ha samma layout, skapa en [HtmlOptions]-instans och skicka den till varje [Presentation.save]-anrop.
+Använd detta mönster när en webbplats eller applikation behöver en HTML‑sida per bild. Om varje bild ska ha samma layout, skapa en [HtmlOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/)‑instans och skicka den till varje [Presentation.save](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#save)‑anrop.
 
 ## **Skapa responsiv HTML**
 
-[ResponsiveHtmlController] ger responsiv HTML-utdata via [HtmlFormatter]. Använd den när den exporterade sidan ska anpassa sig bättre till webbläsarens bredd.
+[ResponsiveHtmlController](https://reference.aspose.com/slides/sv/python-java/aspose.slides/responsivehtmlcontroller/) ger responsiv HTML‑utmatning via [HtmlFormatter](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmlformatter/). Använd den när den exporterade sidan ska anpassa sig bättre till webbläsarens bredd.
 
 ```python
 import jpype
@@ -133,7 +133,7 @@ finally:
     presentation.dispose()
 ```
 
-För SVG-baserad responsiv layout, anropa [HtmlOptions.setSvgResponsiveLayout] med `True`. Detta är användbart när bildinnehållet exporteras som skalbar SVG-markup.
+För SVG‑baserad responsiv layout, anropa [HtmlOptions.setSvgResponsiveLayout](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout) med `True`. Detta är användbart när bildinnehållet exporteras som skalbar SVG‑markup.
 
 ```python
 import jpype
@@ -154,15 +154,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Inkludera talaranteckningar och kommentarer**
+## **Inkludera talarnoteringar och kommentarer**
 
-Använd [NotesCommentsLayoutingOptions] via [HtmlOptions.setSlidesLayoutOptions] för att inkludera talaranteckningar eller kommentarer. Anteckningar och kommentarer är dolda som standard om du inte väljer deras positioner.
+Använd [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/notescommentslayoutingoptions/) via [HtmlOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions) för att inkludera talarnoteringar eller kommentarer. Noteringar och kommentarer är dolda som standard om du inte anger deras positioner.
 
-Anta att källpresentationen innehåller talaranteckningar:
+Anta att källpresentationen innehåller talarnoteringar:
 
 ![Slide with speaker notes in PowerPoint](slide_with_notes.png)
 
-Följande kod exporterar bildinnehållet med talaranteckningar under bilden.
+Följande kod exporterar bildinnehållet med talarnoteringar under bilden.
 
 ```python
 import jpype
@@ -186,15 +186,15 @@ finally:
     presentation.dispose()
 ```
 
-Den exporterade HTML:n inkluderar anteckningsområdet:
+Den exporterade HTML‑filen innehåller noteringsområdet:
 
 ![HTML output with the slide and speaker notes](HTML_with_notes.png)
 
-För att exportera kommentarer, anropa [NotesCommentsLayoutingOptions.setCommentsPosition], till exempel med [CommentsPositions.Right] eller [CommentsPositions.Bottom]. Om du bara behöver kommentarer, utelämna [NotesCommentsLayoutingOptions.setNotesPosition]. Om du behöver både anteckningar och kommentarer, anropa båda metoderna.
+För att exportera kommentarer, anropa [NotesCommentsLayoutingOptions.setCommentsPosition](https://reference.aspose.com/slides/sv/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition), till exempel med [CommentsPositions.Right](https://reference.aspose.com/slides/sv/python-java/aspose.slides/commentspositions/#Right) eller [CommentsPositions.Bottom](https://reference.aspose.com/slides/sv/python-java/aspose.slides/commentspositions/#Bottom). Om du bara behöver kommentarer, utelämna [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/sv/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Om du behöver både noteringar och kommentarer, anropa båda metoderna.
 
-## **Kontrollera bildkvalitet och beskurna områden**
+## **Styr bildkvalitet och beskurna områden**
 
-HTML-export kan komprimera bildbilder för att minska utdatafilens storlek. Skicka ett värde till [HtmlOptions.setPicturesCompression] från [PicturesCompression] när du behöver högre bildkvalitet.
+HTML‑export kan komprimera bilderna för att minska utdata­storleken. Skicka ett värde till [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setPicturesCompression) från [PicturesCompression](https://reference.aspose.com/slides/sv/python-java/aspose.slides/picturescompression/) när du behöver högre bildkvalitet.
 
 ```python
 import jpype
@@ -215,7 +215,7 @@ finally:
     presentation.dispose()
 ```
 
-Som standard kan beskurna områden av bilder tas bort från den exporterade utdata. Behåll beskuren data endast när användare måste kunna återställa eller inspektera dessa dolda bilddelar. Att behålla den kan öka HTML‑storleken.
+Som standard kan beskurna bildområden tas bort från den exporterade utdata. Behåll beskurna data endast när användarna måste kunna återställa eller inspektera de dolda bilddelarna. Att behålla dem kan öka HTML‑storleken.
 
 ```python
 import jpype
@@ -238,7 +238,7 @@ finally:
 
 ## **Lägg till CSS**
 
-För enkel styling, skicka en CSS-sträng till [HtmlFormatter.createDocumentFormatter]. Detta ändrar det omgivande HTML-dokumentet medan Aspose.Slides fortsätter rendera bildinnehållet.
+För enkel styling, skicka en CSS‑sträng till [HtmlFormatter.createDocumentFormatter](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmlformatter/#createDocumentFormatter). Detta ändrar det omgivande HTML‑dokumentet medan Aspose.Slides fortsätter att rendera bildinnehållet.
 
 ```python
 import jpype
@@ -262,11 +262,11 @@ finally:
     presentation.dispose()
 ```
 
-För ett anpassat dokumenthuvud, en länkad CSS-fil eller anpassad markup runt bilder och former, använd en anpassad formateringscontroller via en JPype-gränssnittproxy och skicka den till [HtmlFormatter] med [HtmlFormatter.createCustomFormatter].
+För ett anpassat dokumenthuvud, en länkad CSS‑fil eller anpassad markup runt bilder och former, använd en anpassad formateringscontroller via en JPype‑gränssnittspostering och skicka den till [HtmlFormatter](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmlformatter/) med [HtmlFormatter.createCustomFormatter](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmlformatter/#createCustomFormatter).
 
-## **Bädda in typsnitt**
+## **Bädda in teckensnitt**
 
-Om målmiljön kanske inte har presentationens typsnitt installerade, bädda in typsnitt i HTML med [EmbedAllFontsHtmlController]. Inbäddning förbättrar visuell noggrannhet men ökar filens storlek.
+Om målmiljön kanske inte har presentationens teckensnitt installerade, bädda in teckensnitt i HTML med [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/sv/python-java/aspose.slides/embedallfontshtmlcontroller/). Inbäddning förbättrar den visuella återgivningen men ökar utdata­storleken.
 
 ```python
 import jpype
@@ -291,26 +291,26 @@ finally:
     presentation.dispose()
 ```
 
-Utelämna typsnitt endast när du är säker på att målwebbläsarna eller systemen redan tillhandahåller dem. För varumärkestypsnitt eller mindre vanliga typsnitt är inbäddning vanligtvis säkrare.
+Exkludera teckensnitt endast när du är säker på att målwebbläsarna eller systemen redan tillhandahåller dem. För varumärkesteckensnitt eller mindre vanliga teckensnitt är inbäddning vanligtvis säkrare.
 
 ## **Spara resurser externt**
 
-Självständigt HTML är enkelt att flytta, men inbäddade Base64-resurser kan göra filen stor. Om din applikation behöver externa bildfiler, implementera en resurslänkningscontroller via en JPype-gränssnittproxy och skicka den till [HtmlOptions]-konstruktorn.
+Självständigt HTML är enkelt att flytta, men inbäddade Base64‑resurser kan göra filen stor. Om din applikation behöver externa bildfiler, implementera en resurs‑länkande controller via en JPype‑gränssnittspostering och skicka den till [HtmlOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/)-konstruktorn.
 
-När du externaliserar resurser, välj två sökvägar medvetet:
+När du externaliserar resurser, välj två vägar medvetet:
 
-- Filssystemets utskriftsökväg, där din applikation skriver genererade bilder, typsnitt, ljud eller video.
-- URL‑sökvägen, som är vad webbläsaren använder från HTML-dokumentet för att ladda dessa filer.
+- Filsystemets utdata‑sökväg, där din applikation skriver genererade bilder, teckensnitt, ljud eller video.
+- URL‑sökvägen, som är det webbläsaren använder från HTML‑dokumentet för att läsa in dessa filer.
 
 ## **Exportera mediafiler**
 
-[VideoPlayerHtmlController] exporterar video- och ljudfiler och skriver HTML som kan spela upp dem i en webbläsare. Dess konstruktor tar:
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoplayerhtmlcontroller/) exporterar video‑ och ljudfiler och skriver HTML som kan spela dem i en webbläsare. Dess konstruktor tar:
 
-- `path`: katalogen där genererade mediafiler kommer att skrivas.
-- `fileName`: HTML-filnamnet som genereras.
-- `baseUri`: det absoluta URI‑prefixet som används i HTML‑länkar till mediafiler.
+- `path`: katalogen där genererade mediafiler ska skrivas.
+- `fileName`: HTML‑filnamnet som genereras.
+- `baseUri`: den absoluta URI‑prefix som används i HTML‑länkarna till mediafilerna.
 
-Följande exempel exporterar media som redan är inbäddade i `presentation.pptx`. Den genererade HTML:n refererar mediafiler endast med filnamn, relativt till HTML-dokumentet, så `path` måste vara katalogen som också tar emot HTML-filen. `baseUri` måste vara en absolut URI: för lokal förhandsgranskning, bygg en `file:///`‑URI från utdatakatalogen; för en distribuerad applikation, använd den absoluta URL:en till den publicerade katalogen.
+Följande exempel exporterar media som redan är inbäddade i `presentation.pptx`. Den genererade HTML‑filen refererar mediafiler enbart med filnamn, relativt till HTML‑dokumentet, så `path` måste vara katalogen som också får HTML‑filen. `baseUri` måste vara en absolut URI: för lokal förhandsgranskning, bygg en `file:///`‑URI från utdata‑katalogen; för en distribuerad applikation, använd den absoluta URL‑en för den publicerade katalogen.
 
 ```python
 import jpype
@@ -345,46 +345,46 @@ finally:
     presentation.dispose()
 ```
 
-Använd utskriftskataloger som är unika per exportjobb, särskilt i serverapplikationer. Delade utskriftsökvägar kan leda till att filer från olika konverteringar skriver över varandra.
+Använd utdata‑kataloger som är unika per exportjobb, särskilt i serverapplikationer. Delade utdataposter kan leda till att filer från olika konverteringar skrivs över varandra.
 
-## **Prestanda och resursförvaltning**
+## **Prestanda och resurs‑hantering**
 
-HTML-konvertering är en renderingsoperation, så bearbetningstid och minnesanvändning beror på antal bilder, bildupplösning, typsnitt, effekter, diagram och inbäddad media. Högre bild‑DPI‑värden som skickas till [HtmlOptions.setPicturesCompression], inbäddade typsnitt, SVG-utdata och behållna beskurna bildområden kan förbättra noggrannheten men ökar vanligtvis utdatafilens storlek.
+HTML‑konvertering är en renderingsoperation, så bearbetningstid och minnesanvändning beror på antalet bilder, bildupplösning, teckensnitt, effekter, diagram och inbäddad media. Högre bild‑DPI‑värden som skickas till [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setPicturesCompression), inbäddade teckensnitt, SVG‑utmatning och bevarade beskurna bildområden kan förbättra återgivningskvaliteten men ökar vanligtvis utdata­storleken.
 
-För batchkonvertering:
+För batch‑konvertering:
 
-- Ta bort varje [Presentation]-instans omedelbart.
-- Använd separata utskriftskataloger för separata jobb.
-- Undvik att bädda in vanliga typsnitt om inte noggrannhet kräver det.
-- Sänk bild‑DPI när HTML:n är för förhandsgranskning eller miniatyrer.
-- Behåll källpresentationen, den genererade HTML:n och externa resurser tillsammans tills distributionsvägarna är slutgiltiga.
+- Frigör varje [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑instans omedelbart.
+- Använd separata utdatakataloger för separata jobb.
+- Undvik att bädda in vanliga teckensnitt om inte hög återgivningskvalitet krävs.
+- Sänk bild‑DPI när HTML endast används för förhandsgranskning eller miniatyrer.
+- Behåll källpresentationen, den genererade HTML‑filen och externa resurser tillsammans tills distributionsvägarna är slutgiltiga.
 
 ## **FAQ**
 
-**Behålls hyperlänkar i HTML-utdata?**
+**Behåller hyperlänkar i HTML‑utdata?**
 
-Ja. Presentationshyperlänkar exporteras till HTML och förblir klickbara när mål‑URL:en är giltig.
+Ja. Hyperlänkar i presentationen exporteras till HTML och förblir klickbara när mål‑URL:en är giltig.
 
 **Kan jag konvertera presentationer till HTML parallellt?**
 
-Ja, men dela inte en [Presentation]-instans mellan trådar. Bearbeta olika filer med separata presentationsinstanser, separata strömmar och separata utskriftskataloger. Se [multithreading guidance](/slides/sv/python-java/multithreading/) för detaljer.
+Ja, men dela inte en [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑instans mellan trådar. Bearbeta olika filer med separata presentations‑instanser, separata strömmar och separata utdatakataloger. Se [multithreading guidance](/slides/sv/python-java/multithreading/) för detaljer.
 
-**Är ett presentationsobjekt trådsäkert?**
+**Är en presentations‑instans trådsäker?**
 
-Nej. En enda [Presentation]-instans bör laddas, modifieras, sparas och tas bort på en tråd. För parallellt arbete, skapa en oberoende instans per tråd eller process.
+Nej. En enda [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/)‑instans bör laddas, modifieras, sparas och frigöras på en tråd. För parallellt arbete, skapa en oberoende instans per tråd eller process.
 
 **Varför är den genererade HTML‑filen stor?**
 
-Standardexporten kan bädda in resurser direkt i HTML. Inbäddade typsnitt, hög‑DPI‑bilder, media, SVG‑innehåll och behållna beskurna bildområden ökar också storleken. Använd externa resurser, uteslut vanliga typsnitt från inbäddning, och skicka ett lägre DPI‑värde till [HtmlOptions.setPicturesCompression] när mindre filstorlek är viktigare än maximal noggrannhet.
+Standardexporten kan bädda in resurser direkt i HTML. Inbäddade teckensnitt, hög‑DPI‑bilder, media, SVG‑innehåll och bevarade beskurna bildområden ökar också storleken. Använd externa resurser, exkludera vanliga teckensnitt från inbäddning och skicka ett lägre DPI‑värde till [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setPicturesCompression) när mindre filstorlek är viktigare än maximal kvalitet.
 
-**Varför kan font‑size‑värden i HTML skilja sig från PowerPoint‑värden?**
+**Varför kan font‑size‑värden i HTML avvika från PowerPoint‑värden?**
 
-Den exporterade sidan kan använda SVG‑koordinatsystem och skalningstransformer. Ett rått CSS‑ eller SVG‑font‑size‑värde beskriver inte den slutgiltiga visade storleken. Jämför den renderade bilden på avsedd zoomnivå och kontrollera typsnittstillgänglighet om texten ser annorlunda ut.
+Den exporterade sidan kan använda SVG‑koordinatsystem och skalnings‑transformeringar. Ett rent CSS‑ eller SVG‑font‑size‑värde beskriver inte den slutliga visade storleken. Jämför den renderade bilden på avsedd zoomnivå och kontrollera teckensnittstillgänglighet om texten ser annorlunda ut.
 
-**Hur bör jag välja baseUri för mediaexport?**
+**Hur ska jag välja baseUri för mediaexport?**
 
-Välj `baseUri` utifrån webbläsarens perspektiv och skicka den som en absolut URI. För lokal förhandsgranskning kan du härleda den från utdatakatalogen med `output_directory.as_uri() + "/"`. För distribution, använd den absoluta URL:en till den publicerade katalogen. Filsystem‑`path` och webbläsar‑`baseUri` behöver inte vara samma sträng, men de måste referera till samma plats, och den platsen måste vara katalogen som innehåller den genererade HTML‑filen eftersom medialänkar skrivs relativt till den.
+Välj `baseUri` utifrån webbläsarens perspektiv och skicka den som en absolut URI. För lokal förhandsgranskning kan du härleda den från utdata‑katalogen med `output_directory.as_uri() + "/"`. För distribution, använd den absoluta URL‑en för den publicerade katalogen. Fil‑systemets `path` och webbläsarens `baseUri` behöver inte vara exakt samma sträng, men de måste beskriva samma plats, och den platsen måste vara katalogen som innehåller den genererade HTML‑filen eftersom medialänkar skrivs relativt till den.
 
 **Kan jag inkludera dolda bilder?**
 
-Ja. Anropa [HtmlOptions.setShowHiddenSlides] med `True` när dolda bilder måste exporteras.
+Ja. Anropa [HtmlOptions.setShowHiddenSlides](https://reference.aspose.com/slides/sv/python-java/aspose.slides/htmloptions/#setShowHiddenSlides) med `True` när dolda bilder måste exporteras.

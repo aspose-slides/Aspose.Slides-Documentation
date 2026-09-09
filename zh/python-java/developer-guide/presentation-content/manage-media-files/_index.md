@@ -1,5 +1,5 @@
 ---
-title: 通过 Java 在 Python 中管理媒体文件
+title: 在 Python 中通过 Java 管理媒体文件
 linktitle: 媒体文件
 type: docs
 weight: 30
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Java 中管理音频和视频：在 PPT、PPTX 和 ODP 文件中添加、提取、替换和优化媒体。一步一步的指南和 Java 代码。"
+description: "在 Aspose.Slides for Python via Java 中管理音频和视频：添加、提取、替换和优化 PPT、PPTX 与 ODP 文件中的媒体。提供分步指南和 Python 代码。"
 ---

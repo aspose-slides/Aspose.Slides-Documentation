@@ -1,5 +1,5 @@
 ---
-title: Python と Java を使用したプレゼンテーション コンテンツの管理
+title: Python (Java 経由) でプレゼンテーション コンテンツを管理
 linktitle: プレゼンテーション コンテンツ
 type: docs
 weight: 30
@@ -13,7 +13,7 @@ keywords:
 - テキスト
 - ズーム
 - チャート
-- 方程式
+- 数式
 - シェイプ
 - インク
 - SmartArt
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用してプレゼンテーション コンテンツを作成、編集、抽出します—テキスト、画像、シェイプ、チャートのコード例が取得できます；PPT、PPTX、ODP 対応。"
+description: "Aspose.Slides for Python via Java を使用してプレゼンテーション コンテンツを作成、編集、抽出します。PPT、PPTX、ODP ファイルのテキスト、画像、シェイプ、チャートのコード例をご覧ください。"
 ---

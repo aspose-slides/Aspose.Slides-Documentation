@@ -1,45 +1,46 @@
 ---
-title: Videókeretek kezelése előadásokban Python segítségével
+title: Videókeretek kezelése prezentációkban Python használatával
 linktitle: Videókeret
 type: docs
 weight: 10
 url: /hu/python-java/video-frame/
 keywords:
-- videó hozzáadása
-- videó létrehozása
-- videó beágyazása
-- videó kinyerése
-- videó lekérése
-- videókeret
-- webes forrás
-- PowerPoint
-- OpenDocument
-- prezentáció
-- Python
-- Aspose.Slides
-description: "Tanulja meg, hogyan adhat hozzá és nyerhet ki programozott módon videókereteket PowerPoint és OpenDocument diákban az Aspose.Slides for Python via Java segítségével. Gyors útmutató."
+  - videó hozzáadása
+  - videó létrehozása
+  - videó beágyazása
+  - videó kinyerése
+  - videó lekérése
+  - videókeret
+  - webes forrás
+  - PowerPoint
+  - OpenDocument
+  - prezentáció
+  - Python
+  - Aspose.Slides
+description: "Tanulja meg programozott módon videókeretek hozzáadását és kinyerését PowerPoint és OpenDocument diákban az Aspose.Slides for Python via Java használatával. Gyors útmutató."
 ---
 ## **Bevezetés**
 
-Egy megfelelően elhelyezett videó egy előadásban megragadhatóbbá teheti az üzenetet, és növelheti a közönség bevonódását.
+Egy jól elhelyezett videó a prezentációban meggyőzőbbé teheti az üzenetedet, és növelheti a közönség elköteleződését.
 
-A PowerPoint két módon teszi lehetővé a videók hozzáadását egy diára az előadásban:
-* Helyi videó hozzáadása vagy beágyazása (a gépén tárolt)
-* Online videó hozzáadása (webes forrásból, például a YouTube-ról).
+A PowerPoint lehetővé teszi, hogy videókat adj hozzá egy diára a prezentációban két módon:
 
-A videók (video objektumok) előadáshoz való hozzáadásához az Aspose.Slides biztosítja a [Video](https://reference.aspose.com/slides/hu/python-java/aspose.slides/video/) osztályt, a [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) osztályt, és egyéb kapcsolódó típusokat.
+* Helyi videó hozzáadása vagy beágyazása (a gépeden tárolt)
+* Online videó hozzáadása (webes forrásból, például a YouTube‑ról).
+
+Ahhoz, hogy videókat (videoobjektumokat) adhass a prezentációhoz, az Aspose.Slides biztosítja a [Video](https://reference.aspose.com/slides/hu/python-java/aspose.slides/video/) osztályt, a [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) osztályt és a többi kapcsolódó típust.
 
 ## **Beágyazott videókeretek létrehozása**
 
-Ha a diára felvenni kívánt videofájl helyileg van tárolva, létrehozhat egy videókeretet a videó előadáshoz ágyazásához.
+Ha a diára felvenni kívánt videófájl helyileg van tárolva, létrehozhatsz egy videókeretet a videó prezentációba való beágyazásához.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-2. Szerezze meg a dia referenciaját az indexe alapján.
-3. Adjon hozzá egy [Video](https://reference.aspose.com/slides/hu/python-java/aspose.slides/video/) objektumot, és adja át a videofájl adatát a videó előadáshoz való beágyazásához.
-4. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot a videó keretének létrehozásához.
-5. Mentse el a módosított előadást.
+1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
+1. Szerezz referenciát egy diára az indexe alapján.
+1. Adj hozzá egy [Video](https://reference.aspose.com/slides/hu/python-java/aspose.slides/video/) objektumot, és add át a videófájl adatát a videó prezentációba való beágyazásához.
+1. Adj hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot a videó keretének létrehozásához.
+1. Mentsd el a módosított prezentációt.
 
-Ez a Python kód bemutatja, hogyan adjon hozzá egy helyileg tárolt videót egy előadáshoz:
+Ez a Python kód megmutatja, hogyan adhatsz hozzá egy helyileg tárolt videót a prezentációhoz:
 
 ```python
 from pathlib import Path
@@ -63,7 +64,7 @@ finally:
     presentation.dispose()
 ```
 
-Alternatívaként egy videót a fájl útvonalának közvetlen átadásával is hozzáadhat a [addVideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#addVideoFrame) metódusnak:
+Alternatívaként egy videót is hozzáadhatsz úgy, hogy a fájl útvonalát közvetlenül az [addVideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#addVideoFrame) metódusnak adod át:
 
 ```python
 import jpype
@@ -84,15 +85,15 @@ finally:
 
 ## **Videókeretek létrehozása webes forrásból származó videóval**
 
-A Microsoft [PowerPoint 2013 és újabb](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) támogatja a YouTube videókat az előadásokban. Ha a használni kívánt videó online elérhető (például a YouTube-on), hozzáadhatja az előadáshoz a webes hivatkozásán keresztül.
+A Microsoft [PowerPoint 2013 és újabb](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) támogatja a YouTube‑videókat a prezentációkban. Ha a felhasználandó videó online érhető el (például a YouTube‑on), a webes hivatkozásával adhatod hozzá a prezentációhoz.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból
-2. Szerezze meg a dia referenciaját az indexe alapján.
-3. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot, és adja át a videó hivatkozását.
-4. Állítson be egy előképet a videókerethez.
-5. Mentse el az előadást.
+1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
+1. Szerezz referenciát egy diára az indexe alapján.
+1. Adj hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot, és add meg a videó hivatkozását.
+1. Állíts be egy bélyegképet a videókerethez.
+1. Mentsd el a prezentációt.
 
-Ez a Python kód bemutatja, hogyan adjon hozzá egy webes videót egy diára a PowerPoint előadásban:
+Ez a Python kód megmutatja, hogyan adhatsz hozzá egy webes videót egy PowerPoint diasorhoz:
 
 ```python
 from urllib.request import urlopen
@@ -111,7 +112,7 @@ try:
     video_frame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + video_id)
     video_frame.setPlayMode(VideoPlayModePreset.Auto)
 
-    # A bélyegkép betöltése.
+    # Betölti a bélyegképet.
     thumbnail_uri = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
     try:
         with urlopen(thumbnail_uri) as response:
@@ -129,19 +130,19 @@ finally:
 
 ## **Videókeret vágása**
 
-Az Aspose.Slides lehetővé teszi, hogy a videó lejátszott részét a trim-from-start és trim-from-end értékek beállításával szabályozza a [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setTrimFromStart) és [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setTrimFromEnd) metódusok segítségével. Mindkét érték ezredmásodpercben van megadva, és meghatározza, mennyi időt hagy ki a videó elejéről és végéről. Ezek a beállítások a lejátszási beállításokat módosítják az előadásban; nem vágják vagy módosítják a beágyazott videó bináris adatát.
+Az Aspose.Slides lehetővé teszi, hogy a videó lejátszott részét úgy szabályozd, hogy a trim-from-start és trim-from-end értékeket állítsd be a [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setTrimFromStart) és a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setTrimFromEnd) segítségével. Mindkét érték ezredmásodpercben van megadva, és meghatározza, mennyi időt hagy ki a videó elejéről és végéről. Ezek a beállítások a videó lejátszási beállításait módosítják a prezentációban; nem vágják vagy módosítják a beágyazott videó bináris adatát.
 
 **Trim beállítások beállítása**
 
 Videókeret létrehozásához és a trim beállításainak megadásához:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-2. Adjon hozzá egy [Video](https://reference.aspose.com/slides/hu/python-java/aspose.slides/video/) objektumot az előadáshoz.
-3. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot egy diára.
-4. Állítsa be a trim-from-start és trim-from-end értékeket a [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setTrimFromStart) és [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setTrimFromEnd) metódusokkal.
-5. Mentse el a módosított előadást.
+1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
+1. Adj hozzá egy [Video](https://reference.aspose.com/slides/hu/python-java/aspose.slides/video/) objektumot a prezentációhoz.
+1. Adj hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot egy diára.
+1. Állítsd be a trim-from-start és trim-from-end értékeket a [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setTrimFromStart) és a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setTrimFromEnd) segítségével.
+1. Mentsd el a módosított prezentációt.
 
-Az alábbi kódrészlet kihagyja az első 2,5 másodpercet és az utolsó másodpercet egy beágyazott videó lejátszása közben:
+A következő kódrészlet kihagyja a beágyazott videó első 2,5 másodpercét és az utolsó másodpercét a lejátszás során:
 
 ```python
 from pathlib import Path
@@ -169,11 +170,11 @@ finally:
     presentation.dispose()
 ```
 
-**Trim beállításainak olvasása**
+**Trim beállítások beolvasása**
 
-A meglévő trim beállítások ellenőrzéséhez töltsön be egy előadást, találja meg a [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot az első dia alakzatai között, és olvassa ki az értékeket a [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#getTrimFromStart) és [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#getTrimFromEnd) metódusok segítségével.
+A meglévő trim beállítások ellenőrzéséhez tölts be egy prezentációt, keresd meg a [VideoFrame] objektumot az első dia alakzatai között, és olvasd ki az értékeket a [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#getTrimFromStart) és a [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#getTrimFromEnd) segítségével.
 
-Az alábbi kódrészlet megtalálja az első videókeretet az első dián, és milliszekundumban jelzi a trim beállításait:
+A következő kódrészlet megtalálja az első videókeretet az első dián, és millimásodpercben jelzi a trim beállításait:
 
 ```python
 import jpype
@@ -200,19 +201,17 @@ finally:
 
 ## **Videó feliratok kezelése**
 
-Az Aspose.Slides lehetővé teszi a videókeretekhez tartozó zárt feliratok kezelését PowerPoint előadásokban. A feliratok WebVTT formátumban tárolódnak, és a [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#getCaptionTracks) metóduson keresztül érhetők el.
+Az Aspose.Slides lehetővé teszi a videókeretek zárt feliratainak kezelését a PowerPoint prezentációkban. A feliratok WebVTT formátumban tárolódnak, és a [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#getCaptionTracks) metóduson keresztül érhetők el.
 
 **Feliratok hozzáadása videókerethez**
 
-Feliratok videókerethez hozzáadásához:
+1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
+1. Adj hozzá egy videót a prezentációhoz.
+1. Adj hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot egy diára.
+1. Használd a [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) gyűjteményt, amelyet a [getCaptionTracks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#getCaptionTracks) visszaad, egy WebVTT feliratnyomtatás hozzáadásához.
+1. Mentsd el a módosított prezentációt.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból.
-2. Adjon hozzá egy videót az előadáshoz.
-3. Adjon hozzá egy [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot egy diára.
-4. Használja a [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) osztályt, amelyet a [getCaptionTracks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#getCaptionTracks) visszaad, egy WebVTT felirat sáv hozzáadásához.
-5. Mentse el a módosított előadást.
-
-Az alábbi kód bemutatja, hogyan adjon feliratokat egy videókerethez:
+A következő kód megmutatja, hogyan adj feliratokat egy videókerethez:
 
 ```python
 from pathlib import Path
@@ -233,25 +232,23 @@ try:
     slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # Új felirat sáv hozzáadása egy WebVTT fájlból.
+    # Új feliratnyomtatás hozzáadása egy WebVTT fájlból.
     video_frame.getCaptionTracks().add("English", "track.vtt")
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-A [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) osztály egy túlterhelést is biztosít, amely lehetővé teszi feliratok hozzáadását egy áramlásból.
+A [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) osztály további overloaddal is rendelkezik, amely lehetővé teszi feliratok hozzáadását egy adatfolyamból.
 
 **Feliratok kinyerése videókeretből**
 
-Feliratok kinyeréséhez egy videókeretből:
+1. Töltsd be a videót tartalmazó prezentációt.
+1. Találd meg a cél [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot.
+1. Iterálj végig a [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) feliratnyomtatásain.
+1. Mentsd el minden feliratnyomtatást egy `.vtt` fájlba.
 
-1. Töltsön be egy előadást, amely tartalmazza a videót.
-2. Keresse meg a cél [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot.
-3. Iteráljon végig a [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) felirat sávjain.
-4. Mentse el minden felirat sávot egy `.vtt` fájlba.
-
-Az alábbi kód bemutatja, hogyan nyerje ki a feliratokat egy videókeretből:
+A következő kód megmutatja, hogyan nyerheted ki a feliratokat egy videókeretből:
 
 ```python
 from pathlib import Path
@@ -270,7 +267,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             for caption_track in shape.getCaptionTracks():
-                # A felirat sáv mentése egy WebVTT fájlba.
+                # Mentse a feliratnyomtatást egy WebVTT fájlba.
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -278,18 +275,16 @@ finally:
     presentation.dispose()
 ```
 
-Minden [Captions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captions/) objektum tartalmazza a felirat azonosítóját, címkéjét, bináris adatát és a felirat szövegét UTF-8 karakterláncként.
+Minden [Captions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captions/) objektum megjeleníti a felirat azonosítóját, címkéjét, bináris adatát és a felirat szövegét UTF‑8 karakterláncként.
 
 **Feliratok eltávolítása videókeretből**
 
-Feliratok eltávolításához egy videókeretből:
+1. Töltsd be a videót tartalmazó prezentációt.
+1. Szerezd meg a cél [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot.
+1. Távolítsd el a feliratnyomtatásokat a [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) gyűjteményből.
+1. Mentsd el a módosított prezentációt.
 
-1. Töltsön be egy előadást, amely tartalmazza a videót.
-2. Szerezze meg a cél [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot.
-3. Távolítsa el a felirat sávokat a [CaptionsCollection](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/) -ból.
-4. Mentse el a módosított előadást.
-
-Az alábbi kód bemutatja, hogyan távolítsa el az összes feliratot egy videókeretből:
+A következő kód megmutatja, hogyan távolíthatók el az összes felirat egy videókeretből:
 
 ```python
 import jpype
@@ -305,7 +300,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
-        # Az összes feliratot eltávolítja a videókeretből.
+        # Az összes felirat eltávolítása a videókeretről.
         video_frame.getCaptionTracks().clear()
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
     else:
@@ -314,18 +309,18 @@ finally:
     presentation.dispose()
 ```
 
-Ha csak egy felirat sávot szeretne eltávolítani, használja a [remove](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#remove) vagy a [removeAt](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#removeAt) metódusokat a [clear](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#clear) helyett.
+Ha csak egy feliratrakárt szeretnél eltávolítani, használd a [remove](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#remove) vagy a [removeAt](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#removeAt) metódust a [clear](https://reference.aspose.com/slides/hu/python-java/aspose.slides/captionscollection/#clear) helyett.
 
 ## **Videó kinyerése diákból**
 
-A videók diákhoz való hozzáadása mellett az Aspose.Slides lehetővé teszi a beágyazott videók kinyerését az előadásokból.
+A videók diákhoz való hozzáadása mellett az Aspose.Slides lehetővé teszi a prezentációkban beágyazott videók kinyerését.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból a videót tartalmazó előadás betöltéséhez.
-2. Iteráljon végig az összes [Slide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/) objektumon.
-3. Iteráljon végig az összes [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) objektumon, hogy megtalálja a [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektumot.
-4. Mentse el a videót a lemezre.
+1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból a videót tartalmazó prezentáció betöltéséhez.
+2. Iterálj végig az összes [Slide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/) objektumon.
+3. Iterálj végig az összes [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) objektumon, hogy megtaláld a [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) elemet.
+4. Mentsd el a videót a lemezen.
 
-Ez a Python kód bemutatja, hogyan nyerje ki a videót egy előadásdiáról:
+Ez a Python kód megmutatja, hogyan nyerheted ki a videót egy prezentációs diáról:
 
 ```python
 from pathlib import Path
@@ -357,18 +352,18 @@ finally:
 
 ## **FAQ**
 
-**Mely videolejátszási paraméterek módosíthatók egy VideoFrame esetén?**
+**Mely videólejátszási paraméterek módosíthatók egy VideoFrame esetén?**
 
-A [playback mode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setPlayMode) (automatikus vagy kattintásra) és a [looping](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setPlayLoopMode) beállítások szabályozhatók. Ezek a lehetőségek a [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektum tulajdonságain keresztül érhetők el.
+A [playback mode](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setPlayMode) (automata vagy kattintásra) és a [looping](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setPlayLoopMode) beállításait szabályozhatod. Ezek az opciók a [VideoFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/) objektum tulajdonságain keresztül érhetők el.
 
-**Milyen hatással van egy videó hozzáadása a PPTX fájlméretre?**
+**A videó hozzáadása befolyásolja a PPTX fájl méretét?**
 
-Igen. Ha helyi videót ágyaz be, a bináris adat a dokumentumba kerül, így az előadás mérete a fájl méretével arányosan növekszik. Ha online videót ad hozzá, csak egy hivatkozás és egy előkép kerül beágyazásra, így a méretnövekedés kisebb.
+Igen. Ha helyi videót ágyazol be, a bináris adat a dokumentumba kerül, így a prezentáció mérete arányosan nő a fájlmérettel. Online videó hozzáadásakor egy hivatkozás és egy bélyegkép kerül beágyazásra, ezért a méretnövekedés kisebb.
 
-**Lecserélhetem a videót egy meglévő VideoFrame-ben a pozíció és méret megváltoztatása nélkül?**
+**Lecserélhetem egy meglévő VideoFrame videóját anélkül, hogy megváltoztatnám a pozícióját és méretét?**
 
-Igen. A videót a kereten belül kicserélheti a [video content](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setEmbeddedVideo) cseréjével, miközben megőrzi az alakzat geometriáját; ez gyakori eset a média frissítésére egy meglévő elrendezésben.
+Igen. A [video content](https://reference.aspose.com/slides/hu/python-java/aspose.slides/videoframe/#setEmbeddedVideo) cseréjével a keretben megőrizheted az alakzat geometriáját; ez gyakori forgatókönyv a meglévő elrendezés média frissítéséhez.
 
-**Meghatározható egy beágyazott videó tartalomtípusa (MIME)?**
+**Megállapítható a beágyazott videó tartalomtípusa (MIME)?**
 
-Igen. Egy beágyazott videó rendelkezik egy [content type](https://reference.aspose.com/slides/hu/python-java/aspose.slides/video/#getContentType) (tartalomtípussal), amelyet leolvashat és felhasználhat, például a lemezre mentéskor.
+Igen. A beágyazott videó rendelkezik egy [content type](https://reference.aspose.com/slides/hu/python-java/aspose.slides/video/#getContentType) értékkel, amelyet kiolvashatsz és felhasználhatsz, például a lemezre mentéskor.

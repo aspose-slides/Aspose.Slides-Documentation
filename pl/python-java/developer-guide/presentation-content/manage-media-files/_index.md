@@ -1,5 +1,5 @@
 ---
-title: Zarządzaj plikami multimedialnymi w Pythonie za pośrednictwem Java
+title: Zarządzaj plikami multimedialnymi w Pythonie za pomocą Java
 linktitle: Pliki multimedialne
 type: docs
 weight: 30
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Zarządzaj dźwiękiem i wideo w Aspose.Slides dla Java: dodawaj, wyodrębniaj, zamieniaj i optymalizuj multimedia w plikach PPT, PPTX i ODP. Przewodniki krok po kroku i kod Java."
+description: "Zarządzaj dźwiękiem i wideo w Aspose.Slides dla Pythona za pośrednictwem Java: dodawaj, wyodrębniaj, zamieniaj i optymalizuj multimedia w plikach PPT, PPTX i ODP. Przewodniki krok po kroku i kod w Pythonie."
 ---

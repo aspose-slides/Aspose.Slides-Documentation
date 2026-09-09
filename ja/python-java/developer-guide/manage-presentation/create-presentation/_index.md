@@ -1,6 +1,6 @@
 ---
 title: Python via Java でプレゼンテーションを作成
-linktitle: プレゼンテーションを作成
+linktitle: プレゼンテーションの作成
 type: docs
 weight: 10
 url: /ja/python-java/create-presentation/
@@ -19,23 +19,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して Python via Java でプレゼンテーションを作成し、PPT、PPTX、ODP ファイルを生成し、OpenDocument のサポートを活用して、プログラムで保存し信頼できる結果を得ることができます。"
+description: Aspose.Slides を使用して Python via Java でプレゼンテーションを作成し、PPT、PPTX、ODP ファイルを生成し、OpenDocument のサポートを活用し、プログラムで保存して信頼できる結果を得られます。
 ---
 ## **概要**
 
-この記事では、Aspose.Slides for Python via Java を使用してプレゼンテーションを作成し、最初のスライドにテキスト付きシェイプを追加して、結果を PPTX ファイルとして保存する方法を示します。FAQ では、出力形式、テンプレート、スライドサイズ、メモリ使用量、スレッド処理、ライセンス、デジタル署名、VBA のサポートについて説明します。
+この記事では、Aspose.Slides for Python via Java を使用してプレゼンテーションを作成し、最初のスライドにテキスト付きのシェイプを追加し、結果を PPTX ファイルとして保存する方法を示します。FAQ では、出力形式、テンプレート、スライドサイズ、メモリ使用量、スレッド処理、ライセンス、デジタル署名、VBA のサポートについて説明します。
 
 ## **プレゼンテーションの作成**
 
-Aspose.Slides for Python via Java で PowerPoint ファイルをゼロから作成することは、[Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスをインスタンス化するのと同じくらい簡単です。コンストラクタは自動的に 1 枚のスライドを持つ空のデッキを提供し、シェイプ、テキスト、チャート、またはアプリケーションが必要とする任意のコンテンツのためのすぐに使えるキャンバスを提供します。そのスライドを変更するか（または新しいスライドを追加する）ことで、結果を PPTX、従来の PPT、あるいは OpenDocument 形式で保存できます。以下の短いコードサンプルは、最初のスライドにシンプルなシェイプを追加することでこのワークフローを示しています。
+Aspose.Slides for Python via Java でゼロから PowerPoint ファイルを作成するのは、[Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスをインスタンス化するだけで簡単です。コンストラクターは自動的に単一スライドの空白デッキを提供し、シェイプ、テキスト、チャート、またはアプリケーションが必要とする任意のコンテンツのキャンバスがすぐに利用可能になります。そのスライドを変更するか、新しいスライドを追加したら、結果を PPTX、従来の PPT、あるいは OpenDocument 形式に保存できます。以下の簡単なコードサンプルは、最初のスライドにシンプルなシェイプを追加するワークフローを示しています。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスで最初のスライドを取得します。
-1. [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapecollection/#addAutoShape) を使用して、タイプが [ShapeType.Cloud](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapetype/#Cloud) の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
-1. [TextFrame.setText](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/#setText) を使用してシェイプのテキストを設定します。
-1. [Presentation.save](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#save) を使用し、[SaveFormat.Pptx](https://reference.aspose.com/slides/ja/python-java/aspose.slides/saveformat/#Pptx) でプレゼンテーションを保存します。
+1. [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapecollection/#addAutoShape) を使用して、[ShapeType.Cloud](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapetype/#Cloud) タイプの [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) を追加します。
+1. [TextFrame.setText](https://reference.aspose.com/slides/ja/python-java/aspose.slides/textframe/#setText) でシェイプのテキストを設定します。
+1. [Presentation.save](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/#save) と [SaveFormat.Pptx](https://reference.aspose.com/slides/ja/python-java/aspose.slides/saveformat/#Pptx) を使用してプレゼンテーションを保存します。
 
-以下の例は Aspose.Slides for Python via Java と互換性のある Java ランタイムが必要です。JVM が起動していない場合は起動し、最初のスライドにクラウド形状を追加し、プレゼンテーションを保存します：
+次の例は Aspose.Slides for Python via Java と互換性のある Java ランタイムが必要です。JVM が起動していない場合は起動し、最初のスライドに雲のシェイプを追加し、プレゼンテーションを保存します。
 
 ```python
 import jpype
@@ -46,13 +46,13 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# 1枚の空白スライドでプレゼンテーションを作成します。
+# 1つの空白スライドでプレゼンテーションを作成します。
 presentation = Presentation()
 try:
     # 最初のスライドを取得します。
     slide = presentation.getSlides().get_Item(0)
 
-    # クラウド形状を追加し、テキストを設定します。
+    # 雲のシェイプを追加し、テキストを設定します。
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
 
@@ -66,40 +66,40 @@ finally:
 
 ![新しいプレゼンテーション](new_presentation.png)
 
-## **よくある質問**
+## **FAQ**
 
 **新しいプレゼンテーションをどの形式で保存できますか？**
 
-次の形式で保存できます: [PPTX, PPT, and ODP](/slides/ja/python-java/save-presentation/)、また、[PDF](/slides/ja/python-java/convert-powerpoint-to-pdf/)、[XPS](/slides/ja/python-java/convert-powerpoint-to-xps/)、[HTML](/slides/ja/python-java/convert-powerpoint-to-html/)、[SVG](/slides/ja/python-java/render-slide-as-svg/)、および[images](/slides/ja/python-java/convert-powerpoint-to-png/) などにエクスポートできます。
+[PPTX, PPT, and ODP](/slides/ja/python-java/save-presentation/) に保存でき、[PDF](/slides/ja/python-java/convert-powerpoint-to-pdf/)、[XPS](/slides/ja/python-java/convert-powerpoint-to-xps/)、[HTML](/slides/ja/python-java/convert-powerpoint-to-html/)、[SVG](/slides/ja/python-java/render-slide-as-svg/)、および [images](/slides/ja/python-java/convert-powerpoint-to-png/) などにもエクスポートできます。
 
-**テンプレート (POTX/POTM) から開始し、通常の PPTX として保存できますか？**
+**テンプレート (POTX/POTM) から開始して通常の PPTX として保存できますか？**
 
-はい。テンプレートを読み込み、目的の形式で保存できます。POTX/POTM/PPTM などの形式は[サポートされています](/slides/ja/python-java/supported-file-formats/)。
+はい。テンプレートを読み込み、目的の形式で保存します。POTX/POTM/PPTM などの形式は [サポートされています](/slides/ja/python-java/supported-file-formats/)。
 
-**プレゼンテーション作成時にスライドサイズ/アスペクト比をどのように制御しますか？**
+**プレゼンテーション作成時にスライドサイズ／アスペクト比をどのように制御しますか？**
 
-[slide size](/slides/ja/python-java/slide-size/) を設定し（4:3 や 16:9 のプリセットやカスタム寸法を含む）、コンテンツのスケーリング方法を選択します。
+[スライドサイズ](/slides/ja/python-java/slide-size/) を設定します（4:3、16:9 などのプリセットやカスタム寸法）。コンテンツのスケーリング方法も選択できます。
 
-**サイズと座標はどの単位で測定されますか？**
+**サイズや座標はどの単位で測定されますか？**
 
-ポイント単位です。1 インチは 72 ユニットに相当します。
+ポイント単位です。1 インチは 72 ユニットです。
 
-**メディアファイルが多数ある非常に大きなプレゼンテーションでメモリ使用量を削減するにはどうすればよいですか？**
+**非常に大きなプレゼンテーション（多数のメディアファイル）でメモリ使用量を削減するには？**
 
-[BLOB management strategies](/slides/ja/python-java/manage-blob/) を使用し、一時ファイルを活用してメモリ内ストレージを制限し、純粋にメモリ上のストリームよりもファイルベースのワークフローを優先してください。
+[BLOB 管理戦略](/slides/ja/python-java/manage-blob/) を使用し、テンポラリファイルを活用してインメモリ保存を制限し、純粋なインメモリストリームよりもファイルベースのワークフローを優先します。
 
-**プレゼンテーションを並行して作成/保存できますか？**
+**プレゼンテーションを並列で作成／保存できますか？**
 
-同じ [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) インスタンスを[複数のスレッド](/slides/ja/python-java/multithreading/)から操作することはできません。スレッドまたはプロセスごとに別々の独立したインスタンスを実行してください。
+同じ [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) インスタンスを [複数のスレッド](/slides/ja/python-java/multithreading/) から操作することはできません。スレッドまたはプロセスごとに別々のインスタンスを使用してください。
 
-**トライアルの透かしや制限を削除するにはどうすればよいですか？**
+**試用版の透かしと制限を削除するには？**
 
-[Apply a license](/slides/ja/python-java/licensing/) をプロセスごとに一度実行してください。ライセンス XML は変更せず、その設定は複数スレッドが関与する場合は同期させる必要があります。
+プロセスごとに一度だけ [ライセンスを適用](/slides/ja/python-java/licensing/) してください。ライセンス XML は変更せず、複数スレッドで使用する場合はライセンス設定を同期させる必要があります。
 
-**作成した PPTX にデジタル署名できますか？**
+**作成した PPTX にデジタル署名を付加できますか？**
 
-はい。[Digital signatures](/slides/ja/python-java/digital-signature-in-powerpoint/)（追加および検証）はプレゼンテーションでサポートされています。
+はい。プレゼンテーション向けの [デジタル署名](/slides/ja/python-java/digital-signature-in-powerpoint/)（追加および検証）がサポートされています。
 
 **作成したプレゼンテーションでマクロ (VBA) はサポートされていますか？**
 
-はい。[create/edit VBA projects](/slides/ja/python-java/presentation-via-vba/) を使用して VBA プロジェクトを作成/編集でき、PPTM/PPSM などのマクロ有効ファイルとして保存できます。
+はい。[VBA プロジェクトの作成／編集](/slides/ja/python-java/presentation-via-vba/) が可能で、PPTM/PPSM などのマクロ有効ファイルとして保存できます。

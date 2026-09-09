@@ -7,7 +7,7 @@ url: /tr/python-java/presentation-content/
 keywords:
 - içerik
 - BLOB
-- hiperbağlantı
+- köprü
 - medya
 - OLE
 - metin
@@ -15,7 +15,7 @@ keywords:
 - grafik
 - denklem
 - şekil
-- kalem
+- mürekkep
 - SmartArt
 - tablo
 - PowerPoint
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java ile sunum içeriğini oluşturun, düzenleyin ve çıkarın—metin, resimler, şekiller, grafikler için kod örnekleri alın; PPT, PPTX ve ODP."
+description: "Aspose.Slides for Python via Java ile sunum içeriğini oluşturun, düzenleyin ve çıkarın—PPT, PPTX ve ODP dosyalarında metin, resim, şekil ve grafik için kod örneklerini alın."
 ---

@@ -1,12 +1,12 @@
 ---
 title: Zarządzanie dźwiękiem w prezentacjach przy użyciu Pythona
-linktitle: Ramka audio
+linktitle: Klatka audio
 type: docs
 weight: 10
 url: /pl/python-java/audio-frame/
 keywords:
 - dźwięk
-- ramka audio
+- klatka audio
 - miniatura
 - dodaj dźwięk
 - właściwości dźwięku
@@ -14,24 +14,24 @@ keywords:
 - wyodrębnij dźwięk
 - Python
 - Aspose.Slides
-description: "Twórz i kontroluj ramki audio w Aspose.Slides for Python via Java — przykłady kodu do osadzania, przycinania, zapętlania i konfigurowania odtwarzania w prezentacjach PPT, PPTX i ODP."
+description: "Twórz i kontroluj klatki audio w Aspose.Slides for Python via Java — przykłady kodu do osadzania, przycinania, pętli i konfigurowania odtwarzania w prezentacjach PPT, PPTX i ODP."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z ramkami audio w Aspose.Slides. Pokazuje, jak dodać osadzony dźwięk do slajdów, dostosować miniaturę ramki audio, skonfigurować opcje odtwarzania, takie jak głośność, zapętlanie, ukrywanie, przycinanie i czasy zanikania, oraz wyodrębnić dźwięk używany w przejściach pokazu slajdów.
+Ten artykuł wyjaśnia, jak pracować z klatkami audio w Aspose.Slides. Pokazuje, jak dodawać osadzone audio do slajdów, dostosowywać miniaturkę klatki audio, konfigurować opcje odtwarzania, takie jak głośność, pętla, ukrywanie, przycinanie i czasy zanikania, oraz jak wyodrębnić audio używane w przejściach pokazu slajdów.
 
-## **Utworzenie ramek audio**
+## **Tworzenie klatek audio**
 
-Aspose.Slides for Python via Java umożliwia dodawanie plików audio do slajdów. Pliki audio są osadzane w slajdach jako ramki audio. 
+Aspose.Slides for Python via Java umożliwia dodawanie plików audio do slajdów. Pliki audio są osadzane w slajdach jako klatki audio. 
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/).
-2. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+2. Pobierz odwołanie do slajdu według jego indeksu.
 3. Odczytaj plik audio, który chcesz osadzić w slajdzie.
-4. Dodaj osadzoną ramkę audio (zawierającą plik audio) do slajdu.
-5. Ustaw [setPlayMode](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setPlayMode) i [setVolume](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setVolume) udostępnione przez obiekt [AudioFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/).
+4. Dodaj osadzoną klatkę audio (zawierającą plik audio) do slajdu.
+5. Skorzystaj z metod [setPlayMode](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setPlayMode) i [setVolume](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setVolume) udostępnionych przez obiekt [AudioFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/).
 6. Zapisz zmodyfikowaną prezentację.
 
-Ten kod w Pythonie pokazuje, jak dodać osadzoną ramkę audio do slajdu:
+Ten kod w Pythonie pokazuje, jak dodać osadzoną klatkę audio do slajdu:
 
 ```python
 from pathlib import Path
@@ -59,11 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Zmień miniaturę ramki audio**
+## **Zmiana miniaturki klatki audio**
 
-Kiedy dodajesz plik audio do prezentacji, audio wyświetlane jest jako ramka ze standardowym domyślnym obrazem (zobacz obraz w sekcji poniżej). Możesz zmienić podglądowy obraz ramki audio (ustawić wybrany obraz).
+Gdy dodasz plik audio do prezentacji, audio pojawia się jako klatka ze standardowym domyślnym obrazem (zobacz obraz w sekcji poniżej). Możesz zmienić podglądowy obraz klatki audio na wybrany przez siebie obraz.
 
-Ten kod w Pythonie pokazuje, jak zmienić miniaturę lub podglądowy obraz ramki audio:
+Ten kod w Pythonie pokazuje, jak zmienić miniaturkę lub podglądowy obraz klatki audio:
 
 ```python
 from pathlib import Path
@@ -96,15 +96,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Zmień opcje odtwarzania audio**
+## **Zmiana opcji odtwarzania audio**
 
-Aspose.Slides for Python via Java umożliwia zmianę opcji kontrolujących odtwarzanie lub właściwości audio. Na przykład możesz dostosować głośność audio, ustawić odtwarzanie w pętli lub nawet ukryć ikonę audio.
+Aspose.Slides for Python via Java umożliwia zmianę opcji kontrolujących odtwarzanie audio lub jego właściwości. Na przykład możesz dostosować głośność audio, ustawić pętlę odtwarzania lub ukryć ikonę audio.
 
 Panel **Audio Options** w Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-Opcje **Audio Options** w PowerPoint, które odpowiadają właściwościom [AudioFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/) Aspose.Slides:
+Opcje **Audio Options** w PowerPoint, które odpowiadają właściwościom Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/):
 
 - **Start** lista rozwijana odpowiada metodzie [setPlayMode](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setPlayMode)
 - **Volume** odpowiada metodzie [setVolume](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setVolume)
@@ -113,22 +113,22 @@ Opcje **Audio Options** w PowerPoint, które odpowiadają właściwościom [Audi
 - **Hide During Show** odpowiada metodzie [setHideAtShowing](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setHideAtShowing)
 - **Rewind after Playing** odpowiada metodzie [setRewindAudio](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setRewindAudio)
 
-Opcje **Editing** w PowerPoint, które odpowiadają właściwościom [AudioFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/) Aspose.Slides:
+Opcje **Editing** w PowerPoint, które odpowiadają właściwościom Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/):
 
 - **Fade In** odpowiada metodzie [setFadeInDuration](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setFadeInDuration) 
 - **Fade Out** odpowiada metodzie [setFadeOutDuration](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setFadeOutDuration) 
 - **Trim Audio Start Time** odpowiada metodzie [setTrimFromStart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time** wartość równa jest długości audio minus wartość metody [setTrimFromEnd](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setTrimFromEnd)
+- **Trim Audio End Time** wartość równa jest długości audio minus wartość ustawiona metodą [setTrimFromEnd](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setTrimFromEnd)
 
-Kontrola **Volume control** w panelu audio w PowerPoint odpowiada metodzie [setVolumeValue](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setVolumeValue). Umożliwia zmianę głośności audio w procentach.
+Kontrola **Volume** na panelu sterowania audio w PowerPoint odpowiada metodzie [setVolumeValue](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setVolumeValue). Pozwala ona zmienić głośność audio w procentach.
 
-Tak zmienisz opcje odtwarzania audio:
+Oto jak zmienić opcje odtwarzania audio:
 
-1. [Utwórz](#create-audio-frames) lub uzyskaj ramkę audio.
-2. Ustaw nowe wartości właściwości ramki audio, które chcesz zmienić.
+1. [Utwórz](#create-audio-frames) lub pobierz klatkę audio.
+2. Ustaw nowe wartości dla właściwości klatki audio, które chcesz zmienić.
 3. Zapisz zmodyfikowany plik PowerPoint.
 
-Ten kod w Pythonie demonstruje operację, w której zmieniane są opcje audio:
+Ten kod w Pythonie demonstruje operację, w której dostosowywane są opcje audio:
 
 ```python
 import jpype
@@ -143,12 +143,12 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # Odtwarzaj po kliknięciu przy niskiej głośności, na wszystkich slajdach, bez zapętlania.
+        # Odtwarzaj po kliknięciu przy niskiej głośności, na wszystkich slajdach, bez pętli.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # Ukryj ramkę podczas pokazu slajdów i przewiń po odtworzeniu.
+        # Ukryj klatkę podczas pokazu slajdów i przewiń po odtworzeniu.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
@@ -158,7 +158,7 @@ finally:
     presentation.dispose()
 ```
 
-Ten przykład w Pythonie pokazuje, jak dodać nową ramkę audio z osadzonym dźwiękiem, przyciąć ją i ustawić czasy zanikania:
+Ten przykład w Pythonie pokazuje, jak dodać nową klatkę audio z osadzonym dźwiękiem, przyciąć ją i ustawić czasy zanikania:
 
 ```python
 from pathlib import Path
@@ -175,11 +175,11 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
     audio_data = Path("sampleaudio.mp3").read_bytes()
-    java_audio_data = jpage.JArray(jpype.JByte)(audio_data)
+    java_audio_data = jpype.JArray(jpype.JByte)(audio_data)
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Przytnij 1,5 sekundy od początku i 2 sekundy od końca.
+    # Usuń 1.5 sekundy od początku i 2 sekundy od końca.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
     # Ustaw fade-in na 200 ms i fade-out na 500 ms.
@@ -190,7 +190,7 @@ finally:
     presentation.dispose()
 ```
 
-Poniższy fragment kodu pokazuje, jak pobrać ramkę audio z osadzonym dźwiękiem i ustawić jej głośność na 85%:
+Poniższy fragment kodu pokazuje, jak pobrać klatkę audio z osadzonym dźwiękiem i ustawić jej głośność na 85%:
 
 ```python
 import jpype
@@ -216,11 +216,11 @@ finally:
 
 ## **Zarządzanie napisami audio**
 
-Aspose.Slides umożliwia dodawanie zamkniętych napisów do ramki audio za pomocą metody [getCaptionTracks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#getCaptionTracks). Metoda ta zwraca [CaptionsCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/), co pozwala dodawać ścieżki napisów WebVTT, iterować istniejące ścieżki i usuwać je w razie potrzeby.
+Aspose.Slides umożliwia dodawanie zamkniętych napisów do klatki audio za pomocą metody [getCaptionTracks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#getCaptionTracks). Metoda ta zwraca [CaptionsCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/), co pozwala dodawać ścieżki napisów WebVTT, iterować istniejące ścieżki i usuwać je w razie potrzeby.
 
-**Dodaj napisy audio**
+**Dodawanie napisów audio**
 
-Użyj metody [getCaptionTracks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#getCaptionTracks) aby dołączyć jedną lub więcej ścieżek napisów do ramki audio. W poniższym przykładzie plik audio jest dodawany do slajdu, a następnie nowa ścieżka napisów jest ładowana z pliku `.vtt`.
+Użyj metody [getCaptionTracks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#getCaptionTracks), aby dołączyć jedną lub więcej ścieżek napisów do klatki audio. W poniższym przykładzie plik audio jest dodawany do slajdu, a następnie nowa ścieżka napisów jest ładowana z pliku `.vtt`.
 
 ```python
 from pathlib import Path
@@ -248,9 +248,9 @@ finally:
     presentation.dispose()
 ```
 
-**Wyodrębnij napisy audio**
+**Wyodrębnianie napisów audio**
 
-Możesz iterować po ścieżkach napisów powiązanych z ramką audio i zapisywać je jako pliki `.vtt`. Każda ścieżka napisu udostępnia swoje dane binarne oraz unikalny identyfikator, które mogą być użyte przy eksportowaniu napisów.
+Możesz iterować przez ścieżki napisów powiązane z klatką audio i zapisywać je jako pliki `.vtt`. Każda ścieżka napisów udostępnia swoje dane binarne oraz unikalny identyfikator, który można wykorzystać przy eksportowaniu napisów.
 
 ```python
 from pathlib import Path
@@ -277,9 +277,9 @@ finally:
     presentation.dispose()
 ```
 
-**Usuń napisy audio**
+**Usuwanie napisów audio**
 
-Aby usunąć napisy z ramki audio, użyj metod udostępnionych przez [CaptionsCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/), takich jak [clear](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/#remove) lub [removeAt](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/#removeAt). Poniższy przykład usuwa wszystkie ścieżki napisów z ramki audio.
+Aby usunąć napisy z klatki audio, użyj metod udostępnionych przez [CaptionsCollection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/), takich jak [clear](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/#remove) lub [removeAt](https://reference.aspose.com/slides/pl/python-java/aspose.slides/captionscollection/#removeAt). Poniższy przykład usuwa wszystkie ścieżki napisów z klatki audio.
 
 ```python
 import jpype
@@ -303,14 +303,14 @@ finally:
     presentation.dispose()
 ```
 
-## **Wyodrębnij audio**
+## **Wyodrębnianie audio**
 
-Aspose.Slides for Python via Java umożliwia wyodrębnienie dźwięku używanego w przejściach pokazu slajdów. Na przykład możesz wyodrębnić dźwięk używany w konkretnym slajdzie.
+Aspose.Slides for Python via Java umożliwia wyodrębnienie dźwięku używanego w przejściach pokazu slajdów. Na przykład możesz wyodrębnić dźwięk użyty w konkretnym slajdzie.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) i wczytaj prezentację zawierającą audio.
-2. Uzyskaj odwołanie do odpowiedniego slajdu za pomocą jego indeksu.
-3. Uzyskaj dostęp do [slideshow transitions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getSlideShowTransition) dla slajdu.
-4. Wyodrębnij dźwięk w postaci danych bajtowych.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/) i załaduj prezentację zawierającą audio.
+2. Pobierz odwołanie do odpowiedniego slajdu według jego indeksu.
+3. Uzyskaj dostęp do [slideshow transitions](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getSlideShowTransition) dla tego slajdu.
+4. Wyodrębnij dźwięk jako dane bajtowe.
 
 Ten kod w Pythonie pokazuje, jak wyodrębnić audio użyte w slajdzie:
 
@@ -339,14 +339,14 @@ finally:
 
 ## **FAQ**
 
-**Czy mogę ponownie używać tego samego zasobu audio na wielu slajdach bez zwiększania rozmiaru pliku?**
+**Czy mogę używać tego samego zasobu audio na wielu slajdach, nie zwiększając rozmiaru pliku?**
 
-Tak. Dodaj dźwięk raz do współdzielonej [audio collection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getAudios) prezentacji i utwórz dodatkowe ramki audio, które będą odwoływać się do istniejącego zasobu. Zapobiega to duplikowaniu danych multimedialnych i utrzymuje rozmiar prezentacji pod kontrolą.
+Tak. Dodaj audio raz do współdzielonej [audio collection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getAudios) prezentacji i twórz dodatkowe klatki audio, które odwołują się do istniejącego zasobu. Zapobiega to duplikacji danych multimedialnych i utrzymuje rozmiar prezentacji pod kontrolą.
 
-**Czy mogę zamienić dźwięk w istniejącej ramce audio bez ponownego tworzenia kształtu?**
+**Czy mogę zastąpić dźwięk w istniejącej klatce audio bez ponownego tworzenia kształtu?**
 
-Tak. W przypadku dźwięku połączonego, zaktualizuj [link path](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setLinkPathLong), aby wskazywał na nowy plik. W przypadku dźwięku osadzonego, zamień obiekt [embedded audio](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setEmbeddedAudio) na inny z [audio collection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getAudios) prezentacji. Formatowanie ramki i większość ustawień odtwarzania pozostają niezmienione.
+Tak. W przypadku dźwięku powiązanego, zaktualizuj [link path](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setLinkPathLong), aby wskazywał na nowy plik. W przypadku dźwięku osadzonego, zamień obiekt [embedded audio](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audioframe/#setEmbeddedAudio) innym z [audio collection](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getAudios) prezentacji. Formatowanie klatki i większość ustawień odtwarzania pozostaną niezmienione.
 
 **Czy przycinanie zmienia podstawowe dane audio przechowywane w prezentacji?**
 
-Nie. Przycinanie zmienia tylko granice odtwarzania. Oryginalne bajty audio pozostają niezmienione i dostępne poprzez osadzony dźwięk lub kolekcję audio prezentacji.
+Nie. Przycinanie dostosowuje jedynie granice odtwarzania. Oryginalne bajty audio pozostają niezmienione i dostępne poprzez osadzony audio lub kolekcję audio prezentacji.

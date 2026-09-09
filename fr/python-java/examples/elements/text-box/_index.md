@@ -12,24 +12,24 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Travailler avec les zones de texte dans Aspose.Slides pour Python via Java : ajouter, mettre en forme, rechercher et supprimer du texte dans les présentations PowerPoint et OpenDocument."
+description: "Travaillez avec les zones de texte dans Aspose.Slides for Python via Java : ajoutez, formatez, recherchez et supprimez du texte dans les présentations PowerPoint et OpenDocument."
 ---
-Dans **Aspose.Slides for Python via Java**, une zone de texte est une forme automatique qui contient du texte. Pratiquement n'importe quelle forme peut contenir du texte, mais une zone de texte typique n'a ni remplissage ni bordure et n'affiche que du texte.
+Dans **Aspose.Slides for Python via Java**, une zone de texte est une forme auto qui contient du texte. Presque toutes les formes peuvent contenir du texte, mais une zone de texte typique n'a ni remplissage ni bordure et n'affiche que du texte.
 
-Ce guide explique comment ajouter, accéder et supprimer des zones de texte programmatiquement.
+Ce guide explique comment ajouter, accéder et supprimer des zones de texte par programmation.
 
-Installez le package comme décrit dans [Installation](/slides/fr/python-java/installation/). Chaque exemple importe `asposeslides` avant de démarrer la JVM, puis importe l'API après le démarrage de la JVM.
+Installez le package comme décrit dans [Installation](/slides/fr/python-java/installation/). Chaque exemple importe `asposeslides` avant de demarrer la JVM, puis importe l'API apres que la JVM est en cours d'execution.
 
 ## **Ajouter une zone de texte**
 
-Créez un rectangle, supprimez son remplissage et sa bordure, puis affectez du texte formaté.
+Creez un rectangle, supprimez son remplissage et sa bordure, puis attribuez un texte formaté.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpway.startJVM()
 
 from asposeslides.api import Presentation, ShapeType, FillType
 from java.awt import Color
@@ -39,13 +39,15 @@ try:
     slide = presentation.getSlides().get_Item(0)
 
     # Créer une forme rectangulaire.
+    # Supprimer le remplissage et la bordure pour n'afficher que du texte.
+    # Définir le formatage texte par défaut.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
-    # Supprimer le remplissage et la bordure pour n'afficher que le texte.
+    # Remove the fill and border to display only text.
     text_box.getFillFormat().setFillType(FillType.NoFill)
     text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
 
-    # Définir le formatage de texte par défaut.
+    # Set the default text formatting.
     paragraph = text_box.getTextFrame().getParagraphs().get_Item(0)
     text_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
     text_format.getFillFormat().setFillType(FillType.Solid)
@@ -56,9 +58,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Accéder aux zones de texte par contenu**
+## **Acceder aux zones de texte par contenu**
 
-Ajoutez une zone de texte d'exemple, puis trouvez les formes dont le texte contient le mot-clé "Slide".
+Ajoutez une zone de texte d'exemple, puis trouvez les formes dont le texte contient le mot-cle "Slide".
 
 ```python
 import jpype
@@ -90,7 +92,7 @@ finally:
 
 ## **Supprimer les zones de texte par contenu**
 
-Trouvez et supprimez les zones de texte sur la première diapositive qui contiennent un mot-clé spécifique.
+Trouvez et supprimez les zones de texte sur la premiere diapositive qui contiennent un mot-cle specifique.
 
 ```python
 import jpype
@@ -124,5 +126,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-Rassemblez les formes correspondantes dans une liste séparée avant de les supprimer afin d'éviter de modifier la collection de formes pendant l'itération.
+Rassemblez les formes correspondantes dans une liste separate avant de les supprimer afin d'eviter de modifier la collection de formes pendant l'iteration.
 {{% /alert %}}

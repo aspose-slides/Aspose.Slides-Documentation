@@ -1,5 +1,5 @@
 ---
-title: Python ile Sunumlarda Ses Yönetimi
+title: Python Kullanarak Sunumlarda Sesi Yönetme
 linktitle: Ses Çerçevesi
 type: docs
 weight: 10
@@ -11,27 +11,27 @@ keywords:
 - ses ekle
 - ses özellikleri
 - ses seçenekleri
-- sesi çıkar
+- ses çıkar
 - Python
 - Aspose.Slides
-description: "Aspose.Slides için Python üzerinden Java’da ses çerçeveleri oluşturun ve yönetin—gömme, kırpma, döngü ve PPT, PPTX ve ODP sunumları boyunca oynatmayı yapılandırma için kod örnekleri."
+description: "Aspose.Slides for Python via Java içinde ses çerçevelerini oluşturun ve kontrol edin—gömme, kırpma, döngü ve PPT, PPTX ve ODP sunumlarında oynatmayı yapılandırma örnek kodları."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde ses çerçeveleriyle nasıl çalışılacağını açıklar. Gömülü sesi slaytlara ekleme, ses çerçevesi önizleme resmini özelleştirme, ses seviyesini, döngüyü, gizlemeyi, kırpmayı ve solma sürelerini ayarlama gibi oynatma seçeneklerini yapılandırma ve slayt gösterisi geçişlerinde kullanılan sesi çıkarma konularını gösterir.
+Bu makale, Aspose.Slides içinde ses çerçeveleriyle nasıl çalışılacağını açıklar. Gömülü sesin slaytlara eklenmesi, ses çerçevesi küçük resminin özelleştirilmesi, ses seviyesinin, döngünün, gizlenmenin, kırpmanın ve solma sürelerinin yapılandırılması ve slayt gösterisi geçişlerinde kullanılan sesin çıkarılması konularını gösterir.
 
 ## **Ses Çerçeveleri Oluşturma**
 
-Aspose.Slides for Python via Java, ses dosyalarını slaytlara eklemenizi sağlar. Ses dosyaları slaytlara ses çerçeveleri olarak gömülür.
+Aspose.Slides for Python via Java, ses dosyalarını slaytlara eklemenizi sağlar. Ses dosyaları slaytlara ses çerçeveleri olarak gömülür. 
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2. Slaytın referansını indeksine göre alın.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksine göre bir slayta referans alın.
 3. Slayta gömmek istediğiniz ses dosyasını okuyun.
-4. Gömülü ses çerçevesini (içinde ses dosyası bulunduran) slayta ekleyin.
-5. [AudioFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/) nesnesi tarafından sunulan [setPlayMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setPlayMode) ve [setVolume](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setVolume) metodlarını ayarlayın.
+4. Gömülü ses çerçevesini (ses dosyasını içeren) slayta ekleyin.
+5. [AudioFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/) nesnesi tarafından sunulan [setPlayMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setPlayMode) ve [setVolume](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setVolume) yöntemlerini kullanın.
 6. Değiştirilmiş sunumu kaydedin.
 
-Bu Python kodu, bir slayta gömülü ses çerçevesi eklemenizi gösterir:
+Bu Python kodu, bir slayta gömülü ses çerçevesi eklemenin nasıl yapılacağını gösterir:
 
 ```python
 from pathlib import Path
@@ -61,9 +61,9 @@ finally:
 
 ## **Ses Çerçevesi Küçük Resmini Değiştirme**
 
-Bir ses dosyasını sunuma eklediğinizde, ses standart bir varsayılan görsel ile bir çerçeve olarak görünür (aşağıdaki bölümdeki görsele bakın). Ses çerçevesinin önizleme görselini (tercih ettiğiniz resmi) değiştirebilirsiniz.
+Bir ses dosyasını bir sunuma eklediğinizde, ses standart bir varsayılan görüntü ile bir çerçeve olarak görünür (aşağıdaki bölümdeki görsele bakın). Ses çerçevesinin önizleme görüntüsünü istediğiniz bir resimle değiştirebilirsiniz.
 
-Bu Python kodu, bir ses çerçevesinin küçük resmini veya önizleme görselini nasıl değiştireceğinizi gösterir:
+Bu Python kodu, bir ses çerçevesinin küçük resmini veya önizleme görüntüsünü nasıl değiştireceğinizi gösterir:
 
 ```python
 from pathlib import Path
@@ -98,37 +98,37 @@ finally:
 
 ## **Ses Oynatma Seçeneklerini Değiştirme**
 
-Aspose.Slides for Python via Java, bir sesin oynatımını veya özelliklerini kontrol eden seçenekleri değiştirmenizi sağlar. Örneğin, ses seviyesini ayarlayabilir, sesi döngüde çalacak şekilde ayarlayabilir veya ses simgesini gizleyebilirsiniz.
+Aspose.Slides for Python via Java, ses oynatmasını kontrol eden seçenekleri veya özellikleri değiştirmenizi sağlar. Örneğin, ses seviyesini ayarlayabilir, sesi döngüye alabilir veya ses simgesini gizleyebilirsiniz.
 
 Microsoft PowerPoint’teki **Audio Options** bölmesi:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint **Audio Options** bölmesi, Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/) özellikleriyle eşleşir:
+PowerPoint **Audio Options** bölmesi Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/) özelliklerine karşılık gelir:
 
-- **Start** açılır listesi, [setPlayMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setPlayMode) metoduna karşılık gelir
-- **Volume** , [setVolume](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setVolume) metoduna karşılık gelir
-- **Play Across Slides** , [setPlayAcrossSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) metoduna karşılık gelir
-- **Loop until Stopped** , [setPlayLoopMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setPlayLoopMode) metoduna karşılık gelir
-- **Hide During Show** , [setHideAtShowing](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setHideAtShowing) metoduna karşılık gelir
-- **Rewind after Playing** , [setRewindAudio](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setRewindAudio) metoduna karşılık gelir
+- **Start** açılır listesi [setPlayMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setPlayMode) metoduna karşılık gelir
+- **Volume** [setVolume](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setVolume) metoduna karşılık gelir
+- **Play Across Slides** [setPlayAcrossSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) metoduna karşılık gelir
+- **Loop until Stopped** [setPlayLoopMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setPlayLoopMode) metoduna karşılık gelir
+- **Hide During Show** [setHideAtShowing](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setHideAtShowing) metoduna karşılık gelir
+- **Rewind after Playing** [setRewindAudio](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setRewindAudio) metoduna karşılık gelir
 
-PowerPoint **Editing** seçenekleri, Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/) özellikleriyle eşleşir:
+PowerPoint **Editing** seçenekleri Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/) özelliklerine karşılık gelir:
 
-- **Fade In** , [setFadeInDuration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setFadeInDuration) metoduna karşılık gelir 
-- **Fade Out** , [setFadeOutDuration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setFadeOutDuration) metoduna karşılık gelir 
-- **Trim Audio Start Time** , [setTrimFromStart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setTrimFromStart) metoduna karşılık gelir 
-- **Trim Audio End Time** değeri, ses süresinden [setTrimFromEnd](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setTrimFromEnd) metodunun değeri çıkarılarak elde edilir
+- **Fade In** [setFadeInDuration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setFadeInDuration) metoduna karşılık gelir 
+- **Fade Out** [setFadeOutDuration](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setFadeOutDuration) metoduna karşılık gelir 
+- **Trim Audio Start Time** [setTrimFromStart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setTrimFromStart) metoduna karşılık gelir 
+- **Trim Audio End Time** değeri, ses süresinden [setTrimFromEnd](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setTrimFromEnd) metoduyla ayarlanan değerin çıkarılmasıyla elde edilir
 
-PowerPoint’teki ses kontrol panelindeki **Volume control**, [setVolumeValue](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setVolumeValue) metoduna karşılık gelir. Ses seviyesini yüzde olarak değiştirmenizi sağlar.
+PowerPoint ses kontrol panelindeki **Volume control** [setVolumeValue](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setVolumeValue) metoduna karşılık gelir. Ses seviyesini yüzde olarak değiştirmenizi sağlar.
 
-Ses Oynatma seçeneklerini nasıl değiştirirsiniz:
+Ses Oynatma seçeneklerini nasıl değiştireceğiniz aşağıdadır:
 
-1. [Сreate](#create-audio-frames) ya da Audio Frame’i alın.
-2. Ayarlamak istediğiniz Audio Frame özellikleri için yeni değerleri belirleyin.
+1. [Create](#create-audio-frames) veya ses çerçevesini alın.
+2. Ayarlamak istediğiniz ses çerçevesi özellikleri için yeni değerler atayın.
 3. Değiştirilmiş PowerPoint dosyasını kaydedin.
 
-Bu Python kodu, bir sesin seçeneklerinin ayarlandığı bir işlemi gösterir:
+Bu Python kodu, ses seçeneklerinin ayarlandığı bir işlemi gösterir:
 
 ```python
 import jpype
@@ -143,12 +143,12 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # Tıklama üzerine düşük sesle, slaytlar boyunca, döngü olmadan oynat.
+        # Tıklama ile düşük ses seviyesinde, slaytlar boyunca, döngüsüz oynat.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # Slayt gösterimi sırasında çerçeveyi gizle ve çaldıktan sonra geri sar.
+        # Sunum sırasında çerçeveyi gizle ve oynattıktan sonra geri sar.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
@@ -158,7 +158,7 @@ finally:
     presentation.dispose()
 ```
 
-Bu Python örneği, gömülü sesli yeni bir ses çerçevesi eklemeyi, kırpmayı ve solma sürelerini ayarlamayı gösterir:
+Bu Python örneği, gömülü sesli yeni bir ses çerçevesi eklemeyi, kesmeyi ve solma sürelerini ayarlamayı gösterir:
 
 ```python
 from pathlib import Path
@@ -167,7 +167,7 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpide.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 
@@ -179,10 +179,10 @@ try:
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Başlangıçtan 1,5 saniye ve sondan 2 saniye kırp.
+    # Başlangıçtan 1.5 saniye ve sondan 2 saniye kırp.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # Fade-in süresini 200 ms ve fade-out süresini 500 ms olarak ayarla.
+    # Fade-in'i 200 ms, fade-out'u 500 ms olarak ayarla.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
@@ -190,7 +190,7 @@ finally:
     presentation.dispose()
 ```
 
-Aşağıdaki kod örneği, gömülü sese sahip bir ses çerçevesini alıp ses seviyesini %85’e ayarlamayı gösterir:
+Aşağıdaki kod örneği, gömülü sesli bir ses çerçevesini alıp ses seviyesini %85 olarak ayarlamayı gösterir:
 
 ```python
 import jpype
@@ -216,11 +216,11 @@ finally:
 
 ## **Ses Altyazılarını Yönetme**
 
-Aspose.Slides, ses çerçevesine kapalı altyazılar eklemenizi [getCaptionTracks](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#getCaptionTracks) metodu aracılığıyla sağlar. Bu metod, WebVTT altyazı izleri eklemenize, mevcut izler arasında dolaşmanıza ve gerektiğinde kaldırmanıza olanak tanıyan bir [CaptionsCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/) döndürür.
+Aspose.Slides, bir ses çerçevesine kapalı altyazı eklemenizi [getCaptionTracks](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#getCaptionTracks) yöntemi ile sağlar. Bu yöntem bir [CaptionsCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/) döndürür; bu sayede WebVTT altyazı izleri ekleyebilir, mevcut izler arasında dolaşabilir ve gerektiğinde silebilirsiniz.
 
-**Ses Altyazılarını Ekleme**
+**Ses Altyazılarını Ekle**
 
-Bir ses çerçevesine bir veya daha fazla altyazı izi eklemek için [getCaptionTracks](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#getCaptionTracks) metodunu kullanın. Aşağıdaki örnekte, bir ses dosyası slayta eklenir ve ardından yeni bir altyazı izi bir `.vtt` dosyasından yüklenir.
+Bir veya daha fazla altyazı izini bir ses çerçevesine eklemek için [getCaptionTracks](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#getCaptionTracks) yöntemini kullanın. Aşağıdaki örnekte bir ses dosyası bir slayta eklenir ve ardından yeni bir altyazı izi bir `.vtt` dosyasından yüklenir.
 
 ```python
 from pathlib import Path
@@ -250,7 +250,7 @@ finally:
 
 **Ses Altyazılarını Çıkarma**
 
-Bir ses çerçevesiyle ilişkili altyazı izlerini dolaşabilir ve bunları `.vtt` dosyaları olarak kaydedebilirsiniz. Her altyazı izi, ikili verisini ve benzersiz tanımlayıcısını dışa aktarırken kullanabileceğiniz şekilde sunar.
+Bir ses çerçevesine bağlı altyazı izleri arasında dolaşabilir ve bunları `.vtt` dosyaları olarak kaydedebilirsiniz. Her altyazı izi ikili verisini ve benzersiz tanımlayıcısını dışa aktarırken kullanmanıza olanak tanır.
 
 ```python
 from pathlib import Path
@@ -279,7 +279,7 @@ finally:
 
 **Ses Altyazılarını Kaldırma**
 
-Bir ses çerçevesinden altyazı kaldırmak için [CaptionsCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/) tarafından sağlanan metodları kullanın; örneğin [clear](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/#remove) veya [removeAt](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/#removeAt). Aşağıdaki örnek, bir ses çerçevesindeki tüm altyazı izlerini kaldırır.
+Bir ses çerçevesinden altyazıları kaldırmak için [CaptionsCollection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/) tarafından sağlanan [clear](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/#remove) veya [removeAt](https://reference.aspose.com/slides/tr/python-java/aspose.slides/captionscollection/#removeAt) gibi yöntemleri kullanın. Aşağıdaki örnek, bir ses çerçevesinden tüm altyazı izlerini kaldırır.
 
 ```python
 import jpype
@@ -305,12 +305,12 @@ finally:
 
 ## **Ses Çıkarma**
 
-Aspose.Slides for Python via Java, slayt gösterisi geçişlerinde kullanılan sesi çıkarmanıza izin verir. Örneğin, belirli bir slaytta kullanılan sesi çıkarabilirsiniz.
+Aspose.Slides for Python via Java, slayt gösterisi geçişlerinde kullanılan sesi çıkarmanıza olanak tanır. Örneğin, belirli bir slaytta kullanılan sesi çıkarabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun ve sesi içeren sunumu yükleyin.
-2. İlgili slaytın referansını indeksine göre alın.
-3. Slayt için [slideshow transitions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseslide/#getSlideShowTransition) erişin.
-4. Sesi bayt veri olarak çıkarın.
+1. Ses içeren sunumu yükleyerek bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. İndeksine göre ilgili slayta referans alın.
+3. Slayt için [slideshow transitions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/baseslide/#getSlideShowTransition) özelliklerine erişin.
+4. Sesi bayt verisi olarak çıkarın.
 
 Bu Python kodu, bir slaytta kullanılan sesi nasıl çıkaracağınızı gösterir:
 
@@ -339,14 +339,14 @@ finally:
 
 ## **SSS**
 
-**Aynı ses varlığını birden fazla slaytta dosya boyutunu artırmadan yeniden kullanabilir miyim?**
+**Aynı ses varlığını birden çok slaytta dosya boyutunu artırmadan yeniden kullanabilir miyim?**
 
-Evet. Sesi bir kez sunumun ortak [audio collection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getAudios)’ına ekleyin ve mevcut varlığa referans veren ek ses çerçeveleri oluşturun. Bu, medya verisinin çoğaltılmasını önler ve sunum boyutunu kontrol altında tutar.
+Evet. Ses varlığını bir kez sunumun ortak [audio collection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getAudios) içine ekleyin ve mevcut varlığı referans alan ek ses çerçeveleri oluşturun. Bu, medya verisinin çoğaltılmasını önler ve sunum boyutunun kontrol altında kalmasını sağlar.
 
 **Mevcut bir ses çerçevesindeki sesi şekli yeniden oluşturmadan değiştirebilir miyim?**
 
-Evet. Bağlantılı bir ses için, [link path](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setLinkPathLong)’i yeni dosyaya gösterecek şekilde güncelleyin. Gömülü bir ses için, [embedded audio](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setEmbeddedAudio) nesnesini sunumun [audio collection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getAudios) içindeki başka bir nesneyle değiştirin. Çerçevenin biçimlendirmesi ve çoğu oynatma ayarı korunur.
+Evet. Bağlantılı bir ses için [link path](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setLinkPathLong) i yeni dosyayı gösterecek şekilde güncelleyin. Gömülü bir ses için, sunumun [audio collection](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getAudios) içindeki farklı bir [embedded audio](https://reference.aspose.com/slides/tr/python-java/aspose.slides/audioframe/#setEmbeddedAudio) nesnesiyle değiştirin. Çerçevenin biçimlendirmesi ve çoğu oynatma ayarı aynı kalır.
 
-**Kırpma, sunumda depolanan temel ses verisini değiştirir mi?**
+**Kırpma, sunumda saklanan temel ses verisini değiştirir mi?**
 
-Hayır. Kırpma yalnızca oynatma sınırlarını ayarlar. Orijinal ses baytları dokunulmamış olarak kalır ve gömülü ses ya da sunumun ses koleksiyonu aracılığıyla erişilebilir.
+Hayır. Kırpma yalnızca oynatma sınırlarını ayarlar. Orijinal ses baytları dokunulmadan kalır ve gömülü ses ya da sunumun ses koleksiyonu aracılığıyla erişilebilir.

@@ -17,28 +17,30 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Naučte se programově přidávat a extrahovat video rámy v PowerPoint a OpenDocument snímcích pomocí Aspose.Slides pro Python přes Java. Rychlý návod."
+description: "Naučte se programově přidávat a extrahovat video rámečky v PowerPoint a OpenDocument slidech pomocí Aspose.Slides pro Python přes Java. Rychlý průvodce krok za krokem."
 ---
 ## **Úvod**
 
 Dobře umístěné video v prezentaci může učinit vaši zprávu přesvědčivější a zvýšit úroveň zapojení publika.
 
-PowerPoint umožňuje přidávat videa do snímku v prezentaci dvěma způsoby:
+PowerPoint vám umožňuje přidat videa do snímku v prezentaci dvěma způsoby:
 
 * Přidat nebo vložit místní video (uložené ve vašem počítači)
-* Přidat online video (z webového zdroje, například YouTube).
+* Přidat online video (z webového zdroje, jako je YouTube).
 
-Pro umožnění přidání videí (videoobjektů) do prezentace Aspose.Slides poskytuje třídu [Video](https://reference.aspose.com/slides/cs/python-java/aspose.slides/video/) , třídu [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) a další související typy.
+Aby vám umožnil přidávat videa (videobjekty) do prezentace, Aspose.Slides poskytuje třídu [Video](https://reference.aspose.com/slides/cs/python-java/aspose.slides/video/) , třídu [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) a další související typy.
 
 ## **Vytvoření vložených video rámců**
 
-Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video rámec pro vložení videa do vaší prezentace.
+Pokud je video soubor, který chcete přidat do snímku, uložen lokálně, můžete vytvořit video rámec pro vložení videa do prezentace.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte referenci na snímek pomocí jeho indexu.
-3. Přidejte objekt [Video](https://reference.aspose.com/slides/cs/python-java/aspose.slides/video/) a předávejte data video souboru k vložení videa do prezentace.
-4. Přidejte objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) pro vytvoření rámce videa.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte objekt [Video](https://reference.aspose.com/slides/cs/python-java/aspose.slides/video/) a předávejte data video souboru pro vložení videa do prezentace.
+4. Přidejte objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) pro vytvoření rámce pro video.
 5. Uložte upravenou prezentaci.
+
+Tento Python kód ukazuje, jak přidat video uložené lokálně do prezentace:
 
 ```python
 from pathlib import Path
@@ -62,7 +64,7 @@ finally:
     presentation.dispose()
 ```
 
-Alternativně můžete přidat video předáním jeho cesty k souboru přímo metodě [addVideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addVideoFrame):
+Alternativně můžete přidat video předáním jeho cesty k souboru přímo metodě [addVideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addVideoFrame) :
 
 ```python
 import jpype
@@ -83,13 +85,15 @@ finally:
 
 ## **Vytvoření video rámců s videem z webových zdrojů**
 
-Microsoft [PowerPoint 2013 a novější](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) podporují videa z YouTube v prezentacích. Pokud je video, které chcete použít, dostupné online (např. na YouTube), můžete jej přidat do prezentace pomocí jeho webového odkazu.
+Microsoft [PowerPoint 2013 a novější](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) podporuje videa z YouTube v prezentacích. Pokud je video, které chcete použít, dostupné online (např. na YouTube), můžete ho přidat do prezentace pomocí jeho webového odkazu.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
-2. Získejte referenci na snímek pomocí jeho indexu.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek podle jeho indexu.
 3. Přidejte objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) a předávejte odkaz na video.
-4. Nastavte náhled pro video rámec.
+4. Nastavte miniaturu pro video rámec.
 5. Uložte prezentaci.
+
+Tento Python kód ukazuje, jak přidat video z webu do snímku v PowerPoint prezentaci:
 
 ```python
 from urllib.request import urlopen
@@ -126,22 +130,24 @@ finally:
 
 ## **Oříznutí video rámce**
 
-Aspose.Slides umožňuje řídit, která část videa se přehrává, nastavením hodnot trim-from-start a trim-from-end prostřednictvím [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setTrimFromStart) a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setTrimFromEnd). Obě hodnoty jsou zadány v milisekundách a určují, kolik času se přeskočí na začátku a konci videa. Tato nastavení mění nastavení přehrávání videa v prezentaci; neřezají ani jinak nemodifikují binární data vloženého videa.
+Aspose.Slides vám umožňuje ovládat, která část videa se přehraje, nastavením hodnot trim-from-start a trim-from-end pomocí [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setTrimFromStart) a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setTrimFromEnd) . Obě hodnoty jsou udány v milisekundách a určují, kolik času se přeskočí od začátku a konce videa. Tato nastavení mění nastavení přehrávání videa v prezentaci; nevyříznou ani jinak nemodifikují binární data vloženého videa.
 
 **Nastavení ořezu**
 
 Pro vytvoření video rámce a nastavení jeho ořezu:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) .
 2. Přidejte objekt [Video](https://reference.aspose.com/slides/cs/python-java/aspose.slides/video/) do prezentace.
 3. Přidejte objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) na snímek.
-4. Nastavte hodnoty trim-from-start a trim-from-end pomocí [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setTrimFromStart) a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setTrimFromEnd).
+4. Nastavte hodnoty trim-from-start a trim-from-end pomocí [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setTrimFromStart) a [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setTrimFromEnd) .
 5. Uložte upravenou prezentaci.
+
+Následující ukázka kódu přeskočí prvních 2,5 sekundy a poslední sekundu vloženého videa během přehrávání:
 
 ```python
 from pathlib import Path
 
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -166,7 +172,9 @@ finally:
 
 **Čtení nastavení ořezu**
 
-Pro kontrolu existujících nastavení ořezu načtěte prezentaci, najděte objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) mezi tvary na prvním snímku a přečtěte hodnoty pomocí [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#getTrimFromStart) a [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#getTrimFromEnd).
+Pro prohlédnutí existujících nastavení ořezu načtěte prezentaci, najděte objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) mezi tvary na prvním snímku a přečtěte hodnoty pomocí [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#getTrimFromStart) a [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#getTrimFromEnd) .
+
+Následující ukázka kódu najde první video rámec na prvním snímku a zobrazí jeho nastavení ořezu v milisekundách:
 
 ```python
 import jpype
@@ -193,17 +201,19 @@ finally:
 
 ## **Správa titulků videa**
 
-Aspose.Slides umožňuje spravovat uzavřené titulky pro video rámce v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou přístupné přes metodu [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides vám umožňuje spravovat uzavřené titulky pro video rámy v PowerPoint prezentacích. Titulky jsou uloženy ve formátu WebVTT a jsou přístupné prostřednictvím metody [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#getCaptionTracks) .
 
 **Přidání titulků do video rámce**
 
 Pro přidání titulků do video rámce:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) .
 2. Přidejte video do prezentace.
 3. Přidejte objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) na snímek.
-4. Použijte [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/) vrácený metodou [getCaptionTracks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#getCaptionTracks) k přidání WebVTT titulkové stopy.
+4. Použijte [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/) vrácenou metodou [getCaptionTracks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#getCaptionTracks) pro přidání WebVTT stopy titulků.
 5. Uložte upravenou prezentaci.
+
+Následující kód ukazuje, jak přidat titulky do video rámce:
 
 ```python
 from pathlib import Path
@@ -224,7 +234,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # Přidejte novou stopu titulků z WebVTT souboru.
+    # Přidat novou stopu titulků ze souboru WebVTT.
     video_frame.getCaptionTracks().add("English", "track.vtt")
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
@@ -238,9 +248,11 @@ Třída [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/
 Pro extrahování titulků z video rámce:
 
 1. Načtěte prezentaci, která obsahuje video.
-2. Najděte cílový objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/).
-3. Iterujte přes titulkové stopy v [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/).
-4. Uložte každou titulkovou stopu do souboru `.vtt`.
+2. Najděte cílový objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) .
+3. Iterujte přes stopy titulků v [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/) .
+4. Uložte každou stopu titulků do souboru `.vtt` .
+
+Následující kód ukazuje, jak extrahovat titulky z video rámce:
 
 ```python
 from pathlib import Path
@@ -267,16 +279,18 @@ finally:
     presentation.dispose()
 ```
 
-Každý objekt [Captions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captions/) expose identifikátor titulu, štítek, binární data a text titulu jako řetězec UTF-8.
+Každý objekt [Captions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captions/) poskytuje identifikátor titulu, popisek, binární data a text titulu jako řetězec UTF-8.
 
 **Odstranění titulků z video rámce**
 
 Pro odstranění titulků z video rámce:
 
 1. Načtěte prezentaci, která obsahuje video.
-2. Získejte cílový objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/).
-3. Odstraňte titulkové stopy z [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/).
+2. Získejte cílový objekt [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) .
+3. Odstraňte stopy titulků z [CaptionsCollection](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/) .
 4. Uložte upravenou prezentaci.
+
+Následující kód ukazuje, jak odstranit všechny titulky z video rámce:
 
 ```python
 import jpype
@@ -301,16 +315,18 @@ finally:
     presentation.dispose()
 ```
 
-Pokud potřebujete odstranit jen jednu titulkovou stopu, použijte metody [remove](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#removeAt) místo [clear](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#clear).
+Pokud potřebujete odstranit jen jednu stopu titulků, použijte metody [remove](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#remove) nebo [removeAt](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#removeAt) místo [clear](https://reference.aspose.com/slides/cs/python-java/aspose.slides/captionscollection/#clear) .
 
 ## **Extrahování videa ze snímků**
 
-Kromě přidávání videí do snímků Aspose.Slides umožňuje extrahovat videa vložená v prezentacích.
+Kromě přidávání videí do snímků umožňuje Aspose.Slides extrahovat videa vložená v prezentacích.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/), aby se načetla prezentace obsahující video.
-2. Iterujte přes všechny objekty [Slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/).
-3. Iterujte přes všechny objekty [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/), abyste našli [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) pro načtení prezentace obsahující video.
+2. Iterujte přes všechny objekty [Slide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/) .
+3. Iterujte přes všechny objekty [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/) a najděte [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) .
 4. Uložte video na disk.
+
+Tento Python kód ukazuje, jak extrahovat video ze snímku v prezentaci:
 
 ```python
 from pathlib import Path
@@ -340,20 +356,20 @@ finally:
     presentation.dispose()
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Které parametry přehrávání videa lze změnit pro VideoFrame?**
 
-Můžete řídit [playback mode](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setPlayMode) (automaticky nebo po kliknutí) a [looping](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setPlayLoopMode). Tyto možnosti jsou dostupné přes vlastnosti objektu [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/).
+Můžete ovládat [playback mode](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setPlayMode) (automaticky nebo po kliknutí) a [looping](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setPlayLoopMode) . Tyto možnosti jsou dostupné prostřednictvím vlastností objektu [VideoFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/) .
 
 **Ovlivňuje přidání videa velikost souboru PPTX?**
 
-Ano. Když vložíte místní video, binární data jsou zahrnuta do dokumentu, takže velikost prezentace roste úměrně velikosti souboru. Když přidáte online video, vloží se odkaz a náhled, takže nárůst velikosti je menší.
+Ano. Když vložíte místní video, binární data jsou součástí dokumentu, takže se velikost prezentace zvětší úměrně k velikosti souboru. Když přidáte online video, vloží se odkaz a miniatura, takže nárůst velikosti je menší.
 
-**Mohu nahradit video v existujícím VideoFrame bez změny jeho pozice a velikosti?**
+**Mohu nahradit video v existujícím VideoFrame bez změny jeho umístění a velikosti?**
 
-Ano. Můžete vyměnit [video content](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setEmbeddedVideo) uvnitř rámce při zachování geometrie tvaru; toto je běžný scénář pro aktualizaci médií v existujícím rozvržení.
+Ano. Můžete vyměnit [video content](https://reference.aspose.com/slides/cs/python-java/aspose.slides/videoframe/#setEmbeddedVideo) uvnitř rámce při zachování geometrie tvaru; jedná se o častý scénář pro aktualizaci média v existujícím rozvržení.
 
-**Lze určit typ obsahu (MIME) vloženého videa?**
+**Lze zjistit typ obsahu (MIME) vloženého videa?**
 
-Ano. Vložené video má [content type](https://reference.aspose.com/slides/cs/python-java/aspose.slides/video/#getContentType), který lze přečíst a použít, například při ukládání na disk.
+Ano. Vložené video má [content type](https://reference.aspose.com/slides/cs/python-java/aspose.slides/video/#getContentType) , který můžete číst a použít, například při ukládání na disk.

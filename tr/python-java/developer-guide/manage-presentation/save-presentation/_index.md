@@ -7,15 +7,15 @@ url: /tr/python-java/save-presentation/
 keywords:
 - PowerPoint kaydet
 - OpenDocument kaydet
-- sunum kaydet
-- slayt kaydet
+- sunumu kaydet
+- slaytı kaydet
 - PPT kaydet
 - PPTX kaydet
 - ODP kaydet
-- dosyaya sunum
-- akışa sunum
+- sunumu dosyaya
+- sunumu akışa
 - önceden tanımlı görünüm türü
-- Sıkı Office Open XML Biçimi
+- Katı Office Open XML Formatı
 - Zip64 modu
 - küçük resmi yenileme
 - kaydetme ilerlemesi
@@ -26,13 +26,13 @@ description: "Aspose.Slides ile Python üzerinden Java kullanarak PowerPoint ve 
 ---
 ## **Genel Bakış**
 
-Bir sunum oluşturduktan veya [varolan bir sunumu aç](/slides/tr/python-java/open-presentation/) sonra, sonucu yazmak için [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metodunu kullanın. Aspose.Slides for Python via Java, bir sunumu PowerPoint, OpenDocument, PDF ve diğer formatlarda dosya ya da akışa kaydedebilir. Aşağıdaki bölümler standart kaydetme işlemlerini ve PPTX çıktısı için mevcut seçenekleri kapsar.
+Bir sunum oluşturduktan veya [var olan bir sunumu açtıktan](/slides/tr/python-java/open-presentation/), sonucu yazmak için [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metodunu kullanın. Aspose.Slides for Python via Java, bir sunumu PowerPoint, OpenDocument, PDF ve diğer formatlarda bir dosyaya veya akışa kaydedebilir. Aşağıdaki bölümler standart kaydetme işlemlerini ve PPTX çıktısı için mevcut seçenekleri kapsar.
 
 ## **Sunumları Dosyalara Kaydet**
 
-Bir sunumu dosyaya kaydetmek için, çıktı yolunu ve bir [SaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/) değerini [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metoduna geçirin. Format değeri, Aspose.Slides'ın oluşturduğu dosya türünü belirler.
+Bir sunumu bir dosyaya kaydetmek için, çıktı yolunu ve bir [SaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/) değerini [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metoduna geçirin. Format değeri, Aspose.Slides'in oluşturduğu dosya türünü belirler.
 
-İşte bir sunum oluşturup PPTX dosyası olarak kaydeden örnek:
+Aşağıdaki örnek bir sunum oluşturur ve PPTX dosyası olarak kaydeder:
 
 ```python
 import jpype
@@ -52,11 +52,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Sunumları Orijinal Biçimlerinde Kaydet**
+## **Sunumları Orijinal Formatlarında Kaydet**
 
-Bir toplu işleme uygulamasında giriş biçimi önceden bilinmeyebilir. Bir dosya yüklendikten sonra, orijinal biçimini [Presentation.getSourceFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSourceFormat) metodundan okuyun. Ortaya çıkan [SourceFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/sourceformat/) değerini [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideutil/#toSaveFormat) metoduna geçirerek karşılık gelen [SaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/) değerini alın ve ardından [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metodunu kullanarak değiştirilmiş sunumu yazın.
+Toplu işleme uygulamasında, giriş formatı önceden bilinmeyebilir. Bir dosya yüklendikten sonra, orijinal formatını [Presentation.getSourceFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getSourceFormat) metodundan okuyun. Elde edilen [SourceFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/sourceformat/) değerini [SlideUtil.toSaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideutil/#toSaveFormat) metoduna geçirerek karşılık gelen [SaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/) değerini alın ve ardından [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metodunu kullanarak değiştirilmiş sunumu yazın.
 
-Şu tam örnek, giriş dizinindeki her dosyayı işler, başlığını günceller ve yüklendiği biçimde çıktı dizinine kaydeder:
+Aşağıdaki tam örnek, giriş klasöründeki her dosyayı işler, başlığını günceller ve yüklendiği formatta bir çıkış klasörüne kaydeder:
 
 ```python
 import jpype
@@ -96,15 +96,15 @@ if input_directory.is_dir() and output_directory.is_dir():
                 print(f"Cannot process '{input_file}': {exception}")
 ```
 
-[SlideUtil.toSaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/slideutil/#toSaveFormat) PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP ve PowerPoint XML'i karşılık gelen sunum kaydetme biçimlerine eşler. Bu metod yalnızca sunum kaynak biçimlerini eşler; PDF, HTML, TIFF veya görüntüler gibi dışa aktarım biçimlerini seçmek için tasarlanmamıştır. Desteklenmeyen veya geçersiz bir [SourceFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/sourceformat/) değeri geçirilmesi bir [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html) sonucunu verir.
+SlideUtil.toSaveFormat, PPT, PPTX, ODP, PPTM, PPSX, PPSM, POTX, POTM, PPS, POT, OTP, FODP ve PowerPoint XML'i ilgili sunum kaydetme formatlarına eşler. Yalnızca sunum kaynak formatlarını eşler; PDF, HTML, TIFF veya görseller gibi dışa aktarma formatlarını seçmek amacıyla değildir. Desteklenmeyen veya geçersiz bir [SourceFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/sourceformat/) değeri geçirmek, bir [IllegalArgumentException](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/IllegalArgumentException.html) hatasına neden olur.
 
-Legacy PPT, PPS ve POT dosyaları aynı ikili konteyneri kullanır. Böyle bir sunum dosya uzantısı olmadan bir akıştan yüklendiğinde, bir PPS veya POT dosyası PPT olarak tanımlanabilir. Bu eski alt tipleri korumanız gerekiyorsa, orijinal dosya adını veya biçim meta verisini ayrı olarak tutun ve çıktı dosya adı ve biçimini seçerken kullanın.
+Eski PPT, PPS ve POT dosyaları aynı ikili konteyneri kullanır. Böyle bir sunum uzantısız bir akıştan yüklendiğinde, PPS veya POT dosyası PPT olarak tanımlanabilir. Bu eski alt tipleri korumak gerekiyorsa, orijinal dosya adını veya format meta verilerini ayrı tutun ve çıktının dosya adı ve formatını seçerken kullanın.
 
-## **Sunumları Akışa Kaydet**
+## **Sunumları Akışlara Kaydet**
 
-Bir sunumu nihai dosya yoluna bağlı olmadan yazmak için, yazılabilir bir akış ve bir [SaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/) değerini [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metoduna geçirin. Bu yaklaşım, çıktının bir web hizmetinden döndürülmesi, veritabanında saklanması veya bellekte işlenmesi gerektiğinde kullanışlıdır.
+Final bir dosya yoluna bağlı kalmadan bir sunumu yazmak için, yazılabilir bir akış ve bir [SaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/) değerini [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metoduna geçirin. Bu yöntem, çıktının bir web hizmetinden döndürülmesi, bir veritabanında depolanması veya bellek içinde işlenmesi gerektiğinde kullanışlıdır.
 
-Aşağıdaki örnek yeni bir sunumu bir dosya akışına kaydeder:
+Aşağıdaki örnek yeni bir sunumu dosya akışına kaydeder:
 
 ```python
 import jpype
@@ -130,9 +130,9 @@ finally:
 
 ## **Önceden Tanımlı Görünüm Türüyle Sunumları Kaydet**
 
-Kaydedilen bir sunumun PowerPoint tarafından ilk açıldığında kullanılacak görünümünü belirtebilirsiniz. Kaydetmeden önce bir [ViewType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewtype/) değeriyle [ViewProperties.setLastView](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#setLastView) metodunu kullanın.
+PowerPoint'in kaydedilen bir sunumu ilk açtığı görünümü belirtebilirsiniz. Kaydetmeden önce bir [ViewType](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewtype/) değeriyle [ViewProperties.setLastView](https://reference.aspose.com/slides/tr/python-java/aspose.slides/viewproperties/#setLastView) metodunu kullanın.
 
-Aşağıdaki örnek Slide Master görünümünü başlangıç görünümü olarak ayarlar:
+Aşağıdaki örnek Slide Master görünümünü başlangıç görünümü olarak yapılandırır:
 
 ```python
 import jpype
@@ -151,9 +151,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Sunumları Sıkı Office Open XML Biçiminde Kaydet**
+## **Sunumları Katı Office Open XML Formatında Kaydet**
 
-Office Open XML'in Strict profiline uygun bir PPTX dosyası oluşturmak için bir [PptxOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/) örneği oluşturun ve onun [setConformance](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/#setConformance) metodunu [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/tr/python-java/aspose.slides/conformance/#Iso29500_2008_Strict) ile kullanın. Ardından seçenekleri [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metoduna iletin.
+Office Open XML'in Katı profiline uygun bir PPTX dosyası oluşturmak için bir [PptxOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/) örneği oluşturun ve [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/tr/python-java/aspose.slides/conformance/#Iso29500_2008_Strict) ile [setConformance](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/#setConformance) metodunu kullanın. Ardından seçenekleri [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metoduna geçirin.
 
 ```python
 import jpype
@@ -174,13 +174,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Sunumları Office Open XML Biçiminde Zip64 Modunda Kaydet**
+## **Sunumları Office Open XML Formatında Zip64 Modunda Kaydet**
 
-Standart ZIP arşivi, her girişin sıkıştırılmış ve sıkıştırılmamış boyutunu, toplam arşiv boyutunu ve giriş sayısını sınırlı tutar. PPTX bir ZIP arşivi olduğundan, çok büyük bir sunum bu sınırlamaları aşabilir. ZIP64 uzantıları uygulanabilir boyut ve giriş sayısı limitlerini yükseltir.
+Standart bir ZIP arşivi, her girdinin sıkıştırılmış ve sıkıştırılmamış boyutunu, toplam arşiv boyutunu ve giriş sayısını sınırlar. PPTX dosyası bir ZIP arşivi olduğundan, çok büyük bir sunum bu sınırları aşabilir. ZIP64 uzantıları, geçerli boyut ve giriş sayısı sınırlarını yükseltir.
 
-[**setZip64Mode**](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/#setZip64Mode) metodunu kullanarak Aspose.Slides'ın ZIP64 uzantılarını yazıp yazmayacağını kontrol edebilirsiniz:
+[PptxOptions.setZip64Mode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/#setZip64Mode) metodunu, Aspose.Slides'in ZIP64 uzantılarını yazıp yazmayacağını kontrol etmek için kullanın:
 
-- [IfNecessary](https://reference.aspose.com/slides/tr/python-java/aspose.slides/zip64mode/#IfNecessary) yalnızca sunum standart ZIP sınırlamalarını aşarsa ZIP64 kullanır. Bu varsayılan moddur.
+- [IfNecessary](https://reference.aspose.com/slides/tr/python-java/aspose.slides/zip64mode/#IfNecessary) yalnızca sunum standart ZIP sınırlarını aştığında ZIP64 kullanır. Bu, varsayılan moddur.
 - [Never](https://reference.aspose.com/slides/tr/python-java/aspose.slides/zip64mode/#Never) ZIP64 uzantılarını devre dışı bırakır.
 - [Always](https://reference.aspose.com/slides/tr/python-java/aspose.slides/zip64mode/#Always) her zaman ZIP64 uzantılarını yazar.
 
@@ -206,21 +206,21 @@ finally:
 ```
 
 {{% alert color="warning" title="Warning" %}}
-[Zip64Mode.Never](https://reference.aspose.com/slides/tr/python-java/aspose.slides/zip64mode/#Never) kullanılırsa ve sunum standart ZIP sınırlamalarına sığamazsa, kaydetme işlemi bir [PptxException](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxexception/) hatası fırlatır.
+If [Zip64Mode.Never](https://reference.aspose.com/slides/tr/python-java/aspose.slides/zip64mode/#Never) kullanılır ve sunum standart ZIP sınırlarına sığmazsa, kaydetme işlemi bir [PptxException](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxexception/) hatası fırlatır.
 {{% /alert %}}
 
-## **Sunumları Office Open XML Biçiminde Sıkıştırma Seviyeleriyle Kaydet**
+## **Sunumları Office Open XML Formatında Sıkıştırma Seviyeleriyle Kaydet**
 
-PPTX çıktısı için, [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/#setCompressionLevel) metodunu kullanarak kaydetme hızını dosya boyutuna göre dengeleyebilirsiniz. [CompressionLevel](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/) sınıfı şu değerleri sağlar:
+PPTX çıktısı için, [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/#setCompressionLevel) metodunu kullanarak kaydetme hızı ile dosya boyutu arasında denge kurabilirsiniz. [CompressionLevel](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/) sınıfı şu değerleri sunar:
 
-- [None](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#None) sıkıştırma olmadan veri depolar.
+- [None](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#None) verileri sıkıştırma olmadan depolar.
 - [Level1](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level1) en hızlı sıkıştırmayı ve en büyük sıkıştırılmış çıktıyı sağlar.
-- [Level2](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level2) ile [Level5](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level5) giderek daha küçük çıktıyı, kaydetme hızından feragat eder.
-- [Level6](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level6) kaydetme hızı ve dosya boyutunu dengeler. Bu varsayılan seviyedir.
-- [Level7](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level7) ve [Level8](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level8) daha küçük çıktıyı, kaydetme hızından daha çok tercih eder.
-- [Level9](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level9) en güçlü sıkıştırmayı sağlar ve en çok işlem süresi gerektirir.
+- [Level2](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level2) ile [Level5](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level5) arasında, kaydetme hızından ziyade daha küçük çıktıyı tercih eder.
+- [Level6](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level6) kaydetme hızı ve dosya boyutunu dengeler. Bu, varsayılan seviyedir.
+- [Level7](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level7) ve [Level8](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level8) daha da küçük çıktıyı kaydetme hızına tercih eder.
+- [Level9](https://reference.aspose.com/slides/tr/python-java/aspose.slides/compressionlevel/#Level9) en güçlü sıkıştırmayı sağlar ve en fazla işlem süresi gerektirir.
 
-Aşağıdaki örnek sıkıştırma olmadan bir sunumu kaydeder:
+Aşağıdaki örnek bir sunumu sıkıştırma olmadan kaydeder:
 
 ```python
 import jpype
@@ -264,12 +264,12 @@ finally:
 
 ## **Küçük Resmi Yenilemeden Sunumları Kaydet**
 
-PPTX çıktısı kaydedildiğinde, [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/#setRefreshThumbnail) metodu belge küçük resmini kontrol eder:
+Bir sunum PPTX olarak kaydedildiğinde, [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/tr/python-java/aspose.slides/pptxoptions/#setRefreshThumbnail) metodu belge küçük resmini kontrol eder:
 
-- `True` kaydetme sırasında küçük resmi yeniden oluşturur. Bu varsayılan değerdir.
-- `False` mevcut küçük resmi korur. Sunumda küçük resim yoksa Aspose.Slides bir tane oluşturmaz.
+- `True` kaydetme sırasında küçük resmi yeniden oluşturur. Bu, varsayılan değerdir.
+- `False` mevcut küçük resmi korur. Sunumda küçük resim yoksa, Aspose.Slides bir tane oluşturmaz.
 
-Aşağıdaki örnek küçük resmi yenilemeden bir sunumu kaydeder:
+Aşağıdaki örnek bir sunumu küçük resmini yenilemeden kaydeder:
 
 ```python
 import jpype
@@ -291,14 +291,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Küçük resim yenilemesinin devre dışı bırakılması, bir PPTX dosyasının kaydedilme süresini azaltabilir.
+Küçük resim yenilemeyi devre dışı bırakmak, bir PPTX dosyasını kaydetme süresini azaltabilir.
 {{% /alert %}}
 
-## **Kaydetme İlerlemesini Yüzde Olarak Güncelle**
+## **Kaydetme İlerlemesini Yüzde Olarak Raporla**
 
-Kaydetme işlemini izlemek için `jpype.JProxy` aracılığıyla bir Python ilerleme işleyicisi kaydedin ve bunu [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveoptions/#setProgressCallback) metoduna iletin. Aspose.Slides, dışa aktarma sırasında ilerleme değerleriyle işleyicinin `reporting` metodunu çağırır.
+Bir kaydetme işlemini izlemek için, `jpype.JProxy` aracılığıyla bir Python ilerleme işleyicisi kaydedin ve bunu [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveoptions/#setProgressCallback) metoduna geçirin. Aspose.Slides, dışa aktarım sırasında işleyicinin `reporting` metodunu ilerleme değerleriyle çağırır.
 
-Aşağıdaki örnek PDF dışa aktarmasının ilerlemesini konsola raporlar:
+Aşağıdaki örnek, PDF dışa aktarımının ilerlemesini konsola raporlar:
 
 ```python
 import jpype
@@ -329,19 +329,19 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Aspose, Aspose.Slides API'siyle oluşturulmuş ücretsiz bir [PowerPoint Splitter](https://products.aspose.app/slides/tr/splitter) sunar. Bu araç, bir sunumdan seçili slaytları ayrı PPT veya PPTX dosyaları olarak kaydeder.
+Aspose, Aspose.Slides API'si ile oluşturulmuş ücretsiz bir [PowerPoint Splitter](https://products.aspose.app/slides/tr/splitter) sağlar. Seçilen slaytları bir sunumdan ayrı PPT veya PPTX dosyaları olarak kaydeder.
 {{% /alert %}}
 
 ## **SSS**
 
-**Aspose.Slides artımlı veya “hızlı kaydetme”yi destekliyor mu?**  
-Hayır. Her kaydetme işlemi, yalnızca değişen bölümleri güncellemek yerine tam bir çıktı dosyası yazar.
+**Aspose.Slides artımlı veya “hızlı kaydetme” destekliyor mu?**  
+Hayır. Her kaydetme işlemi yalnızca değişen bölümleri güncellemek yerine tam bir çıktı dosyası yazar.
 
 **Birden fazla iş parçacığı aynı Presentation örneğini kaydedebilir mi?**  
-Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği [thread‑safe değildir](/slides/tr/python-java/multithreading/). Her örneğe yalnızca bir iş parçacığından erişin ve kaydedin.
+Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği [thread-safe değildir](/slides/tr/python-java/multithreading/). Her örüntüye aynı anda yalnızca bir iş parçacığından erişin ve kaydedin.
 
-**Sunumu kaydettiğimde bağlantılar ve harici bağlanan dosyalar ne olur?**  
-[Hyperlinks](/slides/tr/python-java/manage-hyperlinks/) sunumda kalır. Aspose.Slides harici bağlanan dosyaları kopyalamaz, bu yüzden kaydedilen sunum hâlâ bu konumlara erişebilmelidir.
+**Bir sunumu kaydettiğimde hiperlinkler ve dışarıdan bağlanan dosyalar ne olur?**  
+[Hyperlinks](/slides/tr/python-java/manage-hyperlinks/) sunumda kalır. Aspose.Slides dışarıdan bağlanan dosyaları kopyalamaz, bu yüzden kaydedilen sunum hala bu dosyaların konumlarına erişebilmelidir.
 
 **Yazar, başlık, şirket ve oluşturulma tarihi gibi belge meta verilerini kaydedebilir miyim?**  
-Evet. Uygun [document properties](/slides/tr/python-java/presentation-properties/) ayarlayın ve Aspose.Slides bunları çıktı dosyasına yazar.
+Evet. Kaydetmeden önce uygun [document properties](/slides/tr/python-java/presentation-properties/) ayarlayın, Aspose.Slides bunları çıktı dosyasına yazar.

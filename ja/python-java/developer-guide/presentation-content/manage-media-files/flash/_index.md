@@ -1,5 +1,5 @@
 ---
-title: Python でプレゼンテーションから Flash オブジェクトを抽出する
+title: Python でプレゼンテーションから Flash オブジェクトを抽出
 linktitle: Flash
 type: docs
 weight: 10
@@ -12,11 +12,11 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides を使用して Python で PowerPoint および OpenDocument スライドから Flash オブジェクトを抽出する方法を学び、完全なコードサンプルとベストプラクティスを提供します。"
+description: "Aspose.Slides を使用して Python で PowerPoint および OpenDocument のスライドから Flash オブジェクトを抽出する方法を学び、完全なコードサンプルとベストプラクティスを提供します。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides を使用してプレゼンテーションから Flash オブジェクトを抽出する方法を説明します。スライドのコントロール コレクション内で名前で Flash コントロールを検索し、埋め込まれた SWF オブジェクト データを操作する方法を示します。
+この記事では、Aspose.Slides を使用してプレゼンテーションから Flash オブジェクトを抽出する方法を説明します。スライドのコントロール コレクション内で名前で Flash コントロールを見つけ、埋め込まれた SWF オブジェクト データを操作する方法を示します。
 
 ## **プレゼンテーションから Flash オブジェクトを抽出する**
 
@@ -43,20 +43,20 @@ finally:
     presentation.dispose()
 ```
 
-## **よくある質問**
+## **FAQ**
 
 **Flash コンテンツを抽出する際にサポートされているプレゼンテーション形式は何ですか？**
 
-[Aspose.Slides supports](/slides/ja/python-java/supported-file-formats/) は、PPT と PPTX などの主要な PowerPoint 形式をサポートしており、これらのコンテナを読み込み、Flash 関連の ActiveX 要素を含むコントロールにアクセスできます。
+[Aspose.Slides はサポートしています](/slides/ja/python-java/supported-file-formats/) PPT や PPTX などの主要な PowerPoint 形式をサポートしています。これらのコンテナをロードし、Flash 関連の ActiveX 要素を含むコントロールにアクセスできるためです。
 
 **Flash を含むプレゼンテーションを HTML5 に変換し、Flash のインタラクティブ性を保持できますか？**
 
-いいえ。Aspose.Slides は SWF コンテンツを実行せず、そのインタラクティブ性を変換もしません。エクスポート先として [HTML](/slides/ja/python-java/convert-powerpoint-to-html/) と [HTML5](/slides/ja/python-java/export-to-html5/) がサポートされていますが、サポート終了により Flash は最新のブラウザーで再生できません。推奨される方法は、エクスポート前に Flash をビデオや HTML5 アニメーションなどの代替手段に置き換えることです。
+いいえ。Aspose.Slides は SWF コンテンツを実行したり、そのインタラクティブ性を変換したりしません。エクスポート先として [HTML](/slides/ja/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/ja/python-java/export-to-html5/) がサポートされていますが、サポート終了のため、Flash は最新のブラウザーで再生されません。推奨される方法は、エクスポート前に Flash をビデオや HTML5 アニメーションなどの代替手段に置き換えることです。
 
-**セキュリティ上の観点から、Aspose.Slides はプレゼンテーションを読み取る際に SWF ファイルを実行しますか？**
+**セキュリティ上の観点から、Aspose.Slides はプレゼンテーションの読み込み中に SWF ファイルを実行しますか？**
 
 いいえ。Aspose.Slides は Flash をファイルに埋め込まれたバイナリ データとして扱い、処理中に SWF コンテンツを実行しません。
 
-**OLE を介して埋め込まれた他のファイルと共に Flash を含むプレゼンテーションはどのように処理すべきですか？**
+**OLE 経由で埋め込まれた他のファイルとともに Flash を含むプレゼンテーションはどのように扱うべきですか？**
 
-Aspose.Slides は [埋め込み OLE オブジェクトの抽出](/slides/ja/python-java/manage-ole/) をサポートしているため、Flash コントロールと他の OLE 埋め込みドキュメントを同時に処理し、関連するすべての埋め込みコンテンツを一括で処理できます。
+Aspose.Slides は [埋め込み OLE オブジェクトの抽出](/slides/ja/python-java/manage-ole/) をサポートしているため、Flash コントロールと他の OLE 埋め込みドキュメントを一括で処理し、関連する埋め込みコンテンツをすべて一度に処理できます。

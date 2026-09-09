@@ -1,6 +1,6 @@
 ---
 title: Gerenciar áudio em apresentações usando Python
-linktitle: Quadro de áudio
+linktitle: Quadro de Áudio
 type: docs
 weight: 10
 url: /pt/python-java/audio-frame/
@@ -14,21 +14,21 @@ keywords:
 - extrair áudio
 - Python
 - Aspose.Slides
-description: "Crie e controle quadros de áudio no Aspose.Slides for Python via Java—exemplos de código para incorporar, cortar, repetir e configurar a reprodução em apresentações PPT, PPTX e ODP."
+description: "Criar e controlar quadros de áudio no Aspose.Slides para Python via Java — exemplos de código para incorporar, cortar, repetir e configurar a reprodução em apresentações PPT, PPTX e ODP."
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com quadros de áudio no Aspose.Slides. Ele mostra como adicionar áudio incorporado aos slides, personalizar a miniatura do quadro de áudio, configurar opções de reprodução como volume, repetição, ocultação, corte e durações de fade, e extrair o áudio usado nas transições de apresentação de slides.
+Este artigo explica como trabalhar com quadros de áudio no Aspose.Slides. Ele mostra como adicionar áudio incorporado aos slides, personalizar a miniatura do quadro de áudio, configurar opções de reprodução, como volume, repetição, ocultação, corte e durações de fade, e extrair o áudio usado nas transições de apresentação de slides.
 
 ## **Criar quadros de áudio**
 
 Aspose.Slides for Python via Java permite adicionar arquivos de áudio aos slides. Os arquivos de áudio são incorporados nos slides como quadros de áudio. 
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/).
-2. Obtenha a referência de um slide por seu índice.
-3. Leia o arquivo de áudio que deseja incorporar no slide.
+2. Obtenha uma referência a um slide pelo seu índice.
+3. Leia o arquivo de áudio que deseja incorporar ao slide.
 4. Adicione o quadro de áudio incorporado (contendo o arquivo de áudio) ao slide.
-5. Defina [setPlayMode](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setPlayMode) e [setVolume](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setVolume) expostos pelo objeto [AudioFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/).
+5. Use [setPlayMode](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setPlayMode) e [setVolume](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setVolume) expostos pelo objeto [AudioFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/).
 6. Salve a apresentação modificada.
 
 Este código Python mostra como adicionar um quadro de áudio incorporado a um slide:
@@ -61,9 +61,9 @@ finally:
 
 ## **Alterar a miniatura do quadro de áudio**
 
-Quando você adiciona um arquivo de áudio a uma apresentação, o áudio aparece como um quadro com uma imagem padrão (veja a imagem na seção abaixo). Você altera a imagem de pré‑visualização do quadro de áudio (defina sua imagem preferida).
+Quando você adiciona um arquivo de áudio a uma apresentação, o áudio aparece como um quadro com uma imagem padrão (veja a imagem na seção abaixo). Você pode alterar a imagem de visualização do quadro de áudio para uma imagem de sua escolha.
 
-Este código Python mostra como mudar a miniatura ou imagem de pré‑visualização de um quadro de áudio:
+Este código Python mostra como alterar a miniatura ou a imagem de visualização de um quadro de áudio:
 
 ```python
 from pathlib import Path
@@ -96,16 +96,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Alterar as opções de reprodução de áudio**
+## **Alterar opções de reprodução de áudio**
 
-Aspose.Slides for Python via Java permite alterar opções que controlam a reprodução ou as propriedades de um áudio. Por exemplo, você pode ajustar o volume do áudio, definir que o áudio seja reproduzido em loop, ou até mesmo ocultar o ícone de áudio.
+Aspose.Slides for Python via Java permite alterar opções que controlam a reprodução ou propriedades do áudio. Por exemplo, você pode ajustar o volume do áudio, definir o áudio para repetição ou até mesmo ocultar o ícone de áudio.
 
-The **Audio Options** pane in Microsoft PowerPoint:
+O painel **Audio Options** no Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint **Audio Options** que correspondem às propriedades do Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/) :
-
+PowerPoint **Audio Options** que correspondem às propriedades do [AudioFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/) do Aspose.Slides:
 - **Start** lista suspensa corresponde ao método [setPlayMode](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setPlayMode)
 - **Volume** corresponde ao método [setVolume](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setVolume)
 - **Play Across Slides** corresponde ao método [setPlayAcrossSlides](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)
@@ -113,22 +112,20 @@ PowerPoint **Audio Options** que correspondem às propriedades do Aspose.Slides 
 - **Hide During Show** corresponde ao método [setHideAtShowing](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setHideAtShowing)
 - **Rewind after Playing** corresponde ao método [setRewindAudio](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setRewindAudio)
 
-Opções de **Editing** do PowerPoint que correspondem às propriedades do Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/) :
+Opções de **Edição** do PowerPoint que correspondem às propriedades do [AudioFrame](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/) do Aspose.Slides:
+- **Fade In** corresponde ao método [setFadeInDuration](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setFadeInDuration)
+- **Fade Out** corresponde ao método [setFadeOutDuration](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setFadeOutDuration)
+- **Trim Audio Start Time** corresponde ao método [setTrimFromStart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setTrimFromStart)
+- **Trim Audio End Time** o valor é igual à duração do áudio menos o valor definido pelo método [setTrimFromEnd](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setTrimFromEnd)
 
-- **Fade In** corresponde ao método [setFadeInDuration](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fade Out** corresponde ao método [setFadeOutDuration](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Trim Audio Start Time** corresponde ao método [setTrimFromStart](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time** tem valor igual à duração do áudio menos o valor do método [setTrimFromEnd](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setTrimFromEnd)
+O **controle de volume** do PowerPoint no painel de controle de áudio corresponde ao método [setVolumeValue](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setVolumeValue). Ele permite alterar o volume do áudio como porcentagem.
 
-O **Volume control** do PowerPoint no painel de controle de áudio corresponde ao método [setVolumeValue](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#setVolumeValue). Ele permite alterar o volume do áudio como porcentagem.
-
-É assim que você altera as opções de reprodução de áudio:
-
-1. [Criar](#create-audio-frames) ou obtenha o Audio Frame.
-2. Defina novos valores para as propriedades do Audio Frame que deseja ajustar.
+Assim você altera as opções de reprodução de áudio:
+1. [Create](#create-audio-frames) ou obtenha o quadro de áudio.
+2. Defina novos valores para as propriedades do quadro de áudio que deseja ajustar.
 3. Salve o arquivo PowerPoint modificado.
 
-Este código Python demonstra uma operação na qual as opções de um áudio são ajustadas:
+Este código Python demonstra uma operação na qual as opções de áudio são ajustadas:
 
 ```python
 import jpype
@@ -143,12 +140,12 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # Reproduzir ao clicar em volume baixo, em todos os slides, sem loop.
+        # Reproduzir ao clicar com volume baixo, em todas as slides, sem repetição.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # Ocultar o quadro durante a apresentação e rebobinar após a reprodução.
+        # Ocultar o quadro durante a apresentação de slides e retroceder após a reprodução.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
@@ -158,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-Este exemplo Python mostra como adicionar um novo quadro de áudio com áudio incorporado, cortar o áudio e definir as durações de fade:
+Este exemplo Python mostra como adicionar um novo quadro de áudio com áudio incorporado, cortá‑lo e definir as durações de fade:
 
 ```python
 from pathlib import Path
@@ -179,10 +176,10 @@ try:
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Corte 1,5 segundos do início e 2 segundos do final.
+    # Cortar 1,5 segundos do início e 2 segundos do final.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # Defina fade-in para 200 ms e fade-out para 500 ms.
+    # Definir fade-in para 200 ms e fade-out para 500 ms.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
@@ -193,11 +190,11 @@ finally:
 O exemplo de código a seguir mostra como recuperar um quadro de áudio com áudio incorporado e definir seu volume para 85%:
 
 ```python
-import jpype
+import jpade
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpade.startJVM()
 
 from asposeslides.api import AudioFrame, Presentation, SaveFormat
 
@@ -216,11 +213,11 @@ finally:
 
 ## **Gerenciar legendas de áudio**
 
-Aspose.Slides permite adicionar legendas fechadas a um quadro de áudio através do método [getCaptionTracks](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#getCaptionTracks). Este método retorna uma [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/), que permite adicionar faixas de legendas WebVTT, iterar pelas faixas existentes e removê‑las quando necessário.
+Aspose.Slides permite adicionar legendas fechadas a um quadro de áudio através do método [getCaptionTracks](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#getCaptionTracks). Esse método retorna uma [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/), que permite adicionar faixas de legenda WebVTT, iterar pelas faixas existentes e removê‑las quando necessário.
 
 **Adicionar legendas de áudio**
 
-Use o método [getCaptionTracks](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#getCaptionTracks) para anexar uma ou mais faixas de legendas a um quadro de áudio. No exemplo a seguir, um arquivo de áudio é adicionado a um slide e, em seguida, uma nova faixa de legenda é carregada a partir de um arquivo `.vtt`.
+Use o método [getCaptionTracks](https://reference.aspose.com/slides/pt/python-java/aspose.slides/audioframe/#getCaptionTracks) para anexar uma ou mais faixas de legenda a um quadro de áudio. No exemplo a seguir, um arquivo de áudio é adicionado a um slide e, em seguida, uma nova faixa de legenda é carregada a partir de um arquivo `.vtt`.
 
 ```python
 from pathlib import Path
@@ -241,7 +238,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # Adicionar uma nova faixa de legenda a partir de um arquivo WebVTT.
+    # Adicionar uma nova faixa de legenda de um arquivo WebVTT.
     audio_frame.getCaptionTracks().add("New track", "track.vtt")
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
@@ -250,7 +247,7 @@ finally:
 
 **Extrair legendas de áudio**
 
-Você pode iterar pelas faixas de legendas associadas a um quadro de áudio e salvá‑las como arquivos `.vtt`. Cada faixa de legenda expõe seus dados binários e identificador único, que podem ser usados ao exportar as legendas.
+Você pode iterar pelas faixas de legenda associadas a um quadro de áudio e salvá‑las como arquivos `.vtt`. Cada faixa de legenda expõe seus dados binários e identificador único, que podem ser usados ao exportar legendas.
 
 ```python
 from pathlib import Path
@@ -279,7 +276,7 @@ finally:
 
 **Remover legendas de áudio**
 
-Para remover legendas de um quadro de áudio, use os métodos fornecidos por [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/), como [clear](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#removeAt). O exemplo a seguir remove todas as faixas de legenda de um quadro de áudio.
+Para remover legendas de um quadro de áudio, use os métodos fornecidos pela [CaptionsCollection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/), como [clear](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#remove) ou [removeAt](https://reference.aspose.com/slides/pt/python-java/aspose.slides/captionscollection/#removeAt). O exemplo a seguir remove todas as faixas de legenda de um quadro de áudio.
 
 ```python
 import jpype
@@ -305,12 +302,12 @@ finally:
 
 ## **Extrair áudio**
 
-Aspose.Slides for Python via Java permite extrair o som usado nas transições de apresentação de slides. Por exemplo, você pode extrair o som usado em um slide específico.
+Aspose.Slides for Python via Java permite extrair o som usado nas transições da apresentação de slides. Por exemplo, você pode extrair o som usado em um slide específico.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/) e carregue a apresentação que contém o áudio.
-2. Obtenha a referência do slide relevante por seu índice.
+2. Obtenha uma referência ao slide relevante pelo seu índice.
 3. Acesse as [slideshow transitions](https://reference.aspose.com/slides/pt/python-java/aspose.slides/baseslide/#getSlideShowTransition) do slide.
-4. Extraia o som em dados de bytes.
+4. Extraia o som como dados de bytes.
 
 Este código em Python mostra como extrair o áudio usado em um slide:
 
@@ -339,9 +336,9 @@ finally:
 
 ## **FAQ**
 
-**Posso reutilizar o mesmo recurso de áudio em vários slides sem inflar o tamanho do arquivo?**
+**Posso reutilizar o mesmo recurso de áudio em vários slides sem aumentar o tamanho do arquivo?**
 
-Sim. Adicione o áudio uma vez à [audio collection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getAudios) compartilhada da apresentação e crie quadros de áudio adicionais que façam referência a esse recurso existente. Isso evita duplicar os dados de mídia e mantém o tamanho da apresentação sob controle.
+Sim. Adicione o áudio uma vez à [audio collection](https://reference.aspose.com/slides/pt/python-java/aspose.slides/presentation/#getAudios) compartilhada da apresentação e crie quadros de áudio adicionais que referenciam esse recurso existente. Isso evita duplicar os dados de mídia e mantém o tamanho da apresentação sob controle.
 
 **Posso substituir o som em um quadro de áudio existente sem recriar a forma?**
 

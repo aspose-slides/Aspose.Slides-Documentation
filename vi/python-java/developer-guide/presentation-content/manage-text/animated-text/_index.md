@@ -7,24 +7,24 @@ url: /vi/python-java/animated-text/
 keywords:
 - văn bản động
 - hoạt ảnh văn bản
-- đoạn văn bản động
-- hoạt ảnh đoạn
+- đoạn văn động
+- hoạt ảnh đoạn văn
 - hiệu ứng hoạt ảnh
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bài thuyết trình
 - Python
 - Java
 - Aspose.Slides
-description: "Tạo văn bản động trong các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides cho Python qua Java, với các ví dụ mã Python dễ hiểu và được tối ưu."
+description: "Tạo văn bản động và hoạt ảnh trong các bài thuyết trình PowerPoint và OpenDocument bằng cách sử dụng Aspose.Slides cho Python qua Java, với các ví dụ mã Python dễ hiểu và tối ưu."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với văn bản động trong Aspose.Slides bằng cách áp dụng hiệu ứng hoạt ảnh cho từng đoạn văn và lấy lại các hiệu ứng đã được gán cho các đoạn trong một khung văn bản. Nó tập trung vào các phương thức API được sử dụng để thêm hoạt ảnh ở mức đoạn và kiểm tra các hiệu ứng hoạt ảnh đoạn đã tồn tại trong một bản trình bày.
+Bài viết này giải thích cách làm việc với văn bản động trong Aspose.Slides bằng cách áp dụng hiệu ứng hoạt hình cho các đoạn văn riêng lẻ và lấy lại các hiệu ứng đã được gán cho các đoạn văn trong một khung văn bản. Nó tập trung vào các phương thức API được sử dụng để thêm hoạt hình cấp đoạn và kiểm tra các hiệu ứng hoạt hình đoạn đang tồn tại trong một bài thuyết trình.
 
-## **Thêm hiệu ứng hoạt ảnh cho các đoạn**
+## **Thêm hiệu ứng hoạt hình vào các đoạn văn**
 
-Phương thức [addEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/sequence/#addEffect) của lớp [Sequence](https://reference.aspose.com/slides/vi/python-java/aspose.slides/sequence/) cho phép bạn thêm hiệu ứng hoạt ảnh vào một đoạn đơn. Đoạn mã mẫu này cho bạn thấy cách thêm một hiệu ứng hoạt ảnh vào một đoạn duy nhất:
+Phương thức [addEffect](https://reference.aspose.com/slides/vi/python-java/aspose.slides/sequence/#addEffect) của lớp [Sequence](https://reference.aspose.com/slides/vi/python-java/aspose.slides/sequence/) cho phép bạn thêm hiệu ứng hoạt hình vào một đoạn văn duy nhất. Đoạn mã mẫu này cho thấy cách thêm hiệu ứng hoạt hình vào một đoạn văn duy nhất:
 
 ```python
 import jpype
@@ -49,11 +49,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Lấy hiệu ứng hoạt ảnh của các đoạn**
+## **Lấy hiệu ứng hoạt hình của các đoạn văn**
 
-Bạn có thể muốn tìm hiểu các hiệu ứng hoạt ảnh đã được thêm vào một đoạn — ví dụ, trong một trường hợp, bạn muốn lấy các hiệu ứng hoạt ảnh trong một đoạn vì bạn dự định áp dụng những hiệu ứng đó cho một đoạn hoặc hình dạng khác.
+Bạn có thể muốn lấy lại các hiệu ứng hoạt hình đã áp dụng cho một đoạn văn — ví dụ, để áp dụng các hiệu ứng đó cho một đoạn văn hoặc hình dạng khác.
 
-Aspose.Slides for Python qua Java cho phép bạn lấy tất cả các hiệu ứng hoạt ảnh được áp dụng cho các đoạn nằm trong một khung văn bản (hình). Đoạn mã mẫu này cho bạn thấy cách lấy các hiệu ứng hoạt ảnh trong một đoạn:
+Aspose.Slides cho Python thông qua Java cho phép bạn lấy tất cả các hiệu ứng hoạt hình được áp dụng cho các đoạn văn có trong một khung văn bản (hình dạng). Đoạn mã mẫu này cho thấy cách lấy các hiệu ứng hoạt hình đã áp dụng cho một đoạn văn:
 
 ```python
 import jpype
@@ -78,16 +78,16 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Cách hoạt ảnh văn bản khác với chuyển đổi slide như thế nào và chúng có thể được kết hợp không?**
+**Các hoạt hình văn bản khác với chuyển tiếp slide như thế nào, và chúng có thể kết hợp được không?**
 
-Hoạt ảnh văn bản điều khiển hành vi của đối tượng theo thời gian trên một slide, trong khi [transitions](/slides/vi/python-java/slide-transition/) điều khiển cách các slide chuyển đổi. Chúng độc lập và có thể được sử dụng cùng nhau; thứ tự phát lại được điều khiển bởi dòng thời gian hoạt ảnh và cài đặt chuyển đổi.
+Các hoạt hình văn bản điều khiển hành vi của đối tượng theo thời gian trên slide, trong khi [transitions](/slides/vi/python-java/slide-transition/) điều khiển cách slide chuyển đổi. Chúng độc lập và có thể được sử dụng đồng thời; thứ tự phát lại được quyết định bởi dòng thời gian hoạt hình và cài đặt chuyển tiếp.
 
-**Các hoạt ảnh văn bản có được giữ lại khi xuất ra PDF hoặc hình ảnh không?**
+**Các hoạt hình văn bản có được giữ nguyên khi xuất sang PDF hoặc hình ảnh không?**
 
-Không. PDF và hình ảnh raster là tĩnh, vì vậy bạn sẽ chỉ thấy một trạng thái duy nhất của slide mà không có chuyển động. Để giữ chuyển động, hãy sử dụng xuất sang [video](/slides/vi/python-java/convert-powerpoint-to-video/) hoặc [HTML](/slides/vi/python-java/export-to-html5/).
+Không. PDF và ảnh raster là tĩnh, vì vậy bạn sẽ chỉ thấy một trạng thái duy nhất của slide mà không có chuyển động. Để giữ chuyển động, hãy sử dụng xuất [video](/slides/vi/python-java/convert-powerpoint-to-video/) hoặc [HTML](/slides/vi/python-java/export-to-html5/).
 
-**Các hoạt ảnh văn bản có hoạt động trong bố cục và chủ đề slide không?**
+**Các hoạt hình văn bản có hoạt động trong bố cục và master slide không?**
 
-Các hiệu ứng được áp dụng cho các đối tượng bố cục/chủ đề sẽ được kế thừa bởi các slide, nhưng thời gian và tương tác của chúng với các hoạt ảnh ở mức slide phụ thuộc vào chuỗi cuối cùng trên slide.
+Các hiệu ứng được áp dụng cho các đối tượng layout/master sẽ được kế thừa bởi các slide, nhưng thời gian và tương tác của chúng với các hoạt hình cấp slide phụ thuộc vào chuỗi cuối cùng trên slide.

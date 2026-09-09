@@ -5,45 +5,44 @@ type: docs
 weight: 20
 url: /el/python-java/manage-hyperlinks/
 keywords:
-- προσθήκη URL
-- προσθήκη υπερσύνδεσμου
-- δημιουργία υπερσύνδεσμου
-- μορφοποίηση υπερσύνδεσμου
-- αφαίρεση υπερσύνδεσμου
-- ενημέρωση υπερσύνδεσμου
-- υπερσύνδεσμος κειμένου
-- υπερσύνδεσμος διαφάνειας
-- υπερσύνδεσμος σχήματος
-- υπερσύνδεσμος εικόνας
-- υπερσύνδεσμος βίντεο
-- μεταβλητός υπερσύνδεσμος
+- Προσθήκη URL
+- Προσθήκη υπερσυνδέσμου
+- Δημιουργία υπερσυνδέσμου
+- Μορφοποίηση υπερσυνδέσμου
+- Αφαίρεση υπερσυνδέσμου
+- Ενημέρωση υπερσυνδέσμου
+- Υπερσύνδεσμος κειμένου
+- Υπερσύνδεσμος διαφάνειας
+- Υπερσύνδεσμος σχήματος
+- Υπερσύνδεσμος εικόνας
+- Υπερσύνδεσμος βίντεο
+- Μεταβλητός υπερσύνδεσμος
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - Python
 - Java
 - Aspose.Slides
-description: "Διαχειριστείτε εύκολα τους υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για Python μέσω Java—βελτιώστε την αλληλεπίδραση και τη ροή εργασίας σε λίγα λεπτά."
+description: "Διαχειριστείτε εύκολα τους υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για Python μέσω Java—βελτιώστε την αλληλεπιδραστικότητα και τη ροή εργασίας σε λίγα λεπτά."
 ---
 ## **Εισαγωγή**
 
-Ένας υπερσύνδεσμος είναι μια αναφορά σε ένα αντικείμενο, δεδομένα ή μια θέση σε κάτι. Αυτοί είναι συχνά υπερσύνδεσμοι σε παρουσιάσεις PowerPoint:
+Ένας υπερσύνδεσμος είναι μια αναφορά σε ένα αντικείμενο, δεδομένα ή μια θέση. Συνηθισμένοι υπερσύνδεσμοι σε παρουσιάσεις PowerPoint περιλαμβάνουν:
 
-* Σύνδεσμοι σε ιστοσελίδες μέσα σε κείμενα, σχήματα ή πολυμέσα
-* Σύνδεσμοι σε διαφάνειες
+* Συνδέσεις σε ιστοσελίδες σε κείμενο, σχήματα ή πολυμέσα
+* Συνδέσεις σε διαφάνειες
 
-Aspose.Slides for Python via Java σας επιτρέπει να εκτελείτε πολλές εργασίες που αφορούν υπερσυνδέσμους σε παρουσιάσεις. 
+Aspose.Slides για Python μέσω Java επιτρέπει την εκτέλεση πολλών εργασιών που αφορούν υπερσυνδέσμους σε παρουσιάσεις. 
 
-{{% alert color="info" title="Note" %}} 
-Μπορείτε να δοκιμάσετε το απλό, [δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας PowerPoint.](https://products.aspose.app/slides/el/editor)
+{{% alert color="info" title="Σημείωση" %}} 
+Ίσως να θέλετε να δείτε τον απλό, [δωρεάν διαδικτυακό επεξεργαστή PowerPoint της Aspose.](https://products.aspose.app/slides/el/editor)
 {{% /alert %}} 
 
-## **Προσθήκη υπερσυνδέσμων URL**
+## **Προσθήκη URL Υπερσυνδέσμων**
 
-### **Προσθήκη υπερσυνδέσμων URL σε Κείμενο**
+### **Προσθήκη URL Υπερσυνδέσμων σε Κείμενο**
 
-Αυτός ο κώδικας Python δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια ιστοσελίδα σε κείμενο:
-
+Αυτός ο κώδικας Python δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστότοπου σε κείμενο:
 ```python
 import jpype
 import asposeslides
@@ -68,10 +67,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Προσθήκη υπερσυνδέσμων URL σε Σχήματα ή Πλαισίως**
+### **Προσθήκη URL Υπερσυνδέσμων σε Σχήματα ή Πλαίσια**
 
-Αυτό το δείγμα κώδικα σε Python μέσω Java δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια ιστοσελίδα σε ένα σχήμα:
-
+Αυτό το δείγμα κώδικα σε Python μέσω Java δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο ιστότοπου σε ένα σχήμα:
 ```python
 import jpype
 import asposeslides
@@ -93,12 +91,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Προσθήκη υπερσυνδέσμων URL σε Πολυμέσα**
+### **Προσθήκη URL Υπερσυνδέσμων σε Πολυμέσα**
 
-Aspose.Slides σας επιτρέπει να προσθέσετε υπερσυνδέσμους σε εικόνες, ήχο και βίντεο. 
+Το Aspose.Slides επιτρέπει την προσθήκη υπερσυνδέσμων σε εικόνες, ήχους και αρχεία βίντεο. 
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε **εικόνα**:
-
+Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια **εικόνα**:
 ```python
 import jpype
 import asposeslides
@@ -116,7 +113,7 @@ try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # Δημιουργεί πλαίσιο εικόνας στην διαφάνεια 1 βάσει της προηγουμένως προστιθέμενης εικόνας
+    # Δημιουργεί πλαίσιο εικόνας στη διαφάνεια 1 βασισμένο στην προηγουμένως προστιθέμενη εικόνα
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -127,8 +124,7 @@ finally:
     presentation.dispose()
 ```
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε **αρχείο ήχου**:
-
+Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **αρχείο ήχου**:
 ```python
 from pathlib import Path
 
@@ -155,8 +151,7 @@ finally:
     presentation.dispose()
 ```
 
-Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε **βίντεο**:
-
+Αυτό το δείγμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε ένα **βίντεο**:
 ```python
 from pathlib import Path
 
@@ -183,16 +178,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}} 
-Μπορείτε να δείτε *[Διαχείριση OLE](/slides/el/python-java/manage-ole/)*.
+{{% alert color="success" title="Συμβουλή" %}} 
+Ίσως να θέλετε να δείτε *[Διαχείριση OLE](/slides/el/python-java/manage-ole/)*.
 {{% /alert %}}
 
-## **Χρήση υπερσυνδέσμων για δημιουργία πίνακα περιεχομένων**
+## **Χρήση Υπερσυνδέσμων για Δημιουργία Πίνακα Περιεχομένων**
 
-Επειδή οι υπερσύνδεσμοι σας επιτρέπουν να προσθέτετε αναφορές σε αντικείμενα ή θέσεις, μπορείτε να τους χρησιμοποιήσετε για τη δημιουργία πίνακα περιεχομένων. 
+Αφού οι υπερσύνδεσμοι σας επιτρέπουν να προσθέτετε αναφορές σε αντικείμενα ή θέσεις, μπορείτε να τους χρησιμοποιήσετε για τη δημιουργία πίνακα περιεχομένων. 
 
 Αυτό το δείγμα κώδικα δείχνει πώς να δημιουργήσετε έναν πίνακα περιεχομένων με υπερσυνδέσμους:
-
 ```python
 import jpype
 import asposeslides
@@ -231,14 +225,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Μορφοποίηση υπερσυνδέσμων**
+## **Μορφοποίηση Υπερσυνδέσμων**
 
 ### **Χρώμα**
 
-Με την ιδιότητα [Hyperlink.setColorSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setColorSource) στην κλάση [Hyperlink](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/) μπορείτε να ορίσετε το χρώμα για τους υπερσυνδέσμους και επίσης να λάβετε πληροφορίες χρώματος από αυτούς. Η δυνατότητα αυτή εισήχθη για πρώτη φορά στο PowerPoint 2019, επομένως οι αλλαγές που αφορούν την ιδιότητα δεν ισχύουν για παλαιότερες εκδόσεις του PowerPoint.
+Με την ιδιότητα [Hyperlink.setColorSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setColorSource) στην κλάση [Hyperlink](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/), μπορείτε να ορίσετε το χρώμα για τους υπερσυνδέσμους και επίσης να λάβετε τις πληροφορίες χρώματος από τους υπερσυνδέσμους. Η δυνατότητα αυτή εισήχθη για πρώτη φορά στο PowerPoint 2019, οπότε οι αλλαγές που αφορούν την ιδιότητα δεν ισχύουν για παλαιότερες εκδόσεις του PowerPoint.
 
-Αυτό το δείγμα κώδικα επιδεικνύει μια λειτουργία όπου υπερσύνδεσμοι με διαφορετικά χρώματα προστέθηκαν στην ίδια διαφάνεια:
-
+Αυτός ο κώδικας δείγματος δείχνει μια λειτουργία όπου υπερσύνδεσμοι με διαφορετικά χρώματα προστίθενται στην ίδια διαφάνεια:
 ```python
 import jpype
 import asposeslides
@@ -269,12 +262,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Αφαίρεση υπερσυνδέσμων από παρουσιάσεις**
+## **Κατάργηση Υπερσυνδέσμων από Παρουσιάσεις**
 
-### **Αφαίρεση υπερσυνδέσμων από Κείμενο**
+### **Κατάργηση Υπερσυνδέσμων από Κείμενο**
 
 Αυτός ο κώδικας Python δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από κείμενο σε μια διαφάνεια παρουσίασης:
-
 ```python
 import jpype
 import asposeslides
@@ -300,10 +292,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Αφαίρεση υπερσυνδέσμων από Σχήματα ή Πλαισίως**
+### **Κατάργηση Υπερσυνδέσμων από Σχήματα ή Πλαίσια**
 
-Αυτός ο κώδικας Python δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από ένα σχήμα σε μια διαφάνεια παρουσίασης: 
-
+Αυτός ο κώδικας Python δείχνει πώς να αφαιρέσετε τον υπερσύνδεσμο από ένα σχήμα σε μια διαφάνεια παρουσίασης:
 ```python
 import jpype
 import asposeslides
@@ -323,9 +314,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Μεταβλητός υπερσύνδεσμος**
+## **Μεταβλητός Υπερσύνδεσμος**
 
-Η κλάση [Hyperlink](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/) είναι μεταβλητή. Με αυτήν την κλάση μπορείτε να αλλάξετε τις τιμές των εξής ιδιοτήτων:
+Η κλάση [Hyperlink](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/) είναι μεταβλητή. Με αυτήν την κλάση, μπορείτε να αλλάξετε τις τιμές για τις παρακάτω ιδιότητες:
 
 - [setTargetFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -334,7 +325,6 @@ finally:
 - [setStopSoundOnClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
 Το απόσπασμα κώδικα δείχνει πώς να προσθέσετε έναν υπερσύνδεσμο σε μια διαφάνεια και να επεξεργαστείτε το tooltip του αργότερα:
-
 ```python
 import jpage
 import asposeslides
@@ -362,31 +352,31 @@ finally:
     presentation.dispose()
 ```
 
-## **Υποστηριζόμενες ιδιότητες σε HyperlinkQueries**
+## **Υποστηριζόμενες Ιδιότητες στο HyperlinkQueries**
 
-Μπορείτε να αποκτήσετε πρόσβαση στο [HyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/) από μια παρουσίαση, διαφάνεια ή κείμενο για το οποίο έχει οριστεί ο υπερσύνδεσμος. 
+Μπορείτε να προσπελάσετε το [HyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/) από μια παρουσίαση, διαφάνεια ή κείμενο για το οποίο ορίζεται ο υπερσύνδεσμος. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-Η κλάση [HyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/) υποστηρίζει τις ακόλουθες μεθόδους και ιδιότητες: 
+Η κλάση [HyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/) υποστηρίζει τις παρακάτω μεθόδους και ιδιότητες: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
 - [getAnyHyperlinks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
 - [removeAllHyperlinks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να δημιουργήσω εσωτερική πλοήγηση όχι μόνο σε μια διαφάνεια, αλλά σε μια «ενότητα» ή στην πρώτη διαφάνεια μιας ενότητας;**
 
-Οι ενότητες στο PowerPoint είναι ομάδες διαφανειών· η πλοήγηση τεχνικά στοχεύει σε μια συγκεκριμένη διαφάνεια. Για να «πλοηγηθείτε σε ενότητα», συνήθως συνδέεστε με την πρώτη της διαφάνεια.
+Οι ενότητες στο PowerPoint είναι ομάδες διαφανειών· η πλοήγηση τεχνικά στοχεύει σε μια συγκεκριμένη διαφάνεια. Για να «πλοηγηθείτε σε μια ενότητα», συνήθως συνδέεστε με την πρώτη της διαφάνεια.
 
-**Μπορώ να συνδέσω έναν υπερσύνδεσμο σε στοιχεία του κύριου (master) σλιδα ώστε να λειτουργεί σε όλες τις διαφάνειες;**
+**Μπορώ να συνδέσω έναν υπερσύνδεσμο σε στοιχεία του κύριου (master) διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
 
-Ναι. Τα στοιχεία του master σλιδα και των διατάξεων υποστηρίζουν υπερσυνδέσμους. Αυτοί οι σύνδεσμοι εμφανίζονται σε όλες τις υπο-διαφάνειες και είναι κλικαρίσιμα κατά τη διάρκεια της παρουσίασης.
+Ναι. Τα στοιχεία του κύριου διαφάνειας και των διατάξεων υποστηρίζουν υπερσυνδέσμους. Τέτοιοι σύνδεσμοι εμφανίζονται στις υποδιαφάνειες και είναι κλικαρίψιμοι κατά τη διάρκεια της παρουσίασης.
 
 **Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;**
 
-Στα [PDF](/slides/el/python-java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/python-java/convert-powerpoint-to-html/), ναι· οι σύνδεσμοι γενικά διατηρούνται. Κατά την εξαγωγή σε [εικόνες](/slides/el/python-java/convert-powerpoint-to-png/) και [βίντεο](/slides/el/python-java/convert-powerpoint-to-video/), η δυνατότητα κλικ δεν μεταφέρεται λόγω της φύσης αυτών των μορφών (τα ραστερϊκά πλαίσια/βίντεο δεν υποστηρίζουν υπερσυνδέσμους).
+Στα [PDF](/slides/el/python-java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/python-java/convert-powerpoint-to-html/), ναι — οι σύνδεσμοι συνήθως διατηρούνται. Κατά την εξαγωγή σε [εικόνες](/slides/el/python-java/convert-powerpoint-to-png/) και [βίντεο](/slides/el/python-java/convert-powerpoint-to-video/), η δυνατότητα κλικ δεν μεταφέρεται λόγω της φύσης αυτών των μορφών (πλαίσια raster/βίντεο δεν υποστηρίζουν υπερσυνδέσμους).

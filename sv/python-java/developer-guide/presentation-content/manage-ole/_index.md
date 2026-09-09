@@ -6,7 +6,7 @@ weight: 40
 url: /sv/python-java/manage-ole/
 keywords:
 - OLE-objekt
-- Objektlänkning och inbäddning
+- Objektlänkning & inbäddning
 - lägg till OLE
 - bädda in OLE
 - lägg till objekt
@@ -14,7 +14,7 @@ keywords:
 - lägg till fil
 - bädda in fil
 - länkat objekt
-- länkad fil
+- länkat fil
 - ändra OLE
 - OLE-ikon
 - OLE-titel
@@ -26,33 +26,32 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Optimera hanteringen av OLE-objekt i PowerPoint- och OpenDocument-filer med Aspose.Slides för Python via Java. Bädda in, uppdatera och exportera OLE-innehåll smidigt."
+description: "Optimera hanteringen av OLE-objekt i PowerPoint- och OpenDocument-filer med Aspose.Slides för Python via Java. Bädda in, uppdatera och exportera OLE-innehåll sömlöst."
 ---
 ## **Introduktion**
 
 {{% alert color="info" title="Obs" %}}
-OLE (Object Linking & Embedding) är en Microsoft‑teknik som tillåter data och objekt som skapats i en applikation att placeras i en annan applikation genom länkning eller inbäddning.
+OLE (Object Linking & Embedding) är en Microsoft‑teknik som tillåter data och objekt som skapats i en applikation att placeras i en annan applikation via länkning eller inbäddning.
 {{% /alert %}}
 
-Tänk på ett diagram som skapats i MS Excel. Diagrammet placeras sedan i en PowerPoint‑bild. Det Excel‑diagrammet betraktas som ett OLE‑objekt.
+Tänk dig ett diagram skapat i MS Excel. Diagrammet placeras sedan i en PowerPoint‑bild. Detta Excel‑diagram betraktas som ett OLE‑objekt.
 
-- Ett OLE‑objekt kan visas som en ikon. I så fall, när du dubbelklickar på ikonen, öppnas diagrammet i den associerade applikationen (Excel), eller så blir du ombedd att välja en applikation för att öppna eller redigera objektet.
+- Ett OLE‑objekt kan visas som en ikon. I så fall öppnas diagrammet i den tillhörande applikationen (Excel) när du dubbelklickar på ikonen, eller så blir du ombedd att välja en applikation för att öppna eller redigera objektet.
 - Ett OLE‑objekt kan visa sitt faktiska innehåll, till exempel innehållet i ett diagram. I så fall aktiveras diagrammet i PowerPoint, diagramgränssnittet laddas och du kan ändra diagrammets data i PowerPoint.
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/sv/python-java/) möjliggör att du infogar OLE‑objekt i bilder som OLE‑object‑frames ([OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/sv/python-java/) låter dig infoga OLE‑objekt i bilder som OLE‑objekt‑ramar ([OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/)).
 
-## **Lägg till OLE‑objekt‑ramar i bilder**
+## **Lägg till OLE‑objektram i bilder**
 
-Förutsatt att du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objekt‑ram med Aspose.Slides for Python via Java, kan du göra så här:
+Om du redan har skapat ett diagram i Microsoft Excel och vill bädda in det i en bild som en OLE‑objektram med Aspose.Slides for Python via Java, kan du göra så här:
 
-1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) klassen.
-1. Hämta referensen till en bild via dess index.
-1. Läs Excel‑filen som en byte‑array.
-1. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/) i bilden med byte‑arrayen och annan information om OLE‑objektet.
-1. Skriv den ändrade presentationen som en PPTX‑fil.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+2. Hämta en referens till en bild genom dess index.
+3. Läs Excel‑filen som en bytearray.
+4. Lägg till [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/) på bilden med bytearrayen och annan information om OLE‑objektet.
+5. Skriv den modifierade presentationen som en PPTX‑fil.
 
-I exemplet nedan har vi lagt till ett diagram från en Excel‑fil i en bild som en OLE‑objekt‑ram med Aspose.Slides for Python via Java.  
-**Obs** att konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleembeddeddatainfo/) tar en inbäddningsbar objekt‑filändelse som andra parameter. Denna filändelse gör att PowerPoint korrekt tolkar filtypen och väljer rätt program för att öppna detta OLE‑objekt.
+I exemplet nedan lade vi till ett diagram från en Excel‑fil på en bild som en OLE‑objektram med Aspose.Slides for Python via Java. **Obs** att konstruktorn för [OleEmbeddedDataInfo](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleembeddeddatainfo/) tar en inbäddningsbar objekt‑filändelse som sin andra parameter. Denna filändelse gör att PowerPoint kan tolka filtypen korrekt och välja rätt program för att öppna detta OLE‑objekt.
 
 ```python
 from pathlib import Path
@@ -60,8 +59,8 @@ from pathlib import Path
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpile.isJVMStarted():
+    jpile.startJVM()
 
 from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
@@ -72,12 +71,12 @@ try:
 
     # Förbered data för OLE-objektet.
     file_data = Path("book.xlsx").read_bytes()
-    file_data = jpype.JArray(jpype.JByte)(file_data)
+    file_data = jpile.JArray(jpile.JByte)(file_data)
     data_info = OleEmbeddedDataInfo(file_data, "xlsx")
 
-    # Lägg till OLE-objektramen på bilden.
-    frame_width = jpype.JFloat(slide_size.getWidth())
-    frame_height = jpype.JFloat(slide_size.getHeight())
+    # Lägg till OLE-objektram på bilden.
+    frame_width = jpile.JFloat(slide_size.getWidth())
+    frame_height = jpile.JFloat(slide_size.getHeight())
     slide.getShapes().addOleObjectFrame(0, 0, frame_width, frame_height, data_info)
 
     presentation.save("output.pptx", SaveFormat.Pptx)
@@ -85,11 +84,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Lägg till länkade OLE‑objekt‑ramar**
+### **Lägg till länkade OLE‑objektram**
 
-Aspose.Slides for Python via Java låter dig lägga till en [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/) utan att bädda in data, utan bara med en länk till filen.
+Aspose.Slides for Python via Java låter dig lägga till en [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/) med en länk till filen istället för inbäddad data.
 
-Denna Python‑kod visar hur du lägger till ett [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/) med en länkad Excel‑fil till en bild:
+Denna Python‑kod visar hur du lägger till en [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/) med en länkad Excel‑fil på en bild:
 
 ```python
 import jpype
@@ -112,17 +111,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Åtkomst till OLE‑objekt‑ramar**
+## **Åtkomst till OLE‑objektram**
 
-Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt hitta eller komma åt det på följande sätt:
+Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt hitta eller åtkomma det på följande sätt:
 
-1. Ladda en presentation med det inbäddade OLE‑objektet genom att skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) klassen.
-2. Hämta referensen till bilden genom att använda dess index.
-3. Åtkomst till [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/)‑formen.
-   I vårt exempel använde vi den tidigare skapade PPTX‑filen som har endast en form på den första bilden.  Vi kontrollerade sedan att objektet var en [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/). Detta var den önskade OLE‑objekt‑ramen som skulle nås.
-4. När OLE‑objekt‑ramen har nåtts kan du utföra vilken operation som helst på den.
+1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+2. Hämta en referens till bilden genom dess index.
+3. Åtkom [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/)‑formen. I vårt exempel använde vi den tidigare skapade PPTX‑filen som bara har en form på den första bilden. Vi kontrollerade sedan att objektet var en [OleObjectFrame]. Detta var den önskade OLE‑objektram som skulle åtkommas.
+4. När OLE‑objektramen har åtkomst kan du utföra vilken operation som helst på den.
 
-I exemplet nedan nås en OLE‑objekt‑ram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata.
+I exemplet nedan åtkoms en OLE‑objektram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata.
 
 ```python
 import jpype
@@ -144,7 +142,7 @@ try:
         # Hämta den inbäddade filens data.
         file_data = ole_frame.getEmbeddedData().getEmbeddedFileData()
 
-        # Hämta den inbäddade filens filändelse.
+        # Hämta filändelsen för den inbäddade filen.
         file_extension = ole_frame.getEmbeddedData().getEmbeddedFileExtension()
 
         # ...
@@ -152,11 +150,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Åtkomst till egenskaper för länkade OLE‑objekt‑ramar**
+### **Åtkomst till egenskaper för länkad OLE‑objektram**
 
-Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objekt‑ramar.
+Aspose.Slides låter dig komma åt egenskaper för länkade OLE‑objektram.
 
-Denna Python‑kod visar hur du kontrollerar om ett OLE‑objekt är länkat och sedan hämtar sökvägen till den länkade filen:
+Denna Python‑kod visar hur du kontrollerar om ett OLE‑objekt är länkat och sedan får sökvägen till den länkade filen:
 
 ```python
 import jpype
@@ -189,25 +187,24 @@ finally:
     presentation.dispose()
 ```
 
-## **Ändra OLE‑objektdata**
+## **Ändra OLE‑objektsdata**
 
 {{% alert color="info" title="Obs" %}}
 I det här avsnittet använder kodexemplet nedan [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/).
 {{% /alert %}}
 
-Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt nå det objektet och ändra dess data på följande sätt:
+Om ett OLE‑objekt redan är inbäddat i en bild kan du enkelt åtkomma det och ändra dess data på följande sätt:
 
-1. Ladda en presentation med det inbäddade OLE‑objektet genom att skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) klassen.
-2. Hämta bildens referens via dess index.
-3. Åtkomst till OLE‑objekt‑ramens form.
-   I vårt exempel använde vi den tidigare skapade PPTX‑filen som har en form på den första bilden. Vi kontrollerade sedan att objektet var ett [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/). Detta var den önskade OLE‑objekt‑ramen som skulle nås.
-4. När OLE‑objekt‑ramen har nåtts kan du utföra vilken operation som helst på den.
-5. Skapa ett [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/)‑objekt och få åtkomst till OLE‑datat.
-6. Få åtkomst till önskat [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) och ändra datan.
-7. Spara den uppdaterade [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) i ett flöde.
-8. Ändra OLE‑objektdatan från flödet.
+1. Läs in en presentation med det inbäddade OLE‑objektet genom att skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+2. Hämta en referens till bilden genom dess index.
+3. Åtkom OLE‑objektram‑formen. I vårt exempel använde vi den tidigare skapade PPTX‑filen som bara har en form på den första bilden. Vi kontrollerade sedan att objektet var en [OleObjectFrame]. Detta var den önskade OLE‑objektram som skulle åtkommas.
+4. När OLE‑objektramen har åtkomst kan du utföra vilken operation som helst på den.
+5. Skapa ett [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/)‑objekt och åtkom OLE‑datan.
+6. Åtkom önskat [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) och ändra datan.
+7. Spara den uppdaterade [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) i en ström.
+8. Ändra OLE‑objektdatana från strömmen.
 
-I exemplet nedan nås en OLE‑objekt‑ram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata förändras för att uppdatera diagramdatat.
+I exemplet nedan åtkoms en OLE‑objektram (ett Excel‑diagramobjekt inbäddat i en bild) och dess fildata ändras för att uppdatera diagrammets data.
 
 ```python
 import jpype
@@ -233,7 +230,7 @@ try:
         file_data = ole_frame.getEmbeddedData().getEmbeddedFileData()
         ole_stream = ByteArrayInputStream(file_data)
 
-        # Läs OLE-objektdatan som ett Workbook-objekt.
+        # Läs OLE-objektets data som ett Workbook-objekt.
         workbook = Workbook(ole_stream)
 
         new_ole_stream = ByteArrayOutputStream()
@@ -248,7 +245,7 @@ try:
         file_options = OoxmlSaveOptions(CellsSaveFormat.XLSX)
         workbook.save(new_ole_stream, file_options)
 
-        # Ändra OLE-ramobjektets data.
+        # Ändra OLE-ramens objektdata.
         new_file_data = new_ole_stream.toByteArray()
         new_data = OleEmbeddedDataInfo(new_file_data, ole_frame.getEmbeddedData().getEmbeddedFileExtension())
         ole_frame.setEmbeddedData(new_data)
@@ -260,9 +257,9 @@ finally:
 
 ## **Bädda in andra filtyper i bilder**
 
-Förutom Excel‑diagram låter Aspose.Slides for Python via Java dig bädda in andra filtyper i bilder. Till exempel kan du infoga HTML‑, PDF‑ och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så blir användaren ombedd att välja ett lämpligt program för att öppna det.
+Förutom Excel‑diagram låter Aspose.Slides for Python via Java dig bädda in andra typer av filer i bilder. Till exempel kan du infoga HTML‑, PDF‑ och ZIP‑filer som objekt. När en användare dubbelklickar på det infogade objektet öppnas det automatiskt i det relevanta programmet, eller så uppmanas användaren att välja ett lämpligt program för att öppna det.
 
-Denna Python‑kod visar hur du bäddar in HTML och ZIP i en bild:
+Denna Python‑kod visar hur du infogar HTML och ZIP i en bild:
 
 ```python
 from pathlib import Path
@@ -296,11 +293,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Ange filtyper för inbäddade objekt**
+## **Ställ in filtyper för inbäddade objekt**
 
-När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett icke‑stött OLE‑objekt med ett stödd. Aspose.Slides for Python via Java låter dig ange filtypen för ett inbäddat objekt, vilket möjliggör att du uppdaterar OLE‑ramens data eller dess filändelse.
+När du arbetar med presentationer kan du behöva ersätta gamla OLE‑objekt med nya eller ersätta ett ej‑stött OLE‑objekt med ett stödt. Aspose.Slides for Python via Java låter dig ställa in filtypen för ett inbäddat objekt, så att du kan uppdatera OLE‑ramens data eller dess filändelse.
 
-Denna Python‑kod visar hur du sätter filtypen för ett inbäddat OLE‑objekt till `zip`:
+Denna Python‑kod visar hur du ställer in filtypen för ett inbäddat OLE‑objekt till `zip`:
 
 ```python
 import jpype
@@ -330,11 +327,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Ange ikonbilder och titlar för inbäddade objekt**
+## **Ställ in ikonbilder och titlar för inbäddade objekt**
 
-Efter att ett OLE‑objekt har bäddats in läggs automatiskt en förhandsgranskning bestående av en ikonbild till. Denna förhandsgranskning är vad användarna ser innan de öppnar eller får åtkomst till OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ange ikonbilden och titeln med Aspose.Slides for Python via Java.
+När ett OLE‑objekt har bäddats in läggs automatiskt en förhandsgranskning bestående av en ikonbild till. Denna förhandsgranskning är vad användarna ser innan de får åtkomst till eller öppnar OLE‑objektet. Om du vill använda en specifik bild och text som element i förhandsgranskningen kan du ställa in ikonbilden och titeln med Aspose.Slides for Python via Java.
 
-Denna Python‑kod visar hur du anger ikonbilden och titeln för ett inbäddat objekt:
+Denna Python‑kod visar hur du ställer in ikonbilden och titeln för ett inbäddat objekt:
 
 ```python
 from pathlib import Path
@@ -357,7 +354,7 @@ try:
     image_data = jpype.JArray(jpype.JByte)(image_data)
     ole_image = presentation.getImages().addImage(image_data)
 
-    # Ange en titel och bilden för OLE‑förhandsgranskningen.
+    # Ange en titel och bilden för OLE-förhandsgranskningen.
     ole_frame.setSubstitutePictureTitle("My title")
     ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
     ole_frame.setObjectIcon(True)
@@ -367,9 +364,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Förhindra att en OLE‑objekt‑ram kan ändras i storlek och position**
+## **Förhindra att en OLE‑objektram storleksändras eller flyttas**
 
-Efter att du har lagt till ett länkat OLE‑objekt i en presentationsbild kan du vid öppning av presentationen i PowerPoint se ett meddelande som ber dig uppdatera länkarna. Att klicka på knappen ”Update Links” kan ändra storlek och position för OLE‑objekt‑ramen eftersom PowerPoint uppdaterar data från det länkade OLE‑objektet och förnyar förhandsgranskningen. För att hindra PowerPoint från att fråga om att uppdatera objektets data, sätt metoden [setUpdateAutomatic](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) för klassen [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/) till `False`:
+Efter att du har lagt till ett länkat OLE‑objekt på en presentationsbild kan du, när du öppnar presentationen i PowerPoint, se ett meddelande som ber dig uppdatera länkarna. Att klicka på knappen "Uppdatera länkar" kan ändra storlek och position för OLE‑objektramens eftersom PowerPoint uppdaterar datan från det länkade OLE‑objektet och uppdaterar objektets förhandsgranskning. För att hindra PowerPoint från att be om att uppdatera objektets data, sätt metodens [setUpdateAutomatic](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) i klassen [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/) till `False`:
 
 ```python
 import jpype
@@ -394,11 +391,11 @@ finally:
 
 ## **Extrahera inbäddade filer**
 
-Aspose.Slides for Python via Java låter dig extrahera de filer som är inbäddade i bilder som OLE‑objekt på följande sätt:
+Aspose.Slides for Python via Java låter dig extrahera filerna som är inbäddade i bilder som OLE‑objekt på följande sätt:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) som innehåller de OLE‑objekt du avser att extrahera.
-2. Loopa igenom alla former i presentationen och få åtkomst till [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/)‑formerna.
-3. Få åtkomst till data för inbäddade filer från OLE‑objekt‑ramar och skriv dem till disk.
+2. Loopa igenom alla former i presentationen och åtkom [OleObjectFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleobjectframe/)-formerna.
+3. Åtkom data för inbäddade filer från OLE‑objektramarna och skriv dem till disk.
 
 Denna Python‑kod visar hur du extraherar filer som är inbäddade i en bild som OLE‑objekt:
 
@@ -434,14 +431,18 @@ finally:
 
 ## **FAQ**
 
-**Kommer OLE‑innehållet att renderas när bilder exporteras till PDF/bilder?**  
-Det som är synligt på bilden renderas – ikonen/ersättningsbilden (förhandsgranskning). Det ”levande” OLE‑innehåll körs inte under rendering. Vid behov, sätt en egen förhandsgranskningsbild för att säkerställa önskat utseende i den exporterade PDF‑filen.
+**Kommer OLE‑innehållet att renderas när man exporterar bilder till PDF/bilder?**
 
-**Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?**  
-Lås formen: Aspose.Slides erbjuder [formnivå‑lås](/slides/sv/python-java/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar effektivt oavsiktliga redigeringar och förflyttningar.
+Det som syns på bilden renderas – ikonen/ersättningsbilden (förhandsgranskning). Det "levande" OLE‑innehållet körs inte under rendering. Vid behov kan du ange en egen förhandsgranskningsbild för att säkerställa önskat utseende i den exporterade PDF‑filen.
 
-**Varför hoppar ett länkat Excel‑objekt eller ändrar storlek när jag öppnar presentationen?**  
-PowerPoint kan uppdatera förhandsgranskningen av det länkade OLE‑objektet. För ett stabilt utseende, följ rekommendationerna i [Working Solution for Worksheet Resizing](/slides/sv/python-java/working-solution-for-worksheet-resizing/) – anpassa antingen ramen till intervallet, eller skala intervallet till en fast ram och sätt en lämplig ersättningsbild.
+**Hur kan jag låsa ett OLE‑objekt på en bild så att användare inte kan flytta/redigera det i PowerPoint?**
 
-**Kommer relativa sökvägar för länkade OLE‑objekt att bevaras i PPTX‑formatet?**  
-I PPTX‑formatet finns ingen information om ”relativa sökvägar” – endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet, föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.
+Lås formen: Aspose.Slides tillhandahåller [formnivå‑lås](/slides/sv/python-java/applying-protection-to-presentation/). Detta är ingen kryptering, men det förhindrar effektivt oavsiktliga redigeringar och flyttningar.
+
+**Varför hoppar ett länkat Excel‑objekt eller ändrar storlek när jag öppnar presentationen?**
+
+PowerPoint kan uppdatera förhandsgranskningen av det länkade OLE‑objektet. För ett stabilt utseende, följ rekommendationerna i [Working Solution for Worksheet Resizing](/slides/sv/python-java/working-solution-for-worksheet-resizing/) – antingen anpassa ramen till området, eller skala området till en fast ram och ange en lämplig ersättningsbild.
+
+**Behålls relativa sökvägar för länkade OLE‑objekt i PPTX‑formatet?**
+
+I PPTX‑formatet finns ingen information om "relativ sökväg" – endast den fullständiga sökvägen. Relativa sökvägar finns i det äldre PPT‑formatet. För portabilitet bör du föredra pålitliga absoluta sökvägar/tillgängliga URI:er eller inbäddning.

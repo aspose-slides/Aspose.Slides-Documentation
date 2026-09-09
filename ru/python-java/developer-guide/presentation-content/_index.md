@@ -5,7 +5,7 @@ type: docs
 weight: 30
 url: /ru/python-java/presentation-content/
 keywords:
-- содержимое
+- контент
 - BLOB
 - гиперссылка
 - медиа
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Создавайте, редактируйте и извлекайте содержимое презентаций с помощью Aspose.Slides для Python через Java — получайте примеры кода для текста, изображений, фигур, диаграмм; PPT, PPTX и ODP."
+description: "Создавайте, редактируйте и извлекайте содержимое презентаций с помощью Aspose.Slides для Python через Java — получайте примеры кода для текста, изображений, фигур и диаграмм в файлах PPT, PPTX и ODP."
 ---

@@ -1,5 +1,5 @@
 ---
-title: Получить и обновить информацию о презентации в Python через Java
+title: Получение и обновление информации о презентации в Python через Java
 linktitle: Информация о презентации
 type: docs
 weight: 30
@@ -9,7 +9,7 @@ keywords:
 - свойства презентации
 - свойства документа
 - получить свойства
-- читать свойства
+- прочитать свойства
 - изменить свойства
 - модифицировать свойства
 - обновить свойства
@@ -22,19 +22,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Изучайте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument, используя Python через Java, для более быстрых выводов и более умных проверок содержимого."
+description: "Исследуйте слайды, структуру и метаданные в презентациях PowerPoint и OpenDocument, используя Python через Java, для более быстрых выводов и более умных проверок содержимого."
 ---
 ## **Обзор**
 
-Aspose.Slides может определить формат презентации и прочитать её метаданные без создания полной модели объектов презентации. Это полезно, когда необходимо классифицировать файлы, создать инвентарь или проверить свойства перед принятием решения о загрузке и обработке содержимого презентации.
+Aspose.Slides может определить формат презентации и прочитать её метаданные документа без создания полной модели объекта презентации. Это полезно, когда нужно классифицировать файлы, построить инвентарь или проверить свойства перед тем, как решить, загружать и обрабатывать содержание презентации.
 
-Примеры требуют Aspose.Slides for Python via Java и совместимую среду выполнения Java. Каждый пример запускает JVM, если она ещё не запущена. Предоставьте существующие файлы презентаций по путям, использованным в примерах.
+Примеры требуют Aspose.Slides for Python via Java и совместимую среду выполнения Java. Каждый пример запускает JVM, если она ещё не работает. Предоставьте существующие файлы презентаций по путям, используемым в примерах.
 
-Эта статья демонстрирует лёгкую инспекцию через [PresentationFactory](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationfactory/) и [PresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/), а также целевые обновления через [DocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/).
+В этой статье демонстрируется легковесный осмотр через [PresentationFactory](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationfactory/) и [PresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/), а также целенаправленные обновления через [DocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/).
 
 ## **Проверка формата презентации**
 
-Используйте [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationfactory/#getPresentationInfo) для инспекции файла без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/). Метод [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#getLoadFormat) сообщает обнаруженный формат, например PPTX, PPT или ODP.
+Используйте [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationfactory/#getPresentationInfo) для осмотра файла без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/). Метод [PresentationInfo.getLoadFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#getLoadFormat) сообщает обнаруженный формат, такой как PPTX, PPT или ODP.
 
 ```python
 import jpype
@@ -64,7 +64,7 @@ for file_name in file_names:
 
 ## **Создание легковесного инвентаря презентаций**
 
-Когда вы обрабатываете множество файлов презентаций, вам может потребоваться компактный инвентарь для проверки, индексации или системы управления документами. В этом сценарии используйте [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationfactory/#getPresentationInfo) для получения объекта [PresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/), а затем вызовите [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#readDocumentProperties) для чтения метаданных документа. Такой подход не создаёт экземпляр [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) и не требует обхода полной модели объектов презентации.
+Когда вы обрабатываете множество файлов презентаций, может потребоваться компактный инвентарь для валидации, индексации или системы управления документами. В этом сценарии используйте [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationfactory/#getPresentationInfo) для получения объекта [PresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/), а затем вызовите [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#readDocumentProperties) для чтения метаданных документа. Этот подход не создаёт экземпляр [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) и не требует обхода полной модели объекта презентации.
 
 Расширенные свойства, предоставляемые [DocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/), дают следующие значения инвентаря:
 
@@ -75,9 +75,9 @@ for file_name in file_names:
 | [getNotes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getNotes) | Количество слайдов, содержащих заметки. |
 | [getParagraphs](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getParagraphs) | Общее количество абзацев, если доступно. |
 | [getWords](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getWords) | Общее количество слов. |
-| [getMultimediaClips](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getMultimediaClips) | Общее количество аудио и видеоклипов. |
+| [getMultimediaClips](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getMultimediaClips) | Общее количество аудио- и видеоклипов. |
 
-Следующий пример считывает эти значения без создания объекта [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) и выводит компактный инвентарь. Он также комбинирует [getHeadingPairs](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getHeadingPairs) с [getTitlesOfParts](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getTitlesOfParts) для отображения групп содержимого, таких как шрифты, темы и заголовки слайдов.
+Следующий пример считывает эти значения без создания объекта [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) и выводит компактный инвентарь. Он также сочетает [getHeadingPairs](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getHeadingPairs) с [getTitlesOfParts](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getTitlesOfParts) для отображения групп содержимого, таких как шрифты, темы и заголовки слайдов.
 
 ```python
 import jpype
@@ -143,27 +143,27 @@ else:
             part_index += 1
 ```
 
-Каждый [HeadingPair](https://reference.aspose.com/slides/ru/python-java/aspose.slides/headingpair/) предоставляет имя группы и количество элементов в этой группе. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getTitlesOfParts) возвращает плоский упорядоченный массив, поэтому используйте количество последовательных заголовков, указанных каждой парой заголовков.
+Каждый [HeadingPair](https://reference.aspose.com/slides/ru/python-java/aspose.slides/headingpair/) поставляет имя группы и количество элементов в этой группе. [DocumentProperties.getTitlesOfParts](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getTitlesOfParts) возвращает плоский упорядоченный массив, поэтому следует потреблять количество последовательных заголовков, указанных каждой парой заголовков.
 
-### **Хранимые метаданные и ограничения формата**
+### **Сохранённые метаданные и ограничения формата**
 
-Свойства инвентаря, возвращаемые [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#readDocumentProperties), отражают метаданные, доступные в исходном документе. Aspose.Slides не загружает и не обходит модель объектов презентации для пересчёта этих значений при этом вызове. Отсутствующие свойства представлены значениями по умолчанию, а сохранённые значения могут быть устаревшими, если приложение, последним сохранявшее файл, не обновило свойства документа.
+Свойства инвентаря, возвращаемые [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#readDocumentProperties), отражают метаданные, доступные в исходном документе. Aspose.Slides не загружает и не обходил модель объекта презентации для пересчёта этих значений при этом вызове. Отсутствующие свойства представлены значениями по умолчанию, а сохранённые значения могут быть устаревшими, если приложение, последним сохранившее файл, не обновило их свойства.
 
-- **PPTX:** Формат предоставляет расширенные свойства документа для подсчёта слайдов, заметок, скрытых слайдов, абзацев, слов и мультимедиа, а также пары заголовков и названия частей. Доступность зависит от того, какие свойства были записаны создателем документа.
-- **PPT:** Бинарный формат может хранить соответствующие свойства‑сводки документа. Если свойство отсутствует или не было обновлено создателем документа, Aspose.Slides возвращает его сохранённое или значение по умолчанию, а не рассчитывает его из слайдов.
-- **ODP:** Метаданные OpenDocument предоставляют общую статистику документа, такую как количество страниц, абзацев и слов, но эти значения не отображаются на каждое расширенное свойство PowerPoint. Метаданные о скрытых слайдах, слайдах‑заметках, мультимедиа, парах заголовков и названиях частей могут быть недоступны, и свойства инвентаря могут возвращать значения по умолчанию. Не рассматривайте нулевое значение или пустой массив как окончательное подтверждение отсутствия соответствующего содержимого.
+- **PPTX:** Формат предоставляет расширенные свойства документа для подсчёта слайдов, заметок, скрытых слайдов, абзацев, слов и мультимедиа, а также пар заголовков и названий частей. Доступность зависит от того, какие свойства записал создатель документа.
+- **PPT:** Бинарный формат может хранить соответствующие свойства сводки документа. Если свойство отсутствует или не было обновлено создателем документа, Aspose.Slides возвращает его сохранённое или значение по умолчанию, а не вычисляет его из слайдов.
+- **ODP:** Метаданные OpenDocument предоставляют общую статистику документа, такую как количество страниц, абзацев и слов, но эти значения не сопоставляются со всеми расширенными свойствами PowerPoint. Метаданные скрытых слайдов, слайдов с заметками, мультимедиа, пар заголовков и названий частей могут быть недоступны, и свойства инвентаря могут возвращать значения по умолчанию. Не рассматривайте нулевое значение или пустой массив как окончательное доказательство отсутствия соответствующего содержимого.
 
-Используйте лёгкий подход к метаданным для инвентарей и предварительных проверок. Загружайте презентацию и проверяйте её живую модель объектов, когда результат должен отражать изменения в памяти или когда необходимо подтвердить фактическое содержание презентации.
+Используйте подход лёгких метаданных для инвентарей и предварительных проверок. Загружайте презентацию и инспектируйте её живую модель объекта, когда результат должен отражать изменения в памяти или когда требуется проверить фактическое содержимое презентации.
 
 ## **Обновление свойств презентации**
 
-Свойства, возвращаемые [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#readDocumentProperties), также можно изменять без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/). Примените изменения с помощью [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#updateDocumentProperties), а затем запишите привязанную презентацию через [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#writeBindedPresentation).
+Свойства, возвращаемые [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#readDocumentProperties), также можно изменить без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/). Примените изменения с помощью [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#updateDocumentProperties), а затем запишите связанную презентацию через [PresentationInfo.writeBindedPresentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#writeBindedPresentation).
 
-Следующее изображение показывает исходные свойства документа.
+Следующее изображение показывает исходные свойства документа PowerPoint-презентации.
 
-![Исходные свойства документа PowerPoint презентации](input_properties.png)
+![Исходные свойства документа PowerPoint-презентации](input_properties.png)
 
-Следующий пример изменяет заголовок и время последнего сохранения и записывает результат в новый файл:
+Следующий пример меняет заголовок и время последнего сохранения и записывает результат в новый файл:
 
 ```python
 import jpype
@@ -193,28 +193,28 @@ finally:
     output_stream.close()
 ```
 
-Следующее изображение показывает изменённые свойства документа.
+Следующее изображение показывает изменённые свойства документа PowerPoint-презентации.
 
-![Изменённые свойства документа PowerPoint презентации](output_properties.png)
+![Изменённые свойства документа PowerPoint-презентации](output_properties.png)
 
 ## **Полезные ссылки**
 
 Для связанных проверок безопасности и параметров защиты см. следующие статьи:
 
-- [Password-Protect Presentations](/slides/ru/python-java/password-protected-presentation/)
-- [Write-Protect Presentations](/slides/ru/python-java/write-protected-presentation/)
+- [Защита презентаций паролем](/slides/ru/python-java/password-protected-presentation/)
+- [Защита презентаций от записи](/slides/ru/python-java/write-protected-presentation/)
 
 ## **FAQ**
 
 **Как проверить, встроены ли шрифты и какие именно?**
 
-Загрузите презентацию и используйте [Presentation.getFontsManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getFontsManager). Вызовите [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ru/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) для получения встроенных шрифтов и [FontsManager.getFonts](https://reference.aspose.com/slides/ru/python-java/aspose.slides/fontsmanager/#getFonts) для получения шрифтов, используемых в презентации. Сравните два результата, чтобы найти шрифты, необходимые для рендеринга, но не встроенные.
+Загрузите презентацию и используйте [Presentation.getFontsManager](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getFontsManager). Вызовите [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/ru/python-java/aspose.slides/fontsmanager/#getEmbeddedFonts) для получения встроенных шрифтов и [FontsManager.getFonts](https://reference.aspose.com/slides/ru/python-java/aspose.slides/fontsmanager/#getFonts) для получения шрифтов, используемых презентацией. Сравните оба результата, чтобы найти шрифты, необходимые для рендеринга, но не встроенные.
 
-**Как быстро определить, есть ли в файле скрытые слайды и сколько их?**
+**Как быстро определить, есть ли в файле скрытые слайды и их количество?**
 
-Если хранимые метаданные документа достаточны, прочитайте [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getHiddenSlides) через [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationfactory/#getPresentationInfo) и [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#readDocumentProperties). Это подходит для лёгкого инвентаря. Если презентация была изменена в памяти, хранимые метаданные могут отсутствовать или быть устаревшими, или нужно проверить живые значения — пройдитесь по [Presentation.getSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getSlides) и проверьте у каждого слайда метод [Slide.getHidden](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/#getHidden).
+Когда сохранённые метаданные документа достаточны, прочитайте [DocumentProperties.getHiddenSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/documentproperties/#getHiddenSlides) через [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationfactory/#getPresentationInfo) и [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentationinfo/#readDocumentProperties). Это подходит для лёгкого инвентаря. Если презентация была изменена в памяти, сохранённые метаданные могут отсутствовать или быть устаревшими, либо требуется проверить живые значения, итеративно пройдитесь по [Presentation.getSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getSlides) и исследуйте метод [Slide.getHidden](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/#getHidden) каждого слайда.
 
-**Можно ли определить, используется ли пользовательский размер и ориентация слайда, и отличаются ли они от значений по умолчанию?**
+**Могу ли я обнаружить, используется ли пользовательский размер и ориентация слайда, и отличаются ли они от значений по умолчанию?**
 
 Да. Загрузите презентацию и вызовите [Presentation.getSlideSize](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getSlideSize). Используйте [SlideSize.getType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidesize/#getType), [SlideSize.getSize](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidesize/#getSize) и [SlideSize.getOrientation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slidesize/#getOrientation) для сравнения текущих настроек с ожидаемыми предустановками и размерами.
 
@@ -224,4 +224,4 @@ finally:
 
 **Как оценить «тяжёлые» слайды, которые могут замедлять рендеринг или экспорт в PDF?**
 
-Единого свойства сложности нет. Пройдитесь по [Presentation.getSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getSlides) и по коллекции [BaseSlide.getShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getShapes) каждого слайда. Используйте количество фигур и наличие больших изображений, эффектов, анимаций или мультимедиа как сигналы отбора, и измерьте репрезентативный рендеринг или экспорт, прежде чем считать слайд подтверждённым узким местом производительности.
+Единого свойства сложности не существует. Пройдитесь по [Presentation.getSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getSlides) и коллекции [BaseSlide.getShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getShapes) каждого слайда. Используйте количество фигур и наличие крупных изображений, эффектов, анимаций или мультимедиа как сигналы отбора, и измерьте представительный рендеринг или экспорт, прежде чем считать слайд подтверждённым узким местом производительности.

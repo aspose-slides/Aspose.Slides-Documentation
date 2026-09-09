@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση ήχου σε παρουσιάσεις με χρήση Python
-linktitle: Πλαίσιο ήχου
+title: Διαχείριση Ήχου σε Παρουσιάσεις με Python
+linktitle: Πλαίσιο Ήχου
 type: docs
 weight: 10
 url: /el/python-java/audio-frame/
@@ -14,24 +14,24 @@ keywords:
 - εξαγωγή ήχου
 - Python
 - Aspose.Slides
-description: "Δημιουργήστε και ελέγξτε πλαίσια ήχου στο Aspose.Slides για Python μέσω Java—παραδείγματα κώδικα για ενσωμάτωση, κοπή, βρόχο και διαμόρφωση αναπαραγωγής σε παρουσιάσεις PPT, PPTX και ODP."
+description: "Δημιουργήστε και ελέγξτε πλαίσια ήχου στο Aspose.Slides για Python μέσω Java—παραδείγματα κώδικα για ενσωμάτωση, περικοπή, επανάληψη και διαμόρφωση αναπαραγωγής σε παρουσιάσεις PPT, PPTX και ODP."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο εξηγεί πώς να εργάζεστε με πλαίσια ήχου στο Aspose.Slides. Δείχνει πώς να προσθέτετε ενσωματωμένο ήχο στις διαφάνειες, να προσαρμόζετε τη μικρογραφία του πλαισίου ήχου, να διαμορφώνετε επιλογές αναπαραγωγής όπως η ένταση, η επανάληψη, η απόκρυψη, η κοπή και οι διάρκειες εξασθένισης, και να εξάγετε ήχο που χρησιμοποιείται σε μεταβάσεις παρουσίασης.
+Αυτό το άρθρο εξηγεί πώς να εργαστείτε με πλαίσια ήχου στο Aspose.Slides. Δείχνει πώς να προσθέσετε ενσωματωμένο ήχο στις διαφάνειες, να προσαρμόσετε τη μικρογραφία του πλαισίου ήχου, να διαμορφώσετε επιλογές αναπαραγωγής όπως ένταση, επανάληψη, απόκρυψη, περικοπή και διάρκειες εξασθένισης, και να εξάγετε ήχο που χρησιμοποιείται σε μεταβάσεις παρουσίασης.
 
 ## **Δημιουργία Πλαισίων Ήχου**
 
-Aspose.Slides for Python via Java σάς επιτρέπει να προσθέτετε αρχεία ήχου στις διαφάνειες. Τα αρχεία ήχου ενσωματώνονται στις διαφάνειες ως πλαίσια ήχου. 
+Το Aspose.Slides for Python μέσω Java σάς επιτρέπει να προσθέσετε αρχεία ήχου στις διαφάνειες. Τα αρχεία ήχου ενσωματώνονται στις διαφάνειες ως πλαίσια ήχου. 
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/).
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια μέσω του δείκτη της.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) .
+2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
 3. Διαβάστε το αρχείο ήχου που θέλετε να ενσωματώσετε στη διαφάνεια.
 4. Προσθέστε το ενσωματωμένο πλαίσιο ήχου (που περιέχει το αρχείο ήχου) στη διαφάνεια.
-5. Ορίστε τις μεθόδους [setPlayMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setPlayMode) και [setVolume](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setVolume) που παρέχονται από το αντικείμενο [AudioFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/).
+5. Χρησιμοποιήστε τις μεθόδους [setPlayMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setPlayMode) και [setVolume](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setVolume) που παρέχει το αντικείμενο [AudioFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/) .
 6. Αποθηκεύστε την τροποποιημένη παρουσίαση.
 
-Αυτός ο κώδικας Python δείχνει πώς να προσθέσετε ένα ενσωματωμένο πλαίσιο ήχου σε μια διαφάνεια:
+Αυτός ο κώδικας Python σας δείχνει πώς να προσθέσετε ένα ενσωματωμένο πλαίσιο ήχου σε μια διαφάνεια:
 
 ```python
 from pathlib import Path
@@ -61,9 +61,9 @@ finally:
 
 ## **Αλλαγή Μικρογραφίας Πλαισίου Ήχου**
 
-Όταν προσθέτετε ένα αρχείο ήχου σε μια παρουσίαση, ο ήχος εμφανίζεται ως πλαίσιο με μια τυπική προεπιλεγμένη εικόνα (δείτε την εικόνα στην παρακάτω ενότητα). Μπορείτε να αλλάξετε την εικόνα προεπισκόπησης του πλαισίου ήχου (ορίστε την προτιμώμενη εικόνα).
+Όταν προσθέτετε ένα αρχείο ήχου σε μια παρουσίαση, ο ήχος εμφανίζεται ως πλαίσιο με μια προεπιλεγμένη τυπική εικόνα (δείτε την εικόνα στην παρακάτω ενότητα). Μπορείτε να αλλάξετε την προεπισκόπηση του πλαισίου ήχου σε μια εικόνα της επιλογής σας.
 
-Αυτός ο κώδικας Python δείχνει πώς να αλλάξετε τη μικρογραφία ή την εικόνα προεπισκόπησης ενός πλαισίου ήχου:
+Αυτός ο κώδικας Python σας δείχνει πώς να αλλάξετε τη μικρογραφία ή την προεπισκόπηση ενός πλαισίου ήχου:
 
 ```python
 from pathlib import Path
@@ -98,37 +98,37 @@ finally:
 
 ## **Αλλαγή Επιλογών Αναπαραγωγής Ήχου**
 
-Aspose.Slides for Python via Java σάς επιτρέπει να αλλάξετε επιλογές που ελέγχουν την αναπαραγωγή ή τις ιδιότητες ενός ήχου. Για παράδειγμα, μπορείτε να ρυθμίσετε την ένταση του ήχου, να ορίσετε αναπαραγωγή σε βρόχο ή ακόμα και να αποκρύψετε το εικονίδιο ήχου.
+Το Aspose.Slides for Python μέσω Java σάς επιτρέπει να αλλάξετε τις επιλογές που ελέγχουν την αναπαραγωγή ήχου ή τις ιδιότητές του. Για παράδειγμα, μπορείτε να ρυθμίσετε την ένταση του ήχου, να ορίσετε τον ήχο σε επανάληψη, ή ακόμη και να κρύψετε το εικονίδιο ήχου.
 
-Το παράθυρο **Audio Options** στο Microsoft PowerPoint:
+Το πλέγμα **Audio Options** στο Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
 Οι **Audio Options** του PowerPoint που αντιστοιχούν στις ιδιότητες του Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/) :
 
-- **Start** η λίστα πτυσσόμενη αντιστοιχεί στη μέθοδο [setPlayMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setPlayMode)
-- **Volume** αντιστοιχεί στη μέθοδο [setVolume](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setVolume)
-- **Play Across Slides** αντιστοιχεί στη μέθοδο [setPlayAcrossSlides](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)
-- **Loop until Stopped** αντιστοιχεί στη μέθοδο [setPlayLoopMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setPlayLoopMode)
-- **Hide During Show** αντιστοιχεί στη μέθοδο [setHideAtShowing](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setHideAtShowing)
-- **Rewind after Playing** αντιστοιχεί στη μέθοδο [setRewindAudio](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setRewindAudio)
+- **Start** η λίστα επιλογών αντιστοιχεί στη μέθοδο [setPlayMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setPlayMode) .
+- **Volume** αντιστοιχεί στη μέθοδο [setVolume](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setVolume) .
+- **Play Across Slides** αντιστοιχεί στη μέθοδο [setPlayAcrossSlides](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) .
+- **Loop until Stopped** αντιστοιχεί στη μέθοδο [setPlayLoopMode](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setPlayLoopMode) .
+- **Hide During Show** αντιστοιχεί στη μέθοδο [setHideAtShowing](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setHideAtShowing) .
+- **Rewind after Playing** αντιστοιχεί στη μέθοδο [setRewindAudio](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setRewindAudio) .
 
 Οι επιλογές **Editing** του PowerPoint που αντιστοιχούν στις ιδιότητες του Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/) :
 
-- **Fade In** αντιστοιχεί στη μέθοδο [setFadeInDuration](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fade Out** αντιστοιχεί στη μέθοδο [setFadeOutDuration](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Trim Audio Start Time** αντιστοιχεί στη μέθοδο [setTrimFromStart](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time** η τιμή ισούται με τη διάρκεια του ήχου μείον την τιμή της μεθόδου [setTrimFromEnd](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setTrimFromEnd)
+- **Fade In** αντιστοιχεί στη μέθοδο [setFadeInDuration](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setFadeInDuration) .
+- **Fade Out** αντιστοιχεί στη μέθοδο [setFadeOutDuration](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setFadeOutDuration) .
+- **Trim Audio Start Time** αντιστοιχεί στη μέθοδο [setTrimFromStart](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setTrimFromStart) .
+- **Trim Audio End Time** η τιμή είναι η διάρκεια του ήχου μείον την τιμή που ορίζεται από τη μέθοδο [setTrimFromEnd](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setTrimFromEnd) .
 
-Ο **Volume control** του PowerPoint στον πίνακα ελέγχου ήχου αντιστοιχεί στη μέθοδο [setVolumeValue](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setVolumeValue). Σας επιτρέπει να αλλάξετε την ένταση του ήχου ως ποσοστό.
+Ο **Volume control** του PowerPoint στον πίνακα ελέγχου ήχου αντιστοιχεί στη μέθοδο [setVolumeValue](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setVolumeValue) . Σας επιτρέπει να αλλάξετε την ένταση του ήχου ως ποσοστό.
 
-Αυτή είναι η διαδικασία για την αλλαγή των επιλογών αναπαραγωγής ήχου:
+Αυτό είναι πώς αλλάζετε τις επιλογές αναπαραγωγής ήχου:
 
-1. [Δημιουργήστε](#create-audio-frames) ή αποκτήστε το Audio Frame.
-2. Ορίστε νέες τιμές για τις ιδιότητες του Audio Frame που χρειάζεστε να προσαρμόσετε.
+1. [Create](#create-audio-frames) ή λάβετε το πλαίσιο ήχου.
+2. Ορίστε νέες τιμές για τις ιδιότητες του πλαισίου ήχου που θέλετε να ρυθμίσετε.
 3. Αποθηκεύστε το τροποποιημένο αρχείο PowerPoint.
 
-Αυτός ο κώδικας Python δείχνει μια λειτουργία στην οποία προσαρμόζονται οι επιλογές ενός ήχου:
+Αυτός ο κώδικας Python επιδεικνύει μια λειτουργία όπου οι επιλογές ήχου ρυθμίζονται:
 
 ```python
 import jpype
@@ -143,7 +143,7 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # Αναπαραγωγή με κλικ σε χαμηλή ένταση, σε όλες τις διαφάνειες, χωρίς βρόχο.
+        # Αναπαραγωγή με κλικ σε χαμηλή ένταση, σε όλες τις διαφάνειες, χωρίς επανάληψη.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
@@ -158,12 +158,12 @@ finally:
     presentation.dispose()
 ```
 
-Αυτό το παράδειγμα Python δείχνει πώς να προσθέσετε ένα νέο πλαίσιο ήχου με ενσωματωμένο ήχο, να το κόψετε και να ορίσετε τις διάρκειες εξασθένισης:
+Αυτό το παράδειγμα Python δείχνει πώς να προσθέσετε ένα νέο πλαίσιο ήχου με ενσωματωμένο ήχο, να το περικόψετε και να ορίσετε τις διάρκειες εξασθένισης:
 
 ```python
 from pathlib import Path
 
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -179,10 +179,10 @@ try:
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Κόψτε 1.5 δευτερόλεπτα από την αρχή και 2 δευτερόλεπτα από το τέλος.
+    # Περικοπή 1,5 δευτερολέπτων από την αρχή και 2 δευτερολέπτων από το τέλος.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # Ορίστε το fade‑in στα 200 ms και το fade‑out στα 500 ms.
+    # Ορίστε το fade-in σε 200 ms και το fade-out σε 500 ms.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
@@ -214,13 +214,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Διαχείριση Υπότιτλων Ήχου**
+## **Διαχείριση Υποτίτλων Ήχου**
 
-Το Aspose.Slides σάς επιτρέπει να προσθέσετε κλειστούς υπότιτλους σε ένα πλαίσιο ήχου μέσω της μεθόδου [getCaptionTracks](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#getCaptionTracks). Αυτή η μέθοδος επιστρέφει ένα [CaptionsCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/), που σας επιτρέπει να προσθέτετε διαδρομές υποτίτλων WebVTT, να επαναλαμβάνετε τις υπάρχουσες διαδρομές και να τις αφαιρείτε όταν χρειάζεται.
+Το Aspose.Slides σάς επιτρέπει να προσθέσετε κλειστούς υπότιτλους σε ένα πλαίσιο ήχου μέσω της μεθόδου [getCaptionTracks](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#getCaptionTracks) . Αυτή η μέθοδος επιστρέφει ένα [CaptionsCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/) , το οποίο σας επιτρέπει να προσθέσετε κομμάτια υποτίτλων WebVTT, να περιηγηθείτε στα υπάρχοντα κομμάτια και να τα αφαιρέσετε όταν χρειάζεται.
 
-**Προσθήκη Υπότιτλων Ήχου**
+**Προσθήκη Υποτίτλων Ήχου**
 
-Χρησιμοποιήστε τη μέθοδο [getCaptionTracks](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#getCaptionTracks) για να συνδέσετε μία ή περισσότερες διαδρομές υποτίτλων σε ένα πλαίσιο ήχου. Στο παρακάτω παράδειγμα, ένα αρχείο ήχου προστίθεται σε μια διαφάνεια, και έπειτα μια νέα διαδρομή υπότιτλου φορτώνεται από ένα αρχείο `.vtt`.
+Χρησιμοποιήστε τη μέθοδο [getCaptionTracks](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#getCaptionTracks) για να συνδέσετε ένα ή περισσότερα κομμάτια υποτίτλων σε ένα πλαίσιο ήχου. Στο παρακάτω παράδειγμα, προστίθεται ένα αρχείο ήχου σε μια διαφάνεια και, στη συνέχεια, ένα νέο κομμάτι υπότιτλου φορτώνεται από ένα αρχείο `.vtt` .
 
 ```python
 from pathlib import Path
@@ -241,15 +241,16 @@ try:
     slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # Προσθέστε ένα νέο κομμάτι υποτίτλων από αρχείο WebVTT.
+    # Προσθήκη νέου κομματιού υποτίτλου από αρχείο WebVTT.
+    audio_frame.getCaptionTracks().add("New track", "track.vtt")
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**Εξαγωγή Υπότιτλων Ήχου**
+**Εξαγωγή Υποτίτλων Ήχου**
 
-Μπορείτε να επαναλάβετε τις διαδρομές υποτίτλων που σχετίζονται με ένα πλαίσιο ήχου και να τις αποθηκεύσετε ως αρχεία `.vtt`. Κάθε διαδρομή υπότιτλου εκθέτει τα δυαδικά της δεδομένα και το μοναδικό της αναγνωριστικό, που μπορούν να χρησιμοποιηθούν κατά την εξαγωγή των υποτίτλων.
+Μπορείτε να περιηγηθείτε στα κομμάτια υποτίτλων που σχετίζονται με ένα πλαίσιο ήχου και να τα αποθηκεύσετε ως αρχεία `.vtt`. Κάθε κομμάτι υπότιτλου εκθέτει τα δυαδικά δεδομένα και το μοναδικό του αναγνωριστικό, τα οποία μπορούν να χρησιμοποιηθούν κατά την εξαγωγή των υποτίτλων.
 
 ```python
 from pathlib import Path
@@ -268,7 +269,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
-                # Αποθηκεύστε το κομμάτι υποτίτλου ως αρχείο .vtt.
+                # Αποθήκευση του κομματιού υποτίτλου ως αρχείο .vtt.
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -276,9 +277,9 @@ finally:
     presentation.dispose()
 ```
 
-**Αφαίρεση Υπότιτλων Ήχου**
+**Αφαίρεση Υποτίτλων Ήχου**
 
-Για να αφαιρέσετε τους υπότιτλους από ένα πλαίσιο ήχου, χρησιμοποιήστε τις μεθόδους του [CaptionsCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/), όπως [clear](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#remove) ή [removeAt](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#removeAt). Το παρακάτω παράδειγμα αφαιρεί όλες τις διαδρομές υποτίτλων από ένα πλαίσιο ήχου.
+Για να αφαιρέσετε υπότιτλους από ένα πλαίσιο ήχου, χρησιμοποιήστε τις μεθόδους που παρέχονται από το [CaptionsCollection](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/) , όπως [clear](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#clear) , [remove](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#remove) ή [removeAt](https://reference.aspose.com/slides/el/python-java/aspose.slides/captionscollection/#removeAt) . Το παρακάτω παράδειγμα αφαιρεί όλα τα κομμάτια υποτίτλων από ένα πλαίσιο ήχου.
 
 ```python
 import jpype
@@ -304,14 +305,14 @@ finally:
 
 ## **Εξαγωγή Ήχου**
 
-Το Aspose.Slides for Python via Java σάς επιτρέπει να εξάγετε τον ήχο που χρησιμοποιείται σε μεταβάσεις παρουσίασης. Για παράδειγμα, μπορείτε να εξαγάγετε τον ήχο που χρησιμοποιείται σε μια συγκεκριμένη διαφάνεια.
+Το Aspose.Slides for Python μέσω Java σάς επιτρέπει να εξάγετε τον ήχο που χρησιμοποιείται σε μεταβάσεις παρουσίασης. Για παράδειγμα, μπορείτε να εξάγετε τον ήχο που χρησιμοποιείται σε μια συγκεκριμένη διαφάνεια.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) και φορτώστε την παρουσίαση που περιέχει τον ήχο.
-2. Αποκτήστε την αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
-3. Προσπελάστε τις [slideshow transitions](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseslide/#getSlideShowTransition) της διαφάνειας.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/) και φορτώστε την παρουσίαση που περιέχει τον ήχο.
+2. Αποκτήστε μια αναφορά στη σχετική διαφάνεια με βάση το δείκτη της.
+3. Προσεγγίστε τις [slideshow transitions](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseslide/#getSlideShowTransition) για τη διαφάνεια.
 4. Εξάγετε τον ήχο ως δεδομένα byte.
 
-Αυτός ο κώδικας Python δείχνει πώς να εξάγετε τον ήχο που χρησιμοποιείται σε μια διαφάνεια:
+Αυτός ο κώδικας Python σας δείχνει πώς να εξάγετε τον ήχο που χρησιμοποιείται σε μια διαφάνεια:
 
 ```python
 import jpype
@@ -336,16 +337,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
 **Μπορώ να επαναχρησιμοποιήσω το ίδιο αρχείο ήχου σε πολλές διαφάνειες χωρίς να αυξήσω το μέγεθος του αρχείου;**
 
-Ναι. Προσθέστε τον ήχο μία φορά στη κοινόχρηστη [audio collection](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getAudios) της παρουσίασης και δημιουργήστε επιπλέον πλαίσια ήχου που αναφέρονται σε αυτό το υπάρχον στοιχείο. Αυτό αποτρέπει την αντιγραφή των δεδομένων πολυμέσων και διατηρεί το μέγεθος της παρουσίασης υπό έλεγχο.
+Ναι. Προσθέστε τον ήχο μία φορά στη κοινόχρηστη [audio collection](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getAudios) της παρουσίασης και δημιουργήστε επιπλέον πλαίσια ήχου που αναφέρονται σε αυτό το υπάρχον αρχείο. Αυτό αποφεύγει τη διπλή αποθήκευση των δεδομένων πολυμέσων και διατηρεί το μέγεθος της παρουσίασης υπό έλεγχο.
 
-**Μπορώ να αντικαταστήσω τον ήχο σε ένα υπάρχον πλαίσιο ήχου χωρίς να δημιουργήσω ξανά το σχήμα;**
+**Μπορώ να αντικαταστήσω τον ήχο σε ένα υπάρχον πλαίσιο ήχου χωρίς να ξαναδημιουργήσω το σχήμα;**
 
-Ναι. Για έναν συνδεδεμένο ήχο, ενημερώστε τη [link path](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setLinkPathLong) ώστε να δείχνει στο νέο αρχείο. Για έναν ενσωματωμένο ήχο, αντικαταστήστε το αντικείμενο [embedded audio](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setEmbeddedAudio) με ένα άλλο από τη [audio collection](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getAudios) της παρουσίασης. Η μορφοποίηση του πλαισίου και οι περισσότερες ρυθμίσεις αναπαραγωγής παραμένουν αμετάβλητες.
+Ναι. Για έναν συνδεδεμένο ήχο, ενημερώστε το [link path](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setLinkPathLong) ώστε να δείχνει στο νέο αρχείο. Για έναν ενσωματωμένο ήχο, αντικαταστήστε το αντικείμενο [embedded audio](https://reference.aspose.com/slides/el/python-java/aspose.slides/audioframe/#setEmbeddedAudio) με κάποιο άλλο από τη [audio collection](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getAudios) της παρουσίασης. Η μορφοποίηση του πλαισίου και οι περισσότερες ρυθμίσεις αναπαραγωγής παραμένουν αμετάβλητες.
 
-**Η κοπή αλλάζει τα υποκείμενα δεδομένα ήχου που αποθηκεύονται στην παρουσίαση;**
+**Αλλάζει η περικοπή τα υποκείμενα δεδομένα ήχου που αποθηκεύονται στην παρουσίαση;**
 
-Όχι. Η κοπή ρυθμίζει μόνο τα όρια αναπαραγωγής. Τα αρχικά bytes του ήχου παραμένουν ανεπηρέαστα και μπορούν να προσπελαστούν μέσω του ενσωματωμένου ήχου ή της [audio collection](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getAudios) της παρουσίασης.
+Όχι. Η περικοπή ρυθμίζει μόνο τα όρια αναπαραγωγής. Τα αρχικά bytes του ήχου παραμένουν αμετάβλητα και προσβάσιμα μέσω του ενσωματωμένου ήχου ή της [audio collection](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getAudios) της παρουσίασης.

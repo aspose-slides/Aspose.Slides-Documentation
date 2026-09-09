@@ -1,5 +1,5 @@
 ---
-title: Buat Presentasi dengan Python via Java
+title: Buat Presentasi di Python via Java
 linktitle: Buat Presentasi
 type: docs
 weight: 10
@@ -19,21 +19,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Buat presentasi dengan Python via Java menggunakan Aspose.Slides—hasilkan file PPT, PPTX, dan ODP, manfaatkan dukungan OpenDocument, dan simpan secara programatis untuk hasil yang handal."
+description: "Buat presentasi di Python via Java dengan Aspose.Slides—hasilkan file PPT, PPTX, dan ODP, manfaatkan dukungan OpenDocument, serta simpan secara programatik untuk hasil yang dapat diandalkan."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menunjukkan cara membuat presentasi dengan Aspose.Slides untuk Python via Java, menambahkan bentuk dengan teks ke slide pertama, dan menyimpan hasilnya sebagai file PPTX. FAQ mencakup format output, templat, ukuran slide, penggunaan memori, threading, lisensi, tanda tangan digital, dan dukungan VBA.
+Artikel ini menunjukkan cara membuat presentasi dengan Aspose.Slides untuk Python via Java, menambahkan bentuk dengan teks ke slide pertama, dan menyimpan hasilnya sebagai file PPTX. Bagian Tanya Jawab mencakup format output, templat, pengaturan ukuran slide, penggunaan memori, threading, lisensi, tanda tangan digital, dan dukungan VBA.
 
 ## **Buat Presentasi**
 
-Membuat file PowerPoint dari awal dengan Aspose.Slides untuk Python via Java sesederhana menginstansiasi kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) . Konstruktor secara otomatis menyediakan dek kosong dengan satu slide, memberikan kanvas langsung untuk bentuk, teks, diagram, atau konten lain yang dibutuhkan aplikasi Anda. Setelah Anda memodifikasi slide tersebut—atau menambahkan yang baru—Anda dapat menyimpan hasilnya ke format PPTX, PPT lama, atau bahkan format OpenDocument. Contoh kode singkat di bawah ini mengilustrasikan alur kerja ini dengan menambahkan bentuk sederhana ke slide pertama.
+Membuat file PowerPoint dari awal dalam Aspose.Slides untuk Python via Java semudah menginstansiasi kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/). Konstruktor secara otomatis menyediakan dek kosong dengan satu slide, memberi Anda kanvas langsung untuk bentuk, teks, diagram, atau konten lain yang dibutuhkan aplikasi Anda. Setelah Anda memodifikasi slide tersebut—atau menambahkan yang baru—Anda dapat menyimpan hasilnya ke format PPTX, PPT lama, atau bahkan format OpenDocument. Contoh kode singkat di bawah ini menggambarkan alur kerja ini dengan menambahkan bentuk sederhana pada slide pertama.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-2. Dapatkan slide pertama berdasarkan indeksnya.
-3. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/) bertipe [ShapeType.Cloud](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapetype/#Cloud) menggunakan [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addAutoShape) .
-4. Atur teks bentuk menggunakan [TextFrame.setText](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframe/#setText) .
-5. Simpan presentasi menggunakan [Presentation.save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveformat/#Pptx) .
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
+1. Dapatkan slide pertama berdasarkan indeksnya.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/) tipe [ShapeType.Cloud](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapetype/#Cloud) menggunakan [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addAutoShape).
+1. Atur teks bentuk menggunakan [TextFrame.setText](https://reference.aspose.com/slides/id/python-java/aspose.slides/textframe/#setText).
+1. Simpan presentasi menggunakan [Presentation.save](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/#save) dengan [SaveFormat.Pptx](https://reference.aspose.com/slides/id/python-java/aspose.slides/saveformat/#Pptx).
 
 Contoh berikut memerlukan Aspose.Slides untuk Python via Java dan runtime Java yang kompatibel. Ia memulai JVM jika belum berjalan, menambahkan bentuk awan ke slide pertama, dan menyimpan presentasi:
 
@@ -62,23 +62,23 @@ finally:
     presentation.dispose()
 ```
 
-Hasil:
+Hasilnya:
 
 ![Presentasi baru](new_presentation.png)
 
-## **FAQ**
+## **Tanya Jawab**
 
 **Format apa yang dapat saya simpan untuk presentasi baru?**
 
-Anda dapat menyimpan ke [PPTX, PPT, dan ODP](/slides/id/python-java/save-presentation/), dan mengekspor ke [PDF](/slides/id/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/id/python-java/convert-powerpoint-to-xps/), [HTML](/slides/id/python-java/convert-powerpoint-to-html/), [SVG](/slides/id/python-java/render-slide-as-svg/), dan [images](/slides/id/python-java/convert-powerpoint-to-png/), antara lain.
+Anda dapat menyimpan ke [PPTX, PPT, dan ODP](/slides/id/python-java/save-presentation/), dan mengekspor ke [PDF](/slides/id/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/id/python-java/convert-powerpoint-to-xps/), [HTML](/slides/id/python-java/convert-powerpoint-to-html/), [SVG](/slides/id/python-java/render-slide-as-svg/), serta [gambar](/slides/id/python-java/convert-powerpoint-to-png/), di antara yang lainnya.
 
-**Apakah saya dapat memulai dari templat (POTX/POTM) dan menyimpan sebagai PPTX biasa?**
+**Bisakah saya memulai dari templat (POTX/POTM) dan menyimpan sebagai PPTX biasa?**
 
-Ya. Muat templat dan simpan ke format yang diinginkan; format POTX/POTM/PPTM dan serupa [didukung](/slides/id/python-java/supported-file-formats/) .
+Ya. Muat templat dan simpan ke format yang diinginkan; format POTX/POTM/PPTM dan serupa [didukung](/slides/id/python-java/supported-file-formats/).
 
-**Bagaimana saya mengontrol ukuran/rasio aspek slide saat membuat presentasi?**
+**Bagaimana cara mengontrol ukuran/rasio aspek slide saat membuat presentasi?**
 
-Atur [slide size](/slides/id/python-java/slide-size/) (termasuk preset seperti 4:3 dan 16:9 atau dimensi khusus) dan pilih bagaimana konten harus diskalakan.
+Atur [ukuran slide](/slides/id/python-java/slide-size/) (termasuk preset seperti 4:3 dan 16:9 atau dimensi kustom) dan pilih bagaimana konten harus diskalakan.
 
 **Dalam satuan apa ukuran dan koordinat diukur?**
 
@@ -86,20 +86,20 @@ Dalam poin: 1 inci sama dengan 72 unit.
 
 **Bagaimana cara menangani presentasi sangat besar (dengan banyak file media) untuk mengurangi penggunaan memori?**
 
-Gunakan [BLOB management strategies](/slides/id/python-java/manage-blob/), batasi penyimpanan dalam memori dengan memanfaatkan file sementara, dan lebih pilih alur kerja berbasis file dibandingkan alur berbasis memori saja.
+Gunakan [strategi manajemen BLOB](/slides/id/python-java/manage-blob/), batasi penyimpanan dalam memori dengan memanfaatkan file sementara, dan lebih pilih alur kerja berbasis file daripada alur stream yang sepenuhnya dalam memori.
 
-**Apakah saya dapat membuat/menyimpan presentasi secara paralel?**
+**Bisakah saya membuat/menyimpan presentasi secara paralel?**
 
-Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang sama dari [multiple threads](/slides/id/python-java/multithreading/). Jalankan instance terpisah yang terisolasi per thread atau proses.
+Anda tidak dapat mengoperasikan instance [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) yang sama dari [beberapa thread](/slides/id/python-java/multithreading/). Jalankan instance terpisah dan terisolasi per thread atau proses.
 
 **Bagaimana cara menghapus watermark percobaan dan batasan?**
 
-[Apply a license](/slides/id/python-java/licensing/) sekali per proses. XML lisensi harus tetap tidak diubah, dan pengaturan lisensi harus disinkronkan jika banyak thread terlibat.
+[Terapkan lisensi](/slides/id/python-java/licensing/) sekali per proses. XML lisensi harus tetap tidak diubah, dan penyiapan lisensi harus disinkronkan jika beberapa thread terlibat.
 
-**Apakah saya dapat menandatangani digital PPTX yang saya buat?**
+**Bisakah saya menandatangani secara digital PPTX yang saya buat?**
 
-Ya. [Digital signatures](/slides/id/python-java/digital-signature-in-powerpoint/) (menambah dan memverifikasi) didukung untuk presentasi.
+Ya. [Tanda tangan digital](/slides/id/python-java/digital-signature-in-powerpoint/) (menambah dan memverifikasi) didukung untuk presentasi.
 
-**Apakah macro (VBA) didukung dalam presentasi yang dibuat?**
+**Apakah makro (VBA) didukung dalam presentasi yang dibuat?**
 
-Ya. Anda dapat [create/edit VBA projects](/slides/id/python-java/presentation-via-vba/) dan menyimpan file yang mendukung macro seperti PPTM/PPSM.
+Ya. Anda dapat [membuat/mengedit proyek VBA](/slides/id/python-java/presentation-via-vba/) dan menyimpan file dengan makro seperti PPTM/PPSM.

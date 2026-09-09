@@ -12,17 +12,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Lavora con le caselle di testo in Aspose.Slides per Python via Java: aggiungi, formatta, trova e rimuovi testo in presentazioni PowerPoint e OpenDocument."
+description: "Lavora con le caselle di testo in Aspose.Slides per Python via Java: aggiungi, formatta, trova e rimuovi il testo nelle presentazioni PowerPoint e OpenDocument."
 ---
 In **Aspose.Slides for Python via Java**, una casella di testo è una forma automatica che contiene testo. Quasi qualsiasi forma può contenere testo, ma una tipica casella di testo non ha riempimento né bordo e visualizza solo il testo.
 
 Questa guida spiega come aggiungere, accedere e rimuovere le caselle di testo programmaticamente.
 
-Installa il pacchetto come descritto in [Installation](/slides/it/python-java/installation/). Ogni esempio importa `asposeslides` prima di avviare la JVM, poi importa l'API dopo che la JVM è in esecuzione.
+Installa il pacchetto come descritto in [Installation](/slides/it/python-java/installation/). Ogni esempio importa `asposeslides` prima di avviare la JVM, quindi importa l'API dopo che la JVM è in esecuzione.
 
-## **Aggiungi una casella di testo**
+## **Add a Text Box**
 
-Crea un rettangolo, rimuovi il suo riempimento e bordo, e assegna del testo formattato.
+Crea un rettangolo, rimuovi il suo riempimento e il bordo, e assegna il testo formattato.
 
 ```python
 import jpype
@@ -56,9 +56,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Accedi alle caselle di testo per contenuto**
+## **Access Text Boxes by Content**
 
-Aggiungi una casella di testo di esempio, poi trova le forme il cui testo contiene la parola chiave "Slide".
+Aggiungi una casella di testo di esempio, quindi trova le forme il cui testo contiene la parola chiave "Slide".
 
 ```python
 import jpype
@@ -88,7 +88,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Rimuovi le caselle di testo per contenuto**
+## **Remove Text Boxes by Content**
 
 Trova ed elimina le caselle di testo nella prima diapositiva che contengono una parola chiave specifica.
 
@@ -123,6 +123,6 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}}
-Raccogli le forme corrispondenti in un elenco separato prima di rimuoverle per evitare di modificare la collezione di forme durante l'iterazione.
+{{% alert color="success" title="Suggerimento" %}}
+Raccogli le forme corrispondenti in un elenco separato prima di rimuoverle, per evitare di modificare la collezione di forme durante l'iterazione.
 {{% /alert %}}

@@ -8,7 +8,7 @@ keywords:
 - contenu
 - BLOB
 - hyperlien
-- média
+- médias
 - OLE
 - texte
 - zoom
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Créez, modifiez et extrayez le contenu de la présentation avec Aspose.Slides pour Python via Java — obtenez des exemples de code pour le texte, les images, les formes, les graphiques ; PPT, PPTX et ODP."
+description: "Créez, modifiez et extrayez le contenu des présentations avec Aspose.Slides for Python via Java — obtenez des exemples de code pour le texte, les images, les formes et les graphiques dans les fichiers PPT, PPTX et ODP."
 ---

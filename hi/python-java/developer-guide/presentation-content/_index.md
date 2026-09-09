@@ -1,5 +1,5 @@
 ---
-title: Python के माध्यम से Java में प्रस्तुति सामग्री प्रबंधित करें
+title: Python के माध्यम से Java में प्रस्तुति सामग्री को प्रबंधित करें
 linktitle: प्रस्तुति सामग्री
 type: docs
 weight: 30
@@ -14,7 +14,7 @@ keywords:
 - ज़ूम
 - चार्ट
 - समीकरण
-- आकृति
+- आकार
 - इंक
 - SmartArt
 - तालिका
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java के साथ प्रस्तुति सामग्री बनाएं, संपादित करें और निकालें—पाठ, चित्र, आकृतियों, चार्ट के लिए कोड उदाहरण प्राप्त करें; PPT, PPTX और ODP।"
+description: "Aspose.Slides for Python via Java के साथ प्रस्तुति सामग्री बनाएं, संपादित करें और निकालें—PPT, PPTX और ODP फाइलों में पाठ, छवियां, आकार और चार्ट के कोड उदाहरण प्राप्त करें।"
 ---

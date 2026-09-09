@@ -8,7 +8,7 @@ keywords:
 - zawartość
 - BLOB
 - hiperłącze
-- media
+- multimedia
 - OLE
 - tekst
 - powiększenie
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Twórz, edytuj i wyodrębniaj zawartość prezentacji przy użyciu Aspose.Slides dla Pythona za pośrednictwem Java — zobacz przykłady kodu dla tekstu, obrazów, kształtów, wykresów; PPT, PPTX i ODP."
+description: "Utwórz, edytuj i wyodrębnij zawartość prezentacji za pomocą Aspose.Slides for Python via Java — uzyskaj przykłady kodu dla tekstu, obrazów, kształtów i wykresów w plikach PPT, PPTX i ODP."
 ---

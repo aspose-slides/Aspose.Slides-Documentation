@@ -1,37 +1,37 @@
 ---
-title: مدیریت صدا در ارائه‌ها با استفاده از Python
-linktitle: قاب صدا
+title: مدیریت صدا در ارائه‌ها با پایتون
+linktitle: فریم صوتی
 type: docs
 weight: 10
 url: /fa/python-java/audio-frame/
 keywords:
-- صدا
-- قاب صدا
-- تصویر بندکمک
-- افزودن صدا
-- ویژگی‌های صدا
-- گزینه‌های صدا
+- صوت
+- فریم صوتی
+- تصویر بندانگشتی
+- افزودن صوت
+- ویژگی‌های صوت
+- گزینه‌های صوت
 - استخراج صدا
 - پایتون
 - Aspose.Slides
-description: "ایجاد و کنترل فریم‌های صوتی در Aspose.Slides برای Python از طریق Java—نمونه‌های کد برای جاسازی، برش، حلقه‌زدن و پیکربندی پخش در ارائه‌های PPT، PPTX و ODP."
+description: "ایجاد و کنترل فریم‌های صوتی در Aspose.Slides برای پایتون از طریق جاوا- مثال‌های کد برای جاسازی، برش، حلقه‌گذاری و پیکربندی پخش در ارائه‌های PPT، PPTX و ODP."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله نحوه کار با فریم‌های صوتی در Aspose.Slides را توضیح می‌دهد. نشان می‌دهد چگونه صداهای جاسازی‌شده را به اسلایدها اضافه کنید، تصویر پیش‌نمایش فریم صوتی را سفارشی کنید، گزینه‌های پخش مانند حجم، حلقه‌زدن، مخفی‌کردن، برش و مدت زمان محو شدن را پیکربندی کنید و صداهای مورد استفاده در انتقال‌های نمایش اسلاید را استخراج کنید.
+این مقاله توضیح می‌دهد که چگونه با فریم‌های صوتی در Aspose.Slides کار کنید. نشان می‌دهد چگونه صوت جاسازی‌شده را به اسلایدها اضافه کنید، تصویر پیش‌نمایش فریم صوتی را سفارشی کنید، گزینه‌های پخش مانند حجم، تکرار، مخفی‌سازی، برش و مدت زمان‌های محو شدن را تنظیم کنید و صوت استفاده‌شده در انتقال‌های نمایش اسلایدها را استخراج کنید.
 
 ## **ایجاد فریم‌های صوتی**
 
-Aspose.Slides برای Python via Java به شما اجازه می‌دهد فایل‌های صوتی را به اسلایدها اضافه کنید. فایل‌های صوتی به‌عنوان فریم‌های صوتی در اسلایدها جاسازی می‌شوند.
+Aspose.Slides برای Python از طریق Java به شما اجازه می‌دهد فایل‌های صوتی را به اسلایدها اضافه کنید. فایل‌های صوتی به عنوان فریم‌های صوتی در اسلایدها جاسازی می‌شوند. 
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.
-3. فایل صوتی مورد نظر خود را که می‌خواهید در اسلاید جاسازی کنید، بخوانید.
-4. فریم صوتی جاسازی‌شده (دارای فایل صوتی) را به اسلاید اضافه کنید.
-5. متدهای [setPlayMode](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setPlayMode) و [setVolume](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setVolume) که توسط شیء [AudioFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/) ارائه می‌شوند را تنظیم کنید.
-6. ارائه اصلاح‌شده را ذخیره کنید.
+2. مرجع به اسلاید را بر اساس شاخص آن دریافت کنید.
+3. فایل صوتی که می‌خواهید در اسلاید جاسازی کنید را بخوانید.
+4. فریم صوتی جاسازی‌شده (شامل فایل صوتی) را به اسلاید اضافه کنید.
+5. از متدهای [setPlayMode](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setPlayMode) و [setVolume](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setVolume) که توسط شیء [AudioFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/) ارائه می‌شوند استفاده کنید.
+6. ارائه‌ی اصلاح‌شده را ذخیره کنید.
 
-این کد Python نشان می‌دهد چگونه یک فریم صوتی جاسازی‌شده به اسلاید اضافه کنید:
+این کد Python نشان می‌دهد چگونه یک فریم صوتی جاسازی‌شده به اسلاید اضافه شود:
 
 ```python
 from pathlib import Path
@@ -59,11 +59,11 @@ finally:
     presentation.dispose()
 ```
 
-## **تغییر تصویر پیش‌نمایش فریم صوتی**
+## **تغییر تصویر بندانگشتی فریم صوتی**
 
-زمانی که یک فایل صوتی را به ارائه اضافه می‌کنید، صدا به‌صورت فریمی با تصویر پیش‌فرض استاندارد ظاهر می‌شود (نگاه کنید به تصویر در بخش زیر). می‌توانید تصویر پیش‌نمایش فریم صوتی را تغییر دهید (تصویر دلخواه خود را تنظیم کنید).
+هنگامی که یک فایل صوتی را به ارائه اضافه می‌کنید، صوت به صورت فریمی با تصویر پیش‌فرض استاندارد ظاهر می‌شود (به تصویر در بخش زیر مراجعه کنید). می‌توانید تصویر پیش‌نمایش فریم صوتی را به تصویری از انتخاب خود تغییر دهید.
 
-این کد Python نشان می‌دهد چگونه تصویر بند‑کمک یا پیش‌نمایش فریم صوتی را تغییر دهید:
+این کد Python نشان می‌دهد چگونه تصویر بندانگشتی یا پیش‌نمایش فریم صوتی را تغییر دهید:
 
 ```python
 from pathlib import Path
@@ -96,39 +96,39 @@ finally:
     presentation.dispose()
 ```
 
-## **تغییر گزینه‌های پخش صدا**
+## **تغییر گزینه‌های پخش صوت**
 
-Aspose.Slides برای Python via Java امکان تغییر گزینه‌هایی که رفتار یا ویژگی‌های پخش صدا را کنترل می‌کنند، فراهم می‌کند. به‌عنوان مثال می‌توانید حجم صدا را تنظیم کنید، صدا را به‌صورت حلقه‌ای پخش کنید یا حتی نماد صدا را مخفی کنید.
+Aspose.Slides برای Python از طریق Java به شما اجازه می‌دهد گزینه‌هایی که کنترل پخش صوت یا ویژگی‌های آن را تنظیم می‌کنند، تغییر دهید. به عنوان مثال می‌توانید حجم صدا را تنظیم کنید، صوت را به صورت حلقه‌ای پخش کنید یا حتی نماد صوت را مخفی کنید.
 
-پنل **گزینه‌های صدا** در Microsoft PowerPoint:
+The **Audio Options** pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-**گزینه‌های صدا** PowerPoint که به ویژگی‌های [AudioFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/) در Aspose.Slides مطابقت دارند:
+گزینه‌های **Audio Options** در PowerPoint که با ویژگی‌های [AudioFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/) در Aspose.Slides مطابقت دارند:
 
-- فهرست کشویی **Start** متناظر با متد [setPlayMode](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setPlayMode) است
-- **Volume** متناظر با متد [setVolume](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setVolume) است
-- **Play Across Slides** متناظر با متد [setPlayAcrossSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) است
-- **Loop until Stopped** متناظر با متد [setPlayLoopMode](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setPlayLoopMode) است
-- **Hide During Show** متناظر با متد [setHideAtShowing](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setHideAtShowing) است
-- **Rewind after Playing** متناظر با متد [setRewindAudio](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setRewindAudio) است
+- فهرست کشویی **Start** با متد [setPlayMode](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setPlayMode) مطابقت دارد
+- **Volume** با متد [setVolume](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setVolume) مطابقت دارد
+- **Play Across Slides** با متد [setPlayAcrossSlides](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setPlayAcrossSlides) مطابقت دارد
+- **Loop until Stopped** با متد [setPlayLoopMode](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setPlayLoopMode) مطابقت دارد
+- **Hide During Show** با متد [setHideAtShowing](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setHideAtShowing) مطابقت دارد
+- **Rewind after Playing** با متد [setRewindAudio](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setRewindAudio) مطابقت دارد
 
-گزینه‌های **ویرایش** PowerPoint که به ویژگی‌های [AudioFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/) در Aspose.Slides مطابقت دارند:
+گزینه‌های **Editing** در PowerPoint که با ویژگی‌های [AudioFrame](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/) در Aspose.Slides مطابقت دارند:
 
-- **Fade In** متناظر با متد [setFadeInDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setFadeInDuration) است
-- **Fade Out** متناظر با متد [setFadeOutDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setFadeOutDuration) است
-- **Trim Audio Start Time** متناظر با متد [setTrimFromStart](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setTrimFromStart) است
-- مقدار **Trim Audio End Time** برابر است با مدت زمان صدا منهای مقدار متد [setTrimFromEnd](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setTrimFromEnd)
+- **Fade In** با متد [setFadeInDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setFadeInDuration) مطابقت دارد
+- **Fade Out** با متد [setFadeOutDuration](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setFadeOutDuration) مطابقت دارد
+- **Trim Audio Start Time** با متد [setTrimFromStart](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setTrimFromStart) مطابقت دارد
+- مقدار **Trim Audio End Time** برابر است با طول کل صوت منهای مقداری که توسط متد [setTrimFromEnd](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setTrimFromEnd) تنظیم می‌شود
 
-کنترل **حجم** در پنل کنترل صدا در PowerPoint متناظر با متد [setVolumeValue](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setVolumeValue) است. این متد به شما اجازه می‌دهد حجم صدا را به‌صورت درصد تغییر دهید.
+کنترل **Volume** در پنل کنترل صوت PowerPoint با متد [setVolumeValue](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setVolumeValue) مطابقت دارد. این متد به شما امکان می‌دهد حجم صوت را به صورت درصد تغییر دهید.
 
-این نحوه تغییر گزینه‌های پخش صدا است:
+این روش برای تغییر گزینه‌های پخش صوت است:
 
-1. [Сreate](#create-audio-frames) کنید یا فریم صوتی را دریافت کنید.
-2. مقادیر جدید را برای ویژگی‌های فریم صوتی که می‌خواهید تنظیم کنید، تعیین کنید.
+1. [Create](#create-audio-frames) یا فریم صوتی را دریافت کنید.
+2. مقادیر جدید برای ویژگی‌های فریم صوتی که می‌خواهید تنظیم کنید، تعیین کنید.
 3. فایل PowerPoint اصلاح‌شده را ذخیره کنید.
 
-این کد Python عملی را نشان می‌دهد که در آن گزینه‌های صدا تنظیم می‌شوند:
+این کد Python نشان می‌دهد که چگونه گزینه‌های صوتی تنظیم شوند:
 
 ```python
 import jpype
@@ -143,12 +143,12 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # پخش با کلیک با حجم پایین، در تمام اسلایدها، بدون حلقه‌زدن.
+        # پخش با کلیک با حجم کم، در تمام اسلایدها، بدون حلقه‌گذاری.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # پنهان کردن فریم در هنگام نمایش اسلاید و عقب‌گرد پس از پخش.
+        # پنهان کردن فریم در طول نمایش اسلاید و بازگرداندن پس از پخش.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
@@ -158,7 +158,7 @@ finally:
     presentation.dispose()
 ```
 
-این مثال Python نشان می‌دهد چگونه فریم صوتی جدیدی با صدا جاسازی‌شده اضافه کنید، آن را برش دهید و مدت زمان محو شدن را تنظیم کنید:
+این مثال Python نشان می‌دهد چگونه یک فریم صوتی جدید با صوت جاسازی‌شده اضافه شود، آن را برش داده و مدت زمان‌های محو شدن را تنظیم کند:
 
 ```python
 from pathlib import Path
@@ -179,10 +179,10 @@ try:
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # از ابتدا 1.5 ثانیه و از انتها 2 ثانیه را برش بزنید.
+    # 1.5 ثانیه را از ابتدا و 2 ثانیه را از انتها برش دهید.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # محو شدن ورودی را به 200 میلی‌ثانیه و محو شدن خروجی را به 500 میلی‌ثانیه تنظیم کنید.
+    # محو شدن ورودی را به 200 میلی‌ثانیه و خروجی را به 500 میلی‌ثانیه تنظیم کنید.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
@@ -190,7 +190,7 @@ finally:
     presentation.dispose()
 ```
 
-نمونه کد زیر نشان می‌دهد چگونه یک فریم صوتی با صدا جاسازی‌شده دریافت کنید و حجم آن را به 85٪ تنظیم کنید:
+نمونه کد زیر نشان می‌دهد چگونه یک فریم صوتی با صوت جاسازی‌شده بازیابی شود و حجم آن به 85٪ تنظیم شود:
 
 ```python
 import jpype
@@ -214,13 +214,13 @@ finally:
     presentation.dispose()
 ```
 
-## **مدیریت کپشن‌های صوتی**
+## **مدیریت زیرنویس‌های صوتی**
 
-Aspose.Slides به شما اجازه می‌دهد زیرنویس‌های بسته‌شده به فریم صوتی را از طریق متد [getCaptionTracks](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#getCaptionTracks) اضافه کنید. این متد یک [CaptionsCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/) برمی‌گرداند که به شما امکان می‌دهد مسیرهای کپشن WebVTT اضافه کنید، در مسیرهای موجود پیمایش کنید و در صورت لزوم آن‌ها را حذف کنید.
+Aspose.Slides به شما اجازه می‌دهد زیرنویس‌های بسته را به یک فریم صوتی از طریق متد [getCaptionTracks](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#getCaptionTracks) اضافه کنید. این متد یک [CaptionsCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/) را برمی‌گرداند که به شما امکان می‌دهد ردیف‌های زیرنویس WebVTT را اضافه، در ردیف‌های موجود پیمایش کنید و در صورت لزوم آن‌ها را حذف کنید.
 
-**افزودن کپشن‌های صوتی**
+**Add Audio Captions**
 
-از متد [getCaptionTracks](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#getCaptionTracks) برای اتصال یک یا چند مسیر کپشن به فریم صوتی استفاده کنید. در مثال زیر، یک فایل صوتی به اسلاید اضافه می‌شود و سپس مسیر کپشن جدیدی از یک فایل `.vtt` بارگذاری می‌شود.
+از متد [getCaptionTracks](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#getCaptionTracks) برای اضافه کردن یک یا چند ردیف زیرنویس به فریم صوتی استفاده کنید. در مثال زیر، یک فایل صوتی به اسلاید اضافه می‌شود و سپس ردیف زیرنویس جدیدی از یک فایل `.vtt` بارگذاری می‌شود.
 
 ```python
 from pathlib import Path
@@ -241,16 +241,16 @@ try:
     slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # یک مسیر کپشن جدید از فایل WebVTT اضافه کنید.
+    # یک ردیف زیرنویس جدید از فایل WebVTT اضافه کنید.
     audio_frame.getCaptionTracks().add("New track", "track.vtt")
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-**استخراج کپشن‌های صوتی**
+**Extract Audio Captions**
 
-می‌توانید در مسیرهای کپشن مرتبط با فریم صوتی پیمایش کنید و آن‌ها را به‌صورت فایل‌های `.vtt` ذخیره کنید. هر مسیر کپشن داده‌های باینری و شناسهٔ یکتا خود را ارائه می‌دهد که می‌توان هنگام استخراج کپشن از آن استفاده کرد.
+می‌توانید در ردیف‌های زیرنویس مرتبط با یک فریم صوتی پیمایش کنید و آن‌ها را به عنوان فایل‌های `.vtt` ذخیره کنید. هر ردیف زیرنویس داده‌های باینری و شناسه یکتای خود را در اختیار می‌گذارد که هنگام خروجی‌گیری زیرنویس‌ها می‌توان از آن استفاده کرد.
 
 ```python
 from pathlib import Path
@@ -269,7 +269,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
-                # کپشن را به عنوان یک فایل .vtt ذخیره کنید.
+                # ردیف زیرنویس را به عنوان فایل .vtt ذخیره کنید.
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -277,9 +277,9 @@ finally:
     presentation.dispose()
 ```
 
-**حذف کپشن‌های صوتی**
+**Remove Audio Captions**
 
-برای حذف کپشن‌ها از فریم صوتی، از متدهای ارائه‌شده توسط [CaptionsCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/) مانند [clear](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/#clear)، [remove](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/#remove) یا [removeAt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/#removeAt) استفاده کنید. مثال زیر تمام مسیرهای کپشن را از فریم صوتی حذف می‌کند.
+برای حذف زیرنویس‌ها از یک فریم صوتی، از متدهای موجود در [CaptionsCollection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/) مانند [clear](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/#clear)، [remove](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/#remove) یا [removeAt](https://reference.aspose.com/slides/fa/python-java/aspose.slides/captionscollection/#removeAt) استفاده کنید. مثال زیر تمام ردیف‌های زیرنویس را از یک فریم صوتی حذف می‌کند.
 
 ```python
 import jpype
@@ -303,16 +303,16 @@ finally:
     presentation.dispose()
 ```
 
-## **استخراج صدا**
+## **استخراج صوت**
 
-Aspose.Slides برای Python via Java امکان استخراج صدایی که در انتقال‌های نمایش اسلاید استفاده می‌شود را فراهم می‌کند. به‌عنوان مثال می‌توانید صدای استفاده‌شده در یک اسلاید خاص را استخراج کنید.
+Aspose.Slides برای Python از طریق Java به شما اجازه می‌دهد صدای استفاده‌شده در انتقال‌های نمایش اسلاید را استخراج کنید. به عنوان مثال می‌توانید صدای استفاده‌شده در یک اسلاید خاص را استخراج کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید و ارائه‌ای که حاوی صدا است را بارگذاری کنید.
-2. مرجع اسلاید مربوطه را از طریق شاخص آن دریافت کنید.
-3. به [slideshow transitions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getSlideShowTransition) برای اسلاید دسترسی پیدا کنید.
-4. صدا را به‌صورت داده بایت استخراج کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید و ارائه‌ای که شامل صوت است را بارگذاری کنید.
+2. مرجع به اسلاید مربوطه را بر اساس ایندکس آن دریافت کنید.
+3. به [slideshow transitions](https://reference.aspose.com/slides/fa/python-java/aspose.slides/baseslide/#getSlideShowTransition) مربوط به اسلاید دسترسی پیدا کنید.
+4. صدای مورد نظر را به‌عنوان داده بایتی استخراج کنید.
 
-این کد Python نشان می‌دهد چگونه صدای استفاده‌شده در یک اسلاید را استخراج کنید:
+این کد Python نشان می‌دهد چگونه صوت استفاده‌شده در یک اسلاید استخراج شود:
 
 ```python
 import jpype
@@ -337,16 +337,16 @@ finally:
     presentation.dispose()
 ```
 
-## **سؤالات متداول**
+## **FAQ**
 
-**آیا می‌توانم همان منبع صوتی را در چندین اسلاید بدون افزایش حجم فایل استفاده کنم؟**
+**آیا می‌توانم همان فایل صوتی را در اسلایدهای متعدد بدون افزایش اندازه فایل استفاده کنم؟**
 
-بله. صدا را یک بار به [audio collection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getAudios) مشترک ارائه اضافه کنید و فریم‌های صوتی اضافی که به آن منبع ارجاع می‌دهند ایجاد کنید. این کار از تکرار داده‌های رسانه‌ای جلوگیری کرده و اندازهٔ ارائه را تحت کنترل نگه می‌دارد.
+بله. صوت را یک‌بار به **audio collection** مشترک ارائه اضافه کنید و فریم‌های صوتی اضافی که به همان منبع ارجاع می‌دهند ایجاد کنید. این کار از تکرار داده‌های رسانه‌ای جلوگیری می‌کند و اندازه ارائه را تحت کنترل نگه می‌دارد.
 
-**آیا می‌توانم صدا را در یک فریم صوتی موجود بدون ایجاد دوبارهٔ شکل جایگزین کنم؟**
+**آیا می‌توانم صدای یک فریم صوتی موجود را بدون ایجاد مجدد شکل جایگزین کنم؟**
 
-بله. برای صدای لینک‌شده، مسیر [link path](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setLinkPathLong) را به‌روز کنید تا به فایل جدید اشاره کند. برای صدای جاسازی‌شده، شیء [embedded audio](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setEmbeddedAudio) را با شیء دیگری از [audio collection](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/#getAudios) ارائه تعویض کنید. قالب‌بندی فریم و اکثر تنظیمات پخش بدون تغییر باقی می‌مانند.
+بله. برای صدای لینک‌شده، مسیر لینک ([link path](https://reference.aspose.com/slides/fa/python-java/aspose.slides/audioframe/#setLinkPathLong)) را به فایل جدید تغییر دهید. برای صدای جاسازی‌شده، شیء **embedded audio** را با شیء دیگری از **audio collection** ارائه جایگزین کنید. قالب‌بندی فریم و اکثر تنظیمات پخش همان‌طور که هست باقی می‌مانند.
 
-**آیا برش صدا داده‌های صوتی زیرین را که در ارائه ذخیره شده‌اند تغییر می‌دهد؟**
+**آیا برش (trim) داده‌های صوتی زیرساختی ذخیره‌شده در ارائه را تغییر می‌دهد؟**
 
-نه. برش فقط مرزهای پخش را تنظیم می‌کند. بایت‌های اصلی صدا دست‌نخورده می‌مانند و از طریق صداهای جاسازی‌شده یا مجموعهٔ صداهای ارائه قابل دسترسی هستند.
+خیر. برش فقط مرزهای پخش را تنظیم می‌کند. بایت‌های اصلی صوت دست‌نخورده باقی می‌مانند و از طریق صوت جاسازی‌شده یا **audio collection** ارائه قابل دسترسی هستند.

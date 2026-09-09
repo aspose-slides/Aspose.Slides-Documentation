@@ -12,15 +12,15 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument slaytlarından Flash nesnelerini Python ile Aspose.Slides kullanarak nasıl çıkaracağınızı, tam kod örnekleri ve en iyi uygulamalarla öğrenin."
+description: "Aspose.Slides ile Python'da PowerPoint ve OpenDocument slaytlarından flash nesnelerini nasıl çıkaracağınızı, tam kod örnekleri ve en iyi uygulamaları öğrenin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak sunumlardan Flash nesnelerini nasıl çıkarılacağını açıklar. Bir slaydın denetimler koleksiyonunda isimle bir Flash denetimini bulmayı ve gömülü SWF nesne verileriyle çalışmayı gösterir.
+Bu makale, Aspose.Slides kullanarak sunumlardan Flash nesnelerini nasıl çıkaracağınızı açıklar. Slaytın kontroller koleksiyonunda isme göre bir Flash kontrolünü bulmayı ve gömülü SWF nesne verileriyle çalışmayı gösterir.
 
 ## **Sunumlardan Flash Nesnelerini Çıkarma**
 
-Aspose.Slides for Python via Java, bir sunumdan flash nesnelerini çıkarmak için bir özellik sağlar. Flash denetimine isimle erişebilir ve sunumdan, depolanan SWF nesne verileri dahil, çıkarabilirsiniz.
+Aspose.Slides for Python via Java, bir sunumdan Flash nesnelerini çıkarmak için bir kolaylık sağlar. Flash kontrolüne isme göre erişebilir ve SWF nesne verileri dahil olmak üzere sunumdan çıkarabilirsiniz.
 
 ```python
 import jpype
@@ -31,7 +31,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation
 
-# PPTX'i temsil eden Presentation sınıfını örnekleyin.
+# PPTX'i temsil eden Presentation sınıfını oluşturun.
 presentation = Presentation()
 try:
     controls = presentation.getSlides().get_Item(0).getControls()
@@ -47,16 +47,16 @@ finally:
 
 **Flash içeriği çıkarılırken hangi sunum formatları desteklenir?**
 
-[Aspose.Slides destekler](/slides/tr/python-java/supported-file-formats/) PPT ve PPTX gibi temel PowerPoint formatlarını, çünkü bu kapsayıcıları yükleyebilir ve denetimlerine, Flash ile ilgili ActiveX öğeleri dahil erişebilir.
+[Aspose.Slides destekler](/slides/tr/python-java/supported-file-formats/) PPT ve PPTX gibi ana PowerPoint formatlarını, çünkü bu kapsayıcıları yükleyebilir ve kontrollerine, Flash ile ilgili ActiveX öğeleri dahil, erişebilir.
 
 **Flash içeren bir sunumu HTML5'e dönüştürüp Flash etkileşimini koruyabilir miyim?**
 
-Hayır. Aspose.Slides SWF içeriğini çalıştırmaz veya etkileşimini dönüştürmez. [HTML](/slides/tr/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/tr/python-java/export-to-html5/) dışa aktarma destekleniyor olsa da, Flash modern tarayıcılarda destek sona erdiği için oynatılmayacaktır. Önerilen yol, dışa aktarmadan önce Flash'ı video veya HTML5 animasyonları gibi alternatiflerle değiştirmektir.
+Hayır. Aspose.Slides SWF içeriğini çalıştırmaz veya etkileşimini dönüştürmez. [HTML](/slides/tr/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/tr/python-java/export-to-html5/) dışa aktarımı desteklenirken, Flash modern tarayıcılarda destek bitmesi nedeniyle oynatılmaz. Önerilen yol, Flash'ı video veya HTML5 animasyonları gibi alternatiflerle değiştirmek ve ardından dışa aktarmaktır.
 
-**Güvenlik açısından, Aspose.Slides bir sunumu okurken SWF dosyalarını çalıştırıyor mu?**
+**Güvenlik açısından, Aspose.Slides bir sunumu okurken SWF dosyalarını çalıştırır mı?**
 
-Hayır. Aspose.Slides Flash'ı dosyada gömülü ikili veri olarak ele alır ve işleme sırasında SWF içeriğini çalıştırmaz.
+Hayır. Aspose.Slides Flash'ı dosyada gömülü ikili veri olarak kabul eder ve işleme sırasında SWF içeriğini çalıştırmaz.
 
-**Flash ile birlikte OLE aracılığıyla gömülmüş diğer dosyalar içeren sunumları nasıl ele almalı?**
+**Flash içeren ve ayrıca OLE aracılığıyla gömülü diğer dosyaları içeren sunumları nasıl ele almalı?**
 
-Aspose.Slides [gömülü OLE nesnelerini çıkarmayı](/slides/tr/python-java/manage-ole/) destekler, bu sayede tüm ilgili gömülü içeriği tek seferde işleyebilir, Flash denetimlerini ve diğer OLE gömülü belgeleri birlikte ele alabilirsiniz.
+Aspose.Slides [gömülü OLE nesnelerinin çıkarılmasını](/slides/tr/python-java/manage-ole/) destekler, böylece Flash kontrolleri ve diğer OLE‑gömülü belgeler birlikte tek bir geçişte işlenebilir.

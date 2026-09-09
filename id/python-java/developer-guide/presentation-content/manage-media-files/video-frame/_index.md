@@ -5,11 +5,11 @@ type: docs
 weight: 10
 url: /id/python-java/video-frame/
 keywords:
-- menambahkan video
-- membuat video
-- menyematkan video
-- mengekstrak video
-- mengambil video
+- tambahkan video
+- buat video
+- sematkan video
+- ekstrak video
+- ambil video
 - bingkai video
 - sumber web
 - PowerPoint
@@ -17,28 +17,30 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari cara menambahkan dan mengekstrak bingkai video secara programatik dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java. Panduan cepat cara melakukannya."
+description: "Pelajari cara menambahkan dan mengekstrak bingkai video secara programatik dalam slide PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Python via Java. Panduan singkat cara melakukannya."
 ---
 ## **Pendahuluan**
 
-Video yang ditempatkan dengan tepat dalam sebuah presentasi dapat membuat pesan Anda lebih menarik dan meningkatkan tingkat keterlibatan dengan audiens Anda.
+Sebuah video yang ditempatkan dengan tepat dalam presentasi dapat membuat pesan Anda lebih menarik dan meningkatkan tingkat keterlibatan dengan audiens Anda.
 
 PowerPoint memungkinkan Anda menambahkan video ke slide dalam presentasi dengan dua cara:
 
-* Tambahkan atau sematkan video lokal (disimpan di komputer Anda)
+* Tambahkan atau sematkan video lokal (disimpan di mesin Anda)
 * Tambahkan video daring (dari sumber web seperti YouTube).
 
-Untuk memungkinkan Anda menambahkan video (objek video) ke presentasi, Aspose.Slides menyediakan kelas [Video](https://reference.aspose.com/slides/id/python-java/aspose.slides/video/) , kelas [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) , dan tipe relevan lainnya.
+Untuk memungkinkan Anda menambahkan video (objek video) ke presentasi, Aspose.Slides menyediakan kelas [Video](https://reference.aspose.com/slides/id/python-java/aspose.slides/video/) , kelas [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) , dan tipe terkait lainnya.
 
-## **Buat Bingkai Video Tersemat**
+## **Membuat Bingkai Video Tersemat**
 
 Jika file video yang ingin Anda tambahkan ke slide disimpan secara lokal, Anda dapat membuat bingkai video untuk menyematkan video dalam presentasi Anda.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan objek [Video](https://reference.aspose.com/slides/id/python-java/aspose.slides/video/) dan berikan data file video untuk menyematkan video ke dalam presentasi.
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
+1. Tambahkan objek [Video](https://reference.aspose.com/slides/id/python-java/aspose.slides/video/) dan berikan data file video untuk menyematkan video dalam presentasi.
 1. Tambahkan objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) untuk membuat bingkai bagi video.
-1. Simpan presentasi yang telah dimodifikasi.
+1. Simpan presentasi yang dimodifikasi.
+
+Kode Python berikut menunjukkan cara menambahkan video yang disimpan secara lokal ke presentasi:
 
 ```python
 from pathlib import Path
@@ -62,7 +64,7 @@ finally:
     presentation.dispose()
 ```
 
-Sebagai alternatif, Anda dapat menambahkan video dengan memberikan jalur file secara langsung ke metode [addVideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addVideoFrame) :
+Sebagai alternatif, Anda dapat menambahkan video dengan mengirimkan jalur filenya langsung ke metode [addVideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addVideoFrame) :
 
 ```python
 import jpype
@@ -81,15 +83,18 @@ finally:
     presentation.dispose()
 ```
 
+
 ## **Buat Bingkai Video dengan Video dari Sumber Web**
 
-Microsoft [PowerPoint 2013 dan yang lebih baru](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) mendukung video YouTube dalam presentasi. Jika video yang ingin Anda gunakan tersedia secara daring (misalnya di YouTube), Anda dapat menambahkannya ke presentasi melalui tautan webnya.
+Microsoft [PowerPoint 2013 dan lebih baru](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) mendukung video YouTube dalam presentasi. Jika video yang ingin Anda gunakan tersedia secara daring (misalnya di YouTube), Anda dapat menambahkannya ke presentasi melalui tautan webnya.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
-1. Dapatkan referensi slide melalui indeksnya.
+1. Dapatkan referensi ke slide berdasarkan indeksnya.
 1. Tambahkan objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) dan berikan tautan ke video.
-1. Atur thumbnail untuk bingkai video.
+1. Atur gambar mini untuk bingkai video.
 1. Simpan presentasi.
+
+Kode Python berikut menunjukkan cara menambahkan video dari web ke slide dalam presentasi PowerPoint:
 
 ```python
 from urllib.request import urlopen
@@ -108,7 +113,7 @@ try:
     video_frame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + video_id)
     video_frame.setPlayMode(VideoPlayModePreset.Auto)
 
-    # Muat thumbnail.
+    # Muat gambar mini.
     thumbnail_uri = "https://img.youtube.com/vi/" + video_id + "/hqdefault.jpg"
     try:
         with urlopen(thumbnail_uri) as response:
@@ -124,19 +129,21 @@ finally:
     presentation.dispose()
 ```
 
-## **Potong Bingkai Video**
+## **Memotong Bingkai Video**
 
-Aspose.Slides memungkinkan Anda mengontrol bagian video yang diputar dengan mengatur nilai trim-from-start dan trim-from-end melalui [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setTrimFromStart) dan [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setTrimFromEnd) . Kedua nilai ditentukan dalam milidetik dan menentukan berapa banyak waktu yang dilewati dari awal dan akhir video masing‑masing. Pengaturan ini mengubah pengaturan pemutaran video dalam presentasi; mereka tidak memotong atau mengubah data biner video yang tersemat.
+Aspose.Slides memungkinkan Anda mengontrol bagian video yang diputar dengan mengatur nilai trim-from-start dan trim-from-end melalui [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setTrimFromStart) dan [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setTrimFromEnd) . Kedua nilai ditentukan dalam milidetik dan mendefinisikan berapa banyak waktu yang dilewati dari awal dan akhir video, masing-masing. Pengaturan ini mengubah pengaturan pemutaran video dalam presentasi; mereka tidak memotong atau mengubah data biner video yang tersemat.
 
-**Atur Pengaturan Pemangkasan**
+**Atur Pengaturan Potong**
 
-Untuk membuat bingkai video dan mengatur pengaturan pemangkasan:
+Untuk membuat bingkai video dan mengatur pengaturan potongnya:
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) .
 1. Tambahkan objek [Video](https://reference.aspose.com/slides/id/python-java/aspose.slides/video/) ke presentasi.
 1. Tambahkan objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) ke slide.
 1. Atur nilai trim-from-start dan trim-from-end melalui [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setTrimFromStart) dan [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setTrimFromEnd) .
-1. Simpan presentasi yang telah dimodifikasi.
+1. Simpan presentasi yang dimodifikasi.
+
+Contoh kode berikut melewatkan 2,5 detik pertama dan satu detik terakhir dari video tersemat selama pemutaran:
 
 ```python
 from pathlib import Path
@@ -164,9 +171,11 @@ finally:
     presentation.dispose()
 ```
 
-**Baca Pengaturan Pemangkasan**
+**Baca Pengaturan Potong**
 
-Untuk memeriksa pengaturan pemangkasan yang ada, muat sebuah presentasi, temukan objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) di antara bentuk‑bentuk pada slide pertama, dan baca nilai‑nilainya melalui [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#getTrimFromStart) dan [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#getTrimFromEnd) .
+Untuk memeriksa pengaturan potong yang ada, muat presentasi, temukan objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) di antara bentuk pada slide pertama, dan baca nilai melalui [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#getTrimFromStart) dan [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#getTrimFromEnd) .
+
+Contoh kode berikut menemukan bingkai video pertama pada slide pertama dan melaporkan pengaturan potongnya dalam milidetik:
 
 ```python
 import jpype
@@ -203,7 +212,9 @@ Untuk menambahkan caption ke bingkai video:
 1. Tambahkan video ke presentasi.
 1. Tambahkan objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) ke slide.
 1. Gunakan [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/) yang dikembalikan oleh [getCaptionTracks](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#getCaptionTracks) untuk menambahkan trek caption WebVTT.
-1. Simpan presentasi yang telah dimodifikasi.
+1. Simpan presentasi yang dimodifikasi.
+
+Kode berikut menunjukkan cara menambahkan caption ke bingkai video:
 
 ```python
 from pathlib import Path
@@ -231,7 +242,7 @@ finally:
     presentation.dispose()
 ```
 
-Kelas [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari sebuah stream.
+Kelas [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/) juga menyediakan overload yang memungkinkan Anda menambahkan caption dari stream.
 
 **Ekstrak Caption dari Bingkai Video**
 
@@ -241,6 +252,8 @@ Untuk mengekstrak caption dari bingkai video:
 1. Temukan objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) target.
 1. Iterasi melalui trek caption dalam [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/) .
 1. Simpan setiap trek caption ke file `.vtt` .
+
+Kode berikut menunjukkan cara mengekstrak caption dari bingkai video:
 
 ```python
 from pathlib import Path
@@ -267,7 +280,7 @@ finally:
     presentation.dispose()
 ```
 
-Setiap objek [Captions](https://reference.aspose.com/slides/id/python-java/aspose.slides/captions/) menampilkan identifier caption, label, data biner, dan teks caption sebagai string UTF‑8.
+Setiap objek [Captions](https://reference.aspose.com/slides/id/python-java/aspose.slides/captions/) menampilkan identifier caption, label, data biner, dan teks caption sebagai string UTF-8.
 
 **Hapus Caption dari Bingkai Video**
 
@@ -276,7 +289,9 @@ Untuk menghapus caption dari bingkai video:
 1. Muat presentasi yang berisi video.
 1. Dapatkan objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) target.
 1. Hapus trek caption dari [CaptionsCollection](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/) .
-1. Simpan presentasi yang telah dimodifikasi.
+1. Simpan presentasi yang dimodifikasi.
+
+Kode berikut menunjukkan cara menghapus semua caption dari bingkai video:
 
 ```python
 import jpype
@@ -301,16 +316,18 @@ finally:
     presentation.dispose()
 ```
 
-Jika Anda hanya perlu menghapus satu trek caption, gunakan metode [remove](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#remove) atau [removeAt](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#removeAt) alih‑alih [clear](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#clear) .
+Jika Anda perlu menghapus hanya satu trek caption, gunakan metode [remove](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#remove) atau [removeAt](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#removeAt) alih-alih [clear](https://reference.aspose.com/slides/id/python-java/aspose.slides/captionscollection/#clear).
 
 ## **Ekstrak Video dari Slide**
 
 Selain menambahkan video ke slide, Aspose.Slides memungkinkan Anda mengekstrak video yang tersemat dalam presentasi.
 
 1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/) untuk memuat presentasi yang berisi video.
-2. Iterasi semua objek [Slide](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/) .
-3. Iterasi semua objek [Shape](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/) untuk menemukan sebuah [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) .
+2. Iterasi melalui semua objek [Slide](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/) .
+3. Iterasi melalui semua objek [Shape](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/) untuk menemukan [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) .
 4. Simpan video ke disk.
+
+Kode Python berikut menunjukkan cara mengekstrak video pada slide presentasi:
 
 ```python
 from pathlib import Path
@@ -344,16 +361,16 @@ finally:
 
 **Parameter pemutaran video apa yang dapat diubah untuk VideoFrame?**
 
-Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setPlayMode) (otomatis atau saat diklik) dan [looping](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setPlayLoopMode) . Opsi‑opsi ini tersedia melalui properti objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) .
+Anda dapat mengontrol [mode pemutaran](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setPlayMode) (otomatis atau saat diklik) dan [looping](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setPlayLoopMode) . Opsi ini tersedia melalui properti objek [VideoFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/) .
 
 **Apakah menambahkan video memengaruhi ukuran file PPTX?**
 
-Ya. Saat Anda menyematkan video lokal, data biner termasuk dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran file. Saat Anda menambahkan video daring, hanya tautan dan thumbnail yang disematkan, sehingga peningkatan ukuran lebih kecil.
+Ya. Ketika Anda menyematkan video lokal, data biner termasuk dalam dokumen, sehingga ukuran presentasi bertambah sebanding dengan ukuran file. Saat Anda menambahkan video daring, tautan dan gambar mini disematkan, sehingga peningkatan ukuran lebih kecil.
 
-**Bisakah saya mengganti video dalam VideoFrame yang ada tanpa mengubah posisinya dan ukuran?**
+**Dapatkah saya mengganti video dalam VideoFrame yang ada tanpa mengubah posisinya dan ukurannya?**
 
-Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setEmbeddedVideo) di dalam bingkai sambil mempertahankan geometris bentuk; ini merupakan skenario umum untuk memperbarui media dalam tata letak yang sudah ada.
+Ya. Anda dapat menukar [konten video](https://reference.aspose.com/slides/id/python-java/aspose.slides/videoframe/#setEmbeddedVideo) dalam bingkai sambil mempertahankan geometri bentuk; ini adalah skenario umum untuk memperbarui media dalam tata letak yang ada.
 
-**Dapatkah tipe konten (MIME) video yang tersemat ditentukan?**
+**Apakah tipe konten (MIME) dari video tersemat dapat ditentukan?**
 
 Ya. Video yang tersemat memiliki [tipe konten](https://reference.aspose.com/slides/id/python-java/aspose.slides/video/#getContentType) yang dapat Anda baca dan gunakan, misalnya saat menyimpannya ke disk.

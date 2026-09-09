@@ -1,52 +1,50 @@
 ---
 title: Улучшите свои презентации с помощью AutoFit в Python
-linktitle: Настройки AutoFit
+linktitle: Настройки автоподгонки
 type: docs
 weight: 30
 url: /ru/python-java/manage-autofit-settings/
 keywords:
 - текстовое поле
-- автоадаптация
-- не автоадаптировать
-- вписать текст
-- уменьшить текст
-- обтекание текста
-- изменить размер фигуры
+- автоподгонка
+- не использовать автоподгонку
+- подгонка текста
+- уменьшать текст
+- перенос текста
+- изменять размер фигуры
 - PowerPoint
 - OpenDocument
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Узнайте, как управлять настройками AutoFit в Aspose.Slides для Python через Java, чтобы оптимизировать отображение текста в ваших презентациях PowerPoint и OpenDocument и улучшить читаемость содержимого."
+description: "Узнайте, как управлять настройками AutoFit в Aspose.Slides для Python через Java, чтобы оптимизировать отображение текста в ваших презентациях PowerPoint и OpenDocument и повысить читаемость контента."
 ---
 ## **Введение**
 
-По умолчанию, когда вы добавляете текстовое поле, Microsoft PowerPoint использует параметр **Resize shape to fix text** для текстового поля — он автоматически изменяет размер текстового поля, чтобы его текст всегда помещался в нём. 
+По умолчанию, когда вы добавляете текстовое поле, Microsoft PowerPoint использует настройку **Resize shape to fit text** для текстового поля — оно автоматически изменяет размер текстового поля, чтобы текст всегда помещался в нём.
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+![Текстовое поле в PowerPoint](textbox-in-powerpoint.png)
 
-* Когда текст в текстовом поле становится длиннее или больше, PowerPoint автоматически увеличивает текстовое поле — увеличивает его высоту — чтобы в нём могла помещаться больше текста. 
-* Когда текст в текстовом поле становится короче или меньше, PowerPoint автоматически уменьшает текстовое поле — уменьшает его высоту — чтобы избавиться от лишнего пространства. 
+* Когда текст в текстовом поле становится длиннее или больше, PowerPoint автоматически увеличивает текстовое поле — увеличивает его высоту — чтобы разместить больше текста.  
+* Когда текст в текстовом поле становится короче или меньше, PowerPoint автоматически уменьшает текстовое поле — уменьшает его высоту — чтобы убрать лишнее пространство.
 
-В PowerPoint это 4 важных параметра или опции, контролирующие поведение автоадаптации для текстового поля: 
+В PowerPoint это 4 важных параметра или опции, которые управляют поведением автоподгонки для текстового поля:
 
-* **Do not Autofit**
-* **Shrink text on overflow**
-* **Resize shape to fit text**
-* **Wrap text in shape.**
+* **Не использовать автоподгонку**
+* **Уменьшать текст при переполнении**
+* **Изменять размер фигуры, чтобы текст помещался**
+* **Переносить текст в фигуре.**
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+![параметры автоподгонки PowerPoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Python via Java предоставляет аналогичные параметры — некоторые свойства класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/) — которые позволяют управлять поведением автоадаптации текстовых полей в презентациях. 
+Aspose.Slides for Python via Java предоставляет похожие параметры — некоторые свойства класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/), которые позволяют управлять поведением автоподгонки для текстовых полей в презентациях.
 
-## **Изменение размера фигуры под текст**
+## **Изменять размер фигуры, чтобы текст помещался**
 
-Если вы хотите, чтобы текст в коробке всегда помещался в эту коробку после изменения текста, необходимо использовать параметр **Resize shape to fix text**. Чтобы задать эту настройку, используйте метод [setAutofitType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setAutofitType) (класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/)) с параметром [Shape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textautofittype/#Shape).
+Если вы хотите, чтобы текст в поле всегда помещался в этом поле после изменения текста, необходимо использовать опцию **Resize shape to fit text**. Чтобы задать эту настройку, используйте метод [setAutofitType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setAutofitType) (из класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/)) с параметром [Shape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textautofittype/#Shape).
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
-
-Этот код на Python показывает, как задать, чтобы текст всегда помещался в свою коробку в презентации PowerPoint:
 
 ```python
 import jpype
@@ -76,15 +74,13 @@ finally:
     presentation.dispose()
 ```
 
-Если текст станет длиннее или больше, текстовое поле будет автоматически изменено (увеличится по высоте), чтобы весь текст помещался в нём. Если текст станет короче, произойдёт обратное. 
+Если текст становится длиннее или больше, текстовое поле будет автоматически изменено в размере (увеличена высота), чтобы весь текст поместился. Если текст становится короче, произойдёт обратное действие.
 
-## **Не автоадаптировать**
+## **Не использовать автоподгонку**
 
-Если вы хотите, чтобы текстовое поле или фигура сохраняли свои размеры независимо от изменений текста внутри, необходимо использовать параметр **Do not Autofit**. Чтобы задать эту настройку, используйте метод [setAutofitType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setAutofitType) (класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/)) с параметром [None](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textautofittype/#None). 
+Если вы хотите, чтобы текстовое поле или фигура сохраняли свои размеры независимо от изменений текста, необходимо использовать опцию **Do not Autofit**. Чтобы задать эту настройку, используйте метод [setAutofitType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setAutofitType) (из класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/)) с параметром [None](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textautofittype/#None).
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
-
-Этот код на Python показывает, как задать, чтобы текстовое поле всегда сохраняло свои размеры в презентации PowerPoint:
 
 ```python
 import jpype
@@ -107,22 +103,20 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setAutofitType(TextAutofitType.None)
+    text_frame_format.setAutofitType(TextAutofitType.None_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Когда текст становится слишком длинным для своего поля, он выходит за его пределы. 
+Когда текст становится слишком длинным для своего поля, он выходит за его границы.
 
 ## **Уменьшать текст при переполнении**
 
-Если текст становится слишком длинным для своего поля, через опцию **Shrink text on overflow** вы можете задать, чтобы размер и межбуквенный интервал текста уменьшались, позволяя ему поместиться в поле. Чтобы задать эту настройку, используйте метод [setAutofitType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setAutofitType) (класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/)) с параметром [Normal](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textautofittype/#Normal).
+Если текст становится слишком длинным для своего поля, вы можете использовать опцию **Shrink text on overflow**, чтобы указать, что размер и межбуквенный интервал текста должны уменьшаться, чтобы он поместился в поле. Чтобы задать эту настройку, используйте метод [setAutofitType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setAutofitType) (из класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/)) с параметром [Normal](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textautofittype/#Normal).
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
-
-Этот код на Python показывает, как задать, чтобы текст уменьшался при переполнении в презентации PowerPoint:
 
 ```python
 import jpype
@@ -152,15 +146,13 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert title="Примечание" color="info" %}}
+{{% alert title="Note" color="info" %}}
 При использовании опции **Shrink text on overflow** настройка применяется только тогда, когда текст становится слишком длинным для своего поля. 
 {{% /alert %}}
 
-## **Обтекание текста**
+## **Переносить текст в фигуре**
 
-Если вы хотите, чтобы текст в фигуре автоматически переносился внутри этой фигуры, когда текст выходит за её границу по ширине, необходимо использовать параметр **Wrap text in shape**. Чтобы задать эту настройку, используйте метод [setWrapText](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setWrapText) (класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/)) с параметром [NullableBool.True](https://reference.aspose.com/slides/ru/python-java/aspose.slides/nullablebool/#True). 
-
-Этот код на Python показывает, как использовать настройку Wrap Text в презентации PowerPoint:
+Если вы хотите, чтобы текст в фигуре переносился внутри этой фигуры, когда текст выходит за границы фигуры (только по ширине), необходимо использовать параметр **Wrap text in shape**. Чтобы задать эту настройку, используйте метод [setWrapText](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setWrapText) (из класса [TextFrameFormat](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/)) с параметром [NullableBool.True_](https://reference.aspose.com/slides/ru/python-java/aspose.slides/nullablebool/#True).
 
 ```python
 import jpype
@@ -183,7 +175,7 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setWrapText(NullableBool.True)
+    text_frame_format.setWrapText(NullableBool.True_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
@@ -191,19 +183,19 @@ finally:
 ```
 
 {{% alert title="Warning" color="warning" %}} 
-Если вы используете метод [setWrapText](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setWrapText) с параметром [NullableBool.False](https://reference.aspose.com/slides/ru/python-java/aspose.slides/nullablebool/#False) для фигуры, когда текст внутри фигуры становится длиннее её ширины, текст будет вытягиваться за границы фигуры в одну строку. 
+Если вы вызываете метод [setWrapText](https://reference.aspose.com/slides/ru/python-java/aspose.slides/textframeformat/#setWrapText) с параметром [NullableBool.False](https://reference.aspose.com/slides/ru/python-java/aspose.slides/nullablebool/#False) для фигуры, когда текст внутри фигуры становится длиннее её ширины, текст будет выходить за границы фигуры в одну строку. 
 {{% /alert %}}
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Влияют ли внутренние отступы текстовой рамки на AutoFit?**
+**Влияют ли внутренние отступы текстового кадра на AutoFit?**
 
-Да. Отступы (внутренние поля) уменьшают доступную площадь для текста, поэтому AutoFit срабатывает раньше — уменьшает шрифт или размер фигуры быстрее. Проверьте и настройте отступы перед настройкой AutoFit. 
+Да. Внутренние отступы уменьшают доступную площадь для текста, поэтому AutoFit срабатывает раньше — шрифт уменьшается или фигура изменяется быстрее. Проверьте и отрегулируйте отступы перед настройкой AutoFit.
 
-**Как AutoFit взаимодействует с ручными и мягкими разрывами строк?**
+**Как AutoFit взаимодействует с принудительными и мягкими разрывами строк?**
 
-Принудительные разрывы остаются на месте, а AutoFit подгоняет размер шрифта и интервал вокруг них. Удаление лишних разрывов часто уменьшает степень, с которой AutoFit вынужден уменьшать текст. 
+Принудительные разрывы остаются на месте, а AutoFit подбирает размер шрифта и межстрочный интервал вокруг них. Удаление лишних разрывов часто уменьшает степень сжатия текста AutoFit‑ом.
 
-**Влияет ли изменение шрифта темы или замена шрифта на результаты AutoFit?**
+**Влияет ли изменение шрифта темы или подстановка шрифта на результаты AutoFit?**
 
-Да. Замена шрифта на другой с другими метриками глифов меняет ширину/высоту текста, что может изменить конечный размер шрифта и перенос строк. После любой смены шрифта или подстановки следует пересмотреть слайды.
+Да. Подстановка шрифта с другими метрическими характеристиками меняет ширину/высоту текста, что может изменить конечный размер шрифта и перенос строк. После любой замены шрифта повторно проверьте слайды.

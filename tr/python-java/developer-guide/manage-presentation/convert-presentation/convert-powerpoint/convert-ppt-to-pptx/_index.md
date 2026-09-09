@@ -6,28 +6,28 @@ weight: 20
 url: /tr/python-java/convert-ppt-to-pptx/
 keywords:
 - PowerPoint dönüştür
-- sunum dönüştür
-- slayt dönüştür
-- PPT dönüştür
+- sunumu dönüştür
+- slaytı dönüştür
+- PPT'yi dönüştür
 - PPT'den PPTX'e
 - PPT'yi PPTX olarak kaydet
-- PPT'yi PPTX'e dışa aktar
+- PPT'yi PPTX'e aktar
 - PowerPoint
 - sunum
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides kullanarak Python'da eski PPT dosyalarını PPTX'e dönüştürün. Tek dosya ve toplu dönüşüm, hata yönetimi ve doğruluk notları için Python örneklerini içerir."
+description: "Aspose.Slides ile Python'da eski PPT dosyalarını PPTX'e dönüştürün. Tek dosya ve toplu dönüşüm, hata yönetimi ve doğruluk notları için Python örneklerini içerir."
 ---
 ## **Genel Bakış**
 
-PPT, eski ikili PowerPoint formatıdır, PPTX ise yeni Open XML formatıdır. Aspose.Slides for Python via Java, bir PPT dosyasını Microsoft PowerPoint olmadan yükleyebilir ve PPTX olarak kaydedebilir. Bu makale, tek bir dosyayı veya bir dosya dizinini nasıl dönüştüreceğinizi gösterir ve dönüşüm sonrası neyin doğrulanması gerektiğini açıklar.
+PPT, eski ikili PowerPoint formatı iken, PPTX daha yeni Open XML formatıdır. Aspose.Slides for Python via Java, Microsoft PowerPoint olmadan bir PPT dosyasını yükleyebilir ve PPTX olarak kaydedebilir. Bu makale, tek bir dosyayı veya bir dizindeki dosyaları nasıl dönüştüreceğinizi gösterir ve dönüşümden sonra neyin doğrulanması gerektiğini açıklar.
 
-Her örnek, gerekirse Java sanal makinesini başlatır ve kullanımdan sonra sunumu serbest bırakır. Örnek yolları kendi dosya veya dizin yollarınızla değiştirin.
+Her örnek, gerekirse Java sanal makinesini başlatır ve kullanım sonrası sunumu serbest bırakır. Örnek yolları kendi dosya veya dizin yollarınızla değiştirin.
 
-## **Bir PPT Dosyasını PPTX'e Dönüştürme**
+## **Bir PPT Dosyasını PPTX'e Dönüştür**
 
-Kaynak dosyayı [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfı ile yükleyin, ardından [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metodunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Pptx) ile çağırın. `finally` bloğu sunumu temizler ve kaynaklarını serbest bırakır.
+Kaynak dosyayı [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfı ile yükleyin, ardından [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) metodunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Pptx) ile çağırın. `finally` bloğu sunumu serbest bırakır ve kaynaklarını temizler.
 
 ```python
 import jpype
@@ -47,11 +47,11 @@ finally:
     presentation.dispose()
 ```
 
-Dosya uzantısı tek başına çıkış formatını seçmez; bunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Pptx) argümanı yapar. Orijinal PPT dosyasını korumanız gerekiyorsa giriş ve çıkış yollarını farklı tutun.
+Dosya uzantısı tek başına çıktı formatını seçmez; bunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Pptx) argümanı yapar. Orijinal PPT dosyasını korumanız gerekiyorsa giriş ve çıkış yollarını farklı tutun.
 
-## **Birden Çok PPT Dosyasını Dönüştürme**
+## **Birden Çok PPT Dosyasını Dönüştür**
 
-Aşağıdaki örnek bir dizindeki tüm `.ppt` dosyalarını dönüştürür. Her dosya bağımsız olarak işlenir, bu yüzden bir dönüştürme hatası diğerlerini durdurmaz.
+Aşağıdaki örnek, bir klasördeki tüm `.ppt` dosyalarını dönüştürür. Her dosya bağımsız olarak işlenir, bu nedenle bir dönüşüm hatası diğer dosyaların işlenmesini durdurmaz.
 
 ```python
 from pathlib import Path
@@ -93,47 +93,47 @@ else:
                 presentation.dispose()
 ```
 
-Üretim ortamlarında, tam istisna kaydını tutun, mevcut bir çıkış dosyasının üzerine yazılıp yazılmayacağına karar verin ve başarısız dosya adlarını bir yeniden deneme veya inceleme kuyruğuna yazın. Bozuk dosyalar, gerekli şifre olmadan açılan şifre korumalı dosyalar, erişilemeyen yollar ve desteklenmeyen içerik dönüştürmenin başarısız olmasına neden olabilir. Şifreli dosyaları yüklemek için [Password-Protected Presentations](/slides/tr/python-java/password-protected-presentation/) sayfasına bakın.
+Üretim ortamları için, tam istisna kaydını tutun, mevcut bir çıktı dosyasının üzerine yazılıp yazılamayacağına karar verin ve başarısız dosya adlarını yeniden deneme veya inceleme kuyruğuna yazın. Bozuk dosyalar, gerekli şifre olmadan açılan şifre korumalı dosyalar, erişilemeyen yollar ve desteklenmeyen içerik dönüşümün başarısız olmasına neden olabilir. Şifreli dosyaları yüklemek için [Password-Protected Presentations](/slides/tr/python-java/password-protected-presentation/) sayfasına bakın.
 
 ## **Doğruluk ve Eski Özellikler**
 
-Dönüştürme genellikle slaytları, ana şablonları, düzenleri, metni, şekilleri, resimleri, tabloları ve grafikleri korur. Ancak, PPT ve PPTX her özelliği tam olarak aynı şekilde temsil etmez. Kütüphane tarafından desteklenmeyen veya PPTX eşdeğeri olmayan eski bir özellik, normalleştirilebilir, atlanabilir veya farklı gösterilebilir.
+Dönüşüm genellikle slaytları, ana düzenleri, yerleşimleri, metni, şekilleri, resimleri, tabloları ve grafikleri korur. Ancak, PPT ve PPTX her özelliği tam aynı şekilde temsil etmez. Kitaplık tarafından desteklenmeyen veya PPTX eşdeğeri olmayan eski bir özellik, normalleştirilebilir, atlanabilir veya farklı şekilde gösterilebilir.
 
-Dönüştürülen dosyada animasyonlar, geçişler, gömülü veya bağlantılı OLE nesneleri, ActiveX denetimleri, gömülü medya, nadir fontlar veya VBA makroları varsa kontrol edin. Düz bir PPTX dosyası makro destekli bir format değildir, bu yüzden VBA'nın kullanılabilir olması gerekiyorsa uygun bir makro‑destekli iş akışı kullanın. Ayrıca, dönüştürülmüş sunumun açılacağı veya işleneceği ortamda gerekli fontların ve dış kaynakların mevcut olduğundan emin olun.
+Dönüştürülmüş dosyayı, animasyon, geçiş, gömülü veya bağlantılı OLE nesneleri, ActiveX denetimleri, gömülü medya, nadir yazı tipleri veya VBA makroları içerdiğinde kontrol edin. Düz bir PPTX dosyası makro‑etkin bir format değildir; bu nedenle VBA'nın mevcut olması gerektiğinde uygun bir makro‑etkin iş akışı kullanın. Ayrıca, gerekli yazı tiplerinin ve harici kaynakların, dönüştürülmüş sunumun açılacağı veya işleneceği ortamda bulunduğundan emin olun.
 
-Önemli belgeler için, oluşturulan PPTX'i programlı olarak yeniden açın ve ana slayt sayısını ve içeriğini inceleyin, ardından görünümünü ve slayt gösterisi davranışını hedef izleyicide karşılaştırın. Başarılı bir [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) çağrısını, her eski özelliğin tam bir PPTX temsiline sahip olduğunun kanıtı olarak görmeyin.
+Önemli belgeler için, oluşturulan PPTX dosyasını programlı olarak yeniden açın ve temel slayt sayısını ve içeriği inceleyin, ardından görünümünü ve slayt gösterisi davranışını hedeflenen görüntüleyicide karşılaştırın. Başarılı bir [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) çağrısını, tüm eski özelliklerin tam bir PPTX temsiline sahip olduğu kanıtı olarak değerlendirmeyin.
 
-## **PPTX Ne Zaman Kullanılmalı**
+## **Ne Zaman PPTX Kullanmalı**
 
-Sunum, mevcut PowerPoint sürümlerinde düzenlenecek, Open XML paketleriyle çalışan sistemlerle değiş tokuş yapılacak veya eski ikili PPT'ye göre daha kolay incelenip kurtarılabilen bir formatta saklanacaksa PPTX kullanın. Dönüştürülmüş sunum, doğruluk kontrollerinizi geçtiğinde orijinal PPT'yi arşivleme veya geri alma kopyası olarak tutun.
+Sunum, güncel PowerPoint sürümlerinde düzenlenecekse, Open XML paketleriyle çalışan sistemlerle değiş tokuş edilecekse veya eski ikili PPT'ye göre daha kolay incelenip kurtarılabilen bir formatta saklanacaksa PPTX kullanın. Dönüştürülmüş sunum doğruluk kontrollerinizi geçtiği sürece, orijinal PPT'yi arşiv veya geri dönüş kopyası olarak tutun.
 
-Eğer PDF, HTML, resimler, XPS veya başka bir çıktı türüne ihtiyacınız varsa, tüm hedeflerin düzenlenebilir PowerPoint özelliklerini koruduğunu varsaymak yerine [Convert Presentations to Multiple Formats](/slides/tr/python-java/convert-presentation/) sayfasındaki formata özgü rehberliği kullanın.
+PDF, HTML, görseller, XPS veya başka bir çıktı türüne ihtiyacınız varsa, tüm hedeflerin düzenlenebilir PowerPoint özelliklerini koruyacağını varsaymak yerine [Convert Presentations to Multiple Formats](/slides/tr/python-java/convert-presentation/) içindeki format‑spesifik rehberi kullanın.
 
 ## **Çevrimiçi Dönüştürücü**
 
-Ara sıra bir dosya veya hızlı bir karşılaştırma için [online PPT to PPTX converter](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) adresini kullanabilirsiniz. Tekrarlanan dönüşümler, toplu işleme veya uygulama düzeyinde hata yönetimi için Python via Java API'sini kullanın.
+Ara sıra bir dosya veya hızlı bir karşılaştırma için [online PPT to PPTX converter](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) servisini kullanabilirsiniz. Tekrarlanan dönüşümler, toplu işleme veya uygulama seviyesinde hata yönetimi için Python via Java API'yi kullanın.
 
 ## **İlgili Makaleler**
 
 - [PPT vs PPTX](/slides/tr/python-java/ppt-vs-pptx/)
 - [Python'da Sunumları Kaydet](/slides/tr/python-java/save-presentation/)
-- [Desteklenen Dosya Biçimleri](/slides/tr/python-java/supported-file-formats/)
+- [Desteklenen Dosya Formatları](/slides/tr/python-java/supported-file-formats/)
 - [Python'da Sunumları Aç](/slides/tr/python-java/open-presentation/)
 
 ## **SSS**
 
 **Microsoft PowerPoint yüklü olmadan PPT'yi PPTX'e dönüştürebilir miyim?**
 
-Evet. Aspose.Slides for Python via Java, Microsoft PowerPoint gerektirmeden sunum dosyalarını yükler ve kaydeder.
+Evet. Aspose.Slides for Python via Java, Microsoft PowerPoint gerektirmeden sunum dosyalarını yükleyip kaydedebilir.
 
 **PPT'den PPTX'e dönüşüm tüm içeriği tam olarak korur mu?**
 
-Ortak sunum içeriğini korur, ancak her eski ya da desteklenmeyen özellik için tam doğruluk garantilenmez. Oluşturulan dosya makrolar, OLE veya ActiveX nesneleri, medya, özel animasyonlar veya nadir fontlar içeriyorsa gözden geçirilmelidir.
+Ortak sunum içeriğini korur, ancak her eski veya desteklenmeyen özelliğin tam bir eşdeğeri olmayabilir. Makrolar, OLE veya ActiveX nesneleri, medya, özel animasyonlar veya nadir yazı tipleri içerdiğinde oluşturulan dosyayı inceleyin.
 
 **Şifre korumalı bir PPT dosyasını dönüştürebilir miyim?**
 
-Evet, dosyayı yüklerken doğru şifreyi sağlarsanız. Şifre eksik ya da hatalı olduğunda yükleme işlemi başarısız olur.
+Evet, dosyayı yüklerken doğru şifreyi sağlarsanız dönüşüm yapılabilir. Şifre eksik veya hatalıysa yükleme işlemi başarısız olur.
 
-**Dönüşümden sonra PPT dosyasını silmeli miyim?**
+**Dönüşüm sonrasında PPT dosyasını silmeli miyim?**
 
-Orijinali, PPTX'i sizin için önemli olan izleyiciler ve iş akışlarıyla doğrulayana kadar saklayın. Bu, bir eski özelliğin farklı dönüştürülmesi durumunda geri alma kopyası sağlar.
+Orijinali, PPTX'i izleyicilerde ve iş akışlarınızda doğrulayıp onaylayana kadar tutun. Bu, eski bir özelliğin farklı dönüştürülmesi durumunda geri dönüş kopyası sağlar.

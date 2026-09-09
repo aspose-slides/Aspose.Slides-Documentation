@@ -1,5 +1,5 @@
 ---
-title: Python üzerinden Java ile Sunumları HTML5'e Dönüştürme
+title: Python aracılığıyla Java üzerinden Sunumları HTML5'e Dönüştür
 linktitle: Sunumu HTML5'e
 type: docs
 weight: 40
@@ -10,24 +10,24 @@ keywords:
 - sunumdan HTML5'e
 - slayttan HTML5'e
 - PPT'den HTML5'e
-- PPTX'den HTML5'e
+- PPTX'ten HTML5'e
 - ODP'den HTML5'e
 - PPT'yi HTML5 olarak kaydet
 - PPTX'i HTML5 olarak kaydet
 - ODP'yi HTML5 olarak kaydet
-- PPT'yi HTML5'e dışa aktar
-- PPTX'i HTML5'e dışa aktar
-- ODP'yi HTML5'e dışa aktar
+- PPT'yi HTML5'e aktar
+- PPTX'i HTML5'e aktar
+- ODP'yi HTML5'e aktar
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java ile PowerPoint ve OpenDocument sunumlarını duyarlı HTML5'e aktarın. Biçimlendirme, animasyonlar ve etkileşimi koruyun."
+description: "Aspose.Slides for Python via Java ile PowerPoint ve OpenDocument sunumlarını duyarlı HTML5'e dışa aktarın. Biçimlendirme, animasyonlar ve etkileşimi koruyun."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarını HTML5'e nasıl dönüştüreceğinizi açıklar. Ek web uzantıları olmadan temel HTML5 dışa aktarmayı ve şekil animasyonları ve slayt geçişlerini kontrol etme seçeneklerini kapsar. Makale ayrıca standart PowerPoint‑to‑HTML dışa aktarma sürecini gösterir, slayt görünüm modunda HTML5 çıktısı üretmeyi açıklar ve dışa aktarılan belgede yorumları düzenlerini yapılandırarak nasıl dahil edeceğinizi gösterir.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarını HTML5'e nasıl dönüştüreceğinizi açıklar. Ek web uzantıları olmadan temel HTML5 dışa aktarmayı, şekil animasyonları ve slayt geçişlerini kontrol etme seçeneklerini kapsar. Makale ayrıca standart PowerPoint‑to‑HTML dışa aktarma sürecini gösterir, slayt görünüm modunda HTML5 çıktısı oluşturmayı açıklar ve dışa aktarılan belgede yorumları düzenlerini yapılandırarak nasıl dahil edeceğinizi gösterir.
 
-Örnekler, Java aracılığıyla Python için Aspose.Slides ve uyumlu bir Java çalışma zamanını gerektirir. `pres.pptx` dosyasını (yorum örneği için `sample.pptx` dosyasını) geçerli çalışma dizinine yerleştirin. Her örnek, JVM zaten çalışmıyorsa başlatır.
+Örnekler, Python için Java üzerinden Aspose.Slides ve uyumlu bir Java çalışma zamanına ihtiyaç duyar. `pres.pptx` (yorum örneği için `sample.pptx`) dosyasını geçerli çalışma dizinine yerleştirin. Her örnek, JVM zaten çalışıyorsa yeniden başlatmaz.
 
 ## **PowerPoint'i HTML5'e Dışa Aktar**
 
@@ -49,11 +49,11 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}} 
-HTML5 dışa aktarıcı, bir tarayıcıda görüntülenmek üzere HTML içeriği oluşturur. 
+{{% alert color="info" title="Not" %}} 
+HTML5 dışa aktarıcı, tarayıcıda görüntülenebilecek HTML içeriği oluşturur. 
 {{% /alert %}}
 
-Dışa aktarmayı yapılandırmak için [Html5Options](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/) kullanın. Şekil animasyonlarını ve slayt geçişlerini devre dışı bırakmak için [setAnimateShapes](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setAnimateShapes) ve [setAnimateTransitions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setAnimateTransitions) metodlarını `False` ile çağırın:
+Dışa aktarmayı yapılandırmak için [Html5Options](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/) kullanın. Şekil animasyonlarını ve slayt geçişlerini devre dışı bırakmak için `False` ile [setAnimateShapes](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setAnimateShapes) ve [setAnimateTransitions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setAnimateTransitions) çağırın:
 
 ```python
 import jpype
@@ -77,7 +77,7 @@ finally:
 
 ## **PowerPoint'i HTML'e Dışa Aktar**
 
-Standart HTML dışa aktarımı için [SaveFormat.Html](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Html) kullanın. Daha fazla seçenek için [Convert PowerPoint to HTML](/slides/tr/python-java/convert-powerpoint-to-html/) sayfasına bakın:
+Standart HTML dışa aktarma için [SaveFormat.Html](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Html) kullanın. Daha fazla seçenek için [Convert PowerPoint to HTML](/slides/tr/python-java/convert-powerpoint-to-html/) sayfasına bakın:
 
 ```python
 import jpype
@@ -95,7 +95,7 @@ finally:
     presentation.dispose()
 ```
 
-Bu durumda, sunum içeriği SVG aracılığıyla aşağıdaki biçimde işlenir:
+Bu durumda, sunum içeriği aşağıdaki gibi SVG aracılığıyla işlenir:
 
 ```html
 <body>
@@ -107,15 +107,15 @@ Bu durumda, sunum içeriği SVG aracılığıyla aşağıdaki biçimde işlenir:
 </body>
 ```
 
-{{% alert title="Warning" color="warning" %}} 
-Standart HTML dışa aktarma, slayt içeriğini SVG üzerinden işler ve HTML5 şekil animasyonu ve slayt geçişi seçeneklerini sağlamaz. 
+{{% alert title="Uyarı" color="warning" %}} 
+Standart HTML dışa aktarma, slayt içeriğini SVG ile render eder ve HTML5 şekil‑animasyonu ve slayt‑geçişi seçeneklerini sağlamaz. 
 {{% /alert %}}
 
-## **PowerPoint'i HTML5 Slayt Görünümüne Dışa Aktar**
+## **PowerPoint'i HTML5 Slayt Görünümü Olarak Dışa Aktar**
 
-**Aspose.Slides**, slaytların slayt görünümü modunda sunulduğu bir HTML5 belgesine PowerPoint sunumunu dönüştürmenizi sağlar. Bu durumda, oluşan HTML5 dosyasını bir tarayıcıda açtığınızda, sunumu web sayfasında slayt görünümü modunda görürsünüz.
+**Aspose.Slides**, bir PowerPoint sunumunu slaytların slayt görünümü modunda sunulduğu bir HTML5 belgesine dönüştürmenizi sağlar. Bu dosyayı bir tarayıcıda açtığınızda, web sayfasında sunumu slayt görünümü modunda görürsünüz. 
 
-Bu Python kodu, PowerPoint'ten HTML5 Slayt Görünümü dışa aktarım sürecini gösterir:
+Bu Python kodu, PowerPoint'ten HTML5 Slayt Görünümü dışa aktarma sürecini gösterir:
 
 ```python
 import jpype
@@ -137,17 +137,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Sunumları Yorumlarla HTML5 Belgelere Dönüştürme**
+## **Sunumları Yorumlarla HTML5 Belgelerine Dönüştür**
 
-PowerPoint'teki yorumlar, kullanıcıların sunum slaytlarına not veya geri bildirim bırakmasını sağlayan bir araçtır. Özellikle birden fazla kişinin ana içeriği değiştirmeden belirli slayt öğelerine öneri veya görüş ekleyebildiği ortak çalışma projelerinde faydalıdır. Her yorum, yazarın adını gösterir, böylece kimin yorum bıraktığını takip etmek kolay olur.
+PowerPoint'teki yorumlar, sunum slaytlarına not veya geri bildirim eklemeyi sağlayan bir araçtır. Özellikle birden fazla kişinin belirli slayt öğelerine öneri veya açıklama ekleyebildiği iş birliği projelerinde çok faydalıdır. Her yorum, yazarın adını gösterir, böylece kimin yorum yaptığını kolayca izleyebilirsiniz.
 
-Örneğin, aşağıdaki PowerPoint sunumunu "sample.pptx" dosyasında kaydettiğimizi varsayalım.
+Aşağıdaki PowerPoint sunumunun "sample.pptx" dosyasında saklandığını varsayalım.
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+![Sunum slaytında iki yorum](two_comments_pptx.png)
 
-Bir PowerPoint sunumunu HTML5 belgesine dönüştürdüğünüzde, çıktı belgesine sunum yorumlarını dahil edip etmeyeceğinizi kolayca belirtebilirsiniz. Bunu yapmak için, yorumların görüntüleme parametrelerini [Html5Options](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/) sınıfının [setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) yöntemine aktarın.
+PowerPoint sunumunu HTML5 belgesine dönüştürürken, çıktıya yorumları dahil edip etmeyeceğinizi kolayca belirtebilirsiniz. Bunu yapmak için [Html5Options](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/) sınıfının [setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) yöntemine yorumların görüntülenme parametrelerini gönderin.
 
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/) ve [CommentsPositions.Right](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentspositions/#Right) ile [setCommentsPosition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) kullanın. Aşağıdaki kod örneği, bir sunumu slaytların sağ tarafında yorumlar görüntülenecek şekilde HTML5 belgesine dönüştürür.
+[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/) ve [setCommentsPosition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) ile [CommentsPositions.Right](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentspositions/#Right) kullanın. Aşağıdaki kod örneği, yorumların slaytların sağ tarafında gösterildiği bir HTML5 belgesi oluşturur.
 
 ```python
 import jpype
@@ -171,20 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-"output.html" belgesi aşağıdaki görüntüde gösterilmektedir.
+"output.html" belgesi aşağıdaki görselde gösterilmiştir.
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+![Çıktı HTML5 belgesindeki yorumlar](two_comments_html5.png)
 
 ## **SSS**
 
 **HTML5'te nesne animasyonları ve slayt geçişlerinin oynatılıp oynatılmayacağını kontrol edebilir miyim?**
 
-Evet, HTML5, [shape animations](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setAnimateShapes) ve [slide transitions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setAnimateTransitions) etkinleştirmek veya devre dışı bırakmak için ayrı seçenekler sunar.
+Evet, HTML5, [shape animations](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setAnimateShapes) ve [slide transitions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setAnimateTransitions) seçeneklerini ayrı ayrı etkinleştirip devre dışı bırakmanıza izin verir.
 
-**Yorumların çıktısı destekleniyor mu ve slayta göre nerede konumlandırılabilir?**
+**Yorumlar dışa aktarılabilir mi ve slayta göre nerede konumlandırılabilir?**
 
-Evet, yorumlar HTML5'te eklenebilir ve notlar ile yorumlar için [layout settings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) kullanılarak (örneğin slaytın sağ tarafına) konumlandırılabilir.
+Evet, yorumlar HTML5'te eklenebilir ve [layout settings](https://reference.aspose.com/slides/tr/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) aracılığıyla (örneğin slaytın sağ tarafına) konumlandırılabilir.
 
 **Güvenlik veya CSP nedenleriyle JavaScript çağıran bağlantıları atlayabilir miyim?**
 
-Evet, kaydetme sırasında JavaScript çağrısı içeren hiperlinkleri atlamanızı sağlayan bir [setting](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) vardır. Bu, bu hiperlinkleri kaldırır; ancak tüm oluşturulan HTML5 betiklerinin sitenin İçerik Güvenliği Politikasına (CSP) uyduğunu tek başına garanti etmez.
+Evet, kaydetme sırasında JavaScript çağrısı içeren hiperlinkleri atlamanızı sağlayan bir [setting](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) vardır. Bu ayar, bu tür hiperlinkleri kaldırır; ancak tüm oluşturulan HTML5 betiklerinin sitenin İçerik Güvenliği Politikası'nı (CSP) karşılayacağını tek başına garanti etmez.

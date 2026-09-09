@@ -12,17 +12,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Werk met tekstvakken in Aspose.Slides voor Python via Java: voeg toe, formatteer, zoek en verwijder tekst in PowerPoint- en OpenDocument-presentaties."
+description: "Werk met tekstvakken in Aspose.Slides for Python via Java: voeg toe, formatteer, zoek en verwijder tekst in PowerPoint- en OpenDocument-presentaties."
 ---
-In **Aspose.Slides for Python via Java**, een tekstvak is een automatische vorm die tekst bevat. Bijna elke vorm kan tekst bevatten, maar een typisch tekstvak heeft geen opvulling of rand en toont alleen tekst.
+In **Aspose.Slides for Python via Java** is een tekstvak een autovorm die tekst bevat. Bijna elke vorm kan tekst bevatten, maar een typisch tekstvak heeft geen opvulling of rand en toont alleen tekst.
 
-Deze gids legt uit hoe je tekstvakken programmatisch kunt toevoegen, benaderen en verwijderen.
+Deze gids legt uit hoe u tekstvakken programmatisch kunt toevoegen, openen en verwijderen.
 
-Installeer het pakket zoals beschreven in [Installation](/slides/nl/python-java/installation/). Elk voorbeeld importeert `asposeslides` voordat de JVM wordt gestart, en importeert daarna de API nadat de JVM draait.
+Installeer het pakket zoals beschreven in [Installatie](/slides/nl/python-java/installation/). Elk voorbeeld importeert `asposeslides` vóór het starten van de JVM, en importeert vervolgens de API nadat de JVM draait.
 
-## **Add a Text Box**
+## **Tekstvak toevoegen**
 
-Creëer een rechthoek, verwijder de opvulling en rand, en ken opgemaakte tekst toe.
+Maak een rechthoek, verwijder de opvulling en rand, en ken opgemaakte tekst toe.
 
 ```python
 import jpype
@@ -38,7 +38,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Maak een rechthoekvorm.
+    # Maak een rechthoekvorm aan.
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
 
     # Verwijder de opvulling en rand om alleen tekst weer te geven.
@@ -56,7 +56,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Access Text Boxes by Content**
+## **Toegang tot tekstvakken op basis van inhoud**
 
 Voeg een voorbeeldtekstvak toe, zoek vervolgens vormen waarvan de tekst het trefwoord "Slide" bevat.
 
@@ -64,7 +64,7 @@ Voeg een voorbeeldtekstvak toe, zoek vervolgens vormen waarvan de tekst het tref
 import jpype
 import asposeslides
 
-if not jpype.isJVMStarted():
+if not jpile.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, ShapeType, FillType, AutoShape
@@ -88,7 +88,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Remove Text Boxes by Content**
+## **Verwijderen van tekstvakken op basis van inhoud**
 
 Zoek en verwijder tekstvakken op de eerste dia die een specifiek trefwoord bevatten.
 
@@ -124,5 +124,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-Verzamel overeenkomende vormen eerst in een aparte lijst voordat je ze verwijdert, om te voorkomen dat de vormverzameling tijdens iteratie wordt aangepast.
+Verzamel overeenkomende vormen in een aparte lijst voordat u ze verwijdert, om te voorkomen dat de vormverzameling tijdens het itereren wordt aangepast.
 {{% /alert %}}

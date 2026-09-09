@@ -1,13 +1,13 @@
 ---
 title: Animera PowerPoint-text i Python via Java
-linktitle: animera text
+linktitle: Animerad text
 type: docs
 weight: 60
 url: /sv/python-java/animated-text/
 keywords:
-- animera text
+- animerad text
 - textanimation
-- animera stycke
+- animerat stycke
 - styckeanimation
 - animationseffekt
 - PowerPoint
@@ -16,15 +16,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Skapa dynamisk animerad text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Python via Java, med enkla, optimerade Python-exempel."
+description: "Skapa dynamisk animerad text i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Python via Java, med lättföljda, optimerade Python-kodexempel."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur du arbetar med animerad text i Aspose.Slides genom att applicera animationseffekter på enskilda stycken och hämta de effekter som redan har tilldelats stycken i en textram. Den fokuserar på API‑metoderna som används för att lägga till styckenivå‑animation och inspektera befintliga stycke‑animationseffekter i en presentation.
+Den här artikeln förklarar hur du arbetar med animerad text i Aspose.Slides genom att tillämpa animationseffekter på enskilda stycken och hämta de effekter som redan har tilldelats stycken i ett textram. Den fokuserar på API‑metoderna som används för att lägga till styckesnivåanimation och inspektera befintliga styckeanimationseffekter i en presentation.
 
-## **Lägg till animationseffekter för stycken**
+## **Lägg till animationseffekter på stycken**
 
-Metoden [addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) i klassen [Sequence](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/) låter dig lägga till animationseffekter till ett enda stycke. Följande exempel visar hur du lägger till en animationseffekt till ett stycke:
+Metoden [addEffect](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/#addEffect) i klassen [Sequence](https://reference.aspose.com/slides/sv/python-java/aspose.slides/sequence/) låter dig lägga till animationseffekter på ett enskilt stycke. Den här exempel­koden visar hur du lägger till en animationseffekt på ett enskilt stycke:
 
 ```python
 import jpype
@@ -41,7 +41,7 @@ try:
     auto_shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Lägg till en Fly-animeringseffekt till det valda stycket.
+    # Lägg till en Fly-animationseffekt på det valda stycket.
     effect = presentation.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(paragraph, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick)
 
     presentation.save("AnimationEffectinParagraph.pptx", SaveFormat.Pptx)
@@ -51,9 +51,9 @@ finally:
 
 ## **Hämta animationseffekter för stycken**
 
-Du kan behöva ta reda på vilka animationseffekter som har lagts till i ett stycke – till exempel i ett scenario där du vill hämta animationseffekterna i ett stycke för att applicera dem på ett annat stycke eller en annan form.
+Du kan vilja hämta de animationseffekter som har applicerats på ett stycke – till exempel för att tillämpa dessa effekter på ett annat stycke eller en form.
 
-Aspose.Slides for Python via Java möjliggör att hämta alla animationseffekter som har applicerats på stycken i en textram (form). Följande exempel visar hur du hämtar animationseffekterna i ett stycke:
+Aspose.Slides för Python via Java låter dig hämta alla animationseffekter som har applicerats på stycken i ett textram (form). Den här exempel­koden visar hur du får animationseffekterna som är applicerade på ett stycke:
 
 ```python
 import jpype
@@ -78,16 +78,16 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Hur skiljer sig textanimationer från bildövergångar, och kan de kombineras?**
 
-Textanimationer styr objekts beteende över tid på en bild, medan [transitions](/slides/sv/python-java/slide-transition/) styr hur bilder förändras. De är oberoende och kan användas tillsammans; uppspelningsordningen styrs av animationstidslinjen och övergångsinställningarna.
+Textanimationer styr objektets beteende över tid på en bild, medan [transitions](/slides/sv/python-java/slide-transition/) styr hur bilderna förändras. De är oberoende och kan användas tillsammans; uppspelningsordningen styrs av animationstidslinjen och övergångsinställningarna.
 
 **Bevaras textanimationer vid export till PDF eller bilder?**
 
-Nej. PDF‑ och rasterbilder är statiska, så du ser bara ett enda tillstånd av bilden utan rörelse. För att behålla rörelsen, använd export till [video](/slides/sv/python-java/convert-powerpoint-to-video/) eller [HTML](/slides/sv/python-java/export-to-html5/).
+Nej. PDF‑ och rasterbilder är statiska, så du ser ett enda tillstånd av bilden utan rörelse. För att behålla rörelsen, använd export till [video](/slides/sv/python-java/convert-powerpoint-to-video/) eller [HTML](/slides/sv/python-java/export-to-html5/).
 
-**Fungerar textanimationer i layouter och bildmaster?**
+**Fungerar textanimationer i layouter och bildmästaren?**
 
-Effekter som appliceras på layout‑/masterobjekt ärvs av bilder, men deras timing och interaktion med bildnivå‑animationer beror på den slutgiltiga sekvensen på bilden.
+Effekter som appliceras på layout‑/mästarelement ärvs av bilder, men deras timing och interaktion med bildnivåanimationer beror på den slutgiltiga sekvensen på bilden.

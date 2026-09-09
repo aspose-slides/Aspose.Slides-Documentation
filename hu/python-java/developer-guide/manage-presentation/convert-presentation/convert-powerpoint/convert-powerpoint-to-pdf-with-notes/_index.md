@@ -1,37 +1,37 @@
 ---
-title: PowerPoint bemutatók átalakítása PDF-re jegyzetekkel Pythonban
-linktitle: PowerPoint PDF-re jegyzetekkel
+title: PowerPoint bemutatók konvertálása PDF-re jegyzetekkel Pythonban
+linktitle: PowerPoint PDF-re konvertálás jegyzetekkel
 type: docs
 weight: 50
 url: /hu/python-java/convert-powerpoint-to-pdf-with-notes/
 keywords:
-- PowerPoint átalakítása
-- bemutató átalakítása
-- PPT átalakítása
-- PPTX átalakítása
+- PowerPoint konvertálása
+- bemutató konvertálása
+- PPT konvertálása
+- PPTX konvertálása
 - PowerPoint PDF-re
 - bemutató PDF-re
 - PPT PDF-re
 - PPTX PDF-re
 - bemutató mentése PDF-ként
-- PPT exportálása PDF-re
-- PPTX exportálása PDF-re
+- PPT exportálása PDF-be
+- PPTX exportálása PDF-be
 - előadói jegyzetek
-- jegyzetekkel ellátott PDF
+- PDF jegyzetekkel
 - Python
 - Java
 - Aspose.Slides
-description: "PPT és PPTX bemutatókat konvertál PDF-re előadói jegyzetekkel az Aspose.Slides for Python via Java segítségével. Konfigurálja a jegyzetek elhelyezését, és őrizze meg a hosszú jegyzeteket."
+description: "Konvertálja a PPT és PPTX bemutatókat PDF-re előadói jegyzetekkel az Aspose.Slides for Python via Java használatával. Állítsa be a jegyzetek elhelyezését és őrizze meg a hosszú jegyzeteket."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan konvertálhat PowerPoint bemutatókat PDF-re előadói jegyzetekkel az Aspose.Slides for Python via Java használatával. A jegyzetek minden dia alá helyezhetők, és a hosszú jegyzetek további oldalakra folytathatók. A PDF export egyéb beállításai a [PowerPoint átalakítása PDF-re](/slides/hu/python-java/convert-powerpoint-to-pdf/) cikkben találhatók.
+Ez a cikk bemutatja, hogyan konvertálhat PowerPoint‑prezentációkat PDF‑be előadói jegyzetekkel az Aspose.Slides for Python via Java használatával. A jegyzetek elhelyezhetők minden dia alján, és a hosszú jegyzetek további oldalakon folytathatók. Egyéb PDF‑exportálási beállításokért lásd a [PowerPoint átalakítása PDF-re](/slides/hu/python-java/convert-powerpoint-to-pdf/) oldalt.
 
 ## **PowerPoint átalakítása PDF-re jegyzetekkel**
 
-Használja a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztály [save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódusát a PPT vagy PPTX bemutató PDF-re exportálásához. Az előadói jegyzetek hozzáadásához hozza létre a [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/notescommentslayoutingoptions/) objektumot, és állítsa be a [setNotesPosition](https://reference.aspose.com/slides/hu/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) metódusát. Ezt a layoutot adja a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) osztályhoz a [setSlidesLayoutOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) metódussal.
+Használja a [save](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#save) metódust a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) osztályból a PPT vagy PPTX prezentáció PDF‑be exportálásához. Az előadói jegyzetek mellőzéséhez hozzon létre egy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/notescommentslayoutingoptions/) objektumot, és állítsa be a jegyzetek elhelyezését a [setNotesPosition](https://reference.aspose.com/slides/hu/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) metódussal. Ezt a elrendezést rendelje a [PdfOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/) objektumhoz a [setSlidesLayoutOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) metódussal.
 
-Az alábbi példa betölti a `sample.pptx` fájlt, és exportálja `output.pdf` néven, a diák alatti előadói jegyzetekkel:
+Az alábbi példa betölti a `sample.pptx`‑t, és exportálja `output.pdf`‑be a diák alatti előadói jegyzetekkel:
 
 ```python
 import jpype
@@ -44,33 +44,30 @@ from asposeslides.api import NotesCommentsLayoutingOptions, NotesPositions, PdfO
 
 presentation = Presentation("sample.pptx")
 try:
-    # Állítsa be a PDF beállításokat az előadói jegyzetek rendereléséhez.
+    # A PDF beállítások konfigurálása az előadói jegyzetek megjelenítéséhez.
     notes_options = NotesCommentsLayoutingOptions()
     notes_options.setNotesPosition(NotesPositions.BottomFull)
 
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(notes_options)
 
-    # Mentse a bemutatót PDF-be előadói jegyzetekkel.
+    # A bemutató mentése PDF-be előadói jegyzetekkel.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
 {{% alert color="info" title="Megjegyzés" %}}
-Próbálja ki a [Online PowerPoint PDF konvertálót](https://products.aspose.app/slides/hu/conversion).
+Próbálja ki a [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/hu/conversion) szolgáltatást is.
 {{% /alert %}}
 
 ## **GYIK**
 
-**Hogyan kerülhetem el, hogy a hosszú előadói jegyzetek levágásra kerüljenek?**
+**Hogyan akadályozhatom meg, hogy a hosszú előadói jegyzetek levágásra kerüljenek?**  
+Használja a [NotesPositions.BottomFull](https://reference.aspose.com/slides/hu/python-java/aspose.slides/notespositions/#BottomFull) beállítást, ahogy a fenti példában is. Ez a beállítás a teljes jegyzeteket jeleníti meg, szükség esetén további oldalakat használva.
 
-Használja a [NotesPositions.BottomFull](https://reference.aspose.com/slides/hu/python-java/aspose.slides/notespositions/#BottomFull) beállítást, ahogyan a fenti példában is látható. Ez a beállítás a jegyzetek teljes megjelenítését biztosítja, szükség esetén további oldalakat használva.
+**Megtarthatom, hogy minden dia és annak jegyzetei egy oldalon legyenek?**  
+Használja a [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/hu/python-java/aspose.slides/notespositions/#BottomTruncated) beállítást. Ez a beállítás a jegyzeteket egy oldalra korlátozza, ezért a nem férő rész levágásra kerül.
 
-**Tarthatom-e minden diát és a hozzá tartozó jegyzeteket egyetlen oldalon?**
-
-Használja a [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/hu/python-java/aspose.slides/notespositions/#BottomTruncated) beállítást. Ez a beállítás a jegyzeteket egy oldalra korlátozza, így a nem férő részek levágásra kerülnek.
-
-**Hogyan exportálhatom a diákat előadói jegyzetek nélkül?**
-
-Hagyja ki a jegyzetek elrendezésének konfigurációját, és használja a [PowerPoint átalakítása PDF-re](/slides/hu/python-java/convert-powerpoint-to-pdf/) cikkben leírt szabványos PDF exportot.
+**Hogyan exportálhatom a diákat előadói jegyzetek nélkül?**  
+Hagyja el a jegyzetelrendezés konfigurálását, és használja a szokásos PDF‑exportálást, amelyet a [PowerPoint átalakítása PDF-re](/slides/hu/python-java/convert-powerpoint-to-pdf/) leírásban talál.

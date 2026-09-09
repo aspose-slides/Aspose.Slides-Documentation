@@ -1,39 +1,39 @@
 ---
-title: Pythonon keresztül Java használatával prezentációk megnyitása
-linktitle: Prezentáció megnyitása
+title: "Prezentációk megnyitása Pythonon keresztül Java segítségével"
+linktitle: "Prezentáció megnyitása"
 type: docs
 weight: 20
 url: /hu/python-java/open-presentation/
 keywords:
-- PowerPoint megnyitása
-- prezentáció megnyitása
-- PPTX megnyitása
-- PPT megnyitása
-- ODP megnyitása
-- prezentáció betöltése
-- PPTX betöltése
-- PPT betöltése
-- ODP betöltése
-- védett prezentáció
-- nagy prezentáció
-- külső erőforrás
-- bináris objektum
-- Python
-- Java
-- Aspose.Slides
-description: "Tanulja meg, hogyan lehet PowerPoint és OpenDocument prezentációkat megnyitni Pythonon keresztül Java használatával, megadni a megnyitási jelszavakat, kezelni az erőforrás betöltést, és csökkenteni a memóriahasználatot az Aspose.Slides for Python via Java segítségével."
+- "PowerPoint megnyitása"
+- "prezentáció megnyitása"
+- "PPTX megnyitása"
+- "PPT megnyitása"
+- "ODP megnyitása"
+- "prezentáció betöltése"
+- "PPTX betöltése"
+- "PPT betöltése"
+- "ODP betöltése"
+- "védett prezentáció"
+- "nagy prezentáció"
+- "külső erőforrás"
+- "bináris objektum"
+- "Python"
+- "Java"
+- "Aspose.Slides"
+description: "Ismerje meg, hogyan nyithat meg PowerPoint és OpenDocument prezentációkat Pythonon keresztül Java-val, adhat meg nyitási jelszavakat, szabályozhatja az erőforrásbetöltést, és csökkentheti a memóriahasználatot az Aspose.Slides for Python via Java segítségével."
 ---
 ## **Bevezetés**
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/hu/python-java/) képes PowerPoint és OpenDocument prezentációkat betölteni fájlokból és adatfolyamokból. A prezentáció betöltése után ellenőrizheti annak felépítését, szerkesztheti a diákat, kezelheti az erőforrásokat, és mentheti az eredeti vagy egy másik támogatott formátumban.
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/hu/python-java/) képes betölteni PowerPoint és OpenDocument prezentációkat fájlokból és adatfolyamokból. A prezentáció betöltése után ellenőrizheted a szerkezetét, szerkesztheted a diát, kezelheted a forrásokat, és mentheted az eredeti vagy egy másik támogatott formátumban.
 
-A betöltés viselkedését a [LoadOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/) osztály segítségével testreszabhatja. Például megadhat egy megnyitási jelszót, a nagy bináris objektumokat a Java heap memórián kívül tarthatja, szabályozhatja a külső erőforrásokat, vagy kihagyhatja a beágyazott bináris adatokat.
+A betöltés viselkedését a [LoadOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/) osztály segítségével testreszabhatod. Például megadhatsz egy nyitó jelszót, tartani a nagy bináris objektumokat a Java heap memórián kívül, szabályozhatod a külső erőforrásokat, vagy kihagyhatod a beágyazott bináris adatokat.
 
 ## **Prezentációk megnyitása**
 
-Egy meglévő prezentáció megnyitásához adja meg a fájl elérési útját a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) konstruktorának. A prezentáció használata után szabadítsa fel, hogy a fájlkezelők, az ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
+Egy meglévő prezentáció megnyitásához add át a fájl útvonalát a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) konstruktorának. Az használat után szabadítsd fel a prezentációt, hogy a fájlkezelők, ideiglenes adatok és egyéb erőforrások gyorsan felszabaduljanak.
 
-Az alábbi Python példa bemutatja, hogyan nyithat meg egy prezentációt és hogyan kérdezheti le a dia számát:
+Az alábbi Python példa bemutatja, hogyan nyithatsz meg egy prezentációt és hogyan kérdezheted le a diák számát:
 
 ```python
 import jpype
@@ -53,7 +53,7 @@ finally:
 
 ## **Jelszóval védett prezentációk megnyitása**
 
-A megnyitási jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez adja meg a helyes jelszót a [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/#setPassword) metódusnak, és adja át a beállításokat a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) konstruktorának. A betöltés sikertelen, ha a jelszó hiányzik vagy helytelen.
+A nyitó jelszó titkosítja a prezentáció tartalmát. A teljes prezentáció betöltéséhez add át a helyes jelszót a [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/#setPassword) metódusnak, és add meg az opciókat a [Presentation](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/) konstruktorának. A betöltés sikertelen, ha a jelszó hiányzik vagy helytelen.
 
 ```python
 import jpype
@@ -74,13 +74,13 @@ finally:
     presentation.dispose()
 ```
 
-A jelszó érzékeléséhez, ellenőrzéséhez és titkosítási munkafolyamatokhoz lásd a [Jelszóval védett prezentációk](/slides/hu/python-java/password-protected-presentation/) oldalt. Ha egy titkosított prezentációt szándékosan nyilvános dokumentumtulajdonságokkal mentettek, akkor ezeket a tulajdonságokat jelszó nélkül is olvashatja; lásd a [Prezentáció tulajdonságainak kezelése](/slides/hu/python-java/presentation-properties/) oldalt.
+A jelszó felismerésével, validálásával és titkosítási munkafolyamatokkal kapcsolatos információkért lásd a [Password-Protect Presentations](/slides/hu/python-java/password-protected-presentation/) cikket. Ha egy titkosított prezentációt szándékosan nyilvános dokumentumtulajdonságokkal mentettek, akkor ezek a tulajdonságok jelszó nélkül is olvashatók; lásd a [Manage Presentation Properties](/slides/hu/python-java/presentation-properties/) cikket.
 
 ## **Nagy prezentációk megnyitása**
 
-A [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) visszaadja az opciókat, amelyek szabályozzák, hogyan kezeli az Aspose.Slides a bináris nagy objektumokat, például képeket, hangot és videót. A forrásfájl zárolt maradhat, engedélyezheti az ideiglenes fájlokat, és korlátozhatja a memóriában megtartott BLOB adatok mennyiségét.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) olyan beállításokat ad vissza, amelyek szabályozzák, hogyan kezeli az Aspose.Slides a nagy bináris objektumokat, például képeket, hangot és videót. A forrásfájlt lezárhatod, engedélyezheted az ideiglenes fájlokat, és korlátozhatod a memóriaban megtartott BLOB adatok mennyiségét.
 
-Az alábbi Python kód bemutatja egy nagy prezentáció betöltését (például 2 GB):
+Az alábbi Python kód bemutatja egy nagy prezentáció (például 2 GB) betöltését:
 
 ```python
 import jpype
@@ -106,15 +106,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Note" %}}
-Az [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) használatával a forrásfájl zárolva marad, amíg a prezentáció példány ki nem lesz bocsátva. Ne mozgassa, felülírja vagy törölje a forrásfájlt, amíg ez a példány él.
+{{% alert color="info" title="Megjegyzés" %}}
+Az [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) használatával a forrásfájl zárolva marad, amíg a prezentáció példány el nem lett dobva. Ne helyezd át, írd felül vagy töröld a forrásfájlt, amíg az példány él.
 
-Az Aspose.Slides betöltés közben másolhatja a bemeneti adatfolyam tartalmát. Nagy prezentációk esetén a fájl elérési útja általában hatékonyabb, mint egy adatfolyam. További tárolási és memória-kezelési lehetőségekért lásd a [BLOB-ok kezelése](/slides/hu/python-java/manage-blob/) oldalt.
+Az Aspose.Slides a betöltés során másolhatja a bemeneti adatfolyam tartalmát. Nagy prezentációk esetén a fájl útvonala általában hatékonyabb, mint az adatfolyam. További tárolási és memória-kezelési lehetőségekért lásd a [Manage BLOBs](/slides/hu/python-java/manage-blob/) oldalt.
 {{% /alert %}}
 
-## **Külső erőforrások vezérlése**
+## **Külső erőforrások szabályozása**
 
-A [LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) elfogad egy JPype proxy-t, amely a Java erőforrásbetöltő visszahívási interfészt valósítja meg. A visszahívás helyettesítő adatot adhat, átirányíthat egy erőforrást, használhatja az alapértelmezett betöltőt, vagy kihagyhatja azt. Ez akkor hasznos, ha a prezentációk külső képeket tartalmaznak, amelyeket az alkalmazás-specifikus biztonsági vagy tárolási szabályok szerint kell feloldani.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) egy JPype proxy-t fogad el, amely megvalósítja a Java erőforrásbetöltő visszahívási interfészt. A visszahívás biztosíthat helyettesítő adatot, átirányíthat egy erőforrást, használhatja az alapértelmezett betöltőt, vagy kihagyhatja az erőforrást. Ez akkor hasznos, amikor a prezentációk külső képeket tartalmaznak, amelyeket az alkalmazás-specifikus biztonsági vagy tárolási szabályok szerint kell feloldani.
 
 ```python
 import jpype
@@ -156,15 +156,15 @@ finally:
 
 ## **Prezentációk betöltése beágyazott bináris objektumok nélkül**
 
-Egy prezentáció beágyazott bináris adatokat is tartalmazhat, amelyeket egy alkalmazás nem igényel vagy nem szeretne megtartani. Példák:
+Egy prezentáció tartalmazhat beágyazott bináris adatokat, amelyre egy alkalmazásnak nincs szüksége vagy nem akarja megtartani. Példák:
 
 - VBA projektek, a [Presentation.getVbaProject](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getVbaProject) segítségével érhetők el;
-- beágyazott OLE adatok, az [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/hu/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) segítségével;
-- ActiveX vezérlő adat, a [Control.getActiveXControlBinary](https://reference.aspose.com/slides/hu/python-java/aspose.slides/control/#getActiveXControlBinary) segítségével.
+- beágyazott OLE adatok, a [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/hu/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData) segítségével érhetők el;
+- ActiveX vezérlő adatok, a [Control.getActiveXControlBinary](https://reference.aspose.com/slides/hu/python-java/aspose.slides/control/#getActiveXControlBinary) segítségével érhetők el.
 
-Állítsa a [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) értékét `True`-ra, hogy a betöltés során eltávolítsa ezeket a bináris adatokat. Mentse a betöltött prezentációt a tisztított eredmény megőrzéséhez.
+Állítsd a [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/hu/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) értékét `True`-ra, hogy a betöltés során eltávolítsd ezeket a bináris adatokat. Mentsd a betöltött prezentációt a tisztított eredmény megőrzéséhez.
 
-Ez a beállítás csökkenti a nemkívánatos beágyazott terhelések kitettségét, de nem teljes körű rosszindulatú programok felismerését vagy tartalom-sanitizációs rendszert biztosít.
+Ez az opció csökkenti a nem kívánt beágyazott terhek kitettségét, de nem egy teljes rosszindulatú kód-azonosító vagy tartalomszűrő rendszer.
 
 ```python
 import jpype
@@ -187,11 +187,14 @@ finally:
 
 ## **GYIK**
 
-**Hogyan tudom megállapítani, hogy egy fájl sérült és nem nyitható meg?**  
-Az Aspose.Slides a betöltés során elemzési vagy formátumhibát dob. Kezelje ezt a hibát külön a helytelen jelszó hibától, hogy az alkalmazás pontosan jelenthesse az okot.
+**Hogyan tudhatom meg, hogy egy fájl sérült és nem nyitható meg?**
 
-**Mi történik, ha a szükséges betűtípusok hiányoznak?**  
-A prezentáció továbbra is betölthető, de a megjelenítés és az export esetleg betűtípus-helyettesítést alkalmaz. Beállíthatja a [betűtípus‑helyettesítés beállítása](/slides/hu/python-java/font-substitution/) vagy [egyedi betűtípusok megadása](/slides/hu/python-java/custom-font/) lehetőséget, hogy az eredmény kiszámíthatóbb legyen.
+Az Aspose.Slides betöltés közben parsing vagy formátum kivételt dob. Kezeld ezt a hibát külön a helytelen jelszó hibától, hogy az alkalmazás pontosan jelenteni tudja az okot.
 
-**Betölti-e a prezentáció a beágyazott médiát is?**  
-A beágyazott hang és videó a prezentáció objektummodeljén keresztül lesz elérhető. A külső erőforrások feloldása a konfigurált erőforrásbetöltési viselkedés szerint történik, és előfordulhat, hogy nem elérhetők, ha azok helyei nem érhetők el.
+**Mi történik, ha a szükséges betűtípusok hiányoznak?**
+
+A prezentáció még betölthető, de a renderelés és export esetleg helyettesítő betűtípusokat használ. Beállíthatod a [font substitution](/slides/hu/python-java/font-substitution/) konfigurálását vagy [egyedi betűtípusok](/slides/hu/python-java/custom-font/) biztosítását, hogy a kimenet előre jelezhetőbb legyen.
+
+**Betölti-e a prezentáció a beágyazott médiát is?**
+
+A beágyazott hang és videó elérhetővé válik a prezentáció objektummodelljén keresztül. A külső erőforrások a beállított erőforrásbetöltési viselkedés szerint kerülnek feloldásra, és előfordulhat, hogy nem érhetők el, ha azok helyei nem hozzáférhetők.

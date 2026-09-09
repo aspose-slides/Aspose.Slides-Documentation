@@ -1,5 +1,5 @@
 ---
-title: Конвертировать презентации в HTML5 на Python через Java
+title: Преобразование презентаций в HTML5 на Python через Java
 linktitle: Презентация в HTML5
 type: docs
 weight: 40
@@ -25,9 +25,9 @@ description: "Экспортировать презентации PowerPoint и 
 ---
 ## **Обзор**
 
-В этой статье объясняется, как конвертировать презентации PowerPoint в HTML5 с помощью Aspose.Slides. Описывается базовый экспорт в HTML5 без дополнительных веб‑расширений, а также параметры управления анимацией фигур и переходами между слайдами. Статья также демонстрирует стандартный процесс экспорта PowerPoint в HTML, объясняет, как получать вывод HTML5 в режиме просмотра слайдов, и показывает, как включить комментарии в экспортированный документ, настроив их расположение.
+В этой статье объясняется, как преобразовать презентации PowerPoint в HTML5 с помощью Aspose.Slides. Описывается базовый экспорт в HTML5 без дополнительных веб‑расширений, а также параметры, позволяющие управлять анимацией фигур и переходами между слайдами. Статья также демонстрирует стандартный процесс экспорта PowerPoint в HTML, объясняет, как генерировать вывод HTML5 в режиме просмотра слайдов, и показывает, как включить комментарии в экспортируемый документ, настроив их размещение.
 
-Для примеров требуется Aspose.Slides для Python через Java и совместимая среда выполнения Java. Поместите `pres.pptx` (или `sample.pptx` для примера с комментариями) в текущий рабочий каталог. Каждый пример запускает JVM только если она ещё не запущена.
+Для примеров требуется Aspose.Slides для Python через Java и совместимая среда выполнения Java. Поместите `pres.pptx` (или `sample.pptx` для примера с комментариями) в текущий рабочий каталог. Каждый пример запускает JVM только в случае, если она ещё не запущена.
 
 ## **Экспорт PowerPoint в HTML5**
 
@@ -49,11 +49,13 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="info" title="Примечание" %}} 
+{{% alert color="info" title="Note" %}} 
+
 Экспортер HTML5 создает HTML‑контент для просмотра в браузере. 
+
 {{% /alert %}}
 
-Используйте [Html5Options](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/) для настройки экспорта. Вызовите [setAnimateShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setAnimateShapes) и [setAnimateTransitions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setAnimateTransitions) со значением `False`, чтобы отключить анимацию фигур и переходы между слайдами:
+Используйте [Html5Options](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/) для настройки экспорта. Вызовите [setAnimateShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setAnimateShapes) и [setAnimateTransitions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setAnimateTransitions) с параметром `False`, чтобы отключить анимацию фигур и переходы между слайдами:
 
 ```python
 import jpype
@@ -77,7 +79,7 @@ finally:
 
 ## **Экспорт PowerPoint в HTML**
 
-Используйте [SaveFormat.Html](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveformat/#Html) для стандартного экспорта в HTML. См. [Convert PowerPoint to HTML](/slides/ru/python-java/convert-powerpoint-to-html/) для дополнительных вариантов:
+Используйте [SaveFormat.Html](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveformat/#Html) для стандартного экспорта в HTML. См. [Convert PowerPoint to HTML](/slides/ru/python-java/convert-powerpoint-to-html/) для дополнительных параметров:
 
 ```python
 import jpype
@@ -95,7 +97,7 @@ finally:
     presentation.dispose()
 ```
 
-В этом случае содержание презентации рендерится через SVG в виде, показанном ниже:
+В этом случае содержимое презентации отображается через SVG в виде:
 
 ```html
 <body>
@@ -107,15 +109,17 @@ finally:
 </body>
 ```
 
-{{% alert title="Предупреждение" color="warning" %}} 
-Стандартный экспорт в HTML рендерит содержимое слайдов через SVG и не предоставляет опций анимации фигур и переходов между слайдами, доступных в HTML5. 
+{{% alert title="Warning" color="warning" %}} 
+
+Стандартный экспорт HTML отображает содержимое слайда через SVG и не предоставляет опций анимации фигур и переходов, характерных для HTML5. 
+
 {{% /alert %}}
 
-## **Экспорт PowerPoint в HTML5 в режиме просмотра слайдов**
+## **Экспорт PowerPoint в режим просмотра слайдов HTML5**
 
-**Aspose.Slides** позволяет конвертировать презентацию PowerPoint в документ HTML5, в котором слайды отображаются в режиме просмотра слайдов. В этом случае, открывая полученный файл HTML5 в браузере, вы видите презентацию в режиме просмотра слайдов на веб‑странице. 
+**Aspose.Slides** позволяет преобразовать презентацию PowerPoint в документ HTML5, в котором слайды отображаются в режиме просмотра слайдов. При открытии полученного HTML5‑файла в браузере вы увидите презентацию в режиме просмотра слайдов на веб‑странице. 
 
-Данный код на Python демонстрирует процесс экспорта PowerPoint в режим просмотра слайдов HTML5:
+Следующий код Python демонстрирует процесс экспорта PowerPoint в режим просмотра слайдов HTML5:
 
 ```python
 import jpype
@@ -137,17 +141,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Конвертация презентаций в документы HTML5 с комментариями**
+## **Преобразование презентаций в документы HTML5 с комментариями**
 
-Комментарии в PowerPoint — это инструмент, позволяющий пользователям оставлять заметки или обратную связь к слайдам презентации. Они особенно полезны в совместных проектах, когда несколько человек могут добавлять свои предложения или замечания к отдельным элементам слайда, не изменяя основное содержание. Каждый комментарий отображает имя автора, что облегчает отслеживание, кто оставил замечание.
+Комментарии в PowerPoint — это инструмент, позволяющий пользователям оставлять заметки или обратную связь по слайдам презентации. Они особенно полезны в совместных проектах, где несколько человек могут добавлять свои предложения или замечания к конкретным элементам слайда, не изменяя основное содержание. Каждый комментарий показывает имя автора, что упрощает отслеживание, кто оставил замечание.
 
-Предположим, у нас есть следующая презентация PowerPoint, сохранённая в файле «sample.pptx».
+Предположим, у нас есть следующая презентация PowerPoint, сохранённая в файле `sample.pptx`.
 
-![Two comments on the presentation slide](two_comments_pptx.png)
+![Два комментария на слайде презентации](two_comments_pptx.png)
 
-При конвертации презентации PowerPoint в документ HTML5 вы можете легко указать, включать ли комментарии из презентации в результирующий документ. Для этого передайте параметры отображения комментариев в метод [setSlidesLayoutOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) класса [Html5Options](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/).
+При преобразовании презентации PowerPoint в документ HTML5 вы можете указать, включать ли комментарии из презентации в результирующий документ. Для этого передайте параметры отображения комментариев в метод [setSlidesLayoutOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) класса [Html5Options](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/).
 
-Используйте [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notescommentslayoutingoptions/) и [setCommentsPosition](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) с [CommentsPositions.Right](https://reference.aspose.com/slides/ru/python-java/aspose.slides/commentspositions/#Right). Приведённый ниже пример кода конвертирует презентацию в документ HTML5 с комментариями, отображаемыми справа от слайдов.
+Используйте [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notescommentslayoutingoptions/) и [setCommentsPosition](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) с [CommentsPositions.Right](https://reference.aspose.com/slides/ru/python-java/aspose.slides/commentspositions/#Right). Приведённый ниже пример кода преобразует презентацию в документ HTML5 с комментариями, отображаемыми справа от слайдов.
 
 ```python
 import jpype
@@ -171,20 +175,20 @@ finally:
     presentation.dispose()
 ```
 
-Документ «output.html» показан на изображении ниже.
+Документ `output.html` показан на изображении ниже.
 
-![The comments in the output HTML5 document](two_comments_html5.png)
+![Комментарии в результирующем документе HTML5](two_comments_html5.png)
 
 ## **FAQ**
 
-**Могу ли я управлять тем, будут ли воспроизводиться анимации объектов и переходы между слайдами в HTML5?**
+**Можно ли управлять тем, будут ли воспроизводиться анимации объектов и переходы между слайдами в HTML5?**
 
-Да, в HTML5 есть отдельные параметры для включения или отключения [shape animations](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setAnimateShapes) и [slide transitions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setAnimateTransitions).
+Да, в HTML5 есть отдельные параметры для включения или отключения [анимации фигур](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setAnimateShapes) и [переходов между слайдами](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setAnimateTransitions).
 
-**Поддерживается ли вывод комментариев и где их можно разместить относительно слайда?**
+**Можно ли экспортировать комментарии и где их можно разместить относительно слайда?**
 
-Да, комментарии могут быть добавлены в HTML5 и расположены (например, справа от слайда) с помощью [layout settings](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) для заметок и комментариев.
+Да, комментарии можно добавить в HTML5 и разместить (например, справа от слайда) с помощью [настроек размещения](https://reference.aspose.com/slides/ru/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) для заметок и комментариев.
 
-**Можно ли пропустить ссылки, вызывающие JavaScript, по соображениям безопасности или CSP?**
+**Можно ли пропускать ссылки, вызывающие JavaScript, по соображениям безопасности или CSP?**
 
-Да, существует [setting](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks), позволяющий пропускать гиперссылки с вызовами JavaScript при сохранении. Это удаляет такие ссылки; однако само по себе не гарантирует, что весь сгенерированный HTML5‑скрипт удовлетворяет политике Content Security Policy сайта.
+Да, существует [настройка](https://reference.aspose.com/slides/ru/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks), позволяющая пропускать гиперссылки с вызовами JavaScript при сохранении. Это удаляет такие ссылки; однако сама по себе эта настройка не гарантирует, что все сгенерированные скрипты HTML5 соответствуют политике безопасности контента сайта.

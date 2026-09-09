@@ -1,6 +1,6 @@
 ---
-title: पाइथन द्वारा जावा में प्रस्तुति हाइपरलिंक प्रबंधन
-linktitle: हाइपरलिंक प्रबंधन
+title: Python द्वारा Java में प्रस्तुति हाइपरलिंक प्रबंधित करें
+linktitle: हाइपरलिंक प्रबंधित करें
 type: docs
 weight: 20
 url: /hi/python-java/manage-hyperlinks/
@@ -13,34 +13,36 @@ keywords:
 - हाइपरलिंक अपडेट करें
 - टेक्स्ट हाइपरलिंक
 - स्लाइड हाइपरलिंक
-- शेप हाइपरलिंक
-- इमेज हाइपरलिंक
+- शैप हाइपरलिंक
+- छवि हाइपरलिंक
 - वीडियो हाइपरलिंक
-- परिवर्तनशील हाइपरलिंक
+- परिवर्तनीय हाइपरलिंक
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Python
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java के साथ PowerPoint और OpenDocument प्रस्तुतियों में हाइपरलिंक को सहजता से प्रबंधित करें—मिनटों में इंटरैक्टिविटी और कार्यप्रवाह को बढ़ाएँ।"
+description: "Aspose.Slides for Python via Java के साथ PowerPoint और OpenDocument प्रस्तुतियों में हाइपरलिंक को आसानी से प्रबंधित करें—मिनटों में इंटरैक्टिविटी और वर्कफ़्लो को बढ़ाएं।"
 ---
 ## **परिचय**
 
-हाइपरलिंक एक वस्तु, डेटा या किसी स्थान का संदर्भ है। ये PowerPoint प्रस्तुतियों में सामान्य हाइपरलिंक हैं:
+हाइपरलिंक एक ऑब्जेक्ट, डेटा या स्थान का संदर्भ होता है। PowerPoint प्रस्तुतियों में सामान्य हाइपरलिंक हैं:
 
-* टेक्स्ट, आकार, या मीडिया के भीतर वेबसाइट के लिंक
-* स्लाइड के लिंक
+* टेक्स्ट, शैप्स या मीडिया में वेबसाइट्स के लिंक
+* स्लाइड्स के लिंक
 
-Aspose.Slides for Python via Java आपको प्रस्तुतियों में हाइपरलिंक से संबंधित कई कार्य करने की अनुमति देता है।
+Aspose.Slides for Python via Java आपको प्रस्तुतियों में हाइपरलिंक से संबंधित कई कार्य करने की अनुमति देता है। 
 
 {{% alert color="info" title="Note" %}} 
-आप Aspose सरल, [नि:शुल्क ऑनलाइन PowerPoint संपादक.](https://products.aspose.app/slides/hi/editor) देखना चाह सकते हैं।
+
+आप Aspose के सरल, [फ्री ऑनलाइन PowerPoint संपादक.](https://products.aspose.app/slides/hi/editor) को देख सकते हैं।
+
 {{% /alert %}} 
 
 ## **URL हाइपरलिंक जोड़ें**
 
-### **पाठ में URL हाइपरलिंक जोड़ें**
+### **टेक्स्ट में URL हाइपरलिंक जोड़ें**
 
 यह Python कोड आपको दिखाता है कि टेक्स्ट में वेबसाइट हाइपरलिंक कैसे जोड़ें:
 
@@ -68,9 +70,9 @@ finally:
     presentation.dispose()
 ```
 
-### **आकार या फ्रेम में URL हाइपरलिंक जोड़ें**
+### **शेप्स या फ्रेम्स में URL हाइपरलिंक जोड़ें**
 
-यह Python via Java नमूना कोड आपको दिखाता है कि आकार में वेबसाइट हाइपरलिंक कैसे जोड़ें:
+यह Python via Java नमूना कोड आपको दिखाता है कि शैप में वेबसाइट हाइपरलिंक कैसे जोड़ें:
 
 ```python
 import jpype
@@ -95,9 +97,9 @@ finally:
 
 ### **मीडिया में URL हाइपरलिंक जोड़ें**
 
-Aspose.Slides आपको छवियों, ऑडियो और वीडियो फ़ाइलों में हाइपरलिंक जोड़ने की अनुमति देता है।
+Aspose.Slides आपको इमेज, ऑडियो और वीडियो फ़ाइलों में हाइपरलिंक जोड़ने की अनुमति देता है। 
 
-यह नमूना कोड आपको दिखाता है कि **image** में हाइपरलिंक कैसे जोड़ें:
+यह नमूना कोड आपको एक **इमेज** में हाइपरलिंक कैसे जोड़ें दिखाता है:
 
 ```python
 import jpype
@@ -116,7 +118,7 @@ try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # स्लाइड 1 पर पहले जोड़ी गई छवि के आधार पर चित्र फ्रेम बनाता है
+    # पहले जोड़ी गई छवि के आधार पर स्लाइड 1 पर चित्र फ्रेम बनाता है
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -127,7 +129,7 @@ finally:
     presentation.dispose()
 ```
 
-यह नमूना कोड आपको दिखाता है कि **audio file** में हाइपरलिंक कैसे जोड़ें:
+यह नमूना कोड आपको **ऑडियो फ़ाइल** में हाइपरलिंक कैसे जोड़ें दिखाता है:
 
 ```python
 from pathlib import Path
@@ -155,7 +157,7 @@ finally:
     presentation.dispose()
 ```
 
-यह नमूना कोड आपको दिखाता है कि **video** में हाइपरलिंक कैसे जोड़ें:
+यह नमूना कोड आपको **वीडियो** में हाइपरलिंक कैसे जोड़ें दिखाता है:
 
 ```python
 from pathlib import Path
@@ -184,14 +186,16 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}} 
-आप *[Manage OLE](/slides/hi/python-java/manage-ole/)* देखना चाह सकते हैं।
+
+आप *[OLE प्रबंधित करें](/slides/hi/python-java/manage-ole/)* देखना चाहेंगे।
+
 {{% /alert %}}
 
-## **हाइपरलिंक का उपयोग करके सामग्री तालिका बनाएं**
+## **सामग्री-सूची बनाने के लिए हाइपरलिंक का उपयोग करें**
 
-चूँकि हाइपरलिंक आपको वस्तुओं या स्थानों के संदर्भ जोड़ने की अनुमति देते हैं, आप उनका उपयोग करके सामग्री तालिका बना सकते हैं।
+चूंकि हाइपरलिंक आपको ऑब्जेक्ट या स्थान का संदर्भ जोड़ने की अनुमति देते हैं, आप उनका उपयोग सामग्री‑सूची बनाने के लिए कर सकते हैं। 
 
-यह नमूना कोड आपको दिखाता है कि हाइपरलिंक के साथ सामग्री तालिका कैसे बनाएं:
+यह नमूना कोड आपको हाइपरलिंक के साथ सामग्री‑सूची बनाने का तरीका दिखाता है:
 
 ```python
 import jpype
@@ -231,13 +235,13 @@ finally:
     presentation.dispose()
 ```
 
-## **हाइपरलिंक स्वरूपित करें**
+## **हाइपरलिंक फ़ॉर्मेट करें**
 
 ### **रंग**
 
-[Hyperlink.setColorSource](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setColorSource) प्रॉपर्टी को [Hyperlink](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/) क्लास में उपयोग करके आप हाइपरलिंक का रंग सेट कर सकते हैं और हाइपरलिंक से रंग की जानकारी प्राप्त कर सकते हैं। यह सुविधा PowerPoint 2019 में पहली बार प्रस्तुत की गई थी, इसलिए इस प्रॉपर्टी से संबंधित परिवर्तन पुराने PowerPoint संस्करणों पर लागू नहीं होते।
+[Hyperlink.setColorSource](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setColorSource) प्रॉपर्टी के साथ आप हाइपरलिंक का रंग सेट कर सकते हैं और हाइपरलिंक से रंग जानकारी प्राप्त कर सकते हैं। यह सुविधा PowerPoint 2019 में पहली बार प्रस्तुत की गई थी, इसलिए इस प्रॉपर्टी में होने वाले परिवर्तन पुराने PowerPoint संस्करणों पर लागू नहीं होते। 
 
-यह नमूना कोड एक ऑपरेशन दर्शाता है जहाँ विभिन्न रंगों वाले हाइपरलिंक एक ही स्लाइड में जोड़े गए:
+यह नमूना कोड एक ही स्लाइड में विभिन्न रंगों वाले हाइपरलिंक जोड़ने का उदाहरण दर्शाता है:
 
 ```python
 import jpype
@@ -271,9 +275,9 @@ finally:
 
 ## **प्रेजेंटेशन से हाइपरलिंक हटाएँ**
 
-### **पाठ से हाइपरलिंक हटाएँ**
+### **टेक्स्ट से हाइपरलिंक हटाएँ**
 
-यह Python कोड आपको दिखाता है कि प्रस्तुति स्लाइड के टेक्स्ट से हाइपरलिंक कैसे हटाएँ:
+यह Python कोड आपको दिखाता है कि प्रस्तुति स्लाइड में टेक्स्ट से हाइपरलिंक कैसे हटाएँ:
 
 ```python
 import jpype
@@ -300,9 +304,9 @@ finally:
     presentation.dispose()
 ```
 
-### **आकार या फ्रेम से हाइपरलिंक हटाएँ**
+### **शेप्स या फ्रेम्स से हाइपरलिंक हटाएँ**
 
-यह Python कोड आपको दिखाता है कि प्रस्तुति स्लाइड के आकार से हाइपरलिंक कैसे हटाएँ:
+यह Python कोड आपको दिखाता है कि प्रस्तुति स्लाइड में शैप से हाइपरलिंक कैसे हटाएँ:
 
 ```python
 import jpype
@@ -325,7 +329,7 @@ finally:
 
 ## **परिवर्तनीय हाइपरलिंक**
 
-[Hyperlink](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/) क्लास परिवर्तनशील है। इस क्लास के साथ आप निम्न प्रॉपर्टियों के मान बदल सकते हैं:
+[Hyperlink](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/) क्लास परिवर्तनीय है। इस क्लास के साथ आप निम्नलिखित प्रॉपर्टीज़ के मान बदल सकते हैं:
 
 - [setTargetFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setTargetFrame)
 - [setTooltip](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setTooltip)
@@ -333,7 +337,7 @@ finally:
 - [setHighlightClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-यह कोड स्निपेट आपको दिखाता है कि स्लाइड में हाइपरलिंक कैसे जोड़ें और बाद में उसका टूलटिप कैसे संपादित करें:
+यह कोड स्निपेट दिखाता है कि स्लाइड में हाइपरलिंक कैसे जोड़ें और बाद में उसके टूलटिप को संपादित करें:
 
 ```python
 import jpype
@@ -354,7 +358,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # पहले से जोड़ी गई हाइपरलिंक के टूलटिप को बदलता है
+    # पहले ही जोड़े गए हाइपरलिंक के टूलटिप को बदलता है
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -362,15 +366,15 @@ finally:
     presentation.dispose()
 ```
 
-## **HyperlinkQueries में समर्थित गुण**
+## **HyperlinkQueries में समर्थित प्रॉपर्टीज़**
 
-आप एक प्रस्तुति, स्लाइड, या टेक्स्ट से [HyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/) तक पहुंच सकते हैं जहाँ हाइपरलिंक परिभाषित है।
+आप प्रस्तुति, स्लाइड या टेक्स्ट से [HyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/) तक पहुंच सकते हैं, जहाँ हाइपरलिंक परिभाषित है। 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-[HyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/) क्लास इन मेथड्स और प्रॉपर्टीज़ का समर्थन करता है:
+[HyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/) क्लास निम्नलिखित मेथड्स और प्रॉपर्टीज़ को सपोर्ट करता है: 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
@@ -379,11 +383,14 @@ finally:
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं सिर्फ स्लाइड नहीं, बल्कि "सेक्शन" या एक सेक्शन की पहली स्लाइड के लिए आंतरिक नेविगेशन कैसे बना सकता हूँ?**  
-PowerPoint में सेक्शन स्लाइड्स के समूह होते हैं; नेविगेशन तकनीकी तौर पर एक विशिष्ट स्लाइड को लक्षित करता है। "सेक्शन पर नेविगेट करने" के लिए आपको आमतौर पर उसकी पहली स्लाइड से लिंक करना पड़ता है।
+**मैं केवल स्लाइड नहीं, बल्कि "सेक्शन" या सेक्शन की पहली स्लाइड पर नेविगेशन कैसे बना सकता हूँ?**
 
-**क्या मैं मास्टर स्लाइड तत्वों पर हाइपरलिंक संलग्न कर सकता हूँ ताकि वह सभी स्लाइड्स पर काम करे?**  
-हां। मास्टर स्लाइड और लेआउट तत्व हाइपरलिंक का समर्थन करते हैं। ऐसे लिंक चाइल्ड स्लाइड्स पर दिखाई देते हैं और स्लाइडशो के दौरान क्लिक करने योग्य होते हैं।
+PowerPoint में सेक्शन स्लाइडों का समूह होते हैं; नेविगेशन तकनीकी रूप से किसी विशिष्ट स्लाइड को लक्षित करता है। "सेक्शन पर नेविगेट" करने के लिए आप सामान्यतः उसकी पहली स्लाइड से लिंक बनाते हैं।
 
-**क्या हाइपरलिंक PDF, HTML, छवियों या वीडियो में निर्यात करने पर संरक्षित रहेंगे?**  
-[PDF](/slides/hi/python-java/convert-powerpoint-to-pdf/) और [HTML](/slides/hi/python-java/convert-powerpoint-to-html/) में, हाँ—लिंक सामान्यतः संरक्षित रहते हैं। जब आप [images](/slides/hi/python-java/convert-powerpoint-to-png/) और [video](/slides/hi/python-java/convert-powerpoint-to-video/) में निर्यात करते हैं, तो क्लिक करने की क्षमता नहीं रहती क्योंकि उन फ़ॉर्मैट्स (रैस्टर फ्रेम/वीडियो) हाइपरलिंक का समर्थन नहीं करते।
+**क्या मैं मास्टर स्लाइड तत्वों पर हाइपरलिंक लगा सकता हूँ ताकि वह सभी स्लाइड पर काम करे?**
+
+हाँ। मास्टर स्लाइड और लेआउट तत्व हाइपरलिंक का समर्थन करते हैं। ऐसे लिंक चाइल्ड स्लाइड्स पर दिखाई देंगे और स्लाइडशो के दौरान क्लिक‑योग्य होंगे।
+
+**क्या हाइपरलिंक PDF, HTML, इमेज या वीडियो में एक्सपोर्ट करने पर संरक्षित रहते हैं?**
+
+[PDF](/slides/hi/python-java/convert-powerpoint-to-pdf/) और [HTML](/slides/hi/python-java/convert-powerpoint-to-html/) में हाइपरलिंक सामान्यतः संरक्षित रहते हैं। जब आप [इमेज](/slides/hi/python-java/convert-powerpoint-to-png/) और [वीडियो](/slides/hi/python-java/convert-powerpoint-to-video/) में एक्सपोर्ट करते हैं, तो क्लिक‑योग्यता नहीं रहती क्योंकि उन फॉर्मेट्स में (रास्टर फ्रेम/वीडियो) हाइपरलिंक समर्थित नहीं होते।

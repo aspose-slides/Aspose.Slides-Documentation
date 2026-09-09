@@ -1,5 +1,5 @@
 ---
-title: Animowanie tekstu PowerPoint w Pythonie przez Java
+title: Animowanie tekstu PowerPoint w Pythonie przy użyciu Javy
 linktitle: Animowany tekst
 type: docs
 weight: 60
@@ -16,15 +16,15 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Twórz dynamiczny animowany tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona przez Java, korzystając z prostych, zoptymalizowanych przykładów kodu w Pythonie."
+description: "Twórz dynamiczny animowany tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona via Java, z łatwymi do śledzenia, zoptymalizowanymi przykładami kodu w Pythonie."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z animowanym tekstem w Aspose.Slides, stosując efekty animacji do pojedynczych akapitów oraz pobierając efekty już przypisane do akapitów w ramce tekstowej. Skupia się na metodach API używanych do dodawania animacji na poziomie akapitu oraz przeglądania istniejących efektów animacji akapitów w prezentacji.
+Ten artykuł wyjaśnia, jak pracować z animowanym tekstem w Aspose.Slides, stosując efekty animacji do poszczególnych akapitów oraz pobierając efekty już przypisane akapitom w ramce tekstowej. Skupia się na metodach API używanych do dodawania animacji na poziomie akapitu oraz przeglądania istniejących efektów animacji akapitów w prezentacji.
 
 ## **Dodawanie efektów animacji do akapitów**
 
-Metoda [addEffect](https://reference.aspose.com/slides/pl/python-java/aspose.slides/sequence/#addEffect) klasy [Sequence](https://reference.aspose.com/slides/pl/python-java/aspose.slides/sequence/) pozwala dodać efekty animacji do pojedynczego akapitu. Poniższy przykładowy kod pokazuje, jak dodać efekt animacji do jednego akapitu:
+Metoda [addEffect](https://reference.aspose.com/slides/pl/python-java/aspose.slides/sequence/#addEffect) klasy [Sequence](https://reference.aspose.com/slides/pl/python-java/aspose.slides/sequence/) umożliwia dodanie efektów animacji do jednego akapitu. Ten przykładowy kod pokazuje, jak dodać efekt animacji do pojedynczego akapitu:
 
 ```python
 import jpype
@@ -51,9 +51,9 @@ finally:
 
 ## **Pobieranie efektów animacji akapitów**
 
-Możesz chcieć dowiedzieć się, jakie efekty animacji zostały dodane do akapitu — na przykład w jednej sytuacji chcesz pobrać efekty animacji z akapitu, aby zastosować je w innym akapicie lub kształcie.
+Możesz chcieć pobrać efekty animacji zastosowane do akapitu — na przykład, aby zastosować te efekty do innego akapitu lub kształtu.
 
-Aspose.Slides for Python via Java umożliwia pobranie wszystkich efektów animacji zastosowanych do akapitów zawartych w ramce tekstowej (kształcie). Poniższy przykładowy kod pokazuje, jak uzyskać efekty animacji w akapicie:
+Aspose.Slides for Python via Java umożliwia uzyskanie wszystkich efektów animacji zastosowanych do akapitów zawartych w ramce tekstowej (kształcie). Ten przykładowy kod pokazuje, jak pobrać efekty animacji zastosowane do akapitu:
 
 ```python
 import jpype
@@ -80,11 +80,14 @@ finally:
 
 ## **FAQ**
 
-**Czym różnią się animacje tekstu od przejść slajdów i czy można je łączyć?**
-Animacje tekstu kontrolują zachowanie obiektu w czasie na slajdzie, natomiast [przejścia](/slides/pl/python-java/slide-transition/) kontrolują, jak zmieniają się slajdy. Są niezależne i mogą być używane razem; kolejność odtwarzania jest określana przez oś czasu animacji i ustawienia przejść.
+**Jak animacje tekstu różnią się od przejść slajdów i czy można je łączyć?**
 
-**Czy animacje tekstu są zachowywane przy eksportowaniu do PDF lub obrazów?**
-Nie. PDF i obrazy rastrowe są statyczne, więc zobaczysz jedynie jedną, nieruchomą wersję slajdu. Aby zachować ruch, użyj eksportu do [wideo](/slides/pl/python-java/convert-powerpoint-to-video/) lub [HTML](/slides/pl/python-java/export-to-html5/).
+Animacje tekstu kontrolują zachowanie obiektu w czasie na slajdzie, podczas gdy [przejścia](/slides/pl/python-java/slide-transition/) kontrolują, jak slajdy się zmieniają. Są niezależne i mogą być używane razem; kolejność odtwarzania jest sterowana przez oś czasu animacji i ustawienia przejść.
 
-**Czy animacje tekstu działają w układach i wzorcu slajdów?**
-Efekty zastosowane do obiektów układu/matrycy są dziedziczone przez slajdy, jednak ich timing i interakcja z animacjami na poziomie slajdu zależą od ostatecznej kolejności na slajdzie.
+**Czy animacje tekstu są zachowywane podczas eksportu do PDF lub obrazów?**
+
+Nie. PDF i obrazy rastrowe są statyczne, więc zobaczysz jedynie pojedynczy stan slajdu bez ruchu. Aby zachować animację, użyj eksportu do [wideo](/slides/pl/python-java/convert-powerpoint-to-video/) lub [HTML](/slides/pl/python-java/export-to-html5/).
+
+**Czy animacje tekstu działają w układach i szablonie slajdu?**
+
+Efekty zastosowane do obiektów układu/szablonu są dziedziczone przez slajdy, ale ich synchronizacja i interakcja z animacjami na poziomie slajdu zależą od ostatecznej kolejności na slajdzie.

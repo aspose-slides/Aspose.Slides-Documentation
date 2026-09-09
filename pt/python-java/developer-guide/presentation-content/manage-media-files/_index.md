@@ -1,6 +1,6 @@
 ---
-title: Gerenciar Arquivos de Mídia em Python via Java
-linktitle: Arquivos de Mídia
+title: Gerenciar arquivos de mídia em Python via Java
+linktitle: Arquivos de mídia
 type: docs
 weight: 30
 url: /pt/python-java/manage-media-files/
@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Gerencie áudio e vídeo no Aspose.Slides para Java: adicione, extraia, substitua e otimize mídia em arquivos PPT, PPTX e ODP. Guias passo a passo e código Java."
+description: "Gerencie áudio e vídeo no Aspose.Slides para Python via Java: adicione, extraia, substitua e otimize mídia em arquivos PPT, PPTX e ODP. Guias passo a passo e código Python."
 ---

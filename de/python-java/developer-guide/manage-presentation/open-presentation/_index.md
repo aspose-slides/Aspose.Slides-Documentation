@@ -17,23 +17,23 @@ keywords:
 - geschützte Präsentation
 - große Präsentation
 - externe Ressource
-- Binärobjekt
+- binäres Objekt
 - Python
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen in Python über Java öffnen, Öffnungspasswörter bereitstellen, das Laden von Ressourcen steuern und mit Aspose.Slides für Python über Java den Speicherverbrauch reduzieren."
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Präsentationen in Python über Java öffnen, Öffnungspasswörter angeben, das Laden von Ressourcen steuern und den Speicherverbrauch mit Aspose.Slides für Python über Java reduzieren."
 ---
-## **Einführung**
+## **Einleitung**
 
-[Aspose.Slides für Python über Java](https://products.aspose.com/slides/de/python-java/) kann PowerPoint‑ und OpenDocument‑Präsentationen aus Dateien und Streams laden. Nachdem eine Präsentation geladen wurde, können Sie ihre Struktur untersuchen, Folien bearbeiten, Ressourcen verwalten und sie im Original‑ oder einem anderen unterstützten Format speichern.
+[Aspose.Slides für Python über Java](https://products.aspose.com/slides/de/python-java/) kann PowerPoint‑ und OpenDocument‑Präsentationen aus Dateien und Streams laden. Nachdem eine Präsentation geladen wurde, können Sie deren Struktur untersuchen, Folien bearbeiten, Ressourcen verwalten und sie im ursprünglichen oder einem anderen unterstützten Format speichern.
 
-Das Ladeverhalten kann über die Klasse [LoadOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/) angepasst werden. Beispielsweise können Sie ein Öffnungskennwort angeben, große Binärobjekte außerhalb des Java‑Heap‑Speichers behalten, externe Ressourcen steuern oder eingebettete Binärdaten weglassen.
+Das Ladeverhalten kann über die Klasse [LoadOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/) angepasst werden. Beispielsweise können Sie ein Öffnungspasswort angeben, große Binärobjekte außerhalb des Java‑Heap‑Speichers halten, externe Ressourcen steuern oder eingebettete Binärdaten weglassen.
 
 ## **Präsentationen öffnen**
 
-Um eine vorhandene Präsentation zu öffnen, übergeben Sie ihren Dateipfad an den Konstruktor [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/). Entsorgen Sie das Presentation‑Objekt nach der Verwendung, damit Dateihandles, temporäre Daten und andere Ressourcen zeitnah freigegeben werden.
+Um eine vorhandene Präsentation zu öffnen, übergeben Sie den Dateipfad an den Konstruktor [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/). Entsorgen Sie das Presentation‑Objekt nach der Verwendung, damit Dateihandles, temporäre Daten und andere Ressourcen schnell freigegeben werden.
 
-Das folgende Python‑Beispiel zeigt, wie eine Präsentation geöffnet und die Folienanzahl abgerufen wird:
+Das folgende Python‑Beispiel zeigt, wie man eine Präsentation öffnet und die Folienanzahl ermittelt:
 
 ```python
 import jpype
@@ -53,7 +53,7 @@ finally:
 
 ## **Passwortgeschützte Präsentationen öffnen**
 
-Ein Öffnungspasswort verschlüsselt den Inhalt der Präsentation. Um die gesamte Präsentation zu laden, übergeben Sie das richtige Passwort an [LoadOptions.setPassword](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/#setPassword) und stellen Sie die Optionen dem Konstruktor [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) zur Verfügung. Das Laden schlägt fehl, wenn das Passwort fehlt oder falsch ist.
+Ein Öffnungspasswort verschlüsselt den Präsentationsinhalt. Um die komplette Präsentation zu laden, übergeben Sie das korrekte Passwort an [LoadOptions.setPassword](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/#setPassword) und geben Sie die Optionen dem Konstruktor [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) weiter. Das Laden schlägt fehl, wenn das Passwort fehlt oder falsch ist.
 
 ```python
 import jpype
@@ -74,11 +74,11 @@ finally:
     presentation.dispose()
 ```
 
-Für Passwort‑Erkennung, Validierung und Verschlüsselungs‑Workflows siehe [Password-Protect Presentations](/slides/de/python-java/password-protected-presentation/). Wenn eine verschlüsselte Präsentation bewusst mit öffentlichen Dokumenteigenschaften gespeichert wurde, können diese Eigenschaften ohne Passwort gelesen werden; siehe [Manage Presentation Properties](/slides/de/python-java/presentation-properties/).
+Für Passworterkennung, Validierung und Verschlüsselungs‑Workflows siehe [Passwortgeschützte Präsentationen](/slides/de/python-java/password-protected-presentation/). Wenn eine verschlüsselte Präsentation bewusst mit öffentlichen Dokumenteneigenschaften gespeichert wurde, können diese Eigenschaften ohne Passwort gelesen werden; siehe [Präsentationseigenschaften verwalten](/slides/de/python-java/presentation-properties/).
 
 ## **Große Präsentationen öffnen**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) liefert Optionen, die steuern, wie Aspose.Slides große Binärobjekte wie Bilder, Audio und Video handhabt. Sie können die Quelldatei gesperrt halten, temporäre Dateien zulassen und die Menge der im Speicher gehaltenen BLOB‑Daten begrenzen.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) liefert Optionen, die steuern, wie Aspose.Slides große binäre Objekte wie Bilder, Audio und Video behandelt. Sie können die Quelldatei gesperrt lassen, temporäre Dateien zulassen und die Menge an BLOB‑Daten, die im Speicher gehalten wird, begrenzen.
 
 Der folgende Python‑Code demonstriert das Laden einer großen Präsentation (z. B. 2 GB):
 
@@ -107,16 +107,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
+Mit [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) bleibt die Quelldatei gesperrt, bis die Presentation‑Instanz entsorgt wird. Verschieben, überschreiben oder löschen Sie die Quelldatei nicht, solange diese Instanz lebt.
 
-Mit [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) bleibt die Quelldatei gesperrt, bis die Presentation‑Instanz entsorgt wird. Verschieben, überschreiben oder löschen Sie die Quelldatei nicht, solange diese Instanz existiert.
-
-Aspose.Slides kann beim Laden den Inhalt eines Eingabestreams kopieren. Für große Präsentationen ist daher ein Dateipfad im Allgemeinen effizienter als ein Stream. Siehe [Manage BLOBs](/slides/de/python-java/manage-blob/) für weitere Speicher‑ und Speicherverwaltungsoptionen.
-
+Aspose.Slides kann den Inhalt eines Eingabestreams beim Laden kopieren. Für große Präsentationen ist ein Dateipfad daher im Allgemeinen effizienter als ein Stream. Siehe [BLOBs verwalten](/slides/de/python-java/manage-blob/) für zusätzliche Speicher‑ und Speicherverwaltungsoptionen.
 {{% /alert %}}
 
 ## **Externe Ressourcen steuern**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) akzeptiert einen JPype‑Proxy, der das Java‑Ressourcen‑Lade‑Callback‑Interface implementiert. Der Callback kann Ersatzdaten bereitstellen, eine Ressource weiterleiten, den Standard‑Lader verwenden oder die Ressource überspringen. Dies ist nützlich, wenn Präsentationen externe Bilder enthalten, die gemäß anwendungsspezifischen Sicherheits‑ oder Speicherregeln aufgelöst werden müssen.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) akzeptiert einen JPype‑Proxy, der das Java‑Ressourcen‑Lade‑Callback‑Interface implementiert. Der Callback kann Ersatzdaten bereitstellen, eine Ressource umleiten, den Standard‑Lader verwenden oder die Ressource überspringen. Das ist nützlich, wenn Präsentationen externe Bilder enthalten, die gemäß anwendungsspezifischen Sicherheits‑ oder Speicherregeln aufgelöst werden müssen.
 
 ```python
 import jpype
@@ -164,7 +162,7 @@ Eine Präsentation kann eingebettete Binärdaten enthalten, die eine Anwendung n
 - eingebettete OLE‑Daten, verfügbar über [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/de/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
 - ActiveX‑Steuerungsdaten, verfügbar über [Control.getActiveXControlBinary](https://reference.aspose.com/slides/de/python-java/aspose.slides/control/#getActiveXControlBinary).
 
-Setzen Sie [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) auf `True`, um diese Binärdaten beim Laden zu entfernen. Speichern Sie die geladene Präsentation, um das bereinigte Ergebnis zu erhalten.
+Setzen Sie [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/de/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) auf `True`, um diese Binärdaten beim Laden zu entfernen. Speichern Sie die geladene Präsentation, um das bereinigte Ergebnis zu persistieren.
 
 Diese Option reduziert die Exposition gegenüber unerwünschten eingebetteten Payloads, stellt jedoch kein vollständiges Malware‑Erkennungs‑ oder Inhalts‑Sanitärsystem dar.
 
@@ -189,14 +187,14 @@ finally:
 
 ## **FAQ**
 
-**Wie kann ich erkennen, dass eine Datei beschädigt ist und nicht geöffnet werden kann?**
+**Wie kann ich feststellen, dass eine Datei beschädigt ist und nicht geöffnet werden kann?**
 
-Aspose.Slides wirft beim Laden eine Parser‑ oder Format‑Ausnahme. Behandeln Sie diesen Fehler gesondert von einem falschen‑Passwort‑Fehler, damit die Anwendung die Ursache korrekt melden kann.
+Aspose.Slides wirft während des Ladens eine Parsing‑ oder Format‑Ausnahme. Behandeln Sie diesen Fehler getrennt von einem falschen Passwort‑Fehler, damit die Anwendung die Ursache genau melden kann.
 
-**Was geschieht, wenn erforderliche Schriftarten fehlen?**
+**Was passiert, wenn erforderliche Schriftarten fehlen?**
 
-Die Präsentation kann weiterhin geladen werden, aber Rendering und Export können Schriftarten ersetzen. Sie können die [Schriftarten‑Substitution konfigurieren](/slides/de/python-java/font-substitution/) oder [benutzerdefinierte Schriftarten bereitstellen](/slides/de/python-java/custom-font/), um die Ausgabe vorhersehbarer zu machen.
+Die Präsentation kann weiterhin geladen werden, aber Rendering und Export können Schriftarten substituieren. Sie können [Schriftart‑Substitution konfigurieren](/slides/de/python-java/font-substitution/) oder [benutzerdefinierte Schriftarten bereitstellen](/slides/de/python-java/custom-font/), um die Ausgabe vorhersehbarer zu machen.
 
-**Wird beim Laden einer Präsentation auch deren eingebettete Medien geladen?**
+**Lädt das Laden einer Präsentation auch deren eingebettete Medien?**
 
-Eingebettete Audio‑ und Videodateien werden über das Präsentations‑Objektmodell verfügbar. Externe Ressourcen werden gemäß dem konfigurierten Ressourcen‑Lade‑Verhalten aufgelöst und können nicht verfügbar sein, wenn deren Speicherorte nicht erreichbar sind.
+Eingebettetes Audio und Video werden über das Präsentations‑Objektmodell verfügbar. Externe Ressourcen werden gemäß dem konfigurierten Ressourcen‑Lade‑Verhalten aufgelöst und können nicht verfügbar sein, wenn ihre Speicherorte nicht zugänglich sind.

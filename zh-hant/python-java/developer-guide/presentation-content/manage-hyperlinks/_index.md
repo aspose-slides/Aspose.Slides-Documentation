@@ -1,5 +1,5 @@
 ---
-title: 在 Python via Java 中管理簡報超連結
+title: 使用 Python 透過 Java 管理簡報超連結
 linktitle: 管理超連結
 type: docs
 weight: 20
@@ -15,7 +15,7 @@ keywords:
 - 投影片超連結
 - 圖形超連結
 - 影像超連結
-- 視訊超連結
+- 影片超連結
 - 可變超連結
 - PowerPoint
 - OpenDocument
@@ -23,28 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via Java 輕鬆管理 PowerPoint 與 OpenDocument 簡報中的超連結，讓互動性與工作流程在數分鐘內得到提升。"
+description: "使用 Aspose.Slides for Python 透過 Java，輕鬆管理 PowerPoint 與 OpenDocument 簡報中的超連結——在數分鐘內提升互動性與工作流程。"
 ---
 ## **簡介**
 
-超連結是對某個物件、資料或某處的參照。以下是在 PowerPoint 簡報中常見的超連結：
+超連結是對物件、資料或位置的參照。PowerPoint 簡報中常見的超連結包括：
 
-* 在文字、圖形或媒體中連結至網站
-* 連結至投影片
+* 文字、圖形或媒體中的網站連結
+* 投影片連結
 
-Aspose.Slides for Python via Java 讓您可以在簡報中執行許多與超連結相關的工作。
+Aspose.Slides for Python via Java 讓您可以執行許多與簡報超連結相關的任務。 
 
-{{% alert color="info" title="Note" %}} 
-
-您可能想要查閱 Aspose 簡易的 [免費線上 PowerPoint 編輯器。](https://products.aspose.app/slides/zh-hant/editor)
-
+{{% alert color="info" title="注意" %}} 
+您可能想瞭解 Aspose 簡單的，[免費線上 PowerPoint 編輯器。](https://products.aspose.app/slides/zh-hant/editor)
 {{% /alert %}} 
 
 ## **新增 URL 超連結**
 
 ### **將 URL 超連結新增至文字**
 
-以下 Python 程式碼示範如何將網站超連結新增至文字：
+此 Python 程式碼示範如何將網站超連結新增至文字：
 
 ```python
 import jpype
@@ -72,7 +70,7 @@ finally:
 
 ### **將 URL 超連結新增至圖形或框架**
 
-此 Python via Java 範例程式碼示範如何將網站超連結新增至圖形：
+此 Python via Java 示例程式碼示範如何將網站超連結新增至圖形：
 
 ```python
 import jpype
@@ -97,9 +95,9 @@ finally:
 
 ### **將 URL 超連結新增至媒體**
 
-Aspose.Slides 允許您為圖片、音訊和視訊檔案新增超連結。
+Aspose.Slides 允許您將超連結新增至圖像、音訊和影片檔案。 
 
-以下範例程式碼示範如何為 **影像** 加入超連結：
+此示例程式碼示範如何將超連結新增至 **圖像**：
 
 ```python
 import jpype
@@ -112,13 +110,13 @@ from asposeslides.api import Hyperlink, Images, Presentation, SaveFormat, ShapeT
 
 presentation = Presentation()
 try:
-    # 將影像新增至簡報
+    # 新增影像至簡報
     image = Images.fromFile("image.png")
     try:
         picture = presentation.getImages().addImage(image)
     finally:
         image.dispose()
-    # 在第 1 張投影片上建立圖片框，基於先前已新增的影像
+    # 在第1張投影片上建立圖片框，基於先前新增的影像
     picture_frame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture)
 
     picture_frame.setHyperlinkClick(Hyperlink("https://www.aspose.com/"))
@@ -129,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-以下範例程式碼示範如何為 **音訊檔案** 加入超連結：
+此示例程式碼示範如何將超連結新增至 **音訊檔案**：
 
 ```python
 from pathlib import Path
@@ -157,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-以下範例程式碼示範如何為 **視訊** 加入超連結：
+此示例程式碼示範如何將超連結新增至 **影片**：
 
 ```python
 from pathlib import Path
@@ -185,17 +183,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}} 
-
-您可能想要參考 *[管理 OLE](/slides/zh-hant/python-java/manage-ole/)*。
-
+{{% alert color="success" title="提示" %}} 
+您可能想查看 *[管理 OLE](/slides/zh-hant/python-java/manage-ole/)*。
 {{% /alert %}}
 
 ## **使用超連結建立目錄**
 
-由於超連結允許您新增對物件或位置的參照，您可以利用它們建立目錄。
+由於超連結允許您加入對物件或位置的參照，您可以利用它們建立目錄。 
 
-以下範例程式碼示範如何使用超連結建立目錄：
+此示例程式碼示範如何使用超連結建立目錄：
 
 ```python
 import jpype
@@ -239,7 +235,9 @@ finally:
 
 ### **顏色**
 
-透過 [Hyperlink.setColorSource](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlink/#setColorSource) 屬性，您可以為超連結設定顏色，亦可取得超連結的顏色資訊。此功能最早在 PowerPoint 2019 中推出，故屬性相關的變更不適用於較舊的 PowerPoint 版本。
+使用 [Hyperlink.setColorSource](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlink/#setColorSource) 屬性於 [Hyperlink](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlink/) 類別，您可以設定超連結的顏色，也能從超連結取得顏色資訊。此功能於 PowerPoint 2019 首次推出，因此屬性相關的變更不適用於較舊的 PowerPoint 版本。
+
+此示例程式碼示範在同一投影片中加入不同顏色的超連結的操作：
 
 ```python
 import jpype
@@ -275,7 +273,7 @@ finally:
 
 ### **從文字中移除超連結**
 
-以下 Python 程式碼示範如何從簡報投影片中的文字移除超連結：
+此 Python 程式碼示範如何從簡報投影片的文字中移除超連結：
 
 ```python
 import jpype
@@ -304,7 +302,7 @@ finally:
 
 ### **從圖形或框架中移除超連結**
 
-以下 Python 程式碼示範如何從簡報投影片中的圖形移除超連結：
+此 Python 程式碼示範如何從簡報投影片的圖形中移除超連結：
 
 ```python
 import jpype
@@ -335,10 +333,10 @@ finally:
 - [setHighlightClick](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-以下程式碼片段示範如何在投影片中新增超連結，並稍後編輯其工具提示：
+此程式碼片段示範如何將超連結新增至投影片，並之後編輯其工具提示：
 
 ```python
-import jpype
+import jpage
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -356,7 +354,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # 變更已新增超連結的工具提示
+    # 更改已新增超連結的工具提示
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -366,13 +364,13 @@ finally:
 
 ## **HyperlinkQueries 支援的屬性**
 
-您可以從簡報、投影片或已定義超連結的文字中存取 [HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlinkqueries/)。
+您可以從定義了超連結的簡報、投影片或文字中存取 [HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlinkqueries/)。 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
 - [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/textframe/#getHyperlinkQueries)
 
-[HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlinkqueries/) 類別支援以下方法與屬性：
+[HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlinkqueries/) 類別支援以下方法與屬性： 
 
 - [getHyperlinkClicks](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/zh-hant/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
@@ -381,14 +379,14 @@ finally:
 
 ## **常見問題**
 
-**如何建立不僅指向投影片，還能指向「區段」或區段第一張投影片的內部導覽？**
+**如何建立不僅指向投影片，而是指向「區段」或區段第一張投影片的內部導覽？**
 
-PowerPoint 中的區段是投影片的分組；導覽在技術上仍針對特定投影片。若要「導覽至區段」，通常會連結至該區段的第一張投影片。
+PowerPoint 中的區段是投影片的分組；導覽在技術上仍指向特定投影片。若要「導覽至區段」，通常會連結到該區段的第一張投影片。
 
 **我可以將超連結附加到母片元素，使其在所有投影片上都有效嗎？**
 
-可以。母片與版面配置的元素支援超連結。此類連結會出現在子投影片上，並在投影放映期間可點擊。
+可以。母片和版面配置元素支援超連結。這類連結會出現在子投影片上，並在投影片放映時可點選。
 
-**匯出為 PDF、HTML、圖片或影片時，超連結會被保留嗎？**
+**匯出為 PDF、HTML、圖像或影片時，超連結會被保留嗎？**
 
-在 [PDF](/slides/zh-hant/python-java/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh-hant/python-java/convert-powerpoint-to-html/) 中，會保留超連結。匯出為 [images](/slides/zh-hant/python-java/convert-powerpoint-to-png/) 和 [video](/slides/zh-hant/python-java/convert-powerpoint-to-video/) 時，因為這些格式為光柵畫面或影片，不支援超連結，點擊功能將不會保留。
+在 [PDF](/slides/zh-hant/python-java/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh-hant/python-java/convert-powerpoint-to-html/) 中，會保留連結；通常會保持超連結。然而，匯出至 [images](/slides/zh-hant/python-java/convert-powerpoint-to-png/) 和 [video](/slides/zh-hant/python-java/convert-powerpoint-to-video/) 時，因為這些格式（點陣框架/影片）不支援超連結，點擊功能將不會保留。

@@ -5,7 +5,7 @@ type: docs
 weight: 40
 url: /es/python-java/manage-ole/
 keywords:
-- objeto OLE
+- Objeto OLE
 - Vinculación y incrustación de objetos
 - añadir OLE
 - incrustar OLE
@@ -13,8 +13,8 @@ keywords:
 - incrustar objeto
 - añadir archivo
 - incrustar archivo
-- objeto vinculado
-- archivo vinculado
+- objeto enlazado
+- archivo enlazado
 - cambiar OLE
 - icono OLE
 - título OLE
@@ -26,32 +26,32 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Optimice la gestión de objetos OLE en archivos PowerPoint y OpenDocument con Aspose.Slides para Python a través de Java. Incruste, actualice y exporte contenido OLE sin problemas."
+description: "Optimice la gestión de objetos OLE en PowerPoint y archivos OpenDocument con Aspose.Slides para Python mediante Java. Incruste, actualice y exporte contenido OLE sin problemas."
 ---
 ## **Introducción**
 
-{{% alert color="info" title="Note" %}}
-OLE (Object Linking & Embedding) es una tecnología de Microsoft que permite que los datos y objetos creados en una aplicación se coloquen en otra aplicación mediante vinculación o incrustación.
+{{% alert color="info" title="Nota" %}}
+OLE (Object Linking & Embedding) es una tecnología de Microsoft que permite que datos y objetos creados en una aplicación se coloquen en otra aplicación mediante enlaces o incrustación.
 {{% /alert %}}
 
-Considere un gráfico creado en MS Excel. El gráfico se coloca luego dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE.
+Considere un gráfico creado en MS Excel. El gráfico se coloca dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE.
 
-- Un objeto OLE puede aparecer como un ícono. En este caso, al hacer doble clic en el ícono, el gráfico se abre en su aplicación asociada (Excel), o se le solicita seleccionar una aplicación para abrir o editar el objeto.
+- Un objeto OLE puede aparecer como un icono. En este caso, al hacer doble clic en el icono, el gráfico se abre en su aplicación asociada (Excel), o se le solicita seleccionar una aplicación para abrir o editar el objeto.
 - Un objeto OLE puede mostrar su contenido real, como el contenido de un gráfico. En este caso, el gráfico se activa en PowerPoint, se carga la interfaz del gráfico y puede modificar los datos del gráfico dentro de PowerPoint.
 
-[Aspose.Slides para Python a través de Java](https://products.aspose.com/slides/es/python-java/) permite insertar Objetos OLE en diapositivas como marcos de objeto OLE ([OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides para Python mediante Java](https://products.aspose.com/slides/es/python-java/) permite insertar objetos OLE en diapositivas como marcos de objetos OLE ([OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/)).
 
-## **Agregar marcos de objeto OLE a diapositivas**
+## **Agregar marcos de objetos OLE a diapositivas**
 
-Suponiendo que ya ha creado un gráfico en Microsoft Excel y desea incrustarlo en una diapositiva como un marco de objeto OLE utilizando Aspose.Slides para Python a través de Java, puede hacerlo de esta manera:
+Suponiendo que ya ha creado un gráfico en Microsoft Excel y desea incrustarlo en una diapositiva como un marco de objeto OLE usando Aspose.Slides para Python mediante Java, puede hacerlo de la siguiente manera:
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/) .
-2. Obtenga la referencia de una diapositiva mediante su índice.
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/).
+2. Obtenga una referencia a una diapositiva mediante su índice.
 3. Lea el archivo de Excel como una matriz de bytes.
-4. Agregue el [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/) a la diapositiva que contiene la matriz de bytes y otra información sobre el objeto OLE.
+4. Añada el [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/) a la diapositiva con la matriz de bytes y otra información sobre el objeto OLE.
 5. Guarde la presentación modificada como un archivo PPTX.
 
-En el ejemplo siguiente, añadimos un gráfico de un archivo Excel a una diapositiva como un marco de objeto OLE utilizando Aspose.Slides para Python a través de Java. **Nota** que el constructor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleembeddeddatainfo/) recibe una extensión de objeto incrustable como segundo parámetro. Esta extensión permite a PowerPoint interpretar correctamente el tipo de archivo y elegir la aplicación adecuada para abrir este objeto OLE.
+En el ejemplo siguiente, añadimos un gráfico de un archivo de Excel a una diapositiva como un marco de objeto OLE usando Aspose.Slides para Python mediante Java. **Nota** que el constructor [OleEmbeddedDataInfo](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleembeddeddatainfo/) toma una extensión de objeto incrustable como su segundo parámetro. Esta extensión permite a PowerPoint interpretar correctamente el tipo de archivo y elegir la aplicación adecuada para abrir este objeto OLE.
 
 ```python
 from pathlib import Path
@@ -69,12 +69,12 @@ try:
     slide_size = presentation.getSlideSize().getSize()
     slide = presentation.getSlides().get_Item(0)
 
-    # Preparar datos para el objeto OLE.
+    # Preparar los datos para el objeto OLE.
     file_data = Path("book.xlsx").read_bytes()
     file_data = jpype.JArray(jpype.JByte)(file_data)
     data_info = OleEmbeddedDataInfo(file_data, "xlsx")
 
-    # Añadir el marco del objeto OLE a la diapositiva.
+    # Añadir el marco de objeto OLE a la diapositiva.
     frame_width = jpype.JFloat(slide_size.getWidth())
     frame_height = jpype.JFloat(slide_size.getHeight())
     slide.getShapes().addOleObjectFrame(0, 0, frame_width, frame_height, data_info)
@@ -84,11 +84,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Agregar marcos de objeto OLE vinculados**
+### **Agregar marcos de objetos OLE enlazados**
 
-Aspose.Slides para Python a través de Java le permite añadir un [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/) sin incrustar datos, sino solo con un vínculo al archivo.
+Aspose.Slides para Python mediante Java permite agregar un [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/) con un enlace al archivo en lugar de datos incrustados.
 
-Este código Python le muestra cómo añadir un [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/) con un archivo Excel vinculado a una diapositiva:
+Este código Python muestra cómo añadir un [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/) con un archivo Excel enlazado a una diapositiva:
 
 ```python
 import jpype
@@ -103,7 +103,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Añadir un marco de objeto OLE con un archivo Excel vinculado.
+    # Añadir un marco de objeto OLE con un archivo Excel enlazado.
     slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
 
     presentation.save("output.pptx", SaveFormat.Pptx)
@@ -111,16 +111,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Acceder a marcos de objeto OLE**
+## **Acceder a marcos de objetos OLE**
 
-Si un objeto OLE ya está incrustado en una diapositiva, puede encontrarlo o acceder a él fácilmente de esta manera:
+Si un objeto OLE ya está incrustado en una diapositiva, puede encontrarlo o acceder a él fácilmente de la siguiente manera:
 
-1. Cargue una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/) .
-2. Obtenga la referencia de la diapositiva usando su índice.
-3. Acceda a la forma [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/). En nuestro ejemplo, utilizamos el PPTX creado previamente que tiene solo una forma en la primera diapositiva. Luego verificamos que el objeto fuera un [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/). Este era el marco de objeto OLE deseado para ser accedido.
+1. Cargue una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/).
+2. Obtenga una referencia a la diapositiva mediante su índice.
+3. Acceda a la forma [OleObjectFrame]. En nuestro ejemplo, utilizamos el PPTX creado previamente que tiene solo una forma en la primera diapositiva. Luego verificamos que el objeto era un [OleObjectFrame]. Este era el marco de objeto OLE deseado para acceder.
 4. Una vez accedido al marco de objeto OLE, puede realizar cualquier operación sobre él.
 
-En el siguiente ejemplo, se accede a un marco de objeto OLE (un objeto de gráfico de Excel incrustado en una diapositiva) y a sus datos de archivo.
+En el ejemplo siguiente, se accede a un marco de objeto OLE (un objeto de gráfico de Excel incrustado en una diapositiva) y a sus datos de archivo.
 
 ```python
 import jpype
@@ -140,18 +140,21 @@ try:
         ole_frame = shape
 
         # Obtener los datos del archivo incrustado.
-        # Obtener la extensión del archivo incrustado.
-        # ...
+        file_data = ole_frame.getEmbeddedData().getEmbeddedFileData()
 
+        # Obtener la extensión del archivo incrustado.
+        file_extension = ole_frame.getEmbeddedData().getEmbeddedFileExtension()
+
+        # ...
 finally:
     presentation.dispose()
 ```
 
-### **Acceder a las propiedades del marco de objeto OLE vinculado**
+### **Acceder a las propiedades del marco de objeto OLE enlazado**
 
-Aspose.Slides le permite acceder a las propiedades del marco de objeto OLE vinculado.
+Aspose.Slides permite acceder a las propiedades del marco de objeto OLE enlazado.
 
-Este código Python le muestra cómo comprobar si un objeto OLE está vinculado y luego obtener la ruta al archivo vinculado:
+Este código Python muestra cómo comprobar si un objeto OLE está enlazado y luego obtener la ruta al archivo enlazado:
 
 ```python
 import jpype
@@ -170,12 +173,12 @@ try:
     if isinstance(shape, OleObjectFrame):
         ole_frame = shape
 
-        # Comprobar si el objeto OLE está vinculado.
+        # Comprobar si el objeto OLE está enlazado.
         if ole_frame.isObjectLink():
-            # Imprimir la ruta completa al archivo vinculado.
+            # Imprimir la ruta completa del archivo enlazado.
             print("OLE object frame is linked to: " + str(ole_frame.getLinkPathLong()))
 
-            # Imprimir la ruta relativa al archivo vinculado si está presente.
+            # Imprimir la ruta relativa del archivo enlazado si está presente.
             # Sólo las presentaciones PPT pueden contener la ruta relativa.
             relative_path = ole_frame.getLinkPathRelative()
             if relative_path is not None and not relative_path.isEmpty():
@@ -184,24 +187,24 @@ finally:
     presentation.dispose()
 ```
 
-## **Cambiar los datos del objeto OLE**
+## **Cambiar datos del objeto OLE**
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Nota" %}}
 En esta sección, el ejemplo de código a continuación utiliza [Aspose.Cells for Python via Java](https://products.aspose.com/cells/python-java/).
 {{% /alert %}}
 
-Si un objeto OLE ya está incrustado en una diapositiva, puede acceder fácilmente a ese objeto y modificar sus datos de esta manera:
+Si un objeto OLE ya está incrustado en una diapositiva, puede acceder fácilmente a ese objeto y modificar sus datos de la siguiente manera:
 
-1. Cargue una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/) .
-2. Obtenga la referencia de la diapositiva mediante su índice.
-3. Acceda a la forma del marco de objeto OLE. En nuestro ejemplo, utilizamos el PPTX creado previamente que tiene una forma en la primera diapositiva. Luego verificamos que el objeto fuera un [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/). Este era el marco de objeto OLE deseado para ser accedido.
+1. Cargue una presentación con el objeto OLE incrustado creando una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/).
+2. Obtenga una referencia a la diapositiva mediante su índice.
+3. Acceda a la forma del marco de objeto OLE. En nuestro ejemplo, utilizamos el PPTX creado previamente que tiene una forma en la primera diapositiva. Luego verificamos que el objeto era un [OleObjectFrame]. Este era el marco de objeto OLE deseado para acceder.
 4. Una vez accedido al marco de objeto OLE, puede realizar cualquier operación sobre él.
 5. Cree un objeto [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) y acceda a los datos OLE.
 6. Acceda a la [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) deseada y modifique los datos.
 7. Guarde el [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) actualizado en un flujo.
 8. Cambie los datos del objeto OLE a partir del flujo.
 
-En el siguiente ejemplo, se accede a un marco de objeto OLE (un objeto de gráfico de Excel incrustado en una diapositiva) y se modifican sus datos de archivo para actualizar los datos del gráfico.
+En el ejemplo siguiente, se accede a un marco de objeto OLE (un objeto de gráfico de Excel incrustado en una diapositiva) y se modifican sus datos de archivo para actualizar los datos del gráfico.
 
 ```python
 import jpype
@@ -254,9 +257,9 @@ finally:
 
 ## **Incrustar otros tipos de archivo en diapositivas**
 
-Además de los gráficos de Excel, Aspose.Slides para Python a través de Java le permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puede insertar archivos HTML, PDF y ZIP como objetos. Cuando un usuario hace doble clic en el objeto insertado, se abre automáticamente en el programa correspondiente, o se le solicita al usuario seleccionar un programa apropiado para abrirlo.
+Además de los gráficos de Excel, Aspose.Slides para Python mediante Java permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puede insertar archivos HTML, PDF y ZIP como objetos. Cuando el usuario hace doble clic en el objeto insertado, se abre automáticamente en el programa correspondiente, o se le pide que seleccione un programa adecuado para abrirlo.
 
-Este código Python le muestra cómo incrustar HTML y ZIP en una diapositiva:
+Este código Python muestra cómo incrustar HTML y ZIP en una diapositiva:
 
 ```python
 from pathlib import Path
@@ -292,16 +295,16 @@ finally:
 
 ## **Establecer tipos de archivo para objetos incrustados**
 
-Al trabajar con presentaciones, puede ser necesario reemplazar objetos OLE antiguos por unos nuevos o sustituir un objeto OLE no compatible por uno compatible. Aspose.Slides para Python a través de Java le permite establecer el tipo de archivo para un objeto incrustado, lo que le permite actualizar los datos del marco OLE o su extensión.
+Al trabajar con presentaciones, puede necesitar reemplazar objetos OLE antiguos por otros nuevos o reemplazar un objeto OLE no compatible por uno compatible. Aspose.Slides para Python mediante Java permite establecer el tipo de archivo para un objeto incrustado, lo que le permite actualizar los datos del marco OLE o su extensión.
 
-Este código Python le muestra cómo establecer el tipo de archivo para un objeto OLE incrustado a `zip`:
+Este código Python muestra cómo establecer el tipo de archivo para un objeto OLE incrustado a `zip`:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpage.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
@@ -324,11 +327,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Establecer imágenes de ícono y títulos para objetos incrustados**
+## **Establecer imágenes de icono y títulos para objetos incrustados**
 
-Después de incrustar un objeto OLE, se añade automáticamente una vista previa que consiste en una imagen de ícono. Esta vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE. Si desea utilizar una imagen y texto específicos como elementos en la vista previa, puede establecer la imagen de ícono y el título mediante Aspose.Slides para Python a través de Java.
+Después de incrustar un objeto OLE, se agrega automáticamente una vista previa constituida por una imagen de icono. Esta vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE. Si desea usar una imagen y un texto específicos como elementos en la vista previa, puede establecer la imagen del icono y el título mediante Aspose.Slides para Python mediante Java.
 
-Este código Python le muestra cómo establecer la imagen de ícono y el título para un objeto incrustado:
+Este código Python muestra cómo establecer la imagen del icono y el título para un objeto incrustado:
 
 ```python
 from pathlib import Path
@@ -361,9 +364,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Evitar que un marco de objeto OLE sea redimensionado y reubicado**
+## **Evitar que un marco de objeto OLE sea redimensionado y recolocado**
 
-Después de añadir un objeto OLE vinculado a una diapositiva de la presentación, al abrir la presentación en PowerPoint puede aparecer un mensaje que le pide actualizar los vínculos. Al hacer clic en el botón "Update Links" el tamaño y la posición del marco de objeto OLE pueden cambiar porque PowerPoint actualiza los datos del objeto OLE vinculado y refresca la vista previa del objeto. Para evitar que PowerPoint solicite actualizar los datos del objeto, establezca el método [setUpdateAutomatic](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) de la clase [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/) a `False`:
+Después de agregar un objeto OLE enlazado a una diapositiva de presentación, al abrir la presentación en PowerPoint, puede aparecer un mensaje solicitando actualizar los enlaces. Al hacer clic en el botón "Update Links" el tamaño y la posición del marco del objeto OLE pueden cambiar porque PowerPoint actualiza los datos del objeto OLE enlazado y refresca la vista previa del objeto. Para evitar que PowerPoint solicite actualizar los datos del objeto, establezca el método [setUpdateAutomatic](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) de la clase [OleObjectFrame] a `False`:
 
 ```python
 import jpype
@@ -388,13 +391,13 @@ finally:
 
 ## **Extraer archivos incrustados**
 
-Aspose.Slides para Python a través de Java le permite extraer los archivos incrustados en diapositivas como objetos OLE de la siguiente manera:
+Aspose.Slides para Python mediante Java permite extraer los archivos incrustados en diapositivas como objetos OLE de la siguiente manera:
 
 1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/) que contenga los objetos OLE que desea extraer.
-2. Recorra todas las formas de la presentación y acceda a las formas [OleObjectFrame](https://reference.aspose.com/slides/es/python-java/aspose.slides/oleobjectframe/).
-3. Acceda a los datos de los archivos incrustados desde los marcos de objeto OLE y escríbalos en el disco.
+2. Recorra todas las formas de la presentación y acceda a las formas [OleObjectFrame].
+3. Acceda a los datos de los archivos incrustados a partir de los marcos de objeto OLE y escríbalos en disco.
 
-Este código Python le muestra cómo extraer archivos incrustados en una diapositiva como objetos OLE:
+Este código Python muestra cómo extraer los archivos incrustados en una diapositiva como objetos OLE:
 
 ```python
 from pathlib import Path
@@ -426,20 +429,20 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Se renderizará el contenido OLE al exportar diapositivas a PDF/imágenes?**
+**¿Se renderizará el contenido OLE al exportar diapositivas a PDF/imagenes?**
 
-Lo que se muestra en la diapositiva se renderiza: el ícono/imagen de sustitución (vista previa). El contenido OLE "en vivo" no se ejecuta durante el renderizado. Si es necesario, establezca su propia imagen de vista previa para garantizar la apariencia deseada en el PDF exportado.
+Lo que es visible en la diapositiva se renderiza: el icono/imagen sustituta (vista previa). El contenido OLE "en vivo" no se ejecuta durante la renderización. Si es necesario, establezca su propia imagen de vista previa para asegurar la apariencia esperada en el PDF exportado.
 
-**¿Cómo puedo bloquear un objeto OLE en una diapositiva para que los usuarios no puedan moverlo/editarlo en PowerPoint?**
+**¿Cómo puedo bloquear un objeto OLE en una diapositiva para que los usuarios no lo muevan/editen en PowerPoint?**
 
-Bloquee la forma: Aspose.Slides proporciona [bloqueos a nivel de forma](/slides/es/python-java/applying-protection-to-presentation/). No es encriptación, pero impide eficazmente ediciones y movimientos accidentales.
+Bloquee la forma: Aspose.Slides proporciona [bloqueos a nivel de forma](/slides/es/python-java/applying-protection-to-presentation/). No se trata de encriptación, pero evita eficazmente ediciones y movimientos accidentales.
 
-**¿Por qué un objeto Excel vinculado "salta" o cambia de tamaño al abrir la presentación?**
+**¿Por qué un objeto Excel enlazado "salta" o cambia de tamaño al abrir la presentación?**
 
-PowerPoint puede refrescar la vista previa del OLE vinculado. Para una apariencia estable, siga las prácticas de la [Solución funcional para el redimensionado de hojas de cálculo](/slides/es/python-java/working-solution-for-worksheet-resizing/): ajuste el marco al rango, o escale el rango a un marco fijo y establezca una imagen de sustitución adecuada.
+PowerPoint puede refrescar la vista previa del OLE enlazado. Para una apariencia estable, siga las prácticas de la [Solución funcional para redimensionar hojas de cálculo](/slides/es/python-java/working-solution-for-worksheet-resizing/): ajuste el marco al rango, o escale el rango a un marco fijo y establezca una imagen sustituta adecuada.
 
-**¿Se conservarán las rutas relativas para objetos OLE vinculados en el formato PPTX?**
+**¿Se conservarán las rutas relativas para objetos OLE enlazados en el formato PPTX?**
 
-En PPTX, la información de "ruta relativa" no está disponible—solo la ruta completa. Las rutas relativas se encuentran en el formato PPT más antiguo. Para portabilidad, prefiera rutas absolutas fiables/URIs accesibles o la incrustación.
+En PPTX, la información de "ruta relativa" no está disponible—solo la ruta completa. Las rutas relativas aparecen en el formato PPT más antiguo. Para portabilidad, prefiera rutas absolutas fiables/URIs accesibles o la incrustación.

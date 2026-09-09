@@ -1,5 +1,5 @@
 ---
-title: Mengekstrak Objek Flash dari Presentasi dengan Python
+title: Ekstrak Objek Flash dari Presentasi di Python
 linktitle: Flash
 type: docs
 weight: 10
@@ -14,13 +14,13 @@ keywords:
 - Aspose.Slides
 description: "Pelajari cara mengekstrak objek Flash dari slide PowerPoint dan OpenDocument menggunakan Python dengan Aspose.Slides, contoh kode lengkap, dan praktik terbaik."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara mengekstrak objek Flash dari presentasi menggunakan Aspose.Slides. Ini menunjukkan cara menemukan kontrol Flash berdasarkan nama dalam koleksi kontrol slide dan bekerja dengan data objek SWF yang disematkan.
+Artikel ini menjelaskan cara mengekstrak objek Flash dari presentasi dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menemukan kontrol Flash berdasarkan nama dalam koleksi kontrol slide dan bekerja dengan data objek SWF yang tersemat.
 
-## **Mengekstrak Objek Flash dari Presentasi**
+## **Ekstrak Objek Flash dari Presentasi**
 
-Aspose.Slides untuk Python melalui Java menyediakan fasilitas untuk mengekstrak objek flash dari sebuah presentasi. Anda dapat mengakses kontrol Flash berdasarkan nama dan mengekstraknya dari presentasi, termasuk data objek SWF yang disimpan.
+Aspose.Slides untuk Python via Java menyediakan fasilitas untuk mengekstrak objek Flash dari sebuah presentasi. Anda dapat mengakses kontrol Flash berdasarkan nama dan mengekstraknya dari presentasi, termasuk data objek SWF yang disimpan.
 
 ```python
 import jpype
@@ -43,20 +43,20 @@ finally:
     presentation.dispose()
 ```
 
-## **Tanya Jawab**
+## **FAQ**
 
 **Format presentasi apa yang didukung saat mengekstrak konten Flash?**
 
-[Aspose.Slides mendukung](/slides/id/python-java/supported-file-formats/) format PowerPoint utama seperti PPT dan PPTX, karena dapat memuat kontainer tersebut dan mengakses kontrolnya, termasuk elemen ActiveX terkait Flash.
+[Aspose.Slides supports](/slides/id/python-java/supported-file-formats/) format PowerPoint utama seperti PPT dan PPTX, karena dapat memuat kontainer tersebut dan mengakses kontrolnya, termasuk elemen ActiveX yang terkait Flash.
 
 **Apakah saya dapat mengonversi presentasi dengan Flash ke HTML5 dan mempertahankan interaktivitas Flash?**
 
-Tidak. Aspose.Slides tidak mengeksekusi konten SWF atau mengonversi interaktivitasnya. Meskipun ekspor ke [HTML](/slides/id/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/id/python-java/export-to-html5/) didukung, Flash tidak akan diputar di peramban modern karena dukungan telah berakhir. Jalur yang disarankan adalah mengganti Flash dengan alternatif seperti video atau animasi HTML5 sebelum mengekspor.
+Tidak. Aspose.Slides tidak mengeksekusi konten SWF atau mengonversi interaktivitasnya. Meskipun ekspor ke [HTML](/slides/id/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/id/python-java/export-to-html5/) didukung, Flash tidak akan diputar di peramban modern karena dukungan telah berakhir. Jalur yang disarankan adalah mengganti Flash dengan alternatif seperti video atau animasi HTML5 sebelum ekspor.
 
-**Dari perspektif keamanan, apakah Aspose.Slides mengeksekusi file SWF saat membaca sebuah presentasi?**
+**Dari perspektif keamanan, apakah Aspose.Slides mengeksekusi file SWF saat membaca presentasi?**
 
-Tidak. Aspose.Slides memperlakukan Flash sebagai data biner yang disematkan dalam file dan tidak mengeksekusi konten SWF selama proses.
+Tidak. Aspose.Slides memperlakukan Flash sebagai data biner yang tersemat dalam file dan tidak mengeksekusi konten SWF selama pemrosesan.
 
 **Bagaimana sebaiknya saya menangani presentasi yang menyertakan Flash bersama file tersemat lainnya melalui OLE?**
 
-Aspose.Slides mendukung [mengekstrak objek OLE yang disematkan](/slides/id/python-java/manage-ole/), sehingga Anda dapat memproses semua konten tersemat terkait dalam satu langkah, menangani kontrol Flash dan dokumen OLE lain yang disematkan secara bersamaan.
+Aspose.Slides mendukung [extracting embedded OLE objects](/slides/id/python-java/manage-ole/), sehingga Anda dapat memproses semua konten tersemat terkait dalam satu langkah, menangani kontrol Flash dan dokumen OLE‑tersemat lainnya secara bersamaan.

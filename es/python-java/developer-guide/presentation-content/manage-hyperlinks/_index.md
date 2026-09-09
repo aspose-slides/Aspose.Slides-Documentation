@@ -1,5 +1,5 @@
 ---
-title: Gestionar hipervínculos de presentaciones en Python vía Java
+title: Gestionar hipervínculos de presentación en Python a través de Java
 linktitle: Gestionar hipervínculo
 type: docs
 weight: 20
@@ -23,28 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Gestione hipervínculos sin esfuerzo en presentaciones PowerPoint y OpenDocument con Aspose.Slides para Python vía Java: mejore la interactividad y el flujo de trabajo en minutos."
+description: "Gestione hipervínculos en presentaciones de PowerPoint y OpenDocument con Aspose.Slides para Python a través de Java sin esfuerzo — mejore la interactividad y el flujo de trabajo en minutos."
 ---
 ## **Introducción**
 
-Un hipervínculo es una referencia a un objeto o datos o a un lugar en algo. Estos son hipervínculos comunes en presentaciones de PowerPoint:
+Un hipervínculo es una referencia a un objeto, datos o una ubicación. Los hipervínculos habituales en presentaciones de PowerPoint incluyen:
 
-* Enlaces a sitios web dentro de textos, formas o medios
+* Enlaces a sitios web en texto, formas o medios
 * Enlaces a diapositivas
 
-Aspose.Slides for Python a través de Java le permite realizar muchas tareas relacionadas con hipervínculos en presentaciones. 
+Aspose.Slides para Python a través de Java le permite realizar numerosas tareas relacionadas con hipervínculos en presentaciones. 
 
-{{% alert color="info" title="Nota" %}} 
-
-Puede que desee consultar Aspose simple, [editor de PowerPoint en línea gratuito.](https://products.aspose.app/slides/es/editor)
-
+{{% alert color="info" title="Note" %}} 
+Puede que quiera consultar el sencillo[editor de PowerPoint en línea gratuito de Aspose.](https://products.aspose.app/slides/es/editor)
 {{% /alert %}} 
 
-## **Agregar hipervínculos URL**
+## **Añadir hipervínculos URL**
 
-### **Agregar hipervínculos URL al texto**
+### **Añadir hipervínculos URL a texto**
 
-Este código Python le muestra cómo agregar un hipervínculo a un sitio web en un texto:
+Este código Python le muestra cómo añadir un hipervínculo a un sitio web en texto:
 
 ```python
 import jpype
@@ -70,9 +68,9 @@ finally:
     presentation.dispose()
 ```
 
-### **Agregar hipervínculos URL a formas o marcos**
+### **Añadir hipervínculos URL a formas o marcos**
 
-Este código de ejemplo en Python a través de Java le muestra cómo agregar un hipervínculo a un sitio web a una forma:
+Este código de ejemplo en Python a través de Java le muestra cómo añadir un hipervínculo a un sitio web en una forma:
 
 ```python
 import jpype
@@ -95,11 +93,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Agregar hipervínculos URL a medios**
+### **Añadir hipervínculos URL a medios**
 
-Aspose.Slides le permite agregar hipervínculos a archivos de imagen, audio y vídeo. 
+Aspose.Slides le permite añadir hipervínculos a imágenes, archivos de audio y vídeo. 
 
-Este código de ejemplo le muestra cómo agregar un hipervínculo a una **imagen**:
+Este código de ejemplo le muestra cómo añadir un hipervínculo a una **imagen**:
 
 ```python
 import jpype
@@ -129,7 +127,7 @@ finally:
     presentation.dispose()
 ```
 
-Este código de ejemplo le muestra cómo agregar un hipervínculo a un **archivo de audio**:
+Este código de ejemplo le muestra cómo añadir un hipervínculo a un **archivo de audio**:
 
 ```python
 from pathlib import Path
@@ -157,7 +155,7 @@ finally:
     presentation.dispose()
 ```
 
-Este código de ejemplo le muestra cómo agregar un hipervínculo a un **vídeo**:
+Este código de ejemplo le muestra cómo añadir un hipervínculo a un **vídeo**:
 
 ```python
 from pathlib import Path
@@ -185,10 +183,8 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Consejo" %}} 
-
-Puede que desee ver *[Gestionar OLE](/slides/es/python-java/manage-ole/)*.
-
+{{% alert color="success" title="Tip" %}} 
+Puede que quiera ver *[Gestionar OLE](/slides/es/python-java/manage-ole/)*.
 {{% /alert %}}
 
 ## **Usar hipervínculos para crear una tabla de contenido**
@@ -239,9 +235,9 @@ finally:
 
 ### **Color**
 
-Con la propiedad [Hyperlink.setColorSource](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlink/#setColorSource) en la clase [Hyperlink](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlink/), puede establecer el color para los hipervínculos y también obtener la información de color de los hipervínculos. La característica se introdujo por primera vez en PowerPoint 2019, por lo que los cambios que involucren esta propiedad no se aplican a versiones anteriores de PowerPoint.
+Con la propiedad [Hyperlink.setColorSource](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlink/#setColorSource) de la clase [Hyperlink](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlink/), puede establecer el color de los hipervínculos y también obtener la información del color de los mismos. La función se introdujo por primera vez en PowerPoint 2019, por lo que los cambios relacionados con la propiedad no se aplican a versiones anteriores de PowerPoint.
 
-Este código de ejemplo demuestra una operación en la que se añadieron hipervínculos con diferentes colores a la misma diapositiva:
+Este código de ejemplo muestra una operación en la que se añaden hipervínculos con diferentes colores a la misma diapositiva:
 
 ```python
 import jpype
@@ -275,9 +271,9 @@ finally:
 
 ## **Eliminar hipervínculos de presentaciones**
 
-### **Eliminar hipervínculos del texto**
+### **Eliminar hipervínculos de texto**
 
-Este código Python le muestra cómo eliminar el hipervínculo de un texto en una diapositiva de presentación:
+Este código Python le muestra cómo eliminar el hipervínculo del texto en una diapositiva de presentación:
 
 ```python
 import jpype
@@ -306,7 +302,7 @@ finally:
 
 ### **Eliminar hipervínculos de formas o marcos**
 
-Este código Python le muestra cómo eliminar el hipervínculo de una forma en una diapositiva de presentación: 
+Este código Python le muestra cómo eliminar el hipervínculo de una forma en una diapositiva de presentación:
 
 ```python
 import jpype
@@ -337,7 +333,7 @@ La clase [Hyperlink](https://reference.aspose.com/slides/es/python-java/aspose.s
 - [setHighlightClick](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-El fragmento de código le muestra cómo agregar un hipervínculo a una diapositiva y editar su información sobre herramienta más tarde:
+El fragmento de código le muestra cómo añadir un hipervínculo a una diapositiva y editar su tooltip más tarde:
 
 ```python
 import jpype
@@ -358,7 +354,7 @@ try:
     portion_format.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs")
     portion_format.setFontHeight(32)
 
-    # Cambia la información sobre herramienta del hipervínculo que ya ha sido añadido
+    # Cambia el tooltip del hipervínculo que ya se ha añadido
     portion_format.getHyperlinkClick().setTooltip("Aspose: the File Format APIs")
 
     presentation.save("presentation-out.pptx", SaveFormat.Pptx)
@@ -368,7 +364,7 @@ finally:
 
 ## **Propiedades compatibles en HyperlinkQueries**
 
-Puede acceder a [HyperlinkQueries](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlinkqueries/) desde una presentación, diapositiva o texto para el cual está definido el hipervínculo. 
+Puede acceder a [HyperlinkQueries](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlinkqueries/) desde una presentación, diapositiva o texto para el que está definido el hipervínculo. 
 
 - [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/es/python-java/aspose.slides/presentation/#getHyperlinkQueries)
 - [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/es/python-java/aspose.slides/baseslide/#getHyperlinkQueries)
@@ -381,7 +377,7 @@ La clase [HyperlinkQueries](https://reference.aspose.com/slides/es/python-java/a
 - [getAnyHyperlinks](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
 - [removeAllHyperlinks](https://reference.aspose.com/slides/es/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Cómo puedo crear una navegación interna no solo a una diapositiva, sino a una "sección" o a la primera diapositiva de una sección?**
 
@@ -389,8 +385,8 @@ Las secciones en PowerPoint son agrupaciones de diapositivas; la navegación té
 
 **¿Puedo adjuntar un hipervínculo a los elementos de la diapositiva maestra para que funcione en todas las diapositivas?**
 
-Sí. Los elementos de la diapositiva maestra y de los diseños admiten hipervínculos. dichos enlaces aparecen en las diapositivas hijas y son clicables durante la presentación.
+Sí. Los elementos de la diapositiva maestra y de los diseños admiten hipervínculos. Estos enlaces aparecen en las diapositivas hijas y son clicables durante la presentación.
 
 **¿Se conservarán los hipervínculos al exportar a PDF, HTML, imágenes o vídeo?**
 
-En [PDF](/slides/es/python-java/convert-powerpoint-to-pdf/) y [HTML](/slides/es/python-java/convert-powerpoint-to-html/), sí: los enlaces suelen conservarse. Al exportar a [imágenes](/slides/es/python-java/convert-powerpoint-to-png/) y [vídeo](/slides/es/python-java/convert-powerpoint-to-video/), la capacidad de hacer clic no se mantendrá debido a la naturaleza de esos formatos (los fotogramas ráster/vídeo no admiten hipervínculos).
+En [PDF](/slides/es/python-java/convert-powerpoint-to-pdf/) y [HTML](/slides/es/python-java/convert-powerpoint-to-html/), sí — los enlaces suelen conservarse. Al exportar a [imágenes](/slides/es/python-java/convert-powerpoint-to-png/) y [vídeo](/slides/es/python-java/convert-powerpoint-to-video/), la capacidad de hacer clic no se mantendrá debido a la naturaleza de esos formatos (los fotogramas rasterizados/vídeo no admiten hipervínculos).

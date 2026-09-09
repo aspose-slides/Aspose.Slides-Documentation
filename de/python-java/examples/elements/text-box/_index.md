@@ -14,15 +14,15 @@ keywords:
 - Aspose.Slides
 description: "Arbeiten Sie mit Textfeldern in Aspose.Slides für Python via Java: Hinzufügen, Formatieren, Suchen und Entfernen von Text in PowerPoint- und OpenDocument-Präsentationen."
 ---
-In **Aspose.Slides for Python via Java** ist ein Textfeld eine automatische Form, die Text enthält. Praktisch jede Form kann Text enthalten, aber ein typisches Textfeld hat keine Füllung oder keinen Rahmen und zeigt nur Text an.
+In **Aspose.Slides for Python via Java** ist ein Textfeld ein AutoShape, das Text enthält. Fast jede Form kann Text enthalten, aber ein typisches Textfeld hat keine Füllung oder keinen Rand und zeigt nur Text an.
 
-Dieses Handbuch erklärt, wie man Textfelder programmgesteuert hinzufügt, darauf zugreift und sie entfernt.
+Dieser Leitfaden erklärt, wie man Textfelder programmgesteuert hinzufügt, darauf zugreift und sie entfernt.
 
-Installieren Sie das Paket wie in [Installation](/slides/de/python-java/installation/) beschrieben. Jeder Beispielcode importiert `asposeslides` bevor die JVM gestartet wird und importiert anschließend die API, sobald die JVM läuft.
+Installieren Sie das Paket wie in [Installation](/slides/de/python-java/installation/) beschrieben. Jedes Beispiel importiert `asposeslides` bevor die JVM gestartet wird und importiert die API, nachdem die JVM läuft.
 
 ## **Textfeld hinzufügen**
 
-Erstellen Sie ein Rechteck, entfernen Sie dessen Füllung und Rahmen und weisen Sie formatierten Text zu.
+Erstellen Sie ein Rechteck, entfernen Sie dessen Füllung und Rand und weisen Sie formatierten Text zu.
 
 ```python
 import jpype
@@ -58,7 +58,7 @@ finally:
 
 ## **Zugriff auf Textfelder nach Inhalt**
 
-Fügen Sie ein Beispiel-Textfeld hinzu und suchen Sie anschließend Formen, deren Text das Schlüsselwort "Slide" enthält.
+Fügen Sie ein Beispiel-Textfeld hinzu und suchen Sie anschließend nach Formen, deren Text das Schlüsselwort "Slide" enthält.
 
 ```python
 import jpype
@@ -124,5 +124,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-Sammeln Sie passende Formen in einer separaten Liste, bevor Sie sie entfernen, um zu verhindern, dass die Formensammlung während der Iteration modifiziert wird.
+Sammeln Sie passende Formen in einer separaten Liste, bevor Sie sie entfernen, um zu verhindern, dass die Formensammlung während der Iteration geändert wird.
 {{% /alert %}}

@@ -1,6 +1,6 @@
 ---
-title: PowerPoint Sunumlarını Python ile Java üzerinden HTML'ye Dönüştürme
-linktitle: PowerPoint'ten HTML'ye
+title: PowerPoint Sunumlarını Python üzerinden Java ile HTML’e Dönüştürün
+linktitle: PowerPoint'tan HTML’e
 type: docs
 weight: 30
 url: /tr/python-java/convert-powerpoint-to-html/
@@ -10,41 +10,41 @@ keywords:
 - slaytı dönüştür
 - PPT dönüştür
 - PPTX dönüştür
-- PowerPoint'ten HTML'ye
-- sunumu HTML'ye
-- slaytı HTML'ye
-- PPT'yi HTML'ye
-- PPTX'i HTML'ye
-- PowerPoint'i HTML olarak kaydet
+- PowerPoint'tan HTML’e
+- sunumu HTML’e
+- slaytı HTML’e
+- PPT'den HTML’e
+- PPTX'den HTML’e
+- PowerPoint'ı HTML olarak kaydet
 - sunumu HTML olarak kaydet
 - slaytı HTML olarak kaydet
 - PPT'yi HTML olarak kaydet
 - PPTX'i HTML olarak kaydet
-- PPT'yi HTML'ye dışa aktar
-- PPTX'i HTML'ye dışa aktar
+- PPT'yi HTML'e dışa aktar
+- PPTX'i HTML'e dışa aktar
 - Python
 - Java
 - Aspose.Slides
-description: "Python üzerinden Java ile PowerPoint sunumlarını HTML'ye dönüştürün. PPT ve PPTX dosyalarını, seçili slaytları, notları, yazı tiplerini, resimleri, SVG'yi ve medyayı dışa aktarmak için Aspose.Slides kullanın."
+description: "PowerPoint sunumlarını Python üzerinden Java ile HTML'e dönüştürün. PPT ve PPTX dosyalarını, seçili slaytları, notları, yazı tiplerini, görüntüleri, SVG'yi ve medyayı dışa aktarmak için Aspose.Slides kullanın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Python via Java, Microsoft PowerPoint olmadan PowerPoint sunumlarını HTML olarak kaydedebilir. Temel dönüşüm, tek bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) yüklemesi ve bir [save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) çağrısı ile [SaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/) kullanımıdır. Dışa aktarım düzeni, yazı tipleri, resimler, notlar, yorumlar, SVG çıktısı veya bağlı kaynakları kontrol etmeniz gerektiğinde [HtmlOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/) kullanın.
+Aspose.Slides for Python via Java, Microsoft PowerPoint olmadan PowerPoint sunumlarını HTML olarak kaydedebilir. Temel dönüştürme, tek bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) yüklemesi ve [save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) çağrısı ile [SaveFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/) kullanılmasıdır. Dışa aktarılan düzeni, yazı tiplerini, görüntüleri, notları, yorumları, SVG çıktısını veya bağlantılı kaynakları kontrol etmeniz gerektiğinde [HtmlOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/) kullanın.
 
-Bu kılavuz, pratik HTML dışa aktarım senaryolarına odaklanır:
+Bu kılavuz, pratik HTML dışa aktarma senaryolarına odaklanır:
 
-- Tüm sunumu veya seçili slaytları dışa aktar.
-- Sabit‑dizilim, duyarlı veya SVG‑tabanlı HTML oluştur.
-- Sunum notları ve yorumları dahil et.
-- Resim kalitesini ve kırpılmış resim verilerini kontrol et.
+- Tam bir sunumu veya seçili slaytları dışa aktar.
+- Sabit düzenli, duyarlı veya SVG tabanlı HTML oluştur.
+- Konuşmacı notlarını ve yorumları ekle.
+- Görüntü kalitesini ve kırpılmış görüntü verilerini kontrol et.
 - Yazı tiplerini göm veya yazı tipi dosyalarını ayrı kaydet.
-- Dış kaynakların ve medya dosyalarının nasıl yazılıp referans verileceğini seç.
+- Harici kaynakların ve medya dosyalarının nasıl yazıldığını ve referans verildiğini seç.
 
-Varsayılan olarak, HTML dışa aktarımı çoğu kaynağın gömülü olduğu, tek bir HTML belgesi üretir. Bu, tek bir dosyayı paylaşmak için uygundur, ancak çıktı boyutunu artırabilir. Web yayıncılığı için dış kaynakları, daha düşük resim DPI değerlerini ve hedef ortamda güvenilir olarak bulunmayan yazı tiplerini yalnızca gömmeyi değerlendir.
+Varsayılan olarak, HTML dışa aktarımı, çoğu kaynağın gömülü olduğu tek bir HTML belgesi üretir. Bu, tek bir dosyayı paylaşmak için uygundur, ancak çıktı boyutunu artırabilir. Web yayıncılığı için harici kaynakları, daha düşük görüntü DPI'sını ve hedef ortamda güvenilir bir şekilde bulunmayan yazı tiplerini yalnızca gömerek dikkate alın.
 
-## **Bir Sunumu HTML’ye Dönüştürme**
+## **Sunumu HTML'e Dönüştür**
 
-Bir sunumu HTML’ye dışa aktarmak için, [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) ile yükleyin ve [SaveFormat.Html](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Html) ile kaydedin.
+Bir sunumu HTML olarak dışa aktarmak için, [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) ile yükleyin ve [SaveFormat.Html](https://reference.aspose.com/slides/tr/python-java/aspose.slides/saveformat/#Html) ile kaydedin.
 
 ```python
 import jpype
@@ -62,27 +62,27 @@ finally:
     presentation.dispose()
 ```
 
-Her örnek, geçerli çalışma dizinindeki `presentation.pptx` dosyasını yükler. Çalıştırmadan önce Aspose.Slides for Python via Java ve uyumlu bir Java çalışma zamanı kurun. JVM, Python süreci başına bir kez başlatılır.
+Her örnek, `presentation.pptx` dosyasını geçerli çalışma dizininden yükler. Çalıştırmadan önce Aspose.Slides for Python via Java ve uyumlu bir Java çalışma zamanı kurun. JVM, Python süreci başına bir kez başlatılır.
 
-Bu örnek tek bir HTML dosyası yazar. Sunum nesnesi `finally` bloğunda serbest bırakılır; bu, dışa aktarımdan sonra dosya tutamaçlarını ve render kaynaklarını serbest bırakır.
+Bu örnek tek bir HTML dosyası yazar. Sunum nesnesi, dışa aktarmadan sonra dosya tanıtıcılarını ve render kaynaklarını serbest bırakan `finally` bloğunda yok edilir.
 
-## **HTML Dışa Aktarımını Yapılandırma**
+## **HTML Dışa Aktarmayı Yapılandırma**
 
-[HtmlOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/) HTML dışa aktarımı için ana yapılandırma sınıfıdır. Yaygın ayarlar şunlardır:
+[HtmlOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/) HTML dışa aktarımı için ana yapılandırma sınıfıdır. Yaygın ayarlar şunları içerir:
 
-- [setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions): notlar, yorumlar, el ilanları veya diğer düzen bilgilerini ekler.
+- [setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions): notlar, yorumlar, el kitapları veya diğer düzen bilgilerini ekler.
 - [setHtmlFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setHtmlFormatter): HTML belge yapısını değiştirir veya biçimlendirmeyi bir denetleyiciye devreder.
-- [setSlideImageFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSlideImageFormat): slaytların temsil biçimini değiştirir, örneğin SVG olarak.
-- [setPicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setPicturesCompression): resim DPI ve çıktı boyutunu kontrol eder.
-- [setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setDeletePicturesCroppedAreas): kırpılmış resim verilerini tutar veya kaldırır.
-- [setSvgResponsiveLayout](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout): dışa aktarılan SVG içeriğinin kapsayıcısına uyum sağlamasını sağlar.
+- [setSlideImageFormat](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSlideImageFormat): slaytların nasıl temsil edildiğini değiştirir, örneğin SVG olarak.
+- [setPicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setPicturesCompression): görüntü DPI'sını ve çıktı boyutunu kontrol eder.
+- [setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setDeletePicturesCroppedAreas): kırpılmış görüntü verilerini tutar veya kaldırır.
+- [setSvgResponsiveLayout](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout): dışa aktarılan SVG içeriğinin konteynerine uyum sağlamasını sağlar.
 - [setShowHiddenSlides](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setShowHiddenSlides): gerektiğinde gizli slaytları dahil eder.
 
-Aşağıdaki bölümler en yaygın seçenekleri ayrı ayrı gösterir; böylece iş akışınız için gerekenleri birleştirebilirsiniz.
+Aşağıdaki bölümler, iş akışınızın ihtiyaç duyduğu seçenekleri yalnızca birleştirmenize olanak tanıyacak şekilde en yaygın seçenekleri ayrı ayrı gösterir.
 
-## **Seçili Slaytları HTML’ye Dönüştürme**
+## **Seçili Slaytları HTML'e Dönüştür**
 
-Slayt numaralarını kabul eden [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) aşırı yüklemesi 1 tabanlı slayt konumlarını kullanır. Aşağıdaki döngü, her slaytı ayrı bir HTML dosyasına kaydeder.
+[Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) slayt numaralarını kabul eden aşırı yükleme, 1 tabanlı slayt konumlarını kullanır. Aşağıdaki döngü her slaytı ayrı bir HTML dosyasına kaydeder.
 
 ```python
 import jpype
@@ -105,11 +105,11 @@ finally:
     presentation.dispose()
 ```
 
-Bir web sitesi veya uygulama her slayt için bir HTML sayfasına ihtiyaç duyduğunda bu modeli kullanın. Her slayt aynı düzeni kullanacaksa, tek bir [HtmlOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/) örneği oluşturun ve bunu her [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) çağrısına geçirin.
+Her slayt için bir HTML sayfasına ihtiyaç duyulan bir web sitesi ya da uygulama olduğunda bu modeli kullanın. Her slayt aynı düzeni paylaşmalıysa, bir [HtmlOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/) örneği oluşturun ve bunu her [Presentation.save](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#save) çağrısına iletin.
 
 ## **Duyarlı HTML Oluşturma**
 
-[ResponsiveHtmlController](https://reference.aspose.com/slides/tr/python-java/aspose.slides/responsivehtmlcontroller/) [HtmlFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmlformatter/) aracılığıyla duyarlı HTML çıktısı sağlar. Dışa aktarılan sayfa tarayıcı genişliğine daha iyi uyum sağlamalıysa bunu kullanın.
+[ResponsiveHtmlController](https://reference.aspose.com/slides/tr/python-java/aspose.slides/responsivehtmlcontroller/) [HtmlFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmlformatter/) aracılığıyla duyarlı HTML çıktısı sağlar. Dışa aktarılan sayfanın tarayıcı genişliğine daha iyi uyum sağlaması gerektiğinde bunu kullanın.
 
 ```python
 import jpype
@@ -133,7 +133,7 @@ finally:
     presentation.dispose()
 ```
 
-SVG tabanlı duyarlı düzen için, `True` ile [HtmlOptions.setSvgResponsiveLayout](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout) çağırın. Bu, slayt içeriği ölçeklenebilir SVG işaretlemesi olarak dışa aktarıldığında faydalıdır.
+SVG tabanlı duyarlı düzen için, `[HtmlOptions.setSvgResponsiveLayout](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSvgResponsiveLayout)` metodunu `True` ile çağırın. Bu, slayt içeriği ölçeklenebilir SVG işaretlemesi olarak dışa aktarıldığında faydalıdır.
 
 ```python
 import jpype
@@ -154,15 +154,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Sunum Notları ve Yorumları Dahil Etme**
+## **Konuşmacı Notlarını ve Yorumları Dahil Et**
 
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/) aracılığıyla [HtmlOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions) kullanarak sunum notlarını veya yorumları dahil edin. Notlar ve yorumlar varsayılan olarak gizlidir; konumlarını seçmediğiniz sürece görünmezler.
+Konuşmacı notlarını veya yorumları dahil etmek için, [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/) aracılığıyla [HtmlOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setSlidesLayoutOptions) kullanın. Notlar ve yorumlar, konumları seçilmediği sürece varsayılan olarak gizlidir.
 
-Kaynak sunumda sunum notları olduğunu varsayalım:
+Kaynak sunumun konuşmacı notları içerdiğini varsayalım:
 
-![Notlu slayt PowerPoint’te](slide_with_notes.png)
+![PowerPoint'te konuşmacı notlarıyla slayt](slide_with_notes.png)
 
-Aşağıdaki kod, slayt içeriğini slaytın altında notlarla dışa aktarır.
+Aşağıdaki kod, slayt içeriğini slaytın altında konuşmacı notlarıyla dışa aktarır.
 
 ```python
 import jpype
@@ -186,15 +186,13 @@ finally:
     presentation.dispose()
 ```
 
-Dışa aktarılan HTML, not bölgesini içerir:
+![Slayt ve konuşmacı notlarıyla HTML çıktısı](HTML_with_notes.png)
 
-![HTML çıktısı, slayt ve notlarla](HTML_with_notes.png)
+Yorumları dışa aktarmak için, [NotesCommentsLayoutingOptions.setCommentsPosition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) metodunu, örneğin [CommentsPositions.Right](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentspositions/#Right) veya [CommentsPositions.Bottom](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentspositions/#Bottom) ile çağırın. Yalnızca yorumlara ihtiyacınız varsa, [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) metodunu atlayın. Hem not hem de yorum gerekiyorsa, her iki yöntemi de çağırın.
 
-Yorumları dışa aktarmak için, örneğin [CommentsPositions.Right](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentspositions/#Right) veya [CommentsPositions.Bottom](https://reference.aspose.com/slides/tr/python-java/aspose.slides/commentspositions/#Bottom) ile [NotesCommentsLayoutingOptions.setCommentsPosition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) çağırın. Yalnızca yorumlara ihtiyacınız varsa, [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/tr/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) metodunu atlayın. Hem not hem de yorum istiyorsanız, her iki yöntemi de çağırın.
+## **Görüntü Kalitesini ve Kırpılmış Alanları Kontrol Et**
 
-## **Resim Kalitesini ve Kırpılmış Alanları Kontrol Etme**
-
-HTML dışa aktarımı, çıktı boyutunu azaltmak için slayt resimlerini sıkıştırabilir. Daha yüksek resim kalitesi gerektiğinde, [PicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/picturescompression/) üzerinden bir değerle [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setPicturesCompression) geçirin.
+HTML dışa aktarımı, slayt görüntülerini sıkıştırarak çıktı boyutunu azaltabilir. Daha yüksek görüntü kalitesine ihtiyaç duyduğunuzda, [PicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/picturescompression/) üzerinden bir değer sağlayarak [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setPicturesCompression) metoduna geçirin.
 
 ```python
 import jpype
@@ -215,7 +213,7 @@ finally:
     presentation.dispose()
 ```
 
-Varsayılan olarak, dışa aktarılan çıktıda resimlerin kırpılmış alanları kaldırılabilir. Kullanıcıların bu gizli resim parçalarını geri alabilmesi veya inceleyebilmesi gerektiğinde yalnızca kırpılmış verileri tutun. Tutmak HTML boyutunu artırabilir.
+Varsayılan olarak, görüntülerin kırpılmış bölgeleri dışa aktarılan sonuçtan kaldırılabilir. Kullanıcıların bu gizli görüntü parçalarını geri getirebilmesi veya inceleyebilmesi gerektiğinde kırpılmış verileri tutun. Tutmak HTML boyutunu artırabilir.
 
 ```python
 import jpype
@@ -236,9 +234,9 @@ finally:
     presentation.dispose()
 ```
 
-## **CSS Ekleme**
+## **CSS Ekle**
 
-Basit stil uygulaması için, [HtmlFormatter.createDocumentFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmlformatter/#createDocumentFormatter) metoduna bir CSS dizesi geçirin. Bu, Aspose.Slides slayt içeriğini render etmeye devam ederken çevreleyen HTML belgesini değiştirir.
+Basit stil için, bir CSS dizesini [HtmlFormatter.createDocumentFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmlformatter/#createDocumentFormatter) metoduna iletin. Bu, Aspose.Slides slayt içeriğini render etmeye devam ederken çevreleyen HTML belgesini değiştirir.
 
 ```python
 import jpype
@@ -262,11 +260,11 @@ finally:
     presentation.dispose()
 ```
 
-Özel bir belge başlığı, bağlı bir CSS dosyası veya slaytlar ve şekiller etrafında özel işaretleme eklemek istiyorsanız, bir JPype arabirim vekili aracılığıyla özel bir formatlama denetleyicisi oluşturun ve bunu [HtmlFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmlformatter/) ile [HtmlFormatter.createCustomFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmlformatter/#createCustomFormatter) ile geçirin.
+Özel bir belge başlığı, bağlantılı bir CSS dosyası veya slaytlar ve şekiller etrafında özel işaretleme için, JPype arayüz vekili üzerinden özelleştirilmiş bir biçimlendirme denetleyicisi kullanın ve bunu [HtmlFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmlformatter/) ile birlikte [HtmlFormatter.createCustomFormatter](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmlformatter/#createCustomFormatter) metoduna iletin.
 
-## **Yazı Tiplerini Gömme**
+## **Yazı Tiplerini Göm**
 
-Hedef ortamda sunum yazı tipleri kurulu olmayabilir; bu durumda [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/tr/python-java/aspose.slides/embedallfontshtmlcontroller/) ile yazı tiplerini HTML’ye gömün. Gömme görsel tutarlılığı artırır ancak çıktı boyutunu büyütür.
+Hedef ortamda sunumun yazı tipleri yüklü olmayabilir; bu durumda [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/tr/python-java/aspose.slides/embedallfontshtmlcontroller/) ile HTML içinde yazı tiplerini gömün. Gömme, görsel doğruluğu artırır ancak çıktı boyutunu yükseltir.
 
 ```python
 import jpype
@@ -291,26 +289,26 @@ finally:
     presentation.dispose()
 ```
 
-Yazı tiplerini yalnızca hedef tarayıcıların veya sistemlerin zaten bunları sağladığından emin olduğunuzda dışarıda bırakın. Marka yazı tipleri veya daha az yaygın yazı tipleri için gömme genellikle daha güvenlidir.
+Yazı tiplerini yalnızca hedef tarayıcıların veya sistemlerin zaten bu tipleri sağladığından emin olduğunuzda dışarıda bırakın. Marka yazı tipleri veya daha az yaygın yazı tipleri için gömme genellikle daha güvenlidir.
 
-## **Kaynakları Dışa Kaydetme**
+## **Kaynakları Dışarıda Kaydet**
 
-Kendi içinde bütünleşik HTML taşınması kolaydır, ancak gömülü Base64 kaynakları dosyayı büyük yapabilir. Uygulamanız dış resim dosyalarına ihtiyaç duyuyorsa, bir JPype arabirim vekili aracılığıyla bir kaynak‑bağlantı denetleyicisi uygulayın ve bunu [HtmlOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/) yapıcı aracılığıyla geçirin.
+Kapsamlı HTML taşınması kolaydır, ancak gömülü Base64 kaynakları dosyayı büyük yapabilir. Uygulamanız harici görüntü dosyalarına ihtiyaç duyuyorsa, JPype arayüz vekili üzerinden bir kaynak bağlama denetleyicisi uygulayın ve bunu [HtmlOptions](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/) yapıcısına iletin.
 
-Kaynakları dışa aktarırken iki yolu kasıtlı olarak seçin:
+Kaynakları dışa aktardığınızda, iki yolu bilinçli seçin:
 
-- Dosya sistemi çıktı yolu: uygulamanızın oluşturulan resimleri, yazı tiplerini, ses ve video dosyalarını yazdığı yer.
-- URL yolu: tarayıcının HTML belgesinden bu dosyaları yüklemek için kullandığı yol.
+- Uygulamanızın oluşturulan görüntü, yazı tipi, ses veya video dosyalarını yazdığı dosya sistemi çıktı yolu.
+- URL yolu, tarayıcının HTML belgesinden bu dosyaları yüklemek için kullandığı yoldur.
 
-## **Medya Dosyalarını Dışa Aktarma**
+## **Medya Dosyalarını Dışa Aktar**
 
-[VideoPlayerHtmlController](https://reference.aspose.com/slides/tr/python-java/aspose.slides/videoplayerhtmlcontroller/) video ve ses dosyalarını dışa aktarır ve bunların tarayıcıda oynatılabileceği HTML yazar. Yapıcı şu parametreleri alır:
+[VideoPlayerHtmlController](https://reference.aspose.com/slides/tr/python-java/aspose.slides/videoplayerhtmlcontroller/) video ve ses dosyalarını dışa aktarır ve bunları bir tarayıcıda oynatabilen HTML yazar. Yapıcısı şunları alır:
 
 - `path`: oluşturulan medya dosyalarının yazılacağı dizin.
 - `fileName`: oluşturulan HTML dosyasının adı.
-- `baseUri`: medya dosyalarına HTML bağlantılarında kullanılacak mutlak URI öneki.
+- `baseUri`: HTML içinde medya dosyalarına bağlantı için kullanılan mutlak URI öneki.
 
-Aşağıdaki örnek, `presentation.pptx` içinde zaten gömülü medyayı dışa aktarır. Oluşturulan HTML, medya dosyalarına yalnızca dosya adıyla, HTML belgesine göre göreli olarak referans verir; bu nedenle `path` aynı zamanda HTML dosyasının da yazıldığı dizin olmalıdır. `baseUri` mutlak bir URI olmalıdır: yerel ön izleme için çıktı dizininden bir `file:///` URI oluşturun; dağıtılmış bir uygulama için yayınlanan dizinin mutlak URL’sini kullanın.
+Aşağıdaki örnek, `presentation.pptx` içinde zaten gömülü medyayı dışa aktarır. Oluşturulan HTML, medya dosyalarına yalnızca dosya adıyla, HTML belgesine göreceli olarak referans verir; bu yüzden `path` HTML dosyasını da alan dizin olmalıdır. `baseUri` mutlak bir URI olmalıdır: yerel ön izleme için çıktı dizininden bir `file:///` URI oluşturun; dağıtılmış bir uygulama için yayınlanan dizinin mutlak URL'sini kullanın.
 
 ```python
 import jpype
@@ -345,45 +343,45 @@ finally:
     presentation.dispose()
 ```
 
-Özellikle sunucu uygulamalarında, her dışa aktarma işi için benzersiz çıktı dizinleri kullanın. Ortak çıktı yolları, farklı dönüşümlerin dosyalarını birbirinin üzerine yazabilir.
+İhracat işi başına benzersiz çıktı dizinleri kullanın, özellikle sunucu uygulamalarında. Paylaşılan çıktı yolları, farklı dönüşümlerin dosyalarının birbirinin üzerine yazılmasına neden olabilir.
 
 ## **Performans ve Kaynak Yönetimi**
 
-HTML dönüşümü bir render işlemidir; işleme süresi ve bellek kullanımı slayt sayısına, resim çözünürlüğüne, yazı tiplerine, efektlere, grafiklere ve gömülü medyaya bağlıdır. Daha yüksek DPI değerleriyle [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setPicturesCompression) kullanmak, gömülü yazı tipleri, SVG çıktısı ve korunmuş kırpılmış resim alanları sadakati artırabilir ancak genellikle çıktı boyutunu büyütür.
+HTML dönüşümü bir render işlemdir; bu nedenle işleme süresi ve bellek kullanımı slayt sayısı, görüntü çözünürlüğü, yazı tipleri, efektler, grafikler ve gömülü medyaya bağlıdır. [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setPicturesCompression) üzerinden geçirilen yüksek görüntü DPI değerleri, gömülü yazı tipleri, SVG çıkışı ve tutulan kırpılmış görüntü alanları doğruluğu artırabilir ancak genellikle çıktı boyutunu yükseltir.
 
-Toplu dönüşüm için:
+Toplu dönüştürme için:
 
-- Her [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneğini hızlıca serbest bırakın.
+- Her [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneğini mümkün olan en kısa sürede dispose edin.
 - Farklı işler için ayrı çıktı dizinleri kullanın.
-- Sadakat gerektirmediği sürece ortak yazı tiplerini gömmekten kaçının.
-- HTML ön izleme veya küçük resimler için resim DPI değerini düşürün.
-- Dağıtım yolları kesinleşene kadar kaynak sunumu, oluşturulan HTML ve dış kaynakları birlikte tutun.
+- Görünüm doğruluğu gerektirmedikçe ortak yazı tiplerini gömmekten kaçının.
+- HTML önizleme ya da küçük resimler için görüntü DPI'sını düşürün.
+- Dağıtım yolları kesinleşene kadar kaynak sunumu, oluşturulan HTML ve harici kaynakları birlikte tutun.
 
 ## **SSS**
 
-**HTML çıktısında köprüler korunuyor mu?**
+**HTML çıktısında bağlantılar korunur mu?**
 
-Evet. Sunum köprüleri HTML’ye dışa aktarılır ve hedef URL geçerli olduğunda tıklanabilir kalır.
+Evet. Sunum bağlantıları HTML'e dışa aktarılır ve hedef URL geçerli olduğunda tıklanabilir kalır.
 
-**Sunumları paralel olarak HTML’ye dönüştürebilir miyim?**
+**Sunumları paralel olarak HTML'e dönüştürebilir miyim?**
 
-Evet, ancak bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneğini iş parçacıkları arasında paylaşmayın. Farklı dosyaları ayrı sunum örnekleri, ayrı akışlar ve ayrı çıktı dizinleriyle işleyin. Ayrıntılar için [çoklu iş parçacığı kılavuzuna](/slides/tr/python-java/multithreading/) bakın.
+Evet, ancak bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneğini iş parçacıkları arasında paylaşmayın. Farklı dosyaları ayrı sunum örnekleri, ayrı akışlar ve ayrı çıktı dizinleriyle işleyin. Ayrıntılar için [çok iş parçacıklı kullanım rehberi](/slides/tr/python-java/multithreading/) sayfasına bakın.
 
-**Sunum nesnesi iş parçacığı güvenli mi?**
+**Sunum nesnesi çoklu iş parçacığı için güvenli mi?**
 
-Hayır. Tek bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği bir iş parçacığında yüklenmeli, değiştirilmeli, kaydedilmeli ve serbest bırakılmalıdır. Paralel çalışma için iş parçacığı başına bağımsız bir örnek oluşturun veya ayrı bir süreç kullanın.
+Hayır. Tek bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği aynı iş parçacığında yüklenmeli, değiştirilip, kaydedilip ve dispose edilmelidir. Paralel çalışmada, her iş parçacığı veya süreç için bağımsız bir örnek oluşturun.
 
 **Oluşturulan HTML dosyası neden büyük?**
 
-Varsayılan dışa aktarım, kaynakları doğrudan HTML içinde gömer. Gömülü yazı tipleri, yüksek DPI’lı resimler, medya, SVG içeriği ve korunmuş kırpılmış resim alanları da boyutu artırır. Daha küçük çıktı gerekiyorsa dış kaynakları kullanın, ortak yazı tiplerini dışarıda bırakın ve [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setPicturesCompression) ile daha düşük DPI değeri geçirin.
+Varsayılan dışa aktarma, kaynakları doğrudan HTML içinde gömebilir. Gömülü yazı tipleri, yüksek DPI görüntüler, medya, SVG içeriği ve tutulan kırpılmış görüntü alanları da boyutu artırır. Daha küçük çıktı daha önemli olduğunda harici kaynakları kullanın, ortak yazı tiplerini gömmekten vazgeçin ve daha düşük bir DPI değeri geçmek için [HtmlOptions.setPicturesCompression](https://reference.aspose.com/slides/tr/python-java/aspose.slides/htmloptions/#setPicturesCompression) metodunu kullanın.
 
-**HTML’deki font-size değerleri PowerPoint değerlerinden neden farklı?**
+**HTML'deki font-size değerleri PowerPoint değerlerinden neden farklı olabilir?**
 
-Dışa aktarılan sayfa, SVG koordinat sistemleri ve ölçekleme dönüşümleri kullanabilir. Tek bir CSS veya SVG font-size değeri, nihai görüntülenen boyutu tam olarak tanımlamaz. Slaytı istenen yakınlaştırma seviyesinde karşılaştırın ve metin farklı görünüyorsa yazı tipi bulunabilirliğini kontrol edin.
+Dışa aktarılan sayfa SVG koordinat sistemleri ve ölçek dönüşümleri kullanabilir. Yalnızca ham bir CSS veya SVG font-size değeri nihai görüntülenen boyutu açıklamaz. İstenen yakınlaştırma seviyesinde render edilen slaytı karşılaştırın ve metin farklı görünüyorsa yazı tipi kullanılabilirliğini kontrol edin.
 
 **Medya dışa aktarımı için baseUri nasıl seçilmeli?**
 
-Tarayıcının bakış açısından `baseUri` seçin ve mutlak bir URI olarak geçirin. Yerel ön izleme için, çıktı dizininden `output_directory.as_uri() + "/"` gibi bir değer türetebilirsiniz. Dağıtımda, yayınlanan dizinin mutlak URL’sini kullanın. Dosya sistemi `path` ve tarayıcı `baseUri` aynı dize olmak zorunda değildir, ancak aynı konumu tanımlamalıdır; bu konum, medya bağlantılarının göreli olarak yazıldığı HTML dosyasının bulunduğu dizin olmalıdır.
+`baseUri`yi tarayıcının bakış açısından seçin ve mutlak bir URI olarak iletin. Yerel ön izleme için `output_directory.as_uri() + "/"` ifadesiyle türetebilirsiniz. Dağıtımda, yayınlanan dizinin mutlak URL'sini kullanın. Dosya sistemi `path` ve tarayıcı `baseUri` aynı dize olmak zorunda değil, ancak aynı konumu tanımlamalı ve bu konum, oluşturulan HTML dosyasının bulunduğu dizin olmalıdır; çünkü medya bağlantıları ona göre göreceli olarak yazılır.
 
 **Gizli slaytları dahil edebilir miyim?**
 

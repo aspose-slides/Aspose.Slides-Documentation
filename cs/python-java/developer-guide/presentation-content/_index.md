@@ -1,5 +1,5 @@
 ---
-title: Správa obsahu prezentace v Pythonu pomocí Javy
+title: Spravovat obsah prezentace v Pythonu přes Java
 linktitle: Obsah prezentace
 type: docs
 weight: 30
@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Vytvářejte, upravujte a extrahujte obsah prezentace pomocí Aspose.Slides pro Python prostřednictvím Javy—získejte ukázky kódu pro text, obrázky, tvary, grafy; PPT, PPTX a ODP."
+description: "Vytvářejte, upravujte a získávejte obsah prezentace pomocí Aspose.Slides pro Python přes Javu — získejte příklady kódu pro text, obrázky, tvary a grafy v souborech PPT, PPTX a ODP."
 ---

@@ -5,14 +5,14 @@ type: docs
 weight: 10
 url: /pl/python-java/flash/
 keywords:
-- wyodrębnianie flash
+- wyodrębniaj flash
 - obiekt flash
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak wyodrębniać obiekty Flash z slajdów PowerPoint i OpenDocument w Pythonie przy użyciu Aspose.Slides, z kompletnymi przykładami kodu i najlepszymi praktykami."
+description: "Dowiedz się, jak wyodrębniać obiekty Flash z slajdów PowerPoint i OpenDocument w Pythonie przy użyciu Aspose.Slides, kompletnych przykładów kodu i najlepszych praktyk."
 ---
 ## **Przegląd**
 
@@ -20,7 +20,7 @@ Ten artykuł wyjaśnia, jak wyodrębnić obiekty Flash z prezentacji przy użyci
 
 ## **Wyodrębnianie obiektów Flash z prezentacji**
 
-Aspose.Slides for Python via Java udostępnia funkcję wyodrębniania obiektów flash z prezentacji. Można uzyskać dostęp do kontrolki Flash po nazwie i wyodrębnić ją z prezentacji, w tym przechowywane dane obiektu SWF.
+Aspose.Slides dla Pythona poprzez Java zapewnia funkcję wyodrębniania obiektów Flash z prezentacji. Można uzyskać dostęp do kontrolki Flash po nazwie i wyodrębnić ją z prezentacji, w tym przechowywane dane obiektu SWF.
 
 ```python
 import jpype
@@ -47,16 +47,16 @@ finally:
 
 **Jakie formaty prezentacji są obsługiwane przy wyodrębnianiu treści Flash?**
 
-[Aspose.Slides supports](/slides/pl/python-java/supported-file-formats/) główne formaty PowerPoint, takie jak PPT i PPTX, ponieważ może wczytywać te kontenery i uzyskiwać dostęp do ich kontrolek, w tym elementów ActiveX związanych z Flash.
+[Aspose.Slides supports](/slides/pl/python-java/supported-file-formats/) główne formaty PowerPoint, takie jak PPT i PPTX, ponieważ może ładować te kontenery i uzyskiwać dostęp do ich kontrolek, w tym elementów ActiveX związanych z Flash.
 
-**Czy mogę przekonwertować prezentację z Flash na HTML5 i zachować interaktywność Flash?**
+**Czy mogę przekonwertować prezentację z Flash do HTML5 i zachować interaktywność Flash?**
 
-Nie. Aspose.Slides nie wykonuje treści SWF ani nie konwertuje jej interaktywności. Chociaż eksport do [HTML](/slides/pl/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/pl/python-java/export-to-html5/) jest obsługiwany, Flash nie będzie odtwarzany w nowoczesnych przeglądarkach ze względu na zakończenie wsparcia. Zalecanym rozwiązaniem jest zastąpienie Flash alternatywami, takimi jak wideo lub animacje HTML5 przed eksportem.
+Nie. Aspose.Slides nie wykonuje treści SWF ani nie konwertuje jej interaktywności. Chociaż eksport do [HTML](/slides/pl/python-java/convert-powerpoint-to-html/)/[HTML5](/slides/pl/python-java/export-to-html5/) jest obsługiwany, Flash nie będzie odtwarzany w nowoczesnych przeglądarkach ze względu na zakończenie wsparcia. Zalecaną metodą jest zastąpienie Flash alternatywami, takimi jak wideo lub animacje HTML5, przed eksportem.
 
-**Z perspektywy bezpieczeństwa, czy Aspose.Slides wykonuje pliki SWF podczas odczytywania prezentacji?**
+**Z perspektywy bezpieczeństwa, czy Aspose.Slides wykonuje pliki SWF podczas odczytu prezentacji?**
 
 Nie. Aspose.Slides traktuje Flash jako dane binarne osadzone w pliku i nie wykonuje treści SWF podczas przetwarzania.
 
-**Jak powinienem obsługiwać prezentacje, które zawierają Flash wraz z innymi osadzonymi plikami przez OLE?**
+**Jak powinienem obsługiwać prezentacje zawierające Flash wraz z innymi osadzonymi plikami za pośrednictwem OLE?**
 
-Aspose.Slides obsługuje [extracting embedded OLE objects](/slides/pl/python-java/manage-ole/), więc możesz przetwarzać całą powiązaną treść osadzonych plików w jednym przebiegu, obsługując kontrolki Flash oraz inne dokumenty osadzone przez OLE razem.
+Aspose.Slides obsługuje [extracting embedded OLE objects](/slides/pl/python-java/manage-ole/), więc można przetworzyć całą powiązaną zawartość osadzoną jednorazowo, obsługując kontrolki Flash oraz inne dokumenty osadzone jako OLE.

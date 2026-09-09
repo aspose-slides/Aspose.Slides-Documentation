@@ -18,5 +18,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Gestire audio e video in Aspose.Slides per Java: aggiungere, estrarre, sostituire e ottimizzare i media nei file PPT, PPTX e ODP. Guide passo-passo e codice Java."
+description: "Gestisci audio e video in Aspose.Slides per Python tramite Java: aggiungi, estrai, sostituisci e ottimizza i media nei file PPT, PPTX e ODP. Guide passo passo e codice Python."
 ---

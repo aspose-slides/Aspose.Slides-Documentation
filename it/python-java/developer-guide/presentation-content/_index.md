@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Crea, modifica ed estrai il contenuto delle presentazioni con Aspose.Slides per Python tramite Java—ottieni esempi di codice per testo, immagini, forme, grafici; PPT, PPTX e ODP."
+description: "Crea, modifica ed estrai il contenuto della presentazione con Aspose.Slides per Python tramite Java—ottieni esempi di codice per testo, immagini, forme e grafici in file PPT, PPTX e ODP."
 ---

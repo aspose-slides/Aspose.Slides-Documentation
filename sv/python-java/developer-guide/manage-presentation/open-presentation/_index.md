@@ -25,15 +25,15 @@ description: "Lär dig hur du öppnar PowerPoint- och OpenDocument-presentatione
 ---
 ## **Introduktion**
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/sv/python-java/) kan läsa in PowerPoint- och OpenDocument-presentationer från filer och strömmar. När en presentation har lästs in kan du inspektera dess struktur, redigera bilder, hantera resurser och spara den i originalformatet eller ett annat stödd format.
+[Aspose.Slides för Python via Java](https://products.aspose.com/slides/sv/python-java/) kan läsa in PowerPoint- och OpenDocument-presentationer från filer och strömmar. När en presentation har lästs in kan du inspektera dess struktur, redigera bilder, hantera resurser och spara den i originalformatet eller ett annat stödformat.
 
-Laddningsbeteendet kan anpassas via klassen [LoadOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/). Till exempel kan du ange ett öppningslösenord, hålla stora binära objekt utanför Java-heapminnet, kontrollera externa resurser eller utelämna inbäddade binära data.
+Inläsningsbeteendet kan anpassas via klassen [LoadOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/) . Till exempel kan du ange ett öppningslösenord, hålla stora binära objekt utanför Java-heapminnet, kontrollera externa resurser eller utelämna inbäddade binära data.
 
 ## **Öppna presentationer**
 
-För att öppna en befintlig presentation, skicka dess filsökväg till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/). Frigör presentationen efter användning så att filhandtag, temporära data och andra resurser släpps omedelbart.
+För att öppna en befintlig presentation, skicka dess filsökväg till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) . Disposera presentationen efter användning så att filhandtag, temporära data och andra resurser frigörs omedelbart.
 
-Följande Python‑exempel visar hur man öppnar en presentation och får antalet bilder:
+Följande Python‑exempel visar hur du öppnar en presentation och får antalet bilder:
 
 ```python
 import jpype
@@ -53,7 +53,7 @@ finally:
 
 ## **Öppna lösenordsskyddade presentationer**
 
-Ett öppningslösenord krypterar presentationsinnehållet. För att läsa in hela presentationen, skicka rätt lösenord till [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setPassword) och tillhandahåll alternativen till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/). Inläsning misslyckas när lösenordet saknas eller är felaktigt.
+Ett öppningslösenord krypterar presentationsinnehållet. För att läsa in hela presentationen, skicka det korrekta lösenordet till [LoadOptions.setPassword](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setPassword) och ange alternativen till konstruktorn [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) . Inläsning misslyckas när lösenordet saknas eller är felaktigt.
 
 ```python
 import jpype
@@ -74,11 +74,11 @@ finally:
     presentation.dispose()
 ```
 
-För lösenorddetektering, validering och krypteringsarbetsflöden, se [Password-Protect Presentations](/slides/sv/python-java/password-protected-presentation/). Om en krypterad presentation avsiktligt sparades med offentliga dokumentegenskaper, kan dessa egenskaper läsas utan lösenord; se [Manage Presentation Properties](/slides/sv/python-java/presentation-properties/).
+För lösenordsdetektering, validering och krypteringsarbetsflöden, se [Password-Protect Presentations](/slides/sv/python-java/password-protected-presentation/). Om en krypterad presentation medvetet har sparats med offentliga dokumentegenskaper, kan dessa egenskaper läsas utan lösenord; se [Manage Presentation Properties](/slides/sv/python-java/presentation-properties/).
 
 ## **Öppna stora presentationer**
 
-[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) returnerar alternativ som styr hur Aspose.Slides hanterar binära stora objekt såsom bilder, ljud och video. Du kan hålla källfilen låst, tillåta temporära filer och begränsa mängden BLOB‑data som behålls i minnet.
+[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) returnerar alternativ som styr hur Aspose.Slides hanterar stora binära objekt som bilder, ljud och video. Du kan hålla källfilen låst, tillåta temporära filer och begränsa mängden BLOB‑data som behålls i minnet.
 
 Följande Python‑kod demonstrerar hur man läser in en stor presentation (till exempel 2 GB):
 
@@ -107,14 +107,14 @@ finally:
 ```
 
 {{% alert color="info" title="Note" %}}
-Med [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) förblir källfilen låst tills presentation‑instansen frigörs. Flytta, skriv över eller radera inte källfilen medan den instansen är aktiv.
+Med [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked) förblir källfilen låst tills presentation‑instansen har disposeras. Flytta, skriv över eller radera inte källfilen medan den instansen är aktiv.
 
-Aspose.Slides kan kopiera innehållet i en indataström under inläsning. För stora presentationer är en filsökväg därför vanligtvis mer effektiv än en ström. Se [Manage BLOBs](/slides/sv/python-java/manage-blob/) för ytterligare lagrings- och minneshanteringsalternativ.
+Aspose.Slides kan kopiera innehållet i en inmatningsström under inläsning. För stora presentationer är en filsökväg därför generellt mer effektiv än en ström. Se [Manage BLOBs](/slides/sv/python-java/manage-blob/) för ytterligare lagrings‑ och minneshanteringsalternativ.
 {{% /alert %}}
 
-## **Kontrollera externa resurser**
+## **Styr externa resurser**
 
-[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accepterar en JPype‑proxy som implementerar Java‑gränssnittet för resurshämtning. Återuppringningen kan tillhandahålla ersättningsdata, omdirigera en resurs, använda standardläsaren eller hoppa över resursen. Detta är användbart när presentationer innehåller externa bilder som måste lösas enligt applikationsspecifika säkerhets‑ eller lagringsregler.
+[LoadOptions.setResourceLoadingCallback](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setResourceLoadingCallback) accepterar en JPype‑proxy som implementerar Java‑gränssnittet för resurshämtning. Återuppringningen kan leverera ersättningsdata, omdirigera en resurs, använda standardladdaren eller hoppa över resursen. Detta är användbart när presentationer innehåller externa bilder som måste lösas enligt applikationsspecifika säkerhets‑ eller lagringsregler.
 
 ```python
 import jpype
@@ -156,15 +156,15 @@ finally:
 
 ## **Läs in presentationer utan inbäddade binära objekt**
 
-En presentation kan innehålla inbäddade binära data som en applikation inte behöver eller inte vill behålla. Exempel inkluderar:
+En presentation kan innehålla inbäddad binär data som en applikation inte behöver eller inte vill behålla. Exempel inkluderar:
 
 - VBA‑projekt, tillgängliga via [Presentation.getVbaProject](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/#getVbaProject);
 - inbäddad OLE‑data, tillgänglig via [OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/sv/python-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData);
 - ActiveX‑kontrolldata, tillgänglig via [Control.getActiveXControlBinary](https://reference.aspose.com/slides/sv/python-java/aspose.slides/control/#getActiveXControlBinary).
 
-Ställ in [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) till `True` för att ta bort dessa binära data under inläsning. Spara den inlästa presentationen för att bevara det sanerade resultatet.
+Ange [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/sv/python-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects) till `True` för att ta bort denna binära data vid inläsning. Spara den inlästa presentationen för att bevara det sanerade resultatet.
 
-Detta alternativ minskar exponeringen för oönskade inbäddade nyttolaster, men det är inte ett fullständigt system för skadlig‑programdetektering eller innehållssanering.
+Detta alternativ minskar exponeringen för oönskade inbäddade payloads, men det är inte ett fullständigt system för malware‑detektion eller innehållssanering.
 
 ```python
 import jpype
@@ -187,14 +187,14 @@ finally:
 
 ## **FAQ**
 
-**Hur kan jag avgöra att en fil är korrupt och inte kan öppnas?**
+**Hur kan jag avgöra att en fil är korrupt och kan inte öppnas?**
 
-Aspose.Slides kastar ett pars‑ eller format‑undantag under inläsning. Hantera detta fel separat från ett felaktigt‑lösenords‑fel så att applikationen kan rapportera orsaken korrekt.
+Aspose.Slides kastar ett parserings- eller formatfel vid inläsning. Hantera detta fel separat från ett felaktigt lösenord så att applikationen kan rapportera orsaken korrekt.
 
-**Vad händer om nödvändiga teckensnitt saknas?**
+**Vad händer om nödvändiga typsnitt saknas?**
 
-Presentationen kan fortfarande läsas in, men rendering och export kan ersätta teckensnitt. Du kan [configure font substitution](/slides/sv/python-java/font-substitution/) eller [provide custom fonts](/slides/sv/python-java/custom-font/) för att göra resultatet mer förutsägbart.
+Presentation kan fortfarande läsas in, men rendering och export kan ersätta typsnitten. Du kan [konfigurera typsnittssubstitution](/slides/sv/python-java/font-substitution/) eller [tillhandahålla anpassade typsnitt](/slides/sv/python-java/custom-font/) för att göra resultatet mer förutsägbart.
 
 **Laddar inläsning av en presentation även dess inbäddade media?**
 
-Inbäddat ljud och video blir tillgängliga via presentationsobjektmodellen. Externa resurser löses upp enligt den konfigurerade resurshämtnings‑beteendet och kan vara otillgängliga om deras platser inte kan nås.
+Inbäddat ljud och video blir tillgängliga via presentationsobjektmodellen. Externa resurser löses upp enligt den konfigurerade resurshämtningsbeteendet och kan vara otillgängliga om deras platser inte kan nås.

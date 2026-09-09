@@ -15,9 +15,9 @@ keywords:
 - PPT opslaan als HTML5
 - PPTX opslaan als HTML5
 - ODP opslaan als HTML5
-- PPT exporteren naar HTML5
-- PPTX exporteren naar HTML5
-- ODP exporteren naar HTML5
+- export PPT naar HTML5
+- export PPTX naar HTML5
+- export ODP naar HTML5
 - Python
 - Java
 - Aspose.Slides
@@ -25,11 +25,11 @@ description: "Exporteer PowerPoint- en OpenDocument-presentaties naar responsiev
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe PowerPoint‑presentaties te converteren naar HTML5 met Aspose.Slides. Het behandelt eenvoudige HTML5‑export zonder extra web‑extensies, evenals opties om vormanimaties en dia‑overgangen te regelen. Het artikel toont ook het standaard PowerPoint‑naar‑HTML‑exportproces, legt uit hoe HTML5‑output in dia‑weergavemodus te genereren, en laat zien hoe opmerkingen in het geëxporteerde document op te nemen door hun lay‑out te configureren.
+Dit artikel legt uit hoe u PowerPoint‑presentaties naar HTML5 kunt converteren met Aspose.Slides. Het behandelt de basis‑HTML5‑export zonder extra web‑extensies, evenals opties voor het regelen van vormanimaties en dia‑overgangen. Het artikel toont ook het standaard PowerPoint‑naar‑HTML‑exportproces, legt uit hoe u HTML5‑output in dia‑weergavemodus genereert, en demonstreert hoe u opmerkingen in het geëxporteerde document kunt opnemen door hun lay‑out te configureren.
 
-De voorbeelden vereisen Aspose.Slides voor Python via Java en een compatibele Java‑runtime. Plaats `pres.pptx` (of `sample.pptx` voor het voorbeeld met opmerkingen) in de huidige werkmap. Elk voorbeeld start de JVM alleen als deze nog niet draait.
+De voorbeelden vereisen Aspose.Slides for Python via Java en een compatibele Java‑runtime. Plaats `pres.pptx` (of `sample.pptx` voor het voorbeeld met opmerkingen) in de huidige werkmap. Elk voorbeeld start de JVM alleen als deze nog niet draait.
 
-## **Export PowerPoint naar HTML5**
+## **PowerPoint exporteren naar HTML5**
 
 Gebruik [Presentation.save](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/#save) met [SaveFormat.Html5](https://reference.aspose.com/slides/nl/python-java/aspose.slides/saveformat/#Html5) om een presentatie te exporteren zonder extra web‑extensies:
 
@@ -50,7 +50,7 @@ finally:
 ```
 
 {{% alert color="info" title="Opmerking" %}} 
-De HTML5‑exporteur genereert HTML‑inhoud voor weergave in een browser. 
+De HTML5‑exporteur maakt HTML‑inhoud voor weergave in een browser. 
 {{% /alert %}}
 
 Gebruik [Html5Options](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/) om de export te configureren. Roep [setAnimateShapes](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateShapes) en [setAnimateTransitions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateTransitions) aan met `False` om vormanimaties en dia‑overgangen uit te schakelen:
@@ -75,9 +75,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Export PowerPoint naar HTML**
+## **PowerPoint exporteren naar HTML**
 
-Gebruik [SaveFormat.Html](https://reference.aspose.com/slides/nl/python-java/aspose.slides/saveformat/#Html) voor standaard HTML‑export. Zie [PowerPoint converteren naar HTML](/slides/nl/python-java/convert-powerpoint-to-html/) voor meer opties:
+Gebruik [SaveFormat.Html](https://reference.aspose.com/slides/nl/python-java/aspose.slides/saveformat/#Html) voor standaard HTML‑export. Zie [Convert PowerPoint to HTML](/slides/nl/python-java/convert-powerpoint-to-html/) voor meer opties:
 
 ```python
 import jpype
@@ -95,7 +95,7 @@ finally:
     presentation.dispose()
 ```
 
-In dit geval wordt de inhoud van de presentatie gerenderd via SVG in een vorm als deze:
+In dit geval wordt de presentatie‑inhoud gerenderd via SVG in een vorm als volgt:
 
 ```html
 <body>
@@ -108,14 +108,14 @@ In dit geval wordt de inhoud van de presentatie gerenderd via SVG in een vorm al
 ```
 
 {{% alert title="Waarschuwing" color="warning" %}} 
-Standaard HTML‑export rendert dia‑inhoud via SVG en biedt niet de HTML5‑vorm‑animatie‑ en dia‑overgangsopties. 
+Standaard HTML‑export rendert dia‑inhoud via SVG en biedt geen HTML5‑vormanimatie‑ en dia‑overgangsopties. 
 {{% /alert %}}
 
-## **Export PowerPoint naar HTML5‑diaweergave**
+## **PowerPoint exporteren naar HTML5‑dia‑weergave**
 
-**Aspose.Slides** stelt je in staat om een PowerPoint‑presentatie te converteren naar een HTML5‑document waarin de dia's worden weergegeven in een dia‑weergavemodus. In dit geval zie je bij het openen van het resulterende HTML5‑bestand in een browser de presentatie in dia‑weergavemodus op een webpagina.
+**Aspose.Slides** maakt het mogelijk een PowerPoint‑presentatie te converteren naar een HTML5‑document waarin de dia's worden gepresenteerd in een dia‑weergavemodus. In dit geval, wanneer u het resulterende HTML5‑bestand in een browser opent, ziet u de presentatie in dia‑weergave op een webpagina. 
 
-Deze Python‑code demonstreert het exportproces van PowerPoint naar HTML5‑diaweergave:
+Deze Python‑code demonstreert het exportproces van PowerPoint naar HTML5‑dia‑weergave:
 
 ```python
 import jpype
@@ -139,15 +139,15 @@ finally:
 
 ## **Presentaties converteren naar HTML5‑documenten met opmerkingen**
 
-Opmerkingen in PowerPoint zijn een hulpmiddel waarmee gebruikers notities of feedback op presentatiedia's kunnen achterlaten. Ze zijn vooral nuttig bij samenwerkingsprojecten, waar meerdere personen hun suggesties of opmerkingen kunnen toevoegen aan specifieke dia‑elementen zonder de hoofdinhoud te wijzigen. Elke opmerking toont de naam van de auteur, waardoor het eenvoudig is om te zien wie de opmerking heeft geplaatst.
+Opmerkingen in PowerPoint zijn een hulpmiddel waarmee gebruikers notities of feedback achter kunnen laten op dia’s. Ze zijn vooral nuttig in samenwerkingsprojecten, waar meerdere personen suggesties of aantekeningen kunnen toevoegen aan specifieke dia‑elementen zonder de hoofdinhoud te wijzigen. Elke opmerking toont de naam van de auteur, waardoor het makkelijk is te volgen wie de opmerking heeft geplaatst.
 
-Stel dat we de volgende PowerPoint‑presentatie hebben opgeslagen in het bestand "sample.pptx".
+Stel, we hebben de volgende PowerPoint‑presentatie opgeslagen in het bestand “sample.pptx”.
 
 ![Twee opmerkingen op de presentatiedia](two_comments_pptx.png)
 
-Wanneer je een PowerPoint‑presentatie converteert naar een HTML5‑document, kun je eenvoudig opgeven of opmerkingen uit de presentatie moeten worden opgenomen in het uitvoerdocument. Om dit te doen, geef je de weergave‑parameters voor opmerkingen door aan de methode [setSlidesLayoutOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) van de klasse [Html5Options](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/).
+Wanneer u een PowerPoint‑presentatie converteert naar een HTML5‑document, kunt u eenvoudig aangeven of opmerkingen uit de presentatie in het uitvoer‑document moeten worden opgenomen. Geef hiervoor de weergave‑parameters voor opmerkingen door aan de [setSlidesLayoutOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setSlidesLayoutOptions)‑methode van de [Html5Options](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/)‑klasse.
 
-Gebruik [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/notescommentslayoutingoptions/) en [setCommentsPosition](https://reference.aspose.com/slides/nl/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) met [CommentsPositions.Right](https://reference.aspose.com/slides/nl/python-java/aspose.slides/commentspositions/#Right). Het volgende code‑voorbeeld zet een presentatie om in een HTML5‑document met opmerkingen die rechts van de dia's worden weergegeven.
+Gebruik [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/notescommentslayoutingoptions/) en [setCommentsPosition](https://reference.aspose.com/slides/nl/python-java/aspose.slides/notescommentslayoutingoptions/#setCommentsPosition) met [CommentsPositions.Right](https://reference.aspose.com/slides/nl/python-java/aspose.slides/commentspositions/#Right). De volgende code‑voorbeeld converteert een presentatie naar een HTML5‑document met opmerkingen die rechts van de dia’s worden weergegeven.
 
 ```python
 import jpype
@@ -171,20 +171,20 @@ finally:
     presentation.dispose()
 ```
 
-Het document "output.html" wordt hieronder weergegeven.
+Het document “output.html” wordt weergegeven in de afbeelding hieronder.
 
 ![De opmerkingen in het uitvoer‑HTML5‑document](two_comments_html5.png)
 
-## **Veelgestelde vragen**
+## **FAQ**
 
 **Kan ik bepalen of objectanimaties en dia‑overgangen worden afgespeeld in HTML5?**
 
-Ja, HTML5 biedt afzonderlijke opties om [vormanimaties](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateShapes) en [dia‑overgangen](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateTransitions) in te schakelen of uit te schakelen.
+Ja, HTML5 biedt afzonderlijke opties om [shape animations](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateShapes) en [slide transitions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setAnimateTransitions) in of uit te schakelen.
 
-**Worden opmerkingen ondersteund in de output, en waar kunnen ze ten opzichte van de dia geplaatst worden?**
+**Kunnen opmerkingen geëxporteerd worden, en waar kunnen ze worden geplaatst ten opzichte van de dia?**
 
-Ja, opmerkingen kunnen worden toegevoegd in HTML5 en gepositioneerd (bijvoorbeeld rechts van de dia) via [lay‑outinstellingen](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) voor aantekeningen en opmerkingen.
+Ja, opmerkingen kunnen worden toegevoegd in HTML5 en gepositioneerd (bijvoorbeeld rechts van de dia) via [layout settings](https://reference.aspose.com/slides/nl/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) voor notities en opmerkingen.
 
-**Kan ik koppelingen die JavaScript aanroepen overslaan om veiligheids‑ of CSP‑redenen?**
+**Kan ik links die JavaScript aanroepen overslaan om veiligheids‑ of CSP‑redenen?**
 
-Ja, er is een [instelling](https://reference.aspose.com/slides/nl/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) die het mogelijk maakt om hyperlinks met JavaScript‑oproepen over te slaan tijdens het opslaan. Dit verwijdert die hyperlinks; het garandeert niet automatisch dat alle gegenereerde HTML5‑scripts voldoen aan het Content Security Policy van een site.
+Ja, er is een [setting](https://reference.aspose.com/slides/nl/python-java/aspose.slides/saveoptions/#setSkipJavaScriptLinks) die het mogelijk maakt hyperlinks met JavaScript‑aanroepen over te slaan tijdens het opslaan. Dit verwijdert die hyperlinks; het garandeert niet automatisch dat alle gegenereerde HTML5‑scripts voldoen aan het Content Security Policy van een site.

@@ -12,9 +12,9 @@ keywords:
 - ta bort hyperlänk
 - uppdatera hyperlänk
 - texthyperlänk
-- slide-hyperlänk
-- formhyperlänk
 - bildhyperlänk
+- formhyperlänk
+- bildfilhyperlänk
 - videohyperlänk
 - muterbar hyperlänk
 - PowerPoint
@@ -23,28 +23,26 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Hantera hyperlänkar i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Python via Java utan ansträngning—förbättra interaktivitet och arbetsflöde på några minuter."
+description: "Hantera enkelt hyperlänkar i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Python via Java—förbättra interaktivitet och arbetsflöde på några minuter."
 ---
 ## **Introduktion**
 
-En hyperlänk är en referens till ett objekt eller data eller en plats i något. Detta är vanliga hyperlänkar i PowerPoint‑presentationer:
+En hyperlänk är en referens till ett objekt, data eller en plats. Vanliga hyperlänkar i PowerPoint‑presentationer inkluderar:
 
 * Länkar till webbplatser i text, former eller media
 * Länkar till bilder
 
 Aspose.Slides för Python via Java låter dig utföra många uppgifter som involverar hyperlänkar i presentationer. 
 
-{{% alert color="info" title="Note" %}} 
-
-Du kanske vill kolla in Aspose enkel, [gratis online PowerPoint‑redigerare.](https://products.aspose.app/slides/sv/editor)
-
+{{% alert color="info" title="Obs" %}} 
+Du kanske vill testa Asposes enkla, [gratis online PowerPoint‑redigerare.](https://products.aspose.app/slides/sv/editor)
 {{% /alert %}} 
 
 ## **Lägg till URL‑hyperlänkar**
 
 ### **Lägg till URL‑hyperlänkar till text**
 
-Denna Python‑kod visar hur du lägger till en webbplats‑hyperlänk i en text:
+Denna Python‑kod visar hur du lägger till en webbplats‑hyperlänk till text:
 
 ```python
 import jpype
@@ -185,10 +183,8 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert color="success" title="Tip" %}} 
-
+{{% alert color="success" title="Tips" %}} 
 Du kanske vill se *[Hantera OLE](/slides/sv/python-java/manage-ole/)*.
-
 {{% /alert %}}
 
 ## **Använd hyperlänkar för att skapa en innehållsförteckning**
@@ -239,9 +235,9 @@ finally:
 
 ### **Färg**
 
-Med egenskapen [Hyperlink.setColorSource](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlink/#setColorSource) i klassen [Hyperlink](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlink/) kan du ange färgen för hyperlänkar och även hämta färginformation från hyperlänkar. Funktionen introducerades först i PowerPoint 2019, så ändringar som involverar egenskapen gäller inte äldre PowerPoint‑versioner.
+Med egenskapen [Hyperlink.setColorSource](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlink/#setColorSource) i klassen [Hyperlink](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlink/) kan du ange färgen för hyperlänkar och även hämta färginformation från hyperlänkar. Funktionen introducerades först i PowerPoint 2019, så ändringar som rör egenskapen gäller inte äldre PowerPoint‑versioner.
 
-Detta exempel visar en operation där hyperlänkar med olika färger lades till på samma bild:
+Detta exempel demonstrerar en operation där hyperlänkar med olika färger läggs till på samma bild:
 
 ```python
 import jpype
@@ -277,7 +273,7 @@ finally:
 
 ### **Ta bort hyperlänkar från text**
 
-Denna Python‑kod visar hur du tar bort hyperlänken från en text i en presentationsbild:
+Denna Python‑kod visar hur du tar bort hyperlänken från text på en presentationsbild:
 
 ```python
 import jpype
@@ -306,7 +302,7 @@ finally:
 
 ### **Ta bort hyperlänkar från former eller ramar**
 
-Denna Python‑kod visar hur du tar bort hyperlänken från en form i en presentationsbild: 
+Denna Python‑kod visar hur du tar bort hyperlänken från en form på en presentationsbild:
 
 ```python
 import jpype
@@ -337,7 +333,7 @@ Klassen [Hyperlink](https://reference.aspose.com/slides/sv/python-java/aspose.sl
 - [setHighlightClick](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlink/#setHighlightClick)
 - [setStopSoundOnClick](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlink/#setStopSoundOnClick)
 
-Kodsnutten visar hur du lägger till en hyperlänk på en bild och redigerar dess verktygstips senare:
+Kodsnutten visar hur du lägger till en hyperlänk till en bild och redigerar dess verktygstips senare:
 
 ```python
 import jpype
@@ -379,18 +375,18 @@ Klassen [HyperlinkQueries](https://reference.aspose.com/slides/sv/python-java/as
 - [getHyperlinkClicks](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks)
 - [getHyperlinkMouseOvers](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers)
 - [getAnyHyperlinks](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks)
-- [removeAllHyperlinks](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks)
+- [removeAllHyperlinks](https://reference.aspose.com/slides/sv/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinkss)
 
 ## **FAQ**
 
-**Hur kan jag skapa intern navigation inte bara till en bild, utan till ett "avsnitt" eller den första bilden i ett avsnitt?**
+**Hur kan jag skapa intern navigering inte bara till en bild, utan till en "sektion" eller den första bilden i en sektion?**
 
-Avsnitt i PowerPoint är gruppering av bilder; navigation riktar sig tekniskt sett till en specifik bild. För att "navigera till ett avsnitt" länkar du vanligtvis till dess första bild.
+Sektioner i PowerPoint är grupperingar av bilder; navigering riktar sig tekniskt sett till en specifik bild. För att "navigera till en sektion" länkar du vanligtvis till dess första bild.
 
-**Kan jag fästa en hyperlänk på master‑bildselement så att den fungerar på alla bilder?**
+**Kan jag bifoga en hyperlänk till master‑bildens element så att den fungerar på alla bilder?**
 
-Ja. Master‑bild‑ och layout‑element stödjer hyperlänkar. Sådana länkar visas på underordnade bilder och är klickbara under bildspelet.
+Ja. Master‑bildens och layout‑element stödjer hyperlänkar. Sådana länkar visas på underordnade bilder och är klickbara under bildspelet.
 
 **Kommer hyperlänkar att bevaras vid export till PDF, HTML, bilder eller video?**
 
-I [PDF](/slides/sv/python-java/convert-powerpoint-to-pdf/) och [HTML](/slides/sv/python-java/convert-powerpoint-to-html/) ja—länkar bevaras i allmänhet. Vid export till [bilder](/slides/sv/python-java/convert-powerpoint-to-png/) och [video](/slides/sv/python-java/convert-powerpoint-to-video/) blir klickbarhet inte överförd på grund av formatens natur (rastrerade ramar/video stöder inte hyperlänkar).
+I [PDF](/slides/sv/python-java/convert-powerpoint-to-pdf/) och [HTML](/slides/sv/python-java/convert-powerpoint-to-html/) ja – länkar bevaras i allmänhet. Vid export till [bilder](/slides/sv/python-java/convert-powerpoint-to-png/) och [video](/slides/sv/python-java/convert-powerpoint-to-video/) överförs inte klickbarheten på grund av formatens natur (raster‑ramar/video stöder inga hyperlänkar).

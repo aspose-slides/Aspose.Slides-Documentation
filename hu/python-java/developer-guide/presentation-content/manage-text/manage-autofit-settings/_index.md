@@ -1,14 +1,14 @@
 ---
-title: "Fejlessze előadásaikat az AutoFit használatával Pythonban"
-linktitle: "Autofit beállítások"
+title: Javítsa prezentációit az AutoFit segítségével Pythonban
+linktitle: Autofit beállítások
 type: docs
 weight: 30
 url: /hu/python-java/manage-autofit-settings/
 keywords:
 - szövegdoboz
 - autofit
-- ne alkalmazzon automatikus illesztést
-- szöveg illesztése
+- ne használjon autofit-et
+- szövegillesztés
 - szöveg zsugorítása
 - szöveg tördelése
 - alakzat átméretezése
@@ -18,35 +18,35 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan kezelheti az AutoFit beállításokat az Aspose.Slides for Python via Java-ban, a szöveg megjelenítésének optimalizálásához PowerPoint és OpenDocument prezentációiban, és javítsa a tartalom olvashatóságát."
+description: "Ismerje meg, hogyan kezelheti az AutoFit beállításokat az Aspose.Slides for Python via Java könyvtárban, hogy optimalizálja a szöveg megjelenítését PowerPoint és OpenDocument prezentációiban, és javítsa a tartalom olvashatóságát."
 ---
 ## **Bevezetés**
 
-Alapértelmezés szerint, amikor szövegdobozt ad hozzá, a Microsoft PowerPoint a **Resize shape to fix text** beállítást használja a szövegdobozhoz – automatikusan átméretezi a szövegdobozt, hogy a szövege mindig elférjen benne. 
+Alapértelmezés szerint, amikor szövegdobozt ad hozzá, a Microsoft PowerPoint a **Resize shape to fit text** beállítást használja a szövegdobozhoz – automatikusan átméretezi a szövegdobozt, hogy a szöveg mindig beleférjen.
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+![Szövegdoboz PowerPointban](textbox-in-powerpoint.png)
 
-* Ha a szövegdoboz szövege hosszabbá vagy nagyobbra válik, a PowerPoint automatikusan megnöveli a szövegdobozt – megnöveli a magasságát –, hogy több szöveget tudjon tartalmazni. 
-* Ha a szövegdoboz szövege rövidebbé vagy kisebbé válik, a PowerPoint automatikusan csökkenti a szövegdobozt – csökkenti a magasságát –, hogy a felesleges helyet eltávolítsa. 
+* Amikor a szöveg a szövegdobozban hosszabbá vagy nagyobbra nő, a PowerPoint automatikusan megnöveli a szövegdobozt – magasságát növeli – hogy több szöveget tudjon tartalmazni.
+* Amikor a szöveg a szövegdobozban rövidebbé vagy kisebbé válik, a PowerPoint automatikusan csökkenti a szövegdobozt – magasságát csökkenti – hogy eltávolítsa a felesleges helyet.
 
-A PowerPointben ezek a 4 fontos paraméter vagy beállítás, amelyek szabályozzák a szövegdoboz automatikus illesztésének viselkedését: 
+PowerPointban ezek a 4 fontos paraméter vagy beállítás, amelyek a szövegdoboz automatikus méretezését (autofit) szabályozzák:
 
 * **Do not Autofit**
 * **Shrink text on overflow**
 * **Resize shape to fit text**
 * **Wrap text in shape.**
 
-![autofit-options-powerpoint](autofit-options-powerpoint.png)
+![autofit opciók PowerPointban](autofit-options-powerpoint.png)
 
-Az Aspose.Slides for Python via Java hasonló lehetőségeket kínál – néhány tulajdonságot a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályban – amelyekkel a szövegdobozok automatikus illesztésének viselkedését szabályozhatja a prezentációkban. 
+Az Aspose.Slides for Python via Java hasonló lehetőségeket kínál – néhány tulajdonság a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályban – amelyek lehetővé teszik a szövegdobozok automatikus méretezésének (autofit) irányítását a prezentációkban.
 
-## **Alakzat átméretezése a szöveghez való illeszkedéshez**
+## **Alakzat átméretezése a szöveghez igazodóan**
 
-Ha azt szeretné, hogy a szöveg egy dobozban mindig beleférjen a szöveg módosítása után is, a **Resize shape to fix text** beállítást kell használnia. Ennek a beállításnak a megadásához használja a [setAutofitType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setAutofitType) metódust (a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályból) a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textautofittype/#Shape) értékkel.
+Ha azt szeretné, hogy a szöveg a dobozban mindig beleférjen a szöveg módosítása után, a **Resize shape to fit text** beállítást kell használnia. Ennek meghatározásához használja a [setAutofitType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setAutofitType) metódust (a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályból) a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textautofittype/#Shape) értékkel.
 
-![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
+![alwaysfit beállítás PowerPointban](alwaysfit-setting-powerpoint.png)
 
-Ez a Python kód megmutatja, hogyan adhatja meg, hogy a szövegnek mindig bele kell férnie a PowerPoint prezentációban lévő dobozba:
+Ez a Python kód bemutatja, hogyan lehet megadni, hogy a szöveg mindig beleférjen a saját dobozába egy PowerPoint prezentációban:
 
 ```python
 import jpype
@@ -76,15 +76,15 @@ finally:
     presentation.dispose()
 ```
 
-Ha a szöveg hosszabbá vagy nagyobbra válik, a szövegdoboz automatikusan átméreteződik (magasságban nő), hogy az összes szöveg elférjen benne. Ha a szöveg rövidebbé válik, a fordított történik. 
+Ha a szöveg hosszabbá vagy nagyobbá válik, a szövegdobozt automatikusan átméretezi (magasságát növeli), hogy az összes szöveg beleférjen. Ha a szöveg rövidebb lesz, a fordított történik.
 
-## **Ne alkalmazzon automatikus illesztést**
+## **Ne használjon AutoFit-et**
 
-Ha azt szeretné, hogy egy szövegdoboz vagy alakzat megtartsa méreteit függetlenül attól, hogy a benne lévő szöveg hogyan változik, a **Do not Autofit** beállítást kell használnia. Ennek a beállításnak a megadásához használja a [setAutofitType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setAutofitType) metódust (a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályból) a [None](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textautofittype/#None) értékkel. 
+Ha azt szeretné, hogy egy szövegdoboz vagy alakzat megtartsa a méreteit a tartalmazott szöveg módosításától függetlenül, a **Do not Autofit** opciót kell használnia. Ennek meghatározásához használja a [setAutofitType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setAutofitType) metódust (a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályból) a [None](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textautofittype/#None) értékkel.
 
-![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
+![donotautofit beállítás PowerPointban](donotautofit-setting-powerpoint.png)
 
-Ez a Python kód megmutatja, hogyan adhatja meg, hogy a szövegdoboz mindig megtartsa méreteit egy PowerPoint prezentációban:
+Ez a Python kód bemutatja, hogyan lehet megadni, hogy egy szövegdoboz mindig megtartsa a méreteit egy PowerPoint prezentációban:
 
 ```python
 import jpype
@@ -107,22 +107,22 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setAutofitType(TextAutofitType.None)
+    text_frame_format.setAutofitType(TextAutofitType.None_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Amikor a szöveg túl hosszúvá válik a dobozához képest, az kilóg. 
+Ha a szöveg túl hosszú lesz a dobozhoz képest, kifolyik.
 
 ## **Szöveg zsugorítása túlcsordulás esetén**
 
-Ha egy szöveg túl hosszú lesz a dobozához képest, a **Shrink text on overflow** beállítással megadhatja, hogy a szöveg méretét és távolságát csökkenteni kell, hogy beleférjen a dobozba. Ennek a beállításnak a megadásához használja a [setAutofitType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setAutofitType) metódust (a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályból) a [Normal](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textautofittype/#Normal) értékkel.
+Ha a szöveg túl hosszú lesz a dobozhoz képest, használhatja a **Shrink text on overflow** opciót, hogy a szöveg méretét és távolságát csökkentse, így belefér a dobozba. Ennek meghatározásához használja a [setAutofitType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setAutofitType) metódust (a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályból) a [Normal](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textautofittype/#Normal) értékkel.
 
-![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
+![shrinktextonoverflow beállítás PowerPointban](shrinktextonoverflow-setting-powerpoint.png)
 
-Ez a Python kód megmutatja, hogyan adhatja meg, hogy a szöveget zsugorítani kell túlcsordulás esetén egy PowerPoint prezentációban:
+Ez a Python kód bemutatja, hogyan lehet megadni, hogy a szöveget zsugorítani kell a túlcsordulás esetén egy PowerPoint prezentációban:
 
 ```python
 import jpype
@@ -152,15 +152,15 @@ finally:
     presentation.dispose()
 ```
 
-{{% alert title="Megjegyzés" color="info" %}}
-Amikor a **Shrink text on overflow** opciót használják, a beállítás csak akkor lép életbe, amikor a szöveg túl hosszúvá válik a dobozához képest. 
+{{% alert title="Note" color="info" %}}
+Amikor a **Shrink text on overflow** opciót használják, a beállítás csak akkor érvényesül, amikor a szöveg túl hosszú lesz a dobozhoz képest.
 {{% /alert %}}
 
-## **Szöveg tördelése**
+## **Wrap Text**
 
-Ha azt szeretné, hogy a szöveg egy alakzaton belül legyen megtördelve, amikor a szöveg meghaladja az alakzat szélét (csak a szélességet), a **Wrap text in shape** paramétert kell használnia. Ennek a beállításnak a megadásához a [setWrapText](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setWrapText) metódust kell használnia (a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályból) a [NullableBool.True](https://reference.aspose.com/slides/hu/python-java/aspose.slides/nullablebool/#True) értékkel. 
+Ha azt szeretné, hogy a szöveg egy alakzaton belül megtörjön, amikor a szöveg túllépi az alakzat szélét (csak szélesség), a **Wrap text in shape** paramétert kell használnia. Ennek meghatározásához a [setWrapText](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setWrapText) metódust kell használni (a [TextFrameFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/) osztályból) a [NullableBool.True_](https://reference.aspose.com/slides/hu/python-java/aspose.slides/nullablebool/#True) értékkel.
 
-Ez a Python kód megmutatja, hogyan használja a Szöveg tördelése beállítást egy PowerPoint prezentációban:
+Ez a Python kód bemutatja, hogyan kell használni a Wrap Text beállítást egy PowerPoint prezentációban:
 
 ```python
 import jpype
@@ -183,27 +183,27 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setWrapText(NullableBool.True)
+    text_frame_format.setWrapText(NullableBool.True_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-{{% alert title="Figyelmeztetés" color="warning" %}} 
-Ha a [setWrapText](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setWrapText) metódust a [NullableBool.False](https://reference.aspose.com/slides/hu/python-java/aspose.slides/nullablebool/#False) értékkel használja egy alakzatra, amikor a szöveg az alakzat szélességénél hosszabb lesz, a szöveg egyetlen sorban a forma szélén túlra nyúlik. 
+{{% alert title="Warning" color="warning" %}} 
+Ha a [setWrapText](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframeformat/#setWrapText) metódust a [NullableBool.False](https://reference.aspose.com/slides/hu/python-java/aspose.slides/nullablebool/#False) értékkel használja egy alakzatra, akkor amikor a szöveg az alakzaton belül hosszabb lesz az alakzat szélességénél, a szöveg egy sorban a határvonalakon túlra nyúlik.
 {{% /alert %}}
 
-## **GYIK**
+## **FAQ**
 
-**Érintik a szövegkeret belső margói az AutoFit működését?**
+**Befolyásolják a szövegkeret belső margói az AutoFit-et?**
 
-Igen. A kitöltés (belső margók) csökkenti a szöveg használható területét, ezért az AutoFit korábban lép életbe – a betűméretet vagy az alakzat méretét hamarabb csökkentve. Ellenőrizze és állítsa be a margókat, mielőtt finomhangolná az AutoFit-et.
+Igen. A kitöltés (belső margók) csökkentik a szöveg használható területét, ezért az AutoFit korábban aktiválódik – a betűtípus csökkentésével vagy az alakzat átméretezésével. Ellenőrizze és állítsa be a margókat, mielőtt finomhangolná az AutoFit-et.
 
-**Hogyan működik az AutoFit a manuális és puha sortörésekkel?**
+**Hogyan működik az AutoFit a kézi és lágy sortörésekkel?**
 
-A kényszerített sortörések megmaradnak, az AutoFit a betűméretet és a távolságot az ő körülöttük igazítja. A felesleges sortörések eltávolítása gyakran csökkenti az AutoFit által igényelt szövegzsugorítás mértékét.
+A kényszerített sortörések megmaradnak, és az AutoFit a betűméretet és a távolságot körülöttük igazítja. A felesleges sortörések eltávolítása gyakran csökkenti, hogy az AutoFit mennyire kell szigorúan zsugorítani a szöveget.
 
-**A téma betűtípusának megváltoztatása vagy a betűtípus-helyettesítés beindítása befolyásolja az AutoFit eredményét?**
+**A témabetű módosítása vagy a betűcsere kiváltása befolyásolja az AutoFit eredményét?**
 
-Igen. Egy olyan betűtípusra való helyettesítés, amelynek eltérő glifmetrikái vannak, megváltoztatja a szöveg szélességét/magasságát, ami módosíthatja a végső betűméretet és a sortörést. Bármely betűtípus‑változtatás vagy helyettesítés után ellenőrizze újra a diák tartalmát.
+Igen. Egy másik metrikájú betűtípus helyettesítése megváltoztatja a szöveg szélességét/magasságát, ami módosíthatja a végső betűméretet és a sortörést. Bármilyen betűtípus-változtatás vagy -csere után ellenőrizze újra a diák tartalmát.

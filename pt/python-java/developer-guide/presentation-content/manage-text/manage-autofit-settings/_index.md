@@ -1,5 +1,5 @@
 ---
-title: Melhore suas apresentações com AutoFit em Python
+title: Aprimore suas Apresentações com AutoFit em Python
 linktitle: Configurações de Autofit
 type: docs
 weight: 30
@@ -7,10 +7,10 @@ url: /pt/python-java/manage-autofit-settings/
 keywords:
 - caixa de texto
 - autofit
-- não autoajustar
+- não autofit
 - ajustar texto
-- reduzir texto
-- quebrar texto
+- encolher texto
+- envolver texto
 - redimensionar forma
 - PowerPoint
 - OpenDocument
@@ -18,18 +18,18 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aprenda como gerenciar as configurações de AutoFit no Aspose.Slides para Python via Java para otimizar a exibição de texto nas suas apresentações PowerPoint e OpenDocument e melhorar a legibilidade do conteúdo."
+description: "Saiba como gerenciar as configurações de AutoFit no Aspose.Slides para Python via Java para otimizar a exibição de texto em suas apresentações PowerPoint e OpenDocument e melhorar a legibilidade do conteúdo."
 ---
 ## **Introdução**
 
-Por padrão, ao adicionar uma caixa de texto, o Microsoft PowerPoint usa a configuração **Resize shape to fix text** para a caixa de texto — ele redimensiona automaticamente a caixa de texto para garantir que o texto sempre caiba nela. 
+Por padrão, ao adicionar uma caixa de texto, o Microsoft PowerPoint usa a configuração **Resize shape to fit text** para a caixa de texto — ele redimensiona automaticamente a caixa de texto para garantir que o texto sempre caiba nela.
 
-![textbox-in-powerpoint](textbox-in-powerpoint.png)
+![Caixa de texto no PowerPoint](textbox-in-powerpoint.png)
 
-* Quando o texto na caixa de texto fica mais longo ou maior, o PowerPoint amplia automaticamente a caixa de texto — aumenta sua altura — para permitir que contenha mais texto. 
-* Quando o texto na caixa de texto fica mais curto ou menor, o PowerPoint reduz automaticamente a caixa de texto — diminui sua altura — para eliminar o espaço redundante. 
+* Quando o texto na caixa de texto se torna mais longo ou maior, o PowerPoint aumenta automaticamente a caixa de texto — aumenta sua altura — para permitir que contenha mais texto.  
+* Quando o texto na caixa de texto se torna mais curto ou menor, o PowerPoint reduz automaticamente a caixa de texto — diminui sua altura — para remover o espaço excedente.
 
-No PowerPoint, estes são os 4 parâmetros ou opções importantes que controlam o comportamento de autoajuste para uma caixa de texto: 
+No PowerPoint, estes são os 4 parâmetros ou opções importantes que controlam o comportamento de autofit para uma caixa de texto:
 
 * **Do not Autofit**
 * **Shrink text on overflow**
@@ -38,15 +38,15 @@ No PowerPoint, estes são os 4 parâmetros ou opções importantes que controlam
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Python via Java fornece opções semelhantes — algumas propriedades da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/) — que permitem controlar o comportamento de autoajuste para caixas de texto em apresentações. 
+O Aspose.Slides for Python via Java oferece opções semelhantes — algumas propriedades da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/) — que permitem controlar o comportamento de autofit para caixas de texto em apresentações.
 
-## **Redimensionar uma Forma para Caber no Texto**
+## **Redimensionar Forma para Ajustar Texto**
 
-Se você deseja que o texto em uma caixa sempre caiba nessa caixa após alterações no texto, deve usar a opção **Resize shape to fix text**. Para especificar essa configuração, use o método [setAutofitType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setAutofitType) (da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/)) com [Shape](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textautofittype/#Shape).
+Se você deseja que o texto em uma caixa sempre caiba nessa caixa após alterações no texto, deve usar a opção **Resize shape to fit text**. Para especificar essa configuração, use o método [setAutofitType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setAutofitType) (da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/)) com [Shape](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textautofittype/#Shape).
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-Este código Python mostra como especificar que um texto deve sempre caber em sua caixa em uma apresentação do PowerPoint:
+Este código Python mostra como especificar que o texto deve sempre caber em sua caixa em uma apresentação PowerPoint:
 
 ```python
 import jpype
@@ -76,15 +76,15 @@ finally:
     presentation.dispose()
 ```
 
-Se o texto ficar mais longo ou maior, a caixa de texto será redimensionada automaticamente (aumentando a altura) para garantir que todo o texto caiba nela. Se o texto ficar mais curto, o efeito inverso ocorre. 
+Se o texto ficar mais longo ou maior, a caixa de texto será redimensionada automaticamente (aumento de altura) para garantir que todo o texto caiba. Se o texto ficar mais curto, o processo ocorre ao contrário.
 
-## **Do Not Autofit**
+## **Não Autofit**
 
-Se você deseja que uma caixa de texto ou forma mantenha suas dimensões independentemente das alterações feitas no texto que contém, deve usar a opção **Do not Autofit**. Para especificar essa configuração, use o método [setAutofitType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setAutofitType) (da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/)) com [None](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textautofittype/#None). 
+Se você deseja que uma caixa de texto ou forma mantenha suas dimensões independentemente das alterações no texto que contém, deve usar a opção **Do not Autofit**. Para especificar essa configuração, use o método [setAutofitType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setAutofitType) (da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/)) com [None](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textautofittype/#None).
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-Este código Python mostra como especificar que uma caixa de texto deve sempre manter suas dimensões em uma apresentação do PowerPoint:
+Este código Python mostra como especificar que uma caixa de texto deve sempre manter suas dimensões em uma apresentação PowerPoint:
 
 ```python
 import jpype
@@ -107,22 +107,22 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setAutofitType(TextAutofitType.None)
+    text_frame_format.setAutofitType(TextAutofitType.None_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Quando o texto fica muito longo para a caixa, ele transborda. 
+Quando o texto fica muito longo para a caixa, ele transborda.
 
-## **Shrink Text on Overflow**
+## **Encolher Texto ao Exceder**
 
-Se um texto ficar muito longo para a caixa, por meio da opção **Shrink text on overflow** você pode especificar que o tamanho e o espaçamento do texto devem ser reduzidos para que ele caiba na caixa. Para especificar essa configuração, use o método [setAutofitType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setAutofitType) (da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/)) com [Normal](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textautofittype/#Normal).
+Se o texto ficar muito longo para a caixa, você pode usar a opção **Shrink text on overflow** para especificar que o tamanho e o espaçamento do texto devem ser reduzidos para que ele caiba na caixa. Para especificar essa configuração, use o método [setAutofitType](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setAutofitType) (da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/)) com [Normal](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textautofittype/#Normal).
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-Este código Python mostra como especificar que um texto deve ser reduzido ao transbordar em uma apresentação do PowerPoint:
+Este código Python mostra como especificar que o texto deve ser encolhido ao exceder em uma apresentação PowerPoint:
 
 ```python
 import jpype
@@ -153,14 +153,14 @@ finally:
 ```
 
 {{% alert title="Nota" color="info" %}}
-Ao usar a opção **Shrink text on overflow**, a configuração é aplicada somente quando o texto fica muito longo para a caixa. 
+Ao usar a opção **Shrink text on overflow**, a configuração é aplicada apenas quando o texto se torna muito longo para a caixa. 
 {{% /alert %}}
 
-## **Wrap Text**
+## **Quebrar Texto**
 
-Se você deseja que o texto em uma forma seja envolvido dentro dessa forma quando o texto ultrapassa a borda da forma (apenas a largura), deve usar o parâmetro **Wrap text in shape**. Para especificar essa configuração, use o método [setWrapText](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setWrapText) (da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/)) com [NullableBool.True](https://reference.aspose.com/slides/pt/python-java/aspose.slides/nullablebool/#True). 
+Se você deseja que o texto em uma forma quebre dentro dessa forma quando o texto ultrapassa a borda da forma (apenas a largura), deve usar o parâmetro **Wrap text in shape**. Para especificar essa configuração, use o método [setWrapText](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/#setWrapText) (da classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-java/aspose.slides/textframeformat/)) com [NullableBool.True_](https://reference.aspose.com/slides/pt/python-java/aspose.slides/nullablebool/#True).
 
-Este código Python mostra como usar a configuração Wrap Text em uma apresentação do PowerPoint:
+Este código Python mostra como usar a configuração Wrap Text em uma apresentação PowerPoint:
 
 ```python
 import jpype
@@ -183,7 +183,7 @@ try:
     auto_shape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion)
 
     text_frame_format = auto_shape.getTextFrame().getTextFrameFormat()
-    text_frame_format.setWrapText(NullableBool.True)
+    text_frame_format.setWrapText(NullableBool.True_)
 
     presentation.save("Output-presentation.pptx", SaveFormat.Pptx)
 finally:
@@ -196,9 +196,9 @@ Se você usar o método [setWrapText](https://reference.aspose.com/slides/pt/pyt
 
 ## **FAQ**
 
-**As margens internas do quadro de texto afetam o AutoFit?**
+**As margens internas da caixa de texto afetam o AutoFit?**
 
-Sim. O preenchimento (margens internas) reduz a área utilizável para o texto, de modo que o AutoFit entra em ação mais cedo — reduzindo a fonte ou redimensionando a forma antes. Verifique e ajuste as margens antes de sintonizar o AutoFit.
+Sim. O preenchimento (margens internas) reduz a área utilizável para o texto, portanto o AutoFit será acionado mais cedo — encolhendo a fonte ou redimensionando a forma antes. Verifique e ajuste as margens antes de afinar o AutoFit.
 
 **Como o AutoFit interage com quebras de linha manuais e suaves?**
 
@@ -206,4 +206,4 @@ Quebras forçadas permanecem no lugar, e o AutoFit adapta o tamanho da fonte e o
 
 **Alterar a fonte do tema ou acionar substituição de fonte afeta os resultados do AutoFit?**
 
-Sim. Substituir por uma fonte com métricas de glifos diferentes altera a largura/altura do texto, o que pode mudar o tamanho final da fonte e a quebra de linha. Após qualquer alteração ou substituição de fonte, reveja os slides.
+Sim. Substituir uma fonte por outra com métricas de glifos diferentes altera a largura/altura do texto, o que pode mudar o tamanho final da fonte e a quebra de linhas. Após qualquer mudança ou substituição de fonte, revise novamente os slides.

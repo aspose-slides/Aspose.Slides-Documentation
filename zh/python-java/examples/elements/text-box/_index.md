@@ -14,11 +14,11 @@ keywords:
 - Aspose.Slides
 description: "在 Aspose.Slides for Python via Java 中处理文本框：在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、查找和删除文本。"
 ---
-在 **Aspose.Slides for Python via Java** 中，文本框是一种自动形状，用于包含文本。几乎所有形状都可以包含文本，但典型的文本框没有填充或边框，仅显示文本。
+在 **Aspose.Slides for Python via Java** 中，文本框是一种包含文本的自动形状。几乎任何形状都可以包含文本，但典型的文本框没有填充或边框，仅显示文本。
 
-本指南解释了如何以编程方式添加、访问和删除文本框。
+本指南说明如何以编程方式添加、访问和删除文本框。
 
-按照 [Installation](/slides/zh/python-java/installation/) 中的说明安装包。每个示例在启动 JVM 之前导入 `asposeslides`，然后在 JVM 运行后导入 API。
+按照 [Installation](/slides/zh/python-java/installation/) 中的说明安装此包。每个示例在启动 JVM 之前导入 `asposeslides`，随后在 JVM 运行时导入 API。
 
 ## **添加文本框**
 
@@ -74,7 +74,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 75, 150, 100)
     text_box.getFillFormat().setFillType(FillType.NoFill)
-    text_box.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+    text_box.getLineFormat().setFillType(FillType.NoFill)
     text_box.getTextFrame().setText("Slide notes")
 
     for index in range(slide.getShapes().size()):
@@ -124,5 +124,5 @@ finally:
 ```
 
 {{% alert color="success" title="Tip" %}}
-在删除之前，将匹配的形状收集到单独的列表中，以避免在遍历期间修改形状集合。
+在删除匹配的形状之前，将它们收集到单独的列表中，以避免在迭代过程中修改形状集合。
 {{% /alert %}}

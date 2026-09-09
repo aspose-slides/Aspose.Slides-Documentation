@@ -1,12 +1,12 @@
 ---
-title: Управление аудио в презентациях с использованием Python
+title: Управление аудио в презентациях с помощью Python
 linktitle: Аудио‑кадр
 type: docs
 weight: 10
 url: /ru/python-java/audio-frame/
 keywords:
 - аудио
-- аудио кадр
+- аудио‑кадр
 - миниатюра
 - добавить аудио
 - свойства аудио
@@ -14,24 +14,24 @@ keywords:
 - извлечь аудио
 - Python
 - Aspose.Slides
-description: "Создавайте и управляйте аудио‑кадрами в Aspose.Slides for Python via Java — примеры кода для вставки, обрезки, зацикливания и настройки воспроизведения в презентациях PPT, PPTX и ODP."
+description: "Создавайте и управляйте аудио‑кадрами в Aspose.Slides for Python via Java — примеры кода для встраивания, обрезки, зацикливания и настройки воспроизведения в презентациях PPT, PPTX и ODP."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как работать с аудио‑кадрами в Aspose.Slides. Она показывает, как добавить встроенный аудио в слайды, настроить миниатюру аудио‑кадра, сконфигурировать параметры воспроизведения, такие как громкость, зацикливание, скрытие, обрезка и длительности затухания, а также извлечь аудио, используемое в переходах слайд‑шоу.
+В этой статье объясняется, как работать с аудио‑кадрами в Aspose.Slides. Показано, как добавить встроенный аудио‑файл на слайды, настроить миниатюру аудио‑кадра, сконфигурировать параметры воспроизведения, такие как громкость, зацикливание, скрытие, обрезка и длительность плавных переходов, а также извлечь звук, используемый в переходах слайд‑шоу.
 
 ## **Создание аудио‑кадров**
 
-Aspose.Slides for Python via Java позволяет добавлять аудиофайлы в слайды. Аудиофайлы встраиваются в слайды в виде аудио‑кадров. 
+Aspose.Slides for Python via Java позволяет добавлять аудио‑файлы на слайды. Аудио‑файлы встраиваются в слайды как аудио‑кадры.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) .
 2. Получите ссылку на слайд по его индексу.
-3. Считайте аудиофайл, который нужно встроить в слайд.
-4. Добавьте встроенный аудио‑кадр (содержащий аудиофайл) на слайд.
-5. Установите методы [setPlayMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setPlayMode) и [setVolume](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setVolume), предоставляемые объектом [AudioFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/).
+3. Прочитайте аудио‑файл, который вы хотите встроить в слайд.
+4. Добавьте встроенный аудио‑кадр (содержащий аудио‑файл) на слайд.
+5. Используйте методы [setPlayMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setPlayMode) и [setVolume](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setVolume), предоставляемые объектом [AudioFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/) .
 6. Сохраните изменённую презентацию.
 
-Этот код на Python показывает, как добавить встроенный аудио‑кадр на слайд:
+Этот код на Python демонстрирует, как добавить встроенный аудио‑кадр на слайд:
 
 ```python
 from pathlib import Path
@@ -61,9 +61,9 @@ finally:
 
 ## **Изменение миниатюры аудио‑кадра**
 
-Когда вы добавляете аудиофайл в презентацию, аудио отображается как кадр со стандартным изображением по умолчанию (см. изображение в разделе ниже). Вы можете изменить изображение предварительного просмотра аудио‑кадра (установить желаемое изображение).
+Когда вы добавляете аудио‑файл в презентацию, он отображается как кадр со стандартным изображением по умолчанию (см. изображение в разделе ниже). Вы можете изменить изображение‑предпросмотр аудио‑кадра на любое другое.
 
-Этот код на Python показывает, как изменить миниатюру или изображение предварительного просмотра аудио‑кадра:
+Этот код на Python демонстрирует, как изменить миниатюру или изображение‑предпросмотр аудио‑кадра:
 
 ```python
 from pathlib import Path
@@ -98,34 +98,34 @@ finally:
 
 ## **Изменение параметров воспроизведения аудио**
 
-Aspose.Slides for Python via Java позволяет изменять параметры, управляющие воспроизведением аудио или его свойствами. Например, вы можете отрегулировать громкость аудио, установить зацикливание воспроизведения или даже скрыть значок аудио.
+Aspose.Slides for Python via Java позволяет изменять параметры, управляющие воспроизведением аудио или его свойствами. Например, можно отрегулировать громкость, установить зацикливание или даже скрыть значок аудио.
 
-Панель **Audio Options** в Microsoft PowerPoint:
+**Audio Options** в Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-Параметры PowerPoint **Audio Options**, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/) properties:
+Параметры **Audio Options** в PowerPoint, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/) :
 
-- **Start** выпадающий список соответствует методу [setPlayMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setPlayMode)
-- **Volume** соответствует методу [setVolume](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setVolume)
-- **Play Across Slides** соответствует методу [setPlayAcrossSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)
-- **Loop until Stopped** соответствует методу [setPlayLoopMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setPlayLoopMode)
-- **Hide During Show** соответствует методу [setHideAtShowing](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setHideAtShowing)
-- **Rewind after Playing** соответствует методу [setRewindAudio](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setRewindAudio)
+- **Start** — выпадающий список, соответствует методу [setPlayMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setPlayMode)
+- **Volume** — соответствует методу [setVolume](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setVolume)
+- **Play Across Slides** — соответствует методу [setPlayAcrossSlides](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setPlayAcrossSlides)
+- **Loop until Stopped** — соответствует методу [setPlayLoopMode](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setPlayLoopMode)
+- **Hide During Show** — соответствует методу [setHideAtShowing](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setHideAtShowing)
+- **Rewind after Playing** — соответствует методу [setRewindAudio](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setRewindAudio)
 
-Параметры PowerPoint **Editing**, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/) properties:
+Параметры **Editing** в PowerPoint, соответствующие свойствам Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/) :
 
-- **Fade In** соответствует методу [setFadeInDuration](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setFadeInDuration) 
-- **Fade Out** соответствует методу [setFadeOutDuration](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setFadeOutDuration) 
-- **Trim Audio Start Time** соответствует методу [setTrimFromStart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setTrimFromStart) 
-- **Trim Audio End Time** значение равно длительности аудио минус значение, установленное методом [setTrimFromEnd](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setTrimFromEnd)
+- **Fade In** — соответствует методу [setFadeInDuration](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setFadeInDuration)
+- **Fade Out** — соответствует методу [setFadeOutDuration](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setFadeOutDuration)
+- **Trim Audio Start Time** — соответствует методу [setTrimFromStart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setTrimFromStart)
+- **Trim Audio End Time** — значение равно длительности аудио минус значение, установленное методом [setTrimFromEnd](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setTrimFromEnd)
 
-Ползунок **Volume control** на панели управления аудио в PowerPoint соответствует методу [setVolumeValue](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setVolumeValue). Он позволяет изменить громкость аудио в процентах.
+Элемент **Volume control** на панели управления аудио в PowerPoint соответствует методу [setVolumeValue](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setVolumeValue). Он позволяет изменять громкость аудио в процентах.
 
-Вот как изменить параметры воспроизведения аудио:
+Так вы изменяете параметры воспроизведения аудио:
 
-1. [Создайте](#create-audio-frames) или получите Audio Frame.
-2. Установите новые значения свойств Audio Frame, которые необходимо изменить.
+1. [Create](#create-audio-frames) или получите аудио‑кадр.
+2. Установите новые значения свойств аудио‑кадра, которые нужно изменить.
 3. Сохраните изменённый файл PowerPoint.
 
 Этот код на Python демонстрирует операцию, в которой регулируются параметры аудио:
@@ -143,12 +143,12 @@ presentation = Presentation("AudioFrameEmbed_out.pptx")
 try:
     audio_frame = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
     if isinstance(audio_frame, AudioFrame):
-        # Воспроизводить по щелчку с низкой громкостью, на всех слайдах, без зацикливания.
+        # Воспроизведение по щелчку с низкой громкостью, на всех слайдах, без зацикливания.
         audio_frame.setPlayMode(AudioPlayModePreset.OnClick)
         audio_frame.setVolume(AudioVolumeMode.Low)
         audio_frame.setPlayAcrossSlides(True)
         audio_frame.setPlayLoopMode(False)
-        # Скрыть кадр во время показа слайдов и перемотать после воспроизведения.
+        # Скрыть кадр во время показа и перемотать назад после воспроизведения.
         audio_frame.setHideAtShowing(True)
         audio_frame.setRewindAudio(True)
         presentation.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx)
@@ -158,7 +158,7 @@ finally:
     presentation.dispose()
 ```
 
-Этот пример на Python показывает, как добавить новый аудио‑кадр со встроенным аудио, обрезать его и задать длительности затухания:
+Этот пример на Python показывает, как добавить новый аудио‑кадр с встроенным аудио, обрезать его и задать длительности плавных переходов:
 
 ```python
 from pathlib import Path
@@ -179,10 +179,10 @@ try:
     audio = presentation.getAudios().addAudio(java_audio_data)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio)
 
-    # Обрезать 1,5 секунды от начала и 2 секунды от конца.
+    # Обрезать 1.5 секунды от начала и 2 секунды от конца.
     audio_frame.setTrimFromStart(1500.0)
     audio_frame.setTrimFromEnd(2000.0)
-    # Установить fade-in 200 мс и fade-out 500 мс.
+    # Установить плавное появление 200 мс и плавное исчезновение 500 мс.
     audio_frame.setFadeInDuration(200.0)
     audio_frame.setFadeOutDuration(500.0)
     presentation.save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx)
@@ -190,7 +190,7 @@ finally:
     presentation.dispose()
 ```
 
-Следующий пример кода показывает, как получить аудио‑кадр со встроенным аудио и установить его громкость на 85%:
+Следующий образец кода показывает, как получить аудио‑кадр с встроенным аудио и установить его громкость на 85 %:
 
 ```python
 import jpype
@@ -216,11 +216,11 @@ finally:
 
 ## **Управление субтитрами аудио**
 
-Aspose.Slides позволяет добавлять закрытые субтитры к аудио‑кадру с помощью метода [getCaptionTracks](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#getCaptionTracks). Этот метод возвращает объект [CaptionsCollection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/), который позволяет добавлять дорожки субтитров WebVTT, перебрать существующие дорожки и удалить их при необходимости.
+Aspose.Slides позволяет добавлять закрытые субтитры к аудио‑кадру через метод [getCaptionTracks](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#getCaptionTracks). Этот метод возвращает объект [CaptionsCollection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/), который даёт возможность добавлять треки субтитров WebVTT, проходить по существующим трекам и удалять их при необходимости.
 
 **Добавление субтитров к аудио**
 
-Используйте метод [getCaptionTracks](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#getCaptionTracks), чтобы прикрепить одну или несколько дорожек субтитров к аудио‑кадру. В следующем примере аудиофайл добавляется на слайд, после чего новая дорожка субтитров загружается из файла `.vtt`.
+Используйте метод [getCaptionTracks](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#getCaptionTracks), чтобы прикрепить один или несколько треков субтитров к аудио‑кадру. В следующем примере аудио‑файл добавляется на слайд, после чего новый трек субтитров загружается из файла `.vtt`.
 
 ```python
 from pathlib import Path
@@ -241,7 +241,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     audio_frame = slide.getShapes().addAudioFrameEmbedded(10, 10, 50, 50, audio)
 
-    # Добавить новую дорожку субтитров из файла WebVTT.
+    # Добавить новый трек субтитров из файла WebVTT.
     audio_frame.getCaptionTracks().add("New track", "track.vtt")
     presentation.save("audio_with_captions.pptx", SaveFormat.Pptx)
 finally:
@@ -250,7 +250,7 @@ finally:
 
 **Извлечение субтитров из аудио**
 
-Вы можете перебрать дорожки субтитров, связанные с аудио‑кадром, и сохранить их как файлы `.vtt`. Каждая дорожка субтитров предоставляет свои двоичные данные и уникальный идентификатор, которые можно использовать при экспорте субтитров.
+Можно пройтись по трекам субтитров, связанным с аудио‑кадром, и сохранить их как файлы `.vtt`. Каждый трек субтитров предоставляет свои двоичные данные и уникальный идентификатор, которые могут быть использованы при экспорте субтитров.
 
 ```python
 from pathlib import Path
@@ -269,7 +269,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, AudioFrame):
             for caption_track in shape.getCaptionTracks():
-                # Сохранить дорожку субтитров как файл .vtt.
+                # Сохранить трек субтитров как файл .vtt.
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -279,7 +279,7 @@ finally:
 
 **Удаление субтитров из аудио**
 
-Чтобы удалить субтитры из аудио‑кадра, используйте методы, предоставляемые объектом [CaptionsCollection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/), такие как [clear](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/#remove), или [removeAt](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/#removeAt). В следующем примере удаляются все дорожки субтитров из аудио‑кадра.
+Чтобы удалить субтитры из аудио‑кадра, используйте методы, предоставляемые [CaptionsCollection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/), такие как [clear](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/#clear), [remove](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/#remove) или [removeAt](https://reference.aspose.com/slides/ru/python-java/aspose.slides/captionscollection/#removeAt). В следующем примере удаляются все треки субтитров из аудио‑кадра.
 
 ```python
 import jpype
@@ -305,14 +305,14 @@ finally:
 
 ## **Извлечение аудио**
 
-Aspose.Slides for Python via Java позволяет извлекать звук, используемый в переходах слайд‑шоу. Например, вы можете извлечь звук, использованный на конкретном слайде.
+Aspose.Slides for Python via Java позволяет извлекать звук, используемый в переходах слайд‑шоу. Например, можно извлечь звук, использованный в конкретном слайде.
 
 1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) и загрузите презентацию, содержащую аудио.
 2. Получите ссылку на соответствующий слайд по его индексу.
-3. Получите доступ к [slideshow transitions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getSlideShowTransition) для слайда.
-4. Извлеките звук в виде байтовых данных.
+3. Доступ к [slideshow transitions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getSlideShowTransition) для слайда.
+4. Извлеките звук как массив байтов.
 
-Этот код на Python показывает, как извлечь аудио, используемое на слайде:
+Этот код на Python демонстрирует, как извлечь аудио, используемое в слайде:
 
 ```python
 import jpype
@@ -337,15 +337,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Могу ли я использовать один и тот же аудио‑ресурс на нескольких слайдах без увеличения размера файла?**
+**Можно ли использовать один и тот же аудио‑ресурс на нескольких слайдах без увеличения размера файла?**
 
-Да. Добавьте аудио один раз в общую [audio collection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getAudios) презентации и создайте дополнительные аудио‑кадры, ссылающиеся на этот существующий ресурс. Это предотвращает дублирование медиа‑данных и позволяет контролировать размер презентации.
+Да. Добавьте аудио один раз в общую [audio collection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getAudios) презентации и создавайте дополнительные аудио‑кадры, которые ссылаются на уже существующий ресурс. Это предотвращает дублирование медиа‑данных и удерживает размер презентации под контролем.
 
-**Могу ли я заменить звук в существующем аудио‑кадре без пересоздания формы?**
+**Можно ли заменить звук в существующем аудио‑кадре без пересоздания формы?**
 
-Да. Для связанного звука обновите [link path](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setLinkPathLong), чтобы указать новый файл. Для встроенного звука замените объект [embedded audio](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setEmbeddedAudio) другим из [audio collection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getAudios) презентации. Форматирование кадра и большинство настроек воспроизведения сохраняются.
+Да. Для связанного звука обновите [link path](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setLinkPathLong), указывающий на новый файл. Для встроенного звука замените объект [embedded audio](https://reference.aspose.com/slides/ru/python-java/aspose.slides/audioframe/#setEmbeddedAudio) другим из [audio collection](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#getAudios) презентации. Форматирование кадра и большинство параметров воспроизведения сохраняются.
 
 **Изменяет ли обрезка исходные аудио‑данные, хранящиеся в презентации?**
 

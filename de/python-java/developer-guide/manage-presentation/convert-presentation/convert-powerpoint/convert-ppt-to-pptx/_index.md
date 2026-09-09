@@ -1,5 +1,5 @@
 ---
-title: PPT zu PPTX in Python konvertieren
+title: PPT in PPTX mit Python konvertieren
 linktitle: PPT zu PPTX
 type: docs
 weight: 20
@@ -7,7 +7,7 @@ url: /de/python-java/convert-ppt-to-pptx/
 keywords:
 - PowerPoint konvertieren
 - Präsentation konvertieren
-- Folie konvertieren
+- Folien konvertieren
 - PPT konvertieren
 - PPT zu PPTX
 - PPT als PPTX speichern
@@ -17,17 +17,17 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Konvertieren Sie legacy PPT-Dateien zu PPTX in Python mit Aspose.Slides. Enthält Python-Beispiele für Einzel- und Batch-Konvertierung, Fehlerbehandlung und Genauigkeitshinweise."
+description: "Konvertieren Sie veraltete PPT-Dateien in PPTX mit Python und Aspose.Slides. Enthält Python-Beispiele für Einzelfile- und Batch-Konvertierung, Fehlerbehandlung und Hinweise zur Genauigkeit."
 ---
 ## **Übersicht**
 
-PPT ist das alte binäre PowerPoint‑Format, während PPTX das neuere Open‑XML‑Format ist. Aspose.Slides für Python über Java kann eine PPT‑Datei laden und sie als PPTX speichern, ohne Microsoft PowerPoint zu benötigen. Dieser Artikel zeigt, wie man eine einzelne Datei oder ein Verzeichnis von Dateien konvertiert und erklärt, was nach der Konvertierung zu überprüfen ist.
+PPT ist das veraltete binäre PowerPoint-Format, während PPTX das neuere Open XML-Format ist. Aspose.Slides für Python via Java kann eine PPT-Datei laden und sie ohne Microsoft PowerPoint als PPTX speichern. Dieser Artikel zeigt, wie man eine Datei oder ein Verzeichnis von Dateien konvertiert und erklärt, was nach der Konvertierung zu überprüfen ist.
 
-Jedes Beispiel startet die Java‑Virtuelle‑Maschine bei Bedarf und gibt die Präsentation nach Gebrauch frei. Ersetzen Sie die Beispielpfade durch Ihre eigenen Datei‑ oder Verzeichnispfade.
+Jedes Beispiel startet die Java-Virtual-Machine bei Bedarf und gibt die Präsentation nach der Verwendung frei. Ersetzen Sie die Beispielpfade durch Ihre eigenen Datei- oder Verzeichnispfade.
 
-## **Eine PPT‑Datei zu PPTX konvertieren**
+## **Konvertieren einer PPT-Datei in PPTX**
 
-Laden Sie die Quelldatei mit der [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/)‑Klasse, und rufen Sie dann [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save) mit [SaveFormat.Pptx](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/#Pptx) auf. Der `finally`‑Block gibt die Präsentation frei und setzt deren Ressourcen frei.
+Laden Sie die Quelldatei mit der Klasse [Presentation](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/) und rufen Sie dann [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save) mit [SaveFormat.Pptx](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/#Pptx) auf. Der `finally`-Block gibt die Präsentation frei und gibt ihre Ressourcen frei.
 
 ```python
 import jpype
@@ -47,11 +47,11 @@ finally:
     presentation.dispose()
 ```
 
-Die Dateierweiterung bestimmt das Ausgabeformat nicht automatisch; das Argument [SaveFormat.Pptx](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/#Pptx) tut es. Halten Sie Eingabe‑ und Ausgabepfade unterschiedlich, wenn Sie die ursprüngliche PPT‑Datei behalten möchten.
+Die Dateierweiterung wählt das Ausgabeformat nicht automatisch aus; das Argument [SaveFormat.Pptx](https://reference.aspose.com/slides/de/python-java/aspose.slides/saveformat/#Pptx) macht dies. Halten Sie die Eingabe‑ und Ausgabe‑Pfad verschieden, wenn Sie die ursprüngliche PPT‑Datei behalten müssen.
 
-## **Mehrere PPT‑Dateien konvertieren**
+## **Mehrere PPT-Dateien konvertieren**
 
-Das folgende Beispiel konvertiert jede `.ppt`‑Datei in einem Verzeichnis. Jede Datei wird unabhängig verarbeitet, sodass ein fehlgeschlagener Vorgang den Rest des Stapels nicht stoppt.
+Das folgende Beispiel konvertiert jede `.ppt`-Datei in einem Verzeichnis. Jede Datei wird unabhängig verarbeitet, sodass ein fehlgeschlagener Vorgang nicht den Rest des Stapels stoppt.
 
 ```python
 from pathlib import Path
@@ -93,25 +93,25 @@ else:
                 presentation.dispose()
 ```
 
-Für produktive Einsätze protokollieren Sie die gesamte Ausnahme, entscheiden Sie, ob eine bestehende Ausgabedatei überschrieben werden darf, und schreiben Sie fehlgeschlagene Dateinamen in eine Wiederholungs‑ oder Prüfungswarteschlange. Beschädigte Dateien, passwortgeschützte Dateien, die ohne das erforderliche Passwort geöffnet werden, nicht zugängliche Pfade und nicht unterstützte Inhalte können dazu führen, dass die Konvertierung fehlschlägt. Siehe [Password-Protected Presentations](/slides/de/python-java/password-protected-presentation/) zum Laden verschlüsselter Dateien.
+Für produktive Abläufe sollten Sie die vollständige Ausnahme protokollieren, entscheiden, ob eine vorhandene Ausgabedatei überschrieben werden darf, und fehlgeschlagene Dateinamen in eine Wiederholungs- oder Prüfwarteschlange schreiben. Beschädigte Dateien, passwortgeschützte Dateien, die ohne das erforderliche Passwort geöffnet werden, nicht zugängliche Pfade und nicht unterstützte Inhalte können alle dazu führen, dass eine Konvertierung fehlschlägt. Siehe [Password-Protected Presentations](/slides/de/python-java/password-protected-presentation/) zum Laden verschlüsselter Dateien.
 
-## **Genauigkeit und Legacy‑Funktionen**
+## **Genauigkeit und Legacy-Funktionen**
 
-Die Konvertierung erhält normalerweise Folien, Master, Layouts, Text, Formen, Bilder, Tabellen und Diagramme. Allerdings repräsentieren PPT und PPTX nicht jedes Feature exakt auf dieselbe Weise. Ein Legacy‑Feature, das kein PPTX‑Äquivalent hat oder von der Bibliothek nicht unterstützt wird, kann normalisiert, ausgelassen oder anders dargestellt werden.
+Die Konvertierung bewahrt normalerweise Folien, Master, Layouts, Text, Formen, Bilder, Tabellen und Diagramme. Allerdings stellen PPT und PPTX nicht jedes Feature exakt gleich dar. Ein Legacy-Feature, das kein PPTX-Äquivalent hat oder von der Bibliothek nicht unterstützt wird, kann normalisiert, weggelassen oder anders dargestellt werden.
 
-Überprüfen Sie die konvertierte Datei, wenn sie Animationen, Übergänge, eingebettete oder verknüpfte OLE‑Objekte, ActiveX‑Steuerelemente, eingebettete Medien, ungewöhnliche Schriften oder VBA‑Makros enthält. Eine reine PPTX‑Datei ist kein makrofähiges Format, verwenden Sie daher einen geeigneten makrofähigen Workflow, wenn VBA erhalten bleiben muss. Vergewissern Sie sich außerdem, dass erforderliche Schriften und externe Ressourcen in der Umgebung vorhanden sind, in der die konvertierte Präsentation geöffnet oder gerendert wird.
+Überprüfen Sie die konvertierte Datei, wenn sie Animationen, Übergänge, eingebettete oder verlinkte OLE-Objekte, ActiveX-Steuerelemente, eingebettete Medien, ungewöhnliche Schriftarten oder VBA-Makros enthält. Eine reine PPTX-Datei ist kein makrofähiges Format, daher sollten Sie einen geeigneten makrofähigen Workflow verwenden, wenn VBA erhalten bleiben muss. Vergewissern Sie sich außerdem, dass die erforderlichen Schriftarten und externen Ressourcen in der Umgebung vorhanden sind, in der die konvertierte Präsentation geöffnet oder gerendert wird.
 
-Für wichtige Dokumente öffnen Sie das erzeugte PPTX programmgesteuert erneut und prüfen Sie die Anzahl der Folien sowie den Inhalt, und vergleichen Sie dann das Aussehen und das Folien‑Show‑Verhalten im vorgesehenen Viewer. Betrachten Sie einen erfolgreichen Aufruf von [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save) nicht als Beweis dafür, dass jedes Legacy‑Feature eine exakte PPTX‑Darstellung hat.
+Für wichtige Dokumente sollten Sie das erzeugte PPTX programmgesteuert erneut öffnen und Schlüssel‑Folienanzahlen sowie Inhalt prüfen, dann dessen Darstellung und Bildlaufverhalten im gewünschten Viewer vergleichen. Behandeln Sie einen erfolgreichen Aufruf von [Presentation.save](https://reference.aspose.com/slides/de/python-java/aspose.slides/presentation/#save) nicht als Nachweis, dass jedes Legacy-Feature eine exakte PPTX-Darstellung hat.
 
 ## **Wann PPTX verwenden**
 
-Verwenden Sie PPTX, wenn die Präsentation in aktuellen PowerPoint‑Versionen bearbeitet, mit Systemen ausgetauscht werden soll, die mit Open‑XML‑Paketen arbeiten, oder in einem Format gespeichert werden soll, das einfacher zu prüfen und wiederherzustellen ist als das alte binäre PPT. Bewahren Sie das ursprüngliche PPT als Archiv‑ oder Rollback‑Kopie auf, bis die konvertierte Präsentation Ihre Genauigkeitsprüfungen bestanden hat.
+Verwenden Sie PPTX, wenn die Präsentation in aktuellen PowerPoint-Versionen bearbeitet, mit Systemen ausgetauscht wird, die Open XML-Pakete verarbeiten, oder in einem Format gespeichert werden soll, das leichter zu prüfen und wiederherzustellen ist als das alte binäre PPT. Bewahren Sie das ursprüngliche PPT als Archiv‑ oder Rückgängig-Kopie auf, bis die konvertierte Präsentation Ihre Genauigkeits-Tests bestanden hat.
 
-Wenn Sie stattdessen PDF, HTML, Bilder, XPS oder einen anderen Ausgabetyp benötigen, verwenden Sie die formatbezogene Anleitung in [Convert Presentations to Multiple Formats](/slides/de/python-java/convert-presentation/), anstatt anzunehmen, dass alle Ziele bearbeitbare PowerPoint‑Funktionen erhalten.
+Wenn Sie stattdessen PDF, HTML, Bilder, XPS oder einen anderen Ausgabetyp benötigen, verwenden Sie die formatbezogene Anleitung in [Convert Presentations to Multiple Formats](/slides/de/python-java/convert-presentation/), anstatt anzunehmen, dass alle Ziele editierbare PowerPoint-Features erhalten.
 
-## **Online‑Konverter**
+## **Online-Konverter**
 
-Für eine gelegentliche Datei oder einen schnellen Vergleich können Sie den [online PPT to PPTX converter](https://products.aspose.app/slides/de/conversion/ppt-to-pptx) verwenden. Für wiederholbare Konvertierungen, Batch‑Verarbeitung oder Anwendungs‑Level‑Fehlerbehandlung nutzen Sie die Python‑via‑Java‑API.
+Für eine gelegentliche Datei oder einen schnellen Vergleich können Sie den [online PPT to PPTX converter](https://products.aspose.app/slides/de/conversion/ppt-to-pptx) nutzen. Für wiederholbare Konvertierungen, Batch-Verarbeitung oder Fehlerbehandlung auf Anwendungsebene verwenden Sie die Python-via-Java-API.
 
 ## **Verwandte Artikel**
 
@@ -124,16 +124,16 @@ Für eine gelegentliche Datei oder einen schnellen Vergleich können Sie den [on
 
 **Kann ich PPT zu PPTX konvertieren, ohne dass Microsoft PowerPoint installiert ist?**
 
-Ja. Aspose.Slides für Python über Java lädt und speichert Präsentationsdateien, ohne dass Microsoft PowerPoint erforderlich ist.
+Ja. Aspose.Slides für Python via Java lädt und speichert Präsentationsdateien, ohne Microsoft PowerPoint zu benötigen.
 
 **Wird die PPT‑zu‑PPTX‑Konvertierung den gesamten Inhalt exakt beibehalten?**
 
-Sie behält den üblichen Präsentationsinhalt bei, aber eine exakte Genauigkeit ist nicht für jedes Legacy‑ oder nicht unterstützte Feature garantiert. Überprüfen Sie die erzeugte Datei, wenn sie Makros, OLE‑ oder ActiveX‑Objekte, Medien, spezielle Animationen oder ungewöhnliche Schriften enthält.
+Sie bewahrt den üblichen Präsentationsinhalt, jedoch ist eine exakte Treue für jedes Legacy- oder nicht unterstützte Feature nicht garantiert. Überprüfen Sie die erzeugte Datei, wenn sie Makros, OLE‑ oder ActiveX‑Objekte, Medien, spezialisierte Animationen oder ungewöhnliche Schriftarten enthält.
 
 **Kann ich eine passwortgeschützte PPT‑Datei konvertieren?**
 
-Ja, wenn Sie beim Laden der Datei das korrekte Passwort angeben. Ein fehlendes oder falsches Passwort führt dazu, dass der Ladevorgang fehlschlägt.
+Ja, sofern Sie beim Laden der Datei das korrekte Passwort angeben. Ein fehlendes oder falsches Passwort führt zum Fehlschlagen des Ladevorgangs.
 
-**Soll ich die PPT‑Datei nach der Konvertierung löschen?**
+**Sollte ich die PPT‑Datei nach der Konvertierung löschen?**
 
-Bewahren Sie das Original auf, bis Sie das PPTX in den für Sie relevanten Viewern und Workflows überprüft haben. Dies stellt eine Rollback‑Kopie bereit, falls ein Legacy‑Feature anders konvertiert wird.
+Bewahren Sie das Original, bis Sie das PPTX in den für Sie relevanten Viewern und Workflows überprüft haben. So haben Sie eine Rückgängig-Kopie, falls ein Legacy-Feature anders konvertiert wird.

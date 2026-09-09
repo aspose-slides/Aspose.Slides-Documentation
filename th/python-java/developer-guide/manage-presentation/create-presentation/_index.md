@@ -19,23 +19,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "สร้างงานนำเสนอใน Python ผ่าน Java ด้วย Aspose.Slides—สร้างไฟล์ PPT, PPTX และ ODP, ใช้ประโยชน์จากการสนับสนุน OpenDocument, และบันทึกโดยโปรแกรมเพื่อผลลัพธ์ที่เชื่อถือได้."
+description: "สร้างงานนำเสนอใน Python ผ่าน Java ด้วย Aspose.Slides—ผลิตไฟล์ PPT, PPTX และ ODP, ใช้ประโยชน์จากการสนับสนุน OpenDocument, และบันทึกโดยโปรแกรมเพื่อผลลัพธ์ที่เชื่อถือได้."
 ---
 ## **ภาพรวม**
 
-บทความนี้แสดงวิธีสร้างงานนำเสนอด้วย Aspose.Slides for Python via Java เพิ่มรูปทรงพร้อมข้อความลงในสไลด์แรก และบันทึกผลลัพธ์เป็นไฟล์ PPTX คำถามที่พบบ่อยครอบคลุมรูปแบบการส่งออก เท็มเพลต ขนาดสไลด์ การใช้หน่วยความจำ การทำงานหลายเธรด การให้ลิขสิทธิ์ ลายเซ็นดิจิทัล และการสนับสนุน VBA
+บทความนี้แสดงวิธีสร้างงานนำเสนอด้วย Aspose.Slides for Python via Java, เพิ่มรูปร่างพร้อมข้อความลงในสไลด์แรก, และบันทึกผลลัพธ์เป็นไฟล์ PPTX. คำถามที่พบบ่อยครอบคลุมรูปแบบผลลัพธ์, แม่แบบ, ขนาดสไลด์, การใช้หน่วยความจำ, การทำงานหลายเธรด, การให้ลิขสิทธิ์, ลายเซ็นดิจิทัล, และการสนับสนุน VBA.
 
 ## **สร้างงานนำเสนอ**
 
-การสร้างไฟล์ PowerPoint ตั้งแต่ต้นใน Aspose.Slides for Python via Java ทำได้ง่ายเช่นการสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) ตัวคอนสตรัคเตอร์จะสร้างสไลด์เปล่าแบบหนึ่งสไลด์ให้โดยอัตโนมัติ ทำให้คุณมีผืนผ้าใบพร้อมสำหรับวางรูปทรง ข้อความ แผนภูมิ หรือเนื้อหาอื่น ๆ ที่แอปพลิเคชันของคุณต้องการ เมื่อตั้งค่าหรือเพิ่มสไลด์ใหม่แล้ว คุณสามารถบันทึกผลลัพธ์เป็น PPTX, PPT แบบเก่า หรือแม้กระทั่งรูปแบบ OpenDocument ตัวอย่างโค้ดสั้นด้านล่างแสดงกระบวนการนี้โดยการเพิ่มรูปทรงง่าย ๆ ลงในสไลด์แรก
+การสร้างไฟล์ PowerPoint จากศูนย์ใน Aspose.Slides for Python via Java ทำได้ง่ายเหมือนการสร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) . ตัวสร้างจะให้ชุดสไลด์เปล่าที่มีสไลด์เดียวโดยอัตโนมัติ, ให้คุณมีผืนทำงานทันทีสำหรับรูปร่าง, ข้อความ, แผนภูมิ, หรือเนื้อหาอื่น ๆ ที่แอปพลิเคชันของคุณต้องการ. หลังจากที่คุณแก้ไขสไลด์นั้น—หรือเพิ่มสไลด์ใหม่—คุณสามารถบันทึกผลลัพธ์เป็น PPTX, PPT รุ่นเก่า, หรือแม้แต่รูปแบบ OpenDocument. ตัวอย่างโค้ดสั้นด้านล่างแสดงขั้นตอนการทำงานนี้โดยการเพิ่มรูปร่างง่าย ๆ ลงบนสไลด์แรก.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)  
-2. ดึงสไลด์แรกตามตำแหน่งดัชนี  
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/) ชนิด [ShapeType.Cloud](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapetype/#Cloud) ด้วยเมธอด [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#addAutoShape)  
-4. ตั้งค่าข้อความของรูปทรงด้วยเมธอด [TextFrame.setText](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframe/#setText)  
-5. บันทึกงานนำเสนอด้วยเมธอด [Presentation.save](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#save) พร้อมระบุ [SaveFormat.Pptx](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveformat/#Pptx)
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) .
+1. รับสไลด์แรกโดยอ้างอิงดัชนีของมัน .
+1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/) ชนิด [ShapeType.Cloud](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapetype/#Cloud) โดยใช้ [ShapeCollection.addAutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#addAutoShape) .
+1. ตั้งค่าข้อความของรูปร่างโดยใช้ [TextFrame.setText](https://reference.aspose.com/slides/th/python-java/aspose.slides/textframe/#setText) .
+1. บันทึกงานนำเสนอโดยใช้ [Presentation.save](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/#save) พร้อม [SaveFormat.Pptx](https://reference.aspose.com/slides/th/python-java/aspose.slides/saveformat/#Pptx) .
 
-ตัวอย่างต่อไปนี้ต้องใช้ Aspose.Slides for Python via Java และรันไทม์ Java ที่เข้ากันได้ จะทำการเริ่ม JVM หากยังไม่ได้เปิดใช้งาน เพิ่มรูปทรงเมฆลงในสไลด์แรก และบันทึกงานนำเสนอ:
+ตัวอย่างต่อไปนี้ต้องการ Aspose.Slides for Python via Java และ Java runtime ที่เข้ากันได้. จะเริ่ม JVM หากยังไม่ได้ทำงาน, เพิ่มรูปร่างเมฆลงบนสไลด์แรก, และบันทึกงานนำเสนอ:
 
 ```python
 import jpype
@@ -46,13 +46,13 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# สร้างงานนำเสนอพร้อมสไลด์เปล่า 1 แผ่น
+# สร้างงานนำเสนอด้วยสไลด์เปล่า 1 แผ่น.
 presentation = Presentation()
 try:
-    # ดึงสไลด์แรก.
+    # รับสไลด์แรก.
     slide = presentation.getSlides().get_Item(0)
 
-    # เพิ่มรูปทรงเมฆและตั้งค่าข้อความของมัน.
+    # เพิ่มรูปร่างเมฆและตั้งค่าข้อความ.
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Cloud, 20, 20, 200, 80)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
 
@@ -68,38 +68,29 @@ finally:
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถบันทึกงานนำเสนอใหม่เป็นรูปแบบใดได้บ้าง?**
+**ฉันสามารถบันทึกงานนำเสนอใหม่เป็นรูปแบบใดได้บ้าง?**  
+คุณสามารถบันทึกเป็น [PPTX, PPT, and ODP](/slides/th/python-java/save-presentation/), และส่งออกเป็น [PDF](/slides/th/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/th/python-java/convert-powerpoint-to-xps/), [HTML](/slides/th/python-java/convert-powerpoint-to-html/), [SVG](/slides/th/python-java/render-slide-as-svg/), และ [images](/slides/th/python-java/convert-powerpoint-to-png/), และอื่น ๆ.
 
-คุณสามารถบันทึกเป็น [PPTX, PPT และ ODP](/slides/th/python-java/save-presentation/) และส่งออกเป็น [PDF](/slides/th/python-java/convert-powerpoint-to-pdf/), [XPS](/slides/th/python-java/convert-powerpoint-to-xps/), [HTML](/slides/th/python-java/convert-powerpoint-to-html/), [SVG](/slides/th/python-java/render-slide-as-svg/) และ [ภาพ](/slides/th/python-java/convert-powerpoint-to-png/) เป็นต้น
+**ฉันสามารถเริ่มจากแม่แบบ (POTX/POTM) แล้วบันทึกเป็น PPTX ปกติได้หรือไม่?**  
+ใช่. โหลดแม่แบบและบันทึกเป็นรูปแบบที่ต้องการ; POTX/POTM/PPTM และรูปแบบที่คล้ายกัน [are supported](/slides/th/python-java/supported-file-formats/).
 
-**ฉันสามารถเริ่มจากเท็มเพลต (POTX/POTM) แล้วบันทึกเป็น PPTX ธรรมดาได้หรือไม่?**
+**ฉันจะควบคุมขนาด/อัตราส่วนของสไลด์เมื่อสร้างงานนำเสนอได้อย่างไร?**  
+ตั้งค่า [slide size](/slides/th/python-java/slide-size/) (รวมถึงพรีเซ็ตเช่น 4:3 และ 16:9 หรือขนาดกำหนดเอง) และเลือกวิธีที่เนื้อหาควรสเกล.
 
-ได้ โหลดเท็มเพลตแล้วบันทึกเป็นรูปแบบที่ต้องการ; รูปแบบ POTX/POTM/PPTM และรูปแบบคล้ายกัน [ได้รับการสนับสนุน](/slides/th/python-java/supported-file-formats/)
+**หน่วยที่ใช้วัดขนาดและพิกัดคืออะไร?**  
+เป็นหน่วยจุด: 1 นิ้วเท่ากับ 72 หน่วย.
 
-**ฉันจะควบคุมขนาด/อัตราส่วนของสไลด์เมื่อสร้างงานนำเสนออย่างไร?**
+**ฉันจะจัดการงานนำเสนอขนาดใหญ่ (ที่มีไฟล์สื่อหลายไฟล์) เพื่อลดการใช้หน่วยความจำได้อย่างไร?**  
+ใช้ [BLOB management strategies](/slides/th/python-java/manage-blob/), จำกัดการจัดเก็บในหน่วยความจำโดยใช้ไฟล์ชั่วคราว, และควรเลือกเวิร์กโฟลว์แบบไฟล์เป็นหลักแทนการสตรีมทั้งหมดในหน่วยความจำ.
 
-ตั้งค่า [ขนาดสไลด์](/slides/th/python-java/slide-size/) (รวมถึงค่าเตรียมไว้ล่วงหน้าเช่น 4:3 และ 16:9 หรือขนาดกำหนดเอง) และเลือกวิธีการสเกลเนื้อหา
+**ฉันสามารถสร้าง/บันทึกงานนำเสนอได้แบบขนานหรือไม่?**  
+คุณไม่สามารถทำงานกับอินสแตนซ์ [Presentation]เดียวกันจาก [multiple threads](/slides/th/python-java/multithreading/) ได้. ให้รันอินสแตนซ์แยกจากกันสำหรับแต่ละเธรดหรือกระบวนการ.
 
-**หน่วยที่ใช้วัดขนาดและพิกัดคืออะไร?**
+**ฉันจะลบลายน้ำและข้อจำกัดของรุ่นทดลองได้อย่างไร?**  
+[Apply a license](/slides/th/python-java/licensing/) ครั้งเดียวต่อกระบวนการ. XML ของลิขสิทธิ์ต้องไม่ถูกแก้ไข, และการตั้งค่าลิขสิทธิ์ควรทำให้สอดคล้องกันหากมีหลายเธรด.
 
-ใช้หน่วยจุด: 1 นิ้วเท่ากับ 72 หน่วย
+**ฉันสามารถลงลายเซ็นดิจิทัลใน PPTX ที่สร้างได้หรือไม่?**  
+ใช่. [Digital signatures](/slides/th/python-java/digital-signature-in-powerpoint/) (การเพิ่มและการตรวจสอบ) ได้รับการสนับสนุนสำหรับงานนำเสนอ.
 
-**ฉันจะจัดการงานนำเสนอขนาดใหญ่ (มีไฟล์สื่อจำนวนมาก) เพื่อลดการใช้หน่วยความจำอย่างไร?**
-
-ใช้ [กลยุทธ์การจัดการ BLOB](/slides/th/python-java/manage-blob/), จำกัดการเก็บในหน่วยความจำโดยใช้ไฟล์ชั่วคราว และเลือกเวิร์กโฟลว์แบบไฟล์เป็นหลักแทนการสตรีมในหน่วยความจำเต็มรูปแบบ
-
-**ฉันสามารถสร้าง/บันทึกงานนำเสนอแบบขนานได้หรือไม่?**
-
-คุณไม่สามารถทำงานกับอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/) เดียวจาก [หลายเธรด](/slides/th/python-java/multithreading/) ได้ ควรเรียกใช้อินสแตนซ์แยกกันสำหรับแต่ละเธรดหรือโพรเซส
-
-**ฉันจะลบลายน้ำทดลองและข้อจำกัดต่าง ๆ ได้อย่างไร?**
-
-[ใช้ใบอนุญาต](/slides/th/python-java/licensing/) หนึ่งครั้งต่อโปรเซส ไฟล์ XML ใบอนุญาตต้องไม่ถูกแก้ไข และการตั้งค่าใบอนุญาตควรทำให้สอดคล้องกันหากใช้หลายเธรด
-
-**ฉันสามารถเซ็นดิจิทัลไฟล์ PPTX ที่สร้างได้หรือไม่?**
-
-ได้ การ [เซ็นดิจิทัล](/slides/th/python-java/digital-signature-in-powerpoint/) (การเพิ่มและตรวจสอบ) ได้รับการสนับสนุนสำหรับงานนำเสนอ
-
-**แมโคร (VBA) ได้รับการสนับสนุนในงานนำเสนอที่สร้างหรือไม่?**
-
-ได้ คุณสามารถ [สร้าง/แก้ไขโครงการ VBA](/slides/th/python-java/presentation-via-vba/) และบันทึกไฟล์ที่เปิดใช้งานแมโคร เช่น PPTM/PPSM
+**การแมโคร (VBA) สนับสนุนในงานนำเสนอที่สร้างหรือไม่?**  
+ใช่. คุณสามารถ [create/edit VBA projects](/slides/th/python-java/presentation-via-vba/) และบันทึกไฟล์ที่มีแมโครเช่น PPTM/PPSM.

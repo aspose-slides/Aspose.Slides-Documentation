@@ -1,6 +1,6 @@
 ---
-title: Beheer videoframes in presentaties met Python
-linktitle: Video-frame
+title: Beheer video‑frames in presentaties met Python
+linktitle: Video‑frame
 type: docs
 weight: 10
 url: /nl/python-java/video-frame/
@@ -10,37 +10,37 @@ keywords:
 - video insluiten
 - video extraheren
 - video ophalen
-- videoframe
-- webbron
+- video‑frame
+- web‑bron
 - PowerPoint
 - OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe u programmatically video-frames kunt toevoegen en extraheren in PowerPoint- en OpenDocument-slides met Aspose.Slides voor Python via Java. Snelle how-to-gids."
+description: "Leer op programmeerwijze video‑frames toe te voegen en te extraheren in PowerPoint‑ en OpenDocument‑dia's met Aspose.Slides voor Python via Java. Snelle how‑to‑gids."
 ---
 ## **Inleiding**
 
-Een goed geplaatst video in een presentatie kan uw boodschap overtuigender maken en de betrokkenheid van uw publiek verhogen.
+Een goed geplaatste video in een presentatie kan je boodschap krachtiger maken en de betrokkenheid van je publiek vergroten.
 
-PowerPoint staat u toe video's toe te voegen aan een dia in een presentatie op twee manieren:
+PowerPoint biedt twee manieren om video's aan een dia toe te voegen:
 
-* Voeg een lokale video toe of embed deze (opgeslagen op uw machine)
-* Voeg een online video toe (van een webbron zoals YouTube).
+* Een lokale video (opgeslagen op je computer) toevoegen of insluiten  
+* Een online video (van een webbron zoals YouTube) toevoegen.
 
-Om u toe te staan video's (video‑objecten) aan een presentatie toe te voegen, biedt Aspose.Slides de [Video](https://reference.aspose.com/slides/nl/python-java/aspose.slides/video/) klasse, [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) klasse en andere relevante typen.
+Om je in staat te stellen video's (videobjecten) aan een presentatie toe te voegen, biedt Aspose.Slides de [Video](https://reference.aspose.com/slides/nl/python-java/aspose.slides/video/)‑klasse, de [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/)‑klasse en andere relevante types.
 
-## **Ingesloten videoframes maken**
+## **Ingesloten video‑frames maken**
 
-Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een videoframe maken om de video in uw presentatie te embedden.
+Als het videobestand dat je wilt toevoegen lokaal is opgeslagen, kun je een video‑frame maken om de video in je presentatie in te sluiten.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
-2. Haal een referentie naar een dia op via de index.
-3. Voeg een [Video](https://reference.aspose.com/slides/nl/python-java/aspose.slides/video/) object toe en geef de videobestandgegevens door om de video in de presentatie te embedden.
-4. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) object toe om een frame voor de video te creëren.
-5. Sla de gewijzigde presentatie op.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse.  
+2. Haal een verwijzing op naar een dia via de index.  
+3. Voeg een [Video](https://reference.aspose.com/slides/nl/python-java/aspose.slides/video/)‑object toe en geef de videobestand‑gegevens door om de video in de presentatie in te sluiten.  
+4. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/)‑object toe om een frame voor de video te maken.  
+5. Sla de aangepaste presentatie op.
 
-Deze Python‑code laat zien hoe u een lokaal opgeslagen video aan een presentatie toevoegt:
+Deze Python‑code laat zien hoe je een lokaal opgeslagen video aan een presentatie toevoegt:
 
 ```python
 from pathlib import Path
@@ -64,7 +64,7 @@ finally:
     presentation.dispose()
 ```
 
-U kunt ook een video toevoegen door het bestandspad rechtstreeks door te geven aan de [addVideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#addVideoFrame) methode:
+Als alternatief kun je een video toevoegen door het bestandspad rechtstreeks door te geven aan de [addVideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#addVideoFrame)‑methode:
 
 ```python
 import jpype
@@ -83,17 +83,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Videoframes maken met video van webbronnen**
+## **Video‑frames maken met video van webbronnen**
 
-Microsoft [PowerPoint 2013 en nieuwer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) ondersteunt YouTube‑video‑s in presentaties. Als de video die u wilt gebruiken online beschikbaar is (bijv. op YouTube), kunt u deze via de web‑link aan uw presentatie toevoegen.
+Microsoft [PowerPoint 2013 en later](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) ondersteunt YouTube‑video’s in presentaties. Als de video die je wilt gebruiken online beschikbaar is (bijv. op YouTube), kun je deze via de web‑link aan je presentatie toevoegen.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse
-2. Haal een referentie naar een dia op via de index.
-3. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) object toe en geef de link naar de video door.
-4. Stel een miniatuurafbeelding in voor het videoframe.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse.  
+2. Haal een verwijzing op naar een dia via de index.  
+3. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/)‑object toe en geef de link naar de video door.  
+4. Stel een miniatuurafbeelding in voor het video‑frame.  
 5. Sla de presentatie op.
 
-Deze Python‑code laat zien hoe u een video van het web aan een dia in een PowerPoint‑presentatie toevoegt:
+Deze Python‑code laat zien hoe je een video van het internet aan een dia in een PowerPoint‑presentatie toevoegt:
 
 ```python
 from urllib.request import urlopen
@@ -128,21 +128,21 @@ finally:
     presentation.dispose()
 ```
 
-## **Een videoframe bijsnijden**
+## **Een video‑frame inkorten**
 
-Aspose.Slides stelt u in staat te bepalen welk deel van een video wordt afgespeeld door de trim‑from‑start‑ en trim‑from‑end‑waarden in te stellen via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setTrimFromStart) en [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setTrimFromEnd). Beide waarden worden opgegeven in milliseconden en bepalen hoeveel tijd er respectievelijk aan het begin en einde van de video wordt overgeslagen. Deze instellingen wijzigen de afspeelinstellingen van de video in de presentatie; ze knippen of wijzigen niet de ingesloten videobinaire gegevens.
+Aspose.Slides stelt je in staat te bepalen welk deel van een video wordt afgespeeld door de waarden *trim‑from‑start* en *trim‑from‑end* in te stellen via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setTrimFromStart) en [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setTrimFromEnd). Beide waarden worden opgegeven in milliseconden en bepalen hoeveel tijd respectievelijk aan het begin en het einde van de video wordt overgeslagen. Deze instellingen wijzigen de afspeelinstellingen in de presentatie; ze knippen of wijzigen de ingebedde video‑binaire data niet.
 
-**Instellingen voor bijsnijden instellen**
+**Trim‑instellingen definiëren**
 
-Om een videoframe te maken en de bijsnijdinstellingen te definiëren:
+Om een video‑frame te maken en de trim‑instellingen in te stellen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
-2. Voeg een [Video](https://reference.aspose.com/slides/nl/python-java/aspose.slides/video/) object toe aan de presentatie.
-3. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) object toe aan een dia.
-4. Stel de trim‑from‑start‑ en trim‑from‑end‑waarden in via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setTrimFromStart) en [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setTrimFromEnd).
-5. Sla de gewijzigde presentatie op.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse.  
+2. Voeg een [Video](https://reference.aspose.com/slides/nl/python-java/aspose.slides/video/)‑object toe aan de presentatie.  
+3. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/)‑object toe aan een dia.  
+4. Stel de *trim‑from‑start*‑ en *trim‑from‑end*‑waarden in via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setTrimFromStart) en [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setTrimFromEnd).  
+5. Sla de aangepaste presentatie op.
 
-De volgende code‑voorbeeld slaat de eerste 2,5 seconde en de laatste seconde van een ingesloten video over tijdens het afspelen:
+De volgende code‑voorbeeld slaat de eerste 2,5 sec. en de laatste seconde van een ingesloten video over tijdens het afspelen:
 
 ```python
 from pathlib import Path
@@ -170,11 +170,11 @@ finally:
     presentation.dispose()
 ```
 
-**Bijsnijdinstellingen lezen**
+**Trim‑instellingen lezen**
 
-Om bestaande bijsnijdinstellingen te inspecteren, laad een presentatie, zoek een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) object tussen de vormen op de eerste dia, en lees de waarden via [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#getTrimFromStart) en [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#getTrimFromEnd).
+Om bestaande trim‑instellingen te inspecteren, laad je een presentatie, zoek je een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/)‑object onder de shapes op de eerste dia, en lees je de waarden via [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#getTrimFromStart) en [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#getTrimFromEnd).
 
-Het volgende code‑voorbeeld vindt het eerste videoframe op de eerste dia en rapporteert de bijsnijdinstellingen in milliseconden:
+De volgende code‑voorbeeld vindt het eerste video‑frame op de eerste dia en rapporteert de trim‑instellingen in milliseconden:
 
 ```python
 import jpype
@@ -199,19 +199,21 @@ finally:
     presentation.dispose()
 ```
 
-## **Videobijschriften beheren**
+## **Videocaptions beheren**
 
-Aspose.Slides stelt u in staat gesloten bijschriften voor videoframes in PowerPoint‑presentaties te beheren. Bijschriften worden opgeslagen in WebVTT‑formaat en zijn beschikbaar via de [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#getCaptionTracks) methode.
+Aspose.Slides maakt het mogelijk closed captions voor video‑frames in PowerPoint‑presentaties te beheren. Captions worden opgeslagen in WebVTT‑formaat en zijn toegankelijk via de [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#getCaptionTracks)‑methode.
 
-**Bijschriften toevoegen aan een videoframe**
+**Captions toevoegen aan een video‑frame**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse.
-2. Voeg een video toe aan de presentatie.
-3. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) object toe aan een dia.
-4. Gebruik de [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/) die wordt geretourneerd door [getCaptionTracks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#getCaptionTracks) om een WebVTT‑bijschrifttrack toe te voegen.
-5. Sla de gewijzigde presentatie op.
+Om captions toe te voegen aan een video‑frame:
 
-De volgende code laat zien hoe u bijschriften aan een videoframe toevoegt:
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse.  
+2. Voeg een video toe aan de presentatie.  
+3. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/)‑object toe aan een dia.  
+4. Gebruik de [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/) die wordt geretourneerd door [getCaptionTracks](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#getCaptionTracks) om een WebVTT‑caption‑track toe te voegen.  
+5. Sla de aangepaste presentatie op.
+
+De volgende code toont hoe je captions toevoegt aan een video‑frame:
 
 ```python
 from pathlib import Path
@@ -232,23 +234,25 @@ try:
     slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video)
 
-    # Voeg een nieuw ondertiteltrack toe vanaf een WebVTT bestand.
+    # Voeg een nieuw ondertitelings-track toe vanuit een WebVTT-bestand.
     video_frame.getCaptionTracks().add("English", "track.vtt")
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-De [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/) klasse biedt ook een overload waarmee u bijschriften vanuit een stream kunt toevoegen.
+De [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/)‑klasse biedt ook een overload waarmee je captions vanuit een stream kunt toevoegen.
 
-**Bijschriften extraheren uit een videoframe**
+**Captions extraheren uit een video‑frame**
 
-1. Laad de presentatie die de video bevat.
-2. Zoek het doel‑[VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) object.
-3. Doorloop de bijschrifttracks in de [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/).
-4. Sla elke bijschrifttrack op naar een `.vtt`‑bestand.
+Om captions uit een video‑frame te halen:
 
-De volgende code laat zien hoe u bijschriften uit een videoframe kunt extraheren:
+1. Laad de presentatie die de video bevat.  
+2. Zoek het doel‑[VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/)‑object.  
+3. Loop door de caption‑tracks in de [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/).  
+4. Sla elke caption‑track op in een `.vtt`‑bestand.
+
+De volgende code toont hoe je captions uit een video‑frame extrahert:
 
 ```python
 from pathlib import Path
@@ -267,7 +271,7 @@ try:
     for shape in slide.getShapes():
         if isinstance(shape, VideoFrame):
             for caption_track in shape.getCaptionTracks():
-                # Sla het ondertiteltrack op naar een WebVTT-bestand.
+                # Sla het ondertitelings‑track op naar een WebVTT‑bestand.
                 file_path = Path(str(caption_track.getCaptionId()) + ".vtt")
                 caption_data = bytes(caption_track.getBinaryData())
                 file_path.write_bytes(caption_data)
@@ -275,16 +279,18 @@ finally:
     presentation.dispose()
 ```
 
-Elk [Captions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captions/) object geeft de bijschrift‑identifier, het label, de binaire gegevens en de bijschrifttekst weer als een UTF‑8‑string.
+Elk [Captions](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captions/)‑object geeft de caption‑identifier, label, binaire data en caption‑tekst als een UTF‑8‑string weer.
 
-**Bijschriften verwijderen uit een videoframe**
+**Captions verwijderen uit een video‑frame**
 
-1. Laad de presentatie die de video bevat.
-2. Haal het doel‑[VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) object op.
-3. Verwijder bijschrifttracks uit de [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/).
-4. Sla de gewijzigde presentatie op.
+Om captions uit een video‑frame te verwijderen:
 
-De volgende code laat zien hoe u alle bijschriften uit een videoframe verwijdert:
+1. Laad de presentatie die de video bevat.  
+2. Haal het doel‑[VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/)‑object op.  
+3. Verwijder caption‑tracks uit de [CaptionsCollection](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/).  
+4. Sla de aangepaste presentatie op.
+
+De volgende code laat zien hoe je alle captions uit een video‑frame verwijdert:
 
 ```python
 import jpype
@@ -300,7 +306,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
-        # Verwijder alle ondertitels van het videoframe.
+        # Verwijder alle ondertitels van het video-frame.
         video_frame.getCaptionTracks().clear()
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
     else:
@@ -309,18 +315,18 @@ finally:
     presentation.dispose()
 ```
 
-Als u slechts één bijschrifttrack wilt verwijderen, gebruik dan de [remove](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#remove) of [removeAt](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#removeAt) methoden in plaats van [clear](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#clear).
+Als je slechts één caption‑track wilt verwijderen, gebruik dan de [remove](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#remove)‑ of [removeAt](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#removeAt)‑methoden in plaats van [clear](https://reference.aspose.com/slides/nl/python-java/aspose.slides/captionscollection/#clear).
 
-## **Video extraheren van dia's**
+## **Video’s extraheren uit dia’s**
 
-Naast het toevoegen van video’s aan dia’s, stelt Aspose.Slides u in staat video’s die in presentaties zijn ingesloten te extraheren.
+Naast het toevoegen van video's aan dia’s maakt Aspose.Slides het mogelijk om video's die in presentaties zijn ingesloten, te extraheren.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/) klasse om de presentatie die de video bevat te laden.
-2. Doorloop alle [Slide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/) objecten.
-3. Doorloop alle [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/) objecten om een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) te vinden.
-4. Sla de video op naar schijf.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-java/aspose.slides/presentation/)‑klasse om de presentatie met de video te laden.  
+2. Loop door alle [Slide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/)‑objecten.  
+3. Loop door alle [Shape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/)‑objecten om een [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) te vinden.  
+4. Sla de video op op schijf.
 
-Deze Python‑code laat zien hoe u de video op een presentatiedia kunt extraheren:
+Deze Python‑code toont hoe je de video van een presentatiedia extraheert:
 
 ```python
 from pathlib import Path
@@ -352,18 +358,18 @@ finally:
 
 ## **FAQ**
 
-**Welke afspeelparameters kunnen gewijzigd worden voor een VideoFrame?**
+**Welke afspeelparameters kunnen worden aangepast voor een VideoFrame?**
 
-U kunt de [playback mode](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setPlayMode) (automatisch of bij klik) en de [looping](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setPlayLoopMode) regelen. Deze opties zijn beschikbaar via de eigenschappen van het [VideoFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/) object.
+Je kunt de [playback‑mode](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setPlayMode) (automatisch of bij klik) en het [loop‑gedrag](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setPlayLoopMode) regelen. Deze opties zijn beschikbaar via de eigenschappen van het **VideoFrame**‑object.
 
-**Beïnvloedt het toevoegen van een video de grootte van het PPTX‑bestand?**
+**Heeft het toevoegen van een video invloed op de bestandsgrootte van de PPTX?**
 
-Ja. Wanneer u een lokale video embed, worden de binaire gegevens in het document opgenomen, waardoor de presentatiegrootte evenredig toeneemt met de bestandsgrootte. Wanneer u een online video toevoegt, worden een link en een miniatuurafbeelding embed, waardoor de grootte‑toename kleiner is.
+Ja. Wanneer je een lokale video insluit, wordt de binaire data in het document opgenomen, waardoor de presentatiegrootte evenredig toeneemt met de bestandsgrootte. Wanneer je een online video toevoegt, worden alleen een link en een miniatuurafbeelding ingesloten, waardoor de omvangstoename kleiner blijft.
 
 **Kan ik de video in een bestaand VideoFrame vervangen zonder de positie en grootte te wijzigen?**
 
-Ja. U kunt de [video content](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setEmbeddedVideo) binnen het frame verwisselen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
+Ja. Je kunt de [video‑content](https://reference.aspose.com/slides/nl/python-java/aspose.slides/videoframe/#setEmbeddedVideo) binnen het frame verwisselen terwijl je de geometrie van de shape behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaand layout.
 
-**Kan het inhoudstype (MIME) van een ingesloten video worden bepaald?**
+**Kan het content‑type (MIME) van een ingesloten video worden bepaald?**
 
-Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/nl/python-java/aspose.slides/video/#getContentType) die u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan naar schijf.
+Ja. Een ingesloten video heeft een [content‑type](https://reference.aspose.com/slides/nl/python-java/aspose.slides/video/#getContentType) dat je kunt uitlezen en gebruiken, bijvoorbeeld bij het opslaan op schijf.

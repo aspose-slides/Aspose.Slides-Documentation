@@ -1,6 +1,6 @@
 ---
-title: Hantera videoramar i presentationer med Python
-linktitle: Videoram
+title: "Hantera video-ramar i presentationer med Python"
+linktitle: "Video-ram"
 type: docs
 weight: 10
 url: /sv/python-java/video-frame/
@@ -10,37 +10,37 @@ keywords:
 - bädda in video
 - extrahera video
 - hämta video
-- videoram
+- video-ram
 - webbkälla
 - PowerPoint
 - OpenDocument
 - presentation
 - Python
 - Aspose.Slides
-description: "Lär dig programatiskt att lägga till och extrahera videoramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Python via Java. Snabb guide."
+description: "Lär dig att programatiskt lägga till och extrahera video-ramar i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Python via Java. Snabb guide."
 ---
 ## **Introduktion**
 
-En välplacerad video i en presentation kan göra ditt budskap mer övertygande och öka engagemangsgraden hos din publik.
+En välplacerad video i en presentation kan göra ditt budskap mer övertygande och öka engagemangsnivåerna hos din publik.
 
 PowerPoint låter dig lägga till videor på en bild i en presentation på två sätt:
 
-* Lägg till eller bädda in en lokal video (sparad på din dator)
-* Lägg till en online‑video (från en webbkälla som YouTube).
+* Lägg till eller bädda in en lokal video (sparad på din maskin)
+* Lägg till en online-video (från en webbkälla som YouTube).
 
-För att låta dig lägga till videor (videoobjekt) i en presentation tillhandahåller Aspose.Slides klassen [Video](https://reference.aspose.com/slides/sv/python-java/aspose.slides/video/) , klassen [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/) , och andra relevanta typer.
+För att du ska kunna lägga till videor (videoobjekt) i en presentation tillhandahåller Aspose.Slides klassen [Video](https://reference.aspose.com/slides/sv/python-java/aspose.slides/video/), klassen [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/) och andra relevanta typer.
 
-## **Skapa inbäddade videoramverk**
+## **Skapa inbäddade video‑ramar**
 
-Om videofilen du vill lägga till på din bild är lagrad lokalt kan du skapa en videoram för att bädda in videon i din presentation.
+Om videofilen du vill lägga till på din bild lagras lokalt kan du skapa en videoram för att bädda in videon i din presentation.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) .
-1. Hämta en bilds referens via dess index.
-1. Lägg till ett [Video](https://reference.aspose.com/slides/sv/python-java/aspose.slides/video/)‑objekt och skicka videofilens data för att bädda in videon i presentationen.
-1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)‑objekt för att skapa en ram för videon.
-1. Spara den modifierade presentationen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till ett [Video](https://reference.aspose.com/slides/sv/python-java/aspose.slides/video/)-objekt och skicka videofilens data för att bädda in videon i presentationen.
+1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)-objekt för att skapa en ram för videon.
+1. Spara den ändrade presentationen.
 
-Den här Python‑koden visar hur du lägger till en lokalt lagrad video i en presentation:
+Denna Python‑kod visar hur du lägger till en lokalt lagrad video i en presentation:
 
 ```python
 from pathlib import Path
@@ -64,7 +64,7 @@ finally:
     presentation.dispose()
 ```
 
-Alternativt kan du lägga till en video genom att skicka dess filsökväg direkt till metoden [addVideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shapecollection/#addVideoFrame) :
+Alternativt kan du lägga till en video genom att skicka dess filsökväg direkt till metoden [addVideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shapecollection/#addVideoFrame):
 
 ```python
 import jpype
@@ -83,17 +83,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Skapa videoramar med video från webbkällor**
+## **Skapa video‑ramar med video från webbkällor**
 
-Microsoft [PowerPoint 2013 och nyare](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) stödjer YouTube‑videor i presentationer. Om videon du vill använda är tillgänglig online (t.ex. på YouTube) kan du lägga till den i din presentation via dess webblänk.
+Microsoft [PowerPoint 2013 och nyare](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) stöder YouTube‑videor i presentationer. Om videon du vill använda finns online (t.ex. på YouTube) kan du lägga till den i din presentation via dess webblänk.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) .
-1. Hämta en bilds referens via dess index.
-1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)‑objekt och skicka länken till videon.
-1. Ställ in en miniatyrbild för videoramen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+1. Hämta en referens till en bild efter dess index.
+1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)-objekt och skicka länken till videon.
+1. Ange en miniatyrbild för video‑ramen.
 1. Spara presentationen.
 
-Den här Python‑koden visar hur du lägger till en video från webben på en bild i en PowerPoint‑presentation:
+Denna Python‑kod visar hur du lägger till en video från webben på en bild i en PowerPoint‑presentation:
 
 ```python
 from urllib.request import urlopen
@@ -128,21 +128,21 @@ finally:
     presentation.dispose()
 ```
 
-## **Trimma en videoram**
+## **Beskär en video‑ram**
 
-Aspose.Slides låter dig kontrollera vilken del av en video som spelas genom att sätta värdena trim‑from‑start och trim‑from‑end via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setTrimFromStart) och [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setTrimFromEnd) . Båda värdena anges i millisekunder och definierar hur mycket tid som hoppas över från början respektive slutet av videon. Dessa inställningar ändrar videouppspelningsinställningarna i presentationen; de klipper inte eller modifierar den inbäddade videons binära data.
+Aspose.Slides låter dig kontrollera vilken del av en video som spelas genom att ange värdena trim-from-start och trim-from-end via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setTrimFromStart) och [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setTrimFromEnd). Båda värdena anges i millisekunder och definierar hur mycket tid som hoppas över i början respektive slutet av videon. Dessa inställningar ändrar videouppspelningsinställningarna i presentationen; de kapar eller på annat sätt modifierar inte de inbäddade videodata.
 
 **Ställ in triminställningar**
 
-För att skapa en videoram och ange dess triminställningar:
+För att skapa en video‑ram och ställa in dess triminställningar:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) .
-1. Lägg till ett [Video](https://reference.aspose.com/slides/sv/python-java/aspose.slides/video/)‑objekt i presentationen.
-1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)‑objekt på en bild.
-1. Sätt värdena trim‑from‑start och trim‑from‑end via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setTrimFromStart) och [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setTrimFromEnd) .
-1. Spara den modifierade presentationen.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
+1. Lägg till ett [Video](https://reference.aspose.com/slides/sv/python-java/aspose.slides/video/)-objekt i presentationen.
+1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)-objekt på en bild.
+1. Ange värdena trim-from-start och trim-from-end via [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setTrimFromStart) och [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setTrimFromEnd).
+1. Spara den ändrade presentationen.
 
-Följande kodexempel hoppar över de första 2,5 sekunderna och den sista sekunden av en inbäddad video under uppspelning:
+Följande kodexempel hoppar över de första 2,5 sekunderna och den sista sekunden av en inbäddad video vid uppspelning:
 
 ```python
 from pathlib import Path
@@ -172,9 +172,9 @@ finally:
 
 **Läs triminställningar**
 
-För att granska befintliga triminställningar, öppna en presentation, hitta ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)‑objekt bland formerna på den första bilden och läs värdena via [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#getTrimFromStart) och [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#getTrimFromEnd) .
+För att granska befintliga triminställningar, läs in en presentation, hitta ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)-objekt bland formerna på den första bilden och läs värdena via [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#getTrimFromStart) och [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#getTrimFromEnd).
 
-Följande kodexempel hittar den första videoramen på den första bilden och rapporterar dess triminställningar i millisekunder:
+Följande kodexempel hittar den första video‑ramen på den första bilden och rapporterar dess triminställningar i millisekunder:
 
 ```python
 import jpype
@@ -199,19 +199,21 @@ finally:
     presentation.dispose()
 ```
 
-## **Hantera videobeskrivningar**
+## **Hantera video‑undertexter**
 
-Aspose.Slides låter dig hantera stängda undertexter för videoramar i PowerPoint‑presentationer. Undertexter lagras i WebVTT‑format och exponeras via metoden [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#getCaptionTracks) .
+Aspose.Slides låter dig hantera stängda undertexter för video‑ramar i PowerPoint‑presentationer. Undertexter lagras i WebVTT‑format och exponeras genom metoden [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#getCaptionTracks).
 
-**Lägg till undertexter på en videoram**
+**Lägg till undertexter till en video‑ram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) .
+För att lägga till undertexter till en video‑ram:
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/).
 1. Lägg till en video i presentationen.
-1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)‑objekt på en bild.
+1. Lägg till ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)-objekt på en bild.
 1. Använd [CaptionsCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/) som returneras av [getCaptionTracks](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#getCaptionTracks) för att lägga till ett WebVTT‑undertextspår.
-1. Spara den modifierade presentationen.
+1. Spara den ändrade presentationen.
 
-Följande kod visar hur du lägger till undertexter på en videoram:
+Följande kod visar hur du lägger till undertexter till en video‑ram:
 
 ```python
 from pathlib import Path
@@ -239,16 +241,18 @@ finally:
     presentation.dispose()
 ```
 
-Klassen [CaptionsCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/) erbjuder också en overload som låter dig lägga till undertexter från en ström.
+Klassen [CaptionsCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/) erbjuder även en överlagring som låter dig lägga till undertexter från en ström.
 
-**Extrahera undertexter från en videoram**
+**Extrahera undertexter från en video‑ram**
+
+För att extrahera undertexter från en video‑ram:
 
 1. Läs in presentationen som innehåller videon.
-1. Hitta mål‑[VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)‑objektet.
-1. Iterera igenom undertextspåren i [CaptionsCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/) .
+1. Hitta mål‑[VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)-objektet.
+1. Iterera genom undertextspåren i [CaptionsCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/).
 1. Spara varje undertextspår till en `.vtt`‑fil.
 
-Följande kod visar hur du extraherar undertexter från en videoram:
+Följande kod visar hur du extraherar undertexter från en video‑ram:
 
 ```python
 from pathlib import Path
@@ -275,16 +279,18 @@ finally:
     presentation.dispose()
 ```
 
-Varje [Captions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captions/)‑objekt presenterar undertextens identifierare, etikett, binärdata och undertext som en UTF‑8‑sträng.
+Varje [Captions](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captions/)‑objekt exponerar undertextens identifierare, etikett, binära data och undertexttext som en UTF‑8‑sträng.
 
-**Ta bort undertexter från en videoram**
+**Ta bort undertexter från en video‑ram**
+
+För att ta bort undertexter från en video‑ram:
 
 1. Läs in presentationen som innehåller videon.
-1. Hämta mål‑[VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)‑objektet.
-1. Ta bort undertextspår från [CaptionsCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/) .
-1. Spara den modifierade presentationen.
+1. Hämta mål‑[VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)-objektet.
+1. Ta bort undertextspår från [CaptionsCollection](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/).
+1. Spara den ändrade presentationen.
 
-Följande kod visar hur du tar bort alla undertexter från en videoram:
+Följande kod visar hur du tar bort alla undertexter från en video‑ram:
 
 ```python
 import jpype
@@ -300,7 +306,7 @@ try:
     slide = presentation.getSlides().get_Item(0)
     video_frame = slide.getShapes().get_Item(0)
     if isinstance(video_frame, VideoFrame):
-        # Ta bort alla undertexter från videoramen.
+        # Ta bort alla undertexter från video-ramen.
         video_frame.getCaptionTracks().clear()
         presentation.save("video_without_captions.pptx", SaveFormat.Pptx)
     else:
@@ -309,18 +315,18 @@ finally:
     presentation.dispose()
 ```
 
-Om du bara behöver ta bort ett undertextspår, använd metoderna [remove](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/#removeAt) istället för [clear](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/#clear).
+Om du bara behöver ta bort ett undertextspår, använd metoderna [remove](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/#remove) eller [removeAt](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/#removeAt) i stället för [clear](https://reference.aspose.com/slides/sv/python-java/aspose.slides/captionscollection/#clear).
 
 ## **Extrahera video från bilder**
 
 Förutom att lägga till videor på bilder låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-java/aspose.slides/presentation/) för att läsa in presentationen som innehåller videon.
-2. Iterera igenom alla [Slide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/)‑objekt.
-3. Iterera igenom alla [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/)‑objekt för att hitta ett [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/) .
+2. Iterera igenom alla [Slide](https://reference.aspose.com/slides/sv/python-java/aspose.slides/slide/)-objekt.
+3. Iterera igenom alla [Shape](https://reference.aspose.com/slides/sv/python-java/aspose.slides/shape/)-objekt för att hitta en [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/).
 4. Spara videon till disk.
 
-Den här Python‑koden visar hur du extraherar videon på en presentationsbild:
+Denna Python‑kod visar hur du extraherar videon på en presentationsbild:
 
 ```python
 from pathlib import Path
@@ -354,15 +360,15 @@ finally:
 
 **Vilka videouppspelningsparametrar kan ändras för en VideoFrame?**
 
-Du kan kontrollera [uppspelningsläge](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setPlayMode) (automatiskt eller vid klick) och [loopning](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setPlayLoopMode). Dessa alternativ är tillgängliga via egenskaperna på [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)‑objektet.
+Du kan kontrollera [playback mode](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setPlayMode) (automatisk eller vid klick) och [looping](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setPlayLoopMode). Dessa alternativ är tillgängliga via egenskaperna för [VideoFrame](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/)-objektet.
 
-**Påverkar det att lägga till en video PPTX‑filens storlek?**
+**Påverkar tillägg av en video PPTX‑filens storlek?**
 
-Ja. När du bäddar in en lokal video inkluderas den binära datan i dokumentet, så presentationens storlek ökar i proportion till filens storlek. När du lägger till en online‑video bäddas en länk och en miniatyrbild in, så storleksökningen blir mindre.
+Ja. När du bäddar in en lokal video inkluderas de binära data i dokumentet, så presentationens storlek växer proportionellt mot filens storlek. När du lägger till en online‑video infogas en länk och en miniatyrbild, vilket innebär att storleksökningen blir mindre.
 
 **Kan jag ersätta videon i en befintlig VideoFrame utan att ändra dess position och storlek?**
 
-Ja. Du kan byta ut [video‑innehållet](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setEmbeddedVideo) i ramen samtidigt som du behåller formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
+Ja. Du kan byta ut [video content](https://reference.aspose.com/slides/sv/python-java/aspose.slides/videoframe/#setEmbeddedVideo) i ramen samtidigt som du bevarar formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
 
 **Kan innehållstypen (MIME) för en inbäddad video bestämmas?**
 

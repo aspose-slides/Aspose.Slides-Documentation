@@ -24,5 +24,5 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Skapa, redigera och extrahera presentationsinnehåll med Aspose.Slides för Python via Java—få kodexempel för text, bilder, former, diagram; PPT, PPTX och ODP."
+description: "Skapa, redigera och extrahera presentationsinnehåll med Aspose.Slides för Python via Java—få kodexempel för text, bilder, former och diagram i PPT, PPTX och ODP-filer."
 ---

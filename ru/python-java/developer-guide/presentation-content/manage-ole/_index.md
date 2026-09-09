@@ -1,5 +1,5 @@
 ---
-title: Управление OLE в презентациях с помощью Python
+title: Управление OLE в презентациях с использованием Python
 linktitle: Управление OLE
 type: docs
 weight: 40
@@ -7,54 +7,54 @@ url: /ru/python-java/manage-ole/
 keywords:
 - OLE объект
 - Связывание и внедрение объектов
-- добавить OLE
-- внедрить OLE
-- добавить объект
-- внедрить объект
-- добавить файл
-- внедрить файл
+- добавление OLE
+- внедрение OLE
+- добавление объекта
+- внедрение объекта
+- добавление файла
+- внедрение файла
 - связанный объект
 - связанный файл
-- изменить OLE
+- изменение OLE
 - значок OLE
 - заголовок OLE
-- извлечь OLE
-- извлечь объект
-- извлечь файл
+- извлечение OLE
+- извлечение объекта
+- извлечение файла
 - PowerPoint
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Оптимизируйте управление OLE‑объектами в PowerPoint и файлах OpenDocument с помощью Aspose.Slides для Python через Java. Внедряйте, обновляйте и экспортируйте OLE‑контент без проблем."
+description: "Оптимизируйте управление OLE-объектами в PowerPoint и файлах OpenDocument с помощью Aspose.Slides for Python via Java. Внедряйте, обновляйте и экспортируйте OLE-контент без проблем."
 ---
 ## **Введение**
 
 {{% alert color="info" title="Примечание" %}}
 
-OLE (Object Linking & Embedding) — технология Microsoft, позволяющая размещать данные и объекты, созданные в одном приложении, в другом приложении через связь или внедрение.
+OLE (Object Linking & Embedding) — это технология Microsoft, позволяющая размещать данные и объекты, созданные в одном приложении, в другом приложении с помощью связывания или внедрения.
 
 {{% /alert %}}
 
 Рассмотрим диаграмму, созданную в MS Excel. Эта диаграмма помещается в слайд PowerPoint. Такая диаграмма Excel считается OLE‑объектом.
 
-- OLE‑объект может отображаться в виде значка. В этом случае двойной щелчок по значку открывает диаграмму в связанном приложении (Excel) или запрашивает выбор приложения для открытия или редактирования.
-- OLE‑объект может отображать своё фактическое содержимое, например содержимое диаграммы. В этом случае диаграмма активируется в PowerPoint, загружается её интерфейс, и вы можете изменить данные диаграммы непосредственно в PowerPoint.
+- OLE‑объект может отображаться как значок. В этом случае при двойном щелчке значка диаграмма открывается в связанном приложении (Excel) или запрашивается выбор приложения для открытия/редактирования объекта.
+- OLE‑объект может показывать своё фактическое содержимое, например содержимое диаграммы. В этом случае диаграмма активируется в PowerPoint, загружается её интерфейс, и вы можете изменить данные диаграммы непосредственно в PowerPoint.
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/ru/python-java/) позволяет вставлять OLE‑объекты на слайды в виде OLE‑рамок ([OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/ru/python-java/) позволяет вставлять OLE‑объекты в слайды в виде OLE‑кадров объектов ([OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/)).
 
-## **Добавление OLE‑рамок объектов на слайды**
+## **Добавление OLE‑кадров объектов на слайды**
 
-Предположим, что вы уже создали диаграмму в Microsoft Excel и хотите внедрить её в слайд как OLE‑рамку с помощью Aspose.Slides for Python via Java. Сделать это можно так:
+Предположим, что вы уже создали диаграмму в Microsoft Excel и хотите внедрить её в слайд как OLE‑кадр объекта с помощью Aspose.Slides for Python via Java. Это делается так:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Прочитайте файл Excel как массив байтов.
+3. Прочитайте файл Excel в виде массива байтов.
 4. Добавьте [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/) на слайд, передав массив байтов и другую информацию об OLE‑объекте.
 5. Запишите изменённую презентацию в файл PPTX.
 
-В примере ниже мы добавили диаграмму из файла Excel на слайд как OLE‑рамку с помощью Aspose.Slides for Python via Java.  
-**Примечание**: конструктор [OleEmbeddedDataInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleembeddeddatainfo/) принимает расширение внедряемого объекта вторым параметром. Это расширение позволяет PowerPoint правильно интерпретировать тип файла и выбрать нужное приложение для открытия OLE‑объекта.
+В примере ниже мы добавили диаграмму из файла Excel на слайд как OLE‑кадр объекта с помощью Aspose.Slides for Python via Java.  
+**Примечание**: конструктор [OleEmbeddedDataInfo](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleembeddeddatainfo/) принимает расширение внедряемого объекта вторым параметром. Это расширение позволяет PowerPoint правильно определить тип файла и выбрать нужное приложение для открытия этого OLE‑объекта.
 
 ```python
 from pathlib import Path
@@ -77,7 +77,7 @@ try:
     file_data = jpype.JArray(jpype.JByte)(file_data)
     data_info = OleEmbeddedDataInfo(file_data, "xlsx")
 
-    # Добавьте OLE‑рамку объекта на слайд.
+    # Добавьте OLE‑кадр объекта на слайд.
     frame_width = jpype.JFloat(slide_size.getWidth())
     frame_height = jpype.JFloat(slide_size.getHeight())
     slide.getShapes().addOleObjectFrame(0, 0, frame_width, frame_height, data_info)
@@ -87,11 +87,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Добавление связанных OLE‑рамок объектов**
+### **Добавление связанных OLE‑кадров объектов**
 
-Aspose.Slides for Python via Java позволяет добавить [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/) без внедрения данных, только со ссылкой на файл.
+Aspose.Slides for Python via Java позволяет добавить [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/) с ссылкой на файл вместо внедрённых данных.
 
-Этот код Python демонстрирует, как добавить [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/) со связанным файлом Excel на слайд:
+Этот Python‑код показывает, как добавить [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/) со связанным файлом Excel на слайд:
 
 ```python
 import jpype
@@ -106,7 +106,7 @@ presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Добавьте OLE‑рамку объекта со связанным файлом Excel.
+    # Добавьте OLE‑кадр объекта со связанным файлом Excel.
     slide.getShapes().addOleObjectFrame(20, 20, 200, 150, "Excel.Sheet.12", "book.xlsx")
 
     presentation.save("output.pptx", SaveFormat.Pptx)
@@ -114,17 +114,17 @@ finally:
     presentation.dispose()
 ```
 
-## **Доступ к OLE‑рамкам объектов**
+## **Доступ к OLE‑кадрам объектов**
 
-Если OLE‑объект уже внедрён в слайд, вы можете легко найти или получить к нему доступ следующим образом:
+Если OLE‑объект уже внедрён в слайд, его можно легко найти или получить доступ следующим образом:
 
-1. Загрузите презентацию с внедрённым OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
-2. Получите ссылку на слайд, используя его индекс.
+1. Загрузите презентацию с внедрённым OLE‑объектом, создав объект класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+2. Получите ссылку на слайд по его индексу.
 3. Получите форму [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/).  
-   В нашем примере мы использовали ранее созданный PPTX, содержащий единственную форму на первом слайде. Затем мы проверили, что объект является [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/). Это была требуемая OLE‑рамка объекта.
-4. После получения доступа к OLE‑рамке вы можете выполнить любую операцию с ней.
+   В нашем примере использовался ранее созданный PPTX, содержащий единственную форму на первом слайде. Затем мы проверили, что объект является [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/). Это и был нужный OLE‑кадр объекта.
+4. После получения доступа к OLE‑кадру вы можете выполнять любые операции с ним.
 
-В примере ниже доступ к OLE‑рамке объекта (внедрённый в слайд объект диаграммы Excel) и её файловым данным осуществляется программой.
+В примере ниже демонстрируется доступ к OLE‑кадру объекта (внедрённый объект диаграммы Excel) и его файловым данным.
 
 ```python
 import jpype
@@ -143,10 +143,10 @@ try:
     if isinstance(shape, OleObjectFrame):
         ole_frame = shape
 
-        # Получить данные встроенного файла.
+        # Получить данные внедрённого файла.
         file_data = ole_frame.getEmbeddedData().getEmbeddedFileData()
 
-        # Получить расширение встроенного файла.
+        # Получить расширение внедрённого файла.
         file_extension = ole_frame.getEmbeddedData().getEmbeddedFileExtension()
 
         # ...
@@ -154,11 +154,11 @@ finally:
     presentation.dispose()
 ```
 
-### **Доступ к свойствам связанной OLE‑рамки объекта**
+### **Доступ к свойствам связанных OLE‑кадров объектов**
 
-Aspose.Slides позволяет получать свойства связанной OLE‑рамки объекта.
+Aspose.Slides позволяет получать свойства связанных OLE‑кадров объектов.
 
-Этот код Python показывает, как проверить, связан ли OLE‑объект, и затем получить путь к связанному файлу:
+Этот Python‑код показывает, как проверить, связан ли OLE‑объект, и затем получить путь к связанному файлу:
 
 ```python
 import jpype
@@ -182,7 +182,7 @@ try:
             # Вывести полный путь к связанному файлу.
             print("OLE object frame is linked to: " + str(ole_frame.getLinkPathLong()))
 
-            # Вывести относительный путь к связанному файлу, если он присутствует.
+            # Вывести относительный путь к связанному файлу, если он есть.
             # Только презентации PPT могут содержать относительный путь.
             relative_path = ole_frame.getLinkPathRelative()
             if relative_path is not None and not relative_path.isEmpty():
@@ -199,19 +199,19 @@ finally:
 
 {{% /alert %}}
 
-Если OLE‑объект уже внедрён в слайд, вы можете легко получить к нему доступ и изменить его данные следующим образом:
+Если OLE‑объект уже внедрён в слайд, его можно легко получить и изменить его данные следующим образом:
 
-1. Загрузите презентацию с внедрённым OLE‑объектом, создав экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
+1. Загрузите презентацию с внедрённым OLE‑объектом, создав объект класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/).
 2. Получите ссылку на слайд по его индексу.
-3. Получите форму OLE‑рамки объекта.  
-   В нашем примере мы использовали ранее созданный PPTX, содержащий одну форму на первом слайде. Затем мы проверили, что объект является [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/). Это была требуемая OLE‑рамка объекта.
-4. После получения доступа к OLE‑рамке вы можете выполнить любую операцию с ней.
+3. Получите форму OLE‑кадра объекта.  
+   В нашем примере использовался ранее созданный PPTX, содержащий одну форму на первом слайде. Затем мы проверили, что объект является [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/). Это и был нужный OLE‑кадр объекта.
+4. После получения доступа к OLE‑кадру вы можете выполнять любые операции с ним.
 5. Создайте объект [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) и получите доступ к OLE‑данным.
 6. Получите нужный [Worksheet](https://reference.aspose.com/cells/python-java/asposecells.api/worksheet/) и измените данные.
 7. Сохраните обновлённый [Workbook](https://reference.aspose.com/cells/python-java/asposecells.api/workbook/) в поток.
-8. Замените данные OLE‑объекта из потока.
+8. Измените данные OLE‑объекта из потока.
 
-В примере ниже OLE‑рамка объекта (внедрённый в слайд объект диаграммы Excel) доступна, и её файловые данные изменяются для обновления данных диаграммы.
+В примере ниже OLE‑кадр объекта (внедрённый объект диаграммы Excel) доступен, и его файловые данные изменяются для обновления данных диаграммы.
 
 ```python
 import jpype
@@ -252,7 +252,7 @@ try:
         file_options = OoxmlSaveOptions(CellsSaveFormat.XLSX)
         workbook.save(new_ole_stream, file_options)
 
-        # Изменить данные объекта OLE‑рамки.
+        # Изменить данные объекта OLE‑кадра.
         new_file_data = new_ole_stream.toByteArray()
         new_data = OleEmbeddedDataInfo(new_file_data, ole_frame.getEmbeddedData().getEmbeddedFileExtension())
         ole_frame.setEmbeddedData(new_data)
@@ -264,9 +264,9 @@ finally:
 
 ## **Внедрение других типов файлов в слайды**
 
-Помимо диаграмм Excel, Aspose.Slides for Python via Java позволяет внедрять в слайды другие типы файлов. Например, можно вставлять HTML, PDF и ZIP‑файлы как объекты. При двойном щелчке пользователя по вставленному объекту он автоматически открывается в соответствующей программе, либо пользователю предлагается выбрать подходящее приложение.
+Помимо диаграмм Excel, Aspose.Slides for Python via Java позволяет внедрять в слайды и другие типы файлов. Например, можно вставлять HTML, PDF и ZIP‑файлы в виде объектов. При двойном щелчке пользователя вставленный объект автоматически открывается в соответствующей программе, либо пользователь получает запрос выбрать подходящую программу для открытия.
 
-Этот код Python демонстрирует, как внедрить HTML и ZIP в слайд:
+Этот Python‑код показывает, как внедрить HTML и ZIP в слайд:
 
 ```python
 from pathlib import Path
@@ -300,18 +300,18 @@ finally:
     presentation.dispose()
 ```
 
-## **Задание типа файлов для внедрённых объектов**
+## **Установка типов файлов для внедренных объектов**
 
-При работе с презентациями может потребоваться заменить старый OLE‑объект новым или заменить неподдерживаемый OLE‑объект поддерживаемым. Aspose.Slides for Python via Java позволяет задать тип файла для внедрённого объекта, что даёт возможность обновлять данные OLE‑рамки или её расширение.
+При работе с презентациями может потребоваться заменить старый OLE‑объект новым или заменить неподдерживаемый OLE‑объект поддерживаемым. Aspose.Slides for Python via Java позволяет задать тип файла для внедрённого объекта, что даёт возможность обновлять данные OLE‑кадра или его расширение.
 
-Этот код Python показывает, как установить тип файла для внедрённого OLE‑объекта в `zip`:
+Этот Python‑код показывает, как установить тип файла для внедрённого OLE‑объекта как `zip`:
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpime.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import OleEmbeddedDataInfo, Presentation, SaveFormat
 
@@ -334,11 +334,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Задание изображений‑значков и заголовков для внедрённых объектов**
+## **Установка изображений значков и заголовков для внедренных объектов**
 
-После внедрения OLE‑объекта автоматически добавляется предварительный просмотр в виде изображения‑значка. Этот просмотр видят пользователи до доступа к объекту. Если нужно использовать определённое изображение и текст в предварительном просмотре, вы можете задать изображение‑значок и заголовок с помощью Aspose.Slides for Python via Java.
+После внедрения OLE‑объекта автоматически добавляется предварительный просмотр в виде значка. Этот просмотр виден пользователям до доступа к объекту. Если требуется использовать определённое изображение и текст в качестве элементов предварительного просмотра, можно задать изображение значка и заголовок с помощью Aspose.Slides for Python via Java.
 
-Этот код Python показывает, как задать изображение‑значок и заголовок для внедрённого объекта:
+Этот Python‑код показывает, как задать изображение значка и заголовок для внедрённого объекта:
 
 ```python
 from pathlib import Path
@@ -361,7 +361,7 @@ try:
     image_data = jpype.JArray(jpype.JByte)(image_data)
     ole_image = presentation.getImages().addImage(image_data)
 
-    # Установить заголовок и изображение для превью OLE.
+    # Установить заголовок и изображение для предварительного просмотра OLE.
     ole_frame.setSubstitutePictureTitle("My title")
     ole_frame.getSubstitutePictureFormat().getPicture().setImage(ole_image)
     ole_frame.setObjectIcon(True)
@@ -371,9 +371,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Предотвращение изменения размера и перемещения OLE‑рамки объекта**
+## **Предотвращение изменения размеров и перемещения OLE‑кадра объектов**
 
-После добавления связанного OLE‑объекта на слайд презентации, при открытии презентации в PowerPoint может появиться сообщение с предложением обновить ссылки. Нажатие кнопки «Update Links» может изменить размер и положение OLE‑рамки, поскольку PowerPoint обновляет данные из связанного OLE‑объекта и обновляет превью. Чтобы PowerPoint не предлагал обновлять данные объекта, установите метод [setUpdateAutomatic](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) класса [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/) в `False`:
+После добавления связанного OLE‑объекта в слайд презентации, при открытии презентации в PowerPoint может появиться сообщение с запросом обновления ссылок. Нажатие кнопки «Update Links» может изменить размер и положение OLE‑кадра, так как PowerPoint обновляет данные из связанного OLE‑объекта и перестраивает предварительный просмотр. Чтобы предотвратить запрос PowerPoint об обновлении данных объекта, установите метод [setUpdateAutomatic](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/#setUpdateAutomatic) класса [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/) в значение `False`:
 
 ```python
 import jpype
@@ -396,15 +396,15 @@ finally:
     presentation.dispose()
 ```
 
-## **Извлечение внедрённых файлов**
+## **Извлечение внедренных файлов**
 
-Aspose.Slides for Python via Java позволяет извлекать файлы, внедрённые в слайды как OLE‑объекты, следующим образом:
+Aspose.Slides for Python via Java позволяет извлекать файлы, внедрённые в слайды в виде OLE‑объектов, следующим способом:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) — презентацию, содержащую OLE‑объекты, которые нужно извлечь.
+1. Создайте объект класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/), содержащий OLE‑объекты, которые нужно извлечь.
 2. Пройдитесь по всем формам в презентации и получите формы [OleObjectFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/oleobjectframe/).
-3. Получите данные внедрённых файлов из OLE‑рамок и запишите их на диск.
+3. Извлеките данные внедрённых файлов из OLE‑кадров и запишите их на диск.
 
-Этот код Python демонстрирует, как извлечь файлы, внедрённые в слайд как OLE‑объекты:
+Этот Python‑код показывает, как извлечь файлы, внедрённые в слайд в виде OLE‑объектов:
 
 ```python
 from pathlib import Path
@@ -438,18 +438,18 @@ finally:
 
 ## **FAQ**
 
-**Будут ли OLE‑содержимое отображаться при экспорте слайдов в PDF/изображения?**
+**Будет ли OLE‑содержание отображаться при экспорте слайдов в PDF/изображения?**
 
-Отображается то, что видно на слайде — значок/заменяющее изображение (превью). «Живое» OLE‑содержимое не исполняется во время рендеринга. При необходимости задайте собственное превью‑изображение, чтобы обеспечить ожидаемый вид в экспортированном PDF.
+Отображается то, что видно на слайде — значок/заменяющее изображение (превью). «Живое» OLE‑содержание не выполняется во время рендеринга. При необходимости задайте собственное изображение превью, чтобы гарантировать ожидаемый вид в экспортированном PDF.
 
 **Как заблокировать OLE‑объект на слайде, чтобы пользователи не могли перемещать/редактировать его в PowerPoint?**
 
-Заблокируйте форму: Aspose.Slides предоставляет [блокировки на уровне формы](/slides/ru/python-java/applying-protection-to-presentation/). Это не шифрование, но эффективно предотвращает случайные изменения и перемещения.
+Заблокируйте форму: Aspose.Slides предоставляет [блокировки на уровне формы](/slides/ru/python-java/applying-protection-to-presentation/). Это не шифрование, но эффективно предотвращает случайные изменения и перемещение.
 
 **Почему связанный объект Excel «перепрыгивает» или меняет размер при открытии презентации?**
 
-PowerPoint может обновлять превью связанного OLE. Чтобы обеспечить стабильный внешний вид, следуйте рекомендациям из [Working Solution for Worksheet Resizing](/slides/ru/python-java/working-solution-for-worksheet-resizing/) — либо подгоните рамку под диапазон, либо масштабируйте диапазон до фиксированной рамки и задайте соответствующее заменяющее изображение.
+PowerPoint может обновлять превью связанного OLE. Для стабильного отображения следуйте рекомендациям из [Working Solution for Worksheet Resizing](/slides/ru/python-java/working-solution-for-worksheet-resizing/) — либо подгоните кадр под диапазон, либо масштабируйте диапазон до фиксированного кадра и задайте подходящее заменяющее изображение.
 
-**Сохраняются ли относительные пути для связанных OLE‑объектов в формате PPTX?**
+**Сохранятся ли относительные пути для связанных OLE‑объектов в формате PPTX?**
 
-В PPTX информация о «относительном пути» недоступна — сохраняется только полный путь. Относительные пути присутствуют в старом формате PPT. Для переносимости предпочтительнее использовать надёжные абсолютные пути/доступные URI или внедрение.
+В PPTX информация о «относительном пути» недоступна — сохраняется только полный путь. Относительные пути встречаются в более старом формате PPT. Для переносимости предпочтительнее использовать надёжные абсолютные пути/доступные URI или внедрение.
