@@ -26,10 +26,10 @@ This article explains how to work with audio frames in Aspose.Slides. It shows h
 Aspose.Slides for Python via Java allows you to add audio files to slides. The audio files are embedded in slides as audio frames. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-2. Get a slide's reference through its index.
+2. Get a reference to a slide by its index.
 3. Read the audio file you want to embed in the slide.
 4. Add the embedded audio frame (containing the audio file) to the slide.
-5. Set [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) and [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) exposed by the [AudioFrame](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/) object.
+5. Use [setPlayMode](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setPlayMode) and [setVolume](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolume) exposed by the [AudioFrame](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/) object.
 6. Save the modified presentation.
 
 This Python code shows you how to add an embedded audio frame to a slide:
@@ -62,7 +62,7 @@ finally:
 
 ## **Change the Audio Frame Thumbnail**
 
-When you add an audio file to a presentation, the audio appears as a frame with a standard default image (see the image in the section below). You change the audio frame's preview image (set your preferred image).
+When you add an audio file to a presentation, the audio appears as a frame with a standard default image (see the image in the section below). You can change the audio frame's preview image to an image of your choice.
 
 This Python code shows you how to change an audio frame's thumbnail or preview image:
 
@@ -99,7 +99,7 @@ finally:
 
 ## **Change Audio Play Options**
 
-Aspose.Slides for Python via Java allows you to change options that control an audio's playback or properties. For example, you can adjust an audio's volume, set the audio to play looped, or even hide the audio icon.
+Aspose.Slides for Python via Java allows you to change options that control audio playback or properties. For example, you can adjust the audio volume, set the audio to loop, or even hide the audio icon.
 
 The **Audio Options** pane in Microsoft PowerPoint:
 
@@ -119,17 +119,17 @@ PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](htt
 - **Fade In** matches the [setFadeInDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeInDuration) method 
 - **Fade Out** matches the [setFadeOutDuration](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setFadeOutDuration) method 
 - **Trim Audio Start Time** matches the [setTrimFromStart](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromStart) method 
-- **Trim Audio End Time** value equals the audio duration minus the value of [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) method
+- **Trim Audio End Time** value equals the audio duration minus the value set by the [setTrimFromEnd](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setTrimFromEnd) method
 
 The PowerPoint **Volume control** on the audio control panel corresponds to the [setVolumeValue](https://reference.aspose.com/slides/python-java/aspose.slides/audioframe/#setVolumeValue) method. It lets you change the audio volume as a percentage.
 
 This is how you change the Audio Play options:
 
-1. [Сreate](#create-audio-frames) or get the Audio Frame.
-2. Set new values for the Audio Frame properties you want to adjust.
+1. [Create](#create-audio-frames) or get the audio frame.
+2. Set new values for the audio frame properties you want to adjust.
 3. Save the modified PowerPoint file.
 
-This Python code demonstrates an operation in which an audio's options are adjusted:
+This Python code demonstrates an operation in which audio options are adjusted:
 
 ```python
 import jpype
@@ -309,9 +309,9 @@ finally:
 Aspose.Slides for Python via Java allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class and load the presentation containing the audio.
-2. Get the relevant slide's reference through its index.
+2. Get a reference to the relevant slide by its index.
 3. Access the [slideshow transitions](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideShowTransition) for the slide.
-4. Extract the sound in byte data.
+4. Extract the sound as byte data.
 
 This code in Python shows you how to extract the audio used in a slide:
 

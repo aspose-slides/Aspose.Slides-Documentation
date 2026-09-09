@@ -32,7 +32,7 @@ Loading behavior can be customized through the [LoadOptions](https://reference.a
 
 ## **Open Presentations**
 
-To open an existing presentation, pass its file path to the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) constructor. Dispose the presentation after use so that file handles, temporary data, and other resources are released promptly.
+To open an existing presentation, pass its file path to the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) constructor. Dispose of the presentation after use so that file handles, temporary data, and other resources are released promptly.
 
 The following Python example shows how to open a presentation and get its slide count:
 
@@ -109,7 +109,7 @@ finally:
 
 {{% alert color="info" title="Note" %}}
 
-With [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), the source file remains locked until the presentation instance is disposed. Do not move, overwrite, or delete the source file while that instance is alive.
+With [PresentationLockingBehavior.KeepLocked](https://reference.aspose.com/slides/python-java/aspose.slides/presentationlockingbehavior/#KeepLocked), the source file remains locked until the presentation instance is disposed of. Do not move, overwrite, or delete the source file while that instance is alive.
 
 Aspose.Slides may copy the contents of an input stream while loading it. For large presentations, a file path is therefore generally more efficient than a stream. See [Manage BLOBs](/slides/python-java/manage-blob/) for additional storage and memory-management options.
 

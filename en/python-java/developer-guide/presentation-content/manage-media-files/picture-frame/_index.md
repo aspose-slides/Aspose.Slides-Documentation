@@ -191,7 +191,7 @@ Saving the raster image converts the extracted image to the requested output for
 
 ### **Extract an SVG Image**
 
-For an SVG picture, the [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) exposes a [SvgImage](https://reference.aspose.com/slides/python-java/aspose.slides/svgimage/) object. This lets you retrieve the SVG data directly instead of rasterizing the picture first.
+For an SVG picture, the [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) exposes an [SvgImage](https://reference.aspose.com/slides/python-java/aspose.slides/svgimage/) object. This lets you retrieve the SVG data directly instead of rasterizing the picture first.
 
 ```python
 import jpype

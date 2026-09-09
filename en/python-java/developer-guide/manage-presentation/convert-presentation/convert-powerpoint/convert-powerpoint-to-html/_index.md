@@ -65,7 +65,7 @@ finally:
 
 Each example loads `presentation.pptx` from the current working directory. Install Aspose.Slides for Python via Java and a compatible Java runtime before running it. The JVM is started once per Python process.
 
-This example writes one HTML file. The presentation object is disposed in the `finally` block, which releases file handles and rendering resources after export.
+This example writes one HTML file. The presentation object is disposed of in the `finally` block, which releases file handles and rendering resources after export.
 
 ## **Configure HTML Export**
 
@@ -354,7 +354,7 @@ HTML conversion is a rendering operation, so processing time and memory use depe
 
 For batch conversion:
 
-- Dispose every [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) instance promptly.
+- Dispose of every [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) instance promptly.
 - Use separate output directories for separate jobs.
 - Avoid embedding common fonts unless fidelity requires it.
 - Lower image DPI when the HTML is for preview or thumbnails.
@@ -372,7 +372,7 @@ Yes, but do not share one [Presentation](https://reference.aspose.com/slides/pyt
 
 **Is a presentation object thread-safe?**
 
-No. A single [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) instance should be loaded, modified, saved, and disposed on one thread. For parallel work, create an independent instance per thread or process.
+No. A single [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) instance should be loaded, modified, saved, and disposed of on one thread. For parallel work, create an independent instance per thread or process.
 
 **Why is the generated HTML file large?**
 

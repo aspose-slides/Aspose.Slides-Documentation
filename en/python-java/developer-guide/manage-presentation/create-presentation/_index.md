@@ -28,7 +28,7 @@ This article shows how to create a presentation with Aspose.Slides for Python vi
 
 ## **Create a Presentation**
 
-Creating a PowerPoint file from scratch in Aspose.Slides for Python via Java is as direct as instantiating the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class. The constructor automatically supplies a blank deck with a single slide, giving you an immediate canvas for shapes, text, charts, or any other content your application needs. Once you modify that slide—or add new ones—you can persist the result to PPTX, legacy PPT, or even OpenDocument formats. The short code sample below illustrates this workflow by adding a simple shape onto the first slide.
+Creating a PowerPoint file from scratch in Aspose.Slides for Python via Java is as straightforward as instantiating the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class. The constructor automatically supplies a blank deck with a single slide, giving you an immediate canvas for shapes, text, charts, or any other content your application needs. Once you modify that slide—or add new ones—you can persist the result to PPTX, legacy PPT, or even OpenDocument formats. The short code sample below illustrates this workflow by adding a simple shape onto the first slide.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
 1. Get the first slide by its index.

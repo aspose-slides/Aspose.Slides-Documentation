@@ -39,23 +39,23 @@ OLE (Object Linking & Embedding) is a Microsoft technology that allows data and 
 
 Consider a chart created in MS Excel. The chart is then placed inside a PowerPoint slide. That Excel chart is considered an OLE object.
 
-- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing.
-- An OLE object may display its actual contents, such as the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint.
+- An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for opening or editing the object.
+- An OLE object may display its actual contents, such as the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within PowerPoint.
 
-[Aspose.Slides for Python via Java](https://products.aspose.com/slides/python-java/) allows you to insert OLE Objects into slides as OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/)).
+[Aspose.Slides for Python via Java](https://products.aspose.com/slides/python-java/) allows you to insert OLE objects into slides as OLE object frames ([OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/)).
 
 ## **Add OLE Object Frames to Slides**
 
 Assuming you have already created a chart in Microsoft Excel and want to embed it in a slide as an OLE object frame using Aspose.Slides for Python via Java, you can do it this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a slide's reference through its index.
+1. Get a reference to a slide by its index.
 1. Read the Excel file as a byte array.
 1. Add the [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) to the slide containing the byte array and other information about the OLE object.
 1. Write the modified presentation as a PPTX file.
 
 In the example below, we added a chart from an Excel file to a slide as an OLE object frame using Aspose.Slides for Python via Java.
-**Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
+**Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/python-java/aspose.slides/oleembeddeddatainfo/) constructor takes an embeddable object extension as its second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```python
 from pathlib import Path
@@ -90,7 +90,7 @@ finally:
 
 ### **Add Linked OLE Object Frames**
 
-Aspose.Slides for Python via Java allows you to add an [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) without embedding data but only with a link to the file.
+Aspose.Slides for Python via Java allows you to add an [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) with a link to the file instead of embedded data.
 
 This Python code shows you how to add an [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) with a linked Excel file to a slide:
 
@@ -120,7 +120,7 @@ finally:
 If an OLE object is already embedded in a slide, you can easily find or access it this way:
 
 1. Load a presentation with the embedded OLE object by creating an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-2. Get the reference of the slide by using its index.
+2. Get a reference to the slide by its index.
 3. Access the [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/) shape.
    In our example, we used the previously created PPTX that has only one shape on the first slide.  We then checked that the object was an [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/). This was the desired OLE object frame to be accessed.
 4. Once the OLE object frame is accessed, you can perform any operation on it.
@@ -203,7 +203,7 @@ In this section, the code example below uses [Aspose.Cells for Python via Java](
 If an OLE object is already embedded in a slide, you can easily access that object and modify its data this way:
 
 1. Load a presentation with the embedded OLE object by creating an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-2. Get the slide's reference through its index.
+2. Get a reference to the slide by its index.
 3. Access the OLE object frame shape.
    In our example, we used the previously created PPTX that has one shape on the first slide. We then checked that the object was an [OleObjectFrame](https://reference.aspose.com/slides/python-java/aspose.slides/oleobjectframe/). This was the desired OLE object frame to be accessed.
 4. Once the OLE object frame is accessed, you can perform any operation on it.
@@ -337,7 +337,7 @@ finally:
 
 ## **Set Icon Images and Titles for Embedded Objects**
 
-After embedding an OLE object, a preview consisting of an icon image is added automatically. This preview is what users see before accessing or opening the OLE object. If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for Python via Java.
+After an OLE object is embedded, a preview consisting of an icon image is added automatically. This preview is what users see before accessing or opening the OLE object. If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for Python via Java.
 
 This Python code shows you how to set the icon image and title for an embedded object:
 

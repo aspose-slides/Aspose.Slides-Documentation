@@ -86,7 +86,7 @@ finally:
 
 ## **Select Slides to Show**
 
-[SlideShowSettings.setSlides](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowsettings/#setSlides) method allows you to select a range of slides to be shown during the presentation. This is useful when you need to show only part of the presentation rather than all slides. The following code example creates a presentation with nine slides and selects slides 2 through 9. The range uses one-based slide numbers.
+The [SlideShowSettings.setSlides](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowsettings/#setSlides) method allows you to select a range of slides to be shown during the presentation. This is useful when you need to show only part of the presentation rather than all slides. The following code example creates a presentation with nine slides and selects slides 2 through 9. The range uses one-based slide numbers.
 
 ```python
 import jpype
@@ -116,7 +116,7 @@ finally:
 
 ## **Control Slide Advancement**
 
-[SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowsettings/#setUseTimings) method allows you to enable or disable the use of preset timings for each slide. This is useful for automatically showing slides with pre-defined display durations. The code example below creates a new presentation and disables the use of timings.
+The [SlideShowSettings.setUseTimings](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowsettings/#setUseTimings) method allows you to enable or disable the use of preset timings for each slide. This is useful for automatically showing slides with pre-defined display durations. The code example below creates a new presentation and disables the use of timings.
 
 ```python
 import jpype
@@ -138,7 +138,7 @@ finally:
 
 ## **Show Media Controls**
 
-[SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) method determines whether media controls (such as play, pause, and stop) should be displayed during the slide show when multimedia content (e.g., video or audio) is played. This is useful when you want to give the presenter control over media playback during the presentation.
+The [SlideShowSettings.setShowMediaControls](https://reference.aspose.com/slides/python-java/aspose.slides/slideshowsettings/#setShowMediaControls) method determines whether media controls (such as play, pause, and stop) should be displayed during the slide show when multimedia content (e.g., video or audio) is played. This is useful when you want to give the presenter control over media playback during the presentation.
 
 The following code example creates a new presentation and enables media controls to be displayed.
 
@@ -164,7 +164,7 @@ finally:
 
 **Can I save a presentation so it opens directly in slide show mode?**
 
-Yes. Save the file as PPSX or PPSM; these formats launch directly in slide show when opened in PowerPoint. In Aspose.Slides, choose the corresponding save format [during export](/slides/python-java/save-presentation/).
+Yes. Save the file as PPSX or PPSM; these formats launch directly in slide show mode when opened in PowerPoint. In Aspose.Slides, choose the corresponding save format [during export](/slides/python-java/save-presentation/).
 
 **Can I exclude individual slides from the show without deleting them from the file?**
 

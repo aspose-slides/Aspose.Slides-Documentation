@@ -4,13 +4,21 @@
 
 Content paths are `<language>/<platform>/<article-path>/_index.md`. Supported language folders are
 `ar cs de el en es fa fr hi hu id it ja ko nl pl pt ru sv th tr vi zh zh-hant`. English is the
-source of truth. Front-matter `url:` values are product-relative and omit the `/slides` product
-prefix; published documentation links prepend `/slides` to that value. For example, a page with
-`url: /java/slide-section/` is linked as `/slides/java/slide-section/`.
+source of truth. Front-matter `url:` omits the product prefix; published links use `/slides<url>`.
+For example, `/java/slide-section/` becomes `/slides/java/slide-section/`.
 
 - Create new pages as branch bundles named `<page-path>/_index.md`.
 - Keep code fences and Hugo shortcodes balanced. A malformed article can stop the site build for
   every language and product family.
+
+## English language review
+
+For every platform, when creating, adapting, editing, or reviewing an English article, check and
+correct grammar, spelling, punctuation, and clearly unnatural phrasing within the requested article.
+Preserve the original meaning, technical claims, and structure. Do not add new information,
+recommendations, or examples as part of language correction. An instruction such as "do not add
+anything of your own" does not prohibit these language corrections; an explicit request to preserve
+wording verbatim does.
 
 ## Front matter
 

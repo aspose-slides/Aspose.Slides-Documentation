@@ -52,9 +52,9 @@ finally:
 
 ## **Get Animation Effects of Paragraphs**
 
-You may decide to find out the animation effects added to a paragraph—for example, in one scenario, you want to get the animation effects in a paragraph because you plan to apply those effects to another paragraph or shape.
+You may want to retrieve the animation effects applied to a paragraph—for example, to apply those effects to another paragraph or shape.
 
-Aspose.Slides for Python via Java allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
+Aspose.Slides for Python via Java allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects applied to a paragraph:
 
 ```python
 import jpype
@@ -81,14 +81,14 @@ finally:
 
 ## **FAQ**
 
-**How do text animations differ from slide transitions, and can they be combined?**
+**How do text animations differ from slide transitions, and can they be combined?**
 
 Text animations control object behavior over time on a slide, while [transitions](/slides/python-java/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
 
-**Are text animations preserved when exporting to PDF or images?**
+**Are text animations preserved when exporting to PDF or images?**
 
 No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [video](/slides/python-java/convert-powerpoint-to-video/) or [HTML](/slides/python-java/export-to-html5/) export.
 
-**Do text animations work in layouts and the slide master?**
+**Do text animations work in layouts and the slide master?**
 
 Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

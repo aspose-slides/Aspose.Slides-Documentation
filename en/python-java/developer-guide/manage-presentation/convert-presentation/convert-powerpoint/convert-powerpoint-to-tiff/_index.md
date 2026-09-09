@@ -95,7 +95,7 @@ The result:
 
 ![Black-and-White TIFF](TIFF_black_and_white.png)
 
-## **Convert a Presentation to TIFF with Custom Size**
+## **Convert a Presentation to TIFF with a Custom Size**
 
 If you require a TIFF image with specific dimensions, you can set your desired values using methods available in [TiffOptions](https://reference.aspose.com/slides/python-java/aspose.slides/tiffoptions/). For instance, the [setImageSize](https://reference.aspose.com/slides/python-java/aspose.slides/tiffoptions/#setImageSize) method allows you to define the size of the resulting image.
 
@@ -134,7 +134,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Convert a Presentation to TIFF with Custom Image Pixel Format**
+## **Convert a Presentation to TIFF with a Custom Image Pixel Format**
 
 Using the [setPixelFormat](https://reference.aspose.com/slides/python-java/aspose.slides/tiffoptions/#setPixelFormat) method from the [TiffOptions](https://reference.aspose.com/slides/python-java/aspose.slides/tiffoptions/) class, you can specify your preferred pixel format for the resulting TIFF image.
 
@@ -167,7 +167,7 @@ Check out Aspose's [FREE PowerPoint to Poster converter](https://products.aspose
 
 ## **FAQ**
 
-**Can I convert an individual slide instead of entire PowerPoint presentation to TIFF?**
+**Can I convert an individual slide instead of an entire PowerPoint presentation to TIFF?**
 
 Yes. Aspose.Slides allows you to convert individual slides from PowerPoint and OpenDocument presentations into TIFF images separately.
 

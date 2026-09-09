@@ -340,7 +340,7 @@ Opening an encrypted source does not automatically apply the same protection to 
 
 Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#getBlobManagementOptions) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](/slides/python-java/manage-blob/) for large-file strategies.
 
-For large files, prefer loading from file paths when possible, dispose each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints.
+For large files, prefer loading from file paths when possible, dispose of each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints.
 
 ### **Thread Safety**
 
@@ -390,7 +390,7 @@ Open it with the correct [LoadOptions.setPassword](https://reference.aspose.com/
 
 **How should I handle very large presentations?**
 
-Use BLOB management when large binary objects dominate memory usage, prefer file-path loading for very large files, dispose source presentations promptly, and save the final result only when needed.
+Use BLOB management when large binary objects dominate memory usage, prefer file-path loading for very large files, dispose of source presentations promptly, and save the final result only when needed.
 
 **Can I merge slides from multiple threads?**
 

@@ -29,7 +29,7 @@ description: "Convert PowerPoint PPT/PPTX to high-quality, searchable PDFs in Py
 
 ## **Overview**
 
-Converting PowerPoint presentations (PPT, PPTX, ODP, etc.) into PDF format in Python via Java offers several advantages, including compatibility across different devices and preserving the layout and formatting of your presentation. This guide demonstrates how to convert presentations to PDF documents, use various options to control image quality, include hidden slides, password-protect PDF files, detect font substitutions, select specific slides for conversion, and apply compliance standards to output documents.
+Converting PowerPoint presentations (PPT, PPTX, ODP, etc.) into PDF format in Python via Java offers several advantages, including compatibility across different devices and preservation of your presentation's layout and formatting. This guide demonstrates how to convert presentations to PDF documents, use various options to control image quality, include hidden slides, password-protect PDF files, detect font substitutions, select specific slides for conversion, and apply compliance standards to output documents.
 
 ## **PowerPoint to PDF Conversions**
 
@@ -43,7 +43,7 @@ To convert a presentation to PDF, pass the file name as an argument to the [Pres
 
 {{% alert color="info" title="Note" %}}
 
-Aspose.Slides for Python via Java inserts its API information and version number into output documents. For example, when converting a presentation to PDF, Aspose.Slides populates the Application field with "*Aspose.Slides*" and the PDF Producer field with a value in "*Aspose.Slides v XX.XX*" form. **Note** that you cannot instruct Aspose.Slides to change or remove this information from output documents.
+Aspose.Slides for Python via Java inserts its API information and version number into output documents. For example, when converting a presentation to PDF, Aspose.Slides populates the Application field with "*Aspose.Slides*" and the PDF Producer field with a value in the form "*Aspose.Slides v XX.XX*". **Note** that you cannot instruct Aspose.Slides to change or remove this information from output documents.
 
 {{% /alert %}}
 
@@ -149,7 +149,7 @@ finally:
     presentation.dispose()
 ```
 
-### **Convert PowerPoint to Password Protected PDF**
+### **Convert PowerPoint to a Password-Protected PDF**
 
 This code demonstrates how to convert a PowerPoint presentation into a password-protected PDF using the protection parameters from the [PdfOptions](https://reference.aspose.com/slides/python-java/aspose.slides/pdfoptions/) class:
 
@@ -209,7 +209,7 @@ finally:
 
 {{% alert color="info" title="Note" %}}
 
-For more information on receiving callbacks for font substitutions during the rendering process, see [Getting Warning Callbacks for Fonts Substitution](/slides/python-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+For more information on receiving callbacks for font substitutions during the rendering process, see [Getting Warning Callbacks for Font Substitution](/slides/python-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
 For more information on font substitution, see the [Font Substitution](/slides/python-java/font-substitution/) article.
 

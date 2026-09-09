@@ -186,7 +186,7 @@ The "output.html" document is shown in the image below.
 
 Yes, HTML5 provides separate options to enable or disable [shape animations](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateShapes) and [slide transitions](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setAnimateTransitions).
 
-**Is the output of comments supported, and where can they be placed relative to the slide?**
+**Can comments be exported, and where can they be placed relative to the slide?**
 
 Yes, comments can be added in HTML5 and positioned (for example, to the right of the slide) through [layout settings](https://reference.aspose.com/slides/python-java/aspose.slides/html5options/#setSlidesLayoutOptions) for notes and comments.
 

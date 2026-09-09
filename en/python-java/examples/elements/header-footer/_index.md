@@ -1,5 +1,5 @@
 ---
-title: Header Footer
+title: Header and Footer
 type: docs
 weight: 220
 url: /python-java/examples/elements/header-footer/

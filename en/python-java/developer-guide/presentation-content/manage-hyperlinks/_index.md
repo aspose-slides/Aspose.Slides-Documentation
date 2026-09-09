@@ -28,16 +28,16 @@ description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument pres
 
 ## **Introduction**
 
-A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:
+A hyperlink is a reference to an object, data, or a location. Common hyperlinks in PowerPoint presentations include:
 
-* Links to websites inside texts, shapes, or media
+* Links to websites in text, shapes, or media
 * Links to slides
 
 Aspose.Slides for Python via Java allows you to perform many tasks involving hyperlinks in presentations. 
 
 {{% alert color="info" title="Note" %}} 
 
-You may want to check out Aspose simple, [free online PowerPoint editor.](https://products.aspose.app/slides/editor)
+You may want to check out Aspose's simple, [free online PowerPoint editor.](https://products.aspose.app/slides/editor)
 
 {{% /alert %}} 
 
@@ -45,7 +45,7 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 ### **Add URL Hyperlinks to Text**
 
-This Python code shows you how to add a website hyperlink to a text:
+This Python code shows you how to add a website hyperlink to text:
 
 ```python
 import jpype
@@ -242,7 +242,7 @@ finally:
 
 With the [Hyperlink.setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) property in the [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) class, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
 
-This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
+This sample code demonstrates an operation where hyperlinks with different colors are added to the same slide:
 
 ```python
 import jpype
@@ -278,7 +278,7 @@ finally:
 
 ### **Remove Hyperlinks from Text**
 
-This Python code shows you how to remove the hyperlink from a text in a presentation slide:
+This Python code shows you how to remove the hyperlink from text on a presentation slide:
 
 ```python
 import jpype
@@ -307,7 +307,7 @@ finally:
 
 ### **Remove Hyperlinks from Shapes or Frames**
 
-This Python code shows you how to remove the hyperlink from a shape in a presentation slide: 
+This Python code shows you how to remove the hyperlink from a shape on a presentation slide:
 
 ```python
 import jpype

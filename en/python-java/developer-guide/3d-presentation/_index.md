@@ -173,7 +173,7 @@ Use the depth setting when you need to work with PowerPoint's depth value direct
 
 ## **Use Gradient or Picture Fills with 3D Effects**
 
-3D formatting is independent from the shape fill. You can apply a solid color, gradient, pattern, or picture fill to the front face and still use the same camera, light, material, and extrusion settings.
+3D formatting is independent of the shape fill. You can apply a solid color, gradient, pattern, or picture fill to the front face and still use the same camera, light, material, and extrusion settings.
 
 This example applies a gradient fill to the shape and a darker extrusion color to the sides:
 

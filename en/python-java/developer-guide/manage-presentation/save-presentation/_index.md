@@ -299,7 +299,7 @@ Disabling thumbnail refresh can reduce the time required to save a PPTX file.
 
 {{% /alert %}}
 
-## **Save Progress Updates in Percentage**
+## **Report Save Progress as a Percentage**
 
 To monitor a save operation, register a Python progress handler through `jpype.JProxy` and pass it to the [SaveOptions.setProgressCallback](https://reference.aspose.com/slides/python-java/aspose.slides/saveoptions/#setProgressCallback) method. Aspose.Slides then calls the handler's `reporting` method with progress values during the export.
 
