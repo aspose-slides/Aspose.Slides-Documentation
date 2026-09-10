@@ -1,0 +1,234 @@
+---
+title: مدیریت برچسب‌های دادهٔ نمودار در ارائه‌ها با استفاده از پایتون
+linktitle: برچسب داده
+type: docs
+url: /fa/python-java/chart-data-label/
+keywords:
+- نمودار
+- برچسب داده
+- دقت داده
+- درصد
+- فاصله برچسب
+- موقعیت برچسب
+- PowerPoint
+- ارائه
+- Python
+- Java
+- Aspose.Slides
+description: "یاد بگیرید چگونه در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای پایتون از طریق جاوا، برچسب‌های دادهٔ نمودار را اضافه و قالب‌بندی کنید تا اسلایدهای جذاب‌تری داشته باشید."
+---
+## **معرفی**
+
+برچسب‌های داده در یک نمودار جزئیات مربوط به سری‌های دادهٔ نمودار یا نقاط دادهٔ جداگانه را نمایش می‌دهند. این برچسب‌ها به خوانندگان امکان می‌دهند سری‌های داده را به‌سرعت شناسایی کنند و همچنین نمودارها را راحت‌تر درک کنند.
+
+## **تنظیم دقت داده در برچسب‌های دادهٔ نمودار**
+
+این کد پایتون نشان می‌دهد چگونه دقت داده را در یک برچسب دادهٔ نمودار تنظیم کنید:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 50, 50, 450, 300)
+    chart.setDataTable(True)
+    chart.getChartData().getSeries().get_Item(0).setNumberFormatOfValues("#,##0.00")
+
+    presentation.save("output.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **نمایش درصد به عنوان برچسب‌ها**
+Aspose.Slides برای پایتون از طریق جاوا به شما امکان می‌دهد برچسب‌های درصدی را روی نمودارهای نمایش داده شده تنظیم کنید. این کد پایتون عملیات را نمایش می‌دهد:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Portion, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 400, 400)
+    chart_series = chart.getChartData().getSeries()
+    category_totals = [0.0] * chart.getChartData().getCategories().size()
+    for category_index in range(len(category_totals)):
+        for series_index in range(chart_series.size()):
+            data_point = chart_series.get_Item(series_index).getDataPoints().get_Item(category_index)
+            category_totals[category_index] += float(data_point.getValue().getData())
+
+    for series_index in range(chart_series.size()):
+        series = chart_series.get_Item(series_index)
+        series.getLabels().getDefaultDataLabelFormat().setShowLegendKey(False)
+
+        for point_index in range(series.getDataPoints().size()):
+            data_point = series.getDataPoints().get_Item(point_index)
+            label = data_point.getLabel()
+            if category_totals[point_index] == 0:
+                print(f"Cannot calculate a percentage for category {point_index}: the total is zero.")
+                continue
+            point_percentage = float(data_point.getValue().getData()) / category_totals[point_index] * 100
+
+            portion = Portion()
+            portion.setText(f"{point_percentage:.2f} %")
+            portion.getPortionFormat().setFontHeight(8)
+            label.getTextFrameForOverriding().setText("")
+            paragraph = label.getTextFrameForOverriding().getParagraphs().get_Item(0)
+            paragraph.getPortions().add(portion)
+
+            label_format = label.getDataLabelFormat()
+            label_format.setShowSeriesName(False)
+            label_format.setShowPercentage(False)
+            label_format.setShowLegendKey(False)
+            label_format.setShowCategoryName(False)
+            label_format.setShowBubbleSize(False)
+
+    presentation.save("output.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **تنظیم علامت درصد در برچسب‌های دادهٔ نمودار**
+این کد پایتون نشان می‌دهد چگونه علامت درصد را برای یک برچسب دادهٔ نمودار تنظیم کنید:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, FillType, Presentation, SaveFormat
+
+Color = jpype.JClass("java.awt.Color")
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.PercentsStackedColumn, 20, 20, 500, 400)
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
+    chart.getAxes().getVerticalAxis().setNumberFormat("0.00%")
+    chart.getChartData().getSeries().clear()
+    worksheet_index = 0
+    workbook = chart.getChartData().getChartDataWorkbook()
+
+    # اضافه کردن سری قرمز.
+    series_cell = workbook.getCell(worksheet_index, 0, 1, "Reds")
+    red_series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+    for row_index, value in enumerate([0.30, 0.50, 0.80, 0.65], start=1):
+        data_cell = workbook.getCell(worksheet_index, row_index, 1, jpype.JDouble(value))
+        red_series.getDataPoints().addDataPointForBarSeries(data_cell)
+
+    red_series.getFormat().getFill().setFillType(FillType.Solid)
+    red_series.getFormat().getFill().getSolidFillColor().setColor(Color.RED)
+    red_label_format = red_series.getLabels().getDefaultDataLabelFormat()
+    red_label_format.setShowValue(True)
+    red_label_format.setNumberFormatLinkedToSource(False)
+    red_label_format.setNumberFormat("0.0%")
+    red_portion_format = red_label_format.getTextFormat().getPortionFormat()
+    red_portion_format.setFontHeight(10)
+    red_portion_format.getFillFormat().setFillType(FillType.Solid)
+    red_portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
+
+    # اضافه کردن سری آبی.
+    series_cell = workbook.getCell(worksheet_index, 0, 2, "Blues")
+    blue_series = chart.getChartData().getSeries().add(series_cell, chart.getType())
+    for row_index, value in enumerate([0.70, 0.50, 0.20, 0.35], start=1):
+        data_cell = workbook.getCell(worksheet_index, row_index, 2, jpype.JDouble(value))
+        blue_series.getDataPoints().addDataPointForBarSeries(data_cell)
+
+    blue_series.getFormat().getFill().setFillType(FillType.Solid)
+    blue_series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE)
+    blue_label_format = blue_series.getLabels().getDefaultDataLabelFormat()
+    blue_label_format.setShowValue(True)
+    blue_label_format.setNumberFormatLinkedToSource(False)
+    blue_label_format.setNumberFormat("0.0%")
+    blue_portion_format = blue_label_format.getTextFormat().getPortionFormat()
+    blue_portion_format.setFontHeight(10)
+    blue_portion_format.getFillFormat().setFillType(FillType.Solid)
+    blue_portion_format.getFillFormat().getSolidFillColor().setColor(Color.WHITE)
+
+    presentation.save("SetDataLabelsPercentageSign_out.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **تنظیم فاصلهٔ برچسب از محور**
+این کد پایتون نشان می‌دهد چگونه فاصلهٔ برچسب را از محور دسته‌بندی هنگام کار با نموداری که از محور‌ها ترسیم شده است تنظیم کنید:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 300)
+    chart.getAxes().getHorizontalAxis().setLabelOffset(500)
+
+    presentation.save("output.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **تنظیم مکان برچسب**
+
+هنگامی که یک نمودار که به هیچ محوری وابسته نیست ایجاد می‌کنید، مانند نمودار کیک، ممکن است برچسب‌های دادهٔ نمودار بسیار نزدیک به لبهٔ آن شوند. در چنین شرایطی باید مکان برچسب داده را تنظیم کنید تا خطوط راهنما به‌وضوح نمایش داده شوند.
+
+این کد پایتون نشان می‌دهد چگونه مکان برچسب را در یک نمودار کیک تنظیم کنید:
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ChartType, LegendDataLabelPosition, Presentation, SaveFormat
+
+presentation = Presentation()
+try:
+    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 200, 200)
+    series = chart.getChartData().getSeries()
+    label = series.get_Item(0).getLabels().get_Item(0)
+    label.getDataLabelFormat().setShowValue(True)
+    label.getDataLabelFormat().setPosition(LegendDataLabelPosition.OutsideEnd)
+    label.setX(0.71)
+    label.setY(0.04)
+
+    presentation.save("pres.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+![pie-chart-adjusted-label](pie-chart-adjusted-label.png)
+
+## **سوالات متداول**
+
+**چگونه می‌توانم از هم‌پوشانی برچسب‌های داده در نمودارهای شلوغ جلوگیری کنم؟**
+
+از مکان‌یابی خودکار برچسب‌ها، خطوط راهنما و کاهش اندازهٔ قلم استفاده کنید؛ در صورت نیاز برخی فیلدها (مثلاً دسته) را مخفی کنید یا برچسب‌ها را تنها برای نقاط بحرانی/کلید نشان دهید.
+
+**چگونه می‌توانم برچسب‌ها را فقط برای مقادیر صفر، منفی یا خالی غیرفعال کنم؟**
+
+نقاط داده را قبل از فعال‌سازی برچسب‌ها فیلتر کنید و نمایش مقادیر صفر، مقادیر منفی یا مقادیر گمشده را بر اساس یک قانون تعریف‌شده خاموش کنید.
+
+**چگونه می‌توانم اطمینان حاصل کنم که سبک برچسب‌ها هنگام خروجی به PDF/تصاویر ثابت باشد؟**
+
+قلم‌ها (نام خانوادگی، اندازه) را به‌صورت صریح تنظیم کنید و اطمینان حاصل کنید که قلم بر روی سمت رندرینگ موجود باشد تا از استفاده از قلم پیش‌فرض جلوگیری شود.

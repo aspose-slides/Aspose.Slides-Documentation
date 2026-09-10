@@ -10,8 +10,8 @@ keywords:
 - edit diagram
 - ubah diagram
 - perbarui diagram
-- diagram sebar
-- diagram lingkaran
+- diagram scatter
+- diagram pai
 - diagram garis
 - diagram peta pohon
 - diagram saham
@@ -20,7 +20,7 @@ keywords:
 - diagram sunburst
 - diagram histogram
 - diagram radar
-- diagram multi kategori
+- diagram multi‑kategori
 - PowerPoint
 - presentasi
 - Node.js
@@ -30,73 +30,70 @@ description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint dengan Aspo
 ---
 ## **Gambaran Umum**
 
-Artikel ini menyediakan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram secara programatis ke slide, mengisinya dengan data, dan menerapkan berbagai opsi pemformatan untuk menyesuaikan dengan kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci mengilustrasikan setiap langkah, mulai dari inisialisasi presentasi dan objek diagram hingga konfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara secara programatik menambahkan diagram ke slide, mengisinya dengan data, dan menerapkan berbagai opsi format untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengkonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
 
-## **Membuat Diagram**
-Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan, yang mungkin tidak langsung terlihat dari tabel atau spreadsheet. 
+## **Buat Diagram**
 
+Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
 **Mengapa Membuat Diagram?**
 
-Dengan diagram, Anda dapat
+Dengan diagram, Anda dapat:
 
-* menggabungkan, merangkum, atau menyederhanakan sejumlah besar data pada satu slide dalam sebuah presentasi
+* menggabungkan, memadatkan, atau merangkum sejumlah besar data pada satu slide dalam sebuah presentasi
 * menampilkan pola dan tren dalam data
-* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan ukuran tertentu 
-* menemukan nilai outlier, penyimpangan, kesalahan, data yang tidak masuk akal, dll. 
-* menyampaikan atau mempresentasikan data yang kompleks
+* menyimpulkan arah dan momentum data seiring waktu atau terhadap satuan pengukuran tertentu
+* mengidentifikasi outlier, penyimpangan, deviasi, kesalahan, data yang tidak masuk akal, dll.
+* mengkomunikasikan atau menyajikan data yang kompleks
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi sisipkan, yang menyediakan templat untuk merancang berbagai jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram standar (berdasarkan tipe diagram populer) dan diagram khusus. 
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang berbagai jenis diagram. Dengan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) dan diagram kustom.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+Untuk membuat diagram, gunakan kelas [ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/) . Bidang‑bidang dalam kelas ini sesuai dengan berbagai tipe diagram.
+{{% /alert %}}
 
-Untuk memungkinkan Anda membuat diagram, Aspose.Slides menyediakan kelas [ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType). Field di bawah kelas ini sesuai dengan tipe diagram yang berbeda.
+### **Buat Diagram Kolom Berkumpul**
 
-{{% /alert %}} 
+Bagian ini menjelaskan cara membuat diagram kolom berkumpul menggunakan Aspose.Slides. Anda akan belajar menginisialisasi presentasi, menambahkan diagram, dan menyesuaikan elemen‑elemen seperti judul, data, seri, kategori, dan gaya. Ikuti langkah‑langkah di bawah ini untuk melihat bagaimana diagram kolom berkumpul standar dihasilkan:
 
-### **Membuat Diagram Normal**
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation) .
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.ClusteredColumn` .
+1. Tambahkan judul ke diagram.
+1. Akses worksheet data diagram.
+1. Hapus semua seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data diagram baru untuk seri diagram.
+1. Terapkan warna isi ke seri diagram.
+1. Tambahkan label ke seri diagram.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-_Langkah: Membuat Diagram_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Langkah:</em> Membuat Diagram PowerPoint dalam JavaScript</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Langkah:</em> Membuat Diagram Presentasi dalam JavaScript</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Langkah:</em> Membuat Diagram Presentasi PowerPoint dalam JavaScript</strong></a>
-
-_Langkah Kode:_
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan. 
-4. Tambahkan judul untuk diagram. 
-5. Akses worksheet data diagram. 
-6. Hapus semua seri dan kategori default. 
-7. Tambahkan seri dan kategori baru. 
-8. Tambahkan data diagram baru untuk seri diagram. 
-9. Tambahkan warna isi untuk seri diagram. 
-10. Tambahkan label untuk seri diagram. 
-11. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode JavaScript berikut menampilkan cara membuat diagram normal:
+Kode C# ini menunjukkan cara membuat diagram kolom berkumpul:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Membuat instance kelas presentasi yang mewakili file PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Mengakses slide pertama
     var sld = pres.getSlides().get_Item(0);
-    // Menambahkan diagram dengan data defaultnya
+    // Menambahkan diagram dengan data default-nya
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
-    // Menetapkan Judul diagram
+    // Mengatur Judul diagram
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    // Menetapkan seri pertama untuk menampilkan nilai
+    // Mengatur seri pertama agar menampilkan nilai
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Menetapkan indeks untuk lembar data diagram
+    // Mengatur indeks untuk lembar data diagram
     var defaultWorksheetIndex = 0;
-    // Mengambil WorkSheet data diagram
+    // Mendapatkan WorkSheet data diagram
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Menghapus seri dan kategori default yang dihasilkan
+    // Menghapus seri dan kategori yang dihasilkan secara default
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
@@ -114,7 +111,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Menetapkan warna isi untuk seri
+    // Mengatur warna isi untuk seri
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // Mengambil seri diagram kedua
@@ -123,11 +120,11 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Menetapkan warna isi untuk seri
+    // Mengatur warna isi untuk seri
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // Membuat label khusus untuk setiap kategori pada seri baru
-    // Menetapkan label pertama untuk menampilkan nama Kategori
+    // Mengatur label pertama agar menampilkan nama Kategori
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
@@ -146,31 +143,30 @@ try {
 }
 ```
 
-### **Membuat Diagram Sebaran**
-Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel. 
+### **Buat Diagram Scatter**
+Diagram scatter (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
 
-Anda mungkin ingin menggunakan diagram sebar ketika 
+Gunakan diagram scatter ketika:
 
 * Anda memiliki data numerik berpasangan
-* Anda memiliki 2 variabel yang cocok satu sama lain
-* Anda ingin menentukan apakah 2 variabel tersebut berhubungan
+* Anda memiliki dua variabel yang berpasangan dengan baik
+* Anda ingin menentukan apakah dua variabel saling berhubungan
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Langkah:</em> Membuat Diagram Sebaran dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Langkah:</em> Membuat Diagram Sebaran PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Langkah:</em> Membuat Diagram Sebaran Presentasi PowerPoint dalam JavaScript</strong></a>
+1. Ikuti langkah‑langkah di [Buat Diagram Kolom Berkumpul](#create-clustered-column-charts) .
+2. Pada langkah ketiga, tambahkan diagram dengan beberapa data dan tentukan tipe diagram Anda sebagai salah satu berikut:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili diagram scatter._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili diagram scatter yang dihubungkan dengan kurva, dengan penanda data._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili diagram scatter yang dihubungkan dengan kurva, tanpa penanda data._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili diagram scatter yang dihubungkan dengan garis lurus, dengan penanda data._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili diagram scatter yang dihubungkan dengan garis lurus, tanpa penanda data._
 
-1. Ikuti langkah‑langkah yang disebutkan di atas pada [Membuat Diagram Normal](#creating-normal-charts)
-2. Pada langkah ketiga, Tambahkan diagram dengan beberapa data dan tentukan tipe diagram Anda sebagai salah satu berikut
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili Diagram Sebaran dengan Penanda._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili Diagram Sebaran yang dihubungkan dengan kurva, dengan penanda data._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili Diagram Sebaran yang dihubungkan dengan kurva, tanpa penanda data._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili Diagram Sebaran yang dihubungkan dengan garis lurus, dengan penanda data._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili Diagram Sebaran yang dihubungkan dengan garis lurus, tanpa penanda data._
-
-Kode JavaScript berikut menampilkan cara membuat diagram sebar dengan rangkaian penanda yang berbeda:
+Kode JavaScript ini menunjukkan cara membuat diagram scatter dengan penanda berbeda untuk setiap seri:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Membuat instance kelas presentasi yang mewakili file PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -219,30 +215,30 @@ try {
 }
 ```
 
-### **Membuat Diagram Lingkaran**
+### **Buat Diagram Pai**
 
-Diagram lingkaran paling cocok untuk menampilkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategorikal dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
+Diagram pai paling cocok untuk menunjukkan hubungan bagian‑dengan‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, pertimbangkan menggunakan diagram batang sebagai gantinya.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Langkah:</em> Membuat Diagram Lingkaran dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Langkah:</em> Membuat Diagram Lingkaran PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Langkah:</em> Membuat Diagram Lingkaran Presentasi PowerPoint dalam JavaScript</strong></a>
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, [ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType).Pie).
-4. Akses data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Pie](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#Pie) .
+4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tambahkan titik baru untuk diagram dan tambahkan warna khusus untuk sektor diagram lingkaran.
-9. Atur label untuk seri.
-10. Atur garis penunjuk (leader lines) untuk label seri.
-11. Atur sudut rotasi untuk slide diagram lingkaran.
-12. Simpan presentasi yang telah dimodifikasi ke file PPTX
+8. Tambahkan poin baru untuk diagram dan terapkan warna kustom untuk sektor diagram pai.
+9. Tetapkan label untuk seri.
+10. Aktifkan garis pemimpin untuk label seri.
+11. Tetapkan sudut rotasi untuk sektor diagram pai.
+12. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript berikut menampilkan cara membuat diagram lingkaran:
+Kode JavaScript ini menunjukkan cara membuat diagram pai:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Membuat instance kelas presentasi yang mewakili file PPTX
 var pres = new aspose.slides.Presentation();
 try {
@@ -250,18 +246,18 @@ try {
     var slides = pres.getSlides().get_Item(0);
     // Menambahkan diagram dengan data default
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Menetapkan Judul diagram
+    // Mengatur Judul diagram
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // Menetapkan seri pertama untuk menampilkan nilai
+    // Mengatur seri pertama agar menampilkan nilai
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Menetapkan indeks untuk lembar data diagram
+    // Mengatur indeks untuk lembar data diagram
     var defaultWorksheetIndex = 0;
-    // Mengambil worksheet data diagram
+    // Mendapatkan worksheet data diagram
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Menghapus seri dan kategori default yang dihasilkan
+    // Menghapus seri dan kategori yang dihasilkan secara default
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     // Menambahkan kategori baru
@@ -274,38 +270,38 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Tidak berfungsi di versi baru
+    // Tidak berfungsi pada versi baru
     // Menambahkan titik baru dan mengatur warna sektor
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // Menetapkan batas sektor
+    // Mengatur batas sektor
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Menetapkan batas sektor
+    // Mengatur batas sektor
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // Menetapkan batas sektor
+    // Mengatur batas sektor
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
-    // Membuat label khusus untuk tiap kategori pada seri baru
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
+    // Membuat label khusus untuk setiap kategori pada seri baru
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -316,9 +312,9 @@ try {
     var lbl3 = series.getDataPoints().get_Item(2).getLabel();
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
-    // Menampilkan Garis Penunjuk untuk Diagram
+    // Menampilkan Garis Pemimpin untuk Diagram
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Menetapkan Sudut Rotasi untuk Sektor Diagram Lingkaran
+    // Mengatur Sudut Rotasi untuk Sektor Diagram Pai
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     // Menyimpan presentasi dengan diagram
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -329,22 +325,25 @@ try {
 }
 ```
 
-### **Membuat Diagram Garis**
+### **Buat Diagram Garis**
 
-Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dll.
+Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lainnya.
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, `ChartType.Line`).
-1. Akses data diagram IChartDataWorkbook.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Line](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#Line) .
+1. Akses workbook data diagram ([ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/) ) .
 1. Hapus seri dan kategori default.
 1. Tambahkan seri dan kategori baru.
 1. Tambahkan data diagram baru untuk seri diagram.
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript berikut menampilkan cara membuat diagram garis:
+Kode JavaScript ini menunjukkan cara membuat diagram garis:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -356,36 +355,47 @@ try {
 }
 ```
 
-Secara default, titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
+Secara default, titik‑titik pada diagram garis dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
 
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
-### **Membuat Diagram Peta Pohon**
+### **Buat Diagram Peta Pohon**
 
-Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menampilkan ukuran relatif kategori data dan (pada saat yang sama) dengan cepat menarik perhatian ke item yang menjadi kontributor besar bagi tiap kategori. 
+Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian ke item yang memberikan kontribusi besar dalam setiap kategori.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Langkah:</em> Membuat Diagram Peta Pohon dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Langkah:</em> Membuat Diagram Peta Pohon PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Langkah:</em> Membuat Diagram Peta Pohon Presentasi PowerPoint dalam JavaScript</strong></a>
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, [ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType).TreeMap).
-4. Akses data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Treemap](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#Treemap) .
+4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi ke file PPTX
+8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript berikut menampilkan cara membuat diagram peta pohon:
+Kode JavaScript ini menunjukkan cara membuat diagram peta pohon:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -428,30 +438,33 @@ try {
 }
 ```
 
-### **Membuat Diagram Saham**
+### **Buat Diagram Saham**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Langkah:</em> Membuat Diagram Saham dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Langkah:</em> Membuat Diagram Saham PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Langkah:</em> Membuat Diagram Saham Presentasi PowerPoint dalam JavaScript</strong></a>
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Akses data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tentukan format HiLowLines.
-9. Simpan presentasi yang telah dimodifikasi ke file PPTX
+8. Tentukan format garis high‑low.
+9. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Contoh kode JavaScript yang digunakan untuk membuat diagram saham:
+Kode JavaScript ini menunjukkan cara membuat diagram saham:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -489,24 +502,23 @@ try {
 }
 ```
 
-### **Membuat Diagram Kotak‑dan‑Whisker**
+### **Buat Diagram Kotak‑dan‑Whisker**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Langkah:</em> Membuat Diagram Kotak‑dan‑Whisker dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Langkah:</em> Membuat Diagram Kotak‑dan‑Whisker PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Langkah:</em> Membuat Diagram Kotak‑dan‑Whisker Presentasi PowerPoint dalam JavaScript</strong></a>
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Akses data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi ke file PPTX
+8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript berikut menampilkan cara membuat diagram kotak‑dan‑whisker:
+Kode JavaScript ini menunjukkan cara membuat diagram kotak‑dan‑whisker:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -540,21 +552,19 @@ try {
 }
 ```
 
-### **Membuat Diagram Corong**
+### **Buat Diagram Corong**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Langkah:</em> Membuat Diagram Corong dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Langkah:</em> Membuat Diagram Corong PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Langkah:</em> Membuat Diagram Corong Presentasi PowerPoint dalam JavaScript</strong></a>
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Funnel](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#Funnel) .
+4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType).Funnel).
-4. Simpan presentasi yang telah dimodifikasi ke file PPTX
-
-Kode JavaScript berikut menampilkan cara membuat diagram corong:
+Kode JavaScript ini menunjukkan cara membuat diagram corong:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -583,20 +593,19 @@ try {
 }
 ```
 
-### **Membuat Diagram Sunburst**
+### **Buat Diagram Sunburst**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Langkah:</em> Membuat Diagram Sunburst dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Langkah:</em> Membuat Diagram Sunburst PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Langkah:</em> Membuat Diagram Sunburst Presentasi PowerPoint dalam JavaScript</strong></a>
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Sunburst](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#Sunburst) .
+4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam hal ini, [ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType).sunburst).
-4. Simpan presentasi yang telah dimodifikasi ke file PPTX
-
-Kode JavaScript berikut menampilkan cara membuat diagram sunburst:
+Kode JavaScript ini menunjukkan cara membuat diagram sunburst:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -638,23 +647,22 @@ try {
 }
 ```
 
-### **Membuat Diagram Histogram**
+### **Buat Diagram Histogram**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Langkah:</em> Membuat Diagram Histogram dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Langkah:</em> Membuat Diagram Histogram PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Langkah:</em> Membuat Diagram Histogram Presentasi PowerPoint dalam JavaScript</strong></a>
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType).Histogram).
-4. Akses data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Histogram](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#Histogram) .
+4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
-7. Simpan presentasi yang telah dimodifikasi ke file PPTX
+7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript berikut menampilkan cara membuat diagram histogram:
+Kode JavaScript ini menunjukkan cara membuat diagram histogram:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -671,20 +679,19 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **Membuat Diagram Radar**
+### **Buat Diagram Radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Langkah:</em> Membuat Diagram Radar dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Langkah:</em> Membuat Diagram Radar PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Langkah:</em> Membuat Diagram Radar Presentasi PowerPoint dalam JavaScript</strong></a>
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan ([ChartType.Radar](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#Radar) dalam kasus ini) .
+4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan (`ChartType.Radar` dalam hal ini).
-4. Simpan presentasi yang telah dimodifikasi ke file PPTX
-
-Kode JavaScript berikut menampilkan cara membuat diagram radar:
+Kode JavaScript ini menunjukkan cara membuat diagram radar:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -696,24 +703,23 @@ try {
 }
 ```
 
-### **Membuat Diagram Multi Kategori**
+### **Buat Diagram Multi‑Kategori**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Langkah:</em> Membuat Diagram Multi Kategori dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Langkah:</em> Membuat Diagram Multi Kategori PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Langkah:</em> Membuat Diagram Multi Kategori Presentasi PowerPoint dalam JavaScript</strong></a>
-
-1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartType).ClusteredColumn).
-4. Akses data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ChartDataWorkbook).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.ClusteredColumn](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Akses workbook data diagram [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/) .
 5. Hapus seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
+8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript berikut menampilkan cara membuat diagram multi kategori:
+Kode JavaScript ini menunjukkan cara membuat diagram multi‑kategori:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -753,17 +759,16 @@ try {
 }
 ```
 
-### **Membuat Diagram Peta**
+### **Buat Diagram Peta**
 
-Diagram peta adalah visualisasi area yang berisi data. Diagram peta paling cocok untuk membandingkan data atau nilai antar wilayah geografis.
+Diagram peta memvisualisasikan data geografis dan membantu membandingkan nilai antar wilayah.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Langkah:</em> Membuat Diagram Peta dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Langkah:</em> Membuat Diagram Peta PowerPoint dalam JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Langkah:</em> Membuat Diagram Peta Presentasi PowerPoint dalam JavaScript</strong></a>
-
-Kode JavaScript berikut menampilkan cara membuat diagram peta:
+Kode JavaScript ini menunjukkan cara membuat diagram peta:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -775,15 +780,19 @@ try {
 }
 ```
 
-### **Membuat Diagram Kombinasi**
+### **Buat Diagram Kombinasi**
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antar dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
+Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyorot, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antara mereka.
 
 ![The combination chart](combination_chart.png)
 
-Kode JavaScript berikut menampilkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
+Kode JavaScript berikut menunjukkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -818,7 +827,7 @@ function createChartWithFirstSeries(slide) {
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
-    // Hapus seri dan kategori default yang dihasilkan.
+    // Hapus seri dan kategori yang dihasilkan secara default.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -928,32 +937,31 @@ function setAxisTitle(axis, axisTitle) {
 }
 ```
 
-## **Memperbarui Diagram**
+## **Perbarui Diagram**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Langkah:</em> Memperbarui Diagram PowerPoint dalam JavaScript</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Langkah:</em> Memperbarui Diagram Presentasi dalam JavaScript</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Langkah:</em> Memperbarui Diagram Presentasi PowerPoint dalam JavaScript</strong></a>
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) yang mewakili presentasi yang berisi diagram yang ingin Anda perbarui.
-2. Dapatkan referensi slide dengan menggunakan Indeksnya.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) yang mewakili presentasi yang berisi diagram yang ingin Anda perbarui.
+2. Dapatkan referensi ke slide menggunakan indeksnya.
 3. Telusuri semua shape untuk menemukan diagram yang diinginkan.
 4. Akses worksheet data diagram.
-5. Ubah data seri diagram dengan mengubah nilai seri.
-6. Tambahkan seri baru dan isi data di dalamnya.
+5. Modifikasi seri data diagram dengan mengubah nilai seri.
+6. Tambahkan seri baru dan isi datanya.
 7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript berikut menampilkan cara memperbarui sebuah diagram:
+Kode JavaScript ini menunjukkan cara memperbarui diagram:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     // Akses slide pertama
     var sld = pres.getSlides().get_Item(0);
     // Dapatkan diagram dengan data default
     var chart = sld.getShapes().get_Item(0);
-    // Menetapkan indeks lembar data diagram
+    // Mengatur indeks lembar data diagram
     var defaultWorksheetIndex = 0;
-    // Mengambil worksheet data diagram
+    // Mendapatkan worksheet data diagram
     var fact = chart.getChartData().getChartDataWorkbook();
     // Mengubah Nama Kategori diagram
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
@@ -974,7 +982,7 @@ try {
     series.getDataPoints().get_Item(2).getValue().setData(99);
     // Sekarang, Menambahkan seri baru
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-    // Ambil seri diagram ke-3
+    // Ambil seri diagram ketiga
     series = chart.getChartData().getSeries().get_Item(2);
     // Sekarang mengisi data seri
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
@@ -990,20 +998,23 @@ try {
 }
 ```
 
-## **Menetapkan Rentang Data untuk Diagram**
+## **Tetapkan Rentang Data untuk Diagram**
 
-Untuk menetapkan rentang data bagi sebuah diagram, lakukan hal berikut:
+Untuk menetapkan rentang data bagi diagram, lakukan hal berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) yang mewakili presentasi yang berisi diagram.
-2. Dapatkan referensi slide melalui indeksnya.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) yang mewakili presentasi yang berisi diagram.
+2. Dapatkan referensi ke slide menggunakan indeksnya.
 3. Telusuri semua shape untuk menemukan diagram yang diinginkan.
 4. Akses data diagram dan tetapkan rentangnya.
 5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode JavaScript berikut menampilkan cara menetapkan rentang data untuk sebuah diagram:
+Kode JavaScript ini menunjukkan cara menetapkan rentang data untuk diagram:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1016,12 +1027,16 @@ try {
 }
 ```
 
-## **Menggunakan Penanda Default dalam Diagram**
-Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
+## **Gunakan Penanda Default dalam Diagram**
 
-Kode JavaScript berikut menampilkan cara mengatur penanda seri diagram secara otomatis:
+Saat Anda menggunakan penanda default dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda yang berbeda.
+
+Kode JavaScript ini menunjukkan cara menetapkan penanda seri diagram secara otomatis:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1042,7 +1057,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
     // Ambil seri diagram kedua
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Now populating series data
+    // Sekarang mengisi data seri
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1061,16 +1076,16 @@ try {
 
 **Jenis diagram apa yang didukung oleh Aspose.Slides?**
 
-Aspose.Slides mendukung berbagai tipe diagram, termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling sesuai untuk kebutuhan visualisasi data Anda.
+Aspose.Slides mendukung beragam [chart types](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/charttype/), termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling tepat untuk kebutuhan visualisasi data Anda.
 
 **Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) , dapatkan slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) , ambil slide yang diinginkan menggunakan indeksnya, kemudian panggil metode untuk menambahkan diagram, dengan menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
 
-**Bagaimana cara memperbarui data yang ditampilkan dalam diagram?**
+**Bagaimana saya dapat memperbarui data yang ditampilkan dalam diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data khusus Anda. Ini memungkinkan Anda memperbarui diagram secara programatis agar mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/) ), menghapus semua seri dan kategori default, kemudian menambahkan data kustom Anda. Hal ini memungkinkan Anda memperbarui diagram secara programatik untuk mencerminkan data terbaru.
 
-**Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
+**Apakah memungkinkan menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides menyediakan opsi penyesuaian yang luas. Anda dapat memodifikasi warna, font, label, legenda, dan elemen pemformatan lainnya untuk menyesuaikan tampilan diagram sesuai dengan kebutuhan desain spesifik Anda.
+Ya, Aspose.Slides menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen [formatting elements](/slides/id/nodejs-java/chart-entities/) lainnya untuk menyesuaikan tampilan diagram dengan kebutuhan desain spesifik Anda.

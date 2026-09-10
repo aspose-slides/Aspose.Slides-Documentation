@@ -1,5 +1,5 @@
 ---
-title: 파이썬에서 PowerPoint 프레젠테이션 차트를 만들거나 업데이트하기
+title: Python에서 PowerPoint 프레젠테이션 차트 만들기 및 업데이트
 linktitle: 차트 만들기 또는 업데이트
 type: docs
 weight: 10
@@ -10,63 +10,65 @@ keywords:
 - 차트 편집
 - 차트 변경
 - 차트 업데이트
-- 분산 차트
+- 산점도 차트
 - 원형 차트
-- 꺾은선 차트
+- 선 차트
 - 트리맵 차트
 - 주식 차트
-- 박스·위스커 차트
+- 상자·수염 차트
 - 퍼널 차트
 - 썬버스트 차트
 - 히스토그램 차트
 - 레이다 차트
-- 다중카테고리 차트
+- 다중 범주 차트
 - PowerPoint 프레젠테이션
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET을 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 차트를 만들고 사용자 정의하는 방법을 배웁니다. 파이썬 실용 코드 예제를 통해 프레젠테이션에 차트를 추가, 서식 지정 및 편집하는 내용을 다룹니다."
+description: "Aspose.Slides for Python via .NET을 사용하여 PowerPoint 및 OpenDocument 프레젠테이션에서 차트를 만들고 사용자 지정하는 방법을 배웁니다. 프레젠테이션에 차트를 추가하고, 형식을 지정하고, 편집하는 방법을 Python 실용 코드 예제로 다룹니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides for Python via .NET을 사용하여 차트를 만들고 사용자 정의하는 방법에 대한 포괄적인 가이드를 제공합니다. 슬라이드에 차트를 프로그래밍 방식으로 추가하고 데이터를 채우며, 특정 디자인 요구 사항에 맞게 다양한 서식 옵션을 적용하는 방법을 배웁니다. 문서 전반에 걸쳐 자세한 코드 예제가 각 단계를 설명합니다. 프레젠테이션 초기화와 차트 객체 생성부터 시리즈, 축, 범례 구성까지 모두 다룹니다. 이 가이드를 따라 하면 동적 차트 생성을 애플리케이션에 통합하는 방법을 확실히 이해하게 되어 데이터 기반 프레젠테이션을 효율적으로 만들 수 있습니다.
+이 문서에서는 Aspose.Slides for Python via .NET을 사용하여 차트를 만들고 사용자 지정하는 방법을 설명합니다. 슬라이드에 차트를 추가하고 데이터를 채우며 디자인 요구 사항에 맞게 형식을 지정하는 방법을 배웁니다. 코드 예제에는 프레젠테이션 및 차트 생성, 시리즈·축·범례 구성, 차트 생성을 애플리케이션에 통합하는 내용이 포함됩니다.
 
 ## **차트 만들기**
 
-차트는 데이터를 빠르게 시각화하고 표나 스프레드시트에서 바로 알기 어려운 인사이트를 얻는 데 도움이 됩니다.
+차트는 데이터를 빠르게 시각화하고 표나 스프레드시트에서 즉시 파악하기 어려운 인사이트를 얻는 데 도움을 줍니다.
 
 **차트를 만들어야 하는 이유**
 
-차트를 사용하면 다음을 할 수 있습니다:
+차트를 사용하면:
 
-* 프레젠테이션의 단일 슬라이드에 대량의 데이터를 집계, 압축 또는 요약;
-* 데이터의 패턴 및 추세를 드러냄;
-* 시간 경과에 따른 또는 특정 측정 단위에 대한 데이터의 방향과 모멘텀을 추론;
-* 이상값, 변칙, 편차, 오류 및 비논리적 데이터를 식별;
-* 복잡한 데이터를 전달하거나 프레젠테이션함.
+* 프레젠테이션의 단일 슬라이드에 대량 데이터를 집계·축소·요약할 수 있습니다.
+* 데이터의 패턴과 추세를 드러낼 수 있습니다.
+* 시간 흐름이나 특정 측정 단위에 대한 데이터의 방향성과 모멘텀을 추론할 수 있습니다.
+* 이상치·변칙·편차·오류·비논리적 데이터를 감지할 수 있습니다.
+* 복잡한 데이터를 전달하거나 프레젠테이션할 수 있습니다.
 
-PowerPoint에서는 *Insert* 기능을 통해 차트를 만들 수 있으며, 이는 다양한 차트 유형의 템플릿을 제공합니다. Aspose.Slides를 사용하면 일반 차트(대중적인 차트 유형 기반)와 사용자 정의 차트를 모두 만들 수 있습니다.
+PowerPoint에서는 *삽입* 기능을 통해 다양한 차트 템플릿을 제공하지만, Aspose.Slides를 사용하면 일반 차트(대중적인 차트 유형 기반)와 사용자 지정 차트를 모두 만들 수 있습니다.
 
-{{% alert color="primary" %}} 
-[ChartType](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/charttype/) 열거형을 [Aspose.Slides.Charts](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/) 네임스페이스에서 사용합니다. 이 열거형의 값은 서로 다른 차트 유형에 해당합니다.
-{{% /alert %}} 
+{{% alert color="info" title="참고" %}}
 
-### **군집형 열 차트 만들기**
+[Aspose.Slides.Charts](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/) 네임스페이스 아래의 [ChartType](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/charttype/) 열거형을 사용합니다. 이 열거형 값은 서로 다른 차트 유형에 대응합니다.
 
-이 섹션에서는 Aspose.Slides for Python via .NET을 사용하여 군집형 열 차트를 만드는 방법을 설명합니다. 프레젠테이션을 초기화하고 차트를 추가한 다음 제목, 데이터, 시리즈, 카테고리 및 스타일을 사용자 정의하는 방법을 배웁니다. 아래 단계를 따라 표준 군집형 열 차트가 생성되는 과정을 확인하십시오:
+{{% /alert %}}
+
+### **군집 세로 막대 차트 만들기**
+
+이 섹션에서는 Aspose.Slides for Python via .NET을 사용하여 군집 세로 막대 차트를 만드는 방법을 설명합니다. 프레젠테이션을 초기화하고 차트를 추가한 뒤 제목·데이터·시리즈·범주·스타일을 사용자 지정하는 과정을 배웁니다. 아래 단계에 따라 표준 군집 세로 막대 차트가 생성되는 모습을 확인하세요.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.CLUSTERED_COLUMN` 유형을 지정하여 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 일부 데이터를 포함하고 `ChartType.CLUSTERED_COLUMN` 유형을 지정하여 차트를 추가합니다.
 1. 차트에 제목을 추가합니다.
 1. 차트의 데이터 워크시트에 접근합니다.
-1. 기본 시리즈와 카테고리를 모두 삭제합니다.
-1. 새 시리즈와 카테고리를 추가합니다.
-1. 차트 시리즈에 새로운 차트 데이터를 추가합니다.
-1. 차트 시리즈에 채우기 색상을 적용합니다.
+1. 기본 시리즈와 범주를 모두 삭제합니다.
+1. 새 시리즈와 범주를 추가합니다.
+1. 차트 시리즈에 새 차트 데이터를 추가합니다.
+1. 차트 시리즈에 채우기 색을 적용합니다.
 1. 차트 시리즈에 레이블을 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 군집형 열 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 군집 세로 막대 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -79,7 +81,7 @@ with slides.Presentation() as presentation:
     # 첫 번째 슬라이드에 접근합니다.
     slide = presentation.slides[0]
 
-    # 기본 데이터가 있는 군집형 열 차트를 추가합니다.
+    # 기본 데이터가 있는 군집 세로 막대 차트를 추가합니다.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
     # 차트 제목을 설정합니다.
@@ -88,16 +90,13 @@ with slides.Presentation() as presentation:
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # 첫 번째 시리즈에 값을 표시하도록 설정합니다.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
     # 차트 데이터 시트의 인덱스를 설정합니다.
     worksheet_index = 0
 
     # 차트 데이터 워크북을 가져옵니다.
     workbook = chart.chart_data.chart_data_workbook
 
-    # 기본 생성된 시리즈와 카테고리를 삭제합니다.
+    # 기본으로 생성된 시리즈와 범주를 삭제합니다.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
@@ -105,7 +104,7 @@ with slides.Presentation() as presentation:
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 1, "Series 1"), chart.type)
     chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 2, "Series 2"), chart.type)
 
-    # 새 카테고리를 추가합니다.
+    # 새 범주를 추가합니다.
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
@@ -118,7 +117,7 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # 시리즈의 채우기 색상을 설정합니다.
+    # 시리즈의 채우기 색을 설정합니다.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
@@ -130,11 +129,11 @@ with slides.Presentation() as presentation:
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-    # 시리즈의 채우기 색상을 설정합니다.
+    # 시리즈의 채우기 색을 설정합니다.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # 첫 번째 레이블에 카테고리 이름을 표시하도록 설정합니다.
+    # 첫 번째 레이블에 범주 이름을 표시하도록 설정합니다.
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
@@ -153,20 +152,20 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![The clustered column chart](clustered_column_chart.png)
 
-### **분산형 차트 만들기**
+### **산점도 차트 만들기**
 
-분산형 차트(Scatter chart)는 종종 두 변수 간의 패턴을 확인하거나 상관 관계를 보여 주는 데 사용됩니다.
+산점도 차트(산점도 플롯·x‑y 그래프)는 두 변수 간의 패턴을 확인하거나 상관 관계를 보여줄 때 자주 사용됩니다.
 
-다음과 같은 경우에 분산형 차트를 사용합니다:
+산점도 차트를 사용해야 할 경우:
 
-* 쌍을 이루는 수치 데이터가 있는 경우.
-* 두 변수가 서로 잘 맞는 경우.
-* 두 변수 간의 연관성을 확인하고 싶은 경우.
-* 종속 변수에 대해 독립 변수의 값이 여러 개인 경우.
+* 쌍을 이루는 숫자 데이터가 있는 경우
+* 두 변수가 서로 잘 어울리는 경우
+* 두 변수가 연관되어 있는지 확인하고 싶은 경우
+* 종속 변수에 대해 여러 값을 갖는 독립 변수가 있는 경우
 
-다음 Python 코드는 서로 다른 마커 시리즈가 포함된 분산형 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 각 시리즈마다 다른 마커를 사용한 산점도 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -179,7 +178,7 @@ with slides.Presentation() as presentation:
     # 첫 번째 슬라이드에 접근합니다.
     slide = presentation.slides[0]
 
-    # 기본 분산 차트를 생성합니다.
+    # 기본 산점도 차트를 생성합니다.
     chart = slide.shapes.add_chart(charts.ChartType.SCATTER_WITH_SMOOTH_LINES, 20, 20, 500, 300)
 
     # 차트 데이터 시트의 인덱스를 설정합니다.
@@ -198,10 +197,10 @@ with slides.Presentation() as presentation:
     # 첫 번째 차트 시리즈를 가져옵니다.
     series = chart.chart_data.series[0]
 
-    # 시리즈에 새 포인트 (1:3)를 추가합니다.
+    # 시리즈에 새로운 점 (1:3)을 추가합니다.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
-    # 새 포인트 (2:10)를 추가합니다.
+    # 새로운 점 (2:10)을 추가합니다.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
     # 시리즈 유형을 변경합니다.
@@ -214,16 +213,16 @@ with slides.Presentation() as presentation:
     # 두 번째 차트 시리즈를 가져옵니다.
     series = chart.chart_data.series[1]
 
-    # 차트 시리즈에 새 포인트 (5:2)를 추가합니다.
+    # 차트 시리즈에 새로운 점 (5:2)을 추가합니다.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
-    # 새 포인트 (3:1)를 추가합니다.
+    # 새로운 점 (3:1)을 추가합니다.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 3, 3), workbook.get_cell(worksheet_index, 3, 4, 1))
 
-    # 새 포인트 (2:2)를 추가합니다.
+    # 새로운 점 (2:2)을 추가합니다.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 4, 3, 2), workbook.get_cell(worksheet_index, 4, 4, 2))
 
-    # 새 포인트 (5:1)를 추가합니다.
+    # 새로운 점 (5:1)을 추가합니다.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
     # 차트 시리즈 마커를 변경합니다.
@@ -235,26 +234,26 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Scatter chart](scatter_chart.png)
+![The scatter chart](scatter_chart.png)
 
 ### **원형 차트 만들기**
 
-원형 차트는 데이터에서 부분과 전체의 관계를 보여 주기에 가장 적합합니다. 특히 범주형 레이블과 숫자 값이 있는 경우에 유용합니다. 그러나 파트나 레이블이 많을 경우에는 막대 차트를 고려하는 것이 좋습니다.
+원형 차트는 데이터가 범주형 레이블과 수치값을 포함할 때 전체 대비 부분 관계를 나타내기에 가장 적합합니다. 다만 레이블이나 부분이 많이 포함된 경우에는 막대 차트를 고려하는 것이 좋습니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.PIE` 유형을 지정하여 기본 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 기본 데이터를 사용하고 `ChartType.PIE` 유형을 지정하여 차트를 추가합니다.
 1. 차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근합니다.
-1. 기본 시리즈와 카테고리를 삭제합니다.
-1. 새 시리즈와 카테고리를 추가합니다.
-1. 차트 시리즈에 새로운 차트 데이터를 추가합니다.
-1. 차트에 새로운 포인트를 추가하고 원형 차트 섹터에 사용자 정의 색상을 적용합니다.
+1. 기본 시리즈와 범주를 삭제합니다.
+1. 새 시리즈와 범주를 추가합니다.
+1. 차트 시리즈에 새 차트 데이터를 추가합니다.
+1. 차트 섹터에 사용자 지정 색을 적용합니다.
 1. 시리즈에 레이블을 설정합니다.
 1. 시리즈 레이블에 리더 라인을 활성화합니다.
-1. 원형 차트의 회전 각도를 설정합니다.
+1. 원형 차트의 회전 각도를 지정합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 원형 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 원형 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -276,20 +275,17 @@ with slides.Presentation() as presentation:
     chart.chart_title.height = 20
     chart.has_title = True
 
-    # 첫 번째 시리즈에 값을 표시하도록 설정합니다.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
-
     # 차트 데이터 시트의 인덱스를 설정합니다.
     worksheet_index = 0
 
     # 차트 데이터 워크북을 가져옵니다.
     workbook = chart.chart_data.chart_data_workbook
 
-    # 기본 생성된 시리즈와 카테고리를 삭제합니다.
+    # 기본으로 생성된 시리즈와 범주를 삭제합니다.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # 새 카테고리를 추가합니다.
+    # 새 범주를 추가합니다.
     chart.chart_data.categories.add(workbook.get_cell(0, 1, 0, "First Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 2, 0, "2nd Qtr"))
     chart.chart_data.categories.add(workbook.get_cell(0, 3, 0, "3rd Qtr"))
@@ -338,7 +334,7 @@ with slides.Presentation() as presentation:
     point2.format.line.style = slides.LineStyle.THIN_THIN
     point2.format.line.dash_style = slides.LineDashStyle.LARGE_DASH_DOT_DOT
 
-    # 새 시리즈의 각 카테고리에 대한 사용자 정의 레이블을 생성합니다.
+    # 새 시리즈의 각 범주에 대한 사용자 정의 레이블을 만듭니다.
     label1 = series.data_points[0].label
 
     label1.data_label_format.show_value = True
@@ -364,22 +360,18 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Pie chart](pie_chart.png)
+![The pie chart](pie_chart.png)
 
-### **꺾은선 차트 만들기**
+### **선 차트 만들기**
 
-꺾은선 차트(Line chart)는 시간에 따른 값 변화 를 보여 주기에 가장 적합합니다. 꺾은선 차트를 사용하면 많은 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상값을 강조하는 등 다양한 작업을 수행할 수 있습니다.
+선 차트(선 그래프)는 시간에 따른 값 변화를 보여줄 때 가장 적합합니다. 선 차트를 사용하면 많은 데이터를 한 번에 비교하고, 시간에 따른 변화와 추세를 추적하며, 데이터 시리즈의 이상치를 강조할 수 있습니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.LINE` 유형을 지정하여 기본 데이터를 포함한 차트를 추가합니다.
-1. 차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근합니다.
-1. 기본 시리즈와 카테고리를 삭제합니다.
-1. 새 시리즈와 카테고리를 추가합니다.
-1. 차트 시리즈에 새로운 차트 데이터를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 기본 데이터를 사용하고 `ChartType.LINE` 유형을 지정하여 차트를 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 꺾은선 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 선 차트를 만드는 방법을 보여줍니다:
 
 ```python
 import aspose.slides as slides
@@ -390,33 +382,38 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-기본적으로 꺾은선 차트의 포인트는 직선으로 연결됩니다. 점을 대시선으로 연결하려면 다음과 같이 원하는 대시 유형을 지정하면 됩니다:
+기본적으로 선 차트의 점은 직선으로 연결됩니다. 점을 점선으로 연결하려면 다음과 같이 대시 유형을 지정하면 됩니다:
 
 ```python
-line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+import aspose.slides as slides
 
-for series in line_chart.chart_data.series:
-    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+
+    for series in line_chart.chart_data.series:
+        series.format.line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 결과:
 
-![The Line chart](line_chart.png)
+![The line chart](line_chart.png)
 
 ### **트리맵 차트 만들기**
 
-트리맵 차트는 각 카테고리 내에서 큰 기여자를 빠르게 강조하고 싶을 때, 데이터 카테고리의 상대적 크기를 보여 주기에 가장 적합합니다.
+트리맵 차트는 각 카테고리 내에서 큰 기여도를 보이는 항목을 빠르게 강조하고 싶을 때, 판매 데이터 등에서 데이터 카테고리의 상대적 크기를 나타내기에 좋습니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.TREEMAP` 유형을 지정하여 기본 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 기본 데이터를 사용하고 `ChartType.TREEMAP` 유형을 지정하여 차트를 추가합니다.
 1. 차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근합니다.
-1. 기본 시리즈와 카테고리를 삭제합니다.
-1. 새 시리즈와 카테고리를 추가합니다.
-1. 차트 시리즈에 새로운 차트 데이터를 추가합니다.
+1. 기본 시리즈와 범주를 삭제합니다.
+1. 새 시리즈와 범주를 추가합니다.
+1. 차트 시리즈에 새 차트 데이터를 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 트리맵 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 트리맵 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -473,23 +470,23 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Treemap chart](treemap_chart.png)
+![The treemap chart](treemap_chart.png)
 
 ### **주식 차트 만들기**
 
-주식 차트는 시가, 고가, 저가, 종가와 같은 금융 데이터를 표시하여 시장 추세와 변동성을 분석하는 데 사용됩니다. 이는 주식 성과에 대한 핵심 인사이트를 제공하여 투자자와 분석가가 정보에 입각한 결정을 내리는 데 도움을 줍니다.
+주식 차트는 시가·고가·저가·종가와 같은 금융 데이터를 표시하여 시장 추세와 변동성을 분석하는 데 사용됩니다. 투자자와 분석가가 주식 성과에 대한 중요한 인사이트를 얻어 의사 결정을 지원합니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.OPEN_HIGH_LOW_CLOSE` 유형을 지정하여 기본 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 기본 데이터를 사용하고 `ChartType.OPEN_HIGH_LOW_CLOSE` 유형을 지정하여 차트를 추가합니다.
 1. 차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근합니다.
-1. 기본 시리즈와 카테고리를 삭제합니다.
-1. 새 시리즈와 카테고리를 추가합니다.
-1. 차트 시리즈에 새로운 차트 데이터를 추가합니다.
-1. HiLowLines 형식을 지정합니다.
+1. 기본 시리즈와 범주를 삭제합니다.
+1. 새 시리즈와 범주를 추가합니다.
+1. 차트 시리즈에 새 차트 데이터를 추가합니다.
+1. 고·저 라인 형식을 지정합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 주식 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 주식 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -545,22 +542,22 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Stock chart](stock_chart.png)
+![The stock chart](stock_chart.png)
 
-### **박스·위스커 차트 만들기**
+### **상자·수염 차트 만들기**
 
-박스·위스커 차트는 중앙값, 사분위수 및 잠재적 이상값과 같은 핵심 통계량을 요약하여 데이터 분포를 표시합니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 파악하고 이상치를 식별하는 데 특히 유용합니다.
+상자·수염 차트는 중앙값·사분위수·잠재적 이상치 등 주요 통계 측정값을 요약하여 데이터 분포를 표시합니다. 탐색적 데이터 분석 및 통계 연구에서 데이터 변동성을 빠르게 파악하고 이상치를 식별하는 데 유용합니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.BOX_AND_WHISKER` 유형을 지정하여 기본 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 기본 데이터를 사용하고 `ChartType.BOX_AND_WHISKER` 유형을 지정하여 차트를 추가합니다.
 1. 차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근합니다.
-1. 기본 시리즈와 카테고리를 삭제합니다.
-1. 새 시리즈와 카테고리를 추가합니다.
-1. 차트 시리즈에 새로운 차트 데이터를 추가합니다.
+1. 기본 시리즈와 범주를 삭제합니다.
+1. 새 시리즈와 범주를 추가합니다.
+1. 차트 시리즈에 새 차트 데이터를 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 박스·위스커 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 상자·수염 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -602,14 +599,14 @@ with slides.Presentation() as presentation:
 
 ### **퍼널 차트 만들기**
 
-퍼널 차트는 단계별로 진행될수록 데이터 양이 감소하는 프로세스를 시각화하는 데 사용됩니다. 전환율 분석, 병목 현상 파악 및 영업·마케팅 프로세스 효율성 추적에 특히 유용합니다.
+퍼널 차트는 단계별로 진행될수록 데이터 양이 감소하는 과정을 시각화하는 데 사용됩니다. 전환율 분석·병목 현상 파악·판매·마케팅 프로세스 효율성 추적에 특히 유용합니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.FUNNEL` 유형을 지정하여 기본 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 기본 데이터를 사용하고 `ChartType.FUNNEL` 유형을 지정하여 차트를 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 퍼널 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 퍼널 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -645,18 +642,18 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Funnel chart](funnel_chart.png)
+![The funnel chart](funnel_chart.png)
 
 ### **썬버스트 차트 만들기**
 
-썬버스트 차트는 계층형 데이터를 시각화하며 레벨을 동심원 형태의 링으로 표시합니다. 부분과 전체의 관계를 나타내고, 중첩된 카테고리와 하위 카테고리를 명확하고 컴팩트하게 표현하는 데 적합합니다.
+썬버스트 차트는 계층적 데이터를 원형 링으로 표시하여 전체 대비 부분 관계를 명확하고 압축된 형태로 나타냅니다. 중첩된 카테고리와 하위 카테고리를 시각화하는 데 이상적입니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.SUNBURST` 유형을 지정하여 기본 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 기본 데이터를 사용하고 `ChartType.SUNBURST` 유형을 지정하여 차트를 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 썬버스트 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 썬버스트 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -711,21 +708,21 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Sunburst chart](sunburst_chart.png)
+![The sunburst chart](sunburst_chart.png)
 
 ### **히스토그램 차트 만들기**
 
-히스토그램 차트는 값을 구간(빈)으로 묶어 숫자 데이터의 분포를 나타냅니다. 빈도, 왜곡, 분산과 같은 데이터 패턴을 식별하고, 데이터 세트에서 이상값을 감지하는 데 특히 유용합니다.
+히스토그램 차트는 값을 구간(빈)으로 그룹화하여 수치 데이터의 분포를 나타냅니다. 빈도·왜도·분산 등 데이터 패턴을 식별하고 이상치를 감지하는 데 유용합니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.HISTOGRAM` 유형을 지정하여 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 일부 데이터를 사용하고 `ChartType.HISTOGRAM` 유형을 지정하여 차트를 추가합니다.
 1. 차트 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근합니다.
-1. 기본 시리즈와 카테고리를 삭제합니다.
-1. 새 시리즈와 카테고리를 추가합니다.
+1. 기본 시리즈와 범주를 삭제합니다.
+1. 새 시리즈를 추가하고 데이터 포인트를 채웁니다. 히스토그램은 범주가 없으며 빈은 값에서 계산됩니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 히스토그램 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 히스토그램 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -755,45 +752,45 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Histogram chart](histogram_chart.png)
+![The histogram chart](histogram_chart.png)
 
 ### **레이다 차트 만들기**
 
-레이다 차트는 다변량 데이터를 2차원 형식으로 표시하여 여러 변수를 동시에 비교할 수 있게 합니다. 여러 성능 지표나 속성에 대한 패턴, 강점, 약점을 식별하는 데 특히 유용합니다.
+레이다 차트는 다변량 데이터를 2차원 형태로 표시하여 여러 변수를 동시에 비교할 수 있게 합니다. 성능 지표나 특성 간의 강점·약점을 식별하는 데 특히 유용합니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.RADAR` 유형을 지정하여 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 일부 데이터를 사용하고 `ChartType.RADAR` 유형을 지정하여 차트를 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 레이다 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 레이다 차트를 만드는 방법을 보여줍니다:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 결과:
 
-![The Radar chart](radar_chart.png)
+![The radar chart](radar_chart.png)
 
-### **다중 카테고리 차트 만들기**
+### **다중 범주 차트 만들기**
 
-다중 카테고리 차트는 두 개 이상의 범주 그룹을 포함하는 데이터를 표시하며, 여러 차원을 동시에 비교할 수 있게 합니다. 복합적이고 다층적인 데이터 세트 내에서 추세와 관계를 분석해야 할 때 특히 유용합니다.
+다중 범주 차트는 하나 이상의 범주 그룹을 포함하는 데이터를 표시하여 여러 차원을 동시에 비교할 수 있게 합니다. 복합적인 다계층 데이터셋의 추세와 관계를 분석할 때 특히 도움이 됩니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
-1. `ChartType.CLUSTERED_COLUMN` 유형을 지정하여 기본 데이터를 포함한 차트를 추가합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
+1. 기본 데이터를 사용하고 `ChartType.CLUSTERED_COLUMN` 유형을 지정하여 차트를 추가합니다.
 1. 차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근합니다.
-1. 기본 시리즈와 카테고리를 삭제합니다.
-1. 새 시리즈와 카테고리를 추가합니다.
-1. 차트 시리즈에 새로운 차트 데이터를 추가합니다.
+1. 기본 시리즈와 범주를 삭제합니다.
+1. 새 시리즈와 범주를 추가합니다.
+1. 차트 시리즈에 새 차트 데이터를 추가합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 다중 카테고리 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 다중 범주 차트를 만드는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -846,13 +843,13 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The multi category chart](multi_category_chart.png)
+![The multi-category chart](multi_category_chart.png)
 
 ### **지도 차트 만들기**
 
-지도 차트는 국가, 주, 도시 등 특정 위치에 정보를 매핑하여 지리 데이터를 시각화합니다. 지역별 추세, 인구통계 데이터 및 공간 분포를 명확하고 시각적으로 매력적인 형태로 분석하는 데 특히 유용합니다.
+지도 차트는 국가·주·도시와 같은 특정 위치에 정보를 매핑하여 지리 데이터를 시각화합니다. 지역별 추세·인구통계·공간 분포를 명확하고 시각적으로 매력적인 방식으로 분석할 때 특히 유용합니다.
 
-다음 Python 코드가 지도 차트를 만드는 방법을 보여 줍니다:
+다음 Python 코드가 지도 차트를 만드는 방법을 보여줍니다:
 
 ```python
 import aspose.slides as slides
@@ -864,17 +861,21 @@ with slides.Presentation() as presentation:
 
 결과:
 
-![The Map chart](map_chart.png)
+![The map chart](map_chart.png)
 
 ### **조합 차트 만들기**
 
-조합 차트(Combo chart)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이를 통해 여러 데이터 세트 간의 차이를 강조하거나 비교하여 상호 관계를 파악할 수 있습니다.
+조합 차트(또는 콤보 차트)는 하나의 그래프에 두 개 이상의 차트 유형을 결합합니다. 이를 통해 여러 데이터 세트를 강조·비교·분석하여 서로 간의 관계를 파악할 수 있습니다.
 
 ![The combination chart](combination_chart.png)
 
-다음 Python 코드는 위의 조합 차트를 PowerPoint 프레젠테이션에 만드는 방법을 보여 줍니다:
+다음 Python 코드가 위에 표시된 조합 차트를 PowerPoint 프레젠테이션에 만드는 방법을 보여줍니다:
 
 ```python
+import aspose.slides.charts as charts
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_combo_chart():
     with slides.Presentation() as presentation:
         chart = create_chart_with_first_series(presentation.slides[0])
@@ -905,14 +906,14 @@ def create_chart_with_first_series(slide):
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
-    # 기본 생성된 시리즈와 카테고리를 삭제합니다.
+    # 기본으로 생성된 시리즈와 범주를 삭제합니다.
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
     worksheet_index = 0
     workbook = chart.chart_data.chart_data_workbook
 
-    # 새 카테고리를 추가합니다.
+    # 새 범주를 추가합니다.
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workbook.get_cell(worksheet_index, 3, 0, "Category 3"))
@@ -965,28 +966,28 @@ def add_third_series_to_chart(chart):
 
 
 def set_primary_axes_format(chart):
-    # 수평 축을 설정합니다.
+    # 수평축을 설정합니다.
     horizontal_axis = chart.axes.horizontal_axis
     horizontal_axis.text_format.portion_format.font_height = 12.0
     horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # 수직 축을 설정합니다.
+    # 수직축을 설정합니다.
     vertical_axis = chart.axes.vertical_axis
     vertical_axis.text_format.portion_format.font_height = 12.0
     vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # 주요 수직 격자선 색상을 설정합니다.
+    # 수직축 주요 눈금선 색상을 설정합니다.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
 
 
 def set_secondary_axes_format(chart):
-    # 보조 수평 축을 설정합니다.
+    # 보조 수평축을 설정합니다.
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -994,7 +995,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # 보조 수직 축을 설정합니다.
+    # 보조 수직축을 설정합니다.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
     secondary_vertical_axis.text_format.portion_format.font_height = 12.0
@@ -1015,17 +1016,17 @@ def set_axis_title(axis, axis_title):
 
 ## **차트 업데이트**
 
-Aspose.Slides for Python via .NET을 사용하면 차트 데이터를 수정하고 서식 및 스타일을 변경함으로써 PowerPoint 차트를 업데이트할 수 있습니다. 이 기능은 프레젠테이션을 동적 콘텐츠와 동기화하고 차트가 최신 데이터와 시각적 표준을 정확히 반영하도록 하는 과정을 단순화합니다.
+Aspose.Slides for Python via .NET을 사용하면 차트 데이터·형식·스타일을 업데이트하여 PowerPoint 프레젠테이션을 최신 상태로 유지할 수 있습니다.
 
-1. 차트를 포함하는 프레젠테이션을 나타내는 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스를 인스턴스화합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
+1. 차트가 포함된 프레젠테이션을 열기 위해 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
 1. 모든 도형을 순회하여 차트를 찾습니다.
 1. 차트의 데이터 워크시트에 접근합니다.
 1. 시리즈 값을 변경하여 차트 데이터 시리즈를 수정합니다.
 1. 새 시리즈를 추가하고 데이터를 채웁니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 차트를 업데이트하는 방법을 보여 줍니다:
+다음 Python 코드가 차트를 업데이트하는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -1050,7 +1051,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             # 차트 데이터 워크북을 가져옵니다.
             workbook = chart.chart_data.chart_data_workbook
 
-            # 차트 카테고리 이름을 변경합니다.
+            # 차트 범주 이름을 변경합니다.
             workbook.get_cell(worksheet_index, 1, 0, "Modified Category 1")
             workbook.get_cell(worksheet_index, 2, 0, "Modified Category 2")
 
@@ -1088,15 +1089,15 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **차트 데이터 범위 설정**
 
-Aspose.Slides for Python via .NET은 워크시트의 특정 데이터 범위를 차트 데이터 소스로 정의할 수 있는 유연성을 제공합니다. 이를 통해 워크시트의 일부 셀만 차트의 시리즈와 카테고리에 포함시킬 수 있어, 워크시트와 차트를 쉽게 동기화하고 최신 데이터를 반영하도록 할 수 있습니다.
+Aspose.Slides for Python via .NET을 사용하면 특정 워크시트 범위를 차트의 데이터 원본으로 지정할 수 있습니다. 이는 차트의 시리즈와 범주에 사용할 셀을 제어하고, 워크시트 변경 시 차트가 자동으로 업데이트되도록 합니다.
 
-1. 차트를 포함하는 프레젠테이션을 나타내는 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스를 인스턴스화합니다.
-1. 인덱스를 사용하여 슬라이드에 대한 참조를 가져옵니다.
+1. 차트가 포함된 프레젠테이션을 열기 위해 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. 인덱스로 슬라이드에 대한 참조를 가져옵니다.
 1. 모든 도형을 순회하여 차트를 찾습니다.
 1. 차트 데이터를 접근하고 범위를 설정합니다.
 1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
 
-다음 Python 코드가 차트에 데이터 범위를 설정하는 방법을 보여 줍니다:
+다음 Python 코드가 차트의 데이터 범위를 설정하는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -1121,9 +1122,9 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **차트 기본 마커 사용**
 
-차트에 기본 마커를 사용하면 각 차트 시리즈에 자동으로 서로 다른 기본 마커 기호가 적용됩니다.
+차트에 기본 마커를 사용하면 각 차트 시리즈에 자동으로 서로 다른 마커 기호가 할당됩니다.
 
-다음 Python 코드가 차트 시리즈 마커를 자동으로 설정하는 방법을 보여 줍니다:
+다음 Python 코드가 차트 시리즈 마커를 자동으로 설정하는 방법을 보여줍니다:
 
 ```py
 import aspose.slides.charts as charts
@@ -1169,18 +1170,18 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Aspose.Slides for Python via .NET에서 지원되는 차트 유형은 무엇인가요?**
+**Aspose.Slides for Python via .NET에서 지원하는 차트 유형은 무엇인가요?**
 
-Aspose.Slides for Python via .NET은 막대, 꺾은선, 원형, 영역, 분산형, 히스토그램, 레이다 등 다양한 차트 유형을 지원합니다. 이를 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
+Aspose.Slides for Python via .NET은 막대·선·원·면·산점도·히스토그램·레이다 등 다양한 차트 유형을 지원합니다. 이를 통해 데이터 시각화 요구에 가장 적합한 차트 유형을 선택할 수 있습니다.
 
-**슬라이드에 새 차트를 추가하려면 어떻게 해야 하나요?**
+**슬라이드에 새 차트를 어떻게 추가하나요?**
 
-차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 만든 다음, 인덱스를 사용해 원하는 슬라이드를 가져오고, 차트 유형과 초기 데이터를 지정하여 차트를 추가하는 메서드를 호출하면 됩니다. 이 과정은 차트를 프레젠테이션에 직접 삽입합니다.
+새 차트를 추가하려면 먼저 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 만들고, 인덱스로 원하는 슬라이드를 가져온 다음 차트를 추가하는 메서드를 호출하면서 차트 유형과 초기 데이터를 지정합니다. 이렇게 하면 차트가 프레젠테이션에 직접 삽입됩니다.
 
-**차트에 표시되는 데이터를 어떻게 업데이트할 수 있나요?**
+**차트에 표시되는 데이터를 어떻게 업데이트하나요?**
 
-차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근하여 기본 시리즈와 카테고리를 삭제한 뒤, 사용자 정의 데이터를 추가하면 차트 데이터를 프로그래밍 방식으로 새 데이터로 갱신할 수 있습니다.
+차트의 데이터 워크북([ChartDataWorkbook](https://reference.aspose.com/slides/ko/python-net/aspose.slides.charts/chartdataworkbook/))에 접근한 뒤 기본 시리즈와 범주를 삭제하고 사용자 지정 데이터를 추가하면 차트 데이터를 업데이트할 수 있습니다. 이를 통해 최신 데이터를 반영하도록 차트를 프로그램matically 새로 고칠 수 있습니다.
 
-**차트 외관을 사용자 정의할 수 있나요?**
+**차트 모양을 사용자 지정할 수 있나요?**
 
-예, Aspose.Slides for Python via .NET은 광범위한 사용자 정의 옵션을 제공합니다. 색상, 글꼴, 레이블, 범례 및 기타 서식 요소를 수정하여 차트를 특정 디자인 요구 사항에 맞게 조정할 수 있습니다.
+예, Aspose.Slides for Python via .NET은 광범위한 사용자 지정 옵션을 제공합니다. 색상·글꼴·레이블·범례·기타 형식 요소를 수정하여 차트의 외관을 디자인 요구 사항에 맞게 조정할 수 있습니다.

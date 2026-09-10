@@ -1,83 +1,81 @@
 ---
-title: Buat atau Perbarui Diagram Presentasi PowerPoint dalam Java
-linktitle: Buat atau Perbarui Diagram
+title: Membuat atau Memperbarui Diagram Presentasi PowerPoint di Java
+linktitle: Membuat atau Memperbarui Diagram
 type: docs
 weight: 10
 url: /id/java/create-chart/
 keywords:
-- tambahkan diagram
-- buat diagram
-- edit diagram
-- ubah diagram
-- perbarui diagram
-- diagram scatter
-- diagram pai
+- menambahkan diagram
+- membuat diagram
+- mengedit diagram
+- mengubah diagram
+- memperbarui diagram
+- diagram tersebar
+- diagram lingkaran
 - diagram garis
 - diagram peta pohon
 - diagram saham
 - diagram kotak dan whisker
 - diagram corong
-- diagram ledakan matahari
+- diagram sunburst
 - diagram histogram
 - diagram radar
-- diagram multi‑kategori
+- diagram multikategori
 - PowerPoint
 - presentasi
 - Java
 - Aspose.Slides
-description: "Buat dan sesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Java. Tambahkan, format, dan edit diagram dengan contoh kode praktis dalam Java."
+description: "Membuat dan menyesuaikan diagram dalam presentasi PowerPoint menggunakan Aspose.Slides untuk Java. Menambahkan, memformat, dan mengedit diagram dengan contoh kode praktis dalam Java."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menyediakan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram ke slide secara programatik, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode detail menggambarkan setiap langkah, mulai dari menginisialisasi presentasi dan objek diagram hingga mengkonfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, mempermudah proses pembuatan presentasi berbasis data.
+Artikel ini memberikan panduan komprehensif tentang cara membuat dan menyesuaikan diagram menggunakan Aspose.Slides. Anda akan belajar cara menambahkan diagram secara programatik ke slide, mengisi data, dan menerapkan berbagai opsi pemformatan untuk memenuhi kebutuhan desain spesifik Anda. Sepanjang artikel, contoh kode terperinci menggambarkan setiap langkah, mulai dari inisialisasi presentasi dan objek diagram hingga konfigurasi seri, sumbu, dan legenda. Dengan mengikuti panduan ini, Anda akan memperoleh pemahaman yang kuat tentang cara mengintegrasikan pembuatan diagram dinamis ke dalam aplikasi Anda, menyederhanakan proses pembuatan presentasi berbasis data.
 
-## **Buat Diagram**
-Diagram membantu orang dengan cepat memvisualisasikan data dan mendapatkan wawasan, yang mungkin tidak langsung terlihat dari tabel atau spreadsheet. 
+## **Membuat Diagram**
 
+Diagram membantu orang dengan cepat memvisualisasikan data dan memperoleh wawasan yang mungkin tidak langsung terlihat dari tabel atau spreadsheet.
 
 **Mengapa Membuat Diagram?**
 
-Dengan diagram, Anda dapat
+Dengan diagram, Anda dapat:
 
-* menggabungkan, merangkum, atau menyederhanakan sejumlah besar data pada satu slide dalam presentasi
-*menampilkan pola dan tren dalam data
-*menentukan arah dan momentum data seiring waktu atau terhadap satuan ukuran tertentu 
-*menemukan outlier, penyimpangan, deviasi, kesalahan, data yang tidak masuk akal, dll. 
-*berkomunikasi atau menyajikan data kompleks
+* mengagregasi, menyederhanakan, atau merangkum sejumlah besar data pada satu slide dalam sebuah presentasi
+* menampilkan pola dan tren dalam data
+* menilai arah dan momentum data dari waktu ke waktu atau terhadap satuan ukuran tertentu
+* mengidentifikasi nilai ekstrim, penyimpangan, kesalahan, data yang tidak masuk akal, dll.
+* menyampaikan atau mempresentasikan data yang kompleks
 
-Di PowerPoint, Anda dapat membuat diagram melalui fungsi sisipkan, yang menyediakan templat untuk merancang banyak jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram biasa (berdasarkan tipe diagram populer) dan diagram khusus. 
+Di PowerPoint, Anda dapat membuat diagram melalui fungsi *Insert*, yang menyediakan templat untuk merancang banyak jenis diagram. Menggunakan Aspose.Slides, Anda dapat membuat diagram reguler (berdasarkan tipe diagram populer) serta diagram khusus.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Agar Anda dapat membuat diagram, Aspose.Slides menyediakan kelas [ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType). Field di dalam kelas ini sesuai dengan berbagai tipe diagram. 
+Untuk membuat diagram, gunakan kelas [ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/). Field di kelas ini sesuai dengan berbagai tipe diagram.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-### **Buat Diagram Normal**
+### **Membuat Diagram Kolom Berkelompok**
 
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Langkah:</em> Buat Diagram PowerPoint di Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Langkah:</em> Buat Diagram Presentasi di Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Langkah:</em> Buat Diagram Presentasi PowerPoint di Java</strong></a>
+Bagian ini menjelaskan cara membuat diagram kolom berkelompok menggunakan Aspose.Slides. Anda akan belajar menginisialisasi presentasi, menambahkan diagram, dan menyesuaikan elemennya seperti judul, data, seri, kategori, dan gaya. Ikuti langkah‑langkah di bawah ini untuk melihat bagaimana diagram kolom berkelompok standar dihasilkan:
 
-_Code Steps:_
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation) .
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan diagram dengan beberapa data dan tentukan tipe `ChartType.ClusteredColumn` .
+1. Tambahkan judul ke diagram.
+1. Akses worksheet data diagram.
+1. Kosongkan semua seri dan kategori default.
+1. Tambahkan seri dan kategori baru.
+1. Tambahkan data diagram baru untuk seri diagram.
+1. Terapkan warna isi pada seri diagram.
+1. Tambahkan label pada seri diagram.
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan. 
-4. Tambahkan judul untuk diagram. 
-5. Akses lembar kerja data diagram. 
-6. Hapus semua seri dan kategori default. 
-7. Tambahkan seri dan kategori baru. 
-8. Tambahkan beberapa data diagram baru untuk seri diagram. 
-9. Tambahkan warna isi untuk seri diagram. 
-10. Tambahkan label untuk seri diagram. 
-11. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
-
-Kode Java ini menunjukkan cara membuat diagram normal:
+Kode C# berikut memperlihatkan cara membuat diagram kolom berkelompok:
 
 ```java
-// Membuat instance kelas presentasi yang mewakili file PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Menginstansiasi kelas presentasi yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
     // Mengakses slide pertama
@@ -90,10 +88,7 @@ try {
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    
-    // Mengatur seri pertama untuk menampilkan nilai
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.setTitle(true);
     
     // Mengatur indeks untuk lembar data diagram
     int defaultWorksheetIndex = 0;
@@ -140,8 +135,8 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //Buat label khusus untuk setiap kategori bagi seri baru
-    // Mengatur label pertama untuk menampilkan nama Kategori
+    //Membuat label khusus untuk tiap kategori pada seri baru
+    // Mengatur label pertama agar menampilkan nama Kategori
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -161,32 +156,31 @@ try {
 }
 ```
 
-### **Buat Diagram Scatter**
-Diagram scatter (juga dikenal sebagai scatter plot atau grafik x-y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel. 
+### **Membuat Diagram Sebar**
 
-Anda mungkin ingin menggunakan diagram scatter ketika 
+Diagram sebar (juga dikenal sebagai scatter plot atau grafik x‑y) sering digunakan untuk memeriksa pola atau menunjukkan korelasi antara dua variabel.
+
+Gunakan diagram sebar ketika:
 
 * Anda memiliki data numerik berpasangan
-* Anda memiliki 2 variabel yang cocok bersama
-* Anda ingin menentukan apakah 2 variabel saling berhubungan
+* Anda memiliki dua variabel yang saling berhubungan
+* Anda ingin menentukan apakah dua variabel terkait
 * Anda memiliki variabel independen yang memiliki banyak nilai untuk variabel dependen
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Langkah:</em> Buat Diagram Scatter di Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Langkah:</em> Buat Diagram Scatter PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Langkah:</em> Buat Diagram Scatter Presentasi PowerPoint di Java</strong></a>
+1. Ikuti langkah‑langkah di [Membuat Diagram Kolom Berkelompok](#create-clustered-column-charts).
+2. Pada langkah ketiga, tambahkan diagram dengan beberapa data dan tentukan tipe diagram Anda sebagai salah satu berikut:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili diagram sebar._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili diagram sebar yang dihubungkan oleh kurva, dengan penanda data._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili diagram sebar yang dihubungkan oleh kurva, tanpa penanda data._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili diagram sebar yang dihubungkan oleh garis lurus, dengan penanda data._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili diagram sebar yang dihubungkan oleh garis lurus, tanpa penanda data._
 
-1. Ikuti langkah‑langkah yang disebutkan di atas pada [Membuat Diagram Normal](#creating-normal-charts)
-2. Pada langkah ketiga, Tambahkan diagram dengan beberapa data dan tentukan tipe diagram Anda sebagai salah satu berikut
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Mewakili Diagram Scatter._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Mewakili Diagram Scatter yang terhubung oleh kurva, dengan penanda data._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Mewakili Diagram Scatter yang terhubung oleh kurva, tanpa penanda data._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Mewakili Diagram Scatter yang terhubung oleh garis lurus, dengan penanda data._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Mewakili Diagram Scatter yang terhubung oleh garis lurus, tanpa penanda data._
-
-Kode Java ini menunjukkan cara membuat diagram scatter dengan seri penanda yang berbeda: 
+Kode Java berikut menunjukkan cara membuat diagram sebar dengan penanda berbeda untuk setiap seri:
 
 ```java
-// Membuat instance kelas presentasi yang mewakili file PPTX
+import com.aspose.slides.*;
+
+// Menginstansiasi kelas presentasi yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
     // Mengakses slide pertama
@@ -249,31 +243,30 @@ try {
 }
 ```
 
-### **Buat Diagram Pie**
+### **Membuat Diagram Lingkaran**
 
-Diagram pie paling baik digunakan untuk menunjukkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, jika data Anda memiliki banyak bagian atau label, Anda mungkin ingin mempertimbangkan menggunakan diagram batang sebagai gantinya.
+Diagram lingkaran paling cocok untuk menunjukkan hubungan bagian‑ke‑keseluruhan dalam data, terutama ketika data berisi label kategori dengan nilai numerik. Namun, bila data Anda mengandung banyak bagian atau label, pertimbangkan untuk menggunakan diagram batang sebagai gantinya.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Langkah:</em> Buat Diagram Pie di Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Langkah:</em> Buat Diagram Pie PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Langkah:</em> Buat Diagram Pie Presentasi PowerPoint di Java</strong></a>
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam kasus ini, [ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType).Pie).
-4. Akses data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataWorkbook).
-5. Hapus seri dan kategori default.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Pie](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#Pie) .
+4. Akses workbook data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/) .
+5. Kosongkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tambahkan titik baru untuk diagram dan tambahkan warna khusus untuk sektor diagram pie.
+8. Tambahkan poin baru untuk diagram dan terapkan warna khusus untuk sektor diagram lingkaran.
 9. Atur label untuk seri.
-10. Atur garis pemimpin untuk label seri.
-11. Atur sudut rotasi untuk slide diagram pie.
-12. Simpan presentasi yang telah dimodifikasi ke file PPTX
+10. Aktifkan garis pemimpin untuk label seri.
+11. Atur sudut rotasi untuk sektor diagram lingkaran.
+12. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java ini menunjukkan cara membuat diagram pie:
+Kode Java berikut memperlihatkan cara membuat diagram lingkaran:
 
 ```java
-// Membuat instance kelas presentasi yang mewakili file PPTX
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Menginstansiasi kelas presentasi yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
     // Mengakses slide pertama
@@ -287,9 +280,6 @@ try {
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    
-    // Mengatur seri pertama untuk menampilkan nilai
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     
     // Mengatur indeks untuk lembar data diagram
     int defaultWorksheetIndex = 0;
@@ -309,12 +299,12 @@ try {
     // Menambahkan seri baru
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // Mengisi data seri
+    //Mengisi data seri
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // Tidak berfungsi pada versi baru
+    // Tidak berfungsi di versi baru
     // Menambahkan titik baru dan mengatur warna sektor
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
@@ -352,7 +342,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Membuat label khusus untuk setiap kategori pada seri baru
+    // Membuat label khusus untuk tiap kategori pada seri baru
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -370,7 +360,7 @@ try {
     // Menampilkan Garis Pemimpin untuk Diagram
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Mengatur Sudut Rotasi untuk Sektor Diagram Pai
+    // Mengatur Sudut Rotasi untuk Sektor Diagram Lingkaran
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
     // Menyimpan presentasi dengan diagram
@@ -380,22 +370,20 @@ try {
 }
 ```
 
-### **Buat Diagram Line**
+### **Membuat Diagram Garis**
 
-Diagram line (juga dikenal sebagai grafik garis) paling baik digunakan dalam situasi di mana Anda ingin menunjukkan perubahan nilai seiring waktu. Dengan diagram line, Anda dapat membandingkan banyak data sekaligus, melacak perubahan dan tren dari waktu ke waktu, menyoroti anomali dalam seri data, dll.
+Diagram garis (juga dikenal sebagai grafik garis) paling cocok untuk situasi di mana Anda ingin memperlihatkan perubahan nilai dari waktu ke waktu. Dengan diagram garis, Anda dapat membandingkan sejumlah besar data sekaligus, melacak perubahan dan tren seiring waktu, menyoroti anomali dalam seri data, dan lain‑lain.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam kasus ini, `ChartType.Line`).
-1. Akses data diagram IChartDataWorkbook.
-1. Hapus seri dan kategori default.
-1. Tambahkan seri dan kategori baru.
-1. Tambahkan data diagram baru untuk seri diagram.
-1. Simpan presentasi yang telah dimodifikasi ke file PPTX
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+1. Dapatkan referensi ke slide menggunakan indeksnya.
+1. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Line](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#Line) .
+1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java ini menunjukkan cara membuat diagram line:
+Kode Java berikut memperlihatkan cara membuat diagram garis:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -406,37 +394,44 @@ try {
 }
 ```
 
-Secara default, titik pada diagram line dihubungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut dihubungkan dengan garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan dengan cara berikut:
+Secara default, titik pada diagram garis digabungkan oleh garis lurus kontinu. Jika Anda ingin titik‑titik tersebut digabungkan oleh garis putus‑putus, Anda dapat menentukan tipe dash yang diinginkan sebagai berikut:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+
+    pres.save("lineChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
-### **Buat Diagram Tree Map**
+### **Membuat Diagram Peta Pohon**
 
-Diagram tree map paling baik digunakan untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan (pada saat yang sama) dengan cepat menarik perhatian ke item yang memberikan kontribusi besar pada tiap kategori. 
+Diagram peta pohon paling cocok untuk data penjualan ketika Anda ingin menunjukkan ukuran relatif kategori data dan dengan cepat menarik perhatian pada item yang menjadi kontributor besar di tiap kategori.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Langkah:</em> Buat Diagram Tree Map di Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Langkah:</em> Buat Diagram Tree Map PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Langkah:</em> Buat Diagram Tree Map Presentasi PowerPoint di Java</strong></a>
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam kasus ini, [ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType).TreeMap).
-4. Akses data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataWorkbook).
-5. Hapus seri dan kategori default.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Treemap](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#Treemap) .
+4. Akses workbook data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/) .
+5. Kosongkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi ke file PPTX
+8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java ini menunjukkan cara membuat diagram tree map:
+Kode Java berikut memperlihatkan cara membuat diagram peta pohon:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -489,25 +484,23 @@ try {
 }
 ```
 
-### **Buat Diagram Stock**
+### **Membuat Diagram Saham**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Langkah:</em> Buat Diagram Stock di Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Langkah:</em> Buat Diagram Stock PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Langkah:</em> Buat Diagram Stock Presentasi PowerPoint di Java</strong></a>
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Akses data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataWorkbook).
-5. Hapus seri dan kategori default.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#OpenHighLowClose) .
+4. Akses workbook data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/) .
+5. Kosongkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Tentukan format HiLowLines.
-9. Simpan presentasi yang telah dimodifikasi ke file PPTX
+8. Tentukan format garis tinggi‑rendah.
+9. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Contoh kode Java yang digunakan untuk membuat diagram stock:
+Kode Java berikut memperlihatkan cara membuat diagram saham:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -561,24 +554,22 @@ try {
 }
 ```
 
-### **Buat Diagram Box and Whisker**
+### **Membuat Diagram Kotak‑dan‑Whisker**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Langkah:</em> Buat Diagram Box and Whisker di Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Langkah:</em> Buat Diagram Box and Whisker PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Langkah:</em> Buat Diagram Box and Whisker Presentasi PowerPoint di Java</strong></a>
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Akses data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataWorkbook).
-5. Hapus seri dan kategori default.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#BoxAndWhisker) .
+4. Akses workbook data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/) .
+5. Kosongkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi ke file PPTX
+8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java ini menunjukkan cara membuat diagram box and whisker:
+Kode Java berikut memperlihatkan cara membuat diagram kotak‑dan‑whisker:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -616,21 +607,18 @@ try {
 }
 ```
 
-### **Buat Diagram Funnel**
+### **Membuat Diagram Corong**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Langkah:</em> Buat Diagram Funnel di Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Langkah:</em> Buat Diagram Funnel PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Langkah:</em> Buat Diagram Funnel Presentasi PowerPoint di Java</strong></a>
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Funnel](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#Funnel) .
+4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType).Funnel).
-4. Simpan presentasi yang telah dimodifikasi ke file PPTX
-
-Kode Java yang menunjukkan cara membuat diagram funnel:
+Kode Java berikut memperlihatkan cara membuat diagram corong:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -663,20 +651,18 @@ try {
 }
 ```
 
-### **Buat Diagram Sunburst**
+### **Membuat Diagram Sunburst**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Langkah:</em> Buat Diagram Sunburst di Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Langkah:</em> Buat Diagram Sunburst PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Langkah:</em> Buat Diagram Sunburst Presentasi PowerPoint di Java</strong></a>
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Sunburst](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#Sunburst) .
+4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan (dalam kasus ini, [ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType).sunburst).
-4. Simpan presentasi yang telah dimodifikasi ke file PPTX
-
-Kode Java ini menunjukkan cara membuat diagram sunburst:
+Kode Java berikut memperlihatkan cara membuat diagram sunburst:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -727,23 +713,21 @@ try {
 }
 ```
 
-### **Buat Diagram Histogram**
+### **Membuat Diagram Histogram**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Langkah:</em> Buat Diagram Histogram di Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Langkah:</em> Buat Diagram Histogram PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Langkah:</em> Buat Diagram Histogram Presentasi PowerPoint di Java</strong></a>
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType).Histogram).
-4. Akses data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataWorkbook).
-5. Hapus seri dan kategori default.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.Histogram](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#Histogram) .
+4. Akses workbook data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/) .
+5. Kosongkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
-7. Simpan presentasi yang telah dimodifikasi ke file PPTX
+7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java ini menunjukkan cara membuat diagram histogram:
+Kode Java berikut memperlihatkan cara membuat diagram histogram:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -761,7 +745,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -769,20 +753,18 @@ try {
 }
 ```
 
-### **Buat Diagram Radar**
+### **Membuat Diagram Radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Langkah:</em> Buat Diagram Radar di Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Langkah:</em> Buat Diagram Radar PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Langkah:</em> Buat Diagram Radar Presentasi PowerPoint di Java</strong></a>
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang diinginkan ([ChartType.Radar](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#Radar) dalam kasus ini).
+4. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan diagram dengan beberapa data dan tentukan tipe diagram yang Anda inginkan (`ChartType.Radar` dalam kasus ini).
-4. Simpan presentasi yang telah dimodifikasi ke file PPTX
-
-Kode Java ini menunjukkan cara membuat diagram radar:
+Kode Java berikut memperlihatkan cara membuat diagram radar:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -792,24 +774,22 @@ try {
 }
 ```
 
-### **Buat Diagram Multi‑Category**
+### **Membuat Diagram Multi‑Kategori**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Langkah:</em> Buat Diagram Multi‑Category di Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Langkah:</em> Buat Diagram Multi‑Category PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Langkah:</em> Buat Diagram Multi‑Category Presentasi PowerPoint di Java</strong></a>
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) .
-2. Dapatkan referensi slide melalui indeksnya. 
-3. Tambahkan diagram dengan data default beserta tipe yang diinginkan ([ChartType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ChartType).ClusteredColumn).
-4. Akses data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/IChartDataWorkbook).
-5. Hapus seri dan kategori default.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) .
+2. Dapatkan referensi ke slide menggunakan indeksnya.
+3. Tambahkan diagram dengan data default dan tentukan tipe [ChartType.ClusteredColumn](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/#ClusteredColumn) .
+4. Akses workbook data diagram [IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/) .
+5. Kosongkan seri dan kategori default.
 6. Tambahkan seri dan kategori baru.
 7. Tambahkan data diagram baru untuk seri diagram.
-8. Simpan presentasi yang telah dimodifikasi ke file PPTX.
+8. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java ini menunjukkan cara membuat diagram multi‑category:
+Kode Java berikut memperlihatkan cara membuat diagram multi‑kategori:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -856,17 +836,15 @@ try {
 }
 ```
 
-### **Buat Diagram Peta**
+### **Membuat Diagram Peta**
 
-Diagram peta adalah visualisasi area yang berisi data. Diagram peta paling baik digunakan untuk membandingkan data atau nilai di seluruh wilayah geografis.
+Diagram peta memvisualisasikan data geografis dan membantu membandingkan nilai antar wilayah.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Langkah:</em> Buat Diagram Peta di Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Langkah:</em> Buat Diagram Peta PowerPoint di Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Langkah:</em> Buat Diagram Peta Presentasi PowerPoint di Java</strong></a>
-
-Kode Java ini menunjukkan cara membuat diagram peta:
+Kode Java berikut memperlihatkan cara membuat diagram peta:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -876,15 +854,18 @@ try {
 }
 ```
 
-### **Buat Diagram Kombinasi**
+### **Membuat Diagram Kombinasi**
 
-Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih set data, membantu mengidentifikasi hubungan di antaranya.
+Diagram kombinasi (atau combo chart) menggabungkan dua atau lebih tipe diagram dalam satu grafik. Diagram ini memungkinkan Anda menyoroti, membandingkan, atau memeriksa perbedaan antara dua atau lebih kumpulan data, membantu mengidentifikasi hubungan di antaranya.
 
-![The combination chart](combination_chart.png)
+![Diagram kombinasi](combination_chart.png)
 
-Kode Java berikut menunjukkan cara membuat diagram kombinasi seperti yang ditampilkan di atas dalam sebuah presentasi PowerPoint:
+Kode Java berikut memperlihatkan cara membuat diagram kombinasi yang ditampilkan di atas dalam presentasi PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -1029,55 +1010,54 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 }
 ```
 
-## **Perbarui Diagram**
+## **Memperbarui Diagram**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Langkah:</em> Perbarui Diagram PowerPoint di Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Langkah:</em> Perbarui Diagram Presentasi di Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Langkah:</em> Perbarui Diagram Presentasi PowerPoint di Java</strong></a>
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) yang mewakili presentasi yang berisi diagram yang ingin Anda perbarui. 
-2. Dapatkan referensi slide dengan menggunakan indeksnya.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) yang mewakili presentasi berisi diagram yang ingin Anda perbarui.
+2. Dapatkan referensi ke slide menggunakan indeksnya.
 3. Telusuri semua shape untuk menemukan diagram yang diinginkan.
-4. Akses lembar kerja data diagram.
-5. Modifikasi data seri diagram dengan mengubah nilai seri.
-6. Tambahkan seri baru dan isi data di dalamnya.
+4. Akses worksheet data diagram.
+5. Modifikasi seri data diagram dengan mengubah nilai seri.
+6. Tambahkan seri baru dan isi datanya.
 7. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java ini menunjukkan cara memperbarui diagram:
+Kode Java berikut memperlihatkan cara memperbarui diagram:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Membuka presentasi yang berisi diagram yang akan diperbarui
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Akses slide pertama
+    // Mengakses slide pertama
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Dapatkan diagram dengan data default
+    // Mendapatkan diagram dari slide
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
     // Mengatur indeks lembar data diagram
     int defaultWorksheetIndex = 0;
 
-    // Mengambil worksheet data diagram
+    // Mendapatkan worksheet data diagram
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
     // Mengubah Nama Kategori diagram
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Ambil seri diagram pertama
+    // Mengambil seri diagram pertama
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // Sekarang memperbarui data seri
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Memodifikasi nama seri
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Mengubah nama seri
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Ambil seri diagram kedua
+    // Mengambil seri diagram Kedua
     series = chart.getChartData().getSeries().get_Item(1);
 
     // Sekarang memperbarui data seri
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Memodifikasi nama seri
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Mengubah nama seri
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1085,7 +1065,7 @@ try {
     // Sekarang, Menambahkan seri baru
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Ambil seri diagram ketiga
+    // Mengambil seri diagram ke-3
     series = chart.getChartData().getSeries().get_Item(2);
 
     // Sekarang mengisi data seri
@@ -1102,20 +1082,23 @@ try {
 }
 ```
 
-## **Atur Rentang Data untuk Diagram**
+## **Menetapkan Rentang Data untuk Diagram**
 
-Untuk mengatur rentang data untuk sebuah diagram, lakukan hal berikut:
+Untuk menetapkan rentang data untuk sebuah diagram, lakukan hal berikut:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation) yang mewakili presentasi yang berisi diagram.
-2. Dapatkan referensi slide melalui indeksnya.
+1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) yang mewakili presentasi berisi diagram.
+2. Dapatkan referensi ke slide menggunakan indeksnya.
 3. Telusuri semua shape untuk menemukan diagram yang diinginkan.
-4. Akses data diagram dan atur rentangnya.
+4. Akses data diagram dan tetapkan rentangnya.
 5. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode Java ini menunjukkan cara mengatur rentang data untuk diagram:
+Kode Java berikut memperlihatkan cara menetapkan rentang data untuk sebuah diagram:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Membuka presentasi yang berisi diagram
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1128,12 +1111,15 @@ try {
 }
 ```
 
-## **Gunakan Penanda Default di Diagram**
-Ketika Anda menggunakan penanda default di diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda default yang berbeda.
+## **Menggunakan Penanda Default dalam Diagram**
 
-Kode Java ini menunjukkan cara mengatur penanda seri diagram secara otomatis:
+Ketika Anda menggunakan penanda default dalam diagram, setiap seri diagram secara otomatis mendapatkan simbol penanda yang berbeda.
+
+Kode Java berikut memperlihatkan cara mengatur penanda seri diagram secara otomatis:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1156,10 +1142,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Ambil seri diagram kedua
+    //Ambil seri diagram kedua
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // Sekarang mengisi data seri
+    //Sekarang mengisi data seri
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1176,18 +1162,18 @@ try {
 
 ## **FAQ**
 
-**Tipe diagram apa saja yang didukung oleh Aspose.Slides?**
+**Jenis diagram apa yang didukung oleh Aspose.Slides?**
 
-Aspose.Slides mendukung berbagai [tipe diagram](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/), termasuk bar, line, pie, area, scatter, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling sesuai untuk kebutuhan visualisasi data Anda.
+Aspose.Slides mendukung berbagai [tipe diagram](https://reference.aspose.com/slides/id/java/com.aspose.slides/charttype/), termasuk batang, garis, lingkaran, area, sebar, histogram, radar, dan banyak lagi. Fleksibilitas ini memungkinkan Anda memilih tipe diagram yang paling sesuai untuk kebutuhan visualisasi data Anda.
 
 **Bagaimana cara menambahkan diagram baru ke slide?**
 
-Untuk menambahkan diagram, pertama buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) , dapatkan slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram dengan menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram secara langsung ke dalam presentasi Anda.
+Untuk menambahkan diagram, pertama buat instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) , ambil slide yang diinginkan menggunakan indeksnya, lalu panggil metode untuk menambahkan diagram, dengan menentukan tipe diagram dan data awal. Proses ini mengintegrasikan diagram langsung ke dalam presentasi Anda.
 
-**Bagaimana cara memperbarui data yang ditampilkan pada diagram?**
+**Bagaimana saya dapat memperbarui data yang ditampilkan dalam diagram?**
 
-Anda dapat memperbarui data diagram dengan mengakses workbook data diagram ([IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/)), menghapus semua seri dan kategori default, lalu menambahkan data khusus Anda. Hal ini memungkinkan Anda menyegarkan diagram untuk mencerminkan data terbaru.
+Anda dapat memperbarui data diagram dengan mengakses workbook datanya ([IChartDataWorkbook](https://reference.aspose.com/slides/id/java/com.aspose.slides/ichartdataworkbook/)), menghapus semua seri dan kategori default, kemudian menambahkan data khusus Anda. Hal ini memungkinkan Anda menyegarkan diagram agar mencerminkan data terbaru.
 
-**Apakah mungkin menyesuaikan tampilan diagram?**
+**Apakah memungkinkan untuk menyesuaikan tampilan diagram?**
 
-Ya, Aspose.Slides menyediakan opsi penyesuaian yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen [formatting](/slides/id/java/chart-entities/) lainnya untuk menyesuaikan tampilan diagram dengan persyaratan desain spesifik Anda.
+Ya, Aspose.Slides menyediakan opsi kustomisasi yang luas. Anda dapat mengubah warna, font, label, legenda, dan elemen [pemformatan](/slides/id/java/chart-entities/) lainnya untuk menyesuaikan tampilan diagram dengan kebutuhan desain spesifik Anda.

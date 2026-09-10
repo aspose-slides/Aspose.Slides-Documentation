@@ -1,6 +1,6 @@
 ---
-title: Crea o Aggiorna Grafici di Presentazioni PowerPoint in .NET
-linktitle: Crea o Aggiorna Grafici
+title: Crea o aggiorna grafici di presentazioni PowerPoint in .NET
+linktitle: Crea o aggiorna grafici
 type: docs
 weight: 10
 url: /it/net/create-chart/
@@ -13,46 +13,46 @@ keywords:
 - grafico a dispersione
 - grafico a torta
 - grafico a linee
-- grafico a mappa a albero
-- grafico finanziario
+- grafico a mappa ad albero
+- grafico di borsa
 - grafico a scatola e baffi
 - grafico a imbuto
-- grafico Sunburst
-- grafico istogramma
+- grafico a raggiera
+- istogramma
 - grafico radar
-- grafico multi-categoria
+- grafico multicategoria
 - PowerPoint
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Crea e personalizza i grafici nelle presentazioni PowerPoint usando Aspose.Slides per .NET. Aggiungi, formatta e modifica i grafici con esempi di codice pratici in C#."
+description: "Crea e personalizza i grafici nelle presentazioni PowerPoint usando Aspose.Slides per .NET. Aggiungi, formatta e modifica i grafici con esempi pratici di codice in C#."
 ---
 ## **Panoramica**
 
-Questo articolo fornisce una guida completa su come creare e personalizzare grafici utilizzando Aspose.Slides per .NET. Imparerai a inserire programmaticamente un grafico in una diapositiva, a popolarlo con i dati e ad applicare varie opzioni di formattazione per soddisfare i requisiti di progettazione specifici. Nell'arco dell'articolo, esempi di codice dettagliati illustrano ogni passaggio, dall'inizializzazione della presentazione e dell'oggetto grafico alla configurazione di serie, assi e legende. Seguendo questa guida, otterrai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni .NET, semplificando il processo di creazione di presentazioni basate sui dati.
+Questo articolo offre una guida completa su come creare e personalizzare i grafici utilizzando Aspose.Slides per .NET. Imparerai a inserire programmaticamente un grafico in una diapositiva, a popolarlo con i dati e ad applicare varie opzioni di formattazione per soddisfare i requisiti di progettazione specifici. Nell'articolo, esempi di codice dettagliati illustrano ogni passaggio, dall'inizializzazione della presentazione e dell'oggetto grafico alla configurazione di serie, assi e legende. Seguendo questa guida, otterrai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni .NET, semplificando il processo di creazione di presentazioni basate sui dati.
 
-## **Creare un Grafico**
+## **Creare un grafico**
 
-I grafici aiutano le persone a visualizzare rapidamente i dati e a ottenere informazioni che potrebbero non essere immediatamente evidenti da una tabella o un foglio di calcolo.
+I grafici aiutano le persone a visualizzare rapidamente i dati e a ottenere informazioni che potrebbero non essere immediatamente evidenti da una tabella o da un foglio di calcolo.
 
-**Perché Creare Grafici?**
+**Perché creare grafici?**
 
 Utilizzando i grafici, puoi:
 
-* aggregare, condensare o riassumere grandi quantità di dati in una singola diapositiva di una presentazione;
+* aggregare, condensare o riepilogare grandi quantità di dati in una singola diapositiva di una presentazione;
 * evidenziare schemi e tendenze nei dati;
-* dedurre la direzione e lo slancio dei dati nel tempo o rispetto a un'unità di misura specifica;
-* individuare outlier, anomalie, deviazioni, errori e dati non sensati;
+* dedurre la direzione e la spinta dei dati nel tempo o rispetto a un'unità di misura specifica;
+* individuare valori anomali, aberrazioni, deviazioni, errori e dati senza senso;
 * comunicare o presentare dati complessi.
 
-In PowerPoint, è possibile creare grafici tramite la funzione *Insert*, che fornisce modelli per progettare molti tipi di grafico. Con Aspose.Slides, puoi creare sia grafici standard (basati su tipi di grafico popolari) sia grafici personalizzati.
+In PowerPoint, è possibile creare grafici tramite la funzione *Inserisci*, che fornisce modelli per la progettazione di molti tipi di grafico. Con Aspose.Slides, è possibile creare sia grafici standard (basati su tipi di grafico popolari) sia grafici personalizzati.
 
-{{% alert color="primary" %}} 
-Usa l'enumerazione [ChartType](https://reference.aspose.com/slides/it/net/aspose.slides.charts/charttype/) nello spazio dei nomi [Aspose.Slides.Charts](https://reference.aspose.com/slides/it/net/aspose.slides.charts/). I valori di questa enumerazione corrispondono a diversi tipi di grafico.
+{{% alert color="info" %}} 
+Utilizza l'enumerazione [ChartType](https://reference.aspose.com/slides/it/net/aspose.slides.charts/charttype/) nel namespace [Aspose.Slides.Charts](https://reference.aspose.com/slides/it/net/aspose.slides.charts/). I valori di questa enumerazione corrispondono a diversi tipi di grafico.
 {{% /alert %}} 
 
-### **Creare Grafici a Colonne Raggruppate**
+### **Creare grafici a colonne raggruppate**
 
 Questa sezione spiega come creare grafici a colonne raggruppate usando Aspose.Slides per .NET. Imparerai a inizializzare una presentazione, aggiungere un grafico e personalizzare i suoi elementi come titolo, dati, serie, categorie e stile. Segui i passaggi seguenti per vedere come viene generato un grafico a colonne raggruppate standard:
 
@@ -60,9 +60,9 @@ Questa sezione spiega come creare grafici a colonne raggruppate usando Aspose.Sl
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con alcuni dati e specifica il tipo `ChartType.ClusteredColumn`.
 1. Aggiungi un titolo al grafico.
-1. Accedi al foglio di lavoro dei dati del grafico.
+1. Accedi al foglio dati del grafico.
 1. Cancella tutte le serie e le categorie predefinite.
-1. Aggiungi nuove serie e nuove categorie.
+1. Aggiungi nuove serie e categorie.
 1. Aggiungi nuovi dati al grafico per le serie.
 1. Applica un colore di riempimento alle serie del grafico.
 1. Aggiungi etichette alle serie del grafico.
@@ -71,6 +71,11 @@ Questa sezione spiega come creare grafici a colonne raggruppate usando Aspose.Sl
 Questo codice C# dimostra come creare un grafico a colonne raggruppate:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Istanzia la classe Presentation.
 using (Presentation presentation = new Presentation())
 {
@@ -85,9 +90,6 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
-
-    // Imposta la prima serie per mostrare i valori.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
     // Imposta l'indice del foglio dati del grafico.
     int worksheetIndex = 0;
@@ -152,22 +154,26 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![Il grafico a colonne raggruppate](clustered_column_chart.png)
 
-### **Creare Grafici a Dispersione**
+### **Creare grafici a dispersione**
 
-I grafici a dispersione (noti anche come scatter plot o grafici x‑y) sono spesso usati per verificare schemi o dimostrare correlazioni tra due variabili.
+I grafici a dispersione (noti anche come diagrammi a dispersione o grafici x‑y) sono spesso usati per verificare schemi o dimostrare correlazioni tra due variabili.
 
 Usa un grafico a dispersione quando:
 
 * Hai dati numerici accoppiati.
-* Hai due variabili che si associano bene tra loro.
+* Hai due variabili che si abbinano bene tra loro.
 * Vuoi determinare se le due variabili sono correlate.
-* Hai una variabile indipendente che possiede più valori per una variabile dipendente.
+* Hai una variabile indipendente con più valori per una variabile dipendente.
 
 Questo codice C# mostra come creare un grafico a dispersione con una serie di marcatori diversa:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Istanzia la classe Presentation.
 using (Presentation presentation = new Presentation())
 {
@@ -232,150 +238,159 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The Scatter chart](scatter_chart.png)
+![Il grafico a dispersione](scatter_chart.png)
 
-### **Creare Grafici a Torta**
+### **Creare grafici a torta**
 
-I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, soprattutto quando i dati contengono etichette categoriche con valori numerici. Tuttavia, se i tuoi dati contengono molte parti o etichette, potresti considerare l'uso di un grafico a barre.
+I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, soprattutto quando i dati contengono etichette categoriche con valori numerici. Tuttavia, se i dati contengono molte parti o etichette, potresti considerare l'uso di un grafico a barre.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con dati predefiniti e specifica il tipo `ChartType.Pie`.
 1. Accedi al workbook dei dati del grafico ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Cancella le serie e le categorie predefinite.
-1. Aggiungi nuove serie e nuove categorie.
+1. Aggiungi nuove serie e categorie.
 1. Aggiungi nuovi dati al grafico per le serie.
-1. Aggiungi nuovi punti al grafico e applica colori personalizzati ai settori della torta.
+1. Aggiungi nuovi punti al grafico e applica colori personalizzati ai settori del grafico a torta.
 1. Imposta le etichette per le serie.
 1. Abilita le linee guida per le etichette delle serie.
-1. Imposta l'angolo di rotazione per il grafico a torta.
+1. Imposta l'angolo di rotazione del grafico a torta.
 1. Salva la presentazione modificata come file PPTX.
 
 Questo codice C# mostra come creare un grafico a torta:
 
 ```c#
-    // Istanzia la classe Presentation.
-    using (Presentation presentation = new Presentation())
-    {
-        // Accedi alla prima diapositiva.
-        ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-        // Aggiungi un grafico con i suoi dati predefiniti.
-        IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
+// Istanzia la classe Presentation.
+using (Presentation presentation = new Presentation())
+{
+    // Accedi alla prima diapositiva.
+    ISlide slide = presentation.Slides[0];
 
-        // Imposta il titolo del grafico.
-        chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
-        chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
-        chart.ChartTitle.Height = 20;
-        chart.HasTitle = true;
+    // Aggiungi un grafico con i dati predefiniti.
+    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
-        // Imposta la prima serie per mostrare i valori.
-        chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+    // Imposta il titolo del grafico.
+    chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
+    chart.ChartTitle.TextFrameForOverriding.TextFrameFormat.CenterText = NullableBool.True;
+    chart.ChartTitle.Height = 20;
+    chart.HasTitle = true;
 
-        // Imposta l'indice del foglio dati del grafico.
-        int worksheetIndex = 0;
+    // Imposta la prima serie per mostrare i valori.
+    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-        // Ottieni il workbook dei dati del grafico.
-        IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    // Imposta l'indice del foglio dati del grafico.
+    int worksheetIndex = 0;
 
-        // Elimina le serie e le categorie generate di default.
-        chart.ChartData.Series.Clear();
-        chart.ChartData.Categories.Clear();
+    // Ottieni il workbook dei dati del grafico.
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-        // Aggiungi nuove categorie.
-        chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
-        chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
-        chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
+    // Elimina le serie e le categorie generate di default.
+    chart.ChartData.Series.Clear();
+    chart.ChartData.Categories.Clear();
 
-        // Aggiungi nuove serie.
-        IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
+    // Aggiungi nuove categorie.
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
 
-        // Popola i dati della serie.
-        series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-        series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-        series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
+    // Aggiungi nuove serie.
+    IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-        // Imposta il colore del settore.
-        chart.ChartData.SeriesGroups[0].IsColorVaried = true;
+    // Popola i dati della serie.
+    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
+    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
+    series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-        IChartDataPoint point = series.DataPoints[0];
-        point.Format.Fill.FillType = FillType.Solid;
-        point.Format.Fill.SolidFillColor.Color = Color.Cyan;
+    // Imposta il colore del settore.
+    chart.ChartData.SeriesGroups[0].IsColorVaried = true;
 
-        // Imposta il bordo del settore.
-        point.Format.Line.FillFormat.FillType = FillType.Solid;
-        point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
-        point.Format.Line.Width = 3.0;
-        point.Format.Line.Style = LineStyle.ThinThick;
-        point.Format.Line.DashStyle = LineDashStyle.LargeDash;
+    IChartDataPoint point = series.DataPoints[0];
+    point.Format.Fill.FillType = FillType.Solid;
+    point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-        IChartDataPoint point1 = series.DataPoints[1];
-        point1.Format.Fill.FillType = FillType.Solid;
-        point1.Format.Fill.SolidFillColor.Color = Color.Brown;
+    // Imposta il bordo del settore.
+    point.Format.Line.FillFormat.FillType = FillType.Solid;
+    point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
+    point.Format.Line.Width = 3.0;
+    point.Format.Line.Style = LineStyle.ThinThick;
+    point.Format.Line.DashStyle = LineDashStyle.LargeDash;
 
-        // Imposta il bordo del settore.
-        point1.Format.Line.FillFormat.FillType = FillType.Solid;
-        point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
-        point1.Format.Line.Width = 3.0;
-        point1.Format.Line.Style = LineStyle.Single;
-        point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
+    IChartDataPoint point1 = series.DataPoints[1];
+    point1.Format.Fill.FillType = FillType.Solid;
+    point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-        IChartDataPoint point2 = series.DataPoints[2];
-        point2.Format.Fill.FillType = FillType.Solid;
-        point2.Format.Fill.SolidFillColor.Color = Color.Coral;
+    // Imposta il bordo del settore.
+    point1.Format.Line.FillFormat.FillType = FillType.Solid;
+    point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
+    point1.Format.Line.Width = 3.0;
+    point1.Format.Line.Style = LineStyle.Single;
+    point1.Format.Line.DashStyle = LineDashStyle.LargeDashDot;
 
-        // Imposta il bordo del settore.
-        point2.Format.Line.FillFormat.FillType = FillType.Solid;
-        point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
-        point2.Format.Line.Width = 2.0;
-        point2.Format.Line.Style = LineStyle.ThinThin;
-        point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
+    IChartDataPoint point2 = series.DataPoints[2];
+    point2.Format.Fill.FillType = FillType.Solid;
+    point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-        // Crea etichette personalizzate per ogni categoria nella nuova serie.
-        IDataLabel label1 = series.DataPoints[0].Label;
+    // Imposta il bordo del settore.
+    point2.Format.Line.FillFormat.FillType = FillType.Solid;
+    point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
+    point2.Format.Line.Width = 2.0;
+    point2.Format.Line.Style = LineStyle.ThinThin;
+    point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-        label1.DataLabelFormat.ShowValue = true;
+    // Crea etichette personalizzate per ogni categoria della nuova serie.
+    IDataLabel label1 = series.DataPoints[0].Label;
 
-        IDataLabel label2 = series.DataPoints[1].Label;
-        label2.DataLabelFormat.ShowValue = true;
-        label2.DataLabelFormat.ShowLegendKey = true;
-        label2.DataLabelFormat.ShowPercentage = true;
+    label1.DataLabelFormat.ShowValue = true;
 
-        IDataLabel label3 = series.DataPoints[2].Label;
-        label3.DataLabelFormat.ShowSeriesName = true;
-        label3.DataLabelFormat.ShowPercentage = true;
+    IDataLabel label2 = series.DataPoints[1].Label;
+    label2.DataLabelFormat.ShowValue = true;
+    label2.DataLabelFormat.ShowLegendKey = true;
+    label2.DataLabelFormat.ShowPercentage = true;
 
-        // Imposta la serie per mostrare le linee guida nel grafico.
-        series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
+    IDataLabel label3 = series.DataPoints[2].Label;
+    label3.DataLabelFormat.ShowSeriesName = true;
+    label3.DataLabelFormat.ShowPercentage = true;
 
-        // Imposta l'angolo di rotazione per i settori del grafico a torta.
-        chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
+    // Imposta la serie per mostrare le linee guida nel grafico.
+    series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
-        // Salva la presentazione su disco come file PPTX.
-        presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
-    }
+    // Imposta l'angolo di rotazione per i settori del grafico a torta.
+    chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
+
+    // Salva la presentazione su disco come file PPTX.
+    presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
+}
 ```
 
 Il risultato:
 
-![The Pie chart](pie_chart.png)
+![Il grafico a torta](pie_chart.png)
 
-### **Creare Grafici a Linee**
+### **Creare grafici a linee**
 
-I grafici a linee (noti anche come line graph) sono ideali quando vuoi mostrare variazioni di valore nel tempo. Con un grafico a linee, puoi confrontare una grande quantità di dati contemporaneamente, monitorare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie di dati e altro ancora.
+I grafici a linee (noti anche come diagrammi a linee) sono ideali quando desideri mostrare variazioni di valore nel tempo. Utilizzando un grafico a linee, puoi confrontare una grande quantità di dati contemporaneamente, monitorare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie di dati e altro ancora.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con dati predefiniti e specifica il tipo `ChartType.Line`.
 1. Accedi al workbook dei dati del grafico ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Cancella le serie e le categorie predefinite.
-1. Aggiungi nuove serie e nuove categorie.
+1. Aggiungi nuove serie e categorie.
 1. Aggiungi nuovi dati al grafico per le serie.
 1. Salva la presentazione modificata come file PPTX.
 
 Questo codice C# mostra come creare un grafico a linee:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -384,35 +399,47 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Per impostazione predefinita, i punti di un grafico a linee sono collegati da linee continue dritte. Se desideri che i punti siano collegati da linee tratteggiate, puoi specificare il tipo di tratto desiderato come segue:
+Per impostazione predefinita, i punti di un grafico a linee sono collegati da linee continue dritte. Se desideri che i punti siano collegati da linee tratteggiate, puoi specificare il tipo di tratto preferito come segue:
 
 ```c#
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 
 Il risultato:
 
-![The Line chart](line_chart.png)
+![Il grafico a linee](line_chart.png)
 
-### **Creare Grafici a Mappa a Albero**
+### **Creare grafici a mappa ad albero**
 
-I grafici a mappa a albero sono ideali per i dati di vendita quando vuoi mostrare la dimensione relativa delle categorie di dati e attirare rapidamente l'attenzione sugli elementi che contribuiscono maggiormente all'interno di ciascuna categoria.
+I grafici a mappa ad albero sono ideali per dati di vendita quando vuoi mostrare la dimensione relativa delle categorie di dati e attirare rapidamente l'attenzione sugli elementi che contribuiscono maggiormente all'interno di ciascuna categoria.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con dati predefiniti e specifica il tipo `ChartType.Treemap`.
 1. Accedi al workbook dei dati del grafico ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Cancella le serie e le categorie predefinite.
-1. Aggiungi nuove serie e nuove categorie.
+1. Aggiungi nuove serie e categorie.
 1. Aggiungi nuovi dati al grafico per le serie.
 1. Salva la presentazione modificata come file PPTX.
 
-Questo codice C# mostra come creare un grafico a mappa a albero:
+Questo codice C# mostra come creare un grafico a mappa ad albero:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -465,25 +492,29 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The Treemap chart](treemap_chart.png)
+![Il grafico a mappa ad albero](treemap_chart.png)
 
-### **Creare Grafici Finanziari**
+### **Creare grafici di borsa**
 
-I grafici finanziari vengono utilizzati per visualizzare dati finanziari come prezzi di apertura, massimo, minimo e chiusura, aiutando ad analizzare tendenze di mercato e volatilità. Forniscono informazioni essenziali sulle prestazioni azionarie, supportando investitori e analisti nel prendere decisioni informate.
+I grafici di borsa vengono utilizzati per visualizzare dati finanziari come prezzi di apertura, massimo, minimo e chiusura, aiutando ad analizzare le tendenze di mercato e la volatilità. Forniscono informazioni essenziali sulle prestazioni delle azioni, supportando investitori e analisti nelle decisioni informate.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con dati predefiniti e specifica il tipo `ChartType.OpenHighLowClose`.
 1. Accedi al workbook dei dati del grafico ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Cancella le serie e le categorie predefinite.
-1. Aggiungi nuove serie e nuove categorie.
+1. Aggiungi nuove serie e categorie.
 1. Aggiungi nuovi dati al grafico per le serie.
 1. Specifica il formato HiLowLines.
 1. Salva la presentazione modificata come file PPTX.
 
-Questo codice C# mostra come creare un grafico finanziario:
+Questo codice C# mostra come creare un grafico di borsa:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -535,24 +566,28 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The Stock chart](stock_chart.png)
+![Il grafico di borsa](stock_chart.png)
 
-### **Creare Grafici a Scatola e Busti**
+### **Creare grafici a scatola e baffi**
 
-I grafici a scatola e baffi (Box and Whisker) mostrano la distribuzione dei dati sintetizzando misure statistiche chiave, come mediana, quartili e possibili outlier. Sono particolarmente utili nell'analisi esplorativa dei dati e negli studi statistici per comprendere rapidamente la variabilità e identificare anomalie.
+I grafici a scatola e baffi vengono utilizzati per visualizzare la distribuzione dei dati riepilogando misure statistiche chiave, come la mediana, i quartili e i possibili valori anomali. Sono particolarmente utili nell'analisi esplorativa dei dati e negli studi statistici per comprendere rapidamente la variabilità dei dati e identificare eventuali anomalie.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con dati predefiniti e specifica il tipo `ChartType.BoxAndWhisker`.
 1. Accedi al workbook dei dati del grafico ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Cancella le serie e le categorie predefinite.
-1. Aggiungi nuove serie e nuove categorie.
+1. Aggiungi nuove serie e categorie.
 1. Aggiungi nuovi dati al grafico per le serie.
 1. Salva la presentazione modificata come file PPTX.
 
 Questo codice C# mostra come creare un grafico a scatola e baffi:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -588,9 +623,9 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Creare Grafici a Imbuto**
+### **Creare grafici a imbuto**
 
-I grafici a imbuto visualizzano processi con fasi sequenziali, dove il volume di dati diminuisce man mano che si avanza da un passaggio al successivo. Sono particolarmente utili per analizzare tassi di conversione, individuare colli di bottiglia e monitorare l'efficienza di processi di vendita o marketing.
+I grafici a imbuto vengono utilizzati per visualizzare processi composti da fasi sequenziali, in cui il volume dei dati diminuisce man mano che avanza da una fase all'altra. Sono particolarmente utili per analizzare i tassi di conversione, identificare colli di bottiglia e monitorare l'efficienza dei processi di vendita o di marketing.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
@@ -600,6 +635,10 @@ I grafici a imbuto visualizzano processi con fasi sequenziali, dove il volume di
 Questo codice C# mostra come creare un grafico a imbuto:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -631,20 +670,24 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 Il risultato:
 
-![The Funnel chart](funnel_chart.png)
+![Il grafico a imbuto](funnel_chart.png)
 
-### **Creare Grafici Sunburst**
+### **Creare grafici a raggiera**
 
-I grafici Sunburst visualizzano dati gerarchici mostrando i livelli come anelli concentrici. Aiutano a illustrare le relazioni parte‑intero e sono ideali per rappresentare categorie e sottocategorie annidate in modo chiaro e compatto.
+I grafici a raggiera vengono utilizzati per visualizzare dati gerarchici, mostrando i livelli come anelli concentrici. Aiutano a illustrare relazioni parte‑intero e sono ideali per rappresentare categorie e sotto‑categorie nidificate in modo chiaro e compatto.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con dati predefiniti e specifica il tipo `ChartType.Sunburst`.
 1. Salva la presentazione modificata come file PPTX.
 
-Questo codice C# mostra come creare un grafico Sunburst:
+Questo codice C# mostra come creare un grafico a raggiera:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -695,23 +738,27 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The Sunburst chart](sunburst_chart.png)
+![Il grafico a raggiera](sunburst_chart.png)
 
-### **Creare Grafici Istogramma**
+### **Creare istogrammi**
 
-Gli istogrammi rappresentano la distribuzione di dati numerici raggruppando i valori in intervalli o bin. Sono particolarmente utili per identificare schemi nei dati, come frequenza, asimmetria e dispersione, nonché per rilevare outlier in un set di dati.
+Gli istogrammi vengono utilizzati per rappresentare la distribuzione di dati numerici raggruppando i valori in intervalli o classi. Sono particolarmente utili per identificare schemi nei dati come frequenza, asimmetria e dispersione, nonché per rilevare valori anomali in un set di dati.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con alcuni dati e specifica il tipo `ChartType.Histogram`.
 1. Accedi al workbook dei dati del grafico ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Cancella le serie e le categorie predefinite.
-1. Aggiungi nuove serie e nuove categorie.
+1. Aggiungi nuove serie e categorie.
 1. Salva la presentazione modificata come file PPTX.
 
-Questo codice C# mostra come creare un grafico istogramma:
+Questo codice C# mostra come creare un istogramma:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -737,11 +784,11 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The Histogram chart](histogram_chart.png)
+![L'istogramma](histogram_chart.png)
 
-### **Creare Grafici Radar**
+### **Creare grafici radar**
 
-I grafici radar visualizzano dati multivariati in un formato bidimensionale, consentendo un facile confronto di più variabili simultaneamente. Sono particolarmente utili per identificare schemi, punti di forza e debolezze su più metriche o attributi di prestazione.
+I grafici radar vengono utilizzati per visualizzare dati multivariati in formato bidimensionale, consentendo un confronto facile di diverse variabili simultaneamente. Sono particolarmente utili per identificare schemi, punti di forza e debolezze attraverso molteplici metriche di prestazione o attributi.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
@@ -751,6 +798,10 @@ I grafici radar visualizzano dati multivariati in un formato bidimensionale, con
 Questo codice C# mostra come creare un grafico radar:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -760,24 +811,28 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The Radar chart](radar_chart.png)
+![Il grafico radar](radar_chart.png)
 
-### **Creare Grafici Multi‑Categoria**
+### **Creare grafici multi‑categoria**
 
-I grafici multi‑categoria mostrano dati che coinvolgono più raggruppamenti categorici, consentendo di confrontare valori su più dimensioni simultaneamente. Sono particolarmente utili quando è necessario analizzare tendenze e relazioni all'interno di set di dati complessi e multilivello.
+I grafici multi‑categoria vengono utilizzati per visualizzare dati che coinvolgono più di una suddivisione categorica, consentendo di confrontare valori su più dimensioni contemporaneamente. Sono particolarmente utili quando è necessario analizzare tendenze e relazioni all'interno di dataset complessi e a più livelli.
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation).
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Aggiungi un grafico con dati predefiniti e specifica il tipo `ChartType.ClusteredColumn`.
 1. Accedi al workbook dei dati del grafico ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)).
 1. Cancella le serie e le categorie predefinite.
-1. Aggiungi nuove serie e nuove categorie.
+1. Aggiungi nuove serie e categorie.
 1. Aggiungi nuovi dati al grafico per le serie.
 1. Salva la presentazione modificata come file PPTX.
 
 Questo codice C# mostra come creare un grafico multi‑categoria:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -826,15 +881,19 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The multi category chart](multi_category_chart.png)
+![Il grafico multi‑categoria](multi_category_chart.png)
 
-### **Creare Grafici Cartografici**
+### **Creare grafici mappa**
 
-I grafici cartografici visualizzano dati geografici mappando informazioni su posizioni specifiche come paesi, stati o città. Sono particolarmente utili per analizzare tendenze regionali, dati demografici e distribuzioni spaziali in modo chiaro e visivamente accattivante.
+I grafici mappa vengono utilizzati per visualizzare dati geografici mappando le informazioni su località specifiche come paesi, regioni o città. Sono particolarmente utili per analizzare tendenze regionali, dati demografici e distribuzioni spaziali in modo chiaro e visivamente coinvolgente.
 
-Questo codice C# mostra come creare un grafico cartografico:
+Questo codice C# mostra come creare un grafico mappa:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -844,17 +903,26 @@ using (Presentation presentation = new Presentation())
 
 Il risultato:
 
-![The Map chart](map_chart.png)
+![Il grafico mappa](map_chart.png)
 
-### **Creare Grafici Combinati**
+{{% alert color="info" %}} 
+L'immagine sopra mostra la presentazione salvata aperta in PowerPoint. Aspose.Slides scrive correttamente il grafico mappa e i suoi dati, ma non disegna i grafici mappa da solo: quando una diapositiva che li contiene viene renderizzata in un'immagine o convertita in PDF o SVG, l'area del grafico risulta vuota. Le altre forme nella stessa diapositiva non sono influenzate.
+{{% /alert %}} 
 
-Un grafico combinato (o combo) unisce due o più tipi di grafico in un unico diagramma. Questo tipo di grafico consente di evidenziare, confrontare o esaminare differenze tra più set di dati, aiutando a identificare le relazioni tra essi.
+### **Creare grafici combinati**
 
-![The combination chart](combination_chart.png)
+Un grafico combinato (o grafico combo) combina due o più tipi di grafico in un unico diagramma. Questo grafico consente di evidenziare, confrontare o esaminare le differenze tra due o più set di dati, aiutandoti a identificare le relazioni tra di essi.
 
-Il codice C# seguente mostra come creare il grafico combinato mostrato sopra in una presentazione PowerPoint:
+![Il grafico combinato](combination_chart.png)
+
+Il seguente codice C# mostra come creare il grafico combinato mostrato sopra in una presentazione PowerPoint:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -1003,14 +1071,14 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 }
 ```
 
-## **Aggiornare i Grafici**
+## **Aggiornare i grafici**
 
-Aspose.Slides per .NET consente di aggiornare i grafici di PowerPoint modificando i dati, la formattazione e lo stile del grafico. Questa funzionalità semplifica il mantenimento delle presentazioni aggiornate con contenuti dinamici e garantisce che i grafici riflettano accuratamente i dati correnti e gli standard visivi.
+Aspose.Slides per .NET ti consente di aggiornare i grafici di PowerPoint modificando dati, formattazione e stile del grafico. Questa funzionalità semplifica il mantenimento delle presentazioni aggiornate con contenuti dinamici e garantisce che i grafici riflettano accuratamente i dati attuali e gli standard visivi.
 
 1. Istanzia la classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation) che rappresenta la presentazione contenente un grafico.
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
 1. Scorri tutte le forme per trovare il grafico.
-1. Accedi al foglio di lavoro dei dati del grafico.
+1. Accedi al foglio dati del grafico.
 1. Modifica le serie di dati del grafico cambiando i valori delle serie.
 1. Aggiungi una nuova serie e popolane i dati.
 1. Salva la presentazione modificata come file PPTX.
@@ -1018,6 +1086,10 @@ Aspose.Slides per .NET consente di aggiornare i grafici di PowerPoint modificand
 Questo codice C# mostra come aggiornare un grafico:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
 // Istanzia la classe Presentation che rappresenta un file PPTX.
@@ -1044,7 +1116,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             IChartSeries series = chart.ChartData.Series[0];
 
             // Aggiorna i dati della serie.
-            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Modifica del nome della serie.
+            workbook.GetCell(worksheetIndex, 0, 1, "New_Series 1"); // Modifica il nome della serie.
             series.DataPoints[0].Value.Data = 90;
             series.DataPoints[1].Value.Data = 123;
             series.DataPoints[2].Value.Data = 44;
@@ -1053,7 +1125,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             series = chart.ChartData.Series[1];
 
             // Aggiorna i dati della serie.
-            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Modifica del nome della serie.
+            workbook.GetCell(worksheetIndex, 0, 2, "New_Series 2"); // Modifica il nome della serie.
             series.DataPoints[0].Value.Data = 23;
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
@@ -1075,9 +1147,9 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Impostare l'Intervallo di Dati per un Grafico**
+## **Impostare l'intervallo dei dati per un grafico**
 
-Aspose.Slides per .NET offre la flessibilità di definire un intervallo di dati specifico da un foglio di lavoro come origine per i dati del tuo grafico. Ciò significa che puoi mappare direttamente una porzione del foglio di lavoro al grafico, controllando quali celle contribuiscono alle serie e alle categorie del grafico. Di conseguenza, puoi aggiornare e sincronizzare facilmente i grafici con le ultime modifiche dei dati nel foglio di lavoro, garantendo che le tue presentazioni PowerPoint riflettano informazioni correnti e accurate.
+Aspose.Slides per .NET offre la flessibilità di definire un intervallo di dati specifico da un foglio di lavoro come origine per i dati del tuo grafico. Ciò significa che puoi mappare direttamente una porzione del foglio ai dati del grafico, controllando quali celle contribuiscono alle serie e alle categorie del grafico. Di conseguenza, puoi aggiornare e sincronizzare facilmente i grafici con le ultime modifiche dei dati nel foglio di lavoro, assicurando che le presentazioni PowerPoint riflettano informazioni attuali e accurate.
 
 1. Istanzia la classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation) che rappresenta la presentazione contenente un grafico.
 1. Ottieni un riferimento a una diapositiva usando il suo indice.
@@ -1085,9 +1157,13 @@ Aspose.Slides per .NET offre la flessibilità di definire un intervallo di dati 
 1. Accedi ai dati del grafico e imposta l'intervallo.
 1. Salva la presentazione modificata come file PPTX.
 
-Questo codice C# mostra come impostare l'intervallo di dati per un grafico:
+Questo codice C# mostra come impostare l'intervallo dei dati per un grafico:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
 // Istanzia la classe Presentation che rappresenta un file PPTX.
@@ -1108,13 +1184,17 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
-## **Usare Marcatori Predefiniti nei Grafici**
+## **Utilizzare marcatori predefiniti nei grafici**
 
 Quando utilizzi marcatori predefiniti nei grafici, ogni serie del grafico ottiene automaticamente un simbolo di marcatore predefinito diverso.
 
-Questo codice C# mostra come impostare automaticamente un marcatore di serie per il grafico:
+Questo codice C# mostra come impostare automaticamente un marcatore per una serie di grafico:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -1158,7 +1238,7 @@ using (Presentation presentation = new Presentation())
 
 **Quali tipi di grafico sono supportati da Aspose.Slides per .NET?**
 
-Aspose.Slides per .NET supporta un'ampia gamma di tipi di grafico, inclusi barre, linee, torta, area, dispersione, istogramma, radar e molti altri. Questa flessibilità ti consente di scegliere il tipo di grafico più appropriato per le tue esigenze di visualizzazione dei dati.
+Aspose.Slides per .NET supporta un'ampia gamma di tipi di grafico, tra cui barre, linee, torta, area, dispersione, istogramma, radar e molti altri. Questa flessibilità ti consente di scegliere il tipo di grafico più appropriato per le tue esigenze di visualizzazione dei dati.
 
 **Come aggiungo un nuovo grafico a una diapositiva?**
 
@@ -1166,7 +1246,7 @@ Per aggiungere un grafico, crei prima un'istanza della classe [Presentation](htt
 
 **Come posso aggiornare i dati visualizzati in un grafico?**
 
-Puoi aggiornare i dati di un grafico accedendo al suo workbook dei dati ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)), cancellando le serie e le categorie predefinite e quindi aggiungendo i tuoi dati personalizzati. Questo ti permette di aggiornare programmaticamente il grafico per riflettere gli ultimi dati.
+Puoi aggiornare i dati di un grafico accedendo al suo workbook dei dati ([IChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/)), cancellando le serie e le categorie predefinite e aggiungendo i tuoi dati personalizzati. Questo ti consente di aggiornare programmaticamente il grafico per riflettere gli ultimi dati.
 
 **È possibile personalizzare l'aspetto del grafico?**
 

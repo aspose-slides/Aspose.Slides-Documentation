@@ -1,5 +1,5 @@
 ---
-title: Vytvoření nebo aktualizace grafů v PowerPoint prezentacích v PHP
+title: Vytvoření nebo aktualizace grafů PowerPoint prezentace v PHP
 linktitle: Vytvořit nebo aktualizovat grafy
 type: docs
 weight: 10
@@ -12,77 +12,70 @@ keywords:
 - aktualizovat graf
 - rozptylový graf
 - koláčový graf
-- čárový graf
-- stromová mapa
+- čarový graf
+- graf stromové mapy
 - akciový graf
 - krabicový a fousový graf
-- trychový graf
-- sluneční diagram
+- trychtýřový graf
+- sluneční graf
 - histogram
 - radarový graf
-- vícekategoriální graf
+- vícekategoriový graf
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro PHP přes Java. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu."
+description: Vytvářejte a přizpůsobujte grafy v PowerPoint prezentacích pomocí Aspose.Slides pro PHP přes Java. Přidávejte, formátujte a upravujte grafy s praktickými ukázkami kódu.
 ---
 ## **Přehled**
 
-Tento článek poskytuje komplexní průvodce, jak vytvářet a přizpůsobovat grafy pomocí Aspose.Slides. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování, aby odpovídaly vašim konkrétním návrhovým požadavkům. V celém článku podrobné ukázky kódu ilustrují každý krok, od inicializace prezentace a objektu grafu po konfiguraci řad, os a legend. Dodržením tohoto průvodce získáte solidní pochopení integrace dynamického generování grafů do vašich aplikací a zjednodušíte proces vytváření prezentací založených na datech.
+Tento článek poskytuje komplexní průvodce, jak vytvořit a přizpůsobit grafy pomocí Aspose.Slides. Naučíte se, jak programově přidat graf do snímku, naplnit jej daty a použít různé možnosti formátování tak, aby odpovídal vašim konkrétním návrhovým požadavkům. V celém článku jsou podrobné ukázky kódu, které ilustrují každý krok, od inicializace prezentace a objektu grafu až po konfiguraci řad, os a legend. Dodržováním tohoto návodu získáte pevné pochopení toho, jak integrovat dynamické generování grafů do vašich aplikací a zjednodušit proces vytváření prezentací založených na datech.
 
-## **Vytvořit graf**
+## **Vytvoření grafu**
 
-Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které nemusí být okamžitě patrné z tabulky nebo tabulkového procesoru. 
+Grafy pomáhají lidem rychle vizualizovat data a získat poznatky, které z tabulky nebo tabulkového procesoru nemusí být okamžitě zřejmé.
 
 **Proč vytvářet grafy?**
 
-Používáním grafů můžete
+Pomocí grafů můžete:
 
-* agregovat, zhušťovat nebo sumarizovat velké množství dat na jediném snímku v prezentaci
-* odhalovat vzory a trendy v datech
-* určit směr a dynamiku dat v čase nebo vzhledem k určité jednotce měření 
-* odhalovat odlehlé hodnoty, odchylky, chyby, nesmyslná data atd. 
+* agregovat, zkrátit nebo shrnout velké množství dat na jediném snímku v prezentaci
+* odhalit vzory a trendy v datech
+* odvodit směr a dynamiku dat v čase nebo vzhledem k určité měrné jednotce
+* identifikovat odlehlé hodnoty, anomálie, odchylky, chyby, nesmyslná data apod.
 * komunikovat nebo prezentovat složitá data
 
-V PowerPointu můžete vytvářet grafy pomocí funkce vložení, která poskytuje šablony používané k návrhu mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet běžné grafy (založené na populárních typech grafů) i vlastní grafy. 
+V PowerPointu můžete grafy vytvořit pomocí funkce *Insert*, která poskytuje šablony pro navrhování mnoha typů grafů. Pomocí Aspose.Slides můžete vytvářet jak běžné grafy (založené na populárních typech grafů), tak vlastní grafy.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Poznámka" %}}
+Pro vytváření grafů použijte třídu [ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/). Pole v této třídě odpovídají různým typům grafů.
+{{% /alert %}}
 
-Pro vytvoření grafů poskytuje Aspose.Slides třídu [ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType). Pole v této třídě odpovídají různým typům grafů.
+### **Vytvoření sloupcových grafů se seskupením**
 
-{{% /alert %}} 
+Tato část vysvětluje, jak vytvořit sloupcové grafy se seskupením pomocí Aspose.Slides. Naučíte se inicializovat prezentaci, přidat graf a přizpůsobit jeho prvky, jako je název, data, řady, kategorie a stylování. Postupujte podle níže uvedených kroků a uvidíte, jak je generován standardní sloupcový graf se seskupením:
 
-### **Vytvořit běžné grafy**
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation) .
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s některými daty a specifikujte typ `ChartType::ClusteredColumn` .
+1. Přidejte název grafu.
+1. Přistupte k datovému listu grafu.
+1. Vymažte všechny výchozí řady a kategorie.
+1. Přidejte nové řady a kategorie.
+1. Přidejte nová data grafu pro řady grafu.
+1. Použijte barvu výplně na řady grafu.
+1. Přidejte popisky k řadám grafu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart </strong></a>
-
-_Code Steps:_
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s některými daty a specifikujte požadovaný typ grafu. 
-4. Přidejte nadpis pro graf. 
-5. Přistupte k listu dat grafu. 
-6. Vymažte všechny výchozí řady a kategorie. 
-7. Přidejte nové řady a kategorie. 
-8. Přidejte nová data do řady grafu. 
-9. Přidejte barvu výplně pro řadu grafu. 
-10. Přidejte popisky pro řadu grafu. 
-11. Uložte upravenou prezentaci jako soubor PPTX.
-
-Tento PHP kód ukazuje, jak vytvořit běžný graf:
+Tento C# kód ukazuje, jak vytvořit sloupcový graf se seskupením:
 
 ```php
-  # Instancuje třídu prezentace, která představuje soubor PPTX
+  # Vytvoří instanci třídy prezentace, která představuje soubor PPTX
   $pres = new Presentation();
   try {
     # Přistupuje k prvnímu snímku
     $sld = $pres->getSlides()->get_Item(0);
-    # Přidá graf s jeho výchozími daty
+    # Přidá graf s výchozími daty
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
     # Nastaví název grafu
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
@@ -91,11 +84,11 @@ Tento PHP kód ukazuje, jak vytvořit běžný graf:
     $chart->hasTitle();
     # Nastaví první řadu, aby zobrazovala hodnoty
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Nastaví index pro list dat grafu
+    # Nastaví index pro list s daty grafu
     $defaultWorksheetIndex = 0;
-    # Získá list dat grafu
+    # Získá list s daty grafu
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Smaže výchozí vygenerované řady a kategorie
+    # Smaže výchozí generované řady a kategorie
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
@@ -109,7 +102,7 @@ Tento PHP kód ukazuje, jak vytvořit běžný graf:
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     # Vezme první řadu grafu
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Nyní naplní data řady
+    # Nyní vyplní data řady
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
@@ -118,20 +111,20 @@ Tento PHP kód ukazuje, jak vytvořit běžný graf:
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     # Vezme druhou řadu grafu
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Naplní data řady
+    # Vyplní data řady
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
     # Nastaví barvu výplně pro řadu
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    # Vytvoří vlastní popisky pro každou kategorii nové řady
-    # Nastaví první popisek, aby zobrazoval název kategorie
+    # Vytvoří vlastní štítky pro každou kategorii pro novou řadu
+    # Nastaví první štítek, aby zobrazoval název kategorie
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    # Zobrazí hodnotu pro třetí popisek
+    # Zobrazí hodnotu pro třetí štítek
     $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
@@ -145,43 +138,40 @@ Tento PHP kód ukazuje, jak vytvořit běžný graf:
   }
 ```
 
-### **Vytvořit rozptylové grafy**
-Rozptylové grafy (také známé jako rozptylové diagramy nebo grafy x‑y) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými. 
+### **Vytvoření rozptylových grafů**
 
-Můžete chtít použít rozptylový graf, když 
+Rozptylové grafy (také známé jako scatter ploty nebo x‑y grafy) se často používají k ověření vzorů nebo demonstraci korelací mezi dvěma proměnnými.
+
+Použijte rozptylový graf, když:
 
 * máte spárovaná číselná data
-* máte 2 proměnné, které spolu dobře souvisejí
-* chcete zjistit, zda jsou 2 proměnné navzájem spojené
+* máte dvě proměnné, které spolu dobře souvisejí
+* chcete zjistit, zda jsou dvě proměnné navzájem související
 * máte nezávislou proměnnou, která má pro závislou proměnnou více hodnot
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart </strong></a>
-
-1. Postupujte podle kroků uvedených výše v sekci [Creating Normal Charts](#creating-normal-charts)
-2. Ve třetím kroku přidejte graf s některými daty a jako typ uveďte jeden z následujících
+1. Postupujte podle kroků v sekci [Create Clustered Column Charts](#create-clustered-column-charts) .
+2. Pro třetí krok přidejte graf s některými daty a jako typ grafu zvolte jeden z následujících:
    1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Reprezentuje rozptylový graf s značkami._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Reprezentuje rozptylový graf spojený křivkami, se značkami dat._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Reprezentuje rozptylový graf spojený křivkami, bez značek dat._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Reprezentuje rozptylový graf spojený přímkami, se značkami dat._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Reprezentuje rozptylový graf spojený přímkami, bez značek dat._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Reprezentuje rozptylový graf spojený křivkami se značkami._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Reprezentuje rozptylový graf spojený křivkami bez značek._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Reprezentuje rozptylový graf spojený úsečkami se značkami._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Reprezentuje rozptylový graf spojený úsečkami bez značek._
 
-Tento PHP kód ukazuje, jak vytvořit rozptylové grafy s různými sériemi značek:
+Tento PHP kód ukazuje, jak vytvořit rozptylový graf s různými značkami pro každou řadu:
 
 ```php
-  # Instancuje třídu prezentace, která představuje soubor PPTX
+  # Vytvoří instanci třídy prezentace, která představuje soubor PPTX
   $pres = new Presentation();
   try {
     # Přistupuje k prvnímu snímku
     $slide = $pres->getSlides()->get_Item(0);
     # Vytvoří výchozí graf
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    # Získá index výchozího listu dat grafu
+    # Získá index výchozího listu s daty grafu
     $defaultWorksheetIndex = 0;
-    # Získá list dat grafu
+    # Získá list s daty grafu
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Smaže ukázkovou řadu
+    # Smaže demonstrační řadu
     $chart->getChartData()->getSeries()->clear();
     # Přidá nové řady
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
@@ -218,31 +208,27 @@ Tento PHP kód ukazuje, jak vytvořit rozptylové grafy s různými sériemi zna
   }
 ```
 
-### **Vytvořit koláčové grafy**
+### **Vytvoření koláčových grafů**
 
-Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, můžete zvážit místo toho sloupcový graf.
+Koláčové grafy jsou nejvhodnější pro zobrazení vztahu část‑celku v datech, zejména když data obsahují kategoriální štítky s číselnými hodnotami. Pokud však vaše data obsahují mnoho částí nebo štítků, zvažte místo toho sloupcový graf.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart </strong></a>
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a požadovaným typem (v tomto případě [ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType).Pie).
-4. Přistupte k [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a specifikujte typ [ChartType::Pie](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#Pie) .
+4. Přistupte k sešitu s daty grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data pro řady grafu.
-8. Přidejte nové body pro graf a vlastní barvy pro sektory koláčového grafu.
+7. Přidejte nová data grafu pro řady grafu.
+8. Přidejte nové body do grafu a použijte vlastní barvy pro sektory koláčového grafu.
 9. Nastavte popisky pro řady.
-10. Nastavte vodící čáry pro popisky řad.
-11. Nastavte úhel otočení pro snímky koláčového grafu.
-12. Uložte upravenou prezentaci do souboru PPTX.
+10. Povolení čar vedoucích k popiskům řad.
+11. Nastavte úhel otočení pro sektory koláčového grafu.
+12. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento PHP kód ukazuje, jak vytvořit koláčový graf:
 
 ```php
-  # Instancuje třídu prezentace, která představuje soubor PPTX
+  # Vytvoří instanci třídy prezentace, která představuje soubor PPTX
   $pres = new Presentation();
   try {
     # Přistupuje k prvnímu snímku
@@ -256,11 +242,11 @@ Tento PHP kód ukazuje, jak vytvořit koláčový graf:
     $chart->setTitle(true);
     # Nastaví první řadu, aby zobrazovala hodnoty
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Nastaví index pro list dat grafu
+    # Nastaví index pro list s daty grafu
     $defaultWorksheetIndex = 0;
-    # Získá list dat grafu
+    # Získá list s daty grafu
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Smaže výchozí vygenerované řady a kategorie
+    # Smaže výchozí generované řady a kategorie
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     # Přidá nové kategorie
@@ -269,12 +255,12 @@ Tento PHP kód ukazuje, jak vytvořit koláčový graf:
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
     # Přidá nové řady
     $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    # Naplní data řady
+    # Vyplní data řady
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # Nepracuje v nové verzi
-    # Adding new points and setting sector color
+    # Nefunguje v nové verzi
+    # Přidává nové body a nastavuje barvu sektoru
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
@@ -304,7 +290,7 @@ Tento PHP kód ukazuje, jak vytvořit koláčový graf:
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    # Vytvoří vlastní popisky pro každou kategorii nové řady
+    # Vytvoří vlastní štítky pro každou kategorii pro novou řadu
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
     # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
@@ -315,7 +301,7 @@ Tento PHP kód ukazuje, jak vytvořit koláčový graf:
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Zobrazí vodící čáry pro graf
+    # Zobrazí řídící čáry pro graf
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
     # Nastaví úhel otočení pro sektory koláčového grafu
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
@@ -328,20 +314,20 @@ Tento PHP kód ukazuje, jak vytvořit koláčový graf:
   }
 ```
 
-### **Vytvořit čárové grafy**
+### **Vytvoření čarových grafů**
 
-Čárové grafy (také známé jako čárové diagramy) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v čase. Pomocí čárového grafu můžete najednou porovnat mnoho dat, sledovat změny a trendy v čase, zvýraznit anomálie v sériích dat apod.
+Čarové grafy (také známé jako čárové diagramy) jsou nejvhodnější v situacích, kdy chcete ukázat změny hodnot v čase. Pomocí čarového grafu můžete najednou porovnat velké množství dat, sledovat změny a trendy v čase, zvýraznit anomálie v řadách dat a další.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte graf s výchozími daty a požadovaným typem (v tomto případě `ChartType::Line`).
-1. Přistupte k datům grafu pomocí IChartDataWorkbook.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+1. Získejte odkaz na snímek pomocí jeho indexu.
+1. Přidejte graf s výchozími daty a specifikujte typ [ChartType::Line](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#Line) .
+1. Přistupte k sešitu s daty grafu ([ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/)) .
 1. Vymažte výchozí řady a kategorie.
 1. Přidejte nové řady a kategorie.
-1. Přidejte nová data pro řady grafu.
-1. Uložte upravenou prezentaci do souboru PPTX.
+1. Přidejte nová data grafu pro řady grafu.
+1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento PHP kód ukazuje, jak vytvořit čárový graf:
+Tento PHP kód ukazuje, jak vytvořit čarový graf:
 
 ```php
   $pres = new Presentation();
@@ -355,33 +341,38 @@ Tento PHP kód ukazuje, jak vytvořit čárový graf:
   }
 ```
 
-Ve výchozím nastavení jsou body v čárovém grafu spojeny přímými spojnicemi. Pokud chcete, aby byly body spojeny čárkami, můžete tak učinit následujícím způsobem:
+Ve výchozím nastavení jsou body v čarovém grafu spojeny rovným spojitým spojením. Pokud chcete, aby byly body spojeny pomlčkami, můžete určit preferovaný typ čáry následovně:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
-### **Vytvořit stromové mapy**
+### **Vytvoření grafů stromových map**
 
-Stromové mapy jsou nejvhodnější pro prodejní data, když chcete zobrazit relativní velikost kategorií a zároveň rychle upozornit na položky, které jsou velkými přispěvateli do každé kategorie. 
+Grafy stromových map jsou nejvhodnější pro prodejní data, kdy chcete zobrazit relativní velikost kategorií a rychle upozornit na položky, které jsou velkými přispěvateli v rámci každé kategorie.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart </strong></a>
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a požadovaným typem (v tomto případě [ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType).TreeMap).
-4. Přistupte k [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a specifikujte typ [ChartType::Treemap](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#Treemap) .
+4. Přistupte k sešitu s daty grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data pro řady grafu.
-8. Uložte upravenou prezentaci do souboru PPTX
+7. Přidejte nová data grafu pro řady grafu.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento PHP kód ukazuje, jak vytvořit stromovou mapu:
+Tento PHP kód ukazuje, jak vytvořit graf stromové mapy:
 
 ```php
   $pres = new Presentation();
@@ -426,23 +417,19 @@ Tento PHP kód ukazuje, jak vytvořit stromovou mapu:
   }
 ```
 
-### **Vytvořit akciové grafy**
+### **Vytvoření akciových grafů**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart </strong></a>
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Přistupte k [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a specifikujte typ [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Přistupte k sešitu s daty grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data pro řady grafu.
-8. Specifikujte formát HiLowLines.
-9. Uložte upravenou prezentaci do souboru PPTX
+7. Přidejte nová data grafu pro řady grafu.
+8. Specifikujte formát čar high‑low.
+9. Uložte upravenou prezentaci jako soubor PPTX.
 
-Ukázkový PHP kód pro vytvoření akciového grafu:
+Tento PHP kód ukazuje, jak vytvořit akciový graf:
 
 ```php
   $pres = new Presentation();
@@ -476,7 +463,8 @@ Ukázkový PHP kód pro vytvoření akciového grafu:
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -487,22 +475,18 @@ Ukázkový PHP kód pro vytvoření akciového grafu:
   }
 ```
 
-### **Vytvořit krabicové a fousové grafy**
+### **Vytvoření krabicových a whisker grafů**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart </strong></a>
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Přistupte k [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a specifikujte typ [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Přistupte k sešitu s daty grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data pro řady grafu.
-8. Uložte upravenou prezentaci do souboru PPTX
+7. Přidejte nová data grafu pro řady grafu.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento PHP kód ukazuje, jak vytvořit krabicový a fousový graf:
+Tento PHP kód ukazuje, jak vytvořit krabicový a whisker graf:
 
 ```php
   $pres = new Presentation();
@@ -538,19 +522,14 @@ Tento PHP kód ukazuje, jak vytvořit krabicový a fousový graf:
   }
 ```
 
-### **Vytvořit trychové grafy**
+### **Vytvoření trychytých grafů**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart </strong></a>
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a specifikujte typ [ChartType::Funnel](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#Funnel) .
+4. Uložte upravenou prezentaci jako soubor PPTX.
 
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType).Funnel).
-4. Uložte upravenou prezentaci do souboru PPTX
-
-PHP kód ukazuje, jak vytvořit trychový graf:
+Tento PHP kód ukazuje, jak vytvořit trychtýřový graf:
 
 ```php
   $pres = new Presentation();
@@ -581,16 +560,12 @@ PHP kód ukazuje, jak vytvořit trychový graf:
   }
 ```
 
-### **Vytvořit sluneční grafy**
+### **Vytvoření slunečních grafů**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart </strong></a>
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a požadovaným typem (v tomto případě[ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType).sunburst).
-4. Uložte upravenou prezentaci do souboru PPTX
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a specifikujte typ [ChartType::Sunburst](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#Sunburst) .
+4. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento PHP kód ukazuje, jak vytvořit sluneční graf:
 
@@ -636,19 +611,15 @@ Tento PHP kód ukazuje, jak vytvořit sluneční graf:
   }
 ```
 
-### **Vytvořit histogramové grafy**
+### **Vytvoření histogramových grafů**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart </strong></a>
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType).Histogram).
-4. Přistupte k [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a specifikujte typ [ChartType::Histogram](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#Histogram) .
+4. Přistupte k sešitu s daty grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Uložte upravenou prezentaci do souboru PPTX
+7. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento PHP kód ukazuje, jak vytvořit histogramový graf:
 
@@ -669,18 +640,14 @@ Tento PHP kód ukazuje, jak vytvořit histogramový graf:
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
 ```
 
-### **Vytvořit radarové grafy**
+### **Vytvoření radiálních grafů**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart </strong></a>
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s některými daty a specifikujte preferovaný typ grafu ([ChartType::Radar](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#Radar) v tomto případě) .
+4. Uložte upravenou prezentaci jako soubor PPTX.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu. 
-3. Přidejte graf s některými daty a specifikujte požadovaný typ grafu (`ChartType::Radar`).
-4. Uložte upravenou prezentaci do souboru PPTX
-
-Tento PHP kód ukazuje, jak vytvořit radarový graf:
+Tento PHP kód ukazuje, jak vytvořit radiální graf:
 
 ```php
   $pres = new Presentation();
@@ -694,22 +661,18 @@ Tento PHP kód ukazuje, jak vytvořit radarový graf:
   }
 ```
 
-### **Vytvořit vícekategoriální grafy**
+### **Vytvoření více‑kategoriových grafů**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart </strong></a>
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation) .
-2. Získejte odkaz na snímek podle jeho indexu. 
-3. Přidejte graf s výchozími daty a požadovaným typem ([ChartType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ChartType).ClusteredColumn).
-4. Přistupte k [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf s výchozími daty a specifikujte typ [ChartType::ClusteredColumn](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Přistupte k sešitu s daty grafu [ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/) .
 5. Vymažte výchozí řady a kategorie.
 6. Přidejte nové řady a kategorie.
-7. Přidejte nová data pro řady grafu.
-8. Uložte upravenou prezentaci do souboru PPTX.
+7. Přidejte nová data grafu pro řady grafu.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento PHP kód ukazuje, jak vytvořit vícekategoriální graf:
+Tento PHP kód ukazuje, jak vytvořit více‑kategoriový graf:
 
 ```php
   $pres = new Presentation();
@@ -742,7 +705,7 @@ Tento PHP kód ukazuje, jak vytvořit vícekategoriální graf:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D7", 60));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D8", 70));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D9", 80));
-    # Uložit prezentaci s grafem
+    # Uložení prezentace s grafem
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -751,13 +714,9 @@ Tento PHP kód ukazuje, jak vytvořit vícekategoriální graf:
   }
 ```
 
-### **Vytvořit mapové grafy**
+### **Vytvoření mapových grafů**
 
-Mapový graf je vizualizace oblasti obsahující data. Mapové grafy jsou nejvhodnější pro porovnávání dat nebo hodnot napříč geografickými regiony.
-
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart </strong></a>
+Mapové grafy vizualizují geografická data a pomáhají porovnávat hodnoty napříč regiony.
 
 Tento PHP kód ukazuje, jak vytvořit mapový graf:
 
@@ -773,13 +732,13 @@ Tento PHP kód ukazuje, jak vytvořit mapový graf:
   }
 ```
 
-### **Vytvořit kombinované grafy**
+### **Vytvoření kombinovaných grafů**
 
-Kombinovaný graf (nebo combo graf) spojuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo zkoumat rozdíly mezi dvěma nebo více datovými sadami, což vám pomůže identifikovat vztahy mezi nimi.
+Kombinovaný graf (nebo combo graf) kombinuje dva nebo více typů grafů v jednom diagramu. Tento graf vám umožní zvýraznit, porovnat nebo analyzovat rozdíly mezi dvěma nebo více datovými sadami a pomůže vám identifikovat vztahy mezi nimi.
 
-![The combination chart](combination_chart.png)
+![Kombinovaný graf](combination_chart.png)
 
-Následující PHP kód ukazuje, jak vytvořit kombinovaný graf zobrazený výše v PowerPoint prezentaci:
+Následující PHP kód ukazuje, jak vytvořit kombinovaný graf zobrazený výše v prezentaci PowerPoint:
 
 ```php
 function createComboChart() {
@@ -816,7 +775,7 @@ function createChartWithFirstSeries($slide) {
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Smazat výchozí vygenerované řady a kategorie.
+    // Smazat výchozí generované řady a kategorie.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
@@ -926,18 +885,14 @@ function setAxisTitle($axis, $axisTitle) {
 }
 ```
 
-## **Aktualizovat grafy**
+## **Aktualizace grafů**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart </strong></a>
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation), která představuje prezentaci obsahující graf, který chcete aktualizovat.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) představující prezentaci obsahující graf, který chcete aktualizovat.
 2. Získejte odkaz na snímek pomocí jeho indexu.
 3. Projděte všechny tvary a najděte požadovaný graf.
 4. Přistupte k listu dat grafu.
-5. Modifikujte data řady grafu změnou hodnot řad.
-6. Přidejte novou řadu a naplňte ji daty.
+5. Modifikujte řady dat grafu změnou jejich hodnot.
+6. Přidejte novou řadu a vyplňte její data.
 7. Uložte upravenou prezentaci jako soubor PPTX.
 
 Tento PHP kód ukazuje, jak aktualizovat graf:
@@ -947,36 +902,36 @@ Tento PHP kód ukazuje, jak aktualizovat graf:
   try {
     # Přístup k prvnímu snímku
     $sld = $pres->getSlides()->get_Item(0);
-    # Získání grafu s výchozími daty
+    # Získat graf s výchozími daty
     $chart = $sld->getShapes()->get_Item(0);
-    # Nastavení indexu listu dat grafu
+    # Nastavení indexu listu s daty grafu
     $defaultWorksheetIndex = 0;
-    # Získání listu dat grafu
+    # Získání listu s daty grafu
     $fact = $chart->getChartData()->getChartDataWorkbook();
     # Změna názvu kategorie grafu
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    # Vybrání první řady grafu
+    # Vyberte první řadu grafu
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # Nyní aktualizace dat řady
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Modifikace názvu řady
+    # Nyní aktualizujeme data řady
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Úprava názvu řady
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    # Vybrání druhé řady grafu
+    # Vezměte druhou řadu grafu
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Nyní aktualizace dat řady
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Modifikace názvu řady
+    # Nyní aktualizujeme data řady
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Úprava názvu řady
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    # Nyní přidání nové řady
+    # Nyní přidáváme novou řadu
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    # Vybrání třetí řady grafu
+    # Vezměte třetí řadu grafu
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    # Nyní naplňování dat řady
+    # Nyní vyplňujeme data řady
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
@@ -990,17 +945,17 @@ Tento PHP kód ukazuje, jak aktualizovat graf:
   }
 ```
 
-## **Nastavit rozsah dat pro graf**
+## **Nastavení datového rozsahu pro graf**
 
-Pro nastavení rozsahu dat pro graf postupujte takto:
+Pro nastavení datového rozsahu grafu postupujte takto:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/Presentation), která představuje prezentaci obsahující graf.
-2. Získejte odkaz na snímek podle jeho indexu.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) představující prezentaci obsahující graf.
+2. Získejte odkaz na snímek pomocí jeho indexu.
 3. Projděte všechny tvary a najděte požadovaný graf.
 4. Přistupte k datům grafu a nastavte rozsah.
 5. Uložte upravenou prezentaci jako soubor PPTX.
 
-Tento PHP kód ukazuje, jak nastavit rozsah dat pro graf:
+Tento PHP kód ukazuje, jak nastavit datový rozsah pro graf:
 
 ```php
   $pres = new Presentation();
@@ -1016,8 +971,9 @@ Tento PHP kód ukazuje, jak nastavit rozsah dat pro graf:
   }
 ```
 
-## **Používat výchozí značky v grafech**
-Když použijete výchozí značku v grafech, každá řada grafu získá automaticky jiný výchozí symbol značky.
+## **Použití výchozích značek v grafech**
+
+Když používáte výchozí značky v grafech, každá řada grafu automaticky získá jiný symbol značky.
 
 Tento PHP kód ukazuje, jak automaticky nastavit značku řady grafu:
 
@@ -1040,9 +996,9 @@ Tento PHP kód ukazuje, jak automaticky nastavit značku řady grafu:
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
-    # Vyberte druhou řadu grafu
+    # Vezměte druhou řadu grafu
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    # Nyní naplňování dat řady
+    # Nyní vyplňujeme data řady
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));
@@ -1061,16 +1017,16 @@ Tento PHP kód ukazuje, jak automaticky nastavit značku řady grafu:
 
 **Jaké typy grafů podporuje Aspose.Slides?**
 
-Aspose.Slides podporuje širokou škálu [typů grafů](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/), včetně sloupcových, čárových, koláčových, plošných, rozptylových, histogramových, radarových a mnoha dalších. Tato flexibilita vám umožňuje vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
+Aspose.Slides podporuje širokou škálu [chart types](https://reference.aspose.com/slides/cs/php-java/aspose.slides/charttype/), včetně sloupcových, čarových, koláčových, oblastních, rozptylových, histogramových, radiálních a mnoha dalších. Tato flexibilita vám umožní vybrat nejvhodnější typ grafu pro vaše potřeby vizualizace dat.
 
-**Jak přidám nový graf do snímku?**
+**Jak přidám nový graf na snímek?**
 
-Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) , načtete požadovaný snímek podle jeho indexu a poté zavoláte metodu pro přidání grafu, kde specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
+Pro přidání grafu nejprve vytvoříte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) , získáte požadovaný snímek pomocí jeho indexu a následně zavoláte metodu pro přidání grafu, kde specifikujete typ grafu a počáteční data. Tento proces integruje graf přímo do vaší prezentace.
 
 **Jak mohu aktualizovat data zobrazovaná v grafu?**
 
-Data grafu můžete aktualizovat přístupem k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/)), vymazáním výchozích řad a kategorií a následným přidáním vlastních dat. To vám umožní obnovit graf tak, aby odrážel nejnovější data.
+Data grafu můžete aktualizovat tím, že přistoupíte k jeho sešitu dat ([ChartDataWorkbook](https://reference.aspose.com/slides/cs/php-java/aspose.slides/chartdataworkbook/)), vymažete výchozí řady a kategorie a poté přidáte vlastní data. Tím můžete graf osvěžit tak, aby odrážel nejnovější informace.
 
 **Je možné přizpůsobit vzhled grafu?**
 
-Ano, Aspose.Slides poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další [formatting elements](/slides/cs/php-java/chart-entities/), aby vzhled grafu odpovídal vašim konkrétním návrhovým požadavkům.
+Ano, Aspose.Slides poskytuje rozsáhlé možnosti přizpůsobení. Můžete měnit barvy, písma, popisky, legendy a další [formatting elements](/slides/cs/php-java/chart-entities/) tak, aby vzhled grafu odpovídal vašim konkrétním návrhovým požadavkům.

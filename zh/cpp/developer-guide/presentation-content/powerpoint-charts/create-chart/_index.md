@@ -4,77 +4,115 @@ linktitle: 创建或更新图表
 type: docs
 weight: 10
 url: /zh/cpp/create-chart/
+aliases:
+  - /cpp/update-chart/
 keywords:
-- 添加图表
-- 创建图表
-- 编辑图表
-- 更改图表
-- 更新图表
-- 散点图
-- 饼图
-- 折线图
-- 树状图
-- 股票图
-- 箱线图
-- 漏斗图
-- 旭辉图
-- 直方图
-- 雷达图
-- 多类别图表
-- PowerPoint
-- 演示文稿
-- C++
-- Aspose.Slides
-description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建和自定义图表。通过实用的 C++ 示例代码添加、格式化和编辑图表。"
+  - 添加图表
+  - 创建图表
+  - 编辑图表
+  - 更改图表
+  - 更新图表
+  - 散点图
+  - 饼图
+  - 折线图
+  - 树形图
+  - 股票图表
+  - 箱线图
+  - 漏斗图
+  - 旭辉图
+  - 直方图
+  - 雷达图
+  - 多分类图表
+  - PowerPoint
+  - 演示文稿
+  - C++
+  - Aspose.Slides
+description: 使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建和自定义图表。提供实用的 C++ 代码示例，帮助添加、格式化和编辑图表。
 ---
+## **概述**
+
+本文提供了使用 Aspose.Slides 创建和自定义图表的完整指南。您将学习如何以编程方式向幻灯片添加图表、填充数据，并应用各种格式选项以满足特定的设计需求。全文配有详细的代码示例，演示从初始化演示文稿和图表对象到配置系列、坐标轴和图例的每一步。遵循本指南，您将能够将动态图表生成集成到应用程序中，简化创建数据驱动演示文稿的过程。
 
 ## **创建图表**
 
-图表帮助人们快速可视化数据并获得洞察，这些信息可能在表格或电子表格中并不立即显现。 
+图表帮助人们快速可视化数据并获得洞察，这些信息可能在表格或电子表格中并不直观。
 
-**为什么创建图表？**
+**为何要创建图表？**
 
 使用图表，您可以
 
-* 在演示文稿的单个幻灯片上聚合、压缩或汇总大量数据
-* 揭示数据中的模式和趋势
-* 推断数据随时间或相对于特定计量单位的方向和动向 
-* 发现异常值、偏差、误差、不合逻辑的数据等 
+* 在演示文稿的单张幻灯片上聚合、压缩或汇总大量数据
+* 显示数据中的模式和趋势
+* 推断数据随时间或相对于特定计量单位的方向和动量
+* 发现异常值、偏差、错误、无意义的数据等
 * 传达或展示复杂数据
 
-在 PowerPoint 中，您可以通过插入功能创建图表，该功能提供用于设计多种图表的模板。使用 Aspose.Slides，您可以创建常规图表（基于流行的图表类型）和自定义图表。 
+在 PowerPoint 中，您可以通过“插入”功能创建图表，该功能提供用于设计多种图表类型的模板。使用 Aspose.Slides，您可以创建常规图表（基于流行的图表类型）和自定义图表。
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 
-为了让您创建图表，Aspose.Slides 在 [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/) 命名空间下提供了 [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) 枚举类。该枚举类中的值对应不同的图表类型。 
+为了让您创建图表，Aspose.Slides 在 [Aspose::Slides::Charts](https://reference.aspose.com/slides/zh/cpp/namespace/aspose.slides.charts/) 命名空间下提供了 [ChartType](https://reference.aspose.com/slides/zh/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) 枚举类。该枚举类中的值对应不同的图表类型。
 
 {{% /alert %}} 
 
 ### **创建普通图表**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个带有数据的图表并指定您偏好的图表类型。  
-1. 为图表添加标题。  
-1. 访问图表数据工作表。  
-1. 清除所有默认的系列和类别。  
-1. 添加新的系列和类别。  
-1. 为图表系列添加一些新的图表数据。  
-1. 为图表系列添加填充颜色。  
-1. 为图表系列添加标签。  
-1. 将修改后的演示文稿写入为 PPTX 文件。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有数据的图表并指定您偏好的图表类型。 
+1. 为图表添加标题。 
+1. 访问图表数据工作表。 
+1. 清除所有默认的系列和分类。 
+1. 添加新系列和分类。 
+1. 为图表系列添加新的图表数据。 
+1. 为图表系列添加填充颜色。 
+1. 为图表系列添加标签。 
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何创建普通图表：
+以下 C++ 代码展示了如何创建普通图表：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 // 文档目录的路径。
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	//实例化一个表示 PPTX 文件的演示文稿类
+	// 实例化一个表示 PPTX 文件的 Presentation 类
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	//访问第一张幻灯片
+	// 访问第一张幻灯片
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// 添加一个带默认数据的图表
+	// 添加一个带有默认数据的图表
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 
@@ -90,7 +128,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// 删除默认生成的系列和类别
+	// 删除默认生成的系列和分类
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
@@ -101,13 +139,13 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// 添加类别
+	// 添加分类
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Caetegoty 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Caetegoty 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Caetegoty 3")));
 
 	
-	// 获取第一条图表系列
+	// 获取第一个图表系列
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 	// 填充系列数据
@@ -120,7 +158,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
 
-	// 获取第二条图表系列
+	// 获取第二个图表系列
 	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
 	// 填充系列数据
@@ -133,7 +171,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
 
-	// 第一个标签设置为显示类别名称
+	// 第一个标签设置为显示分类名称
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
@@ -151,29 +189,67 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 
 ```
 
-
 ### **创建散点图**
-散点图（也称为散点图或 x-y 图）常用于检查模式或展示两个变量之间的相关性。 
+散点图（也称为散点图或 x‑y 图）通常用于检查模式或展示两个变量之间的相关性。
 
-您可能在以下情况下使用散点图
+当满足以下条件时，您可能希望使用散点图
 
-* 您拥有配对的数值数据
-* 您有两个配合良好的变量
-* 您想确定两个变量是否相关
-* 您有一个自变量对应于因变量的多个取值 
+* 拥有成对的数值数据
+* 有两个变量能够很好地配对
+* 想确定两个变量是否相关
+* 存在一个自变量对因变量有多个取值
 
-以下 C++ 代码演示如何使用不同系列的标记创建散点图： 
+以下 C++ 代码展示了如何使用不同的标记系列创建散点图：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IMarker.h>
+#include <DOM/Chart/MarkerStyleType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 // 文档目录的路径。
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	// 实例化一个表示 PPTX 文件的演示文稿类
+	// 实例化一个表示 PPTX 文件的 Presentation 类
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 	// 访问第一张幻灯片
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// 添加一个带默认数据的图表
+	// 添加一个带有默认数据的图表
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
 	// 设置图表标题
@@ -196,7 +272,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Series 2")), chart->get_Type());
 
-	// 获取第一条图表系列
+	// 获取第一个图表系列
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 	// 添加一个新点 (1:3)
@@ -214,7 +290,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 
 
 
-	// 获取第二条图表系列
+	// 获取第二个图表系列
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
 	// 添加新点 (5:2)
@@ -249,11 +325,11 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 
 	SharedPtr<IChartDataPoint> point1 = series->get_DataPoints()->idx_get(1);
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown);
+	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
 	// 设置扇区边框
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
-	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue);
+	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
 	point1->get_Format()->get_Line()->set_Style(LineStyle::Single);
 	point1->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDot);
@@ -261,17 +337,17 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 
 	SharedPtr<IChartDataPoint> point2 = series->get_DataPoints()->idx_get(2);
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral);
+	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
 	// 设置扇区边框
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
-	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red);
+	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width ( 2.0);
 	point2->get_Format()->get_Line()->set_Style(LineStyle::ThickThin);
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// 为新系列的每个类别创建自定义标签
+	// 为新系列的每个分类创建自定义标签
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -288,7 +364,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// 显示图表的引导线
+	// 为图表显示引导线
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
 	// 设置饼图扇区的旋转角度
@@ -299,25 +375,62 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建饼图**
-饼图最适合用于展示数据的部分与整体的关系，尤其是当数据包含带数值的分类标签时。然而，如果您的数据包含许多部分或标签，您可能需要考虑改用条形图。 
+饼图最适合显示数据的部分与整体关系，特别是当数据包含带数值的类别标签时。不过，如果您的数据包含很多部分或标签，建议考虑使用条形图。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，并指定所需类型（本例中为 `ChartType.Pie`）。  
-1. 访问图表数据 IChartDataWorkbook。  
-1. 清除默认的系列和类别。  
-1. 添加新的系列和类别。  
-1. 为图表系列添加新的图表数据。  
-1. 为图表添加新点并为饼图的扇区添加自定义颜色。  
-1. 设置系列的标签。  
-1. 为系列标签设置指引线。  
-1. 设置饼图幻灯片的旋转角度。  
-1. 将修改后的演示文稿写入 PPTX 文件  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据且类型为 `ChartType.Pie` 的图表。
+1. 访问图表数据 IChartDataWorkbook。
+1. 清除默认的系列和分类。
+1. 添加新系列和分类。
+1. 为图表系列添加新的图表数据。
+1. 为饼图的扇区添加新点并设置自定义颜色。
+1. 为系列设置标签。
+1. 为系列标签设置引导线。
+1. 设置饼图幻灯片的旋转角度。
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何创建饼图：
+以下 C++ 代码展示了如何创建饼图：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 	// 文档目录的路径。
 	const String outPath = u"../out/PieChart_out.pptx";
 
@@ -327,7 +440,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	// 访问第一张幻灯片
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// 添加一个带默认数据的图表
+	// 添加一个带有默认数据的图表
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
 	// 设置图表标题
@@ -336,7 +449,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// 删除默认生成的系列和类别
+	// 删除默认生成的系列和分类
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
@@ -346,7 +459,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	// 获取图表数据工作表
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// 添加类别
+	// 添加分类
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"First Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2nd Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3ed Qtr")));
@@ -354,7 +467,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	// 添加一个新系列
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Series 1")), chart->get_Type());
 	
-	// 获取第一条图表系列
+	// 获取第一个图表系列
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 	// 填充系列数据
@@ -398,7 +511,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
 
-	// 为新系列的每个类别创建自定义标签
+	// 为新系列的每个分类创建自定义标签
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
@@ -415,7 +528,7 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// 设置系列以在图表中显示引导线
+	// 设置系列以显示图表的引导线
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
 	// 设置饼图扇区的旋转角度
@@ -426,30 +539,59 @@ description: "使用 Aspose.Slides for C++ 在 PowerPoint 演示文稿中创建�
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建折线图**
-折线图（也称为折线图）最适合用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据，跟踪随时间的变化和趋势，突出显示数据系列中的异常等。 
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，并指定所需类型（本例中为 `ChartType::Line`）。  
-1. 访问图表数据 IChartDataWorkbook。  
-1. 清除默认的系列和类别。  
-1. 添加新的系列和类别。  
-1. 为图表系列添加新的图表数据。  
-1. 将修改后的演示文稿写入 PPTX 文件  
+折线图（也称为折线图）最适合用于展示随时间变化的数值。使用折线图，您可以一次比较大量数据、跟踪随时间的变化和趋势、突出数据系列中的异常等。
 
-以下 C++ 代码演示如何创建折线图：
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据且类型为 `ChartType::Line` 的图表。
+1. 访问图表数据 IChartDataWorkbook。
+1. 清除默认的系列和分类。
+1. 添加新系列和分类。
+1. 为图表系列添加新的图表数据。
+1. 将修改后的演示文稿写入 PPTX 文件。
+
+以下 C++ 代码展示了如何创建折线图：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
+默认情况下，折线图的点由直线连续相连。如果希望点之间使用虚线相连，可通过以下方式指定首选的虚线类型：
 
-默认情况下，折线图的点通过直线连续相连。如果您希望点之间使用虚线相连，可以通过以下方式指定首选的虚线类型：
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
+auto pres = System::MakeObject<Presentation>();
+
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
 for (auto&& series : lineChart->get_ChartData()->get_Series())
 {
@@ -457,21 +599,46 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 }
 ```
 
+### **创建树形图**
 
-### **创建树状图**
-树状图最适合用于销售数据，当您想显示数据类别的相对大小并（同时）快速突出每个类别中贡献较大的项时。 
+树形图在您想展示数据类别的相对大小并同时快速引起对各类别中重要贡献项的注意时最为适用。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，并指定所需类型（本例中为 `ChartType.TreeMap`）。  
-1. 访问图表数据 IChartDataWorkbook。  
-1. 清除默认的系列和类别。  
-1. 添加新的系列和类别。  
-1. 为图表系列添加新的图表数据。  
-1. 将修改后的演示文稿写入 PPTX 文件  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据且类型为 `ChartType.TreeMap` 的图表。
+1. 访问图表数据 IChartDataWorkbook。
+1. 清除默认的系列和分类。
+1. 添加新系列和分类。
+1. 为图表系列添加新的图表数据。
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何创建树状图：
+以下 C++ 代码展示了如何创建树形图：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/Chart/ParentLabelLayoutType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // 文档目录的路径。
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
@@ -489,7 +656,7 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 	wb->Clear(0);
 
-	// Branch 1
+	// 分支 1
 	System::SharedPtr<IChartCategory> leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C1", System::ObjectExt::Box<System::String>(u"Leaf1")));
 	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem1"));
 	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch1"));
@@ -502,7 +669,7 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C4", System::ObjectExt::Box<System::String>(u"Leaf4")));
 
 
-	// Branch 2
+	// 分支 2
 	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C5", System::ObjectExt::Box<System::String>(u"Leaf5")));
 	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stem3"));
 	leaf->get_GroupingLevels()->SetGroupingItem(2, System::ObjectExt::Box<System::String>(u"Branch2"));
@@ -531,20 +698,47 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建股票图表**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，并指定所需类型 (ChartType.OpenHighLowClose)。  
-1. 访问图表数据 IChartDataWorkbook。  
-1. 清除默认的系列和类别。  
-1. 添加新的系列和类别。  
-1. 为图表系列添加新的图表数据。  
-1. 指定 HiLowLines 格式。  
-1. 将修改后的演示文稿写入 PPTX 文件  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据且类型为 `ChartType.OpenHighLowClose` 的图表。
+1. 访问图表数据 IChartDataWorkbook。
+1. 清除默认的系列和分类。
+1. 添加新系列和分类。
+1. 为图表系列添加新的图表数据。
+1. 指定 HiLowLines 格式。
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下示例 C++ 代码用于创建股票图表：
+用于创建股票图表的示例 C++ 代码：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartSeriesGroupCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/Chart/IUpDownBarsManager.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// 文档目录的路径。
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
@@ -554,7 +748,7 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	// 访问第一张幻灯片
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// 添加一个带默认数据的图表
+	// 添加一个带有默认数据的图表
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
 
@@ -565,11 +759,11 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-	// 删除默认生成的系列和类别
+	// 删除默认生成的系列和分类
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// 添加类别
+	// 添加分类
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"A")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
@@ -581,7 +775,7 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
 
 
-	// 获取第一条图表系列
+	// 获取第一个图表系列
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 	// 填充第一系列数据
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
@@ -623,19 +817,39 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建箱线图**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，并指定所需类型 (ChartType.BoxAndWhisker)。  
-1. 访问图表数据 IChartDataWorkbook。  
-1. 清除默认的系列和类别。  
-1. 添加新的系列和类别。  
-1. 为图表系列添加新的图表数据。  
-1. 将修改后的演示文稿写入 PPTX 文件  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据且类型为 `ChartType.BoxAndWhisker` 的图表。
+1. 访问图表数据 IChartDataWorkbook。
+1. 清除默认的系列和分类。
+1. 添加新系列和分类。
+1. 为图表系列添加新的图表数据。
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何创建箱线图：
+以下 C++ 代码展示了如何创建箱线图：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/QuartileMethodType.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// 文档目录的路径。
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
@@ -680,15 +894,34 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建漏斗图**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，并指定所需类型 (ChartType.Funnel)。  
-1. 将修改后的演示文稿写入 PPTX 文件  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据且类型为 `ChartType.Funnel` 的图表。
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何创建漏斗图：
+以下 C++ 代码展示了如何创建漏斗图：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// 文档目录的路径。
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
@@ -727,15 +960,38 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建旭辉图**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，并指定所需类型 (在本例中为 `ChartType.sunburst`)。  
-1. 将修改后的演示文稿写入 PPTX 文件  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据且类型为 `ChartType.sunburst` 的图表。
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何创建旭辉图：
+以下 C++ 代码展示了如何创建旭辉图：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// 文档目录的路径。
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
@@ -788,22 +1044,44 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// 将演示文稿写入磁盘
+	// 将演示文稿文件写入磁盘
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建直方图**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一些带数据的图表，并指定所需类型（本例中为 `ChartType.Histogram`）。  
-1. 访问图表数据 `IChartDataWorkbook`。  
-1. 清除默认的系列和类别。  
-1. 添加新的系列和类别。  
-1. 将修改后的演示文稿写入 PPTX 文件。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。 
+1. 添加一个带有数据且类型为 `ChartType.Histogram`（此处）的图表。
+1. 访问图表数据 `IChartDataWorkbook`。
+1. 清除默认的系列和分类。
+1. 添加新系列和分类。
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何创建直方图：
+以下 C++ 代码展示了如何创建直方图：
+
 ```c++
+#include <DOM/Chart/AxisAggregationType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 	// 文档目录的路径。
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
@@ -835,35 +1113,67 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建雷达图**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一些带数据的图表，并指定所需类型（本例中为 `ChartType.Radar`）。  
-1. 将修改后的演示文稿写入 PPTX 文件  
 
-以下 C++ 代码演示如何创建雷达图：
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。 
+1. 添加一个带有数据且类型为 `ChartType.Radar`（此处）的图表。
+1. 将修改后的演示文稿写入 PPTX 文件。
+
+以下 C++ 代码展示了如何创建雷达图：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
 
 presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Radar, 20.0f, 20.0f, 400.0f, 300.0f);
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **创建多分类图表**
 
-### **创建多类别图表**
-1. 创建 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类的实例。  
-1. 通过索引获取幻灯片的引用。  
-1. 添加一个默认数据的图表，并指定所需类型 (ChartType.ClusteredColumn)。  
-1. 访问图表数据 IChartDataWorkbook。  
-1. 清除默认的系列和类别。  
-1. 添加新的系列和类别。  
-1. 为图表系列添加新的图表数据。  
-1. 将修改后的演示文稿写入 PPTX 文件。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类的实例。
+1. 通过索引获取幻灯片的引用。
+1. 添加一个带有默认数据且类型为 `ChartType.ClusteredColumn` 的图表。
+1. 访问图表数据 IChartDataWorkbook。
+1. 清除默认的系列和分类。
+1. 添加新系列和分类。
+1. 为图表系列添加新的图表数据。
+1. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何创建多类别图表：
+以下 C++ 代码展示了如何创建多分类图表：
+
 ```c++
-// 文档目录的路径。
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategory.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartCategoryLevelsManager.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+	// 文档目录的路径。
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
 	// 实例化一个表示 PPTX 文件的 Presentation 类
@@ -872,7 +1182,7 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	// 访问第一张幻灯片
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// 添加一个带默认数据的图表
+	// 添加一个带有默认数据的图表
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
 	// 设置图表数据工作表的索引
@@ -881,14 +1191,14 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	// 获取图表数据工作表
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// 清空工作簿
+	// 清除工作簿
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
 
-	// 添加类别
+	// 添加分类
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Group1"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
@@ -923,26 +1233,79 @@ presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
 ### **创建地图图表**
-地图图表是对包含数据的区域进行可视化的图表。地图图表最适合用于比较不同地理区域的数据或数值。 
 
-以下 C++ 代码演示如何创建地图图表：
+地图图表是对包含数据的地区进行可视化的方式。地图图表最适合用于比较不同地理区域的数据或数值。
+
+以下 C++ 代码展示了如何创建地图图表：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f, 400.0f);
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-
 ### **创建组合图表**
-组合图表（或称组合图）在单个图形中合并两种或多种图表类型。该图表可帮助您突出、比较或检查两个或多个数据集之间的差异，从而识别它们之间的关系。 
+
+组合图表（或称 combo 图表）在单个图形中合并两种或以上的图表类型。该图表可帮助您突出、比较或检查多个数据集之间的差异，从而识别它们之间的关系。
 
 ![组合图表](combination_chart.png)
 
-以下 C++ 代码演示如何在 PowerPoint 演示文稿中创建上述组合图表：
+下面的 C++ 代码展示了如何在 PowerPoint 演示文稿中创建上述组合图表：
+
 ```cpp
+#include <DOM/Chart/AxisPositionType.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/CrossesType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/IAxisFormat.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartLinesFormat.h>
+#include <DOM/Chart/IChartPortionFormat.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/Chart/IChartTextFormat.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/Chart/LegendPositionType.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
 {
     auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
@@ -956,18 +1319,18 @@ static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
     titleFormat->set_FontBold(NullableBool::False);
     titleFormat->set_FontHeight(18.0);
 
-    // 设置图例。
+    // 设置图表图例。
     chart->get_Legend()->set_Position(LegendPositionType::Bottom);
     chart->get_Legend()->get_TextFormat()->get_PortionFormat()->set_FontHeight(12.0);
 
-    // 删除默认生成的系列和类别。
+    // 删除默认生成的系列和分类。
     chart->get_ChartData()->get_Series()->Clear();
     chart->get_ChartData()->get_Categories()->Clear();
 
     const int worksheetIndex = 0;
     auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-    // 添加新类别。
+    // 添加新分类。
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
     chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
@@ -1092,26 +1455,43 @@ static void CreateComboChart()
 }
 ```
 
-
 ## **更新图表**
 
-1. 实例化一个表示包含该图表的 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类。  
-2. 通过索引获取幻灯片的引用。  
-3. 遍历所有形状以找到目标图表。  
-4. 访问图表数据工作表。  
-5. 通过更改系列值来修改图表数据系列。  
-6. 添加新系列并填充数据。  
-7. 将修改后的演示文稿写入为 PPTX 文件。  
+1. 实例化一个表示包含图表的演示文稿的 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 类。
+2. 通过索引获取幻灯片的引用。
+3. 遍历所有形状以找到目标图表。
+4. 访问图表数据工作表。
+5. 通过更改系列值来修改图表数据系列。
+6. 添加新系列并填充其数据。
+7. 将修改后的演示文稿写入 PPTX 文件。
 
-以下 C++ 代码演示如何更新图表：
+以下 C++ 代码展示了如何更新图表：
+
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
 // 实例化一个表示 PPTX 文件的 Presentation 类
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
 
 // 访问第一张幻灯片
 System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
 
-// 添加一个带默认数据的图表
+// 添加一个带有默认数据的图表
 System::SharedPtr<IChart> chart = System::ExplicitCast<Aspose::Slides::Charts::IChart>(sld->get_Shapes()->idx_get(0));
 
 // 设置图表数据工作表的索引
@@ -1121,11 +1501,11 @@ int32_t defaultWorksheetIndex = 0;
 System::SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
 
-// 更改图表类别名称
+// 更改图表的分类名称
 fact->GetCell(defaultWorksheetIndex, 1, 0, System::ObjectExt::Box<System::String>(u"Modified Category 1"));
 fact->GetCell(defaultWorksheetIndex, 2, 0, System::ObjectExt::Box<System::String>(u"Modified Category 2"));
 
-// 获取第一条图表系列
+// 获取第一个图表系列
 System::SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
 // 更新系列数据
@@ -1135,7 +1515,7 @@ series->get_DataPoints()->idx_get(0)->get_Value()->set_Data(System::ObjectExt::B
 series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(123));
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(44));
 
-// 获取第二条图表系列
+// 获取第二个图表系列
 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
 // 现在更新系列数据
@@ -1146,10 +1526,10 @@ series->get_DataPoints()->idx_get(1)->get_Value()->set_Data(System::ObjectExt::B
 series->get_DataPoints()->idx_get(2)->get_Value()->set_Data(System::ObjectExt::Box<int32_t>(99));
 
 
-// 现在，添加新系列
+// 现在，添加一个新系列
 chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, System::ObjectExt::Box<System::String>(u"Series 3")), chart->get_Type());
 
-// 获取第三条图表系列
+// 获取第三个图表系列
 series = chart->get_ChartData()->get_Series()->idx_get(2);
 
 // 现在填充系列数据
@@ -1159,29 +1539,41 @@ series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorkshee
 
 chart->set_Type(Aspose::Slides::Charts::ChartType::ClusteredCylinder);
 
-// 保存包含图表的演示文稿
+// 保存带有图表的演示文稿
 pres->Save(u"AsposeChartModified_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-
-
 ## **设置图表的数据范围**
 
-1. 打开包含该图表的 [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 遍历所有形状以找到目标图表。  
-4. 访问图表数据并设置范围。  
-5. 将修改后的演示文稿保存为 PPTX 文件。  
+1. 打开包含图表的 [Presentation](https://reference.aspose.com/slides/zh/cpp/class/aspose.slides.presentation) 实例。
+2. 通过索引获取幻灯片的引用。
+3. 遍历所有形状以找到目标图表。
+4. 访问图表数据并设置范围。
+5. 将修改后的演示文稿保存为 PPTX 文件。
 
-以下 C++ 代码演示如何设置图表的数据范围：
+以下 C++ 代码展示了如何为图表设置数据范围：
+
 ```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // 文档目录的路径。
-String dataDir = GetDataPath();
+String dataDir = u"../documents/";
 
 // 实例化一个表示 PPTX 文件的 Presentation 类
 auto presentation = System::MakeObject<Presentation>(dataDir + u"ExistingChart.pptx");
 
-// 访问第一张幻灯片并添加一个带默认数据的图表
+// 访问第一张幻灯片并添加一个带有默认数据的图表
 auto slide = presentation->get_Slides()->idx_get(0);
 auto chart = System::ExplicitCast<IChart>(slide->get_Shapes()->idx_get(0));
 chart->get_ChartData()->SetRange(u"Sheet1!A1:B4");
@@ -1189,15 +1581,35 @@ presentation->Save(dataDir + u"SetDataRange_out.pptx", SaveFormat::Pptx);
 ```
 
 
-
 ## **在图表中使用默认标记**
+当您在图表中使用默认标记时，每个图表系列会自动获得不同的默认标记符号。
 
-在图表中使用默认标记时，每个图表系列会自动获得不同的默认标记符号。  
+以下 C++ 代码展示了如何自动为图表系列设置标记：
 
-以下 C++ 代码演示如何自动设置图表系列的标记：
-```cpp
+``` cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/ILegend.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 // 文档目录的路径。
-String dataDir = GetDataPath();
+String dataDir = u"../documents/";
 
 auto pres = System::MakeObject<Presentation>();
 
@@ -1222,10 +1634,10 @@ series->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 4, 1, nullptr
 
 chart->get_ChartData()->get_Series()->Add(wb->GetCell(0, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
 
-// 获取第二个图表系列
+// Takes the second chart series
 auto series2 = chart->get_ChartData()->get_Series()->idx_get(1);
 
-// 填充系列数据
+// Populates the series data
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 1, 2, ObjectExt::Box<int32_t>(30)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 2, 2, ObjectExt::Box<int32_t>(10)));
 series2->get_DataPoints()->AddDataPointForLineSeries(wb->GetCell(0, 3, 2, ObjectExt::Box<int32_t>(60)));
@@ -1237,21 +1649,20 @@ chart->get_Legend()->set_Overlay(false);
 pres->Save(dataDir + u"DefaultMarkersInChart.pptx", SaveFormat::Pptx);
 ```
 
-
-## **常见问题**
+## **常见问答**
 
 **Aspose.Slides 支持哪些图表类型？**
 
-Aspose.Slides 支持包括柱形图、折线图、饼图、面积图、散点图、直方图、雷达图等在内的多种图表类型。这种灵活性使您能够根据数据可视化需求选择最合适的图表类型。
+Aspose.Slides 支持包括柱形、折线、饼图、面积、散点、直方图、雷达图等在内的多种图表类型。此灵活性使您能够为数据可视化需求选择最合适的图表类型。
 
 **如何向幻灯片添加新图表？**
 
-要添加图表，首先实例化 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类，使用索引获取目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程可将图表直接嵌入到您的演示文稿中。
+首先创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 实例，使用索引检索目标幻灯片，然后调用添加图表的方法，指定图表类型和初始数据。此过程会将图表直接嵌入演示文稿中。
 
 **如何更新图表中显示的数据？**
 
-您可以通过访问其数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdataworkbook/))，清除默认的系列和类别，然后添加自定义数据，从而以编程方式刷新图表以显示最新数据。
+通过访问其数据工作簿 ([IChartDataWorkbook](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/))，清除默认的系列和分类，然后添加自定义数据，即可以编程方式刷新图表以反映最新数据。
 
 **是否可以自定义图表的外观？**
 
-是的，Aspose.Slides 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他格式元素，以满足特定的设计需求。
+可以，Aspose.Slides 提供了丰富的自定义选项。您可以修改颜色、字体、标签、图例以及其他格式元素，以满足特定的设计需求。

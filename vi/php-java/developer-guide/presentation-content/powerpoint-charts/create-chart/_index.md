@@ -1,5 +1,5 @@
 ---
-title: Tạo hoặc Cập nhật Biểu đồ PowerPoint trong PHP
+title: Tạo hoặc Cập nhật Biểu đồ Bản trình bày PowerPoint trong PHP
 linktitle: Tạo hoặc Cập nhật Biểu đồ
 type: docs
 weight: 10
@@ -17,7 +17,7 @@ keywords:
 - biểu đồ chứng khoán
 - biểu đồ hộp và râu
 - biểu đồ phễu
-- biểu đồ mặt trời
+- biểu đồ Sunburst
 - biểu đồ histogram
 - biểu đồ radar
 - biểu đồ đa danh mục
@@ -25,60 +25,57 @@ keywords:
 - bản trình bày
 - PHP
 - Aspose.Slides
-description: "Tạo và tùy chỉnh biểu đồ trong bản trình bày PowerPoint bằng Aspose.Slides cho PHP qua Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế."
+description: "Tạo và tùy chỉnh biểu đồ trong bản trình bày PowerPoint bằng Aspose.Slides cho PHP thông qua Java. Thêm, định dạng và chỉnh sửa biểu đồ với các ví dụ mã thực tế."
 ---
 ## **Tổng quan**
 
-Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách thêm biểu đồ vào slide bằng lập trình, điền dữ liệu và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể của mình. Trong suốt bài viết, các ví dụ mã chi tiết minh họa từng bước, từ khởi tạo đối tượng Presentation và chart cho đến cấu hình series, trục và legend. Khi làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng, giúp đơn giản hoá quy trình tạo các bản trình bày dựa trên dữ liệu.
+Bài viết này cung cấp hướng dẫn toàn diện về cách tạo và tùy chỉnh biểu đồ bằng Aspose.Slides. Bạn sẽ học cách lập trình thêm biểu đồ vào một slide, điền dữ liệu vào và áp dụng các tùy chọn định dạng khác nhau để đáp ứng yêu cầu thiết kế cụ thể. Toàn bộ bài viết bao gồm các ví dụ mã chi tiết minh họa từng bước, từ việc khởi tạo bài thuyết trình và đối tượng biểu đồ đến cấu hình series, trục và legend. Khi làm theo hướng dẫn này, bạn sẽ nắm vững cách tích hợp việc tạo biểu đồ động vào ứng dụng, giúp đơn giản hoá quá trình tạo các bản trình bày dựa trên dữ liệu.
 
 ## **Tạo biểu đồ**
 
-Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và rút ra thông tin, điều mà có thể không rõ ràng ngay lập tức từ bảng hoặc bảng tính.
+Biểu đồ giúp người dùng nhanh chóng hình dung dữ liệu và rút ra những insight mà có thể không rõ ràng khi xem bảng hoặc bảng tính.
 
-**Tại sao nên tạo biểu đồ?**
+**Tại sao tạo biểu đồ?**
 
-* tổng hợp, làm ngắn gọn hoặc tóm tắt lượng lớn dữ liệu trên một slide trong bản trình bày
+Sử dụng biểu đồ, bạn có thể:
+
+* tổng hợp, cô đọng hoặc tóm tắt một lượng lớn dữ liệu trên một slide trong bản thuyết trình
 * phát hiện các mẫu và xu hướng trong dữ liệu
-* đưa ra hướng và tốc độ biến đổi của dữ liệu theo thời gian hoặc theo một đơn vị đo cụ thể
-* phát hiện các giá trị ngoại lệ, sai lệch, lỗi, dữ liệu vô nghĩa, v.v.
+* suy đoán hướng và động lực của dữ liệu theo thời gian hoặc đối với một đơn vị đo lường cụ thể
+* phát hiện các ngoại lệ, sai lệch, lỗi, dữ liệu vô lý, v.v.
 * truyền đạt hoặc trình bày dữ liệu phức tạp
 
-Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng chèn, cung cấp các mẫu dùng để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo các biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và các biểu đồ tùy chỉnh.
+Trong PowerPoint, bạn có thể tạo biểu đồ thông qua chức năng *Insert*, cung cấp các mẫu để thiết kế nhiều loại biểu đồ. Sử dụng Aspose.Slides, bạn có thể tạo cả biểu đồ thông thường (dựa trên các loại biểu đồ phổ biến) và biểu đồ tùy chỉnh.
 
-{{% alert color="primary" %}} 
-Để cho phép bạn tạo biểu đồ, Aspose.Slides cung cấp lớp [ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType). Các trường trong lớp này tương ứng với các loại biểu đồ khác nhau.
-{{% /alert %}} 
+{{% alert color="info" title="Lưu ý" %}}
+Để tạo biểu đồ, sử dụng lớp [ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/). Các trường trong lớp này tương ứng với các loại biểu đồ khác nhau.
+{{% /alert %}}
 
-### **Tạo biểu đồ thông thường**
+### **Tạo biểu đồ cột nhóm**
 
-_Bước: Tạo biểu đồ_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Bước:</em> Tạo biểu đồ Presentation </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation </strong></a>
+Phần này giải thích cách tạo biểu đồ cột nhóm bằng Aspose.Slides. Bạn sẽ học cách khởi tạo một bài thuyết trình, thêm biểu đồ và tùy chỉnh các yếu tố như tiêu đề, dữ liệu, series, danh mục và kiểu dáng. Thực hiện các bước sau để xem cách một biểu đồ cột nhóm tiêu chuẩn được tạo ra:
 
-**Các bước mã:**
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation).
+1. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+1. Thêm một biểu đồ với một số dữ liệu và chỉ định kiểu `ChartType::ClusteredColumn`.
+1. Thêm tiêu đề cho biểu đồ.
+1. Truy cập bảng dữ liệu của biểu đồ.
+1. Xóa tất cả series và danh mục mặc định.
+1. Thêm series và danh mục mới.
+1. Thêm dữ liệu biểu đồ mới cho series.
+1. Áp dụng màu nền cho series.
+1. Thêm nhãn cho series.
+1. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ bạn muốn.
-4. Thêm tiêu đề cho biểu đồ.
-5. Truy cập bảng tính dữ liệu của biểu đồ.
-6. Xóa tất cả series và danh mục mặc định.
-7. Thêm series và danh mục mới.
-8. Thêm một số dữ liệu mới cho series của biểu đồ.
-9. Thêm màu nền cho series của biểu đồ.
-10. Thêm nhãn cho series của biểu đồ.
-11. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
-
-Mã PHP này cho bạn thấy cách tạo biểu đồ thông thường:
+Mã C# sau minh họa cách tạo một biểu đồ cột nhóm:
 
 ```php
-  # Tạo một thể hiện của lớp trình bày đại diện cho tệp PPTX
+  # Khởi tạo một lớp bản trình bày đại diện cho tệp PPTX
   $pres = new Presentation();
   try {
     # Truy cập slide đầu tiên
     $sld = $pres->getSlides()->get_Item(0);
-    # Thêm một biểu đồ với dữ liệu mặc định của nó
+    # Thêm một biểu đồ với dữ liệu mặc định
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
     # Đặt tiêu đề cho biểu đồ
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
@@ -87,11 +84,11 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ thông thường:
     $chart->hasTitle();
     # Đặt series đầu tiên hiển thị giá trị
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Đặt chỉ mục cho bảng dữ liệu của biểu đồ
+    # Đặt chỉ mục cho bảng dữ liệu biểu đồ
     $defaultWorksheetIndex = 0;
-    # Lấy WorkSheet dữ liệu biểu đồ
+    # Lấy worksheet dữ liệu biểu đồ
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Xóa các series và danh mục được tạo mặc định
+    # Xóa series và danh mục được tạo mặc định
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
@@ -122,7 +119,7 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ thông thường:
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     # Tạo nhãn tùy chỉnh cho mỗi danh mục cho series mới
-    # Đặt nhãn đầu tiên để hiển thị tên Danh mục
+    # Đặt nhãn đầu tiên hiển thị tên danh mục
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
@@ -143,31 +140,27 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ thông thường:
 
 ### **Tạo biểu đồ phân tán**
 
-Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x-y) thường được sử dụng để kiểm tra các mẫu hoặc thể hiện mối tương quan giữa hai biến.
+Biểu đồ phân tán (còn gọi là scatter plot hoặc đồ thị x‑y) thường được dùng để kiểm tra các mẫu hoặc chứng minh mối tương quan giữa hai biến.
 
-Bạn có thể muốn sử dụng biểu đồ phân tán khi
+Sử dụng biểu đồ phân tán khi:
 
-* bạn có dữ liệu số đôi
-* bạn có 2 biến phù hợp với nhau
-* bạn muốn xác định liệu 2 biến có liên quan hay không
+* bạn có dữ liệu số cặp đôi
+* bạn có hai biến tương thích với nhau
+* bạn muốn xác định liệu hai biến có liên quan hay không
 * bạn có một biến độc lập có nhiều giá trị cho một biến phụ thuộc
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Bước:</em> Tạo biểu đồ phân tán </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint phân tán </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation phân tán </strong></a>
+1. Thực hiện các bước trong [Tạo biểu đồ cột nhóm](#tạo-biểu-đồ-cột-nhóm).
+2. Ở bước thứ ba, thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ là một trong các lựa chọn sau:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Biểu thị một biểu đồ phân tán._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Biểu thị một biểu đồ phân tán được nối bằng đường cong, có dấu dữ liệu._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Biểu thị một biểu đồ phân tán được nối bằng đường cong, không có dấu dữ liệu._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Biểu thị một biểu đồ phân tán được nối bằng đường thẳng, có dấu dữ liệu._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Biểu thị một biểu đồ phân tán được nối bằng đường thẳng, không có dấu dữ liệu._
 
-1. Vui lòng làm theo các bước đã đề cập ở trên trong [Tạo biểu đồ thông thường](#creating-normal-charts)
-2. Đối với bước thứ ba, Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ là một trong các tùy chọn sau
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Biểu thị biểu đồ phân tán._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Biểu thị biểu đồ phân tán được nối bằng các đường cong, có dấu dữ liệu._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Biểu thị biểu đồ phân tán được nối bằng các đường cong, không có dấu dữ liệu._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Biểu thị biểu đồ phân tán được nối bằng các đường thẳng, có dấu dữ liệu._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Biểu thị biểu đồ phân tán được nối bằng các đường thẳng, không có dấu dữ liệu._
-
-Mã PHP này cho bạn thấy cách tạo các biểu đồ phân tán với các loạt dấu khác nhau:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ phân tán với các dấu khác nhau cho mỗi series:
 
 ```php
-  # Khởi tạo một lớp trình bày đại diện cho tệp PPTX
+  # Khởi tạo một lớp bản trình bày đại diện cho tệp PPTX
   $pres = new Presentation();
   try {
     # Truy cập slide đầu tiên
@@ -191,12 +184,12 @@ Mã PHP này cho bạn thấy cách tạo các biểu đồ phân tán với cá
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
     # Thay đổi loại series
     $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    # Thay đổi marker của series biểu đồ
+    # Thay đổi dấu đánh dấu của series biểu đồ
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
     # Lấy series biểu đồ thứ hai
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Thêm một điểm mới (5:2) ở đó
+    # Thêm một điểm mới (5:2) vào đó
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
     # Thêm một điểm mới (3:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 3), $fact->getCell($defaultWorksheetIndex, 3, 4, 1));
@@ -204,7 +197,7 @@ Mã PHP này cho bạn thấy cách tạo các biểu đồ phân tán với cá
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
     # Thêm một điểm mới (5:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    # Thay đổi marker của series biểu đồ
+    # Thay đổi dấu đánh dấu của series biểu đồ
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
@@ -217,29 +210,25 @@ Mã PHP này cho bạn thấy cách tạo các biểu đồ phân tán với cá
 
 ### **Tạo biểu đồ tròn**
 
-Biểu đồ tròn thích hợp để thể hiện mối quan hệ phần‑trong‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn danh mục kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc sử dụng biểu đồ cột thay thế.
+Biểu đồ tròn thích hợp để hiển thị mối quan hệ phần‑trên‑toàn trong dữ liệu, đặc biệt khi dữ liệu có nhãn phân loại kèm giá trị số. Tuy nhiên, nếu dữ liệu của bạn có quá nhiều phần hoặc nhãn, bạn có thể cân nhắc dùng biểu đồ cột thay thế.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Bước:</em> Tạo biểu đồ tròn </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint tròn </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation tròn </strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide bằng chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType).Pie).
-4. Truy cập [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
-5. Xóa các series và danh mục mặc định.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::Pie](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#Pie).
+4. Truy cập sổ làm việc dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
+5. Xóa series và danh mục mặc định.
 6. Thêm series và danh mục mới.
-7. Thêm dữ liệu mới cho series của biểu đồ.
-8. Thêm các điểm mới cho biểu đồ và thêm màu tùy chỉnh cho các sector của biểu đồ tròn.
-9. Đặt nhãn cho series.
-10. Đặt đường dẫn cho nhãn series.
-11. Đặt góc quay cho các slide biểu đồ tròn.
-12. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
+7. Thêm dữ liệu biểu đồ mới cho series.
+8. Thêm các điểm mới cho biểu đồ và áp dụng màu tùy chỉnh cho các đoạn của biểu đồ tròn.
+9. Đặt nhãn cho các series.
+10. Bật các đường dẫn (leader lines) cho nhãn series.
+11. Đặt góc quay cho các đoạn của biểu đồ tròn.
+12. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã PHP này cho bạn thấy cách tạo biểu đồ tròn:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ tròn:
 
 ```php
-  # Khởi tạo một lớp trình bày đại diện cho tệp PPTX
+  # Khởi tạo một lớp bản trình bày đại diện cho tệp PPTX
   $pres = new Presentation();
   try {
     # Truy cập slide đầu tiên
@@ -253,14 +242,14 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ tròn:
     $chart->setTitle(true);
     # Đặt series đầu tiên hiển thị giá trị
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # Đặt chỉ mục cho bảng dữ liệu của biểu đồ
+    # Đặt chỉ mục cho worksheet dữ liệu biểu đồ
     $defaultWorksheetIndex = 0;
     # Lấy worksheet dữ liệu biểu đồ
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Xóa các series và danh mục được tạo mặc định
+    # Xóa series và danh mục được tạo mặc định
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    # Thêm các danh mục mới
+    # Thêm danh mục mới
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
@@ -271,13 +260,13 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ tròn:
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     # Không hoạt động trong phiên bản mới
-    # Thêm các điểm mới và đặt màu khu vực
+    # Thêm các điểm mới và đặt màu cho sector
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # Đặt đường viền cho khu vực
+    # Đặt viền cho sector
     $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
@@ -286,7 +275,7 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ tròn:
     $point1 = $series->getDataPoints()->get_Item(1);
     $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # Đặt đường viền cho khu vực
+    # Đặt viền cho sector
     $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
@@ -295,7 +284,7 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ tròn:
     $point2 = $series->getDataPoints()->get_Item(2);
     $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # Đặt đường viền cho khu vực
+    # Đặt viền cho sector
     $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
@@ -312,9 +301,9 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ tròn:
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # Hiển thị các đường dẫn cho biểu đồ
+    # Hiển thị đường dẫn (Leader Lines) cho biểu đồ
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # Đặt góc quay cho các khu vực biểu đồ tròn
+    # Đặt góc quay cho các sector của biểu đồ tròn
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
     # Lưu bản trình bày kèm biểu đồ
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
@@ -327,18 +316,18 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ tròn:
 
 ### **Tạo biểu đồ đường**
 
-Biểu đồ đường (còn gọi là đồ thị đường) thích hợp khi bạn muốn mô tả sự thay đổi giá trị theo thời gian. Sử dụng biểu đồ đường, bạn có thể so sánh nhiều dữ liệu cùng lúc, theo dõi thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series dữ liệu, v.v.
+Biểu đồ đường (còn gọi là line graph) thích hợp khi bạn muốn minh họa sự thay đổi giá trị theo thời gian. Với biểu đồ đường, bạn có thể so sánh một lượng lớn dữ liệu cùng lúc, theo dõi các thay đổi và xu hướng theo thời gian, làm nổi bật các bất thường trong series dữ liệu, và nhiều hơn nữa.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn (trong trường hợp này là `ChartType::Line`).
-4. Truy cập IChartDataWorkbook của biểu đồ.
-5. Xóa các series và danh mục mặc định.
-6. Thêm series và danh mục mới.
-7. Thêm dữ liệu mới cho series của biểu đồ.
-8. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+1. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+1. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::Line](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#Line).
+1. Truy cập sổ làm việc dữ liệu biểu đồ ([ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/)).
+1. Xóa series và danh mục mặc định.
+1. Thêm series và danh mục mới.
+1. Thêm dữ liệu biểu đồ mới cho series.
+1. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã PHP này cho bạn thấy cách tạo biểu đồ đường:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ đường:
 
 ```php
   $pres = new Presentation();
@@ -352,33 +341,38 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ đường:
   }
 ```
 
-Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng dải gạch, bạn có thể chỉ định loại gạch mong muốn như sau:
+Mặc định, các điểm trên biểu đồ đường được nối bằng các đường thẳng liên tục. Nếu bạn muốn các điểm được nối bằng dấu gạch, bạn có thể chỉ định kiểu gạch mong muốn như sau:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
-### **Tạo biểu đồ cây (Tree Map)**
+### **Tạo biểu đồ cây**
 
-Biểu đồ cây (Tree Map) thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và đồng thời nhanh chóng thu hút sự chú ý tới các mục đóng góp lớn cho mỗi danh mục.
+Biểu đồ cây (Tree Map) thích hợp cho dữ liệu bán hàng khi bạn muốn hiển thị kích thước tương đối của các danh mục dữ liệu và nhanh chóng thu hút sự chú ý tới các mục đóng góp lớn trong mỗi danh mục.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Bước:</em> Tạo biểu đồ Tree Map </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Tree Map </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Tree Map </strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType).TreeMap).
-4. Truy cập [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
-5. Xóa các series và danh mục mặc định.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::Treemap](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#Treemap).
+4. Truy cập sổ làm việc dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
+5. Xóa series và danh mục mặc định.
 6. Thêm series và danh mục mới.
-7. Thêm dữ liệu mới cho series của biểu đồ.
-8. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
+7. Thêm dữ liệu biểu đồ mới cho series.
+8. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã PHP này cho bạn thấy cách tạo biểu đồ Tree Map:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ cây:
 
 ```php
   $pres = new Presentation();
@@ -423,23 +417,19 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ Tree Map:
   }
 ```
 
-### **Tạo biểu đồ chứng khoán (Stock)**
+### **Tạo biểu đồ chứng khoán**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Bước:</em> Tạo biểu đồ chứng khoán </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint chứng khoán </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation chứng khoán </strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide bằng chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn ([ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Truy cập [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
-5. Xóa các series và danh mục mặc định.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#OpenHighLowClose).
+4. Truy cập sổ làm việc dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
+5. Xóa series và danh mục mặc định.
 6. Thêm series và danh mục mới.
-7. Thêm dữ liệu mới cho series của biểu đồ.
-8. Đặt định dạng HiLowLines.
-9. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
+7. Thêm dữ liệu biểu đồ mới cho series.
+8. Xác định định dạng các đường high‑low.
+9. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mẫu mã PHP dùng để tạo biểu đồ chứng khoán:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ chứng khoán:
 
 ```php
   $pres = new Presentation();
@@ -473,7 +463,8 @@ Mẫu mã PHP dùng để tạo biểu đồ chứng khoán:
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -484,22 +475,18 @@ Mẫu mã PHP dùng để tạo biểu đồ chứng khoán:
   }
 ```
 
-### **Tạo biểu đồ hộp và râu (Box and Whisker)**
+### **Tạo biểu đồ Box và Whisker**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Bước:</em> Tạo biểu đồ Box and Whisker </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Box and Whisker </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Box and Whisker </strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn ([ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Truy cập [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
-5. Xóa các series và danh mục mặc định.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#BoxAndWhisker).
+4. Truy cập sổ làm việc dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
+5. Xóa series và danh mục mặc định.
 6. Thêm series và danh mục mới.
-7. Thêm dữ liệu mới cho series của biểu đồ.
-8. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
+7. Thêm dữ liệu biểu đồ mới cho series.
+8. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã PHP này cho bạn thấy cách tạo biểu đồ Box and Whisker:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ Box và Whisker:
 
 ```php
   $pres = new Presentation();
@@ -535,18 +522,14 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ Box and Whisker:
   }
 ```
 
-### **Tạo biểu đồ phễu (Funnel)**
+### **Tạo biểu đồ phễu**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Bước:</em> Tạo biểu đồ Funnel </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Funnel </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Funnel </strong></a>
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::Funnel](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#Funnel).
+4. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn ([ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType).Funnel).
-4. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
-
-Mã PHP cho thấy cách tạo biểu đồ Funnel:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ phễu:
 
 ```php
   $pres = new Presentation();
@@ -577,18 +560,14 @@ Mã PHP cho thấy cách tạo biểu đồ Funnel:
   }
 ```
 
-### **Tạo biểu đồ mặt trời (Sunburst)**
+### **Tạo biểu đồ Sunburst**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Bước:</em> Tạo biểu đồ Sunburst </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Sunburst </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Sunburst </strong></a>
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::Sunburst](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#Sunburst).
+4. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn (trong trường hợp này là [ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType).sunburst).
-4. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
-
-Mã PHP này cho bạn thấy cách tạo biểu đồ Sunburst:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ Sunburst:
 
 ```php
   $pres = new Presentation();
@@ -634,19 +613,15 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ Sunburst:
 
 ### **Tạo biểu đồ histogram**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Bước:</em> Tạo biểu đồ Histogram </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Histogram </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Histogram </strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn ([ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType).Histogram).
-4. Truy cập [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
-5. Xóa các series và danh mục mặc định.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::Histogram](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#Histogram).
+4. Truy cập sổ làm việc dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
+5. Xóa series và danh mục mặc định.
 6. Thêm series và danh mục mới.
-7. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
+7. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã PHP này cho bạn thấy cách tạo biểu đồ histogram:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ histogram:
 
 ```php
   $pres = new Presentation();
@@ -663,21 +638,16 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ histogram:
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A5", -23));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A6", 16));
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
-
 ```
 
 ### **Tạo biểu đồ radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Bước:</em> Tạo biểu đồ Radar </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Radar </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Radar </strong></a>
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ ưa thích của bạn ([ChartType::Radar](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#Radar) trong trường hợp này).
+4. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với một số dữ liệu và chỉ định loại biểu đồ mong muốn (`ChartType::Radar` trong trường hợp này).
-4. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
-
-Mã PHP này cho bạn thấy cách tạo biểu đồ Radar:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ radar:
 
 ```php
   $pres = new Presentation();
@@ -691,22 +661,18 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ Radar:
   }
 ```
 
-### **Tạo biểu đồ đa danh mục (Multi-Category)**
+### **Tạo biểu đồ đa danh mục**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Bước:</em> Tạo biểu đồ Multi Category </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Multi Category </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Multi Category </strong></a>
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation).
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định cùng loại muốn ([ChartType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/ChartType).ClusteredColumn).
-4. Truy cập [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
-5. Xóa các series và danh mục mặc định.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/).
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
+3. Thêm một biểu đồ với dữ liệu mặc định và chỉ định loại [ChartType::ClusteredColumn](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/#ClusteredColumn).
+4. Truy cập sổ làm việc dữ liệu biểu đồ [ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/).
+5. Xóa series và danh mục mặc định.
 6. Thêm series và danh mục mới.
-7. Thêm dữ liệu mới cho series của biểu đồ.
-8. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
+7. Thêm dữ liệu biểu đồ mới cho series.
+8. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã PHP này cho bạn thấy cách tạo biểu đồ đa danh mục:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ đa danh mục:
 
 ```php
   $pres = new Presentation();
@@ -729,7 +695,7 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ đa danh mục:
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
     $category->getGroupingLevels()->setGroupingItem(1, "Group4");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
-    # Thêm series
+    # Thêm Series
     $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
@@ -748,15 +714,11 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ đa danh mục:
   }
 ```
 
-### **Tạo biểu đồ bản đồ (Map)**
+### **Tạo biểu đồ bản đồ**
 
-Biểu đồ bản đồ là một hình ảnh trực quan của một khu vực chứa dữ liệu. Biểu đồ bản đồ thích hợp để so sánh dữ liệu hoặc giá trị giữa các vùng địa lý.
+Biểu đồ bản đồ hiển thị dữ liệu địa lý và giúp so sánh các giá trị qua các khu vực.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Bước:</em> Tạo biểu đồ Map </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Map </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Bước:</em> Tạo biểu đồ PowerPoint Presentation Map </strong></a>
-
-Mã PHP này cho bạn thấy cách tạo biểu đồ bản đồ:
+Mã PHP dưới đây cho thấy cách tạo một biểu đồ bản đồ:
 
 ```php
   $pres = new Presentation();
@@ -770,13 +732,13 @@ Mã PHP này cho bạn thấy cách tạo biểu đồ bản đồ:
   }
 ```
 
-### **Tạo biểu đồ kết hợp (Combination)**
+### **Tạo biểu đồ kết hợp**
 
-Biểu đồ kết hợp (hay combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
+Biểu đồ kết hợp (hoặc combo chart) kết hợp hai hoặc nhiều loại biểu đồ trong một đồ thị duy nhất. Biểu đồ này cho phép bạn làm nổi bật, so sánh hoặc kiểm tra sự khác biệt giữa hai hoặc nhiều bộ dữ liệu, giúp xác định mối quan hệ giữa chúng.
 
 ![The combination chart](combination_chart.png)
 
-Mã PHP sau đây cho thấy cách tạo biểu đồ kết hợp như trên trong một bản trình bày PowerPoint:
+Mã PHP sau đây cho thấy cách tạo biểu đồ kết hợp như trong hình trên trong một bản PowerPoint:
 
 ```php
 function createComboChart() {
@@ -800,7 +762,7 @@ function createComboChart() {
 function createChartWithFirstSeries($slide) {
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // Đặt tiêu đề biểu đồ.
+    // Đặt tiêu đề cho biểu đồ.
     $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
     $chart->getChartTitle()->setOverlay(false);
@@ -809,11 +771,11 @@ function createChartWithFirstSeries($slide) {
     $titleFormat->setFontBold(NullableBool::False);
     $titleFormat->setFontHeight(18);
     
-    // Đặt chú giải biểu đồ.
+    // Đặt chú thích cho biểu đồ.
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
-    // Xóa các series và danh mục được tạo mặc định.
+    // Xóa series và danh mục được tạo mặc định.
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
 
@@ -925,19 +887,15 @@ function setAxisTitle($axis, $axisTitle) {
 
 ## **Cập nhật biểu đồ**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Bước:</em> Cập nhật biểu đồ PowerPoint </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Bước:</em> Cập nhật biểu đồ Presentation </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Bước:</em> Cập nhật biểu đồ PowerPoint Presentation </strong></a>
-
-1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation) đại diện cho bản trình bày chứa biểu đồ cần cập nhật.
-2. Lấy tham chiếu của slide bằng cách sử dụng chỉ số của nó.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) đại diện cho bản thuyết trình chứa biểu đồ bạn muốn cập nhật.
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
-4. Truy cập bảng tính dữ liệu của biểu đồ.
-5. Sửa đổi dữ liệu series của biểu đồ bằng cách thay đổi giá trị series.
-6. Thêm một series mới và điền dữ liệu vào đó.
-7. Ghi bản trình bày đã chỉnh sửa thành tập tin PPTX.
+4. Truy cập bảng dữ liệu của biểu đồ.
+5. Sửa đổi series dữ liệu của biểu đồ bằng cách thay đổi giá trị series.
+6. Thêm một series mới và điền dữ liệu cho nó.
+7. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã PHP này cho bạn thấy cách cập nhật một biểu đồ:
+Mã PHP dưới đây cho thấy cách cập nhật một biểu đồ:
 
 ```php
   $pres = new Presentation();
@@ -946,7 +904,7 @@ Mã PHP này cho bạn thấy cách cập nhật một biểu đồ:
     $sld = $pres->getSlides()->get_Item(0);
     # Lấy biểu đồ với dữ liệu mặc định
     $chart = $sld->getShapes()->get_Item(0);
-    # Đặt chỉ mục của bảng dữ liệu biểu đồ
+    # Đặt chỉ mục của sheet dữ liệu biểu đồ
     $defaultWorksheetIndex = 0;
     # Lấy worksheet dữ liệu biểu đồ
     $fact = $chart->getChartData()->getChartDataWorkbook();
@@ -956,7 +914,7 @@ Mã PHP này cho bạn thấy cách cập nhật một biểu đồ:
     # Lấy series đầu tiên của biểu đồ
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     # Bây giờ cập nhật dữ liệu series
-    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Sửa tên series
+    $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1"); // Sửa tên series
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
@@ -964,7 +922,7 @@ Mã PHP này cho bạn thấy cách cập nhật một biểu đồ:
     # Lấy series thứ hai của biểu đồ
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     # Bây giờ cập nhật dữ liệu series
-    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Sửa tên series
+    $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2"); // Sửa tên series
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
@@ -978,7 +936,7 @@ Mã PHP này cho bạn thấy cách cập nhật một biểu đồ:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
     $chart->setType(ChartType::ClusteredCylinder);
-    # Lưu bản trình bày với biểu đồ
+    # Lưu bản trình bày kèm biểu đồ
     $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -989,15 +947,15 @@ Mã PHP này cho bạn thấy cách cập nhật một biểu đồ:
 
 ## **Đặt phạm vi dữ liệu cho biểu đồ**
 
-Để đặt phạm vi dữ liệu cho biểu đồ, thực hiện các bước sau:
+Để đặt phạm vi dữ liệu cho một biểu đồ, thực hiện các bước sau:
 
-1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation) đại diện cho bản trình bày chứa biểu đồ.
-2. Lấy tham chiếu của slide thông qua chỉ số của nó.
+1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) đại diện cho bản thuyết trình chứa biểu đồ.
+2. Lấy tham chiếu đến một slide bằng chỉ số của nó.
 3. Duyệt qua tất cả các shape để tìm biểu đồ mong muốn.
 4. Truy cập dữ liệu biểu đồ và đặt phạm vi.
-5. Lưu bản trình bày đã chỉnh sửa thành tập tin PPTX.
+5. Lưu bản thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
 
-Mã PHP này cho bạn thấy cách đặt phạm vi dữ liệu cho một biểu đồ:
+Mã PHP dưới đây cho thấy cách đặt phạm vi dữ liệu cho một biểu đồ:
 
 ```php
   $pres = new Presentation();
@@ -1015,9 +973,9 @@ Mã PHP này cho bạn thấy cách đặt phạm vi dữ liệu cho một biể
 
 ## **Sử dụng các dấu mặc định trong biểu đồ**
 
-Khi bạn sử dụng dấu mặc định trong biểu đồ, mỗi series sẽ tự động nhận các ký hiệu dấu khác nhau.
+Khi bạn sử dụng các dấu mặc định trong biểu đồ, mỗi series sẽ tự động nhận một ký hiệu dấu khác nhau.
 
-Mã PHP này cho bạn thấy cách tự động đặt dấu cho series của biểu đồ:
+Mã PHP dưới đây cho thấy cách tự động đặt dấu cho một series biểu đồ:
 
 ```php
   $pres = new Presentation();
@@ -1059,16 +1017,16 @@ Mã PHP này cho bạn thấy cách tự động đặt dấu cho series của b
 
 **Các loại biểu đồ nào được Aspose.Slides hỗ trợ?**
 
-Aspose.Slides hỗ trợ một loạt [các loại biểu đồ](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/), bao gồm cột, đường, tròn, vùng, phân tán, histogram, radar và nhiều loại khác. Tính linh hoạt này cho phép bạn chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
+Aspose.Slides hỗ trợ một loạt các [loại biểu đồ](https://reference.aspose.com/slides/vi/php-java/aspose.slides/charttype/), bao gồm bar, line, pie, area, scatter, histogram, radar và nhiều loại khác. Sự linh hoạt này cho phép bạn lựa chọn loại biểu đồ phù hợp nhất cho nhu cầu trực quan hoá dữ liệu của mình.
 
 **Làm thế nào để thêm một biểu đồ mới vào slide?**
 
-Để thêm một biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) , lấy slide mong muốn bằng chỉ số, sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quá trình này tích hợp biểu đồ trực tiếp vào bản trình bày của bạn.
+Để thêm một biểu đồ, trước tiên bạn tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/), lấy slide mong muốn bằng chỉ số của nó, sau đó gọi phương thức để thêm biểu đồ, chỉ định loại biểu đồ và dữ liệu ban đầu. Quy trình này tích hợp trực tiếp biểu đồ vào bản thuyết trình của bạn.
 
-**Làm sao tôi có thể cập nhật dữ liệu hiển thị trong biểu đồ?**
+**Làm sao để cập nhật dữ liệu hiển thị trong biểu đồ?**
 
-Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập workbook dữ liệu của nó ([ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/)), xóa mọi series và danh mục mặc định, rồi thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép bạn làm mới biểu đồ để phản ánh dữ liệu mới nhất.
+Bạn có thể cập nhật dữ liệu của biểu đồ bằng cách truy cập sổ làm việc dữ liệu ([ChartDataWorkbook](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdataworkbook/)), xóa bất kỳ series và danh mục mặc định nào, rồi thêm dữ liệu tùy chỉnh của bạn. Điều này cho phép làm mới biểu đồ để phản ánh dữ liệu mới nhất.
 
 **Có thể tùy chỉnh giao diện của biểu đồ không?**
 
-Có, Aspose.Slides cung cấp các tùy chọn tùy chỉnh rộng rãi. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các [các yếu tố định dạng](/slides/vi/php-java/chart-entities/) khác để điều chỉnh giao diện biểu đồ sao cho phù hợp với yêu cầu thiết kế cụ thể của bạn.
+Có, Aspose.Slides cung cấp nhiều tùy chọn tùy chỉnh. Bạn có thể thay đổi màu sắc, phông chữ, nhãn, legend và các [phần tử định dạng](/slides/vi/php-java/chart-entities/) khác để điều chỉnh giao diện biểu đồ cho phù hợp với yêu cầu thiết kế cụ thể.

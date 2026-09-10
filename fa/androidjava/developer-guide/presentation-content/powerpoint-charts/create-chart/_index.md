@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /fa/androidjava/create-chart/
 keywords:
-- اضافه کردن نمودار
+- افزودن نمودار
 - ایجاد نمودار
 - ویرایش نمودار
 - تغییر نمودار
@@ -13,99 +13,97 @@ keywords:
 - نمودار پراکنده
 - نمودار دایره‌ای
 - نمودار خطی
-- نمودار درخت‌نقشه
+- نمودار درختی
 - نمودار سهام
-- نمودار جعبه و ویسکر
+- نمودار جعبه‌ای و ویست‌رس
 - نمودار قیفی
-- نمودار خورده‌نقش
+- نمودار خورشیدی
 - نمودار هیستوگرام
 - نمودار رادار
 - نمودار چنددسته‌ای
 - PowerPoint
 - ارائه
-- اندروید
+- Android
 - Java
 - Aspose.Slides
-description: "نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای Android ایجاد و سفارشی‌سازی کنید. نمودارها را با مثال‌های کاربردی کد Java اضافه، قالب‌بندی و ویرایش کنید."
+description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای Android. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های کد عملی Java."
 ---
-## **بررسی کلی**
+## **مرور کلی**
 
-این مقاله راهنمای جامع ایجاد و سفارشی‌سازی نمودارها با Aspose.Slides را ارائه می‌دهد. شما یاد خواهید گرفت چگونه به‌صورت برنامه‌ای یک نمودار را به اسلاید اضافه کنید، داده‌ها را پر کنید و گزینه‌های قالب‌بندی مختلف را برای برآورده‌سازی نیازهای طراحی خود اعمال کنید. در طول مقاله، مثال‌های کد دقیق هر گام را نشان می‌دهند، از مقداردهی اولیه ارائه و شی نمودار تا پیکربندی سری‌ها، محور‌ها و افسانه‌ها. با دنبال کردن این راهنما، درک جامعی از یکپارچه‌سازی تولید دینامیک نمودار در برنامه‌های خود به دست می‌آورید و فرآیند ساخت ارائه‌های مبتنی بر داده را ساده می‌کنید.
+این مقاله راهنمای جامع ایجاد و سفارشی‌سازی نمودارها با Aspose.Slides را ارائه می‌دهد. شما یاد می‌گیرید چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده پر کنید و گزینه‌های قالب‌بندی مختلفی را برای مطابقت با نیازهای طراحی خاص خود اعمال کنید. در طول مقاله، نمونه‌های کد دقیق هر گام را از مقداردهی اولیهٔ ارائه و شیء نمودار تا پیکربندی سطرها، محورها و افسانه‌ها نشان می‌دهند. با دنبال کردن این راهنما، درک محکمی از چگونگی ادغام تولید دینامیک نمودارها در برنامه‌های خود به‌دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
 
 ## **ایجاد نمودار**
-نمودارها به افراد کمک می‌کنند تا به‌سرعت داده‌ها را بصری‌سازی کنند و بینش‌هایی بدست آورند که ممکن است از یک جدول یا صفحه‌گسترده به‌صورت واضح دیده نشوند.
 
-**چرا نمودار ایجاد کنیم؟**
+نمودارها به افراد کمک می‌کنند تا داده‌ها را به‌سرعت به‌صورت بصری نمایش داده و بینش‌هایی کسب کنند که از جدول یا صفحه‌گسترده به‌طور واضح ظاهر نمی‌شوند.
+
+**چرا نمودار بسازیم؟**
 
 با استفاده از نمودارها می‌توانید:
 
-* حجم زیادی از داده‌ها را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید
-* الگوها و روندهای داده را نشان دهید
-* جهت و شدت داده‌ها را در طول زمان یا نسبت به واحد اندازه‌گیری خاصی استنتاج کنید
-* داده‌های نامنظم، انحرافات، خطاها، داده‌های بی‌معنی و غیره را شناسایی کنید
-* داده‌های پیچیده را ارتباط یا ارائه کنید
+* مقادیر زیاد داده را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید
+* الگوها و روندهای داده را آشکار کنید
+* جهت و شتاب داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص استنتاج کنید
+* نقاط دور‌افتاده، انحرافات، خطاها، داده‌های بی‌منطق و غیره را شناسایی کنید
+* داده‌های پیچیده را ارتباط یا ارائه دهید
 
-در PowerPoint می‌توانید نمودارها را از طریق عملکرد Insert ایجاد کنید که الگوهایی برای طراحی انواع مختلف نمودارها فراهم می‌آورد. با Aspose.Slides می‌توانید نمودارهای معمولی (بر پایه انواع نمودارهای محبوب) و نمودارهای سفارشی ایجاد کنید.
+در PowerPoint می‌توانید از عملکرد *Insert* برای ایجاد نمودارها استفاده کنید که قالب‌هایی برای طراحی انواع مختلف نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هر دو نوع نمودار معمولی (بر پایهٔ انواع رایج) و نمودارهای سفارشی ایجاد کنید.
 
-{{% alert color="primary" %}} 
-برای ایجاد نمودارها، Aspose.Slides کلاس [ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType) را فراهم می‌کند. فیلدهای این کلاس مطابق با انواع مختلف نمودار هستند.
-{{% /alert %}} 
+{{% alert color="info" title="نکته" %}}
 
-### **ایجاد نمودارهای معمولی**
+برای ایجاد نمودارها، از کلاس [ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/) استفاده کنید. فیلدهای این کلاس به انواع مختلف نمودارها مربوط می‌شوند.
 
-_مراحل: ایجاد نمودار_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>مراحل:</em> ایجاد نمودار PowerPoint در Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>مراحل:</em> ایجاد نمودار ارائه در Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>مراحل:</em> ایجاد نمودار ارائه PowerPoint در Java</strong></a>
+{{% /alert %}}
 
-_مراحل کد:_
+### **ایجاد نمودارهای ستونی خوشه‌ای**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
-3. یک نمودار با برخی داده‌ها اضافه کنید و نوع نمودار مورد نظر خود را مشخص کنید. 
-4. یک عنوان برای نمودار اضافه کنید. 
-5. به ورق‌کار داده‌های نمودار دسترسی پیدا کنید.
-6. تمام سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-7. سری‌ها و دسته‌های جدید اضافه کنید.
-8. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-9. رنگ پر کردن برای سری‌های نمودار اضافه کنید.
-10. برچسب‌هایی برای سری‌های نمودار اضافه کنید. 
-11. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
+این بخش توضیح می‌دهد چگونه نمودارهای ستونی خوشه‌ای را با Aspose.Slides ایجاد کنید. شما یاد می‌گیرید یک ارائه را مقداردهی اولیه کنید، یک نمودار اضافه کنید و عناصر آن مانند عنوان، داده، سطرها، دسته‌ها و سبک‌ها را سفارشی کنید. مراحل زیر را برای ایجاد یک نمودار ستونی خوشه‌ای استاندارد دنبال کنید:
 
-این کد Java نشان می‌دهد چگونه یک نمودار معمولی ایجاد کنید:
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation) ایجاد کنید.
+1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+1. یک نمودار با برخی داده‌ها اضافه کنید و نوع `ChartType.ClusteredColumn` را مشخص کنید.
+1. یک عنوان به نمودار اضافه کنید.
+1. به Worksheet داده‌های نمودار دسترسی پیدا کنید.
+1. تمام سطرها و دسته‌های پیش‌فرض را پاک کنید.
+1. سطرها و دسته‌های جدید اضافه کنید.
+1. داده‌های جدید برای سطرهای نمودار اضافه کنید.
+1. رنگ پر شدن را برای سطرهای نمودار اعمال کنید.
+1. برچسب‌ها را به سطرهای نمودار اضافه کنید.
+1. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
+
+این کد C# نشان می‌دهد چگونه یک نمودار ستونی خوشه‌ای ایجاد شود:
 
 ```java
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// یک نمونه از کلاس ارائه ایجاد می‌کند که نمایانگر یک فایل PPTX است
 Presentation pres = new Presentation();
 try {
-    // به اسلاید اول دسترسی پیدا می‌کند
+    // به اولین اسلاید دسترسی پیدا می‌کند
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
+    // یک نمودار با داده‌های پیش‌فرض آن اضافه می‌کند
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
     // عنوان نمودار را تنظیم می‌کند
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
+    chart.setTitle(true);
     
-    // سری اول را تنظیم می‌کند تا مقادیر را نمایش دهد
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // شاخص برگه داده‌های نمودار را تنظیم می‌کند
+    // شاخص شیت داده‌های نمودار را تنظیم می‌کند
     int defaultWorksheetIndex = 0;
     
-    // برگه کاری داده‌های نمودار را دریافت می‌کند
+    // Workbook داده‌های نمودار را دریافت می‌کند
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
+    // سلسله‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
     s = chart.getChartData().getCategories().size();
     
-    // سری‌های جدید اضافه می‌کند
+    // سلسله‌های جدید اضافه می‌کند
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"),chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"),chart.getType());
     
@@ -114,7 +112,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // سری اول نمودار را می‌گیرد
+    // سلسله اول نمودار را می‌گیرد
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // اکنون داده‌های سری را پر می‌کند
@@ -126,7 +124,7 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // سری دوم نمودار را می‌گیرد
+    // سلسله دوم نمودار را می‌گیرد
     series = chart.getChartData().getSeries().get_Item(1);
     
     // داده‌های سری را پر می‌کند
@@ -138,8 +136,8 @@ try {
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    //Create برچسب‌های سفارشی برای هر دسته برای سری جدید
-    // تنظیم برچسب اول برای نمایش نام دسته
+    //Create برچسب‌های سفارشی برای هر دسته برای سری جدید ایجاد می‌کند
+    // برچسب اول را برای نمایش نام دسته تنظیم می‌کند
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     
@@ -152,92 +150,90 @@ try {
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // ارائه را با نمودار ذخیره می‌کند
+    // Saves the presentation with chart
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **ایجاد نمودارهای پراکنده**
-نمودارهای پراکنده (که به‌عنوان نمودارهای Scatter یا گراف‌های x‑y نیز شناخته می‌شوند) معمولاً برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
+### **ایجاد نمودارهای پراکندگی**
+نمودارهای پراکندگی (که به‌عنوان scatter plots یا نمودارهای x‑y نیز شناخته می‌شوند) معمولاً برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
 
-ممکن است بخواهید از نمودار پراکنده استفاده کنید وقتی:
+از نمودار پراکندگی زمانی استفاده کنید که:
 
-* داده‌های عددی جفت‌شده دارید
+* داده‌های عددی جفت‌گذاری‌شده دارید
 * دو متغیر دارید که به‌خوبی با هم جفت می‌شوند
 * می‌خواهید تعیین کنید آیا دو متغیر مرتبط هستند یا نه
-* متغیر مستقلی دارید که برای متغیر وابسته مقادیر متعددی دارد
+* یک متغیر مستقل دارید که برای یک متغیر وابسته مقادیر متعدد دارد
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>مراحل:</em> ایجاد نمودار پراکنده در Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>مراحل:</em> ایجاد نمودار پراکنده PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>مراحل:</em> ایجاد نمودار پراکنده ارائه PowerPoint در Java</strong></a>
+1. مراحل موجود در [Create Clustered Column Charts](#create-clustered-column-charts) را دنبال کنید.
+2. در گام سوم، یک نمودار با برخی داده اضافه کنید و نوع نمودار خود را یکی از موارد زیر انتخاب کنید:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _نماد یک نمودار پراکندگی._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _نمودار پراکندگی که با منحنی‌ها متصل است و دارای مارکرهای داده می‌باشد._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _نمودار پراکندگی که با منحنی‌ها متصل است و مارکرهای داده ندارد._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _نمودار پراکندگی که با خطوط مستقیم متصل است و دارای مارکرهای داده می‌باشد._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _نمودار پراکندگی که با خطوط مستقیم متصل است و مارکرهای داده ندارد._
 
-1. لطفاً مراحل مذکور در [ایجاد نمودارهای معمولی](#creating-normal-charts) را دنبال کنید
-2. برای گام سوم، یک نمودار با برخی داده‌ها اضافه کنید و نوع نمودار را به‌عنوان یکی از موارد زیر انتخاب کنید
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithMarkers) - _نمودار Scatter با نشانگرها._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _نمودار Scatter با خطوط صاف و نشانگرها._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _نمودار Scatter با خطوط صاف بدون نشانگرها._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _نمودار Scatter با خطوط مستقیم و نشانگرها._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ScatterWithStraightLines) - _نمودار Scatter با خطوط مستقیم بدون نشانگرها._
-
-این کد Java نشان می‌دهد چگونه یک نمودار پراکنده با سری‌های مختلف نشانگر ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار پراکندگی با مارکرهای مختلف برای هر سطر ایجاد شود:
 
 ```java
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+import com.aspose.slides.*;
+
+// یک نمونه از کلاس ارائه ایجاد می‌کند که نمایانگر یک فایل PPTX است
 Presentation pres = new Presentation();
 try {
-    // به اسلاید اول دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     ISlide slide = pres.getSlides().get_Item(0);
 
     // نمودار پیش‌فرض را ایجاد می‌کند
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // شاخص برگه کاری داده‌های پیش‌فرض نمودار را دریافت می‌کند
+    // شاخص شیت داده پیش‌فرض نمودار را دریافت می‌کند
     int defaultWorksheetIndex = 0;
     
-    // برگه کاری داده‌های نمودار را دریافت می‌کند
+    // شیت داده‌های نمودار را دریافت می‌کند
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // سری‌های نمایشی را حذف می‌کند
+    // سلسلهٔ نمونه را حذف می‌کند
     chart.getChartData().getSeries().clear();
     
-    // سری‌های جدید اضافه می‌کند
+    // سلسله‌های جدید اضافه می‌کند
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // سری اول نمودار را می‌گیرد
+    // سلسلهٔ اول نمودار را می‌گیرد
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // یک نقطه جدید (1:3) به سری اضافه می‌کند
+    // یک نقطهٔ جدید (1:3) به سلسله اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     
-    // یک نقطه جدید (2:10) اضافه می‌کند
+    // یک نقطهٔ جدید (2:10) اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
     
-    // نوع سری را تغییر می‌دهد
+    // نوع سلسله را تغییر می‌دهد
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // نماد سری نمودار را تغییر می‌دهد
+    // نشانگر سلسلهٔ نمودار را تغییر می‌دهد
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // سری دوم نمودار را می‌گیرد
+    // سلسلهٔ دوم نمودار را می‌گیرد
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // یک نقطه جدید (5:2) در آن اضافه می‌کند
+    // یک نقطهٔ جدید (5:2) را در آنجا اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
     
-    // یک نقطه جدید (3:1) اضافه می‌کند
+    // یک نقطهٔ جدید (3:1) اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
     
-    // یک نقطه جدید (2:2) اضافه می‌کند
+    // یک نقطهٔ جدید (2:2) اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
     
-    // یک نقطه جدید (5:1) اضافه می‌کند
+    // یک نقطهٔ جدید (5:1) اضافه می‌کند
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // نماد سری نمودار را تغییر می‌دهد
+    // نشانگر سلسلهٔ نمودار را تغییر می‌دهد
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -249,32 +245,31 @@ try {
 
 ### **ایجاد نمودارهای دایره‌ای**
 
-نمودارهای دایره‌ای بهترین استفاده را برای نشان دادن نسبت بخشی‑به‑کل داده‌ها دارند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. با این حال، اگر داده‌های شما شامل تعداد زیادی بخش یا برچسب باشد، ممکن است بخواهید به‌جای آن از نمودار میله‌ای استفاده کنید.
+نمودارهای دایره‌ای برای نمایش رابطهٔ بخش به کل در داده‌ها، به‌ویژه زمانی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند، بهترین گزینه هستند. اما اگر داده‌های شما شامل تعداد زیادی بخش یا برچسب باشد، بهتر است به‌جای آن از نمودار میله‌ای استفاده کنید.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>مراحل:</em> ایجاد نمودار دایره‌ای در Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>مراحل:</em> ایجاد نمودار دایره‌ای PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>مراحل:</em> ایجاد نمودار دایره‌ای ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Pie](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#Pie) را مشخص کنید.
+4. به Workbook داده‌های نمودار [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) دسترسی پیدا کنید.
+5. سطرها و دسته‌های پیش‌فرض را پاک کنید.
+6. سطرها و دسته‌های جدید اضافه کنید.
+7. داده‌های جدید برای سطرهای نمودار اضافه کنید.
+8. نقاط جدید برای نمودار اضافه کنید و رنگ‌های سفارشی برای بخش‌های نمودار دایره‌ای اعمال کنید.
+9. برچسب‌ها را برای سطرها تنظیم کنید.
+10. خطوط رهبر برای برچسب‌های سطرها را فعال کنید.
+11. زاویهٔ چرخش برای بخش‌های نمودار دایره‌ای را تنظیم کنید.
+12. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر (در این مثال، [ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType).Pie) اضافه کنید.
-4. به داده‌های نمودار از طریق [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartDataWorkbook) دسترسی پیدا کنید.
-5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-6. سری‌ها و دسته‌های جدید اضافه کنید.
-7. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-8. نقاط جدید برای نمودارها اضافه کنید و رنگ‌های سفارشی برای بخش‌های نمودار دایره‌ای تعیین کنید.
-9. برچسب‌ها را برای سری‌ها تنظیم کنید.
-10. خطوط راهنما برای برچسب‌های سری تنظیم کنید.
-11. زاویه چرخش برای اسلایدهای نمودار دایره‌ای تنظیم کنید.
-12. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-این کد Java نشان می‌دهد چگونه یک نمودار دایره‌ای ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار دایره‌ای ایجاد شود:
 
 ```java
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// یک نمونه از کلاس ارائه ایجاد می‌کند که نمایانگر یک فایل PPTX است
 Presentation pres = new Presentation();
 try {
-    // به اسلاید اول دسترسی می‌یابد
+    // به اولین اسلاید دسترسی پیدا می‌کند
     ISlide slides = pres.getSlides().get_Item(0);
     
     // یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
@@ -286,16 +281,13 @@ try {
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // سری اول را تنظیم می‌کند تا مقادیر را نمایش دهد
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // شاخص برگه کاری داده‌های نمودار را تنظیم می‌کند
+    // شاخص شیت داده‌های نمودار را تنظیم می‌کند
     int defaultWorksheetIndex = 0;
     
-    // برگه کاری داده‌های نمودار را دریافت می‌کند
+    // شیت داده‌های نمودار را دریافت می‌کند
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
+    // سلسله‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
@@ -304,10 +296,10 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
     chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
     
-    // سری‌های جدید اضافه می‌کند
+    // سلسله‌های جدید اضافه می‌کند
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    //داده‌های سری را پر می‌کند
+    // داده‌های سلسله را پر می‌کند
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -321,7 +313,7 @@ try {
     point.getFormat().getFill().setFillType(FillType.Solid);
     point.getFormat().getFill().getSolidFillColor().setColor(Color.CYAN);
 	
-    // حاشیه بخش را تنظیم می‌کند
+	// حاشیهٔ بخش را تنظیم می‌کند
     point.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     point.getFormat().getLine().setWidth(3.0);
@@ -332,7 +324,7 @@ try {
     point1.getFormat().getFill().setFillType(FillType.Solid);
     point1.getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
     
-    // حاشیه بخش را تنظیم می‌کند
+    // حاشیهٔ بخش را تنظیم می‌کند
     point1.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     point1.getFormat().getLine().setWidth(3.0);
@@ -343,14 +335,14 @@ try {
     point2.getFormat().getFill().setFillType(FillType.Solid);
     point2.getFormat().getFill().getSolidFillColor().setColor(Color.YELLOW);
     
-    // حاشیه بخش را تنظیم می‌کند
+    // حاشیهٔ بخش را تنظیم می‌کند
     point2.getFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // برچسب‌های سفارشی برای هر دسته از سری جدید ایجاد می‌کند
+    // برچسب‌های سفارشی برای هر دسته برای سلسلهٔ جدید ایجاد می‌کند
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -365,10 +357,10 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // خطوط راهنما را برای نمودار نمایش می‌دهد
+    // خطوط رهبری را برای نمودار نشان می‌دهد
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // زاویه چرخش بخش‌های نمودار دایره‌ای را تنظیم می‌کند
+    // زاویهٔ چرخش بخش‌های نمودار دایره‌ای را تنظیم می‌کند
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
     // ارائه را همراه با نمودار ذخیره می‌کند
@@ -380,20 +372,18 @@ try {
 
 ### **ایجاد نمودارهای خطی**
 
-نمودارهای خطی (که به‌عنوان گراف‌های خطی نیز شناخته می‌شوند) بهترین استفاده را در موقعیت‌هایی دارند که می‌خواهید تغییرات مقدار را در طول زمان نشان دهید. با استفاده از نمودار خطی می‌توانید داده‌های زیادی را همزمان مقایسه کنید، تغییرات و روندها را در طول زمان پیگیری کنید، ناهنجاری‌ها را در سری‌های داده برجسته کنید و غیره.
+نمودارهای خطی (که به‌عنوان line graphs نیز شناخته می‌شوند) بهترین استفاده را در موقعیت‌هایی دارند که می‌خواهید تغییرات مقدار را در طول زمان نشان دهید. با استفاده از نمودار خطی می‌توانید مقدار زیادی داده را به‌صورت هم‌زمان مقایسه کنید، تغییرات و روندها را در طول زمان پیگیری کنید، ناهنجاری‌های سطرهای داده را برجسته کنید و غیره.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-1. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
-1. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر (در این مثال، `ChartType.Line`) اضافه کنید.
-1. به داده‌های نمودار از طریق IChartDataWorkbook دسترسی پیدا کنید.
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-1. سری‌ها و دسته‌های جدید اضافه کنید.
-1. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-1. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+1. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Line](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#Line) را مشخص کنید.
+1. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-این کد Java نشان می‌دهد چگونه یک نمودار خطی ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار خطی ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -404,37 +394,42 @@ try {
 }
 ```
 
-به‌صورت پیش‌فرض، نقاط یک نمودار خطی با خطوط مستقیم پیوسته به‌هم متصل می‌شوند. اگر می‌خواهید نقاط به‌جای خطوط پیوسته با خط تیره متصل شوند، می‌توانید نوع خط تیره موردنظر خود را به‌این شکل مشخص کنید:
+به طور پیش‌فرض، نقاط در یک نمودار خطی توسط خطوط مستقیم پیوسته به هم متصل می‌شوند. اگر می‌خواهید نقاط به‌جای خطوط پیوسته با خط تیره وصل شوند، می‌توانید نوع dash مورد نظر خود را به‌صورت زیر مشخص کنید:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
-### **ایجاد نمودارهای درخت‌نقشه**
+### **ایجاد نمودارهای درختی (Tree Map)**
 
-نمودارهای درخت‌نقشه بهترین استفاده را برای داده‌های فروش دارند وقتی می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و همزمان به‌سرعت توجه را به آیتم‌های بزرگ‌سهم هر دسته جلب کنید.
+نمودارهای درختی برای داده‌های فروش که می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و سریعاً توجه را به مواردی که سهم بالایی دارند جلب کنید، بهترین گزینه هستند.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>مراحل:</em> ایجاد نمودار درخت‌نقشه در Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>مراحل:</em> ایجاد نمودار درخت‌نقشه PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>مراحل:</em> ایجاد نمودار درخت‌نقشه ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Treemap](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#Treemap) را مشخص کنید.
+4. به Workbook داده‌های نمودار [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) دسترسی پیدا کنید.
+5. سطرها و دسته‌های پیش‌فرض را پاک کنید.
+6. سطرها و دسته‌های جدید اضافه کنید.
+7. داده‌های جدید برای سطرهای نمودار اضافه کنید.
+8. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسלاید را از طریق ایندکس آن دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر (در این مثال، [ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType).TreeMap) اضافه کنید.
-4. به داده‌های نمودار از طریق [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartDataWorkbook) دسترسی پیدا کنید.
-5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-6. سری‌ها و دسته‌های جدید اضافه کنید.
-7. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-8. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-این کد Java نشان می‌دهد چگونه یک نمودار درخت‌نقشه ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار درختی ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -487,25 +482,23 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای سهام**
+### **ایجاد نمودارهای سهام (Stock)**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>مراحل:</em> ایجاد نمودار سهام در Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>مراحل:</em> ایجاد نمودار سهام PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>مراحل:</em> ایجاد نمودار سهام ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#OpenHighLowClose) را مشخص کنید.
+4. به Workbook داده‌های نمودار [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) دسترسی پیدا کنید.
+5. سطرها و دسته‌های پیش‌فرض را پاک کنید.
+6. سطرها و دسته‌های جدید اضافه کنید.
+7. داده‌های جدید برای سطرهای نمودار اضافه کنید.
+8. قالب خطوط بال‑پایین را مشخص کنید.
+9. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر ([ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType).OpenHighLowClose) اضافه کنید.
-4. به داده‌های نمودار از طریق [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartDataWorkbook) دسترسی پیدا کنید.
-5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-6. سری‌ها و دسته‌های جدید اضافه کنید.
-7. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-8. قالب خطوط HiLowLines را تعیین کنید.
-9. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-نمونه کد Java برای ایجاد نمودار سهام:
+این کد Java نشان می‌دهد چگونه یک نمودار سهام ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -559,24 +552,22 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای جعبه‌وویسکر**
+### **ایجاد نمودارهای جعبه‌ای و ویست‌رس (Box and Whisker)**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>مراحل:</em> ایجاد نمودار جعبه‌وویسکر در Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>مراحل:</em> ایجاد نمودار جعبه‌وویسکر PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>مراحل:</em> ایجاد نمودار جعبه‌وویسکر ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#BoxAndWhisker) را مشخص کنید.
+4. به Workbook داده‌های نمودار [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) دسترسی پیدا کنید.
+5. سطرها و دسته‌های پیش‌فرض را پاک کنید.
+6. سطرها و دسته‌های جدید اضافه کنید.
+7. داده‌های جدید برای سطرهای نمودار اضافه کنید.
+8. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسלاید را از طریق ایندکس آن دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر ([ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType).BoxAndWhisker) اضافه کنید.
-4. به داده‌های نمودار از طریق [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartDataWorkbook) دسترسی پیدا کنید.
-5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-6. سری‌ها و دسته‌های جدید اضافه کنید.
-7. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-8. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-این کد Java نشان می‌دهد چگونه یک نمودار جعبه‌وویسکر ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار جعبه‌ای و ویست‌رس ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -614,20 +605,18 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای قیفی**
+### **ایجاد نمودار قیفی (Funnel)**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>مراحل:</em> ایجاد نمودار قیفی در Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>مراحل:</em> ایجاد نمودار قیفی PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>مراحل:</em> ایجاد نمودار قیفی ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Funnel](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#Funnel) را مشخص کنید.
+4. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسלاید را از طریق ایندکس آن دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر ([ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType).Funnel) اضافه کنید.
-4. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-کد Java نشان می‌دهد چگونه یک نمودار قیفی ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار قیفی ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -660,20 +649,18 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای خورده‌نقش (Sunburst)**
+### **ایجاد نمودارهای خورشیدی (Sunburst)**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>مراحل:</em> ایجاد نمودار خورده‌نقش در Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>مراحل:</em> ایجاد نمودار خورده‌نقش PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>مراحل:</em> ایجاد نمودار خورده‌نقش ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Sunburst](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#Sunburst) را مشخص کنید.
+4. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسלاید را از طریق ایندکس آن دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر (در این مثال، [ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType).sunburst) اضافه کنید.
-4. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-این کد Java نشان می‌دهد چگونه یک نمودار خورده‌نقش ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار خورشیدی ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -683,7 +670,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    // شاخه 1
+    //شاخه 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -695,7 +682,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    // شاخه 2
+    //شاخه 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -726,21 +713,19 @@ try {
 
 ### **ایجاد نمودارهای هیستوگرام**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>مراحل:</em> ایجاد نمودار هیستوگرام در Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>مراحل:</em> ایجاد نمودار هیستوگرام PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>مراحل:</em> ایجاد نمودار هیستوگرام ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.Histogram](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#Histogram) را مشخص کنید.
+4. به Workbook داده‌های نمودار [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) دسترسی پیدا کنید.
+5. سطرها و دسته‌های پیش‌فرض را پاک کنید.
+6. سطرها و دسته‌های جدید اضافه کنید.
+7. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسלاید را از طریق ایندکس آن دریافت کنید.
-3. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر ([ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType).Histogram) اضافه کنید.
-4. به داده‌های نمودار از طریق [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartDataWorkbook) دسترسی پیدا کنید.
-5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-6. سری‌ها و دسته‌های جدید اضافه کنید.
-7. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-این کد Java نشان می‌دهد چگونه یک نمودار هیستوگرام ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار هیستوگرام ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -758,7 +743,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -768,18 +753,16 @@ try {
 
 ### **ایجاد نمودارهای رادار**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>مراحل:</em> ایجاد نمودار رادار در Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>مراحل:</em> ایجاد نمودار رادار PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>مراحل:</em> ایجاد نمودار رادار ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با برخی داده اضافه کنید و نوع نمودار مورد نظر خود ([ChartType.Radar](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#Radar)) را مشخص کنید.
+4. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسלاید را از طریق ایندکس آن دریافت کنید. 
-3. یک نمودار با برخی داده‌ها اضافه کنید و نوع نمودار مورد علاقه خود را (`ChartType.Radar` در این مثال) مشخص کنید.
-4. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-این کد Java نشان می‌دهد چگونه یک نمودار رادار ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار رادار ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -789,24 +772,22 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای چنددسته‌ای**
+### **ایجاد نمودارهای چنددسته‌ای (Multi-Category)**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>مراحل:</em> ایجاد نمودار چنددسته‌ای در Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>مراحل:</em> ایجاد نمودار چنددسته‌ای PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>مراحل:</em> ایجاد نمودار چنددسته‌ای ارائه PowerPoint در Java</strong></a>
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع [ChartType.ClusteredColumn](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/#ClusteredColumn) را مشخص کنید.
+4. به Workbook داده‌های نمودار [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) دسترسی پیدا کنید.
+5. سطرها و دسته‌های پیش‌فرض را پاک کنید.
+6. سطرها و دسته‌های جدید اضافه کنید.
+7. داده‌های جدید برای سطرهای نمودار اضافه کنید.
+8. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) ایجاد کنید.
-2. مرجع یک اسלاید را از طریق ایندکس آن دریافت کنید. 
-3. یک نمودار با داده‌های پیش‌فرض به‌همراه نوع موردنظر ([ChartType](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ChartType).ClusteredColumn) اضافه کنید.
-4. به داده‌های نمودار از طریق [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/IChartDataWorkbook) دسترسی پیدا کنید.
-5. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.
-6. سری‌ها و دسته‌های جدید اضافه کنید.
-7. داده‌های جدیدی برای سری‌های نمودار اضافه کنید.
-8. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
-
-این کد Java نشان می‌دهد چگونه یک نمودار چنددسته‌ای ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار چنددسته‌ای ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -833,7 +814,7 @@ try {
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
 
-    // اضافه کردن سری
+    // افزودن سلسله
     IChartSeries series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"),
             ChartType.ClusteredColumn);
 
@@ -853,17 +834,15 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای نقشه‌ای**
+### **ایجاد نمودارهای نقشه‌ای (Map)**
 
-نمودار نقشه‌ای تصویری از یک ناحیه حاوی داده‌هاست. نمودارهای نقشه‌ای بهترین استفاده را برای مقایسه داده‌ها یا مقادیر در مناطق جغرافیایی مختلف دارند.
+نمودارهای نقشه‌ای داده‌های جغرافیایی را به‌صورت بصری نمایش می‌دهند و به مقایسه مقادیر در بین مناطق مختلف کمک می‌کنند.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>مراحل:</em> ایجاد نمودار نقشه‌ای در Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>مراحل:</em> ایجاد نمودار نقشه‌ای PowerPoint در Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>مراحل:</em> ایجاد نمودار نقشه‌ای ارائه PowerPoint در Java</strong></a>
-
-این کد Java نشان می‌دهد چگونه یک نمودار نقشه‌ای ایجاد کنید:
+این کد Java نشان می‌دهد چگونه یک نمودار نقشه‌ای ایجاد شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -873,15 +852,18 @@ try {
 }
 ```
 
-### **ایجاد نمودارهای ترکیبی**
+### **ایجاد نمودارهای ترکیبی (Combination)**
 
-نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تفاوت‌ها یا روابط بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید.
+یک نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا ارتباطات بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید.
 
 ![The combination chart](combination_chart.png)
 
-کد Java زیر نشان می‌دهد چگونه نمودار ترکیبی نمایش داده‌شده در بالا را در یک ارائه PowerPoint ایجاد کنید:
+کد Java زیر نشان می‌دهد چگونه نمودار ترکیبی نشان داده‌شده در بالا را در یک ارائه PowerPoint ایجاد کنید:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -903,7 +885,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // عنوان نمودار را تنظیم کنید.
+    // تنظیم عنوان نمودار.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -912,24 +894,24 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // افسانه نمودار را تنظیم کنید.
+    // تنظیم افسانه نمودار.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف کنید.
+    // حذف سلسله‌ها و دسته‌های پیش‌فرض تولید شده.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-    // دسته‌های جدید اضافه کنید.
+    // افزودن دسته‌های جدید.
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 1, 0, "Category 1"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 2, 0, "Category 2"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 3, 0, "Category 3"));
     chart.getChartData().getCategories().add(workbook.getCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // سری اول را اضافه کنید.
+    // افزودن اولین سلسله.
     IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 1, "Series 1");
     IChartSeries series = chart.getChartData().getSeries().add(seriesNameCell, chart.getType());
 
@@ -976,28 +958,28 @@ static void addThirdSeriesToChart(IChart chart) {
 }
 
 static void setPrimaryAxesFormat(IChart chart) {
-    // محور افقی را تنظیم کنید.
+    // تنظیم محور افقی.
     IAxis horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // محور عمودی را تنظیم کنید.
+    // تنظیم محور عمودی.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // رنگ خطوط شبکه اصلی عمودی را تنظیم کنید.
+    // تنظیم رنگ خطوط اصلی شبکه عمودی.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
 }
 
 static void setSecondaryAxesFormat(IChart chart) {
-    // محور افقی ثانویه را تنظیم کنید.
+    // تنظیم محور افقی ثانویه.
     IAxis secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(CrossesType.Maximum);
@@ -1005,7 +987,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
-    // محور عمودی ثانویه را تنظیم کنید.
+    // تنظیم محور عمودی ثانویه.
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
@@ -1028,91 +1010,94 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 
 ## **به‌روزرسانی نمودارها**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>مراحل:</em> به‌روزرسانی نمودار PowerPoint در Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>مراحل:</em> به‌روزرسانی نمودار ارائه در Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>مراحل:</em> به‌روزرسانی نمودار ارائه PowerPoint در Java</strong></a>
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) که شامل نمودار موردنظر برای به‌روزرسانی است، ایجاد کنید.
-2. مرجع یک اسלاید را با استفاده از ایندکس آن به‌دست آورید.
-3. تمام اشکال را پیمایش کنید تا نمودار موردنظر را پیدا کنید.
-4. به ورق‌کار داده‌های نمودار دسترسی پیدا کنید.
-5. داده‌های سری‌های نمودار را با تغییر مقادیر سری‌ها اصلاح کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید که نمایانگر ارائه شامل نموداری است که می‌خواهید به‌روز کنید.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. از بین تمام شکل‌ها عبور کنید تا نمودار مورد نظر را پیدا کنید.
+4. به Worksheet داده‌های نمودار دسترسی پیدا کنید.
+5. سری‌های دادهٔ نمودار را با تغییر مقادیر سری‌ها اصلاح کنید.
 6. یک سری جدید اضافه کنید و داده‌های آن را پر کنید.
-7. ارائه اصلاح‌شده را به‌صورت فایل PPTX بنویسید.
+7. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
 این کد Java نشان می‌دهد چگونه یک نمودار را به‌روزرسانی کنید:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// ارائه‌ای را که شامل نمودار برای به‌روزرسانی است باز می‌کند
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // دسترسی به اولین اسلاید
+    // دسترسی به اسلاید اول
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // دریافت نمودار با داده‌های پیش‌فرض
+    // دریافت نمودار از اسلاید
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // تنظیم شاخص برگه داده‌های نمودار
+    // تنظیم شاخص شیت داده‌های نمودار
     int defaultWorksheetIndex = 0;
 
-    // دریافت برگه کاری داده‌های نمودار
+    // دریافت شیت داده‌های نمودار
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // تغییر نام دسته‌بندی نمودار
+    // تغییر نام دستهٔ نمودار
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // دریافت سری اول نمودار
+    // گرفتن اولین سلسلهٔ نمودار
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
-    // در حال به‌روزرسانی داده‌های سری
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// در حال اصلاح نام سری
+    // حالا داده‌های سلسله را به‌روز می‌کند
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// تغییر نام سلسله
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // دریافت سری دوم نمودار
+    // گرفتن دومین سلسلهٔ نمودار
     series = chart.getChartData().getSeries().get_Item(1);
 
-    // در حال به‌روزرسانی داده‌های سری
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// در حال اصلاح نام سری
+    // حالا داده‌های سلسله را به‌روز می‌کند
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// تغییر نام سلسله
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
 
-    // در حال افزودن سری جدید
+    // حالا، افزودن یک سلسلهٔ جدید
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // دریافت سری سوم نمودار
+    // گرفتن سومین سلسلهٔ نمودار
     series = chart.getChartData().getSeries().get_Item(2);
 
-    // در حال پر کردن داده‌های سری
+    // حالا پر کردن داده‌های سلسله
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // ذخیره ارائه همراه با نمودار
+    // ذخیرهٔ ارائه همراه با نمودار
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **تنظیم بازه داده برای نمودار**
 
-برای تنظیم بازه داده برای یک نمودار، این کارها را انجام دهید:
+## **تنظیم محدوده داده برای نمودار**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/Presentation) که شامل نمودار است، ایجاد کنید.
-2. مرجع یک اسלاید را از طریق ایندکس آن دریافت کنید.
-3. تمام اشکال را پیمایش کنید تا نمودار موردنظر را پیدا کنید.
-4. به داده‌های نمودار دسترسی پیدا کنید و بازه را تنظیم کنید.
-5. ارائه اصلاح‌شده را به‌صورت فایل PPTX ذخیره کنید.
+برای تنظیم محدوده دادهٔ یک نمودار، این کارها را انجام دهید:
 
-این کد Java نشان می‌دهد چگونه بازه داده برای یک نمودار تنظیم شود:
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد کنید که نمایانگر ارائه شامل نمودار است.
+2. با استفاده از ایندکس، به یک اسلاید ارجاع بگیرید.
+3. از بین تمام شکل‌ها عبور کنید تا نمودار مورد نظر را پیدا کنید.
+4. به داده‌های نمودار دسترسی پیدا کنید و محدوده را تنظیم کنید.
+5. ارائه اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
+
+این کد Java نشان می‌دهد چگونه محدوده دادهٔ یک نمودار تنظیم شود:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// ارائه‌ای را که شامل نمودار است باز می‌کند
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1125,12 +1110,15 @@ try {
 }
 ```
 
-## **استفاده از نشانگرهای پیش‌فرض در نمودارها**
-هنگامی که از نشانگر پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار نماد نشانگر پیش‌فرض متفاوتی دریافت می‌کند.
+## **استفاده از مارکرهای پیش‌فرض در نمودارها**
 
-این کد Java نشان می‌دهد چگونه نشانگر سری نمودار به‌صورت خودکار تنظیم شود:
+هنگامی که از مارکرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌صورت خودکار یک نماد مارکر متفاوت دریافت می‌کند.
+
+این کد Java نشان می‌دهد چگونه مارکر سری نمودار به‌صورت خودکار تنظیم شود:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1153,10 +1141,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // دریافت سری دوم نمودار
+    // گرفتن دومین سلسلهٔ نمودار
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // در حال پر کردن داده‌های سری
+    // در حال پر کردن داده‌های سلسله
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1175,16 +1163,16 @@ try {
 
 **کدام انواع نمودارها توسط Aspose.Slides پشتیبانی می‌شوند؟**
 
-Aspose.Slides طیف گسترده‌ای از [chart types](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/) را شامل می‌شود، از جمله bar، line، pie، area، scatter، histogram، radar و بسیاری موارد دیگر. این انعطاف‌پذیری به شما امکان می‌دهد مناسب‌ترین نوع نمودار را برای نیازهای تصویری‌سازی داده‌های خود انتخاب کنید.
+Aspose.Slides طیف گسترده‌ای از [انواع نمودارها](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/charttype/) را پشتیبانی می‌کند، از جمله میله‌ای، خطی، دایره‌ای، ناحیه‌ای، پراکندگی، هیستوگرام، رادار و بسیاری دیگر. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تصویرسازی داده‌های خود انتخاب کنید.
 
 **چگونه یک نمودار جدید به اسلاید اضافه کنم؟**
 
-برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد می‌کنید، اسלاید موردنظر را با ایندکس‌اش بازیابی می‌کنید و سپس متد افزودن نمودار را صدا می‌زنید، نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را مستقیماً به ارائه شما ادغام می‌کند.
+برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) ایجاد می‌کنید، اسلاید مورد نظر را با ایندکس دریافت می‌کنید و سپس متد افزودن نمودار را صدا می‌زنید و نوع نمودار و داده‌های اولیه را مشخص می‌نمایید. این فرآیند نمودار را به‌صورت مستقیم در ارائه شما ادغام می‌کند.
 
-**چگونه می‌توان داده‌های نمایش داده‌شده در یک نمودار را به‌روزرسانی کرد؟**
+**چگونه می‌توان داده‌های نمایش‌داده‌شده در یک نمودار را به‌روز کرد؟**
 
-می‌توانید داده‌های یک نمودار را با دسترسی به کتابخانه داده‌های آن ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/))، پاک کردن سری‌ها و دسته‌های پیش‌فرض و سپس افزودن داده‌های سفارشی خود به‌روزرسانی کنید. این امکان باعث می‌شود نمودار جدیدترین داده‌ها را منعکس کند.
+می‌توانید داده‌های یک نمودار را با دسترسی به Workbook داده‌های آن ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/))، پاک‌سازی سطرها و دسته‌های پیش‌فرض و سپس افزودن داده‌های سفارشی خود به‌روز کنید. این کار اجازه می‌دهد تا نمودار بازتاب‌دهنده جدیدترین داده‌ها باشد.
 
 **آیا امکان سفارشی‌سازی ظاهر نمودار وجود دارد؟**
 
-بله، Aspose.Slides گزینه‌های سفارشی‌سازی گسترده‌ای ارائه می‌دهد. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر [formatting elements](/slides/fa/androidjava/chart-entities/) را تغییر دهید تا ظاهر نمودار را مطابق با نیازهای طراحی خاص خود تنظیم کنید.
+بله، Aspose.Slides گزینه‌های سفارشی‌سازی فراوانی ارائه می‌دهد. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر [قالب‌بندی](/slides/fa/androidjava/chart-entities/) را تغییر داده و ظاهر نمودار را مطابق نیازهای طراحی خاص خود تنظیم کنید.

@@ -1,26 +1,26 @@
 ---
-title: Crea o Aggiorna i Grafici delle Presentazioni PowerPoint in JavaScript
-linktitle: Crea o Aggiorna i Grafici
+title: Crea o aggiorna grafici di presentazioni PowerPoint in JavaScript
+linktitle: Crea o aggiorna grafici
 type: docs
 weight: 10
 url: /it/nodejs-java/create-chart/
 keywords:
-- aggiungere grafico
-- creare grafico
-- modificare grafico
-- cambiare grafico
-- aggiornare grafico
+- aggiungi grafico
+- crea grafico
+- modifica grafico
+- cambia grafico
+- aggiorna grafico
 - grafico a dispersione
 - grafico a torta
 - grafico a linee
-- grafico a mappa ad albero
-- grafico a borsa
+- grafico ad albero
+- grafico finanziario
 - grafico a scatola e baffi
 - grafico a imbuto
-- grafico a raggi
-- grafico istogramma
+- grafico a raggiera
+- istogramma
 - grafico radar
-- grafico a più categorie
+- grafico multicategoria
 - PowerPoint
 - presentazione
 - Node.js
@@ -30,69 +30,68 @@ description: "Crea e personalizza i grafici nelle presentazioni PowerPoint con A
 ---
 ## **Panoramica**
 
-Questo articolo fornisce una guida completa su come creare e personalizzare grafici utilizzando Aspose.Slides. Imparerai a aggiungere programmaticamente un grafico a una diapositiva, popolarlo con dati e applicare varie opzioni di formattazione per soddisfare i requisiti di design specifici. Lungo l’articolo, esempi di codice dettagliati illustrano ogni passaggio, dall’inizializzazione della presentazione e dell’oggetto grafico alla configurazione di serie, assi e legende. Seguendo questa guida, otterrai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni, semplificando il processo di creazione di presentazioni basate sui dati.
+Questo articolo fornisce una guida completa su come creare e personalizzare i grafici utilizzando Aspose.Slides. Imparerai a inserire programmaticamente un grafico in una diapositiva, a popolarlo con i dati e ad applicare varie opzioni di formattazione per soddisfare i requisiti di design specifici. In tutto l'articolo, esempi di codice dettagliati illustrano ogni passaggio, dall'inizializzazione della presentazione e dell'oggetto grafico alla configurazione di serie, assi e legende. Seguendo questa guida otterrai una solida comprensione di come integrare la generazione dinamica di grafici nelle tue applicazioni, semplificando il processo di creazione di presentazioni basate sui dati.
 
-## **Creare un grafico**
-I grafici aiutano le persone a visualizzare rapidamente i dati e a trarre approfondimenti, che potrebbero non essere immediatamente evidenti da una tabella o da un foglio di calcolo. 
+## **Crea un grafico**
 
+I grafici aiutano le persone a visualizzare rapidamente i dati e a ottenere approfondimenti che potrebbero non essere immediatamente evidenti da una tabella o da un foglio di calcolo.
 
 **Perché creare grafici?**
 
-Utilizzando i grafici, è possibile
+Utilizzando i grafici è possibile:
 
-* aggregare, condensare o riassumere grandi quantità di dati in un’unica diapositiva di una presentazione
-* evidenziare pattern e tendenze nei dati
-* dedurre la direzione e la velocità dei dati nel tempo o rispetto a una specifica unità di misura 
-* individuare valori anomali, aberrazioni, deviazioni, errori, dati senza senso, ecc. 
+* aggregare, condensare o riassumere grandi quantità di dati su una singola diapositiva di una presentazione
+* evidenziare schemi e tendenze nei dati
+* dedurre la direzione e la dinamica dei dati nel tempo o rispetto a una specifica unità di misura
+* individuare valori anomali, aberrazioni, deviazioni, errori, dati senza senso, ecc.
 * comunicare o presentare dati complessi
 
-In PowerPoint, è possibile creare grafici tramite la funzione di inserimento, che fornisce modelli utilizzati per progettare molti tipi di grafico. Con Aspose.Slides, è possibile creare grafici standard (basati su tipi di grafico popolari) e grafici personalizzati. 
+In PowerPoint è possibile creare grafici tramite la funzione *Insert*, che fornisce modelli per progettare molti tipi di grafico. Utilizzando Aspose.Slides, è possibile creare sia grafici standard (basati su tipi di grafico popolari) sia grafici personalizzati.
 
-{{% alert color="primary" %}} 
-Per consentirti di creare grafici, Aspose.Slides fornisce la classe [ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType). I campi di questa classe corrispondono a diversi tipi di grafico.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Per creare i grafici, utilizza la classe [ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/). I campi di questa classe corrispondono a diversi tipi di grafico.
+{{% /alert %}}
 
-### **Creazione di grafici normali**
+### **Crea grafici a colonne raggruppate**
 
-_Passi: Creare grafico_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Passi:</em> Creare grafico PowerPoint in JavaScript</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Passi:</em> Creare grafico di presentazione in JavaScript</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Passi:</em> Creare grafico di presentazione PowerPoint in JavaScript</strong></a>
+Questa sezione spiega come creare grafici a colonne raggruppate utilizzando Aspose.Slides. Imparerai a inizializzare una presentazione, aggiungere un grafico e personalizzare i suoi elementi, come titolo, dati, serie, categorie e stile. Segui i passaggi qui sotto per vedere come viene generato un grafico a colonne raggruppate standard:
 
-_Passi di codice:_
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con alcuni dati e specifica il tipo `ChartType.ClusteredColumn` .
+4. Aggiungi un titolo al grafico.
+5. Accedi al foglio dati del grafico.
+6. Cancella tutte le serie e le categorie predefinite.
+7. Aggiungi nuove serie e categorie.
+8. Aggiungi nuovi dati al grafico per le serie.
+9. Applica un colore di riempimento alle serie del grafico.
+10. Aggiungi etichette alle serie del grafico.
+11. Salva la presentazione modificata come file PPTX.
 
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un grafico con alcuni dati e specificare il tipo di grafico desiderato. 
-4. Aggiungere un titolo al grafico. 
-5. Accedere al foglio di lavoro dei dati del grafico.
-6. Eliminare tutte le serie e categorie predefinite.
-7. Aggiungere nuove serie e categorie.
-8. Aggiungere nuovi dati al grafico per le serie.
-9. Aggiungere un colore di riempimento per le serie del grafico.
-10. Aggiungere etichette per le serie del grafico. 
-11. Scrivere la presentazione modificata in un file PPTX.
-
-Questo codice JavaScript mostra come creare un grafico normale:
+Questo codice C# dimostra come creare un grafico a colonne raggruppate:
 
 ```javascript
-// Istanzia una classe di presentazione che rappresenta un file PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Istanza di una classe presentation che rappresenta un file PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Accede alla prima diapositiva
     var sld = pres.getSlides().get_Item(0);
-    // Aggiunge un grafico con i suoi dati predefiniti
+    // Aggiunge un grafico con i dati predefiniti
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // Imposta il titolo del grafico
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
     // Imposta la prima serie per mostrare i valori
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     // Imposta l'indice per il foglio dati del grafico
     var defaultWorksheetIndex = 0;
-    // Ottiene il foglio di lavoro dei dati del grafico
+    // Ottiene il foglio dati del grafico
     var fact = chart.getChartData().getChartDataWorkbook();
     // Elimina le serie e le categorie generate di default
     chart.getChartData().getSeries().clear();
@@ -124,7 +123,7 @@ try {
     // Imposta il colore di riempimento per la serie
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    // Crea etichette personalizzate per ogni categoria della nuova serie
+    // Crea etichette personalizzate per ciascuna categoria per la nuova serie
     // Imposta la prima etichetta per mostrare il nome della categoria
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -144,32 +143,32 @@ try {
 }
 ```
 
-### **Creazione di grafici a dispersione**
-I grafici a dispersione (noti anche come scatter plot o grafici x‑y) sono spesso usati per verificare pattern o dimostrare correlazioni tra due variabili. 
+### **Crea grafici a dispersione**
 
-Potresti voler usare un grafico a dispersione quando 
+I grafici a dispersione (noti anche come diagrammi a dispersione o grafici x‑y) sono spesso usati per verificare la presenza di schemi o per dimostrare correlazioni tra due variabili.
+
+Usa un grafico a dispersione quando:
 
 * disponi di dati numerici accoppiati
-* hai 2 variabili che si accompagnano bene
-* vuoi determinare se 2 variabili sono correlate
-* hai una variabile indipendente che ha più valori per una variabile dipendente
+* hai due variabili che si correlano bene tra loro
+* vuoi determinare se due variabili sono correlate
+* hai una variabile indipendente con più valori per una variabile dipendente
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Passi:</em> Creare grafico a dispersione in JavaScript</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Passi:</em> Creare grafico a dispersione PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Passi:</em> Creare grafico a dispersione di presentazione PowerPoint in JavaScript</strong></a>
+1. Segui i passaggi in [Crea grafici a colonne raggruppate](#create-clustered-column-charts).
+2. Per il terzo passaggio, aggiungi un grafico con alcuni dati e specifica il tipo di grafico come uno dei seguenti:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Rappresenta un grafico a dispersione._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Rappresenta un grafico a dispersione collegato da curve, con marcatori dati._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Rappresenta un grafico a dispersione collegato da curve, senza marcatori dati._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Rappresenta un grafico a dispersione collegato da linee, con marcatori dati._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Rappresenta un grafico a dispersione collegato da linee, senza marcatori dati._
 
-1. Segui i passaggi descritti in [Creazione di grafici normali](#creating-normal-charts)
-2. Per il terzo passaggio, aggiungi un grafico con alcuni dati e specifica il tipo di grafico tra i seguenti
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Rappresenta un grafico a dispersione con marcatori._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Rappresenta un grafico a dispersione collegato da curve, con marcatori dei dati._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Rappresenta un grafico a dispersione collegato da curve, senza marcatori dei dati._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Rappresenta un grafico a dispersione collegato da linee, con marcatori dei dati._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Rappresenta un grafico a dispersione collegato da linee, senza marcatori dei dati._
-
-Questo codice JavaScript mostra come creare grafici a dispersione con diverse serie di marcatori:
+Questo codice JavaScript mostra come creare un grafico a dispersione con marcatori diversi per ogni serie:
 
 ```javascript
-// Instanzia una classe di presentazione che rappresenta un file PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Istanzia una classe presentation che rappresenta un file PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Accede alla prima diapositiva
@@ -217,31 +216,31 @@ try {
 }
 ```
 
-### **Creazione di grafici a torta**
+### **Crea grafici a torta**
 
-I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, specialmente quando i dati contengono etichette categoriche con valori numerici. Tuttavia, se i dati contengono molte parti o etichette, potresti considerare l’uso di un grafico a barre.
+I grafici a torta sono ideali per mostrare la relazione parte‑intero nei dati, soprattutto quando i dati contengono etichette categoriali con valori numerici. Tuttavia, se i tuoi dati contengono molte parti o etichette, potresti considerare l'uso di un grafico a barre.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Passi:</em> Creare grafico a torta in JavaScript</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Passi:</em> Creare grafico a torta PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Passi:</em> Creare grafico a torta di presentazione PowerPoint in JavaScript</strong></a>
-
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType).Pie).
-4. Accedere ai dati del grafico tramite [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Eliminare le serie e le categorie predefinite.
-6. Aggiungere nuove serie e categorie.
-7. Aggiungere nuovi dati al grafico per le serie.
-8. Aggiungere nuovi punti al grafico e colori personalizzati per i settori della torta.
-9. Impostare le etichette per le serie.
-10. Impostare le linee guida per le etichette delle serie.
-11. Impostare l’angolo di rotazione per le diapositive del grafico a torta.
-12. Scrivere la presentazione modificata in un file PPTX.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Pie](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#Pie) .
+4. Accedi al workbook dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Cancella le serie e le categorie predefinite.
+6. Aggiungi nuove serie e categorie.
+7. Aggiungi nuovi dati al grafico per le serie.
+8. Aggiungi nuovi punti al grafico e applica colori personalizzati ai settori del grafico a torta.
+9. Imposta le etichette per le serie.
+10. Abilita le linee guida per le etichette delle serie.
+11. Imposta l'angolo di rotazione per le sezioni del grafico a torta.
+12. Salva la presentazione modificata come file PPTX.
 
 Questo codice JavaScript mostra come creare un grafico a torta:
 
 ```javascript
-// Istanzia una classe di presentazione che rappresenta un file PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Istanzia una classe presentation che rappresenta un file PPTX
 var pres = new aspose.slides.Presentation();
 try {
     // Accede alla prima diapositiva
@@ -250,7 +249,7 @@ try {
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
     // Imposta il titolo del grafico
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     // Imposta la prima serie per mostrare i valori
@@ -273,7 +272,7 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Non funziona nella nuova versione
-    // Aggiunta di nuovi punti e impostazione del colore del settore
+    // Adding new points and setting sector color
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
@@ -283,8 +282,8 @@ try {
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -292,8 +291,8 @@ try {
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
@@ -301,9 +300,9 @@ try {
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
-    // Crea etichette personalizzate per ciascuna categoria della nuova serie
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
+    // Crea etichette personalizzate per ciascuna categoria per la nuova serie
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
     lbl1.getDataLabelFormat().setShowValue(true);
@@ -327,22 +326,25 @@ try {
 }
 ```
 
-### **Creazione di grafici a linee**
+### **Crea grafici a linee**
 
-I grafici a linee (noti anche come grafici a linee) sono ideali quando si desidera mostrare variazioni di valore nel tempo. Con un grafico a linee, è possibile confrontare molti dati contemporaneamente, monitorare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie di dati, ecc.
+I grafici a linee (noti anche come grafici lineari) sono ideali quando si desidera mostrare variazioni di valore nel tempo. Con un grafico a linee è possibile confrontare grandi quantità di dati contemporaneamente, monitorare cambiamenti e tendenze nel tempo, evidenziare anomalie nelle serie di dati e molto altro.
 
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation).
-1. Ottenere il riferimento a una diapositiva tramite il suo indice.
-1. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, `ChartType.Line`).
-1. Accedere ai dati del grafico tramite IChartDataWorkbook.
-1. Eliminare le serie e le categorie predefinite.
-1. Aggiungere nuove serie e categorie.
-1. Aggiungere nuovi dati al grafico per le serie.
-1. Scrivere la presentazione modificata in un file PPTX.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+1. Ottieni un riferimento a una diapositiva tramite il suo indice.
+1. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Line](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#Line) .
+1. Accedi al workbook dei dati del grafico ([ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/)) .
+1. Cancella le serie e le categorie predefinite.
+1. Aggiungi nuove serie e categorie.
+1. Aggiungi nuovi dati al grafico per le serie.
+1. Salva la presentazione modificata come file PPTX.
 
 Questo codice JavaScript mostra come creare un grafico a linee:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -354,36 +356,47 @@ try {
 }
 ```
 
-Per impostazione predefinita, i punti di un grafico a linee sono collegati da linee continue rette. Se desideri che i punti siano collegati da tratteggi, puoi specificare il tipo di tratto preferito in questo modo:
+Per impostazione predefinita, i punti di un grafico a linee sono collegati da linee continue rette. Se desideri che i punti siano collegati da segmenti tratteggiati, puoi specificare il tipo di tratto desiderato come segue:
 
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
-### **Creazione di grafici a mappa ad albero**
+### **Crea grafici ad albero**
 
-I grafici a mappa ad albero sono ideali per dati di vendita quando si vuole mostrare la dimensione relativa delle categorie e, allo stesso tempo, evidenziare rapidamente gli elementi che contribuiscono maggiormente a ciascuna categoria. 
+I grafici ad albero sono ideali per dati di vendita quando si vuole mostrare la dimensione relativa delle categorie e attirare rapidamente l'attenzione sugli elementi che contribuiscono di più all'interno di ciascuna categoria.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Passi:</em> Creare grafico a mappa ad albero in JavaScript</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Passi:</em> Creare grafico a mappa ad albero PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Passi:</em> Creare grafico a mappa ad albero di presentazione PowerPoint in JavaScript</strong></a>
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Treemap](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#Treemap) .
+4. Accedi al workbook dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Cancella le serie e le categorie predefinite.
+6. Aggiungi nuove serie e categorie.
+7. Aggiungi nuovi dati al grafico per le serie.
+8. Salva la presentazione modificata come file PPTX.
 
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType).TreeMap).
-4. Accedere ai dati del grafico tramite [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Eliminare le serie e le categorie predefinite.
-6. Aggiungere nuove serie e categorie.
-7. Aggiungere nuovi dati al grafico per le serie.
-8. Scrivere la presentazione modificata in un file PPTX.
-
-Questo codice JavaScript mostra come creare un grafico a mappa ad albero:
+Questo codice JavaScript mostra come creare un grafico ad albero:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -426,30 +439,33 @@ try {
 }
 ```
 
-### **Creazione di grafici a bolle (stock)**
+### **Crea grafici finanziari**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Passi:</em> Creare grafico a bolle in JavaScript</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Passi:</em> Creare grafico a bolle PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Passi:</em> Creare grafico a bolle di presentazione PowerPoint in JavaScript</strong></a>
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. Accedi al workbook dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Cancella le serie e le categorie predefinite.
+6. Aggiungi nuove serie e categorie.
+7. Aggiungi nuovi dati al grafico per le serie.
+8. Specifica il formato delle linee high‑low.
+9. Salva la presentazione modificata come file PPTX.
 
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Accedere ai dati del grafico tramite [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Eliminare le serie e le categorie predefinite.
-6. Aggiungere nuove serie e categorie.
-7. Aggiungere nuovi dati al grafico per le serie.
-8. Specificare il formato HiLowLines.
-9. Scrivere la presentazione modificata in un file PPTX.
-
-Esempio di codice JavaScript utilizzato per creare un grafico a bolle:
+Questo codice JavaScript mostra come creare un grafico finanziario:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -487,24 +503,23 @@ try {
 }
 ```
 
-### **Creazione di grafici a scatola e baffi**
+### **Crea grafici a scatola e baffi**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Passi:</em> Creare grafico a scatola e baffi in JavaScript</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Passi:</em> Creare grafico a scatola e baffi PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Passi:</em> Creare grafico a scatola e baffi di presentazione PowerPoint in JavaScript</strong></a>
-
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Accedere ai dati del grafico tramite [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Eliminare le serie e le categorie predefinite.
-6. Aggiungere nuove serie e categorie.
-7. Aggiungere nuovi dati al grafico per le serie.
-8. Scrivere la presentazione modificata in un file PPTX.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. Accedi al workbook dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Cancella le serie e le categorie predefinite.
+6. Aggiungi nuove serie e categorie.
+7. Aggiungi nuovi dati al grafico per le serie.
+8. Salva la presentazione modificata come file PPTX.
 
 Questo codice JavaScript mostra come creare un grafico a scatola e baffi:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -538,21 +553,19 @@ try {
 }
 ```
 
-### **Creazione di grafici a imbuto**
+### **Crea grafici a imbuto**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Passi:</em> Creare grafico a imbuto in JavaScript</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Passi:</em> Creare grafico a imbuto PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Passi:</em> Creare grafico a imbuto di presentazione PowerPoint in JavaScript</strong></a>
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Funnel](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#Funnel) .
+4. Salva la presentazione modificata come file PPTX.
 
-
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType).Funnel).
-4. Scrivere la presentazione modificata in un file PPTX.
-
-Il codice JavaScript mostra come creare un grafico a imbuto:
+Questo codice JavaScript mostra come creare un grafico a imbuto:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -581,20 +594,19 @@ try {
 }
 ```
 
-### **Creazione di grafici a raggi (sunburst)**
+### **Crea grafici a raggiera**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Passi:</em> Creare grafico a raggi in JavaScript</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Passi:</em> Creare grafico a raggi PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Passi:</em> Creare grafico a raggi di presentazione PowerPoint in JavaScript</strong></a>
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Sunburst](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#Sunburst) .
+4. Salva la presentazione modificata come file PPTX.
 
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato (in questo caso, [ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType).sunburst).
-4. Scrivere la presentazione modificata in un file PPTX.
-
-Questo codice JavaScript mostra come creare un grafico a raggi:
+Questo codice JavaScript mostra come creare un grafico a raggiera:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -636,23 +648,22 @@ try {
 }
 ```
 
-### **Creazione di grafici istogramma**
+### **Crea istogrammi**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Passi:</em> Creare grafico istogramma in JavaScript</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Passi:</em> Creare grafico istogramma PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Passi:</em> Creare grafico istogramma di presentazione PowerPoint in JavaScript</strong></a>
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.Histogram](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#Histogram) .
+4. Accedi al workbook dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Cancella le serie e le categorie predefinite.
+6. Aggiungi nuove serie e categorie.
+7. Salva la presentazione modificata come file PPTX.
 
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType).Histogram).
-4. Accedere ai dati del grafico tramite [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Eliminare le serie e le categorie predefinite.
-6. Aggiungere nuove serie e categorie.
-7. Scrivere la presentazione modificata in un file PPTX.
-
-Questo codice JavaScript mostra come creare un grafico istogramma:
+Questo codice JavaScript mostra come creare un istogramma:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -669,20 +680,19 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **Creazione di grafici radar**
+### **Crea grafici radar**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Passi:</em> Creare grafico radar in JavaScript</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Passi:</em> Creare grafico radar PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Passi:</em> Creare grafico radar di presentazione PowerPoint in JavaScript</strong></a>
-
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-2. Ottenere il riferimento a una diapositiva tramite il suo indice. 
-3. Aggiungere un grafico con alcuni dati e specificare il tipo di grafico preferito (`ChartType.Radar` in questo caso).
-4. Scrivere la presentazione modificata in un file PPTX.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con alcuni dati e specifica il tipo di grafico preferito ([ChartType.Radar](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#Radar) in questo caso).
+4. Salva la presentazione modificata come file PPTX.
 
 Questo codice JavaScript mostra come creare un grafico radar:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -694,24 +704,23 @@ try {
 }
 ```
 
-### **Creazione di grafici a più categorie**
+### **Crea grafici multicategoria**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Passi:</em> Creare grafico a più categorie in JavaScript</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Passi:</em> Creare grafico a più categorie PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Passi:</em> Creare grafico a più categorie di presentazione PowerPoint in JavaScript</strong></a>
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) .
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungi un grafico con dati predefiniti e specifica il tipo [ChartType.ClusteredColumn](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/#ClusteredColumn) .
+4. Accedi al workbook dei dati del grafico [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/) .
+5. Cancella le serie e le categorie predefinite.
+6. Aggiungi nuove serie e categorie.
+7. Aggiungi nuovi dati al grafico per le serie.
+8. Salva la presentazione modificata come file PPTX.
 
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) .
-2. Ottenere il riferimento a una diapositiva tramite il suo indice. 
-3. Aggiungere un grafico con dati predefiniti insieme al tipo desiderato ([ChartType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartType).ClusteredColumn).
-4. Accedere ai dati del grafico tramite [ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ChartDataWorkbook).
-5. Eliminare le serie e le categorie predefinite.
-6. Aggiungere nuove serie e categorie.
-7. Aggiungere nuovi dati al grafico per le serie.
-8. Scrivere la presentazione modificata in un file PPTX.
-
-Questo codice JavaScript mostra come creare un grafico a più categorie:
+Questo codice JavaScript mostra come creare un grafico multicategoria:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -732,7 +741,7 @@ try {
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // Aggiunta della serie
+    // Aggiunta delle serie
     var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
@@ -751,17 +760,16 @@ try {
 }
 ```
 
-### **Creazione di grafici mappa**
+### **Crea grafici geografici**
 
-Un grafico mappa visualizza un’area contenente dati. I grafici mappa sono ideali per confrontare dati o valori tra regioni geografiche.
+I grafici geografici visualizzano dati geospaziali e aiutano a confrontare valori tra regioni.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Passi:</em> Creare grafico mappa in JavaScript</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Passi:</em> Creare grafico mappa PowerPoint in JavaScript</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Passi:</em> Creare grafico mappa di presentazione PowerPoint in JavaScript</strong></a>
-
-Questo codice JavaScript mostra come creare un grafico mappa:
+Questo codice JavaScript mostra come creare un grafico geografico:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -773,15 +781,19 @@ try {
 }
 ```
 
-### **Creazione di grafici combinati**
+### **Crea grafici combinati**
 
-Un grafico combinato (o combo) combina due o più tipi di grafico in un unico diagramma. Questo grafico permette di evidenziare, confrontare o esaminare le differenze tra due o più set di dati, aiutandoti a identificare le relazioni tra di essi.
+Un grafico combinato (o combo) combina due o più tipi di grafico in un unico diagramma. Questo grafico consente di evidenziare, confrontare o esaminare differenze tra due o più set di dati, aiutandoti a identificare le relazioni tra di essi.
 
 ![The combination chart](combination_chart.png)
 
 Il codice JavaScript seguente mostra come creare il grafico combinato mostrato sopra in una presentazione PowerPoint:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -812,7 +824,7 @@ function createChartWithFirstSeries(slide) {
     titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
     titleFormat.setFontHeight(18);
 
-    // Imposta la leggenda del grafico.
+    // Imposta la legenda del grafico.
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
@@ -890,7 +902,7 @@ function setPrimaryAxesFormat(chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Imposta il colore delle linee della griglia verticale principale.
+    // Imposta il colore delle linee di griglia principali verticali.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
@@ -926,24 +938,23 @@ function setAxisTitle(axis, axisTitle) {
 }
 ```
 
-## **Aggiornare i grafici**
+## **Aggiorna grafici**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Passi:</em> Aggiornare grafico PowerPoint in JavaScript</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Passi:</em> Aggiornare grafico di presentazione in JavaScript</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Passi:</em> Aggiornare grafico di presentazione PowerPoint in JavaScript</strong></a>
-
-1. Istanziare una classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) che rappresenta la presentazione contenente il grafico da aggiornare.
-2. Ottenere il riferimento di una diapositiva usando il suo indice.
-3. Scorrere tutte le forme per trovare il grafico desiderato.
-4. Accedere al foglio di lavoro dei dati del grafico.
-5. Modificare i dati della serie del grafico cambiando i valori della serie.
-6. Aggiungere una nuova serie e popolare i dati al suo interno.
-7. Scrivere la presentazione modificata in un file PPTX.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) che rappresenta la presentazione contenente il grafico da aggiornare.
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Scorri tutte le forme per trovare il grafico desiderato.
+4. Accedi al foglio dati del grafico.
+5. Modifica le serie di dati del grafico cambiando i valori delle serie.
+6. Aggiungi una nuova serie e popola i suoi dati.
+7. Salva la presentazione modificata come file PPTX.
 
 Questo codice JavaScript mostra come aggiornare un grafico:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     // Accedi al primo slideMarker
     var sld = pres.getSlides().get_Item(0);
@@ -951,7 +962,7 @@ try {
     var chart = sld.getShapes().get_Item(0);
     // Impostazione dell'indice del foglio dati del grafico
     var defaultWorksheetIndex = 0;
-    // Ottenimento del foglio di lavoro dei dati del grafico
+    // Recupero del foglio dati del grafico
     var fact = chart.getChartData().getChartDataWorkbook();
     // Modifica del nome della categoria del grafico
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
@@ -959,14 +970,14 @@ try {
     // Prendi la prima serie del grafico
     var series = chart.getChartData().getSeries().get_Item(0);
     // Aggiornamento dei dati della serie
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifica nome della serie
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifica del nome della serie
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
     // Prendi la seconda serie del grafico
     series = chart.getChartData().getSeries().get_Item(1);
     // Aggiornamento dei dati della serie
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modifica nome della serie
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modifica del nome della serie
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -988,20 +999,23 @@ try {
 }
 ```
 
-## **Impostare l’intervallo di dati per i grafici**
+## **Imposta intervallo dati per un grafico**
 
-Per impostare l’intervallo di dati per un grafico, esegui i seguenti passaggi:
+Per impostare l'intervallo dati per un grafico, esegui quanto segue:
 
-1. Istanziare una classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation) che rappresenta la presentazione contenente il grafico.
-2. Ottenere il riferimento a una diapositiva tramite il suo indice.
-3. Scorrere tutte le forme per trovare il grafico desiderato.
-4. Accedere ai dati del grafico e impostare l’intervallo.
-5. Salvare la presentazione modificata in un file PPTX.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) che rappresenta la presentazione contenente il grafico.
+2. Ottieni un riferimento a una diapositiva tramite il suo indice.
+3. Scorri tutte le forme per trovare il grafico desiderato.
+4. Accedi ai dati del grafico e imposta l'intervallo.
+5. Salva la presentazione modificata come file PPTX.
 
-Questo codice JavaScript mostra come impostare l’intervallo di dati per un grafico:
+Questo codice JavaScript mostra come impostare l'intervallo dati per un grafico:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1014,12 +1028,16 @@ try {
 }
 ```
 
-## **Utilizzare marcatori predefiniti nei grafici**
-Quando utilizzi un marcatore predefinito nei grafici, ogni serie del grafico ottiene automaticamente simboli di marcatore diversi.
+## **Usa marcatori predefiniti nei grafici**
 
-Questo codice JavaScript mostra come impostare automaticamente un marcatore per una serie di grafico:
+Quando utilizzi marcatori predefiniti nei grafici, ogni serie del grafico ottiene automaticamente un simbolo di marcatore diverso.
+
+Questo codice JavaScript mostra come impostare automaticamente un marcatore di serie di grafico:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1040,7 +1058,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
     // Prendi la seconda serie del grafico
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // Ora popolando i dati della serie
+    // Ora si popolano i dati della serie
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1059,16 +1077,16 @@ try {
 
 **Quali tipi di grafico sono supportati da Aspose.Slides?**
 
-Aspose.Slides supporta un’ampia gamma di tipi di grafico, tra cui barre, linee, torte, aree, dispersione, istogrammi, radar e molti altri. Questa flessibilità consente di scegliere il tipo di grafico più appropriato per le proprie esigenze di visualizzazione dei dati.
+Aspose.Slides supporta un'ampia gamma di [tipi di grafico](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/charttype/), tra cui barre, linee, torta, area, dispersione, istogramma, radar e molti altri. Questa flessibilità ti consente di scegliere il tipo di grafico più adatto alle tue esigenze di visualizzazione dei dati.
 
 **Come aggiungo un nuovo grafico a una diapositiva?**
 
-Per aggiungere un grafico, crei prima un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) , recuperi la diapositiva desiderata tramite il suo indice e poi chiami il metodo per aggiungere un grafico, specificando il tipo di grafico e i dati iniziali. Questo processo integra il grafico direttamente nella tua presentazione.
+Per aggiungere un grafico, prima crei un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/) , recuperi la diapositiva desiderata tramite il suo indice e poi chiami il metodo per aggiungere un grafico, specificando il tipo di grafico e i dati iniziali. Questo processo integra il grafico direttamente nella tua presentazione.
 
 **Come posso aggiornare i dati visualizzati in un grafico?**
 
-Puoi aggiornare i dati di un grafico accedendo al suo workbook dei dati ([ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/)), eliminando eventuali serie e categorie predefinite e quindi aggiungendo i tuoi dati personalizzati. Questo ti consente di aggiornare programmaticamente il grafico per riflettere i dati più recenti.
+Puoi aggiornare i dati di un grafico accedendo al suo workbook dei dati ([ChartDataWorkbook](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/chartdataworkbook/)), cancellando le serie e le categorie predefinite e aggiungendo i tuoi dati personalizzati. Questo ti permette di aggiornare programmaticamente il grafico per riflettere i dati più recenti.
 
-**È possibile personalizzare l’aspetto del grafico?**
+**È possibile personalizzare l'aspetto del grafico?**
 
-Sì, Aspose.Slides offre ampie opzioni di personalizzazione. È possibile modificare colori, caratteri, etichette, legende e altri elementi di formattazione per adattare l’aspetto del grafico ai requisiti di design specifici.
+Sì, Aspose.Slides offre ampie opzioni di personalizzazione. Puoi modificare colori, caratteri, etichette, legende e altri [elementi di formattazione](/slides/it/nodejs-java/chart-entities/) per adattare l'aspetto del grafico ai requisiti di design specifici.

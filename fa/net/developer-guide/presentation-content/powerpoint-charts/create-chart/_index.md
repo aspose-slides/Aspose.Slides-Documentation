@@ -1,6 +1,6 @@
 ---
-title: ایجاد یا به‌روزرسانی نمودارهای ارائه PowerPoint در .NET
-linktitle: ایجاد یا به‌روزرسانی نمودارها
+title: ایجاد یا به روزرسانی نمودارهای ارائه PowerPoint در .NET
+linktitle: ایجاد یا به روزرسانی نمودارها
 type: docs
 weight: 10
 url: /fa/net/create-chart/
@@ -9,73 +9,80 @@ keywords:
 - ایجاد نمودار
 - ویرایش نمودار
 - تغییر نمودار
-- به‌روزرسانی نمودار
+- به روزرسانی نمودار
 - نمودار پراکنده
 - نمودار دایره‌ای
 - نمودار خطی
-- نمودار درخت‌نقشه
+- نمودار درخت نقشه‌ای
 - نمودار سهام
-- نمودار جعبه‌ای و ویسکر
+- نمودار جعبه ای و ویسکر
 - نمودار قیفی
-- نمودار خورشیدی
+- نمودار خورشیدگرد
 - نمودار هیستوگرام
-- نمودار راداری
-- نمودار چنددسته‌ای
+- نمودار رادار
+- نمودار چند دسته‌ای
 - PowerPoint
-- ارائه
+- presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای .NET. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های عملی کد در C#."
+description: "ایجاد و سفارشی‌سازی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides برای .NET. افزودن، قالب‌بندی و ویرایش نمودارها با مثال‌های کد عملی در C#."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-این مقاله راهنمای کاملی را در مورد چگونگی ایجاد و سفارشی‌سازی نمودارها با استفاده از Aspose.Slides برای .NET فراهم می‌کند. شما یاد می‌گیرید که چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلف را برای مطابقت با الزامات طراحی خود اعمال کنید. در طول مقاله، مثال‌های کد دقیق هر گام را نشان می‌دهند، از مقداردهی اولیه به ارائه و شی نمودار تا تنظیم سری‌ها، محورها و افسانه‌ها. با پیروی از این راهنما، درک محکمی از چگونگی یک‌پارچه‌سازی تولید دینامیک نمودار در برنامه‌های .NET خود به دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را ساده می‌کنید.
+این مقاله راهنمای جامع ایجاد و سفارشی‌سازی نمودارها با Aspose.Slides برای .NET را ارائه می‌دهد. شما می‌آموزید چگونه به‌صورت برنامه‌نویسی یک نمودار را به اسلاید اضافه کنید، آن را با داده‌ها پر کنید و گزینه‌های قالب‌بندی مختلف را برای مطابقت با نیازهای طراحی خود اعمال کنید. در طول مقاله، مثال‌های کد دقیق هر مرحله را نشان می‌دهند؛ از مقداردهی اولیه ارائه و شیء نمودار تا پیکربندی سری‌ها، محورها و افسانه‌ها. با دنبال کردن این راهنما، درک جامعی از ادغام تولید دینامیک نمودار در برنامه‌های .NET خود به دست می‌آورید و فرآیند ایجاد ارائه‌های مبتنی بر داده را به‌صورت کارآمدی ساده می‌کنید.
 
-## **ایجاد یک نمودار**
+## **ایجاد نمودار**
 
-نمودارها به افراد کمک می‌کنند تا به سرعت داده‌ها را بصری‌سازی کنند و بینش‌هایی به دست آورند که ممکن است از یک جدول یا صفحه‌گسترده به‌راحتی آشکار نباشد.
+نمودارها به افراد کمک می‌کنند تا داده‌ها را به‌سرعت تجسم کنند و بینش‌هایی به‌دست آورند که ممکن است از جدول یا صفحه‌گسترده بلافاصله آشکار نباشد.
 
-**چرا نمودارها را ایجاد کنیم؟**
+**چرا نمودارهایی ایجاد کنیم؟**
 
-* تجمیع، فشرده‌سازی یا خلاصه‌سازی مقدار زیادی داده در یک اسلاید از یک ارائه؛  
-* نمایش الگوها و روندهای داده؛  
-* استنتاج جهت و شتاب داده‌ها در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص؛  
-* شناسایی نقاط دورافتاده، ناهنجاری‌ها، انحرافات، خطاها و داده‌های نامعقول؛  
-* ارتباط یا ارائه داده‌های پیچیده.
+با استفاده از نمودارها می‌توانید:
 
-در PowerPoint می‌توانید نمودارها را از طریق عملکرد *Insert* ایجاد کنید که قالب‌هایی برای طراحی انواع مختلف نمودارها فراهم می‌کند. با استفاده از Aspose.Slides می‌توانید هم نمودارهای معمولی (بر پایه انواع محبوب نمودار) و هم نمودارهای سفارشی ایجاد کنید.
+* حجم زیادی از داده‌ها را در یک اسلاید جمع‌آوری، فشرده یا خلاصه کنید؛
+* الگوها و روندهای داده را آشکار کنید؛
+* جهت و شتاب داده‌ها را در طول زمان یا نسبت به یک واحد اندازه‌گیری خاص استنتاج کنید؛
+* نقاط دورافتاده، انحرافات، خطاها و داده‌های نامعقول را شناسایی کنید؛
+* داده‌های پیچیده را ارتباط برقرار کنید یا ارائه دهید.
 
-{{% alert color="primary" %}} 
-از شمارش‌گر [ChartType](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/charttype/) تحت فضای نام [Aspose.Slides.Charts](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/) استفاده کنید. مقادیر این شمارش‌گر به انواع مختلف نمودارها مربوط می‌شوند.
+در PowerPoint می‌توانید نمودارها را از طریق عملکرد *Insert* ایجاد کنید؛ این قابلیت الگوهایی برای طراحی انواع مختلف نمودارها فراهم می‌کند. با Aspose.Slides می‌توانید هم نمودارهای معمولی (بر پایه انواع محبوب) و هم نمودارهای سفارشی ایجاد کنید.
+
+{{% alert color="info" %}} 
+از شمارش‌گر [ChartType](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/charttype/) در فضای نام [Aspose.Slides.Charts](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/) استفاده کنید. مقادیر این شمارش‌گر متناظر با انواع مختلف نمودار هستند. 
 {{% /alert %}} 
 
 ### **ایجاد نمودارهای ستونی خوشه‌ای**
 
-این بخش توضیح می‌دهد چگونه با Aspose.Slides برای .NET نمودارهای ستونی خوشه‌ای ایجاد کنید. خواهید آموخت که چگونه یک ارائه را مقداردهی اولیه کنید، یک نمودار اضافه کنید و عناصر آن مانند عنوان، داده‌ها، سری‌ها، دسته‌ها و استایل را سفارشی کنید. مراحل زیر را دنبال کنید تا ببینید یک نمودار ستونی خوشه‌ای استاندارد چگونه تولید می‌شود:
+این بخش نحوه ایجاد نمودارهای ستونی خوشه‌ای با Aspose.Slides برای .NET را توضیح می‌دهد. شما یاد می‌گیرید چگونه یک ارائه را مقداردهی اولیه کنید، یک نمودار اضافه کنید و عناصر آن مانند عنوان، داده، سری، دسته‌بندی‌ها و استایل را سفارشی کنید. مراحل زیر را دنبال کنید تا ببینید یک نمودار ستونی خوشه‌ای استاندارد چگونه تولید می‌شود:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
-1. یک نمودار با داده‌های اولیه اضافه کنید و نوع `ChartType.ClusteredColumn` را مشخص کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
+1. یک نمودار با داده‌ای اضافه کنید و نوع `ChartType.ClusteredColumn` را مشخص کنید.  
 1. یک عنوان به نمودار اضافه کنید.  
-1. به ورق داده‌های نمودار دسترسی پیدا کنید.  
-1. تمام سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. به کاربرگ داده‌های نمودار دسترسی پیدا کنید.  
+1. تمام سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
 1. یک رنگ پر برای سری‌های نمودار اعمال کنید.  
 1. برچسب‌ها را به سری‌های نمودار اضافه کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نحوه ایجاد یک نمودار ستونی خوشه‌ای را نشان می‌دهد:
+این کد C# نشان می‌دهد چگونه یک نمودار ستونی خوشه‌ای ایجاد شود:
 
 ```c#
-// نمونه‌سازی کلاس Presentation.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// ایجاد شیء از کلاس Presentation.
 using (Presentation presentation = new Presentation())
 {
     // دسترسی به اولین اسلاید.
     ISlide slide = presentation.Slides[0];
 
-    // افزودن یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض آن.
+    // افزودن نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض آن.
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     // تنظیم عنوان نمودار.
@@ -84,16 +91,13 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // تنظیم نمایش مقادیر برای اولین سری.
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // تنظیم ایندکس ورق داده‌های نمودار.
+    // تنظیم ایندکس برگه داده‌های نمودار.
     int worksheetIndex = 0;
 
     // دریافت کتاب‌کار داده‌های نمودار.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // حذف سری‌ها و دسته‌های پیش‌فرض ایجاد شده.
+    // حذف سری‌ها و دسته‌بندی‌های پیش‌فرض تولید شده.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -101,7 +105,7 @@ using (Presentation presentation = new Presentation())
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
     chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
 
-    // افزودن دسته‌های جدید.
+    // افزودن دسته‌بندی‌های جدید.
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
@@ -109,24 +113,24 @@ using (Presentation presentation = new Presentation())
     // دریافت اولین سری نمودار.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // پرکردن داده‌های سری.
+    // پر کردن داده‌های سری.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
 
-    // تنظیم رنگ پر کردن برای سری.
+    // تنظیم رنگ پر برای سری.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Red;
 
-    // دریافت دومین سری نمودار.
+    // دریافت سری دوم نمودار.
     series = chart.ChartData.Series[1];
 
-    // پرکردن داده‌های سری.
+    // پر کردن داده‌های سری.
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
 
-    // تنظیم رنگ پر کردن برای سری.
+    // تنظیم رنگ پر برای سری.
     series.Format.Fill.FillType = FillType.Solid;
     series.Format.Fill.SolidFillColor.Color = Color.Green;
 
@@ -143,45 +147,49 @@ using (Presentation presentation = new Presentation())
     label.DataLabelFormat.ShowSeriesName = true;
     label.DataLabelFormat.Separator = "/";
 
-    // ذخیره ارائه به‌صورت فایل PPTX روی دیسک.
+    // ذخیره ارائه در دیسک به صورت فایل PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 نتیجه:
 
-![نمودار ستونی خوشه‌ای](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
-### **ایجاد نمودارهای پراکنده**
+### **ایجاد نمودارهای پراکندگی**
 
-نمودارهای پراکنده (که به عنوان scatter plot یا نمودارهای x‑y نیز شناخته می‌شوند) معمولاً برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
+نمودارهای پراکندگی (که به‌عنوان scatter plot یا نمودار x‑y نیز شناخته می‌شوند) معمولاً برای بررسی الگوها یا نشان دادن همبستگی بین دو متغیر استفاده می‌شوند.
 
-از نمودار پراکنده زمانی استفاده کنید که:
+از نمودار پراکندگی زمانی استفاده کنید که:
 
-* داده‌های عددی جفت‌شده داشته باشید.  
-* دو متغیر داشته باشید که به‌خوبی با هم جفت می‌شوند.  
-* بخواهید تعیین کنید آیا دو متغیر مرتبط هستند یا نه.  
-* یک متغیر مستقل داشته باشید که برای یک متغیر وابسته مقادیر متعددی دارد.
+* داده‌های عددی جفت‌ شده داشته باشید.  
+* دو متغیر که به‌خوبی با هم جفت می‌شوند داشته باشید.  
+* بخواهید تعیین کنید آیا این دو متغیر مرتبط هستند یا خیر.  
+* یک متغیر مستقل داشته باشید که مقادیر متعددی برای متغیر وابسته دارد.
 
-این کد C# نشان می‌دهد چگونه یک نمودار پراکنده با مجموعه‌ای متفاوت از نشانگرها ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار پراکندگی با سری‌های علامت‌گذاری مختلف ایجاد شود:
 
 ```c#
-// نمونه‌سازی کلاس Presentation.
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// یک شیء از کلاس Presentation ایجاد کنید.
 using (Presentation presentation = new Presentation())
 {
     // دسترسی به اولین اسلاید.
     ISlide slide = presentation.Slides[0];
 
-    // ایجاد نمودار پراکنده پیش‌فرض.
+    // ایجاد نمودار پراکندگی پیش‌فرض.
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // تنظیم ایندکس ورق داده‌های نمودار.
+    // تنظیم ایندکس برگه داده‌های نمودار.
     int worksheetIndex = 0;
 
     // دریافت کتاب‌کار داده‌های نمودار.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // حذف سری‌های پیش‌فرض.
+    // حذف سری پیش‌فرض.
     chart.ChartData.Series.Clear();
 
     // افزودن سری‌های جدید.
@@ -191,10 +199,10 @@ using (Presentation presentation = new Presentation())
     // دریافت اولین سری نمودار.
     IChartSeries series = chart.ChartData.Series[0];
 
-    // افزودن یک نقطه جدید (1:3) به سری.
+    // افزودن نقطهٔ جدید (1:3) به سری.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 1, 1), workbook.GetCell(worksheetIndex, 2, 2, 3));
 
-    // افزودن یک نقطه جدید (2:10).
+    // افزودن نقطهٔ جدید (2:10).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 1, 2), workbook.GetCell(worksheetIndex, 3, 2, 10));
 
     // تغییر نوع سری.
@@ -204,61 +212,66 @@ using (Presentation presentation = new Presentation())
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Star;
 
-    // دریافت دومین سری نمودار.
+    // دریافت سری دوم نمودار.
     series = chart.ChartData.Series[1];
 
-    // افزودن یک نقطه جدید (5:2) به سری نمودار.
+    // افزودن نقطهٔ جدید (5:2) به سری نمودار.
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 2, 3, 5), workbook.GetCell(worksheetIndex, 2, 4, 2));
 
-    // افزودن یک نقطه جدید (3:1).
+    // افزودن نقطهٔ جدید (3:1).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 3, 3, 3), workbook.GetCell(worksheetIndex, 3, 4, 1));
 
-    // افزودن یک نقطه جدید (2:2).
+    // افزودن نقطهٔ جدید (2:2).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 4, 3, 2), workbook.GetCell(worksheetIndex, 4, 4, 2));
 
-    // افزودن یک نقطه جدید (5:1).
+    // افزودن نقطهٔ جدید (5:1).
     series.DataPoints.AddDataPointForScatterSeries(workbook.GetCell(worksheetIndex, 5, 3, 5), workbook.GetCell(worksheetIndex, 5, 4, 1));
 
     // تغییر نشانگر سری نمودار.
     series.Marker.Size = 10;
     series.Marker.Symbol = MarkerStyleType.Circle;
 
-    // ذخیره ارائه به‌صورت فایل PPTX روی دیسک.
+    // ذخیره ارائه در دیسک به صورت فایل PPTX.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 نتیجه:
 
-![نمودار پراکنده](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **ایجاد نمودارهای دایره‌ای**
 
-نمودارهای دایره‌ای بهترین استفاده را برای نشان دادن رابطه بخش‑به‑کل در داده‌ها دارند، به‌ویژه زمانی که داده‌ها شامل برچسب‌های طبقه‌ای با مقادیر عددی باشند. اگر داده‌های شما قسمت‌ها یا برچسب‌های زیادی داشته باشد، ممکن است بهتر باشد به‌جای آن از نمودار میله‌ای استفاده کنید.
+نمودارهای دایره‌ای بهترین گزینه برای نمایش رابطهٔ جزء‑به‑کل در داده‌ها هستند، به‌ویژه وقتی که داده‌ها شامل برچسب‌های دسته‌ای با مقادیر عددی باشند. اما اگر داده‌های شما شامل بخش‌ها یا برچسب‌های زیادی باشد، ممکن است بهتر باشد به جای آن از نمودار میله‌ای استفاده کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.Pie` را مشخص کنید.  
-1. به کتاب کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. به کتاب‌کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. نقاط جدید برای نمودار اضافه کنید و رنگ‌های سفارشی به بخش‌های نمودار دایره‌ای اعمال کنید.  
+1. نقاط جدید برای نمودار اضافه کنید و رنگ‌های سفارشی به بخش‌های دایره‌ای اعمال کنید.  
 1. برچسب‌ها را برای سری‌ها تنظیم کنید.  
-1. خطوط راهنما را برای برچسب‌های سری فعال کنید.  
-1. زاویه چرخش را برای نمودار دایره‌ای تنظیم کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. خطوط راهنمای برچسب‌ها را فعال کنید.  
+1. زاویهٔ چرخش برای نمودار دایره‌ای تنظیم شود.  
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار دایره‌ای ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار دایره‌ای ایجاد شود:
 
 ```c#
-// نمونه‌سازی کلاس Presentation.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+// یک شیء از کلاس Presentation ایجاد کنید.
 using (Presentation presentation = new Presentation())
 {
     // دسترسی به اولین اسلاید.
     ISlide slide = presentation.Slides[0];
 
-    // اضافه‌کردن یک نمودار با داده‌های پیش‌فرض آن.
+    // افزودن یک نمودار با داده‌های پیش‌فرض آن.
     IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
     // تنظیم عنوان نمودار.
@@ -270,17 +283,17 @@ using (Presentation presentation = new Presentation())
     // تنظیم اولین سری برای نمایش مقادیر.
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // تنظیم ایندکس ورق داده‌های نمودار.
+    // تنظیم ایندکس برگه داده‌های نمودار.
     int worksheetIndex = 0;
 
     // دریافت کتاب‌کار داده‌های نمودار.
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // حذف سری‌ها و دسته‌های پیش‌فرض تولید‌شده.
+    // حذف سری‌ها و دسته‌بندی‌های پیش‌فرض تولید شده.
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
-    // افزودن دسته‌های جدید.
+    // افزودن دسته‌بندی‌های جدید.
     chart.ChartData.Categories.Add(workbook.GetCell(0, 1, 0, "1st Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 2, 0, "2nd Qtr"));
     chart.ChartData.Categories.Add(workbook.GetCell(0, 3, 0, "3rd Qtr"));
@@ -288,7 +301,7 @@ using (Presentation presentation = new Presentation())
     // افزودن سری‌های جدید.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // پرکردن داده‌های سری.
+    // پر کردن داده‌های سری.
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
@@ -300,7 +313,7 @@ using (Presentation presentation = new Presentation())
     point.Format.Fill.FillType = FillType.Solid;
     point.Format.Fill.SolidFillColor.Color = Color.Cyan;
 
-    // تنظیم حاشیه بخش.
+    // تنظیم حاشیهٔ بخش.
     point.Format.Line.FillFormat.FillType = FillType.Solid;
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
@@ -311,7 +324,7 @@ using (Presentation presentation = new Presentation())
     point1.Format.Fill.FillType = FillType.Solid;
     point1.Format.Fill.SolidFillColor.Color = Color.Brown;
 
-    // تنظیم حاشیه بخش.
+    // تنظیم حاشیهٔ بخش.
     point1.Format.Line.FillFormat.FillType = FillType.Solid;
     point1.Format.Line.FillFormat.SolidFillColor.Color = Color.Blue;
     point1.Format.Line.Width = 3.0;
@@ -322,7 +335,7 @@ using (Presentation presentation = new Presentation())
     point2.Format.Fill.FillType = FillType.Solid;
     point2.Format.Fill.SolidFillColor.Color = Color.Coral;
 
-    // تنظیم حاشیه بخش.
+    // تنظیم حاشیهٔ بخش.
     point2.Format.Line.FillFormat.FillType = FillType.Solid;
     point2.Format.Line.FillFormat.SolidFillColor.Color = Color.Red;
     point2.Format.Line.Width = 2.0;
@@ -349,31 +362,35 @@ using (Presentation presentation = new Presentation())
     // تنظیم زاویهٔ چرخش برای بخش‌های نمودار دایره‌ای.
     chart.ChartData.SeriesGroups[0].FirstSliceAngle = 180;
 
-    // ذخیرهٔ ارائه به‌صورت فایل PPTX روی دیسک.
+    // ذخیره ارائه در دیسک به صورت فایل PPTX.
     presentation.Save("PieChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 نتیجه:
 
-![نمودار دایره‌ای](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **ایجاد نمودارهای خطی**
 
-نمودارهای خطی (که به عنوان line graph نیز شناخته می‌شوند) بهترین استفاده را در مواقعی دارند که بخواهید تغییرات مقدار در طول زمان را نشان دهید. با استفاده از یک نمودار خطی می‌توانید مقدار زیادی داده را همزمان مقایسه کنید، تغییرات و روندها را در طول زمان ردیابی کنید، ناهنجاری‌ها را در سری داده‌ها برجسته کنید و غیره.
+نمودارهای خطی (که به‌عنوان line graph نیز شناخته می‌شوند) بهترین گزینه برای موقعیت‌هایی هستند که می‌خواهید تغییرات مقدار در طول زمان را نشان دهید. با استفاده از یک نمودار خطی می‌توانید حجم زیادی از داده‌ها را به‌صورت همزمان مقایسه کنید، تغییرات و روندها را پیگیری کنید، ناهنجاری‌ها را در سری داده‌ها برجسته کنید و غیره.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.Line` را مشخص کنید.  
-1. به کتاب کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. به کتاب‌کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نحوه ایجاد یک نمودار خطی را نشان می‌دهد:
+این کد C# نشان می‌دهد چگونه یک نمودار خطی ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -382,35 +399,47 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-به‌صورت پیش‌فرض، نقاط در یک نمودار خطی با خطوط مستقیم پیوسته به‌هم وصل می‌شوند. اگر می‌خواهید نقاط با خط‌خط (dash) به‌هم وصل شوند، می‌توانید نوع dash دلخواه خود را به‌صورت زیر مشخص کنید:
+به‌صورت پیش‌فرض، نقاط یک نمودار خطی با خطوط پیوستهٔ مستقیم به‌هم وصل می‌شوند. اگر می‌خواهید به‌جای آن خطوط نقطه‌دار باشند، می‌توانید نوع خط موردنظر را به‌صورت زیر مشخص کنید:
 
 ```c#
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 
 نتیجه:
 
-![نمودار خطی](line_chart.png)
+![The Line chart](line_chart.png)
 
-### **ایجاد نمودارهای درخت‌نقشه (Tree Map)**
+### **ایجاد نمودارهای درخت‌نقشه‌ای**
 
-نمودارهای درخت‌نقشه بهترین استفاده را برای داده‌های فروش دارند وقتی می‌خواهید اندازه نسبی دسته‌های داده را نشان دهید و به‌سرعت توجه را به آیتم‌های بزرگ‌سهم در هر دسته جلب کنید.
+نمودارهای درخت‌نقشه‌ای بهترین گزینه برای داده‌های فروش هستند هنگامی که می‌خواهید اندازه نسبی دسته‌های داده‌ای را نشان دهید و به‌سرعت توجه را به مواردی که سهم بزرگ‌تری در هر دسته دارند جلب کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.Treemap` را مشخص کنید.  
-1. به کتاب کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. به کتاب‌کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار درخت‌نقشه ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار درخت‌نقشه‌ای ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -463,25 +492,29 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![نمودار درخت‌نقشه](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
-### **ایجاد نمودارهای سهام (Stock)**
+### **ایجاد نمودارهای سهام**
 
-نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بالا، پایین و بسته استفاده می‌شوند و به تحلیل روندهای بازار و نوسان‌ها کمک می‌کنند. این نمودارها بینش‌های اساسی درباره عملکرد سهام ارائه می‌دهند و به سرمایه‌گذاران و تحلیل‌گران در اتخاذ تصمیمات آگاهانه کمک می‌کنند.
+نمودارهای سهام برای نمایش داده‌های مالی مانند قیمت‌های باز، بیشینه، کمینه و بسته‌شدن استفاده می‌شوند و به تحلیل روندهای بازار و نوسانات کمک می‌کنند. این نمودارها بینش‌های کلیدی دربارهٔ عملکرد سهام در اختیار سرمایه‌گذاران و تحلیل‌گران قرار می‌دهند تا تصمیمات آگاهانه بگیرند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.OpenHighLowClose` را مشخص کنید.  
-1. به کتاب کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. به کتاب‌کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. قالب HiLowLines را مشخص کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. قالب خطوط HiLowLines را مشخص کنید.  
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار سهام ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار سهام ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -533,24 +566,28 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![نمودار سهام](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
-### **ایجاد نمودارهای جعبه‌ای و ویسکر (Box and Whisker)**
+### **ایجاد نمودارهای جعبه‌ای و ویسکر**
 
-نمودارهای جعبه‌ای و ویسکر برای نمایش توزیع داده‌ها با خلاصه‌سازی معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط دورافتاده استفاده می‌شوند. این نمودارها به ویژه در تحلیل‌های اکتشافی داده و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها مفید هستند.
+نمودارهای جعبه‌ای و ویسکر برای نمایش توزیع داده‌ها با خلاصه‌سازی معیارهای آماری کلیدی مانند میانه، چارک‌ها و نقاط دورافتاده استفاده می‌شوند. این نمودارها در تحلیل اکتشافی داده‌ها و مطالعات آماری برای درک سریع تغییرپذیری داده‌ها و شناسایی ناهنجاری‌ها بسیار مفیدند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.BoxAndWhisker` را مشخص کنید.  
-1. به کتاب کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. به کتاب‌کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار جعبه‌ای و ویسکر ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار جعبه‌ای و ویسکر ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -586,18 +623,22 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **ایجاد نمودارهای قیفی (Funnel)**
+### **ایجاد نمودارهای قیفی**
 
-نمودارهای قیفی برای تجسم فرآیندهایی که شامل مراحل متوالی هستند، به‌کار می‌روند؛ جایی که حجم داده‌ها با پیشرفت از یک گام به گام دیگر کاهش می‌یابد. این نمودارها برای تحلیل نرخ تبدیل، شناسایی گلوگاه‌ها و ردیابی کارایی فرآیندهای فروش یا بازاریابی بسیار مفیدند.
+نمودارهای قیفی برای تجسم فرآیندهایی که شامل مراحل متوالی هستند و در هر مرحله حجم داده‌ها کاهش می‌یابد، به کار می‌روند. این نمودارها برای تحلیل نرخ تبدیل، شناسایی گلوگه‌ها و ردیابی کارایی فرآیندهای فروش یا بازاریابی بسیار مفیدند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.Funnel` را مشخص کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار قیفی ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار قیفی ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -629,20 +670,24 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 نتیجه:
 
-![نمودار قیفی](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
-### **ایجاد نمودارهای خورشیدی (Sunburst)**
+### **ایجاد نمودارهای خورشیدگرد**
 
-نمودارهای خورشیدی برای تجسم داده‌های سلسله‌مراتبی استفاده می‌شوند و سطوح را به‌صورت حلقه‌های متحدالمرکز نمایش می‌دهند. این نمودارها رابطه بخش‑به‑کل را نشان می‌دهند و برای ارائه دسته‌ها و زیرمجموعه‌های تو در تو در قالبی واضح و فشرده ایده‌آل‌اند.
+نمودارهای خورشیدگرد برای تجسم داده‌های سلسله‌مراتبی استفاده می‌شوند؛ سطوح به‌صورت حلقه‌های هم‌مرکز نمایش داده می‌شوند. این نمودارها رابطهٔ جزء‑به‑کل را نشان می‌دهند و برای نمایش دسته‌ها و زیردسته‌های تو در تو به‌صورت واضح و فشرده مناسب‌اند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.Sunburst` را مشخص کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار خورشیدی ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار خورشیدگرد ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -693,23 +738,27 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![نمودار خورشیدی](sunburst_chart.png)
+![The Sunburst chart](sunburst_chart.png)
 
-### **ایجاد نمودارهای هیستوگرام (Histogram)**
+### **ایجاد نمودارهای هیستوگرام**
 
-نمودارهای هیستوگرام برای نمایش توزیع داده‌های عددی با گروه‌بندی مقادیر در بازه‌ها یا سبدها (bins) استفاده می‌شوند. این نمودارها برای شناسایی الگوهای داده مانند فرکانس، قابلیت انحراف و پراکندگی و همچنین کشف نقاط دورافتاده در یک مجموعه داده مفیدند.
+نمودارهای هیستوگرام برای نمایش توزیع داده‌های عددی با گروه‌بندی مقادیر در بازه‌ها یا سطل‌های مختلف استفاده می‌شوند. این نمودارها برای شناسایی الگوهای داده‌ای مانند فراوانی، کشیدگی و پراکندگی و همچنین برای کشف نقاط دورافتاده مفیدند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
-1. یک نمودار با برخی داده‌ها اضافه کنید و نوع `ChartType.Histogram` را مشخص کنید.  
-1. به کتاب کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌های جدید اضافه کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
+1. یک نمودار با داده‌ای اضافه کنید و نوع `ChartType.Histogram` را مشخص کنید.  
+1. به کتاب‌کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار هیستوگرام ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار هیستوگرام ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -735,20 +784,24 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![نمودار هیستوگرام](histogram_chart.png)
+![The Histogram chart](histogram_chart.png)
 
-### **ایجاد نمودارهای راداری (Radar)**
+### **ایجاد نمودارهای رادار**
 
-نمودارهای راداری برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسه همزمان چندین متغیر را فراهم می‌کنند. این نمودارها برای شناسایی الگوها، نقاط قوت و ضعف در میان مجموعه‌ای از معیارها یا ویژگی‌ها مفیدند.
+نمودارهای رادار برای نمایش داده‌های چندمتغیره در قالب دو‑بعدی استفاده می‌شوند و امکان مقایسه همزمان چندین متغیر را فراهم می‌کنند. این نمودارها برای شناسایی الگوها، نقاط قوت و ضعف در میان معیارهای عملکرد یا ویژگی‌های مختلف مفید هستند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
-1. یک نمودار با برخی داده‌ها اضافه کنید و نوع `ChartType.Radar` را مشخص کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
+1. یک نمودار با داده‌ای اضافه کنید و نوع `ChartType.Radar` را مشخص کنید.  
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار راداری ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار رادار ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -758,24 +811,28 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![نمودار راداری](radar_chart.png)
+![The Radar chart](radar_chart.png)
 
-### **ایجاد نمودارهای چنددسته‌ای (Multi‑Category)**
+### **ایجاد نمودارهای چنددسته‌ای**
 
-نمودارهای چنددسته‌ای برای نمایش داده‌هایی که شامل بیش از یک گروه‌بندی طبقه‌ای هستند استفاده می‌شوند و امکان مقایسه مقادیر در چند بُعد را به‌صورت همزمان فراهم می‌کنند. این نمودارها زمانی مفیدند که بخواهید روندها و روابط در مجموعه داده‌های پیچیده و چندلایه را تحلیل کنید.
+نمودارهای چنددسته‌ای برای نمایش داده‌هایی استفاده می‌شوند که شامل بیش از یک گروه‌بندی دسته‌ای هستند و امکان مقایسه مقادیر در چند بُعد به‌صورت همزمان را می‌دهند. این نمودارها هنگام تحلیل روندها و روابط در مجموعه داده‌های پیچیده و چندلایه بسیار مفیدند.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. یک نمودار با داده‌های پیش‌فرض اضافه کنید و نوع `ChartType.ClusteredColumn` را مشخص کنید.  
-1. به کتاب کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
-1. سری‌ها و دسته‌های پیش‌فرض را پاک کنید.  
-1. سری‌ها و دسته‌های جدید اضافه کنید.  
+1. به کتاب‌کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/)) دسترسی پیدا کنید.  
+1. سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید.  
+1. سری‌ها و دسته‌بندی‌های جدید اضافه کنید.  
 1. داده‌های جدید برای سری‌های نمودار اضافه کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار چنددسته‌ای ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار چنددسته‌ای ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -805,7 +862,7 @@ using (Presentation presentation = new Presentation())
     category.GroupingLevels.SetGroupingItem(1, "Group4");
     category = chart.ChartData.Categories.Add(workbook.GetCell(0, "c9", "H"));
 
-    // افزودن یک سری.
+    // یک سری اضافه کنید.
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, "D1", "Series 1"), ChartType.ClusteredColumn);
 
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D2", 10));
@@ -817,22 +874,26 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // ذخیره ارائه با نمودار.
+    // ارائه را به همراه نمودار ذخیره کنید.
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
 نتیجه:
 
-![نمودار چنددسته‌ای](multi_category_chart.png)
+![The multi category chart](multi_category_chart.png)
 
-### **ایجاد نمودارهای نقشه‌ای (Map)**
+### **ایجاد نمودارهای نقشه‌ای**
 
-نمودارهای نقشه‌ای برای تجسم داده‌های جغرافیایی با نقشه‌برداری اطلاعات به مکان‌های خاص مانند کشورها، ایالت‌ها یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیتی و توزیع‌های فضایی به‌صورت واضح و بصری مؤثرند.
+نمودارهای نقشه‌ای برای تجسم داده‌های جغرافیایی با نقشه‌کردن اطلاعات بر روی مکان‌های خاصی مانند کشورها، ایالات یا شهرها استفاده می‌شوند. این نمودارها برای تحلیل روندهای منطقه‌ای، داده‌های جمعیت‌شناسی و توزیع‌های مکانی به‌صورت واضح و جذاب بصری مفیدند.
 
-این کد C# نشان می‌دهد چگونه یک نمودار نقشه‌ای ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار نقشه‌ای ایجاد شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -842,17 +903,26 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![نمودار نقشه‌ای](map_chart.png)
+![The Map chart](map_chart.png)
 
-### **ایجاد نمودارهای ترکیبی (Combination)**
+{{% alert color="info" %}} 
+تصویر بالا نمایش‌دهندهٔ ارائهٔ ذخیره‌شده است که در PowerPoint باز شده است. Aspose.Slides داده‌های نمودار نقشه‌ای را به‌درستی می‌نویسد، اما خود نمودارهای نقشه‌ای را رسم نمی‌کند: هنگام رندر اسلاید حاوی این نمودار به تصویر یا تبدیل به PDF یا SVG، ناحیهٔ نمودار خالی می‌شود. سایر اشکال همان اسلاید تحت تأثیر قرار نمی‌گیرند. 
+{{% /alert %}} 
 
-یک نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف یکپارچه می‌کند. این نمودار به شما امکان می‌دهد تا تفاوت‌ها یا روابط بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید.
+### **ایجاد نمودارهای ترکیبی**
 
-![نمودار ترکیبی](combination_chart.png)
+نمودار ترکیبی (یا combo chart) دو یا چند نوع نمودار را در یک گراف ترکیب می‌کند. این نمودار به شما اجازه می‌دهد تا تفاوت‌ها یا شباهت‌های بین دو یا چند مجموعه داده را برجسته، مقایسه یا بررسی کنید و روابط بین آن‌ها را شناسایی کنید.
 
-کد C# زیر نشان می‌دهد چگونه نمودار ترکیبی نشان داده‌شده در بالا را در یک ارائه PowerPoint ایجاد کنید:
+![The combination chart](combination_chart.png)
+
+کد C# زیر نشان می‌دهد چگونه نمودار ترکیبی نمایش داده شده در بالا را در یک ارائهٔ PowerPoint ایجاد کنید:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -873,7 +943,7 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
 {
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // عنوان نمودار را تنظیم می‌کند
+    // تنظیم عنوان نمودار
     chart.HasTitle = true;
     chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
     chart.ChartTitle.Overlay = false;
@@ -882,24 +952,24 @@ private static IChart CreateChartWithFirstSeries(ISlide slide)
     portionFormat.FontBold = NullableBool.False;
     portionFormat.FontHeight = 18f;
 
-    // راهنما (Legend) نمودار را تنظیم می‌کند
+    // تنظیم افسانهٔ نمودار
     chart.Legend.Position = LegendPositionType.Bottom;
     chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
 
-    // سری‌ها و دسته‌های پیش‌فرض تولید شده را حذف می‌کند
+    // حذف سری‌ها و دسته‌بندی‌های پیش‌فرض تولید شده
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
     int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    // دسته‌های جدید را اضافه می‌کند
+    // افزودن دسته‌بندی‌های جدید
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    // افزودن سری اول
+    // افزودن اولین سری
     IChartSeries series = chart.ChartData.Series.Add(
         workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
@@ -949,21 +1019,21 @@ private static void AddThirdSeriesToChart(IChart chart)
 
 private static void SetPrimaryAxesFormat(IChart chart)
 {
-    // محور افقی را تنظیم می‌کند
+    // تنظیم محور افقی
     IAxis horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // محور عمودی را تنظیم می‌کند
+    // تنظیم محور عمودی
     IAxis verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // رنگ خطوط شبکه اصلی (major) عمودی را تنظیم می‌کند
+    // تنظیم رنگ خطوط بزرگ شبکهٔ عمودی
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -971,7 +1041,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
 private static void SetSecondaryAxesFormat(IChart chart)
 {
-    // محور افقی ثانویه را تنظیم می‌کند
+    // تنظیم محور افقی ثانویه
     IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
@@ -979,7 +1049,7 @@ private static void SetSecondaryAxesFormat(IChart chart)
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // محور عمودی ثانویه را تنظیم می‌کند
+    // تنظیم محور عمودی ثانویه
     IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
@@ -1003,22 +1073,26 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 
 ## **به‌روزرسانی نمودارها**
 
-Aspose.Slides برای .NET به شما امکان می‌دهد نمودارهای PowerPoint را با اصلاح داده‌های نمودار، قالب‌بندی و استایل به‌روز کنید. این قابلیت فرآیند نگه‌داری به‌روز ارائه‌ها با محتوای دینامیک را ساده می‌کند و اطمینان می‌دهد که نمودارها به‌درستی داده‌ها و استانداردهای بصری جاری را منعکس می‌کنند.
+Aspose.Slides برای .NET امکان به‌روزرسانی نمودارهای PowerPoint را با تغییر داده‌های نمودار، قالب‌بندی و استایل فراهم می‌کند. این قابلیت فرآیند نگه‌داشتن ارائه‌ها را با محتوای دینامیک ساده‌سازی می‌کند و اطمینان می‌دهد که نمودارها به‌دقت داده‌ها و استانداردهای بصری فعلی را منعکس می‌کنند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) که نمایانگر ارائه حاوی نمودار است، ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. یک شیء از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) که شامل نمودار است، ایجاد کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. تمام اشکال را پیمایش کنید تا نمودار را پیدا کنید.  
-1. به ورق داده‌های نمودار دسترسی پیدا کنید.  
-1. سری‌های داده‌ای نمودار را با تغییر مقادیر سری‌ها اصلاح کنید.  
+1. به کاربرگ داده‌های نمودار دسترسی پیدا کنید.  
+1. سری‌های دادهٔ نمودار را با تغییر مقدارهای سری اصلاح کنید.  
 1. یک سری جدید اضافه کنید و داده‌های آن را پر کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه یک نمودار را به‌روز کنید:
+این کد C# نشان می‌دهد چگونه یک نمودار به‌روزرسانی شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل PPTX است.
+// یک شیء از کلاس Presentation که نمایانگر یک فایل PPTX است، ایجاد کنید.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // دسترسی به اولین اسلاید.
@@ -1028,13 +1102,13 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // تنظیم ایندکس ورق داده‌های نمودار.
+            // ایندکس برگه داده‌های نمودار را تنظیم کنید.
             int worksheetIndex = 0;
 
-            // دریافت کتاب‌کار داده‌های نمودار.
+            // کتاب‌کار داده‌های نمودار را دریافت کنید.
             IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-            // تغییر نام دسته‌های نمودار.
+            // نام‌های دسته‌بندی نمودار را تغییر دهید.
             workbook.GetCell(worksheetIndex, 1, 0, "Modified Category 1");
             workbook.GetCell(worksheetIndex, 2, 0, "Modified Category 2");
 
@@ -1056,10 +1130,10 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
             series.DataPoints[1].Value.Data = 67;
             series.DataPoints[2].Value.Data = 99;
 
-            // افزودن یک سری جدید.
+            // یک سری جدید اضافه کنید.
             series = chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), chart.Type);
 
-            // پرکردن داده‌های سری.
+            // داده‌های سری را پر کنید.
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 3, 20));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 3, 50));
             series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 3, 30));
@@ -1068,27 +1142,31 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
         }
     }
 
-    // ذخیره ارائه همراه با نمودار.
+    // ارائه را به همراه نمودار ذخیره کنید.
     presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **تنظیم محدوده داده برای نمودار**
+## **تنظیم بازهٔ داده برای نمودار**
 
-Aspose.Slides برای .NET انعطاف‌پذیری تعریف یک محدوده داده خاص از یک ورق کاری را به‌عنوان منبع برای داده‌های نمودار شما فراهم می‌کند. به این معنی که می‌توانید بخشی از ورق کاری خود را مستقیماً به نمودار نگاشت کنید و کنترل کنید که کدام سلول‌ها به سری‌ها و دسته‌های نمودار کمک می‌کنند. در نتیجه می‌توانید به‌راحتی نمودارهای خود را با آخرین تغییرات داده در ورق کاری همگام‌سازی کنید و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات جاری و دقیق را منعکس می‌نمایند.
+Aspose.Slides برای .NET انعطاف‌پذیری تعریف یک بازهٔ دادهٔ مشخص از یک کاربرگ را به‌عنوان منبع دادهٔ نمودار فراهم می‌کند. این به این معنی است که می‌توانید مستقیماً بخشی از کاربرگ را به نمودار نگاشت کنید و کنترل کنید کدام سلول‌ها به سری‌ها و دسته‌بندی‌های نمودار کمک می‌کنند. در نتیجه می‌توانید به‌راحتی نمودارهای خود را با آخرین تغییرات داده‌های کاربرگ همگام‌سازی کنید و اطمینان حاصل کنید که ارائه‌های PowerPoint شما اطلاعات دقیق و به‌روز را نشان می‌دهند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) که نمایانگر ارائه حاوی نمودار است، ایجاد کنید.  
-1. با استفاده از شاخص آن، به یک اسلاید دسترسی پیدا کنید.  
+1. یک شیء از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) که شامل نمودار است، ایجاد کنید.  
+1. با استفاده از شماره ایندکس، به یک اسلاید ارجاع دهید.  
 1. تمام اشکال را پیمایش کنید تا نمودار را پیدا کنید.  
-1. داده‌های نمودار را دسترسی پیدا کنید و محدوده را تنظیم کنید.  
-1. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+1. به داده‌های نمودار دسترسی پیدا کنید و بازه را تنظیم کنید.  
+1. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه محدوده داده برای یک نمودار تنظیم شود:
+این کد C# نشان می‌دهد چگونه بازهٔ دادهٔ یک نمودار تنظیم شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل PPTX است.
+// یک شیء از کلاس Presentation که نمایانگر یک فایل PPTX است، ایجاد کنید.
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // دسترسی به اولین اسلاید.
@@ -1108,11 +1186,15 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 
 ## **استفاده از نشانگرهای پیش‌فرض در نمودارها**
 
-هنگامی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، به‌صورت خودکار به هر سری نمودار یک نماد نشانگر پیش‌فرض متفاوت اختصاص می‌یابد.
+زمانی که از نشانگرهای پیش‌فرض در نمودارها استفاده می‌کنید، هر سری نمودار به‌طور خودکار یک نماد نشانگر پیش‌فرض متفاوت دریافت می‌کند.
 
-این کد C# نشان می‌دهد چگونه یک نشانگر سری نمودار به‌صورت خودکار تنظیم شود:
+این کد C# نشان می‌دهد چگونه نشانگر یک سری نمودار به‌صورت خودکار تنظیم شود:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -1139,7 +1221,7 @@ using (Presentation presentation = new Presentation())
 
     IChartSeries series2 = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 2, "Series 2"), chart.Type);
 
-    // پر کردن داده‌های سری.
+    // داده‌های سری را پر کنید.
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 1, 2, 30));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 2, 2, 10));
     series2.DataPoints.AddDataPointForLineSeries(workbook.GetCell(0, 3, 2, 60));
@@ -1152,20 +1234,20 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **سؤال‌های متداول**
+## **پرسش‌های متداول**
 
-**کدام نوع نمودارها توسط Aspose.Slides برای .NET پشتیبانی می‌شوند؟**
+**کدام انواع نمودارها توسط Aspose.Slides برای .NET پشتیبانی می‌شوند؟**
 
-Aspose.Slides برای .NET طیف وسیعی از انواع نمودارها را پشتیبانی می‌کند، از جمله میله‌ای، خطی، دایره‌ای، ناحیه‌ای، پراکنده، هیستوگرام، راداری و بسیاری دیگر. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تجسم داده خود انتخاب کنید.
+Aspose.Slides برای .NET طیف وسیعی از انواع نمودارها از جمله نوار، خط، دایره‌ای، مساحت، پراکندگی، هیستوگرام، رادار و بسیاری دیگر را پشتیبانی می‌کند. این انعطاف‌پذیری به شما اجازه می‌دهد تا مناسب‌ترین نوع نمودار را برای نیازهای تجسم داده خود انتخاب کنید.
 
 **چگونه یک نمودار جدید به اسلاید اضافه کنم؟**
 
-برای اضافه کردن یک نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد می‌کنید، اسلاید موردنظر را با استفاده از شاخص آن بازیابی می‌کنید و سپس متد افزودن نمودار را صدا می‌زنید، نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را مستقیماً در ارائه شما ادغام می‌کند.
+برای افزودن نمودار، ابتدا یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد می‌کنید، اسلاید موردنظر را با استفاده از ایندکس آن دریافت می‌کنید و سپس متد افزودن نمودار را صدا می‌زنید، نوع نمودار و داده‌های اولیه را مشخص می‌کنید. این فرآیند نمودار را به‌طور مستقیم در ارائه شما ادغام می‌کند.
 
-**چگونه می‌توان داده‌های نمایش داده شده در یک نمودار را به‌روز کرد؟**
+**چگونه می‌توان داده‌های نمایش داده‌شده در یک نمودار را به‌روزرسانی کرد؟**
 
-می‌توانید داده‌های یک نمودار را با دسترسی به کتاب کار داده‌های آن ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/))، پاک‌سازی سری‌ها و دسته‌های پیش‌فرض و سپس افزودن داده‌های سفارشی خود به‌روزرسانی کنید. این امکان را می‌دهد تا نمودار را برنامه‌نویسی و بازآفرینی کنید تا جدیدترین داده‌ها را منعکس کند.
+می‌توانید با دسترسی به کتاب‌کار داده‌های نمودار ([IChartDataWorkbook](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartdataworkbook/))، سری‌ها و دسته‌بندی‌های پیش‌فرض را پاک کنید و سپس داده‌های سفارشی خود را اضافه کنید، داده‌های نمودار را به‌صورت برنامه‌ای تازه‌سازی کنید تا جدیدترین داده‌ها را منعکس کند.
 
 **آیا امکان سفارشی‌سازی ظاهر نمودار وجود دارد؟**
 
-بله، Aspose.Slides برای .NET گزینه‌های سفارشی‌سازی گسترده‌ای ارائه می‌دهد. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را برای تنظیم ظاهر نمودار مطابق با الزامات طراحی خاص خود تغییر دهید.
+بله، Aspose.Slides برای .NET گزینه‌های سفارشی‌سازی گسترده‌ای ارائه می‌دهد. می‌توانید رنگ‌ها، قلم‌ها، برچسب‌ها، افسانه‌ها و سایر عناصر قالب‌بندی را تغییر دهید تا ظاهر نمودار را مطابق نیازهای طراحی خود تنظیم کنید.

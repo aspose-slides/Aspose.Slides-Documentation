@@ -1,85 +1,88 @@
 ---
-title: PowerPoint プレゼンテーションのチャートを .NET で作成または更新
-linktitle: チャートの作成または更新
+title: ".NET で PowerPoint プレゼンテーションのチャートを作成または更新"
+linktitle: "チャートの作成または更新"
 type: docs
 weight: 10
 url: /ja/net/create-chart/
 keywords:
-- チャートの追加
-- チャートの作成
-- チャートの編集
-- チャートの変更
-- チャートの更新
-- 散布図
-- 円グラフ
-- 折れ線グラフ
-- ツリーマップ
-- 株価チャート
-- 箱ひげ図
-- ファンネルチャート
-- サンバーストチャート
-- ヒストグラム
-- レーダーチャート
-- マルチカテゴリチャート
-- PowerPoint
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションのチャートを作成およびカスタマイズします。実用的な C# コード例でチャートの追加、書式設定、編集が可能です。"
+- "チャートの追加"
+- "チャートの作成"
+- "チャートの編集"
+- "チャートの変更"
+- "チャートの更新"
+- "散布図"
+- "円グラフ"
+- "折れ線グラフ"
+- "ツリーマップ グラフ"
+- "株価チャート"
+- "箱ひげ図"
+- "ファンネル グラフ"
+- "サンバースト グラフ"
+- "ヒストグラム グラフ"
+- "レーダー グラフ"
+- "マルチカテゴリ グラフ"
+- "PowerPoint"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションのチャートを作成およびカスタマイズします。C# の実用的なコード例でチャートの追加、書式設定、編集が可能です。"
 ---
+## **概要**
 
-## **Overview**
+この記事では、Aspose.Slides for .NET を使用してチャートを作成およびカスタマイズするための包括的なガイドを提供します。スライドにプログラムでチャートを追加し、データを入力し、特定のデザイン要件に合わせてさまざまな書式設定オプションを適用する方法を学びます。記事全体で、プレゼンテーションとチャートオブジェクトの初期化から、系列、軸、凡例の構成まで、各ステップを示す詳細なコード例が掲載されています。このガイドに従うことで、.NET アプリケーションに動的なチャート生成を統合し、データ駆動型プレゼンテーションの作成プロセスを効率化する方法を確実に理解できます。
 
-この記事では、Aspose.Slides for .NET を使用してチャートを作成およびカスタマイズする方法について包括的に解説します。スライドにプログラムでチャートを追加し、データを設定し、特定のデザイン要件に合わせてさまざまな書式設定オプションを適用する方法を学びます。記事全体で、プレゼンテーションとチャート オブジェクトの初期化からシリーズ、軸、凡例の設定まで、各手順を示す詳細なコード例が掲載されています。このガイドに従うことで、.NET アプリケーションに動的なチャート生成を統合し、データ駆動型プレゼンテーションの作成プロセスを効率化する方法を確実に習得できます。
+## **チャートの作成**
 
-## **Create a Chart**
-
-チャートは、データをすばやく視覚化し、表やスプレッドシートからはすぐに分かりにくい洞察を得るのに役立ちます。
+チャートは、データを迅速に視覚化し、テーブルやスプレッドシートからはすぐに分からない洞察を得るのに役立ちます。
 
 **チャートを作成する理由**
 
 チャートを使用すると、次のことが可能です。
 
-* プレゼンテーションの単一スライドに大量のデータを集約、要約、または凝縮できる  
-* データのパターンやトレンドを明らかにできる  
-* 時間や特定の測定単位に対するデータの方向性と勢いを推測できる  
-* 外れ値、異常、偏差、エラー、意味のないデータを検出できる  
-* 複雑なデータを伝達または提示できる  
+* 大量のデータを 1 つのスライドに集約、圧縮、要約できる。
+* データのパターンやトレンドを明らかにできる。
+* 時間経過や特定の測定単位に対するデータの方向性と勢いを推測できる。
+* 異常値、逸脱、エラー、意味のないデータを検出できる。
+* 複雑なデータを効果的に伝達または提示できる。
 
-PowerPoint では *Insert* 機能を使用してチャートを作成でき、多くのチャートテンプレートが提供されています。Aspose.Slides を使用すれば、一般的なチャートタイプに基づく標準チャートとカスタムチャートの両方を作成できます。
+PowerPoint では、*Insert* 機能を使って多種多様なチャートテンプレートからチャートを作成できます。Aspose.Slides を使用すると、一般的なチャートタイプに基づく通常チャートとカスタムチャートの両方を作成できます。
 
-{{% alert color="primary" %}} 
-
-[ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) 列挙体は [Aspose.Slides.Charts](https://reference.aspose.com/slides/net/aspose.slides.charts/) 名前空間にあります。この列挙体の値はさまざまなチャートタイプに対応しています。
-
+{{% alert color="info" %}} 
+[ChartType](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/charttype/) 列挙体は [Aspose.Slides.Charts](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/) 名前空間にあります。この列挙体の値は、さまざまなチャートタイプに対応しています。
 {{% /alert %}} 
 
-### **Create Clustered Column Charts**
+### **クラスター縦棒グラフの作成**
 
-このセクションでは、Aspose.Slides for .NET を使用してクラスター化列チャートを作成する方法を説明します。プレゼンテーションの初期化、チャートの追加、タイトル、データ、シリーズ、カテゴリ、スタイリングなどの要素のカスタマイズ方法を学びます。以下の手順で標準的なクラスター化列チャートが生成されます。
+このセクションでは、Aspose.Slides for .NET を使用してクラスター縦棒グラフを作成する方法を説明します。プレゼンテーションの初期化、チャートの追加、タイトル、データ、系列、カテゴリ、スタイリングなどの要素のカスタマイズ方法を学びます。以下の手順に従って、標準的なクラスター縦棒グラフが生成される様子を確認してください。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
 1. データを含むチャートを追加し、`ChartType.ClusteredColumn` タイプを指定します。  
 1. チャートにタイトルを追加します。  
 1. チャートのデータ ワークシートにアクセスします。  
-1. 既定のシリーズとカテゴリをすべてクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズ用の新しいデータを追加します。  
-1. シリーズに塗りつぶし色を適用します。  
-1. シリーズにラベルを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. 既定の系列とカテゴリをすべてクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. 系列用の新しいチャート データを追加します。  
+1. 系列に塗りつぶし色を適用します。  
+1. 系列にラベルを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはクラスター化列チャートの作成方法を示しています:
+この C# コードは、クラスター縦棒グラフの作成方法を示しています。
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
 {
     // 最初のスライドにアクセスします。
     ISlide slide = presentation.Slides[0];
 
-    // デフォルト データでクラスタ化列チャートを追加します。
+    // デフォルト データでクラスター縦棒チャートを追加します。
     IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     // チャートのタイトルを設定します。
@@ -88,10 +91,7 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // 最初の系列に値を表示させます。
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-
-    // チャート データシートのインデックスを設定します。
+    // チャート データ シートのインデックスを設定します。
     int worksheetIndex = 0;
 
     // チャート データ ワークブックを取得します。
@@ -113,7 +113,7 @@ using (Presentation presentation = new Presentation())
     // 最初のチャート系列を取得します。
     IChartSeries series = chart.ChartData.Series[0];
 
-    // 系列データを入力します。
+    // 系列のデータを入力します。
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
@@ -125,7 +125,7 @@ using (Presentation presentation = new Presentation())
     // 2 番目のチャート系列を取得します。
     series = chart.ChartData.Series[1];
 
-    // 系列データを入力します。
+    // 系列のデータを入力します。
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
@@ -141,7 +141,7 @@ using (Presentation presentation = new Presentation())
     label = series.DataPoints[1].Label;
     label.DataLabelFormat.ShowSeriesName = true;
 
-    // 系列の3番目のラベルに値を表示します。
+    // 3 番目のラベルに値を表示するよう系列を設定します。
     label = series.DataPoints[2].Label;
     label.DataLabelFormat.ShowValue = true;
     label.DataLabelFormat.ShowSeriesName = true;
@@ -152,24 +152,28 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 結果:
 
-![The Clustered Column chart](clustered_column_chart.png)
+![クラスター縦棒グラフ](clustered_column_chart.png)
 
-### **Create Scatter Charts**
+### **散布図の作成**
 
-散布図（散布プロットまたは x‑y グラフとも呼ばれる）は、変数間のパターンや相関関係を確認するためによく使用されます。
+散布図（スキャッタープロットまたは xy グラフとも呼ばれます）は、2 つの変数間のパターンや相関を確認するために頻繁に使用されます。
 
-散布図を使用する場面:
+散布図を使用するケース:
 
-* 対になった数値データがあるとき  
-* 2 つの変数がペアで扱えるとき  
-* 2 つの変数が関連しているかどうかを判断したいとき  
-* 従属変数に対して複数の独立変数の値があるとき  
+* ペアになった数値データがある場合。  
+* 2 つの変数が相互に関連している場合。  
+* 2 変数が関係しているかどうかを判定したい場合。  
+* 従属変数に対して複数の独立変数の値がある場合。
 
-この C# コードは、異なるマーカー シリーズを持つ散布図の作成方法を示しています:
+この C# コードは、異なるマーカー系列を持つ散布図の作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
 {
@@ -179,7 +183,7 @@ using (Presentation presentation = new Presentation())
     // デフォルトの散布図チャートを作成します。
     IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
-    // チャート データシートのインデックスを設定します。
+    // チャート データ シートのインデックスを設定します。
     int worksheetIndex = 0;
 
     // チャート データ ワークブックを取得します。
@@ -235,27 +239,33 @@ using (Presentation presentation = new Presentation())
 
 結果:
 
-![The Scatter chart](scatter_chart.png)
+![散布図](scatter_chart.png)
 
-### **Create Pie Charts**
+### **円グラフの作成**
 
-円グラフは、特にカテゴリ ラベルと数値が対応しているデータで、全体に対する部分の関係を示すのに最適です。ただし、パーツやラベルが多数ある場合は、棒グラフの使用を検討してください。
+円グラフは、データの全体に対する部分の関係を示すのに最適です。特に、カテゴリラベルに数値が紐付いている場合に有効です。ただし、項目やラベルが多数ある場合は、棒グラフの使用を検討してください。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
-1. 既定データでチャートを追加し、`ChartType.Pie` タイプを指定します。  
-1. チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズ用の新しいデータを追加します。  
+1. デフォルト データでチャートを追加し、`ChartType.Pie` タイプを指定します。  
+1. チャートのデータ ワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/)）にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. 系列用の新しいチャート データを追加します。  
 1. チャートに新しいポイントを追加し、円グラフのセクタにカスタム色を適用します。  
-1. シリーズのラベルを設定します。  
-1. ラベルにリーダー線を有効にします。  
+1. 系列のラベルを設定します。  
+1. 系列ラベルにリーダーラインを有効にします。  
 1. 円グラフの回転角度を設定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードは円グラフの作成方法を示しています:
+この C# コードは、円グラフの作成方法を示しています。
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation())
 {
@@ -271,10 +281,10 @@ using (Presentation presentation = new Presentation())
     chart.ChartTitle.Height = 20;
     chart.HasTitle = true;
 
-    // 最初の系列に値を表示させます。
+    // 最初の系列に値を表示するよう設定します。
     chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-    // チャート データシートのインデックスを設定します。
+    // チャート データ シートのインデックスを設定します。
     int worksheetIndex = 0;
 
     // チャート データ ワークブックを取得します。
@@ -292,7 +302,7 @@ using (Presentation presentation = new Presentation())
     // 新しい系列を追加します。
     IChartSeries series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Series 1"), chart.Type);
 
-    // 系列データを入力します。
+    // 系列のデータを入力します。
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
     series.DataPoints.AddDataPointForPieSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
@@ -333,7 +343,7 @@ using (Presentation presentation = new Presentation())
     point2.Format.Line.Style = LineStyle.ThinThin;
     point2.Format.Line.DashStyle = LineDashStyle.LargeDashDotDot;
 
-    // 新しい系列の各カテゴリにカスタムラベルを作成します。
+    // 新しい系列の各カテゴリ用にカスタム ラベルを作成します。
     IDataLabel label1 = series.DataPoints[0].Label;
 
     label1.DataLabelFormat.ShowValue = true;
@@ -347,7 +357,7 @@ using (Presentation presentation = new Presentation())
     label3.DataLabelFormat.ShowSeriesName = true;
     label3.DataLabelFormat.ShowPercentage = true;
 
-    // 系列にリーダーラインを表示させます。
+    // 系列にリーダーラインを表示するよう設定します。
     series.Labels.DefaultDataLabelFormat.ShowLeaderLines = true;
 
     // 円グラフのセクタの回転角度を設定します。
@@ -358,26 +368,30 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 結果:
 
-![The Pie chart](pie_chart.png)
+![円グラフ](pie_chart.png)
 
-### **Create Line Charts**
+### **折れ線グラフの作成**
 
-折れ線グラフは、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、膨大なデータを一度に比較し、時間に伴う変化やトレンドを追跡し、データ系列の異常を強調表示することができます。
+折れ線グラフ（ライン グラフとも呼ばれます）は、時間経過に伴う値の変化を示すのに最適です。折れ線グラフを使用すると、大量のデータを一度に比較したり、時間に伴う変化やトレンドを追跡したり、系列の異常を強調したりできます。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
-1. 既定データでチャートを追加し、`ChartType.Line` タイプを指定します。  
-1. チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズ用の新しいデータを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. デフォルト データでチャートを追加し、`ChartType.Line` タイプを指定します。  
+1. チャートのデータ ワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/)）にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. 系列用の新しいチャート データを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードは折れ線グラフの作成方法を示しています:
+この C# コードは、折れ線グラフの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
@@ -386,35 +400,47 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+デフォルトでは、折れ線グラフのポイントは直線で結ばれます。破線で結びたい場合は、以下のように破線タイプを指定できます。
 
-既定では、折れ線グラフのポイントは直線で連結されます。ダッシュ線で連結したい場合は、以下のようにダッシュタイプを指定できます:
 ```c#
-foreach (IChartSeries series in lineChart.ChartData.Series)
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+using (Presentation presentation = new Presentation())
 {
-    series.Format.Line.DashStyle = LineDashStyle.Dash;
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
+
+    foreach (IChartSeries series in lineChart.ChartData.Series)
+    {
+        series.Format.Line.DashStyle = LineDashStyle.Dash;
+    }
 }
 ```
 
-
 結果:
 
-![The Line chart](line_chart.png)
+![折れ線グラフ](line_chart.png)
 
-### **Create Tree Map Charts**
+### **ツリーマップ グラフの作成**
 
-ツリーマップは、販売データなどでカテゴリ間の相対的なサイズを示し、各カテゴリ内の大きな貢献項目に注意を引く際に最適です。
+ツリーマップ グラフは、カテゴリごとのデータ規模を示し、各カテゴリ内で大きな貢献をしている項目に注目させたい場合に有効です。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
-1. 既定データでチャートを追加し、`ChartType.Treemap` タイプを指定します。  
-1. チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズ用の新しいデータを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. デフォルト データでチャートを追加し、`ChartType.Treemap` タイプを指定します。  
+1. チャートのデータ ワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/)）にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. 系列用の新しいチャート データを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはツリーマップの作成方法を示しています:
+この C# コードは、ツリーマップ グラフの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
@@ -465,27 +491,31 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 結果:
 
-![The Treemap chart](treemap_chart.png)
+![ツリーマップ グラフ](treemap_chart.png)
 
-### **Create Stock Charts**
+### **株価チャートの作成**
 
-株価チャートは、始値・高値・安値・終値などの金融データを表示し、市場のトレンドやボラティリティを分析するのに役立ちます。投資家やアナリストが情報に基づいた意思決定を行うための重要なインサイトを提供します。
+株価チャートは、始値・高値・安値・終値などの金融データを表示し、市場のトレンドや変動性を分析するのに使用されます。投資家やアナリストが情報に基づいた判断を行うための重要な洞察を提供します。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンス를作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
-1. 既定データでチャートを追加し、`ChartType.OpenHighLowClose` タイプを指定します。  
-1. チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズ用の新しいデータを追加します。  
+1. デフォルト データでチャートを追加し、`ChartType.OpenHighLowClose` タイプを指定します。  
+1. チャートのデータ ワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/)）にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. 系列用の新しいチャート データを追加します。  
 1. HiLowLines の書式を指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードは株価チャートの作成方法を示しています:
+この C# コードは、株価チャートの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
@@ -535,26 +565,30 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 結果:
 
-![The Stock chart](stock_chart.png)
+![株価チャート](stock_chart.png)
 
-### **Create Box and Whisker Charts**
+### **箱ひげ図の作成**
 
-箱ひげ図は、中央値、四分位数、外れ値などの主要な統計指標を要約してデータの分布を示すために使用されます。探索的データ分析や統計研究で、データのばらつきや異常を迅速に把握するのに非常に有用です。
+箱ひげ図は、中央値・四分位数・外れ値などの主要統計指標を要約することでデータ分布を示します。探索的データ分析や統計的研究で、データの変動性や異常を素早く把握するのに役立ちます。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
-1. 既定データでチャートを追加し、`ChartType.BoxAndWhisker` タイプを指定します。  
-1. チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズ用の新しいデータを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. デフォルト データでチャートを追加し、`ChartType.BoxAndWhisker` タイプを指定します。  
+1. チャートのデータ ワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/)）にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. 系列用の新しいチャート データを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードは箱ひげ図の作成方法を示しています:
+この C# コードは、箱ひげ図の作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
@@ -590,18 +624,22 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+### **ファンネル グラフの作成**
 
-### **Create Funnel Charts**
+ファンネル グラフは、段階的にデータ量が減少していくプロセスを視覚化します。コンバージョン率の分析、ボトルネックの特定、販売やマーケティングプロセスの効率測定に特に有用です。
 
-ファンネル チャートは、段階的にデータ量が減少していくプロセスを可視化します。コンバージョン率の分析、ボトルネックの特定、販売やマーケティングの効率追跡に特に有用です。
-
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
-1. 既定データでチャートを追加し、`ChartType.Funnel` タイプを指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. デフォルト データでチャートを追加し、`ChartType.Funnel` タイプを指定します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはファンネル チャートの作成方法を示しています:
+この C# コードは、ファンネル グラフの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("test.pptx"))
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -631,22 +669,26 @@ using (Presentation presentation = new Presentation("test.pptx"))
 }
 ```
 
-
 結果:
 
-![The Funnel chart](funnel_chart.png)
+![ファンネル グラフ](funnel_chart.png)
 
-### **Create Sunburst Charts**
+### **サンバースト グラフの作成**
 
-サンバースト チャートは階層データを同心円状のリングで表現し、部分と全体の関係を視覚的に示します。入れ子構造のカテゴリやサブカテゴリをコンパクトに表現するのに最適です。
+サンバースト グラフは階層データを同心円状に表示し、部分と全体の関係を示します。入れ子構造のカテゴリやサブカテゴリをコンパクトに表現するのに最適です。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
-1. 既定データでチャートを追加し、`ChartType.Sunburst` タイプを指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. デフォルト データでチャートを追加し、`ChartType.Sunburst` タイプを指定します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはサンバースト チャートの作成方法を示しています:
+この C# コードは、サンバースト グラフの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
@@ -695,25 +737,29 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 結果:
 
-![The Sunburst chart](sunburst_chart.png)
+![サンバースト グラフ](sunburst_chart.png)
 
-### **Create Histogram Charts**
+### **ヒストグラム グラフの作成**
 
-ヒストグラムは数値データを区間（ビン）に分けて分布を可視化します。頻度、歪度、散布などのパターンや外れ値の検出に役立ちます。
+ヒストグラムは数値データを範囲（ビン）に分割して分布を表現します。頻度、歪み、散らばりなどのパターンを特定したり、外れ値を検出したりするのに便利です。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
 1. データを含むチャートを追加し、`ChartType.Histogram` タイプを指定します。  
-1. チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. チャートのデータ ワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/)）にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはヒストグラムの作成方法を示しています:
+この C# コードは、ヒストグラム グラフの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
@@ -737,22 +783,26 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 結果:
 
-![The Histogram chart](histogram_chart.png)
+![ヒストグラム グラフ](histogram_chart.png)
 
-### **Create Radar Charts**
+### **レーダー グラフの作成**
 
-レーダー チャートは多変量データを二次元で表現し、複数変数を同時に比較できます。パフォーマンス指標や属性の強み・弱みを把握するのに有用です。
+レーダー グラフは多変量データを二次元で表示し、複数変数を同時に比較できるようにします。パフォーマンス指標や属性の強み・弱みを把握するのに適しています。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
 1. データを含むチャートを追加し、`ChartType.Radar` タイプを指定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはレーダー チャートの作成方法を示しています:
+この C# コードは、レーダー グラフの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
@@ -760,26 +810,30 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 結果:
 
-![The Radar chart](radar_chart.png)
+![レーダー グラフ](radar_chart.png)
 
-### **Create Multi-Category Charts**
+### **マルチカテゴリ グラフの作成**
 
-マルチカテゴリ チャートは、複数のカテゴリ グループを同時に比較できるため、複雑なデータ構造でのトレンドや関係性の分析に適しています。
+マルチカテゴリ グラフは、複数のカテゴリ グループがあるデータを表示し、複数次元で値を比較できます。複雑で階層的なデータセットのトレンドや関係性を分析する際に便利です。
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
-1. 既定データでチャートを追加し、`ChartType.ClusteredColumn` タイプを指定します。  
-1. チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) にアクセスします。  
-1. 既定のシリーズとカテゴリをクリアします。  
-1. 新しいシリーズとカテゴリを追加します。  
-1. チャートシリーズ用の新しいデータを追加します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. デフォルト データでチャートを追加し、`ChartType.ClusteredColumn` タイプを指定します。  
+1. チャートのデータ ワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/)）にアクセスします。  
+1. 既定の系列とカテゴリをクリアします。  
+1. 新しい系列とカテゴリを追加します。  
+1. 系列用の新しいチャート データを追加します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはマルチカテゴリ チャートの作成方法を示しています:
+この C# コードは、マルチカテゴリ グラフの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -821,22 +875,26 @@ using (Presentation presentation = new Presentation())
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D8", 70));
     series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, "D9", 80));
 
-    // チャート付きでプレゼンテーションを保存します。
+    // チャートを含むプレゼンテーションを保存します。
     presentation.Save("AsposeChart_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-
 結果:
 
-![The multi category chart](multi_category_chart.png)
+![マルチカテゴリ グラフ](multi_category_chart.png)
 
-### **Create Map Charts**
+### **マップ グラフの作成**
 
-マップ チャートは国や州、市などの地理的領域にデータをマッピングし、地域別トレンドや人口統計、空間分布を視覚的に分析できます。
+マップ グラフは、国・州・都市など特定の場所に情報をマッピングして地理データを視覚化します。地域別トレンドや人口統計、空間分布を分かりやすく示すのに有用です。
 
-この C# コードはマップ チャートの作成方法を示しています:
+この C# コードは、マップ グラフの作成方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
@@ -844,19 +902,28 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 結果:
 
-![The Map chart](map_chart.png)
+![マップ グラフ](map_chart.png)
 
-### **Create Combination Charts**
+{{% alert color="info" %}} 
+上図は PowerPoint で開いた保存済みプレゼンテーションを示しています。Aspose.Slides はマップ グラフとそのデータを書き込みますが、マップ グラフ自体は描画しません。スライドを画像にレンダリングしたり PDF や SVG に変換したりすると、チャート領域は空白になります。同じスライド上の他の形状には影響しません。
+{{% /alert %}} 
 
-コンビネーション チャート（コンボ チャート）は、1 つのグラフに 2 種類以上のチャート タイプを組み合わせます。複数データセットの違いを強調、比較、検証でき、相互の関係性を把握しやすくなります。
+### **複合グラフの作成**
 
-![The combination chart](combination_chart.png)
+複合グラフ（コンボ グラフ）は、1 つのグラフ内に 2 つ以上のチャート タイプを組み合わせます。このグラフを使用すると、複数のデータセット間の違いをハイライト、比較、検証でき、相互の関係性を把握しやすくなります。
 
-以下の C# コードは、上記のコンビネーション チャートを PowerPoint プレゼンテーションに作成する方法を示しています:
+![複合グラフ](combination_chart.png)
+
+以下の C# コードは、上記の複合グラフを PowerPoint プレゼンテーションに作成する方法を示しています。
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
@@ -953,21 +1020,21 @@ private static void AddThirdSeriesToChart(IChart chart)
 
 private static void SetPrimaryAxesFormat(IChart chart)
 {
-    // 水平軸を設定します
+    // 横軸を設定します
     IAxis horizontalAxis = chart.Axes.HorizontalAxis;
     horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(horizontalAxis, "X Axis");
 
-    // 垂直軸を設定します
+    // 縦軸を設定します
     IAxis verticalAxis = chart.Axes.VerticalAxis;
     verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
     verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
 
     SetAxisTitle(verticalAxis, "Y Axis 1");
 
-    // 垂直軸の主要グリッド線の色を設定します
+    // 縦軸の主要グリッド線の色を設定します
     ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
     majorGridLinesFormat.FillType = FillType.Solid;
     majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
@@ -975,7 +1042,7 @@ private static void SetPrimaryAxesFormat(IChart chart)
 
 private static void SetSecondaryAxesFormat(IChart chart)
 {
-    // 二次水平軸を設定します
+    // 副横軸を設定します
     IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
     secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
     secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
@@ -983,7 +1050,7 @@ private static void SetSecondaryAxesFormat(IChart chart)
     secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
     secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
 
-    // 二次垂直軸を設定します
+    // 副縦軸を設定します
     IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
     secondaryVerticalAxis.Position = AxisPositionType.Right;
     secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
@@ -1005,24 +1072,28 @@ private static void SetAxisTitle(IAxis axis, string axisTitle)
 }
 ```
 
+## **チャートの更新**
 
-## **Update Charts**
+Aspose.Slides for .NET を使用すると、チャート データ、書式設定、スタイルを変更して PowerPoint のチャートを更新できます。この機能により、プレゼンテーションを動的コンテンツで最新の状態に保ち、チャートが現在のデータとビジュアル標準を正確に反映するようにできます。
 
-Aspose.Slides for .NET を使用すると、チャート データ、書式設定、スタイルを変更して PowerPoint のチャートを更新できます。この機能により、動的コンテンツでプレゼンテーションを最新の状態に保ち、チャートが現在のデータとビジュアル基準を正確に反映できるようになります。
-
-1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを生成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
 1. すべてのシェイプを走査してチャートを見つけます。  
 1. チャートのデータ ワークシートにアクセスします。  
-1. シリーズ値を変更してチャート データ シリーズを修正します。  
-1. 新しいシリーズを追加し、データを入力します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. 系列の値を変更してチャート データ系列を修正します。  
+1. 新しい系列を追加し、データを入力します。  
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはチャートの更新方法を示しています:
+この C# コードは、チャートを更新する方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// PPTX ファイルを表す Presentation クラスのインスタンスを生成します。
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // 最初のスライドにアクセスします。
@@ -1032,7 +1103,7 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
     {
         if (shape is IChart chart && chart.Name == chartName)
         {
-            // チャート データシートのインデックスを設定します。
+            // チャート データ シートのインデックスを設定します。
             int worksheetIndex = 0;
 
             // チャート データ ワークブックを取得します。
@@ -1072,27 +1143,31 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
         }
     }
 
-    // チャート付きでプレゼンテーションを保存します。
+    // チャートを含むプレゼンテーションを保存します。
     presentation.Save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **チャートのデータ範囲の設定**
 
-## **Set Data Range for a Chart**
+Aspose.Slides for .NET は、ワークシートの特定範囲をチャート データのソースとして定義する柔軟性を提供します。これにより、ワークシートの一部をチャートに直接マッピングでき、どのセルが系列やカテゴリに寄与するかを制御できます。その結果、ワークシートの最新データ変更に合わせてチャートを簡単に更新・同期でき、PowerPoint プレゼンテーションが常に正確な情報を反映します。
 
-Aspose.Slides for .NET では、ワークシートの特定範囲をチャート データのソースとして定義できます。これにより、ワークシートの一部をチャートに直接マッピングし、どのセルがシリーズやカテゴリに寄与するかを制御できます。その結果、ワークシートの最新データ変更に合わせてチャートを簡単に更新・同期でき、PowerPoint プレゼンテーションが常に正確な情報を反映します。
-
-1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成します。  
+1. チャートを含むプレゼンテーションを表す [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを生成します。  
 1. インデックスを使用してスライドへの参照を取得します。  
 1. すべてのシェイプを走査してチャートを見つけます。  
 1. チャート データにアクセスし、範囲を設定します。  
-1. 変更後のプレゼンテーションを PPTX ファイルとして保存します。
+1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-この C# コードはチャートのデータ範囲を設定する方法を示しています:
+この C# コードは、チャートのデータ範囲を設定する方法を示しています。
+
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 const string chartName = "My chart";
 
-// PPTX ファイルを表す Presentation クラスのインスタンスを生成します。
+// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
 using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 {
     // 最初のスライドにアクセスします。
@@ -1110,13 +1185,17 @@ using (Presentation presentation = new Presentation("ExistingChart.pptx"))
 }
 ```
 
+## **チャートでデフォルト マーカーを使用する**
 
-## **Use Default Markers in Charts**
+チャートでデフォルト マーカーを使用すると、各系列に自動的に異なるマーカー シンボルが割り当てられます。
 
-チャートでデフォルト マーカーを使用すると、各シリーズに自動で異なるマーカー記号が割り当てられます。
+この C# コードは、系列マーカーを自動的に設定する方法を示しています。
 
-この C# コードはシリーズのマーカーを自動設定する方法を示しています:
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -1156,20 +1235,19 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-
 ## **FAQ**
 
 **Aspose.Slides for .NET がサポートするチャート タイプは何ですか？**
 
-Aspose.Slides for .NET は、棒、折れ線、円、エリア、散布、ヒストグラム、レーダーなど、幅広いチャート タイプをサポートしています。この柔軟性により、データ可視化のニーズに最適なチャート タイプを選択できます。
+Aspose.Slides for .NET は、棒グラフ、折れ線グラフ、円グラフ、エリア グラフ、散布図、ヒストグラム、レーダー グラフなど、多種多様なチャート タイプをサポートしています。この柔軟性により、データ 可視化のニーズに最適なチャート タイプを選択できます。
 
 **スライドに新しいチャートを追加するにはどうすればよいですか？**
 
-まず [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスのインスタンスを作成し、インデックスで目的のスライドを取得します。その後、チャート追加メソッドを呼び出し、チャート タイプと初期データを指定します。この手順でチャートがプレゼンテーションに直接組み込まれます。
+まず [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation) クラスのインスタンスを作成し、インデックスで目的のスライドを取得します。その後、チャートの種類と初期データを指定してチャート追加メソッドを呼び出すことで、チャートをプレゼンテーションに直接組み込めます。
 
-**チャートに表示されているデータを更新するには？**
+**チャートに表示されるデータを更新するには？**
 
-チャートのデータ ワークブック ([IChartDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdataworkbook/)) にアクセスし、既定のシリーズやカテゴリをクリアしてからカスタム データを追加します。これにより、プログラムからチャートを最新データにリフレッシュできます。
+チャートのデータ ワークブック（[IChartDataWorkbook](https://reference.aspose.com/slides/ja/net/aspose.slides.charts/ichartdataworkbook/)）にアクセスし、既定の系列とカテゴリをクリアした後、独自のデータを追加します。これにより、プログラムからチャートを最新データにリフレッシュできます。
 
 **チャートの外観をカスタマイズできますか？**
 

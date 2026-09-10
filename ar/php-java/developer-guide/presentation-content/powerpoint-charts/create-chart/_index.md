@@ -1,5 +1,5 @@
 ---
-title: إنشاء أو تحديث مخططات عروض تقديمية PowerPoint في PHP
+title: إنشاء أو تحديث مخططات عرض PowerPoint في PHP
 linktitle: إنشاء أو تحديث المخططات
 type: docs
 weight: 10
@@ -7,142 +7,70 @@ url: /ar/php-java/create-chart/
 keywords:
 - إضافة مخطط
 - إنشاء مخطط
-- تحرير مخطط
+- تعديل مخطط
 - تغيير مخطط
 - تحديث مخطط
-- مخطط متناثر
+- مخطط مبعثر
 - مخطط دائري
 - مخطط خطي
-- مخطط شجرة خريطة
-- مخطط سهمي
+- مخطط شجري
+- مخطط أسهم
 - مخطط صندوق وشارب
 - مخطط قمع
-- مخطط إشعاع شمسي
-- مخطط مدرج تكراري
+- مخطط شمسي
+- مخطط هيستوجرام
 - مخطط راداري
 - مخطط متعدد الفئات
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء وتخصيص المخططات في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ PHP عبر Java. إضافة وتنسيق وتحرير المخططات مع أمثلة عملية للكود."
+description: "إنشاء وتخصيص المخططات في عروض PowerPoint باستخدام Aspose.Slides للـ PHP عبر Java. إضافة، تنسيق، وتعديل المخططات مع أمثلة عملية على الكود."
 ---
-
 ## **نظرة عامة**
 
-تصف هذه المقالة كيفية **إنشاء مخططات عروض تقديمية PowerPoint في Java**. يمكنك أيضًا **تحديث المخططات**. تغطي هذه المواضيع.
-
-_مخطط_: **عادي**
-- [إنشاء مخطط PowerPoint في Java](#java-create-powerpoint-chart)
-- [إنشاء مخطط عرض تقديمي في Java](#java-create-presentation-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint في Java](#java-create-powerpoint-presentation-chart)
-
-_مخطط_: **متناثر**
-- [إنشاء مخطط متناثر في Java](#java-create-scattered-chart)
-- [إنشاء مخطط PowerPoint متناثر في Java](#java-create-powerpoint-scattered-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint متناثر في Java](#java-create-powerpoint-presentation-scattered-chart)
-
-_مخطط_: **دائري**
-- [إنشاء مخطط دائري في Java](#java-create-pie-chart)
-- [إنشاء مخطط PowerPoint دائري في Java](#java-create-powerpoint-pie-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint دائري في Java](#java-create-powerpoint-presentation-pie-chart)
-
-_مخطط_: **شجرة خريطة**
-- [إنشاء مخطط شجرة خريطة في Java](#java-create-tree-map-chart)
-- [إنشاء مخطط PowerPoint شجرة خريطة في Java](#java-create-powerpoint-tree-map-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint شجرة خريطة في Java](#java-create-powerpoint-presentation-tree-map-chart)
-
-_مخطط_: **سهمي**
-- [إنشاء مخطط سهمي في Java](#java-create-stock-chart)
-- [إنشاء مخطط PowerPoint سهمي في Java](#java-create-powerpoint-stock-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint سهمي في Java](#java-create-powerpoint-presentation-stock-chart)
-
-_مخطط_: **مستطيل وشاربيات**
-- [إنشاء مخطط مستطيل وشاربيات في Java](#java-create-box-and-whisker-chart)
-- [إنشاء مخطط PowerPoint مستطيل وشاربيات في Java](#java-create-powerpoint-box-and-whisker-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint مستطيل وشاربيات في Java](#java-create-powerpoint-presentation-box-and-whisker-chart)
-
-_مخطط_: **قمع**
-- [إنشاء مخطط قمع في Java](#java-create-funnel-chart)
-- [إنشاء مخطط PowerPoint قمع في Java](#java-create-powerpoint-funnel-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint قمع في Java](#java-create-powerpoint-presentation-funnel-chart)
-
-_مخطط_: **إشعاع شمسية**
-- [إنشاء مخطط إشعاع شمسية في Java](#java-create-sunburst-chart)
-- [إنشاء مخطط PowerPoint إشعاع شمسية في Java](#java-create-powerpoint-sunburst-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint إشعاع شمسية في Java](#java-create-powerpoint-presentation-sunburst-chart)
-
-_مخطط_: **مدرج تكراري**
-- [إنشاء مخطط مدرج تكراري في Java](#java-create-histogram-chart)
-- [إنشاء مخطط PowerPoint مدرج تكراري في Java](#java-create-powerpoint-histogram-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint مدرج تكراري في Java](#java-create-powerpoint-presentation-histogram-chart)
-
-_مخطط_: **راداري**
-- [إنشاء مخطط راداري في Java](#java-create-radar-chart)
-- [إنشاء مخطط PowerPoint راداري في Java](#java-create-powerpoint-radar-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint راداري في Java](#java-create-powerpoint-presentation-radar-chart)
-
-_مخطط_: **متعدد الفئات**
-- [إنشاء مخطط متعدد الفئات في Java](#java-create-multi-category-chart)
-- [إنشاء مخطط PowerPoint متعدد الفئات في Java](#java-create-powerpoint-multi-category-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint متعدد الفئات في Java](#java-create-powerpoint-presentation-multi-category-chart)
-
-_مخطط_: **خريطة**
-- [إنشاء مخطط خريطة في Java](#java-create-map-chart)
-- [إنشاء مخطط PowerPoint خريطة في Java](#java-create-powerpoint-map-chart)
-- [إنشاء مخطط عرض تقديمي PowerPoint خريطة في Java](#java-create-powerpoint-presentation-map-chart)
-
-_إجراء_: **تحديث المخطط**
-- [تحديث مخطط PowerPoint في Java](#java-update-powerpoint-chart)
-- [تحديث مخطط عرض تقديمي في Java](#java-update-presentation-chart)
-- [تحديث مخطط عرض تقديمي PowerPoint في Java](#java-update-powerpoint-presentation-chart)
-
+توفر هذه المقالة دليلًا شاملاً حول كيفية إنشاء المخططات وتخصيصها باستخدام Aspose.Slides. ستتعلم كيفية إضافة مخطط إلى شريحة برمجيًا، وتعبئته بالبيانات، وتطبيق خيارات تنسيق مختلفة لتتماشى مع متطلبات التصميم الخاصة بك. طوال المقالة، توضح أمثلة الكود التفصيلية كل خطوة، بدءًا من تهيئة العرض التقديمي وكائن المخطط إلى تكوين السلاسل والمحاور والوسوم. باتباع هذا الدليل، ستحصل على فهم قوي لكيفية دمج إنشاء المخططات الديناميكية في تطبيقاتك، مما يبسط عملية إنشاء عروض تقديمية مدفوعة بالبيانات.
 
 ## **إنشاء مخطط**
-تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتساب رؤى قد لا تكون واضحة على الفور من جدول أو ورقة عمل.
 
-**لماذا إنشاء المخططات؟**
+تساعد المخططات الأشخاص على تصور البيانات بسرعة واكتساب رؤى قد لا تكون واضحة فورًا من جدول أو ورقة عمل.
 
-باستخدام المخططات، يمكنك
+**لماذا نُنشئ مخططات؟**
 
-* تجميع أو تكثيف أو تلخيص كميات كبيرة من البيانات على شريحة واحدة في عرض تقديمي
+باستخدام المخططات، يمكنك:
+
+* تجميع أو تلخيص أو تلخيص كميات كبيرة من البيانات في شريحة واحدة من العرض التقديمي
 * كشف الأنماط والاتجاهات في البيانات
-* استنتاج اتجاه وزخم البيانات مع مرور الوقت أو بالنسبة لوحدة قياس محددة
-* تحديد القيم الشاذة أو الانحرافات أو الأخطاء أو البيانات غير المنطقية
-* التواصل أو تقديم بيانات معقدة
+* استنتاج اتجاه وزخم البيانات مع الوقت أو بالنسبة لوحدة قياس محددة
+* اكتشاف القيم المتطرفة أو الشذوذ أو الانحرافات أو الأخطاء أو البيانات غير المنطقية، إلخ
+* التواصل أو عرض البيانات المعقدة
 
-في PowerPoint، يمكنك إنشاء المخططات عبر وظيفة الإدراج، التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (بناءً على أنواع المخططات الشائعة) ومخططات مخصصة.
+في PowerPoint، يمكنك إنشاء مخططات عبر وظيفة *Insert* التي توفر قوالب لتصميم أنواع متعددة من المخططات. باستخدام Aspose.Slides، يمكنك إنشاء مخططات عادية (مستندة إلى أنواع المخططات الشائعة) ومخططات مخصصة.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="ملاحظة" %}}
+لإنشاء المخططات، استخدم الفئة [ChartType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/). الحقول في هذه الفئة تمثل أنواع مخططات مختلفة.
+{{% /alert %}}
 
-للسماح لك بإنشاء المخططات، يوفر Aspose.Slides الفئة [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType). الحقول تحت هذه الفئة تتوافق مع أنواع المخططات المختلفة.
+### **إنشاء مخططات أعمدة مُتكتلة**
 
-{{% /alert %}} 
+توضح هذه الفقرة كيفية إنشاء مخططات أعمدة مُتكتلة باستخدام Aspose.Slides. ستتعلم كيفية تهيئة عرض تقديمي، إضافة مخطط، وتخصيص عناصره مثل العنوان والبيانات والسلاسل والفئات والتنسيق. اتبع الخطوات أدناه لمشاهدة كيفية إنشاء مخطط عمودي مُتكتل قياسي:
 
-### **إنشاء مخططات عادية**
-
-_خطوات: إنشاء مخطط_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint </strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي </strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint </strong></a>
-
-_خطوات الكود:_
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة مخطط ببيانات معينة وتحديد نوع المخطط المفضل.
-4. إضافة عنوان للمخطط.
-5. الوصول إلى ورقة عمل بيانات المخطط.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط مع بعض البيانات وتحديد النوع `ChartType::ClusteredColumn` .
+4. إضافة عنوان إلى المخطط.
+5. الوصول إلى ورقة بيانات المخطط.
 6. مسح جميع السلاسل والفئات الافتراضية.
 7. إضافة سلاسل وفئات جديدة.
-8. إضافة بعض بيانات المخطط الجديدة لسلسلة المخطط.
-9. إضافة لون تعبئة لسلسلة المخطط.
-10. إضافة تسميات لسلسلة المخطط.
-11. كتابة العرض التقديمي المعدل كملف PPTX.
+8. إضافة بيانات مخطط جديدة لسلسلة المخطط.
+9. تطبيق لون تعبئة على سلسلة المخطط.
+10. إضافة تسميات إلى سلسلة المخطط.
+11. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح كيفية إنشاء مخطط عادي:
+هذا الكود C# يوضح كيفية إنشاء مخطط عمودي مُتكتل:
+
 ```php
-  # يقوم بإنشاء فئة عرض تقديمي تمثل ملف PPTX
+  # إنشاء كائن فئة عرض تقديمي يمثل ملف PPTX
   $pres = new Presentation();
   try {
     # الوصول إلى الشريحة الأولى
@@ -160,7 +88,7 @@ _خطوات الكود:_
     $defaultWorksheetIndex = 0;
     # الحصول على ورقة عمل بيانات المخطط
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # حذف السلاسل والفئات المولدة افتراضيًا
+    # حذف السلاسل والفئات التي تم إنشاؤها افتراضيًا
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
@@ -174,7 +102,7 @@ _خطوات الكود:_
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     # أخذ السلسلة الأولى للمخطط
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    # الآن يتم تعبئة بيانات السلسلة
+    # الآن ملء بيانات السلسلة
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
@@ -183,7 +111,7 @@ _خطوات الكود:_
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     # أخذ السلسلة الثانية للمخطط
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # تعبئة بيانات السلسلة
+    # ملء بيانات السلسلة
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
@@ -210,32 +138,29 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات مبعثرة**
 
-### **إنشاء مخططات متناثرة**
-تُستخدم المخططات المتنثرة (المعروفة أيضًا بالمخططات النقطية أو رسومات x‑y) غالبًا للتحقق من وجود أنماط أو لإظهار الارتباط بين متغيرين.
+المخططات المبثّرة (المعروفة أيضًا باسم رسومات التشتت أو رسومات x‑y) تُستخدم غالبًا للتحقق من الأنماط أو إظهار الترابط بين متغيرين.
 
-قد ترغب في استخدام مخطط متناثر عندما
+استخدم مخططًا مبثّرًا عندما:
 
-* لديك بيانات عددية مزدوجة
-* لديك متغيران يرتبطان ببعضهما جيدًا
+* لديك بيانات عددية مُقَارَنة
+* لديك متغيران يتماشيان معًا
 * تريد تحديد ما إذا كان المتغيران مرتبطين
-* لديك متغير مستقل له قيم متعددة للمتغير التابع
+* لديك متغير مستقل له قيم متعددة بالنسبة لمتغير تابع
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط متناثر </strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint متناثر </strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint متناثر </strong></a>
+1. اتبع الخطوات في [Create Clustered Column Charts](#create-clustered-column-charts) .
+2. في الخطوة الثالثة، أضف مخططًا مع بعض البيانات وحدد نوع المخطط كواحد من التالي:
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _يمثل مخططًا مبثّرًا._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _يمثل مخططًا مبثّرًا متصلًا بمنحنيات، مع علامات بيانات._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _يمثل مخططًا مبثّرًا متصلًا بمنحنيات، بدون علامات بيانات._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _يمثل مخططًا مبثّرًا متصلًا بخطوط مستقيمة، مع علامات بيانات._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _يمثل مخططًا مبثّرًا متصلًا بخطوط مستقيمة، بدون علامات بيانات._
 
-1. يرجى اتباع الخطوات المذكورة أعلاه في [إنشاء مخططات عادية](#creating-normal-charts)
-2. للخطوة الثالثة، أضف مخططًا ببيانات معينة وحدد نوع المخطط كواحد من التالي
-   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _يمثل مخطط متناثر._
-   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _يمثل مخطط متناثر متصل بمنحنيات، مع علامات بيانات._
-   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _يمثل مخطط متناثر متصل بمنحنيات، بدون علامات بيانات._
-   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _يمثل مخطط متناثر متصل بخطوط، مع علامات بيانات._
-   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _يمثل مخطط متناثر متصل بخطوط، بدون علامات بيانات._
+هذا الكود PHP يوضح كيفية إنشاء مخطط مبثّر مع علامات مختلفة لكل سلسلة:
 
-هذا الكود PHP يوضح كيفية إنشاء مخططات متناثرة بسلسلة مختلفة من العلامات:
 ```php
-  # ينشئ كائن عرض تقديمي يمثل ملف PPTX
+  # ينشئ كلاس عرض تقديمي يمثل ملف PPTX
   $pres = new Presentation();
   try {
     # يصل إلى الشريحة الأولى
@@ -283,29 +208,25 @@ _خطوات الكود:_
   }
 ```
 
-
 ### **إنشاء مخططات دائرية**
 
-تُعد المخططات الدائرية الأنسب لإظهار العلاقة بين الجزء والكامل في البيانات، خاصةً عندما تحتوي البيانات على تصنيفات فئوية مع قيم رقمية. إذا كان لديك العديد من الأجزاء أو التسميات، قد ترغب في استخدام مخطط شريطي بدلاً من ذلك.
+تُستخدم المخططات الدائرية لإظهار العلاقة الجزئية إلى الكلية في البيانات، خاصةً عندما تحتوي البيانات على تسميات فئوية ذات قيم عددية. ومع ذلك، إذا كانت بياناتك تحتوي على العديد من الأجزاء أو التسميات، قد ترغب في استخدام مخطط شريطي بدلاً منها.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط دائري </strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint دائري </strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint دائري </strong></a>
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Pie).
-4. الوصول إلى [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::Pie](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#Pie) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. إضافة نقاط جديدة للمخططات وإضافة ألوان مخصصة لقطاعات المخطط الدائري.
-9. ضبط تسميات السلاسل.
-10. ضبط خطوط القادة لتسميات السلاسل.
+8. إضافة نقاط جديدة للمخطط وتطبيق ألوان مخصصة لشرائح المخطط الدائري.
+9. ضبط التسميات للسلسلة.
+10. تمكين خطوط القادة لتسميات السلسلة.
 11. ضبط زاوية الدوران لشرائح المخطط الدائري.
-12. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+12. حفظ العرض التقديمي المعدل كملف PPTX.
 
 هذا الكود PHP يوضح كيفية إنشاء مخطط دائري:
+
 ```php
   # ينشئ كائن عرض تقديمي يمثل ملف PPTX
   $pres = new Presentation();
@@ -314,14 +235,14 @@ _خطوات الكود:_
     $slides = $pres->getSlides()->get_Item(0);
     # يضيف مخططًا ببيانات افتراضية
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    # يضبط عنوان المخطط
+    # يعيّن عنوان المخطط
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    # يضبط السلسلة الأولى لإظهار القيم
+    # يعيّن السلسلة الأولى لإظهار القيم
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    # يضبط الفهرس لورقة بيانات المخطط
+    # يعيّن الفهرس لورقة بيانات المخطط
     $defaultWorksheetIndex = 0;
     # يحصل على ورقة عمل بيانات المخطط
     $fact = $chart->getChartData()->getChartDataWorkbook();
@@ -338,14 +259,14 @@ _خطوات الكود:_
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    # غير فعال في الإصدار الجديد
+    # لا يعمل في الإصدار الجديد
     # إضافة نقاط جديدة وتعيين لون القطاع
     # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    # يضبط حد القطاع
+    # يعيّن حد القطاع
     $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
@@ -354,7 +275,7 @@ _خطوات الكود:_
     $point1 = $series->getDataPoints()->get_Item(1);
     $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    # يضبط حد القطاع
+    # يعيّن حد القطاع
     $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
@@ -363,7 +284,7 @@ _خطوات الكود:_
     $point2 = $series->getDataPoints()->get_Item(2);
     $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    # يضبط حد القطاع
+    # يعيّن حد القطاع
     $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
@@ -380,9 +301,9 @@ _خطوات الكود:_
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    # يظهر خطوط القادة للمخطط
+    # يعرض خطوط القائد للمخطط
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    # يضبط زاوية الدوران لقطاعات مخطط الفطيرة
+    # يعيّن زاوية الدوران لقطاعات المخطط الدائري
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
     # يحفظ العرض التقديمي مع مخطط
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
@@ -393,21 +314,21 @@ _خطوات الكود:_
   }
 ```
 
-
 ### **إنشاء مخططات خطية**
 
-تُستخدم المخططات الخطية (المعروفة أيضًا بمخططات الخط) في الحالات التي ترغب فيها بإظهار تغير القيم مع مرور الوقت. باستخدام مخطط خطي، يمكنك مقارنة الكثير من البيانات في آن واحد، وتتبع التغيرات والاتجاهات بمرور الوقت، وتسليط الضوء على الشذوذ في سلاسل البيانات، وما إلى ذلك.
+المخططات الخطية (المعروفة أيضًا باسم رسوم الخط) تُستخدم بشكل أفضل عندما تريد إظهار تغيّر القيم مع الوقت. باستخدام مخطط خطي، يمكنك مقارنة كمية كبيرة من البيانات مرة واحدة، تتبع التغيّرات والاتجاهات مع الوقت، إبراز الشذوذ في سلاسل البيانات، وأكثر.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation).
-1. الحصول على مرجع الشريحة من خلال فهرسها.
-1. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، `ChartType::Line`).
-1. الوصول إلى ورقة عمل بيانات المخطط IChartDataWorkbook.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::Line](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#Line) .
+1. الوصول إلى دفتر عمل بيانات المخطط ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/)) .
 1. مسح السلاسل والفئات الافتراضية.
 1. إضافة سلاسل وفئات جديدة.
 1. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
 هذا الكود PHP يوضح كيفية إنشاء مخطط خطي:
+
 ```php
   $pres = new Presentation();
   try {
@@ -420,34 +341,39 @@ _خطوات الكود:_
   }
 ```
 
+افتراضياً، تُربط النقاط في المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع المفضّل كما يلي:
 
-افتراضيًا، يتم ربط النقاط على المخطط الخطي بخطوط مستقيمة مستمرة. إذا رغبت في ربط النقاط بخطوط متقطعة، يمكنك تحديد نوع الخط المتقطع بهذا الشكل:
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-  foreach($lineChart->getChartData()->getSeries() as $series) {
-    $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
+  $pres = new Presentation();
+  try {
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
+    $seriesCollection = $lineChart->getChartData()->getSeries();
+    foreach ($seriesCollection as $series) {
+      $series->getFormat()->getLine()->setDashStyle(LineDashStyle::Dash);
+    }
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
   }
 ```
 
+### **إنشاء مخططات شجرية (Tree Map)**
 
-### **إنشاء مخططات شجرة خريطة**
+تُستخدم مخططات الشجرة لتصور بيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وجذب الانتباه سريعًا إلى العناصر التي تشكل مساهمات كبيرة داخل كل فئة.
 
-تُعد مخططات شجرة الخريطة مثالية لبيانات المبيعات عندما تريد إظهار الحجم النسبي لفئات البيانات وفي الوقت نفسه جذب الانتباه بسرعة إلى العناصر التي تساهم بشكل كبير في كل فئة.
-
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط شجرة خريطة </strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint شجرة خريطة </strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint شجرة خريطة </strong></a>
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).TreeMap).
-4. الوصول إلى [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::Treemap](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#Treemap) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح كيفية إنشاء مخطط شجرة خريطة:
+هذا الكود PHP يوضح كيفية إنشاء مخطط شجري:
+
 ```php
   $pres = new Presentation();
   try {
@@ -491,24 +417,20 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات الأسهم (Stock)**
 
-### **إنشاء مخططات سهمية**
-
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>الخطوات:</em> إنشاء مخطط سهمي </strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint سهمي </strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint سهمي </strong></a>
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).OpenHighLowClose).
-4. الوصول إلى [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::OpenHighLowClose](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#OpenHighLowClose) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. تحديد تنسيق HiLowLines.
-9. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. تحديد تنسيق خطوط الارتفاع‑الانخفاض.
+9. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح كيفية إنشاء مخطط سهمي:
+هذا الكود PHP يوضح كيفية إنشاء مخطط أسهم:
+
 ```php
   $pres = new Presentation();
   try {
@@ -541,7 +463,8 @@ _خطوات الكود:_
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    foreach($chart->getChartData()->getSeries() as $ser) {
+    $seriesCollection = $chart->getChartData()->getSeries();
+    foreach ($seriesCollection as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat::Pptx);
@@ -552,23 +475,19 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات الصندوق والشارب (Box and Whisker)**
 
-### **إنشاء مخططات مستطيل وشاربيات**
-
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط مستطيل وشاربيات </strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint مستطيل وشاربيات </strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint مستطيل وشاربيات </strong></a>
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).BoxAndWhisker).
-4. الوصول إلى [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::BoxAndWhisker](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#BoxAndWhisker) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح كيفية إنشاء مخطط مستطيل وشاربيات:
+هذا الكود PHP يوضح كيفية إنشاء مخطط صندوق وشارب:
+
 ```php
   $pres = new Presentation();
   try {
@@ -603,20 +522,15 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات القمع (Funnel)**
 
-### **إنشاء مخططات قمع**
-
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط قمع </strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint قمع </strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint قمع </strong></a>
-
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Funnel).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::Funnel](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#Funnel) .
+4. حفظ العرض التقديمي المعدل كملف PPTX.
 
 هذا الكود PHP يوضح كيفية إنشاء مخطط قمع:
+
 ```php
   $pres = new Presentation();
   try {
@@ -646,19 +560,15 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات شمسية (Sunburst)**
 
-### **إنشاء مخططات إشعاع شمسية**
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::Sunburst](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#Sunburst) .
+4. حفظ العرض التقديمي المعدل كملف PPTX.
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط إشعاع شمسية </strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint إشعاع شمسية </strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint إشعاع شمسية </strong></a>
+هذا الكود PHP يوضح كيفية إنشاء مخطط شمسية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب (في هذه الحالة، [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).sunburst).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
-
-هذا الكود PHP يوضح كيفية إنشاء مخطط إشعاع شمسية:
 ```php
   $pres = new Presentation();
   try {
@@ -701,22 +611,18 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات هيستوجرام (Histogram)**
 
-### **إنشاء مخططات مدرج تكراري**
-
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط مدرج تكراري </strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint مدرج تكراري </strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint مدرج تكراري </strong></a>
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Histogram).
-4. الوصول إلى [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::Histogram](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#Histogram) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
-7. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+7. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح كيفية إنشاء مخطط مدرج تكراري:
+هذا الكود PHP يوضح كيفية إنشاء مخطط هيستوجرام:
+
 ```php
   $pres = new Presentation();
   $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Histogram, 50, 50, 500, 400);
@@ -734,19 +640,15 @@ _خطوات الكود:_
   $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
 ```
 
+### **إنشاء مخططات رادارية (Radar)**
 
-### **إنشاء مخططات رادارية**
-
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط راداري </strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint راداري </strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint راداري </strong></a>
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها. 
-3. إضافة مخطط ببيانات معينة وتحديد نوع المخطط المفضل (`ChartType::Radar` في هذه الحالة).
-4. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببعض البيانات وتحديد نوع المخطط المفضّل لديك ([ChartType::Radar](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#Radar) في هذه الحالة).
+4. حفظ العرض التقديمي المعدل كملف PPTX.
 
 هذا الكود PHP يوضح كيفية إنشاء مخطط راداري:
+
 ```php
   $pres = new Presentation();
   try {
@@ -759,23 +661,19 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات متعددة الفئات (Multi-Category)**
 
-### **إنشاء مخططات متعددة الفئات**
-
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>الخطوات:</em> إنشاء مخطط متعدد الفئات </strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint متعدد الفئات </strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint متعدد الفئات </strong></a>
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) .
-2. الحصول على مرجع الشريحة من خلال فهرسها. 
-3. إضافة مخطط ببيانات افتراضية مع النوع المطلوب ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).ClusteredColumn).
-4. الوصول إلى [ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/).
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) .
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. إضافة مخطط ببيانات افتراضية وتحديد النوع [ChartType::ClusteredColumn](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/#ClusteredColumn) .
+4. الوصول إلى دفتر عمل بيانات المخطط [ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/) .
 5. مسح السلاسل والفئات الافتراضية.
 6. إضافة سلاسل وفئات جديدة.
 7. إضافة بيانات مخطط جديدة لسلسلة المخطط.
-8. كتابة العرض التقديمي المعدل إلى ملف PPTX.
+8. حفظ العرض التقديمي المعدل كملف PPTX.
 
 هذا الكود PHP يوضح كيفية إنشاء مخطط متعدد الفئات:
+
 ```php
   $pres = new Presentation();
   try {
@@ -816,16 +714,12 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات خريطة (Map)**
 
-### **إنشاء مخططات خريطة**
-
-مخطط الخريطة هو تمثيل مرئي لمنطقة تحتوي على بيانات. تُستخدم مخططات الخريطة للمقارنة بين البيانات أو القيم عبر المناطق الجغرافية.
-
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط خريطة </strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط PowerPoint خريطة </strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>الخطوات:</em> إنشاء مخطط عرض تقديمي PowerPoint خريطة </strong></a>
+تُظهر مخططات الخريطة البيانات الجغرافية وتساعد على مقارنة القيم عبر المناطق.
 
 هذا الكود PHP يوضح كيفية إنشاء مخطط خريطة:
+
 ```php
   $pres = new Presentation();
   try {
@@ -838,14 +732,14 @@ _خطوات الكود:_
   }
 ```
 
+### **إنشاء مخططات مركبة (Combination)**
 
-### **إنشاء مخططات مركبة**
+المخطط المركب (أو مخطط الجمع) يجمع نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الفروق بين مجموعتين أو أكثر من البيانات، مما يساعدك على تحديد العلاقات بينها.
 
-مخطط مركب (أو مخطط مزيج) يجمع بين نوعين أو أكثر من المخططات في رسم بياني واحد. يتيح لك هذا المخطط إبراز أو مقارنة أو فحص الاختلافات بين مجموعتي بيانات أو أكثر، مما يساعدك على تحديد العلاقات بينها.
+![مخطط الجمع](combination_chart.png)
 
-![The combination chart](combination_chart.png)
+يعرض الكود PHP التالي كيفية إنشاء مخطط الجمع المعروض أعلاه في عرض PowerPoint:
 
-يعرض الكود PHP التالي كيفية إنشاء المخطط المركب الموضح أعلاه في عرض تقديمي PowerPoint:
 ```php
 function createComboChart() {
     $presentation = new Presentation();
@@ -868,7 +762,7 @@ function createComboChart() {
 function createChartWithFirstSeries($slide) {
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
 
-    // تعيين عنوان المخطط.
+    // ضبط عنوان المخطط.
     $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("Chart Title");
     $chart->getChartTitle()->setOverlay(false);
@@ -877,7 +771,7 @@ function createChartWithFirstSeries($slide) {
     $titleFormat->setFontBold(NullableBool::False);
     $titleFormat->setFontHeight(18);
     
-    // تعيين أسطورة المخطط.
+    // ضبط مفتاح المخطط.
     $chart->getLegend()->setPosition(LegendPositionType::Bottom);
     $chart->getLegend()->getTextFormat()->getPortionFormat()->setFontHeight(12);
 
@@ -941,28 +835,28 @@ function addThirdSeriesToChart($chart) {
 }
 
 function setPrimaryAxesFormat($chart) {
-    // تعيين المحور الأفقي.
+    // ضبط المحور الأفقي.
     $horizontalAxis = $chart->getAxes()->getHorizontalAxis();
     $horizontalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $horizontalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($horizontalAxis, "X Axis");
 
-    // تعيين المحور الرأسي.
+    // ضبط المحور العمودي.
     $verticalAxis = $chart->getAxes()->getVerticalAxis();
     $verticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
     $verticalAxis->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
     setAxisTitle($verticalAxis, "Y Axis 1");
 
-    // تعيين لون خطوط الشبكة الرأسية الرئيسية.
+    // ضبط لون خطوط الشبكة العمودية الرئيسية.
     $majorGridLinesFormat = $verticalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat();
     $majorGridLinesFormat->setFillType(FillType::Solid);
     $majorGridLinesFormat->getSolidFillColor()->setColor(new java("java.awt.Color", 217, 217, 217));
 }
 
 function setSecondaryAxesFormat($chart) {
-    // تعيين المحور الأفقي الثانوي.
+    // ضبط المحور الأفقي الثانوي.
     $secondaryHorizontalAxis = $chart->getAxes()->getSecondaryHorizontalAxis();
     $secondaryHorizontalAxis->setPosition(AxisPositionType::Bottom);
     $secondaryHorizontalAxis->setCrossType(CrossesType::Maximum);
@@ -970,7 +864,7 @@ function setSecondaryAxesFormat($chart) {
     $secondaryHorizontalAxis->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     $secondaryHorizontalAxis->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
 
-    // تعيين المحور الرأسي الثانوي.
+    // ضبط المحور العمودي الثانوي.
     $secondaryVerticalAxis = $chart->getAxes()->getSecondaryVerticalAxis();
     $secondaryVerticalAxis->setPosition(AxisPositionType::Right);
     $secondaryVerticalAxis->getTextFormat()->getPortionFormat()->setFontHeight(12);
@@ -991,34 +885,30 @@ function setAxisTitle($axis, $axisTitle) {
 }
 ```
 
-
 ## **تحديث المخططات**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>الخطوات:</em> تحديث مخطط PowerPoint </strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>الخطوات:</em> تحديث مخطط عرض تقديمي </strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>الخطوات:</em> تحديث مخطط عرض تقديمي PowerPoint </strong></a>
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) التي تمثل العرض التقديمي الذي يحتوي على المخطط الذي تريد تحديثه.
-2. الحصول على مرجع شريحة باستخدام فهرسها.
-3. تمرير جميع الأشكال للعثور على المخطط المطلوب.
-4. الوصول إلى ورقة عمل بيانات المخطط.
-5. تعديل بيانات سلسلة المخطط بتغيير قيم السلسلة.
-6. إضافة سلسلة جديدة وتعبئة البيانات فيها.
-7. كتابة العرض التقديمي المعدل كملف PPTX.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) يمثل العرض التقديمي الذي يحتوي على المخطط الذي تريد تحديثه.
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. استعراض جميع الأشكال للعثور على المخطط المطلوب.
+4. الوصول إلى ورقة بيانات المخطط.
+5. تعديل سلاسل بيانات المخطط بتغيير قيم السلاسل.
+6. إضافة سلسلة جديدة وتعبئتها بالبيانات.
+7. حفظ العرض التقديمي المعدل كملف PPTX.
 
 هذا الكود PHP يوضح كيفية تحديث مخطط:
+
 ```php
   $pres = new Presentation();
   try {
     # الوصول إلى الشريحة الأولى
     $sld = $pres->getSlides()->get_Item(0);
-    # الحصول على المخطط بالبيانات الافتراضية
+    # الحصول على المخطط مع البيانات الافتراضية
     $chart = $sld->getShapes()->get_Item(0);
     # تعيين فهرس ورقة بيانات المخطط
     $defaultWorksheetIndex = 0;
     # الحصول على ورقة عمل بيانات المخطط
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    # تغيير اسم فئة المخطط
+    # تعديل اسم فئة المخطط
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
     # أخذ السلسلة الأولى للمخطط
@@ -1055,18 +945,18 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
+## **تعيين نطاق البيانات لمخطط**
 
-## **ضبط نطاق البيانات لمخطط**
+لتعيين نطاق البيانات لمخطط، اتبع الخطوات التالية:
 
-لتعيين نطاق البيانات لمخطط، قم بما يلي:
-
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) التي تمثل العرض التقديمي الذي يحتوي على المخطط.
-2. الحصول على مرجع شريحة من خلال فهرسها.
-3. تمرير جميع الأشكال للعثور على المخطط المطلوب.
-4. الوصول إلى بيانات المخطط وتحديد النطاق.
+1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) يمثل العرض التقديمي الذي يحتوي على المخطط.
+2. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+3. استعراض جميع الأشكال للعثور على المخطط المطلوب.
+4. الوصول إلى بيانات المخطط وتعيين النطاق.
 5. حفظ العرض التقديمي المعدل كملف PPTX.
 
-هذا الكود PHP يوضح كيفية ضبط نطاق البيانات لمخطط:
+هذا الكود PHP يوضح كيفية تعيين نطاق البيانات لمخطط:
+
 ```php
   $pres = new Presentation();
   try {
@@ -1081,11 +971,12 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-
 ## **استخدام العلامات الافتراضية في المخططات**
-عند استخدام علامة افتراضية في المخططات، يحصل كل سلسلة مخطط على رمز علامة افتراضي مختلف تلقائيًا.
 
-هذا الكود PHP يوضح كيفية تعيين علامة سلسلة مخطط تلقائيًا:
+عند استخدام العلامات الافتراضية في المخططات، يحصل كل سلسلة مخطط تلقائيًا على رمز علامة مختلف.
+
+هذا الكود PHP يوضح كيفية ضبط علامة سلسلة المخطط تلقائيًا:
+
 ```php
   $pres = new Presentation();
   try {
@@ -1122,21 +1013,20 @@ function setAxisTitle($axis, $axisTitle) {
   }
 ```
 
-
 ## **الأسئلة الشائعة**
 
 **ما هي أنواع المخططات التي يدعمها Aspose.Slides؟**
 
-يدعم Aspose.Slides مجموعة واسعة من [أنواع المخططات](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/)، بما في ذلك المخطط الشريطي، الخطي، الدائري، المساحي، النقطي، المدرج التكراري، الراداري، والعديد غيرها. يمنحك هذا المرونة لاختيار النوع الأنسب لتصور بياناتك.
+يدعم Aspose.Slides مجموعة واسعة من [chart types](https://reference.aspose.com/slides/ar/php-java/aspose.slides/charttype/)، بما في ذلك المخططات الشريطية، الخطية، الدائرية، المساحية، المبثّرة، الهيستوجرام، الرادارية، وغيرها الكثير. تتيح لك هذه المرونة اختيار النوع الأنسب لتصور بياناتك.
 
 **كيف يمكنني إضافة مخطط جديد إلى شريحة؟**
 
-لإضافة مخطط، يجب أولاً إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/)، استرجاع الشريحة المطلوبة باستخدام فهرسها، ثم استدعاء الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرة في عرضك التقديمي.
+لإضافة مخطط، أنشئ أولًا كائنًا من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) ، استرجع الشريحة المطلوبة باستخدام فهرسها، ثم استدعِ الطريقة لإضافة مخطط مع تحديد نوع المخطط والبيانات الأولية. يدمج هذا العملية المخطط مباشرةً في عرضك التقديمي.
 
 **كيف يمكنني تحديث البيانات المعروضة في مخطط؟**
 
-يمكنك تحديث بيانات المخطط بالوصول إلى دفتر عمل البيانات الخاص به ([ChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصصة. يتيح لك ذلك تحديث المخطط لعرض أحدث البيانات.
+يمكنك تحديث بيانات المخطط بالوصول إلى دفتر عمل البيانات الخاص به ([ChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/))، مسح أي سلاسل وفئات افتراضية، ثم إضافة بياناتك المخصَّصة. يتيح لك ذلك تجديد المخطط ليعكس أحدث البيانات.
 
 **هل يمكن تخصيص مظهر المخطط؟**
 
-نعم، يوفر Aspose.Slides خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الأساطير، وعناصر [التنسيق](/slides/ar/php-java/chart-entities/) لتكييف مظهر المخطط مع متطلبات التصميم الخاصة بك.
+نعم، يوفر Aspose.Slides خيارات تخصيص واسعة. يمكنك تعديل الألوان، الخطوط، التسميات، الوسوم، وعناصر [formatting elements](/slides/ar/php-java/chart-entities/) الأخرى لتلائم متطلبات التصميم الخاصة بك.

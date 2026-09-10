@@ -1,26 +1,26 @@
 ---
-title: Skapa eller uppdatera PowerPoint-presentationer med diagram i Python
-linktitle: Skapa eller uppdatera ett diagram
+title: Skapa eller uppdatera PowerPoint-presentationdiagram i Python
+linktitle: Skapa eller uppdatera diagram
 type: docs
 weight: 10
 url: /sv/python-net/create-chart/
 keywords:
-- lagga till diagram
+- lägg till diagram
 - skapa diagram
 - redigera diagram
-- anda diagram
+- ändra diagram
 - uppdatera diagram
-- spridningsdiagram
-- pajdiagram
+- spridd diagram
+- cirkeldiagram
 - linjediagram
-- trädmapdiagram
-- börsdiagram
-- låda-och-whisker-diagram
+- trädkartsdiagram
+- aktiediagram
+- låda och vispeldiagram
 - trattdiagram
-- solstråle-diagram
+- solstrålediagram
 - histogramdiagram
 - radardiagram
-- multicategory-diagram
+- multikategoridiagram
 - PowerPoint-presentation
 - Python
 - Aspose.Slides
@@ -28,68 +28,65 @@ description: "Lär dig hur du skapar och anpassar diagram i PowerPoint- och Open
 ---
 ## **Översikt**
 
-Den här artikeln ger en heltäckande guide för hur man skapar och anpassar diagram med Aspose.Slides för Python via .NET. Du kommer att lära dig hur du programatiskt lägger till ett diagram på en bild, fyller det med data och tillämpar olika formateringsalternativ för att matcha dina specifika designkrav. Genom hela artikeln illustrerar detaljerade kodexempel varje steg, från att initiera presentationen och diagramobjektet till att konfigurera serier, axlar och förklaringar. Genom att följa guiden får du en solid förståelse för hur du integrerar dynamisk diagramgenerering i dina applikationer, vilket förenklar processen att skapa datadrivna presentationer.
+Denna artikel förklarar hur du skapar och anpassar diagram med Aspose.Slides för Python via .NET. Du kommer att lära dig hur du lägger till ett diagram på en bild, fyller det med data och formaterar det så att det matchar dina designkrav. Kodexemplen täcker skapande av presentationer och diagram, konfigurering av serier, axlar och förklaringar samt integrering av diagramgenerering i dina applikationer.
 
 ## **Skapa ett diagram**
 
-Diagram hjälper personer att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller kalkylblad.
+Diagram hjälper människor att snabbt visualisera data och få insikter som kanske inte är omedelbart uppenbara från en tabell eller ett kalkylblad.
 
 **Varför skapa diagram?**
 
 Genom att använda diagram kan du:
 
-* sammanfatta, kondensera eller summera stora mängder data på en enda bild i en presentation;
+* aggregera, komprimera eller sammanfatta stora mängder data på en enda bild i en presentation;
 * avslöja mönster och trender i data;
-* avgöra riktningen och momentumet i data över tid eller i förhållande till en specifik mätenhet;
+* dra slutsatser om riktning och momentum för data över tid eller i förhållande till en specifik mätenhet;
 * upptäcka avvikande värden, avvikelser, fel och nonsensdata;
-* kommunicera eller presentera komplex data.
+* kommunicera eller presentera komplexa data.
 
-I PowerPoint kan du skapa diagram via *Insert*-funktionen, som erbjuder mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
+I PowerPoint kan du skapa diagram via *Infoga*-funktionen, som erbjuder mallar för att designa många typer av diagram. Med Aspose.Slides kan du skapa både vanliga diagram (baserade på populära diagramtyper) och anpassade diagram.
 
-{{% alert color="primary" %}} 
-Använd enumerationen [ChartType](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/charttype/) under namnutrymmet [Aspose.Slides.Charts](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/). Värdena i denna enumeration motsvarar olika diagramtyper.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Använd uppräkningen [ChartType](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/charttype/) under namnrymden [Aspose.Slides.Charts](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/). Värdena i denna uppräkning motsvarar olika diagramtyper.
+{{% /alert %}}
 
-### **Skapa grupperade kolumndiagram**
+### **Skapa staplade kolumndiagram**
 
-Detta avsnitt förklarar hur du skapar grupperade kolumndiagram med Aspose.Slides för Python via .NET. Du lär dig att initiera en presentation, lägga till ett diagram och anpassa dess element såsom titel, data, serier, kategorier och stil. Följ stegen nedan för att se hur ett standardgrupperat kolumndiagram genereras:
+Detta avsnitt förklarar hur du skapar staplade kolumndiagram med Aspose.Slides för Python via .NET. Du lär dig att initiera en presentation, lägga till ett diagram och anpassa dess element såsom titel, data, serier, kategorier och stil. Följ stegen nedan för att se hur ett standardstaplat kolumndiagram genereras:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
-1. Lägg till ett diagram med någon data och ange typen `ChartType.CLUSTERED_COLUMN`.
+1. Hämta en referens till en bild med hjälp av dess index.
+1. Lägg till ett diagram med viss data och ange typen `ChartType.CLUSTERED_COLUMN`.
 1. Lägg till en titel på diagrammet.
-1. Kom åt diagrammets dataarbetsblad.
+1. Åtkomst till diagrammets dataarbetsblad.
 1. Rensa alla standardserier och -kategorier.
 1. Lägg till nya serier och kategorier.
 1. Lägg till ny diagramdata för diagramserierna.
 1. Tillämpa en fyllningsfärg på diagramserierna.
 1. Lägg till etiketter på diagramserierna.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Denna Python‑kod demonstrerar hur du skapar ett grupperat kolumndiagram:
+Denna Python‑kod demonstrerar hur du skapar ett staplat kolumndiagram:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Skapa en instans av Presentation‑klassen som representerar en PPTX‑fil.
+# Instansiera Presentation-klassen som representerar en PPTX-fil.
 with slides.Presentation() as presentation:
 
     # Hämta den första bilden.
     slide = presentation.slides[0]
 
-    # Lägg till ett grupperat kolumndiagram med standarddata.
+    # Lägg till ett staplat kolumndiagram med dess standarddata.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 300)
 
-    # Ställ in diagramtiteln.
+    # Ange diagrammets titel.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
-
-    # Ställ in att den första serien visar värden.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
     # Ange index för diagrammets datablad.
     worksheet_index = 0
@@ -113,51 +110,51 @@ with slides.Presentation() as presentation:
     # Hämta den första diagramserien.
     series = chart.chart_data.series[0]
 
-    # Fyll seriedata.
+    # Fyll i seriedatan.
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # Sätt fyllningsfärg för serien.
+    # Ange fyllningsfärgen för serien.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.red
 
     # Hämta den andra diagramserien.
     series = chart.chart_data.series[1]
 
-    # Fyll seriedata.
+    # Fyll i seriedatan.
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 2, 30))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 2, 10))
     series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 2, 60))
 
-    # Sätt fyllningsfärg för serien.
+    # Ange fyllningsfärgen för serien.
     series.format.fill.fill_type = slides.FillType.SOLID
     series.format.fill.solid_fill_color.color = draw.Color.green
 
-    # Ställ in den första etiketten att visa kategorinamnet.
+    # Ställ in den första etiketten för att visa kategorinamnet.
     label = series.data_points[0].label
     label.data_label_format.show_category_name = True
 
     label = series.data_points[1].label
     label.data_label_format.show_series_name = True
 
-    # Ställ in serien att visa värdet för den tredje etiketten.
+    # Ställ in serien för att visa värdet för den tredje etiketten.
     label = series.data_points[2].label
     label.data_label_format.show_value = True
     label.data_label_format.show_series_name = True
     label.data_label_format.separator = "/"
                 
-    # Spara presentationen till disk som en PPTX‑fil.
+    # Spara presentationen till disk som en PPTX-fil.
     presentation.save("ClusteredColumnChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Resultatet:
 
-![Det grupperade kolumndiagrammet](clustered_column_chart.png)
+![The clustered column chart](clustered_column_chart.png)
 
 ### **Skapa spridningsdiagram**
 
-Spridningsdiagram (även kända som scatter plots eller x‑y‑grafer) används ofta för att söka efter mönster eller demonstrera korrelationer mellan två variabler.
+Spridningsdiagram (även kända som scatter plots eller x‑y‑grafer) används ofta för att kontrollera mönster eller visa korrelationer mellan två variabler.
 
 Använd ett spridningsdiagram när:
 
@@ -166,14 +163,14 @@ Använd ett spridningsdiagram när:
 * Du vill avgöra om de två variablerna är relaterade.
 * Du har en oberoende variabel som har flera värden för en beroende variabel.
 
-Denna Python‑kod visar hur du skapar ett spridningsdiagram med olika markörserier:
+Denna Python‑kod visar hur du skapar ett spridningsdiagram med olika markörer för varje serie:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Skapa en instans av Presentation-klassen.
+# Instansiera Presentation-klassen.
 with slides.Presentation() as presentation:
 
     # Hämta den första bilden.
@@ -198,10 +195,10 @@ with slides.Presentation() as presentation:
     # Hämta den första diagramserien.
     series = chart.chart_data.series[0]
 
-    # Lägg till en ny punkt (1:3) i serien.
+    # Lägg till en ny punkt (1:3) till serien.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 1, 1), workbook.get_cell(worksheet_index, 2, 2, 3))
 
-    # Lägg till en ny punkt (2:10) i serien.
+    # Lägg till en ny punkt (2:10).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 1, 2), workbook.get_cell(worksheet_index, 3, 2, 10))
 
     # Ändra serietypen.
@@ -214,16 +211,16 @@ with slides.Presentation() as presentation:
     # Hämta den andra diagramserien.
     series = chart.chart_data.series[1]
 
-    # Lägg till en ny punkt (5:2) i diagramserien.
+    # Lägg till en ny punkt (5:2) till diagramserien.
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 2, 3, 5), workbook.get_cell(worksheet_index, 2, 4, 2))
 
-    # Lägg till en ny punkt (3:1) i diagramserien.
+    # Lägg till en ny punkt (3:1).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 3, 3, 3), workbook.get_cell(worksheet_index, 3, 4, 1))
 
-    # Lägg till en ny punkt (2:2) i diagramserien.
+    # Lägg till en ny punkt (2:2).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 4, 3, 2), workbook.get_cell(worksheet_index, 4, 4, 2))
 
-    # Lägg till en ny punkt (5:1) i diagramserien.
+    # Lägg till en ny punkt (5:1).
     series.data_points.add_data_point_for_scatter_series(workbook.get_cell(worksheet_index, 5, 3, 5), workbook.get_cell(worksheet_index, 5, 4, 1))
 
     # Ändra diagramseriens markör.
@@ -235,49 +232,46 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Spridningsdiagrammet](scatter_chart.png)
+![The scatter chart](scatter_chart.png)
 
-### **Skapa pajdiagram**
+### **Skapa cirkeldiagram**
 
-Pajdiagram används bäst för att visa relationen del‑till‑helhet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data har många delar eller etiketter kan ett stapeldiagram vara ett bättre alternativ.
+Cirkeldiagram är bäst för att visa förhållandet del‑till‑helhet i data, särskilt när data innehåller kategoriska etiketter med numeriska värden. Om dina data innehåller många delar eller etiketter kan du dock överväga att använda ett stapeldiagram istället.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Lägg till ett diagram med standarddata och ange typen `ChartType.PIE`.
-1. Kom åt diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Rensa standardserier och -kategorier.
+1. Åtkomst till diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Rensa de standardserier och -kategorier.
 1. Lägg till nya serier och kategorier.
 1. Lägg till ny diagramdata för diagramserierna.
-1. Lägg till nya punkter för diagrammet och tillämpa egna färger på sektorerna i pajdiagrammet.
+1. Lägg till nya punkter för diagrammet och tillämpa anpassade färger på cirkelns sektorer.
 1. Ställ in etiketter för serierna.
-1. Aktivera förklaringslinjer för serieetiketter.
-1. Ställ in rotationsvinkeln för pajdiagrammet.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Aktivera ledarlinjer för serieetiketterna.
+1. Ställ in rotationsvinkeln för cirkeldiagrammet.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Denna Python‑kod visar hur du skapar ett pajdiagram:
+Denna Python‑kod visar hur du skapar ett cirkeldiagram:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Skapa en instans av Presentation-klassen som representerar en PPTX-fil.
+# Instansiera Presentation-klassen som representerar en PPTX-fil.
 with slides.Presentation() as presentation:
 
     # Hämta den första bilden.
     slide = presentation.slides[0]
 
-    # Lägg till ett diagram med standarddata.
+    # Lägg till ett diagram med dess standarddata.
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 20, 20, 500, 300)
 
-    # Ställ in diagramtiteln.
+    # Ange diagrammets titel.
     chart.chart_title.add_text_frame_for_overriding("Sample Title")
     chart.chart_title.text_frame_for_overriding.text_frame_format.center_text = slides.NullableBool.TRUE
     chart.chart_title.height = 20
     chart.has_title = True
-
-    # Ställ in att den första serien visar värden.
-    chart.chart_data.series[0].labels.default_data_label_format.show_value = True
 
     # Ange index för diagrammets datablad.
     worksheet_index = 0
@@ -297,19 +291,19 @@ with slides.Presentation() as presentation:
     # Lägg till nya serier.
     series = chart.chart_data.series.add(workbook.get_cell(0, 0, 1, "Series 1"), chart.type)
 
-    # Fyll seriedata.
+    # Fyll i seriedatan.
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 1, 1, 20))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 2, 1, 50))
     series.data_points.add_data_point_for_pie_series(workbook.get_cell(worksheet_index, 3, 1, 30))
 
-    # Ställ in sektionsfärgen.
+    # Ange sektionsfärgen.
     chart.chart_data.series_groups[0].is_color_varied = True
 
     point = series.data_points[0]
     point.format.fill.fill_type = slides.FillType.SOLID
     point.format.fill.solid_fill_color.color = draw.Color.cyan
 
-    # Ställ in sektionsramen.
+    # Ange sektionsramen.
     point.format.line.fill_format.fill_type = slides.FillType.SOLID
     point.format.line.fill_format.solid_fill_color.color = draw.Color.gray
     point.format.line.width = 3.0
@@ -320,7 +314,7 @@ with slides.Presentation() as presentation:
     point1.format.fill.fill_type = slides.FillType.SOLID
     point1.format.fill.solid_fill_color.color = draw.Color.brown
 
-    # Ställ in sektionsramen.
+    # Ange sektionsramen.
     point1.format.line.fill_format.fill_type = slides.FillType.SOLID
     point1.format.line.fill_format.solid_fill_color.color = draw.Color.blue
     point1.format.line.width = 3.0
@@ -331,7 +325,7 @@ with slides.Presentation() as presentation:
     point2.format.fill.fill_type = slides.FillType.SOLID
     point2.format.fill.solid_fill_color.color = draw.Color.coral
 
-    # Ställ in sektionsramen.
+    # Ange sektionsramen.
     point2.format.line.fill_format.fill_type = slides.FillType.SOLID
     point2.format.line.fill_format.solid_fill_color.color = draw.Color.red
     point2.format.line.width = 2.0
@@ -352,10 +346,10 @@ with slides.Presentation() as presentation:
     label3.data_label_format.show_series_name = True
     label3.data_label_format.show_percentage = True
 
-    # Ställ in serien att visa förklaringslinjer för diagrammet.
+    # Ställ in serien för att visa ledarlinjer för diagrammet.
     series.labels.default_data_label_format.show_leader_lines = True
 
-    # Ställ in rotationsvinkeln för pajdiagrammets sektorer.
+    # Ange rotationsvinkeln för cirkeldiagrammets sektorer.
     chart.chart_data.series_groups[0].first_slice_angle = 180
 
     # Spara presentationen till disk som en PPTX-fil.
@@ -364,20 +358,16 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Pajdiagrammet](pie_chart.png)
+![The pie chart](pie_chart.png)
 
 ### **Skapa linjediagram**
 
-Linjediagram (även kända som linjediagram) är bäst när du vill demonstrera förändringar i värde över tid. Med ett linjediagram kan du jämföra en stor mängd data samtidigt, spåra förändringar och trender över tid, framhäva avvikelser i dataserier och mer.
+Linjediagram (även kända som linjegrafer) är bäst i situationer där du vill visa förändringar i värde över tid. Med ett linjediagram kan du jämföra stora mängder data samtidigt, spåra förändringar och trender över tid, markera avvikelser i dataserier och mer.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Lägg till ett diagram med standarddata och ange typen `ChartType.LINE`.
-1. Kom åt diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Rensa standardserier och -kategorier.
-1. Lägg till nya serier och kategorier.
-1. Lägg till ny diagramdata för diagramserierna.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
 Denna Python‑kod visar hur du skapar ett linjediagram:
 
@@ -390,31 +380,36 @@ with slides.Presentation() as presentation:
     presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Som standard är punkterna i ett linjediagram förenade med raka linjer. Om du vill att punkterna ska förenas med streck kan du specificera önskad strecktyp enligt följande:
+Som standard är punkterna i ett linjediagram förenade med raka, kontinuerliga linjer. Om du vill att punkterna ska förenas med streck kan du ange önskad strecktyp enligt följande:
 
 ```python
-line_chart = pres.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+import aspose.slides as slides
 
-for series in line_chart.chart_data.series:
-    series.format.line.dash_style = slides.charts.LineDashStyle.DASH
+with slides.Presentation() as presentation:
+    line_chart = presentation.slides[0].shapes.add_chart(slides.charts.ChartType.LINE, 10, 50, 600, 350)
+
+    for series in line_chart.chart_data.series:
+        series.format.line.dash_style = slides.LineDashStyle.DASH
+
+    presentation.save("LineChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Resultatet:
 
-![Linjediagrammet](line_chart.png)
+![The line chart](line_chart.png)
 
 ### **Skapa trädkartsdiagram**
 
-Trädkartsdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt rikta uppmärksamheten mot stora bidragsgivare inom varje kategori.
+Trädkartsdiagram är bäst för försäljningsdata när du vill visa den relativa storleken på datakategorier och snabbt dra uppmärksamhet till poster som är stora bidragsgivare inom varje kategori.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Lägg till ett diagram med standarddata och ange typen `ChartType.TREEMAP`.
-1. Kom åt diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Rensa standardserier och -kategorier.
+1. Åtkomst till diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Rensa de standardserier och -kategorier.
 1. Lägg till nya serier och kategorier.
 1. Lägg till ny diagramdata för diagramserierna.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
 Denna Python‑kod visar hur du skapar ett trädkartsdiagram:
 
@@ -473,23 +468,23 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Trädkartsdiagrammet](treemap_chart.png)
+![The treemap chart](treemap_chart.png)
 
-### **Skapa börsdiagram**
+### **Skapa aktiediagram**
 
-Börsdiagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De ger viktig insikt i aktieprestanda och hjälper investerare och analytiker att fatta informerade beslut.
+Aktiediagram används för att visa finansiella data såsom öppnings-, högsta-, lägsta- och stängningspriser, vilket hjälper till att analysera marknadstrender och volatilitet. De ger viktiga insikter om aktiens utveckling och underlättar för investerare och analytiker att fatta informerade beslut.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Lägg till ett diagram med standarddata och ange typen `ChartType.OPEN_HIGH_LOW_CLOSE`.
-1. Kom åt diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Rensa standardserier och -kategorier.
+1. Åtkomst till diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Rensa de standardserier och -kategorier.
 1. Lägg till nya serier och kategorier.
 1. Lägg till ny diagramdata för diagramserierna.
-1. Specificera formatet för HiLowLines.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Ange format för hög‑låg‑linjer.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Denna Python‑kod visar hur du skapar ett börsdiagram:
+Denna Python‑kod visar hur du skapar ett aktiediagram:
 
 ```py
 import aspose.slides.charts as charts
@@ -545,22 +540,22 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Börsdiagrammet](stock_chart.png)
+![The stock chart](stock_chart.png)
 
-### **Skapa låd- och whisker‑diagram**
+### **Skapa låda‑och‑vispeldiagram**
 
-Låda‑och‑whisker‑diagram används för att visa datafördelning genom att sammanfatta centrala statistiska mått, såsom median, kvartiler och potentiella avvikare. De är särskilt användbara i explorativ dataanalys och statistiska studier för snabbt att förstå dataspridning och identifiera avvikelser.
+Låda‑och‑vispeldiagram används för att visa fördelningen av data genom att sammanfatta viktiga statistiska mått, såsom median, kvartiler och potentiella avvikande värden. De är särskilt användbara vid utforskande dataanalys och statistiska studier för att snabbt förstå datavariabilitet och identifiera avvikelser.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Lägg till ett diagram med standarddata och ange typen `ChartType.BOX_AND_WHISKER`.
-1. Kom åt diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Rensa standardserier och -kategorier.
+1. Åtkomst till diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Rensa de standardserier och -kategorier.
 1. Lägg till nya serier och kategorier.
 1. Lägg till ny diagramdata för diagramserierna.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Denna Python‑kod visar hur du skapar ett låda‑och‑whisker‑diagram:
+Denna Python‑kod visar hur du skapar ett låda‑och‑vispeldiagram:
 
 ```py
 import aspose.slides.charts as charts
@@ -602,12 +597,12 @@ with slides.Presentation() as presentation:
 
 ### **Skapa trattdiagram**
 
-Trattdiagram används för att visualisera processer som involverar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och följa effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
+Trattdiagram används för att visualisera processer som innefattar sekventiella steg, där datavolymen minskar när den går från ett steg till nästa. De är särskilt hjälpsamma för att analysera konverteringsgrader, identifiera flaskhalsar och följa effektiviteten i försäljnings‑ eller marknadsföringsprocesser.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Lägg till ett diagram med standarddata och ange typen `ChartType.FUNNEL`.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
 Denna Python‑kod visar hur du skapar ett trattdiagram:
 
@@ -645,16 +640,16 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Trattdiagrammet](funnel_chart.png)
+![The funnel chart](funnel_chart.png)
 
 ### **Skapa solstråle‑diagram**
 
-Solstråle‑diagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhetsrelationer och är idealiska för att representera inbäddade kategorier och underkategorier på ett tydligt, kompakt sätt.
+Solstråle‑diagram används för att visualisera hierarkisk data, där nivåer visas som koncentriska ringar. De hjälper till att illustrera del‑till‑helhet‑relationer och är idealiska för att representera inbäddade kategorier och underkategorier i ett tydligt, kompakt format.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Lägg till ett diagram med standarddata och ange typen `ChartType.SUNBURST`.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
 Denna Python‑kod visar hur du skapar ett solstråle‑diagram:
 
@@ -711,19 +706,19 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Solstråle‑diagrammet](sunburst_chart.png)
+![The sunburst chart](sunburst_chart.png)
 
 ### **Skapa histogram‑diagram**
 
-Histogram‑diagram används för att representera fördelningen av numeriska data genom att gruppera värden i intervall eller "bins". De är särskilt användbara för att identifiera mönster som frekvens, skevhet och spridning samt för att upptäcka avvikare i en dataset.
+Histogram‑diagram används för att representera fördelningen av numeriska data genom att gruppera värden i intervall eller "bins". De är särskilt användbara för att identifiera datamönster såsom frekvens, skevhet och spridning samt för att upptäcka avvikelser i ett dataset.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
-1. Lägg till ett diagram med någon data och ange typen `ChartType.HISTOGRAM`.
-1. Kom åt diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Rensa standardserier och -kategorier.
-1. Lägg till nya serier och kategorier.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Hämta en referens till en bild med hjälp av dess index.
+1. Lägg till ett diagram med viss data och ange typen `ChartType.HISTOGRAM`.
+1. Åtkomst till diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Rensa de standardserier och -kategorier.
+1. Lägg till en ny serie och fyll den med datapunkter. Ett histogram har inga kategorier; "bins" beräknas utifrån värdena.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
 Denna Python‑kod visar hur du skapar ett histogram‑diagram:
 
@@ -755,16 +750,16 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Histogram‑diagrammet](histogram_chart.png)
+![The histogram chart](histogram_chart.png)
 
 ### **Skapa radardiagram**
 
-Radardiagram används för att visa multivariata data i ett tvådimensionellt format, vilket möjliggör enkel jämförelse av flera variabler samtidigt. De är särskilt användbara för att identifiera mönster, styrkor och svagheter över flera prestationsmått eller attribut.
+Radardiagram används för att visa multivariata data i ett tvådimensionellt format, vilket möjliggör enkel jämförelse av flera variabler samtidigt. De är särskilt användbara för att identifiera mönster, styrkor och svagheter över flera prestationsmått eller egenskaper.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
-1. Lägg till ett diagram med någon data och ange typen `ChartType.RADAR`.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Hämta en referens till en bild med hjälp av dess index.
+1. Lägg till ett diagram med viss data och ange typen `ChartType.RADAR`.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
 Denna Python‑kod visar hur du skapar ett radardiagram:
 
@@ -773,27 +768,27 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     presentation.slides[0].shapes.add_chart(slides.charts.ChartType.RADAR, 20, 20, 500, 300)
-    presentation.save("RadarСhart.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RadarChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Resultatet:
 
-![Radardiagrammet](radar_chart.png)
+![The radar chart](radar_chart.png)
 
 ### **Skapa multi‑kategoridiagram**
 
-Multi‑kategoridiagram används för att visa data som innefattar mer än en kategorisk gruppering, vilket gör det möjligt att jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och relationer i komplexa, flerskiktsdatamängder.
+Multi‑kategoridiagram används för att visa data som involverar mer än en kategorisk gruppering, vilket gör att du kan jämföra värden över flera dimensioner samtidigt. De är särskilt hjälpsamma när du behöver analysera trender och samband i komplexa, flerskiktsdatamängder.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till en bild med dess index.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Lägg till ett diagram med standarddata och ange typen `ChartType.CLUSTERED_COLUMN`.
-1. Kom åt diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
-1. Rensa standardserier och -kategorier.
+1. Åtkomst till diagrammets dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)).
+1. Rensa de standardserier och -kategorier.
 1. Lägg till nya serier och kategorier.
 1. Lägg till ny diagramdata för diagramserierna.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Denna Python‑kod visar hur du skapar ett multicategoridiagram:
+Denna Python‑kod visar hur du skapar ett multi‑kategoridiagram:
 
 ```py
 import aspose.slides.charts as charts
@@ -846,11 +841,11 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Det multicategoridiagrammet](multi_category_chart.png)
+![The multi-category chart](multi_category_chart.png)
 
 ### **Skapa kartdiagram**
 
-Kartdiagram används för att visualisera geografisk data genom att mappa information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografisk data och rumslig fördelning på ett tydligt och visuellt engagerande sätt.
+Kartdiagram används för att visualisera geografisk data genom att kartlägga information till specifika platser såsom länder, delstater eller städer. De är särskilt användbara för att analysera regionala trender, demografiska data och rumsliga fördelningar på ett tydligt och visuellt engagerande sätt.
 
 Denna Python‑kod visar hur du skapar ett kartdiagram:
 
@@ -864,17 +859,21 @@ with slides.Presentation() as presentation:
 
 Resultatet:
 
-![Kartdiagrammet](map_chart.png)
+![The map chart](map_chart.png)
 
 ### **Skapa kombinationsdiagram**
 
-Ett kombinationsdiagram (eller kombodiagram) kombinerar två eller fler diagramtyper i ett enda diagram. Detta diagram låter dig framhäva, jämföra eller undersöka skillnader mellan två eller fler dataset, vilket hjälper dig att identifiera relationer mellan dem.
+Ett kombinationsdiagram (eller combo‑diagram) kombinerar två eller fler diagramtyper i ett och samma diagram. Detta diagram låter dig markera, jämföra eller undersöka skillnader mellan två eller flera dataset, vilket hjälper dig att identifiera samband mellan dem.
 
-![Kombinationsdiagrammet](combination_chart.png)
+![The combination chart](combination_chart.png)
 
 Följande Python‑kod visar hur du skapar kombinationsdiagrammet som visas ovan i en PowerPoint‑presentation:
 
 ```python
+import aspose.slides.charts as charts
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 def create_combo_chart():
     with slides.Presentation() as presentation:
         chart = create_chart_with_first_series(presentation.slides[0])
@@ -891,7 +890,7 @@ def create_combo_chart():
 def create_chart_with_first_series(slide):
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
 
-    # Ställ in diagramtitel.
+    # Ange diagrammets titel.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("Chart Title")
     chart.chart_title.overlay = False
@@ -901,7 +900,7 @@ def create_chart_with_first_series(slide):
     title_format.font_bold = slides.NullableBool.FALSE
     title_format.font_height = 18
 
-    # Ställ in diagramförklaring.
+    # Ange diagrammets förklaring.
     chart.legend.position = charts.LegendPositionType.BOTTOM
     chart.legend.text_format.portion_format.font_height = 12
 
@@ -965,28 +964,28 @@ def add_third_series_to_chart(chart):
 
 
 def set_primary_axes_format(chart):
-    # Ställ in den horisontella axeln.
+    # Ange den horisontella axeln.
     horizontal_axis = chart.axes.horizontal_axis
     horizontal_axis.text_format.portion_format.font_height = 12.0
     horizontal_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(horizontal_axis, "X Axis")
 
-    # Ställ in den vertikala axeln.
+    # Ange den vertikala axeln.
     vertical_axis = chart.axes.vertical_axis
     vertical_axis.text_format.portion_format.font_height = 12.0
     vertical_axis.format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
     set_axis_title(vertical_axis, "Y Axis 1")
 
-    # Ställ in färgen på de vertikala huvudrutnätslinjerna.
+    # Ange färgen för de vertikala huvudrutnätslinjerna.
     major_grid_lines_format = vertical_axis.major_grid_lines_format.line.fill_format
     major_grid_lines_format.fill_type = slides.FillType.SOLID
     major_grid_lines_format.solid_fill_color.color = draw.Color.from_argb(217, 217, 217)
 
 
 def set_secondary_axes_format(chart):
-    # Ställ in den sekundära horisontella axeln.
+    # Ange den sekundära horisontella axeln.
     secondary_horizontal_axis = chart.axes.secondary_horizontal_axis
     secondary_horizontal_axis.position = charts.AxisPositionType.BOTTOM
     secondary_horizontal_axis.cross_type = charts.CrossesType.MAXIMUM
@@ -994,7 +993,7 @@ def set_secondary_axes_format(chart):
     secondary_horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
     secondary_horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Ställ in den sekundära vertikala axeln.
+    # Ange den sekundära vertikala axeln.
     secondary_vertical_axis = chart.axes.secondary_vertical_axis
     secondary_vertical_axis.position = charts.AxisPositionType.RIGHT
     secondary_vertical_axis.text_format.portion_format.font_height = 12.0
@@ -1015,15 +1014,15 @@ def set_axis_title(axis, axis_title):
 
 ## **Uppdatera diagram**
 
-Aspose.Slides för Python via .NET gör det möjligt att uppdatera PowerPoint‑diagram genom att modifiera diagramdata, formatering och stil. Denna funktion förenklar processen att hålla presentationer uppdaterade med dynamiskt innehåll och säkerställer att diagramen exakt återspeglar aktuella data och visuella standarder.
+Aspose.Slides för Python via .NET låter dig uppdatera diagramdata, formatering och stil för att hålla dina PowerPoint‑presentationer aktuella.
 
-1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) som representerar presentationen som innehåller ett diagram.
-1. Hämta en referens till en bild med dess index.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för att öppna presentationen som innehåller diagrammet.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Gå igenom alla former för att hitta diagrammet.
-1. Kom åt diagrammets dataarbetsblad.
-1. Ändra diagramdataserierna genom att byta serievärden.
+1. Åtkomst till diagrammets dataarbetsblad.
+1. Ändra diagramdataserier genom att byta serievärden.
 1. Lägg till en ny serie och fyll i dess data.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
 Denna Python‑kod visar hur du uppdaterar ett diagram:
 
@@ -1034,7 +1033,7 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# Skapa en instans av Presentation-klassen som representerar en PPTX-fil.
+# Instansiera Presentation-klassen som representerar en PPTX-fil.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
     # Hämta den första bilden.
@@ -1058,7 +1057,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             series = chart.chart_data.series[0]
 
             # Uppdatera seriedatan.
-            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # Modifierar serienamnet.
+            workbook.get_cell(worksheet_index, 0, 1, "New_Series1")  # Ändrar serienamnet.
             series.data_points[0].value.data = 90
             series.data_points[1].value.data = 123
             series.data_points[2].value.data = 44
@@ -1067,7 +1066,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             series = chart.chart_data.series[1]
 
             # Uppdatera seriedatan.
-            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # Modifierar serienamnet.
+            workbook.get_cell(worksheet_index, 0, 2, "New_Series2")  # Ändrar serienamnet.
             series.data_points[0].value.data = 23
             series.data_points[1].value.data = 67
             series.data_points[2].value.data = 99
@@ -1075,7 +1074,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             # Lägg till en ny serie.
             series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, 0, 3, "Series 3"), chart.type)
 
-            # Fyll seriedata.
+            # Fyll i seriedatan.
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 1, 3, 20))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 2, 3, 50))
             series.data_points.add_data_point_for_bar_series(workbook.get_cell(worksheet_index, 3, 3, 30))
@@ -1086,17 +1085,17 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
             presentation.save("ModifiedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ange dataintervall för diagram**
+## **Ange dataintervall för ett diagram**
 
-Aspose.Slides för Python via .NET ger flexibiliteten att definiera ett specifikt dataintervall från ett arbetsblad som källa för ditt diagram. Det innebär att du kan mappa en del av ditt arbetsblad direkt till diagrammet, vilket gör att du kan kontrollera vilka celler som bidrar till diagrammets serier och kategorier. Som ett resultat kan du enkelt uppdatera och synkronisera dina diagram med de senaste dataändringarna i ditt arbetsblad, så att dina PowerPoint‑presentationer alltid visar aktuell och korrekt information.
+Aspose.Slides för Python via .NET låter dig använda ett specifikt arbetsbladsintervall som datakälla för ett diagram. Detta styr vilka celler som levererar diagrammets serier och kategorier och låter dig uppdatera diagrammet för att återspegla förändringar i arbetsbladet.
 
-1. Instansiera klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) som representerar presentationen som innehåller ett diagram.
-1. Hämta en referens till en bild med dess index.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för att öppna presentationen som innehåller diagrammet.
+1. Hämta en referens till en bild med hjälp av dess index.
 1. Gå igenom alla former för att hitta diagrammet.
-1. Kom åt diagramdata och ange intervallet.
-1. Spara den modifierade presentationen som en PPTX‑fil.
+1. Åtkomst till diagramdata och ange intervallet.
+1. Spara den ändrade presentationen som en PPTX‑fil.
 
-Denna Python‑kod visar hur du anger dataintervall för ett diagram:
+Denna Python‑kod visar hur du anger dataintervallet för ett diagram:
 
 ```py
 import aspose.slides.charts as charts
@@ -1105,7 +1104,7 @@ import aspose.pydrawing as draw
 
 chart_name = "My chart"
 
-# Skapa en instans av Presentation-klassen som representerar en PPTX-fil.
+# Instansiera Presentation-klassen som representerar en PPTX-fil.
 with slides.Presentation("ExistingChart.pptx") as presentation:
 
     # Hämta den första bilden.
@@ -1121,7 +1120,7 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
 
 ## **Använd standardmarkörer i diagram**
 
-När du använder standardmarkörer i diagram får varje diagramserie automatiskt en annan standardmarkörsymbol.
+När du använder standardmarkörer i diagram får varje diagramserie automatiskt en annan markörsymbol.
 
 Denna Python‑kod visar hur du automatiskt sätter en markör för en diagramserie:
 
@@ -1155,7 +1154,7 @@ with slides.Presentation() as presentation:
 
     series2 = chart.chart_data.series.add(workbook.get_cell(0, 0, 2, "Series 2"), chart.type)
 
-    # Fyll seriedata.
+    # Fyll i seriedatan.
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 1, 2, 30))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 2, 2, 10))
     series2.data_points.add_data_point_for_line_series(workbook.get_cell(0, 3, 2, 60))
@@ -1171,12 +1170,16 @@ with slides.Presentation() as presentation:
 
 **Vilka diagramtyper stöds av Aspose.Slides för Python via .NET?**
 
-Aspose.Slides för Python via .NET stöder ett brett spektrum av diagramtyper, inklusive stapeldiagram, linjediagram, pajdiagram, områdesdiagram, spridningsdiagram, histogram, radardiagram och många fler. Denna flexibilitet låter dig välja den mest lämpliga diagramtypen för dina visualiseringsbehov.
+Aspose.Slides för Python via .NET stöder ett brett utbud av diagramtyper, inklusive stapel, linje, cirkel, area, spridning, histogram, radar och många fler. Denna flexibilitet gör att du kan välja den mest lämpliga diagramtypen för dina data‑visualiseringsbehov.
 
 **Hur lägger jag till ett nytt diagram på en bild?**
 
-För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/), hämtar den önskade bilden med dess index och anropar sedan metoden för att lägga till ett diagram, med angiven diagramtyp och initial data. Detta integrerar diagrammet direkt i din presentation.
+För att lägga till ett diagram skapar du först en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/), hämtar den önskade bilden med hjälp av dess index och anropar sedan metoden för att lägga till ett diagram, där du specificerar diagramtyp och initiala data. Detta integrerar diagrammet direkt i din presentation.
 
 **Hur kan jag uppdatera data som visas i ett diagram?**
 
-Du kan uppdatera ett diagram genom att komma åt dess dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)), rensa eventuella standardserier och -kategorier och sedan lägga till dina egna data. Detta gör att du programatiskt kan uppdatera diagrammet så att det speglar de senaste data.
+Du kan uppdatera ett diagrams data genom att få åtkomst till dess dataarbetsbok ([ChartDataWorkbook](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdataworkbook/)), rensa eventuella standardserier och -kategorier och sedan lägga till dina egna data. Detta gör att du programatiskt kan uppdatera diagrammet så att det speglar de senaste uppgifterna.
+
+**Kan jag anpassa diagrammets utseende?**
+
+Ja, Aspose.Slides för Python via .NET erbjuder omfattande anpassningsalternativ. Du kan ändra färger, typsnitt, etiketter, förklaringar och andra formateringselement för att skräddarsy diagrammets utseende efter dina specifika designkrav.

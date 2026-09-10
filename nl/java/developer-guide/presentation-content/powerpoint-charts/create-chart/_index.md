@@ -1,107 +1,102 @@
 ---
-title: Maak of werk diagrammen in PowerPoint‑presentaties bij in Java
-linktitle: Diagrammen maken of bijwerken
+title: Maak of werk PowerPoint‑presentatie‑grafieken bij in Java
+linktitle: Maak of werk grafieken bij
 type: docs
 weight: 10
 url: /nl/java/create-chart/
 keywords:
-- diagram toevoegen
-- diagram maken
-- diagram bewerken
-- diagram wijzigen
-- diagram bijwerken
-- verspreid diagram
-- taartdiagram
-- lijndiagram
-- boomkaartdiagram
-- aandelen‑diagram
-- box‑en‑whisker‑diagram
-- trechterdiagram
-- sunburst‑diagram
-- histogramdiagram
-- radardiagram
-- meervoudig‑categorie‑diagram
+- grafiek toevoegen
+- grafiek maken
+- grafiek bewerken
+- grafiek wijzigen
+- grafiek bijwerken
+- spreidingsgrafiek
+- taartgrafiek
+- lijngrafiek
+- boomkaartgrafiek
+- aandelen‑grafiek
+- box‑en‑whisker‑grafiek
+- funnel‑grafiek
+- sunburst‑grafiek
+- histogramgrafiek
+- radargrafiek
+- multicategorie‑grafiek
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Maak en pas diagrammen aan in PowerPoint‑presentaties met Aspose.Slides voor Java. Voeg diagrammen toe, formatteer en bewerk ze met praktische code‑voorbeelden in Java."
+description: "Maak en pas grafieken aan in PowerPoint‑presentaties met Aspose.Slides voor Java. Voeg grafieken toe, formatteer ze en bewerk ze met praktische code‑voorbeelden in Java."
 ---
 ## **Overzicht**
 
-Dit artikel biedt een uitgebreide gids over hoe u diagrammen kunt maken en aanpassen met Aspose.Slides. U leert hoe u programmatiche een diagram aan een dia toevoegt, deze vult met gegevens en verschillende opmaakopties toepast om aan uw specifieke ontwerpeisen te voldoen. Door het hele artikel heen illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en diagramobject tot het configureren van series, assen en legenda’s. Door deze gids te volgen, krijgt u een solide begrip van hoe u dynamische diagramgeneratie in uw applicaties kunt integreren, waardoor het proces van het maken van data‑gedreven presentaties wordt gestroomlijnd.
+Dit artikel biedt een uitgebreide handleiding voor het maken en aanpassen van grafieken met Aspose.Slides. Je leert hoe je programmatic een grafiek aan een dia toevoegt, deze van gegevens voorziet en verschillende opmaakopties toepast om te voldoen aan jouw specifieke ontwerpvereisten. Gedurende het artikel illustreren gedetailleerde code‑voorbeelden elke stap, van het initialiseren van de presentatie en het grafiekobject tot het configureren van series, assen en legenda's. Door deze gids te volgen krijg je een solide inzicht in hoe je dynamische grafiekgeneratie integreert in je applicaties, waardoor het proces van het maken van datagestuurde presentaties wordt vereenvoudigd.
 
-## **Diagrammen maken**
-Diagrammen helpen mensen snel gegevens te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet. 
+## **Grafiek maken**
 
+Grafieken helpen mensen om gegevens snel te visualiseren en inzichten te verkrijgen die niet meteen duidelijk zijn uit een tabel of spreadsheet.
 
-**Waarom diagrammen maken?**
+**Waarom grafieken maken?**
 
-Met diagrammen kunt u
+Met grafieken kun je:
 
-* grote hoeveelheden gegevens aggregeren, comprimeren of samenvatten op één dia in een presentatie
+* grote hoeveelheden gegevens op één dia van een presentatie aggregeren, condenseren of samenvatten
 * patronen en trends in gegevens blootleggen
-* de richting en momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden
-* afwijkingen, anomalieën, fouten, onzinnige gegevens, enz. opsporen
+* de richting en het momentum van gegevens in de tijd of ten opzichte van een specifieke meeteenheid afleiden
+* uitschieters, afwijkingen, fouten, onzinnige gegevens, enz. identificeren
 * complexe gegevens communiceren of presenteren
 
-In PowerPoint kunt u diagrammen maken via de invoegfunctie, die sjablonen biedt voor het ontwerpen van veel verschillende diagramtypen. Met Aspose.Slides kunt u gewone diagrammen (gebaseerd op populaire diagramtypen) en aangepaste diagrammen maken. 
+In PowerPoint kun je grafieken maken via de *Insert*-functie, die sjablonen biedt voor het ontwerpen van veel verschillende grafiektype­n. Met Aspose.Slides kun je zowel reguliere grafieken (gebaseerd op populaire grafiektype­n) als aangepaste grafieken maken.
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
 
-Om diagrammen te kunnen maken, biedt Aspose.Slides de [ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType) klasse. De velden onder deze klasse komen overeen met verschillende diagramtypen. 
+Om grafieken te maken, gebruik je de [ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/)‑klasse. De velden in deze klasse komen overeen met verschillende grafiektype­n.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-### **Normale diagrammen maken**
+### **Clustered Column‑grafieken maken**
 
-_Stappen: Diagram maken_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Stappen:</em> Maak PowerPoint-diagram in Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Stappen:</em> Maak presentatiediagram in Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatiediagram in Java</strong></a>
+Deze sectie legt uit hoe je clustered column‑grafieken maakt met Aspose.Slides. Je leert een presentatie initialiseren, een grafiek toevoegen en de elementen zoals titel, gegevens, series, categorieën en stijl aanpassen. Volg de onderstaande stappen om te zien hoe een standaard clustered column‑grafiek wordt gegenereerd:
 
-_Code Stappen:_
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation)‑klasse.
+1. Verkrijg een referentie naar een dia op basis van de index.
+1. Voeg een grafiek toe met enkele gegevens en specificeer het type `ChartType.ClusteredColumn`.
+1. Voeg een titel toe aan de grafiek.
+1. Toegang tot het gegevenswerkblad van de grafiek.
+1. Verwijder alle standaardseries en -categorieën.
+1. Voeg nieuwe series en categorieën toe.
+1. Voeg nieuwe grafiekgegevens toe voor de grafiekseries.
+1. Pas een vulkleur toe op de grafiekseries.
+1. Voeg labels toe aan de grafiekseries.
+1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met enige gegevens en geef uw gewenste diagramtype op.  
-4. Voeg een titel toe aan het diagram.  
-5. Toegang tot het werkblad met diagramgegevens.  
-6. Wis alle standaard series en categorieën.  
-7. Voeg nieuwe series en categorieën toe.  
-8. Voeg nieuwe diagramgegevens toe voor de series.  
-9. Voeg een vulkleur toe voor de series.  
-10. Voeg labels toe voor de series.  
-11. Schrijf de aangepaste presentatie weg als een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een normaal diagram maakt:
+Deze C#‑code demonstreert hoe je een clustered column‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt
 Presentation pres = new Presentation();
 try {
-    // Benadert de eerste dia
+    // Verkrijgt de eerste dia
     ISlide sld = pres.getSlides().get_Item(0);
     
-    // Voegt een diagram toe met de standaardgegevens
+    // Voegt een grafiek toe met zijn standaardgegevens
     IChart chart = sld.getShapes().addChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
     
-    // Stelt de diagramtitel in
+    // Stelt de titel van de grafiek in
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
+    chart.setTitle(true);
     
-    // Stelt de eerste serie in om waarden weer te geven
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Stelt de index in voor het diagramgegevensblad
+    // Stelt de index voor het datablad van de grafiek in
     int defaultWorksheetIndex = 0;
     
-    // Haalt het diagramgegevens‑werkblad op
+    // Verkrijgt het werkblad met de grafiekgegevens
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Verwijdert de standaardgegenereerde series en categorieën
+    // Verwijdert de standaard gegenereerde series en categorieën
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     int s = chart.getChartData().getSeries().size();
@@ -116,31 +111,31 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     
-    // Neemt de eerste diagramserie
+    // Pakt de eerste grafiekserie
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
-    // Vult nu de seriesgegevens
+    // Vult nu de seriedata
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
-    // Stelt de opvulkleur in voor de serie
+    // Stelt de vulkleur in voor de series
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
     
-    // Neemt de tweede diagramserie
+    // Pakt de tweede grafiekserie
     series = chart.getChartData().getSeries().get_Item(1);
     
-    // Vult seriesgegevens
+    // Vult seriedata
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     
-    // Stelt de opvulkleur in voor de serie
+    // Stelt de vulkleur in voor de series
     series.getFormat().getFill().setFillType(FillType.Solid);
     series.getFormat().getFill().getSolidFillColor().setColor(Color.GREEN);
     
-    // Maak aangepaste labels voor elke categorie voor de nieuwe series
+    // Maak aangepaste labels voor elke categorie voor de nieuwe serie
     // Stelt het eerste label in om de categorienaam weer te geven
     IDataLabel lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
@@ -148,67 +143,66 @@ try {
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
     
-    // Toont waarde voor het derde label
+    // Toont de waarde voor het derde label
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
     
-    // Slaat de presentatie met diagram op
+    // Slaat de presentatie met grafiek op
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Verspreide diagrammen maken**
-Verspreide diagrammen (ook wel scatter‑plots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen te demonstreren. 
+### **Scatter‑grafieken maken**
 
-U kunt een verspreid diagram gebruiken wanneer
+Scatter‑grafieken (ook wel scatter‑plots of x‑y‑grafieken genoemd) worden vaak gebruikt om patronen te zoeken of correlaties tussen twee variabelen aan te tonen.
 
-* u gekoppelde numerieke gegevens heeft
-* u twee variabelen heeft die goed bij elkaar passen
-* u wilt bepalen of twee variabelen met elkaar verband houden
-* u een onafhankelijke variabele heeft met meerdere waarden voor een afhankelijke variabele
+Gebruik een scatter‑grafiek wanneer:
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Stappen:</em> Maak Verspreid diagram in Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Stappen:</em> Maak PowerPoint Verspreid diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Verspreid diagram in Java</strong></a>
+* je gekoppelde numerieke gegevens hebt
+* je twee variabelen hebt die goed bij elkaar passen
+* je wilt bepalen of twee variabelen gerelateerd zijn
+* je een onafhankelijke variabele hebt met meerdere waarden voor een afhankelijke variabele
 
-1. Volg de stappen die hierboven zijn genoemd in [Create Normal Charts](#creating-normal-charts)  
-2. Voor de derde stap, voeg een diagram toe met enige gegevens en specificeer uw diagramtype als één van de volgende  
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Stelt een spreidingsdiagram met markeringen voor._  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stelt een spreidingsdiagram met vloeiende lijnen en markeringen voor._  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Stelt een spreidingsdiagram met vloeiende lijnen zonder markeringen voor._  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stelt een spreidingsdiagram met rechte lijnen en markeringen voor._  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Stelt een spreidingsdiagram met rechte lijnen zonder markeringen voor._
+1. Volg de stappen in [Create Clustered Column Charts](#create-clustered-column-charts).
+2. Voeg in stap drie een grafiek toe met enkele gegevens en specificeer je grafiektype als een van de volgende:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Stelt een scatter‑grafiek voor._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Stelt een scatter‑grafiek voor die door curven verbonden is, met datamarkers._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Stelt een scatter‑grafiek voor die door curven verbonden is, zonder datamarkers._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Stelt een scatter‑grafiek voor die door rechte lijnen verbonden is, met datamarkers._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Stelt een scatter‑grafiek voor die door rechte lijnen verbonden is, zonder datamarkers._
 
-Deze Java‑code toont hoe u een verspreid diagram maakt met verschillende markering series: 
+Deze Java‑code laat zien hoe je een scatter‑grafiek maakt met verschillende markers voor elke serie:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt
 Presentation pres = new Presentation();
 try {
-    // Benadert de eerste dia
+    // Verkrijgt de eerste dia
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Maakt het standaard diagram
+    // Maakt de standaardgrafiek
     IChart chart = slide.getShapes().addChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
     
-    // Haalt de index van het standaard diagramgegevens‑werkblad op
+    // Haalt de index van het standaardgrafiek‑datablads op
     int defaultWorksheetIndex = 0;
     
-    // Haalt het diagramgegevens‑werkblad op
+    // Haalt het grafiek‑datablad op
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Verwijdert de voorbeeldserie
+    // Verwijdert de demo‑series
     chart.getChartData().getSeries().clear();
     
     // Voegt nieuwe series toe
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
     
-    // Neemt de eerste diagramserie
+    // Pakt de eerste grafiekserie
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
     
     // Voegt een nieuw punt (1:3) toe aan de serie
@@ -220,11 +214,11 @@ try {
     // Wijzigt het serietype
     series.setType(ChartType.ScatterWithStraightLinesAndMarkers);
     
-    // Wijzigt de marker van de diagramserie
+    // Wijzigt de marker van de grafiekserie
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Star);
     
-    // Neemt de tweede diagramserie
+    // Pakt de tweede grafiekserie
     series = chart.getChartData().getSeries().get_Item(1);
     
     // Voegt daar een nieuw punt (5:2) toe
@@ -239,7 +233,7 @@ try {
     // Voegt een nieuw punt (5:1) toe
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
     
-    // Wijzigt de marker van de diagramserie
+    // Wijzigt de marker van de grafiekserie
     series.getMarker().setSize(10);
     series.getMarker().setSymbol(MarkerStyleType.Circle);
     
@@ -249,55 +243,51 @@ try {
 }
 ```
 
-### **Taartdiagrammen maken**
+### **Taartgrafieken maken**
 
-Taartdiagrammen zijn het meest geschikt om de relatie deel‑tot‑geheel in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als uw gegevens echter veel onderdelen of labels bevatten, kunt u beter een staafdiagram gebruiken.
+Taartgrafieken worden het best gebruikt om de relatie deel‑tot‑geheel in gegevens weer te geven, vooral wanneer de gegevens categorische labels met numerieke waarden bevatten. Als je gegevens echter veel delen of labels bevatten, kun je beter een staafgrafiek gebruiken.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Stappen:</em> Maak Taartdiagram in Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Stappen:</em> Maak PowerPoint Taartdiagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Taartdiagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Pie](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#Pie).
+4. Toegang tot het grafiek‑datablad [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/).
+5. Verwijder de standaardseries en -categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe grafiekgegevens toe voor de grafiekseries.
+8. Voeg nieuwe punten toe voor de grafiek en pas aangepaste kleuren toe op de sectoren van de taartgrafiek.
+9. Stel labels in voor de series.
+10. Schakel leiderslijnen in voor de serielabels.
+11. Stel de rotatiehoek in voor de taartgrafieksectoren.
+12. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Voeg een diagram toe met standaardgegevens en het gewenste type (in dit geval, [ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType).Pie).  
-4. Toegang tot de diagramgegevens via [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartDataWorkbook).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe diagramgegevens toe voor de series.  
-8. Voeg nieuwe punten toe voor het diagram en stel aangepaste kleuren in voor de sectoren van het taartdiagram.  
-9. Stel labels in voor de series.  
-10. Stel leiderslijnen in voor series‑labels.  
-11. Stel de rotatiehoek in voor taartdiagramdia’s.  
-12. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een taartdiagram maakt:
+Deze Java‑code laat zien hoe je een taartgrafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Instantieert een presentatie‑klasse die een PPTX‑bestand voorstelt
 Presentation pres = new Presentation();
 try {
-    // Benadert de eerste dia
+    // Verkrijgt de eerste dia
     ISlide slides = pres.getSlides().get_Item(0);
     
-    // Voegt een diagram toe met standaardgegevens
+    // Voegt een grafiek toe met standaardgegevens
     IChart chart = slides.getShapes().addChart(ChartType.Pie, 100, 100, 400, 400);
     
-    // Stelt de diagramtitel in
+    // Stelt de titel van de grafiek in
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
     chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(NullableBool.True);
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     
-    // Stelt de eerste serie in om waarden weer te geven
-    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    // Stelt de index in voor het diagramgegevensblad
+    // Stelt de index voor het grafiek‑datablad in
     int defaultWorksheetIndex = 0;
     
-    // Haalt het diagramgegevens‑werkblad op
+    // Haalt het werkblad met de grafiekgegevens op
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
     
-    // Verwijdert de standaardgegenereerde series en categorieën
+    // Verwijdert de standaard gegenereerde series en categorieën
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     
@@ -309,13 +299,13 @@ try {
     // Voegt nieuwe series toe
     IChartSeries series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
     
-    // Vult de seriesgegevens
+    //Vult de seriedata
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     
     // Werkt niet in de nieuwe versie
-    // Voegt nieuwe punten toe en stelt de sectorskleur in
+    // Nieuwe punten toevoegen en sectorkleur instellen
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     
@@ -352,7 +342,7 @@ try {
     point2.getFormat().getLine().setStyle(LineStyle.ThinThin);
     point2.getFormat().getLine().setDashStyle(LineDashStyle.LargeDashDotDot);
     
-    // Maakt aangepaste labels voor elke categorie voor de nieuwe series
+    // Maakt aangepaste labels voor elke categorie voor de nieuwe serie
     IDataLabel lbl1 = series.getDataPoints().get_Item(0).getLabel();
     
     // lbl.ShowCategoryName = true;
@@ -367,35 +357,33 @@ try {
     lbl3.getDataLabelFormat().setShowSeriesName(true);
     lbl3.getDataLabelFormat().setShowPercentage(true);
     
-    // Toont leiderlijnen voor het diagram
+    // Toont leidingslijnen voor de grafiek
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     
-    // Stelt de rotatiehoek in voor taartdiagramsectoren
+    // Stelt de rotatiehoek in voor de taartgrafiek‑sectoren
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     
-    // Slaat de presentatie met een diagram op
+    // Slaat de presentatie met een grafiek op
     pres.save("PieChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Lijndiagrammen maken**
+### **Lijngrafieken maken**
 
-Lijndiagrammen (ook wel lijngrafieken genoemd) zijn het meest geschikt wanneer u veranderingen in waarde over tijd wilt laten zien. Met een lijndiagram kunt u veel gegevens tegelijk vergelijken, veranderingen en trends over tijd volgen, anomalieën in series benadrukken, enzovoort.
+Lijngrafieken (ook bekend als lijngrafieken) worden het best gebruikt wanneer je veranderingen in een waarde over de tijd wilt demonstreren. Met een lijngrafiek kun je veel gegevens tegelijk vergelijken, veranderingen en trends in de tijd volgen, anomalieën in dataseries benadrukken, en meer.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-1. Haal een referentie naar een dia op via de index.  
-1. Voeg een diagram toe met standaardgegevens en het gewenste type (in dit geval, `ChartType.Line`).  
-1. Toegang tot de diagramgegevens via IChartDataWorkbook.  
-1. Wis de standaard series en categorieën.  
-1. Voeg nieuwe series en categorieën toe.  
-1. Voeg nieuwe diagramgegevens toe voor de series.  
-1. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+1. Verkrijg een referentie naar een dia op basis van de index.
+1. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Line](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#Line).
+1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze Java‑code toont hoe u een lijndiagram maakt:
+Deze Java‑code laat zien hoe je een lijngrafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
@@ -406,37 +394,44 @@ try {
 }
 ```
 
-Standaard worden punten op een lijndiagram verbonden door rechte, doorlopende lijnen. Als u wilt dat de punten door streepjes worden verbonden, kunt u uw gewenste streepjes‑type als volgt aangeven:
+Standaard worden punten op een lijngrafiek verbonden door rechte doorlopende lijnen. Als je wilt dat de punten in plaats daarvan met streepjes worden verbonden, kun je het gewenste streepjes­type als volgt specificeren:
 
 ```java
-IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+import com.aspose.slides.*;
 
-for (IChartSeries series : lineChart.getChartData().getSeries())
-{
-    series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+Presentation pres = new Presentation();
+try {
+    IChart lineChart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Line, 10, 50, 600, 350);
+
+    for (IChartSeries series : lineChart.getChartData().getSeries())
+    {
+        series.getFormat().getLine().setDashStyle(LineDashStyle.Dash);
+    }
+
+    pres.save("lineChart.pptx", SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
-### **Boomkaartdiagrammen maken**
+### **Tree Map‑grafieken maken**
 
-Boomkaartdiagrammen zijn het meest geschikt voor verkoopgegevens wanneer u de relatieve grootte van datacategorieën wilt tonen en tegelijkertijd snel de items wilt benadrukken die grote bijdragen leveren aan elke categorie. 
+Tree map‑grafieken worden het best gebruikt voor verkoopgegevens wanneer je de relatieve grootte van datacategorieën wilt tonen en snel de items die grote bijdragers zijn binnen elke categorie wilt benadrukken.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Stappen:</em> Maak Boomkaartdiagram in Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Stappen:</em> Maak PowerPoint Boomkaartdiagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Boomkaartdiagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Treemap](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#Treemap).
+4. Toegang tot het grafiek‑datablad [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/).
+5. Verwijder de standaardseries en -categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe grafiekgegevens toe voor de grafiekseries.
+8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met standaardgegevens en het gewenste type (in dit geval, [ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType).TreeMap).  
-4. Toegang tot de diagramgegevens via [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartDataWorkbook).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe diagramgegevens toe voor de series.  
-8. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een boomkaartdiagram maakt:
+Deze Java‑code laat zien hoe je een tree map‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Treemap, 50, 50, 500, 400);
@@ -446,7 +441,7 @@ try {
     IChartDataWorkbook wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
 
-    // tak 1
+    //tak 1
     IChartCategory leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
@@ -458,7 +453,7 @@ try {
 
     chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
 
-    // tak 2
+    //tak 2
     leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
     leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
     leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
@@ -489,25 +484,23 @@ try {
 }
 ```
 
-### **Aandelen‑diagrammen maken**
+### **Aandelen‑grafieken maken**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Stappen:</em> Maak Aandelen‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Stappen:</em> Maak PowerPoint Aandelen‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Aandelen‑diagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#OpenHighLowClose).
+4. Toegang tot het grafiek‑datablad [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/).
+5. Verwijder de standaardseries en -categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe grafiekgegevens toe voor de grafiekseries.
+8. Specificeer het formaat van de high‑low‑lijnen.
+9. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Verkrijg een referentie naar een dia via de index.  
-3. Voeg een diagram toe met standaardgegevens en het gewenste type ([ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType).OpenHighLowClose).  
-4. Toegang tot de diagramgegevens via [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartDataWorkbook).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe diagramgegevens toe voor de series.  
-8. Specificeer het formaat van HiLowLines.  
-9. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Voorbeeld‑Java‑code om een aandelen‑diagram te maken:
+Deze Java‑code laat zien hoe je een aandelen‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
@@ -561,24 +554,22 @@ try {
 }
 ```
 
-### **Box‑en‑Whisker‑diagrammen maken**
+### **Box‑and‑Whisker‑grafieken maken**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Stappen:</em> Maak Box‑en‑Whisker‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Stappen:</em> Maak PowerPoint Box‑en‑Whisker‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Box‑en‑Whisker‑diagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#BoxAndWhisker).
+4. Toegang tot het grafiek‑datablad [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/).
+5. Verwijder de standaardseries en -categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe grafiekgegevens toe voor de grafiekseries.
+8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met standaardgegevens en het gewenste type ([ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType).BoxAndWhisker).  
-4. Toegang tot de diagramgegevens via [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartDataWorkbook).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe diagramgegevens toe voor de series.  
-8. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een Box‑en‑Whisker‑diagram maakt:
+Deze Java‑code laat zien hoe je een box‑and‑whisker‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -616,21 +607,18 @@ try {
 }
 ```
 
-### **Funnel‑diagrammen maken**
+### **Funnel‑grafieken maken**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Stappen:</em> Maak Funnel‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Stappen:</em> Maak PowerPoint Funnel‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Funnel‑diagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Funnel](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#Funnel).
+4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met standaardgegevens en het gewenste type ([ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType).Funnel).  
-4. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-De Java‑code toont hoe u een funnel‑diagram maakt:
+Deze Java‑code laat zien hoe je een funnel‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Funnel, 50, 50, 500, 400);
@@ -663,20 +651,18 @@ try {
 }
 ```
 
-### **Sunburst‑diagrammen maken**
+### **Sunburst‑grafieken maken**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Stappen:</em> Maak Sunburst‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Stappen:</em> Maak PowerPoint Sunburst‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Sunburst‑diagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Sunburst](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#Sunburst).
+4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met standaardgegevens en het gewenste type (in dit geval, [ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType).sunburst).  
-4. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een sunburst‑diagram maakt:
+Deze Java‑code laat zien hoe je een sunburst‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 50, 50, 500, 400);
@@ -727,23 +713,21 @@ try {
 }
 ```
 
-### **Histogram‑diagrammen maken**
+### **Histogram‑grafieken maken**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Stappen:</em> Maak Histogram‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Stappen:</em> Maak PowerPoint Histogram‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Histogram‑diagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.Histogram](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#Histogram).
+4. Toegang tot het grafiek‑datablad [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/).
+5. Verwijder de standaardseries en -categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met standaardgegevens en het gewenste type ([ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType).Histogram).  
-4. Toegang tot de diagramgegevens via [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartDataWorkbook).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een histogram‑diagram maakt:
+Deze Java‑code laat zien hoe je een histogram‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Histogram, 50, 50, 500, 400);
@@ -761,7 +745,7 @@ try {
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 
-    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic;)
+    chart.getAxes().getHorizontalAxis().setAggregationType(AxisAggregationType.Automatic);
 
     pres.save("Histogram.pptx", SaveFormat.Pptx);
 } finally {
@@ -769,20 +753,18 @@ try {
 }
 ```
 
-### **Radar‑diagrammen maken**
+### **Radar‑grafieken maken**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Stappen:</em> Maak Radar‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Stappen:</em> Maak PowerPoint Radar‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Radar‑diagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met enkele gegevens en specificeer je voorkeurs‑grafiektype ([ChartType.Radar](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#Radar) in dit geval).
+4. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met enige gegevens en specificeer uw gewenste diagramtype (`ChartType.Radar` in dit geval).  
-4. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een radar‑diagram maakt:
+Deze Java‑code laat zien hoe je een radar‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Radar, 20, 20, 400, 300);
@@ -792,24 +774,22 @@ try {
 }
 ```
 
-### **Meervoudige‑categorie‑diagrammen maken**
+### **Multi‑Category‑grafieken maken**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Stappen:</em> Maak Meervoudig‑categorie‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Stappen:</em> Maak PowerPoint Meervoudig‑categorie‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Meervoudig‑categorie‑diagram in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Voeg een grafiek toe met standaardgegevens en specificeer het type [ChartType.ClusteredColumn](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/#ClusteredColumn).
+4. Toegang tot het grafiek‑datablad [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/).
+5. Verwijder de standaardseries en -categorieën.
+6. Voeg nieuwe series en categorieën toe.
+7. Voeg nieuwe grafiekgegevens toe voor de grafiekseries.
+8. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met standaardgegevens en het gewenste type ([ChartType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ChartType).ClusteredColumn).  
-4. Toegang tot de diagramgegevens via [IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartDataWorkbook).  
-5. Wis de standaard series en categorieën.  
-6. Voeg nieuwe series en categorieën toe.  
-7. Voeg nieuwe diagramgegevens toe voor de series.  
-8. Schrijf de aangepaste presentatie naar een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een meervoudig‑categorie‑diagram maakt:
+Deze Java‑code laat zien hoe je een multicategory‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart ch = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -849,24 +829,22 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
     
-    // Presentatie met diagram opslaan
+    // Presentatie met grafiek opslaan
     pres.save("AsposeChart_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-### **Kaart‑diagrammen maken**
+### **Kaart‑grafieken maken**
 
-Een kaart‑diagram visualiseert een gebied met gegevens. Kaart‑diagrammen zijn het meest geschikt om gegevens of waarden over geografische regio’s te vergelijken.
+Kaart‑grafieken visualiseren geografische gegevens en helpen waarden over regio’s heen te vergelijken.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Stappen:</em> Maak Kaart‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Stappen:</em> Maak PowerPoint Kaart‑diagram in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Stappen:</em> Maak PowerPoint‑presentatie Kaart‑diagram in Java</strong></a>
-
-Deze Java‑code toont hoe u een kaart‑diagram maakt:
+Deze Java‑code laat zien hoe je een kaart‑grafiek maakt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Map, 50, 50, 500, 400);
@@ -876,15 +854,18 @@ try {
 }
 ```
 
-### **Combinatie‑diagrammen maken**
+### **Combinatie‑grafieken maken**
 
-Een combinatie‑diagram (of combo‑diagram) combineert twee of meer diagramtypen in één grafiek. Dit diagram laat u toe om verschillen tussen twee of meer datasets te benadrukken, vergelijken of onderzoeken, waardoor u relaties tussen hen kunt identificeren.
+Een combinatie‑grafiek (of combo‑grafiek) combineert twee of meer grafiektype­n in één grafiek. Deze grafiek stelt je in staat om verschillen tussen twee of meer datasets te markeren, vergelijken of onderzoeken, waardoor je relaties tussen hen kunt identificeren.
 
-![The combination chart](combination_chart.png)
+![De combinatiegrafiek](combination_chart.png)
 
-De volgende Java‑code toont hoe u het bovenstaande combinatie‑diagram maakt in een PowerPoint‑presentatie:
+De volgende Java‑code laat zien hoe je de hierboven getoonde combinatie‑grafiek maakt in een PowerPoint‑presentatie:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 static void createComboChart() {
     Presentation presentation = new Presentation();
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -906,7 +887,7 @@ static void createComboChart() {
 static IChart createChartWithFirstSeries(ISlide slide) {
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Stel de diagramtitel in.
+    // Stel de grafiektitel in.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -915,11 +896,11 @@ static IChart createChartWithFirstSeries(ISlide slide) {
     titleFormat.setFontBold(NullableBool.False);
     titleFormat.setFontHeight(18f);
 
-    // Stel de diagramlegenda in.
+    // Stel de grafieklegenda in.
     chart.getLegend().setPosition(LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12f);
 
-    // Verwijder de standaardgegenereerde series en categorieën.
+    // Verwijder de standaard gegenereerde series en categorieën.
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
 
@@ -989,11 +970,11 @@ static void setPrimaryAxesFormat(IChart chart) {
     // Stel de verticale as in.
     IAxis verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    verticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+    verticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Stel de kleur van de verticale hoofdroosterlijnen in.
+    // Stel de kleur van de verticale hoofdgridlijnen in.
     ILineFillFormat majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(FillType.Solid);
     majorGridLinesFormat.getSolidFillColor().setColor(new Color(217, 217, 217));
@@ -1012,7 +993,7 @@ static void setSecondaryAxesFormat(IChart chart) {
     IAxis secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12f);
-    secondaryVerticalAxis.getFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
+    secondaryVerticalAxis.getFormat().getLine().setFillType(FillType.NoFill);
     secondaryVerticalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
     secondaryVerticalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.NoFill);
 
@@ -1029,55 +1010,54 @@ static void setAxisTitle(IAxis axis, String axisTitle) {
 }
 ```
 
-## **Diagrammen bijwerken**
+## **Grafieken bijwerken**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Stappen:</em> Werk PowerPoint‑diagram bij in Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Stappen:</em> Werk Presentatie‑diagram bij in Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Stappen:</em> Werk PowerPoint‑presentatie‑diagram bij in Java</strong></a>
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse die de presentatie bevat met de grafiek die je wilt bijwerken.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Doorloop alle shapes om de gewenste grafiek te vinden.
+4. Toegang tot het werkblad van de grafiekgegevens.
+5. Pas de grafiek‑dataseries aan door de serie‑waarden te wijzigen.
+6. Voeg een nieuwe serie toe en vul de gegevens in.
+7. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-1. Instantieer een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse die de presentatie vertegenwoordigt waarin het diagram staat dat u wilt bijwerken.  
-2. Verkrijg de referentie van een dia door gebruik te maken van de index.  
-3. Doorloop alle vormen om het gewenste diagram te vinden.  
-4. Toegang tot het diagram‑werkblad.  
-5. Wijzig de gegevens van de diagramseries door de waarden van series aan te passen.  
-6. Voeg een nieuwe serie toe en vul de gegevens erin.  
-7. Schrijf de aangepaste presentatie weg als een PPTX‑bestand.
-
-Deze Java‑code toont hoe u een diagram bijwerkt:
+Deze Java‑code laat zien hoe je een grafiek bijwerkt:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Opent de presentatie die de grafiek bevat die moet worden bijgewerkt
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
-    // Toegang tot eerste dia‑marker
+    // Open de eerste dia
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Haal diagram met standaardgegevens op
+    // Verkrijg de grafiek van de dia
     IChart chart = (IChart)sld.getShapes().get_Item(0);
 
-    // Stel de index van het diagramgegevensblad in
+    // Stelt de index van het grafiekdatablad in
     int defaultWorksheetIndex = 0;
 
-    // Verkrijg het diagram‑werkblad
+    // Haalt het werkblad met grafiekgegevens op
     IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
 
-    // Wijzig de diagramcategorie‑naam
+    // Categorie‑naam van de grafiek wijzigen
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
 
-    // Neem de eerste diagramserie
+    // Neem de eerste grafiekserie
     IChartSeries series = chart.getChartData().getSeries().get_Item(0);
 
     // Werk nu de seriedata bij
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Serie‑naam wijzigen
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Serienaam wijzigen
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
 
-    // Neem de tweede diagramserie
+    // Neem de tweede grafiekserie
     series = chart.getChartData().getSeries().get_Item(1);
 
     // Werk nu de seriedata bij
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Serie‑naam wijzigen
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Serienaam wijzigen
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -1085,7 +1065,7 @@ try {
     // Voeg nu een nieuwe serie toe
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
 
-    // Neem de derde diagramserie
+    // Neem de derde grafiekserie
     series = chart.getChartData().getSeries().get_Item(2);
 
     // Vul nu de seriedata in
@@ -1095,27 +1075,30 @@ try {
 
     chart.setType(ChartType.ClusteredCylinder);
 
-    // Sla de presentatie met diagram op
+    // Sla de presentatie met de grafiek op
     pres.save("AsposeChartModified_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Gegevensbereik voor een diagram instellen**
+## **Gegevensbereik voor een grafiek instellen**
 
-Om het gegevensbereik voor een diagram in te stellen, doet u het volgende:
+Om het gegevensbereik voor een grafiek in te stellen, doe je het volgende:
 
-1. Instantieer een [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation) klasse die de presentatie vertegenwoordigt waarin het diagram staat.  
-2. Haal een referentie naar een dia op via de index.  
-3. Doorloop alle vormen om het gewenste diagram te vinden.  
-4. Toegang tot de diagramgegevens en stel het bereik in.  
-5. Sla de aangepaste presentatie op als een PPTX‑bestand.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse die de presentatie bevat met de grafiek.
+2. Verkrijg een referentie naar een dia op basis van de index.
+3. Doorloop alle shapes om de gewenste grafiek te vinden.
+4. Toegang tot de grafiekgegevens en stel het bereik in.
+5. Sla de gewijzigde presentatie op als een PPTX‑bestand.
 
-Deze Java‑code toont hoe u het gegevensbereik voor een diagram instelt:
+Deze Java‑code laat zien hoe je het gegevensbereik voor een grafiek instelt:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+// Opent de presentatie die de grafiek bevat
+Presentation pres = new Presentation("ExistingChart.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IChart chart = (IChart)slide.getShapes().get_Item(0);
@@ -1128,12 +1111,15 @@ try {
 }
 ```
 
-## **Standaard markeringen in diagrammen gebruiken**
-Wanneer u een standaard markering in diagrammen gebruikt, krijgt elke diagramserie automatisch een andere standaard markering.
+## **Standaard‑markers gebruiken in grafieken**
 
-Deze Java‑code toont hoe u automatisch een markering voor een diagramserie instelt:
+Wanneer je standaard‑markers in grafieken gebruikt, krijgt elke grafiekserie automatisch een ander markersymbool.
+
+Deze Java‑code laat zien hoe je automatisch een grafiekserie‑marker instelt:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -1156,10 +1142,10 @@ try {
     series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
 
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-    // Neem de tweede diagramserie
+    // Neem de tweede grafiekserie
     IChartSeries series2 = chart.getChartData().getSeries().get_Item(1);
 
-    // Nu populeren van seriedata
+    // Nu de seriedata invullen
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1176,18 +1162,18 @@ try {
 
 ## **FAQ**
 
-**Welke diagramtypen worden ondersteund door Aspose.Slides?**
+**Welke grafiektype­n worden ondersteund door Aspose.Slides?**
 
-Aspose.Slides ondersteunt een breed scala aan [chart types](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/), waaronder staaf, lijn, taart, gebied, spreiding, histogram, radar en vele andere. Deze flexibiliteit stelt u in staat om het meest geschikte diagramtype voor uw visualisatiebehoeften te kiezen.
+Aspose.Slides ondersteunt een breed scala aan [grafiektype­n](https://reference.aspose.com/slides/nl/java/com.aspose.slides/charttype/), waaronder staaf, lijn, taart, gebied, scatter, histogram, radar en vele andere. Deze flexibiliteit stelt je in staat om het meest passende grafiektype voor je data‑visualisatiebehoeften te kiezen.
 
-**Hoe voeg ik een nieuw diagram toe aan een dia?**
+**Hoe voeg ik een nieuwe grafiek toe aan een dia?**
 
-Om een diagram toe te voegen, maakt u eerst een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/) klasse, haalt u de gewenste dia op via de index en roept u vervolgens de methode aan om een diagram toe te voegen, waarbij u het diagramtype en de initiële gegevens opgeeft. Dit proces integreert het diagram direct in uw presentatie.
+Om een grafiek toe te voegen, maak je eerst een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/)‑klasse, haal je de gewenste dia op via de index en roep je vervolgens de methode aan om een grafiek toe te voegen, waarbij je het grafiektype en de initiële gegevens opgeeft. Dit proces integreert de grafiek direct in je presentatie.
 
-**Hoe kan ik de gegevens in een diagram bijwerken?**
+**Hoe kan ik de gegevens in een grafiek bijwerken?**
 
-U kunt de gegevens van een diagram bijwerken door toegang te krijgen tot het gegevens‑werkboek ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/)), de standaard series en categorieën te wissen en vervolgens uw eigen gegevens toe te voegen. Hiermee kunt u het diagram vernieuwen zodat het de nieuwste gegevens weerspiegelt.
+Je kunt de gegevens van een grafiek bijwerken door toegang te krijgen tot het gegevens‑werkboek ([IChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdataworkbook/)), eventuele standaardseries en -categorieën te verwijderen en vervolgens je eigen aangepaste gegevens toe te voegen. Zo kun je de grafiek vernieuwen zodat deze de nieuwste data weergeeft.
 
-**Is het mogelijk om het uiterlijk van het diagram aan te passen?**
+**Is het mogelijk om het uiterlijk van de grafiek aan te passen?**
 
-Ja, Aspose.Slides biedt uitgebreide aanpassingsopties. U kunt kleuren, lettertypen, labels, legenda’s en andere [formatting elements](/slides/nl/java/chart-entities/) aanpassen om het uiterlijk van het diagram af te stemmen op uw specifieke ontwerpvereisten.
+Ja, Aspose.Slides biedt uitgebreide aanpassingsopties. Je kunt kleuren, lettertypen, labels, legenda's en andere [formatteringselementen](/slides/nl/java/chart-entities/) wijzigen om het uiterlijk van de grafiek af te stemmen op je specifieke ontwerpvereisten.

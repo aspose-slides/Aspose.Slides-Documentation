@@ -1,5 +1,5 @@
 ---
-title: JavaScript'te PowerPoint Sunum Grafikleri Oluşturma veya Güncelleme
+title: JavaScript ile PowerPoint Sunumu Grafiklerini Oluşturma veya Güncelleme
 linktitle: Grafik Oluşturma veya Güncelleme
 type: docs
 weight: 10
@@ -10,73 +10,72 @@ keywords:
 - grafik düzenle
 - grafik değiştir
 - grafik güncelle
-- dağılım grafiği
+- saçılım grafiği
 - pasta grafiği
 - çizgi grafiği
-- ağaç harita grafiği
+- ağaç haritası grafiği
 - hisse senedi grafiği
-- kutu ve whisker grafiği
+- kutu ve bıyık grafiği
 - huni grafiği
-- sunburst grafiği
+- güneş patlaması grafiği
 - histogram grafiği
 - radar grafiği
-- çok kategorili grafik
+- çoklu kategori grafiği
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js ile PowerPoint sunumlarında grafik oluşturun ve özelleştirin. JavaScript'te pratik kod örnekleriyle grafik ekleyin, biçimlendirin ve düzenleyin."
+description: "Aspose.Slides for Node.js ile PowerPoint sunumlarında grafikler oluşturun ve özelleştirin. Grafikleri ekleyin, biçimlendirin ve JavaScript'te pratik kod örnekleriyle düzenleyin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir grafiği slayta programlı olarak eklemeyi, verilerle doldurmayı ve belirli tasarım gereksinimlerinize uygun çeşitli biçimlendirme seçeneklerini uygulamayı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmadan serileri, eksenleri ve lejandları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu rehberi izleyerek, dinamik grafik oluşturmayı uygulamalarınıza entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini hızlandıracaksınız.
+Bu makale, Aspose.Slides kullanarak grafik oluşturma ve özelleştirme konusunda kapsamlı bir rehber sunar. Bir slayta programlı olarak nasıl grafik ekleyeceğinizi, verileri nasıl dolduracağınızı ve belirli tasarım gereksinimlerinize uyması için çeşitli biçimlendirme seçeneklerini nasıl uygulayacağınızı öğreneceksiniz. Makale boyunca, sunumu ve grafik nesnesini başlatmaktan seriler, eksenler ve lejandları yapılandırmaya kadar her adımı gösteren ayrıntılı kod örnekleri bulunur. Bu rehberi izleyerek, uygulamalarınıza dinamik grafik oluşturmayı entegre etme konusunda sağlam bir anlayış kazanacak ve veri odaklı sunumlar oluşturma sürecini kolaylaştıracaksınız.
 
 ## **Grafik Oluşturma**
-Grafikler, verileri hızlı bir şekilde görselleştirmenize ve tablolar ya da elektronik tablolar üzerinden hemen fark edilmeyen içgörüler elde etmenize yardımcı olur. 
 
+Grafikler, verileri hızlıca görselleştirmenizi ve bir tablo ya da elektronik tablodan hemen ortaya çıkmayabilecek içgörüler elde etmenizi sağlar.
 
 **Neden Grafik Oluşturmalısınız?**
 
-Grafikler sayesinde
+Grafikleri kullanarak:
 
-* bir sunumdaki tek bir slaytta büyük miktarda veriyi toplar, özetler veya sentezlersiniz
-* verideki kalıpları ve eğilimleri ortaya çıkarırsınız
-* zaman içinde ya da belirli bir ölçüm birimine göre verinin yönünü ve ivmesini çözümlersiniz
-* aykırı değerleri, sapmaları, hataları, mantıksız verileri vb. tespit edersiniz
-* karmaşık verileri iletişim kurar ya da sunarsınız
+* tek bir slaytta büyük miktarda veriyi toplu, sıkıştırılmış ya da özet bir şekilde gösterebilirsiniz
+* verilerdeki desen ve eğilimleri ortaya çıkarabilirsiniz
+* zaman içinde ya da belirli bir ölçüm birimine göre verilerin yönünü ve momentumunu çıkarabilirsiniz
+* aykırı değerleri, sapmaları, hataları, mantıksız verileri vb. tespit edebilirsiniz
+* karmaşık verileri iletişim kurmak ya da sunmak için kullanabilirsiniz
 
-PowerPoint’te, çeşitli grafik türlerini tasarlamak için şablonlar sunan ekleme işlevi aracılığıyla grafik oluşturabilirsiniz. Aspose.Slides kullanarak, popüler grafik türlerine dayalı normal grafikler ve özel grafikler oluşturabilirsiniz. 
+PowerPoint'te, birçok grafik türü tasarlamak için şablonlar sunan *Insert* işlevi aracılığıyla grafikler oluşturabilirsiniz. Aspose.Slides kullanarak hem standart grafikler (popüler grafik türlerine dayalı) hem de özelleştirilmiş grafikler oluşturabilirsiniz.
 
-{{% alert color="primary" %}} 
-Grafik oluşturmanıza olanak tanımak için Aspose.Slides, [ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType) sınıfını sağlar. Bu sınıfın altındaki alanlar farklı grafik türlerine karşılık gelir. 
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Grafikler oluşturmak için [ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/) sınıfını kullanın. Bu sınıftaki alanlar farklı grafik türlerine karşılık gelir.
+{{% /alert %}}
 
-### **Normal Grafik Oluşturma**
+### **Kümelenmiş Sütun Grafikleri Oluşturma**
 
-_Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Grafiği Oluştur</em></strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Adımlar: JavaScript’te Sunum Grafiği Oluştur</em></strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Grafiği Oluştur</em></strong></a>
+Bu bölüm, Aspose.Slides ile kümelenmiş sütun grafikleri oluşturmayı açıklar. Bir sunumu başlatmayı, bir grafik eklemeyi ve başlık, veri, seriler, kategoriler ve stil gibi öğeleri özelleştirmeyi öğreneceksiniz. Aşağıdaki adımları izleyerek standart bir kümelenmiş sütun grafiğinin nasıl üretildiğini görebilirsiniz:
 
-_Code Steps:_
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+1. Dizini kullanarak bir slayta referans alın.
+1. Bazı veriyle bir grafik ekleyin ve `ChartType.ClusteredColumn` türünü belirtin.
+1. Grafiğe bir başlık ekleyin.
+1. Grafiğin veri çalışma sayfasına erişin.
+1. Tüm varsayılan serileri ve kategorileri temizleyin.
+1. Yeni seriler ve kategoriler ekleyin.
+1. Grafik serileri için yeni grafik verileri ekleyin.
+1. Grafik serilerine dolgu rengi uygulayın.
+1. Grafik serilerine etiketler ekleyin.
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre alın.
-3. Bazı verilerle bir grafik ekleyin ve tercih ettiğiniz grafik tipini belirtin. 
-4. Grafik için bir başlık ekleyin. 
-5. Grafik veri çalışma sayfasına erişin.
-6. Varsayılan tüm serileri ve kategorileri temizleyin.
-7. Yeni seriler ve kategoriler ekleyin.
-8. Grafik serileri için yeni veri ekleyin.
-9. Grafik serileri için bir dolgu rengi ekleyin.
-10. Grafik serileri için etiketler ekleyin. 
-11. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
-
-Bu JavaScript kodu, normal bir grafik oluşturmayı gösterir:
+Bu C# kodu bir kümelenmiş sütun grafiği oluşturmayı gösterir:
 
 ```javascript
-// PPTX dosyasını temsil eden bir sunum sınıfını örnekler
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// PPTX dosyasını temsil eden bir sunum sınıfı örnekler
 var pres = new aspose.slides.Presentation();
 try {
     // İlk slayta erişir
@@ -84,15 +83,15 @@ try {
     // Varsayılan verileriyle bir grafik ekler
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // Grafik başlığını ayarlar
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
-    // İlk seriyi değerleri gösterecek şekilde ayarlar
+    // İlk serinin değerleri göstermesini ayarlar
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Grafik veri sayfası için indeksi ayarlar
+    // Grafik veri sayfası için dizini ayarlar
     var defaultWorksheetIndex = 0;
-    // Grafik veri çalışma sayfasını alır
+    // Grafik veri Çalışma Sayfasını alır
     var fact = chart.getChartData().getChartDataWorkbook();
     // Varsayılan oluşturulan serileri ve kategorileri siler
     chart.getChartData().getSeries().clear();
@@ -112,7 +111,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    // Seri için dolgu rengini ayarlar
+    // Seri için doldurma rengini ayarlar
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // İkinci grafik serisini alır
@@ -121,11 +120,11 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Seri için dolgu rengini ayarlar
+    // Seri için doldurma rengini ayarlar
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // Yeni seri için her kategoriye özel etiketler oluşturur
-    // İlk etiketi kategori adını gösterecek şekilde ayarlar
+    // İlk etiketi kategori adını göstermesi için ayarlar
     var lbl = series.getDataPoints().get_Item(0).getLabel();
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
@@ -144,43 +143,43 @@ try {
 }
 ```
 
-### **Dağılım Grafikleri Oluşturma**
-Dağılım grafikleri (scatter plot ya da x‑y grafikleri olarak da bilinir) genellikle iki değişken arasındaki kalıpları kontrol etmek veya korelasyonları göstermek için kullanılır. 
+### **Saçılım (Scatter) Grafikler Oluşturma**
 
-Aşağıdaki durumlarda dağılım grafiği kullanmak isteyebilirsiniz
+Saçılım grafikler (scatter plot veya x‑y grafikleri olarak da bilinir) genellikle iki değişken arasındaki desenleri kontrol etmek veya korelasyonları göstermek için kullanılır.
 
-* eşleştirilmiş sayısal verileriniz olduğunda
-* birlikte iyi eşleşen 2 değişkeniniz olduğunda
-* 2 değişkenin ilişkili olup olmadığını belirlemek istediğinizde
-* bağımlı bir değişken için birden çok değer içeren bağımsız bir değişkeniniz olduğunda
+Bir saçılım grafiği şu durumlarda kullanılır:
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Adımlar: JavaScript’te Dağılım Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Dağılım Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Dağılım Grafiği Oluştur</em></strong></a>
+* eşleşmiş sayısal verileriniz olduğunda
+* birlikte iyi eşleşen iki değişkeniniz olduğunda
+* iki değişkenin ilişkili olup olmadığını belirlemek istediğinizde
+* bağımsız bir değişkenin bağımlı bir değişken için birden çok değeri olduğunda
 
-1. Yukarıda **Normal Grafik Oluşturma** bölümünde belirtilen adımları izleyin
-2. Üçüncü adımda, bir grafik ekleyin ve grafik tipini aşağıdakilerden biri olarak belirtin
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Dağılım Grafiği temsil eder._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Eğrilerle bağlanmış, veri işaretçileri olan Dağılım Grafiği temsil eder._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Eğrilerle bağlanmış, veri işaretçileri olmayan Dağılım Grafiği temsil eder._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Çizgilerle bağlanmış, veri işaretçileri olan Dağılım Grafiği temsil eder._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Çizgilerle bağlanmış, veri işaretçileri olmayan Dağılım Grafiği temsil eder._
+1. [Kümelenmiş Sütun Grafikleri Oluşturma](#create-clustered-column-charts) bölümündeki adımları izleyin.
+2. Üçüncü adımda, bir grafik ekleyin ve grafik türünü aşağıdakilerden biri olarak belirleyin:
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Saçılım grafiği temsil eder._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Eğrilerle bağlanmış, veri işaretçileri olan saçılım grafiği temsil eder._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Eğrilerle bağlanmış, veri işaretçileri olmayan saçılım grafiği temsil eder._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Çizgilerle bağlanmış, veri işaretçileri olan saçılım grafiği temsil eder._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Çizgilerle bağlanmış, veri işaretçileri olmayan saçılım grafiği temsil eder._
 
-Bu JavaScript kodu, farklı işaretçi serileriyle dağılım grafikleri oluşturmayı gösterir:
+Bu JavaScript kodu, her seri için farklı işaretçileri olan bir saçılım grafiği oluşturmayı gösterir:
 
 ```javascript
-// PPTX dosyasını temsil eden bir sunum sınıfını örnekler
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// PPTX dosyasını temsil eden bir sunum sınıfı örnekler
 var pres = new aspose.slides.Presentation();
 try {
     // İlk slayta erişir
     var slide = pres.getSlides().get_Item(0);
     // Varsayılan grafiği oluşturur
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-    // Varsayılan grafik veri çalışma sayfası indeksini alır
+    // Varsayılan grafik veri çalışma sayfası dizinini alır
     var defaultWorksheetIndex = 0;
     // Grafik veri çalışma sayfasını alır
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Demo serisini siler
+    // Demo serileri siler
     chart.getChartData().getSeries().clear();
     // Yeni seriler ekler
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
@@ -191,7 +190,7 @@ try {
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
     // Yeni bir nokta (2:10) ekler
     series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-    // Serinin tipini değiştirir
+    // Seri tipini değiştirir
     series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
     // Grafik serisi işaretçisini değiştirir
     series.getMarker().setSize(10);
@@ -217,45 +216,45 @@ try {
 }
 ```
 
-### **Pasta Grafikleri Oluşturma**
+### **Pasta (Pie) Grafikler Oluşturma**
 
-Pasta grafikleri, özellikle veriler kategorik etiketler ve sayısal değerler içerdiğinde, bütün‑parça ilişkisini göstermek için en uygunudur. Ancak, veriniz çok sayıda parça ya da etiket içeriyorsa, bunun yerine çubuk grafik kullanmayı düşünebilirsiniz.
+Pasta grafikler, özellikle veriler kategori etiketleriyle sayısal değerler içerdiğinde, veri bütün içindeki bölümü göstermek için en uygunudur. Ancak, verileriniz çok fazla parça veya etiket içeriyorsa, bunun yerine bir çubuk grafik kullanmayı düşünebilirsiniz.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Adımlar: JavaScript’te Pasta Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Pasta Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Pasta Grafiği Oluştur</em></strong></a>
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre edinin.
-3. İstenilen tip (bu durumda [ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType).Pie) ile varsayılan veri içeren bir grafik ekleyin.
-4. Grafik veri [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataWorkbook) ’a erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType.Pie](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#Pie) türünü belirtin.
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) erişin.
 5. Varsayılan serileri ve kategorileri temizleyin.
 6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni grafik verisi ekleyin.
-8. Pasta dilimlerine özel renkler ekleyerek yeni noktalar ekleyin.
+7. Grafik serileri için yeni grafik verileri ekleyin.
+8. Pasta dilimlerine özel renkler uygulayarak yeni puanlar ekleyin.
 9. Seriler için etiketler ayarlayın.
-10. Seriler etiketleri için yönlendirme çizgileri ayarlayın.
-11. Pasta grafik slaytları için döndürme açısını ayarlayın.
-12. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+10. Seri etiketleri için kılavuz çizgilerini etkinleştirin.
+11. Pasta dilimlerinin dönüş açısını ayarlayın.
+12. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu JavaScript kodu, pasta grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir pasta grafik oluşturmayı gösterir:
 
 ```javascript
-// PPTX dosyasını temsil eden bir sunum sınıfını örnekler
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// PPTX dosyasını temsil eden bir sunum sınıfı örnekler
 var pres = new aspose.slides.Presentation();
 try {
     // İlk slayta erişir
     var slides = pres.getSlides().get_Item(0);
-    // Varsayılan veriyle bir grafik ekler
+    // Varsayılan verilerle bir grafik ekler
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-    // Grafik başlığını ayarlar
+    // Grafiğin başlığını ayarlar
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
-    // İlk seriyi değerleri gösterecek şekilde ayarlar
+    // İlk serinin değerleri göstermesini ayarlar
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    // Grafiğin veri sayfası için indeksi ayarlar
+    // Grafik veri sayfası için dizini ayarlar
     var defaultWorksheetIndex = 0;
     // Grafik veri çalışma sayfasını alır
     var fact = chart.getChartData().getChartDataWorkbook();
@@ -273,36 +272,36 @@ try {
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Yeni sürümde çalışmıyor
-    // Yeni noktalar ekleniyor ve sektör rengi ayarlanıyor
+    // Yeni puanlar ekleyerek dilim renklerini ayarlar
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
     point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-    // Sektör kenarlığını ayarlar
+    // Dilim kenarını ayarlar
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    // Sektör kenarlığını ayarlar
+    // Dilim kenarını ayarlar
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-    // Sektör kenarlığını ayarlar
+    // Dilim kenarını ayarlar
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
     // Yeni seri için her kategoriye özel etiketler oluşturur
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
@@ -316,7 +315,7 @@ try {
     lbl3.getDataLabelFormat().setShowPercentage(true);
     // Grafik için Lider Çizgileri gösterir
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-    // Pasta Grafik Sektörleri için Dönüş Açısını ayarlar
+    // Pasta Grafik Dilimlerinin Dönüş Açısını ayarlar
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
     // Grafikli sunumu kaydeder
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -327,22 +326,25 @@ try {
 }
 ```
 
-### **Çizgi Grafikleri Oluşturma**
+### **Çizgi (Line) Grafikler Oluşturma**
 
-Çizgi grafikleri (line graph) zaman içinde değer değişimlerini göstermek istediğiniz durumlarda en uygun olanlardır. Çizgi grafiği kullanarak, aynı anda çok fazla veriyi karşılaştırabilir, zaman içindeki değişim ve trendleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilirsiniz.
+Çizgi grafikler (line graph) zaman içinde değer değişimlerini göstermek istediğiniz durumlarda en uygunudur. Çizgi grafik kullanarak aynı anda büyük miktarda veriyi karşılaştırabilir, zaman içinde değişiklik ve eğilimleri izleyebilir, veri serilerindeki anormallikleri vurgulayabilir ve daha fazlasını yapabilirsiniz.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-1. Bir slaytın referansını indeksine göre alın.
-1. İstenilen tip (`ChartType.Line`) ile varsayılan veri içeren bir grafik ekleyin.
-1. Grafik veri IChartDataWorkbook ’a erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. Dizini kullanarak bir slayta referans alın.
+1. Varsayılan verilerle bir grafik ekleyin ve [ChartType.Line](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#Line) türünü belirtin.
+1. Grafik veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/)) erişin.
 1. Varsayılan serileri ve kategorileri temizleyin.
 1. Yeni seriler ve kategoriler ekleyin.
-1. Grafik serileri için yeni veri ekleyin.
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+1. Grafik serileri için yeni grafik verileri ekleyin.
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu JavaScript kodu, çizgi grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir çizgi grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -354,36 +356,47 @@ try {
 }
 ```
 
-Varsayılan olarak, çizgi grafiğindeki noktalar düz kesintisiz çizgilerle birleştirilir. Noktaların noktalı çizgilerle birleştirilmesini istiyorsanız, tercih ettiğiniz dash tipini aşağıdaki şekilde belirtebilirsiniz:
+Varsayılan olarak, bir çizgi grafiğindeki noktalar düz sürekli çizgilerle birleştirilir. Noktaların tirelerle birleştirilmesini istiyorsanız, tercih ettiğiniz tire türünü aşağıdaki gibi belirtebilirsiniz:
 
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
-### **Ağaç Harita Grafikleri Oluşturma**
+### **Ağaç Haritası (Tree Map) Grafikler Oluşturma**
 
-Ağaç harita grafikleri, satış verileri gibi kategori boyutlarını göstermek ve aynı anda her kategoriye büyük katkı sağlayan öğelere hızlıca dikkat çekmek istediğinizde en uygunudur. 
+Ağaç haritası grafikleri, her kategori içinde büyük katkı sağlayan öğelere hızlıca dikkat çekmek ve veri kategorilerinin göreceli boyutunu göstermek istediğiniz satış verileri için en uygundur.
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Adımlar: JavaScript’te Ağaç Harita Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Ağaç Harita Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Ağaç Harita Grafiği Oluştur</em></strong></a>
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre alın.
-3. İstenilen tip ([ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType).TreeMap) ile varsayılan veri içeren bir grafik ekleyin.
-4. Grafik veri [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataWorkbook) ’a erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType.Treemap](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#Treemap) türünü belirtin.
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) erişin.
 5. Varsayılan serileri ve kategorileri temizleyin.
 6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. Değiştirilmiş sunumu bir PPTX dosyasına yazın
+7. Grafik serileri için yeni grafik verileri ekleyin.
+8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu JavaScript kodu, ağaç harita grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir ağaç haritası grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -426,30 +439,33 @@ try {
 }
 ```
 
-### **Hisse Senedi Grafikleri Oluşturma**
+### **Hisse Senedi (Stock) Grafikler Oluşturma**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Adımlar: JavaScript’te Hisse Senedi Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Hisse Senedi Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Hisse Senedi Grafiği Oluştur</em></strong></a>
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre edinin.
-3. İstenilen tip ([ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType).OpenHighLowClose) ile varsayılan veri içeren bir grafik ekleyin.
-4. Grafik veri [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataWorkbook) ’a erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) türünü belirtin.
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) erişin.
 5. Varsayılan serileri ve kategorileri temizleyin.
 6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. HiLowLines biçimini belirleyin.
-9. Değiştirilmiş sunumu bir PPTX dosyasına yazın
+7. Grafik serileri için yeni grafik verileri ekleyin.
+8. Yüksek‑düşük hatları formatını belirtin.
+9. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Hisse senedi grafiği oluşturmak için kullanılan örnek JavaScript kodu:
+Bu JavaScript kodu bir hisse senedi grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -487,24 +503,23 @@ try {
 }
 ```
 
-### **Kutu ve Whisker Grafikleri Oluşturma**
+### **Kutu ve Bıyık (Box and Whisker) Grafikler Oluşturma**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Adımlar: JavaScript’te Kutu ve Whisker Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Kutu ve Whisker Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Kutu ve Whisker Grafiği Oluştur</em></strong></a>
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre alın.
-3. İstenilen tip ([ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType).BoxAndWhisker) ile varsayılan veri içeren bir grafik ekleyin.
-4. Grafik veri [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataWorkbook) ’a erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) türünü belirtin.
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) erişin.
 5. Varsayılan serileri ve kategorileri temizleyin.
 6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. Değiştirilmiş sunumu bir PPTX dosyasına yazın
+7. Grafik serileri için yeni grafik verileri ekleyin.
+8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu JavaScript kodu, kutu ve whisker grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir kutu ve bıyık grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -538,21 +553,19 @@ try {
 }
 ```
 
-### **Huni Grafikleri Oluşturma**
+### **Huni (Funnel) Grafikler Oluşturma**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Adımlar: JavaScript’te Huni Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Huni Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Huni Grafiği Oluştur</em></strong></a>
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType.Funnel](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#Funnel) türünü belirtin.
+4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre alın.
-3. İstenilen tip ([ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType).Funnel) ile varsayılan veri içeren bir grafik ekleyin.
-4. Değiştirilmiş sunumu bir PPTX dosyasına yazın
-
-JavaScript kodu, huni grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir huni grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -581,20 +594,19 @@ try {
 }
 ```
 
-### **Sunburst Grafikleri Oluşturma**
+### **Güneş Patlaması (Sunburst) Grafikler Oluşturma**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Adımlar: JavaScript’te Sunburst Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunburst Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Sunburst Grafiği Oluştur</em></strong></a>
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType.Sunburst](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#Sunburst) türünü belirtin.
+4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre alın.
-3. İstenilen tip (bu durumda [ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType).sunburst) ile varsayılan veri içeren bir grafik ekleyin.
-4. Değiştirilmiş sunumu bir PPTX dosyasına yazın
-
-Bu JavaScript kodu, sunburst grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir güneş patlaması grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -636,23 +648,22 @@ try {
 }
 ```
 
-### **Histogram Grafikleri Oluşturma**
+### **Histogram Grafikler Oluşturma**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Adımlar: JavaScript’te Histogram Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Histogram Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Histogram Grafiği Oluştur</em></strong></a>
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre alın.
-3. İstenilen tip ([ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType).Histogram) ile varsayılan veri içeren bir grafik ekleyin.
-4. Grafik veri [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataWorkbook) ’a erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType.Histogram](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#Histogram) türünü belirtin.
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) erişin.
 5. Varsayılan serileri ve kategorileri temizleyin.
 6. Yeni seriler ve kategoriler ekleyin.
-7. Değiştirilmiş sunumu bir PPTX dosyasına yazın
+7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu JavaScript kodu, histogram grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir histogram grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -669,20 +680,19 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **Radar Grafikleri Oluşturma**
+### **Radar Grafikler Oluşturma**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Adımlar: JavaScript’te Radar Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Radar Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Radar Grafiği Oluştur</em></strong></a>
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Biraz veriyle bir grafik ekleyin ve tercih ettiğiniz grafik türünü ([ChartType.Radar](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#Radar) bu örnekte) belirtin.
+4. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre alın. 
-3. Bazı veri ekleyerek ve tercih ettiğiniz grafik tipini (`ChartType.Radar`) belirterek bir grafik ekleyin.
-4. Değiştirilmiş sunumu bir PPTX dosyasına yazın
-
-Bu JavaScript kodu, radar grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir radar grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -694,24 +704,23 @@ try {
 }
 ```
 
-### **Çok Kategorili Grafikler Oluşturma**
+### **Çoklu Kategori Grafikler Oluşturma**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Adımlar: JavaScript’te Çok Kategorili Grafik Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Çok Kategorili Grafik Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Çok Kategorili Grafik Oluştur</em></strong></a>
-
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. Bir slaytın referansını indeksine göre alın. 
-3. İstenilen tip ([ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartType).ClusteredColumn) ile varsayılan veri içeren bir grafik ekleyin.
-4. Grafik veri [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataWorkbook) ’a erişin.
+1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. Varsayılan verilerle bir grafik ekleyin ve [ChartType.ClusteredColumn](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/#ClusteredColumn) türünü belirtin.
+4. Grafik veri çalışma kitabına [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) erişin.
 5. Varsayılan serileri ve kategorileri temizleyin.
 6. Yeni seriler ve kategoriler ekleyin.
-7. Grafik serileri için yeni veri ekleyin.
-8. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+7. Grafik serileri için yeni grafik verileri ekleyin.
+8. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu JavaScript kodu, çok kategorili grafik oluşturmayı gösterir:
+Bu JavaScript kodu bir çoklu kategori grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -751,17 +760,16 @@ try {
 }
 ```
 
-### **Harita Grafiklerini Oluşturma**
+### **Harita (Map) Grafikler Oluşturma**
 
-Harita grafiği, veri içeren bir alanın görselleştirilmesidir. Coğrafi bölgeler arasında veri ya da değerleri karşılaştırmak için en uygunudur.
+Harita grafikler coğrafi verileri görselleştirir ve bölgeler arasındaki değerleri karşılaştırmanıza yardımcı olur.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Adımlar: JavaScript’te Harita Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Harita Grafiği Oluştur</em></strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Harita Grafiği Oluştur</em></strong></a>
-
-Bu JavaScript kodu, harita grafiği oluşturmayı gösterir:
+Bu JavaScript kodu bir harita grafik oluşturmayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -773,15 +781,19 @@ try {
 }
 ```
 
-### **Kombinasyon Grafiklerini Oluşturma**
+### **Kombinasyon (Combination) Grafikler Oluşturma**
 
-Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik tipini birleştirir. Bu grafik, iki veya daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve aralarındaki ilişkileri tanımlamanıza yardımcı olur.
+Kombinasyon grafiği (veya combo grafiği), tek bir grafikte iki veya daha fazla grafik türünü birleştirir. Bu grafik, iki veya daha fazla veri kümesi arasındaki farkları vurgulamanıza, karşılaştırmanıza veya incelemenize olanak tanır ve aralarındaki ilişkileri tanımlamanıza yardımcı olur.
 
 ![The combination chart](combination_chart.png)
 
-Aşağıdaki JavaScript kodu, yukarıda gösterilen kombinasyon grafiğini bir PowerPoint sunumunda nasıl oluşturacağınızı gösterir:
+Aşağıdaki JavaScript kodu, PowerPoint sunumunda yukarıda gösterilen kombinasyon grafiğini oluşturur:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -803,7 +815,7 @@ function createComboChart() {
 function createChartWithFirstSeries(slide) {
     let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
 
-    // Grafiğin başlığını ayarla.
+    // Grafik başlığını ayarla.
     chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Chart Title");
     chart.getChartTitle().setOverlay(false);
@@ -812,7 +824,7 @@ function createChartWithFirstSeries(slide) {
     titleFormat.setFontBold(java.newByte(aspose.slides.NullableBool.False));
     titleFormat.setFontHeight(18);
 
-    // Grafiğin lejandını ayarla.
+    // Grafik lejandını ayarla.
     chart.getLegend().setPosition(aspose.slides.LegendPositionType.Bottom);
     chart.getLegend().getTextFormat().getPortionFormat().setFontHeight(12);
 
@@ -890,7 +902,7 @@ function setPrimaryAxesFormat(chart) {
 
     setAxisTitle(verticalAxis, "Y Axis 1");
 
-    // Dikey ana ızgara çizgileri rengini ayarla.
+    // Dikey büyük ızgara çizgileri rengini ayarla.
     let majorGridLinesFormat = verticalAxis.getMajorGridLinesFormat().getLine().getFillFormat();
     majorGridLinesFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     majorGridLinesFormat.getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 217, 217, 217));
@@ -926,47 +938,46 @@ function setAxisTitle(axis, axisTitle) {
 }
 ```
 
-## **Grafik Güncelleme**
+## **Grafikleri Güncelleme**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Grafiği Güncelle</em></strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Adımlar: JavaScript’te Sunum Grafiği Güncelle</em></strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Adımlar: JavaScript’te PowerPoint Sunum Grafiği Güncelle</em></strong></a>
-
-1. Güncellemek istediğiniz grafiği içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfı örneği oluşturun.
-2. Index kullanarak bir slaytın referansını alın.
-3. İstenen grafiği bulmak için tüm şekiller arasında dolaşın.
+1. Güncellemek istediğiniz grafiği içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) örneği oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. İstenen grafiği bulmak için tüm şekillerde gezinin.
 4. Grafik veri çalışma sayfasına erişin.
-5. Seri değerlerini değiştirerek grafik veri serisini düzenleyin.
-6. Yeni bir seri ekleyin ve verileri doldurun.
-7. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+5. Seri değerlerini değiştirerek grafik veri serilerini düzenleyin.
+6. Yeni bir seri ekleyin ve verilerini doldurun.
+7. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu JavaScript kodu, bir grafiği güncellemeyi gösterir:
+Bu JavaScript kodu bir grafiği güncellemeyi gösterir:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    // İlk slayt işaretleyicisine eriş
+    // İlk slayt işaretçisine eriş
     var sld = pres.getSlides().get_Item(0);
     // Varsayılan verilerle grafiği al
     var chart = sld.getShapes().get_Item(0);
-    // Grafik veri sayfasının indeksini ayarlama
+    // Grafik veri sayfasının dizinini ayarlama
     var defaultWorksheetIndex = 0;
-    // Grafik veri çalışma sayfasını elde et
+    // Grafik veri çalışma sayfasını alıyor
     var fact = chart.getChartData().getChartDataWorkbook();
-    // Grafik kategori adını değiştir
+    // Grafik kategori adını değiştiriyor
     fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
     // İlk grafik serisini al
     var series = chart.getChartData().getSeries().get_Item(0);
     // Şimdi seri verilerini güncelliyor
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Seri adını değiştir
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // Seri adını değiştiriyor
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
     // İkinci grafik serisini al
     series = chart.getChartData().getSeries().get_Item(1);
     // Şimdi seri verilerini güncelliyor
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Seri adını değiştir
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // Seri adını değiştiriyor
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
@@ -979,7 +990,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
     chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // Grafikli sunumu kaydet
+    // Grafikle sunumu kaydet
     pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -988,20 +999,23 @@ try {
 }
 ```
 
-## **Grafikler İçin Veri Aralığını Ayarlama**
+## **Grafik İçin Veri Aralığını Ayarlama**
 
-Bir grafik için veri aralığını ayarlamak için şunları yapın:
+Bir grafik için veri aralığını ayarlamak için şu adımları izleyin:
 
-1. Grafiği içeren bir sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfı örneği oluşturun.
-2. Bir slaytın referansını indeksine göre alın.
-3. İstenen grafiği bulmak için tüm şekiller arasında dolaşın.
-4. Grafik verisine erişin ve aralığı ayarlayın.
-5. Değiştirilmiş sunumu bir PPTX dosyası olarak kaydedin.
+1. Grafiği içeren sunumu temsil eden bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) örneği oluşturun.
+2. Dizini kullanarak bir slayta referans alın.
+3. İstenen grafiği bulmak için tüm şekillerde gezinin.
+4. Grafiğin verilerine erişin ve aralığı ayarlayın.
+5. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Bu JavaScript kodu, bir grafik için veri aralığını ayarlamayı gösterir:
+Bu JavaScript kodu bir grafiğin veri aralığını ayarlamayı gösterir:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1015,11 +1029,15 @@ try {
 ```
 
 ## **Grafiklerde Varsayılan İşaretçileri Kullanma**
-Grafiklerde varsayılan bir işaretçi kullandığınızda, her grafik serisi otomatik olarak farklı varsayılan işaretçi sembolleri alır.
 
-Bu JavaScript kodu, bir grafik serisine otomatik olarak işaretçi atamayı gösterir:
+Grafiklerde varsayılan işaretçileri kullandığınızda, her grafik serisine otomatik olarak farklı bir işaretçi sembolü atanır.
+
+Bu JavaScript kodu bir grafik serisi işaretçisini otomatik olarak ayarlamayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1057,18 +1075,18 @@ try {
 
 ## **SSS**
 
-**Aspose.Slides hangi grafik tiplerini destekliyor?**
+**Aspose.Slides hangi grafik türlerini destekliyor?**
 
-Aspose.Slides, çubuk, çizgi, pasta, alan, dağılım, histogram, radar ve daha fazlası dahil olmak üzere geniş bir grafik tipi yelpazesini destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınız için en uygun grafik tipini seçmenizi sağlar.
+Aspose.Slides, çubuk, çizgi, pasta, alan, saçılım, histogram, radar ve daha birçok [grafik türünü](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/) destekler. Bu esneklik, veri görselleştirme ihtiyaçlarınıza en uygun grafik türünü seçmenize olanak tanır.
 
 **Bir slayta yeni bir grafik nasıl eklenir?**
 
-Bir grafik eklemek için önce [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturur, istediğiniz slaytı indeksine göre alır ve ardından grafik tipini ve başlangıç verilerini belirterek grafiği ekleyen yöntemi çağırırsınız. Bu süreç, grafiği doğrudan sunumunuza entegre eder.
+Bir grafik eklemek için önce bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) örneği oluşturur, istenen slaytı diziniyle alır ve ardından grafik ekleme metodunu çağırarak grafik türünü ve başlangıç verilerini belirtirsiniz. Bu işlem, grafiği doğrudan sunumunuza entegre eder.
 
 **Grafikte gösterilen veriler nasıl güncellenir?**
 
-Grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip ardından kendi verilerinizi ekleyerek güncelleyebilirsiniz. Bu, grafiği programlı olarak en son verileri yansıtacak şekilde yenilemenizi sağlar.
+Grafiğin verilerini, veri çalışma kitabına ([ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/)) erişerek, varsayılan serileri ve kategorileri temizleyip kendi özel verilerinizi ekleyerek güncelleyebilirsiniz. Böylece grafik, en son verileri yansıtacak şekilde programlı olarak yenilenir.
 
 **Grafiğin görünümü özelleştirilebilir mi?**
 
-Evet, Aspose.Slides kapsamlı özelleştirme seçenekleri sunar. Renkleri, yazı tiplerini, etiketleri, lejandları ve diğer biçimlendirme öğelerini ihtiyacınıza göre değiştirerek grafiğin görünümünü tasarım gereksinimlerinize uyacak şekilde özelleştirebilirsiniz.
+Evet, Aspose.Slides kapsamlı özelleştirme seçenekleri sunar. Renkler, yazı tipleri, etiketler, lejandlar ve diğer [biçimlendirme öğeleri](/slides/tr/nodejs-java/chart-entities/) gibi öğeleri değiştirerek grafiğin görünümünü belirli tasarım gereksinimlerinize göre uyarlayabilirsiniz.

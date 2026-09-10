@@ -10,92 +10,90 @@ keywords:
 - 編輯圖表
 - 變更圖表
 - 更新圖表
-- 散佈圖表
-- 圓餅圖表
-- 折線圖表
-- 樹狀圖表
-- 證券圖表
-- 箱形圖與鬚圖
-- 漏斗圖表
-- 旭日圖表
-- 直方圖表
-- 雷達圖表
+- 散佈圖
+- 圓餅圖
+- 折線圖
+- 樹狀圖
+- 股票圖表
+- 盒鬚圖
+- 漏斗圖
+- 旭日圖
+- 直方圖
+- 雷達圖
 - 多類別圖表
 - PowerPoint
 - 簡報
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js 在 PowerPoint 簡報中建立並自訂圖表。使用實用的 JavaScript 程式碼範例新增、格式化與編輯圖表。"
+description: "使用 Aspose.Slides for Node.js 在 PowerPoint 簡報中建立與自訂圖表。透過 JavaScript 實作範例，新增、格式化與編輯圖表。"
 ---
 ## **概述**
 
-本文提供使用 Aspose.Slides 建立與自訂圖表的完整指南。您將學會如何以程式方式將圖表加入投影片、填入資料，並套用各種格式設定以符合特定設計需求。整篇文章以詳細程式碼範例說明每一步，從初始化簡報與圖表物件到設定系列、座標軸與圖例。依循本指南，您將能深入了解如何在應用程式中整合動態圖表產生，簡化資料驅動簡報的製作流程。
+本篇文章提供了使用 Aspose.Slides 建立與自訂圖表的完整指南。您將學習如何以程式方式將圖表加入投影片、填入資料，並套用各種格式設定以符合特定的設計需求。文章中以詳細的程式碼範例說明每個步驟，從初始化 Presentation 與圖表物件，到設定資料系列、座標軸與圖例。依循本指南，您將能掌握在應用程式中整合動態圖表產生的技巧，簡化製作資料驅動簡報的流程。
 
 ## **建立圖表**
-圖表可協助人們快速視覺化資料並獲得洞見，這些資訊往往不易從表格或試算表直接看出。
+
+圖表能讓使用者快速視覺化資料，並發掘從表格或試算表中不易看出的見解。
 
 **為何建立圖表？**
 
-使用圖表，您可以
+使用圖表，您可以：
 
-* 在簡報的單一投影片上彙總、濃縮或概括大量資料
-* 揭露資料中的模式與趨勢
-* 推斷資料隨時間或特定測量單位的方向與動能
-* 找出異常值、偏差、錯誤、荒謬資料等
-* 傳達或呈現複雜資料
+* 在單一投影片上彙總、濃縮或摘要大量資料  
+* 揭露資料中的模式與趨勢  
+* 推斷資料隨時間或特定測量單位的方向與動能  
+* 找出異常值、偏差、錯誤、無意義的資料等  
+* 傳達或呈現複雜的資料  
 
-在 PowerPoint 中，您可以透過「插入」功能建立圖表，該功能提供許多圖表類型的範本。使用 Aspose.Slides，您可以建立常規圖表（基於流行圖表類型）以及自訂圖表。
+在 PowerPoint 中，您可以透過 *Insert* 功能建立圖表，該功能提供多種圖表範本。使用 Aspose.Slides，您可以建立一般圖表（基於常見圖表類型）與自訂圖表。
 
-{{% alert color="primary" %}} 
+{{% alert color="info" title="Note" %}}
+要建立圖表，請使用 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/) 類別。此類別的欄位對應不同的圖表類型。
+{{% /alert %}}
 
-為了讓您建立圖表，Aspose.Slides 提供 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType) 類別。此類別下的欄位對應不同的圖表類型。
+### **建立叢集直條圖**
 
-{{% /alert %}} 
+本節說明如何使用 Aspose.Slides 建立叢集直條圖。您將學習初始化 Presentation、加入圖表，並自訂標題、資料、系列、類別與樣式。依照下列步驟即可產生標準的叢集直條圖：
 
-### **建立一般圖表**
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並提供資料，指定 `ChartType.ClusteredColumn` 類型。  
+4. 為圖表加入標題。  
+5. 取得圖表的資料工作表。  
+6. 清除所有預設系列與類別。  
+7. 新增系列與類別。  
+8. 為圖表系列加入新資料。  
+9. 為圖表系列套用填色。  
+10. 為圖表系列新增標籤。  
+11. 將修改後的簡報另存為 PPTX 檔案。  
 
-_步驟：建立圖表_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 圖表</em></strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>步驟：在 JavaScript 中建立簡報圖表</em></strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報圖表</em></strong></a>
-
-**程式碼步驟：**
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。
-2. 透過索引取得投影片的參考。
-3. 加入帶有資料的圖表，並指定您偏好的圖表類型。 
-4. 為圖表添加標題。 
-5. 存取圖表資料工作表。 
-6. 清除所有預設的系列和類別。 
-7. 新增系列和類別。 
-8. 為圖表系列新增一些圖表資料。 
-9. 為圖表系列添加填色。 
-10. 為圖表系列添加標籤。 
-11. 將修改後的簡報寫入 PPTX 檔案。 
-
-此 JavaScript 程式碼示範如何建立一般圖表：
+以下 C# 程式碼示範如何建立叢集直條圖：
 
 ```javascript
-// 實例化代表 PPTX 檔案的簡報類別
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// 實例化一個代表 PPTX 檔案的簡報類別
 var pres = new aspose.slides.Presentation();
 try {
     // 取得第一張投影片
     var sld = pres.getSlides().get_Item(0);
-    // 新增帶有預設資料的圖表
+    // 新增一個帶有預設資料的圖表
     var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
     // 設定圖表標題
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
-    chart.hasTitle();
     // 設定第一個系列顯示值
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
     // 設定圖表資料工作表的索引
     var defaultWorksheetIndex = 0;
     // 取得圖表資料工作表
     var fact = chart.getChartData().getChartDataWorkbook();
-    // 刪除預設產生的系列和類別
+    // 刪除預設產生的系列與類別
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     var s = chart.getChartData().getSeries().size();
@@ -109,7 +107,7 @@ try {
     chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
     // 取得第一個圖表系列
     var series = chart.getChartData().getSeries().get_Item(0);
-    // 立即填入系列資料
+    // 現在填入系列資料
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
@@ -122,7 +120,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // 設定系列的填色
+    // 設定該系列的填色
     series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // 為新系列的每個類別建立自訂標籤
@@ -131,12 +129,12 @@ try {
     lbl.getDataLabelFormat().setShowCategoryName(true);
     lbl = series.getDataPoints().get_Item(1).getLabel();
     lbl.getDataLabelFormat().setShowSeriesName(true);
-    // 讓第三個標籤顯示值
+    // 為第三個標籤顯示值
     lbl = series.getDataPoints().get_Item(2).getLabel();
     lbl.getDataLabelFormat().setShowValue(true);
     lbl.getDataLabelFormat().setShowSeriesName(true);
     lbl.getDataLabelFormat().setSeparator("/");
-    // 儲存包含圖表的簡報
+    // 儲存含圖表的簡報
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -145,32 +143,32 @@ try {
 }
 ```
 
-### **建立散佈圖表**
-散佈圖表（亦稱散點圖或 X‑Y 圖）常用於檢查模式或展示兩個變數之間的相關性。
+### **建立散佈圖**
 
-您可能會在以下情況使用散佈圖表
+散佈圖（亦稱散佈圖表或 x‑y 圖）常用於檢查模式或顯示兩個變數之間的相關性。
 
-* 具備配對的數值資料
-* 兩個變數彼此相配
-* 想判斷兩個變數是否相關
-* 有一個自變數對應多個因變數值
+使用散佈圖的情況：
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>步驟：在 JavaScript 中建立散佈圖表</em></strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 散佈圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報散佈圖表</em></strong></a>
+* 您有成對的數值資料  
+* 您有兩個相互關聯的變數  
+* 您想判斷兩個變數是否相關  
+* 您有一個自變數對應多個因變數的值  
 
-1. 請遵循上方 [建立一般圖表](#creating-normal-charts) 的步驟  
-2. 在第三步，加入圖表時將圖表類型指定為下列之一  
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _代表散佈圖（含標記）。_  
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _代表以曲線連接、帶有資料標記的散佈圖。_  
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _代表以曲線連接、無資料標記的散佈圖。_  
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _代表以直線連接、帶有資料標記的散佈圖。_  
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _代表以直線連接、無資料標記的散佈圖。_  
+1. 依照 [建立叢集直條圖](#create-clustered-column-charts) 的步驟執行。  
+2. 在第三步加入圖表並指定以下其中一種圖表類型：  
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _代表散佈圖。_  
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _代表以曲線連接且含資料標記的散佈圖。_  
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _代表以曲線連接且不含資料標記的散佈圖。_  
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _代表以直線連接且含資料標記的散佈圖。_  
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _代表以直線連接且不含資料標記的散佈圖。_  
 
-此 JavaScript 程式碼示範如何使用不同標記系列建立散佈圖表：
+以下 JavaScript 程式碼示範如何為每個系列建立不同標記的散佈圖：
 
 ```javascript
-// 實例化代表 PPTX 檔案的簡報類別
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// 實例化一個代表 PPTX 檔案的簡報類別
 var pres = new aspose.slides.Presentation();
 try {
     // 取得第一張投影片
@@ -218,40 +216,40 @@ try {
 }
 ```
 
-### **建立圓餅圖表**
+### **建立圓餅圖**
 
-圓餅圖表最適合顯示資料中部分與整體的關係，尤其當資料包含具有數值的類別標籤時。然而，若資料的部分或標籤過多，建議改用長條圖。
+圓餅圖最適合用於顯示資料的部分與整體關係，尤其當資料包含分類標籤與數值時。但若資料有過多部分或標籤，建議改用長條圖。
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>步驟：在 JavaScript 中建立圓餅圖表</em></strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 圓餅圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報圓餅圖表</em></strong></a>
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入預設資料的圖表，並指定類型為 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType).Pie。  
-4. 存取圖表資料 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartDataWorkbook)。  
-5. 清除預設的系列和類別。  
-6. 新增系列和類別。  
-7. 為圖表系列新增圖表資料。  
-8. 為圓餅圖的區塊新增點並設定自訂顏色。  
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並使用預設資料，指定 [ChartType.Pie](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#Pie) 類型。  
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/)。  
+5. 清除預設系列與類別。  
+6. 新增系列與類別。  
+7. 為圖表系列加入新資料。  
+8. 為圓餅圖的扇區加入自訂顏色。  
 9. 為系列設定標籤。  
-10. 為系列標籤設定引線。  
-11. 設定圓餅圖的旋轉角度。  
-12. 將修改後的簡報寫入 PPTX 檔案  
+10. 為系列標籤啟用引線。  
+11. 設定圓餅圖扇區的旋轉角度。  
+12. 將修改後的簡報另存為 PPTX 檔案。  
 
-此 JavaScript 程式碼示範如何建立圓餅圖表：
+以下 JavaScript 程式碼示範如何建立圓餅圖：
 
 ```javascript
-// 實例化代表 PPTX 檔案的簡報類別
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// 實例化一個代表 PPTX 檔案的簡報類別
 var pres = new aspose.slides.Presentation();
 try {
     // 取得第一張投影片
     var slides = pres.getSlides().get_Item(0);
-    // 新增帶有預設資料的圖表
+    // 新增一個帶有預設資料的圖表
     var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
     // 設定圖表標題
     chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(java.newByte(aspose.slides.NullableBool.True));
     chart.getChartTitle().setHeight(20);
     chart.setTitle(true);
     // 設定第一個系列顯示值
@@ -260,7 +258,7 @@ try {
     var defaultWorksheetIndex = 0;
     // 取得圖表資料工作表
     var fact = chart.getChartData().getChartDataWorkbook();
-    // 刪除預設產生的系列和類別
+    // 刪除預設產生的系列與類別
     chart.getChartData().getSeries().clear();
     chart.getChartData().getCategories().clear();
     // 新增類別
@@ -284,8 +282,8 @@ try {
     point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
-    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    point.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThick));
+    point.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
     var point1 = series.getDataPoints().get_Item(1);
     point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
@@ -293,8 +291,8 @@ try {
     point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
-    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    point1.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.Single));
+    point1.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDot));
     var point2 = series.getDataPoints().get_Item(2);
     point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
@@ -302,8 +300,8 @@ try {
     point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
-    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
+    point2.getFormat().getLine().setStyle(java.newByte(aspose.slides.LineStyle.ThinThin));
+    point2.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.LargeDashDotDot));
     // 為新系列的每個類別建立自訂標籤
     var lbl1 = series.getDataPoints().get_Item(0).getLabel();
     // lbl.ShowCategoryName = true;
@@ -319,7 +317,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
     // 設定圓餅圖區塊的旋轉角度
     chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-    // 儲存含有圖表的簡報
+    // 儲存含圖表的簡報
     pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -328,22 +326,25 @@ try {
 }
 ```
 
-### **建立折線圖表**
+### **建立折線圖**
 
-折線圖（亦稱折線圖）最適合用於顯示隨時間變化的數值。使用折線圖，您可以一次比較大量資料、追蹤時間趨勢、突出資料系列中的異常等。
+折線圖（亦稱折線圖表）最適合用於說明隨時間變化的值。使用折線圖，您可以一次比較大量資料、追蹤趨勢與變化、突顯資料系列中的異常等。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-1. 透過索引取得投影片的參考。  
-1. 加入預設資料的圖表，並指定類型為 `ChartType.Line`。  
-1. 存取圖表資料 IChartDataWorkbook。  
-1. 清除預設的系列和類別。  
-1. 新增系列和類別。  
-1. 為圖表系列新增圖表資料。  
-1. 將修改後的簡報寫入 PPTX 檔案  
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+1. 取得指定索引的投影片參考。  
+1. 新增圖表並使用預設資料，指定 [ChartType.Line](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#Line) 類型。  
+1. 取得圖表資料工作簿 ([ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/))。  
+1. 清除預設系列與類別。  
+1. 新增系列與類別。  
+1. 為圖表系列加入新資料。  
+1. 將修改後的簡報另存為 PPTX 檔案。  
 
-此 JavaScript 程式碼示範如何建立折線圖表：
+以下 JavaScript 程式碼示範如何建立折線圖：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
@@ -355,36 +356,47 @@ try {
 }
 ```
 
-預設情況下，折線圖的點以直線連接。若想改為虛線，可如下指定首選的虛線樣式：
+預設情況下，折線圖的點會以直線連接。若想改為虛線，可如下指定虛線類型：
 
 ```javascript
-var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
-    let series = lineChart.getChartData().getSeries().get_Item(i);
-    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-});
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+        let series = lineChart.getChartData().getSeries().get_Item(i);
+        series.getFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
+    }
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
-### **建立樹狀圖表**
+### **建立樹狀圖**
 
-樹狀圖表最適合用於銷售資料，當您想同時顯示資料類別的相對大小並快速突顯對每個類別貢獻度較大的項目時。
+樹狀圖最適合用於銷售資料，能顯示資料類別的相對大小，並快速將注意力集中在每個類別中貢獻較大的項目上。
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>步驟：在 JavaScript 中建立樹狀圖表</em></strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 樹狀圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報樹狀圖表</em></strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並使用預設資料，指定 [ChartType.Treemap](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#Treemap) 類型。  
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/)。  
+5. 清除預設系列與類別。  
+6. 新增系列與類別。  
+7. 為圖表系列加入新資料。  
+8. 將修改後的簡報另存為 PPTX 檔案。  
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入預設資料的圖表，並指定類型為 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType).TreeMap。  
-4. 存取圖表資料 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartDataWorkbook)。  
-5. 清除預設的系列和類別。  
-6. 新增系列和類別。  
-7. 為圖表系列新增圖表資料。  
-8. 將修改後的簡報寫入 PPTX 檔案  
-
-此 JavaScript 程式碼示範如何建立樹狀圖表：
+以下 JavaScript 程式碼示範如何建立樹狀圖：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
@@ -427,30 +439,33 @@ try {
 }
 ```
 
-### **建立證券圖表**
+### **建立股票圖表**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>步驟：在 JavaScript 中建立證券圖表</em></strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 證券圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報證券圖表</em></strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並使用預設資料，指定 [ChartType.OpenHighLowClose](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#OpenHighLowClose) 類型。  
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/)。  
+5. 清除預設系列與類別。  
+6. 新增系列與類別。  
+7. 為圖表系列加入新資料。  
+8. 指定高低線格式。  
+9. 將修改後的簡報另存為 PPTX 檔案。  
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入預設資料的圖表，並指定類型為 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType).OpenHighLowClose。  
-4. 存取圖表資料 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartDataWorkbook)。  
-5. 清除預設的系列和類別。  
-6. 新增系列和類別。  
-7. 為圖表系列新增圖表資料。  
-8. 指定 HiLowLines 格式。  
-9. 將修改後的簡報寫入 PPTX 檔案  
-
-建立證券圖表的範例 JavaScript 程式碼：
+以下 JavaScript 程式碼示範如何建立股票圖表：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
-  
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
     chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
@@ -488,24 +503,23 @@ try {
 }
 ```
 
-### **建立箱形圖與鬚圖**
+### **建立盒鬚圖**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>步驟：在 JavaScript 中建立箱形圖與鬚圖</em></strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 箱形圖與鬚圖</em></strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報箱形圖與鬚圖</em></strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並使用預設資料，指定 [ChartType.BoxAndWhisker](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#BoxAndWhisker) 類型。  
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/)。  
+5. 清除預設系列與類別。  
+6. 新增系列與類別。  
+7. 為圖表系列加入新資料。  
+8. 將修改後的簡報另存為 PPTX 檔案。  
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入預設資料的圖表，並指定類型為 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType).BoxAndWhisker。  
-4. 存取圖表資料 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartDataWorkbook)。  
-5. 清除預設的系列和類別。  
-6. 新增系列和類別。  
-7. 為圖表系列新增圖表資料。  
-8. 將修改後的簡報寫入 PPTX 檔案  
-
-此 JavaScript 程式碼示範如何建立箱形圖與鬚圖：
+以下 JavaScript 程式碼示範如何建立盒鬚圖：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
@@ -539,20 +553,19 @@ try {
 }
 ```
 
-### **建立漏斗圖表**
+### **建立漏斗圖**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>步驟：在 JavaScript 中建立漏斗圖表</em></strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 漏斗圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報漏斗圖表</em></strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並使用預設資料，指定 [ChartType.Funnel](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#Funnel) 類型。  
+4. 將修改後的簡報另存為 PPTX 檔案。  
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入預設資料的圖表，並指定類型為 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType).Funnel。  
-4. 將修改後的簡報寫入 PPTX 檔案  
-
-此 JavaScript 程式碼示範如何建立漏斗圖表：
+以下 JavaScript 程式碼示範如何建立漏斗圖：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
@@ -581,20 +594,19 @@ try {
 }
 ```
 
-### **建立旭日圖表**
+### **建立旭日圖**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>步驟：在 JavaScript 中建立旭日圖表</em></strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 旭日圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報旭日圖表</em></strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並使用預設資料，指定 [ChartType.Sunburst](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#Sunburst) 類型。  
+4. 將修改後的簡報另存為 PPTX 檔案。  
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入預設資料的圖表，並指定類型為 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType).sunburst。  
-4. 將修改後的簡報寫入 PPTX 檔案  
-
-此 JavaScript 程式碼示範如何建立旭日圖表：
+以下 JavaScript 程式碼示範如何建立旭日圖：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
@@ -636,23 +648,22 @@ try {
 }
 ```
 
-### **建立直方圖表**
+### **建立直方圖**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>步驟：在 JavaScript 中建立直方圖表</em></strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 直方圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報直方圖表</em></strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並使用預設資料，指定 [ChartType.Histogram](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#Histogram) 類型。  
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/)。  
+5. 清除預設系列與類別。  
+6. 新增系列與類別。  
+7. 將修改後的簡報另存為 PPTX 檔案。  
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入預設資料的圖表，並指定類型為 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType).Histogram。  
-4. 存取圖表資料 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartDataWorkbook)。  
-5. 清除預設的系列和類別。  
-6. 新增系列和類別。  
-7. 將修改後的簡報寫入 PPTX 檔案  
-
-此 JavaScript 程式碼示範如何建立直方圖表：
+以下 JavaScript 程式碼示範如何建立直方圖：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
 chart.getChartData().getCategories().clear();
@@ -669,20 +680,19 @@ series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
 chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
-### **建立雷達圖表**
+### **建立雷達圖**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>步驟：在 JavaScript 中建立雷達圖表</em></strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 雷達圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報雷達圖表</em></strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並提供資料，指定您偏好的圖表類型（此處為 [ChartType.Radar](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#Radar)）。  
+4. 將修改後的簡報另存為 PPTX 檔案。  
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入帶有資料的圖表，並指定類型為 `ChartType.Radar`。  
-4. 將修改後的簡報寫入 PPTX 檔案  
-
-此 JavaScript 程式碼示範如何建立雷達圖表：
+以下 JavaScript 程式碼示範如何建立雷達圖：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
@@ -696,22 +706,21 @@ try {
 
 ### **建立多類別圖表**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>步驟：在 JavaScript 中建立多類別圖表</em></strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 多類別圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報多類別圖表</em></strong></a>
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例。  
+2. 取得指定索引的投影片參考。  
+3. 新增圖表並使用預設資料，指定 [ChartType.ClusteredColumn](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/#ClusteredColumn) 類型。  
+4. 取得圖表資料工作簿 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/)。  
+5. 清除預設系列與類別。  
+6. 新增系列與類別。  
+7. 為圖表系列加入新資料。  
+8. 將修改後的簡報另存為 PPTX 檔案。  
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別的實例。  
-2. 透過索引取得投影片的參考。  
-3. 加入預設資料的圖表，並指定類型為 [ChartType](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartType).ClusteredColumn。  
-4. 存取圖表資料 [ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/ChartDataWorkbook)。  
-5. 清除預設的系列和類別。  
-6. 新增系列和類別。  
-7. 為圖表系列新增圖表資料。  
-8. 將修改後的簡報寫入 PPTX 檔案。  
-
-此 JavaScript 程式碼示範如何建立多類別圖表：
+以下 JavaScript 程式碼示範如何建立多類別圖表：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
@@ -732,7 +741,7 @@ try {
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
     category.getGroupingLevels().setGroupingItem(1, "Group4");
     category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-    // 添加系列
+    // 新增系列
     var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
@@ -742,7 +751,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-    // 儲存帶有圖表的簡報
+    // Save presentation with chart
     pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -753,15 +762,14 @@ try {
 
 ### **建立地圖圖表**
 
-地圖圖表是顯示包含資料的區域的視覺化圖形。地圖圖表最適合比較不同地理區域的資料或數值。
+地圖圖表可視覺化地理資料，協助比較不同區域的數值。
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>步驟：在 JavaScript 中建立地圖圖表</em></strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 地圖圖表</em></strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>步驟：在 JavaScript 中建立 PowerPoint 簡報地圖圖表</em></strong></a>
-
-此 JavaScript 程式碼示範如何建立地圖圖表：
+以下 JavaScript 程式碼示範如何建立地圖圖表：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pres = new aspose.slides.Presentation();
 try {
     let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
@@ -775,13 +783,17 @@ try {
 
 ### **建立組合圖表**
 
-組合圖表（或稱 combo 圖表）在同一圖形中結合兩種或以上的圖表類型。此圖表讓您突顯、比較或檢視多組資料集之間的差異，協助辨識其關聯性。
+組合圖表（或稱 combo 圖表）在同一圖表中結合兩種或以上的圖表類型。此圖表可讓您突顯、比較或檢視多組資料之間的差異，協助辨識其關聯性。
 
-![組合圖表](combination_chart.png)
+![The combination chart](combination_chart.png)
 
-以下 JavaScript 程式碼示範如何在 PowerPoint 簡報中建立上述組合圖表：
+以下 JavaScript 程式碼示範如何在 PowerPoint 簡報中建立上述的組合圖表：
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createComboChart() {
     let presentation = new aspose.slides.Presentation();
     let slide = presentation.getSlides().get_Item(0);
@@ -876,14 +888,14 @@ function addThirdSeriesToChart(chart) {
 }
 
 function setPrimaryAxesFormat(chart) {
-    // 設定水平軸。
+    // 設定水平座標軸。
     let horizontalAxis = chart.getAxes().getHorizontalAxis();
     horizontalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     horizontalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
     setAxisTitle(horizontalAxis, "X Axis");
 
-    // 設定垂直軸。
+    // 設定垂直座標軸。
     let verticalAxis = chart.getAxes().getVerticalAxis();
     verticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
     verticalAxis.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
@@ -897,7 +909,7 @@ function setPrimaryAxesFormat(chart) {
 }
 
 function setSecondaryAxesFormat(chart) {
-    // 設定次要水平軸。
+    // 設定次要水平座標軸。
     let secondaryHorizontalAxis = chart.getAxes().getSecondaryHorizontalAxis();
     secondaryHorizontalAxis.setPosition(aspose.slides.AxisPositionType.Bottom);
     secondaryHorizontalAxis.setCrossType(aspose.slides.CrossesType.Maximum);
@@ -905,7 +917,7 @@ function setSecondaryAxesFormat(chart) {
     secondaryHorizontalAxis.getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     secondaryHorizontalAxis.getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // 設定次要垂直軸。
+    // 設定次要垂直座標軸。
     let secondaryVerticalAxis = chart.getAxes().getSecondaryVerticalAxis();
     secondaryVerticalAxis.setPosition(aspose.slides.AxisPositionType.Right);
     secondaryVerticalAxis.getTextFormat().getPortionFormat().setFontHeight(12);
@@ -928,24 +940,23 @@ function setAxisTitle(axis, axisTitle) {
 
 ## **更新圖表**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>步驟：在 JavaScript 中更新 PowerPoint 圖表</em></strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>步驟：在 JavaScript 中更新簡報圖表</em></strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>步驟：在 JavaScript 中更新 PowerPoint 簡報圖表</em></strong></a>
-
-1. 實例化代表含有目標圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別。  
-2. 透過索引取得投影片的參考。  
-3. 遍歷所有形狀以找到目標圖表。  
-4. 存取圖表資料工作表。  
-5. 變更系列值以修改圖表資料系列。  
+1. 建立代表含有欲更新圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別實例。  
+2. 取得指定索引的投影片參考。  
+3. 遍歷所有圖形以尋找目標圖表。  
+4. 取得圖表的資料工作表。  
+5. 透過變更系列值來修改圖表資料系列。  
 6. 新增系列並填入資料。  
-7. 將修改後的簡報寫入 PPTX 檔案。  
+7. 將修改後的簡報另存為 PPTX 檔案。  
 
-此 JavaScript 程式碼示範如何更新圖表：
+以下 JavaScript 程式碼示範如何更新圖表：
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
-    // 取得第一張投影片
+    // 存取第一張投影片
     var sld = pres.getSlides().get_Item(0);
     // 取得預設資料的圖表
     var chart = sld.getShapes().get_Item(0);
@@ -958,28 +969,28 @@ try {
     fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
     // 取得第一個圖表系列
     var series = chart.getChartData().getSeries().get_Item(0);
-    // 正在更新系列資料
-    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// 修改系列名稱
+    // 目前更新系列資料
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1"); // 修改系列名稱
     series.getDataPoints().get_Item(0).getValue().setData(90);
     series.getDataPoints().get_Item(1).getValue().setData(123);
     series.getDataPoints().get_Item(2).getValue().setData(44);
     // 取得第二個圖表系列
     series = chart.getChartData().getSeries().get_Item(1);
-    // 正在更新系列資料
-    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// 修改系列名稱
+    // 目前更新系列資料
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2"); // 修改系列名稱
     series.getDataPoints().get_Item(0).getValue().setData(23);
     series.getDataPoints().get_Item(1).getValue().setData(67);
     series.getDataPoints().get_Item(2).getValue().setData(99);
-    // 正在新增系列
+    // 目前，新增一個系列
     chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
     // 取得第三個圖表系列
     series = chart.getChartData().getSeries().get_Item(2);
-    // 正在填入系列資料
+    // 目前填入系列資料
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
     chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-    // 儲存包含圖表的簡報
+    // 儲存含圖表的簡報
     pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -988,20 +999,23 @@ try {
 }
 ```
 
-## **設定圖表資料範圍**
+## **設定圖表的資料範圍**
 
-設定圖表的資料範圍，請執行以下步驟：
+若要為圖表設定資料範圍，請依下列步驟操作：
 
-1. 實例化代表含有目標圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/Presentation) 類別。  
-2. 透過索引取得投影片的參考。  
-3. 遍歷所有形狀以找到目標圖表。  
-4. 存取圖表資料並設定範圍。  
-5. 將修改後的簡報存為 PPTX 檔案。  
+1. 建立代表含有目標圖表之簡報的 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別實例。  
+2. 取得指定索引的投影片參考。  
+3. 遍歷所有圖形以尋找目標圖表。  
+4. 取得圖表資料並設定範圍。  
+5. 將修改後的簡報另存為 PPTX 檔案。  
 
-此 JavaScript 程式碼示範如何設定圖表的資料範圍：
+以下 JavaScript 程式碼示範如何設定圖表的資料範圍：
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var pres = new aspose.slides.Presentation("ExistingChart.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().get_Item(0);
@@ -1016,11 +1030,14 @@ try {
 
 ## **在圖表中使用預設標記**
 
-當您在圖表中使用預設標記時，每個圖表系列會自動取得不同的預設標記符號。
+使用預設標記時，圖表的每個系列會自動取得不同的標記符號。
 
-此 JavaScript 程式碼示範如何自動設定圖表系列標記：
+以下 JavaScript 程式碼示範如何自動為圖表系列設定標記：
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -1041,7 +1058,7 @@ try {
     chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
     // 取得第二個圖表系列
     var series2 = chart.getChartData().getSeries().get_Item(1);
-    // 正在填入系列資料
+    // 現在填入系列資料
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
     series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
@@ -1056,20 +1073,20 @@ try {
 }
 ```
 
-## **常見問與答**
+## **常見問題**
 
 **Aspose.Slides 支援哪些圖表類型？**
 
-Aspose.Slides 支援廣泛的圖表類型，包括長條圖、折線圖、圓餅圖、區域圖、散佈圖、直方圖、雷達圖等，讓您可依資料視覺化需求選擇最適合的圖表類型。
+Aspose.Slides 支援廣泛的 [圖表類型](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/charttype/)，包括長條圖、折線圖、圓餅圖、區域圖、散佈圖、直方圖、雷達圖等眾多類型。此彈性讓您能依資料視覺化需求選擇最適合的圖表。
 
-**如何在投影片上新增圖表？**
+**如何將新圖表加入投影片？**
 
-首先建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例，使用索引取得目標投影片，然後呼叫新增圖表的方法，指定圖表類型與初始資料，即可將圖表直接加入簡報。
+首先建立 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別的實例，取得所需投影片的索引，然後呼叫新增圖表的方法，並指定圖表類型與初始資料。這個流程會直接將圖表嵌入簡報。
 
 **如何更新圖表中顯示的資料？**
 
-您可以透過存取圖表的資料工作簿（[ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/)），清除預設的系列與類別，然後加入自訂資料，以程式方式重新整理圖表顯示最新資料。
+您可以透過取得圖表的資料工作簿 ([ChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/chartdataworkbook/))，清除預設的系列與類別，然後加入自訂資料。如此即可以程式方式重新整理圖表以呈現最新資料。
 
 **是否可以自訂圖表的外觀？**
 
-可以，Aspose.Slides 提供豐富的自訂選項，您可以修改顏色、字型、標籤、圖例及其他格式元素，以符合特定的設計需求。
+可以，Aspose.Slides 提供豐富的自訂選項。您可以修改顏色、字型、標籤、圖例以及其他 [格式化元素](/slides/zh-hant/nodejs-java/chart-entities/)，以符合特定的設計需求。
